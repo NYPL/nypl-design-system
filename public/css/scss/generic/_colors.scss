@@ -1,0 +1,44 @@
+
+// Grayscale
+$white: white;
+$gray-xxlight: #fafafa;
+$gray-xlight: #f5f5f5;
+$gray-light: #e0e0e0;
+$gray-medium: #bdbdbd;
+$gray-dark: #616161;
+$gray-xdark: #424242;
+$black: black;
+
+// Project
+$nypl-red: #d0343a;
+$nypl-red-light: #faeaeb;
+$nypl-red-dark: #952227;
+
+$nypl-yellow: #ffb81d;
+$nypl-yellow-light: #fff7e8;
+$nypl-yellow-dark: #b28014;
+
+$nypl-green: #799a05;
+
+$nypl-turquoise: #00a1b0;
+
+$nypl-blue: #0071ce;
+$nypl-blue-light: #e5f0fa;
+$nypl-blue-dark: #004782;
+
+$nypl-purple: #8a1a9c;
+$nypl-purple-light: #f3e8f5;
+$nypl-purple-dark: #500f5a;
+
+//Colors
+$gray : $gray-medium;
+$gray-light-2 : $gray-xlight;
+$gray-light-3 : $gray-light;
+$gray-med : $gray-medium;
+$gray-dark : $gray-dark;
+$gray-dark-2 : $gray-xdark;
+$dim : rgba(27, 19, 19, 0.5);
+$error : $nypl-red;
+$valid : $nypl-green;
+$warning : $nypl-yellow;
+$information : $nypl-blue;
