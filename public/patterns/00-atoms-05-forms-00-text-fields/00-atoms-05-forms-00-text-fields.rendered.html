@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="pl">
+  <head>
+    <title>Pattern Lab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet" href="../../css/style.css?1560970822228" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1560970822228" media="all" />
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    
+    <!-- End Pattern Lab -->
+  
+  </head>
+  <body class="body"><fieldset>
+            <div class="field-container ">
+                    <label class="">Text Input                <input type="text" name="Text Input" placeholder="Text Input" value="" size="20" />
+        </label>    </div>
+
+            <div class="field-container ">
+                    <label class="">Password                <input type="password" name="Password" placeholder="Password" value="" size="20" />
+        </label>    </div>
+
+            <div class="field-container ">
+                    <label class="">Web Address                <input type="url" name="Web Address" placeholder="Web Address" value="" size="20" />
+        </label>    </div>
+
+            <div class="field-container ">
+                    <label class="">Email                <input type="email" name="Email" placeholder="Email" value="" size="20" />
+        </label>    </div>
+
+            <div class="field-container ">
+                    <label class="">Search                <input type="search" name="Search" placeholder="Search" value="" size="20" />
+        </label>    </div>
+
+            <div class="field-container ">
+                    <label class="">Number                <input type="number" name="Number" placeholder="Number" value="" size="20" />
+        </label>    </div>
+
+            <div class="field-container ">
+                    <label class="">Number                <input type="number" name="Number" placeholder="Number" value="" size="20" />
+        </label>    </div>
+
+            <div class="field-container ">
+                    <label class="">Textarea                <textarea placeholder="Enter your message here" rows="8"></textarea>
+        </label>    </div>
+
+            <div class="field-container error">
+                    <label class="error">Error Input                <input type="text" name="Error Input" placeholder="Error Input" value="" size="20" />
+        </label>    </div>
+
+            <div class="field-container valid">
+                    <label class="valid">Valid Input                <input type="text" name="Valid Input" placeholder="Valid Input" value="" size="20" />
+        </label>    </div>
+
+</fieldset><!--DO NOT REMOVE-->
+  <script type="text/json" id="pl-pattern-data-footer" class="pl-js-pattern-data">
+  {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"","patternBreadcrumb":{"patternType":"atoms","patternSubtype":"forms"},"patternExtension":"twig","patternName":"Text Fields","patternPartial":"atoms-text-fields","patternState":"","patternEngineName":"twig-php","extraOutput":{}}
+</script>
+
+<script>
+  /*!
+   * scriptLoader - v0.1
+   *
+   * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+   * Licensed under the MIT license
+   *
+   */
+
+  var scriptLoader = {
+
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1560970822228">
+  (function() {
+    if (self != top) {
+      var cb = '1560970822228';
+      var js = [];
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+<script id="pl-js-insert-1560970822228">
+  /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+  !function(e){var t=function(t,n){"use strict";var o=e.document.getElementsByTagName("script")[0],r=e.document.createElement("script");return r.src=t,r.async=!0,o.parentNode.insertBefore(r,o),n&&"function"==typeof n&&(r.onload=n),r};"undefined"!=typeof module?module.exports=t:e.loadJS=t}("undefined"!=typeof global?global:this);
+
+  (function() {
+    if (self != top) {
+      loadJS('../../styleguide/js/patternlab-pattern.js');
+    }
+  })();
+</script>
+
+  
+  </body>
+</html>
