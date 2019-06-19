@@ -2,15 +2,19 @@
     $BUTTONS
 \*------------------------------------*/
 .btn {
-	display: inline-block;
-	background: $gray-dark;
-	color: $white;
-	line-height: 1;
-	font-weight: bold;
-	padding: $pad;
+	align-items: center;
+	background: $nypl-blue;
+	border-radius: 2px;
 	border: 0;
+	color: $white;
+	display: flex;
+	justify-content: space-between;
+	letter-spacing: 0.05em;
+	line-height: 1;
+	padding: $pad-half $pad;
+	position: relative;
 	text-align: center;
-	
+
 	&:hover, &:focus {
 		background: $gray;
 		color: $white;
@@ -19,6 +23,17 @@
 	&.disabled {
 		background: $gray-light-2;
 		color: $gray;
+	}
+
+	&.outline {
+		background-color: transparent;
+		color: $black;
+		border: 1px solid $gray-light;
+		// border-style: inset;
+	}
+
+	.icon {
+		margin-right: 10px;
 	}
 }
 
@@ -34,7 +49,8 @@
 	font-weight: normal;
 }
 
-
 .text-btn {
-	font-style: italic;
+	background-color: transparent;
+	border: 0;
+	color: $nypl-blue;
 }
