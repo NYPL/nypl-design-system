@@ -54,6 +54,13 @@ So feel free to use any of these approaches. Or don't. It's totally up to you.
 /*------------------------------------*\
     $VARIABLES
 \*------------------------------------*/
+:root {
+  --pad: 1.25em;
+  --pad-and-half: var(--pad)*1.5;
+  --pad-double: var(--pad)*2;
+  --pad-half: var(--pad)/2;
+  --pad-quarter: var(--pad)/4; }
+
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
@@ -830,10 +837,11 @@ td {
   box-sizing: border-box;
   color: white;
   display: flex;
+  height: 36px;
   justify-content: space-between;
   letter-spacing: 0.05em;
   line-height: 1;
-  padding: 0.625em 1.25em;
+  padding: 0.625em 1.875em;
   position: relative;
   text-align: center; }
   .btn:hover, .btn:focus {
@@ -844,8 +852,8 @@ td {
     color: #bdbdbd; }
   .btn.outline {
     background-color: transparent;
-    color: black;
-    border: 1px solid #e0e0e0; }
+    border: 1px solid #e0e0e0;
+    color: black; }
   .btn .icon {
     margin-right: 10px; }
 

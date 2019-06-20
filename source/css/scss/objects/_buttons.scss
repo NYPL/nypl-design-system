@@ -9,10 +9,11 @@
 	box-sizing: border-box;
 	color: $white;
 	display: flex;
+	height: 36px;
 	justify-content: space-between;
 	letter-spacing: 0.05em;
 	line-height: 1;
-	padding: $pad-half $pad;
+	padding: $pad-half $pad-and-half;
 	position: relative;
 	text-align: center;
 
@@ -28,8 +29,8 @@
 
 	&.outline {
 		background-color: transparent;
-		color: $black;
 		border: 1px solid $gray-light;
+		color: $black;
 	}
 
 	.icon {

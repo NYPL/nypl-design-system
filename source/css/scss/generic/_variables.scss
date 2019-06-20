@@ -28,6 +28,14 @@ $pad-double : $pad*2;
 $pad-half : $pad/2;
 $pad-quarter :$pad/4;
 
+:root {
+    --pad: 1.25em;
+    --pad-and-half: var(--pad)*1.5;
+    --pad-double: var(--pad)*2;
+    --pad-half: var(--pad)/2;
+    --pad-quarter: var(--pad)/4;
+}
+
 //Borders
 $border-med: 3px;
 $border-thick: 7px;
