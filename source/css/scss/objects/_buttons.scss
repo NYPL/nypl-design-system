@@ -28,8 +28,12 @@
   }
 
   &.disabled {
-    background: $gray-light-2;
+    background: $gray-light;
     color: $gray;
+
+    &:hover {
+      background-color: $gray-dark;
+    }
   }
 
   .icon {
@@ -51,6 +55,8 @@
   .icon-arrow-right {
     margin-left: 5px;
     margin-top: 2px;
+    margin-right: unset;
+    width: 9px;
   }
 }
 
@@ -68,11 +74,8 @@
 
 .btn-tag {
   background-color: $nypl-yellow-light;
-  font-family: $font;
   color: $black;
   border-radius: 30px;
-  font-variant: small-caps;
-  text-transform: lowercase; // needed to eliminate uppercase characters users might input
   padding: 0 $pad;
   height: 32px;
   font-size: $font-size-small-2;
@@ -86,12 +89,14 @@
   height: 40px;
   line-height: 1;
   text-align: center;
+  padding: $pad-half $pad-and-half;
 }
 
 .btn-round-icon {
   border-radius: 50%;
+  height: 40px;
   padding: unset;
-  padding: $pad $pad;
+  width: 40px;
 
   .icon {
     height: 24px;
@@ -99,4 +104,17 @@
     width: 24px;
     margin: auto;
   }
+}
+
+.btn-related-link {
+  background-color: transparent;
+  border: 1px solid $gray-light;
+  padding: $pad-half $pad;
+  text-align: left;
+  width: 100%; // Placeholder until I figure out how I wanna do the grid
+}
+
+.placeholder {
+  background-color: $black;
+  margin-right: 5px;
 }

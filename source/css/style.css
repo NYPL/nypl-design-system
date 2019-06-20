@@ -732,7 +732,9 @@ td {
   background-image: url("../images/icons/plus.svg"); }
 
 .icon-minus {
-  background-image: url("../images/icons/minus.svg"); }
+  background-image: url("../images/icons/minus.svg");
+  background-repeat: no-repeat;
+  background-position: 50%; }
 
 /*------------------------------------*\
     $BUTTONS
@@ -757,8 +759,10 @@ td {
   .btn:focus {
     outline: 2px solid #004782; }
   .btn.disabled {
-    background: #f5f5f5;
+    background: #e0e0e0;
     color: #bdbdbd; }
+    .btn.disabled:hover {
+      background-color: #616161; }
   .btn .icon {
     margin-right: 10px; }
 
@@ -773,7 +777,9 @@ td {
   color: #0071ce; }
   .btn-text .icon-arrow-right {
     margin-left: 5px;
-    margin-top: 2px; }
+    margin-top: 2px;
+    margin-right: unset;
+    width: 9px; }
 
 .btn-cancel {
   padding: 0.625em 0.625em;
@@ -787,11 +793,8 @@ td {
 
 .btn-tag {
   background-color: #fff7e8;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: black;
   border-radius: 30px;
-  font-variant: small-caps;
-  text-transform: lowercase;
   padding: 0 1.25em;
   height: 32px;
   font-size: 0.925em; }
@@ -803,17 +806,30 @@ td {
   color: #0071ce;
   height: 40px;
   line-height: 1;
-  text-align: center; }
+  text-align: center;
+  padding: 0.625em 1.875em; }
 
 .btn-round-icon {
   border-radius: 50%;
+  height: 40px;
   padding: unset;
-  padding: 1.25em 1.25em; }
+  width: 40px; }
   .btn-round-icon .icon {
     height: 24px;
     margin-right: unset;
     width: 24px;
     margin: auto; }
+
+.btn-related-link {
+  background-color: transparent;
+  border: 1px solid #e0e0e0;
+  padding: 0.625em 1.25em;
+  text-align: left;
+  width: 100%; }
+
+.placeholder {
+  background-color: black;
+  margin-right: 5px; }
 
 /* Generic Placeholder Brick: REMOVE FOR PRODUCTION */
 .brick {
