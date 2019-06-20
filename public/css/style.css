@@ -171,6 +171,10 @@ body {
   font-weight: 200;
   box-sizing: border-box; }
 
+.pl-c-main {
+  width: 80%;
+  margin: auto; }
+
 /* Links */
 a {
   color: #616161;
