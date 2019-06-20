@@ -6,6 +6,7 @@
 	background: $nypl-blue;
 	border-radius: 2px;
 	border: 0;
+	box-sizing: border-box;
 	color: $white;
 	display: flex;
 	justify-content: space-between;
@@ -29,7 +30,6 @@
 		background-color: transparent;
 		color: $black;
 		border: 1px solid $gray-light;
-		// border-style: inset;
 	}
 
 	.icon {

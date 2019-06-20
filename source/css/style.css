@@ -116,15 +116,15 @@ header, footer, nav, section, article, hgroup, figure {
 /* Floats */
 .right {
   float: right;
-  padding: 0 0 1em 1em; }
+  padding: 0 0 1.25em 1.25em; }
 
 .right-search {
   float: right;
-  padding: 0 0 1em 0; }
+  padding: 0 0 1.25em 0; }
 
 .left {
   float: left;
-  padding: 0 1em 1em 0; }
+  padding: 0 1.25em 1.25em 0; }
 
 /* Text-Align */
 .align-right {
@@ -171,9 +171,9 @@ body {
   font-weight: 200;
   box-sizing: border-box; }
 
-.pl-c-main {
+.pl-c-main, .body {
   width: 80%;
-  margin: auto; }
+  margin: 20px auto; }
 
 /* Links */
 a {
@@ -224,7 +224,7 @@ blockquote {
   font-style: italic;
   border-left: 1px solid #bdbdbd;
   color: #bdbdbd;
-  padding-left: 1em;
+  padding-left: 1.25em;
   margin-bottom: 1em; }
 
 /* Horizontal Rule */
@@ -297,13 +297,13 @@ button, input, select, textarea {
 input, textarea {
   width: 100%;
   border: 1px solid #bdbdbd;
-  padding: 0.5em 0.65rem; }
+  padding: 0.625em 0.65rem; }
 
 input[type=text], input[type=search], input[type=url], input[type=number], textarea {
   -webkit-appearance: none; }
 
 button, input[type="submit"] {
-  padding: 0.5em;
+  padding: 0.625em;
   background: #616161;
   border: 1px solid #bdbdbd;
   cursor: pointer; }
@@ -404,7 +404,7 @@ td {
 .lc, .header, [role=main] {
   max-width: 72em;
   margin: 0 auto;
-  padding: 0.5em; }
+  padding: 0.625em; }
 
 /*------------------------------------*\
     $TEMPLATES
@@ -414,7 +414,7 @@ td {
   .l-two-col .l-main {
     float: left;
     width: 70%;
-    padding-right: 1em; } }
+    padding-right: 1.25em; } }
 @media all and (max-width: 50em) {
   .l-two-col .l-sidebar {
     clear: both; } }
@@ -422,7 +422,7 @@ td {
   .l-two-col .l-sidebar {
     float: left;
     width: 30%;
-    padding: 0 0 0 1em; } }
+    padding: 0 0 0 1.25em; } }
 
 /*------------------------------------*\
     $GRIDS
@@ -430,11 +430,11 @@ td {
 /* Grid Container */
 .g {
   overflow: hidden;
-  margin: 0 -0.5em; }
+  margin: 0 -0.625em; }
 
 /* Grid Item */
 .gi {
-  padding: 0.5em; }
+  padding: 0.625em; }
   .gi img {
     display: block; }
   @media all and (min-width: 46.8em) {
@@ -613,7 +613,7 @@ td {
   max-height: 0; }
   .nav a {
     display: block;
-    padding: 1em;
+    padding: 1.25em;
     border-top: 1px solid #f5f5f5; }
   .nav.active {
     max-height: 40em; }
@@ -635,13 +635,13 @@ td {
     .pagination li:last-child {
       border: 0; }
   .pagination a {
-    padding: 1em; }
+    padding: 1.25em; }
 
 /*------------------------------------*\
     $MAIN CONTENT AREA
 \*------------------------------------*/
 [role=main] {
-  padding: 0.5em 0.5em 2em;
+  padding: 0.625em 0.625em 2.5em;
   overflow: hidden; }
 
 /*------------------------------------*\
@@ -657,7 +657,7 @@ td {
     color: #e0e0e0; }
 
 .nav-footer {
-  margin: -1em -1em 1em; }
+  margin: -1.25em -1.25em 1em; }
   .nav-footer li {
     border-bottom: 1px solid #616161; }
     @media all and (min-width: 46.8em) {
@@ -666,7 +666,7 @@ td {
         float: left; } }
   .nav-footer a {
     display: block;
-    padding: 1em; }
+    padding: 1.25em; }
 
 @media all and (min-width: 46.8em) {
   .copyright {
@@ -810,14 +810,14 @@ td {
 
 .icon-play-box {
   display: block;
-  margin-left: 2em; }
+  margin-left: 2.5em; }
 
 .icon-play-box:before {
-  padding: 0.25em;
+  padding: 0.3125em;
   background: #bdbdbd;
   color: white;
   margin-left: -1.7rem;
-  margin-right: 0.5em; }
+  margin-right: 0.625em; }
 
 /*------------------------------------*\
     $BUTTONS
@@ -827,12 +827,13 @@ td {
   background: #0071ce;
   border-radius: 2px;
   border: 0;
+  box-sizing: border-box;
   color: white;
   display: flex;
   justify-content: space-between;
   letter-spacing: 0.05em;
   line-height: 1;
-  padding: 0.5em 1em;
+  padding: 0.625em 1.25em;
   position: relative;
   text-align: center; }
   .btn:hover, .btn:focus {
@@ -849,10 +850,10 @@ td {
     margin-right: 10px; }
 
 .btn-small {
-  padding: 0.5em; }
+  padding: 0.625em; }
 
 .btn-large {
-  padding: 0.5em;
+  padding: 0.625em;
   text-transform: uppercase;
   background: #bdbdbd;
   font-size: 1.4rem;
@@ -866,7 +867,7 @@ td {
 /* Generic Placeholder Brick: REMOVE FOR PRODUCTION */
 .brick {
   background: #dcdddc;
-  padding: 2em;
+  padding: 2.5em;
   text-align: center;
   font-weight: bold;
   border-bottom: 1px solid #f5f5f5; }
@@ -895,7 +896,7 @@ td {
         width: 100%;
         background: rgba(27, 19, 19, 0.5);
         color: white;
-        padding: 1.5em; } }
+        padding: 1.875em; } }
 
 /* Block Thumbnail with Headline */
 .block-thumb {
@@ -920,12 +921,12 @@ td {
     .block-thumb .b-text {
       display: table-cell;
       width: 70%;
-      padding: 0 1em; } }
+      padding: 0 1.25em; } }
 
 /* Block Headline Summary */
 .block-headline-summary a {
   display: block;
-  padding: 0.5em; }
+  padding: 0.625em; }
 
 /* Block Inset */
 .block-inset {
@@ -949,7 +950,7 @@ td {
     width: 100%;
     background: rgba(27, 19, 19, 0.5);
     color: white;
-    padding: 0.5em; }
+    padding: 0.625em; }
 
 /* Block Thumb with Summary */
 .block-thumb-summary .b-thumb {
@@ -957,7 +958,7 @@ td {
   width: 50%; }
 .block-thumb-summary .b-text {
   margin-left: 50%;
-  padding: 0.5em; }
+  padding: 0.625em; }
 
 .inline-list li {
   display: inline-block; }
@@ -976,7 +977,7 @@ td {
   .headline-list h4 {
     font-weight: normal; }
   .headline-list li {
-    padding: 0.25em 0;
+    padding: 0.3125em 0;
     border-top: 1px solid #e0e0e0; }
 
 /* Post List */
@@ -1013,7 +1014,7 @@ td {
   top: 1.5em;
   left: 0;
   width: 18em;
-  padding: 1em;
+  padding: 1.25em;
   background: white;
   border: 1px solid #bdbdbd;
   box-shadow: 0.3em 0.3em 1em 0 rgba(0, 0, 0, 0.2); }
@@ -1039,7 +1040,7 @@ td {
   font-weight: bold;
   display: block;
   position: relative;
-  padding: 0.5em;
+  padding: 0.625em;
   border-bottom: 1px solid #e0e0e0; }
   .acc-handle:after {
     content: "+";
@@ -1065,7 +1066,7 @@ td {
       border-right: 0; }
   .tabs a {
     display: block;
-    padding: 0.5em;
+    padding: 0.625em;
     background: #bdbdbd; }
     .tabs a:hover, .tabs a:focus {
       background: #e0e0e0; }
@@ -1097,7 +1098,7 @@ td {
     background: #616161;
     color: white;
     display: block;
-    padding: 0.5em; }
+    padding: 0.625em; }
     .social-share a:hover {
       background: #bdbdbd; }
 
@@ -1128,7 +1129,7 @@ td {
 \*------------------------------------*/
 .alert {
   text-align: center;
-  padding: 1em;
+  padding: 1.25em;
   margin-bottom: 0.5em;
   border: 1px solid #bdbdbd;
   background: #e0e0e0; }

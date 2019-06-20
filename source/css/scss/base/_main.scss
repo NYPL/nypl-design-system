@@ -6,7 +6,7 @@ body {
 	box-sizing: border-box;
 }
 
-.pl-c-main { // Only meant for our pattern lab preview site to give things some room
+.pl-c-main, .body { // Only meant for our pattern lab preview site to give things some room
 	width: 80%;
-	margin: auto;
+	margin: 20px auto;
 }
