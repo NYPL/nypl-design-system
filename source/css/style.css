@@ -52,10 +52,14 @@ So feel free to use any of these approaches. Or don't. It's totally up to you.
  * TOC To Be Continued
  */
 /*------------------------------------*\
-    $VARIABLES
+  $VARIABLES
 \*------------------------------------*/
 :root {
+  --font-size-label: 13px; }
+
+:root {
   --pad: 1.25em;
+  --pad-and-quarter: var(--pad)*1.3;
   --pad-and-half: var(--pad)*1.5;
   --pad-double: var(--pad)*2;
   --pad-half: var(--pad)/2;
@@ -173,7 +177,7 @@ header, footer, nav, section, article, hgroup, figure {
 
 body {
   background: white;
-  font: 100%/1.5 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   -webkit-text-size-adjust: 100%;
   font-weight: 200;
   box-sizing: border-box; }
@@ -223,7 +227,7 @@ h5, .epsilon {
 p {
   margin-bottom: 1em;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5; }
 
 /* Blockquote */
@@ -334,7 +338,7 @@ input[type="search"]::-webkit-search-decoration {
 .inline-form fieldset, .inline-form .inline-container {
   position: relative; }
 .inline-form input[type=submit], .inline-form button, .inline-form .btn {
-  font-size: 0.875em;
+  font-size: 0.925em;
   padding: 0.65rem 1.3rem;
   background: #616161;
   position: absolute;
@@ -721,23 +725,32 @@ td {
 .icon-search-white {
   background-image: url("../images/icons/search-small-white.png"); }
 
+.icon-arrow-right {
+  background-image: url("../images/icons/arrow-right.svg"); }
+
+.icon-plus {
+  background-image: url("../images/icons/plus.svg"); }
+
+.icon-minus {
+  background-image: url("../images/icons/minus.svg"); }
+
 /*------------------------------------*\
     $BUTTONS
 \*------------------------------------*/
 .btn {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
   background: #0071ce;
   border-radius: 2px;
   border: 0;
-  box-sizing: border-box;
-  color: white;
-  display: flex;
   height: 36px;
-  justify-content: space-between;
+  padding: 0.625em 1.25em;
+  color: white;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light";
   letter-spacing: 1.5px;
   line-height: 1;
-  padding: 0.625em 1.25em;
-  position: relative;
   text-align: center; }
   .btn:hover, .btn:focus {
     background: #bdbdbd;
@@ -745,33 +758,60 @@ td {
   .btn.disabled {
     background: #f5f5f5;
     color: #bdbdbd; }
-  .btn.outline {
-    background-color: transparent;
-    border: 1px solid #e0e0e0;
-    color: black; }
-    .btn.outline.large {
-      font-variant: small-caps;
-      text-transform: lowercase;
-      line-height: 0;
-      font-weight: 600;
-      padding-top: calc(var(--pad-half) - 2px); }
   .btn .icon {
     margin-right: 10px; }
 
-.btn-small {
-  padding: 0.625em; }
-
 .btn-large {
-  padding: 0.625em;
-  text-transform: uppercase;
-  background: #bdbdbd;
-  font-size: 1.4rem;
-  font-weight: normal; }
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-variant: small-caps;
+  font-weight: 500;
+  line-height: 0;
+  padding: 1.5625em 2.5em;
+  padding-top: calc(var(--pad-and-quarter) - 2px);
+  text-transform: lowercase; }
 
-.text-btn {
+.btn-text {
   background-color: transparent;
-  border: 0;
   color: #0071ce; }
+  .btn-text .icon-arrow-right {
+    margin-left: 5px;
+    margin-top: 2px; }
+
+.btn-cancel {
+  padding: 0.625em 0.625em;
+  background-color: #faeaeb;
+  color: #952227; }
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #e0e0e0;
+  color: black; }
+
+.btn-tag {
+  background-color: #fff7e8;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: black;
+  border-radius: 30px;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  padding: 0 1.25em;
+  height: 32px;
+  font-size: 0.925em; }
+
+.btn-round {
+  background-color: transparent;
+  border: 1px solid #e5f0fa;
+  text-align: center;
+  border-radius: 50%;
+  color: #0071ce;
+  padding: unset;
+  width: 40px;
+  height: 40px; }
+  .btn-round .icon {
+    height: 24px;
+    margin-right: unset;
+    width: 24px;
+    margin: auto; }
 
 /* Generic Placeholder Brick: REMOVE FOR PRODUCTION */
 .brick {
@@ -993,7 +1033,7 @@ td {
   font-size: 2.5em; }
 
 .byline {
-  font-size: 0.875em;
+  font-size: 0.925em;
   font-style: italic;
   margin-bottom: 0.5em; }
 

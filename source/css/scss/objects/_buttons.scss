@@ -2,64 +2,96 @@
     $BUTTONS
 \*------------------------------------*/
 .btn {
-	align-items: center;
-	background: $nypl-blue;
-	border-radius: 2px;
-	border: 0;
-	box-sizing: border-box;
-	color: $white;
-	display: flex;
-	height: 36px;
-	justify-content: space-between;
-	letter-spacing: 1.5px;
-	line-height: 1;
-	padding: $pad-half $pad;
-	position: relative;
-	text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 
-	&:hover, &:focus {
-		background: $gray;
-		color: $white;
-	}
+  background: $nypl-blue;
+  border-radius: 2px;
+  border: 0;
+  height: 36px;
+  padding: $pad-half $pad;
 
-	&.disabled {
-		background: $gray-light-2;
-		color: $gray;
-	}
+  color: $white;
+  font-family: $font-light;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  text-align: center;
 
-	&.outline {
-		background-color: transparent;
-		border: 1px solid $gray-light;
-		color: $black;
+  &:hover, &:focus {
+    background: $gray;
+    color: $white;
+  }
 
-		&.large {
-			font-variant: small-caps;
-			text-transform: lowercase; // needed to eliminate uppercase characters users might input
-			line-height: 0;
-			font-weight: 600;
-			padding-top: calc(var(--pad-half) - 2px); // cleverness to adjust visual line-height difference with Helvetica small caps :(
-		}
-	}
+  &.disabled {
+    background: $gray-light-2;
+    color: $gray;
+  }
 
-	.icon {
-		margin-right: 10px;
-	}
-}
-
-.btn-small {
-	padding: $pad-half;
+  .icon {
+    margin-right: 10px;
+  }
 }
 
 .btn-large {
-	padding: $pad-half;
-	text-transform: uppercase;
-	background: $gray;
-	font-size: 1.4rem;
-	font-weight: normal;
+  font-family: $font;
+  font-variant: small-caps;
+  font-weight: 500;
+  line-height: 0;
+  padding: $pad-and-quarter $pad-double;
+  padding-top: calc(var(--pad-and-quarter) - 2px); // cleverness to adjust visual line-height difference with Helvetica small caps :(
+  text-transform: lowercase; // needed to eliminate uppercase characters users might input
 }
 
-.text-btn {
-	background-color: transparent;
-	border: 0;
-	color: $nypl-blue;
+.btn-text {
+  background-color: transparent;
+  color: $nypl-blue;
+
+  .icon-arrow-right {
+    margin-left: 5px;
+    margin-top: 2px;
+  }
+}
+
+.btn-cancel {
+  padding: $pad-half $pad-half;
+  background-color: $nypl-red-light;
+  color: $nypl-red-dark;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid $gray-light;
+  color: $black;
+}
+
+.btn-tag {
+  background-color: $nypl-yellow-light;
+  font-family: $font;
+  color: $black;
+  border-radius: 30px;
+  font-variant: small-caps;
+  text-transform: lowercase; // needed to eliminate uppercase characters users might input
+  padding: 0 $pad;
+  height: 32px;
+  font-size: $font-size-small-2;
+}
+
+.btn-round {
+  background-color: transparent;
+  border: 1px solid $nypl-blue-light;
+  text-align: center;
+  border-radius: 50%;
+  color: $nypl-blue;
+  padding: unset;
+  width: 40px;
+  height: 40px;
+
+  .icon {
+    height: 24px;
+    margin-right: unset;
+    width: 24px;
+    margin: auto;
+  }
 }
