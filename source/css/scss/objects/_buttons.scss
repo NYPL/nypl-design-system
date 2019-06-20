@@ -19,9 +19,12 @@
   line-height: 1;
   text-align: center;
 
-  &:hover, &:focus {
-    background: $gray;
-    color: $white;
+  &:hover {
+    background: $nypl-blue-dark;
+  }
+
+  &:focus {
+    outline: 2px solid $nypl-blue-dark;
   }
 
   &.disabled {
@@ -36,12 +39,9 @@
 
 .btn-large {
   font-family: $font;
-  font-variant: small-caps;
-  font-weight: 500;
   line-height: 0;
+  text-transform: capitalize;
   padding: $pad-and-quarter $pad-double;
-  padding-top: calc(var(--pad-and-quarter) - 2px); // cleverness to adjust visual line-height difference with Helvetica small caps :(
-  text-transform: lowercase; // needed to eliminate uppercase characters users might input
 }
 
 .btn-text {
