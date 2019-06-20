@@ -196,9 +196,9 @@ a {
 
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
-h1, .alpha {
+h1, .alpha, blockquote {
   line-height: 1.2;
-  font-size: 54px;
+  font-size: 48px;
   font-weight: 400; }
 
 h2, .beta {
@@ -225,18 +225,22 @@ h5, .epsilon {
 
 /* Text-Related Elements */
 p {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   font-weight: 300;
-  font-size: 14px;
-  line-height: 1.5; }
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.44px; }
+
+.alpha, blockquote {
+  line-height: 1.2;
+  font-size: 48px;
+  font-weight: 400; }
 
 /* Blockquote */
 blockquote {
-  font-style: italic;
-  border-left: 1px solid #bdbdbd;
-  color: #bdbdbd;
   padding-left: 1.25em;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  text-indent: -0.5em; }
 
 /* Horizontal Rule */
 hr {
@@ -621,7 +625,10 @@ td {
 .nav {
   clear: both;
   overflow: hidden;
-  max-height: 0; }
+  max-height: 0;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0.44px; }
   .nav a {
     display: block;
     padding: 1.25em;

@@ -1,23 +1,29 @@
 /* Text-Related Elements */ 
 p {
-    margin-bottom: $space;
+    margin-bottom: $space-and-half;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
+    letter-spacing: 0.44px;
+}
+
+.alpha {
+  line-height: 1.2;
+  font-size: 48px;
+  font-weight: 400;
 }
 
 /* Blockquote */
 blockquote {
-    font-style:italic;
-    border-left: 1px solid $gray;
-    color: $gray;
-	padding-left: $pad;
-	margin-bottom: $space;
+  @extend .alpha;
+  padding-left: $pad;
+  margin-bottom: $space;
+  text-indent: -0.5em;
 }
 
 /* Horizontal Rule */ 
 hr {
-	border: 0;
+  border: 0;
     height: 2px;
     background: $gray-light-2;
     margin: $space-double 0;
