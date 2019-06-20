@@ -78,15 +78,20 @@
   font-size: $font-size-small-2;
 }
 
-.btn-round {
+.btn-round-large {
   background-color: transparent;
+  border-radius: 30px;
   border: 1px solid $nypl-blue-light;
-  text-align: center;
-  border-radius: 50%;
   color: $nypl-blue;
-  padding: unset;
-  width: 40px;
   height: 40px;
+  line-height: 1;
+  text-align: center;
+}
+
+.btn-round-icon {
+  border-radius: 50%;
+  padding: unset;
+  padding: $pad $pad;
 
   .icon {
     height: 24px;

@@ -798,16 +798,20 @@ td {
   height: 32px;
   font-size: 0.925em; }
 
-.btn-round {
+.btn-round-large {
   background-color: transparent;
+  border-radius: 30px;
   border: 1px solid #e5f0fa;
-  text-align: center;
-  border-radius: 50%;
   color: #0071ce;
+  height: 40px;
+  line-height: 1;
+  text-align: center; }
+
+.btn-round-icon {
+  border-radius: 50%;
   padding: unset;
-  width: 40px;
-  height: 40px; }
-  .btn-round .icon {
+  padding: 1.25em 1.25em; }
+  .btn-round-icon .icon {
     height: 24px;
     margin-right: unset;
     width: 24px;
