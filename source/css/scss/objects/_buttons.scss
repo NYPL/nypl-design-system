@@ -58,18 +58,31 @@
     margin-right: unset;
     width: 9px;
   }
+
+  &:hover {
+    background: $nypl-blue-light;
+  }
 }
 
 .btn-cancel {
   padding: $pad-half $pad-half;
   background-color: $nypl-red-light;
   color: $nypl-red-dark;
+
+  &:hover {
+    background: $nypl-red-dark;
+    color: $white
+  }
 }
 
 .btn-outline {
   background-color: transparent;
   border: 1px solid $gray-light;
   color: $black;
+
+  &:hover {
+    background: $gray-xxlight;
+  }
 }
 
 .btn-tag {
@@ -79,6 +92,10 @@
   padding: 0 $pad;
   height: 32px;
   font-size: $font-size-small-2;
+
+  &:hover {
+    background: $nypl-yellow;
+  }
 }
 
 .btn-round-large {
@@ -90,6 +107,11 @@
   line-height: 1;
   text-align: center;
   padding: $pad-half $pad-and-half;
+
+  &:hover {
+    background: $nypl-blue-light;
+    color: $nypl-blue-dark;
+  }
 }
 
 .btn-round-icon {
