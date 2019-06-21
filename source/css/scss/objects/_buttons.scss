@@ -12,6 +12,7 @@
   border: 0;
   height: 36px;
   padding: $pad-half $pad;
+  max-width: 320px;
 
   color: $white;
   font-family: $font-light;
@@ -51,10 +52,13 @@
 .btn-text {
   background-color: transparent;
   color: $nypl-blue;
+  display: inline-block;
+  position: relative;
 
   .icon-arrow-right {
+    position: absolute;
     margin-left: 5px;
-    margin-top: 2px;
+    margin-top: 1px;
     margin-right: unset;
     width: 9px;
   }
@@ -79,6 +83,9 @@
   background-color: transparent;
   border: 1px solid $gray-light;
   color: $black;
+  justify-content: center;
+  width: 100%;
+
 
   &:hover {
     background: $gray-xxlight;
@@ -138,6 +145,10 @@
   &:hover {
     background: $gray-xxlight;
   }
+}
+
+.btn + .btn {
+  margin-top: var(--margin-xs);
 }
 
 .placeholder {

@@ -35,5 +35,12 @@ abbr {
 }
 
 .tag {
+  font-family: $font;
   font-size: var(--font-size-label);
+  text-transform: uppercase;
+  letter-spacing: 0.44px;
+
+  & + .tag {
+    margin-left: $space;
+  }
 }
