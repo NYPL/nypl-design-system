@@ -253,6 +253,9 @@ abbr {
   border-bottom: 1px dotted #bdbdbd;
   cursor: help; }
 
+.tag {
+  font-size: var(--font-size-label); }
+
 ol, ul {
   margin: 0;
   padding: 0;
@@ -787,16 +790,23 @@ td {
     margin-top: 2px;
     margin-right: unset;
     width: 9px; }
+  .btn-text:hover {
+    background: #e5f0fa; }
 
 .btn-cancel {
   padding: 0.625em 0.625em;
   background-color: #faeaeb;
   color: #952227; }
+  .btn-cancel:hover {
+    background: #952227;
+    color: white; }
 
 .btn-outline {
   background-color: transparent;
   border: 1px solid #e0e0e0;
   color: black; }
+  .btn-outline:hover {
+    background: #fafafa; }
 
 .btn-tag {
   background-color: #fff7e8;
@@ -805,6 +815,8 @@ td {
   padding: 0 1.25em;
   height: 32px;
   font-size: 0.925em; }
+  .btn-tag:hover {
+    background: #ffb81d; }
 
 .btn-round-large {
   background-color: transparent;
@@ -815,6 +827,9 @@ td {
   line-height: 1;
   text-align: center;
   padding: 0.625em 1.875em; }
+  .btn-round-large:hover {
+    background: #e5f0fa;
+    color: #004782; }
 
 .btn-round-icon {
   border-radius: 50%;
@@ -833,6 +848,8 @@ td {
   padding: 0.625em 1.25em;
   text-align: left;
   width: 100%; }
+  .btn-related-link:hover {
+    background: #fafafa; }
 
 .placeholder {
   background-color: black;

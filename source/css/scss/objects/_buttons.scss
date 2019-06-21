@@ -134,6 +134,10 @@
   padding: $pad-half $pad;
   text-align: left;
   width: 100%; // Placeholder until I figure out how I wanna do the grid
+
+  &:hover {
+    background: $gray-xxlight;
+  }
 }
 
 .placeholder {
