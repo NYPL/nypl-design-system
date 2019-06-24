@@ -11,6 +11,11 @@ body {
   max-width: 1280px;
   width: 80%;
   column-gap: $space-double;
+  row-gap: $space-double;
   display: grid;
   grid: repeat(12, 1fr) / auto-flow;
+}
+
+.centered {
+  grid-column: 2;
 }

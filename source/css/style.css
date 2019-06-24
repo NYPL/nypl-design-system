@@ -188,8 +188,12 @@ body {
   max-width: 1280px;
   width: 80%;
   column-gap: 2em;
+  row-gap: 2em;
   display: grid;
   grid: repeat(12, 1fr)/auto-flow; }
+
+.centered {
+  grid-column: 2; }
 
 /* Links */
 a {
@@ -779,11 +783,11 @@ td {
     background: #004782; }
   .btn:focus {
     outline: 2px solid #004782; }
+  .btn.fluid {
+    width: 100%; }
   .btn.disabled {
     background: #e0e0e0;
     color: #bdbdbd; }
-    .btn.disabled:hover {
-      background-color: #616161; }
   .btn .icon {
     margin-right: 10px; }
 
@@ -799,10 +803,8 @@ td {
   display: inline-block;
   position: relative; }
   .btn-text .icon-arrow-right {
-    position: absolute;
     margin-left: 5px;
-    margin-top: 1px;
-    margin-right: unset;
+    vertical-align: middle;
     width: 9px; }
   .btn-text:hover {
     background: #e5f0fa; }
@@ -819,8 +821,7 @@ td {
   background-color: transparent;
   border: 1px solid #e0e0e0;
   color: black;
-  justify-content: center;
-  width: 100%; }
+  justify-content: center; }
   .btn-outline:hover {
     background: #fafafa; }
 
@@ -873,6 +874,13 @@ td {
 .placeholder {
   background-color: black;
   margin-right: 5px; }
+
+.btn-group {
+  display: flex;
+  align-content: center; }
+  .btn-group .btn {
+    margin-top: unset;
+    margin-right: 0.5em; }
 
 /* Generic Placeholder Brick: REMOVE FOR PRODUCTION */
 .brick {
