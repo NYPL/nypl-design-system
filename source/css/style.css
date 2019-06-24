@@ -64,7 +64,14 @@ So feel free to use any of these approaches. Or don't. It's totally up to you.
   --pad-and-half: var(--pad)*1.5;
   --pad-double: var(--pad)*2;
   --pad-half: var(--pad)/2;
-  --pad-quarter: var(--pad)/4; }
+  --pad-quarter: var(--pad)/4;
+  --space: 1.25em;
+  --space-and-quarter: var(--space)*1.3;
+  --space-and-half: var(--space)*1.5;
+  --space-double: var(--space)*2;
+  --space-half: var(--space)/2;
+  --space-quarter: var(--space)/4;
+  --border-radius: 8px; }
 
 /*------------------------------------*\
     $MIXINS
@@ -1039,18 +1046,28 @@ ul {
 
 .list-item {
   display: grid;
-  grid: auto-flow / 165px 2fr 1fr;
+  grid: auto-flow / auto 2fr 1fr;
   column-gap: 2em;
   height: 165px;
   border: 1px solid #e0e0e0;
-  box-sizing: border-box;
-  padding-right: 1em; }
+  padding-right: 1em;
+  margin-top: var(--margin-xs);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius); }
+  .list-item:first-of-type {
+    margin-top: unset; }
 
 .--booklist-card-with-icon .booklist-icon {
+  align-items: center;
   background-color: #f3e8f5;
   display: flex;
-  align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  border-radius: var(--border-radius);
+  border: 1px solid #f3e8f5;
+  margin-left: -1px;
+  margin-top: -1px;
+  height: 165px;
+  padding: 0 calc(var(--space-double) + var(--space-half)); }
 .--booklist-card-with-icon .item-content {
   height: 163px;
   padding: 1em 0; }
@@ -1059,6 +1076,9 @@ ul {
 
 .author {
   clear: both; }
+
+.division-block-list {
+  grid-column: 1 / 11; }
 
 .tooltip-container {
   display: inline-block;

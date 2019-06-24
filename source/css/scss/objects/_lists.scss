@@ -68,21 +68,35 @@ ul {
 
 .list-item {
   display: grid;
-  grid: auto-flow / 165px 2fr 1fr;
+  grid: auto-flow / auto 2fr 1fr;
   column-gap: $space-double;
 
   height: 165px;
   border: 1px solid $gray-light;
-  box-sizing: border-box;
   padding-right: $space;
+  margin-top: var(--margin-xs);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+
+  &:first-of-type {
+    margin-top: unset;
+  }
 }
 
 .--booklist-card-with-icon {
   .booklist-icon {
+    align-items: center;
     background-color: $nypl-purple-light;
     display: flex;
-    align-items: center;
     justify-content: center;
+
+    // Creates a border-radius on the left-hand side that sits on top of the border for the list item
+    border-radius: var(--border-radius);
+    border: 1px solid $nypl-purple-light;
+    margin-left: -1px;
+    margin-top: -1px;
+    height: 165px;
+    padding: 0 calc(var(--space-double) + var(--space-half));
   }
 
   .item-content {
@@ -97,4 +111,8 @@ ul {
 
 .author {
   clear: both;
+}
+
+.division-block-list {
+  grid-column: 1 / 11;
 }
