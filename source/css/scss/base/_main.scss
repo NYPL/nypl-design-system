@@ -13,9 +13,16 @@ body {
   column-gap: $space-double;
   row-gap: $space-double;
   display: grid;
-  grid: repeat(12, 1fr) / auto-flow;
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .centered {
-  grid-column: 2;
+  grid-column: 3 / 12;
+}
+
+.code-block {
+  background-color: $gray-xxlight;
+  overflow: scroll;
+  padding: 0 $pad-and-half;
+  width: 100%;
 }

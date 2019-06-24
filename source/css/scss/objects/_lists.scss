@@ -62,6 +62,10 @@
   }
 }
 
+ul {
+  grid-column: 1 / 13;
+}
+
 .list-item {
   display: grid;
   grid: auto-flow / 165px 2fr 1fr;
