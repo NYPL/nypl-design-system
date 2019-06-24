@@ -1,28 +1,46 @@
 .icon {
-	display: inline-block;
-	background-size: contain;
-	width: 16px;
-	height: 16px;
+  display: inline-block;
+  background-size: contain;
+  width: 16px;
+  height: 16px;
 }
 
 .icon-search {
-	background-image: url('../images/icons/search-small.png');
+  background-image: url('../images/icons/search-small.png');
 }
 
 .icon-search-white {
-	background-image: url('../images/icons/search-small-white.png');
+  background-image: url('../images/icons/search-small-white.png');
 }
 
 .icon-arrow-right {
-	background-image: url('../images/icons/arrow-right.svg');
+  background-image: url('../images/icons/arrow-right.svg');
 }
 
 .icon-plus {
-	background-image: url('../images/icons/plus.svg');
+  background-image: url('../images/icons/plus.svg');
 }
 
 .icon-minus {
-	background-image: url('../images/icons/minus.svg');
-	background-repeat: no-repeat;
-	background-position: 50%;
+  background-image: url('../images/icons/minus.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.icon-twitter {
+  background-image: url('../images/icons/social-twitter-black.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.icon-instagram {
+  background-image: url('../images/icons/social-instagram-black.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.icon-twitter {
+  background-image: url('../images/icons/social-twitter-black.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
 }

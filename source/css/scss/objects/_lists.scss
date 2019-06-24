@@ -83,7 +83,7 @@ ul {
     margin-top: unset;
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $bp-med) {
     grid-template-columns: auto;
     grid-auto-rows: min-content;
     height: unset;
@@ -113,17 +113,16 @@ ul {
       min-width: 25px;
     }
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: $bp-med) {
       padding: ($space-double + $space-half) ($space-double + $space-half);
       width: calc(100% + 2px);
     }
   }
 
   .item-content {
-    // height: 163px; // list-item's height -2px of border
     padding: $space 0;
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: $bp-med) {
       height: unset;
       padding: 0 $space;
 
@@ -141,7 +140,7 @@ ul {
     width: 100%;
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $bp-med) {
     padding-right: 0;
   }
 }

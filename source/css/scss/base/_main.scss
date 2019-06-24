@@ -14,7 +14,7 @@ body {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $bp-med) {
     column-gap: unset;
     width: 95%;
   }
@@ -31,7 +31,7 @@ body {
 .centered {
   grid-column: 3 / 12;
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $bp-med) {
     grid-column: 2 / 12;
   }
 }

@@ -137,11 +137,11 @@ header, footer, nav, section, article, hgroup, figure {
   text-align: left; }
 
 /* Display Classes */
-@media all and (max-width: 46.8em) {
+@media all and (max-width: 600px) {
   .hide-small {
     display: none; } }
 
-@media all and (min-width: 46.8em) and (max-width: 50em) {
+@media all and (min-width: 600px) and (max-width: 50em) {
   .hide-med {
     display: none; } }
 
@@ -174,15 +174,11 @@ body {
   margin: 20px auto;
   max-width: 1280px;
   width: 80%;
-<<<<<<< HEAD
   column-gap: 2%;
-=======
-  column-gap: 2.5em;
->>>>>>> 96625e8... Removes all CSS variables because of IE11
   row-gap: 2.5em;
   display: grid;
   grid-template-columns: repeat(12, 1fr); }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 600px) {
     .body {
       column-gap: unset;
       width: 95%; } }
@@ -192,7 +188,7 @@ body {
 
 .centered {
   grid-column: 3 / 12; }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 600px) {
     .centered {
       grid-column: 2 / 12; } }
 
@@ -484,7 +480,7 @@ td {
   padding: 0.625em; }
   .gi img {
     display: block; }
-  @media all and (min-width: 46.8em) {
+  @media all and (min-width: 600px) {
     .gi {
       float: left; } }
 
@@ -493,7 +489,7 @@ td {
   width: 100%; }
 
 /* Grid 2up */
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 600px) {
   .g-2up > .gi {
     float: left;
     width: 50%; }
@@ -508,7 +504,7 @@ td {
     clear: left; }
 
 /* Grid 3up */
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 600px) {
   .g-3up > .gi {
     float: left;
     width: 50%; }
@@ -523,7 +519,7 @@ td {
       clear: left; } }
 
 /* Grid 4up */
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 600px) {
   .g-4up > .gi {
     float: left;
     width: 50%; }
@@ -578,7 +574,7 @@ td {
       clear: none; }
     .g-max5 > .gi:nth-of-type(3n+1) {
       clear: left; } }
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 600px) {
   .g-max5 > .gi {
     width: 25%; }
     .g-max5 > .gi:nth-of-type(3n+1) {
@@ -594,12 +590,12 @@ td {
       clear: left; } }
 
 /* Grid 2/3 */
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 600px) {
   .gi-2-3 {
     float: left;
     width: 66.666666%; } }
 
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 600px) {
   .gi-1-3 {
     float: left;
     width: 33.333333%; } }
@@ -623,7 +619,7 @@ td {
   float: left;
   max-width: 8rem;
   margin: 0.4rem; }
-  @media all and (min-width: 46.8em) {
+  @media all and (min-width: 600px) {
     .logo {
       max-width: 9rem; } }
 
@@ -634,7 +630,7 @@ td {
   font-size: 1.3rem;
   line-height: 1;
   border-left: 1px solid #dbdbdb; }
-  @media all and (min-width: 46.8em) {
+  @media all and (min-width: 600px) {
     .nav-toggle {
       display: none; } }
   @media all and (max-width: 17em) {
@@ -645,7 +641,7 @@ td {
 .search-form {
   overflow: hidden;
   max-height: 0; }
-  @media all and (min-width: 46.8em) {
+  @media all and (min-width: 600px) {
     .search-form {
       float: right;
       max-height: none;
@@ -667,7 +663,7 @@ td {
     border-top: 1px solid #f5f5f5; }
   .nav.active {
     max-height: 40em; }
-  @media all and (min-width: 46.8em) {
+  @media all and (min-width: 600px) {
     .nav {
       max-height: none;
       float: right;
@@ -692,11 +688,7 @@ td {
 \*------------------------------------*/
 [role=main] {
   padding: 0.625em 0.625em 2.5em;
-<<<<<<< HEAD
   overflow-x: hidden; }
-=======
-  overflow: hidden; }
->>>>>>> 96625e8... Removes all CSS variables because of IE11
 
 /*------------------------------------*\
     $FOOTER
@@ -714,7 +706,7 @@ td {
   margin: -2.5em 1.25em; }
   .nav-footer li {
     border-bottom: 1px solid #616161; }
-    @media all and (min-width: 46.8em) {
+    @media all and (min-width: 600px) {
       .nav-footer li {
         border: 0;
         float: left; } }
@@ -722,7 +714,7 @@ td {
     display: block;
     padding: 1.25em; }
 
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 600px) {
   .copyright {
     float: right; } }
 
@@ -779,6 +771,21 @@ td {
   background-repeat: no-repeat;
   background-position: 50%; }
 
+.icon-twitter {
+  background-image: url("../images/icons/social-twitter-black.svg");
+  background-repeat: no-repeat;
+  background-position: 50%; }
+
+.icon-instagram {
+  background-image: url("../images/icons/social-instagram-black.svg");
+  background-repeat: no-repeat;
+  background-position: 50%; }
+
+.icon-twitter {
+  background-image: url("../images/icons/social-twitter-black.svg");
+  background-repeat: no-repeat;
+  background-position: 50%; }
+
 /*------------------------------------*\
     $BUTTONS
 \*------------------------------------*/
@@ -790,12 +797,8 @@ td {
   background: #0071ce;
   border-radius: 2px;
   border: 0;
-<<<<<<< HEAD
-=======
-  height: 36px;
->>>>>>> 96625e8... Removes all CSS variables because of IE11
   padding: 0.625em 1.25em;
-  max-width: 320px;
+  max-width: 600px;
   color: white;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light";
   letter-spacing: 1.5px;
@@ -1045,12 +1048,8 @@ ul {
 .list-item {
   display: grid;
   grid: auto-flow / auto 2fr 1fr;
-<<<<<<< HEAD
   column-gap: 5%;
   align-items: stretch;
-=======
-  column-gap: 2.5em;
->>>>>>> 96625e8... Removes all CSS variables because of IE11
   border: 1px solid #e0e0e0;
   padding-right: 1.25em;
   margin-top: 8px;
@@ -1058,7 +1057,7 @@ ul {
   border-bottom-left-radius: 8px; }
   .list-item:first-of-type {
     margin-top: unset; }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 600px) {
     .list-item {
       grid-template-columns: auto;
       grid-auto-rows: min-content;
@@ -1068,10 +1067,7 @@ ul {
 
 .--booklist-card-with-icon .booklist-icon {
   align-items: center;
-<<<<<<< HEAD
   align-self: stretch;
-=======
->>>>>>> 96625e8... Removes all CSS variables because of IE11
   background-color: #f3e8f5;
   display: flex;
   justify-content: center;
@@ -1079,27 +1075,17 @@ ul {
   border: 1px solid #f3e8f5;
   margin-left: -1px;
   margin-top: -1px;
-<<<<<<< HEAD
   height: calc(100% + 2px);
-=======
-  height: 165px;
->>>>>>> 96625e8... Removes all CSS variables because of IE11
   padding: 0 3.125em; }
   .--booklist-card-with-icon .booklist-icon img {
     min-width: 25px; }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 600px) {
     .--booklist-card-with-icon .booklist-icon {
-<<<<<<< HEAD
       padding: 3.125em 3.125em;
       width: calc(100% + 2px); } }
 .--booklist-card-with-icon .item-content {
-=======
-      width: calc(100% + 2px); } }
-.--booklist-card-with-icon .item-content {
-  height: 163px;
->>>>>>> 96625e8... Removes all CSS variables because of IE11
   padding: 1.25em 0; }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 600px) {
     .--booklist-card-with-icon .item-content {
       height: unset;
       padding: 0 1.25em; }
@@ -1109,7 +1095,7 @@ ul {
         padding-bottom: 1.25em; } }
 .--booklist-card-with-icon .author {
   width: 100%; }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .--booklist-card-with-icon {
     padding-right: 0; } }
 
@@ -1140,7 +1126,7 @@ ul {
   box-shadow: 0.3em 0.3em 1em 0 rgba(0, 0, 0, 0.2); }
   .tooltip h2 {
     margin-top: 0; }
-  @media all and (min-width: 24em) {
+  @media all and (min-width: 320px) {
     .tooltip {
       width: 22em; } }
   @media all and (min-width: 29.75em) {
