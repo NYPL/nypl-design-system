@@ -70,6 +70,7 @@
   height: 165px;
   border: 1px solid $gray-light;
   box-sizing: border-box;
+  padding-right: $space;
 }
 
 .--booklist-card-with-icon {
@@ -80,8 +81,9 @@
     justify-content: center;
   }
 
-  .text {
-    margin: $space 0;
+  .item-content {
+    height: 163px; // list-item's height -2px of border
+    padding: $space 0;
   }
 
   .author {

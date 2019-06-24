@@ -1023,15 +1023,17 @@ td {
   column-gap: 2em;
   height: 165px;
   border: 1px solid #e0e0e0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding-right: 1em; }
 
 .--booklist-card-with-icon .booklist-icon {
   background-color: #f3e8f5;
   display: flex;
   align-items: center;
   justify-content: center; }
-.--booklist-card-with-icon .text {
-  margin: 1em 0; }
+.--booklist-card-with-icon .item-content {
+  height: 163px;
+  padding: 1em 0; }
 .--booklist-card-with-icon .author {
   width: 100%; }
 
