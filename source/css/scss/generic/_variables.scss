@@ -13,45 +13,24 @@ $font-size-med : 1em;
 $font-size-med-2: 1.0625em;
 $font-size-large : 2em;
 
-:root {
-  --font-size-label: 13px;
-
-  --margin-xs: 8px;
-}
-
 
 //Layout
 $max-width: 72em;
 
-//Defaults
-$space : 1em;
-$space-and-half : $space*1.5;
-$space-double : $space*2;
-$space-quad : $space*4;
-$space-half : $space/2;
-$pad : 1.25em;
-$pad-and-quarter : $pad*1.25;
-$pad-and-half : $pad*1.5;
-$pad-double : $pad*2;
-$pad-half : $pad/2;
-$pad-quarter :$pad/4;
-
 :root {
-    --pad: 1.25em;
-    --pad-and-quarter: var(--pad)*1.3;
-    --pad-and-half: var(--pad)*1.5;
-    --pad-double: var(--pad)*2;
-    --pad-half: var(--pad)/2;
-    --pad-quarter: var(--pad)/4;
+  // Spacing units
+  --space: 1.25em;
+  --space-and-quarter: var(--space)*1.3;
+  --space-and-half: var(--space)*1.5;
+  --space-double: var(--space)*2;
+  --space-half: var(--space)/2;
+  --space-quarter: var(--space)/4;
 
-    --space: 1.25em;
-    --space-and-quarter: var(--space)*1.3;
-    --space-and-half: var(--space)*1.5;
-    --space-double: var(--space)*2;
-    --space-half: var(--space)/2;
-    --space-quarter: var(--space)/4;
+  --border-radius: 8px;
 
-    --border-radius: 8px;
+  --font-size-label: 13px;
+
+  --margin-xs: 8px;
 }
 
 //Borders

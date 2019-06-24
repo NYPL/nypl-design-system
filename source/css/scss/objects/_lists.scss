@@ -71,7 +71,7 @@ ul {
   grid: auto-flow / auto 2fr 1fr;
   column-gap: $space-double;
 
-  height: 165px;
+  // height: 165px;
   border: 1px solid $gray-light;
   padding-right: $space;
   margin-top: var(--margin-xs);
@@ -80,6 +80,15 @@ ul {
 
   &:first-of-type {
     margin-top: unset;
+  }
+
+  @media screen and (max-width: 320px) {
+    grid-template-columns: auto;
+    grid-auto-rows: min-content;
+    height: unset;
+
+    border-top-right-radius: var(--border-radius);
+    border-bottom-left-radius: unset;
   }
 }
 
@@ -96,16 +105,41 @@ ul {
     margin-left: -1px;
     margin-top: -1px;
     height: 165px;
-    padding: 0 calc(var(--space-double) + var(--space-half));
+    padding: 0 calc(var(--pad-double) + var(--pad-half));
+
+    img {
+      min-width: 25px;
+    }
+
+    @media screen and (max-width: 320px) {
+      width: calc(100% + 2px);
+    }
   }
 
   .item-content {
     height: 163px; // list-item's height -2px of border
-    padding: $space 0;
+    padding: var(--pad) 0;
+
+    @media screen and (max-width: 320px) {
+      height: unset;
+      padding: 0 var(--space);
+
+      &:first-of-type {
+        padding-top: var(--pad);
+      }
+
+      &:last-of-type {
+        padding-bottom: var(--pad);
+      }
+    }
   }
 
   .author {
     width: 100%;
+  }
+
+  @media screen and (max-width: 320px) {
+    padding-right: 0;
   }
 }
 

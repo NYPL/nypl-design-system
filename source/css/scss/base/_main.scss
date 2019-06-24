@@ -2,7 +2,6 @@ body {
   background: $white;
   font: 100%/1.5 $font;
   -webkit-text-size-adjust: 100%;
-  font-weight: 200;
   box-sizing: border-box;
 }
 
@@ -14,6 +13,15 @@ body {
   row-gap: $space-double;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+
+  @media screen and (max-width: 320px) {
+    column-gap: unset;
+    width: 95%;
+  }
+}
+
+.pl {
+  // border: 1px solid tomato; // for testing purposes only
 }
 
 .pl-c-main {
@@ -22,6 +30,10 @@ body {
 
 .centered {
   grid-column: 3 / 12;
+
+  @media screen and (max-width: 320px) {
+    grid-column: 2 / 12;
+  }
 }
 
 .full-width {
