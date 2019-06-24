@@ -183,7 +183,7 @@ body {
   font-weight: 200;
   box-sizing: border-box; }
 
-.pl-c-main, .body {
+.body {
   margin: 20px auto;
   max-width: 1280px;
   width: 80%;
@@ -191,6 +191,9 @@ body {
   row-gap: 2em;
   display: grid;
   grid-template-columns: repeat(12, 1fr); }
+
+.pl-c-main {
+  grid-column: 1 / 13; }
 
 .centered {
   grid-column: 3 / 12; }

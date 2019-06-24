@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
 }
 
-.pl-c-main, .body { // Only meant for our pattern lab preview site to give things some room
+.body { // Only meant for our pattern lab preview site to give things some room
   margin: 20px auto;
   max-width: 1280px;
   width: 80%;
@@ -14,6 +14,10 @@ body {
   row-gap: $space-double;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+}
+
+.pl-c-main {
+  grid-column: 1 / 13;
 }
 
 .centered {
