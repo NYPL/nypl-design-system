@@ -24,6 +24,10 @@ body {
   grid-column: 3 / 12;
 }
 
+.full-width {
+  grid-column: 1 / 13;
+}
+
 .code-block {
   background-color: $gray-xxlight;
   overflow: scroll;

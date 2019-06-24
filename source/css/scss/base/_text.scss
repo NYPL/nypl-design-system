@@ -15,10 +15,18 @@ p {
 
 /* Blockquote */
 blockquote {
-  @extend .alpha;
+  font-weight: 600;
+  font-size: $font-size-large;
   padding-left: $pad;
   margin-bottom: $space;
   text-indent: -0.5em;
+
+  .attribution {
+    display: block;
+    padding-left: calc(var(--pad-half) + var(--pad-quarter));
+
+    @extend .delta;
+  }
 }
 
 /* Horizontal Rule */ 

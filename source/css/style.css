@@ -198,6 +198,9 @@ body {
 .centered {
   grid-column: 3 / 12; }
 
+.full-width {
+  grid-column: 1 / 13; }
+
 .code-block {
   background-color: #fafafa;
   overflow: scroll;
@@ -214,7 +217,7 @@ a {
 
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
-h1, .alpha, blockquote {
+h1, .alpha {
   line-height: 1.2;
   font-size: 48px;
   font-weight: 400; }
@@ -229,7 +232,7 @@ h3, .gamma {
   font-size: 20px;
   font-weight: 600; }
 
-h4, .delta {
+h4, .delta, blockquote .attribution {
   font-size: 16px;
   font-weight: 600; }
 
@@ -249,16 +252,21 @@ p {
   line-height: 1.5;
   letter-spacing: 0.44px; }
 
-.alpha, blockquote {
+.alpha {
   line-height: 1.2;
   font-size: 48px;
   font-weight: 400; }
 
 /* Blockquote */
 blockquote {
+  font-weight: 600;
+  font-size: 2em;
   padding-left: 1.25em;
   margin-bottom: 1em;
   text-indent: -0.5em; }
+  blockquote .attribution {
+    display: block;
+    padding-left: calc(var(--pad-half) + var(--pad-quarter)); }
 
 /* Horizontal Rule */
 hr {
