@@ -9,7 +9,7 @@ body {
   margin: 20px auto;
   max-width: 1280px;
   width: 80%;
-  column-gap: $space-double;
+  column-gap: 2%;
   row-gap: $space-double;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -43,6 +43,6 @@ body {
 .code-block {
   background-color: $gray-xxlight;
   overflow: scroll;
-  padding: 0 $pad-and-half;
+  padding: 0 $space-and-half;
   width: 100%;
 }

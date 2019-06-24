@@ -17,13 +17,13 @@ p {
 blockquote {
   font-weight: 600;
   font-size: $font-size-large;
-  padding-left: $pad;
+  padding-left: $space;
   margin-bottom: $space;
   text-indent: -0.5em;
 
   .attribution {
     display: block;
-    padding-left: calc(var(--pad-half) + var(--pad-quarter));
+    padding-left: $space-half + $space-quarter;
 
     @extend .delta;
   }
@@ -44,7 +44,7 @@ abbr {
 
 .tag {
   font-family: $font;
-  font-size: var(--font-size-label);
+  font-size: $font-size-label;
   text-transform: uppercase;
   letter-spacing: 0.44px;
 

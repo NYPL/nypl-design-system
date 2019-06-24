@@ -17,21 +17,18 @@ $font-size-large : 2em;
 //Layout
 $max-width: 72em;
 
-:root {
-  // Spacing units
-  --space: 1.25em;
-  --space-and-quarter: var(--space)*1.3;
-  --space-and-half: var(--space)*1.5;
-  --space-double: var(--space)*2;
-  --space-half: var(--space)/2;
-  --space-quarter: var(--space)/4;
+// Spacing units
+$space: 1.25em;
+$space-and-quarter: $space*1.3;
+$space-and-half: $space*1.5;
+$space-double: $space*2;
+$space-half: $space/2;
+$space-quarter: $space/4;
 
-  --border-radius: 8px;
-
-  --font-size-label: 13px;
-
-  --margin-xs: 8px;
-}
+// ROGUE
+$border-radius: 8px;
+$font-size-label: 13px;
+$margin-xs: 8px;
 
 //Borders
 $border-med: 3px;
@@ -49,5 +46,3 @@ $bp-large-2 : 66em;
 $bp-xl : 73em;
 $bp-xxl : 89em;
 $bp-xxxl : 93em;
-
-//

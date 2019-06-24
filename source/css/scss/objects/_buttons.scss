@@ -10,8 +10,7 @@
   background: $nypl-blue;
   border-radius: 2px;
   border: 0;
-  height: 36px;
-  padding: $pad-half $pad;
+  padding: $space-half $space;
   max-width: 320px;
 
   color: $white;
@@ -46,7 +45,7 @@
   font-family: $font;
   line-height: 0;
   text-transform: capitalize;
-  padding: $pad-and-quarter $pad-double;
+  padding: $space-and-quarter $space-double;
 }
 
 .btn-text {
@@ -67,7 +66,7 @@
 }
 
 .btn-cancel {
-  padding: $pad-half $pad-half;
+  padding: $space-half $space-half;
   background-color: $nypl-red-light;
   color: $nypl-red-dark;
 
@@ -92,7 +91,7 @@
   background-color: $nypl-yellow-light;
   color: $black;
   border-radius: 30px;
-  padding: 0 $pad;
+  padding: 0 $space;
   height: 32px;
   font-size: $font-size-small-2;
 
@@ -109,7 +108,7 @@
   height: 40px;
   line-height: 1;
   text-align: center;
-  padding: $pad-half $pad-and-half;
+  padding: $space-half $space-and-half;
 
   &:hover {
     background: $nypl-blue-light;
@@ -134,7 +133,7 @@
 .btn-related-link {
   background-color: transparent;
   border: 1px solid $gray-light;
-  padding: $pad-half $pad;
+  padding: $space-half $space;
   text-align: left;
   width: 100%; // Placeholder until I figure out how I wanna do the grid
 
@@ -144,7 +143,7 @@
 }
 
 .btn + .btn {
-  margin-top: var(--margin-xs);
+  margin-top: $margin-xs;
 }
 
 .placeholder {

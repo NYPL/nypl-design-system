@@ -29,7 +29,7 @@
   }
 
   li {
-    padding: $pad-quarter 0;
+    padding: $space-quarter 0;
     border-top: 1px solid $gray-light-3;
   }
 }
@@ -69,14 +69,15 @@ ul {
 .list-item {
   display: grid;
   grid: auto-flow / auto 2fr 1fr;
-  column-gap: $space-double;
+  column-gap: 5%;
+  align-items: stretch;
 
   // height: 165px;
   border: 1px solid $gray-light;
   padding-right: $space;
-  margin-top: var(--margin-xs);
-  border-top-left-radius: var(--border-radius);
-  border-bottom-left-radius: var(--border-radius);
+  margin-top: $margin-xs;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
 
   &:first-of-type {
     margin-top: unset;
@@ -87,7 +88,7 @@ ul {
     grid-auto-rows: min-content;
     height: unset;
 
-    border-top-right-radius: var(--border-radius);
+    border-top-right-radius: $border-radius;
     border-bottom-left-radius: unset;
   }
 }
@@ -95,41 +96,43 @@ ul {
 .--booklist-card-with-icon {
   .booklist-icon {
     align-items: center;
+    align-self: stretch;
     background-color: $nypl-purple-light;
     display: flex;
     justify-content: center;
 
     // Creates a border-radius on the left-hand side that sits on top of the border for the list item
-    border-radius: var(--border-radius);
+    border-radius: $border-radius;
     border: 1px solid $nypl-purple-light;
     margin-left: -1px;
     margin-top: -1px;
-    height: 165px;
-    padding: 0 calc(var(--pad-double) + var(--pad-half));
+    height: calc(100% + 2px);
+    padding: 0 ($space-double + $space-half);
 
     img {
       min-width: 25px;
     }
 
     @media screen and (max-width: 320px) {
+      padding: ($space-double + $space-half) ($space-double + $space-half);
       width: calc(100% + 2px);
     }
   }
 
   .item-content {
-    height: 163px; // list-item's height -2px of border
-    padding: var(--pad) 0;
+    // height: 163px; // list-item's height -2px of border
+    padding: $space 0;
 
     @media screen and (max-width: 320px) {
       height: unset;
-      padding: 0 var(--space);
+      padding: 0 $space;
 
       &:first-of-type {
-        padding-top: var(--pad);
+        padding-top: $space;
       }
 
       &:last-of-type {
-        padding-bottom: var(--pad);
+        padding-bottom: $space;
       }
     }
   }

@@ -35,17 +35,17 @@
 /* Floats */
 .right {
 	float: right;
-	padding: 0 0 var(--space) var(--space);
+	padding: 0 0 $space $space;
 }
 
 .right-search {
 	float: right;
-	padding: 0 0 var(--space) 0;
+	padding: 0 0 $space 0;
 }
 
 .left {
 	float: left;
-	padding: 0 var(--space) var(--space) 0;
+	padding: 0 $space $space 0;
 }
 
 /* Text-Align */

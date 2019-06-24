@@ -1,7 +1,7 @@
 /* Generic Placeholder Brick: REMOVE FOR PRODUCTION */
 .brick {
 	background: #dcdddc;
-	padding: $pad-double;
+	padding: $space-double;
 	text-align: center;
 	font-weight: bold;
 	border-bottom: 1px solid $gray-light-2;
@@ -40,7 +40,7 @@
 			width: 100%;
 			background: $dim;
 			color: $white;
-			padding: $pad-and-half;
+			padding: $space-and-half;
 		}
 	}
 }
@@ -76,7 +76,7 @@
 		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
 			width: 70%;
-			padding: 0 $pad;
+			padding: 0 $space;
 		}
 	}
 }
@@ -86,7 +86,7 @@
 .block-headline-summary {
 	a {
 		display: block;
-		padding: $pad-half;
+		padding: $space-half;
 	}
 }
 
@@ -120,7 +120,7 @@
 		width: 100%;
 		background: $dim;
 		color: $white;
-		padding: $pad-half;
+		padding: $space-half;
 	}
 }
 
@@ -133,6 +133,6 @@
 
 	.b-text {
 		margin-left: 50%;
-		padding: $pad-half;
+		padding: $space-half;
 	}
 }

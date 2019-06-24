@@ -26,7 +26,7 @@ button, input, select, textarea {
 input, textarea {
 	width: 100%;
 	border: 1px solid $gray;
-	padding: $pad-half 0.65rem;
+	padding: $space-half 0.65rem;
 }
 
 input[type=text], input[type=search], input[type=url], input[type=number], textarea {
@@ -34,7 +34,7 @@ input[type=text], input[type=search], input[type=url], input[type=number], texta
 }
 
 button, input[type="submit"] {
-	padding: $pad-half;
+	padding: $space-half;
 	background: $gray-dark;
 	border: 1px solid $gray;
 	cursor: pointer;
