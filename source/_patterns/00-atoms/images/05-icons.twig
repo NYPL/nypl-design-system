@@ -1,0 +1,49 @@
+<div class="centered">
+  <h2>A: Icons + Logos</h2>
+  {# <p>Built using the <a href="https://designsystem.digital.gov/components/icons/">USWDS</a> guidelines.</p> #}
+
+  <ul class="icons">
+    <li>
+      <h3>AIL-1: Lion Logo</h3>
+      <img src="/images/logo.svg" aria-labelledby="#nypl-logo" />
+    </li>
+
+    <li class="pl-icon-bg">
+      <h3>AIL-21: NYPL Logo</h3>
+      <img src="/images/nypl-acronym-lockup.svg" aria-labelledby="#nypl-acronym-lockup" />
+    </li>
+
+    {% set icons = {
+      '2' : 'arrow-down',
+      '23' : 'arrow-down-small',
+      '3' : 'arrow-up',
+      '4' : 'arrow-right',
+      '5' : 'arrow-left',
+      '6' : 'search',
+      '7' : 'search-small',
+      '8' : 'plus',
+      '9' : 'minus',
+      '10' : 'cancel',
+      '11' : 'book',
+      '12' : 'computer',
+      '13' : 'play',
+      '14' : 'cd',
+      '15' : 'movie',
+      '16' : 'social-instagram',
+      '17' : 'social-facebook',
+      '18' : 'social-youtube',
+      '19' : 'social-tumblr',
+      '20' : 'social-twitter',
+      '22' : 'social-media-icon-set'
+    } %}
+
+    {% for slug, icon in icons %}
+      <li class="pl-icon-bg">
+        <h3>AIL-{{ slug }}: {{ icon|title|replace({'-' : ' '}) }}</h3>
+        <span class="icon icon-{{ icon }}"></span>
+        <span class="icon icon-{{ icon }} blue"></span>
+        <span class="icon icon-{{ icon }} white"></span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

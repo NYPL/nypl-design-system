@@ -1,100 +1,61 @@
 .icon {
-  display: inline-block;
-  background-size: contain;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
   background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
 }
 
-// Arrows
-.icon-arrow-down {
-  background-image: url('../images/icons/arrow.svg');
+// Desired class name and svg file path name with '.svg' removed
+// (Useful for the arrow icons, which all reference the same svg file)
+$icons: (
+  "arrow-down": "arrow", 
+  "arrow-down-small": "arrow-small", 
+  "arrow-up": "arrow",
+  "arrow-right": "arrow",
+  "arrow-left": "arrow",
+  "search": "search",
+  "search-small": "search-small",
+  "plus" : "plus",
+  "minus" : "minus",
+  "cancel" : "cancel",
+  "book": "book",
+  "computer" : "computer",
+  "play" : "play",
+  "cd" : "cd",
+  "movie" : "movie",
+  "social-instagram" : "social-instagram", 
+  "social-facebook" : "social-facebook", 
+  "social-tumblr" : "social-tumblr",
+  "social-youtube" : "social-youtube",
+  "social-twitter" : "social-twitter", 
+  "social-media-icon-set" : "social-media-icon-set"
+);
+
+@each $name, $url in $icons {
+  .icon-#{$name} {
+    background-image: url('../images/icons/' + $url + '.svg');
+
+    &.blue {
+      background-image: url('../images/icons/' + $url + '-blue.svg');
+    }
+
+    &.white {
+      background-image: url('../images/icons/' + $url + '-white.svg');
+    }
+  }
 }
 
-.icon-arrow-down-small {
-  background-image: url('../images/icons/arrow-small.svg');
-}
-
+// Transforms for the arrow icons
 .icon-arrow-up {
-  background-image: url('../images/icons/arrow.svg');
   transform: rotate(0.5turn);
 }
 
 .icon-arrow-right {
-  background-image: url('../images/icons/arrow.svg');
   transform: rotate(0.75turn);
 }
 
 .icon-arrow-left {
-  background-image: url('../images/icons/arrow.svg');
   transform: rotate(0.25turn);
-}
-
-// Search icons
-.icon-search {
-  background-image: url('../images/icons/search.svg');
-}
-
-.icon-search-small {
-  background-image: url('../images/icons/search-small.svg');
-}
-
-// Icons for accordions
-.icon-plus {
-  background-image: url('../images/icons/plus.svg');
-}
-
-.icon-minus {
-  background-image: url('../images/icons/minus.svg');
-}
-
-.icon-cancel {
-  background-image: url('../images/icons/cancel.svg');
-}
-
-// Larger icons
-.icon-book {
-  background-image: url('../images/icons/book.svg');
-}
-
-.icon-computer {
-  background-image: url('../images/icons/computer.svg');
-}
-
-.icon-play {
-  background-image: url('../images/icons/play.svg');
-}
-
-.icon-cd {
-  background-image: url('../images/icons/cd.svg');
-}
-
-.icon-movie {
-  background-image: url('../images/icons/movie.svg');
-}
-
-// Social icons
-.icon-social-instagram {
-  background-image: url('../images/icons/social-instagram.svg');
-}
-
-.icon-social-facebook {
-  background-image: url('../images/icons/social-facebook.svg');
-}
-
-.icon-social-youtube {
-  background-image: url('../images/icons/social-youtube.svg');
-}
-
-.icon-social-tumblr {
-  background-image: url('../images/icons/social-tumblr.svg');
-}
-
-.icon-social-twitter {
-  background-image: url('../images/icons/social-twitter.svg');
-}
-
-.icon-social-media-icon-set {
-  background-image: url('../images/icons/social-media-icon-set.svg');
 }

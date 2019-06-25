@@ -46,3 +46,13 @@ body {
   padding: 0 $space-and-half;
   width: 100%;
 }
+
+.pl-icon-bg {
+  span {
+    border-radius: 2px;
+
+    &:nth-of-type(3) {
+      background-color: $gray-medium;
+    }
+  }
+}

@@ -201,6 +201,11 @@ body {
   padding: 0 1.875em;
   width: 100%; }
 
+.pl-icon-bg span {
+  border-radius: 2px; }
+  .pl-icon-bg span:nth-of-type(3) {
+    background-color: #bdbdbd; }
+
 /* Links */
 a {
   color: #616161;
@@ -749,78 +754,168 @@ td {
     $COMPONENTS
 \*------------------------------------*/
 .icon {
-  display: inline-block;
-  background-size: contain;
-  width: 16px;
-  height: 16px;
+  background-position: 50%;
   background-repeat: no-repeat;
-  background-position: 50%; }
+  background-size: contain;
+  display: inline-block;
+  height: 16px;
+  width: 16px; }
 
 .icon-arrow-down {
   background-image: url("../images/icons/arrow.svg"); }
+  .icon-arrow-down.blue {
+    background-image: url("../images/icons/arrow-blue.svg"); }
+  .icon-arrow-down.white {
+    background-image: url("../images/icons/arrow-white.svg"); }
 
 .icon-arrow-down-small {
   background-image: url("../images/icons/arrow-small.svg"); }
+  .icon-arrow-down-small.blue {
+    background-image: url("../images/icons/arrow-small-blue.svg"); }
+  .icon-arrow-down-small.white {
+    background-image: url("../images/icons/arrow-small-white.svg"); }
 
 .icon-arrow-up {
-  background-image: url("../images/icons/arrow.svg");
-  transform: rotate(0.5turn); }
+  background-image: url("../images/icons/arrow.svg"); }
+  .icon-arrow-up.blue {
+    background-image: url("../images/icons/arrow-blue.svg"); }
+  .icon-arrow-up.white {
+    background-image: url("../images/icons/arrow-white.svg"); }
 
 .icon-arrow-right {
-  background-image: url("../images/icons/arrow.svg");
-  transform: rotate(0.75turn); }
+  background-image: url("../images/icons/arrow.svg"); }
+  .icon-arrow-right.blue {
+    background-image: url("../images/icons/arrow-blue.svg"); }
+  .icon-arrow-right.white {
+    background-image: url("../images/icons/arrow-white.svg"); }
 
 .icon-arrow-left {
-  background-image: url("../images/icons/arrow.svg");
-  transform: rotate(0.25turn); }
+  background-image: url("../images/icons/arrow.svg"); }
+  .icon-arrow-left.blue {
+    background-image: url("../images/icons/arrow-blue.svg"); }
+  .icon-arrow-left.white {
+    background-image: url("../images/icons/arrow-white.svg"); }
 
 .icon-search {
   background-image: url("../images/icons/search.svg"); }
+  .icon-search.blue {
+    background-image: url("../images/icons/search-blue.svg"); }
+  .icon-search.white {
+    background-image: url("../images/icons/search-white.svg"); }
 
 .icon-search-small {
   background-image: url("../images/icons/search-small.svg"); }
+  .icon-search-small.blue {
+    background-image: url("../images/icons/search-small-blue.svg"); }
+  .icon-search-small.white {
+    background-image: url("../images/icons/search-small-white.svg"); }
 
 .icon-plus {
   background-image: url("../images/icons/plus.svg"); }
+  .icon-plus.blue {
+    background-image: url("../images/icons/plus-blue.svg"); }
+  .icon-plus.white {
+    background-image: url("../images/icons/plus-white.svg"); }
 
 .icon-minus {
   background-image: url("../images/icons/minus.svg"); }
+  .icon-minus.blue {
+    background-image: url("../images/icons/minus-blue.svg"); }
+  .icon-minus.white {
+    background-image: url("../images/icons/minus-white.svg"); }
 
 .icon-cancel {
   background-image: url("../images/icons/cancel.svg"); }
+  .icon-cancel.blue {
+    background-image: url("../images/icons/cancel-blue.svg"); }
+  .icon-cancel.white {
+    background-image: url("../images/icons/cancel-white.svg"); }
 
 .icon-book {
   background-image: url("../images/icons/book.svg"); }
+  .icon-book.blue {
+    background-image: url("../images/icons/book-blue.svg"); }
+  .icon-book.white {
+    background-image: url("../images/icons/book-white.svg"); }
 
 .icon-computer {
   background-image: url("../images/icons/computer.svg"); }
+  .icon-computer.blue {
+    background-image: url("../images/icons/computer-blue.svg"); }
+  .icon-computer.white {
+    background-image: url("../images/icons/computer-white.svg"); }
 
 .icon-play {
   background-image: url("../images/icons/play.svg"); }
+  .icon-play.blue {
+    background-image: url("../images/icons/play-blue.svg"); }
+  .icon-play.white {
+    background-image: url("../images/icons/play-white.svg"); }
 
 .icon-cd {
   background-image: url("../images/icons/cd.svg"); }
+  .icon-cd.blue {
+    background-image: url("../images/icons/cd-blue.svg"); }
+  .icon-cd.white {
+    background-image: url("../images/icons/cd-white.svg"); }
 
 .icon-movie {
   background-image: url("../images/icons/movie.svg"); }
+  .icon-movie.blue {
+    background-image: url("../images/icons/movie-blue.svg"); }
+  .icon-movie.white {
+    background-image: url("../images/icons/movie-white.svg"); }
 
 .icon-social-instagram {
   background-image: url("../images/icons/social-instagram.svg"); }
+  .icon-social-instagram.blue {
+    background-image: url("../images/icons/social-instagram-blue.svg"); }
+  .icon-social-instagram.white {
+    background-image: url("../images/icons/social-instagram-white.svg"); }
 
 .icon-social-facebook {
   background-image: url("../images/icons/social-facebook.svg"); }
-
-.icon-social-youtube {
-  background-image: url("../images/icons/social-youtube.svg"); }
+  .icon-social-facebook.blue {
+    background-image: url("../images/icons/social-facebook-blue.svg"); }
+  .icon-social-facebook.white {
+    background-image: url("../images/icons/social-facebook-white.svg"); }
 
 .icon-social-tumblr {
   background-image: url("../images/icons/social-tumblr.svg"); }
+  .icon-social-tumblr.blue {
+    background-image: url("../images/icons/social-tumblr-blue.svg"); }
+  .icon-social-tumblr.white {
+    background-image: url("../images/icons/social-tumblr-white.svg"); }
+
+.icon-social-youtube {
+  background-image: url("../images/icons/social-youtube.svg"); }
+  .icon-social-youtube.blue {
+    background-image: url("../images/icons/social-youtube-blue.svg"); }
+  .icon-social-youtube.white {
+    background-image: url("../images/icons/social-youtube-white.svg"); }
 
 .icon-social-twitter {
   background-image: url("../images/icons/social-twitter.svg"); }
+  .icon-social-twitter.blue {
+    background-image: url("../images/icons/social-twitter-blue.svg"); }
+  .icon-social-twitter.white {
+    background-image: url("../images/icons/social-twitter-white.svg"); }
 
 .icon-social-media-icon-set {
   background-image: url("../images/icons/social-media-icon-set.svg"); }
+  .icon-social-media-icon-set.blue {
+    background-image: url("../images/icons/social-media-icon-set-blue.svg"); }
+  .icon-social-media-icon-set.white {
+    background-image: url("../images/icons/social-media-icon-set-white.svg"); }
+
+.icon-arrow-up {
+  transform: rotate(0.5turn); }
+
+.icon-arrow-right {
+  transform: rotate(0.75turn); }
+
+.icon-arrow-left {
+  transform: rotate(0.25turn); }
 
 /*------------------------------------*\
     $BUTTONS
@@ -879,7 +974,7 @@ td {
     color: white; }
 
 .btn-outline {
-  background-color: transparent;
+  background-color: white;
   border: 1px solid #e0e0e0;
   color: black;
   justify-content: center; }
