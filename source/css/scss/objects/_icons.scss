@@ -3,44 +3,98 @@
   background-size: contain;
   width: 16px;
   height: 16px;
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 
-.icon-search {
-  background-image: url('../images/icons/search-small.png');
+// Arrows
+.icon-arrow-down {
+  background-image: url('../images/icons/arrow.svg');
 }
 
-.icon-search-white {
-  background-image: url('../images/icons/search-small-white.png');
+.icon-arrow-down-small {
+  background-image: url('../images/icons/arrow-small.svg');
+}
+
+.icon-arrow-up {
+  background-image: url('../images/icons/arrow.svg');
+  transform: rotate(0.5turn);
 }
 
 .icon-arrow-right {
-  background-image: url('../images/icons/arrow-right.svg');
+  background-image: url('../images/icons/arrow.svg');
+  transform: rotate(0.75turn);
 }
 
+.icon-arrow-left {
+  background-image: url('../images/icons/arrow.svg');
+  transform: rotate(0.25turn);
+}
+
+// Search icons
+.icon-search {
+  background-image: url('../images/icons/search.svg');
+}
+
+.icon-search-small {
+  background-image: url('../images/icons/search-small.svg');
+}
+
+// Icons for accordions
 .icon-plus {
   background-image: url('../images/icons/plus.svg');
 }
 
 .icon-minus {
   background-image: url('../images/icons/minus.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
 }
 
-.icon-twitter {
-  background-image: url('../images/icons/social-twitter-black.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
+.icon-cancel {
+  background-image: url('../images/icons/cancel.svg');
 }
 
-.icon-instagram {
-  background-image: url('../images/icons/social-instagram-black.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
+// Larger icons
+.icon-book {
+  background-image: url('../images/icons/book.svg');
 }
 
-.icon-twitter {
-  background-image: url('../images/icons/social-twitter-black.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
+.icon-computer {
+  background-image: url('../images/icons/computer.svg');
+}
+
+.icon-play {
+  background-image: url('../images/icons/play.svg');
+}
+
+.icon-cd {
+  background-image: url('../images/icons/cd.svg');
+}
+
+.icon-movie {
+  background-image: url('../images/icons/movie.svg');
+}
+
+// Social icons
+.icon-social-instagram {
+  background-image: url('../images/icons/social-instagram.svg');
+}
+
+.icon-social-facebook {
+  background-image: url('../images/icons/social-facebook.svg');
+}
+
+.icon-social-youtube {
+  background-image: url('../images/icons/social-youtube.svg');
+}
+
+.icon-social-tumblr {
+  background-image: url('../images/icons/social-tumblr.svg');
+}
+
+.icon-social-twitter {
+  background-image: url('../images/icons/social-twitter.svg');
+}
+
+.icon-social-media-icon-set {
+  background-image: url('../images/icons/social-media-icon-set.svg');
 }
