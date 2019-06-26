@@ -5,6 +5,16 @@
   display: inline-block;
   height: 16px;
   width: 16px;
+
+  &.medium {
+    height: 32px;
+    width: 32px;
+  }
+
+  &.large {
+    height: 64px;
+    width: 64px;
+  }
 }
 
 // Desired class name and svg file path name with '.svg' removed
@@ -39,6 +49,10 @@ $icons: (
 
     &.blue {
       background-image: url('../images/icons/' + $url + '-blue.svg');
+    }
+
+    &.purple {
+      background-image: url('../images/icons/' + $url + '-purple.svg');
     }
 
     &.white {

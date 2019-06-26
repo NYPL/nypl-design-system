@@ -760,11 +760,19 @@ td {
   display: inline-block;
   height: 16px;
   width: 16px; }
+  .icon.medium {
+    height: 32px;
+    width: 32px; }
+  .icon.large {
+    height: 64px;
+    width: 64px; }
 
 .icon-arrow-down {
   background-image: url("../images/icons/arrow.svg"); }
   .icon-arrow-down.blue {
     background-image: url("../images/icons/arrow-blue.svg"); }
+  .icon-arrow-down.purple {
+    background-image: url("../images/icons/arrow-purple.svg"); }
   .icon-arrow-down.white {
     background-image: url("../images/icons/arrow-white.svg"); }
 
@@ -772,6 +780,8 @@ td {
   background-image: url("../images/icons/arrow-small.svg"); }
   .icon-arrow-down-small.blue {
     background-image: url("../images/icons/arrow-small-blue.svg"); }
+  .icon-arrow-down-small.purple {
+    background-image: url("../images/icons/arrow-small-purple.svg"); }
   .icon-arrow-down-small.white {
     background-image: url("../images/icons/arrow-small-white.svg"); }
 
@@ -779,6 +789,8 @@ td {
   background-image: url("../images/icons/arrow.svg"); }
   .icon-arrow-up.blue {
     background-image: url("../images/icons/arrow-blue.svg"); }
+  .icon-arrow-up.purple {
+    background-image: url("../images/icons/arrow-purple.svg"); }
   .icon-arrow-up.white {
     background-image: url("../images/icons/arrow-white.svg"); }
 
@@ -786,6 +798,8 @@ td {
   background-image: url("../images/icons/arrow.svg"); }
   .icon-arrow-right.blue {
     background-image: url("../images/icons/arrow-blue.svg"); }
+  .icon-arrow-right.purple {
+    background-image: url("../images/icons/arrow-purple.svg"); }
   .icon-arrow-right.white {
     background-image: url("../images/icons/arrow-white.svg"); }
 
@@ -793,6 +807,8 @@ td {
   background-image: url("../images/icons/arrow.svg"); }
   .icon-arrow-left.blue {
     background-image: url("../images/icons/arrow-blue.svg"); }
+  .icon-arrow-left.purple {
+    background-image: url("../images/icons/arrow-purple.svg"); }
   .icon-arrow-left.white {
     background-image: url("../images/icons/arrow-white.svg"); }
 
@@ -800,6 +816,8 @@ td {
   background-image: url("../images/icons/search.svg"); }
   .icon-search.blue {
     background-image: url("../images/icons/search-blue.svg"); }
+  .icon-search.purple {
+    background-image: url("../images/icons/search-purple.svg"); }
   .icon-search.white {
     background-image: url("../images/icons/search-white.svg"); }
 
@@ -807,6 +825,8 @@ td {
   background-image: url("../images/icons/search-small.svg"); }
   .icon-search-small.blue {
     background-image: url("../images/icons/search-small-blue.svg"); }
+  .icon-search-small.purple {
+    background-image: url("../images/icons/search-small-purple.svg"); }
   .icon-search-small.white {
     background-image: url("../images/icons/search-small-white.svg"); }
 
@@ -814,6 +834,8 @@ td {
   background-image: url("../images/icons/plus.svg"); }
   .icon-plus.blue {
     background-image: url("../images/icons/plus-blue.svg"); }
+  .icon-plus.purple {
+    background-image: url("../images/icons/plus-purple.svg"); }
   .icon-plus.white {
     background-image: url("../images/icons/plus-white.svg"); }
 
@@ -821,6 +843,8 @@ td {
   background-image: url("../images/icons/minus.svg"); }
   .icon-minus.blue {
     background-image: url("../images/icons/minus-blue.svg"); }
+  .icon-minus.purple {
+    background-image: url("../images/icons/minus-purple.svg"); }
   .icon-minus.white {
     background-image: url("../images/icons/minus-white.svg"); }
 
@@ -828,6 +852,8 @@ td {
   background-image: url("../images/icons/cancel.svg"); }
   .icon-cancel.blue {
     background-image: url("../images/icons/cancel-blue.svg"); }
+  .icon-cancel.purple {
+    background-image: url("../images/icons/cancel-purple.svg"); }
   .icon-cancel.white {
     background-image: url("../images/icons/cancel-white.svg"); }
 
@@ -835,6 +861,8 @@ td {
   background-image: url("../images/icons/book.svg"); }
   .icon-book.blue {
     background-image: url("../images/icons/book-blue.svg"); }
+  .icon-book.purple {
+    background-image: url("../images/icons/book-purple.svg"); }
   .icon-book.white {
     background-image: url("../images/icons/book-white.svg"); }
 
@@ -842,6 +870,8 @@ td {
   background-image: url("../images/icons/computer.svg"); }
   .icon-computer.blue {
     background-image: url("../images/icons/computer-blue.svg"); }
+  .icon-computer.purple {
+    background-image: url("../images/icons/computer-purple.svg"); }
   .icon-computer.white {
     background-image: url("../images/icons/computer-white.svg"); }
 
@@ -849,6 +879,8 @@ td {
   background-image: url("../images/icons/play.svg"); }
   .icon-play.blue {
     background-image: url("../images/icons/play-blue.svg"); }
+  .icon-play.purple {
+    background-image: url("../images/icons/play-purple.svg"); }
   .icon-play.white {
     background-image: url("../images/icons/play-white.svg"); }
 
@@ -856,6 +888,8 @@ td {
   background-image: url("../images/icons/cd.svg"); }
   .icon-cd.blue {
     background-image: url("../images/icons/cd-blue.svg"); }
+  .icon-cd.purple {
+    background-image: url("../images/icons/cd-purple.svg"); }
   .icon-cd.white {
     background-image: url("../images/icons/cd-white.svg"); }
 
@@ -863,6 +897,8 @@ td {
   background-image: url("../images/icons/movie.svg"); }
   .icon-movie.blue {
     background-image: url("../images/icons/movie-blue.svg"); }
+  .icon-movie.purple {
+    background-image: url("../images/icons/movie-purple.svg"); }
   .icon-movie.white {
     background-image: url("../images/icons/movie-white.svg"); }
 
@@ -870,6 +906,8 @@ td {
   background-image: url("../images/icons/social-instagram.svg"); }
   .icon-social-instagram.blue {
     background-image: url("../images/icons/social-instagram-blue.svg"); }
+  .icon-social-instagram.purple {
+    background-image: url("../images/icons/social-instagram-purple.svg"); }
   .icon-social-instagram.white {
     background-image: url("../images/icons/social-instagram-white.svg"); }
 
@@ -877,6 +915,8 @@ td {
   background-image: url("../images/icons/social-facebook.svg"); }
   .icon-social-facebook.blue {
     background-image: url("../images/icons/social-facebook-blue.svg"); }
+  .icon-social-facebook.purple {
+    background-image: url("../images/icons/social-facebook-purple.svg"); }
   .icon-social-facebook.white {
     background-image: url("../images/icons/social-facebook-white.svg"); }
 
@@ -884,6 +924,8 @@ td {
   background-image: url("../images/icons/social-tumblr.svg"); }
   .icon-social-tumblr.blue {
     background-image: url("../images/icons/social-tumblr-blue.svg"); }
+  .icon-social-tumblr.purple {
+    background-image: url("../images/icons/social-tumblr-purple.svg"); }
   .icon-social-tumblr.white {
     background-image: url("../images/icons/social-tumblr-white.svg"); }
 
@@ -891,6 +933,8 @@ td {
   background-image: url("../images/icons/social-youtube.svg"); }
   .icon-social-youtube.blue {
     background-image: url("../images/icons/social-youtube-blue.svg"); }
+  .icon-social-youtube.purple {
+    background-image: url("../images/icons/social-youtube-purple.svg"); }
   .icon-social-youtube.white {
     background-image: url("../images/icons/social-youtube-white.svg"); }
 
@@ -898,6 +942,8 @@ td {
   background-image: url("../images/icons/social-twitter.svg"); }
   .icon-social-twitter.blue {
     background-image: url("../images/icons/social-twitter-blue.svg"); }
+  .icon-social-twitter.purple {
+    background-image: url("../images/icons/social-twitter-purple.svg"); }
   .icon-social-twitter.white {
     background-image: url("../images/icons/social-twitter-white.svg"); }
 
@@ -905,6 +951,8 @@ td {
   background-image: url("../images/icons/social-media-icon-set.svg"); }
   .icon-social-media-icon-set.blue {
     background-image: url("../images/icons/social-media-icon-set-blue.svg"); }
+  .icon-social-media-icon-set.purple {
+    background-image: url("../images/icons/social-media-icon-set-purple.svg"); }
   .icon-social-media-icon-set.white {
     background-image: url("../images/icons/social-media-icon-set-white.svg"); }
 
