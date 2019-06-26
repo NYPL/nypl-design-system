@@ -3,20 +3,28 @@
   "htmlClass": "pl",
   "bodyClass": "body",
   "img": {
-    "landscape_4x3": {
-      "src": "../../images/fpo_4x3.png",
-      "alt": "4x3 Image"
+    "image_1_1": {
+      "src": "../../images/image_1_1.png",
+      "alt": "1:1 image"
     },
-    "landscape_16x9": {
-      "src": "../../images/fpo_16x9.png",
-      "alt": "16x9 Image"
+    "image_2_1": {
+      "src": "../../images/image_2_1.png",
+      "alt": "2x1 image"
     },
-    "square": {
-      "src": "../../images/fpo_square.png",
-      "alt": "Square Thumbnail"
+    "image_9_12": {
+      "src": "../../images/image_9_12.png",
+      "alt": "9x12 image"
     },
-    "avatar" : {
-      "src" : "../../images/fpo_avatar.png",
+    "image_12_9": {
+      "src": "../../images/image_12_9.png",
+      "alt": "12x9 image"
+    },
+    "image_full_bleed": {
+      "src": "../../images/image-full-bleed.png",
+      "alt": "Full bleed image"
+    },
+    "circle_mask" : {
+      "src" : "../../images/image_1_1.png",
       "alt" : "Person Name"
     },
     "rectangle": {
