@@ -1,17 +1,5 @@
 <div class="centered">
-  <h2>A: Icons + Logos</h2>
-  {# <p>Built using the <a href="https://designsystem.digital.gov/components/icons/">USWDS</a> guidelines.</p> #}
-
   <ul class="icons">
-    <li>
-      <h3>AIL-1: Lion Logo</h3>
-      <img src="/images/logo.svg" aria-labelledby="#nypl-logo" />
-    </li>
-
-    <li class="pl-icon-bg">
-      <h3>AIL-21: NYPL Logo</h3>
-      <img src="/images/nypl-acronym-lockup.svg" aria-labelledby="#nypl-acronym-lockup" />
-    </li>
 
     {% set icons = {
       '2' : 'arrow-down',
@@ -24,17 +12,6 @@
       '8' : 'plus',
       '9' : 'minus',
       '10' : 'cancel',
-      '11' : 'book medium',
-      '12' : 'computer medium',
-      '13' : 'play medium',
-      '14' : 'cd medium',
-      '15' : 'movie medium',
-      '16' : 'social-instagram medium',
-      '17' : 'social-facebook medium',
-      '18' : 'social-youtube medium',
-      '19' : 'social-tumblr medium',
-      '20' : 'social-twitter medium',
-      '22' : 'social-media-icon-set large'
     } %}
 
     {% for slug, icon in icons %}
