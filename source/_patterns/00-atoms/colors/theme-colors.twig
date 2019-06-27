@@ -1,0 +1,12 @@
+{% set nav = {
+  color19: {sassVariable: "$nypl-purple", cssHex: "#8a1a9c" },
+} %}
+
+<ul class="sg-colors">
+  {% for item in nav %}
+    <li>
+      <span class="sg-swatch" style="background: {{item.cssHex}};"></span>
+      <span class="sg-label">{{ item.sassVariable }}, {{ item.cssHex }}</span>
+    </li>
+  {% endfor %}
+</ul>
