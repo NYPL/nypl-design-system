@@ -278,12 +278,12 @@ abbr {
   border-bottom: 1px dotted #bdbdbd;
   cursor: help; }
 
-.tag {
+.nypl-tag {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.44px; }
-  .tag + .tag {
+  .nypl-tag + .nypl-tag {
     margin-left: 1.25em; }
 
 ol, ul {
@@ -758,14 +758,17 @@ td {
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
-  height: 16px;
-  width: 16px; }
-  .icon.medium {
-    height: 32px;
-    width: 32px; }
+  height: 24px;
+  width: 24px; }
+  .icon.small {
+    height: 18px;
+    width: 18px; }
   .icon.large {
-    height: 64px;
-    width: 64px; }
+    height: 48px;
+    width: 48px; }
+  .icon.xlarge {
+    height: 68px;
+    width: 68px; }
 
 .icon-arrow-down {
   background-image: url("../images/icons/arrow.svg"); }
@@ -811,6 +814,15 @@ td {
     background-image: url("../images/icons/arrow-purple.svg"); }
   .icon-arrow-left.white {
     background-image: url("../images/icons/arrow-white.svg"); }
+
+.icon-check-small {
+  background-image: url("../images/icons/check-small.svg"); }
+  .icon-check-small.blue {
+    background-image: url("../images/icons/check-small-blue.svg"); }
+  .icon-check-small.purple {
+    background-image: url("../images/icons/check-small-purple.svg"); }
+  .icon-check-small.white {
+    background-image: url("../images/icons/check-small-white.svg"); }
 
 .icon-search {
   background-image: url("../images/icons/search.svg"); }
@@ -1191,6 +1203,12 @@ td {
   height: 10vh;
   max-width: 100%;
   width: 100%; }
+
+.circle-mask {
+  background-color: #fff7e8;
+  border-radius: 50%;
+  height: 68px;
+  width: 68px; }
 
 .inline-list li {
   display: inline-block; }

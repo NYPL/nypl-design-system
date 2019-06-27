@@ -3,17 +3,22 @@
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
 
-  &.medium {
-    height: 32px;
-    width: 32px;
+  &.small {
+    height: 18px;
+    width: 18px;
   }
 
   &.large {
-    height: 64px;
-    width: 64px;
+    height: 48px;
+    width: 48px;
+  }
+
+  &.xlarge {
+    height: 68px;
+    width: 68px;
   }
 }
 
@@ -25,6 +30,7 @@ $icons: (
   "arrow-up": "arrow",
   "arrow-right": "arrow",
   "arrow-left": "arrow",
+  "check-small": "check-small",
   "search": "search",
   "search-small": "search-small",
   "plus" : "plus",

@@ -42,13 +42,13 @@ abbr {
     cursor: help;
 }
 
-.tag {
+.nypl-tag { // I'd like to add prefixes in a post process but this is breaking patternlab. Placeholder
   font-family: $font;
   font-size: $font-size-label;
   text-transform: uppercase;
   letter-spacing: 0.44px;
 
-  & + .tag {
+  & + .nypl-tag {
     margin-left: $space;
   }
 }
