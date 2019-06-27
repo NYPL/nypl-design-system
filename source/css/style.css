@@ -177,10 +177,16 @@ body {
   column-gap: 2%;
   row-gap: 2.5em;
   display: grid;
-  grid-template-columns: repeat(12, 1fr); }
-  @media screen and (max-width: 600px) {
+  grid-template-columns: repeat(12, 1fr);
+  font-size: 1rem; }
+  @media screen and (max-width: 320px) {
     .body {
+      grid-template-columns: repeat(4, 1fr);
       column-gap: unset;
+      width: 95%; } }
+  @media screen and (max-width: 60em) {
+    .body {
+      grid-template-columns: repeat(8, 1fr);
       width: 95%; } }
 
 .pl-c-main {
@@ -218,25 +224,28 @@ a {
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
   line-height: 1.2;
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 400; }
 
 h2, .beta {
   line-height: 1.2;
-  font-size: 27px;
+  font-size: 2em;
   font-weight: 500; }
 
 h3, .gamma {
-  line-height: 1.2;
-  font-size: 20px;
-  font-weight: 600; }
+  line-height: 1.25;
+  font-size: 1.5em;
+  font-weight: 400; }
 
 h4, .delta, blockquote .attribution {
-  font-size: 16px;
-  font-weight: 600; }
+  font-size: 1.1em;
+  font-weight: 500; }
 
 h5, .epsilon {
-  font-size: 0.75em; }
+  font-size: 0.9em; }
+
+h6, .zeta {
+  font-size: 0.7em; }
 
 /* Subheadings */
 .subheading {
@@ -1209,6 +1218,29 @@ td {
   border-radius: 50%;
   height: 68px;
   width: 68px; }
+
+.event-address-bar {
+  grid-column: span 3;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #00a1b0;
+  color: white;
+  padding: 0.625em 1.25em; }
+  .event-address-bar li {
+    flex: 0 0 100%; }
+  .event-address-bar.error {
+    background-color: #952227; }
+  @media screen and (max-width: 320px) {
+    .event-address-bar {
+      grid-column: span 4; } }
+  @media screen and (max-width: 60em) {
+    .event-address-bar {
+      grid-column: span 8; } }
 
 .inline-list li {
   display: inline-block; }

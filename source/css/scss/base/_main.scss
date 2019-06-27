@@ -13,9 +13,16 @@ body {
   row-gap: $space-double;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  font-size: 1rem;
 
-  @media screen and (max-width: $bp-med) {
+  @media screen and (max-width: $bp-mobile) {
+    grid-template-columns: repeat(4, 1fr);
     column-gap: unset;
+    width: 95%;
+  }
+
+  @media screen and (max-width: $bp-tablet) {
+    grid-template-columns: repeat(8, 1fr);
     width: 95%;
   }
 }

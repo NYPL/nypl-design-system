@@ -1,0 +1,25 @@
+{% set event_statuses = {
+  default: '',
+  error: 'error',
+} %}
+
+{% set event_date = '2019-06-10' %}
+
+{% set event_time = {
+  start: '10:30',
+  end: '12:30',
+} %}
+
+{% for event_status in event_statuses %}
+  {% if event_status == 'error' %}
+    <ul class="event-address-bar {{ event_status }}">
+      <li>The event has ended</li>
+    </ul>
+  {% else %}
+    <ul class="event-address-bar {{ event_status }}">
+      <li>{{ event_date|date("l, F d") }}</li>
+
+      <li>{{ event_time.start|date("g:iA") }}–{{ event_time.end|date("g:iA") }}</li>
+    </ul>
+  {% endif %}
+{% endfor %}

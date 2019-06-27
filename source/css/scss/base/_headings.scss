@@ -2,33 +2,33 @@
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
   line-height: 1.2;
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 400;
 }
 
 h2, .beta    { 
   line-height: 1.2;
-  font-size: 27px;
+  font-size: 2em;
   font-weight: 500;
 }
 
 h3, .gamma   { 
-  line-height: 1.2;
-  font-size: 20px;
-  font-weight: 600;
+  line-height: 1.25;
+  font-size: 1.5em;
+  font-weight: 400;
 }
 
 h4, .delta   {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 1.1em;
+  font-weight: 500;
 }
 
 h5, .epsilon { 
-  font-size: $font-size-small;
+  font-size: 0.9em;
 }
 
 h6, .zeta    { 
-  
+  font-size: 0.7em;
 }
 
 /* Subheadings */

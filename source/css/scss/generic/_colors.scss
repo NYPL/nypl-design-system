@@ -30,7 +30,12 @@ $nypl-purple: #8a1a9c;
 $nypl-purple-light: #f3e8f5;
 $nypl-purple-dark: #500f5a;
 
-//Colors
+$nypl-success: $nypl-turquoise;
+$nypl-error: $nypl-red-dark;
+$nypl-warning: $nypl-yellow-dark;
+$nypl-information: $nypl-blue;
+
+// Patternlab holdovers
 $gray : $gray-medium;
 $gray-light-2 : $gray-xlight;
 $gray-light-3 : $gray-light;

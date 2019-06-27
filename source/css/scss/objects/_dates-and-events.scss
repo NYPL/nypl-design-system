@@ -1,0 +1,33 @@
+
+// MT-DE 004
+.event-address-bar {
+  grid-column: span 3;
+  height: 80px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1em;
+  font-weight: 500;
+  background-color: $nypl-success;
+  color: $white;
+  padding: $space-half $space;
+
+  li {
+    flex: 0 0 100%;
+  }
+
+  &.error {
+    background-color: $nypl-error;
+  }
+
+  @media screen and (max-width: $bp-mobile) {
+    grid-column: span 4;
+  }
+
+  @media screen and (max-width: $bp-tablet) {
+    grid-column: span 8;
+  }
+}
