@@ -1242,6 +1242,9 @@ td {
     .event-address-bar {
       grid-column: span 8; } }
 
+.event-address-bar-and-actions {
+  grid-column: span 3; }
+
 .inline-list li {
   display: inline-block; }
 
