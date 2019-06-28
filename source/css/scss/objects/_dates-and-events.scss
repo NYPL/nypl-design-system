@@ -12,6 +12,9 @@
   font-size: 1em;
   font-weight: 500;
   background-color: $nypl-success;
+  border: 1px solid $nypl-success;
+  margin-left: -1px;
+  margin-right: -1px;
   color: $white;
   padding: $space-half $space;
 
@@ -35,4 +38,20 @@
 // OSAE2-event-address-bar-and-actions
 .event-address-bar-and-actions {
   grid-column: span 3;
+
+  border-bottom: 1px solid $gray-light;
+  border-left: 1px solid $gray-light;
+  border-right: 1px solid $gray-light;
+
+  .event-address-bar  {
+    margin-bottom: $space;
+  }
+
+  .information {
+    padding: 0 $space 0 $space;
+  }
+
+  .actions {
+    padding: 0 $space-half $space-half $space-half;
+  }
 }

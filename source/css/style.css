@@ -149,18 +149,6 @@ header, footer, nav, section, article, hgroup, figure {
   .hide-large {
     display: none; } }
 
-.valid {
-  color: #799a05; }
-
-.error {
-  color: #d0343a; }
-
-.warning {
-  color: #ffb81d; }
-
-.information {
-  color: #0071ce; }
-
 .font-secondary {
   font-family: Georgia, Times, "Times New Roman", serif; }
 
@@ -992,7 +980,7 @@ td {
 .btn {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   box-sizing: border-box;
   background: #0071ce;
   border-radius: 2px;
@@ -1026,13 +1014,17 @@ td {
   background-color: transparent;
   color: #0071ce;
   display: inline-block;
-  position: relative; }
+  position: relative;
+  padding: 0.625em 0.625em 0.625em 0;
+  border-radius: 2px; }
   .btn-text .icon-arrow-right {
     margin-left: 5px;
+    margin-top: -2px;
     vertical-align: middle;
-    width: 9px; }
+    width: 12px; }
   .btn-text:hover {
-    background: #e5f0fa; }
+    background: #e5f0fa;
+    color: #0071ce; }
 
 .btn-cancel {
   padding: 0.625em 0.625em;
@@ -1229,6 +1221,9 @@ td {
   font-size: 1em;
   font-weight: 500;
   background-color: #00a1b0;
+  border: 1px solid #00a1b0;
+  margin-left: -1px;
+  margin-right: -1px;
   color: white;
   padding: 0.625em 1.25em; }
   .event-address-bar li {
@@ -1243,7 +1238,16 @@ td {
       grid-column: span 8; } }
 
 .event-address-bar-and-actions {
-  grid-column: span 3; }
+  grid-column: span 3;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0; }
+  .event-address-bar-and-actions .event-address-bar {
+    margin-bottom: 1.25em; }
+  .event-address-bar-and-actions .information {
+    padding: 0 1.25em 0 1.25em; }
+  .event-address-bar-and-actions .actions {
+    padding: 0 0.625em 0.625em 0.625em; }
 
 .inline-list li {
   display: inline-block; }

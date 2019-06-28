@@ -1,1 +1,10 @@
-<button href="#" class="btn btn-outline">Hello World</button>
+<button 
+  href="#" 
+  class="
+    btn 
+    btn-outline 
+    {{ button_fluid_bool ? 'fluid' : '' }}
+  ">
+
+  {{ button_string }}
+</button>

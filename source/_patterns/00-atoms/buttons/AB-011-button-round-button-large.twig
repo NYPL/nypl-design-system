@@ -1,1 +1,10 @@
-<button href="#" class="btn btn-round-large">Load More</button>
+<button 
+  href="#" 
+  class="
+    btn 
+    btn-round-large
+    {{ button_fluid_bool ? 'fluid' : '' }}
+  ">
+
+  {{ button_string }}
+</button>

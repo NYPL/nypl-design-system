@@ -1,1 +1,10 @@
-<button href="#" class="btn disabled">Disabled Button</button>
+<button 
+  href="#" 
+  class="
+    btn 
+    disabled
+    {{ button_fluid_bool ? 'fluid' : '' }}
+  ">
+
+  {{ button_string }}
+</button>

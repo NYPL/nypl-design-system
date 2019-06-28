@@ -1,1 +1,11 @@
-<button href="#" class="btn btn-large btn-outline">Register</button>
+<button 
+  href="#" 
+  class="
+    btn 
+    btn-large 
+    btn-outline
+    {{ button_fluid_bool ? 'fluid' : '' }}
+  ">
+
+  {{ button_string }}
+</button>

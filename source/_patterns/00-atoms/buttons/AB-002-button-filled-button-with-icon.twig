@@ -1,4 +1,16 @@
-<button href="#" class="btn">
-  <span class="icon icon-search white"></span>
-  Search
+<button 
+  href="#" 
+  class="
+    btn 
+    {{ button_fluid_bool ? 'fluid' : '' }}
+  ">
+
+  <span 
+    class="
+      icon 
+      icon-{{ button_icon.icon }} 
+      white"
+  ></span>
+
+  {{ button_icon.string }}
 </button>
