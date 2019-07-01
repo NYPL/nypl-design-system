@@ -2,6 +2,27 @@
     $GLOBAL CLASSES
 \*------------------------------------*/
 
+// Break Grid
+@mixin break-grid($color) {
+  position: relative;
+
+  &::before {
+    content: '';
+    background-color: $color;
+    position: absolute;
+    height: 100%;
+    width: 200vw;
+    top: 0;
+    left: -100vw;
+    z-index: -1;
+  }
+}
+
+main {
+  grid-column: 1 / 10;
+  margin-top: $space;
+}
+
 /* Clearfix */
 .cf {
     *zoom: 1;

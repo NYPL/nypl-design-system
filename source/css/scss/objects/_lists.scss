@@ -152,3 +152,21 @@ ul {
 .division-block-list {
   grid-column: 1 / 11;
 }
+
+.breadcrumbs {
+  grid-column: 1 / 13;
+  display: flex;
+  margin-top: $space;
+
+  li {
+    margin-right: $space;
+
+    &::after {
+      content: '/';
+    }
+  }
+}
+
+.quick-links {
+  grid-column: 10 / 13;
+}

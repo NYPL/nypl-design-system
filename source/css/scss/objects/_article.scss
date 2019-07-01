@@ -1,15 +1,22 @@
 //Article
 .article-hero {
-  height: 10vh;
   background-color: $nypl-success;
   display: flex;
-  width: 100%;
+  position: relative;
   grid-column: 1 / 13;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 30vh;
+  width: 100%;
+
+  @include break-grid($nypl-success);
 }
 
 .article-title {
-  grid-column: 2 / 11;
-  // background-color: $white;
+  background-color: $white;
+  padding: $space;
+  flex: 0 1 90%;
 
   h1 {
     font-size: 2.5em;

@@ -10,7 +10,6 @@ body {
   max-width: 1280px;
   width: 80%;
   column-gap: 2%;
-  row-gap: $space-double;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   font-size: 1rem;

@@ -85,6 +85,10 @@ header, footer, nav, section, article, hgroup, figure {
 /*------------------------------------*\
     $GLOBAL CLASSES
 \*------------------------------------*/
+main {
+  grid-column: 1 / 10;
+  margin-top: 1.25em; }
+
 /* Clearfix */
 .cf, .l-two-col, [role=main] {
   *zoom: 1; }
@@ -163,7 +167,6 @@ body {
   max-width: 1280px;
   width: 80%;
   column-gap: 2%;
-  row-gap: 2.5em;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   font-size: 1rem; }
@@ -1212,6 +1215,9 @@ td {
   margin-left: 50%;
   padding: 0.625em; }
 
+.fellow-card {
+  grid-column: 1 / 10; }
+
 .img-fluid {
   height: auto;
   max-width: 100%;
@@ -1368,6 +1374,18 @@ ul {
 .division-block-list {
   grid-column: 1 / 11; }
 
+.breadcrumbs {
+  grid-column: 1 / 13;
+  display: flex;
+  margin-top: 1.25em; }
+  .breadcrumbs li {
+    margin-right: 1.25em; }
+    .breadcrumbs li::after {
+      content: '/'; }
+
+.quick-links {
+  grid-column: 10 / 13; }
+
 .tooltip-container {
   display: inline-block;
   position: relative; }
@@ -1450,14 +1468,30 @@ ul {
   margin-bottom: 0.625em; }
 
 .article-hero {
-  height: 10vh;
   background-color: #00a1b0;
   display: flex;
+  position: relative;
+  grid-column: 1 / 13;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 30vh;
   width: 100%;
-  grid-column: 1 / 13; }
+  position: relative; }
+  .article-hero::before {
+    content: '';
+    background-color: #00a1b0;
+    position: absolute;
+    height: 100%;
+    width: 200vw;
+    top: 0;
+    left: -100vw;
+    z-index: -1; }
 
 .article-title {
-  grid-column: 2 / 11; }
+  background-color: white;
+  padding: 1.25em;
+  flex: 0 1 90%; }
   .article-title h1 {
     font-size: 2.5em; }
 
