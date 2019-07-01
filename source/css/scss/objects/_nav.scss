@@ -2,38 +2,59 @@
     $NAVIGATION
 \*------------------------------------*/
 
-.nav {
-  clear: both;
-  overflow: hidden;
-  max-height: 0;
-  font-size: 18px;
-  line-height: 36px;
-  letter-spacing: 0.44px;
-  
-  a {
-    display: block;
-    padding: $space;
-    border-top: 1px solid $gray-light-2;
-  }
-
-  &.active {
-    max-height: 40em;
-  }
-
-  @media all and (min-width: $bp-med) {
-    max-height: none;
-    float: right;
-    clear: none;
+.main-nav,
+.secondary-nav {
+  ul {
+    display: flex;
+    max-width: 1280px;
 
     li {
-      float: left;
-    }
+      margin-right: $space;
+      align-self: stretch;
 
-    a {
-      border: 0;
+      &:hover {
+        background-color: $nypl-red-dark;
+      }
     }
-    
   }
+}
+
+.main-nav {
+  background-color: $nypl-red;
+  padding: $space;
+  flex: 1 1 100%;
+  position: relative;
+
+  &::before {
+    content: '';
+    background-color: $nypl-red;
+    position: absolute;
+    height: 100%;
+    width: 200vw;
+    top: 0;
+    left: -100vw;
+    z-index: -1;
+  }
+
+  a {
+    color: $white;
+    font-family: $font-light;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    display: block;
+    height: 100%;
+    align-self: stretch;
+
+    &:hover {
+      background-color: $nypl-red-dark;
+    }
+  }
+}
+
+.secondary-nav {
+  flex: 0 1 50%;
+  align-self: center;
+  justify-self: flex-end;
 }
 
 //Pagination

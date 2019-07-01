@@ -1,15 +1,18 @@
 {% extends "@templates/00-layouts/00-site.twig" %}
-{% block content %}
-<div class="l-two-col">
+  {% block content %}
+
+  <main>
+    <p>beep</p>
     <div class="l-main">
-        {% block main %}
-            <p>Content Placeholder</p>
-        {% endblock %}
+      {% block main %}
+        <p>Content Placeholder</p>
+      {% endblock %}
     </div>
     <div class="l-sidebar">
-        {% block sidebar %}
-            <h3>Sidebar</h3>
-        {% endblock %}
+      {% block sidebar %}
+        <h3>Sidebar</h3>
+      {% endblock %}
     </div>
-</div>
+  </main>
+
 {% endblock %}

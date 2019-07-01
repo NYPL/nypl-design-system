@@ -1,16 +1,67 @@
-<!-- Begin .header -->
-<header class="header cf" role="banner">
-  {% include "@atoms/icons/AIL-001-lion-logo.twig" %}
+<header class="header">
+  <div class="logo">
+    {% include "@atoms/logos/001-AIL-lion-logo.twig" %}
+    {% include "@atoms/logos/003-AIL-logotype.twig" %}
+  </div>
 
-  <a href="#search-form" class="nav-toggle nav-toggle-search icon-search">
+  <nav class="secondary-nav">
+    <ul>
+      <li>
+        <a href="#">Get a Card/My Account</a>
+      </li>
+      <li>
+        <a href="#">Language</a>
+      </li>
+      <li>
+        <a href="#">Visit</a>
+      </li>
+      <li>
+        <a href="#">Help</a>
+      </li>
+      <li>
+        <a href="#">Shop</a>
+      </li>
+      <li>
+        <a href="#">Donate</a>
+      </li>
+    </ul>
+  </nav>
+
+  <nav class="main-nav">
+    <ul>
+      <li>
+        <a href="#">Books & More</a>
+      </li>
+      <li>
+        <a href="#">Research</a>
+      </li>
+      <li>
+        <a href="#">What's On</a>
+      </li>
+      <li>
+        <a href="#">Your Interests</a>
+      </li>
+      <li>
+        <a href="#">Treasures</a>
+      </li>
+      <li>
+        <a href="#">Locations</a>
+      </li>
+      <li>
+        <a href="#">Support the Library</a>
+      </li>
+    </ul>
+
+    {# {% include "@molecules/05-navigation/00-primary-nav.twig" %} #}
+  {# {% include "@molecules/04-forms/00-search.twig" %} #}
+  </nav>
+
+  {# <a href="#search-form" class="nav-toggle nav-toggle-search icon-search">
     <span class="is-vishidden">Search</span>
   </a>
 
   <a href="#nav" class="nav-toggle nav-toggle-menu icon-menu">
     <span class="is-vishidden">Menu</span>
-  </a>
-
-  {# {% include "@molecules/05-navigation/00-primary-nav.twig" %} #}
-  {# {% include "@molecules/04-forms/00-search.twig" %} #}
+  </a> #}
 </header>
 <!-- End .header -->

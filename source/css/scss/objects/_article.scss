@@ -1,34 +1,45 @@
 //Article
-.article-header {
-	h1 {
-		font-size: 2.5em;
-	}
+.article-hero {
+  height: 10vh;
+  background-color: $nypl-success;
+  display: flex;
+  width: 100%;
+  grid-column: 1 / 13;
+}
+
+.article-title {
+  grid-column: 2 / 11;
+  // background-color: $white;
+
+  h1 {
+    font-size: 2.5em;
+  }
 }
 
 .byline {
-	font-size: $font-size-small-2;
-	font-style: italic;
-	margin-bottom: $space-half;
+  font-size: $font-size-small-2;
+  font-style: italic;
+  margin-bottom: $space-half;
 }
 
 //Social Share
 .social-share {
-	overflow: hidden;
-	margin-bottom: $space;
+  overflow: hidden;
+  margin-bottom: $space;
 
-	li {
-		float: left;
-		margin-right: $space-half;
-	}
+  li {
+    float: left;
+    margin-right: $space-half;
+  }
 
-	a {
-		background: $gray-dark;
-		color: $white;
-		display: block;
-		padding: $space-half;
+  a {
+    background: $gray-dark;
+    color: $white;
+    display: block;
+    padding: $space-half;
 
-		&:hover {
-			background: $gray;
-		}
-	}
+    &:hover {
+      background: $gray;
+    }
+  }
 }

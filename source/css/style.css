@@ -446,7 +446,7 @@ td {
     $LAYOUT
 \*------------------------------------*/
 /* Layout Container */
-.lc, .header, [role=main] {
+.lc, [role=main] {
   max-width: 72em;
   margin: 0 auto;
   padding: 0.625em; }
@@ -613,17 +613,15 @@ td {
     $PAGE STRUCTURE
 \*------------------------------------*/
 .header {
-  background: white;
-  padding: 0;
-  border-bottom: 1px solid #dbdbdb; }
+  grid-column: span 12;
+  display: flex;
+  flex-wrap: wrap; }
 
 .logo {
   float: left;
   max-width: 8rem;
-  margin: 0.4rem; }
-  @media all and (min-width: 600px) {
-    .logo {
-      max-width: 9rem; } }
+  margin: 0.4rem;
+  flex: 1 1 50%; }
 
 .nav-toggle {
   float: right;
@@ -652,28 +650,47 @@ td {
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/
-.nav {
-  clear: both;
-  overflow: hidden;
-  max-height: 0;
-  font-size: 18px;
-  line-height: 36px;
-  letter-spacing: 0.44px; }
-  .nav a {
+.main-nav ul,
+.secondary-nav ul {
+  display: flex;
+  max-width: 1280px; }
+  .main-nav ul li,
+  .secondary-nav ul li {
+    margin-right: 1.25em;
+    align-self: stretch; }
+    .main-nav ul li:hover,
+    .secondary-nav ul li:hover {
+      background-color: #952227; }
+
+.main-nav {
+  background-color: #d0343a;
+  padding: 1.25em;
+  flex: 1 1 100%;
+  position: relative; }
+  .main-nav::before {
+    content: '';
+    background-color: #d0343a;
+    position: absolute;
+    height: 100%;
+    width: 200vw;
+    top: 0;
+    left: -100vw;
+    z-index: -1; }
+  .main-nav a {
+    color: white;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light";
+    font-weight: 400;
+    letter-spacing: 0.05em;
     display: block;
-    padding: 1.25em;
-    border-top: 1px solid #f5f5f5; }
-  .nav.active {
-    max-height: 40em; }
-  @media all and (min-width: 600px) {
-    .nav {
-      max-height: none;
-      float: right;
-      clear: none; }
-      .nav li {
-        float: left; }
-      .nav a {
-        border: 0; } }
+    height: 100%;
+    align-self: stretch; }
+    .main-nav a:hover {
+      background-color: #952227; }
+
+.secondary-nav {
+  flex: 0 1 50%;
+  align-self: center;
+  justify-self: flex-end; }
 
 .pagination {
   overflow: hidden; }
@@ -1432,8 +1449,17 @@ ul {
 .section-title {
   margin-bottom: 0.625em; }
 
-.article-header h1 {
-  font-size: 2.5em; }
+.article-hero {
+  height: 10vh;
+  background-color: #00a1b0;
+  display: flex;
+  width: 100%;
+  grid-column: 1 / 13; }
+
+.article-title {
+  grid-column: 2 / 11; }
+  .article-title h1 {
+    font-size: 2.5em; }
 
 .byline {
   font-size: 0.925em;
