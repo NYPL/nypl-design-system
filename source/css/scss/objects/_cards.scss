@@ -2,4 +2,15 @@
 
 .fellow-card {
   grid-column: 1 / 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  figure {
+    flex: 0 1 33%;
+  }
+
+  .fellow {
+    flex: 0 1 66%;
+  }
 }

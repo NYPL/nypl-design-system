@@ -1216,7 +1216,14 @@ td {
   padding: 0.625em; }
 
 .fellow-card {
-  grid-column: 1 / 10; }
+  grid-column: 1 / 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .fellow-card figure {
+    flex: 0 1 33%; }
+  .fellow-card .fellow {
+    flex: 0 1 66%; }
 
 .img-fluid {
   height: auto;
