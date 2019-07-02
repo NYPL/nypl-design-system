@@ -313,14 +313,6 @@ img, video, object {
 iframe {
   margin-bottom: 1.25em; }
 
-figure {
-  margin-bottom: 1.25em; }
-  figure img {
-    margin-bottom: 0.625em; }
-
-figcaption {
-  font-style: italic; }
-
 /*------------------------------------*\
     $FORMS
 \*------------------------------------*/
@@ -1219,11 +1211,16 @@ td {
   grid-column: 1 / 10;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-bottom: 1.25em; }
   .fellow-card figure {
     flex: 0 1 33%; }
+  .fellow-card figcaption {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light"; }
   .fellow-card .fellow {
     flex: 0 1 66%; }
+  .fellow-card h3 {
+    margin-bottom: 0.3125em; }
 
 .img-fluid {
   height: auto;
@@ -1388,7 +1385,11 @@ ul {
   .breadcrumbs li {
     margin-right: 1.25em; }
     .breadcrumbs li::after {
-      content: '/'; }
+      content: '/';
+      margin-left: 0.625em; }
+    .breadcrumbs li::last-of-type {
+      content: '';
+      background-color: tomato; }
 
 .quick-links {
   grid-column: 10 / 13; }
@@ -1482,7 +1483,7 @@ ul {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 30vh;
+  padding: 9.375em;
   width: 100%;
   position: relative; }
   .article-hero::before {

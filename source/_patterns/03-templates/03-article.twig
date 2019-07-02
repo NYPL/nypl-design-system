@@ -19,11 +19,15 @@
 
     {% include "@molecules/text/00-text/03-blockquote-with-citation.twig" %}
 
-    <p>UGH</p>
-
     <a href="#">Recognizing and Supporting Excellence: The Dorothy & Lewis B. Cullman Center for Scholars and Writers at The New York Public Library (PDF brochure)</a>
 
     <h2>Current Fellows 2018-2019</h2>
+
+    <ul>
+      {% for i in 0..13 %}
+        <li>{% include "@molecules/cards/001-fellow-card.twig" %}</li>
+      {% endfor %}
+    </ul>
   </main>
 
   <article class="quick-links">

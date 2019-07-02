@@ -5,12 +5,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: $space;
 
   figure {
     flex: 0 1 33%;
   }
 
+  figcaption {
+    font-family: $font-light;
+  }
+
   .fellow {
     flex: 0 1 66%;
+  }
+
+  h3 {
+    margin-bottom: $space-quarter;
   }
 }

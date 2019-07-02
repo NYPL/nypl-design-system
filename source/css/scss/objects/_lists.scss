@@ -163,6 +163,12 @@ ul {
 
     &::after {
       content: '/';
+      margin-left: $space-half;
+    }
+
+    &::last-of-type {
+      content: '';
+      background-color: tomato;
     }
   }
 }

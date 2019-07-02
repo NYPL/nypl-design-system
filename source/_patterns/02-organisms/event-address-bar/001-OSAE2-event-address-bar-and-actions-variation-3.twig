@@ -1,32 +1,30 @@
-<main class="container">
-  <aside class="event-address-bar-and-actions">
+<aside class="event-address-bar-and-actions">
 
-    {% set event_vars = 
-      {'event_status': '', 
-      'event_date': '2019-07-18', 
-      'event_time': 
-        {'start': '14:00', 
-          'end': '18:00' } 
-      }
-    %}
+  {% set event_vars = 
+    {'event_status': '', 
+    'event_date': '2019-07-18', 
+    'event_time': 
+      {'start': '14:00', 
+        'end': '18:00' } 
+    }
+  %}
 
-    {% include "@molecules/dates-and-events/004-MT-DE-event-address-bar-date.twig" with event_vars %}
+  {% include "@molecules/dates-and-events/004-MT-DE-event-address-bar-date.twig" with event_vars %}
 
-    <div class="information">
-      <h4>Schomburg Center for Research in Black Culture</h4>
+  <div class="information">
+    <h4>Schomburg Center for Research in Black Culture</h4>
 
-      {% include "@atoms/buttons/AB-009-button-text-button-with-arrow.twig" with {'button_string': 'Directions'} %}
+    {% include "@atoms/buttons/AB-009-button-text-button-with-arrow.twig" with {'button_string': 'Directions'} %}
 
-      <h5>Accessibility</h5>
-      <p>Fully accessible to wheelchairs</p>
-    </div>
+    <h5>Accessibility</h5>
+    <p>Fully accessible to wheelchairs</p>
+  </div>
 
-    <div class="actions">
-      {% include "@atoms/buttons/AB-003-button-outline-button.twig" with {'button_string': 'Add to Calendar', 'button_fluid_bool': true} %}
+  <div class="actions">
+    {% include "@atoms/buttons/AB-003-button-outline-button.twig" with {'button_string': 'Add to Calendar', 'button_fluid_bool': true} %}
 
-      {% include "@atoms/buttons/AB-003-button-outline-button.twig" with {'button_string': 'Share', 'button_fluid_bool': true} %}
+    {% include "@atoms/buttons/AB-003-button-outline-button.twig" with {'button_string': 'Share', 'button_fluid_bool': true} %}
 
-      {% include "@atoms/buttons/AB-006-button-filled-button-large.twig" with {'button_string': 'Register', 'button_fluid_bool': true } %}
-    </div>
-  </aside>
-</main>
+    {% include "@atoms/buttons/AB-006-button-filled-button-large.twig" with {'button_string': 'Register', 'button_fluid_bool': true } %}
+  </div>
+</aside>

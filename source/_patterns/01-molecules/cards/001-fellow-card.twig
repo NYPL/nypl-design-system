@@ -1,16 +1,32 @@
+{% set fellow_vars = 
+  { "fellow_name": "Fellow Name",
+    "img": {
+      "image_12_9": {
+        "src": "../../images/image_12_9.png",
+        "alt": "Fellow's profile picture",
+      },
+      "photographer": "Photographer Name",
+    },
+    "fellow_book": "Lorem Ipsum Dolor Sit Amet",
+    "fellow_bio": "Bio paragraph of the fellow will go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  }
+%}
+
 <div class="fellow-card">
   <figure>
-    {% include "@atoms/images/AI-003-image-12x9.twig" %}
-    <figcaption>Photo by Joseph Bell</figcaption>
+    {% include "@atoms/images/AI-003-image-12x9.twig" with fellow_vars %}
+    <figcaption>Photo by {{ fellow_vars.img.photographer }}</figcaption>
   </figure>
 
   <div class="fellow">
-    <h3>David Bell<h3>
+    <h3>{{ fellow_vars.fellow_name }}<h3>
 
-    <h3 class="gamma"><cite>The Idols of the Age of Revolution: Charisma and Power in the Atlantic World, 1750–1830</cite></h3>
+    <h3 class="gamma"><cite>{{ fellow_vars.fellow_book }}</cite></h3>
 
-    <h4>The John and Constance Birkelund Fellow</h4>
+    {%if fellow_vars.fellow_organization %}
+      <h4>{{ fellow_vars.fellow_organization }}</h4>
+    {% endif %}
 
-    <p>David Bell, Lapidus Professor in the Department of History at Princeton, is a historian of modern Europe. Among his books are The First Total War: Napoleon’s Europe and the Making of Warfare as We Know It and Shadows of Revolution: Reflections on France, Past and Present. He writes regularly for publications including the Nation, the New York Review of Books, and the London Review of Books. While at the Cullman Center he will be completing a book tentatively titled The Idols of the Age of Revolution: Charisma and Power in the Atlantic World, 1750–1830.</p>
+    <p>{{ fellow_vars.fellow_bio }}</p>
   </div>
 </div>
