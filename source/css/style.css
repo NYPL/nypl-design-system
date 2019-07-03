@@ -86,8 +86,11 @@ header, footer, nav, section, article, hgroup, figure {
     $GLOBAL CLASSES
 \*------------------------------------*/
 main {
-  grid-column: 1 / 10;
+  grid-column: 1 / 13;
   margin-top: 1.25em; }
+  @media screen and (min-width: 600px) {
+    main {
+      grid-column: 1 / 10; } }
 
 /* Clearfix */
 .cf, .l-two-col, [role=main] {
@@ -156,6 +159,9 @@ main {
 .font-secondary {
   font-family: Georgia, Times, "Times New Roman", serif; }
 
+.mg-top-large {
+  margin-top: 1.875em; }
+
 body {
   background: white;
   font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -163,21 +169,21 @@ body {
   box-sizing: border-box; }
 
 .body {
-  margin: 20px auto;
+  margin: 20px auto 0 auto;
   max-width: 1280px;
   width: 80%;
   column-gap: 2%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   font-size: 1rem; }
+  @media screen and (max-width: 600px) {
+    .body {
+      grid-template-columns: repeat(8, 1fr);
+      width: 95%; } }
   @media screen and (max-width: 320px) {
     .body {
       grid-template-columns: repeat(4, 1fr);
       column-gap: unset;
-      width: 95%; } }
-  @media screen and (max-width: 60em) {
-    .body {
-      grid-template-columns: repeat(8, 1fr);
       width: 95%; } }
 
 .pl-c-main {
@@ -205,32 +211,37 @@ body {
 
 /* Links */
 a {
-  color: #616161;
-  text-decoration: none;
-  outline: 0; }
+  color: #0071ce; }
   a:hover, a:focus {
-    color: #bdbdbd; }
+    color: #004782; }
 
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
   line-height: 1.2;
   font-size: 3em;
-  font-weight: 400; }
+  font-weight: 400;
+  margin-bottom: 0.625em; }
 
 h2, .beta {
   line-height: 1.2;
   font-size: 2em;
-  font-weight: 500; }
+  font-weight: 500;
+  margin-bottom: 0.625em; }
 
 h3, .gamma {
   line-height: 1.25;
-  font-size: 1.5em;
-  font-weight: 400; }
+  font-size: 1.25em;
+  font-weight: 400;
+  margin-bottom: 0.625em; }
+  @media all and (min-width: 600px) {
+    h3, .gamma {
+      font-size: 1.5em; } }
 
-h4, .delta, blockquote .attribution {
+h4, .delta {
   font-size: 1.1em;
-  font-weight: 500; }
+  font-weight: 500;
+  margin-bottom: 0.625em; }
 
 h5, .epsilon {
   font-size: 0.9em; }
@@ -258,14 +269,41 @@ p {
 
 /* Blockquote */
 blockquote {
-  font-weight: 600;
-  font-size: 2em;
-  padding-left: 1.25em;
-  margin-bottom: 1.25em;
-  text-indent: -0.5em; }
-  blockquote .attribution {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  grid-column: span 12;
+  margin-bottom: 1.25em; }
+  @media all and (min-width: 600px) {
+    blockquote {
+      grid-column: span 9; } }
+  blockquote .citation-image {
+    border-radius: 50%;
+    flex: 0 1 20%;
     display: block;
-    padding-left: 0.9375em; }
+    width: 100%;
+    height: 100%; }
+  blockquote p {
+    flex: 1 1 75%;
+    margin-bottom: 0;
+    margin-left: 1.875em;
+    position: relative; }
+    blockquote p::before {
+      content: '';
+      background-image: url("../images/quote.svg");
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 22px;
+      display: block;
+      position: absolute;
+      margin-top: -10px;
+      margin-left: -24px;
+      margin-right: 15px;
+      padding-right: 15px; }
+  blockquote .attribution {
+    float: right;
+    display: block; }
 
 /* Horizontal Rule */
 hr {
@@ -316,28 +354,33 @@ iframe {
 /*------------------------------------*\
     $FORMS
 \*------------------------------------*/
-form ol, form ul {
-  list-style: none;
-  margin-left: 0; }
+form {
+  grid-column: 1 / 9;
+  display: flex;
+  margin-bottom: 1.875em;
+  overflow: auto; }
+  @media screen and (min-width: 600px) {
+    form {
+      grid-column: 1 / 10; } }
+  form label {
+    flex: 1 1 100%; }
+  form input {
+    flex: 1 1 0; }
+  form button {
+    flex: 0 1 0; }
 
-fieldset {
-  border: 0;
-  padding: 0;
-  margin: 0; }
-
-label {
-  display: block;
-  padding-bottom: 0.625em; }
+input {
+  border: 1px solid #bdbdbd;
+  background-color: white;
+  color: black;
+  min-height: 36px;
+  padding: 0 0.625em; }
+  input::placeholder {
+    color: #616161; }
 
 button, input, select, textarea {
   font-family: inherit;
-  font-size: 100%;
-  margin: 0 1px 0; }
-
-input, textarea {
-  width: 100%;
-  border: 1px solid #bdbdbd;
-  padding: 0.625em 0.65rem; }
+  font-size: 100%; }
 
 input[type=text], input[type=search], input[type=url], input[type=number], textarea {
   -webkit-appearance: none; }
@@ -708,13 +751,63 @@ td {
     $FOOTER
 \*------------------------------------*/
 .footer {
-  clear: both;
-  overflow: hidden;
-  background: #424242;
-  color: white;
-  line-height: 1.2; }
+  background: #f5f5f5;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light";
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 3.75em 1.25em;
+  padding: 1.25em 0.625em;
+  position: relative; }
+  .footer::before {
+    content: '';
+    background-color: #f5f5f5;
+    position: absolute;
+    height: 100%;
+    width: 200vw;
+    top: 0;
+    left: -100vw;
+    z-index: -1; }
+  @media screen and (max-width: 320px) {
+    .footer {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: unset;
+      padding: 1.25em 0.625em;
+      position: relative; }
+      .footer::before {
+        content: '';
+        background-color: tomato;
+        position: absolute;
+        height: 100%;
+        width: 200vw;
+        top: 0;
+        left: -100vw;
+        z-index: -1; } }
+  @media screen and (max-width: 600px) {
+    .footer {
+      grid-template-columns: repeat(8, 1fr);
+      position: relative; }
+      .footer::before {
+        content: '';
+        background-color: slateblue;
+        position: absolute;
+        height: 100%;
+        width: 200vw;
+        top: 0;
+        left: -100vw;
+        z-index: -1; } }
   .footer a {
-    color: #e0e0e0; }
+    color: black; }
+  .footer div {
+    grid-column: span 3; }
+    @media screen and (max-width: 320px) {
+      .footer div {
+        grid-column: span 1; }
+        .footer div:last-of-type {
+          grid-column: span 4; } }
+    @media screen and (max-width: 600px) {
+      .footer div {
+        grid-column: span 3; } }
 
 .nav-footer {
   margin: -2.5em 1.25em; }
@@ -766,18 +859,22 @@ td {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
-  display: inline-block;
-  height: 24px;
-  width: 24px; }
+  display: inline-block; }
   .icon.small {
     height: 18px;
     width: 18px; }
+  .icon.medium {
+    height: 24px;
+    width: 24px; }
   .icon.large {
     height: 48px;
     width: 48px; }
   .icon.xlarge {
     height: 68px;
     width: 68px; }
+  .icon.icon-set {
+    width: 150px;
+    height: 25px; }
 
 .icon-arrow-down {
   background-image: url("../images/icons/arrow.svg"); }
@@ -1208,17 +1305,26 @@ td {
   padding: 0.625em; }
 
 .fellow-card {
-  grid-column: 1 / 10;
+  grid-column: 1 / 13;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 1.25em; }
+  @media screen and (min-width: 600px) {
+    .fellow-card {
+      grid-column: 1 / 10; } }
   .fellow-card figure {
-    flex: 0 1 33%; }
+    flex: 0 1 100%; }
+    @media screen and (min-width: 600px) {
+      .fellow-card figure {
+        flex: 0 1 30%; } }
   .fellow-card figcaption {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light"; }
   .fellow-card .fellow {
-    flex: 0 1 66%; }
+    flex: 0 1 100%; }
+    @media screen and (min-width: 600px) {
+      .fellow-card .fellow {
+        flex: 0 1 66%; } }
   .fellow-card h3 {
     margin-bottom: 0.3125em; }
 
@@ -1260,7 +1366,7 @@ td {
   @media screen and (max-width: 320px) {
     .event-address-bar {
       grid-column: span 4; } }
-  @media screen and (max-width: 60em) {
+  @media screen and (max-width: 600px) {
     .event-address-bar {
       grid-column: span 8; } }
 
@@ -1300,13 +1406,9 @@ td {
 .post-list li {
   margin-bottom: 1.25em; }
 
-/* Bullet List */
-.bullet-list {
-  list-style: square;
-  margin: 0 0 1em 1.2em;
-  line-height: 1.3; }
-  .bullet-list li {
-    margin-bottom: 1.25em; }
+.link-list {
+  margin-bottom: 1.25em;
+  line-height: 2.5; }
 
 /* Text List */
 .text-list {
@@ -1381,18 +1483,30 @@ ul {
 .breadcrumbs {
   grid-column: 1 / 13;
   display: flex;
-  margin-top: 1.25em; }
+  margin-top: 1.25em;
+  color: #0071ce; }
   .breadcrumbs li {
     margin-right: 1.25em; }
+    .breadcrumbs li::hover {
+      color: #004782; }
     .breadcrumbs li::after {
       content: '/';
       margin-left: 0.625em; }
-    .breadcrumbs li::last-of-type {
-      content: '';
-      background-color: tomato; }
+    .breadcrumbs li:last-of-type {
+      color: black; }
+      .breadcrumbs li:last-of-type::after {
+        content: ''; }
 
 .quick-links {
-  grid-column: 10 / 13; }
+  grid-column: 1 / 13; }
+  @media screen and (min-width: 600px) {
+    .quick-links {
+      grid-column: 10 / 13; } }
+  .quick-links h3 {
+    background-color: black;
+    color: white;
+    padding: 0.625em;
+    margin: 0; }
 
 .tooltip-container {
   display: inline-block;
@@ -1483,9 +1597,12 @@ ul {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 9.375em;
+  padding: 1.875em;
   width: 100%;
   position: relative; }
+  @media screen and (min-width: 600px) {
+    .article-hero {
+      padding: 9.375em; } }
   .article-hero::before {
     content: '';
     background-color: #00a1b0;
@@ -1495,6 +1612,8 @@ ul {
     top: 0;
     left: -100vw;
     z-index: -1; }
+  .article-hero h1 {
+    margin: 0; }
 
 .article-title {
   background-color: white;

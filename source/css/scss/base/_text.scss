@@ -15,18 +15,52 @@ p {
 
 /* Blockquote */
 blockquote {
-  font-weight: 600;
-  font-size: $font-size-large;
-  padding-left: $space;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  grid-column: span 12;
   margin-bottom: $space;
-  text-indent: -0.5em;
+
+  @media all and (min-width: $bp-med) {
+    grid-column: span 9;
+  }
+
+  .citation-image {
+    border-radius: 50%;
+    flex: 0 1 20%;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  p {
+    flex: 1 1 75%;
+    margin-bottom: 0;
+    margin-left: $space-and-half;
+    position: relative;
+
+    &::before {
+      content: '';
+      background-image: url('../images/quote.svg');
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 22px;
+      display: block;
+      position: absolute;
+      margin-top: -10px;
+      margin-left: -24px;
+      margin-right: 15px;
+      padding-right: 15px;
+    }
+  }
 
   .attribution {
+    float: right;
     display: block;
-    padding-left: $space-half + $space-quarter;
-
-    @extend .delta;
   }
+
+
 }
 
 /* Horizontal Rule */ 

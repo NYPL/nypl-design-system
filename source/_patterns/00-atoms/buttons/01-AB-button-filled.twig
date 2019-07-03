@@ -1,0 +1,19 @@
+<button 
+  href="#" 
+  class="
+    btn 
+    {{ button_fluid_bool ? 'fluid' : '' }}
+  ">
+
+  {% if button_icon is defined %}
+    <span 
+      class="
+        icon 
+        icon-{{ button_icon }} 
+        white
+        small"
+    ></span>
+  {% endif %}
+  
+  {{ button_string }}
+</button>

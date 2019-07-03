@@ -19,11 +19,11 @@
   </figure>
 
   <div class="fellow">
-    <h3>{{ fellow_vars.fellow_name }}<h3>
+    <h3>{{ fellow_vars.fellow_name }}</h3>
 
     <h3 class="gamma"><cite>{{ fellow_vars.fellow_book }}</cite></h3>
 
-    {%if fellow_vars.fellow_organization %}
+    {% if fellow_vars.fellow_organization is defined %}
       <h4>{{ fellow_vars.fellow_organization }}</h4>
     {% endif %}
 

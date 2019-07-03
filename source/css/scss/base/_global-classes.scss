@@ -19,8 +19,12 @@
 }
 
 main {
-  grid-column: 1 / 10;
+  grid-column: 1 / 13;
   margin-top: $space;
+
+  @media screen and (min-width: $bp-med) {
+    grid-column: 1 / 10;
+  }
 }
 
 /* Clearfix */
@@ -55,31 +59,31 @@ main {
 
 /* Floats */
 .right {
-	float: right;
-	padding: 0 0 $space $space;
+  float: right;
+  padding: 0 0 $space $space;
 }
 
 .right-search {
-	float: right;
-	padding: 0 0 $space 0;
+  float: right;
+  padding: 0 0 $space 0;
 }
 
 .left {
-	float: left;
-	padding: 0 $space $space 0;
+  float: left;
+  padding: 0 $space $space 0;
 }
 
 /* Text-Align */
 .align-right {
-	text-align: right;
+  text-align: right;
 }
 
 .align-center {
-	text-align: center;
+  text-align: center;
 }
 
 .align-left {
-	text-align: left;
+  text-align: left;
 }
 
 /* Display Classes */
@@ -105,4 +109,7 @@ main {
     font-family: $font-secondary;
 }
 
-
+// Margins
+.mg-top-large {
+  margin-top: $space-and-half;
+}

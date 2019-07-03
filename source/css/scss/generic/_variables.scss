@@ -26,6 +26,7 @@ $space-half: $space/2;
 $space-quarter: $space/4;
 
 // ROGUE
+$border-radius-small: 4px;
 $border-radius: 8px;
 $font-size-label: 13px;
 $margin-xs: 8px;
@@ -38,9 +39,13 @@ $border-thick: 7px;
 //Breakpoints
 $bp-small: 320px;
 $bp-med: 600px;
+$bp-large : 900px;
 
 $bp-mobile: 320px;
-$bp-tablet: 60em;
+$bp-tablet: 600px;
+$bp-tablet-small: 600px;
+$bp-tablet-large: 600px;
+$bp-desktop: 1280px;
 
 $bp-small-2 : 29.75em;
 $bp-small-3 : 39.8em;

@@ -6,7 +6,7 @@ body {
 }
 
 .body { // Only meant for our pattern lab preview site to give things some room
-  margin: 20px auto;
+  margin: 20px auto 0 auto;
   max-width: 1280px;
   width: 80%;
   column-gap: 2%;
@@ -14,14 +14,14 @@ body {
   grid-template-columns: repeat(12, 1fr);
   font-size: 1rem;
 
-  @media screen and (max-width: $bp-mobile) {
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: unset;
+  @media screen and (max-width: $bp-tablet) {
+    grid-template-columns: repeat(8, 1fr);
     width: 95%;
   }
 
-  @media screen and (max-width: $bp-tablet) {
-    grid-template-columns: repeat(8, 1fr);
+  @media screen and (max-width: $bp-mobile) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: unset;
     width: 95%;
   }
 }

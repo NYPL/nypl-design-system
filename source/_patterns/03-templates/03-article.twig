@@ -15,9 +15,9 @@
 
     <p>The Dorothy and Lewis B. Cullman Center for Scholars and Writers is an international fellowship program open to people whose work will benefit directly from access to the collections at the Stephen A. Schwarzman Building—including academics, independent scholars, and creative writers (novelists, playwrights, poets). Visual artists at work on a book project are also welcome to apply. The Center appoints 15 Fellows a year for a nine-month term at the Library, from September through May. In addition to working on their own projects, the Fellows engage in an ongoing exchange of ideas within the Center and in public forums throughout the Library.</p>
 
-    {% include "@molecules/text/00-text/03-blockquote-with-citation.twig" %}
+    {% include "@molecules/text/00-text/03-blockquote-with-photo.twig" %}
 
-    {% include "@molecules/text/00-text/03-blockquote-with-citation.twig" %}
+    {% include "@molecules/text/00-text/03-blockquote-with-photo.twig" %}
 
     <a href="#">Recognizing and Supporting Excellence: The Dorothy & Lewis B. Cullman Center for Scholars and Writers at The New York Public Library (PDF brochure)</a>
 
@@ -28,14 +28,10 @@
         <li>{% include "@molecules/cards/001-fellow-card.twig" %}</li>
       {% endfor %}
     </ul>
+
+    <p>The Cullman Center is made possible by a generous endowment from Dorothy and Lewis B. Cullman in honor of Brooke Russell Astor, with major support provided by Mrs. John L. Weinberg, The Andrew W. Mellon Foundation, The Estate of Charles J. Liebman, The von der Heyden Family Foundation, John and Constance Birkelund, and The Samuel I. Newhouse Foundation, and with additional gifts from Helen and Roger Alcaly, The Rona Jaffe Foundation, William W. Karatz, Merilee and Roy Bostock, and Cullman Center Fellows.</p>
   </main>
 
-  <article class="quick-links">
-    <h3>Quick Links</h3>
-    <ul>
-      {% for i in 0..7 %}
-        <li>{% include "@atoms/buttons/AB-014-button-related-link.twig" %}</li>
-      {% endfor %}
-    </ul>
-  </article>
+
+  {% include "@organisms/lists/003-quick-links.twig" %}
 {% endblock %}

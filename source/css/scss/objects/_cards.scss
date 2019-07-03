@@ -1,14 +1,22 @@
 // Cards
 
 .fellow-card {
-  grid-column: 1 / 10;
+  grid-column: 1 / 13;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: $space;
 
+  @media screen and (min-width: $bp-med) {
+    grid-column: 1 / 10;
+  }
+
   figure {
-    flex: 0 1 33%;
+    flex: 0 1 100%;
+
+    @media screen and (min-width: $bp-med) {
+      flex: 0 1 30%;
+    }
   }
 
   figcaption {
@@ -16,7 +24,11 @@
   }
 
   .fellow {
-    flex: 0 1 66%;
+    flex: 0 1 100%;
+
+    @media screen and (min-width: $bp-med) {
+      flex: 0 1 66%;
+    }
   }
 
   h3 {

@@ -1,8 +1,4 @@
 {
   "button_string": "Subscribe",
   "button_fluid_bool": false,
-  "button_icon": {
-    "string": "Search",
-    "icon": "search",
-  }
 }

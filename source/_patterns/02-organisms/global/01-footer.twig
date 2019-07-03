@@ -1,7 +1,26 @@
-<!-- Begin Footer -->
-<footer class="footer" role="contentinfo">
-	<div class="lc">
-		<p class="copyright">&copy; 2013 Company Name. All rights reserved.</p>
-	</div>
+<footer class="footer">
+  {% for i in 0..2 %}
+    <div>
+      <h3>Lorem Ipsum</h3>
+      <ul class="link-list">
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+
+      {% if i == 0 %}
+        {% include "@atoms/icons/AIL-021-nypl-logo.twig" %}
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <div>
+    <h3>Lorem Ipsum</h3>
+    <p>White, percolator aroma, trifecta, doppio blue mountain eu con</p>
+
+    {% include "@molecules/forms/MF-6-newsletter-sign-up.twig" %}
+
+    {% include "@atoms/icons/AIL-022-social-media-icon-set.twig" %}
+  </div>
 </footer>
-<!-- End Footer -->

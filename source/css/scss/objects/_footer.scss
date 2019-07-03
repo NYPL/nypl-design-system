@@ -2,38 +2,70 @@
     $FOOTER
 \*------------------------------------*/
 .footer {
-	clear: both;
-	overflow: hidden;
-	background: $gray-dark-2;
-	color: $white;
-	line-height: 1.2;
+  background: $gray-xlight;
+  font-family: $font-light;
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: $space-and-half*2 $space;
+  padding: $space $space-half;
 
-	a {
-		color: $gray-light;
-	}
+  @include break-grid($gray-xlight);
+
+  @media screen and (max-width: $bp-mobile) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: unset;
+    padding: $space $space-half;
+    @include break-grid(tomato);
+  }
+
+  @media screen and (max-width: $bp-tablet) {
+    grid-template-columns: repeat(8, 1fr);
+    @include break-grid(slateblue);
+  }
+
+  a {
+    color: $black;
+  }
+
+  div {
+    grid-column: span 3;
+
+    @media screen and (max-width: $bp-mobile) {
+      grid-column: span 1;
+
+      &:last-of-type {
+        grid-column: span 4;
+      }
+    }
+
+    @media screen and (max-width: $bp-tablet) {
+      grid-column: span 3;
+    }
+  }
 }
 
 //Footer Nav
 .nav-footer {
-	margin: -$space -$space $space;
+  margin: -$space -$space $space;
 
-	li {
-		border-bottom: 1px solid $gray-dark;
+  li {
+    border-bottom: 1px solid $gray-dark;
 
-		@media all and (min-width: $bp-med) {
-			border: 0;
-			float: left;
-		}
-	}
+    @media all and (min-width: $bp-med) {
+      border: 0;
+      float: left;
+    }
+  }
 
-	a {
-		display: block;
-		padding: $space;
-	}
+  a {
+    display: block;
+    padding: $space;
+  }
 }
 
 .copyright {
-	@media all and (min-width: $bp-med) {
-		float: right;
-	}
+  @media all and (min-width: $bp-med) {
+    float: right;
+  }
 }
