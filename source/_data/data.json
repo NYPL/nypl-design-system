@@ -3,6 +3,8 @@
   "htmlClass": "pl",
   "bodyClass": "body",
   "img": {
+    "src": "../../images/image_1_1.png",
+    "alt": "1:1 image",
     "image_1_1": {
       "src": "../../images/image_1_1.png",
       "alt": "1:1 image"
@@ -32,10 +34,11 @@
       "alt": "Rectangle"
     }
   },
-  "headline" : {
-    "short" : "The Dorothy and Lewis B. Cullman Center for Scholars and Writers",
-    "medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
+  "breadcrumbs": {
+    "breadcrumb_url": "breadcrumb_title"
   },
+  "headline" : "Lorem ipsum dolor sit amet",
+  "paragraph" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "excerpt" : {
     "short" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
     "medium" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -43,6 +46,10 @@
   },
   "description" : "So, setting about it as methodically as men might smoke out a wasps' nest, the Martians spread this strange stifling vapour over the Londonward country. The horns of the crescent slowly moved apart, until at last they formed a line from Hanwell to Coombe and Malden. All night through their destructive tubes advanced.",
   "url" : "#",
+  "url_title" : "link",
+  "related_link_title" : "{Related link}",
+  "current_breadcrumb" : "current page",
+  "quote_source" : "Quote Source",
   "name" : {
     "first": "Lacy",
     "firsti": "L",
@@ -97,5 +104,15 @@
     { },
     { },
     { }
-  ]
+  ],
+  "fellow": {
+    "fellow_name": "Fellow Name",
+    "img": {
+      "src": "../../images/fellow.png",
+      "alt": "Fellow name alt",
+      "photographer_name": "Photographer Name"
+    },
+    "fellow_book": "Lorem Ipsum Dolor Sit Amet",
+    "fellow_bio": "Bio paragraph of the fellow will go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  }
 }

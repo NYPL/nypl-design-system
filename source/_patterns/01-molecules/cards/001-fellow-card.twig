@@ -1,32 +1,18 @@
-{% set fellow_vars = 
-  { "fellow_name": "Fellow Name",
-    "img": {
-      "image_12_9": {
-        "src": "../../images/image_12_9.png",
-        "alt": "Fellow's profile picture",
-      },
-      "photographer": "Photographer Name",
-    },
-    "fellow_book": "Lorem Ipsum Dolor Sit Amet",
-    "fellow_bio": "Bio paragraph of the fellow will go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  }
-%}
-
 <div class="fellow-card">
   <figure>
-    {% include "@atoms/images/AI-003-image-12x9.twig" with fellow_vars %}
-    <figcaption>Photo by {{ fellow_vars.img.photographer }}</figcaption>
+    {% include "@atoms/images/AI-003-image-12x9.twig" with ( fellow ) %}
+    <figcaption>Photo by {{ fellow.img.photographer }}</figcaption>
   </figure>
 
   <div class="fellow">
-    <h3>{{ fellow_vars.fellow_name }}</h3>
+    <h3>{{ fellow.fellow_name }}</h3>
 
-    <h3 class="gamma"><cite>{{ fellow_vars.fellow_book }}</cite></h3>
+    <h3 class="gamma"><cite>{{ fellow.fellow_book }}</cite></h3>
 
-    {% if fellow_vars.fellow_organization is defined %}
-      <h4>{{ fellow_vars.fellow_organization }}</h4>
+    {% if fellow.fellow_organization is defined %}
+      <h4>{{ fellow.fellow_organization }}</h4>
     {% endif %}
 
-    <p>{{ fellow_vars.fellow_bio }}</p>
+    <p>{{ fellow.fellow_bio }}</p>
   </div>
 </div>

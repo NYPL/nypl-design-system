@@ -1,0 +1,40 @@
+{
+  "headline": "The Dorothy and Lewis B. Cullman Center for Scholars and Writers",
+  "breadcrumbs": {
+    "Home": "#",
+    "Events": "#",
+    "Series": "#",
+    "KidsLIVE": "#"
+  },
+  "main_cta": "APPLY HERE FOR A 2020-2021 CULLMAN CENTER FELLOWSHIP",
+  "intro_1": "The deadline to apply is Friday, September 27, at 5 p.m. EDT",
+  "intro_2": "The Dorothy and Lewis B. Cullman Center for Scholars and Writers is an international fellowship program open to people whose work will benefit directly from access to the collections at the Stephen A. Schwarzman Building—including academics, independent scholars, and creative writers (novelists, playwrights, poets). Visual artists at work on a book project are also welcome to apply. The Center appoints 15 Fellows a year for a nine-month term at the Library, from September through May. In addition to working on their own projects, the Fellows engage in an ongoing exchange of ideas within the Center and in public forums throughout the Library.", 
+  "featured_fellows": {
+    "featured_fellow_1": {
+      "img.image_1_1.src": ( img.image_1_1.src ),
+      "img.image_1_1.alt": ( img.image_1_1.alt ),
+      "paragraph": "I’ve never had an opportunity like this; to just be able to study, study, study, with no deadlines and no pressure. It’s simply been about enrichment and research.  And that is the great privilege of the Cullman fellowship: to see where your mind takes you. To have the time and the resources to pursue your own intellectual adventure.",
+      "quote_source": "Annie Baker, Fellow 2015-2016",
+    },
+    "featured_fellow_2": {
+      "img.image_1_1.src": ( img.image_1_1.src ),
+      "img.image_1_1.alt": ( img.image_1_1.alt ),
+      "paragraph": ( paragraph ),
+      "quote_source": ( quote_source ),
+    },
+  },
+  "url": ( url ),
+  "url_title": ( excerpt.short ),
+  "all_fellows": {
+    "fellow_1": {
+      "fellow_name": "Fellow Name",
+      "img": {
+        "src": "../../images/image_12_9.png",
+        "alt": "Fellows profile picture",
+        "photographer": "Photographer Name",
+      },
+      "fellow_book": "Lorem Ipsum Dolor Sit Amet",
+      "fellow_bio": "Bio paragraph of the fellow will go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  }
+}

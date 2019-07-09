@@ -1,37 +1,80 @@
+{% set article_vars = 
+  {
+    'headline': ( headline ),
+    'breadcrumbs': {
+      'link1': '#',
+      'link2': '#',
+      'link3': '#',
+      'link4': '#',
+    },
+    'main_cta': 'Apply here',
+    'intro_1': ( description ),
+    'intro_2': ( description ),
+    'featured_fellows': {
+      'featured_fellow_1': {
+        'img.image_1_1.src': ( img.image_1_1.src ),
+        'img.image_1_1.alt': ( img.image_1_1.alt ),
+        'paragraph': ( paragraph ),
+        'quote_source': ( quote_source ),
+      },
+      'featured_fellow_2': {
+        'img.image_1_1.src': ( img.image_1_1.src ),
+        'img.image_1_1.alt': ( img.image_1_1.alt ),
+        'paragraph': ( paragraph ),
+        'quote_source': ( quote_source ),
+      },
+    },
+    'url': ( url ),
+    'url_title': ( excerpt.short ),
+    'all_fellows': {
+      "fellow_1": {
+        "fellow_name": "Fellow Name",
+        "img": {
+          "src": "../../images/image_12_9.png",
+          "alt": "Fellow's profile picture",
+          "photographer": "Photographer Name",
+        },
+        "fellow_book": "Lorem Ipsum Dolor Sit Amet",
+        "fellow_bio": "Bio paragraph of the fellow will go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    }
+  }
+%}
+
 {% extends "@templates/00-layouts/00-site.twig" %}
 
 {% block hero %}
-  {% include "@organisms/heroes/001-article-hero.twig" %}
+  {% include "@organisms/heroes/001-article-hero.twig" with article_vars %}
 {% endblock %}
 
 {% block breadcrumbs %}
-  {% include "@organisms/breadcrumbs/001-breadcrumbs.twig" %}
+  {% include "@organisms/breadcrumbs/001-breadcrumbs.twig" with article_vars %}
 {% endblock %}
 
 {% block content %}
   <main>
-    <button class="btn">Apply here for a 2020-2021 Cullman Center Fellowship</button>
-    <p>The deadline to apply is Friday, September 27, at 5 p.m. EDT</p>
+    {% include "@atoms/buttons/01-AB-button-filled.twig" with {'button_string': ( article_vars.main_cta ), 'button_fluid_bool': false} %}
+ 
+    {% include "@molecules/text/00-text/01-MTT-010-body-text.twig" with {'paragraph': ( article_vars.intro_1 )} %}
 
-    <p>The Dorothy and Lewis B. Cullman Center for Scholars and Writers is an international fellowship program open to people whose work will benefit directly from access to the collections at the Stephen A. Schwarzman Building—including academics, independent scholars, and creative writers (novelists, playwrights, poets). Visual artists at work on a book project are also welcome to apply. The Center appoints 15 Fellows a year for a nine-month term at the Library, from September through May. In addition to working on their own projects, the Fellows engage in an ongoing exchange of ideas within the Center and in public forums throughout the Library.</p>
+    {% include "@molecules/text/00-text/01-MTT-010-body-text.twig" with {'paragraph': ( article_vars.intro_2 )} %}
 
-    {% include "@molecules/text/00-text/03-blockquote-with-photo.twig" %}
+    {% for key, featured_fellow in article_vars.featured_fellows %}
+      {% include "@molecules/text/00-text/03-blockquote-with-photo.twig" with ( featured_fellow ) %}
+    {% endfor %}
 
-    {% include "@molecules/text/00-text/03-blockquote-with-photo.twig" %}
+    {% include "@molecules/text/00-text/02-MTT-013-block-link.twig" with article_vars %}
 
-    <a href="#">Recognizing and Supporting Excellence: The Dorothy & Lewis B. Cullman Center for Scholars and Writers at The New York Public Library (PDF brochure)</a>
-
-    <h2>Current Fellows 2018-2019</h2>
+    <h2>{{ headline.short }}</h2>
 
     <ul>
-      {% for i in 0..13 %}
+      {% for fellow in article_vars.all_fellows %}
         <li>{% include "@molecules/cards/001-fellow-card.twig" %}</li>
       {% endfor %}
     </ul>
 
-    <p>The Cullman Center is made possible by a generous endowment from Dorothy and Lewis B. Cullman in honor of Brooke Russell Astor, with major support provided by Mrs. John L. Weinberg, The Andrew W. Mellon Foundation, The Estate of Charles J. Liebman, The von der Heyden Family Foundation, John and Constance Birkelund, and The Samuel I. Newhouse Foundation, and with additional gifts from Helen and Roger Alcaly, The Rona Jaffe Foundation, William W. Karatz, Merilee and Roy Bostock, and Cullman Center Fellows.</p>
+    <p>{{ excerpt.long }}</p>
   </main>
-
 
   {% include "@organisms/lists/003-quick-links.twig" %}
 {% endblock %}

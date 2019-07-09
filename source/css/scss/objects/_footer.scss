@@ -12,6 +12,11 @@
 
   @include break-grid($gray-xlight);
 
+  @media screen and (max-width: $bp-tablet) {
+    grid-template-columns: repeat(8, 1fr);
+    @include break-grid(slateblue);
+  }
+
   @media screen and (max-width: $bp-mobile) {
     grid-template-columns: repeat(4, 1fr);
     column-gap: unset;
