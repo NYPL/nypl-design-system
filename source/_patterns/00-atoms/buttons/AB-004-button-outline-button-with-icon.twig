@@ -1,16 +1,1 @@
-<button 
-  href="#" 
-  class="
-    btn 
-    btn-outline
-    {{ button_fluid_bool ? 'fluid' : '' }}
-  ">
-
-  <span 
-    class="
-      icon 
-      icon-{{ button_icon.icon }}
-  "></span>
-
-  {{ button_icon.string }}
-</button>
+{% include "@atoms/buttons/AB-003-button-outline-button.twig" with {'button_icon': 'search'} %}
