@@ -50,6 +50,11 @@
   "related_link_title" : "{Related link}",
   "current_breadcrumb" : "current page",
   "quote_source" : "Quote Source",
+  "main_cta": "Apply here",
+  "link1": "Link 1",
+  "link2": "Link 2",
+  "link3": "Link 3",
+  "link4": "Link 4",
   "name" : {
     "first": "Lacy",
     "firsti": "L",

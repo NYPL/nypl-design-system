@@ -1,6 +1,8 @@
 //Article
 .article-hero {
   background-color: $nypl-success;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   position: relative;
   grid-column: 1 / 13;
@@ -8,13 +10,15 @@
   align-items: center;
   text-align: center;
   padding: $space-and-half;
-  width: 100%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  left: 50%;
+  right: 50%;
 
   @media screen and (min-width: $bp-med) {
     padding: $space-and-half*5;
   }
-
-  @include break-grid($nypl-success);
 
   h1 {
     margin: 0;

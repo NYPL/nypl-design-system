@@ -726,9 +726,11 @@ td {
       background-color: #952227; }
 
 .secondary-nav {
-  flex: 0 1 50%;
+  flex: 1 1 50%;
   align-self: center;
   justify-self: flex-end; }
+  .secondary-nav ul {
+    justify-content: flex-end; }
 
 .pagination {
   overflow: hidden; }
@@ -1609,6 +1611,8 @@ ul {
 
 .article-hero {
   background-color: #00a1b0;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   position: relative;
   grid-column: 1 / 13;
@@ -1616,20 +1620,14 @@ ul {
   align-items: center;
   text-align: center;
   padding: 1.875em;
-  width: 100%;
-  position: relative; }
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  left: 50%;
+  right: 50%; }
   @media screen and (min-width: 600px) {
     .article-hero {
       padding: 9.375em; } }
-  .article-hero::before {
-    content: '';
-    background-color: #00a1b0;
-    position: absolute;
-    height: 100%;
-    width: 200vw;
-    top: 0;
-    left: -100vw;
-    z-index: -1; }
   .article-hero h1 {
     margin: 0; }
 

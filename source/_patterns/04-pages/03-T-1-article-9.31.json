@@ -1,11 +1,11 @@
 {
   "headline": "The Dorothy and Lewis B. Cullman Center for Scholars and Writers",
-  "article_hero_image": "../../images/dorothy-and-lewis-cullman-center.png",
+  "article_hero_image": "/images/dorothy-and-lewis-cullman-center.jpg",
   "breadcrumbs": {
-    "Home": "#",
-    "Events": "#",
-    "Series": "#",
-    "KidsLIVE": "#"
+    "link1": "Hfffome",
+    "link2": "Events",
+    "link3": "Series",
+    "link4": "KidsLIVE",
   },
   "main_cta": "APPLY HERE FOR A 2020-2021 CULLMAN CENTER FELLOWSHIP",
   "intro_1": "The deadline to apply is Friday, September 27, at 5 p.m. EDT",
