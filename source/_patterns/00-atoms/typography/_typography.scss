@@ -1,0 +1,282 @@
+/* Headings */
+/*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
+h1, .alpha {
+  line-height: 1.2;
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: $space-half;
+}
+
+h2, .beta    { 
+  line-height: 1.2;
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: $space-half;
+}
+
+h3, .gamma   { 
+  line-height: 1.25;
+  font-size: 1.25em;
+  font-weight: 400;
+  margin-bottom: $space-half;
+
+  @media all and (min-width: $bp-med) {
+    font-size: 1.5em;
+  }
+
+}
+
+h4, .delta   {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: $space-half;
+}
+
+h5, .epsilon { 
+  font-size: 0.9em;
+}
+
+h6, .zeta    { 
+  font-size: 0.7em;
+}
+
+/* Subheadings */
+.subheading {
+  font-family: $font-secondary;
+  font-weight: normal;
+}
+
+/* Links */ 
+a {
+  color: $nypl-blue;
+
+  &:hover, &:focus {
+    color: $nypl-blue-dark;
+  }
+}
+
+ol, ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Definition Lists */
+dl {
+	overflow: hidden;
+	margin: 0 0 $space;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-left: 0;
+}
+
+/*------------------------------------*\
+    $GLOBAL CLASSES
+\*------------------------------------*/
+
+// Break Grid
+@mixin break-grid($color) {
+  position: relative;
+
+  &::before {
+    content: '';
+    background-color: $color;
+    position: absolute;
+    height: 100%;
+    width: 200vw;
+    top: 0;
+    left: -100vw;
+    z-index: -1;
+  }
+}
+
+main {
+  grid-column: 1 / 13;
+  margin-top: $space;
+
+  @media screen and (min-width: $bp-med) {
+    grid-column: 1 / 10;
+  }
+}
+
+/* Clearfix */
+.cf {
+    *zoom: 1;
+}
+.cf:before, .cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/* Completely remove from the flow and screen readers. */
+.is-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Completely remove from the flow but leave available to screen readers. */
+.is-vishidden {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Floats */
+.right {
+  float: right;
+  padding: 0 0 $space $space;
+}
+
+.right-search {
+  float: right;
+  padding: 0 0 $space 0;
+}
+
+.left {
+  float: left;
+  padding: 0 $space $space 0;
+}
+
+/* Text-Align */
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+/* Display Classes */
+.hide-small {
+    @media all and (max-width: $bp-med) {
+        display: none;
+    }
+}
+
+.hide-med {
+    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+        display: none;
+    }
+}
+
+.hide-large {
+    @media all and (min-width: $bp-large) {
+        display: none;
+    }
+}
+
+.font-secondary {
+    font-family: $font-secondary;
+}
+
+// Margins
+.mg-top-large {
+  margin-top: $space-and-half;
+}
+
+
+/* Text-Related Elements */ 
+p {
+    margin-bottom: $space-and-half;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.44px;
+}
+
+.alpha {
+  line-height: 1.2;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+/* Blockquote */
+blockquote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  grid-column: span 12;
+  margin-bottom: $space;
+
+  @media all and (min-width: $bp-med) {
+    grid-column: span 9;
+  }
+
+  .citation-image {
+    border-radius: 50%;
+    flex: 0 1 20%;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  p {
+    flex: 1 1 75%;
+    margin-bottom: 0;
+    margin-left: $space-and-half;
+    position: relative;
+
+    &::before {
+      content: '';
+      background-image: url('../images/quote.svg');
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 22px;
+      display: block;
+      position: absolute;
+      margin-top: -10px;
+      margin-left: -24px;
+      margin-right: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  .attribution {
+    float: right;
+    display: block;
+  }
+
+
+}
+
+/* Horizontal Rule */ 
+hr {
+  border: 0;
+    height: 2px;
+    background: $gray-light-2;
+    margin: $space-double 0;
+}
+
+abbr {
+    border-bottom: 1px dotted $gray;
+    cursor: help;
+}
+
+.nypl-tag { // I'd like to add prefixes in a post process but this is breaking patternlab. Placeholder
+  font-family: $font;
+  font-size: $font-size-label;
+  text-transform: uppercase;
+  letter-spacing: 0.44px;
+
+  & + .nypl-tag {
+    margin-left: $space;
+  }
+}

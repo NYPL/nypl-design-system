@@ -1,0 +1,12 @@
+{
+  "button_string": "Subscribe",
+  "button_fluid_bool": false,
+  "button_large": false,
+  "button_outline": false,
+  "button_cancel": false,
+  "button_tag": false,
+  "button_round": false,
+  "button_round_icon": false,
+  "disabled": true,
+  "icon_color": "black"
+}

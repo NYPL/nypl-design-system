@@ -1,9 +1,0 @@
-/*------------------------------------*\
-    $MAIN CONTENT AREA
-\*------------------------------------*/
-[role=main] {
-	padding: $space-half $space-half $space-double;
-	overflow-x: hidden;
-	@extend .lc;
-	@extend .cf;
-}

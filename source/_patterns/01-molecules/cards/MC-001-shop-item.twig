@@ -1,0 +1,18 @@
+<div class="fellow-card">
+  <figure>
+    {% include "@atoms/images/AI-003-image-4x3.twig" with ( fellow ) %}
+    <figcaption>Photo by {{ fellow.img.photographer }}</figcaption>
+  </figure>
+
+  <div class="fellow">
+    <h3>{{ fellow.fellow_name }}</h3>
+
+    <h3 class="gamma"><cite>{{ fellow.fellow_book }}</cite></h3>
+
+    {% if fellow.fellow_organization is defined %}
+      <h4>{{ fellow.fellow_organization }}</h4>
+    {% endif %}
+
+    <p>{{ fellow.fellow_bio }}</p>
+  </div>
+</div>

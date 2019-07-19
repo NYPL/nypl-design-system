@@ -1,0 +1,58 @@
+
+// MT-DE 004
+.event-address-bar {
+  grid-column: span 3;
+  height: 80px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1em;
+  font-weight: 500;
+  background-color: $nypl-success;
+  border: 1px solid $nypl-success;
+  margin-left: -1px;
+  margin-right: -1px;
+  color: $white;
+  padding: $space-half $space;
+
+  li {
+    flex: 0 0 100%;
+  }
+
+  &.error {
+    background-color: $nypl-error;
+    border: 1px solid $nypl-error;
+  }
+
+  @media screen and (max-width: $bp-mobile) {
+    grid-column: span 4;
+  }
+
+  @media screen and (max-width: $bp-tablet) {
+    grid-column: span 8;
+  }
+}
+
+// OSAE2-event-address-bar-and-actions
+.event-address-bar-and-actions {
+  grid-column: span 3;
+
+  border-bottom: 1px solid $gray-light;
+  border-left: 1px solid $gray-light;
+  border-right: 1px solid $gray-light;
+
+  .event-address-bar  {
+    margin-bottom: $space;
+  }
+
+  .information {
+    padding: 0 $space 0 $space;
+  }
+
+  .actions {
+    padding: 0 $space-half $space-half $space-half;
+  }
+}

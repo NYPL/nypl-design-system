@@ -1,0 +1,33 @@
+<button 
+  class="
+    {{ button_round ? 'btn-round' : 'btn' }}
+    {{ button_fluid_bool ? 'fluid' : '' }} 
+    {{ button_large ? 'btn-large' : '' }}
+    {{ button_outline ? 'btn-outline' : '' }}
+    {{ button_cancel ? 'btn-cancel' : '' }}
+    {{ button_tag ? 'btn-tag' : '' }}
+    {{ button_round_icon ? 'btn-round btn-round-icon' : '' }}
+    {{ button_disabled ? 'disabled' : '' }}
+  "
+  {{ button_disabled ? ' disabled' : '' }}
+>
+
+  {% if button_icon is defined %}
+    <span 
+      class="
+        icon 
+        icon-{{ button_icon }} 
+        {% if button_round_icon == true %}
+          blue 
+        {% elseif button_round_icon == false %}
+          {{ icon_color }} 
+        {% endif %}
+        small"
+    ></span>
+  {% endif %}
+
+  {% if button_round_icon == true %}
+  {% elseif button_round_icon == false %}
+    {{ button_string }}
+  {% endif %}
+</button>

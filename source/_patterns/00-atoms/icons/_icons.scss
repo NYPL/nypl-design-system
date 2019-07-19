@@ -1,0 +1,83 @@
+.icon {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+
+  &.small {
+    height: 18px;
+    width: 18px;
+  }
+
+  &.medium {
+    height: 24px;
+    width: 24px;
+  }
+
+  &.large {
+    height: 48px;
+    width: 48px;
+  }
+
+  &.xlarge {
+    height: 68px;
+    width: 68px;
+  }
+}
+
+// Desired class name and svg file path name with '.svg' removed
+// (Useful for the arrow icons, which all reference the same svg file)
+$icons: (
+  "arrow-down": "arrow", 
+  "arrow-down-small": "arrow-small", 
+  "arrow-up": "arrow",
+  "arrow-right": "arrow",
+  "arrow-left": "arrow",
+  "check": "check",
+  "search": "search",
+  "search-small": "search-small",
+  "plus" : "plus",
+  "minus" : "minus",
+  "cancel" : "cancel",
+  "book": "book",
+  "computer" : "computer",
+  "play" : "play",
+  "cd" : "cd",
+  "movie" : "movie",
+  "social-instagram" : "social-instagram", 
+  "social-facebook" : "social-facebook", 
+  "social-tumblr" : "social-tumblr",
+  "social-youtube" : "social-youtube",
+  "social-twitter" : "social-twitter"
+);
+
+@each $name, $url in $icons {
+  .icon-#{$name} {
+    background-image: url('../images/icons/' + $url + '.svg');
+
+    &.blue {
+      background-image: url('../images/icons/' + $url + '-blue.svg');
+    }
+
+    &.purple {
+      background-image: url('../images/icons/' + $url + '-purple.svg');
+    }
+
+    &.white {
+      background-image: url('../images/icons/' + $url + '-white.svg');
+    }
+  }
+}
+
+// Transforms for the arrow icons
+.icon-arrow-up {
+  transform: rotate(0.5turn);
+}
+
+.icon-arrow-right {
+  transform: rotate(0.75turn);
+}
+
+.icon-arrow-left {
+  transform: rotate(0.25turn);
+}

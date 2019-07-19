@@ -1,47 +1,35 @@
 {
   "cacheBust": true,
   "cleanPublic": true,
-  "defaultPattern": "all",
+  "defaultPattern": "buttons",
   "defaultShowPatternInfo": false,
   "ishControlsHide": {
-    "s": false,
-    "m": false,
-    "l": false,
-    "full": false,
-    "random": false,
-    "disco": false,
+    "s": true,
+    "m": true,
+    "l": true,
+    "full": true,
+    "random": true,
+    "disco": true,
     "hay": true,
-    "mqs": false,
-    "find": false,
+    "mqs": true,
+    "find": true,
     "views-all": false,
     "views-annotations": false,
     "views-code": false,
     "views-new": false,
     "tools-all": false,
-    "tools-docs": false
+    "tools-docs": true
   },
   "ishViewportRange": {
     "s": [
-      240,
-      500,
-      240,
-      500,
       240,
       500
     ],
     "m": [
       500,
-      800,
-      500,
-      800,
-      500,
       800
     ],
     "l": [
-      800,
-      2600,
-      800,
-      2600,
       800,
       2600
     ]
@@ -88,12 +76,6 @@
   "patternStateCascade": [
     "inprogress",
     "inreview",
-    "complete",
-    "inprogress",
-    "inreview",
-    "complete",
-    "inprogress",
-    "inreview",
     "complete"
   ],
   "patternExportDirectory": "./pattern_exports/",
@@ -109,20 +91,6 @@
     "layout": "horizontal"
   },
   "uikits": [
-    {
-      "name": "uikit-workshop",
-      "outputDir": "",
-      "enabled": true,
-      "excludedPatternStates": [],
-      "excludedTags": []
-    },
-    {
-      "name": "uikit-workshop",
-      "outputDir": "",
-      "enabled": true,
-      "excludedPatternStates": [],
-      "excludedTags": []
-    },
     {
       "name": "uikit-workshop",
       "outputDir": "",
