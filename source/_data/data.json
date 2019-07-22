@@ -64,8 +64,8 @@
     "lasti": "W"
   },
   "year" : {
-    "long": "2013",
-    "short": "13"
+    "long": "1996",
+    "short": "96"
   },
   "month" : {
     "long": "February",
@@ -93,8 +93,8 @@
   },
   "seconds" : "31",
   "author" : {
-    "first_name": "Author",
-    "last_name": "Name"
+    "first": "Jason",
+    "last": "McAuthor"
   },
   "hero": true,
   "emergency" : false,

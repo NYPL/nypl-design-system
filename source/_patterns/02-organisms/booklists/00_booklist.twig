@@ -1,0 +1,41 @@
+{% set booklist_vars= 
+  {
+    'icon': {
+      'src': 'src',
+      'alt': 'alt',
+    },
+    'img': {
+      'src': 'src',
+      'alt': 'alt',
+    },
+    'book_title': ( headline ),
+    'year': ( year.long ),
+    'file_type': "Computer File",
+    'author': {
+      'first': ( author.first ),
+      'last': ( author.last )
+    }
+  }
+%}
+
+<li class="list-item --booklist-card-with-icon">
+  <span class="booklist-icon"><img src="{{ img.image_1_1.src }}" alt="{{ img.image_1_1.alt }}" /></span>
+
+  <div class="item-content">
+    <h3>{{ booklist_vars.book_title }}</h3>
+
+    <span class="tag">{{ booklist_vars.year }}</span>
+
+    <span class="tag">{{ booklist_vars.file_type }}</span>
+
+    <div class="author">By {{ booklist_vars.author.first }} {{ booklist_vars.author.last }}</div>
+
+    <p>Available onsite at specific locations. <a href="#" class="btn-text">View Detail<span class="icon icon-arrow-right"></span></a></p>
+  </div>
+
+  <div class="item-content">
+    <button href="#" class="btn btn-outline fluid">How to View</button>
+
+    <button href="#" class="btn btn-outline fluid">All To My List</button>
+  </div>
+</li>

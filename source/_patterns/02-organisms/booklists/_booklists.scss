@@ -1,0 +1,133 @@
+.booklist {
+  background-color: tomato;
+}
+
+.list-item {
+  display: grid;
+  grid: auto-flow / auto 2fr 1fr;
+  column-gap: 5%;
+  align-items: stretch;
+
+  // height: 165px;
+  border: 1px solid $gray-light;
+  padding-right: $space;
+  margin-top: $margin-xs;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+
+  &:first-of-type {
+    margin-top: unset;
+  }
+
+  @media screen and (max-width: $bp-med) {
+    grid-template-columns: auto;
+    grid-auto-rows: min-content;
+    height: unset;
+
+    border-top-right-radius: $border-radius;
+    border-bottom-left-radius: unset;
+  }
+}
+
+.--booklist-card-with-icon {
+  .booklist-icon {
+    align-items: center;
+    align-self: stretch;
+    background-color: $nypl-purple-light;
+    display: flex;
+    justify-content: center;
+
+    // Creates a border-radius on the left-hand side that sits on top of the border for the list item
+    border-radius: $border-radius;
+    border: 1px solid $nypl-purple-light;
+    margin-left: -1px;
+    margin-top: -1px;
+    height: calc(100% + 2px);
+    padding: $space $space;
+
+    img {
+      min-width: 25px;
+    }
+
+    @media screen and (max-width: $bp-med) {
+      padding: ($space-double + $space-half) ($space-double + $space-half);
+      width: calc(100% + 2px);
+    }
+  }
+
+  .item-content {
+    padding: $space-half 0;
+
+    @media screen and (max-width: $bp-med) {
+      height: unset;
+      padding: 0 $space;
+
+      &:first-of-type {
+        padding-top: $space;
+      }
+
+      &:last-of-type {
+        padding-bottom: $space;
+      }
+    }
+  }
+
+  .author {
+    width: 100%;
+  }
+
+  @media screen and (max-width: $bp-med) {
+    padding-right: 0;
+  }
+}
+
+.author {
+  clear: both;
+}
+
+.division-block-list {
+  grid-column: 1 / 11;
+}
+
+.breadcrumbs {
+  grid-column: 1 / 13;
+  display: flex;
+  margin-top: $space;
+  color: $nypl-blue;
+
+  li {
+    margin-right: $space;
+
+    &::hover {
+      color: $nypl-blue-dark;
+    }
+
+    &::after {
+      content: '/';
+      margin-left: $space-half;
+    }
+
+    &:last-of-type {
+      color: $black;
+
+      &::after {
+        content: '';
+      }
+    }
+  }
+}
+
+.quick-links {
+  grid-column: 1 / 13;
+
+  @media screen and (min-width: $bp-med) {
+    grid-column: 10 / 13;
+  }
+
+  h3 {
+    background-color: $black;
+    color: $white;
+    padding: $space-half;
+    margin: 0;
+  }
+}
