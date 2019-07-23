@@ -1,0 +1,42 @@
+{% set image_gallery_images = 
+  {
+    'image_1': {
+      'src': ( img.image_9_12.src ),
+      'alt': ( img.image_9_12.alt ),
+    },
+    'image_2': {
+      'src': ( img.image_9_12.src ),
+      'alt': ( img.image_9_12.alt ),
+    },
+    'image_3': {
+      'src': ( img.image_9_12.src ),
+      'alt': ( img.image_9_12.alt ),
+    },
+    'image_4': {
+      'src': ( img.image_9_12.src ),
+      'alt': ( img.image_9_12.alt ),
+    },
+    'image_5': {
+      'src': ( img.image_9_12.src ),
+      'alt': ( img.image_9_12.alt ),
+    },
+    'image_6': {
+      'src': ( img.image_9_12.src ),
+      'alt': ( img.image_9_12.alt ),
+    }
+  }
+%}
+
+<div>
+  {% if header is defined %}
+    <h2>{{ header }}</h2>
+  {% endif %}
+
+  <ul class="image-gallery">
+    {% for image in image_gallery_images %}
+      <li>
+        <img src="{{ image.src }}" alt="{{ image.alt }}" />
+      </li>
+    {% endfor %}
+  </ul>
+</div>

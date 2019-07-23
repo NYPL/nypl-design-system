@@ -1313,6 +1313,19 @@ input[type=search]::-webkit-search-decoration {
   margin: 0;
 }
 
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.image-gallery li {
+  flex: 0 1 30%;
+}
+.image-gallery img {
+  width: 100%;
+  display: inline-block;
+}
+
 .article-hero {
   background-color: #00a1b0;
   background-size: cover;

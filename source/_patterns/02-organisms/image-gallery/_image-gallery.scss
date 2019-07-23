@@ -1,0 +1,14 @@
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  li {
+    flex: 0 1 30%;
+  }
+
+  img {
+    width: 100%;
+    display: inline-block;
+  }
+}
