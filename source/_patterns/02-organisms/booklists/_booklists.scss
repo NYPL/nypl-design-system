@@ -1,62 +1,35 @@
 .booklist {
-  background-color: tomato;
+  margin-bottom: $space;
 }
 
-.list-item {
-  display: grid;
-  grid: auto-flow / auto 2fr 1fr;
-  column-gap: 5%;
-  align-items: stretch;
-
-  // height: 165px;
-  border: 1px solid $gray-light;
-  padding-right: $space;
-  margin-top: $margin-xs;
-  border-top-left-radius: $border-radius;
+.booklist-item {
   border-bottom-left-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+  display: flex;
+  margin-bottom: $space;
+  padding-right: $space;
 
-  &:first-of-type {
-    margin-top: unset;
+  &.bordered {
+    border: 1px solid $gray-light;
   }
 
   @media screen and (max-width: $bp-med) {
-    grid-template-columns: auto;
-    grid-auto-rows: min-content;
-    height: unset;
-
-    border-top-right-radius: $border-radius;
     border-bottom-left-radius: unset;
-  }
-}
-
-.--booklist-card-with-icon {
-  .booklist-icon {
-    align-items: center;
-    align-self: stretch;
-    background-color: $nypl-purple-light;
-    display: flex;
-    justify-content: center;
-
-    // Creates a border-radius on the left-hand side that sits on top of the border for the list item
-    border-radius: $border-radius;
-    border: 1px solid $nypl-purple-light;
-    margin-left: -1px;
-    margin-top: -1px;
-    height: calc(100% + 2px);
-    padding: $space $space;
-
-    img {
-      min-width: 25px;
-    }
-
-    @media screen and (max-width: $bp-med) {
-      padding: ($space-double + $space-half) ($space-double + $space-half);
-      width: calc(100% + 2px);
-    }
+    border-top-right-radius: $border-radius;
+    flex-wrap: wrap;
+    height: unset;
+    padding-right: 0;
   }
 
   .item-content {
-    padding: $space-half 0;
+    padding: $space-half $space;
+    flex-grow: 2;
+
+    &:last-of-type {
+      padding: $space-half 0;
+      // flex: 0 1 200px;
+      flex-grow: 1;
+    }
 
     @media screen and (max-width: $bp-med) {
       height: unset;
@@ -75,59 +48,30 @@
   .author {
     width: 100%;
   }
+}
+
+.booklist-icon {
+  align-self: stretch;
+  background-color: $nypl-purple-light;
+  background-image: url('../images/icons/book-purple.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: $border-radius;
+  border: 1px solid $nypl-purple-light;
+  display: flex;
+  // flex: 1 1 165px;
+  flex-grow: 1;
+  min-width: 125px;
+  justify-content: center;
+  margin-left: -1px;
+  margin-top: -1px;
+  padding: $space $space;
+
+  img {
+    min-width: 25px;
+  }
 
   @media screen and (max-width: $bp-med) {
-    padding-right: 0;
-  }
-}
-
-.author {
-  clear: both;
-}
-
-.division-block-list {
-  grid-column: 1 / 11;
-}
-
-.breadcrumbs {
-  grid-column: 1 / 13;
-  display: flex;
-  margin-top: $space;
-  color: $nypl-blue;
-
-  li {
-    margin-right: $space;
-
-    &::hover {
-      color: $nypl-blue-dark;
-    }
-
-    &::after {
-      content: '/';
-      margin-left: $space-half;
-    }
-
-    &:last-of-type {
-      color: $black;
-
-      &::after {
-        content: '';
-      }
-    }
-  }
-}
-
-.quick-links {
-  grid-column: 1 / 13;
-
-  @media screen and (min-width: $bp-med) {
-    grid-column: 10 / 13;
-  }
-
-  h3 {
-    background-color: $black;
-    color: $white;
-    padding: $space-half;
-    margin: 0;
+    padding: ($space-double + $space-half) ($space-double + $space-half);
   }
 }

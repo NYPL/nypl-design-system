@@ -1,11 +1,9 @@
 .image-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  li {
-    flex: 0 1 30%;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 1em;
+  grid-column-gap: 1em;
+  margin-bottom: $space;
 
   img {
     width: 100%;

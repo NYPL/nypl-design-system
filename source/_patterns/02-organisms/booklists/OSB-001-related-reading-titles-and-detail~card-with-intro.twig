@@ -1,5 +1,89 @@
-<ul>
-  {% for i in 0..6 %}
-    {% include "@organisms/booklists/00_booklist.twig" %}
-  {% endfor %}
-</ul>
+{% set booklist_vars= {
+  header: 'Booklist Header',
+  border: true,
+  images: true,
+  link: 'link',
+  intro: 'White, percolator aroma, trifecta, doppio blue mountain eu con panna kopi-luwak café au lait. Pumpkin spice galão breve skinny so sugar cream seasonal White, percolator aroma, trifecta, doppio blue mountain eu con panna',
+  books: {
+    book_1: {
+      'img': {
+        'src': 'src',
+        'alt': 'alt',
+      },
+      'book_title': ( headline ),
+      'year': ( year.long ),
+      'file_type': "Computer File",
+      'author': {
+        'first': ( author.first ),
+        'last': ( author.last )
+      }
+    },
+    book_2: {
+      'img': {
+        'src': 'src',
+        'alt': 'alt',
+      },
+      'book_title': ( headline ),
+      'year': ( year.long ),
+      'file_type': "Computer File",
+      'author': {
+        'first': ( author.first ),
+        'last': ( author.last )
+      }
+    },
+    book_3: {
+      'img': {
+        'src': 'src',
+        'alt': 'alt',
+      },
+      'book_title': ( headline ),
+      'year': ( year.long ),
+      'file_type': "Computer File",
+      'author': {
+        'first': ( author.first ),
+        'last': ( author.last )
+      }
+    },
+    book_4: {
+      'img': {
+        'src': 'src',
+        'alt': 'alt',
+      },
+      'book_title': ( headline ),
+      'year': ( year.long ),
+      'file_type': "Computer File",
+      'author': {
+        'first': ( author.first ),
+        'last': ( author.last )
+      }
+    },
+    book_5: {
+      'img': {
+        'src': 'src',
+        'alt': 'alt',
+      },
+      'book_title': ( headline ),
+      'year': ( year.long ),
+      'file_type': "Computer File",
+      'author': {
+        'first': ( author.first ),
+        'last': ( author.last )
+      }
+    },
+    book_6: {
+      'img': {
+        'src': 'src',
+        'alt': 'alt',
+      },
+      'book_title': ( headline ),
+      'year': ( year.long ),
+      'file_type': "Computer File",
+      'author': {
+        'first': ( author.first ),
+        'last': ( author.last )
+      }
+    }
+  }
+} %}
+
+{% include "@organisms/booklists/00_booklist.twig" with booklist_vars %}

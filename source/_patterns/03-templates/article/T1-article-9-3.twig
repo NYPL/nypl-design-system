@@ -26,7 +26,7 @@
     <h2>{{ headline }}</h2>
     {% include "@organisms/booklists/OSB-001-related-reading-titles-and-detail~card-with-intro.twig" %}
 
-    {% include "@organisms/image-gallery/OSIG-001-image-gallery~with-header.twig" %}
+    {% include "@organisms/image-gallery/00_image-gallery.twig" with { header: 'Image Gallery Header' } %}
 {#  
     {% include "@molecules/text/MTT-001-body-text.twig" with {'paragraph': ( article_vars.intro_1 )} %}
 

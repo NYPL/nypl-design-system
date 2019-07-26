@@ -962,6 +962,44 @@ input[type=search]::-webkit-search-decoration {
   padding: 0 0.625em 0.625em 0.625em;
 }
 
+.breadcrumbs {
+  grid-column: 1/13;
+  display: flex;
+  margin-top: 1.25em;
+  color: #0071ce;
+}
+.breadcrumbs li {
+  margin-right: 1.25em;
+}
+.breadcrumbs li::hover {
+  color: #004782;
+}
+.breadcrumbs li::after {
+  content: "/";
+  margin-left: 0.625em;
+}
+.breadcrumbs li:last-of-type {
+  color: black;
+}
+.breadcrumbs li:last-of-type::after {
+  content: "";
+}
+
+.quick-links {
+  grid-column: 1/13;
+}
+@media screen and (min-width: 600px) {
+  .quick-links {
+    grid-column: 10/13;
+  }
+}
+.quick-links h3 {
+  background-color: black;
+  color: white;
+  padding: 0.625em;
+  margin: 0;
+}
+
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
@@ -1194,132 +1232,83 @@ input[type=search]::-webkit-search-decoration {
 }
 
 .booklist {
-  background-color: tomato;
+  margin-bottom: 1.25em;
 }
 
-.list-item {
-  display: grid;
-  grid: auto-flow/auto 2fr 1fr;
-  column-gap: 5%;
-  align-items: stretch;
-  border: 1px solid #e0e0e0;
-  padding-right: 1.25em;
-  margin-top: 8px;
-  border-top-left-radius: 8px;
+.booklist-item {
   border-bottom-left-radius: 8px;
-}
-.list-item:first-of-type {
-  margin-top: unset;
-}
-@media screen and (max-width: 600px) {
-  .list-item {
-    grid-template-columns: auto;
-    grid-auto-rows: min-content;
-    height: unset;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: unset;
-  }
-}
-
-.--booklist-card-with-icon .booklist-icon {
-  align-items: center;
-  align-self: stretch;
-  background-color: #f3e8f5;
+  border-top-left-radius: 8px;
   display: flex;
-  justify-content: center;
-  border-radius: 8px;
-  border: 1px solid #f3e8f5;
-  margin-left: -1px;
-  margin-top: -1px;
-  height: calc(100% + 2px);
-  padding: 1.25em 1.25em;
+  margin-bottom: 1.25em;
+  padding-right: 1.25em;
 }
-.--booklist-card-with-icon .booklist-icon img {
-  min-width: 25px;
+.booklist-item.bordered {
+  border: 1px solid #e0e0e0;
 }
 @media screen and (max-width: 600px) {
-  .--booklist-card-with-icon .booklist-icon {
-    padding: 3.125em 3.125em;
-    width: calc(100% + 2px);
-  }
-}
-.--booklist-card-with-icon .item-content {
-  padding: 0.625em 0;
-}
-@media screen and (max-width: 600px) {
-  .--booklist-card-with-icon .item-content {
+  .booklist-item {
+    border-bottom-left-radius: unset;
+    border-top-right-radius: 8px;
+    flex-wrap: wrap;
     height: unset;
-    padding: 0 1.25em;
-  }
-  .--booklist-card-with-icon .item-content:first-of-type {
-    padding-top: 1.25em;
-  }
-  .--booklist-card-with-icon .item-content:last-of-type {
-    padding-bottom: 1.25em;
-  }
-}
-.--booklist-card-with-icon .author {
-  width: 100%;
-}
-@media screen and (max-width: 600px) {
-  .--booklist-card-with-icon {
     padding-right: 0;
   }
 }
-
-.author {
-  clear: both;
+.booklist-item .item-content {
+  padding: 0.625em 1.25em;
+  flex-grow: 2;
 }
-
-.division-block-list {
-  grid-column: 1/11;
+.booklist-item .item-content:last-of-type {
+  padding: 0.625em 0;
+  flex-grow: 1;
 }
-
-.breadcrumbs {
-  grid-column: 1/13;
-  display: flex;
-  margin-top: 1.25em;
-  color: #0071ce;
-}
-.breadcrumbs li {
-  margin-right: 1.25em;
-}
-.breadcrumbs li::hover {
-  color: #004782;
-}
-.breadcrumbs li::after {
-  content: "/";
-  margin-left: 0.625em;
-}
-.breadcrumbs li:last-of-type {
-  color: black;
-}
-.breadcrumbs li:last-of-type::after {
-  content: "";
-}
-
-.quick-links {
-  grid-column: 1/13;
-}
-@media screen and (min-width: 600px) {
-  .quick-links {
-    grid-column: 10/13;
+@media screen and (max-width: 600px) {
+  .booklist-item .item-content {
+    height: unset;
+    padding: 0 1.25em;
+  }
+  .booklist-item .item-content:first-of-type {
+    padding-top: 1.25em;
+  }
+  .booklist-item .item-content:last-of-type {
+    padding-bottom: 1.25em;
   }
 }
-.quick-links h3 {
-  background-color: black;
-  color: white;
-  padding: 0.625em;
-  margin: 0;
+.booklist-item .author {
+  width: 100%;
+}
+
+.booklist-icon {
+  align-self: stretch;
+  background-color: #f3e8f5;
+  background-image: url("../images/icons/book-purple.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  border: 1px solid #f3e8f5;
+  display: flex;
+  flex-grow: 1;
+  min-width: 125px;
+  justify-content: center;
+  margin-left: -1px;
+  margin-top: -1px;
+  padding: 1.25em 1.25em;
+}
+.booklist-icon img {
+  min-width: 25px;
+}
+@media screen and (max-width: 600px) {
+  .booklist-icon {
+    padding: 3.125em 3.125em;
+  }
 }
 
 .image-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.image-gallery li {
-  flex: 0 1 30%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 1em;
+  grid-column-gap: 1em;
+  margin-bottom: 1.25em;
 }
 .image-gallery img {
   width: 100%;
