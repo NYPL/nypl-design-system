@@ -1231,75 +1231,85 @@ input[type=search]::-webkit-search-decoration {
   padding: 1.25em;
 }
 
-.booklist {
+.catalog-list {
   margin-bottom: 1.25em;
 }
 
-.booklist-item {
+.catalog-item {
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
   display: flex;
   margin-bottom: 1.25em;
   padding-right: 1.25em;
 }
-.booklist-item.bordered {
-  border: 1px solid #e0e0e0;
-}
-@media screen and (max-width: 600px) {
-  .booklist-item {
+@media screen and (max-width: 50em) {
+  .catalog-item {
     border-bottom-left-radius: unset;
     border-top-right-radius: 8px;
-    flex-wrap: wrap;
+    flex-direction: column;
     height: unset;
     padding-right: 0;
   }
 }
-.booklist-item .item-content {
-  padding: 0.625em 1.25em;
-  flex-grow: 2;
+.catalog-item.bordered {
+  border: 1px solid #e0e0e0;
 }
-.booklist-item .item-content:last-of-type {
+
+.item-content {
+  padding: 0.625em 1.875em;
+  flex: 2 1 auto;
+}
+.item-content:last-of-type {
   padding: 0.625em 0;
-  flex-grow: 1;
+  flex: 0 0 200px;
 }
-@media screen and (max-width: 600px) {
-  .booklist-item .item-content {
+@media screen and (max-width: 50em) {
+  .item-content {
+    flex: 1 1 100%;
     height: unset;
     padding: 0 1.25em;
   }
-  .booklist-item .item-content:first-of-type {
+  .item-content:first-of-type {
     padding-top: 1.25em;
   }
-  .booklist-item .item-content:last-of-type {
-    padding-bottom: 1.25em;
+  .item-content:last-of-type {
+    padding: 1.25em 1.25em;
+    flex: 1 1 100%;
   }
 }
-.booklist-item .author {
-  width: 100%;
-}
 
-.booklist-icon {
+.catalog-icon {
   align-self: stretch;
   background-color: #f3e8f5;
-  background-image: url("../images/icons/book-purple.svg");
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 8px;
   border: 1px solid #f3e8f5;
   display: flex;
-  flex-grow: 1;
-  min-width: 125px;
+  flex: 0 0 200px;
   justify-content: center;
+  margin-bottom: -1px;
   margin-left: -1px;
   margin-top: -1px;
   padding: 1.25em 1.25em;
 }
-.booklist-icon img {
+.catalog-icon.book {
+  background-image: url("../images/icons/book-purple.svg");
+}
+.catalog-icon.cd, .catalog-icon.audiobook {
+  background-image: url("../images/icons/cd-purple.svg");
+}
+.catalog-icon.movie {
+  background-image: url("../images/icons/movie-purple.svg");
+}
+.catalog-icon img {
   min-width: 25px;
 }
-@media screen and (max-width: 600px) {
-  .booklist-icon {
-    padding: 3.125em 3.125em;
+@media screen and (max-width: 50em) {
+  .catalog-icon {
+    height: 200px;
+    flex-grow: 1;
+    margin-right: -1px;
   }
 }
 

@@ -1,0 +1,49 @@
+{% if header is defined %}
+  <h3>{{ header }}</h3>
+  {% if intro is defined %}
+    <p>{{ intro }}</p>
+  {% endif %}
+{% endif %}
+
+<ul class="catalog-list">
+  {% for items in catalog_vars %}
+    {% for item in items %}
+      <li class="catalog-item {{ border ? 'bordered' : '' }}">
+        {% if images == true %}
+          <span class="catalog-icon {{ item.media_type }}">
+            {% if img is defined %}
+              <img src="{{ item.img.src }}" alt="{{ item.img.alt }}" />
+            {% endif %}
+          </span>
+        {% endif %}
+
+        <div class="item-content">
+          <h3>{{ item.title|length > 50 ? item.title|slice(0, 50) ~ '...' : item.title }}</h3>
+
+          <span class="tag">{{ item.year }}</span>
+
+          {% if item.media_type == 'cd' %}
+            <span class="tag">{{ item.media_type|upper }}</span>
+          {% else %}
+            <span class="tag">{{ item.media_type|title }}</span>
+          {% endif %}
+
+          <div class="">By {{ item.author.first }} {{ item.author.last }}</div>
+
+          <p>Available onsite at specific locations. <a href="#" class="btn-text">View Detail<span class="icon icon-arrow-right"></span></a></p>
+        </div>
+
+
+        {% if border == true %}
+          <div class="item-content">
+            {% if item.how_to_view_link is defined %}
+              <button href="{{ item.how_to_view_link }}" class="btn btn-outline fluid">How to View</button>
+            {% endif %}
+
+            <button href="#" class="btn btn-outline fluid">Add To My List</button>
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  {% endfor %}
+</ul>
