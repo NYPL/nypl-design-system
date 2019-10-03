@@ -3,12 +3,21 @@
   "description": "Project template for Drupal 8 themes",
   "version": "1.0.0",
   "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "babel-loader": "^8.0.6",
     "emulsify-gulp": "^4.0.0",
     "gulp": "^3.9.1"
   },
   "scripts": {
-    "start": "gulp compile && gulp theme",
-    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh"
+    "patternlab": "gulp compile && gulp theme",
+    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
-  "precommit.silent": true
+  "precommit.silent": true,
+  "dependencies": {}
 }
