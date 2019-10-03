@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../style.scss';
 
 export interface ButtonProps {
   /** The action to perform on the <button>'s onClick function */

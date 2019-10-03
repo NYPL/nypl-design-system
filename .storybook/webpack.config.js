@@ -1,4 +1,5 @@
 const path = require('path');
+const globImporter = require('node-sass-glob-importer');
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
@@ -9,7 +10,16 @@ module.exports = async ({ config, mode }) => {
   // Make whatever fine-grained changes you need
   config.module.rules.push({
     test: /\.scss$/,
-    use: ['style-loader', 'css-loader', 'sass-loader'],
+    use: [
+      'style-loader',
+      'css-loader',
+      {
+        loader: 'sass-loader',
+        options: {
+          importer: globImporter()
+        },
+      },
+    ],
     include: path.resolve(__dirname, '../'),
   });
 
