@@ -13,12 +13,8 @@ module.exports = async ({ config, mode }) => {
     use: [
       'style-loader',
       'css-loader',
-      {
-        loader: 'sass-loader',
-        options: {
-          importer: globImporter()
-        },
-      },
+      'sass-loader',
+      'import-glob-loader'
     ],
     include: path.resolve(__dirname, '../'),
   });
