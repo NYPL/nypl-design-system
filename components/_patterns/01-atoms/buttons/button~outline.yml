@@ -1,0 +1,4 @@
+button_url: '#'
+button_content: 'Submit'
+button_modifiers:
+  - 'outline'

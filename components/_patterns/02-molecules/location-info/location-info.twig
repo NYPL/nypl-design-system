@@ -1,0 +1,53 @@
+{% set location__base_class = location__base_class|default('location-info') %}
+
+<div {{ bem(location__base_class) }}>
+  {# Eyebrow #}
+  {% if location__eyebrow %}
+    {% include "@atoms/text/text/text.twig" with {
+      text_base_class: 'eyebrow',
+      text_blockname: location__base_class,
+      text_content: location__eyebrow,
+    } %}
+  {% endif %}
+  {# Heading #}
+  {% if location__heading %}
+    {% include "@atoms/text/headings/_heading.twig" with {
+      heading_level: '3',
+      heading: location__heading,
+      heading_base_class: 'heading',
+      heading_blockname: location__base_class,
+    } %}
+  {% endif %}
+  {% if location__address %}
+    {% include "@atoms/text/text/text.twig" with {
+      text_base_class: 'address',
+      text_blockname: location__base_class,
+      text_content: location__address,
+    } %}
+  {% endif %}
+  {# Directions Link #}
+  {% if location__directions_url %}
+    {% include "@atoms/links/link/more-link.twig" with {
+      link_base_class: 'directions',
+      link_blockname: location__base_class,
+      link_content: 'Directions',
+      link_url: location__directions_url,
+    } %}
+  {% endif %}
+  {# Phone number #}
+  {% if location__phone_number %}
+    <div {{ bem('phone', [], location__base_class) }}>
+      Call
+      {% include "@atoms/links/link/link.twig" with {
+        link_base_class: 'phone-number',
+        link_content: location__phone_number,
+        link_url: 'tel:' ~ location__phone_number,
+      } %}
+    </div>
+  {% endif %}
+  {% if location__accessibility_level %}
+    {% include "@molecules/location-info/partials/_location--accessibility.twig" with {
+      accessibility_level: location__accessibility_level,
+    } %}
+  {% endif %}
+</div>

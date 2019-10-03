@@ -1,0 +1,16 @@
+# Breakpoints - change based on site need
+nypl_emulsify.small:
+  label: small
+  mediaQuery: 'all and (min-width: 25em)'
+nypl_emulsify.small-med:
+  label: small-med
+  mediaQuery: 'all and (min-width: 26em)'
+nypl_emulsify.small-large:
+  label: small-large
+  mediaQuery: 'all and (min-width: 41em)'
+nypl_emulsify.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 48em)'
+nypl_emulsify.large:
+  label: large
+  mediaQuery: 'all and (min-width: 61.25em)'

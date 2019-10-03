@@ -1,0 +1,11 @@
+<div {{ bem('location-hours', [], address_bar__base_class) }}>
+  <strong>Hours</strong>
+  <table {{ bem('hours', [], address_bar__base_class) }}>
+    {% for day in days %}
+      <tr>
+        <th {{ bem('hours-day', [], address_bar__base_class) }}>{{ day.day }}</th>
+        <td {{ bem('hours-hours', [], address_bar__base_class) }}>{{ day.hours }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>

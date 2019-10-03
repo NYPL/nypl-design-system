@@ -1,0 +1,50 @@
+// These styles are specifically for Pattern Lab.
+// They are not used by the site in any way.
+
+.sg-space {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    flex: 0 0 192px;
+    margin: 0 1rem 1rem;
+  }
+
+  &__sample {
+    display: block;
+    margin-bottom: 0.3em;
+
+    &--inset {
+      background-color: $nypl-purple-regular;
+      height: 192px;
+    }
+
+    &--inline {
+      display: inline-block;
+      background-color: $nypl-yellow-light;
+    }
+
+    &--stack {
+      background-color: $nypl-turquoise-light;
+    }
+  }
+
+  &__sample-child {
+    background-color: white;
+    height: 100%;
+
+    &--inline {
+      height: 2.4rem;
+      width: 2.4rem;
+      background-color: $nypl-yellow-regular;
+    }
+
+    &--stack {
+      height: 2.4rem;
+      background-color: $nypl-turquoise-regular;
+    }
+  }
+}

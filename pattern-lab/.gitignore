@@ -1,0 +1,5 @@
+.DS_Store
+export/*
+public/*
+source/styleguide/*
+vendor/*

@@ -1,25 +1,14 @@
 {
-  "name": "nypl-patternlab",
+  "name": "emulsify",
+  "description": "Project template for Drupal 8 themes",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "patternlab build --config ./patternlab-config.json",
-    "help": "patternlab --help",
-    "install": "patternlab install --config ./patternlab-config.json",
-    "serve": "patternlab serve --config ./patternlab-config.json",
-    "start": "npm run serve",
-    "version": "patternlab --version"
+  "devDependencies": {
+    "emulsify-gulp": "^4.0.0",
+    "gulp": "^3.9.1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@pattern-lab/cli": "^0.0.3",
-    "@pattern-lab/core": "^3.0.1",
-    "@pattern-lab/engine-twig-php": "^3.0.1",
-    "@pattern-lab/starterkit-twig-demo": "^4.1.1",
-    "@pattern-lab/uikit-workshop": "^1.0.1"
-  }
+  "scripts": {
+    "start": "gulp compile && gulp theme",
+    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh"
+  },
+  "precommit.silent": true
 }

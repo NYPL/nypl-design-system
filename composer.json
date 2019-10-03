@@ -1,0 +1,29 @@
+{
+    "name": "nypl/nypl_emulsify",
+    "description": "Base theme for Drupal 8 which utilizes NYPL's Design System 2019",
+    "type": "drupal-custom-theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "NYPL Digital",
+            "email": "digitalteam@nypl.org"
+        }
+    ],
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "require": {
+        "drupal/components": "^1.0",
+        "drupal-pattern-lab/add-attributes-twig-extension": "^1.0",
+        "drupal-pattern-lab/bem-twig-extension": "^1.0",
+        "drupal-pattern-lab/attach-library-twig-extension": "^1.0",
+        "drupal-pattern-lab/unified-twig-extensions": "^0.1"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {},
+    "extra": []
+}

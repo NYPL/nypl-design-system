@@ -1,0 +1,8 @@
+<strong>Input:</strong> {{ time__input }}<br />
+
+{% for time in times %}
+  <p>
+    <strong>{{ time.time__format }}</strong><br />
+    {{ time__input|date(time.time__format)}}
+  </p>
+{% endfor %}

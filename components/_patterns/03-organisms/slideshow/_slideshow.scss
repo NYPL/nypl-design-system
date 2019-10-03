@@ -1,0 +1,132 @@
+// The viewer
+.slideshow__viewer {
+  background-color: $gray-light;
+
+  // Center the images vertically and horizontally
+  // to accommodate various aspect ratios.
+  .slick-track,
+  .slick-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// The image meta section (Image title + item count)
+.slideshow__meta {
+  padding: $space-s 0;
+}
+
+.slick-initialized .slideshow__meta-item {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.slideshow__image-info {
+  @include space-inline-s;
+}
+
+.slideshow__image-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.slideshow__image-collection-link {
+  color: $nypl-blue-regular;
+  letter-spacing: 0.0275em;
+}
+
+.slideshow__counter {
+  font-size: 0.75rem;
+  letter-spacing: 0.0275em;
+}
+
+// The entire navigation section (carousel + arrows)
+.slideshow__navigation {
+  position: relative;
+}
+
+// The carousel arrows
+.slideshow__nav {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid $gray-medium;
+  background: $gray-xlight;
+
+  &--prev {
+    left: -0.75rem;
+  }
+
+  &--next {
+    right: -0.75rem;
+  }
+}
+
+.slideshow__nav-icon {
+  @include icon;
+
+  position: relative;
+  height: 12px;
+  width: 12px;
+
+  &--prev {
+    left: 0.25rem;
+  }
+
+  &--next {
+    left: 0.35rem;
+  }
+}
+
+// The carousel
+.slideshow__carousel {
+  border-top: 1px solid $gray-light;
+  border-bottom: 1px solid $gray-light;
+
+  // The nested selectors here are all to support the "zoom" effect of the current slide.
+  .slick-list {
+    // Slick defines `padding: x y` dynamically via js, even though it only affects the left/right padding.
+    // We need to add top/bottom padding. Therefor, we have to use !important here. :(
+    padding-top: $space-s !important;
+    padding-bottom: $space-s !important;
+  }
+
+  .slick-track {
+    margin: $space-m 0;
+  }
+
+  .slick-current {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 0.25rem $gray-dark;
+  }
+}
+
+.slideshow__carousel-item {
+  border: 0.5rem solid $white;
+}
+
+// Styles only for Pattern Lab.
+// These will never be used on the site.
+.pl {
+  #organisms-slideshow-variable-dimensions {
+    .slideshow__navigation {
+      .slick-track {
+        // This is to kind of "fake" the carousel image sizes since we don't have anything
+        // like Drupal doing image manipulation (scaling and cropping) for us.
+        // It's still not perfect, but gets the images closer to the aspect ratio that
+        // they will be on the site.
+        max-height: 157px;
+        overflow: hidden;
+      }
+    }
+  }
+}

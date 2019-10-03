@@ -1,0 +1,14 @@
+.date-bar {
+  background-color: $nypl-turquoise-dark;
+  color: $white;
+  display: flex;
+  flex-flow: column nowrap;
+  font-weight: 600;
+  justify-content: space-around;
+  min-height: 80px;
+  padding: $space-s $space;
+
+  &--ended {
+    background-color: $color-error;
+  }
+}

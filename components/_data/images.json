@@ -1,0 +1,20 @@
+{
+  "image": {
+    "four_by_three": {
+      "responsive": {
+        "srcset": "https://placeimg.com/300/225/any 300w, https://placeimg.com/600/450/any 600w, https://placeimg.com/900/675/any 900w, https://placeimg.com/1200/900/any 1200w, https://placeimg.com/1800/1350/any 1800w, https://placeimg.com/2100/1575/any 2100w",
+        "sizes": "100vw",
+        "src": "https://placeimg.com/300/225/any",
+        "alt": "A 4x3 image"
+      }
+    },
+    "two_by_one": {
+      "responsive": {
+        "srcset": "https://placeimg.com/320/160/any 320w, https://placeimg.com/480/240/any 480w, https://placeimg.com/640/320/any 640w, https://placeimg.com/800/400/any 800w, https://placeimg.com/960/480/any 960w, https://placeimg.com/1120/560/any 1120w, https://placeimg.com/1280/640/any 1280w, https://placeimg.com/1440/720/any 1440w, https://placeimg.com/1600/800/any 1600w, https://placeimg.com/1760/880/any 1760w",
+        "sizes": "100vw",
+        "src": "https://placeimg.com/320/160/any",
+        "alt": "A 2x1 image"
+      }
+    }
+  }
+}

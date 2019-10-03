@@ -1,0 +1,43 @@
+slides:
+  - img_src: https://placeimg.com/320/520/tech
+    img_title: Image 1 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/925/520/nature
+    img_title: Image 2 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/693/520/people
+    img_title: Image 3 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/779/520/animals
+    img_title: Image 4 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/867/520/arch
+    img_title: Image 5 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/217/520/nature/grayscale
+    img_title: Image 6 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/1224/382/arch/sepia
+    img_title: Image 7 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/320/520/tech/sepia
+    img_title: Image 8 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/925/520/nature/grayscale
+    img_title: Image 9 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/693/520/people/sepia
+    img_title: Image 10 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/779/520/animals/grayscale
+    img_title: Image 11 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/867/520/arch/grayscale
+    img_title: Image 12 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/217/520/nature
+    img_title: Image 13 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/1224/382/arch
+    img_title: Image 14 title goes here
+    image_collection_link: '#'

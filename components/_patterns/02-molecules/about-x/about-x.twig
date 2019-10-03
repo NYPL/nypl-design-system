@@ -1,0 +1,26 @@
+{% set about_x__base_class = 'about-x' %}
+
+<div {{ bem(about_x__base_class) }}>
+  {% include "@atoms/text/headings/_heading.twig" with {
+    heading_base_class: 'heading',
+    heading_blockname: about_x__base_class,
+    heading_level: '2',
+    heading: about_x__heading,
+  } %}
+  <div {{ bem('content', [], about_x__base_class) }}>
+    {% if about_x__image %}
+      <div {{ bem('image', [], about_x__base_class) }}>
+        {% block about_x__image %}
+          {% include "@atoms/images/image/responsive-image.twig" with {
+            output_image_tag: true,
+            img_src: about_x__image_src,
+          } %}
+        {% endblock %}
+      </div>
+    {% endif %}
+    {% include "@atoms/text/text/text.twig" with {
+      text_blockname: about_x__base_class,
+      text_content: about_x__content,
+    } %}
+  </div>
+</div>

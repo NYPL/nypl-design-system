@@ -1,0 +1,6 @@
+<strong>Amenities</strong>
+<ul {{ bem('amenities', [], address_bar__base_class) }}>
+  {% for amenity in location__amenities %}
+    <li {{ bem('amenity', [], address_bar__base_class) }}>{{ amenity }}</li>
+  {% endfor %}
+</ul>

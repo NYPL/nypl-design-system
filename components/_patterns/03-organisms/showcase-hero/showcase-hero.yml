@@ -1,0 +1,9 @@
+showcase_hero__heading: "NER BECK: Heavy Metal Heads, Laugh Out Loud Litter Baskets, Food Faces, Winter's Wonder and Budape"
+showcase__date__start: '2119-12-09 12:00:00'
+showcase__date__end: '2119-12-10 14:00:00'
+showcase_hero__address: 'Belmont Library and Enrico Fermi Cultural Center Longer Name Lorem, Ipsum'
+showcase_hero__directions_url: '#'
+showcase_hero__accessibility_level: 'Fully Accessible'
+showcase_hero__cta:
+  - url: '#'
+    text: 'Share'
