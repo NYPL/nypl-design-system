@@ -1,0 +1,42 @@
+/// Link
+$color-link: $nypl-blue-regular;
+$color-link--hover: $nypl-blue-dark;
+
+@mixin link {
+  color: $color-link;
+
+  &:hover {
+    color: $color-link--hover;
+  }
+}
+
+@mixin more-link {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  color: $color-link;
+  text-decoration: none;
+  font-size: 0.875em;
+  line-height: 1.21;
+  letter-spacing: 0.107142857em;
+
+  &:hover {
+    color: $color-link--hover;
+    text-decoration: underline;
+  }
+
+  &__icon {
+    @include icon;
+
+    margin-left: $space-xxs;
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+.link {
+  @include link;
+}
+
+.more-link {
+  @include more-link;
+}

@@ -1,0 +1,15 @@
+$address-bar-border: 1px solid $gray-light;
+
+.address-bar {
+  &__content {
+    @include space-inset-s;
+
+    border-right: $address-bar-border;
+    border-bottom: $address-bar-border;
+    border-left: $address-bar-border;
+
+    > *:last-child {
+      @include space-stack-none;
+    }
+  }
+}

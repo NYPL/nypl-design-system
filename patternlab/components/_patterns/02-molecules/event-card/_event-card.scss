@@ -1,0 +1,72 @@
+.event-card {
+  display: flex;
+  flex-flow: column nowrap;
+
+  &__image {
+    position: relative; // This supports positioning the date-tile
+    color: inherit;
+
+    img {
+      // This allows a smaller image to scale up while a larger one is downloading
+      width: 100%;
+    }
+  }
+
+  &__no-image {
+    background: purple;
+    height: 0.5rem;
+  }
+
+  &__icon-wrapper {
+    background-color: $nypl-purple-light;
+    border-radius: 8px;
+    padding-top: 75%;
+  }
+
+  &__icon {
+    @include icon;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: $nypl-purple-dark;
+  }
+
+  &__content {
+    order: 1;
+    padding: $space-s;
+  }
+
+  &__heading {
+    margin: 0 0 $space-s;
+  }
+
+  &__status {
+    display: inline-block;
+    border: 1px solid $gray-light;
+    background-color: $gray-xxlight;
+    padding: 0 $space-xs;
+    margin-bottom: $space-s;
+    min-width: 6.5rem;
+    text-transform: uppercase;
+    color: $color-error;
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.005833333em;
+  }
+
+  &__date {
+    margin-bottom: $space-xs;
+    letter-spacing: 0.0275em;
+  }
+
+  &__library {
+    margin-bottom: $space-s;
+  }
+
+  &__tags {
+    padding-top: $space-xs;
+    border-top: 1px solid $gray-medium;
+  }
+}

@@ -1,0 +1,36 @@
+.event-section {
+  &__heading-section {
+    margin-bottom: $space-m;
+  }
+
+  &__heading {
+    display: inline;
+    margin-right: $space-xs;
+  }
+
+  &__intro {
+    margin-bottom: $space-m;
+  }
+
+  &__events {
+    @include list-reset;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    @include breakpoint($large) {
+      flex-direction: row;
+    }
+  }
+
+  &__event {
+    & + & {
+      margin-top: $space-s;
+
+      @include breakpoint($large) {
+        margin-top: 0;
+        margin-left: $space-l;
+      }
+    }
+  }
+}

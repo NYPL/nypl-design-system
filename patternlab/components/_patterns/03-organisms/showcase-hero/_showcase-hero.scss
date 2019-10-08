@@ -1,0 +1,71 @@
+@mixin showcase-hero-padding {
+  @include space-inset-s;
+
+  @include breakpoint($medium) {
+    @include space-inset-m;
+  }
+}
+
+@mixin showcase-hero-layout {
+  @include breakpoint($medium) {
+    display: flex;
+    flex-flow: row nowrap;
+
+    > *:first-child {
+      flex: 1 1 auto;
+    }
+
+    > *:last-child {
+      flex: 0 0 40%;
+      margin-left: auto;
+    }
+  }
+}
+
+.showcase-hero {
+  // The top half fo the hero.
+  &__header {
+    @include showcase-hero-layout;
+
+    background-color: $gray-warm-xlight;
+  }
+
+  &__heading {
+    @include showcase-hero-padding;
+    @include space-stack-none;
+  }
+
+  &__image {
+    img {
+      // This allows a smaller image to scale up while a larger one is downloading
+      width: 100%;
+    }
+  }
+
+  // The bottom half of the hero.
+  &__details {
+    @include showcase-hero-layout;
+
+    background-color: $gray-warm-light;
+  }
+
+  &__location-info {
+    @include showcase-hero-padding;
+
+    a {
+      color: $nypl-red-regular;
+    }
+  }
+
+  &__ctas {
+    @include showcase-hero-padding;
+  }
+
+  &__cta {
+    display: block;
+
+    &--secondary {
+      @include button--outline;
+    }
+  }
+}

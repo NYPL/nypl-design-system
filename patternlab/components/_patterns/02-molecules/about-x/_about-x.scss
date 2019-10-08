@@ -1,0 +1,25 @@
+$about-x--break: $medium;
+
+.about-x__content {
+  display: flex;
+  flex-flow: column nowrap;
+
+  @include breakpoint($about-x--break) {
+    flex-direction: row;
+  }
+}
+
+.about-x__image {
+  @include space-stack-s;
+
+  @include breakpoint($about-x--break) {
+    @include space-inline-l;
+    @include space-stack-none;
+
+    flex: 0 1 164px;
+  }
+}
+
+.about-x__text {
+  flex: 1 1 50%;
+}

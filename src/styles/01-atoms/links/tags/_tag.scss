@@ -1,0 +1,15 @@
+@mixin tag {
+  color: $gray-dark;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.005833333em;
+  margin-right: $space-xs;
+
+  &:hover {
+    color: $gray-dark;
+  }
+}
+
+.tag {
+  @include tag;
+}

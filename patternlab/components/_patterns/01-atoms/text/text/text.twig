@@ -1,0 +1,18 @@
+{#
+ # Available variables:
+ # - text_base_class - the base classname
+ # - text_modifiers - array of modifiers to add to the base classname
+ # - text_blockname - blockname prepended to the base classname
+ # - text_content - the content of the text
+ #
+ # Available blocks:
+ # - text_content - used to replace the content of the text with something other than plain text
+ #   for example: A formatted text field in Drupal
+#}
+{% set text_base_class = text_base_class|default('text') %}
+
+<div {{ bem(text_base_class, text_modifiers, text_blockname) }}>
+  {% block text_content %}
+    {{ text_content }}
+  {% endblock %}
+</div>
