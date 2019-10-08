@@ -67,7 +67,7 @@
           // src: `${themeDir}/components/_patterns/00-base/01-colors/_color-vars.scss`,
           src: `../src/styles/00-base/01-colors/_color-vars.scss`,
           // dest: `${themeDir}/components/_patterns/00-base/01-colors/colors.yml`,
-          dest: `../src/twig/00-base/01-colors/colors.yml`,
+          dest: `../src/twig/_patterns/00-base/01-colors/colors.yml`,
           lineStartsWith: '$',
           allowVarValues: false,
         },
