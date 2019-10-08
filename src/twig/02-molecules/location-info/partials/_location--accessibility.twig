@@ -1,0 +1,17 @@
+{% set accessibility__base_class = accessibility__base_class|default('location-info') %}
+
+<div {{ bem('accessibility', [], address_bar__base_class) }}>
+  {% if show_location_labels %}
+    <strong>Accessibility</strong><br />
+  {% endif %}
+  <span {{ bem('accessibility-rating', [], accessibility__base_class) }}>
+    {% if accessibility_level == "Fully Accessible" %}
+      {% include "@atoms/images/icons/_icon.twig" with {
+        icon_name: 'full-accessibility',
+        icon_modifiers: ['small'],
+      } %}
+    {% endif %}
+    {{ accessibility_level }}
+  </span>
+  <p {{ bem('accessibility-description', [], accessibility__base_class) }}>{{ accessibility_level__description }}</p>
+</div>

@@ -1,0 +1,80 @@
+{#
+/**
+ * @file
+ * Event address bar for displaying date and time information for events.
+ *
+ * Variables:
+ * # event_date_start — The start date/time.
+ * # event_date_end — The end date/time.
+ *
+ * # Dates should be provided in a machine readable format, like 2019-11-15 12:00:00
+ */
+#}
+
+{# Date/time formats used in this component #}
+{% set time__ymd = 'Y-m-d' %} {# 2019-11-15 #}
+{% set time__day = 'l, F d' %} {# Friday, November 15 #}
+{% set time__short = 'F d' %} {# November 15 #}
+{% set time__time = 'g:i A' %} {# 2:00PM #}
+
+{% set now = 'now'|date(time__ymd) %}
+
+{% set date_bar_base_class = 'date-bar' %}
+
+{% if date(event_date_end) < date() %}
+  {% set date_bar_modifiers = ['ended'] %}
+{% endif %}
+
+<div {{ bem(date_bar_base_class , date_bar_modifiers) }}>
+  {# Ended #}
+  {% if date(event_date_end) < date() %}
+    The event has ended
+
+  {# Range Open Now #}
+  {% elseif (event_date_start|date(time__ymd) < now) and (event_date_end|date(time__ymd) > now) %}
+    Open now through
+    {% include "@atoms/time/_time.twig" with {
+      time: event_date_end,
+      time__human: time__day,
+    } %}
+
+  {# Range Not Yet Open #}
+  {% elseif (event_date_start|date(time__ymd) > now) and (event_date_end|date(time__ymd) > event_date_start|date(time__ymd)) %}
+    <div>
+      Opening Soon
+    </div>
+    <div>
+      {% include "@atoms/time/_time.twig" with {
+        time: event_date_start,
+        time__human: time__short,
+      } %} –
+      {% include "@atoms/time/_time.twig" with {
+        time: event_date_end,
+        time__human: time__short,
+      } %}
+    </div>
+
+  {# Single Day #}
+  {% else %}
+    {# Day #}
+    {% include "@atoms/time/_time.twig" with {
+      time: event_date_end,
+      time__human: time__day,
+    } %}
+
+    {# Time #}
+    <div>
+      {% include "@atoms/time/_time.twig" with {
+        time: event_date_start,
+        time__human: time__time,
+      } %}
+      {% if event_date_end|date(time__time) > event_date_start|date(time__time) %}
+        –
+        {% include "@atoms/time/_time.twig" with {
+          time: event_date_end,
+          time__human: time__time,
+        } %}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

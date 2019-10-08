@@ -1,0 +1,13 @@
+<ul class="sg-space">
+  {% for item in items %}
+    <li>
+      <div class="sg-space__sample sg-space__sample--inset" style="padding: {{item.value}};">
+        <div class="sg-space__sample-child"></div>
+      </div>
+      <div class="sg-info">
+        <code>{{item.name}}</code>
+        <p>{{item.value}}</p>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
