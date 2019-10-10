@@ -1,4 +1,9 @@
 {% embed "@templates/_default.twig" %}
+  {% block page_header %}
+    {% include "@templates/_place-holder.twig" with {
+      "place_holder": "Header",
+    } %}
+  {% endblock %}
 
   {% block page_content %}
     {% include "@templates/_place-holder.twig" with {
@@ -6,4 +11,9 @@
     } %}
   {% endblock %}
 
+  {% block page_footer %}
+    {% include "@templates/_place-holder.twig" with {
+      "place_holder": "Footer",
+    } %}
+  {% endblock %}
 {% endembed %}

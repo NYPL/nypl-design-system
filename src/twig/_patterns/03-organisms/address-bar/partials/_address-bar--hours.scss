@@ -1,0 +1,20 @@
+.address-bar {
+  &__location-hours {
+    @include address-bar-vertical-spacing;
+  }
+
+  &__hours {
+    border-spacing: 0;
+  }
+
+  &__hours-day {
+    text-align: left;
+    font-weight: normal;
+    font-size: 0.875rem;
+    letter-spacing: 0.107142857em;
+  }
+
+  &__hours-hours {
+    letter-spacing: 0.0275em;
+  }
+}

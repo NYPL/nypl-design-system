@@ -13,6 +13,7 @@
 
 <div {{ bem(text_base_class, text_modifiers, text_blockname) }}>
   {% block text_content %}
-    {{ text_content }}
+    {# We use raw here to accommodate Drupal's WYSIWYG #}
+    {{ text_content|raw }}
   {% endblock %}
 </div>

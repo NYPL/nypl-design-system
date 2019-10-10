@@ -1,0 +1,12 @@
+.address-bar {
+  &__amenities {
+    @include address-bar-vertical-spacing;
+
+    margin-top: 0;
+    padding: 0 0 0 1.05em;
+  }
+
+  &__amenity {
+    letter-spacing: 0.0275em;
+  }
+}

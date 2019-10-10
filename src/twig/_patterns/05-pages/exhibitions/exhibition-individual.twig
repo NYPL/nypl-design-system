@@ -1,0 +1,167 @@
+{% embed "@templates/with-sidebar.twig" %}
+  {% block page_hero %}
+    {# Exhibition Hero #}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Exhibition Hero",
+    } %}
+  {% endblock %}
+
+  {% block page_content %}
+    {# Text #}
+    {% include "@atoms/text/text/text.twig" with {
+      text_content: "<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est <a href=\"#\">Lorem ipsum dolor sit amet.</a> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.</p><p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>",
+    } %}
+    {# Video #}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Video",
+    } %}
+    {# Slideshow #}
+    {% include "@organisms/slideshow/slideshow.twig" with {
+      slides: {
+        "1": {
+          "img_src": "https://placeimg.com/640/480/tech/sepia",
+          "img_title": "Image 1 title goes here",
+          "image_collection_link": "#",
+        },
+        "2": {
+          "img_src": "https://placeimg.com/640/480/nature/grayscale",
+          "img_title": "Image 2 title goes here",
+          "image_collection_link": "#",
+        },
+        "3": {
+          "img_src": "https://placeimg.com/640/480/people/sepia",
+          "img_title": "Image 3 title goes here",
+          "image_collection_link": "#",
+        },
+        "4": {
+          "img_src": "https://placeimg.com/640/480/animals",
+          "img_title": "Image 4 title goes here",
+          "image_collection_link": "#",
+        },
+        "5": {
+          "img_src": "https://placeimg.com/640/480/arch",
+          "img_title": "Image 5 title goes here",
+          "image_collection_link": "#",
+        },
+        "6": {
+          "img_src": "https://placeimg.com/640/480/nature/grayscale",
+          "img_title": "Image 6 title goes here",
+          "image_collection_link": "#",
+        },
+        "7": {
+          "img_src": "https://placeimg.com/640/480/arch/sepia",
+          "img_title": "Image 7 title goes here",
+          "image_collection_link": "#",
+        }
+      }
+    } %}
+    {# Related Reading #}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Related Reading",
+    } %}
+    {# About Section #}
+    {% include "@molecules/about-x/about-x.twig" with {
+      about_x__image: true,
+      about_x__image_src: 'https://placeimg.com/330/400/people',
+      about_x__heading: 'About Lauren Ipsome',
+      about_x__content: '<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>',
+    } %}
+    {# Curation #}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Curation",
+    } %}
+    {# Location Details #}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Location Details",
+    } %}
+    {# Sponsors #}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Sponsors",
+    } %}
+    {# Related Events #}
+    {% include "@organisms/event-section/_event-section.twig" with {
+      event_section__heading: 'Related Events',
+      event_section__heading__id: 'related-events-00',
+      event_section__see_all__url: '#',
+      events: {
+        "1": {
+          event_card__heading: 'Lorem Ipsum Dolor Simete Long Title Lorem Ipsum Dolor Lorem Long Title',
+          event_card__link: '#',
+          event_card__date__start: '2019-08-17 12:00:00',
+          event_card__date__end: '2119-12-09 12:00:00',
+          event_card__library_name: 'Very Long Lorem Ipsum Long Library Name',
+          event_card__tags: {
+            "1": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            },
+            "2": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            },
+            "3": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            }
+          }
+        },
+        "2": {
+          event_card__heading: 'Lorem Ipsum Dolor Simete Long Title Lorem Ipsum Dolor Lorem Long Title',
+          event_card__link: '#',
+          event_card__date__start: '2019-08-17 12:00:00',
+          event_card__date__end: '2119-12-09 12:00:00',
+          event_card__library_name: 'Very Long Lorem Ipsum Long Library Name',
+          event_card__tags: {
+            "1": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            },
+            "2": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            },
+            "3": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            }
+          }
+        },
+        "3": {
+          event_card__heading: 'Lorem Ipsum Dolor Simete Long Title Lorem Ipsum Dolor Lorem Long Title',
+          event_card__link: '#',
+          event_card__date__start: '2019-08-17 12:00:00',
+          event_card__date__end: '2119-12-09 12:00:00',
+          event_card__library_name: 'Very Long Lorem Ipsum Long Library Name',
+          event_card__tags: {
+            "1": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            },
+            "2": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            },
+            "3": {
+              tag_content: '#Kidslive',
+              tag_url: '#'
+            }
+          }
+        }
+      }
+    } %}
+    {# Related Event #}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Related Exhibitions",
+    } %}
+    {# Related Articles #}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Related Articles",
+    } %}
+  {% endblock %}
+
+  {% block page_sidebar %}
+    {% include "@templates/_place-holder.twig" with {
+      place_holder: "Contextual Menu",
+    } %}
+  {% endblock %}
+{% endembed %}

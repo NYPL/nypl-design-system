@@ -33,7 +33,8 @@
   </div>
   {% if event_section__intro_text %}
     <div {{ bem('intro', [], event_section__base_class) }}>
-      {{ event_section__intro_text }}
+     {# We use raw here to accommodate Drupal's WYSIWYG #}
+      {{ event_section__intro_text|raw }}
     </div>
   {% endif %}
   <ul {{ bem('events', [], event_section__base_class) }}>
