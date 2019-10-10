@@ -6,7 +6,8 @@
     // js: `${themeDir}/components/_patterns/**/*.js`,
     js: `${themeDir}/components/_patterns/**/*.js`,
     dist_js: `${themeDir}/dist`,
-    sass: themeDir,
+    // sass: themeDir,
+    // sass: `../src/styles/**/*.scss`,
     icons: `${themeDir}/images/icons/src`,
     img: [
       `${themeDir}/images/**/*`,
@@ -31,7 +32,7 @@
     cssConfig: {
       enabled: true,
       // src: `${themeDir}/components/_patterns/**/*.scss`,
-      src: `../src/twig/**/*.scss`,
+      src: `../src/styles/**/*.scss`,
       dest: `${themeDir}/dist/`,
       flattenDestOutput: true,
       lint: {
@@ -42,7 +43,10 @@
       sourceMapEmbed: false,
       outputStyle: 'expanded',
       autoPrefixerBrowsers: ['last 2 versions', 'IE >= 11'],
-      includePaths: ['./node_modules'],
+      // includePaths: ['./node_modules'],
+      includePaths: ['node_modules'],
+      // includePaths: ['./node_modules', './node_modules/breakpoint-sass/stylesheets', './node_modules/normalize.css'],
+      // includePaths: ['node_modules', 'node_modules/breakpoint-sass/stylesheets', 'node_modules/normalize.css'],
     },
     iconConfig: {
       mode: {
@@ -60,7 +64,7 @@
     },
     patternLab: {
       enabled: true,
-      configFile: `${themeDir}pattern-lab/config/config.yml`,
+      configFile: `${themeDir}config.yml`,
       watchedExtensions: ['twig', 'json', 'yaml', 'yml', 'md', 'jpg', 'jpeg', 'png'],
       scssToYAML: [
         {
