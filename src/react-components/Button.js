@@ -1,35 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const styles = {
-  border: '1px solid #eee',
-  borderRadius: 3,
-  backgroundColor: '#FFFFFF',
-  cursor: 'pointer',
-  fontSize: 15,
-  padding: '3px 10px',
-  margin: 10,
-};
+export interface ButtonProps {
+  /** The action to perform on the <button>'s onClick function */
+  callback: (event: React.MouseEvent) => void;
+  content?: string | JSX.Element;
+  className?: string;
+  disabled?: boolean;
+  type?: string;
+  mouseDown?: boolean;
+}
 
-const Button = ({
-  children,
-  onClick,
-}: {
-  children: React.ReactChildren;
-  onClick: (event: React.MouseEvent<HTMLElement>) => void;
-}) => (
-  <button onClick={onClick} style={styles} type="button">
-    {children}
-  </button>
-);
+export default class Button extends React.Component<ButtonProps, {}> {
+  static defaultProps = {
+    mouseDown: false
+  };
 
-Button.displayName = 'Button';
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
-};
-Button.defaultProps = {
-  onClick: () => {},
-};
+  constructor(props: ButtonProps) {
+    super(props);
+  }
 
-export default Button;
+  render(): JSX.Element {
+    const { content, className, type, disabled, mouseDown, callback, ...rest } = this.props;
+    let btnContent = content || "Submit";
+    let btnClassName = `button${className ? ` ${className}` : ""}`;
+    let btnProps = {
+      type: (type || "submit"),
+      className: btnClassName,
+      disabled: (disabled || null),
+    };
+    let btnCallback = mouseDown ? { onMouseDown: callback } : { onClick: callback };
+    return React.createElement(
+      "button",
+      {...btnProps, ...btnCallback, ...rest},
+      btnContent
+    );
+  }
+}
