@@ -108,21 +108,19 @@ const button = storiesOf('Components/Button', module)
       </div>
     ];
   })
-  .add('with icon', () => {
-    return [
-      <Button
-        callback={action('clicked')}
-        // content={<span>Edit <PencilIcon /></span>}
-        content={<span>Edit</span>}
-      />,
-      <Button
-        callback={action('clicked')}
-        className="inverted"
-        // content={<span>Search <SearchIcon /></span>}
-        content={<span>Search</span>}
-        />
-    ];
-  })
+  // .add('with icon', () => {
+  //   return [
+  //     <Button
+  //       callback={action('clicked')}
+  //       // content={<span>Edit <PencilIcon /></span>}
+  //     />,
+  //     <Button
+  //       callback={action('clicked')}
+  //       className="inverted"
+  //       // content={<span>Search <SearchIcon /></span>}
+  //     />
+  //   ];
+  // })
   .add('with custom text', () => {
     return [
       <Button
@@ -150,5 +148,3 @@ const button = storiesOf('Components/Button', module)
       </span>
     ]
   });
-
-export default button;

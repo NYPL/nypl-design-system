@@ -1,4 +1,5 @@
-import * as React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export interface ButtonProps {
   /** The action to perform on the <button>'s onClick function */
@@ -22,7 +23,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
   render(): JSX.Element {
     const { content, className, type, disabled, mouseDown, callback, ...rest } = this.props;
     let btnContent = content || "Submit";
-    let btnClassName = `btn${className ? ` ${className}` : ""}`;
+    let btnClassName = `button${className ? ` ${className}` : ""}`;
     let btnProps = {
       type: (type || "submit"),
       className: btnClassName,
