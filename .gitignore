@@ -2,3 +2,4 @@ node_modules
 dependencyGraph.json
 public
 .DS_Store
+patternlab/vendor/
