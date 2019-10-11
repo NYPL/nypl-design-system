@@ -28,7 +28,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@storybook/addon-actions": "^5.2.3",
@@ -40,14 +42,5 @@
     "babel-plugin-symlink-import": "^0.1.1",
     "node-sass-glob-importer": "^5.3.2",
     "webpack": "^4.41.0"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react",
-      "@babel/preset-typescript"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-export-default-from"
-    ]
   }
 }

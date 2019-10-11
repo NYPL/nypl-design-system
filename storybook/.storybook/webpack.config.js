@@ -20,20 +20,20 @@ module.exports = async ({ config, mode }) => {
   });
 
   config.module.rules.push({
-    test: /\.js$/,
-    loader: 'babel-loader',
+    test: /\.(js|jsx)$/,    loader: 'babel-loader',
+    exclude: /node_modules/,
     include: [
-      path.resolve(__dirname, '../../src/react-components'),
-      path.resolve(__dirname, '../stories'),
-    ],
+        path.resolve(__dirname, '../../src/react-components'),
+        path.resolve(__dirname, '../stories') ],
     query: {
       presets: [
         '@babel/preset-react',
-        '@babel/preset-typescript',
         '@babel/preset-env'
       ],
       plugins: [
-        '@babel/plugin-proposal-export-default-from'
+        '@babel/plugin-proposal-export-default-from',
+        '@babel/plugin-transform-arrow-functions',
+        '@babel/plugin-proposal-class-properties'
         // '@babel/plugin-symlink-import'
       ],
       babelrc: false,
