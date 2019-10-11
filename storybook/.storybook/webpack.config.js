@@ -20,10 +20,13 @@ module.exports = async ({ config, mode }) => {
   });
 
   config.module.rules.push({
-    test: /\.(js|jsx)$/,
-    exclude: [/node_modules/],
+    test: /\.js$/,
     loader: 'babel-loader',
-    include: path.resolve(__dirname, '../stories'),
+    include: [
+      path.resolve(__dirname, '../../src/react-components'),
+      path.resolve(__dirname, '../stories'),
+    ],
+    presets: ['@babel/preset-react'],
   });
 
   // Return the altered config
