@@ -20,6 +20,14 @@ module.exports = async ({ config, mode }) => {
   });
 
   config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    loader: require.resolve('babel-loader'),
+    options: {
+      presets: [['react-app', { flow: false, typescript: true }]],
+    },
+  })
+
+  config.module.rules.push({
     test: /\.(js|jsx)$/,    loader: 'babel-loader',
     exclude: /node_modules/,
     include: [
@@ -33,12 +41,15 @@ module.exports = async ({ config, mode }) => {
       plugins: [
         '@babel/plugin-proposal-export-default-from',
         '@babel/plugin-transform-arrow-functions',
-        '@babel/plugin-proposal-class-properties'
+        '@babel/plugin-proposal-class-properties',
         // '@babel/plugin-symlink-import'
       ],
       babelrc: false,
     }
+    
   });
+
+  config.resolve.extensions.push('.ts', '.tsx');
 
   // Return the altered config
   return config;
