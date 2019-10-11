@@ -16,17 +16,14 @@ module.exports = async ({ config, mode }) => {
       'sass-loader',
       'import-glob-loader'
     ],
-    include: path.resolve(__dirname, '../'),
+    include: path.resolve(__dirname, '../../src/styles'),
   });
 
   config.module.rules.push({
     test: /\.(js|jsx)$/,
     exclude: [/node_modules/],
     loader: 'babel-loader',
-    include: path.resolve(__dirname, '../../src/react-components/'),
-    query: {
-      presets: ['@babel/preset-react', '@babel/preset-typescript']
-    }
+    include: path.resolve(__dirname, '../stories'),
   });
 
   // Return the altered config
