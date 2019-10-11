@@ -37,7 +37,17 @@
     "@storybook/addons": "^5.2.3",
     "@storybook/react": "^5.2.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-symlink-import": "^0.1.1",
     "node-sass-glob-importer": "^5.3.2",
     "webpack": "^4.41.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-export-default-from"
+    ]
   }
 }

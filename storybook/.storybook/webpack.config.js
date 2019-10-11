@@ -26,7 +26,18 @@ module.exports = async ({ config, mode }) => {
       path.resolve(__dirname, '../../src/react-components'),
       path.resolve(__dirname, '../stories'),
     ],
-    presets: ['@babel/preset-react'],
+    query: {
+      presets: [
+        '@babel/preset-react',
+        '@babel/preset-typescript',
+        '@babel/preset-env'
+      ],
+      plugins: [
+        '@babel/plugin-proposal-export-default-from'
+        // '@babel/plugin-symlink-import'
+      ],
+      babelrc: false,
+    }
   });
 
   // Return the altered config
