@@ -6,6 +6,7 @@
 // General
 var gulp = require('gulp-help')(require('gulp'));
 var localConfig = {};
+var emu = {};
 
 try {
   localConfig = require('./local.gulp-config');

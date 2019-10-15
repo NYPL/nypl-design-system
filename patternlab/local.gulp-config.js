@@ -7,7 +7,7 @@
     js: `${themeDir}/components/_patterns/**/*.js`,
     dist_js: `${themeDir}/dist`,
     // sass: themeDir,
-    // sass: `../src/styles/**/*.scss`,
+    sass: `../src/styles/`,
     icons: `${themeDir}/images/icons/src`,
     img: [
       `${themeDir}/images/**/*`,
@@ -43,10 +43,7 @@
       sourceMapEmbed: false,
       outputStyle: 'expanded',
       autoPrefixerBrowsers: ['last 2 versions', 'IE >= 11'],
-      // includePaths: ['./node_modules'],
-      // includePaths: ['./node_modules'],
-      includePaths: ['./node_modules', 'node_modules/breakpoint-sass/stylesheets/', './node_modules/normalize.css'],
-      // includePaths: ['node_modules', 'node_modules/breakpoint-sass/stylesheets', 'node_modules/normalize.css'],
+      includePaths: ['../src/styles/node_modules']
     },
     iconConfig: {
       mode: {

@@ -15,9 +15,7 @@
   },
   "scripts": {
     "patternlab": "gulp compile && gulp theme",
-    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh"
   },
   "precommit.silent": true,
   "dependencies": {
