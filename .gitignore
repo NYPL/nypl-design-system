@@ -3,3 +3,4 @@ dependencyGraph.json
 public
 .DS_Store
 patternlab/vendor/
+storybook/storybook-static/

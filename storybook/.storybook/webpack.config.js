@@ -12,11 +12,28 @@ module.exports = async ({ config, mode }) => {
     test: /\.scss$/,
     use: [
       'style-loader',
-      'css-loader',
-      'sass-loader',
-      'import-glob-loader'
+      {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 1,
+          modules: true
+        }
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          importer: globImporter()
+        }
+      }
     ],
-    include: path.resolve(__dirname, '../../src/styles'),
+    include: [path.resolve(__dirname, './styles')]
+  });
+
+  config.module.rules.push({
+    
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+      
   });
 
   config.module.rules.push({

@@ -4,13 +4,15 @@
   "private": true,
   "dependencies": {
     "babel": "^6.23.0",
+    "node-sass": "^4.12.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
     "typescript": "^3.6.4"
   },
   "scripts": {
-    "start": "start-storybook -p 9009 -s public"
+    "build-storybook": "build-storybook",
+    "start": "start-storybook -p 9009"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,10 +43,12 @@
     "@storybook/react": "^5.2.3",
     "@types/node": "^12.7.12",
     "@types/react": "^16.9.5",
+    "@types/storybook__react": "^4.0.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-symlink-import": "^0.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "import-glob-loader": "^1.1.0",
     "node-sass-glob-importer": "^5.3.2",
     "prop-types": "^15.7.2",
     "ts-loader": "^6.2.0",
