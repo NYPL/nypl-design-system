@@ -6,7 +6,9 @@
     }
   },
   "packages": [
-    "src/*"
+    "src/*",
+    "storybook",
+    "patternlab"
   ],
   "version": "independent"
 }
