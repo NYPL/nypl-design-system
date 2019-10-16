@@ -1,5 +1,5 @@
 {
-  "name": "react-components",
+  "name": "design-system-react-storybook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,9 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "design-system-react-components": "^0.0.1",
+    "design-system-styles": "^0.0.1"
   },
   "scripts": {
     "build-storybook": "build-storybook",

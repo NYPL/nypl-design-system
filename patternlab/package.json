@@ -2,6 +2,7 @@
   "name": "patternlab",
   "description": "Project template for Drupal 8 themes",
   "version": "1.0.0",
+  "private": true,
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@storybook/addon-actions": "^5.2.1",
@@ -11,7 +12,9 @@
     "babel-loader": "^8.0.6",
     "emulsify-gulp": "^4.0.0",
     "gulp": "^3.9.1",
-    "import-glob-loader": "^1.1.0"
+    "import-glob-loader": "^1.1.0",
+    "design-system-twig": "^0.0.1",
+    "design-system-styles": "^0.0.1"
   },
   "scripts": {
     "start": "npm run patternlab",
