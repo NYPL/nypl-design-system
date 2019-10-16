@@ -1,0 +1,12 @@
+{
+  "npmClient": "npm",
+  "command": {
+    "init": {
+      "exact": true
+    }
+  },
+  "packages": [
+    "src/*"
+  ],
+  "version": "independent"
+}

@@ -1,5 +1,5 @@
 {
-  "name": "emulsify",
+  "name": "patternlab",
   "description": "Project template for Drupal 8 themes",
   "version": "1.0.0",
   "devDependencies": {
@@ -14,6 +14,7 @@
     "import-glob-loader": "^1.1.0"
   },
   "scripts": {
+    "start": "npm run patternlab",
     "patternlab": "gulp compile && gulp theme",
     "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh"
   },

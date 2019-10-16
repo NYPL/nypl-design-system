@@ -1,5 +1,5 @@
 {
-  "name": "styles",
+  "name": "design-system-styles",
   "version": "0.0.0",
   "description": "Design System Styles",
   "scripts": {
@@ -12,5 +12,6 @@
     "node-sass-glob-importer": "^5.3.2",
     "normalize.css": "^8.0.1"
   },
-  "main": "index.js"
+  "main": "index.js",
+  "keywords": []
 }
