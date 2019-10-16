@@ -1,13 +1,16 @@
-/* globals module */
+const path = require('path');
 
+const stylesDir = path.dirname(require.resolve('design-system-styles/package.json'));
+const twigDir = path.dirname(require.resolve('design-system-twig/package.json'));
+
+/* globals module */
 (() => {
   const themeDir = './';
   const paths = {
     // js: `${themeDir}/components/_patterns/**/*.js`,
     js: `${themeDir}/components/_patterns/**/*.js`,
     dist_js: `${themeDir}/dist`,
-    // sass: themeDir,
-    sass: `../src/styles/`,
+    sass: `${stylesDir}`,
     icons: `${themeDir}/images/icons/src`,
     img: [
       `${themeDir}/images/**/*`,
@@ -31,8 +34,7 @@
     },
     cssConfig: {
       enabled: true,
-      // src: `${themeDir}/components/_patterns/**/*.scss`,
-      src: `../src/styles/**/*.scss`,
+      src: `${stylesDir}/**/*.scss`,
       dest: `${themeDir}/dist/`,
       flattenDestOutput: true,
       lint: {
@@ -43,7 +45,7 @@
       sourceMapEmbed: false,
       outputStyle: 'expanded',
       autoPrefixerBrowsers: ['last 2 versions', 'IE >= 11'],
-      includePaths: ['../src/styles/node_modules']
+      includePaths: [`${stylesDir}/node_modules`]
     },
     iconConfig: {
       mode: {
@@ -66,9 +68,9 @@
       scssToYAML: [
         {
           // src: `${themeDir}/components/_patterns/00-base/01-colors/_color-vars.scss`,
-          src: `../src/styles/00-base/01-colors/_color-vars.scss`,
+          src: `${stylesDir}/00-base/01-colors/_color-vars.scss`,
           // dest: `${themeDir}/components/_patterns/00-base/01-colors/colors.yml`,
-          dest: `../src/twig/_patterns/00-base/01-colors/colors.yml`,
+          dest: `${twigDir}/_patterns/00-base/01-colors/colors.yml`,
           lineStartsWith: '$',
           allowVarValues: false,
         },

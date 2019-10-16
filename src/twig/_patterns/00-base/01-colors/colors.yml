@@ -60,4 +60,4 @@ items:
 meta:
   description: >-
     To add to these items, use Sass variables that start with <code>$</code> in
-    <code>../src/styles/00-base/01-colors/_color-vars.scss</code>
+    <code>/Users/crystalngai/NYPL/nypl-design-system/src/styles/00-base/01-colors/_color-vars.scss</code>
