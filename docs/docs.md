@@ -1,22 +1,20 @@
 # Docs
-Project-specific documentation lives in [themetronome.co](http://themetronome.co). 
+Project-specific documentation lives in [themetronome.co](http://themetronome.co), as well as documentation for the individual components created themselves.
 
-How those project needs affect our technical implementation are documented here.
-
-What is included in this documentation lives here.
+For the time being, how those project needs affect our technical implementation are being documented here.
 
 ## File Structure
 `.github/`: A series of Github-specific files.
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   `CONTRIBUTING.md`: Contributing guidelines to the project.
 
   `ISSUE_TEMPLATE`: The template that is populated into the text field when a user creates a new issue.
- 
-   `PULL_REQUEST_TEMPLATE`: The template that is populated into the text field when a user creates a new pull request.
+
+  `PULL_REQUEST_TEMPLATE`: The template that is populated into the text field when a user creates a new pull request.
 
 `.storybook`: 
+
+`src/`: Our npm packages, separated by folder.
 
 `components/`: `src/` directory for the Patternlab files. Symlinked by [BLOCKED].
 
@@ -42,11 +40,6 @@ What is included in this documentation lives here.
 =======
 
 >>>>>>> Update docs.md
-  `CONTRIBUTING.md`: Contributing guidelines to the project.
-
-  `ISSUE_TEMPLATE`: The template that is populated into the text field when a user creates a new issue.
- 
-   `PULL_REQUEST_TEMPLATE`: The template that is populated into the text field when a user creates a new pull request.
 
 `.storybook`: 
 
