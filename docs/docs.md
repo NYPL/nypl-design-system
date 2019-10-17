@@ -3,6 +3,9 @@ Project-specific documentation lives in [themetronome.co](http://themetronome.co
 
 For the time being, how those project needs affect our technical implementation are being documented here.
 
+## Versioning and Updating the Changelog
+
+
 ## File Structure
 `.github/`: A series of Github-specific files.
 
