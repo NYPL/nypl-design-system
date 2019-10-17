@@ -16,13 +16,8 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "isolatedModules": true,
+        "outDir": "dist/",
         "noEmit": true,
         "jsx": "react"
-      },
-      "include": [
-        "src", "./components", "./stories"
-      ],
-      "rootDirs": [
-        "src", "./stories"
-      ]
-}
+      }
+    }

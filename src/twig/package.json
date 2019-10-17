@@ -1,6 +1,6 @@
 {
   "name": "design-system-twig",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC", 
+  "peerDependencies": {
+    "design-system-styles": "^1.0.0"
+  }
 }
