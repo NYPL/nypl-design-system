@@ -1,11 +1,11 @@
 {
   "name": "design-system-react-storybook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "babel": "^6.23.0",
-    "design-system-react-components": "^1.0.0",
-    "design-system-styles": "^1.0.0",
+    "design-system-react-components": "^1.0.1",
+    "design-system-styles": "^1.0.1",
     "node-sass": "^4.12.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

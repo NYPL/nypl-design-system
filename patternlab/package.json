@@ -1,7 +1,7 @@
 {
   "name": "patternlab",
   "description": "Project template for Drupal 8 themes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.6.2",
