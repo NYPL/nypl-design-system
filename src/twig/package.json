@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "peerDependencies": {
-    "design-system-styles": "^1.0.0"
-  }
+  "license": "ISC"
 }
