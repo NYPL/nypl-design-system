@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "NYPL Digital",
-  "license": "MIT",
+  "license": "Apache",
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
     "node-sass-glob-importer": "^5.3.2",
