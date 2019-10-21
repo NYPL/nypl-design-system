@@ -1,77 +1,34 @@
 # Docs
-Project-specific documentation lives in [themetronome.co](http://themetronome.co). 
+Project-specific documentation lives in [themetronome.co](http://themetronome.co), as well as documentation for the individual components created themselves.
 
-How those project needs affect our technical implementation are documented here.
+How those project needs affect our technical implementation are being documented here.
 
-What is included in this documentation lives here.
+## Branching
+The default branch on this repository is `development`. Everything in `development` much have been peer-reviewed by at least one other developer on the project.
+
+The set of SHAs we believe make up a release then move to the `qa` branch, where they are reviewed by colleagues in accessibility and QA.
+
+When a QA release has been approved, it moves into the `production` branch where npm packages are updated.
+
+When a developer has had their branch approved, the developer is responsible for deleting the remote. How feature branches should be named with regards to multidev environments is an ongoing discussion which can be tracked on [Issue #26](https://github.com/NYPL/nypl-design-system/issues/26).
+
+## Pull Requests
+Pull requests need at least one approval in order to be merged into `development`.
+
+Pull requests should be appropriately labeled to keep our [pull requests](https://github.com/NYPL/nypl-design-system/pulls) page up-to-date and easily scannable at a glance.
+
+## Versioning and Updating the Changelog
+How semver is used on this project and across our projects is an ongoing discussion. Please see [Issue #16](https://github.com/NYPL/nypl-design-system/issues/16) for more information.
 
 ## File Structure
 `.github/`: A series of Github-specific files.
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-  `CONTRIBUTING.md`: Contributing guidelines to the project.
+`.vscode/`: The `settings.json` of VS Code-specific editor settings necessary for this project.
 
-  `ISSUE_TEMPLATE`: The template that is populated into the text field when a user creates a new issue.
- 
-   `PULL_REQUEST_TEMPLATE`: The template that is populated into the text field when a user creates a new pull request.
+`docs/`: Additional technical documentation necessary for this project.
 
-`.storybook`: 
+`patternlab`: The docs folder to view and work on twig templates.
 
-`components/`: `src/` directory for the Patternlab files. Symlinked by [BLOCKED].
+`src/`: Our npm packages, separated by package.
 
-  `_annotations`: [BLOCKED] Unclear what these are.
-  
-  `_data`: Mocked, global data for Patternlab components.
-  
-  `_layouts`: [BLOCKED] Unclear what these are.
-  
-  `_macros`: [BLOCKED] Unclear what these are.
-  
-  `_meta`: Patternlab's "meta" files (like the Patternlab header and footer) that aren't relevant to what is actually shipped to projects.
-  
-  `_patterns`: The componentized files for the components we shipped based on their hierarchy in the system.
-    
-    `00-base`: Styles that all components must inherit.
-    
-    `01_atoms`: Components that have no subcomponents.
-    
-    `02_molecules`: 
-
-=======
-=======
-
->>>>>>> Update docs.md
-  `CONTRIBUTING.md`: Contributing guidelines to the project.
-
-  `ISSUE_TEMPLATE`: The template that is populated into the text field when a user creates a new issue.
- 
-   `PULL_REQUEST_TEMPLATE`: The template that is populated into the text field when a user creates a new pull request.
-
-`.storybook`: 
-
-`components/`: `src/` directory for the Patternlab files. Symlinked by [BLOCKED].
-
-  `_annotations`: [BLOCKED] Unclear what these are.
-  
-  `_data`: Mocked, global data for Patternlab components.
-  
-  `_layouts`: [BLOCKED] Unclear what these are.
-  
-  `_macros`: [BLOCKED] Unclear what these are.
-  
-  `_meta`: Patternlab's "meta" files (like the Patternlab header and footer) that aren't relevant to what is actually shipped to projects.
-  
-  `_patterns`: The componentized files for the components we shipped based on their hierarchy in the system.
-    
-    `00-base`: Styles that all components must inherit.
-    
-    `01_atoms`: Components that have no subcomponents.
-    
-    `02_molecules`: 
-<<<<<<< HEAD
->>>>>>> Update docs.md
-=======
-
->>>>>>> Update docs.md
-`package.json`: system dependencies
+`storybook`: The docs folder to view and work on react components.
