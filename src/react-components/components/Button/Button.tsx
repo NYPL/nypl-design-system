@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 
 export interface ButtonProps {
   /** The action to perform on the <button>'s onClick function */

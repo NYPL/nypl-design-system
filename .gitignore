@@ -5,3 +5,4 @@ public
 patternlab/vendor/
 patternlab/dist/
 storybook/storybook-static/
+src/react-components/lib/

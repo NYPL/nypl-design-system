@@ -1,13 +1,18 @@
-import React from 'react';
-import { linkTo } from '@storybook/addon-links';
-import { Welcome } from '@storybook/react/demo';
+import * as React from "react";
 
-export default {
-  title: 'Welcome',
-};
+import { storiesOf } from "@storybook/react";
 
-export const toStorybook = () => <Welcome showApp={linkTo('Button')} />;
-
-toStorybook.story = {
-  name: 'to Storybook',
-};
+storiesOf("Home", module)
+  .add("introduction", () =>
+    <div>
+      <h2>NYPL Design System React Components</h2>
+      <p>
+        Welcome to the documentation for the NYPL Design System React Components
+      </p>
+    </div>,
+    {
+      info: {
+        disable: true
+      }
+    }
+  );

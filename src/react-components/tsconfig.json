@@ -1,23 +1,18 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "lib": [
-          "dom",
-          "dom.iterable",
-          "esnext"
-        ],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "strict": false,
-        "forceConsistentCasingInFileNames": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "outDir": "dist/",
-        "noEmit": true,
-        "jsx": "react"
-      }
-    }
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["es2017", "dom"],
+    "esModuleInterop": true,
+    "outDir": "lib",
+    "jsx": "react",
+    "types": ["mocha","node"]
+  },
+  "include": [
+    "components/**/*", "stories/*", "__tests__/**/*"
+  ],
+  "exclude": [
+    "lib",
+    "node_modules",
+  ]
+}
