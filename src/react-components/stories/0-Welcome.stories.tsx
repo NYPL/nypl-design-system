@@ -5,9 +5,9 @@ import { storiesOf } from "@storybook/react";
 storiesOf("Home", module)
   .add("introduction", () =>
     <div>
-      <h2>NYPL Simplified Reusable Components</h2>
+      <h2>NYPL Design System React Components</h2>
       <p>
-        Welcome to the documentation for components used in various SimplyE web apps.
+        Welcome to the documentation for the NYPL Design System React Components
       </p>
     </div>,
     {
