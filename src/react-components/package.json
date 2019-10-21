@@ -8,10 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "peerDependencies": {
-    "design-system-styles": "^1.0.0"
-  },
+  "license": "Apache",
   "devDependencies": {
     "@storybook/addon-actions": "^5.2.4",
     "@storybook/addon-links": "^5.2.3",
