@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha __tests__/*.js __tests__/**/*.js"
   },
   "keywords": [],
   "author": "",
-  "license": "Apache"
+  "license": "Apache",
+  "dependencies": {},
+  "devDependencies": {
+    "@basalt/twig-renderer": "^0.12.1",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
 }
