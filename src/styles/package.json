@@ -7,10 +7,14 @@
   },
   "author": "NYPL Digital",
   "license": "Apache",
+  "peerDependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "normalize.css": "^8.0.1"
+  },
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
-    "node-sass-glob-importer": "^5.3.2",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "node-sass-glob-importer": "^5.3.2"
   },
   "main": "index.js",
   "keywords": []
