@@ -1,6 +1,6 @@
 {
   "name": "design-system-react-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -17,7 +17,6 @@
     "build-storybook": "build-storybook"
   },
   "keywords": [],
-  "dependencies": {},
   "devDependencies": {
     "@storybook/addon-a11y": "^5.2.4",
     "@storybook/addon-actions": "^5.2.4",

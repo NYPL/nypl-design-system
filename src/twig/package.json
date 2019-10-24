@@ -1,6 +1,6 @@
 {
   "name": "design-system-twig",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "Apache",
-  "dependencies": {},
   "devDependencies": {
     "@basalt/twig-renderer": "^0.12.1",
     "chai": "^4.2.0",
