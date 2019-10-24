@@ -4,7 +4,7 @@
 'use strict';
 
 // General
-var gulp = require('gulp-help')(require('gulp'));
+var gulp = require('gulp');
 var localConfig = {};
 
 try {

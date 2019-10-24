@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "NYPL Digital",
-  "license": "Apache",
+  "license": "Apache-2.0",
   "peerDependencies": {
     "breakpoint-sass": "^2.7.1",
     "normalize.css": "^8.0.1"
@@ -16,6 +16,6 @@
     "node-sass-glob-importer": "^5.3.2",
     "normalize.css": "^8.0.1"
   },
-  "main": "index.js",
+  "main": "style.scss",
   "keywords": []
 }

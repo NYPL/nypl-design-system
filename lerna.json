@@ -3,6 +3,9 @@
   "command": {
     "init": {
       "exact": true
+    },
+    "patternlab": {
+
     }
   },
   "packages": [

@@ -4,20 +4,10 @@
   "version": "1.0.2",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@storybook/addon-actions": "^5.2.1",
-    "@storybook/addon-links": "^5.2.1",
-    "@storybook/addons": "^5.2.1",
-    "@storybook/react": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "breakpoint-sass": "^2.7.1",
-    "design-system-styles": "^1.0.2",
-    "design-system-twig": "^1.0.2",
-    "emulsify-gulp": "^4.0.0",
-    "gulp": "^3.9.1",
-    "import-glob-loader": "^1.1.0",
-    "normalize.css": "^8.0.1"
+    "design-system-styles": "file:../src/styles",
+    "design-system-twig": "file:../src/twig"
   },
+  "main": "public/index.html",
   "scripts": {
     "start": "npm run patternlab",
     "patternlab": "gulp compile && gulp theme",
@@ -28,6 +18,7 @@
     "css-loader": "^3.2.0",
     "node-sass-glob-importer": "^5.3.2",
     "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0"
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2"
   }
 }
