@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "clean": "rm -rf node_modules && lerna run clean",
+    "clean": "rm -rf node_modules; lerna clean",
     "install-all": "lerna exec npm install; npm install",
     "link-all": "lerna link",
     "patternlab": "lerna exec --scope patternlab npm start",

@@ -7,7 +7,7 @@ Information about the Design System, philosophy, and timeline is available on [C
 This repo is versioned with [Lerna](https://github.com/lerna/lerna).  
 To use Patternlab, you must have installed PHP7+ and [https://getcomposer.org/](composer)
 
-After pulling the repo, run `npm install-all`
+After pulling the repo, run `npm run install-all`
 Then, run `npm run patternlab` or `npm run storybook` depending on the product you are working on. 
 
 You can now edit styles or templates in `src`, and they will update and re-build.  

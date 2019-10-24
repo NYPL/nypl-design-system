@@ -15,8 +15,7 @@
   "scripts": {
     "build-storybook": "build-storybook",
     "start": "start-storybook -p 9009",
-    "clean": "rimraf node-modules",
-    "postinstall": "npm link @storybook/react-storybook node-sass"
+    "clean": "rimraf node-modules"
   },
   "eslintConfig": {
     "extends": "react-app"
