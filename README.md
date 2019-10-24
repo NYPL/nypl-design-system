@@ -5,14 +5,17 @@ Information about the Design System, philosophy, and timeline is available on [C
 
 ## Getting Started
 This repo is versioned with [Lerna](https://github.com/lerna/lerna).  
-Then, cd into the docs for your framework: `storybook` for React, or `patternlab` for Twig, and then run 
+To use Patternlab, you must have installed PHP7+ and [https://getcomposer.org/](composer)
 
-``` npm install && npm start ```
+After pulling the repo, run `npm run install-all`
+Then, run `npm run patternlab` or `npm run storybook` depending on the product you are working on. 
 
-When doing active development, run `lerna link` to symlink the dependency in `node_modules`.  You can now edit styles or templates in `src`, and they will update and re-build.  
+You can now edit styles or templates in `src`, and they will update and re-build.  
 
 ## Troubleshooting
-While we are getting our `lerna` process ironed out, packages will sometimes not get pulled in correctly.  When this happens, auto-rebuild can be broken.  To fix things, remove `node_modules` and `package-lock.json` from the `storybook` or `patternlab` directories, and re-build them using `npm install`.  After installing, run `lerna link` to symlink the packages together again.  
+While we are getting our `lerna` process ironed out, packages will sometimes not get pulled in correctly.  When this happens, auto-rebuild can be broken.  If a single package is not found, cd into the directory and run `npm link {package name}`.  
+
+If it looks like a larger build error, rather than just a missing package, remove `node_modules` and `package-lock.json` from the `storybook` or `patternlab` directories, and re-build them using `npm install`.  After installing, run `lerna link` from root to symlink the packages together again.  
 
 ## Publishing
 You can publish npm modules from this repo by running:
