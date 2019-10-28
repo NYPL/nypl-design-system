@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "",
   "main": "index.js",
+  "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/twig",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
