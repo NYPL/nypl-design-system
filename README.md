@@ -7,8 +7,12 @@ Information about the Design System, philosophy, and timeline is available on [C
 This repo is versioned with [Lerna](https://github.com/lerna/lerna).  
 To use Patternlab, you must have installed PHP7+ and [https://getcomposer.org/](composer)
 
-After pulling the repo, run `npm run install-all`
-Then, run `npm run patternlab` or `npm run storybook` depending on the product you are working on. 
+Follow these steps for setup: 
+ 
+1. Pull the repo `git clone https://github.com/NYPL/nypl-design-system.git`
+2. Install Lerna globally `npm i -g lerna`
+3. Install all the packages `npm run install-all`
+4. Run `npm run patternlab` or `npm run storybook` depending on the product you are working on. 
 
 You can now edit styles or templates in `src`, and they will update and re-build.  
 
