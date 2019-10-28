@@ -1,60 +1,66 @@
 const { describe } = require('mocha');
 const { expect } = require('chai');
 const testRenderer = require('../twig-renderer');
-
+const puppeteer = require('puppeteer');
 const buttonPath = './_patterns/01-atoms/buttons/_button.twig'
+const timeout = 90000;
 
-describe('Settings', () => {
+describe('Button Tests', () => {
+  let browser;
+  let page;
+  let html;
+
+  before(async () => {
+    browser = await puppeteer.launch();
+    page = await browser.newPage();
+  });
+
+  after(async() => {
+    await page.close();
+    await browser.close();
+  })
+
     it('Renders custom text', async () => {
-        var results = await testRenderer.render(buttonPath, {
+        let results = await testRenderer.render(buttonPath, {
           button_content: 'This is a button',
         });
+        await page.setContent(results.html);
+        var button = await page.$('button');
+        const text = await (await button.getProperty('textContent')).jsonValue();
+
         expect(results.ok).to.equal(true);
-        expect(results.html).to.contain("This is a button");
+        expect(text).to.contain("This is a button");
       });
 
-      it("optionally sets a className", async () => {
+      it("Has default classname", async() => {
         var results = await testRenderer.render(buttonPath);
+        await page.setContent(results.html);
+        var customClassButton = await page.$('.button');
         expect(results.ok).to.equal(true);
-        expect(results.html).to.contain("class=\"button\"");
+        expect(customClassButton, "Button class should be found").not.to.be.null;
+      })
 
-        results = await testRenderer.render(buttonPath, {
-          button_content: "aaaa",
-          button_modifiers: 'custom_class',
-          button_url: "aaa",
+      it("Sets a custom className", async () => {
+        var results = await testRenderer.render(buttonPath, {
+          button_modifiers: [
+            "custom"
+         ]
         });
-        console.log("results", results);
+        await page.setContent(results.html);
+        var customClassButton = await page.$('.button--custom');
         expect(results.ok).to.equal(true);
-        expect(results.html).to.contain("class=\"button\"");
-
+        expect(customClassButton, "Custom button class should be found").not.to.be.null;
       });
 
-      // it("optionally disables", () => {
-      //   expect(wrapper.find("[disabled=true]").length).to.equal(0);
-      //   wrapper.setProps({ disabled: true });
-      //   expect(wrapper.find("[disabled=true]").length).to.equal(1);
-      // });
-      // it("optionally sets a type", () => {
-      //   expect(wrapper.prop("type")).to.equal("submit");
-      //   wrapper.setProps({ type: "button" });
-      //   expect(wrapper.prop("type")).to.equal("button");
-      // });
-      // it("optionally calls the callback on mouseDown instead of on click", () => {
-      //   expect(callback.callCount).to.equal(0);
-      //   wrapper.setProps({ mouseDown: true });
-      //   wrapper.simulate("click");
-      //   expect(callback.callCount).to.equal(0);
-      //   wrapper.simulate("mouseDown");
-      //   expect(callback.callCount).to.equal(1);
-      // });
-    
-      // // Typically, any extra props are aria-attributes.
-      // it("should render any extra props", () => {
-      //   wrapper = Enzyme.shallow(
-      //     <Button callback={callback} aria-pressed={true} aria-label="aria label" />
-      //   );
-      //   const buttonProps = wrapper.props();
-      //   expect(buttonProps["aria-pressed"]).to.be.true;
-      //   expect(buttonProps["aria-label"]).to.equal("aria label");
-      // })
+      it("Can be disabled", async () => {
+        var results = await testRenderer.render(buttonPath, {
+          button_attributes: 
+            {disabled: true}
+        });
+        await page.setContent(results.html);
+
+        var disabledButton = await await page.$('button[disabled]');
+        expect(results.ok).to.equal(true);
+        expect(disabledButton, "disabled button should be found").not.to.be.null;
+      });
 })
