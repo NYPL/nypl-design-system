@@ -7,6 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "Apache"
+  "author": "NYPL Digital",
+  "license": "Apache-2.0"
 }
