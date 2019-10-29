@@ -1,0 +1,9 @@
+breadcrumbs:
+  - url: '#'
+    text: 'Home'
+  - url: '#'
+    text: 'Great Grandparent Page'
+  - url: '#'
+    text: 'Grandparent Page'
+  - url: '#'
+    text: 'Parent Page'
