@@ -14,6 +14,8 @@ Follow these steps for setup:
 3. Install all the packages `npm run install-all`
 4. Run `npm run patternlab` or `npm run storybook` depending on the product you are working on. 
 
+A known issue with install is that this sometime relies on a thorough git cleaning with `git clean -fdx`. If your `npm run install-all` fails, run this command and destroy all `package-lock.json`s.
+
 You can now edit styles or templates in `src`, and they will update and re-build.  
 
 ## Troubleshooting
