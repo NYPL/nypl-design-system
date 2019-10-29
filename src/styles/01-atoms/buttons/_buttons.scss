@@ -1,7 +1,7 @@
 @mixin button-base {
   @include space-inset-xs;
 
-  border-radius: 2px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 0.875rem;
   letter-spacing: 1.5px;
