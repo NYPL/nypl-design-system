@@ -1,0 +1,28 @@
+{#
+ # Available variables:
+ # - breadcrumbs: Breadcrumbs trail items.
+ #}
+{% set breadcrumbs__base_class = 'breadcrumbs' %}
+
+{% if breadcrumbs %}
+  <nav role='navigation' aria-label={{ 'Breadcrumbs'|t }}>
+    <ul {{ bem(breadcrumbs__base_class) }}>
+      {% for item in breadcrumbs %}
+        <li {{ bem('item', [], breadcrumbs__base_class) }}>
+          {% if loop.last %}
+            {% include "@atoms/images/icons/_icon.twig" with {
+              icon_name: 'arrow-xsmall',
+              icon_blockname: breadcrumbs__base_class,
+              icon_modifiers: ['small'],
+            } %}
+          {% endif %}
+          {% if item.url %}
+            <a {{ bem('link', [], breadcrumbs__base_class) }} href="{{ item.url }}">{{ item.text }}</a>
+          {% else %}
+            {{ item.text }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

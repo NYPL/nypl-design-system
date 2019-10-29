@@ -1,0 +1,11 @@
+right_rail__heading: 'Explore Events'
+items:
+  - title: 'Events'
+  - title: 'Exhibitions'
+    below:
+      - title: Current Exhibitions
+      - title: Upcoming Exhibitions
+      - title: Past Exhibitions
+      - title: Online Exhibitions
+      - title: Community Showcases
+  - title: 'Tours at NYPL'
