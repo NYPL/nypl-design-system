@@ -5,6 +5,7 @@
   "dependencies": {
     "babel": "^6.23.0",
     "design-system-react-components": "file:../src/react-components",
+    "design-system-twig": "file:../src/twig",
     "design-system-styles": "file:../src/styles",
     "node-sass": "^4.12.0",
     "react": "^16.10.2",
