@@ -1,6 +1,6 @@
 {
   "name": "design-system-styles",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "Design System Styles",
   "scripts": {
     "test": "echo \"There are no tests for styles\" "
@@ -8,10 +8,6 @@
   "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/styles",
   "author": "NYPL Digital",
   "license": "Apache-2.0",
-  "peerDependencies": {
-    "breakpoint-sass": "^2.7.1",
-    "normalize.css": "^8.0.1"
-  },
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
     "normalize.css": "^8.0.1"

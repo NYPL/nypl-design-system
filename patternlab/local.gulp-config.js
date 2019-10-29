@@ -1,6 +1,8 @@
 const path = require('path');
+const eyeglass = require("eyeglass");
 
 const stylesDir = path.dirname(require.resolve('design-system-styles/package.json'));
+console.log("stylesDir", stylesDir);
 const twigDir = path.dirname(require.resolve('design-system-twig/package.json'));
 
 /* globals module */
@@ -30,7 +32,7 @@ const twigDir = path.dirname(require.resolve('design-system-twig/package.json'))
       outputStyle: 'expanded',
       eyeglass: {
         enableImportOnce: false,
-      },
+      }
     },
     cssConfig: {
       enabled: true,
@@ -45,7 +47,7 @@ const twigDir = path.dirname(require.resolve('design-system-twig/package.json'))
       sourceMapEmbed: false,
       outputStyle: 'expanded',
       autoPrefixerBrowsers: ['last 2 versions', 'IE >= 11'],
-      includePaths: [`${stylesDir}/node_modules`]
+      includePaths: [`${stylesDir}/node-modules/breakpoint-sass/stylesheets`]
     },
     iconConfig: {
       mode: {

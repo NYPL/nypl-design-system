@@ -21,7 +21,17 @@ You can now edit styles or templates in `src`, and they will update and re-build
 ## Troubleshooting
 While we are getting our `lerna` process ironed out, packages will sometimes not get pulled in correctly.  When this happens, auto-rebuild can be broken.  If a single package is not found, cd into the directory and run `npm link {package name}`.  
 
-If it looks like a larger build error, rather than just a missing package, remove `node_modules` and `package-lock.json` from the `storybook` or `patternlab` directories, and re-build them using `npm install`.  After installing, run `lerna link` from root to symlink the packages together again.  
+If it looks like a larger build error, eg: 
+* cb() not called
+* Cannot read package.json.[random string of numbers]
+
+Remove `node_modules` and `package-lock.json` from the `storybook` or `patternlab` directories, and re-build them using `npm install`.  After installing, run `lerna link` from root to symlink the packages together again.  
+
+## Working with Design System Modules
+By default, the repo links everything under `src` for local development.  Sometimes, development may need to happen under a fixed version of `styles`. 
+1. Navigate to `package.json` of `patternlab` or `storybook`, whichever is applicable
+2. Under `devDependencies`, change the `file:../src/styles` to whichever the a fixed `styles` version
+3. re-run `npm install` under the repo.  You may need to remove `node_modules` and/or `package-lock.json`, depending on whether the install is throwing errors
 
 ## Publishing
 You can publish npm modules from this repo by running:

@@ -5,13 +5,14 @@
   "private": true,
   "devDependencies": {
     "design-system-styles": "file:../src/styles",
-    "design-system-twig": "file:../src/twig"
+    "design-system-twig": "file:../src/twig",
+    "emulsify-gulp": "^4.0.0"
   },
   "main": "public/index.html",
   "scripts": {
     "start": "npm run patternlab",
     "patternlab": "gulp compile && gulp theme",
-    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh", 
+    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh",
     "test": "echo \"No Patternlab Tests\" "
   },
   "precommit.silent": true,
