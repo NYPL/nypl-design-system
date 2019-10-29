@@ -54,6 +54,7 @@
     "ts-loader": "^6.2.0",
     "tslint": "^5.0.0",
     "tslint-react-a11y": "^1.0.0",
+    "twig-loader": "^0.5.1",
     "typescript": "^3.6.4",
     "webpack": "^4.41.0"
   },
