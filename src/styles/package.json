@@ -1,6 +1,6 @@
 {
   "name": "design-system-styles",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Design System Styles",
   "scripts": {
     "test": "echo \"There are no tests for styles\" "
