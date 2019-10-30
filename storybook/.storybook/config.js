@@ -5,4 +5,4 @@ import { configure } from '@storybook/react';
 // Direct link used instead of require(module) because of Webpack's inability to resolve variables in require.context
 
 configure(require.context('../../node_modules/design-system-react-components/stories', true, /\.stories\.tsx$/), module);
-configure(require.context('../../node_modules/design-system-twig/_patterns', true, /\.stories\.twig$/), module);
+configure(require.context('../../node_modules/design-system-twig/_patterns', true, /\.stories\.js$/), module);
