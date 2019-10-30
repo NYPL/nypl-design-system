@@ -32,33 +32,10 @@ module.exports = async ({ config, mode }) => {
   // Add twig support
   config.module.rules.push({
     test: /\.twig$/,
-    loader: 'twigjs-loader',
+    use: ['twigjs-loader'],
   });
 
-  config.module.rules.push({
-    test: /\.(js|jsx)$/,
-    loader: 'babel-loader',
-    exclude: /node_modules/,
-    include: [
-      path.resolve(__dirname, '../../src/react-components'),
-      path.resolve(__dirname, '../stories') ],
-    query: {
-      presets: [
-        '@babel/preset-react',
-        '@babel/preset-env'
-      ],
-      plugins: [
-        '@babel/plugin-proposal-export-default-from',
-        '@babel/plugin-transform-arrow-functions',
-        '@babel/plugin-proposal-class-properties',
-      ],
-      babelrc: false,
-    }
-  });
-
-  config.resolve.extensions.push('.ts', '.tsx');
-
-  //Include stories in babel loader
+  // Include stories in babel loader
   const babelRules = config.module.rules.filter(rule => {
     let isBabelLoader = false;
 
