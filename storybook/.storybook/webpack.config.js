@@ -7,7 +7,7 @@ module.exports = async ({ config, mode }) => {
   // You can change the configuration based on that.
   // 'PRODUCTION' is used when building the static version of storybook.
 
-  // Make whatever fine-grained changes you need
+  // Adds SCSS support
   config.module.rules.push({
     test: /\.scss$/,
     use: [
