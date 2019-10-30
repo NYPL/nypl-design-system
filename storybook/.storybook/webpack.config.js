@@ -29,23 +29,10 @@ module.exports = async ({ config, mode }) => {
     include: [path.resolve(__dirname, './styles')]
   });
 
-  config.module.rules.push({
-    test: /\.css$/,
-    use: ['style-loader', 'css-loader']
-  });
-
-  config.module.rules.push({
-    test: /\.css$/,
-    use: ['style-loader', 'css-loader']
-  });
-
   // Add twig support
   config.module.rules.push({
     test: /\.twig$/,
     loader: 'twigjs-loader',
-    include: [
-      path.resolve(__dirname, '../../src/twig/_patterns')
-    ]
   });
 
   config.module.rules.push({
