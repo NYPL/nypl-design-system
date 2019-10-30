@@ -44,7 +44,7 @@ module.exports = async ({ config, mode }) => {
     test: /\.twig$/,
     loader: 'twigjs-loader',
     include: [
-      path.resolve(__dirname, '../../src/twig/_patterns/*')
+      path.resolve(__dirname, '../../src/twig/_patterns')
     ]
   });
 
