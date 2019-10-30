@@ -8,8 +8,9 @@ export default {
   title: "Button [twig]",
 };
 
-export const filled = () => <Button></Button>;
+export const filled = () => <Button className="button" callback={action("clicked")}></Button>;
 
 export const outline = () => (
-  <Button></Button>
+  <Button className="button button--outline" callback={action("clicked")}>
+  </Button>
 );
