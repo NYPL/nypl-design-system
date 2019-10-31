@@ -7,14 +7,9 @@
     "test": "mocha __tests__/*.js __tests__/**/*.js"
   },
   "keywords": [],
-<<<<<<< HEAD
   "author": "NYPL Digital",
   "license": "Apache-2.0",
   "dependencies": {},
-=======
-  "author": "",
-  "license": "Apache",
->>>>>>> v1.0.2
   "devDependencies": {
     "@basalt/twig-renderer": "^0.12.1",
     "chai": "^4.2.0",
