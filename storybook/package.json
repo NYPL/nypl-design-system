@@ -15,7 +15,8 @@
   "scripts": {
     "build-storybook": "build-storybook",
     "start": "start-storybook -p 9009",
-    "clean": "rimraf node-modules"
+    "clean": "rimraf node-modules", 
+    "test": "echo \"No Storybook Tests\" "
   },
   "eslintConfig": {
     "extends": "react-app"

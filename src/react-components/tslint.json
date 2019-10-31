@@ -41,7 +41,7 @@
         }
       ],
       "variable-name": [
-        true,
+        true, 
         "ban-keywords"
       ],
       "whitespace": [
