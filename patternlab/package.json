@@ -1,11 +1,27 @@
 {
   "name": "patternlab",
   "description": "Project template for Drupal 8 themes",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "devDependencies": {
+<<<<<<< HEAD
     "design-system-styles": "file:../src/styles",
     "design-system-twig": "file:../src/twig"
+=======
+    "@babel/core": "^7.6.2",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "breakpoint-sass": "^2.7.1",
+    "design-system-styles": "^1.0.2",
+    "design-system-twig": "^1.0.2",
+    "emulsify-gulp": "^4.0.0",
+    "gulp": "^3.9.1",
+    "import-glob-loader": "^1.1.0",
+    "normalize.css": "^8.0.1"
+>>>>>>> v1.0.2
   },
   "main": "public/index.html",
   "scripts": {
