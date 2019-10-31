@@ -4,7 +4,7 @@
   "version": "1.0.5",
   "private": true,
   "devDependencies": {
-    "design-system-styles": "^1.0.8",
+    "design-system-styles": "file:../src/styles",
     "design-system-twig": "file:../src/twig",
     "emulsify-gulp": "^4.0.0"
   },

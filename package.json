@@ -36,7 +36,6 @@
     "design-system-twig": "^1.0.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "eyeglass": "^2.4.1",
     "gulp": "^3.9.1",
     "import-glob-loader": "^1.1.0",
     "jsdom": "^15.2.0",
