@@ -27,9 +27,9 @@ While we are getting our `lerna` process ironed out, packages will sometimes not
 
 ## Working with Design System Modules
 By default, the repo links everything under `src` for local development.  Sometimes, development may need to happen under a fixed version of `styles`. 
-1. Navigate to `package.json` of `patternlab` or `storybook`, whichever is applicable
-2. Under `devDependencies`, change the `file:../src/styles` to whichever the a fixed `styles` version
-3. re-run `npm install` under the repo.  You may need to remove `node_modules` and/or `package-lock.json`, depending on whether the install is throwing errors
+1. Navigate to `patternlab` or `storybook`, whichever is applicable
+2. `Run npm install design-system-styles@[version-number] --save-dev --save-exact`
+3. You may need to remove `node_modules` and/or `package-lock.json`, depending on whether the install is throwing errors
 
 ## Publishing
 You can publish npm modules from this repo by running:
