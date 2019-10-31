@@ -14,18 +14,16 @@ Follow these steps for setup:
 3. Install all the packages `npm run install-all`
 4. Run `npm run patternlab` or `npm run storybook` depending on the product you are working on. 
 
-A known issue with install is that this sometime relies on a thorough git cleaning with `git clean -fdx`. If your `npm run install-all` fails, run this command and destroy all `package-lock.json`s.
-
 You can now edit styles or templates in `src`, and they will update and re-build.  
 
 ## Troubleshooting
-While we are getting our `lerna` process ironed out, packages will sometimes not get pulled in correctly.  When this happens, auto-rebuild can be broken.  If a single package is not found, cd into the directory and run `npm link {package name}`.  
-
-If it looks like a larger build error, eg: 
+If there is an issue with `npm run install-all`, eg: 
 * cb() not called
 * Cannot read package.json.[random string of numbers]
 
-Remove `node_modules` and `package-lock.json` from the `storybook` or `patternlab` directories, and re-build them using `npm install`.  After installing, run `lerna link` from root to symlink the packages together again.  
+Clean your git state thorougly with `git clean -fdx` and get rid of all your `package-lock.json`s with `find . -name "package-lock.json" -exec rm -rf '{}' +; `, and try `npm run install-all` again. We are tracking fixes to this in https://github.com/NYPL/nypl-design-system/issues/36
+
+While we are getting our `lerna` process ironed out, packages will sometimes not get pulled in correctly.  When this happens, auto-rebuild can be broken.  If a single package is not found, cd into the directory and run `npm link {package name}`.  
 
 ## Working with Design System Modules
 By default, the repo links everything under `src` for local development.  Sometimes, development may need to happen under a fixed version of `styles`. 
