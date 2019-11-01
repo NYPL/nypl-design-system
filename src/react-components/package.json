@@ -1,16 +1,15 @@
 {
   "name": "design-system-react-components",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NYPL/nypl-design-system/tree/master/src/react-components.git"
+    "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/react-components"
   },
   "main": "dist/index.js",
   "author": "NYPL",
   "license": "Apache-2.0",
   "scripts": {
-    "clean": "rimraf node_modules lib package-lock.json && npm install",
     "lint": "tslint -c tslint.json components/*.ts components/*.tsx stories/**/*.ts stories/**/*.tsx",
     "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js",
     "storybook": "start-storybook -p 6006",

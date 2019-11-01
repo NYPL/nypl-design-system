@@ -30,7 +30,7 @@ const twigDir = path.dirname(require.resolve('design-system-twig/package.json'))
       outputStyle: 'expanded',
       eyeglass: {
         enableImportOnce: false,
-      },
+      }
     },
     cssConfig: {
       enabled: true,
@@ -45,7 +45,7 @@ const twigDir = path.dirname(require.resolve('design-system-twig/package.json'))
       sourceMapEmbed: false,
       outputStyle: 'expanded',
       autoPrefixerBrowsers: ['last 2 versions', 'IE >= 11'],
-      includePaths: [`${stylesDir}/node_modules`]
+      includePaths: [`${stylesDir}/node-modules`]
     },
     iconConfig: {
       mode: {
