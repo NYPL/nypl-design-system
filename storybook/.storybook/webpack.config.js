@@ -22,11 +22,11 @@ module.exports = async ({ config, mode }) => {
       {
         loader: 'sass-loader',
         options: {
-          importer: globImporter()
+          importer: globImporter(), 
         }
       }
     ],
-    include: [path.resolve(__dirname, './styles')]
+    include: [path.resolve(__dirname, './styles/**/*')]
   });
 
   // Add twig support
