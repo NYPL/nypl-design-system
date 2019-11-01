@@ -8,7 +8,7 @@ const config = {
       ],
     },
     alterTwigEnv: [{
-        file: '../_twig-components/functions/bem.function.php',
+        file: './bem_for_test.function.php',
         functions: ['bem'],
       }],
     autoescape: false,

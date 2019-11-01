@@ -7,6 +7,7 @@ module.exports = async ({ config, mode }) => {
   // You can change the configuration based on that.
   // 'PRODUCTION' is used when building the static version of storybook.
 
+
   // Make whatever fine-grained changes you need
   config.module.rules.push({
     test: /\.scss$/,
@@ -22,11 +23,11 @@ module.exports = async ({ config, mode }) => {
       {
         loader: 'sass-loader',
         options: {
-          importer: globImporter()
+          importer: globImporter(), 
         }
       }
     ],
-    include: [path.resolve(__dirname, './styles')]
+    include: [path.resolve(__dirname, './styles/**/*')]
   });
 
   config.module.rules.push({
