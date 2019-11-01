@@ -36,7 +36,6 @@ twig.extendFunction("bem", function(baseClass, modifiers, blockName, extra) {
       })
     };
     
-
     let attributes = "class=\"".concat(classes.join(' ')).concat("\"")
     console.log("attribute", attributes);
     return attributes;
@@ -46,4 +45,4 @@ twig.extendFunction("bem", function(baseClass, modifiers, blockName, extra) {
 // Direct link used instead of require(module) because of Webpack's inability to resolve variables in require.context
 
 configure(require.context('../../node_modules/design-system-react-components/stories', true, /\.stories\.tsx$/), module);
-configure(require.context('../../node_modules/design-system-twig/_patterns', true, /\.stories\.js$/), module);
+//configure(require.context('../../node_modules/design-system-twig/_patterns', true, /\.stories\.js$/), module);

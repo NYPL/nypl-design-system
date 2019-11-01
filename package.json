@@ -4,7 +4,8 @@
   "scripts": {
     "install-all": "lerna exec npm install; npm install",
     "patternlab": "lerna exec --scope patternlab npm start",
-    "storybook": "lerna exec --scope storybook npm start",
+    "storybook:twig": "lerna exec --scope storybook npm run start:twig",
+    "storybook:react": "lerna exec --scope storybook npm run start:react",
     "test": "lerna exec npm test"
   },
   "devDependencies": {
@@ -20,6 +21,7 @@
     "@storybook/addon-knobs": "^5.2.3",
     "@storybook/addon-links": "^5.2.3",
     "@storybook/addons": "^5.2.3",
+    "@storybook/html": "^5.2.5",
     "@storybook/react": "^5.2.3",
     "@types/chai": "^4.2.3",
     "@types/enzyme": "^3.10.3",
