@@ -1,10 +1,7 @@
-import '!style-loader!css-loader!sass-loader!import-glob-loader!design-system-styles/style.scss';
-import { configure } from '@storybook/react';
-const twig = require('twig');
+// Re-written in JS from https://github.com/drupal-pattern-lab/bem-twig-extension
 
-
-twig.extendFunction("bem", function(baseClass, modifiers, blockName, extra) {
-    console.log("variables", baseClass, modifiers, blockName, extra)
+export bem = function(baseClass, modifiers, blockName, extra) {
+    
     let classes = [];
     // If using a blockname to override default class.
     if (blockName) {
@@ -34,16 +31,10 @@ twig.extendFunction("bem", function(baseClass, modifiers, blockName, extra) {
       extra.forEach((extraClass) => {
         classes.push(extra_class);
       })
-    };
+      };
     
 
-    let attributes = "class=\"".concat(classes.join(' ')).concat("\"")
+    let attributes = 'class="'.concat(classes.join(' ')).concat("\"")
     console.log("attribute", attributes);
     return attributes;
-})
-
-// automatically import all stories from node_modules/stories ending in *.stories.js
-// Direct link used instead of require(module) because of Webpack's inability to resolve variables in require.context
-
-configure(require.context('../../node_modules/design-system-react-components/stories', true, /\.stories\.tsx$/), module);
-configure(require.context('../../node_modules/design-system-twig/_patterns', true, /\.stories\.js$/), module);
+}
