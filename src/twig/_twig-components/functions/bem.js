@@ -1,6 +1,7 @@
 // Re-written in JS from https://github.com/drupal-pattern-lab/bem-twig-extension
 
 const bem = function(baseClass, modifiers, blockName, extra) {
+    console.log("baseClass", baseClass);
     
     let classes = [];
     // If using a blockname to override default class.
@@ -37,4 +38,4 @@ const bem = function(baseClass, modifiers, blockName, extra) {
     return attributes;
 };
 
-export default bem;
+module.exports = bem;
