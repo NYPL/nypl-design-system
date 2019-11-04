@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   "devDependencies": {
     "tslint": "^6.0.0-beta0",
     "typescript": "^3.6.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

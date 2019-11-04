@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-styles",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Design System Styles",
   "scripts": {
     "test": "echo \"There are no tests for styles\" "
@@ -13,5 +13,7 @@
     "normalize.css": "^8.0.1"
   },
   "main": "style.scss",
-  "keywords": []
+  "publishConfig": {
+    "access": "public"
+  }
 }
