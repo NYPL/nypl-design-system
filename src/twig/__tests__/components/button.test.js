@@ -24,7 +24,6 @@ describe('Button Tests', () => {
         let results = await testRenderer(buttonPath, {
           button_content: 'This is a button',
         });
-        console.log("results", results);
         await page.setContent(results);
         var button = await page.$('button');
         const text = await (await button.getProperty('textContent')).jsonValue();

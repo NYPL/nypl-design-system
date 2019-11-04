@@ -13,7 +13,10 @@ export const filled = () => Button({
   button_url: '#'
 });
 
-// export const outline = () => (
-//   <Button className="button button--outline" callback={action("clicked")}>
-//   </Button>
-// );
+export const outline = () => Button({
+  button_url: '#',
+  button_content: 'Submit',
+  button_modifiers:
+    ['outline']
+  
+});
