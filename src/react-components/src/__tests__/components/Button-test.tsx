@@ -61,5 +61,5 @@ describe("Button", () => {
     const buttonProps = wrapper.props();
     expect(buttonProps["aria-pressed"]).to.be.true;
     expect(buttonProps["aria-label"]).to.equal("aria label");
-  })
+  });
 });
