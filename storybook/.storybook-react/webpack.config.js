@@ -22,17 +22,11 @@ module.exports = async ({ config, mode }) => {
       {
         loader: 'sass-loader',
         options: {
-          importer: globImporter(), 
+          importer: globImporter(),
         }
       }
     ],
     include: [path.resolve(__dirname, './styles/**/*')]
-  });
-
-  // Add twig support
-  config.module.rules.push({
-    test: /\.twig$/,
-    use: ['twigjs-loader'],
   });
 
   // Include stories in babel loader
