@@ -1,4 +1,5 @@
 import * as React from "react";
+import bem from "design-system-utils/js/bem";
 
 export type item = { url: string, text: string };
 export interface BreadcrumbProps {
@@ -17,18 +18,18 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
   render(): JSX.Element {
     const { items, className } = this.props;
 
+    let breadcrumbs__base_class = 'breadcrumbs';
     let bcrumbClassName = `breadcrumb${className ? `${className}` : ""}`;
     let bcrumbItems = [];
 
     items.forEach((item: item, index: number) => {
       let linkContent: string | JSX.Element = item.url ? <a href={item.url} className="breadcrumbs__link">{item.text}</a> : item.text;
 
-      bcrumbItems.push(<li key={`breadcrumb-${index}`} className="breadcrumbs__item">
+      bcrumbItems.push(<li key={`breadcrumb-${index}`} className={{ bem('item', [], breadcrumbs__base_class) }}>
         {linkContent}
-      </li>);
+      </li >);
     });
 
-    console.log("breadcrumbItems", bcrumbItems);
     return (
       <nav
         role="navigation"

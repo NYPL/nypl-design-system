@@ -4,12 +4,15 @@ import Button from "./Button";
 import { action } from "@storybook/addon-actions";
 
 export default {
-  title: "Button [react]",
+  title: "Button",
+  component: Button,
 };
 
-export const filled = () => <Button className="button" callback={action("clicked")}></Button>;
+let allButtons = [];
 
-export const outline = () => (
-  <Button className="button button--outline" callback={action("clicked")}>
-  </Button>
-);
+allButtons.push(<Button callback={action("clicked")} ></Button >);
+allButtons.push(<Button className="button--outline" callback={action("clicked")}>
+</Button>
+)
+
+export const differentStyles = () => allButtons;
