@@ -49,6 +49,7 @@
     "ts-loader": "^6.2.0",
     "tslint": "^5.0.0",
     "tslint-react-a11y": "^1.0.0",
+    "twig": "^1.13.3",
     "twig-loader": "^0.5.1",
     "twigjs-loader": "^1.0.0",
     "typescript": "^3.6.4",
@@ -58,7 +59,6 @@
     "design-system-react-components": "file:src/react-components",
     "design-system-styles": "file:src/styles",
     "design-system-twig": "file:src/twig",
-    "storybook": "file:storybook",
-    "twig": "^1.13.3"
+    "storybook": "file:storybook"
   }
 }

@@ -12,7 +12,6 @@
   "license": "Apache-2.0",
   "dependencies": {},
   "devDependencies": {
-    "twig": "^1.13.3",
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
     "puppeteer": "^2.0.0"
