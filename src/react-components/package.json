@@ -10,10 +10,13 @@
   "author": "NYPL",
   "license": "Apache-2.0",
   "scripts": {
-    "lint": "tslint -c tslint.json components/*.ts components/*.tsx stories/**/*.ts stories/**/*.tsx",
+    "lint": "tslint -c tslint.json components/**/*.ts components/**/*.tsx __tests__/**/*.ts __tests__/**/*.tsx",
     "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "tslint": "^5.20.1"
+  }
 }

@@ -9,7 +9,7 @@
     "types": ["mocha","node"]
   },
   "include": [
-    "components/**/*", "stories/*", "__tests__/**/*"
+    "components/**/*", "__tests__/**/*"
   ],
   "exclude": [
     "lib",

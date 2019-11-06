@@ -5,7 +5,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Button from "../../components/Button/Button";
+import Button from "../../components/01-atoms/Button/Button";
 
 describe("Button", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;
@@ -61,5 +61,5 @@ describe("Button", () => {
     const buttonProps = wrapper.props();
     expect(buttonProps["aria-pressed"]).to.be.true;
     expect(buttonProps["aria-label"]).to.equal("aria label");
-  })
+  });
 });

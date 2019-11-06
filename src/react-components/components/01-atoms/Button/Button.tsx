@@ -31,7 +31,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
     let btnCallback = mouseDown ? { onMouseDown: callback } : { onClick: callback };
     return React.createElement(
       "button",
-      {...btnProps, ...btnCallback, ...rest},
+      { ...btnProps, ...btnCallback, ...rest },
       btnContent
     );
   }
