@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "install-all": "lerna exec npm install; npm install",
-    "patternlab": "lerna exec --scope patternlab npm start",
-    "storybook": "lerna exec --scope storybook npm start",
+    "storybook:twig": "lerna exec --scope storybook npm run start:twig",
+    "storybook:react": "lerna exec --scope storybook npm run start:react",
     "test": "lerna exec npm test"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
     "@storybook/addon-knobs": "^5.2.3",
     "@storybook/addon-links": "^5.2.3",
     "@storybook/addons": "^5.2.3",
+    "@storybook/html": "^5.2.5",
     "@storybook/react": "^5.2.3",
     "@types/chai": "^4.2.3",
     "@types/enzyme": "^3.10.3",
@@ -48,6 +49,9 @@
     "ts-loader": "^6.2.0",
     "tslint": "^5.0.0",
     "tslint-react-a11y": "^1.0.0",
+    "twig": "^1.13.3",
+    "twig-loader": "^0.5.1",
+    "twigjs-loader": "^1.0.0",
     "typescript": "^3.6.4",
     "webpack": "^4.41.0"
   },
@@ -55,7 +59,6 @@
     "design-system-react-components": "file:src/react-components",
     "design-system-styles": "file:src/styles",
     "design-system-twig": "file:src/twig",
-    "patternlab": "file:patternlab",
     "storybook": "file:storybook"
   }
 }
