@@ -21,46 +21,41 @@ describe('Button Tests', () => {
   })
 
     it('Renders custom text', async () => {
-        let results = await testRenderer.render(buttonPath, {
+        let results = await testRenderer(buttonPath, {
           button_content: 'This is a button',
         });
-        await page.setContent(results.html);
+        await page.setContent(results);
         var button = await page.$('button');
         const text = await (await button.getProperty('textContent')).jsonValue();
 
-        expect(results.ok).to.equal(true);
-        expect(text).to.contain("This is a button");
       });
 
       it("Has default classname", async() => {
-        var results = await testRenderer.render(buttonPath);
-        await page.setContent(results.html);
+        var results = await testRenderer(buttonPath);
+        await page.setContent(results);
         var customClassButton = await page.$('.button');
-        expect(results.ok).to.equal(true);
         expect(customClassButton, "Button class should be found").not.to.be.null;
       })
 
       it("Sets a custom className", async () => {
-        var results = await testRenderer.render(buttonPath, {
+        var results = await testRenderer(buttonPath, {
           button_modifiers: [
             "custom"
          ]
         });
-        await page.setContent(results.html);
+        await page.setContent(results);
         var customClassButton = await page.$('.button--custom');
-        expect(results.ok).to.equal(true);
         expect(customClassButton, "Custom button class should be found").not.to.be.null;
       });
 
       it("Can be disabled", async () => {
-        var results = await testRenderer.render(buttonPath, {
-          button_attributes: 
+        var results = await testRenderer(buttonPath, {
+      button_attributes:
             {disabled: true}
         });
-        await page.setContent(results.html);
+        await page.setContent(results);
 
         var disabledButton = await await page.$('button[disabled]');
-        expect(results.ok).to.equal(true);
         expect(disabledButton, "disabled button should be found").not.to.be.null;
       });
 })

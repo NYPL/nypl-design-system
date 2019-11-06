@@ -1,4 +1,4 @@
-import '!style-loader!css-loader!sass-loader!import-glob-loader!design-system-styles/style.scss'; 
+import '!style-loader!css-loader!sass-loader!import-glob-loader!design-system-styles/style.scss';
 import { configure } from '@storybook/react';
 
 // automatically import all stories from node_modules/stories ending in *.stories.js
