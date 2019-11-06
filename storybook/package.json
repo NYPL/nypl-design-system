@@ -5,6 +5,7 @@
   "dependencies": {
     "babel": "^6.23.0",
     "design-system-react-components": "file:../src/react-components",
+    "design-system-twig": "file:../src/twig",
     "design-system-styles": "file:../src/styles",
     "node-sass": "^4.12.0",
     "node-sass-glob-importer": "^5.3.2",
@@ -15,8 +16,9 @@
   },
   "scripts": {
     "build-storybook": "build-storybook",
-    "start": "start-storybook -p 9009",
-    "clean": "rimraf node-modules", 
+    "start:twig": "node ../node_modules/@storybook/html/bin/index -p 8001 -c .storybook-html",
+    "start:react": "node ../node_modules/@storybook/react/bin/index -p 9001 -c .storybook-react",
+    "clean": "rimraf node-modules",
     "test": "echo \"No Storybook Tests\" "
   },
   "eslintConfig": {
@@ -33,5 +35,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
