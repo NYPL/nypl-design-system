@@ -1,6 +1,6 @@
 {
-  "name": "design-system-twig",
-  "version": "1.0.4",
+  "name": "@nypl/design-system-twig",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/twig",
@@ -10,10 +10,12 @@
   "keywords": [],
   "author": "NYPL Digital",
   "license": "Apache-2.0",
-  "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
     "puppeteer": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

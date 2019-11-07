@@ -10,7 +10,7 @@ export interface ButtonProps {
   mouseDown?: boolean;
 }
 
-export default class Button extends React.Component<ButtonProps, {}> {
+class Button extends React.Component<ButtonProps, {}> {
   static defaultProps = {
     mouseDown: false
   };
@@ -36,3 +36,5 @@ export default class Button extends React.Component<ButtonProps, {}> {
     );
   }
 }
+
+export default Button;

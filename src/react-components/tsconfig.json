@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "moduleResolution": "node",
     "target": "es6",
+    "declaration": true,
     "lib": ["es2017", "dom"],
     "esModuleInterop": true,
     "outDir": "lib",
@@ -9,10 +11,10 @@
     "types": ["mocha","node"]
   },
   "include": [
-    "components/**/*", "stories/*", "__tests__/**/*"
+    "src"
   ],
   "exclude": [
     "lib",
-    "node_modules",
+    "node_modules"
   ]
 }
