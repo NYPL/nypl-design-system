@@ -1,18 +1,26 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "moduleResolution": "node",
     "target": "es6",
-    "lib": ["es2017", "dom"],
+    "declaration": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "esModuleInterop": true,
     "outDir": "lib",
     "jsx": "react",
-    "types": ["mocha","node"]
+    "types": [
+      "mocha",
+      "node"
+    ]
   },
   "include": [
-    "components/**/*", "__tests__/**/*"
+    "src"
   ],
   "exclude": [
     "lib",
-    "node_modules",
+    "node_modules"
   ]
 }

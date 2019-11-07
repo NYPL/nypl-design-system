@@ -1,22 +1,28 @@
 {
-  "name": "design-system-react-components",
-  "version": "1.0.4",
+  "name": "@nypl/design-system-react-components",
+  "version": "1.0.1",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
     "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/react-components"
   },
-  "main": "dist/index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "NYPL",
   "license": "Apache-2.0",
   "scripts": {
-    "lint": "tslint -c tslint.json components/**/*.ts components/**/*.tsx __tests__/**/*.ts __tests__/**/*.tsx",
-    "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint && npm run test",
+    "build": "tsc",
+    "lint": "tslint -c tslint.json components/*.ts components/*.tsx stories/**/*.ts stories/**/*.tsx",
+    "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js"
   },
   "keywords": [],
   "devDependencies": {
-    "tslint": "^5.20.1"
+    "tslint": "^6.0.0-beta0",
+    "typescript": "^3.6.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

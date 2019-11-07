@@ -4,4 +4,4 @@ import { configure } from '@storybook/react';
 // automatically import all stories from node_modules/stories ending in *.stories.js
 // Direct link used instead of require(module) because of Webpack's inability to resolve variables in require.context
 
-configure(require.context('../../node_modules/design-system-react-components/components', true, /\.stories\.tsx$/), module);
+configure(require.context('../../node_modules/design-system-react-components/src/components', true, /\.stories\.tsx$/), module);

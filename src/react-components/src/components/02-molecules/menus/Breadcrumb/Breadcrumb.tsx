@@ -1,5 +1,5 @@
 import * as React from "react";
-import bem from "design-system-utils/js/bem";
+import bem from "../../../../utils/bem";
 
 export type item = { url: string, text: string };
 export interface BreadcrumbProps {
@@ -16,18 +16,20 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
   }
 
   render(): JSX.Element {
+
     const { items, className } = this.props;
 
-    let breadcrumbs__base_class = 'breadcrumbs';
+    let breadcrumbs__base_class = "breadcrumbs";
+
     let bcrumbClassName = `breadcrumb${className ? `${className}` : ""}`;
     let bcrumbItems = [];
 
     items.forEach((item: item, index: number) => {
-      let linkContent: string | JSX.Element = item.url ? <a href={item.url} className="breadcrumbs__link">{item.text}</a> : item.text;
+      let linkContent: string | JSX.Element = item.url ? <a href={item.url} className={bem("link", [], breadcrumbs__base_class)}>{item.text}</a> : item.text;
 
-      bcrumbItems.push(<li key={`breadcrumb-${index}`} className={{ bem('item', [], breadcrumbs__base_class) }}>
+      bcrumbItems.push(<li key={`breadcrumb-${index}`} className={bem("item", [], breadcrumbs__base_class)} >
         {linkContent}
-      </li >);
+      </ li >);
     });
 
     return (
@@ -35,7 +37,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
         role="navigation"
         aria-label="Breadcrumbs"
       >
-        <ul className="breadcrumbs">
+        <ul className={bem(breadcrumbs__base_class)}>
           {bcrumbItems}
         </ul>
       </nav>);
