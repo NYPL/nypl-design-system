@@ -2,7 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "install-all": "lerna exec npm install; npm install",
+    "prepare": "lerna run prepare",
+    "install-all": "npm install; lerna run prepare; lerna exec npm install",
     "storybook:twig": "lerna exec --scope storybook npm run start:twig",
     "storybook:react": "lerna exec --scope storybook npm run start:react",
     "test": "lerna exec npm test"
@@ -38,7 +39,6 @@
     "design-system-twig": "^1.0.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "gulp": "^3.9.1",
     "import-glob-loader": "^1.1.0",
     "jsdom": "^15.2.0",
     "lerna": "3.18.1",
