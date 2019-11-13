@@ -4,7 +4,6 @@ import bem from "../../../../utils/bem";
 export type breadcrumb = { url: string, text: string };
 export interface BreadcrumbProps {
   breadcrumbs: breadcrumb[];
-  className?: string;
 }
 
 
@@ -17,7 +16,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
 
   render(): JSX.Element {
 
-    const { breadcrumbs, className } = this.props;
+    const { breadcrumbs } = this.props;
 
     let breadcrumbs__base_class = "breadcrumbs";
 
