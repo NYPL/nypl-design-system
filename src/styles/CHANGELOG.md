@@ -14,4 +14,5 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 - Added mixins from Reno to keep up to parity
 
 ### Changed
-- Added a margin to Breadcrumb's trailing slash.
+- Added a margin to Breadcrumb's trailing slash
+- Changed the breakpoint for mobile to be smaller
