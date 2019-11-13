@@ -1,5 +1,5 @@
 import '!style-loader!css-loader!sass-loader!import-glob-loader!design-system-styles/style.scss';
-import { configure } from '@storybook/html';
+import { configure, load, addDecorator } from '@storybook/html';
 const twig = require('twig');
 import bem from 'design-system-twig/_twig-components/functions/bem';
 

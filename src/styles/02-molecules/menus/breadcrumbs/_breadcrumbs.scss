@@ -1,28 +1,43 @@
-$break-breadcrumbs: $medium; // $medium = 720px
-$break-breadcrumbs-mobile: max-width 719px;
+$break-breadcrumbs: $medium; // $medium = 600px
+$break-breadcrumbs-mobile: max-width 599px;
 
 .breadcrumbs {
+  background-color: $nypl-turquoise-dark;
+  padding: $space-xs 0;
+}
+
+.breadcrumbs__list {
   @include list-reset;
+  @include wrapper;
 
   color: $white;
 }
 
 .breadcrumbs__item {
-  position: relative;
-  display: inline-flex;
+  @include type-scale(-1);
+  @include space-inline-xxs;
+
   align-items: center;
-  font-size: 0.875rem;
-  line-height: 1.5;
+  display: inline;
   letter-spacing: -0.023em;
+  line-height: 1.5;
+  position: relative;
+  word-break: break-word;
 
   &:not(:last-child) {
     &::after {
       content: '/';
-      margin-left: $space-xxs;
+      padding-left: $space-xxs;
     }
 
     @include breakpoint($break-breadcrumbs-mobile) {
       display: none;
+    }
+  }
+
+  &:last-child {
+    @include breakpoint($break-breadcrumbs-mobile) {
+      padding-left: $space-m;
     }
   }
 }
@@ -32,6 +47,7 @@ $break-breadcrumbs-mobile: max-width 719px;
 
   position: absolute;
   top: 50%;
+  left: 0;
   transform: rotate(90deg) translateX(-50%);
 
   @include breakpoint($break-breadcrumbs) {
@@ -45,10 +61,6 @@ $break-breadcrumbs-mobile: max-width 719px;
 .breadcrumbs__link:focus {
   color: inherit;
   text-decoration: none;
-
-  @include breakpoint($break-breadcrumbs-mobile) {
-    margin-left: $space-m;
-  }
 }
 
 .breadcrumbs__link:hover {
@@ -59,9 +71,7 @@ $break-breadcrumbs-mobile: max-width 719px;
 .pl {
   #molecules-breadcrumbs {
     nav {
-      @include space-inset-xs;
-
-      background-color: $nypl-turquoise-dark;
+      @include breakout;
     }
   }
 }

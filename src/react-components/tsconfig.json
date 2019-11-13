@@ -4,11 +4,17 @@
     "moduleResolution": "node",
     "target": "es6",
     "declaration": true,
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "esModuleInterop": true,
     "outDir": "lib",
     "jsx": "react",
-    "types": ["mocha","node"]
+    "types": [
+      "mocha",
+      "node"
+    ]
   },
   "include": [
     "src"

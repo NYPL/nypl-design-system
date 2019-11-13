@@ -1,3 +1,4 @@
+
 {#
 /**
  * Available variables:
@@ -14,7 +15,8 @@
 {# For Pattern Lab: The icon_url is defined in _data/paths.json. No action is required #}
 {# For Drupal: The icon_url is defined in the following line. No action is required #}
 {% set icon_url = icon_url|default('/themes/custom/nypl_emulsify/dist/img/sprite/') %}
-{{ attach_library('nypl_emulsify/sprite') }}
+
+{# TODO:SFR-716 {{ attach_library('nypl_emulsify/sprite') }} #}
 
 <svg {{ bem(icon_base_class, (icon_modifiers), icon_blockname, (icon_js_class)) }}
 

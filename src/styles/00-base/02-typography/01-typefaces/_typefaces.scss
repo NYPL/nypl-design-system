@@ -1,4 +1,5 @@
 // Typography Variables
-$font-body: 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial,
-  'Lucida Grande', sans-serif;
-$font-heading: 'HelveticaNeue-Light', 'Arial', sans-serif;
+@import '../../node_modules/system-font-css/system-font.scss';
+
+$font-body: system-ui, sans-serif;
+$font-heading: system-ui, sans-serif;

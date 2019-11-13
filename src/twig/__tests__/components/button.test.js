@@ -15,47 +15,48 @@ describe('Button Tests', () => {
     page = await browser.newPage();
   });
 
-  after(async() => {
+  after(async () => {
     await page.close();
     await browser.close();
   })
 
-    it('Renders custom text', async () => {
-        let results = await testRenderer(buttonPath, {
-          button_content: 'This is a button',
-        });
-        await page.setContent(results);
-        var button = await page.$('button');
-        const text = await (await button.getProperty('textContent')).jsonValue();
+  it('Renders custom text', async () => {
+    let results = await testRenderer(buttonPath, {
+      button_content: 'This is a button',
+    });
+    await page.setContent(results);
+    var button = await page.$('button');
+    const text = await (await button.getProperty('textContent')).jsonValue();
 
-      });
+    expect(text, 'This is a button').to.be.equal;
+  });
 
-      it("Has default classname", async() => {
-        var results = await testRenderer(buttonPath);
-        await page.setContent(results);
-        var customClassButton = await page.$('.button');
-        expect(customClassButton, "Button class should be found").not.to.be.null;
-      })
+  it("Has default classname", async () => {
+    var results = await testRenderer(buttonPath);
+    await page.setContent(results);
+    var customClassButton = await page.$('.button');
+    expect(customClassButton, "Button class should be found").not.to.be.null;
+  })
 
-      it("Sets a custom className", async () => {
-        var results = await testRenderer(buttonPath, {
-          button_modifiers: [
-            "custom"
-         ]
-        });
-        await page.setContent(results);
-        var customClassButton = await page.$('.button--custom');
-        expect(customClassButton, "Custom button class should be found").not.to.be.null;
-      });
+  it("Sets a custom className", async () => {
+    var results = await testRenderer(buttonPath, {
+      button_modifiers: [
+        "custom"
+      ]
+    });
+    await page.setContent(results);
+    var customClassButton = await page.$('.button--custom');
+    expect(customClassButton, "Custom button class should be found").not.to.be.null;
+  });
 
-      it("Can be disabled", async () => {
-        var results = await testRenderer(buttonPath, {
+  it("Can be disabled", async () => {
+    var results = await testRenderer(buttonPath, {
       button_attributes:
-            {disabled: true}
-        });
-        await page.setContent(results);
+        { disabled: true }
+    });
+    await page.setContent(results);
 
-        var disabledButton = await await page.$('button[disabled]');
-        expect(disabledButton, "disabled button should be found").not.to.be.null;
-      });
+    var disabledButton = await await page.$('button[disabled]');
+    expect(disabledButton, "disabled button should be found").not.to.be.null;
+  });
 })
