@@ -14,7 +14,7 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 - Added Breadcrumb Template Tests
 
 ### Changed
-- Breadcrumb uses spaceless to better enforce rendering consistency
+- Breadcrumb uses spaceless to better enforce rendering consistency for whitespace on list items
 
 ## [0.0.1] - 2019-11-13
 - Published as a test
