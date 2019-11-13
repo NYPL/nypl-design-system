@@ -3,8 +3,8 @@
 // $space-s: $space*1;     // 16px
 // $space-m: $space*1.5;   // 24px
 // $space-l: $space*2;     // 32px
-// $space-xl: $space*4;    // 64px
-// $space-xxl: $space*4.5; // 72px
+// $space-xl: $space*3;    // 48px
+// $space-xxl: $space*4;   // 64px
 
 @mixin space-stack-none {
   margin-bottom: 0;
@@ -36,4 +36,12 @@
 
 @mixin space-stack-xxl {
   margin-bottom: $space-xxl;
+}
+
+@mixin space-stack-page {
+  @include space-stack-l;
+
+  @include breakpoint($large) {
+    @include space-stack-xl;
+  }
 }

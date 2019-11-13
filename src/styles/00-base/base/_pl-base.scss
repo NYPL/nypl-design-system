@@ -9,7 +9,8 @@
 .pl,
 .sg-main {
   .sg-subtype h2 {
-    font-size: 3rem;
+    @include type-scale(5);
+
     text-transform: uppercase;
     background-color: $gray-dark;
 
@@ -36,14 +37,16 @@
   }
 
   .sg-pattern-title {
+    @include type-scale(2);
+
     color: #738ba3;
-    font-size: 1.4rem !important;
     text-transform: none !important;
 
     a {
+      @include type-scale(4);
+
       color: #1169ba !important;
       font-family: Calibre, Arial, sans-serif;
-      font-size: 2.2rem;
       font-weight: 500;
       text-transform: uppercase !important;
     }
