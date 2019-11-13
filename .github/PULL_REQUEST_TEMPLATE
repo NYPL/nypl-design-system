@@ -5,9 +5,6 @@
 ## **This PR does the following:**
 -
 
-### UAT Review:
-- [ ] Navigate to [the page in Drupal](https://reno-XXX-nypl.pantheonsite.io/)
-
 ### Front End Review:
-- [ ] View [the example in Pattern Lab](https://reno-XXX-nypl.pantheonsite.io/themes/custom/nypl_emulsify/pattern-lab/public)
+- [ ] View [the example in Storybook](https://reno-XXX-nypl.pantheonsite.io/themes/custom/nypl_emulsify/pattern-lab/public)
 - [ ] Check against the [Metronome documentation](http://themetronome.co/components/xxx/?fresh=true)
