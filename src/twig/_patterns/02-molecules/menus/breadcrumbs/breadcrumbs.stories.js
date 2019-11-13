@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import Breadcrumbs from "./breadcrumbs.twig";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/html";
