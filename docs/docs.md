@@ -27,8 +27,6 @@ How semver is used on this project and across our projects is an ongoing discuss
 
 `docs/`: Additional technical documentation necessary for this project.
 
-`patternlab`: The docs folder to view and work on twig templates.
-
 `src/`: Our npm packages, separated by package.
 
-`storybook`: The docs folder to view and work on react components.
+`storybook`: The docs folder to view and work on react components and twig templates.

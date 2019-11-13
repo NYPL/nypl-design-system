@@ -33,7 +33,7 @@ export default function bem(baseClass: string, modifiers?: string[], blockName?:
     });
   }
 
-  let attributes = classes.join(" ").concat("\"");
+  let attributes = classes.join(" ");
   return attributes;
 }
 

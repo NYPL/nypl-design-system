@@ -5,7 +5,7 @@
 {% set breadcrumbs__base_class = 'breadcrumbs' %}
 
 {% if breadcrumbs %}
-    <nav role='navigation' aria-label={{ 'Breadcrumbs'|t }}>
+    <nav role='navigation' aria-label={{ 'Breadcrumbs' }}>
         <ul {{ bem(breadcrumbs__base_class) }}>
             {% for item in breadcrumbs %}
                 <li {{ bem('item', [], breadcrumbs__base_class) }}>

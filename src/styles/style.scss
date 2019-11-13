@@ -1,17 +1,10 @@
 // Start libs
 
-// HACK: When working locally in Patternlab, use the local node_modules imports
-// instead of the direct imports. DO NOT COMMIT OR PUBLISH THE NODE_MODULES IMPORTS.
-// This hack is not needed when working locally with storybook.
-// Working on a fix: SFR-700
-
 // Better style reset
 @import '~normalize.css/normalize.css';
-// @import './node_modules/normalize.css/normalize.css';
 
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import '~breakpoint-sass/stylesheets/breakpoint';
-// @import './node_modules/breakpoint-sass/stylesheets/_breakpoint.scss';
 
 // Slick
 @import './js/slick/slick.scss';

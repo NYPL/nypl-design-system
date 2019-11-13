@@ -18,5 +18,4 @@ export const outline = () => Button({
   button_content: 'Submit',
   button_modifiers:
     ['outline']
-  
 });
