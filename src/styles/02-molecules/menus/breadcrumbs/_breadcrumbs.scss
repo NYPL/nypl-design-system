@@ -17,15 +17,15 @@ $break-breadcrumbs-mobile: max-width 719px;
   @include type-scale(-1);
 
   position: relative;
-  display: inline-flex;
+  display: inline;
   align-items: center;
   line-height: 1.5;
   letter-spacing: -0.023em;
+  word-break: break-word;
 
   &:not(:last-child) {
     &::after {
       content: '/';
-      margin-left: $space-xxs;
     }
 
     @include breakpoint($break-breadcrumbs-mobile) {
