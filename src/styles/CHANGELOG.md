@@ -16,6 +16,7 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ### Changed
 - Added a margin to Breadcrumb's trailing slash.
 - Breadcrumb uses `inline` instead of `inline-flex` so that word breaks wrap properly
+- Changed the breakpoint for mobile to be smaller
 
 ## [0.0.1] - 2019-11-13
 - Published as a test
