@@ -14,7 +14,7 @@ describe("Breadcrumbs", () => {
     wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={shortBreadcrumb} />);
   });
 
-  it("optionally renders custom text", () => {
+  it("Renders a tag with custom text", () => {
     let links = wrapper.render();
 
     expect(links.find("a")).to.have.lengthOf(2);
