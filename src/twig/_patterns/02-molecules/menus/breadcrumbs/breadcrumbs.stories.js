@@ -9,7 +9,10 @@ export default {
 };
 
 const shortItems = [{ url: "#", text: "Parent" }, { url: "#", text: "Home" }];
-const longItems = [{ url: "#", text: "Parent" }, { url: "#", text: "Home" }, { url: "#", text: "Roast Half And Half Pumpkin Spice Siphon Aroma Ristretto Cinnamon Saucer" }, { url: "#", text: "Roast Half And Half Pumpkin Spice Siphon Aroma Ristretto Cinnamon Saucer" }];
+const longItems = [{ url: "#", text: "Parent" },
+{ url: "#", text: "Home" },
+{ url: "#", text: "Roast Half And Half Pumpkin Spice Siphon Aroma Ristretto Cinnamon Saucer" },
+{ url: "#", text: "Roast Half And Half Pumpkin Spice Siphon Aroma Ristretto Cinnamon Saucer" }];
 
 export const shortBreadcrumbs = () => Breadcrumbs({
   breadcrumbs: shortItems
