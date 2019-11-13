@@ -15,17 +15,19 @@ $break-breadcrumbs-mobile: max-width 719px;
 
 .breadcrumbs__item {
   @include type-scale(-1);
+  @include space-inline-xxs;
 
-  position: relative;
-  display: inline;
   align-items: center;
-  line-height: 1.5;
+  display: inline;
   letter-spacing: -0.023em;
+  line-height: 1.5;
+  position: relative;
   word-break: break-word;
 
   &:not(:last-child) {
     &::after {
       content: '/';
+      padding-left: $space-xxs;
     }
 
     @include breakpoint($break-breadcrumbs-mobile) {
