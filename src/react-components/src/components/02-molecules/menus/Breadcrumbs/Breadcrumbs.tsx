@@ -1,11 +1,15 @@
 import * as React from "react";
 import bem from "../../../../utils/bem";
 
-export type breadcrumb = { url: string, text: string };
-export interface BreadcrumbProps {
-  breadcrumbs: breadcrumb[];
+type breadcrumb = { url: string, text: string };
+
+function isTextBreadcrumb(obj: breadcrumb | JSX.Element): obj is breadcrumb {
+  return typeof((obj as breadcrumb).url) === "string" ;
 }
 
+export interface BreadcrumbProps {
+  breadcrumbs: breadcrumb[] | JSX.Element[];
+}
 
 export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
   static defaultProps = {};
@@ -22,16 +26,28 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
 
     let bcrumbItems = [];
 
-    breadcrumbs.forEach((item: breadcrumb, index: number) => {
+    breadcrumbs.forEach((item: breadcrumb|JSX.Element, index: number) => {
       let last = index === breadcrumbs.length - 1;
       if (last) {
         // TODO: SFR-716 Incorporate Icon
       }
-      let linkContent: string | JSX.Element = item.url ? <a href={item.url} className={bem("link", [], breadcrumbs__base_class)}>{item.text}</a> : item.text;
-
+      let linkContent: string | JSX.Element;
+      if (isTextBreadcrumb(item)) {
+        linkContent = item.url ? <a href={item.url} className={bem("link", [], breadcrumbs__base_class)}>{item.text}</a> : item.text;
+      } else {
+        let props = {
+          className: bem("link", [], breadcrumbs__base_class),
+        };
+        let blah = React.createElement(
+          item.type,
+          {...props, ...item.props},
+          item.props.children
+        );
+        linkContent = blah ;
+      }
       bcrumbItems.push(<li key={`breadcrumb-${index}`} className={bem("item", [], breadcrumbs__base_class)} >
-        {linkContent}
-      </ li >);
+      {linkContent}
+    </ li >);
     });
 
     return (
