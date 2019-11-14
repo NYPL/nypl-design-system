@@ -1,5 +1,14 @@
-### Expected Behavior
+### (If relevant) component in question:
+// e.g., "AB-52 Button"
+[Metronome documentation for component](http://themetronome.co/components/XXX/?fresh=true)
 
-### Actual Behavior
+### Overrides (if any) you've added to the design system:
+```
+.example-project {}
+```
 
-### Steps to Reproduce the Behavior
+### Expected behavior
+
+### Actual behavior
+
+### Steps to reproduce the behavior
