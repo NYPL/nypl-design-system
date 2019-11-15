@@ -2,6 +2,8 @@ $break-breadcrumbs: $medium; // $medium = 600px
 $break-breadcrumbs-mobile: max-width 599px;
 
 .breadcrumbs {
+  @include breakout;
+
   background-color: $nypl-turquoise-dark;
   padding: $space-xs 0;
 }
@@ -65,13 +67,4 @@ $break-breadcrumbs-mobile: max-width 599px;
 
 .breadcrumbs__link:hover {
   text-decoration: underline;
-}
-
-// Styles only for Pattern Lab
-.pl {
-  #molecules-breadcrumbs {
-    nav {
-      @include breakout;
-    }
-  }
 }
