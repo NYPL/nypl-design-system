@@ -11,6 +11,21 @@ module.exports = ({ config, mode }) => {
   // You can change the configuration based on that.
   // 'PRODUCTION' is used when building the static version of storybook.
 
+  config.resolve.extensions.push('.svg');
+
+  config.module.rules = config.module.rules.map( data => {
+      if (/svg\|/.test( String( data.test ) ))
+          data.test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/;
+
+      return data;
+  });
+
+  config.module.rules.push({
+      test: /\.svg$/,
+      use: [{ loader: require.resolve('babel-loader') },
+            { loader: require.resolve('svg-inline-loader') }]
+  });
+
   // Adds SCSS support
   config.module.rules.push({
     test: /\.scss$/,

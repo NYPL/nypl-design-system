@@ -19,6 +19,7 @@
   },
   "keywords": [],
   "devDependencies": {
+    "@nypl/design-system-icons": "file:../icons",
     "tslint": "^6.0.0-beta0",
     "typescript": "^3.6.4"
   },

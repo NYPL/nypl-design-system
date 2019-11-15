@@ -1,11 +1,19 @@
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
 
+const AppSourceDir = path.join(__dirname, '../../', 'src');
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
+  
   // `mode` has a value of 'DEVELOPMENT' or 'PRODUCTION'
   // You can change the configuration based on that.
   // 'PRODUCTION' is used when building the static version of storybook.
+
+  config.module.rules.push( {
+    test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+    include: [path.join(__dirname, "./icons/")],
+    loader: "file-loader?name=assets/[name].[ext]"
+});
 
   // Adds SCSS support
   config.module.rules.push({

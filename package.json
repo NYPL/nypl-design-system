@@ -43,8 +43,11 @@
     "lerna": "3.18.1",
     "mocha": "^6.2.2",
     "prop-types": "^15.7.2",
+    "react-svg-loader": "^3.0.3",
     "rimraf": "^3.0.0",
     "sinon": "^7.3.0",
+    "svg-inline-loader": "^0.8.0",
+    "svg-sprite": "^1.5.0",
     "ts-loader": "^6.2.0",
     "tslint": "^5.0.0",
     "tslint-react-a11y": "^1.0.0",
@@ -55,6 +58,7 @@
     "webpack": "^4.41.0"
   },
   "dependencies": {
+    "design-system-icons": "file:src/icons",
     "design-system-react-components": "file:src/react-components",
     "design-system-styles": "file:src/styles",
     "design-system-twig": "file:src/twig",

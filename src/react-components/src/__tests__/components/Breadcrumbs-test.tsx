@@ -3,6 +3,16 @@ import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
+import * as JSDOM from "jsdom";
+
+window.resizeTo = function resizeTo(width, height) {
+  Object.assign(this, {
+    innerWidth: width,
+    innerHeight: height,
+    outerWidth: width,
+    outerHeight: height,
+  }).dispatchEvent(new this.Event("resize"));
+};
 
 import Breadcrumbs from "../../components/02-molecules/menus/Breadcrumbs/Breadcrumbs";
 
@@ -26,5 +36,12 @@ describe("Breadcrumbs", () => {
     wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbComponent} />);
     let links = wrapper.render();
     expect(links.find("a.breadcrumbs__link").first().text()).to.equal("Hello");
+  });
+
+  it("Renders icon", () => {
+    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbComponent} />);
+    let links = wrapper.render();
+
+    expect(links.find("svg")).to.have.lengthOf(1);
   });
 });

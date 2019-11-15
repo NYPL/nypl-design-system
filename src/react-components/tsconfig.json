@@ -17,7 +17,8 @@
     ]
   },
   "include": [
-    "src"
+    "src",
+    "tsd.d.ts",
   ],
   "exclude": [
     "lib",
