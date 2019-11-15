@@ -36,11 +36,11 @@
   @include breakpoint($container-max-width) {
     padding-left:
       calc(
-        #{$h-padding} + calc(-50vw + calc(#{$container-max-width} / 2))
+        #{$h-padding} + calc(50vw - calc(#{$container-max-width} / 2))
       );
     padding-right:
       calc(
-        #{$h-padding} + calc(-50vw + calc(#{$container-max-width} / 2))
+        #{$h-padding} + calc(50vw - calc(#{$container-max-width} / 2))
       );
   }
 }
