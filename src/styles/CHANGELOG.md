@@ -7,6 +7,9 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ========
 ## Prerelease
+## [0.0.3] - 2019-11-15
+### Changed
+- System-font now gets imported properly
 
 ## [0.0.2] - 2019-11-13
 ### Added
