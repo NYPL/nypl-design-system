@@ -24,29 +24,28 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
 
     let breadcrumbs__base_class = "breadcrumbs";
 
-    let bcrumbItems = [];
+    let breadcrumbItems = [];
 
     breadcrumbs.forEach((item: breadcrumb|JSX.Element, index: number) => {
       let last = index === breadcrumbs.length - 1;
       if (last) {
         // TODO: SFR-716 Incorporate Icon
       }
-      let linkContent: string | JSX.Element;
+      let linkComponent: string | JSX.Element;
       if (isTextBreadcrumb(item)) {
-        linkContent = item.url ? <a href={item.url} className={bem("link", [], breadcrumbs__base_class)}>{item.text}</a> : item.text;
+        linkComponent = item.url ? <a href={item.url} className={bem("link", [], breadcrumbs__base_class)}>{item.text}</a> : item.text;
       } else {
         let props = {
           className: bem("link", [], breadcrumbs__base_class),
         };
-        let blah = React.createElement(
+        linkComponent = React.createElement(
           item.type,
           {...props, ...item.props},
           item.props.children
         );
-        linkContent = blah ;
       }
-      bcrumbItems.push(<li key={`breadcrumb-${index}`} className={bem("item", [], breadcrumbs__base_class)} >
-      {linkContent}
+      breadcrumbItems.push(<li key={`breadcrumb-${index}`} className={bem("item", [], breadcrumbs__base_class)} >
+      {linkComponent}
     </ li >);
     });
 
@@ -57,7 +56,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
         aria-label="Breadcrumbs"
       >
         <ul className={bem("list", [], breadcrumbs__base_class)}>
-          {bcrumbItems}
+          {breadcrumbItems}
         </ul>
       </nav>);
   }

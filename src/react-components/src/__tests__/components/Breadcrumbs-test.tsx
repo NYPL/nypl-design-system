@@ -8,17 +8,13 @@ import Breadcrumbs from "../../components/02-molecules/menus/Breadcrumbs/Breadcr
 
 describe("Breadcrumbs", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;
-  let shortBreadcrumb = [{ url: "#", text: "test1" }, { url: "#", text: "test2" }];
-  let components = [
+  let breadcrumbString = [{ url: "#", text: "test1" }, { url: "#", text: "test2" }];
+  let breadcrumbComponent = [
     <a role="link" href="#test1"><span>Hello</span></a>, <a role="link" href="#test2">Goodbye</a>
   ];
 
-  beforeEach(() => {
-    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={shortBreadcrumb} />);
-  });
-
   it("Renders a tag with custom text", () => {
-    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={shortBreadcrumb} />);
+    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbString} />);
     let links = wrapper.render();
 
     expect(links.find("a.breadcrumbs__link")).to.have.lengthOf(2);
@@ -27,7 +23,7 @@ describe("Breadcrumbs", () => {
   });
 
   it("Renders breadcrumb when passed components", () => {
-    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={components} />);
+    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbComponent} />);
     let links = wrapper.render();
     expect(links.find("a.breadcrumbs__link").first().text()).to.equal("Hello");
   });

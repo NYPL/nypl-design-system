@@ -9,7 +9,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 ## [0.0.3]
 ### Changed
 - Changed `Breadcrumb` to `Breadcrumbs` to match Twig
-- Changed the Breadcrumbs contract to accept components
+- Changed the Breadcrumbs props to accept components
 
 ## [0.0.2] - 2019-11-13
 ### Added
