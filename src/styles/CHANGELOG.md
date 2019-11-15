@@ -7,6 +7,13 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ========
 ## Prerelease
+## [0.0.4] - 2019-11-15
+### Changed
+- The breakout() mixin now has swapped signs
+
+### Removed
+- Removes PatternLab-specific styles
+
 ## [0.0.3] - 2019-11-15
 ### Changed
 - System-font now gets imported properly
