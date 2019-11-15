@@ -58,7 +58,6 @@
     "design-system-react-components": "file:src/react-components",
     "design-system-styles": "file:src/styles",
     "design-system-twig": "file:src/twig",
-    "storybook": "file:storybook",
-    "system-font-css": "^2.0.2"
+    "storybook": "file:storybook"
   }
 }
