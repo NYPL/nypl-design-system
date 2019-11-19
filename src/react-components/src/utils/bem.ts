@@ -10,7 +10,7 @@ export default function bem(baseClass: string, modifiers?: string[], blockName?:
     // Set blockname--modifier classes for each modifier.
     if (modifiers) {
       modifiers.forEach((modifier) => {
-        classes.push(blockName.concat("__").concat(baseClass).concat("__").concat(modifier));
+        classes.push(blockName.concat("__").concat(baseClass).concat("--").concat(modifier));
       });
     }
   }
