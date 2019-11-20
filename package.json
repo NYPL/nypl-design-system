@@ -39,7 +39,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "import-glob-loader": "^1.1.0",
-    "jsdom": "^15.2.0",
+    "jsdom": "^15.2.1",
     "lerna": "3.18.1",
     "mocha": "^6.2.2",
     "prop-types": "^15.7.2",
