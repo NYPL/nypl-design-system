@@ -1,7 +1,6 @@
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
 
-const AppSourceDir = path.join(__dirname, '../../', 'src');
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
   

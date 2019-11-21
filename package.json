@@ -43,7 +43,6 @@
     "lerna": "3.18.1",
     "mocha": "^6.2.2",
     "prop-types": "^15.7.2",
-    "react-svg-loader": "^3.0.3",
     "rimraf": "^3.0.0",
     "sinon": "^7.3.0",
     "svg-inline-loader": "^0.8.0",

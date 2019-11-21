@@ -21,15 +21,13 @@ var config = {
   }
 }
 
-// Create spriter instance (see below for `config` examples)
 var spriter = new SVGSpriter(config);
 
-// Add SVG source files — the manual way ...
+// Add SVG source files
 let dir = path.join(__dirname, "../svg/")
 fs.readdirSync(dir).forEach(file => {
   spriter.add(dir + file, null, fs.readFileSync(dir + file, {encoding: 'utf-8'}));
 });
-/* ... */
 
 // Compile the sprite
 spriter.compile(function(error, result) {
