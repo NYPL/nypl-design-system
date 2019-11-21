@@ -1,5 +1,5 @@
 {
-  "name": "design-system-icons",
+  "name": "@nypl/design-system-icons",
   "version": "0.0.0",
   "description": "Icons for the Design System",
   "main": "dist/img/sprite/sprite.svg",
@@ -12,5 +12,8 @@
     "svg-sprite": "^1.5.0"
   },
   "author": "NYPL Digital",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
 }
