@@ -26,6 +26,9 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, {}> {
 
     let breadcrumbItems = [];
 
+    if (!breadcrumbs || breadcrumbs.length === 0) {
+      throw new Error("Breadcrumbs cannot be empty");
+    }
     breadcrumbs.forEach((item: breadcrumb|JSX.Element, index: number) => {
       let last = index === breadcrumbs.length - 1;
       let linkComponent: string | JSX.Element;
