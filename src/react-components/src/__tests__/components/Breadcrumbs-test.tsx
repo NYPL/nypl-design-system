@@ -34,8 +34,9 @@ describe("Breadcrumbs", () => {
 
     expect(links.find("svg")).to.have.lengthOf(1);
   });
+
   it("Throws error when nothing is passed into Breadcrumb", () => {
     expect(() => Enzyme.mount(<Breadcrumbs breadcrumbs={[]} />))
-    .to.throw("Breadcrumbs cannot be empty");
+    .to.throw("Breadcrumbs must contain a set of links. Breadcrumbs currently empty");
   });
 });

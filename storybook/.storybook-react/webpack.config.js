@@ -9,7 +9,7 @@ module.exports = async ({ config, mode }) => {
   // 'PRODUCTION' is used when building the static version of storybook.
 
   config.module.rules.push( {
-    test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+    test: /\.svg$/,
     include: [path.join(__dirname, "./icons/")],
     loader: "file-loader?name=assets/[name].[ext]"
 });

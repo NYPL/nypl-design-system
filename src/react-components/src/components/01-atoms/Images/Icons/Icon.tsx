@@ -39,7 +39,7 @@ import bem from "../../../../utils/bem";
             {desc &&
               <desc id={`title-${name}`}>{ desc }</desc>
             }
-            <use xlinkHref={`${Icons}#${name}`} />
+            <use href={`${Icons}#${name}`} />
         </svg>
       );
     }

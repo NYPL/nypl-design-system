@@ -7,7 +7,7 @@ var config = {
   mode: {
     symbol: {
       // symbol mode to build the SVG
-      dest: 'dist/img/sprite', // destination foldeer
+      dest: 'dist/img/sprite', // destination folder
       sprite: 'sprite.svg', // sprite name
       example: false, // Don't build sample page
     },
@@ -21,7 +21,7 @@ var config = {
   }
 }
 
-var spriter = new SVGSpriter(config);
+let spriter = new SVGSpriter(config);
 
 // Add SVG source files
 let dir = path.join(__dirname, "../svg/")
@@ -30,7 +30,7 @@ fs.readdirSync(dir).forEach(file => {
 });
 
 // Compile the sprite
-spriter.compile(function(error, result) {
+spriter.compile((error, result) => {
     /* Write `result` files to disk (or do whatever with them ...) */
     for (var mode in result) {
         for (var resource in result[mode]) {
