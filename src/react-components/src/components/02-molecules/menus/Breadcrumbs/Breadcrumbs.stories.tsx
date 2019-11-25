@@ -23,4 +23,3 @@ const longItems = [
 
 export const shortBreadcrumbs = () => <Breadcrumb breadcrumbs={shortItems}></Breadcrumb>;
 export const longBreadcrumbs = () => <Breadcrumb breadcrumbs={longItems}></Breadcrumb>;
-
