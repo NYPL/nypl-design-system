@@ -3,7 +3,7 @@ import * as React from "react";
 
 export interface LinkProps {
   className: string;
-  icon?: {element: JSX.Element, position: string};
+  icon?: {element: JSX.Element};
   url?: string;
   attributes?: {};
 }
