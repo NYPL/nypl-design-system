@@ -1,0 +1,19 @@
+{
+  "name": "@nypl/design-system-icons",
+  "version": "0.0.0",
+  "description": "Icons for the Design System",
+  "main": "dist/img/sprite/sprite.svg",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "node src/scripts/build-icon.js",
+    "test": "echo \"No Icon tests\""
+  },
+  "devDependencies": {
+    "svg-sprite": "^1.5.0"
+  },
+  "author": "NYPL Digital",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}

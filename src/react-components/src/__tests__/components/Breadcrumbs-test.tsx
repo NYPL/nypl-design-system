@@ -1,5 +1,4 @@
 import { expect } from "chai";
-import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
@@ -26,5 +25,17 @@ describe("Breadcrumbs", () => {
     wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbComponent} />);
     let links = wrapper.render();
     expect(links.find("a.breadcrumbs__link").first().text()).to.equal("Hello");
+  });
+
+  it("Renders icon", () => {
+    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbComponent} />);
+    let links = wrapper.render();
+
+    expect(links.find("svg")).to.have.lengthOf(1);
+  });
+
+  it("Throws error when nothing is passed into Breadcrumb", () => {
+    expect(() => Enzyme.mount(<Breadcrumbs breadcrumbs={[]} />))
+    .to.throw("Breadcrumbs must contain a set of links. Breadcrumbs currently empty");
   });
 });

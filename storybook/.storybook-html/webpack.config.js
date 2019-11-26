@@ -11,6 +11,12 @@ module.exports = ({ config, mode }) => {
   // You can change the configuration based on that.
   // 'PRODUCTION' is used when building the static version of storybook.
 
+  config.module.rules.push( {
+    test: /\.svg$/,
+    include: [path.join(__dirname, "./icons/")],
+    loader: "file-loader?name=assets/[name].[ext]"
+});
+
   // Adds SCSS support
   config.module.rules.push({
     test: /\.scss$/,

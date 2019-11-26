@@ -11,6 +11,7 @@
   "author": "NYPL Digital",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@nypl/design-system-icons": "file:../icons",
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
     "puppeteer": "^2.0.0"
