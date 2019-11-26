@@ -21,7 +21,11 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
     const { url, attributes, modifiers, blockName, iconPosition } = this.props;
 
     let className = bem(iconLink__base_class, modifiers, blockName);
-    let children = this.props.children;
+    let children = React.createElement(
+      "span",
+      { ...this.props, ...this.childProps },
+      this.props.children,
+    );
 
     let icon: {element: JSX.Element, position: string} = {element: undefined, position: ""};
 

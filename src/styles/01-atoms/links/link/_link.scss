@@ -30,6 +30,14 @@ $color-link--hover: $nypl-blue-dark;
     margin-left: $space-xxs;
     height: 1rem;
     width: 1rem;
+
+    &--left {
+      order: 1;
+    }
+
+    &--right {
+      order: 2;
+    }
   }
 }
 
