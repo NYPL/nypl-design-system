@@ -6,7 +6,6 @@ export interface LinkProps {
   icon?: {element: JSX.Element, position: string};
   url?: string;
   attributes?: {};
-
 }
 
 export default class Link extends React.Component<LinkProps, {}> {
@@ -43,11 +42,7 @@ export default class Link extends React.Component<LinkProps, {}> {
     });
 
     if (icon) {
-      if (icon.position === "left") {
-        elementChildren.unshift(icon.element);
-      } else {
         elementChildren.push(icon.element);
-      }
     }
 
     return React.createElement(
