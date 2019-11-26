@@ -52,3 +52,7 @@
 .button--outline {
   @include button--outline;
 }
+
+.buttons__icon {
+  @include icon;
+}

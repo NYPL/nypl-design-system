@@ -10,8 +10,8 @@ import bem from "../../../../utils/bem";
     modifiers?: string[];
     decorative: boolean;
     role?: string;
-    title?: string;
-    desc?: string;
+    title?: boolean;
+    desc?: boolean;
   }
 
   export default class Icon extends React.Component<IconProps, {}> {
@@ -24,7 +24,7 @@ import bem from "../../../../utils/bem";
       let icon_base_class = "icon";
 
       let iconProps = {
-        "className": bem(icon_base_class, modifiers, blockName),
+        "className": bem(icon_base_class, modifiers),
         "role": decorative ? "img" : role,
         "aria-hidden": decorative,
         "aria-labelledby": title ? "title-" + name : undefined,
