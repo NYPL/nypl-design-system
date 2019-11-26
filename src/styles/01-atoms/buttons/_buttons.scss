@@ -7,6 +7,15 @@
   letter-spacing: 1.5px;
   text-decoration: none;
   text-align: center;
+
+  &__icon {
+    @include space-inline-s;
+    fill: currentColor;
+    &--small {
+      height: 18px;
+      width: 18px;
+    }
+  }
 }
 
 @mixin button--filled(
@@ -53,6 +62,18 @@
   @include button--outline;
 }
 
-.buttons__icon {
-  @include icon;
+.button__icon {
+  // @include icon;
+  @include space-inline-s;
+    fill: currentColor;
+    &--small {
+      height: 18px;
+      width: 18px;
+    }
+
+
+    // &--left {    margin-right: $space-xxs;
+    // }
+    // &--right {    margin-left: $space-xxs;
+    // }
 }
