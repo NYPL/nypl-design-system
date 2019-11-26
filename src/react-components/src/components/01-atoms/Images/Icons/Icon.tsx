@@ -24,7 +24,7 @@ import bem from "../../../../utils/bem";
       let icon_base_class = "icon";
 
       let iconProps = {
-        "className": bem(icon_base_class, modifiers),
+        "className": bem(icon_base_class, modifiers, blockName),
         "role": decorative ? "img" : role,
         "aria-hidden": decorative,
         "aria-labelledby": title ? "title-" + name : undefined,
