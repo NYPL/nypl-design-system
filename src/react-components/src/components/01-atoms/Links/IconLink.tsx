@@ -3,7 +3,7 @@
 import * as React from "react";
 import bem from "../../../utils/bem";
 import Icon from "../Images/Icons/Icon";
-import LinkHelper from "./LinkHelper";
+import Link from "./Link";
 
 export interface IconLinkProps {
   url?: string;
@@ -43,6 +43,6 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
         throw new Error("iconPosition can only have values \"left\" or \"right\"");
       }
     }
-    return <LinkHelper url={url} className={className} attributes={attributes} children={children} icon={icon} />;
+    return <Link url={url} className={className} attributes={attributes} children={children} icon={icon} />;
   }
 }
