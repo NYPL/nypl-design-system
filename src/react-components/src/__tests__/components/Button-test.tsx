@@ -12,7 +12,7 @@ describe("Button", () => {
   let callback;
   beforeEach(() => {
     callback = stub();
-    wrapper = Enzyme.shallow(<Button callback={callback} />);
+    wrapper = Enzyme.shallow(<Button content="a" />);
   });
   it("calls the callback", () => {
     wrapper.simulate("click");
@@ -51,15 +51,5 @@ describe("Button", () => {
     expect(callback.callCount).to.equal(0);
     wrapper.simulate("mouseDown");
     expect(callback.callCount).to.equal(1);
-  });
-
-  // Typically, any extra props are aria-attributes.
-  it("should render any extra props", () => {
-    wrapper = Enzyme.shallow(
-      <Button callback={callback} aria-pressed={true} aria-label="aria label" />
-    );
-    const buttonProps = wrapper.props();
-    expect(buttonProps["aria-pressed"]).to.be.true;
-    expect(buttonProps["aria-label"]).to.equal("aria label");
   });
 });
