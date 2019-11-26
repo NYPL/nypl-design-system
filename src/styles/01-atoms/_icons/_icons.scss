@@ -1,0 +1,67 @@
+@mixin icon {
+  height: 24px;
+  width: 24px;
+  fill: currentColor;
+
+  &--up {
+    transform: rotate(180deg);
+  }
+
+  &--right {
+    transform: rotate(270deg);
+  }
+
+  &--down {
+    transform: rotate(0deg);
+  }
+
+  &--left {
+    transform: rotate(90deg);
+  }
+
+  &--xlarge {
+    height: 68px;
+    width: 68px;
+  }
+
+  &--large {
+    height: 36px;
+    width: 36px;
+  }
+
+  &--small {
+    height: 18px;
+    width: 18px;
+  }
+}
+
+.icon {
+  @include icon;
+}
+
+// These styles are strictly for Pattern Lab use.
+// They will have no effect on the live site.
+.pl {
+  #icons {
+    & > div {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    & > div > div {
+      @include space-inset-s;
+      @include space-inline-s;
+      @include space-stack-s;
+
+      border: 1px solid #eee;
+      text-align: center;
+    }
+
+    .icons-all {
+      .icon {
+        height: 4rem;
+        width: 4rem;
+      }
+    }
+  }
+}
