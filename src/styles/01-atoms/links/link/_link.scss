@@ -34,9 +34,16 @@ $color-link--hover: $nypl-blue-dark;
   &__icon {
     @include icon;
 
-    margin-left: $space-xxs;
     height: 1rem;
     width: 1rem;
+
+    &--left {
+      @include space-inline-xxs;
+    }
+
+    &--right {
+      margin-left: $space-xxs;
+    }
 
   }
 }
