@@ -6,16 +6,13 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 
 ========
 ## Prerelease
+### Added
+- `Body text` component for plain-text elements
+- `UnderlineLink` and `IconLink` are now available in Design System
+- `Icon` component that uses the `design-system-icons` package.
 
-## [ 0.0.4 ]
 ### Changed 
 - `Breadcrumb` now shows icon in mobile view
-
-### Added
-- `UnderlineLink` and `IconLink` are now available in Design System
-
-### Added
-- `Icon` component that uses the `design-system-icons` package.
 
 ## [0.0.3] - 2019-11-15
 ### Changed
