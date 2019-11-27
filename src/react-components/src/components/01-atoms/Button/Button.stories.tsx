@@ -8,11 +8,5 @@ export default {
   component: Button,
 };
 
-let allButtons = [];
-
-allButtons.push(<Button callback={action("clicked")} ></Button >);
-allButtons.push(<Button className="button--outline" callback={action("clicked")}>
-</Button>
-)
-
-export const differentStyles = () => allButtons;
+export const buttonFilled = () => <Button callback={action("clicked")} ></Button >;
+export const buttonOutline = () => <Button className="button--outline" callback={action("clicked")}></Button>;

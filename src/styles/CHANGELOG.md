@@ -7,6 +7,9 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ========
 ## Prerelease
+### Changed
+- more-link can now take an icon on the right or left
+
 ## [0.0.4] - 2019-11-15
 ### Changed
 - The breakout() mixin now has swapped signs
