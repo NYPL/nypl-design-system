@@ -12,6 +12,9 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - `Breadcrumb` now shows icon in mobile view
 
 ### Added
+- `UnderlineLink` and `IconLink` are now available in Design System
+
+### Added
 - `Icon` component that uses the `design-system-icons` package.
 
 ## [0.0.3] - 2019-11-15
