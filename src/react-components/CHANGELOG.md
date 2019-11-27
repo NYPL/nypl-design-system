@@ -8,7 +8,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 ## Prerelease
 ### Added
 - `Body text` component for plain-text elements
-- `UnderlineLink` and `IconLink` are now available in Design System
+- `UnderlineLink` and `IconLink` for links
 - `Icon` component that uses the `design-system-icons` package.
 
 ### Changed 
