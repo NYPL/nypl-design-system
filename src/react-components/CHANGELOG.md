@@ -6,6 +6,8 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 
 ========
 ## Prerelease
+### Added
+- `Body text` component for plain-text elements
 
 ## [ 0.0.4 ]
 ### Changed 
