@@ -1,15 +1,13 @@
 // MT-82, MT 225, etc
 import * as React from "react";
 import bem from "../../../utils/bem";
-import IconLink from "../Links/IconLink";
 
 export interface HeadingProps {
-  /** The action to perform on the <button>'s onClick function */
   level: number;
+  id?: string;
   modifiers?: string[];
   blockName?: string;
 
-  // TODO: Check length of text
   text?: string;
   attributes?: {};
 }
@@ -20,7 +18,7 @@ export default class Heading extends React.Component<HeadingProps, {}> {
   }
 
   render(): JSX.Element {
-    const { level, text, modifiers, blockName, attributes } = this.props;
+    const { level, id, text, modifiers, blockName, attributes } = this.props;
 
     if (level < 1 || level > 6) {
       throw new Error("Heading only supports levels 1-6");
@@ -43,6 +41,7 @@ export default class Heading extends React.Component<HeadingProps, {}> {
 
     let props = {
       className: bem(heading_base_class, modifiers, blockName),
+      id: id ? id : "h" + level + "-" + content.replace(/\s/g, "").substr(0, 8),
       ...attributes
     };
 

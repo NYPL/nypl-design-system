@@ -8,6 +8,7 @@ export default {
   component: SectionTitle
 };
 
-export const headingsWithLinks = () => [
-  <SectionTitle headingText={"Heading 2"} linkUrl="#heading2" linkText="see more"/>,
-];
+export const headingsWithLinks = () =>
+  <SectionTitle id={"section-title-with-link"} headingText={"Heading 2"} linkUrl="#heading2" />;
+
+export const headingNoLink = () => <SectionTitle id={"section-title-without-link"} headingText={"Heading 2"} />;
