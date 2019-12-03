@@ -8,17 +8,21 @@ import TextField from "../../01-atoms/Forms/TextField";
 export interface SearchBarProps {
   id: string;
   placeholderText?: string;
+  textFieldAttributes?: {};
+  searchButtonAttributes?: {};
   searchHandler: (event: React.MouseEvent) => void;
+  changeHandler?: (event: React.FormEvent) => void;
 }
 
 export default function SearchBar(props: SearchBarProps) {
 
-    const { id, placeholderText, searchHandler } = props;
+    const { id, placeholderText, searchHandler, changeHandler } = props;
 
     let texftfieldProps = {
       labelId: id,
+      onChange: changeHandler,
       isRequired: true,
-      placeholderText: placeholderText
+      placeholderText: placeholderText,
     };
 
     let buttonProps = {
@@ -28,7 +32,7 @@ export default function SearchBar(props: SearchBarProps) {
       type: "filled",
       iconPosition: "left",
       iconName: "search-small",
-      iconDecorative: true
+      iconDecorative: true,
     };
 
     return <div><TextField {...texftfieldProps}/><Button {...buttonProps}/></div>;
