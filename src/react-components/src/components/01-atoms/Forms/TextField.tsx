@@ -17,6 +17,8 @@ export default class TextField extends React.Component<TextFieldProps, {}> {
 
     let props = {
       "className": "form-item__textfield",
+      "type": "text",
+      "placeholder": placeholderText,
       "aria-labelledby": labelId,
     };
     if (isRequired) {
@@ -25,8 +27,7 @@ export default class TextField extends React.Component<TextFieldProps, {}> {
 
     return React.createElement(
       "input",
-      props,
-      placeholderText
+      props
     );
   }
 }

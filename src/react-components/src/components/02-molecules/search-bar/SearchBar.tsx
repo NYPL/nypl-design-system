@@ -11,14 +11,25 @@ export interface SearchBarProps {
   searchHandler: (event: React.MouseEvent) => void;
 }
 
-export default class SearchBar extends React.Component<SearchBarProps, {}> {
-  constructor(props: SearchBarProps) {
-    super(props);
-  }
-  render(): JSX.Element {
-    let iconLink__base_class = "more-link";
-    const { id, placeholderText, searchHandler } = this.props;
+export default function SearchBar(props: SearchBarProps) {
 
-    return <div><TextField labelId={id} isRequired={true}/><Button id={id} callback={searchHandler} content="search" type="filled" iconPosition="left" iconName="search-small" iconDecorative={true}/></div>;
-  }
+    const { id, placeholderText, searchHandler } = props;
+
+    let texftfieldProps = {
+      labelId: id,
+      isRequired: true,
+      placeholderText: placeholderText
+    };
+
+    let buttonProps = {
+      id: id,
+      callback: searchHandler,
+      content: "search",
+      type: "filled",
+      iconPosition: "left",
+      iconName: "search-small",
+      iconDecorative: true
+    };
+
+    return <div><TextField {...texftfieldProps}/><Button {...buttonProps}/></div>;
 }
