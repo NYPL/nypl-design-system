@@ -6,6 +6,8 @@ import Heading from "../../01-atoms/Text/Heading";
 
 export interface SectionTitleProps {
   id: string;
+  modifiers?: [];
+  blockName?: string;
 
   headingText: string;
   headingAttributes?: {};
@@ -24,8 +26,8 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
   }
 
   render(): JSX.Element {
-    const { id, headingText, headingAttributes, linkUrl, linkAttributes, linkModifiers } = this.props;
-    const sectionTitle_base_class = "event-section";
+    const { id, modifiers, blockName, headingText, headingAttributes, linkUrl, linkAttributes, linkModifiers } = this.props;
+    const baseClass = "heading-section";
 
     if (headingText.length > 80) {
       throw new Error("Section Title Text must be fewer than 80 characters");
@@ -42,14 +44,16 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
       };
 
       link = <IconLink url={linkUrl}
+      blockName={baseClass}
       attributes={passedInAttributes}
       modifiers={linkModifiers}
       iconPosition="right"
     iconModifiers={["right"]}>{"See All"}</IconLink>; }
-
+    
+    let headingModifiers = linkUrl ? ["has-link"] : [];
     return (
-      <div className={bem("heading-section", [], sectionTitle_base_class)}>
-        <Heading id={id} level={2} text={headingText} attributes={headingAttributes} blockName={sectionTitle_base_class}/> {link}
+      <div className={bem(baseClass, modifiers, blockName)}>
+        <Heading id={id} level={2} text={headingText} blockName={baseClass} modifiers={headingModifiers} attributes={headingAttributes} />{link}
       </div>
     );
   }
