@@ -8,4 +8,4 @@ export default {
   component: TextField,
 };
 
-export const textField = () => <TextField labelId="hello" isRequired={false}/>;
+export const textField = () => <TextField labelId="hello" isRequired={false} onChange={action("changed")}/>;
