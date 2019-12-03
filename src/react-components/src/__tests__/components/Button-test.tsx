@@ -12,7 +12,7 @@ describe("Button", () => {
   let callback;
   beforeEach(() => {
     callback = stub();
-    wrapper = Enzyme.shallow(<Button content="a" />);
+    wrapper = Enzyme.shallow(<Button callback={callback} content="Submit" />);
   });
   it("calls the callback", () => {
     wrapper.simulate("click");
@@ -29,21 +29,15 @@ describe("Button", () => {
     expect(wrapper.find("span").length).to.equal(1);
     expect(wrapper.text()).to.equal("Element!");
   });
-  it("optionally sets a className", () => {
-    expect(wrapper.prop("className")).to.equal("button");
-    wrapper.setProps({ className: "custom-class" });
-    expect(wrapper.prop("className")).to.equal("button custom-class");
+  it("has 'button' class", () => {
+    expect(wrapper.find(".button")).to.have.lengthOf(1);
   });
-  it("optionally disables", () => {
-    expect(wrapper.find("[disabled=true]").length).to.equal(0);
-    wrapper.setProps({ disabled: true });
-    expect(wrapper.find("[disabled=true]").length).to.equal(1);
-  });
-  it("optionally sets a type", () => {
+
+  // TODO: Allow other Types
+  it("has type submit", () => {
     expect(wrapper.prop("type")).to.equal("submit");
-    wrapper.setProps({ type: "button" });
-    expect(wrapper.prop("type")).to.equal("button");
   });
+
   it("optionally calls the callback on mouseDown instead of on click", () => {
     expect(callback.callCount).to.equal(0);
     wrapper.setProps({ mouseDown: true });

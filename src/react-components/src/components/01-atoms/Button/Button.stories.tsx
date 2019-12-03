@@ -8,4 +8,5 @@ export default {
   component: Button,
 };
 
-export const searchButton = () => <Button content="search" type="filled" iconPosition="right" iconName="search-small" iconDecorative={true}/>;
+export const buttonFilledIcon = () => <Button callback={action("clicked")} content="search" type="filled" iconPosition="left" iconName="search-small" iconDecorative={true}/>;
+export const buttonOutline = () => <Button callback={action("clicked")} content="Hello World" type="outline" />;
