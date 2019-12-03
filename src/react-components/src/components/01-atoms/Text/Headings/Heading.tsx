@@ -1,6 +1,6 @@
 // MT-82, MT 225, etc
 import * as React from "react";
-import bem from "../../../utils/bem";
+import bem from "../../../../utils/bem";
 
 export interface HeadingProps {
   level: number;

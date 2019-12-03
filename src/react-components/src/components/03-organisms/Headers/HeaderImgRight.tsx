@@ -1,13 +1,11 @@
-// MT-82
+// OH-30 Header with Image Right
 import * as React from "react";
 import bem from "../../../utils/bem";
 import IconLink from "../../01-atoms/Links/IconLink";
 import Heading from "../../01-atoms/Text/Headings/Heading";
 
-export interface SectionTitleProps {
+export interface HeaderImgRightProps {
   id: string;
-  modifiers?: [];
-  blockName?: string;
 
   headingText: string;
   headingAttributes?: {};
@@ -20,14 +18,10 @@ export interface SectionTitleProps {
   linkBlockname?: string;
 }
 
-export default class SectionTitle extends React.Component<SectionTitleProps, {}> {
-  constructor(props: SectionTitleProps) {
-    super(props);
-  }
+export default function HeaderImgRight(props: HeaderImgRightProps) {
 
-  render(): JSX.Element {
-    const { id, modifiers, blockName, headingText, headingAttributes, linkUrl, linkAttributes, linkModifiers } = this.props;
-    const baseClass = "heading-section";
+    const { id, headingText, headingAttributes, linkUrl, linkAttributes, linkModifiers } = props;
+    const sectionTitle_base_class = "event-section";
 
     if (headingText.length > 80) {
       throw new Error("Section Title Text must be fewer than 80 characters");
@@ -44,17 +38,15 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
       };
 
       link = <IconLink url={linkUrl}
-      blockName={baseClass}
       attributes={passedInAttributes}
       modifiers={linkModifiers}
       iconPosition="right"
     iconModifiers={["right"]}>{"See All"}</IconLink>; }
 
-    let headingModifiers = linkUrl ? ["has-link"] : [];
     return (
-      <div className={bem(baseClass, modifiers, blockName)}>
-        <Heading id={id} level={2} text={headingText} blockName={blockName ? blockName : baseClass} modifiers={headingModifiers} attributes={headingAttributes} />{link}
+      <div className={bem("heading-section", [], sectionTitle_base_class)}>
+        <Heading id={id} level={2} text={headingText} attributes={headingAttributes} blockName={sectionTitle_base_class}/> {link}
       </div>
     );
   }
-}
+

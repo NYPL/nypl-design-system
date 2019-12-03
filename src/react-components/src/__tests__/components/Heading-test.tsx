@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Heading from "../../components/01-atoms/Text/Heading";
+import Heading from "../../components/01-atoms/Text/Headings/Heading";
 
 describe("Section Headings", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;
