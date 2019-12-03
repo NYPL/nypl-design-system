@@ -56,24 +56,29 @@
 
 .button {
   @include button--filled;
+  &--icon-left {
+    flex-flow: row-reverse nowrap;
+  }
+  &--icon-right {
+    flex-flow: row nowrap;
+  }
 }
 
 .button--outline {
   @include button--outline;
 }
 
+.button--icon {
+  display: inline-flex;
+}
+
 .button__icon {
-  // @include icon;
-  @include space-inline-s;
-    fill: currentColor;
-    &--small {
-      height: 18px;
-      width: 18px;
-    }
-
-
-    // &--left {    margin-right: $space-xxs;
-    // }
-    // &--right {    margin-left: $space-xxs;
-    // }
+  @include icon;
+  fill: currentColor;
+  &--icon-left {
+    margin-right: $space-xs;
+  }
+  &--icon-right {
+    margin-left: $space-xs;
+  }
 }
