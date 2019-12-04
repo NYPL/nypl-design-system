@@ -3,6 +3,7 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 import IconLink from "../../01-atoms/Links/IconLink";
 import Heading from "../../01-atoms/Text/Heading";
+import { string } from "prop-types";
 
 export interface SectionTitleProps {
   id: string;
@@ -53,7 +54,7 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
     let headingModifiers = linkUrl ? ["has-link"] : [];
     return (
       <div className={bem(baseClass, modifiers, blockName)}>
-        <Heading id={id} level={2} text={headingText} blockName={blockName} modifiers={headingModifiers} attributes={headingAttributes} />{link}
+        <Heading id={id} level={2} text={headingText} blockName={blockName ? blockName : baseClass} modifiers={headingModifiers} attributes={headingAttributes} />{link}
       </div>
     );
   }

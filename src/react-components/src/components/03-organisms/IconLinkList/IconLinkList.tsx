@@ -8,7 +8,7 @@ export interface IconLinkListProps {
   titleText: string;
   modifiers?: [];
   blockName?: string;
-  titleId?: string;
+  titleId: string;
   textLinks?: { text: string, url: string }[];
   linkObjects?: JSX.Element[];
 }
