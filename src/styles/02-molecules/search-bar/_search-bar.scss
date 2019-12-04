@@ -5,5 +5,7 @@
     
   }
 
-  &__search-button {}
+  &__search-button {
+    @include button--filled;
+  }
 }
