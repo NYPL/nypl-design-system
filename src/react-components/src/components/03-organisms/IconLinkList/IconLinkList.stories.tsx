@@ -8,5 +8,5 @@ export default {
   component: IconLinkList,
 };
 
-export const listOfLinks = () => <IconLinkList titleText="Test Header"
+export const listOfLinks = () => <IconLinkList titleText="Test Header" titleId="test-header"
 textLinks={[{ text: "link1", url: "#url1" }, { text: "link2", url: "#url2" }, { text: "link3", url: "#url3" }]} />;

@@ -12,17 +12,17 @@ describe("IconLinkList", () => {
   let notLinkContent = [<span>link1</span>, <span>link1</span>];
 
   it("Generates a list of links with text and url", () => {
-    let list = Enzyme.mount(<IconLinkList titleText="test" textLinks={linkContent} />);
+    let list = Enzyme.mount(<IconLinkList titleId="test" titleText="test" textLinks={linkContent} />);
     expect(list.find("a")).to.have.lengthOf(2);
   });
 
   it("Can pass in list of link-type objects", () => {
-    let list = Enzyme.mount(<IconLinkList titleText="test" linkObjects={linkContentComponent} />);
+    let list = Enzyme.mount(<IconLinkList titleId="test" titleText="test" linkObjects={linkContentComponent} />);
     expect(list.find("a")).to.have.lengthOf(2);
   });
 
   it("Throws error when passed things that aren't links", () => {
-    expect(() => Enzyme.mount(<IconLinkList titleText="test" linkObjects={notLinkContent} />))
+    expect(() => Enzyme.mount(<IconLinkList titleId="test" titleText="test" linkObjects={notLinkContent} />))
     .to.throw("Please only pass in objects of type <a>");
   });
 });
