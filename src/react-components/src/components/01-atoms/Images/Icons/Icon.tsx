@@ -6,6 +6,7 @@ import bem from "../../../../utils/bem";
   // Wrapper Class for Icon
   export interface IconProps {
     name: string;
+    baseClassName: string;
     blockName: string;
     modifiers?: string[];
     decorative: boolean;
@@ -20,8 +21,8 @@ import bem from "../../../../utils/bem";
     }
 
     render(): JSX.Element {
-      let { modifiers, blockName, name, decorative, role, title, desc } = this.props;
-      let icon_base_class = "icon";
+      let { modifiers, baseClassName, blockName, name, decorative, role, title, desc } = this.props;
+      let icon_base_class = baseClassName ? baseClassName : "icon";
 
       let iconProps = {
         "className": bem(icon_base_class, modifiers, blockName),

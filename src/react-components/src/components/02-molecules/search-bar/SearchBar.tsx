@@ -18,6 +18,8 @@ export default function SearchBar(props: SearchBarProps) {
 
     const { id, placeholderText, searchHandler, changeHandler } = props;
 
+    let searchbar__base_class = "search-bar";
+
     let textfieldProps = {
       labelId: id,
       onChange: changeHandler,
@@ -28,6 +30,8 @@ export default function SearchBar(props: SearchBarProps) {
     let buttonProps = {
       id: id,
       callback: searchHandler,
+      baseClass: "search-button",
+      blockName: searchbar__base_class,
       content: "search",
       type: "filled",
       iconPosition: "left",
@@ -35,7 +39,9 @@ export default function SearchBar(props: SearchBarProps) {
       iconDecorative: true,
     };
 
-    let searchbar__base_class = "search-bar";
 
-    return <div className={bem(searchbar__base_class)}><TextField {...textfieldProps}/><Button {...buttonProps}/></div>;
+    return <div className={bem(searchbar__base_class)}>
+      <TextField {...textfieldProps}></TextField>
+      <Button {...buttonProps}/>
+    </div>;
 }

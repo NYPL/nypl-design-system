@@ -8,12 +8,30 @@
   text-decoration: none;
   text-align: center;
 
+  &--icon {
+    display: inline-flex;
+  }
+
   &__icon {
+    @include icon;
     @include space-inline-s;
+
+    display: inline-flex;
     fill: currentColor;
+
     &--small {
       height: 18px;
       width: 18px;
+    }
+
+    &--icon-left {
+      flex-flow: row-reverse nowrap;
+      margin-right: $space-xs;
+    }
+
+    &--icon-right {
+      flex-flow: row nowrap;
+      margin-left: $space-xs;
     }
   }
 }
@@ -56,29 +74,8 @@
 
 .button {
   @include button--filled;
-  &--icon-left {
-    flex-flow: row-reverse nowrap;
-  }
-  &--icon-right {
-    flex-flow: row nowrap;
-  }
 }
 
 .button--outline {
   @include button--outline;
-}
-
-.button--icon {
-  display: inline-flex;
-}
-
-.button__icon {
-  @include icon;
-  fill: currentColor;
-  &--icon-left {
-    margin-right: $space-xs;
-  }
-  &--icon-right {
-    margin-left: $space-xs;
-  }
 }
