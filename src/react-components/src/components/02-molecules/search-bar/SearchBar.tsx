@@ -18,7 +18,7 @@ export default function SearchBar(props: SearchBarProps) {
 
     const { id, placeholderText, searchHandler, changeHandler } = props;
 
-    let texftfieldProps = {
+    let textfieldProps = {
       labelId: id,
       onChange: changeHandler,
       isRequired: true,
@@ -35,5 +35,7 @@ export default function SearchBar(props: SearchBarProps) {
       iconDecorative: true,
     };
 
-    return <div><TextField {...texftfieldProps}/><Button {...buttonProps}/></div>;
+    let searchbar__base_class = "search-bar";
+
+    return <div className={bem(searchbar__base_class)}><TextField {...textfieldProps}/><Button {...buttonProps}/></div>;
 }
