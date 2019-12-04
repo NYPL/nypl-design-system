@@ -1,5 +1,5 @@
 
-// MT-200 Search Bar
+// MF-200 Search Bar
 import * as React from "react";
 import bem from "../../../utils/bem";
 import Button from "../../01-atoms/Button/Button";
@@ -38,7 +38,6 @@ export default function SearchBar(props: SearchBarProps) {
       iconName: "search-small",
       iconDecorative: true,
     };
-
 
     return <div className={bem(searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
