@@ -24,15 +24,15 @@ export default function SearchBar(props: SearchBarProps) {
       labelId: id,
       onChange: changeHandler,
       isRequired: true,
+      blockName: searchbar__base_class,
       placeholderText: placeholderText,
     };
 
     let buttonProps = {
       id: id,
       callback: searchHandler,
-      baseClass: "search-button",
       blockName: searchbar__base_class,
-      content: "search",
+      content: "Search",
       type: "filled",
       iconPosition: "left",
       iconName: "search-small",
