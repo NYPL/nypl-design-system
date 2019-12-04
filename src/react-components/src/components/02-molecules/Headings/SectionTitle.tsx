@@ -53,7 +53,7 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
     let headingModifiers = linkUrl ? ["has-link"] : [];
     return (
       <div className={bem(baseClass, modifiers, blockName)}>
-        <Heading id={id} level={2} text={headingText} blockName={baseClass} modifiers={headingModifiers} attributes={headingAttributes} />{link}
+        <Heading id={id} level={2} text={headingText} blockName={blockName} modifiers={headingModifiers} attributes={headingAttributes} />{link}
       </div>
     );
   }

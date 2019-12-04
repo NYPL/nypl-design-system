@@ -17,7 +17,7 @@ $color-link--hover: $nypl-blue-dark;
   font-size: 0.875em;
   line-height: 1.21;
   letter-spacing: 0.107142857em;
-  
+
   &:hover {
     color: $color-link--hover;
     text-decoration: underline;
@@ -37,6 +37,7 @@ $color-link--hover: $nypl-blue-dark;
     @include icon;
 
     height: 1rem;
+    text-decoration: none;
     width: 1rem;
 
     &--left {
