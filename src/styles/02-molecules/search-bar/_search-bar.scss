@@ -1,0 +1,15 @@
+.search-bar {
+  display: flex;
+
+  &__textfield {
+    padding: $space-xs $space-s;
+
+    &:focus {
+      outline: 2px solid $nypl-blue-regular;
+    }
+  }
+
+  &__button {
+    @include button--filled($black);
+  }
+}

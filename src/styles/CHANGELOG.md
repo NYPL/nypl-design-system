@@ -12,6 +12,11 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ### Changed
 - more-link can now take an icon on the right or left
+- Moved `icons` from within `atoms/images` to `atoms` with a `_` prefix so it is globbed before other atoms
+- `_pl-base.scss_` renamed to `_storybook-only-styles.scss`
+
+### Removed
+- Removes patternlab-specific styles
 
 ## [0.0.4] - 2019-11-15
 ### Changed

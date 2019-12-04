@@ -20,7 +20,6 @@
   "keywords": [],
   "devDependencies": {
     "@nypl/design-system-icons": "file:../icons",
-    "@types/react": "^16.9.13",
     "tslint": "^6.0.0-beta0",
     "typescript": "^3.6.4"
   },

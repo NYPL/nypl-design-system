@@ -7,6 +7,34 @@
   letter-spacing: 1.5px;
   text-decoration: none;
   text-align: center;
+
+  &--icon {
+    align-items: center;
+    display: inline-flex;
+  }
+
+  &--icon-left {
+    flex-flow: row-reverse nowrap;
+  }
+
+  &--icon-right {
+    flex-flow: row nowrap;
+  }
+
+  &__icon {
+    @include icon;
+
+    display: inline-flex;
+    fill: currentColor;
+
+    &--icon-left {
+      margin-right: $space-xs;
+    }
+
+    &--icon-right {
+      margin-left: $space-xs;
+    }
+  }
 }
 
 @mixin button--filled(

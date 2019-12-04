@@ -10,8 +10,8 @@ import bem from "../../../../utils/bem";
     modifiers?: string[];
     decorative: boolean;
     role?: string;
-    title?: string;
-    desc?: string;
+    title?: boolean;
+    desc?: boolean;
   }
 
   export default class Icon extends React.Component<IconProps, {}> {

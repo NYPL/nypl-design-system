@@ -8,5 +8,5 @@ export default {
   component: Button,
 };
 
-export const buttonFilled = () => <Button callback={action("clicked")} ></Button >;
-export const buttonOutline = () => <Button className="button--outline" callback={action("clicked")}></Button>;
+export const buttonFilledIcon = () => <Button callback={action("clicked")} content="search" type="filled" iconPosition="left" iconName="search-small" iconDecorative={true}/>;
+export const buttonOutline = () => <Button callback={action("clicked")} content="Hello World" type="outline" />;
