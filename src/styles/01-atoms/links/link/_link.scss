@@ -13,11 +13,11 @@ $color-link--hover: $nypl-blue-dark;
 @mixin more-link {
   display: inline-flex;
   color: $color-link;
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 0.875em;
   line-height: 1.21;
   letter-spacing: 0.107142857em;
-  
+
   &:hover {
     color: $color-link--hover;
     text-decoration: underline;
@@ -25,16 +25,19 @@ $color-link--hover: $nypl-blue-dark;
 
   &--icon-left {
     flex-flow: row-reverse nowrap;
+    text-decoration: none;
   }
 
   &--icon-right {
     flex-flow: row nowrap;
+    text-decoration: none;
   }
 
   &__icon {
     @include icon;
 
     height: 1rem;
+    text-decoration: none;
     width: 1rem;
 
     &--left {

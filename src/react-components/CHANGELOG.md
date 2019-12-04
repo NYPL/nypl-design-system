@@ -10,6 +10,8 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - `Body text` component for plain-text elements
 - `UnderlineLink` and `IconLink` for links
 - `Icon` component that uses the `design-system-icons` package.
+- `SectionTitle` and `Heading` for heading components
+- `IconLink-List`for the list of subject links 
 
 ### Changed 
 - `Breadcrumb` now shows icon in mobile view
