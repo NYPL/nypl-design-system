@@ -6,7 +6,7 @@ import bem from "../../../utils/bem";
 export interface TextFieldProps {
   labelId: string;
   isRequired: boolean;
-  blockName: string;
+  blockName?: string;
   placeholderText?: string;
   onChange?: (event: React.FormEvent) => void;
 }
