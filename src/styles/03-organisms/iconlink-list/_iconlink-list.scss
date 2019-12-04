@@ -1,12 +1,11 @@
 .iconlink-list {
-  h2 {
-    margin-bottom: 0;
+  &__heading {
+    @include space-stack-none;
   }
-  ul {
-    color: $rn-gray;
-    padding-left: $space-s;
-  }
-  li {
-    margin-bottom: $space-s;
+
+  &__list {
+    padding-left: $space-m;
+    color: $gray-medium;
+    margin: 0;
   }
 }
