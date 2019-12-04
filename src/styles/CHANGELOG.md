@@ -7,6 +7,9 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ========
 ## Prerelease
+### Added
+- styles for `iconlink-list`
+
 ### Changed
 - more-link can now take an icon on the right or left
 

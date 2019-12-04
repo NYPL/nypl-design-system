@@ -29,7 +29,6 @@ export default class BodyText extends React.Component<BodyTextProps, {}> {
     let htmlContent = ReactDOMServer.renderToString(children);
     if (this.checkHTML(htmlContent)) {
       if (React.Children.map(children, (child: React.ReactElement) => {
-        console.log("child type", child.type);
         if (!child.type) {
           return child;
         }

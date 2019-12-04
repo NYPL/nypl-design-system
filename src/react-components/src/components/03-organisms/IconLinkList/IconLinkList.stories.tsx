@@ -8,4 +8,5 @@ export default {
   component: IconLinkList,
 };
 
-export const buttonFilled = () => <IconLinkList titleText="Stuff" linkContent={["one", "two", "three"]}/>;
+export const listOfLinks = () => <IconLinkList titleText="Test Header"
+textLinks={[{ text: "link1", url: "#url1" }, { text: "link2", url: "#url2" }, { text: "link3", url: "#url3" }]} />;
