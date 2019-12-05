@@ -18,6 +18,9 @@
     "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js"
   },
   "keywords": [],
+  "dependencies": {
+    "react": "^16.12.0"
+  },
   "devDependencies": {
     "@nypl/design-system-icons": "file:../icons",
     "tslint": "^6.0.0-beta0",
