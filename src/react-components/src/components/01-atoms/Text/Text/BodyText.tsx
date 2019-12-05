@@ -1,33 +1,30 @@
 import * as React from "react";
 import ReactDOMServer from "react-dom/server";
+import bem from "../../../../utils/bem";
 /* AT-43 Body Text */
 
 export interface BodyTextProps {
-  maxChar?: number; // The maximum character count. 0 means unlimited.
-  className?: string;
+  maxchar?: number; // The maximum character count. 0 means unlimited.
+  bodyContent?: JSX.Element;
+}
+function checkHTML(html: string): Boolean {
+  let doc = document.createElement("div");
+  doc.innerHTML = html;
+  return (doc.innerHTML === html);
 }
 
-export default class BodyText extends React.Component<BodyTextProps, {}> {
-  static defaultProps = {
-    maxChar: 0
-  };
 
-  constructor(props: BodyTextProps) {
-    super(props);
-  }
+export default function BodyText(props: BodyTextProps) {
+  const { bodyContent, ...rest } = props;
+  const baseClass = "body-text";
+  let content: React.ReactNode;
 
-  checkHTML(html: string): Boolean {
-    let doc = document.createElement("div");
-    doc.innerHTML = html;
-    return (doc.innerHTML === html);
-  }
-
-  render(): JSX.Element {
-    const { className, ...rest } = this.props;
+  if (bodyContent) {
+    content = bodyContent;
+  } else {
     let children = this.props.children;
-    let content: React.ReactNode;
     let htmlContent = ReactDOMServer.renderToString(children);
-    if (this.checkHTML(htmlContent)) {
+    if (checkHTML(htmlContent)) {
       if (React.Children.map(children, (child: React.ReactElement) => {
         if (!child.type) {
           return child;
@@ -45,14 +42,14 @@ export default class BodyText extends React.Component<BodyTextProps, {}> {
       // Please do not pass user inputs into <BodyText> before first formatting it.
       throw new Error("Invalid HTML.  Please validate HTML and make sure all tags are closed before passing it into BodyText");
     }
-
-    let props = {
-      className: className
-    };
-    return React.createElement(
-      "div",
-      { ...props, ...rest },
-      content
-    );
   }
+  let bodyProps = {
+    className: bem(baseClass)
+  };
+  return React.createElement(
+    "div",
+    { ...bodyProps, ...rest },
+    content
+  );
 }
+

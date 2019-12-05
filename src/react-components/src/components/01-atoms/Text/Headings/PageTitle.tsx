@@ -12,5 +12,5 @@ export interface PageTitleProps {
 export default function PageTitle(props: PageTitleProps) {
     const { text, modifiers, blockName } = props;
 
-    return <Heading level={1} blockName="page-title" text={text}/>;
+    return <Heading id="page-title" level={1} blockName="page-title" text={text}/>;
 }

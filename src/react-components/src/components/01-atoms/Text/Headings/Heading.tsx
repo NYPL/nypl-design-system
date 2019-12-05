@@ -4,7 +4,7 @@ import bem from "../../../../utils/bem";
 
 export interface HeadingProps {
   level: number;
-  id?: string;
+  id: string;
   modifiers?: string[];
   blockName?: string;
 
@@ -24,24 +24,28 @@ export default class Heading extends React.Component<HeadingProps, {}> {
       throw new Error("Heading only supports levels 1-6");
     }
 
-    let content: string;
+    let content;
     if (text) {
       content = text;
     } else {
-      React.Children.map(this.props.children, (child: React.ReactElement) => {
-        if (typeof child === "string") {
-            content = child;
-        } else {
-          throw new Error("Please only pass text into Headings");
+      let isValid: boolean = true;
+      React.Children.forEach(this.props.children, (child: React.ReactElement) => {
+        if (typeof child !== "string" && child.type !== "b") {
+          isValid = false;
         }
-    });
-  }
+      });
+      if (!isValid) {
+        throw new Error("Headings can only be plain text or bold");
+      } else {
+        content = this.props.children;
+      }
+    }
 
     let heading_base_class = "heading";
 
     let props = {
       className: bem(heading_base_class, modifiers, blockName),
-      id: id ? id : "h" + level + "-" + content.replace(/\s/g, "").substr(0, 8),
+      id: id,
       ...attributes
     };
 
