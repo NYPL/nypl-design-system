@@ -1,0 +1,32 @@
+.header-with-image-right {
+  background-color: $gray-warm-xlight;
+  display: flex;
+  // mobile vibes
+  flex-flow: row wrap;
+  justify-content: flex-end;
+
+  &__content {
+    flex: 1;
+  }
+
+  &__heading {
+    background-color: $nypl-turquoise-dark;
+  }
+
+  &__image {
+    @include space-inline-xl;
+
+    align-items: flex-end;
+  }
+}
+
+.header-with-image-right {
+  .image {
+   height: 100%;
+  }
+}
+
+.header-with-image-right__text,
+.header-with-image-right__heading {
+  @include wrapper;
+}
