@@ -1,51 +1,66 @@
 import * as React from "react";
 import ReactDOMServer from "react-dom/server";
 import bem from "../../../../utils/bem";
+import * as he from "he";
+
 /* AT-43 Body Text */
 
 export interface BodyTextProps {
-  maxchar?: number; // The maximum character count. 0 means unlimited.
+  warnchar?: number;
+  maxchar?: number;
   bodyContent?: JSX.Element;
 }
-function checkHTML(html: string): Boolean {
+
+// if HTML is invalid, throw an error.
+// This checker is excessively strict because it should only be set by internal engineers.
+// Please do not pass user inputs into <BodyText> before first formatting it.
+function checkHTML(node: React.ReactNode): void {
+  let html = ReactDOMServer.renderToString(node);
+
   let doc = document.createElement("div");
   doc.innerHTML = html;
-  return (doc.innerHTML === html);
+  if (doc.innerHTML !== he.decode(html)) {
+    throw new Error("Invalid HTML.  Please validate HTML and make sure all tags are closed before passing it into BodyText");
+  }
 }
 
+function validateCharCount(node: React.ReactNode, warnChar?: number, maxChar?: number): void {
+  if (!maxChar) return;
 
-export default function BodyText(props: BodyTextProps) {
-  const { bodyContent, ...rest } = props;
-  const baseClass = "body-text";
-  let content: React.ReactNode;
+  let html = he.decode(ReactDOMServer.renderToString(node));
+  let doc = document.createElement("div");
+  doc.innerHTML = html;
 
-  if (bodyContent) {
-    content = bodyContent;
-  } else {
-    let children = this.props.children;
-    let htmlContent = ReactDOMServer.renderToString(children);
-    if (checkHTML(htmlContent)) {
-      if (React.Children.map(children, (child: React.ReactElement) => {
-        if (!child.type) {
-          return child;
-        }
-      }).length > 0) {
-        // if HTML is valid, and any child is a string, wrap everything in a <p> tag
-        content = React.createElement("p", {}, children);
-      } else {
-        // if HTML is valid, and no children are strings, then return as is.
-        content = children;
-      }
-    } else {
-      // if HTML is invalid, throw an error.
-      // This checker is excessively strict because it should only be set by internal engineers.
-      // Please do not pass user inputs into <BodyText> before first formatting it.
-      throw new Error("Invalid HTML.  Please validate HTML and make sure all tags are closed before passing it into BodyText");
-    }
+  if (warnChar && doc.textContent.length >= warnChar) {
+    console.warn("Body Text should be fewer than " + warnChar + " characters");
   }
+  if (doc.textContent.length >= maxChar) {
+    throw new Error("Body text must be fewer than " + maxChar + " characters");
+  }
+}
+
+// Check if any element is a string by itself, rather than wrapped in tags
+function hasString(node: React.ReactNode) {
+  return React.Children.map(node, (child: React.ReactElement) => {
+    if (!child.type) {
+      return child;
+    }
+  }).length > 0;
+}
+
+export default function BodyText(props: React.PropsWithChildren<BodyTextProps>) {
+  const { bodyContent, warnchar, maxchar, ...rest } = props;
+  const baseClass = "body-text";
+  let passedInContent: React.ReactNode = bodyContent ? bodyContent : props.children;
+
+  validateCharCount(passedInContent, warnchar, maxchar);
+  checkHTML(passedInContent);
+  let content: React.ReactNode = hasString(passedInContent) ? React.createElement("p", {}, passedInContent) : passedInContent;
+
   let bodyProps = {
     className: bem(baseClass)
   };
+
   return React.createElement(
     "div",
     { ...bodyProps, ...rest },

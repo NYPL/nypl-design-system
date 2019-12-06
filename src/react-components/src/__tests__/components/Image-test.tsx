@@ -15,7 +15,7 @@ describe("Images", () => {
   });
   it("Throws error when meaningful image is passed without alt text", () => {
     expect(() => Enzyme.mount(<Image src="test.png" isDecorative={false} />))
-    .to.throw("Heading only supports levels 1-6");
+    .to.throw("If image is decorative, alt text is required");
   });
   it("Throws error when alt text is too long", () => {
     expect(() => Enzyme.mount(<Image src="test.png" isDecorative={false} altText={tooManyChars} />)).to.throw("Alt Text must be less than 300 characters");

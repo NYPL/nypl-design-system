@@ -4,13 +4,13 @@ import bem from "../../../../utils/bem";
 import Heading from "./Heading";
 
 export interface PageTitleProps {
+  headerId: string;
   text: string;
   modifiers?: [];
   blockName?: string;
 }
 
 export default function PageTitle(props: PageTitleProps) {
-    const { text, modifiers, blockName } = props;
-
-    return <Heading id="page-title" level={1} blockName="page-title" text={text}/>;
+    const { headerId, text, modifiers, blockName } = props;
+    return <Heading id={headerId} level={1} blockName="page-title" text={text}/>;
 }

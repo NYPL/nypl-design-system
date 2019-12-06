@@ -8,4 +8,4 @@ export default {
   component: PageTitle
 };
 
-export const pageTitle = () => <PageTitle text="hello"></PageTitle>;
+export const pageTitle = () => <PageTitle headerId="hello-page-title" text="hello"></PageTitle>;

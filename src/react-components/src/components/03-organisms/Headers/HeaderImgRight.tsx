@@ -1,16 +1,16 @@
 // OH-30 Header with Image Right
 import * as React from "react";
 import bem from "../../../utils/bem";
-import IconLink from "../../01-atoms/Links/IconLink";
-import Heading from "../../01-atoms/Text/Headings/Heading";
 import PageTitle from "../../01-atoms/Text/Headings/PageTitle";
 import Image from "../../01-atoms/Images/Image/Image";
 import BodyText from "../../01-atoms/Text/Text/BodyText";
 
 export interface HeaderImgRightProps {
-  id: string;
+  headerId: string;
 
   pageTitleText: string;
+  isImageDecorative: boolean;
+  imageAltText?: string;
 
   imgUrl: string;
   imgAttributes?: {};
@@ -19,16 +19,18 @@ export interface HeaderImgRightProps {
   bodyText?: JSX.Element;
 }
 
-export default function HeaderImgRight(props: HeaderImgRightProps) {
+export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgRightProps>) {
 
-    const { id, pageTitleText, imgUrl } = props;
-    const baseClass = "section-header-img-right";
+  const { headerId, pageTitleText, isImageDecorative, imageAltText, imgUrl, imgAttributes, imgModifiers, bodyText} = props;
+  const baseClass = "section-header-img-right";
 
-    return (
-      <div className={bem(baseClass)}>
-       <PageTitle text={pageTitleText}/><Image src={imgUrl} isDecorative={true}></Image>
-      <BodyText bodyContent={<p>hello there</p>}></BodyText>
-      </div>
-    );
-  }
+  let bodyTextContent = bodyText ? bodyText : props.children;
+
+  return (
+    <div className={bem(baseClass)}>
+      <PageTitle headerId={headerId} text={pageTitleText} /><Image isDecorative={isImageDecorative} altText={imageAltText} src={imgUrl} ></Image>
+      <BodyText warnchar={200}>{bodyTextContent}</BodyText>
+    </div>
+  );
+}
 
