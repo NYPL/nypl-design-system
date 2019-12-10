@@ -31,7 +31,7 @@ export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgR
             <PageTitle headerId={headerId} text={pageTitleText}/>
           </div>
           <div className={bem("text", [], baseClass)}>
-            <BodyText bodyContent={<p>hello there lots of other text to see what bhappens liasjdfkljskj asldkjflksj asldkfjklji alsdkjkjk lajsldkjflkdj kjelkjlkj lkjlkj lkj  jlk lkj lj alejl lkjalskdjf sd fkasjdlfkjdkls laskdjfk dsjal asldkfjkldsja lkjasdklfj laskdjfdsj dljfldksj ljsldkfj kldsjkljalk sdjflk lasjdlkfjdlks ajasldkjf sklj skldjflkjs lskdfj dlksjlk</p>}></BodyText>
+            <BodyText bodyContent={<p>The internet’s search engine for research collections and e-books you can use right now. Powered by the New York Public Library.</p>}></BodyText>
           </div>
         </div>
         <div className={bem("image", [], baseClass)}>

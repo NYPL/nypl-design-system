@@ -1,12 +1,17 @@
+$header-with-image-right--break: 1135px;
+
 .header-with-image-right {
   background-color: $gray-warm-xlight;
   display: flex;
-  // mobile vibes
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   justify-content: flex-end;
 
+  @include breakpoint($medium) {
+    flex-direction: row;
+  }
+
   &__content {
-    flex: 1;
+    flex: 1 1 auto;
   }
 
   &__heading {
@@ -14,15 +19,13 @@
   }
 
   &__image {
-    @include space-inline-xl;
-
     align-items: flex-end;
   }
 }
 
 .header-with-image-right {
   .image {
-   height: 100%;
+    width: 100%;
   }
 }
 
