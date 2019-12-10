@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-icons",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Icons for the Design System",
   "main": "dist/img/sprite/sprite.svg",
   "scripts": {

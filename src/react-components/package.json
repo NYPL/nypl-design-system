@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -18,9 +18,10 @@
     "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js"
   },
   "keywords": [],
+  "dependencies": {
+    "@nypl/design-system-icons": "file:../icons"
+  },
   "devDependencies": {
-    "@nypl/design-system-icons": "file:../icons",
-    "@types/he": "^1.1.0",
     "tslint": "^6.0.0-beta0",
     "typescript": "^3.6.4"
   },
