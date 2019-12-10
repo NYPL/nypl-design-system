@@ -1,0 +1,35 @@
+$header-with-image-right--break: 1135px;
+
+.header-with-image-right {
+  background-color: $gray-warm-xlight;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+
+  @include breakpoint($medium) {
+    flex-direction: row;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  &__heading {
+    background-color: $nypl-turquoise-dark;
+  }
+
+  &__image {
+    align-items: flex-end;
+  }
+}
+
+.header-with-image-right {
+  .image {
+    width: 100%;
+  }
+}
+
+.header-with-image-right__text,
+.header-with-image-right__heading {
+  @include wrapper;
+}

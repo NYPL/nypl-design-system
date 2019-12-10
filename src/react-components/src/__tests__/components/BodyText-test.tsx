@@ -5,24 +5,24 @@ import * as React from "react";
 
 import * as Mocha from "mocha";
 
-import BodyText from "../../components/01-atoms/Text/BodyText";
+import BodyText from "../../components/01-atoms/Text/Text/BodyText";
 
 describe("BodyText", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;
 
   it("Wraps <p> tag when there is text with no tag", () => {
-    wrapper = Enzyme.shallow(<BodyText>Cupcakes</BodyText>);
+    wrapper = Enzyme.shallow(<BodyText>Cupcake's</BodyText>);
+    let paragraph = wrapper.render();
+    expect(paragraph.find("p")).to.have.lengthOf(1);
+  });
+
+  it("Wraps a <p> tag when passed an ignoreable tag", () => {
+    wrapper = Enzyme.shallow(<BodyText>Cupcakes <b>Donuts</b> Coffee</BodyText>);
     let paragraph = wrapper.render();
     expect(paragraph.find("p")).to.have.lengthOf(1);
   });
 
   // TODO: Differentiate between inner (<ol>, <ul>, <h> tags) and other tags
-  // it("Wraps a <p> tag when passed an ignoreable tag", () => {
-  //   wrapper = Enzyme.shallow(<BodyText>Cupcakes <b>Donuts</b> Coffee</BodyText>);
-  //   let paragraph = wrapper.render();
-  //   expect(paragraph.find("p")).to.have.lengthOf(1);
-  // });
-
   // it("Wraps <p> around each text component when passed an unignoreable tag", () => {
   //   wrapper = Enzyme.shallow(<BodyText>Cupcakes <ul><li>Donuts</li></ul> Coffee</BodyText>);
   //   let paragraph = wrapper.render();
@@ -30,7 +30,7 @@ describe("BodyText", () => {
   // });
 
   it("Doesn't wrap <p> tag when one already exists", () => {
-    wrapper = Enzyme.shallow(<BodyText><p>Cupcakes</p></BodyText>);
+    wrapper = Enzyme.shallow(<BodyText maxchar={200}><p>Cupcakes</p></BodyText>);
     let paragraph = wrapper.render();
     expect(paragraph.find("p")).to.have.lengthOf(1);
   });
@@ -45,5 +45,10 @@ describe("BodyText", () => {
   it("Throws error when passed invalid HTML", () => {
     expect(() => Enzyme.mount(<BodyText><p><ul><li>hi I'm wrong</li></ul></p>hi I'm wrong</BodyText>))
       .to.throw("Invalid HTML.  Please validate HTML and make sure all tags are closed before passing it into BodyText");
+  });
+
+  it("Throws error when passed text is longer than maxChar", () => {
+    expect(() => Enzyme.mount(<BodyText maxchar={2}><p>hi I'm wrong</p></BodyText>))
+    .to.throw("Body text must be fewer than 2 characters");
   });
 });

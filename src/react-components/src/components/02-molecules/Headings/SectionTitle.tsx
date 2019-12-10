@@ -2,8 +2,7 @@
 import * as React from "react";
 import bem from "../../../utils/bem";
 import IconLink from "../../01-atoms/Links/IconLink";
-import Heading from "../../01-atoms/Text/Heading";
-import { string } from "prop-types";
+import Heading from "../../01-atoms/Text/Headings/Heading";
 
 export interface SectionTitleProps {
   id: string;

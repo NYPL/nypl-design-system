@@ -38,9 +38,9 @@
 }
 
 @mixin button--filled(
-  $bg: $nypl-blue-regular,
+  $bg: $black,
   $color: $white,
-  $hoverBg: darken($bg, 0.25)
+  $hoverBg: lighten($bg, 0.8)
 ) {
   @include button-base;
 

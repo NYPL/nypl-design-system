@@ -57,3 +57,10 @@ p,
     @extend .hr;
   }
 }
+
+.body-text {
+  a {
+    @include link;
+    text-decoration: underline;
+  }
+}
