@@ -20,7 +20,7 @@ export interface SearchPromoProps {
   changeHandler?: (event: React.FormEvent) => void;
 }
 export default function SearchPromo(props: SearchPromoProps) {
-  const { headingText, modifiers, blockName, titleId, searchBarId, dropdownId, searchDropdownOptions, advancedSearchMessage, dropdownBlurHandler, searchHandler, changeHandler, textLinks, linkObjects } = props;
+  const { headingText, modifiers, blockName, titleId, searchBarId, dropdownId, searchDropdownOptions, advancedSearchMessage, dropdownBlurHandler, searchHandler, changeHandler } = props;
 
   const searchpromo__base_class = "search-promo";
 
