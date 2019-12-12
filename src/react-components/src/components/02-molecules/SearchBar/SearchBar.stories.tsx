@@ -10,5 +10,7 @@ export default {
   component: SearchBar,
 };
 
-export const searchWithParams = () => <SearchBar searchBarId="searchBarId" dropdownId="dropdownId" dropdownOptions={["Keyword", "Other Keyword"]} searchHandler={action("searched")} dropdownBlurHandler={action("selectChanged")}/>;
-export const searchWithNoParams = () => <SearchBar searchBarId="searchBarId" searchHandler={action("searched")} />;
+export const searchWithParams = () => <SearchBar searchBarId="searchBarId" dropdownId="dropdownId" dropdownOptions={["Keyword", "Other Keyword"]}
+  searchSubmitHandler={action("searched")} selectChangeHandler={action("selectChanged")} selectBlurHandler={action("selectChanged")} />;
+export const searchWithNoParams = () => <SearchBar searchBarId="searchBarId" searchSubmitHandler={action("searched")} />;
+export const searchWithFormError = () => <SearchBar searchBarId="searchBarId" searchSubmitHandler={action("searched")} hasError={true} errorMessage={"this is an error"}/>;

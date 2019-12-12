@@ -7,35 +7,40 @@ export interface FormDropdownProps {
   dropdownId: string;
   blockName?: string;
   labelText?: string;
-  ariaLabel: string;
+  ariaLabel?: string;
   disabled?: boolean;
   options: string[];
   selectedOption?: string;
-  onTextChange?: (event: React.FormEvent) => void;
   onSelectBlur: (event: React.FormEvent) => void;
+  onSelectChange: (event: React.FormEvent) => void;
 }
 
 export default function FormDropdown(props: FormDropdownProps) {
-  const { dropdownId, blockName, labelText, options, ariaLabel, disabled, selectedOption, onSelectBlur } = props;
+  const { dropdownId, blockName, labelText, options, ariaLabel, disabled, selectedOption, onSelectBlur, onSelectChange } = props;
+  if (!labelText) {
+    if (!ariaLabel) {
+      throw new Error("If there is no label, aria-label must be defined");
+    }
+  }
 
   let formItemBlockName = blockName ? blockName : "form-item";
   let labelClassName = bem("label", ["textField"], formItemBlockName);
 
-  return <div className={bem("dropdown", [], formItemBlockName)}>
+  return <div>
     {labelText && (<label htmlFor={dropdownId} className={labelClassName}>{labelText}</label>)}
-
-    <select id={dropdownId}
-    className={bem("select", [], formItemBlockName)}
-    value={selectedOption}
-    onChange={onSelectBlur}
-    onBlur={onSelectBlur}
-    aria-label={ariaLabel}
-    disabled={disabled ? disabled : false}>
-        { options.map((child, key) => {
-          return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
-        }) };
-    </select>
-
-    <Icon name={'arrow'} modifiers={['small']} />
+    <div className={bem("dropdown", [], formItemBlockName)}>
+      <select id={dropdownId}
+      className={bem("select", [], formItemBlockName)}
+      value={selectedOption}
+      onChange={onSelectChange}
+      onBlur={onSelectBlur}
+      aria-label={ariaLabel}
+      disabled={disabled ? disabled : false}>
+         { options.map((child, key) => {
+            return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
+          }) };
+      </select>
+    <Icon decorative={true} name={'arrow'} modifiers={['small']} />
+  </div>
   </div>;
 }

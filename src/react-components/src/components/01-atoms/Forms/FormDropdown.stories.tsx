@@ -11,5 +11,16 @@ export default {
   decorators: [withKnobs]
 };
 
-export const dropdown = () => <FormDropdown dropdownId="baaah" ariaLabel="search" onSelectBlur={action("changed")} options={["Hello", "Goodbye"]}/>;
-export const dropdownWithLabel = () => <FormDropdown dropdownId="baaah" ariaLabel="search" labelText="label" onSelectBlur={action("changed")} options={["hello", "goodbye"]}/>;
+export const dropdown = () => <FormDropdown dropdownId="baaah"
+  ariaLabel="search"
+  options={["hello", "goodbye"]}
+  onSelectBlur={action("blur")}
+  onSelectChange={action("changed")} />;
+
+export const dropdownWithLabel = () => <FormDropdown
+  dropdownId="baaah"
+  options={["hello", "goodbye"]}
+  ariaLabel="search"
+  labelText="label"
+  onSelectBlur={action("blur")}
+  onSelectChange={action("changed")} />;

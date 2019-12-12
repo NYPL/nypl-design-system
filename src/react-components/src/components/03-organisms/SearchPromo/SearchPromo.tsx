@@ -13,21 +13,35 @@ export interface SearchPromoProps {
   titleId: string;
   searchBarId: string;
   dropdownId: string;
+  hasError?: boolean;
+  errorMessage?: string;
   searchDropdownOptions: string[];
   advancedSearchMessage: JSX.Element;
-  dropdownBlurHandler: (event: React.MouseEvent) => void;
-  searchHandler: (event: React.MouseEvent) => void;
-  changeHandler?: (event: React.FormEvent) => void;
+  selectChangeHandler: (event: React.FormEvent) => void;
+  selectBlurHandler: (event: React.FormEvent) => void;
+  searchSubmitHandler: (event: React.MouseEvent) => void;
+  textChangeHandler?: (event: React.FormEvent) => void;
 }
 export default function SearchPromo(props: SearchPromoProps) {
-  const { headingText, modifiers, blockName, titleId, searchBarId, dropdownId, searchDropdownOptions, advancedSearchMessage, dropdownBlurHandler, searchHandler, changeHandler } = props;
+  const { headingText, modifiers, blockName, titleId, searchBarId, hasError, errorMessage,
+    dropdownId, searchDropdownOptions, advancedSearchMessage, 
+    selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
 
   const searchpromo__base_class = "search-promo";
 
 
   return <div className={bem(searchpromo__base_class, [], blockName)}>
     <SectionTitle id={titleId} headingText={headingText} blockName={searchpromo__base_class} />
-    <SearchBar searchBarId={searchBarId} dropdownId={dropdownId} dropdownOptions={searchDropdownOptions} dropdownBlurHandler={dropdownBlurHandler} searchHandler={searchHandler} changeHandler={changeHandler}></SearchBar>
+    <SearchBar
+      searchBarId={searchBarId}
+      dropdownId={dropdownId}
+      dropdownOptions={searchDropdownOptions}
+      hasError={hasError}
+      errorMessage={errorMessage}
+      selectBlurHandler={selectBlurHandler}
+      selectChangeHandler={selectChangeHandler}
+      searchSubmitHandler={searchSubmitHandler}
+      searchChangeHandler={textChangeHandler}></SearchBar>
     <BodyText bodyContent={advancedSearchMessage}></BodyText>
   </div>;
 }

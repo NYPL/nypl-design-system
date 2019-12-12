@@ -16,26 +16,37 @@ export interface SearchBarProps {
   searchButtonAttributes?: {};
   placeholderText?: string;
   textFieldAttributes?: {};
-  dropdownBlurHandler?: (event: React.MouseEvent) => void;
-  searchHandler: (event: React.MouseEvent) => void;
-  changeHandler?: (event: React.FormEvent) => void;
+  hasError?: boolean;
+  errorMessage?: string;
+  selectBlurHandler?: (event: React.MouseEvent) => void;
+  selectChangeHandler?: (event: React.MouseEvent) => void;
+  searchSubmitHandler: (event: React.MouseEvent) => void;
+  searchChangeHandler?: (event: React.FormEvent) => void;
 }
 
 export default function SearchBar(props: SearchBarProps) {
 
-  const { searchBarId, dropdownId, dropdownOptions, selectedField, placeholderText, dropdownBlurHandler, searchHandler, changeHandler } = props;
+  const { searchBarId, dropdownId, dropdownOptions, selectedField, placeholderText, hasError, errorMessage,
+    selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
 
   if (dropdownOptions) {
-    if (!(dropdownId && dropdownBlurHandler)) {
-      throw new Error("If dropdownOptions are passed, dropdownId and dropdownBlurHandler must also be passed");
+    if (!(dropdownId && selectBlurHandler && selectChangeHandler)) {
+      throw new Error("If dropdownOptions are passed, dropdownId, selectChangeHandler, and selectBlurHandler must also be passed");
     }
+  }
+  let modifiers = [];
+  if (hasError) {
+    if (!errorMessage) {
+      throw new Error("If there is an error, there must also be an error message");
+    }
+    modifiers.push("error");
   }
 
   let searchbar__base_class = "search-bar";
 
   let textfieldProps = {
     labelId: searchBarId,
-    onChange: changeHandler,
+    onChange: searchChangeHandler,
     isRequired: true,
     blockName: searchbar__base_class,
     placeholderText: placeholderText,
@@ -43,7 +54,7 @@ export default function SearchBar(props: SearchBarProps) {
 
   let buttonProps = {
     id: searchBarId,
-    callback: searchHandler,
+    callback: searchSubmitHandler,
     blockName: searchbar__base_class,
     content: "Search",
     type: "filled",
@@ -52,21 +63,19 @@ export default function SearchBar(props: SearchBarProps) {
     iconDecorative: true,
   };
 
-  return <div className={bem(searchbar__base_class)}>
+  return <div className={bem(searchbar__base_class, modifiers)}>
     {dropdownOptions &&
-      <FormDropdown 
-        selectedOption={selectedField}
+      <FormDropdown selectedOption={selectedField}
         ariaLabel="search"
-        dropdownId={dropdownId}
-        options={dropdownOptions}
-        onSelectBlur={dropdownBlurHandler}
+        dropdownId={dropdownId} options={dropdownOptions}
+        onSelectBlur={selectBlurHandler}
         blockName={searchbar__base_class}
-      />
+        onSelectChange={selectChangeHandler} />
     }
-
-    <div className={bem('input', [], searchbar__base_class)}>
+    <div className={bem("input", [], searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
-      <Button {...buttonProps}/>
+      <Button {...buttonProps} />
+      {hasError && <span>{errorMessage}</span>}
     </div>
   </div>;
 }
