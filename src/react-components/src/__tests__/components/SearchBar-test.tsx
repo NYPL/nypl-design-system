@@ -5,7 +5,7 @@ import * as React from "react";
 
 import * as Mocha from "mocha";
 
-import SearchBar from "../../components/02-molecules/search-bar/SearchBar";
+import SearchBar from "../../components/02-molecules/SearchBar/SearchBar";
 
 describe("Search Bar", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;

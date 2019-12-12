@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import Breadcrumb from "./Breadcrumbs";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Breadcrumb",
