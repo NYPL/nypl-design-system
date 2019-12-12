@@ -7,10 +7,14 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ========
 ## PRERELEASE
-### Added 
+### Added
 - Styles for `page-title`
 - Styles for `header-with-image-right`
 - Adds color variable for `$form-focus`
+- Styles for `search-bar`
+
+### Changed
+- Refactors `select` styles to use BEM
 
 ## [0.0.5] - 2019-12-06
 ### Added

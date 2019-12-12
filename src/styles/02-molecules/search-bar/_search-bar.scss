@@ -1,12 +1,29 @@
 .search-bar {
+  @include form-item;
+
   display: flex;
+  flex-flow: column nowrap;
+
+  @include breakpoint($medium) {
+    flex-flow: row nowrap;
+  }
+
+  &__dropdown {
+    @include space-stack-xs;
+
+    @include breakpoint($medium) {
+      @include space-stack-none;
+    }
+  }
+
+  &__input {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1;
+  }
 
   &__textfield {
-    padding: $space-xs $space-s;
-
-    &:focus {
-      outline: 2px solid $nypl-blue-regular;
-    }
+    flex: 1;
   }
 
   &__button {
