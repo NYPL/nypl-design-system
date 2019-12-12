@@ -10,4 +10,4 @@ export default {
   component: ParamSearchBar,
 };
 
-export const basicSearch = () => <ParamSearchBar searchBarId="searchBarId" dropdownId="dropdownId" searchHandler={action("searched")} dropdownBlurHandler={action("selectChanged")}/>;
+export const basicSearch = () => <ParamSearchBar searchBarId="searchBarId" dropdownId="dropdownId" dropdownOptions={["hi there", "bye there"]} searchHandler={action("searched")} dropdownBlurHandler={action("selectChanged")}/>;

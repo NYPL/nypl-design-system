@@ -30,8 +30,7 @@ export default function FormDropdown(props: FormDropdownProps) {
       onChange={onSelectBlur}
       onBlur={onSelectBlur}
       aria-label={ariaLabel}
-      disabled={disabled ? disabled : false}
-      name={name}>
+      disabled={disabled ? disabled : false}>
          { options.map((child, key) => {
             return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
           }) };

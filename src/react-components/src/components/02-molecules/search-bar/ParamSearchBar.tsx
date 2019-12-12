@@ -8,7 +8,10 @@ import FormDropdown from "../../01-atoms/Forms/FormDropdown";
 export interface ParamSearchBarProps {
   searchBarId: string;
   dropdownId: string;
+  dropdownOptions: string[];
   selectedField?: string;
+  searchValue?: string;
+  placeHolder?: string;
   searchButtonAttributes?: {};
   dropdownBlurHandler: (event: React.MouseEvent) => void;
   searchHandler: (event: React.MouseEvent) => void;
@@ -17,11 +20,12 @@ export interface ParamSearchBarProps {
 
 export default function ParamSearchBar(props: ParamSearchBarProps) {
 
-    const { searchBarId, dropdownId, selectedField, dropdownBlurHandler, searchHandler, changeHandler } = props;
+  const { searchBarId, dropdownId, dropdownOptions, selectedField, placeHolder, searchValue, dropdownBlurHandler, searchHandler, changeHandler } = props;
 
-    let searchbar__base_class = "search-bar";
+  let searchbar__base_class = "search-bar";
 
-    return <div className={bem(searchbar__base_class)}>
-      <FormDropdown selectedOption={selectedField} ariaLabel="search" dropdownId={dropdownId} options={["hi", "bye"]} onSelectBlur={dropdownBlurHandler}/><SearchBar id={searchBarId} searchHandler={searchHandler}></SearchBar>
-    </div>;
+  return <div className={bem(searchbar__base_class)}>
+    <FormDropdown selectedOption={selectedField} ariaLabel="search" dropdownId={dropdownId} options={dropdownOptions} onSelectBlur={dropdownBlurHandler} />
+    <SearchBar id={searchBarId} placeholderText={placeHolder} searchHandler={searchHandler} changeHandler={changeHandler}></SearchBar>
+  </div>;
 }
