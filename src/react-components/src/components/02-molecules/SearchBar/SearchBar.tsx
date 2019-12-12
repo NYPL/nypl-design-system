@@ -6,7 +6,7 @@ import FormDropdown from "../../01-atoms/Forms/FormDropdown";
 import TextField from "../../01-atoms/Forms/TextField";
 import { Button } from "../../..";
 
-export interface ParamSearchBarProps {
+export interface SearchBarProps {
   searchBarId: string;
   dropdownId?: string;
   dropdownOptions?: string[];
@@ -21,7 +21,7 @@ export interface ParamSearchBarProps {
   changeHandler?: (event: React.FormEvent) => void;
 }
 
-export default function ParamSearchBar(props: ParamSearchBarProps) {
+export default function SearchBar(props: SearchBarProps) {
 
   const { searchBarId, dropdownId, dropdownOptions, selectedField, placeholderText, dropdownBlurHandler, searchHandler, changeHandler } = props;
 
@@ -30,7 +30,9 @@ export default function ParamSearchBar(props: ParamSearchBarProps) {
       throw new Error("If dropdownOptions are passed, dropdownId and dropdownBlurHandler must also be passed");
     }
   }
+
   let searchbar__base_class = "search-bar";
+
   let textfieldProps = {
     labelId: searchBarId,
     onChange: changeHandler,
@@ -52,9 +54,19 @@ export default function ParamSearchBar(props: ParamSearchBarProps) {
 
   return <div className={bem(searchbar__base_class)}>
     {dropdownOptions &&
-    <FormDropdown selectedOption={selectedField} ariaLabel="search" dropdownId={dropdownId} options={dropdownOptions} onSelectBlur={dropdownBlurHandler} />
+      <FormDropdown 
+        selectedOption={selectedField}
+        ariaLabel="search"
+        dropdownId={dropdownId}
+        options={dropdownOptions}
+        onSelectBlur={dropdownBlurHandler}
+        blockName={searchbar__base_class}
+      />
     }
+
+    <div className={bem('input', [], searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
       <Button {...buttonProps}/>
-    </div>;
+    </div>
+  </div>;
 }

@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 
 ### Changed 
 - Moved heading-related atoms from `01-atoms/Text` into `01-atoms/Text/Heading` 
+- Updated `Searchbar` component to include Parameters
 
 ## [0.0.5] - 2019-12-06
 ### Changed

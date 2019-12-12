@@ -3,7 +3,7 @@
 import * as React from "react";
 import bem from "../../../utils/bem";
 import SectionTitle from "../../02-molecules/Headings/SectionTitle";
-import ParamSearchBar from "../../02-molecules/SearchBar/ParamSearchBar";
+import SearchBar from "../../02-molecules/SearchBar/SearchBar";
 import BodyText from "../../01-atoms/Text/Text/BodyText";
 
 export interface SearchPromoProps {
@@ -27,7 +27,7 @@ export default function SearchPromo(props: SearchPromoProps) {
 
   return <div className={bem(searchpromo__base_class, [], blockName)}>
     <SectionTitle id={titleId} headingText={headingText} blockName={searchpromo__base_class} />
-    <ParamSearchBar searchBarId={searchBarId} dropdownId={dropdownId} dropdownOptions={searchDropdownOptions} dropdownBlurHandler={dropdownBlurHandler} searchHandler={searchHandler} changeHandler={changeHandler}></ParamSearchBar>
+    <SearchBar searchBarId={searchBarId} dropdownId={dropdownId} dropdownOptions={searchDropdownOptions} dropdownBlurHandler={dropdownBlurHandler} searchHandler={searchHandler} changeHandler={changeHandler}></SearchBar>
     <BodyText bodyContent={advancedSearchMessage}></BodyText>
   </div>;
 }
