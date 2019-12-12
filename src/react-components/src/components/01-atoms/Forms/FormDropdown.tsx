@@ -1,6 +1,7 @@
 // AF-121 Form Dropdown
 import * as React from "react";
 import bem from "../../../utils/bem";
+import Icon from "../Images/Icons/Icon";
 
 export interface FormDropdownProps {
   dropdownId: string;
@@ -17,24 +18,24 @@ export interface FormDropdownProps {
 export default function FormDropdown(props: FormDropdownProps) {
   const { dropdownId, blockName, labelText, options, ariaLabel, disabled, selectedOption, onSelectBlur } = props;
 
-
   let formItemBlockName = blockName ? blockName : "form-item";
-
   let labelClassName = bem("label", ["textField"], formItemBlockName);
-  return <div className={blockName}>
+
+  return <div className={bem("dropdown", [], formItemBlockName)}>
     {labelText && (<label htmlFor={dropdownId} className={labelClassName}>{labelText}</label>)}
-    <div className={bem("dropdown", [], formItemBlockName)}>
-      <select id={dropdownId}
-      className={bem("select", [], formItemBlockName)}
-      value={selectedOption}
-      onChange={onSelectBlur}
-      onBlur={onSelectBlur}
-      aria-label={ariaLabel}
-      disabled={disabled ? disabled : false}>
-         { options.map((child, key) => {
-            return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
-          }) };
-      </select>
-    </div>
+
+    <select id={dropdownId}
+    className={bem("select", [], formItemBlockName)}
+    value={selectedOption}
+    onChange={onSelectBlur}
+    onBlur={onSelectBlur}
+    aria-label={ariaLabel}
+    disabled={disabled ? disabled : false}>
+        { options.map((child, key) => {
+          return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
+        }) };
+    </select>
+
+    <Icon name={'arrow'} modifiers={['small']} />
   </div>;
 }
