@@ -50,6 +50,7 @@ export default function SearchBar(props: SearchBarProps) {
     isRequired: true,
     blockName: searchbar__base_class,
     placeholderText: placeholderText,
+    modifiers: modifiers,
   };
 
   let buttonProps = {
@@ -72,10 +73,10 @@ export default function SearchBar(props: SearchBarProps) {
         blockName={searchbar__base_class}
         onSelectChange={selectChangeHandler} />
     }
-    <div className={bem("input", [], searchbar__base_class)}>
+    <div className={bem("input-group", [], searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
       <Button {...buttonProps} />
-      {hasError && <span className="error">{errorMessage}</span>}
+      {hasError && <span className={bem("input-description", modifiers, searchbar__base_class)}>{errorMessage}</span>}
     </div>
   </div>;
 }
