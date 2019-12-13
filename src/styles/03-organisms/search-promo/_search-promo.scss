@@ -9,10 +9,6 @@
 
     display: flex;
     flex-flow: column wrap;
-
-    @include breakpoint($medium) {
-      flex-flow: row wrap;
-    }
   }
 
   &__heading-section {
@@ -26,19 +22,24 @@
     display: flex;
     flex-flow: row nowrap;
     flex: 1;
+
+    @include breakpoint($large) {
+      flex-flow: row wrap;
+      // background-color: dodgerblue;
+    }
   }
 
   &__promo-text {
-
+    flex: 1;
   }
 }
 
 .search-promo .search-bar {
   @include space-inline-s;
 
-  flex: 1 1 100%;
+  flex: 2;
 }
 
-.search-promo .body-text {
+.search-promo .body-text p {
   @include space-stack-none;
 }
