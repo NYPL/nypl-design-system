@@ -12,19 +12,19 @@ export default {
 
 export const searchPromo = () => <SearchPromo headingText="Search the World's Research Collections"
   titleId="title"
-  advancedSearchMessage={<p>click here for <a href="#apple-pie">stuff</a></p>}
+  advancedSearchMessage={<p>Use <a href="#apple-pie">Advanced Search</a> to narrow your results.</p>}
   searchBarId="searchBarId" dropdownId="dropdownId"
-  searchDropdownOptions={["hi there", "bye there"]}
+  searchDropdownOptions={["Keyword", "bye there"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
   selectBlurHandler={action("selectChanged")} />;
 export const searchPromoWithError = () => <SearchPromo headingText="Search the World's Research Collections"
   titleId="title"
-  advancedSearchMessage={<p>click here for <a href="#apple-pie">stuff</a></p>}
+  advancedSearchMessage={<p>Use <a href="#apple-pie">Advanced Search</a> to narrow your results.</p>}
   searchBarId="searchBarId" dropdownId="dropdownId"
   hasError={true}
   errorMessage="oh no you messed up"
-  searchDropdownOptions={["hi there", "bye there"]}
+  searchDropdownOptions={["Keyword", "bye there"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
   selectBlurHandler={action("selectChanged")} />;
