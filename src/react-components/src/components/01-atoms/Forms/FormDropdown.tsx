@@ -27,21 +27,21 @@ export default function FormDropdown(props: FormDropdownProps) {
   let formItemBlockName = blockName ? blockName : "form-item";
   let labelClassName = bem("label", ["textField"], formItemBlockName);
 
-  return <div>
+  return <div className={bem("dropdown", [], formItemBlockName)}>
     {labelText && (<label htmlFor={dropdownId} className={labelClassName}>{labelText}</label>)}
-    <div className={bem("dropdown", [], formItemBlockName)}>
-      <select id={dropdownId}
-      className={bem("select", [], formItemBlockName)}
-      value={selectedOption}
-      onChange={onSelectChange}
-      onBlur={onSelectBlur}
-      aria-label={ariaLabel}
-      disabled={disabled ? disabled : false}>
-         { options.map((child, key) => {
-            return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
-          }) }
-      </select>
+
+    <select id={dropdownId}
+    className={bem("select", [], formItemBlockName)}
+    value={selectedOption}
+    onChange={onSelectChange}
+    onBlur={onSelectBlur}
+    aria-label={ariaLabel}
+    disabled={disabled ? disabled : false}>
+        { options.map((child, key) => {
+          return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
+        }) }
+    </select>
+
     <Icon decorative={true} name={'arrow'} modifiers={['small']} />
   </div>
-  </div>;
 }
