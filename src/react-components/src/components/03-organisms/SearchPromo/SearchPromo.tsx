@@ -31,17 +31,19 @@ export default function SearchPromo(props: SearchPromoProps) {
 
 
   return <div className={bem(searchpromo__base_class, [], blockName)}>
-    <SectionTitle id={titleId} headingText={headingText} blockName={searchpromo__base_class} />
-    <SearchBar
-      searchBarId={searchBarId}
-      dropdownId={dropdownId}
-      dropdownOptions={searchDropdownOptions}
-      hasError={hasError}
-      errorMessage={errorMessage}
-      selectBlurHandler={selectBlurHandler}
-      selectChangeHandler={selectChangeHandler}
-      searchSubmitHandler={searchSubmitHandler}
-      searchChangeHandler={textChangeHandler}></SearchBar>
-    <BodyText bodyContent={advancedSearchMessage}></BodyText>
+    <div className={bem('content', [], searchpromo__base_class)}>
+      <SectionTitle id={titleId} headingText={headingText} blockName={searchpromo__base_class} />
+      <SearchBar
+        searchBarId={searchBarId}
+        dropdownId={dropdownId}
+        dropdownOptions={searchDropdownOptions}
+        hasError={hasError}
+        errorMessage={errorMessage}
+        selectBlurHandler={selectBlurHandler}
+        selectChangeHandler={selectChangeHandler}
+        searchSubmitHandler={searchSubmitHandler}
+        searchChangeHandler={textChangeHandler}></SearchBar>
+      <BodyText bodyContent={advancedSearchMessage}></BodyText>
+    </div>
   </div>;
 }

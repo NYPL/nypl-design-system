@@ -1,0 +1,14 @@
+.search-promo {
+  @include breakout;
+
+  background-color: $gray-warm-light;
+
+  &__content {
+    @include wrapper;
+    @include space-inset-s;
+  }
+
+  &__heading {
+    @include space-stack-none;
+  }
+}
