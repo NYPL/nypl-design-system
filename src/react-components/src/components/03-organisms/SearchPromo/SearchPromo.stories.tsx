@@ -18,7 +18,7 @@ export const searchPromo = () => <SearchPromo headingText="hello there"
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
   selectBlurHandler={action("selectChanged")} />;
-  export const searchPromoWithError = () => <SearchPromo headingText="hello there"
+export const searchPromoWithError = () => <SearchPromo headingText="hello there"
   titleId="title"
   advancedSearchMessage={<p>click here for <a href="#apple-pie">stuff</a></p>}
   searchBarId="searchBarId" dropdownId="dropdownId"

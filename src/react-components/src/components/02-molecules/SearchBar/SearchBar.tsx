@@ -75,7 +75,7 @@ export default function SearchBar(props: SearchBarProps) {
     <div className={bem("input", [], searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
       <Button {...buttonProps} />
-      {hasError && <span>{errorMessage}</span>}
+      {hasError && <span className="error">{errorMessage}</span>}
     </div>
   </div>;
 }
