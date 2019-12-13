@@ -19,8 +19,7 @@ describe("FormDropdown", () => {
 
   it("Form Dropdown", () => {
     wrapper = Enzyme.shallow(<FormDropdown dropdownId="hi" labelText="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />);
-    let paragraph = wrapper.render();
-    expect(paragraph.find("select")).to.have.lengthOf(1);
+    expect(wrapper.find("select")).to.have.lengthOf(1);
   });
 
   it("sends callback with value on change", () => {
@@ -39,15 +38,17 @@ describe("FormDropdown", () => {
     wrapper = Enzyme.shallow(<FormDropdown dropdownId="hi" labelText="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />);
     wrapper.find("select").simulate("blur");
 
-    console.log("blurCallbac", blurCallback);
     expect(blurCallback.callCount).to.equal(1);
   });
 
   it("requires either label or aria-label", () => {
-
+    expect(() => Enzyme.mount(<FormDropdown dropdownId="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />))
+    .to.throw("Either labelText or ariaLabel must be defined");
   });
 
   it("renders empty select form when passed no options", () => {
-
+    wrapper = Enzyme.shallow(<FormDropdown dropdownId="hi" labelText="hi" options={[]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />);
+    expect(wrapper.find("select")).to.have.lengthOf(1);
+    expect(wrapper.find("option")).to.have.lengthOf(0);
   });
 });

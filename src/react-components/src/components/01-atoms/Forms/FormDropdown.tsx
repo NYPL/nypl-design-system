@@ -19,7 +19,8 @@ export default function FormDropdown(props: FormDropdownProps) {
   const { dropdownId, blockName, labelText, options, ariaLabel, disabled, selectedOption, onSelectBlur, onSelectChange } = props;
   if (!labelText) {
     if (!ariaLabel) {
-      throw new Error("If there is no label, aria-label must be defined");
+      // TODO: Assign aria-labeledBy to labelText
+      throw new Error("Either labelText or ariaLabel must be defined");
     }
   }
 
@@ -38,7 +39,7 @@ export default function FormDropdown(props: FormDropdownProps) {
       disabled={disabled ? disabled : false}>
          { options.map((child, key) => {
             return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
-          }) };
+          }) }
       </select>
     <Icon decorative={true} name={'arrow'} modifiers={['small']} />
   </div>

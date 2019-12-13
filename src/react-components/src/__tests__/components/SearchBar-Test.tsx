@@ -10,8 +10,10 @@ import SearchBar from "../../components/02-molecules/SearchBar/SearchBar";
 describe("Search Bar with Optional Parameters", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;
   let searchCallback;
+  let onChangeCallback;
   beforeEach(() => {
     searchCallback = stub();
+    onChangeCallback = stub();
   });
 
   it("Search Bar has an input field and button", () => {
@@ -27,9 +29,13 @@ describe("Search Bar with Optional Parameters", () => {
   });
 
   it("SearchBar calls optional onChange property", () => {
-    let onChangeCallback = stub();
     wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchChangeHandler={onChangeCallback} searchSubmitHandler={searchCallback}/>);
     wrapper.find("TextField").dive().find("input").simulate("change", { target: { value: "Hello" } });
     expect(onChangeCallback.callCount).to.equal(1);
+  });
+
+  it("Shows 'error' span when error is passed", () => {
+    wrapper = Enzyme.shallow(<SearchBar searchBarId="id" hasError={true} errorMessage="test" searchSubmitHandler={searchCallback}/>);
+    expect(wrapper.find(".error")).to.have.lengthOf(1);
   });
 });

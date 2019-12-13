@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - `Image` for 2:1 ratio
 - `PageTitle`
 - `Header with Image Right`
+- `FormDropdown`
+- `SearchPromo`
 
 ### Changed 
 - Moved heading-related atoms from `01-atoms/Text` into `01-atoms/Text/Heading` 
