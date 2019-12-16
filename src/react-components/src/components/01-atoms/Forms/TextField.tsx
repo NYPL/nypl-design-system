@@ -18,7 +18,6 @@ export default function TextField(props: TextFieldProps) {
   let textFieldProps = {
     className: bem("textfield", [], textfieldBlockName),
     "type": "text",
-    "placeholder": placeholderText,
     onChange: onChange,
     "aria-labelledby": labelId,
   };
@@ -26,5 +25,5 @@ export default function TextField(props: TextFieldProps) {
     textFieldProps["aria-required"] = true;
   }
 
-  return <input {...textFieldProps} />;
+  return <input {...textFieldProps} placeholder={placeholderText} />;
 }
