@@ -3,8 +3,6 @@ import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import * as Mocha from "mocha";
-
 import SearchBar from "../../components/02-molecules/SearchBar/SearchBar";
 
 describe("Search Bar with Optional Parameters", () => {
@@ -23,8 +21,8 @@ describe("Search Bar with Optional Parameters", () => {
   });
 
   it("Search Bar calls callback on Submit ", () => {
-    wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchButtonId="searchButtonId" searchSubmitHandler={searchCallback}/>);
-    wrapper.find("Button").dive().find("button").simulate("click");
+    let mounted = Enzyme.mount(<SearchBar searchBarId="id" searchButtonId="searchButtonId" searchSubmitHandler={searchCallback}/>);
+    mounted.find("Button").simulate("click");
     expect(searchCallback.callCount).to.equal(1);
   });
 
@@ -38,4 +36,9 @@ describe("Search Bar with Optional Parameters", () => {
     wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchButtonId="searchButtonId" hasError={true} errorMessage="test" searchSubmitHandler={searchCallback}/>);
     expect(wrapper.find(".search-bar__input-description--error")).to.have.lengthOf(1);
   });
+
+  it("Throws error when hasError is true and no errorMessage is passed", () => {
+    expect(() => Enzyme.mount(<SearchBar searchBarId="id" searchButtonId="searchButtonId" hasError={true} searchSubmitHandler={searchCallback}/>))
+    .to.throw("If there is an error, there must also be an error message");
+  })
 });

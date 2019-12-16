@@ -17,7 +17,12 @@ describe("FormDropdown", () => {
     blurCallback = stub();
   });
 
-  it("Form Dropdown", () => {
+  it("requires either label or aria-label", () => {
+    expect(() => Enzyme.mount(<FormDropdown dropdownId="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />))
+    .to.throw("Either labelText or ariaLabel must be defined");
+  });
+
+  it("Form Dropdownshould render a FormDropdown", () => {
     wrapper = Enzyme.shallow(<FormDropdown dropdownId="hi" labelText="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />);
     expect(wrapper.find("select")).to.have.lengthOf(1);
   });
@@ -39,11 +44,6 @@ describe("FormDropdown", () => {
     wrapper.find("select").simulate("blur");
 
     expect(blurCallback.callCount).to.equal(1);
-  });
-
-  it("requires either label or aria-label", () => {
-    expect(() => Enzyme.mount(<FormDropdown dropdownId="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />))
-    .to.throw("Either labelText or ariaLabel must be defined");
   });
 
   it("renders empty select form when passed no options", () => {
