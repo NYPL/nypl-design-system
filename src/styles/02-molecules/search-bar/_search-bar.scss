@@ -1,10 +1,12 @@
+$search-bar--breakpoint: 856px;
+
 .search-bar {
   @include form-item;
 
   display: flex;
   flex-flow: column nowrap;
 
-  @include breakpoint($medium) {
+  @include breakpoint($search-bar--breakpoint) {
     flex-flow: row nowrap;
   }
 
@@ -26,7 +28,7 @@
     background-color: $white;
     width: 100%;
 
-    @include breakpoint($medium) {
+    @include breakpoint($search-bar--breakpoint) {
       @include space-stack-none;
       flex: 0 1 25%;
     }
@@ -35,7 +37,7 @@
   &__input {
     @include input;
 
-    flex: 1 1 80%;
+    flex: 1 1 70%;
     min-height: 40px; // Accommodates the border for the search-bar without parameters
   }
 

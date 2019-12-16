@@ -12,6 +12,7 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 - Styles for `header-with-image-right`
 - Adds color variable for `$form-focus`
 - Styles for `search-bar`
+- Styles for `search-promo`
 
 ### Changed
 - Refactors `select` styles to use BEM

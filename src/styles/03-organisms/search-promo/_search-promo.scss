@@ -8,7 +8,7 @@
     @include space-inset-s;
 
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
   }
 
   &__heading-section {
@@ -20,12 +20,11 @@
   &__search-section {
     align-items: flex-start;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column wrap;
     flex: 1;
 
     @include breakpoint($large) {
-      flex-flow: row wrap;
-      // background-color: dodgerblue;
+      flex-flow: row nowrap;
     }
   }
 
@@ -38,6 +37,7 @@
   @include space-inline-s;
 
   flex: 2;
+  width: 100%;
 }
 
 .search-promo .body-text p {
