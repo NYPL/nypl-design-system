@@ -57,10 +57,10 @@
     "webpack": "^4.41.0"
   },
   "dependencies": {
-    "design-system-icons": "file:src/icons",
-    "design-system-react-components": "file:src/react-components",
-    "design-system-styles": "file:src/styles",
-    "design-system-twig": "file:src/twig",
+    "@nypl/design-system-icons": "file:src/icons",
+    "@nypl/design-system-react-components": "file:src/react-components",
+    "@nypl/design-system-styles": "file:src/styles",
+    "@nypl/design-system-twig": "file:src/twig",
     "storybook": "file:storybook"
   }
 }
