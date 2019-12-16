@@ -64,10 +64,10 @@ export default function SearchBar(props: SearchBarProps) {
     iconDecorative: true,
   };
 
-  return <div className={bem(searchbar__base_class, modifiers)}>
+  return <form className={bem(searchbar__base_class, modifiers)} id="searchBarId" aria-label="Search for keyword, author, title, or subject">
     {dropdownOptions &&
       <FormDropdown selectedOption={selectedField}
-        ariaLabel="search"
+        ariaLabel="Search by"
         dropdownId={dropdownId} options={dropdownOptions}
         onSelectBlur={selectBlurHandler}
         blockName={searchbar__base_class}
@@ -78,5 +78,5 @@ export default function SearchBar(props: SearchBarProps) {
       <Button {...buttonProps} />
       {hasError && <span className={bem("input-description", modifiers, searchbar__base_class)}>{errorMessage}</span>}
     </div>
-  </div>;
+  </form>;
 }
