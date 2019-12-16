@@ -16,15 +16,25 @@
     }
   }
 
-  &__input {
+  &__input-group {
+    @include input;
+
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     flex: 1;
   }
 
-  &__textfield {
+  &__input {
+    @include input;
+
     flex: 1;
     min-height: 40px; // Accommodates the border for the search-bar without parameters
+  }
+
+  &__input-description {
+    @include input-description();
+
+    flex: 100%;
   }
 
   &__button {
