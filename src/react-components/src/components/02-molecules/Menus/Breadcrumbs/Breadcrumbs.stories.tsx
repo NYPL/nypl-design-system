@@ -1,10 +1,10 @@
 import * as React from "react";
 
-import Breadcrumb from "./Breadcrumbs";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default {
   title: "Breadcrumb",
-  component: Breadcrumb,
+  component: Breadcrumbs,
   decorators: [storyFn => <div style={{ backgroundColor: "grey" }}>{storyFn()}</div>],
 };
 
@@ -20,5 +20,5 @@ const longItems = [
   { url: "#", text: "Roast Half And Half Pumpkin Spice Siphon Aroma Ristretto Cinnamon Saucer" }
 ];
 
-export const shortBreadcrumbs = () => <Breadcrumb breadcrumbs={shortItems}></Breadcrumb>;
-export const longBreadcrumbs = () => <Breadcrumb breadcrumbs={longItems}></Breadcrumb>;
+export const shortBreadcrumbs = () => <Breadcrumbs breadcrumbs={shortItems} />;
+export const longBreadcrumbs = () => <Breadcrumbs breadcrumbs={longItems} />;
