@@ -8,6 +8,7 @@ import { Button } from "../../..";
 
 export interface SearchBarProps {
   searchBarId: string;
+  searchButtonId: string;
   dropdownId?: string;
   dropdownOptions?: string[];
   selectedField?: string;
@@ -26,7 +27,7 @@ export interface SearchBarProps {
 
 export default function SearchBar(props: SearchBarProps) {
 
-  const { searchBarId, dropdownId, dropdownOptions, selectedField, placeholderText, hasError, errorMessage,
+  const { searchBarId, searchButtonId, dropdownId, dropdownOptions, selectedField, placeholderText, hasError, errorMessage,
     selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
 
   if (dropdownOptions) {
@@ -45,7 +46,7 @@ export default function SearchBar(props: SearchBarProps) {
   let searchbar__base_class = "search-bar";
 
   let textfieldProps = {
-    labelId: searchBarId,
+    labelId: searchButtonId,
     onChange: searchChangeHandler,
     isRequired: true,
     blockName: searchbar__base_class,
@@ -54,7 +55,7 @@ export default function SearchBar(props: SearchBarProps) {
   };
 
   let buttonProps = {
-    id: searchBarId,
+    id: searchButtonId,
     callback: searchSubmitHandler,
     blockName: searchbar__base_class,
     content: "Search",
@@ -64,7 +65,7 @@ export default function SearchBar(props: SearchBarProps) {
     iconDecorative: true,
   };
 
-  return <form className={bem(searchbar__base_class, modifiers)} id="searchBarId" aria-label="Search for keyword, author, title, or subject">
+  return <form className={bem(searchbar__base_class, modifiers)} id={searchBarId} aria-label="Search for keyword, author, title, or subject">
     {dropdownOptions &&
       <FormDropdown selectedOption={selectedField}
         ariaLabel="Search by"

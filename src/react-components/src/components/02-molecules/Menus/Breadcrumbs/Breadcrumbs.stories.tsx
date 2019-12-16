@@ -5,7 +5,6 @@ import Breadcrumbs from "./Breadcrumbs";
 export default {
   title: "Breadcrumb",
   component: Breadcrumbs,
-  decorators: [storyFn => <div style={{ backgroundColor: "grey" }}>{storyFn()}</div>],
 };
 
 const shortItems = [

@@ -17,31 +17,32 @@ export interface FormDropdownProps {
 
 export default function FormDropdown(props: FormDropdownProps) {
   const { dropdownId, blockName, labelText, options, ariaLabel, disabled, selectedOption, onSelectBlur, onSelectChange } = props;
-  if (!labelText) {
-    if (!ariaLabel) {
+  if (!labelText && !ariaLabel) {
       // TODO: Assign aria-labeledBy to labelText
       throw new Error("Either labelText or ariaLabel must be defined");
-    }
   }
 
   let formItemBlockName = blockName ? blockName : "form-item";
   let labelClassName = bem("label", ["textField"], formItemBlockName);
 
-  return <div className={bem("dropdown", [], formItemBlockName)}>
-    {labelText && (<label htmlFor={dropdownId} className={labelClassName}>{labelText}</label>)}
+  return (
+    <div className={bem("dropdown", [], formItemBlockName)}>
+      {labelText && (<label htmlFor={dropdownId} className={labelClassName}>{labelText}</label>)}
 
-    <select id={dropdownId}
-    className={bem("select", [], formItemBlockName)}
-    value={selectedOption}
-    onChange={onSelectChange}
-    onBlur={onSelectBlur}
-    aria-label={ariaLabel}
-    disabled={disabled ? disabled : false}>
-        { options.map((child, key) => {
-          return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
-        }) }
-    </select>
+      <select id={dropdownId}
+        className={bem("select", [], formItemBlockName)}
+        value={selectedOption}
+        onChange={onSelectChange}
+        onBlur={onSelectBlur}
+        aria-label={ariaLabel}
+        disabled={disabled ? disabled : false}
+      >
+          { options.map((child, key) => {
+            return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
+          }) }
+      </select>
 
-    <Icon decorative={true} name={'arrow'} modifiers={['small']} />
-  </div>
+      <Icon decorative={true} name={'arrow'} modifiers={['small']} />
+    </div>
+  );
 }

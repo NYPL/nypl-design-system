@@ -17,25 +17,25 @@ describe("Search Bar with Optional Parameters", () => {
   });
 
   it("Search Bar has an input field and button", () => {
-    let wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchSubmitHandler={searchCallback}/>);
+    let wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchButtonId="searchButtonId" searchSubmitHandler={searchCallback}/>);
     expect(wrapper.find("TextField")).to.have.lengthOf(1);
     expect(wrapper.find("Button")).to.have.lengthOf(1);
   });
 
   it("Search Bar calls callback on Submit ", () => {
-    wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchSubmitHandler={searchCallback}/>);
+    wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchButtonId="searchButtonId" searchSubmitHandler={searchCallback}/>);
     wrapper.find("Button").dive().find("button").simulate("click");
     expect(searchCallback.callCount).to.equal(1);
   });
 
   it("SearchBar calls optional onChange property", () => {
-    wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchChangeHandler={onChangeCallback} searchSubmitHandler={searchCallback}/>);
+    wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchButtonId="searchButtonId" searchChangeHandler={onChangeCallback} searchSubmitHandler={searchCallback}/>);
     wrapper.find("TextField").dive().find("input").simulate("change", { target: { value: "Hello" } });
     expect(onChangeCallback.callCount).to.equal(1);
   });
 
   it("Shows 'error' span when error is passed", () => {
-    wrapper = Enzyme.shallow(<SearchBar searchBarId="id" hasError={true} errorMessage="test" searchSubmitHandler={searchCallback}/>);
+    wrapper = Enzyme.shallow(<SearchBar searchBarId="id" searchButtonId="searchButtonId" hasError={true} errorMessage="test" searchSubmitHandler={searchCallback}/>);
     expect(wrapper.find(".search-bar__input-description--error")).to.have.lengthOf(1);
   });
 });

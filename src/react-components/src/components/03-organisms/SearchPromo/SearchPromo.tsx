@@ -12,6 +12,7 @@ export interface SearchPromoProps {
   blockName?: string;
   titleId: string;
   searchBarId: string;
+  searchButtonId: string;
   dropdownId: string;
   hasError?: boolean;
   errorMessage?: string;
@@ -23,7 +24,7 @@ export interface SearchPromoProps {
   textChangeHandler?: (event: React.FormEvent) => void;
 }
 export default function SearchPromo(props: SearchPromoProps) {
-  const { headingText, modifiers, blockName, titleId, searchBarId, hasError, errorMessage,
+  const { headingText, modifiers, blockName, titleId, searchBarId, searchButtonId, hasError, errorMessage,
     dropdownId, searchDropdownOptions, advancedSearchMessage, 
     selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
 
@@ -35,6 +36,7 @@ export default function SearchPromo(props: SearchPromoProps) {
       <SectionTitle id={titleId} headingText={headingText} blockName={searchpromo__base_class} />
       <SearchBar
         searchBarId={searchBarId}
+        searchButtonId={searchButtonId}
         dropdownId={dropdownId}
         dropdownOptions={searchDropdownOptions}
         hasError={hasError}

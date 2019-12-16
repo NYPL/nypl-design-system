@@ -13,6 +13,7 @@ export default {
 export const searchPromo = () => <SearchPromo headingText="Search the World's Research Collections"
   titleId="title"
   advancedSearchMessage={<p>click here for <a href="#apple-pie">stuff</a></p>}
+  searchButtonId="searchButtonId"
   searchBarId="searchBarId" dropdownId="dropdownId"
   searchDropdownOptions={["hi there", "bye there"]}
   searchSubmitHandler={action("searched")}
@@ -21,6 +22,7 @@ export const searchPromo = () => <SearchPromo headingText="Search the World's Re
 export const searchPromoWithError = () => <SearchPromo headingText="Search the World's Research Collections"
   titleId="title"
   advancedSearchMessage={<p>click here for <a href="#apple-pie">stuff</a></p>}
+  searchButtonId="searchButtonId"
   searchBarId="searchBarId" dropdownId="dropdownId"
   hasError={true}
   errorMessage="oh no you messed up"
