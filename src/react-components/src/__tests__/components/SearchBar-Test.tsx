@@ -36,6 +36,6 @@ describe("Search Bar with Optional Parameters", () => {
 
   it("Shows 'error' span when error is passed", () => {
     wrapper = Enzyme.shallow(<SearchBar searchBarId="id" hasError={true} errorMessage="test" searchSubmitHandler={searchCallback}/>);
-    expect(wrapper.find(".error")).to.have.lengthOf(1);
+    expect(wrapper.find(".search-bar__input-description--error")).to.have.lengthOf(1);
   });
 });
