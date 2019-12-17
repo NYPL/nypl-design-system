@@ -10,23 +10,31 @@ export default {
   component: SearchPromo,
 };
 
-export const searchPromo = () => <SearchPromo headingText="Search the World's Research Collections"
+export const searchPromo = () => <SearchPromo
+  headingText="Search the World's Research Collections"
   titleId="title"
-  searchButtonId="searchButtonId"
+  searchBtnId="searchButtonId"
   advancedSearchMessage={<p>Use <a href="#advanced-fake-link">Advanced Search</a> to narrow your results.</p>}
-  searchBarId="searchBarId" dropdownId="dropdownId"
+  searchBarId="searchBarId"
+  dropdownId="dropdownId"
+  searchInputAriaLabel="ariaLabel"
   searchDropdownOptions={["Keyword", "bye there"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
-  selectBlurHandler={action("selectChanged")} />;
-export const searchPromoWithError = () => <SearchPromo headingText="Search the World's Research Collections"
+  selectBlurHandler={action("selectChanged")}
+/>;
+export const searchPromoWithError = () => <SearchPromo
+  headingText="Search the World's Research Collections"
   titleId="title"
   advancedSearchMessage={<p>Use <a href="#advanced-fake-link">Advanced Search</a> to narrow your results.</p>}
-  searchButtonId="searchButtonId"
-  searchBarId="searchBarId" dropdownId="dropdownId"
+  searchBtnId="searchButtonId"
+  searchBarId="searchBarId"
+  dropdownId="dropdownId"
+  searchInputAriaLabel="ariaLabel"
   hasError={true}
   errorMessage="oh no you messed up"
   searchDropdownOptions={["Keyword", "bye there"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
-  selectBlurHandler={action("selectChanged")} />;
+  selectBlurHandler={action("selectChanged")}
+/>;
