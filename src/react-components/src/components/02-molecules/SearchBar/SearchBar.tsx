@@ -74,6 +74,7 @@ export default function SearchBar(props: SearchBarProps) {
         blockName={searchbar__base_class}
         onSelectChange={selectChangeHandler} />
     }
+
     <div className={bem("input-group", [], searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
       <Button {...buttonProps} />

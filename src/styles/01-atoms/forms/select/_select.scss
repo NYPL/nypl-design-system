@@ -80,29 +80,3 @@
 .form-item {
   @include form-item;
 }
-
-@supports ( -webkit-appearance: none ) or ( appearance: none ) or ( ( -moz-appearance: none ) and ( mask-type: alpha ) ) {
-  /* Show custom arrow */
-  .form-item__dropdown::after {
-    display: block;
-  }
-
-  /* Remove select styling */
-  .form-item__select {
-    padding-right: 2em; /* Match-01 */
-
-    /* inside @supports so that iOS <= 8 display the native arrow */
-    background: none; /* Match-04 */
-
-    /* inside @supports so that Android <= 4.3 display the native arrow */
-    border: 1px solid transparent; /* Match-05 */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    &:focus {
-      border-color: $gray-medium;
-      border-radius: 0;
-    }
-  }
-}

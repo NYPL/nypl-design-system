@@ -42,7 +42,7 @@ export default function FormDropdown(props: FormDropdownProps) {
           }) }
       </select>
 
-      <Icon decorative={true} name={'arrow'} modifiers={['small']} />
+      <Icon decorative={true} name={"arrow"} modifiers={["small"]} />
     </div>
   );
 }
