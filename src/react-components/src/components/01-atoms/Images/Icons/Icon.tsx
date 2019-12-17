@@ -1,12 +1,12 @@
 
 import * as React from "react";
-import Icons from "@nypl/design-system-icons/dist/img/sprite/sprite.svg";
+import Icons from "@nypl/design-system-icons/dist/sprite/sprite.svg";
 import bem from "../../../../utils/bem";
 
   // Wrapper Class for Icon
   export interface IconProps {
     name: string;
-    blockName: string;
+    blockName?: string;
     modifiers?: string[];
     decorative: boolean;
     role?: string;

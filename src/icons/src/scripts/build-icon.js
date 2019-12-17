@@ -7,7 +7,7 @@ var config = {
   mode: {
     symbol: {
       // symbol mode to build the SVG
-      dest: 'dist/img/sprite', // destination folder
+      dest: 'dist/sprite', // destination folder
       sprite: 'sprite.svg', // sprite name
       example: false, // Don't build sample page
     },

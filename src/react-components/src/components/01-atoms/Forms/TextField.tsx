@@ -7,16 +7,17 @@ export interface TextFieldProps {
   labelId: string;
   isRequired: boolean;
   blockName?: string;
+  modifiers?: string[];
   placeholderText?: string;
   onChange?: (event: React.FormEvent) => void;
 }
 export default function TextField(props: TextFieldProps) {
-  const { labelId, isRequired, blockName, placeholderText, onChange } = props;
+  const { labelId, isRequired, blockName, modifiers, placeholderText, onChange } = props;
 
   let textfieldBlockName = blockName ? blockName : "form-item";
 
   let textFieldProps = {
-    className: bem("textfield", [], textfieldBlockName),
+    className: bem("input", modifiers, textfieldBlockName),
     "type": "text",
     onChange: onChange,
     "aria-labelledby": labelId,

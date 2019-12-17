@@ -5,7 +5,10 @@
   "scripts": {
     "test": "echo \"There are no tests for styles\" "
   },
-  "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/styles",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/styles"
+  },
   "author": "NYPL Digital",
   "license": "Apache-2.0",
   "dependencies": {
