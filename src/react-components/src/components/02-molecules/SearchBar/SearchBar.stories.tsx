@@ -29,10 +29,10 @@ export const searchWithFormError = () => <SearchBar
   hasError={true} errorMessage={"Error text"} />;
 
 export const searchFormWithParamsAndError = () => <SearchBar searchBarId="searchBarId"
-searchButtonId="searchButtonId"
-dropdownId="dropdownId"
-dropdownOptions={["Keyword", "Other Keyword"]}
-searchSubmitHandler={action("searched")}
-selectChangeHandler={action("selectChanged")}
-selectBlurHandler={action("selectChanged")}
-hasError={true} errorMessage={"Error text"} />;
+  searchButtonId="searchButtonId"
+  dropdownId="dropdownId"
+  dropdownOptions={["Keyword", "Other Keyword"]}
+  searchSubmitHandler={action("searched")}
+  selectChangeHandler={action("selectChanged")}
+  selectBlurHandler={action("selectChanged")}
+  hasError={true} errorMessage={"Error text"} />;

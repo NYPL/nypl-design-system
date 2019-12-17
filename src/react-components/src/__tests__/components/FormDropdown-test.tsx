@@ -22,7 +22,7 @@ describe("FormDropdown", () => {
     .to.throw("Either labelText or ariaLabel must be defined");
   });
 
-  it("Form Dropdownshould render a FormDropdown", () => {
+  it("Form Dropdown should render a FormDropdown", () => {
     wrapper = Enzyme.shallow(<FormDropdown dropdownId="hi" labelText="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />);
     expect(wrapper.find("select")).to.have.lengthOf(1);
   });
