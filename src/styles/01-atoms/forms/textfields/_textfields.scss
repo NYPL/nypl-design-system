@@ -19,35 +19,49 @@
   }
 }
 
-.form-item__textfield {
-  @include space-inset-xs;
+@mixin input {
+  &__textfield {
+    @include space-inset-xs;
 
-  border: 1px solid $gray-medium;
-  max-width: 100%;
+    border: 1px solid $gray-medium;
+    max-width: 100%;
 
-  &:focus {
-    border-color: $black;
-  }
+    &:focus {
+      border-color: $form-focus;
+    }
 
-  &::-webkit-input-placeholder {
-    color: $gray-light;
-  }
+    &::-webkit-input-placeholder {
+      color: $gray-light;
+    }
 
-  &:-moz-placeholder {
-    color: $gray-light;
-  }
+    &:-moz-placeholder {
+      color: $gray-light;
+    }
 
-  &::-moz-placeholder {
-    color: $gray-light;
-  }
+    &::-moz-placeholder {
+      color: $gray-light;
+    }
 
-  &:-ms-input-placeholder {
-    color: $gray-light;
+    &:-ms-input-placeholder {
+      color: $gray-light;
+    }
   }
 }
 
-.form-item__description {
-  margin-top: 0.3em;
+.form-item__input {
+  @include input;
+}
+
+@mixin input-description {
+  margin-top: $space-xs; // Necessary for the way we do flex on input groups
+
+  &--error {
+    color: $nypl-red-dark;
+  }
+}
+
+.form-item__input-description {
+  @include input-description();
 }
 
 .form-fieldset {

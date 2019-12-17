@@ -1,12 +1,10 @@
 import * as React from "react";
 
-import Breadcrumb from "./Breadcrumbs";
-import { action } from "@storybook/addon-actions";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default {
   title: "Breadcrumb",
-  component: Breadcrumb,
-  decorators: [storyFn => <div style={{ backgroundColor: "grey" }}>{storyFn()}</div>],
+  component: Breadcrumbs,
 };
 
 const shortItems = [
@@ -21,5 +19,5 @@ const longItems = [
   { url: "#", text: "Roast Half And Half Pumpkin Spice Siphon Aroma Ristretto Cinnamon Saucer" }
 ];
 
-export const shortBreadcrumbs = () => <Breadcrumb breadcrumbs={shortItems}></Breadcrumb>;
-export const longBreadcrumbs = () => <Breadcrumb breadcrumbs={longItems}></Breadcrumb>;
+export const shortBreadcrumbs = () => <Breadcrumbs breadcrumbs={shortItems} />;
+export const longBreadcrumbs = () => <Breadcrumbs breadcrumbs={longItems} />;
