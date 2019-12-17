@@ -42,13 +42,13 @@ describe("BodyText", () => {
     expect(paragraph.find("span")).to.have.lengthOf(1);
   });
 
-  it("Throws error when passed invalid HTML", () => {
-    expect(() => Enzyme.mount(<BodyText><p><ul><li>hi I'm wrong</li></ul></p>hi I'm wrong</BodyText>))
-      .to.throw("Invalid HTML.  Please validate HTML and make sure all tags are closed before passing it into BodyText");
-  });
+  // it("Throws error when passed invalid HTML", () => {
+  //   expect(() => Enzyme.mount(<BodyText><p><ul><li>hi I'm wrong</li></ul></p>hi I'm wrong</BodyText>))
+  //     .to.throw("Invalid HTML.  Please validate HTML and make sure all tags are closed before passing it into BodyText");
+  // });
 
-  it("Throws error when passed text is longer than maxChar", () => {
-    expect(() => Enzyme.mount(<BodyText maxchar={2}><p>hi I'm wrong</p></BodyText>))
-    .to.throw("Body text must be fewer than 2 characters");
-  });
+  // it("Throws error when passed text is longer than maxChar", () => {
+  //   expect(() => Enzyme.mount(<BodyText maxchar={2}><p>hi I'm wrong</p></BodyText>))
+  //   .to.throw("Body text must be fewer than 2 characters");
+  // });
 });

@@ -11,6 +11,7 @@ export interface BodyTextProps {
   bodyContent?: JSX.Element;
 }
 
+// TODO: This does not work in SSR
 // if HTML is invalid, throw an error.
 // This checker is excessively strict because it should only be set by internal engineers.
 // Please do not pass user inputs into <BodyText> before first formatting it.
@@ -53,8 +54,8 @@ export default function BodyText(props: React.PropsWithChildren<BodyTextProps>) 
   const baseClass = "body-text";
   let passedInContent: React.ReactNode = bodyContent ? bodyContent : props.children;
 
-  validateCharCount(passedInContent, warnchar, maxchar);
-  checkHTML(passedInContent);
+  // validateCharCount(passedInContent, warnchar, maxchar);
+  // checkHTML(passedInContent);
   let content: React.ReactNode = hasString(passedInContent) ? React.createElement("p", {}, passedInContent) : passedInContent;
 
   let bodyProps = {
