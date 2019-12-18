@@ -1,4 +1,4 @@
-//OF-21 Search Promo
+// OF-21 Search Promo
 
 import * as React from "react";
 import bem from "../../../utils/bem";
@@ -24,8 +24,8 @@ export interface SearchPromoProps {
   textChangeHandler?: (event: React.FormEvent) => void;
 }
 export default function SearchPromo(props: SearchPromoProps) {
-  const { headingText, modifiers, blockName, titleId, searchBarId, searchButtonId, hasError, errorMessage,
-    dropdownId, searchDropdownOptions, advancedSearchMessage, 
+  const { headingText, blockName, titleId, searchBarId, searchButtonId, hasError, errorMessage,
+    dropdownId, searchDropdownOptions, advancedSearchMessage,
     selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
 
   const searchpromo__base_class = "search-promo";

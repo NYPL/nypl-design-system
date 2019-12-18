@@ -21,7 +21,7 @@ export const searchPromo = () => <SearchPromo headingText="Search the World's Re
   selectBlurHandler={action("selectChanged")} />;
 export const searchPromoWithError = () => <SearchPromo headingText="Search the World's Research Collections"
   titleId="title"
-  advancedSearchMessage={<p>Use <a href="#fake-link">Advanced Search</a> to narrow your results.</p>}
+  advancedSearchMessage={<p>Use <a href="#advanced-fake-link">Advanced Search</a> to narrow your results.</p>}
   searchButtonId="searchButtonId"
   searchBarId="searchBarId" dropdownId="dropdownId"
   hasError={true}
