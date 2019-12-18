@@ -4,4 +4,5 @@ public
 .DS_Store
 storybook/storybook-static/
 src/react-components/lib/
+src/react-components/dist/
 src/icons/dist

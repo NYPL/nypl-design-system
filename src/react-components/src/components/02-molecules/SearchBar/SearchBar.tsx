@@ -4,7 +4,7 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 import FormDropdown from "../../01-atoms/Forms/FormDropdown";
 import TextField from "../../01-atoms/Forms/TextField";
-import { Button } from "../../..";
+import Button from "../../01-atoms/Button/Button";
 
 export interface SearchBarProps {
   searchBarId: string;

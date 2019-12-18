@@ -1,5 +1,4 @@
 const path = require("path");
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: "production",
@@ -12,14 +11,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./dist"),
     publicPath: "/",
-    filename: "design-system.js",
-    library: "DesignSystem",
-    libraryTarget: "umd"
+    filename: "design-system-react-components.min.js",
+    library: "DesignSystemReactComponents",
+    libraryTarget: "umd",
+    // This allows a server-side app to import this package and not crash.
+    globalObject: 'this'
   },
-
-  // plugins: [
-  //   new CleanWebpackPlugin()
-  // ],
 
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"]
@@ -32,12 +29,6 @@ module.exports = {
         test: /\.tsx?$/,
         loader: "ts-loader",
       },
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      // {
-      //   enforce: "pre",
-      //   test: /\.js$/,
-      //   loader: "source-map-loader"
-      // },
       {
         test: /\.(ttf|woff|eot|svg|png|woff2|gif|jpg)(\?[\s\S]+)?$/,
         loader: 'url-loader?limit=100000'
