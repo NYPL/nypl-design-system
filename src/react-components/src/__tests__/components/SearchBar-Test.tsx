@@ -39,6 +39,6 @@ describe("Search Bar with Optional Parameters", () => {
 
   it("Throws error when hasError is true and no errorMessage is passed", () => {
     expect(() => Enzyme.mount(<SearchBar searchBarId="id" searchButtonId="searchButtonId" hasError={true} searchSubmitHandler={searchCallback}/>))
-    .to.throw("If there is an error, there must also be an error message");
-  })
+      .to.throw("If there is an error, there must also be an error message");
+  });
 });
