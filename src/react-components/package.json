@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/react-components"
   },
-  "main": "dist/design-system-react-components.js",
+  "main": "dist/design-system-react-components.min.js",
   "types": "lib/index.d.ts",
   "author": "NYPL",
   "license": "Apache-2.0",
