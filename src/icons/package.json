@@ -8,7 +8,6 @@
     "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/icons"
   },
   "scripts": {
-    "prepare": "npm run build",
     "build": "node src/scripts/build-icon.js",
     "test": "echo \"No Icon tests\""
   },
