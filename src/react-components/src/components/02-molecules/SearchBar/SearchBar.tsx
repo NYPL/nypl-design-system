@@ -28,7 +28,7 @@ export interface SearchBarProps {
 
 export default function SearchBar(props: SearchBarProps) {
 
-  const { searchBarId, buttonId, dropdownId, dropdownOptions, selectedField, placeholderText, textFieldAriaLabel,
+  const { searchBarId, buttonId, dropdownId, dropdownOptions, selectedField, searchValue, placeholderText, textFieldAriaLabel,
     hasError, errorMessage, selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
 
   if (dropdownOptions) {
@@ -52,6 +52,7 @@ export default function SearchBar(props: SearchBarProps) {
     isRequired: true,
     blockName: searchbar__base_class,
     placeholderText: placeholderText,
+    value: searchValue,
     modifiers: modifiers,
   };
 
