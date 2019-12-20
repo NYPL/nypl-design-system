@@ -9,16 +9,18 @@ export interface TextFieldProps {
   isRequired: boolean;
   blockName?: string;
   modifiers?: string[];
+  value?: string;
   placeholderText?: string;
   onChange?: (event: React.FormEvent) => void;
 }
 export default function TextField(props: TextFieldProps) {
-  const { labelId, ariaLabel, isRequired, blockName, modifiers, placeholderText, onChange } = props;
+  const { labelId, ariaLabel, isRequired, blockName, modifiers, value, placeholderText, onChange } = props;
   let textfieldBlockName = blockName ? blockName : "form-item";
 
   let textFieldProps = {
     className: bem("input", modifiers, textfieldBlockName),
     "type": "text",
+    value: value,
     onChange: onChange,
   };
   if (labelId) {
@@ -34,6 +36,5 @@ export default function TextField(props: TextFieldProps) {
   }
 
   let blah = <input {...textFieldProps} placeholder={placeholderText} />;
-  console.log("blah", blah);
   return blah;
 }
