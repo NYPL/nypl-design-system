@@ -11,7 +11,7 @@ export interface BodyTextProps {
   bodyContent?: JSX.Element;
 }
 
-// TODO: This does not work in SSR
+// TODO: This does not work in SFR
 // if HTML is invalid, throw an error.
 // This checker is excessively strict because it should only be set by internal engineers.
 // Please do not pass user inputs into <BodyText> before first formatting it.
