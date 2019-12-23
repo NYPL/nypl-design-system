@@ -13,6 +13,7 @@ export default {
 export const searchWithParams = () => <SearchBar searchBarId="searchBarId"
   buttonId="searchButtonId"
   dropdownId="dropdownId"
+  textFieldAriaLabel="Text Field aria-label"
   dropdownOptions={["Keyword", "Other Keyword"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("selectChanged")}
@@ -20,16 +21,19 @@ export const searchWithParams = () => <SearchBar searchBarId="searchBarId"
 
 export const searchWithNoParams = () => <SearchBar searchBarId="searchBarId"
   buttonId="searchButtonId"
+  textFieldAriaLabel="Text Field aria-label"
   searchSubmitHandler={action("searched")} />;
 
 export const searchWithFormError = () => <SearchBar
   searchBarId="searchBarId"
   buttonId="searchButtonId"
+  textFieldAriaLabel="Text Field aria-label"
   searchSubmitHandler={action("searched")}
   hasError={true} errorMessage={"Error text"} />;
 
 export const searchFormWithParamsAndError = () => <SearchBar searchBarId="searchBarId"
   buttonId="searchButtonId"
+  textFieldAriaLabel="Text Field aria-label"
   dropdownId="dropdownId"
   dropdownOptions={["Keyword", "Other Keyword"]}
   searchSubmitHandler={action("searched")}
