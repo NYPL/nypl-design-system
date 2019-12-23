@@ -9,7 +9,7 @@ The Design System Styles provides the full and uncompiled scss files. The produc
   npm install --save @nypl/design-system-styles
 ```
 
-Configurations need to be updated to support importing files. Check out the [storybook config](https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook-react/webpack.config.js) as a full example.
+Configurations need to be updated to support importing files. Check out the [react storybook config](https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook-react/webpack.config.js) or the [twig storybook config](https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook-html/webpack.config.js) as full examples.
 
 To set it up, the [`node-sass-glob-importer`](https://www.npmjs.com/package/node-sass-glob-importer) is required. In your webpack file make sure to include it and use it as an importer with the `sass-loader`:
 
