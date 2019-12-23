@@ -2,6 +2,5 @@ node_modules
 dependencyGraph.json
 public
 .DS_Store
-storybook/storybook-static/
 src/react-components/lib/
 src/icons/dist
