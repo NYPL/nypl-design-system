@@ -19,4 +19,9 @@ describe("Search Bar Text Field", () => {
     wrapper = Enzyme.shallow(<TextField labelId="id" isRequired={true}/>);
     expect(wrapper.props()["aria-required"]).to.equal(true);
   });
+
+  it("Throws error if neither label or aria-label are passed", () => {
+    expect(() => Enzyme.mount(<TextField isRequired={true}/>))
+    .to.throw("Either label or ariaLabel must be defined");
+  });
 });

@@ -21,7 +21,7 @@ export interface HeaderImgRightProps {
 
 export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgRightProps>) {
 
-    const { headerId, pageTitleText, imgUrl } = props;
+    const { headerId, pageTitleText, bodyText, imgUrl } = props;
     const baseClass = "header-with-image-right";
 
     return (
@@ -31,7 +31,7 @@ export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgR
             <PageTitle headerId={headerId} text={pageTitleText}/>
           </div>
           <div className={bem("text", [], baseClass)}>
-            <BodyText bodyContent={<p>The internet’s search engine for research collections and e-books you can use right now. Powered by the New York Public Library.</p>}></BodyText>
+            <BodyText bodyContent={bodyText}></BodyText>
           </div>
         </div>
         <div className={bem("image", [], baseClass)}>
