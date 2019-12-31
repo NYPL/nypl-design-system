@@ -11,9 +11,12 @@ export default {
 };
 
 export const searchPromo = () => <HeaderWithSearch
+  titleId="titleId"
   searchButtonId="searchButtonId"
-  advancedSearchMessage={<p>Use <a href="#advanced-fake-link">Advanced Search</a> to narrow your results.</p>}
-  searchBarId="searchBarId" dropdownId="dropdownId"
+  advancedSearchLink="#advanced-fake-link"
+  searchBarId="searchBarId"
+  dropdownId="dropdownId"
+  headingText="ResearchNOW"
   searchDropdownOptions={["Keyword", "bye there"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
