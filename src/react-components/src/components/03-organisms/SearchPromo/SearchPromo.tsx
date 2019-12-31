@@ -1,4 +1,4 @@
-//OF-21 Search Promo
+// OF-21 Search Promo
 
 import * as React from "react";
 import bem from "../../../utils/bem";
