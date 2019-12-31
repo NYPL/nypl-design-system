@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-twig",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "index.js",
   "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/twig",
