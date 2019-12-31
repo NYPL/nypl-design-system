@@ -54,7 +54,8 @@
     "twig-loader": "^0.5.1",
     "twigjs-loader": "^1.0.0",
     "typescript": "^3.6.4",
-    "webpack": "^4.41.0"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "@nypl/design-system-icons": "file:src/icons",
