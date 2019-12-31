@@ -2,6 +2,7 @@
   @include breakout;
 
   background-color: $gray-warm-light;
+  min-height: 160px;
 
   &__content {
     @include wrapper;

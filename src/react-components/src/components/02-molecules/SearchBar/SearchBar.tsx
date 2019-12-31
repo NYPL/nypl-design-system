@@ -8,7 +8,7 @@ import { Button } from "../../..";
 
 export interface SearchBarProps {
   searchBarId: string;
-  searchButtonId: string;
+  buttonId: string;
   dropdownId?: string;
   dropdownOptions?: string[];
   selectedField?: string;
@@ -16,6 +16,7 @@ export interface SearchBarProps {
   placeHolder?: string;
   searchButtonAttributes?: {};
   placeholderText?: string;
+  textFieldAriaLabel?: string;
   textFieldAttributes?: {};
   hasError?: boolean;
   errorMessage?: string;
@@ -27,8 +28,8 @@ export interface SearchBarProps {
 
 export default function SearchBar(props: SearchBarProps) {
 
-  const { searchBarId, searchButtonId, dropdownId, dropdownOptions, selectedField, placeholderText, hasError, errorMessage,
-    selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
+  const { searchBarId, buttonId, dropdownId, dropdownOptions, selectedField, searchValue, placeholderText, textFieldAriaLabel,
+    hasError, errorMessage, selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
 
   if (dropdownOptions) {
     if (!(dropdownId && selectBlurHandler && selectChangeHandler)) {
@@ -46,16 +47,17 @@ export default function SearchBar(props: SearchBarProps) {
   let searchbar__base_class = "search-bar";
 
   let textfieldProps = {
-    labelId: searchButtonId,
+    ariaLabel: textFieldAriaLabel,
     onChange: searchChangeHandler,
     isRequired: true,
     blockName: searchbar__base_class,
     placeholderText: placeholderText,
+    value: searchValue,
     modifiers: modifiers,
   };
 
   let buttonProps = {
-    id: searchButtonId,
+    id: buttonId,
     callback: searchSubmitHandler,
     blockName: searchbar__base_class,
     content: "Search",

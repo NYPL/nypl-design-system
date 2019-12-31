@@ -11,25 +11,29 @@ export default {
 };
 
 export const searchWithParams = () => <SearchBar searchBarId="searchBarId"
-  searchButtonId="searchButtonId"
+  buttonId="searchButtonId"
   dropdownId="dropdownId"
+  textFieldAriaLabel="Text Field aria-label"
   dropdownOptions={["Keyword", "Other Keyword"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("selectChanged")}
   selectBlurHandler={action("selectChanged")} />;
 
 export const searchWithNoParams = () => <SearchBar searchBarId="searchBarId"
-  searchButtonId="searchButtonId"
+  buttonId="searchButtonId"
+  textFieldAriaLabel="Text Field aria-label"
   searchSubmitHandler={action("searched")} />;
 
 export const searchWithFormError = () => <SearchBar
   searchBarId="searchBarId"
-  searchButtonId="searchButtonId"
+  buttonId="searchButtonId"
+  textFieldAriaLabel="Text Field aria-label"
   searchSubmitHandler={action("searched")}
   hasError={true} errorMessage={"Error text"} />;
 
 export const searchFormWithParamsAndError = () => <SearchBar searchBarId="searchBarId"
-  searchButtonId="searchButtonId"
+  buttonId="searchButtonId"
+  textFieldAriaLabel="Text Field aria-label"
   dropdownId="dropdownId"
   dropdownOptions={["Keyword", "Other Keyword"]}
   searchSubmitHandler={action("searched")}

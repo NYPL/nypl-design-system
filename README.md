@@ -41,8 +41,10 @@ After publishing new packages, remember also to bump the versions (or run `npm u
 ## Using the Design System
 The Design Systems offers modules and styles in different packages.  To use modules from the Design System, you need the [styles](https://www.npmjs.com/package/@nypl/design-system-styles) and either [react](https://www.npmjs.com/package/@nypl/design-system-react-components) or [twig](https://www.npmjs.com/package/@nypl/design-system-twig) packages.  
 
-The design system does not compile styles and templates.  It is up to the product to do this.  This generally means updating your webpack(grunt, gulp, etc) config.  You can use the [storybook config](https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook/webpack.config.js) as an example.  
+### Importing Styles
+The design system does not compile styles and templates.  It is up to the product to do this.  This generally means updating your webpack (grunt, gulp, etc) config.  You can use the [storybook config](https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook-react/webpack.config.js) as an example, and further documentation in the [styles readme](https://github.com/NYPL/nypl-design-system/blob/development/styles/README.md).
 
-Make sure to include `glob-importer` in your (sass-loader)[https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook/webpack.config.js#L26]
+Make sure to include `glob-importer` in your (sass-loader)[https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook-react/webpack.config.js#L2].
 
-
+### Importing React Components
+Once the Design System Styles package is imported, follow the steps in the React Components [README](https://github.com/NYPL/nypl-design-system/blob/development/src/react-components/README.md) to import and use the React Components.
