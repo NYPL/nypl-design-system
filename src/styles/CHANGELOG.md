@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
-## PRERELEASE
+## [0.0.6] - 2019-12-06
 ### Added
 - Styles for `page-title`
 - Styles for `header-with-image-right`
