@@ -12,7 +12,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepare": "npm run build",
-    "prepublishOnly": "npm run lint && npm run test",
+    "prepublishOnly": "npm run test",
     "build": "tsc",
     "lint": "tslint -c tslint.json src/__tests__/components/*.tsx src/components/**/**/*.tsx src/components/**/**/**/*.tsx src/utils/*.tsx",
     "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js"
@@ -22,7 +22,7 @@
     "@nypl/design-system-icons": "file:../icons"
   },
   "devDependencies": {
-    "tslint": "^6.0.0-beta0",
+    "tslint": "^5.0.0",
     "typescript": "^3.6.4"
   },
   "publishConfig": {
