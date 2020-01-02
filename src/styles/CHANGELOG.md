@@ -8,6 +8,7 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ========
 ## Prerelease
 - Changes the `$nypl-turquoise` variables to match what is in `IA + Templates` in Figma
+- Tightens up media queries on header-with-image-right
 
 ## [0.0.6] - 2019-12-06
 ### Added
