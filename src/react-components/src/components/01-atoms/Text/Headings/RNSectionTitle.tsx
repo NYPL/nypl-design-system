@@ -13,5 +13,5 @@ export interface RNSectionTitleProps {
 export default function RNSectionTitle(props: RNSectionTitleProps) {
     const { titleId, sectionUrl, modifiers, blockName } = props;
     const baseClass = "rn-section-title";
-    return <a className={baseClass} href={sectionUrl}>Research<b>NOW</b></a>;
+    return <a className={bem(baseClass, modifiers, blockName) + ' ' + baseClass} href={sectionUrl}>Research<span class={bem('emphasis', modifiers, baseClass)}>Now</span></a>;
 }
