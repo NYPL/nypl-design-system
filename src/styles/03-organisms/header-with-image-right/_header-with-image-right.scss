@@ -1,4 +1,4 @@
-$header-with-image-right--break: 1135px;
+$header-with-image-right--break: 1028px;
 
 .header-with-image-right {
   background-color: $gray-warm-xlight;
@@ -19,7 +19,15 @@ $header-with-image-right--break: 1135px;
   }
 
   &__image {
-    align-items: flex-end;
+    flex: 1;
+
+    @include breakpoint($medium) {
+      flex: 1 1 600px;
+    }
+
+    @include breakpoint($large) {
+      flex: 1 1 400px;
+    }
   }
 }
 
