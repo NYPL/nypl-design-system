@@ -16,7 +16,7 @@ export const searchPromo = () => <HeaderWithSearch
   advancedSearchLink="#advanced-fake-link"
   searchBarId="searchBarId"
   dropdownId="dropdownId"
-  headingText="ResearchNOW"
+  headingText="ResearchNow"
   searchDropdownOptions={["Keyword", "bye there"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}

@@ -1,11 +1,11 @@
 // OH-31 Header with Search
 import * as React from "react";
-import SearchBar from "../../../02-molecules/SearchBar/SearchBar";
-import UnderlineLink from "../../../01-atoms/Links/UnderlineLink";
-import bem from "../../../../utils/bem";
-import BodyText from "../../../01-atoms/Text/Text/BodyText";
-import SectionTitle from "../../../02-molecules/Headings/SectionTitle";
-import RNSectionTitle from "../../../01-atoms/Text/Headings/RNSectionTitle";
+import SearchBar from "../../02-molecules/SearchBar/SearchBar";
+import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
+import bem from "../../../utils/bem";
+import BodyText from "../../01-atoms/Text/Text/BodyText";
+import SectionTitle from "../../02-molecules/Headings/SectionTitle";
+import RNSectionTitle from "../../01-atoms/Text/Headings/RNSectionTitle";
 
 
 export interface WithSearchProps {
