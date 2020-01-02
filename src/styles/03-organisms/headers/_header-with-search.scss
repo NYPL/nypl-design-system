@@ -1,0 +1,34 @@
+$header-with-image-right--break: 1135px;
+
+.search-header {
+  background-color: $nypl-turquoise-regular;
+  display: flex;
+  flex-flow: row nowrap;
+
+  @include breakpoint($medium) {
+    flex-direction: row;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  &__heading {
+    background-color: $nypl-turquoise-dark;
+  }
+
+  &__image {
+    align-items: flex-end;
+  }
+}
+
+.header-with-image-right {
+  .image {
+    width: 100%;
+  }
+}
+
+.header-with-image-right__text,
+.header-with-image-right__heading {
+  @include wrapper;
+}
