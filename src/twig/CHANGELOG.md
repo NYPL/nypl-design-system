@@ -6,7 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
-## [0.0.4] - 2012-12-06
+## [0.0.5] - 2019-12-31
+- added more `images` for demonstration purposes
+
+## [0.0.4] - 2019-12-06
 ### Changed 
 - `icon` changes to remove dependency on drupal
 - Added storybook stories for `link`, `more-link`, `text`

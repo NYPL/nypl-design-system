@@ -6,7 +6,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 
 ========
 
-## PRERELEASE
+## [0.0.6] - 2019-12-31
 ### Added
 - `Image` for 2:1 ratio
 - `PageTitle`
@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 ### Changed 
 - Moved heading-related atoms from `01-atoms/Text` into `01-atoms/Text/Heading` 
 - Updated `Searchbar` component to include Parameters
+- Changed `Breadcrumb` export from `Breadcrumbs` 
 
 ## [0.0.6] - 2019-12-19
 ### Added
