@@ -19,6 +19,10 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - Updated `Searchbar` component to include Parameters
 - Changed `Breadcrumb` export from `Breadcrumbs` 
 
+## [0.0.6] - 2019-12-19
+### Added
+- A webpack file in order to build and distribute a compiled version of the react components. Does not replace the /lib folder usage, but the main file is now pointing to `/dist/design-system-react-components.min.js`.
+
 ## [0.0.5] - 2019-12-06
 ### Changed
 - `Icon` import

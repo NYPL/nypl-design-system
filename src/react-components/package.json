@@ -6,14 +6,16 @@
     "type": "git",
     "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/react-components"
   },
-  "main": "lib/index.js",
+  "main": "dist/design-system-react-components.min.js",
   "types": "lib/index.d.ts",
   "author": "NYPL",
   "license": "Apache-2.0",
   "scripts": {
     "prepare": "npm run build",
-    "prepublishOnly": "npm run test",
+    "prepublishOnly": "npm run test && npm run dist",
     "build": "tsc",
+    "dist": "webpack --mode production --progress --display-modules --config webpack.prod.js",
+    "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.prod.js",
     "lint": "tslint -c tslint.json src/__tests__/components/*.tsx src/components/**/**/*.tsx src/components/**/**/**/*.tsx src/utils/*.tsx",
     "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js"
   },
@@ -22,8 +24,10 @@
     "@nypl/design-system-icons": "file:../icons"
   },
   "devDependencies": {
-    "tslint": "^5.0.0",
-    "typescript": "^3.6.4"
+    "tslint": "^6.0.0-beta0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "publishConfig": {
     "access": "public"
