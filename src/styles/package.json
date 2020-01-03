@@ -13,7 +13,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
-    "normalize.css": "^8.0.1",
+    "scss-resets": "^0.5.2",
     "system-font-css": "^2.0.2"
   },
   "main": "style.scss",
