@@ -1,0 +1,8 @@
+// These styles are specifically for Storybook.
+// They are not used by the design system in any way.
+
+.storybook-preview-wrapper {
+  &--breakout {
+    @include breakout;
+  }
+}

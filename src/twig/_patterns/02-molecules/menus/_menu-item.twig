@@ -1,0 +1,37 @@
+{% if not item__modifiers %}
+  {% set item__modifiers = [] %}
+{% endif %}
+{# Pass original item modifiers down to children #}
+{% set original_item__modifiers = item__modifiers %}
+{% if item.in_active_trail == TRUE %}
+  {% set item__modifiers = item__modifiers|merge(['active']) %}
+{% endif %}
+{% if menu__level > 0 %}
+  {% set item__modifiers = item__modifiers|merge(['sub', 'sub-' ~ menu__level]) %}
+{% endif %}
+{% if item.below %}
+  {% set item__modifiers = item__modifiers|merge(['with-sub']) %}
+{% endif %}
+{# below could maybe be done without a loop? #}
+{% for modifier in item.modifiers %}
+  {% set item__modifiers = item__modifiers|merge([modifier]) %}
+{% endfor %}
+{% embed "@atoms/lists/_list-item.twig" with {
+  li__base_class: item__base_class|default(menu__class ~ '__item'),
+  li__modifiers: item__modifiers,
+  li__blockname: item__blockname,
+} %}
+  {% block li__content %}
+    {# Any icons, etc. can go inside this set link__title statement. #}
+    {% set link__title %}{{ item.title }}{% endset %}
+    {# You can add other attributes (id, etc.) inside this link__attributes array. #}
+    {% set link__attributes = {
+      class: bem(item__base_class|default(menu__class ~ '__link'), item__modifiers),
+    } %}
+    {{ link(link__title, item.url, add_attributes(link__attributes)) }}
+    {% if item.below %}
+      <span class="expand-sub"></span>
+      {{ menus.menu__links(item.below, attributes, menu__level + 1, menu__class, menu__modifiers, menu__blockname, item__base_class, original_item__modifiers, item__blockname) }}
+    {% endif %}
+  {% endblock %}
+{% endembed %}

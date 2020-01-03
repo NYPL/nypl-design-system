@@ -1,0 +1,10 @@
+slides:
+  - img_src: https://placeimg.com/640/480/tech
+    img_title: Image 1 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/640/480/nature
+    img_title: Image 2 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/640/480/people
+    img_title: Image 3 title goes here
+    image_collection_link: '#'

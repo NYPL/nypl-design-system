@@ -1,0 +1,13 @@
+{
+  "npmClient": "npm",
+  "command": {
+    "init": {
+      "exact": true
+    }
+  },
+  "packages": [
+    "src/*",
+    "storybook"
+  ],
+  "version": "independent"
+}

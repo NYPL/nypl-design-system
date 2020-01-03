@@ -1,0 +1,25 @@
+.address-bar {
+  &__ctas {
+    @include address-bar-vertical-spacing;
+  }
+
+  &__cta {
+    display: block;
+
+    & + & {
+      margin-top: $space-xs;
+    }
+
+    &--secondary {
+      @include button--outline;
+    }
+
+    &--primary {
+      @include button--filled;
+    }
+  }
+
+  &__cta-alternate-text {
+    @include space-inset-xs;
+  }
+}

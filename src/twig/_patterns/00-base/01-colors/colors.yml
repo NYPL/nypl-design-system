@@ -1,0 +1,63 @@
+items:
+  - name: $white
+    value: white
+  - name: $gray-xxlight
+    value: '#fafafa'
+  - name: $gray-warm-xlight
+    value: '#f8f8f7'
+  - name: $gray-xlight
+    value: '#f5f5f5'
+  - name: $gray-warm-light
+    value: '#efedeb'
+  - name: $gray-light
+    value: '#e0e0e0'
+  - name: $gray-medium
+    value: '#bdbdbd'
+  - name: $gray-dark
+    value: '#616161'
+  - name: $gray-xdark
+    value: '#424242'
+  - name: $black
+    value: black
+  - name: $nypl-red-light
+    value: '#e9b9a7'
+  - name: $nypl-red-regular
+    value: '#d0343a'
+  - name: $nypl-red-muted-regular
+    value: '#bb1d12'
+  - name: $nypl-red-dark
+    value: '#97272c'
+  - name: $nypl-yellow-light
+    value: '#f9e08e'
+  - name: $nypl-yellow-regular
+    value: '#ffb81d'
+  - name: $nypl-yellow-dark
+    value: '#c99212'
+  - name: $nypl-green-light
+    value: '#c5d5a5'
+  - name: $nypl-green-regular
+    value: '#799a05'
+  - name: $nypl-green-dark
+    value: '#497629'
+  - name: $nypl-turquoise-light
+    value: '#b0e3e4'
+  - name: $nypl-turquoise-regular
+    value: '#00a1b0'
+  - name: $nypl-turquoise-dark
+    value: '#007079'
+  - name: $nypl-blue-light
+    value: '#b1c9ea'
+  - name: $nypl-blue-regular
+    value: '#0071ce'
+  - name: $nypl-blue-dark
+    value: '#004b98'
+  - name: $nypl-purple-light
+    value: '#daa9e3'
+  - name: $nypl-purple-regular
+    value: '#8a1a9c'
+  - name: $nypl-purple-dark
+    value: '#673165'
+meta:
+  description: >-
+    To add to these items, use Sass variables that start with <code>$</code> in
+    <code>/Users/crystalngai/NYPL/nypl-design-system/src/styles/00-base/01-colors/_color-vars.scss</code>

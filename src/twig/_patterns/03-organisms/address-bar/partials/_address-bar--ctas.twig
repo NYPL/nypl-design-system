@@ -1,0 +1,14 @@
+{% if address_bar__link__url %}
+  {% include "@atoms/links/link/link.twig" with {
+    link_base_class: 'cta',
+    link_modifiers: address_bar__link_modifiers|default(['secondary']),
+    link_content: address_bar__link__text,
+    link_url: address_bar__link__url,
+  } %}
+{% else %}
+  {% include "@atoms/text/text/text.twig" with {
+    text_blockname: cta_alt_text__blockname,
+    text_base_class: 'cta-alternate-text',
+    text_content: address_bar__link__alternate_text,
+  } %}
+{% endif %}

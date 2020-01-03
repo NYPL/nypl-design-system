@@ -1,0 +1,16 @@
+### (If relevant) component in question:
+// e.g., "AB-52 Button"
+[Metronome documentation for component](http://themetronome.co/components/XXX/?fresh=true)
+
+### Overrides (if any) you've added to the design system:
+```
+.example-project {}
+```
+
+### If you have overrides, what project-specific needs did these overrides fix?
+
+### Expected behavior
+
+### Actual behavior
+
+### Steps to reproduce the behavior

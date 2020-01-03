@@ -1,0 +1,32 @@
+{% set sidebar = TRUE %}
+
+{% extends "@templates/_default.twig" %}
+  {% block page_header %}
+    {% include "@templates/_place-holder.twig" with {
+      "place_holder": "Header",
+    } %}
+  {% endblock %}
+
+  {% block page_hero %}
+    {% include "@templates/_place-holder.twig" with {
+      "place_holder": "Hero",
+    } %}
+  {% endblock %}
+
+  {% block page_content %}
+    {% include "@templates/_place-holder.twig" with {
+      "place_holder": "Primary Content",
+    } %}
+  {% endblock %}
+
+  {% block page_sidebar %}
+    {% include "@templates/_place-holder.twig" with {
+      "place_holder": "Secondary Content",
+    } %}
+  {% endblock %}
+
+  {% block page_footer %}
+    {% include "@templates/_place-holder.twig" with {
+      "place_holder": "Footer",
+    } %}
+  {% endblock %}

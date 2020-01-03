@@ -1,0 +1,8 @@
+<div {{ bem('month', [], date_tile__base_class) }}>
+  {{ date_tile__month }}
+</div>
+{% if date_tile__day %}
+  <div {{ bem('day', [], date_tile__base_class) }}>
+    {{ date_tile__day }}
+  </div>
+{% endif %}

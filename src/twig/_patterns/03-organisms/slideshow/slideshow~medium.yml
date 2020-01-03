@@ -1,0 +1,22 @@
+slides:
+  - img_src: https://placeimg.com/640/480/tech/sepia
+    img_title: Image 1 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/640/480/nature/grayscale
+    img_title: Image 2 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/640/480/people/sepia
+    img_title: Image 3 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/640/480/animals
+    img_title: Image 4 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/640/480/arch
+    img_title: Image 5 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/640/480/nature/grayscale
+    img_title: Image 6 title goes here
+    image_collection_link: '#'
+  - img_src: https://placeimg.com/640/480/arch/sepia
+    img_title: Image 7 title goes here
+    image_collection_link: '#'

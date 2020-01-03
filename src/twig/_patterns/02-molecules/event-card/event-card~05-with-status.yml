@@ -1,0 +1,16 @@
+event_card__with_image: true
+event_card__image: true
+event_card__heading: 'Lorem Ipsum Dolor Simete Long Title Lorem Ipsum Dolor Lorem Long Title'
+event_card__link: '#'
+event_card__description: 'This event brings together a diversity of works by 19 modern artists whose respective practices attest to the practices attest the art ...'
+event_card__status: 'Canceled'
+event_card__date__start: '2019-08-17 12:00:00'
+event_card__date__end: '2119-12-09 12:00:00'
+event_card__library_name: 'Very Long Lorem Ipsum Long Library Name'
+event_card__tags:
+  - tag_content: '#Kidslive'
+    tag_url: '#'
+  - tag_content: '#Kidslive'
+    tag_url: '#'
+  - tag_content: '#Kidslive'
+    tag_url: '#'

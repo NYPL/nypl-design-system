@@ -1,0 +1,37 @@
+<div class="icons-demo" id="icons">
+  <h2>Icons:</h2>
+  <div class="icons-all">
+    {% for item in items %}
+      <div>
+        {% include "@atoms/images/icons/_icon.twig" with {
+          icon_name: item.icon_name,
+          icon_role: item.icon_role,
+          icon_title: item.icon_title,
+          icon_desc: item.icon_desc,
+          icon_decorative: item.icon_decorative,
+          icon_modifiers: item.icon_modifiers,
+        } %}
+        {% if item.icon_modifiers %}
+          {% for modifier in item.icon_modifiers %}
+            <p>{{ item.icon_name }}--{{ modifier }}</p>
+          {% endfor %}
+        {% else %}
+          <p>{{ item.icon_name }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <h2>Sizes:</h2>
+  <div>
+    {% for size in sizes %}
+      <div>
+        {% include "@atoms/images/icons/_icon.twig" with {
+          icon_name: 'arrow',
+          icon_modifiers: [size],
+        } %}
+        <p>{{ size }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>

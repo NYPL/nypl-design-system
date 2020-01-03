@@ -1,0 +1,13 @@
+.address-bar {
+  &__accessibility {
+    @include address-bar-vertical-spacing;
+  }
+
+  &__accessibility-rating {
+    letter-spacing: 0.0275em;
+  }
+
+  &__accessibility-description {
+    letter-spacing: 0.0275em;
+  }
+}

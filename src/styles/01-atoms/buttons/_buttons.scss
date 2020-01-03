@@ -1,0 +1,82 @@
+@mixin button-base {
+  @include space-inset-xs;
+
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-align: center;
+
+  &--icon {
+    align-items: center;
+    display: inline-flex;
+  }
+
+  &--icon-left {
+    flex-flow: row-reverse nowrap;
+  }
+
+  &--icon-right {
+    flex-flow: row nowrap;
+  }
+
+  &__icon {
+    @include icon;
+
+    display: inline-flex;
+    fill: currentColor;
+
+    &--icon-left {
+      margin-right: $space-xs;
+    }
+
+    &--icon-right {
+      margin-left: $space-xs;
+    }
+  }
+}
+
+@mixin button--filled(
+  $bg: $black,
+  $color: $white,
+  $hoverBg: lighten($bg, 0.8)
+) {
+  @include button-base;
+
+  background-color: $bg;
+  border: none;
+  color: $color;
+
+  &:visited {
+    color: $color;
+  }
+
+  &:hover {
+    background-color: $hoverBg;
+  }
+}
+
+@mixin button--outline {
+  @include button-base;
+
+  background-color: $white;
+  border: 1px solid $gray-light;
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    background-color: $gray-xxlight;
+  }
+}
+
+.button {
+  @include button--filled;
+}
+
+.button--outline {
+  @include button--outline;
+}

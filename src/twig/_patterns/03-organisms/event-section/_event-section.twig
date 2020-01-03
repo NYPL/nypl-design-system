@@ -1,0 +1,45 @@
+{#
+ # Variables:
+ # event_section__heading - The heading of the event section.
+ # event_section__heading__id - A unique id for the heading. Used for the aria-describedby attribute of the 'see all' link
+ # event_section__see_all__url - The url the heading link will direct the user to.
+ # event_section__see_all__text - The text of the heading link.
+ # event_section__intro_text - The intro text for the event section.
+ #
+ # Blocks:
+ # event_section__events - The events in the events section.
+ #}
+
+{% set event_section__base_class = 'event-section' %}
+
+<div {{ bem(event_section__base_class) }}>
+  <div {{ bem('heading-section', [], event_section__base_class) }}>
+    {% include "@atoms/text/headings/_heading.twig" with {
+      heading_level: '2',
+      heading_base_class: 'heading',
+      heading_blockname: event_section__base_class,
+      heading: event_section__heading,
+      heading_attributes: {
+        "id": event_section__heading__id,
+      }
+    } %}
+    {% include "@atoms/links/link/link.twig" with {
+      link_url: event_section__see_all__url,
+      link_content: 'See all',
+      link_attributes: {
+        "aria-describedby": event_section__heading__id,
+      }
+    } %}
+  </div>
+  {% if event_section__intro_text %}
+    <div {{ bem('intro', [], event_section__base_class) }}>
+     {# We use raw here to accommodate Drupal's WYSIWYG #}
+      {{ event_section__intro_text|raw }}
+    </div>
+  {% endif %}
+  <ul {{ bem('events', [], event_section__base_class) }}>
+    {% block events_section__events %}
+      {% include "@organisms/event-section/_event-section--examples.twig" %}
+    {% endblock %}
+  </ul>
+</div>

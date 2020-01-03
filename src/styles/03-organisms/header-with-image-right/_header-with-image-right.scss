@@ -1,0 +1,43 @@
+$header-with-image-right--break: 1028px;
+
+.header-with-image-right {
+  background-color: $gray-warm-xlight;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+
+  @include breakpoint($medium) {
+    flex-direction: row;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  &__heading {
+    background-color: $nypl-turquoise-regular;
+  }
+
+  &__image {
+    flex: 1;
+
+    @include breakpoint($medium) {
+      flex: 1 1 600px;
+    }
+
+    @include breakpoint($large) {
+      flex: 1 1 400px;
+    }
+  }
+}
+
+.header-with-image-right {
+  .image {
+    width: 100%;
+  }
+}
+
+.header-with-image-right__text,
+.header-with-image-right__heading {
+  @include wrapper;
+}

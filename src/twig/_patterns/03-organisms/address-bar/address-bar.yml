@@ -1,0 +1,36 @@
+address_bar__date_start: '2119-11-15 12:00:00'
+address_bar__date_end: '2119-11-15 14:00:00'
+address_bar__location: 'Schomburg Center for Research in Black Culture'
+address_bar__address: '515 Malcolm X Blvd, New York, NY 10037'
+address_bar__directions_url: '#'
+address_bar__phone_number: '555-123-4567'
+days:
+  - day: 'Monday'
+    hours: '7:00 AM - 7:00 PM'
+  - day: 'Tuesday'
+    hours: '7:00 AM - 7:00 PM'
+  - day: 'Wednesday'
+    hours: '7:00 AM - 7:00 PM'
+  - day: 'Thursday'
+    hours: '7:00 AM - 7:00 PM'
+  - day: 'Friday'
+    hours: '7:00 AM - 7:00 PM'
+  - day: 'Saturday'
+    hours: '7:00 AM - 7:00 PM'
+  - day: 'Sunday'
+    hours: 'Closed'
+address_bar__accessibility: 'Fully accessible to wheelchairs'
+accessibility_level__description: 'Other accommodations such as ASL interpretation and real-time (CART) captioning can be arranged with a minimum of two weeks notice. Please email accessibility@nypl.org with accommodation requests or questions.'
+location__amenities:
+  - WiFi
+  - Lorem ipsum amenity
+  - Lorem amenity
+  - Lorem ipsum amenity
+  - Lorem amenity
+address_bar__cta__secondary:
+  - address_bar__cta__secondary__text: Add To Calendar
+    address_bar__cta__secondary__url: '#'
+  - address_bar__cta__secondary__text: Share
+    address_bar__cta__secondary__url: '#'
+address_bar__cta__primary__text: Register
+address_bar__cta__primary__url: '#'

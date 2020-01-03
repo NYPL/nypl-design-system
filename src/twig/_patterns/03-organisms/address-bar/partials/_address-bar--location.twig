@@ -1,0 +1,36 @@
+{% set heading_blockname = address_bar__base_class %}
+{% set text_blockname = address_bar__base_class %}
+
+{# Heading #}
+{% if address_bar__location %}
+  {% include "@atoms/text/headings/_heading.twig" with {
+    heading_level: '3',
+    heading: address_bar__location,
+    heading_base_class: 'heading',
+  } %}
+{% endif %}
+{% if address_bar__address %}
+  {% include "@atoms/text/text/text.twig" with {
+    text_base_class: 'address',
+    text_content: address_bar__address,
+  } %}
+{% endif %}
+{# Directions Link #}
+{% if address_bar__directions_url %}
+  {% include "@atoms/links/link/more-link.twig" with {
+    link_base_class: 'directions',
+    link_content: 'Directions',
+    link_url: address_bar__directions_url,
+  } %}
+{% endif %}
+{# Phone number #}
+{% if address_bar__phone_number %}
+  <div {{ bem('phone', [], address_bar__base_class) }}>
+    Call
+    {% include "@atoms/links/link/link.twig" with {
+      link_base_class: 'phone-number',
+      link_content: address_bar__phone_number,
+      link_url: 'tel:' ~ address_bar__phone_number,
+    } %}
+  </div>
+{% endif %}

@@ -1,0 +1,25 @@
+.address-bar {
+  &__ctas {
+    @include space-stack-s;
+  }
+
+  &__cta {
+    display: block;
+
+    & + & {
+      margin-top: $space-xs;
+    }
+
+    &--secondary {
+      @include button--outline;
+    }
+
+    &--primary {
+      @include button--filled;
+    }
+  }
+
+  &__cta-alternate-text {
+    @include space-inset-xs;
+  }
+}

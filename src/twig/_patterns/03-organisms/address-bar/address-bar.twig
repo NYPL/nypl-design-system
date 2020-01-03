@@ -1,0 +1,95 @@
+{#
+ # Variables:
+ # # Date Bar:
+ # address_bar__date_start - The start date/time.
+ # address_bar__date_end - The end date/time.
+ #
+ # # Location:
+ # address_bar__location - The name of the location.
+ # address_bar__address - The address of the location.
+ # address_bar__directions_url - The link to directions.
+ # address_bar__phone_number - The phone number of the location.
+ #
+ # # Hours:
+ # days - An array of days and hours
+ # - day - Day of the week.
+ # - hours - Hours open that day.
+ #
+ # # Accessibility:
+ # address_bar__accessibility - The accessibility level.
+ # accessibility_level__description - The description of the accessibility level.
+ #
+ # Amenities:
+ # location__amenities - An array of amenities
+ # - (Each amenity is an array item, as text)
+ #
+ # Secondary CTAs:
+ # address_bar__cta__secondary - An array of secondary links.
+ # - address_bar__cta__secondary__text - Secondary link text.
+ # - address_bar__cta__secondary__url - Secondary link url.
+ #
+ # Primary CTA:
+ # address_bar__cta__primary__text - Primary link text.
+ # address_bar__cta__primary__url - Primary link url.
+ # address_bar__cta__primary__alt_text - Text to display when there is no primary cta.
+ #}
+
+{% set address_bar__base_class = 'address-bar' %}
+{% set link_blockname = address_bar__base_class %}
+{% set cta_alt_text__blockname = address_bar__base_class %}
+{% set date_bar_blockname = address_bar__base_class %}
+
+<div {{ bem(address_bar__base_class) }}>
+  {# Date Bar #}
+  {% if address_bar__date_start %}
+    {% include "@molecules/date-bar/_date-bar.twig" with {
+      event_date_start: address_bar__date_start,
+      event_date_end: address_bar__date_end,
+    } %}
+  {% endif %}
+  <div {{ bem('content', [], address_bar__base_class) }}>
+    <div {{ bem('details', [], address_bar__base_class) }}>
+      {# Location information #}
+      {% if address_bar__location %}
+        {% include "@organisms/address-bar/partials/_address-bar--location.twig" %}
+      {% endif %}
+      {# Hours #}
+      {% if days.0.day %}
+        {% include "@organisms/address-bar/partials/_address-bar--hours.twig" %}
+      {% endif %}
+      {# Accessibility level #}
+      {% if address_bar__accessibility %}
+        {% include "@organisms/address-bar/partials/_address-bar--accessibility.twig" with {
+          accessibility_level: address_bar__accessibility,
+        } %}
+      {% endif %}
+      {# Amenities #}
+      {% if location__amenities.0|length %}
+        {% include "@organisms/address-bar/partials/_address-bar--amenities.twig" %}
+      {% endif %}
+    </div>
+    {# CTAs #}
+    {% if address_bar__cta__secondary.0.address_bar__cta__secondary__url or address_bar__cta__primary__url or address_bar__cta__primary__alt_text %}
+      <div {{ bem('ctas', [], address_bar__base_class) }}>
+        {# Secondary ctas #}
+        {% if address_bar__cta__secondary.0.address_bar__cta__secondary__url %}
+          {% for link in address_bar__cta__secondary %}
+            {% include "@organisms/address-bar/partials/_address-bar--ctas.twig" with {
+              address_bar__link__text: link.address_bar__cta__secondary__text,
+              address_bar__link__url: link.address_bar__cta__secondary__url,
+            } %}
+          {% endfor %}
+        {% endif %}
+        {# Primary cta #}
+        {% if address_bar__cta__primary__url or address_bar__cta__primary__alt_text %}
+          {% include "@organisms/address-bar/partials/_address-bar--ctas.twig" with {
+            address_bar__link_modifiers: ['primary'],
+            address_bar__link__text: address_bar__cta__primary__text,
+            address_bar__link__url: address_bar__cta__primary__url,
+            address_bar__link__alternate_text: address_bar__cta__primary__alt_text,
+          } %}
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
