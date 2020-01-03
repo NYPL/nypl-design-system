@@ -51,4 +51,6 @@ Once the Design System Styles package is imported, follow the steps in the React
 
 ### Storybook
 
+There should be no need to run the static Storybook instances. Following the instructions above, the two development Storybook instances can run on a server that tracks changes. If the static Storybook npm script is run, make sure to not commit the `storybook/storybook-static` directory.
+
 When change are merged into `master` (currently using `development`), Travis CI will automatically build the two Twig and React Storybook instances as static sites and deploy them to the `gh-pages` branch. If this needs to be tested locally, run `npm run storybook:static` and then view the `storybook/index.html` file in a browser. No server needs to be running since this is a static web site.
