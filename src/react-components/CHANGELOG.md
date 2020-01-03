@@ -6,6 +6,10 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 
 ========
 
+## [0.0.7] - 2020-01-03
+### Added
+- A webpack file in order to build and distribute a compiled version of the react components. Does not replace the /lib folder usage, but the main file is now pointing to `/dist/design-system-react-components.min.js`.
+
 ## [0.0.6] - 2019-12-31
 ### Added
 - `Image` for 2:1 ratio
@@ -18,10 +22,6 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - Moved heading-related atoms from `01-atoms/Text` into `01-atoms/Text/Heading` 
 - Updated `Searchbar` component to include Parameters
 - Changed `Breadcrumb` export from `Breadcrumbs` 
-
-## [0.0.6] - 2019-12-19
-### Added
-- A webpack file in order to build and distribute a compiled version of the react components. Does not replace the /lib folder usage, but the main file is now pointing to `/dist/design-system-react-components.min.js`.
 
 ## [0.0.5] - 2019-12-06
 ### Changed
