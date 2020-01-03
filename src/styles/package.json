@@ -11,9 +11,9 @@
   },
   "author": "NYPL Digital",
   "license": "Apache-2.0",
-  "dependencies": {
+  "devDependencies": {
     "breakpoint-sass": "^2.7.1",
-    "scss-resets": "^0.5.2",
+    "normalize.css": "^8.0.1",
     "system-font-css": "^2.0.2"
   },
   "main": "style.scss",
