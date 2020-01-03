@@ -14,4 +14,3 @@ deploy:
   skip_cleanup: true
   keep-history: true
   github_token: $GITHUB_TOKEN
-  local_dir: storybook
