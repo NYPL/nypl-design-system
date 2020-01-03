@@ -8,6 +8,7 @@ script: npm test
 
 deploy:
   provider: pages
+  script: npm run storybook:static
   skip_cleanup: true
   keep-history: true
   github_token: $GITHUB_TOKEN
