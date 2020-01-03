@@ -22,6 +22,7 @@ export default class Link extends React.Component<LinkProps, {}> {
     };
 
     let childProps = {};
+    console.log(this.props.children);
     React.Children.forEach(this.props.children, (child: React.ReactElement, i: number) => {
       if (i === 0) {
         childProps = child.props;
