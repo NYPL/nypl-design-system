@@ -45,6 +45,7 @@
     "jsdom": "^15.2.1",
     "lerna": "3.18.1",
     "mocha": "^6.2.2",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "rimraf": "^3.0.0",
     "sinon": "^7.3.0",
