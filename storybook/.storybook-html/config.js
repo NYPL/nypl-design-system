@@ -1,8 +1,8 @@
 import '!style-loader!css-loader!sass-loader!import-glob-loader!@nypl/design-system-styles/style.scss';
 import { configure, load, addDecorator } from '@storybook/html';
 const twig = require('twig');
-import bem from 'design-system-twig/_twig-components/functions/bem';
-import attach_library from 'design-system-twig/_twig-components/functions/sb_attach-library'
+import bem from '@nypl/design-system-twig/_twig-components/functions/bem';
+import attach_library from '@nypl/design-system-twig/_twig-components/functions/sb_attach-library';
 
 twig.extendFunction("bem", bem);
 twig.extendFunction("attach_library", attach_library);

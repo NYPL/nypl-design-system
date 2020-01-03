@@ -48,3 +48,7 @@ Make sure to include `glob-importer` in your (sass-loader)[https://github.com/NY
 
 ### Importing React Components
 Once the Design System Styles package is imported, follow the steps in the React Components [README](https://github.com/NYPL/nypl-design-system/blob/development/src/react-components/README.md) to import and use the React Components.
+
+### Storybook
+
+When change are merged into `master` (currently using `development`), Travis CI will automatically build the two Twig and React Storybook instances as static sites and deploy them to the `gh-pages` branch. If this needs to be tested locally, run `npm run storybook:static` and then view the `storybook/index.html` file in a browser. No server needs to be running since this is a static web site.
