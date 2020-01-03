@@ -9,9 +9,9 @@ script: npm test
 deploy:
   provider: pages
   script: npm run storybook:static
+  on:
+    branch: development
   skip_cleanup: true
   keep-history: true
   github_token: $GITHUB_TOKEN
-  on:
-    branch: development
   local_dir: storybook
