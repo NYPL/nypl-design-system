@@ -6,9 +6,10 @@ install:
   - npm run install-all
 script: npm test
 
+before_deploy:
+  - npm run storybook:static
 deploy:
   provider: pages
-  script: npm run storybook:static
   on:
     branch: development
   skip_cleanup: true
