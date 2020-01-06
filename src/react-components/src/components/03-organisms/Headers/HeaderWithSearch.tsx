@@ -35,22 +35,25 @@ export default function HeaderWithSearch(props: React.PropsWithChildren<WithSear
 
   return (
     <div className={bem(base_class)}>
-      <RNSectionTitle titleId={titleId} sectionUrl="#sectionUrl" blockName={base_class} />
-      <SearchBar
-        searchBarId={searchBarId}
-        buttonId={searchButtonId}
-        dropdownId={dropdownId}
-        textFieldAriaLabel="blah"
-        dropdownOptions={searchDropdownOptions}
-        hasError={hasError}
-        errorMessage={errorMessage}
-        selectBlurHandler={selectBlurHandler}
-        selectChangeHandler={selectChangeHandler}
-        searchSubmitHandler={searchSubmitHandler}
-        searchChangeHandler={textChangeHandler} />
+      <div className={bem('content', [], base_class)}>
+        <RNSectionTitle titleId={titleId} sectionUrl="#sectionUrl" blockName={base_class} />
+        <SearchBar
+          searchBarId={searchBarId}
+          blockName={base_class}
+          buttonId={searchButtonId}
+          dropdownId={dropdownId}
+          textFieldAriaLabel="blah"
+          dropdownOptions={searchDropdownOptions}
+          hasError={hasError}
+          errorMessage={errorMessage}
+          selectBlurHandler={selectBlurHandler}
+          selectChangeHandler={selectChangeHandler}
+          searchSubmitHandler={searchSubmitHandler}
+          searchChangeHandler={textChangeHandler} />
         <div className={bem("promo-text", [], base_class)}>
-          <UnderlineLink url={advancedSearchLink} >Advanced Search</UnderlineLink>
+          <UnderlineLink url={advancedSearchLink} modifiers={['dark-background']}>Advanced Search</UnderlineLink>
         </div>
+      </div>
     </div>
   );
 }

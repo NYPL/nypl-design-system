@@ -8,6 +8,7 @@ import { Button } from "../../..";
 
 export interface SearchBarProps {
   searchBarId: string;
+  blockName: string;
   buttonId: string;
   dropdownId?: string;
   dropdownOptions?: string[];
@@ -29,7 +30,7 @@ export interface SearchBarProps {
 export default function SearchBar(props: SearchBarProps) {
 
   const { searchBarId, buttonId, dropdownId, dropdownOptions, selectedField, searchValue, placeholderText, textFieldAriaLabel,
-    hasError, errorMessage, selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
+    hasError, errorMessage, selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler, blockName } = props;
 
   if (dropdownOptions) {
     if (!(dropdownId && selectBlurHandler && selectChangeHandler)) {
@@ -67,7 +68,7 @@ export default function SearchBar(props: SearchBarProps) {
     iconDecorative: true,
   };
 
-  return <form className={bem(searchbar__base_class, modifiers)} id={searchBarId} aria-label="Search for keyword, author, title, or subject">
+  return <form className={bem(searchbar__base_class, modifiers, blockName) + ' ' + bem(searchbar__base_class, modifiers)} id={searchBarId} aria-label="Search for keyword, author, title, or subject">
     {dropdownOptions &&
       <FormDropdown selectedOption={selectedField}
         ariaLabel="Search by"
