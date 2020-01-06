@@ -23,7 +23,7 @@ export interface DropdownProps {
   onSelectBlur: (event: React.FormEvent) => void;
 }
 
-export default function DropdownProps(props: DropdownProps) {
+export default function Dropdown(props: DropdownProps) {
   const { dropdownId, isRequired,
     labelId, labelPosition, labelText, ariaLabel,
     helperContent, helperContentId,
@@ -61,7 +61,7 @@ export default function DropdownProps(props: DropdownProps) {
 
     {labelPosition !== "none" &&
       <div><Label id={labelId} referenceId={dropdownId}>{labelText}</Label>
-        {isRequired && <span className={bem("isRequired", [], baseClass)}>Required</span>}
+        {isRequired && <span className={bem("required-message", [], baseClass)}>Required</span>}
       </div>
     }
     <div>

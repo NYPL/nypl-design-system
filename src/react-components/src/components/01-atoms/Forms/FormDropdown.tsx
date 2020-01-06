@@ -37,7 +37,7 @@ export default function FormDropdown(props: FormDropdownProps) {
   };
 
   if (labelId) {
-    selectProps["aria-labelledBy"] = labelId;
+    selectProps["aria-labelledby"] = labelId;
   } else {
     selectProps["aria-label"] = ariaLabel;
   }

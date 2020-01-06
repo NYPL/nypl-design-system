@@ -12,7 +12,7 @@ export default function Label(props: React.PropsWithChildren<LabelProps>) {
   const { id, referenceId, labelText } = props;
 
   if (!labelText && !props.children) {
-    throw new Error("Label must have content passed as labelText or children.  Got labelText: " + labelText + " and children: " + this.props.children);
+    throw new Error("Label must have content passed as labelText or children.  Got labelText: " + labelText + " and children: " + props.children);
   } else {
     let content = labelText ? labelText : props.children;
     let attributes = {
