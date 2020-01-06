@@ -80,3 +80,14 @@
 .form-item {
   @include form-item;
 }
+
+.dropdown {
+  display: flex;
+
+  &--top {
+    flex-flow: column;
+  }
+  &--left {
+    flex-flow: row;
+  }
+}

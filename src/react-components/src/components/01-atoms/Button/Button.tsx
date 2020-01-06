@@ -16,6 +16,7 @@ export interface ButtonProps {
 
   iconPosition?: string;
   iconName?: string;
+  iconModifiers?: string[];
   iconDecorative?: boolean;
   iconRole?: string;
 }
@@ -30,7 +31,8 @@ export default class Button extends React.Component<ButtonProps, {}> {
   }
 
   render(): JSX.Element {
-    const { id, callback, content, attributes, modifiers, blockName, type, mouseDown, iconPosition, iconName, iconDecorative, iconRole } = this.props;
+    const { id, callback, content, attributes, modifiers, blockName, type, mouseDown, 
+      iconPosition, iconName, iconModifiers, iconDecorative, iconRole } = this.props;
     if (type) {
       if (!(type === "outline" || type === "filled")) {
         throw new Error("Type can only be 'outline' or 'filled'");
@@ -54,6 +56,10 @@ export default class Button extends React.Component<ButtonProps, {}> {
       role: iconDecorative ? undefined : iconRole,
       title: iconDecorative
     };
+
+    if (iconModifiers) {
+      iconProps.modifiers.push(...iconModifiers);
+    }
 
     if (iconPosition) {
       buttonModifiers.push("icon");

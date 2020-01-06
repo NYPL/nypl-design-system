@@ -11,15 +11,8 @@ export default {
 };
 
 export const dropdown = () => <FormDropdown dropdownId="baaah"
+  isRequired={false}
   ariaLabel="search"
   options={["hello", "goodbye"]}
-  onSelectBlur={action("blur")}
-  onSelectChange={action("changed")} />;
-
-export const dropdownWithLabel = () => <FormDropdown
-  dropdownId="baaah"
-  options={["hello", "goodbye"]}
-  ariaLabel="search"
-  labelText="label"
   onSelectBlur={action("blur")}
   onSelectChange={action("changed")} />;

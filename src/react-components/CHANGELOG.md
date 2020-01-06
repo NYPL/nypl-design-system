@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
+## PRERELEASE
+### Added 
+- `Dropdown` which controls `FormDropdown` and its corresponding `Label`
+- `Label` 
+- `HelperErrorText` 
+- `Pagination`
+
+### Changed
+- added `iconModifiers` to `Button`
+- refactored `FormDropdown` to not include its own `label`
 
 ## [0.0.6] - 2019-12-31
 ### Added

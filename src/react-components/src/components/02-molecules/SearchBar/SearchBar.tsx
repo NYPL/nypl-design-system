@@ -69,7 +69,10 @@ export default function SearchBar(props: SearchBarProps) {
 
   return <form className={bem(searchbar__base_class, modifiers)} id={searchBarId} aria-label="Search for keyword, author, title, or subject">
     {dropdownOptions &&
-      <FormDropdown selectedOption={selectedField}
+      <FormDropdown
+        isRequired={false}
+        labelId={false}
+        selectedOption={selectedField}
         ariaLabel="Search by"
         dropdownId={dropdownId} options={dropdownOptions}
         onSelectBlur={selectBlurHandler}

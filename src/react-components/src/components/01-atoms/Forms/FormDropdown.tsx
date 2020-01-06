@@ -6,7 +6,9 @@ import Icon from "../Images/Icons/Icon";
 export interface FormDropdownProps {
   dropdownId: string;
   blockName?: string;
-  labelText?: string;
+  modifiers?: string[];
+  labelId?: string;
+  isRequired: boolean;
   ariaLabel?: string;
   disabled?: boolean;
   options: string[];
@@ -16,30 +18,39 @@ export interface FormDropdownProps {
 }
 
 export default function FormDropdown(props: FormDropdownProps) {
-  const { dropdownId, blockName, labelText, options, ariaLabel, disabled, selectedOption, onSelectBlur, onSelectChange } = props;
-  if (!labelText && !ariaLabel) {
-      // TODO: Assign aria-labeledBy to labelText
-      throw new Error("Either labelText or ariaLabel must be defined");
+  const { dropdownId, blockName, options, labelId, isRequired, ariaLabel, disabled, selectedOption, onSelectBlur, onSelectChange } = props;
+  const modifiers = props.modifiers ? props.modifiers : [];
+  if (!labelId && !ariaLabel) {
+    throw new Error("Must either have labelId or aria-label");
   }
 
   let formItemBlockName = blockName ? blockName : "form-item";
-  let labelClassName = bem("label", ["textField"], formItemBlockName);
+
+  let selectProps = {
+    id: dropdownId,
+    className: bem("select", modifiers, formItemBlockName),
+    value: selectedOption,
+    onChange: onSelectChange,
+    onBlur: onSelectBlur,
+    ariaRequired: isRequired,
+    disabled: disabled ? disabled : false
+  };
+
+  if (labelId) {
+    selectProps["ariaLabeledBy"] = labelId;
+  } else {
+    selectProps["ariaLabel"] = ariaLabel;
+  }
 
   return (
-    <div className={bem("dropdown", [], formItemBlockName)}>
-      {labelText && (<label htmlFor={dropdownId} className={labelClassName}>{labelText}</label>)}
+    <div className={bem("dropdown", modifiers, formItemBlockName)}>
 
-      <select id={dropdownId}
-        className={bem("select", [], formItemBlockName)}
-        value={selectedOption}
-        onChange={onSelectChange}
-        onBlur={onSelectBlur}
-        aria-label={ariaLabel}
-        disabled={disabled ? disabled : false}
-      >
-          { options.map((child, key) => {
-            return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
-          }) }
+      <select {...selectProps}>
+        {options.map((child, key) => {
+          return <option key={key.toString()}
+            aria-selected={child === selectedOption}
+            value={child}>{child}</option>;
+        })}
       </select>
 
       <Icon decorative={true} name={"arrow"} modifiers={["small"]} />
