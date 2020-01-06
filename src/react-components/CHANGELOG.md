@@ -13,6 +13,10 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 ### Changed
 - `Link` missing URL error message
 
+## [0.0.7] - 2020-01-03
+### Added
+- A webpack file in order to build and distribute a compiled version of the react components. Does not replace the /lib folder usage, but the main file is now pointing to `/dist/design-system-react-components.min.js`.
+
 ## [0.0.6] - 2019-12-31
 ### Added
 - `Image` for 2:1 ratio

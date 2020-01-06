@@ -6,3 +6,12 @@ install:
   - npm run install-all
 script: npm test
 
+before_deploy:
+  - npm run storybook:static
+deploy:
+  provider: pages
+  on:
+    branch: development
+  skip_cleanup: true
+  keep-history: true
+  github_token: $GITHUB_TOKEN
