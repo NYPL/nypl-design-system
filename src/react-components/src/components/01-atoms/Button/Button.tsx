@@ -3,7 +3,7 @@ import Icon from "../Images/Icons/Icon";
 import bem from "../../../utils/bem";
 
 export interface ButtonProps {
-  id?: string;
+  id: string;
   /** The action to perform on the <button>'s onClick function */
   callback: (event: React.MouseEvent) => void;
   content: string | JSX.Element;
@@ -31,7 +31,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
   }
 
   render(): JSX.Element {
-    const { id, callback, content, attributes, modifiers, blockName, type, mouseDown, 
+    const { id, callback, content, attributes, modifiers, blockName, type, mouseDown,
       iconPosition, iconName, iconModifiers, iconDecorative, iconRole } = this.props;
     if (type) {
       if (!(type === "outline" || type === "filled")) {
@@ -44,11 +44,14 @@ export default class Button extends React.Component<ButtonProps, {}> {
       buttonModifiers.push(type);
     }
 
-    let btnContent = [content];
+    let btnContent: any[] = [];
+    btnContent.push(typeof(content) === "string" ? content : React.cloneElement(content, {key: `${id}-button-content`}));
+
     let button_base_class = "button";
 
     let iconProps = {
       name: iconName,
+      key: `icon-${id}`,
       blockName: button_base_class,
       modifiers: ["small"],
       decorative: iconDecorative,
@@ -79,12 +82,11 @@ export default class Button extends React.Component<ButtonProps, {}> {
     }
 
     let btnProps = {
+      id: id,
       className: bem(button_base_class, buttonModifiers, blockName),
       type: "submit"
     };
-    if (id) {
-      btnProps[id] = id;
-    }
+
     let btnCallback = mouseDown ? { onMouseDown: callback } : { onClick: callback };
 
     return React.createElement(

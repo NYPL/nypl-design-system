@@ -43,6 +43,6 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
 
     let className = bem(iconLink__base_class, moreLinkModifiers, blockName);
 
-    return <Link url={url} className={className} attributes={attributes} children={children} icon={icon} />;
+    return <Link url={url} className={className} attributes={attributes} children={children} icon={iconPosition ? icon : undefined} />;
   }
 }

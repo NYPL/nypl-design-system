@@ -18,8 +18,8 @@ describe("FormDropdown", () => {
   });
 
   it("requires either label or aria-label", () => {
-    expect(() => Enzyme.mount(<FormDropdown labelId="label" isRequired={false} dropdownId="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />))
-      .to.throw("Either labelId or ariaLabel must be defined");
+    expect(() => Enzyme.mount(<FormDropdown isRequired={false} dropdownId="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />))
+      .to.throw("Must either have labelId or aria-label");
   });
 
   it("if both label and ariaLabel are defined, select has aria-labeledBy", () => {
@@ -34,7 +34,7 @@ describe("FormDropdown", () => {
     wrapper = Enzyme.shallow(<FormDropdown labelId="label" isRequired={false} dropdownId="hi" options={["opt1", "opt2", "opt3"]} onSelectChange={changeCallback} onSelectBlur={blurCallback} />);
     expect(wrapper.find("select")).to.have.lengthOf(1);
   });
-  
+
   it("Form Dropdown should render an icon", () => {
 
   });

@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 
 ### Changed
 - added `iconModifiers` to `Button`
+- `buttonId` in `Button` is now required
 - refactored `FormDropdown` to not include its own `label`
 
 ## [0.0.6] - 2019-12-31

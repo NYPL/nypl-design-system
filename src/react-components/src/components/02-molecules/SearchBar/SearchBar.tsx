@@ -71,7 +71,6 @@ export default function SearchBar(props: SearchBarProps) {
     {dropdownOptions &&
       <FormDropdown
         isRequired={false}
-        labelId={false}
         selectedOption={selectedField}
         ariaLabel="Search by"
         dropdownId={dropdownId} options={dropdownOptions}

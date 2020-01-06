@@ -1,5 +1,6 @@
 // Base Link Helper Class
 import * as React from "react";
+import { uid } from "react-uid";
 
 export interface LinkProps {
   className: string;
@@ -41,8 +42,12 @@ export default class Link extends React.Component<LinkProps, {}> {
       }
     });
 
+    elementChildren.map(child => {
+      return React.cloneElement(child, {key: uid(child)});
+    });
+
     if (icon) {
-        elementChildren.push(icon.element);
+        elementChildren.push(React.cloneElement(icon.element, {key: uid(icon)}));
     }
 
     return React.createElement(

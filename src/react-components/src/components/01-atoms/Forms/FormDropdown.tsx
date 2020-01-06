@@ -32,14 +32,14 @@ export default function FormDropdown(props: FormDropdownProps) {
     value: selectedOption,
     onChange: onSelectChange,
     onBlur: onSelectBlur,
-    ariaRequired: isRequired,
+    "aria-required": isRequired,
     disabled: disabled ? disabled : false
   };
 
   if (labelId) {
-    selectProps["ariaLabeledBy"] = labelId;
+    selectProps["aria-labelledBy"] = labelId;
   } else {
-    selectProps["ariaLabel"] = ariaLabel;
+    selectProps["aria-label"] = ariaLabel;
   }
 
   return (

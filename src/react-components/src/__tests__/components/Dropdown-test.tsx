@@ -39,7 +39,7 @@ describe("Dropdown", () => {
 
   it("renders HelperContent if passed", () => { });
 
-  it("throws error if HelperContent is passed without an id", () => { })
+  it("throws error if HelperContent is passed without an id", () => { });
   it("renders errorText if passed", () => { });
   it("throws error if passed error with no content", () => { });
 

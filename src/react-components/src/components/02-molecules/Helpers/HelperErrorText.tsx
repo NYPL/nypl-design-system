@@ -14,7 +14,7 @@ export interface HelperErrorTextProps {
 export default function HelperErrorText(props: React.PropsWithChildren<HelperErrorTextProps>) {
   const { id, isError, attributes } = props;
   let blockName = props.blockName ? props.blockName : "input-description";
-  let baseClass= props.baseClass ? props.baseClass : "form-item";
+  let baseClass = props.baseClass ? props.baseClass : "form-item";
   let modifiers = [];
   if (isError) {
     modifiers.push("error");
