@@ -34,7 +34,7 @@ export default class Link extends React.Component<LinkProps, {}> {
           return child.props.children;
       } else {
         if (!props.href) {
-          throw new Error("Link needs prop \"url\"");
+          throw new Error("IconLink needs prop \"url\"");
         } else {
           return child.props ? child.props.children : child;
         }

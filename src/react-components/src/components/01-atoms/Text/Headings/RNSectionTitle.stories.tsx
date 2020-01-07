@@ -8,4 +8,4 @@ export default {
   component: RNSectionTitle
 };
 
-export const researchNowSectionTitle = () => <RNSectionTitle titleId="hello-page-title" sectionUrl="hello" blockName="blockname" modifiers={["hi", "bye"]}/>;
+export const researchNowSectionTitle = () => <RNSectionTitle id="hello-page-title" url="hello"/>;

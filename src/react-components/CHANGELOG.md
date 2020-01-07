@@ -8,10 +8,13 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 ## PRERELEASE
 ### Added 
 - `Header With Search` 
-- `RN Section Title`
 
 ### Changed
 - `Link` missing URL error message
+- Consolidated `Header` and `PageTitle`
+- Added `ResearchNow Section Title` variant to `Header` stories
+- Added ResearchNow specific `SearchBar` error state 
+- Made `SearchBar` A11Y compliant
 
 ## [0.0.7] - 2020-01-03
 ### Added

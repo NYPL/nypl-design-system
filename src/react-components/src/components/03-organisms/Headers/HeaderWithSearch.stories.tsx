@@ -1,3 +1,4 @@
+/* OH-31 Header With Search */
 import * as React from "react";
 
 import HeaderWithSearch from "./HeaderWithSearch";
@@ -10,14 +11,36 @@ export default {
   component: HeaderWithSearch,
 };
 
-export const searchPromo = () => <HeaderWithSearch
-  titleId="titleId"
+export const researchNowSearchHeader = () => <HeaderWithSearch
   searchButtonId="searchButtonId"
+  searchBarAriaLabel="Search research catalog"
   advancedSearchLink="#advanced-fake-link"
   searchBarId="searchBarId"
   dropdownId="dropdownId"
-  headingText="ResearchNow"
-  searchDropdownOptions={["Keyword", "bye there"]}
+  textFieldAriaLabel="Research Now"
+  headingContent={<span>Research<span className={"rn-section-title__emphasis"}>Now</span></span>}
+  headingId="researchNow-page-title-id"
+  headingUrl="#research-now-url"
+  headingBaseClass="rn-section-title"
+  searchDropdownOptions={["Keyword", "Author", "Subject"]}
+  searchSubmitHandler={action("searched")}
+  selectChangeHandler={action("changed")}
+  selectBlurHandler={action("selectChanged")} />;
+
+  export const researchNowSearchPromoHeader = () => <HeaderWithSearch
+  searchButtonId="searchButtonId"
+  searchBarAriaLabel="Search research catalog"
+  advancedSearchLink="#advanced-fake-link"
+  searchBarId="searchBarId"
+  dropdownId="dropdownId"
+  textFieldAriaLabel="Research Now"
+  headingContent={<span>Research<span className={"rn-section-title__emphasis"}>Now</span></span>}
+  headingId="researchNow-page-title-id"
+  headingUrl="#research-now-url"
+  headingBaseClass="rn-section-title"
+  searchDropdownOptions={["Keyword", "Author", "Subject"]}
+  hasError={true}
+  errorMessage="Please enter a search term"
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
   selectBlurHandler={action("selectChanged")} />;

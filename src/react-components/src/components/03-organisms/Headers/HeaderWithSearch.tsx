@@ -5,17 +5,22 @@ import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 import bem from "../../../utils/bem";
 import BodyText from "../../01-atoms/Text/Text/BodyText";
 import SectionTitle from "../../02-molecules/Headings/SectionTitle";
+import Heading from "../../01-atoms/Text/Headings/Heading";
 import RNSectionTitle from "../../01-atoms/Text/Headings/RNSectionTitle";
 
 
 export interface WithSearchProps {
   modifiers?: [];
   blockName?: string;
-  titleId: string;
   searchBarId: string;
   searchButtonId: string;
+  searchBarAriaLabel: string;
   dropdownId: string;
-  headingText: string;
+  headingContent: JSX.Element;
+  headingId: string;
+  headingBaseClass?: string;
+  headingUrl?: string;
+  textFieldAriaLabel: string;
   hasError?: boolean;
   errorMessage?: string;
   searchDropdownOptions: string[];
@@ -28,22 +33,30 @@ export interface WithSearchProps {
 
 export default function HeaderWithSearch(props: React.PropsWithChildren<WithSearchProps>) {
 
-  const { blockName, titleId, searchBarId, searchButtonId, hasError, errorMessage,
-    dropdownId, headingText, searchDropdownOptions, advancedSearchLink,
+  const { blockName, searchBarId, searchBarAriaLabel,
+    searchButtonId, hasError, errorMessage,
+    dropdownId, searchDropdownOptions,
+    headingContent, headingId, headingUrl, headingBaseClass,
+    textFieldAriaLabel, advancedSearchLink,
     selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
-    const base_class = "search-header";
+  const base_class = "search-header";
 
   return (
     <div className={bem(base_class)}>
-      <div className={bem('content', [], base_class)}>
-        <RNSectionTitle titleId={titleId} sectionUrl="#sectionUrl" blockName={base_class} />
+      <div className={bem("content", [], base_class)}>
+        <RNSectionTitle
+          id={headingId}
+          url={headingUrl}/>
         <SearchBar
           searchBarId={searchBarId}
+          searchBarAriaLabel={searchBarAriaLabel}
           blockName={base_class}
           buttonId={searchButtonId}
           dropdownId={dropdownId}
-          textFieldAriaLabel="blah"
+          dropdownAriaLabel="Filter Search"
+          textFieldAriaLabel={textFieldAriaLabel}
           dropdownOptions={searchDropdownOptions}
+          helperVariant="ResearchNow"
           hasError={hasError}
           errorMessage={errorMessage}
           selectBlurHandler={selectBlurHandler}
@@ -51,7 +64,7 @@ export default function HeaderWithSearch(props: React.PropsWithChildren<WithSear
           searchSubmitHandler={searchSubmitHandler}
           searchChangeHandler={textChangeHandler} />
         <div className={bem("promo-text", [], base_class)}>
-          <UnderlineLink url={advancedSearchLink} modifiers={['dark-background']}>Advanced Search</UnderlineLink>
+          <UnderlineLink url={advancedSearchLink} modifiers={["dark-background"]}>Advanced Search</UnderlineLink>
         </div>
       </div>
     </div>

@@ -8,9 +8,12 @@ import { Button } from "../../..";
 
 export interface SearchBarProps {
   searchBarId: string;
-  blockName: string;
+  blockName?: string;
+  searchBarAriaLabel?: string;
+  searchBarAriaLabelledBy?: string;
   buttonId: string;
   dropdownId?: string;
+  dropdownAriaLabel?: string;
   dropdownOptions?: string[];
   selectedField?: string;
   searchValue?: string;
@@ -19,6 +22,7 @@ export interface SearchBarProps {
   placeholderText?: string;
   textFieldAriaLabel?: string;
   textFieldAttributes?: {};
+  helperVariant?: "ResearchNow";
   hasError?: boolean;
   errorMessage?: string;
   selectBlurHandler?: (event: React.MouseEvent) => void;
@@ -29,14 +33,27 @@ export interface SearchBarProps {
 
 export default function SearchBar(props: SearchBarProps) {
 
-  const { searchBarId, buttonId, dropdownId, dropdownOptions, selectedField, searchValue, placeholderText, textFieldAriaLabel,
-    hasError, errorMessage, selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler, blockName } = props;
+  const { blockName,
+    searchBarId, buttonId,
+    searchBarAriaLabel, searchBarAriaLabelledBy,
+    dropdownId, dropdownOptions, dropdownAriaLabel,
+    selectedField, searchValue,
+    placeholderText,
+    textFieldAriaLabel,
+    helperVariant,
+    hasError, errorMessage,
+    selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
 
   if (dropdownOptions) {
-    if (!(dropdownId && selectBlurHandler && selectChangeHandler)) {
+    if (!(dropdownId && dropdownAriaLabel && selectBlurHandler && selectChangeHandler)) {
       throw new Error("If dropdownOptions are passed, dropdownId, selectChangeHandler, and selectBlurHandler must also be passed");
     }
   }
+
+  if (!searchBarAriaLabel && !searchBarAriaLabelledBy) {
+    throw new Error("Either searchBarAriaLabel and searchBarAriaLabelledBy must be passed");
+  }
+
   let modifiers = [];
   if (hasError) {
     if (!errorMessage) {
@@ -47,12 +64,13 @@ export default function SearchBar(props: SearchBarProps) {
 
   let searchbar__base_class = "search-bar";
 
+  /* TODO: after SFR-637 is merged, Replace Error with MT-51 and add its id to TextField's aria-labelledBy*/
   let textfieldProps = {
-    ariaLabel: textFieldAriaLabel,
+    ariaLabelledBy: buttonId,
     onChange: searchChangeHandler,
     isRequired: true,
     blockName: searchbar__base_class,
-    placeholderText: placeholderText,
+    placeholderText: hasError && helperVariant ? errorMessage : placeholderText,
     value: searchValue,
     modifiers: modifiers,
   };
@@ -68,7 +86,11 @@ export default function SearchBar(props: SearchBarProps) {
     iconDecorative: true,
   };
 
-  return <form className={bem(searchbar__base_class, modifiers, blockName) + ' ' + bem(searchbar__base_class, modifiers)} id={searchBarId} aria-label="Search for keyword, author, title, or subject">
+  return <form className={`${bem(searchbar__base_class, modifiers, blockName)} ${bem(searchbar__base_class, modifiers)}`}
+    id={searchBarId}
+    role="search"
+    aria-label={searchBarAriaLabel}
+    aria-labelledby={searchBarAriaLabelledBy}>
     {dropdownOptions &&
       <FormDropdown selectedOption={selectedField}
         ariaLabel="Search by"
@@ -81,7 +103,8 @@ export default function SearchBar(props: SearchBarProps) {
     <div className={bem("input-group", [], searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
       <Button {...buttonProps} />
-      {hasError && <span className={bem("input-description", modifiers, searchbar__base_class)}>{errorMessage}</span>}
+      {/* TODO: after SFR-637 is merged, Replace Error with MT-51 and add its id to TextField's aria-labelledBy*/}
+      {hasError && !helperVariant && <span className={bem("input-description", modifiers, searchbar__base_class)}>{errorMessage}</span>}
     </div>
   </form>;
 }

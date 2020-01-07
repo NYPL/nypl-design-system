@@ -1,9 +1,9 @@
 // OH-30 Header with Image Right
 import * as React from "react";
 import bem from "../../../utils/bem";
-import PageTitle from "../../01-atoms/Text/Headings/PageTitle";
 import Image from "../../01-atoms/Images/Image/Image";
 import BodyText from "../../01-atoms/Text/Text/BodyText";
+import Heading from "../../01-atoms/Text/Headings/Heading";
 
 export interface HeaderImgRightProps {
   headerId: string;
@@ -28,7 +28,10 @@ export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgR
       <div className={bem(baseClass)}>
         <div className={bem("content", [], baseClass)}>
           <div className={bem("heading", [], baseClass)}>
-            <PageTitle headerId={headerId} text={pageTitleText}/>
+            <Heading level={1} id={headerId}
+              blockName="page-title"
+              text={pageTitleText}>
+            </Heading>
           </div>
           <div className={bem("text", [], baseClass)}>
             <BodyText bodyContent={bodyText}></BodyText>
