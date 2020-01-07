@@ -6,7 +6,7 @@
 @mixin heading-xl($color: $black) {
   color: #{$color};
   font-size: 2.25rem;
-  font-weight: normal;
+  font-weight: lighter;
   margin: 0 0 0.5em;
   width: auto;
 

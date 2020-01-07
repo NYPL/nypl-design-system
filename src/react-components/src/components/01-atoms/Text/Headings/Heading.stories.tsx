@@ -20,7 +20,15 @@ export const allHeadings = () => [
 export const headingsWithBold = () => <Heading id="heading1" level={1}><b>Head</b>ing 1</Heading>;
 export const headingsWithLink = () => <Heading id="heading1" level={1}><a href="hello">Head</a>ing</Heading>;
 
-export const pageTitleAT79 = () => <Heading level={1} id="hello-page-title"
+export const pageTitleAT79 = () => <Heading level={1}
+  id="hello-page-title"
+  blockName="page-title"
+  modifiers={["block-color"]}
+  text="hello">
+</Heading>;
+
+export const pageTitleAT3 = () => <Heading level={1}
+  id="hello-page-title"
   blockName="page-title"
   text="hello">
 </Heading>;

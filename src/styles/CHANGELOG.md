@@ -11,6 +11,9 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ### Added
 - Styles for `header-with-search`
 
+### Changed 
+- `heading-xl` mixin `font weight: normal` -> `lighter`
+
 ## [0.0.7] - 2020-01-03
 ### Changes
 - Changes the `$nypl-turquoise` variables to match what is in `IA + Templates` in Figma

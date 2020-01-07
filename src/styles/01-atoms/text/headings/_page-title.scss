@@ -1,6 +1,8 @@
 .page-title {
   &__heading {
-    background-color: $nypl-turquoise-regular;
-    color: $white;
+    &--block-color {
+      background-color: $nypl-turquoise-regular;
+      color: $white;
+    }
   }
 }
