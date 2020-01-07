@@ -24,10 +24,3 @@ export const pageTitleAT79 = () => <Heading level={1} id="hello-page-title"
   blockName="page-title"
   text="hello">
 </Heading>;
-
-export const researchNowSectionTitle = () => <Heading level={1}
-  id="researchNow-page-title-id"
-  baseClass="rn-section-title"
-  url="rn-homepage-url"
-  urlClass="rn-section-title"> Research<span className={"rn-section-title__emphasis"}>Now
-</span></Heading>;
