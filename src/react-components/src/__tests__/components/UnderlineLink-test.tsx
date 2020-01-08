@@ -24,14 +24,14 @@ describe("Link With Underline", () => {
   });
   it("throws an error if text is passed but no url is passed", () => {
     expect(() => Enzyme.mount(<UnderlineLink>Test</UnderlineLink>))
-      .to.throw("IconLink needs prop \"url\"");
+      .to.throw("if children Test has no anchor tag, please pass URL");
   });
   it("Throws error when non-link component passed without URL", () => {
     expect(() => Enzyme.mount(<UnderlineLink><span>Test</span></UnderlineLink>))
-    .to.throw("IconLink needs prop \"url\"");
+    .to.throw("if children [object Object] has no anchor tag, please pass URL");
   });
   it("throws an error when more than one components are passed", () => {
     expect(() => Enzyme.mount(<UnderlineLink><span>Test</span><span>Test2</span></UnderlineLink>))
-    .to.throw("Please pass only one child into Link");
+    .to.throw("Please only pass one child, got [object Object],[object Object]");
   });
 });

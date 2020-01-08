@@ -1,7 +1,7 @@
 // MT-173 Text Link
 import * as React from "react";
 import bem from "../../../utils/bem";
-import Link from "./Link";
+import LinkHelper from "./LinkHelper";
 
 export interface UnderlineLinkProps {
   url?: string;
@@ -21,6 +21,6 @@ export default class UnderlineLink extends React.Component<UnderlineLinkProps, {
     let className = bem(link__base_class, modifiers, blockName);
     let children = this.props.children;
 
-    return <Link url={url} className={className} attributes={attributes} children={children} />;
+    return <LinkHelper url={url} className={className} attributes={attributes} >{children}</LinkHelper>;
   }
 }
