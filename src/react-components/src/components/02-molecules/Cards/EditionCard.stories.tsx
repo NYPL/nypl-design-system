@@ -11,7 +11,7 @@ export default {
 export const searchResultsWithFullData = () => <EditionCard
   id="card#1"
   blockName=""
-  coverUrl="https://placeimg.com/57/81/arch"
+  coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingText="2004 Edition"
   editionInfo={["Publish Place: New York", "Language: English", "License: Creative Commons"]}
   readOnlineLink="#readOnlineUrl"
@@ -21,7 +21,7 @@ export const searchResultsWithFullData = () => <EditionCard
 export const searchResultsWithOneLinks = () => <EditionCard
   id="card#1"
   blockName=""
-  coverUrl="https://placeimg.com/57/81/arch"
+  coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingText="2004 Edition"
   editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
   readOnlineLink="#readOnlineUrl">
@@ -30,7 +30,7 @@ export const searchResultsWithOneLinks = () => <EditionCard
 export const searchResultsMissingLinks = () => <EditionCard
   id="card#1"
   blockName=""
-  coverUrl="https://placeimg.com/57/81/arch"
+  coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingText="2004 Edition"
   editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
   >
@@ -39,7 +39,7 @@ export const searchResultsMissingLinks = () => <EditionCard
 export const searchResultsWithSomeEditionInfo = () => <EditionCard
   id="card#1"
   blockName=""
-  coverUrl="https://placeimg.com/57/81/arch"
+  coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingText="2004 Edition"
   editionInfo={["Published in New York", "Under Creative Commons License"]}
   readOnlineLink="#readOnlineUrl"
@@ -49,9 +49,19 @@ export const searchResultsWithSomeEditionInfo = () => <EditionCard
 export const searchResultsWithEmptyEditionInfo = () => <EditionCard
   id="card#1"
   blockName=""
-  coverUrl="https://placeimg.com/57/81/arch"
+  coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingText="2004 Edition"
   editionInfo={[]}
+  readOnlineLink="#readOnlineUrl"
+  downloadLink="#downloadUrl">
+</EditionCard>;
+
+export const searchResultsWithAtypicalImageSize = () => <EditionCard
+  id="card#1"
+  blockName=""
+  coverUrl="https://placeimg.com/450/100/arch"
+  editionHeadingText="2004 Edition"
+  editionInfo={["Publish Place: New York", "Language: English", "License: Creative Commons"]}
   readOnlineLink="#readOnlineUrl"
   downloadLink="#downloadUrl">
 </EditionCard>;
