@@ -21,7 +21,7 @@ export default class LinkHelper extends React.Component<LinkHelperProps, {}> {
       ...attributes
     };
 
-    if (React.Children.count(this.props.children) >= 1) {
+    if (React.Children.count(this.props.children) > 1) {
       // There should only be one child
       // but React.Children.only() can't cast to React.ReactElement for typechecking
       // Therefore, React.Children.map() must be used.
@@ -30,7 +30,6 @@ export default class LinkHelper extends React.Component<LinkHelperProps, {}> {
     }
 
     let link = React.Children.map(this.props.children, (child: React.ReactElement, index) => {
-      console.log("children", this.props.children);
       if (child.type !== "a") {
         if (!url) {
           throw new Error(`if children ${this.props.children} has no anchor tag, please pass URL`);

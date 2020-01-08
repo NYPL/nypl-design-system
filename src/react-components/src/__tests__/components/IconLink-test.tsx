@@ -6,7 +6,7 @@ import * as Mocha from "mocha";
 
 import IconLink from "../../components/01-atoms/Links/IconLink";
 
-describe("Link With Underline", () => {
+describe("Link With Icon", () => {
   let wrapper: Enzyme.ReactWrapper<{}, {}>;
 
   it("Can pass in left icon", () => {
