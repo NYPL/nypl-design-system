@@ -16,10 +16,10 @@ export const searchResultItem = () => <SearchResultItem
   totalEditions={7}
       modifiers={[]}
       blockName={""}
-      headingText="Title of Book"
-      subtitleText="Subtitle of book"
+      headingText="Investigation of un-American propaganda activities in the United States. Hear..."
+      subtitleText="Subtitle need max character count Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       authorUrl="#authorUrl"
-      authorName="Firstname Lastname"
+      authorName="First Last"
       editionInfo={{
         editionYearHeading: "2004 Edition",
         publisherAndLocation: "Published in New York by Random House",
