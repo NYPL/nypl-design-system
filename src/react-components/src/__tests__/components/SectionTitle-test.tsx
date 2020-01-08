@@ -20,6 +20,6 @@ describe("Section Title", () => {
 
   it("SectionTitle throws error when text is too long", () => {
     expect(() => Enzyme.mount(<SectionTitle id={"test-section-title"} headingText={"Cupcake ipsum dolor sit amet. Lemon drops pie jelly beans topping jelly-o caramels cake tiramisu powder."}/>))
-    .to.throw("Section Title Text must be fewer than 80 characters");
+    .to.throw("Section Title (h2) Text must be fewer than 80 characters");
   });
 });
