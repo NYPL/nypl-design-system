@@ -1,0 +1,84 @@
+.edition-card {
+  @include space-inset-s;
+
+  border: 1px solid $gray-light;
+  border-radius: 2px;
+
+  &__card-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    @include breakpoint($medium) {
+      flex-flow: row nowrap;
+    }
+  }
+
+  &__card-image {
+    @include space-stack-s;
+
+    flex: 0 0 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint($medium) {
+      @include space-stack-none;
+      @include space-inline-s;
+
+      justify-content: flex-start;
+    }
+  }
+
+  &__edition-info {
+    @include space-stack-s;
+  }
+
+  &__edition-info-item {
+    display: block;
+  }
+
+  &__card-ctas {
+    display: flex;
+    flex-flow: row nowrap;
+
+    @include breakpoint($medium) {
+      @include space-inline-s;
+
+      align-self: flex-start;
+      flex-flow: column nowrap;
+      flex: 0 0 20%;
+      margin-left: auto;
+    }
+  }
+
+  &__card-info-link {
+    @include button--filled;
+
+    flex: 1 1 100%;
+
+    &:not(:last-child) {
+      @include space-inline-s;
+    }
+
+    @include breakpoint($medium) {
+      flex: 1 1 100%;
+
+      &:not(:last-child) {
+        @include space-inline-none;
+        @include space-stack-s;
+      }
+    }
+  }
+
+  &__missing-links {
+    @include space-inset-s;
+
+    background-color: $gray-light;
+
+    @include breakpoint($medium) {
+      align-self: flex-start;
+      margin-left: auto;
+    }
+  }
+}
