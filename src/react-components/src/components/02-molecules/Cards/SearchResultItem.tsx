@@ -51,16 +51,16 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
     const baseClass = "search-result-item";
 
     if (headingText.length > 80) {
-      throw new Error("Section Title Text must be fewer than 80 characters");
+      throw new Error("Section Title (h2) Text must be fewer than 80 characters");
     } else if (headingText.length > 60) {
-      console.warn("Section Title Text should be fewer than 60 characters");
+      console.warn("Section Title (h2) Text should be fewer than 60 characters");
     }
 
     return (
       <div className={bem(baseClass, modifiers, blockName)}>
         <Heading id={id} level={2} text={headingText} blockName={blockName ? blockName : baseClass} />
-        <div className={bem('subtitle', [], baseClass)}>{subtitleText}</div>
-        <div className={bem('author', [], baseClass)}>
+        <div className={bem("subtitle", [], baseClass)}>{subtitleText}</div>
+        <div className={bem("author", [], baseClass)}>
           By <UnderlineLink url={authorUrl}>{authorName}</UnderlineLink>
         </div>
         <EditionCard
@@ -71,7 +71,7 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
           readOnlineLink={editionInfo.readOnlineLink}
           downloadLink={editionInfo.downloadLink}
         ></EditionCard>
-        <div className={bem('all-editions', [], baseClass)}>
+        <div className={bem("all-editions", [], baseClass)}>
           <UnderlineLink url={allEditionsUrl}>{`View All ${totalEditions} editions`}</UnderlineLink>
         </div>
       </div>

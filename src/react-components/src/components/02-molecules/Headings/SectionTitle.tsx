@@ -30,9 +30,9 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
     const baseClass = "heading-section";
 
     if (headingText.length > 80) {
-      throw new Error("Section Title Text must be fewer than 80 characters");
+      throw new Error("Section Title (h2) Text must be fewer than 80 characters");
     } else if (headingText.length > 60) {
-      console.warn("Section Title Text should be fewer than 60 characters");
+      console.warn("Section Title (h2) Text should be fewer than 60 characters");
     }
 
     let link: JSX.Element | undefined;
