@@ -1,8 +1,7 @@
 .edition-card {
-  @include space-inset-s;
-
   border: 1px solid $gray-light;
-  border-radius: 2px;
+  border-radius: 5px;
+  padding: $space-xs $space $space $space;
 
   &__card-content {
     display: flex;
