@@ -59,8 +59,10 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
     return (
       <div className={bem(baseClass, modifiers, blockName)}>
         <Heading id={id} level={2} text={headingText} blockName={blockName ? blockName : baseClass} />
-        <span>By <UnderlineLink url={authorUrl}>{authorName}</UnderlineLink></span>
-        <span>{subtitleText}</span>
+        <div className={bem('subtitle', [], baseClass)}>{subtitleText}</div>
+        <div className={bem('author', [], baseClass)}>
+          By <UnderlineLink url={authorUrl}>{authorName}</UnderlineLink>
+        </div>
         <EditionCard
           id={`card-${resultIndex}`}
           coverUrl={editionInfo.coverUrl}
@@ -69,7 +71,9 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
           readOnlineLink={editionInfo.readOnlineLink}
           downloadLink={editionInfo.downloadLink}
         ></EditionCard>
-        <UnderlineLink url={allEditionsUrl}>{`View All ${totalEditions} editions`}</UnderlineLink>
+        <div className={bem('all-editions', [], baseClass)}>
+          <UnderlineLink url={allEditionsUrl}>{`View All ${totalEditions} editions`}</UnderlineLink>
+        </div>
       </div>
     );
   }
