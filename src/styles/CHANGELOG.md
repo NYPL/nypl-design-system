@@ -10,6 +10,9 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ### Added
 - Styles for `edition-card`
 
+### Changed
+- Updated `_text.scss` to accomodate the change from Kievit > `system-font-ui`
+
 ## [0.0.6] - 2019-12-06
 ### Added
 - Styles for `page-title`
