@@ -1,3 +1,4 @@
+
 // Base Link Helper Class
 import * as React from "react";
 
@@ -21,39 +22,42 @@ export default class LinkHelper extends React.Component<LinkHelperProps, {}> {
       ...attributes
     };
 
-    if (React.Children.count(this.props.children) > 1) {
-      // There should only be one child
-      // but React.Children.only() can't cast to React.ReactElement for typechecking
-      // Therefore, React.Children.map() must be used.
+    let linkElement: React.ReactElement;
+    // If the value is a string, then it's only one element but wrap it in a fragment.
+    if (typeof this.props.children === "string") {
+      if (!url) {
+        throw new Error(`if children ${this.props.children} has no anchor tag, please pass prop: url`);
+      }
+      props["href"] = url;
+      let linkChildren = [<>{this.props.children}</>];
+      if (icon) {
+        linkChildren.push(icon.element);
+      }
+      linkElement = React.createElement("a", props, linkChildren);
 
-      throw new Error(`Please only pass one child, got ${this.props.children}`);
+    } else {
+      let passedInChild = this.props.children as React.ReactElement;
+
+      // otherwise it is a react element but could have multiple children. If that's
+      // the case, you can check that it's only one element.
+      try {
+        React.Children.only(passedInChild as React.ReactElement);
+      } catch (e) {
+        const children = React.Children.map(this.props.children, child =>
+          (child as JSX.Element).type);
+        // Catching the error because React's error isn't as helpful.
+        throw new Error(`Please only pass one child, got ${children.join(", ")}`);
+      }
+
+      let linkChildren = [passedInChild.props.children];
+      if (icon) {
+        linkChildren.push(icon.element);
+      }
+
+      // TODO Check that there is a href attribute and that this is indeed a link.
+      linkElement = React.cloneElement(passedInChild, props, linkChildren);
     }
 
-    let link = React.Children.map(this.props.children, (child: React.ReactElement, index) => {
-      // @ts-ignore
-      // https://github.com/microsoft/TypeScript/issues/14729
-      if (child.type !== "a" && child.type.displayName !== "Link") {
-        if (!url) {
-          throw new Error(`if children ${this.props.children} has no anchor tag, please pass URL`);
-        }
-        let childContent: React.ReactNode = icon ? [child, icon.element] : child;
-
-        // wrap children in <a> tag if none exists
-        return React.createElement(
-          "a",
-          { "href": url, ...props },
-          childContent
-        );
-      } else {
-        // If anchor element exists, append the correct className, etc. to the <a> tag
-        if (icon) {
-          return React.createElement("a", { ...props }, [child.props.children, icon.element]);
-        } else {
-          return React.cloneElement(child, props);
-        }
-      }
-    });
-
-    return link[0];
+    return linkElement;
   }
 }
