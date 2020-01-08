@@ -8,3 +8,4 @@ export default {
 };
 
 export const passedInLink = () => <UnderlineLink><a href="#passed-in-link">hello there</a></UnderlineLink>;
+export const generatedLink = () => <UnderlineLink url="#passed-in-link">hello</UnderlineLink>;

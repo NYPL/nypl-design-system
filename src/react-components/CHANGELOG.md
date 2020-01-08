@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
+## PRERELEASE 
+### Changed
+- `Link` -> `LinkHelper` for clarity
+- Bugfixes in `UnderlineLink` and `IconLink`
+
+## [0.0.7] - 2020-01-03
+### Added
+- A webpack file in order to build and distribute a compiled version of the react components. Does not replace the /lib folder usage, but the main file is now pointing to `/dist/design-system-react-components.min.js`.
 
 ## [0.0.6] - 2019-12-31
 ### Added
