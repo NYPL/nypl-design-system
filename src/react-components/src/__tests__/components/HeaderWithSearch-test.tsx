@@ -22,7 +22,7 @@ describe("HeaderWithSearch", () => {
     let wrapper = Enzyme.shallow(<HeaderWithSearch
       searchButtonId="searchButtonId"
       searchBarAriaLabel="Search research catalog"
-      advancedSearchLink="#advanced-fake-link"
+      advancedSearchElem={<span>hello</span>}
       searchBarId="searchBarId"
       dropdownId="dropdownId"
       textFieldAriaLabel="Research Now"
@@ -36,6 +36,5 @@ describe("HeaderWithSearch", () => {
       selectBlurHandler={blurCallback} />);
     expect(wrapper.find("RNSectionTitle")).to.have.lengthOf(1);
     expect(wrapper.find("SearchBar")).to.have.lengthOf(1);
-    expect(wrapper.find("UnderlineLink")).to.have.lengthOf(1);
   });
 });
