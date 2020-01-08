@@ -30,7 +30,9 @@ export default class LinkHelper extends React.Component<LinkHelperProps, {}> {
     }
 
     let link = React.Children.map(this.props.children, (child: React.ReactElement, index) => {
-      if (child.type !== "a") {
+      // @ts-ignore
+      // https://github.com/microsoft/TypeScript/issues/14729
+      if (child.type !== "a" && child.type.displayName !== "Link") {
         if (!url) {
           throw new Error(`if children ${this.props.children} has no anchor tag, please pass URL`);
         }
