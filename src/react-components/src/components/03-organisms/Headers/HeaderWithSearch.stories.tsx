@@ -4,6 +4,7 @@ import * as React from "react";
 import HeaderWithSearch from "./HeaderWithSearch";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, text } from "@storybook/addon-knobs";
+import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 
 
 export default {
@@ -14,7 +15,7 @@ export default {
 export const researchNowSearchHeader = () => <HeaderWithSearch
   searchButtonId="searchButtonId"
   searchBarAriaLabel="Search research catalog"
-  advancedSearchLink="#advanced-fake-link"
+  advancedSearchElem={<UnderlineLink url={"advanced-search-link"}>Advanced Search</UnderlineLink>}
   searchBarId="searchBarId"
   dropdownId="dropdownId"
   textFieldAriaLabel="Research Now"
@@ -30,7 +31,7 @@ export const researchNowSearchHeader = () => <HeaderWithSearch
   export const researchNowSearchPromoHeader = () => <HeaderWithSearch
   searchButtonId="searchButtonId"
   searchBarAriaLabel="Search research catalog"
-  advancedSearchLink="#advanced-fake-link"
+  advancedSearchElem={<UnderlineLink url={"advanced-search-link"}>Advanced Search</UnderlineLink>}
   searchBarId="searchBarId"
   dropdownId="dropdownId"
   textFieldAriaLabel="Research Now"

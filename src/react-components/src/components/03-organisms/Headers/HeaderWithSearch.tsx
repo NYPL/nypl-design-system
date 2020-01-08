@@ -22,9 +22,11 @@ export interface WithSearchProps {
   headingUrl?: string;
   textFieldAriaLabel: string;
   hasError?: boolean;
+  // To make into jsx.element (eg: if error has link)
+  // must first handle the placehodlerText=errorMessage in ResearchNow's Search Header
   errorMessage?: string;
   searchDropdownOptions: string[];
-  advancedSearchLink: string;
+  advancedSearchElem: JSX.Element;
   selectChangeHandler: (event: React.FormEvent) => void;
   selectBlurHandler: (event: React.FormEvent) => void;
   searchSubmitHandler: (event: React.MouseEvent) => void;
@@ -37,16 +39,19 @@ export default function HeaderWithSearch(props: React.PropsWithChildren<WithSear
     searchButtonId, hasError, errorMessage,
     dropdownId, searchDropdownOptions,
     headingContent, headingId, headingUrl, headingBaseClass,
-    textFieldAriaLabel, advancedSearchLink,
+    textFieldAriaLabel, advancedSearchElem,
     selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
   const base_class = "search-header";
+
+  React.cloneElement(advancedSearchElem, {modifiers: ["dark-background"]});
 
   return (
     <div className={bem(base_class)}>
       <div className={bem("content", [], base_class)}>
         <RNSectionTitle
+          blockName={base_class}
           id={headingId}
-          url={headingUrl}/>
+          url={headingUrl} />
         <SearchBar
           searchBarId={searchBarId}
           searchBarAriaLabel={searchBarAriaLabel}
@@ -64,7 +69,7 @@ export default function HeaderWithSearch(props: React.PropsWithChildren<WithSear
           searchSubmitHandler={searchSubmitHandler}
           searchChangeHandler={textChangeHandler} />
         <div className={bem("promo-text", [], base_class)}>
-          <UnderlineLink url={advancedSearchLink} modifiers={["dark-background"]}>Advanced Search</UnderlineLink>
+          {advancedSearchElem}
         </div>
       </div>
     </div>

@@ -30,6 +30,7 @@ export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgR
           <div className={bem("heading", [], baseClass)}>
             <Heading level={1} id={headerId}
               blockName="page-title"
+              modifiers={["block-color"]}
               text={pageTitleText}>
             </Heading>
           </div>

@@ -14,7 +14,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - Consolidated `Header` and `PageTitle`
 - Added ResearchNow specific `SearchBar` error state 
 - A11Y changes for `SearchBar` and `HeaderWithSearch`
-- Added stories for AT-79 and AT-3
+- Added stories for AT-79, AT-264 and AT-3
 
 ## [0.0.7] - 2020-01-03
 ### Added

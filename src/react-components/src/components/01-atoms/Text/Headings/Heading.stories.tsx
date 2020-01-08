@@ -32,3 +32,7 @@ export const pageTitleAT3 = () => <Heading level={1}
   blockName="page-title"
   text="hello">
 </Heading>;
+
+export const heading2AT264 = () => <Heading level={2}
+  id="hello-h2-heading"
+  text="Viewing 1 out of 10"></Heading>;
