@@ -6,7 +6,7 @@ import Button from "../../../01-atoms/Button/Button";
 import Dropdown from "../../../02-molecules/Dropdown/Dropdown";
 
 export interface PaginationProps {
-  totalPages: number;
+  paginationDropdownOptions: string[];
   previousPageHandler: (event: React.MouseEvent) => void;
   nextPageHandler: (event: React.MouseEvent) => void;
   onSelectChange: (event: React.MouseEvent) => void;
@@ -14,7 +14,7 @@ export interface PaginationProps {
 }
 
 export default function Pagination(props: PaginationProps) {
-  const { totalPages,
+  const { paginationDropdownOptions,
     previousPageHandler, nextPageHandler,
     onSelectChange, onSelectBlur } = props;
 
@@ -47,7 +47,7 @@ export default function Pagination(props: PaginationProps) {
     labelPosition: "left",
     labelId: "pagination-select-label",
     labelText: "Page",
-    dropdownOptions: [...Array(totalPages).keys()].map(i =>  (i + 1).toString() + " of " + totalPages.toString()),
+    dropdownOptions: paginationDropdownOptions,
     onSelectChange: onSelectChange,
     onSelectBlur: onSelectBlur
   };

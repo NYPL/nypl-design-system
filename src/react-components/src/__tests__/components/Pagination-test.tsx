@@ -24,7 +24,7 @@ describe("Pagination Test", () => {
 
   it("Renders two buttons and a Select", () => {
     wrapper = Enzyme.shallow(<Pagination
-      totalPages={10}
+      paginationDropdownOptions={["1 of 4", "2 of 4", "3 of 4", "4 of 4"]}
       previousPageHandler={previousCallback}
       nextPageHandler={nextCallback}
       onSelectChange={changeCallback}
@@ -36,7 +36,7 @@ describe("Pagination Test", () => {
 
   it("Renders two buttons and a Select when there are zero pages", () => {
     wrapper = Enzyme.shallow(<Pagination
-      totalPages={0}
+      paginationDropdownOptions={["1 of 4", "2 of 4", "3 of 4", "4 of 4"]}
       previousPageHandler={previousCallback}
       nextPageHandler={nextCallback}
       onSelectChange={changeCallback}
