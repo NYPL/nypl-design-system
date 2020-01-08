@@ -31,14 +31,12 @@ export default class EditionCard extends React.Component<EditionCardProps, {}> {
       return <div className={(bem("missing-links", [], baseClass))}>Unavailable to read online</div>;
     }
 
-    return <div>
+    return <div className={bem("card-ctas", [], baseClass)}>
       {readOnlineLink &&
-      <div className={bem("edition-info-link", [], baseClass)}>
-        <Link className={bem("button", [], baseClass)} url={readOnlineLink}>Read Online</Link>
-        </div>
+        <Link className={bem("card-info-link", [], baseClass)} url={readOnlineLink}>Read Online</Link>
       }
       {downloadLink &&
-        <div className={bem("edition-info-link", [], baseClass)}><Link className={bem("button", [], baseClass)} url={downloadLink}>Download</Link></div>
+        <Link className={bem("card-info-link", [], baseClass)} url={downloadLink}>Download</Link>
       }
     </div>;
   }
@@ -53,7 +51,7 @@ export default class EditionCard extends React.Component<EditionCardProps, {}> {
       <div className={bem(baseClass, [], blockName)}>
         <Heading id={id} level={3} text={editionHeadingText} blockName={blockName ? blockName : baseClass} />
         <div className={bem("card-content", [], baseClass)}>
-          <div className={bem("image", [], baseClass)}>
+          <div className={bem("card-image", [], baseClass)}>
             { /*TODO: If image size shouldn't change with resize,
               Hardcode max-width and max-height of image somewhere,
               as RN returns covers of arbitrary size*/ }
@@ -64,9 +62,7 @@ export default class EditionCard extends React.Component<EditionCardProps, {}> {
               return <span className={bem("edition-info-item", [], baseClass)} key={index}>{value}</span>;
             })}
           </div>
-          <div>
-            {this.getButtonsElement(readOnlineLink, downloadLink, baseClass)}
-          </div>
+          {this.getButtonsElement(readOnlineLink, downloadLink, baseClass)}
         </div>
       </div>
     );
