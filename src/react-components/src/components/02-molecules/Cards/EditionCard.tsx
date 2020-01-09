@@ -12,7 +12,7 @@ export interface EditionCardProps {
 
   coverUrl: string;
 
-  editionHeadingText: string;
+  editionHeadingElement: JSX.Element;
 
   editionInfo: string[];
 
@@ -41,14 +41,14 @@ export default class EditionCard extends React.Component<EditionCardProps, {}> {
   }
   render(): JSX.Element {
     const { id, blockName, coverUrl,
-      editionHeadingText,
+      editionHeadingElement,
       editionInfo,
       readOnlineLink, downloadLink } = this.props;
     const baseClass = "edition-card";
 
     return (
       <div className={bem(baseClass, [], blockName)}>
-        <Heading id={id} level={3} text={editionHeadingText} blockName={blockName ? blockName : baseClass} />
+        <Heading id={id} level={3} blockName={blockName ? blockName : baseClass} >{editionHeadingElement}</Heading>
         <div className={bem("card-content", [], baseClass)}>
           <div className={bem("card-image", [], baseClass)}>
             <Image src={coverUrl} isDecorative={true}></Image>

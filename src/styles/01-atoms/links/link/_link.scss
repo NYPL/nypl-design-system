@@ -5,6 +5,10 @@ $color-link--hover: $nypl-blue-dark;
 @mixin link {
   color: $color-link;
 
+  &--no-underline {
+    text-decoration: none;
+  }
+  
   &:hover {
     color: $color-link--hover;
   }

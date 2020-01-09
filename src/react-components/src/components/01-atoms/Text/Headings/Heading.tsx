@@ -23,17 +23,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
   if (text) {
     content = text;
   } else {
-    let isValid: boolean = true;
-    React.Children.forEach(props.children, (child: React.ReactElement) => {
-      if (typeof child !== "string" && child.type !== "b") {
-        isValid = false;
-      }
-    });
-    if (!isValid) {
-      throw new Error("Headings can only be plain text or bold");
-    } else {
       content = props.children;
-    }
   }
 
   let heading_base_class = "heading";
