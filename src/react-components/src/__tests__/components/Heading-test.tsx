@@ -25,6 +25,14 @@ describe("Section Headings", () => {
     wrapper = Enzyme.shallow(<Heading id="h1" level={1}>Text <span>hi</span></Heading>);
     expect(wrapper.find("h1")).to.have.lengthOf(1);
   });
+  it("Throws error when neither child nor text is passed", () => {
+    expect(() => Enzyme.mount(<Heading id="h1" level={9} />))
+      .to.throw("Heading only supports levels 1-6");
+  });
+  it("uses child when both child and text are passed", () => {
+    wrapper = Enzyme.shallow(<Heading id="h1" level={1} text={"Heading Text"}>Text</Heading>);
+    expect(wrapper.find("h1")).to.have.lengthOf(1);
+  });
   it("Has <a> tag when passed URL", () => {
     wrapper = Enzyme.shallow(<Heading id="h1" level={1} url="fake-url" text={"Heading 1"} />);
 

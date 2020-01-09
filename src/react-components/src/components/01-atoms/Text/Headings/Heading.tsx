@@ -23,11 +23,15 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     throw new Error("Heading only supports levels 1-6");
   }
 
+  if (!props.children && !text) {
+    throw new Error("Heading has no children, please pass prop: text");
+  }
+
   let content: string | React.ReactNode;
-  if (text) {
-    content = url ? React.createElement("a", { href: url, className: urlClass }, text) : text;
-  } else {
+  if (props.children) {
     content = url ? React.createElement("a", { href: url, className: urlClass }, props.children) : props.children;
+  } else {
+    content = url ? React.createElement("a", { href: url, className: urlClass }, text) : text;
   }
 
   let heading_base_class = baseClass ? baseClass : "heading";

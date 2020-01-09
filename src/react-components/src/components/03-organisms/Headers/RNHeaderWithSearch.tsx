@@ -11,9 +11,7 @@ export interface RNHeaderWithSearchProps {
   searchButtonId: string;
   searchBarAriaLabel: string;
   dropdownId: string;
-  // headingContent: JSX.Element;
-  headingId: string;
-  headingUrl?: string;
+  sectionTitle: JSX.Element;
   textFieldAriaLabel: string;
   hasError?: boolean;
   // To make into jsx.element (eg: if error has link)
@@ -29,23 +27,19 @@ export interface RNHeaderWithSearchProps {
 
 export default function RNHeaderWithSearch(props: React.PropsWithChildren<RNHeaderWithSearchProps>) {
 
-  const { searchBarId, searchBarAriaLabel,
+  const { sectionTitle, searchBarId, searchBarAriaLabel,
     searchButtonId, hasError, errorMessage,
     dropdownId, searchDropdownOptions,
-    headingUrl, headingId,
     textFieldAriaLabel, advancedSearchElem,
     selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
   const base_class = "search-header";
 
-  React.cloneElement(advancedSearchElem, {modifiers: ["dark-background"]});
-
   return (
     <div className={bem(base_class)}>
       <div className={bem("content", [], base_class)}>
-        <RNSectionTitle
-          blockName={base_class}
-          id={headingId}
-          url={headingUrl} />
+        <RNSectionTitle>
+          {sectionTitle}
+        </RNSectionTitle>
         <SearchBar
           searchBarId={searchBarId}
           searchBarAriaLabel={searchBarAriaLabel}
@@ -63,7 +57,7 @@ export default function RNHeaderWithSearch(props: React.PropsWithChildren<RNHead
           searchSubmitHandler={searchSubmitHandler}
           searchChangeHandler={textChangeHandler} />
         <div className={bem("promo-text", [], base_class)}>
-          {advancedSearchElem}
+          {React.cloneElement(advancedSearchElem, { modifiers: ["dark-background"] })}
         </div>
       </div>
     </div>
