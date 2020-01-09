@@ -17,8 +17,9 @@ export interface HeadingProps {
 }
 
 export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
-  const { level, id, baseClass, modifiers, url, urlClass, text, blockName, attributes } = props;
+  const { level, id, baseClass = "heading", modifiers, url, urlClass, text, blockName, attributes } = props;
 
+  let heading_base_class = baseClass;
   if (level < 1 || level > 6) {
     throw new Error("Heading only supports levels 1-6");
   }
@@ -33,8 +34,6 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
   } else {
     content = url ? React.createElement("a", { href: url, className: urlClass }, text) : text;
   }
-
-  let heading_base_class = baseClass ? baseClass : "heading";
 
   let headingProps = {
     className: bem(heading_base_class, modifiers, blockName),

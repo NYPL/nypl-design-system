@@ -15,7 +15,7 @@ export interface RNHeaderWithSearchProps {
   textFieldAriaLabel: string;
   hasError?: boolean;
   // To make into jsx.element (eg: if error has link)
-  // must first handle the placehodlerText=errorMessage in ResearchNow's Search Header
+  // must first handle the placeholderText=errorMessage in ResearchNow's Search Header
   errorMessage?: string;
   searchDropdownOptions: string[];
   advancedSearchElem: JSX.Element;

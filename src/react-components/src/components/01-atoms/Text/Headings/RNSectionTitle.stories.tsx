@@ -12,9 +12,9 @@ export default {
 
 
 export const researchNowSectionTitle = () => <RNSectionTitle>
-{<a className={`${bem("rn-section-title", [])} rn-section-title`} href={"researchNow-home-url"}>
+  <a className={`${bem("rn-section-title", [])} rn-section-title`} href={"researchNow-home-url"}>
     <span id={"research-now-title"}>
       Research<span className={bem("emphasis", [], "rn-section-title")}>Now</span>
     </span>
-  </a>}
-   </RNSectionTitle>;
+  </a>
+</RNSectionTitle>;

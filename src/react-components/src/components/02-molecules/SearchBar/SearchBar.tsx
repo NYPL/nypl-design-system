@@ -22,6 +22,8 @@ export interface SearchBarProps {
   placeholderText?: string;
   textFieldAriaLabel?: string;
   textFieldAttributes?: {};
+  // helperVariant enables a ResearchNow specific alternate.
+  // It should not be used in any other context.
   helperVariant?: "ResearchNow";
   hasError?: boolean;
   errorMessage?: string;

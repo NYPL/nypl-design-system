@@ -13,10 +13,6 @@ describe("Section Headings", () => {
     wrapper = Enzyme.shallow(<Heading id="h1" level={1} text={"Heading 1"} />);
     expect(wrapper.find("h1")).to.have.lengthOf(1);
   });
-  it("Throws error when invalid heading number passed", () => {
-    expect(() => Enzyme.mount(<Heading id="h1" level={9} text={"Heading 9"} />))
-      .to.throw("Heading only supports levels 1-6");
-  });
   it("Can pass heading content as child", () => {
     wrapper = Enzyme.shallow(<Heading id="h1" level={1}>Text</Heading>);
     expect(wrapper.find("h1")).to.have.lengthOf(1);
@@ -24,14 +20,12 @@ describe("Section Headings", () => {
   it("Can pass heading content as child span", () => {
     wrapper = Enzyme.shallow(<Heading id="h1" level={1}>Text <span>hi</span></Heading>);
     expect(wrapper.find("h1")).to.have.lengthOf(1);
-  });
-  it("Throws error when neither child nor text is passed", () => {
-    expect(() => Enzyme.mount(<Heading id="h1" level={9} />))
-      .to.throw("Heading only supports levels 1-6");
+    expect(wrapper.find("span")).to.have.lengthOf(1);
   });
   it("uses child when both child and text are passed", () => {
     wrapper = Enzyme.shallow(<Heading id="h1" level={1} text={"Heading Text"}>Text</Heading>);
     expect(wrapper.find("h1")).to.have.lengthOf(1);
+    expect(wrapper.find("h1").text()).to.equal("Text");
   });
   it("Has <a> tag when passed URL", () => {
     wrapper = Enzyme.shallow(<Heading id="h1" level={1} url="fake-url" text={"Heading 1"} />);
@@ -45,4 +39,12 @@ describe("Section Headings", () => {
     expect(wrapper.find("a").hasClass("fake-class")).to.equal(true);
   }
   );
+  it("Throws error when invalid heading number passed", () => {
+    expect(() => Enzyme.mount(<Heading id="h1" level={9} text={"Heading 9"} />))
+      .to.throw("Heading only supports levels 1-6");
+  });
+  it("Throws error when neither child nor text is passed", () => {
+    expect(() => Enzyme.mount(<Heading id="h1" level={9} />))
+      .to.throw("Heading only supports levels 1-6");
+  });
 });
