@@ -5,10 +5,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
-## PRERELEASE 
+## PRERELEASE
+### Added 
+- `RN Header With Search` 
+- a story for `RN Section Title`, which is just a collection of styles
+
 ### Changed
 - `Link` -> `LinkHelper` for clarity
 - Bugfixes in `UnderlineLink` and `IconLink`
+- `Link` missing URL error message
+- Consolidated `Heading` and `PageTitle`
+- Added ResearchNow specific `SearchBar` error state 
+- A11Y changes for `SearchBar` and `HeaderWithSearch`
+- Added stories for AT-79, AT-264 and AT-3
 
 ## [0.0.7] - 2020-01-03
 ### Added
