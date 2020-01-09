@@ -1,10 +1,9 @@
 /* MC-14 Edition Card */
 import * as React from "react";
 import bem from "../../../utils/bem";
-import IconLink from "../../01-atoms/Links/IconLink";
 import Heading from "../../01-atoms/Text/Headings/Heading";
 import Image from "../../01-atoms/Images/Image/Image";
-import Link from "../../01-atoms/Links/Link";
+import BasicLink from "../../01-atoms/Links/BasicLink";
 
 
 export interface EditionCardProps {
@@ -33,10 +32,10 @@ export default class EditionCard extends React.Component<EditionCardProps, {}> {
 
     return <div className={bem("card-ctas", [], baseClass)}>
       {readOnlineLink &&
-        <Link className={bem("card-info-link", [], baseClass)} url={readOnlineLink}>Read Online</Link>
+        <BasicLink className={bem("card-info-link", [], baseClass)} url={readOnlineLink}>Read Online</BasicLink>
       }
       {downloadLink &&
-        <Link className={bem("card-info-link", [], baseClass)} url={downloadLink}>Download</Link>
+        <BasicLink className={bem("card-info-link", [], baseClass)} url={downloadLink}>Download</BasicLink>
       }
     </div>;
   }
@@ -52,9 +51,6 @@ export default class EditionCard extends React.Component<EditionCardProps, {}> {
         <Heading id={id} level={3} text={editionHeadingText} blockName={blockName ? blockName : baseClass} />
         <div className={bem("card-content", [], baseClass)}>
           <div className={bem("card-image", [], baseClass)}>
-            { /*TODO: If image size shouldn't change with resize,
-              Hardcode max-width and max-height of image somewhere,
-              as RN returns covers of arbitrary size*/ }
             <Image src={coverUrl} isDecorative={true}></Image>
           </div>
           <div className={bem("edition-info", [], baseClass)}>

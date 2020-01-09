@@ -6,9 +6,14 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 
 ========
 ## PRERELEASE 
+### Added 
+- `EditionCard` component
+- `SearchResultItem` component that uses `EditionCard` 
+
 ### Changed
-- `Link` -> `LinkHelper` for clarity
+- `Link` -> `BasicLink` for clarity
 - Bugfixes in `UnderlineLink` and `IconLink`
+- Added stories for `BasicLink`
 
 ## [0.0.7] - 2020-01-03
 ### Added

@@ -8,17 +8,17 @@ export default {
   component: EditionCard,
 };
 
-export const searchResultsWithFullData = () => <EditionCard
+export const editionCardWithFullData = () => <EditionCard
   id="card#1"
   blockName=""
   coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingText="2004 Edition"
-  editionInfo={["Publish Place: New York", "Language: English", "License: Creative Commons"]}
+  editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
   readOnlineLink="#readOnlineUrl"
   downloadLink="#downloadUrl">
 </EditionCard>;
 
-export const searchResultsWithOneLinks = () => <EditionCard
+export const editionCardWithOneLinks = () => <EditionCard
   id="card#1"
   blockName=""
   coverUrl="https://placeimg.com/300/400/arch"
@@ -27,7 +27,7 @@ export const searchResultsWithOneLinks = () => <EditionCard
   readOnlineLink="#readOnlineUrl">
 </EditionCard>;
 
-export const searchResultsMissingLinks = () => <EditionCard
+export const editionCardMissingLinks = () => <EditionCard
   id="card#1"
   blockName=""
   coverUrl="https://placeimg.com/300/400/arch"
@@ -36,7 +36,7 @@ export const searchResultsMissingLinks = () => <EditionCard
   >
 </EditionCard>;
 
-export const searchResultsWithSomeEditionInfo = () => <EditionCard
+export const editionCardWithSomeEditionInfo = () => <EditionCard
   id="card#1"
   blockName=""
   coverUrl="https://placeimg.com/300/400/arch"
@@ -46,7 +46,7 @@ export const searchResultsWithSomeEditionInfo = () => <EditionCard
   downloadLink="#downloadUrl">
 </EditionCard>;
 
-export const searchResultsWithEmptyEditionInfo = () => <EditionCard
+export const editionCardWithEmptyEditionInfo = () => <EditionCard
   id="card#1"
   blockName=""
   coverUrl="https://placeimg.com/300/400/arch"
@@ -56,7 +56,7 @@ export const searchResultsWithEmptyEditionInfo = () => <EditionCard
   downloadLink="#downloadUrl">
 </EditionCard>;
 
-export const searchResultsWithAtypicalImageSize = () => <EditionCard
+export const editionCardWithAtypicalImageSize = () => <EditionCard
   id="card#1"
   blockName=""
   coverUrl="https://placeimg.com/450/100/arch"

@@ -2,15 +2,15 @@
 // Base Link Helper Class
 import * as React from "react";
 
-export interface LinkHelperProps {
+export interface BasicLinkProps {
   className: string;
   icon?: { element: JSX.Element };
   url?: string;
   attributes?: {};
 }
 
-export default class LinkHelper extends React.Component<LinkHelperProps, {}> {
-  constructor(props: LinkHelperProps) {
+export default class BasicLink extends React.Component<BasicLinkProps, {}> {
+  constructor(props: BasicLinkProps) {
     super(props);
   }
 

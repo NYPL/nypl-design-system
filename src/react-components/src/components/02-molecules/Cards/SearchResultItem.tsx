@@ -16,11 +16,10 @@ export type EditionInfo = {
   downloadLink: string
 };
 
-export interface SectionTitleProps {
+export interface SearchResultItemProps {
   id: string;
 
   resultIndex: number;
-  totalEditions: number;
 
   modifiers?: [];
   blockName?: string;
@@ -29,25 +28,24 @@ export interface SectionTitleProps {
 
   subtitleText: string;
 
-  authorUrl: string;
-  authorName: string;
+  authorLinkElement: JSX.Element;
 
   editionInfo: EditionInfo;
-  allEditionsUrl: string;
+  editionsLinkElement: JSX.Element;
 }
 
-export default class SectionTitle extends React.Component<SectionTitleProps, {}> {
-  constructor(props: SectionTitleProps) {
+export default class SearchResultItem extends React.Component<SearchResultItemProps, {}> {
+  constructor(props: SearchResultItemProps) {
     super(props);
   }
 
   render(): JSX.Element {
     const { id,
-      resultIndex, totalEditions,
+      resultIndex,
       modifiers, blockName, headingText,
       subtitleText,
-      authorUrl, authorName,
-      editionInfo, allEditionsUrl} = this.props;
+      authorLinkElement,
+      editionInfo, editionsLinkElement} = this.props;
     const baseClass = "search-result-item";
 
     if (headingText.length > 80) {
@@ -61,7 +59,7 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
         <Heading id={id} level={2} text={headingText} blockName={blockName ? blockName : baseClass} />
         <div className={bem("subtitle", [], baseClass)}>{subtitleText}</div>
         <div className={bem("author", [], baseClass)}>
-          By <UnderlineLink url={authorUrl}>{authorName}</UnderlineLink>
+          {authorLinkElement}
         </div>
         <EditionCard
           id={`card-${resultIndex}`}
@@ -72,7 +70,7 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
           downloadLink={editionInfo.downloadLink}
         ></EditionCard>
         <div className={bem("all-editions", [], baseClass)}>
-          <UnderlineLink url={allEditionsUrl}>{`View All ${totalEditions} editions`}</UnderlineLink>
+          {editionsLinkElement}
         </div>
       </div>
     );
