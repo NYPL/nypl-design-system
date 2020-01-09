@@ -123,3 +123,16 @@ h6 {
     text-decoration: underline;
   }
 }
+
+.heading-section {
+  &__more-link {
+    @include more-link;
+  }
+
+  &__heading {
+    &--has-link { 
+      display: inline;
+    }
+    margin-right: $space-xs;
+  }
+}

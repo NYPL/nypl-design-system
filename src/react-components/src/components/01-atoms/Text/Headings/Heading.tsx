@@ -17,9 +17,11 @@ export interface HeadingProps {
 }
 
 export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
-  const { level, id, baseClass = "heading", modifiers, url, urlClass, text, blockName, attributes } = props;
+  const { level, id, baseClass, modifiers, url, urlClass, text, blockName, attributes } = props;
 
-  let heading_base_class = baseClass;
+  console.log("baseClass", baseClass);
+  let heading_base_class = baseClass ? baseClass : "heading";
+
   if (level < 1 || level > 6) {
     throw new Error("Heading only supports levels 1-6");
   }
