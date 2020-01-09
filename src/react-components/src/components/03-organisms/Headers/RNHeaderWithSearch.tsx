@@ -1,24 +1,18 @@
 // OH-31 Header with Search
 import * as React from "react";
 import SearchBar from "../../02-molecules/SearchBar/SearchBar";
-import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 import bem from "../../../utils/bem";
-import BodyText from "../../01-atoms/Text/Text/BodyText";
-import SectionTitle from "../../02-molecules/Headings/SectionTitle";
-import Heading from "../../01-atoms/Text/Headings/Heading";
 import RNSectionTitle from "../../01-atoms/Text/Headings/RNSectionTitle";
 
 
-export interface WithSearchProps {
+export interface RNHeaderWithSearchProps {
   modifiers?: [];
-  blockName?: string;
   searchBarId: string;
   searchButtonId: string;
   searchBarAriaLabel: string;
   dropdownId: string;
-  headingContent: JSX.Element;
+  // headingContent: JSX.Element;
   headingId: string;
-  headingBaseClass?: string;
   headingUrl?: string;
   textFieldAriaLabel: string;
   hasError?: boolean;
@@ -33,12 +27,12 @@ export interface WithSearchProps {
   textChangeHandler?: (event: React.FormEvent) => void;
 }
 
-export default function HeaderWithSearch(props: React.PropsWithChildren<WithSearchProps>) {
+export default function RNHeaderWithSearch(props: React.PropsWithChildren<RNHeaderWithSearchProps>) {
 
-  const { blockName, searchBarId, searchBarAriaLabel,
+  const { searchBarId, searchBarAriaLabel,
     searchButtonId, hasError, errorMessage,
     dropdownId, searchDropdownOptions,
-    headingContent, headingId, headingUrl, headingBaseClass,
+    headingUrl, headingId,
     textFieldAriaLabel, advancedSearchElem,
     selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
   const base_class = "search-header";

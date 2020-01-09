@@ -5,7 +5,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import HeaderWithSearch from "../../components/03-organisms/Headers/HeaderWithSearch";
+import RNHeaderWithSearch from "../../components/03-organisms/Headers/RNHeaderWithSearch";
 
 describe("HeaderWithSearch", () => {
 
@@ -19,14 +19,13 @@ describe("HeaderWithSearch", () => {
   });
 
   it("Generates a Header and a Searchbar", () => {
-    let wrapper = Enzyme.shallow(<HeaderWithSearch
+    let wrapper = Enzyme.shallow(<RNHeaderWithSearch
       searchButtonId="searchButtonId"
       searchBarAriaLabel="Search research catalog"
       advancedSearchElem={<span>hello</span>}
       searchBarId="searchBarId"
       dropdownId="dropdownId"
       textFieldAriaLabel="Research Now"
-      headingContent={<span>Research<span className={"rn-section-title__emphasis"}>Now</span></span>}
       headingId="researchNow-page-title-id"
       headingUrl="#research-now-url"
       headingBaseClass="rn-section-title"

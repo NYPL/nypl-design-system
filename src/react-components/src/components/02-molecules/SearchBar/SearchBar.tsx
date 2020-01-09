@@ -39,14 +39,15 @@ export default function SearchBar(props: SearchBarProps) {
     dropdownId, dropdownOptions, dropdownAriaLabel,
     selectedField, searchValue,
     placeholderText,
-    textFieldAriaLabel,
     helperVariant,
     hasError, errorMessage,
     selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
 
   if (dropdownOptions) {
     if (!(dropdownId && dropdownAriaLabel && selectBlurHandler && selectChangeHandler)) {
-      throw new Error("If dropdownOptions are passed, dropdownId, selectChangeHandler, and selectBlurHandler must also be passed");
+      throw new Error(`If dropdownOptions are passed, dropdownId (currently ${dropdownId}),
+      dropdownAriaLabel (currently ${dropdownAriaLabel}), selectChangeHandler (currently ${selectChangeHandler}),
+      and selectBlurHandler (currently ${selectBlurHandler}) must also be passed`);
     }
   }
 

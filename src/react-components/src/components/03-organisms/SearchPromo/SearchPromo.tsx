@@ -36,7 +36,7 @@ export default function SearchPromo(props: SearchPromoProps) {
   const searchpromo__base_class = "search-promo";
 
 
-  return <div className={bem(searchpromo__base_class, [], blockName)}>
+  return <div className={bem(searchpromo__base_class, modifiers, blockName)}>
     <div className={bem("content", [], searchpromo__base_class)}>
       <SectionTitle id={titleId} headingText={headingText} blockName={searchpromo__base_class} />
       <div className={bem("search-section", [], searchpromo__base_class)}>

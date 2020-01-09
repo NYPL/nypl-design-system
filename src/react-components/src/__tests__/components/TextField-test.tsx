@@ -23,6 +23,12 @@ describe("Search Bar Text Field", () => {
     expect(wrapper.find("input").props()["aria-labelledby"]).to.equal("labelId");
   });
 
+  it("if both labelId and ariaLabel are defined, TextField uses aria-labeledBy", () => {
+    wrapper = Enzyme.shallow(<TextField ariaLabelledBy="labelId" ariaLabel="label" isRequired={false} />);
+    expect(wrapper.find("input").props()["aria-label"]).to.equal(undefined);
+    expect(wrapper.find("input").props()["aria-labelledby"]).to.equal("labelId");
+  });
+
   it("Shows 'aria-required' if required", () => {
     wrapper = Enzyme.shallow(<TextField ariaLabel="text" isRequired={true}/>);
     expect(wrapper.props()["aria-required"]).to.equal(true);

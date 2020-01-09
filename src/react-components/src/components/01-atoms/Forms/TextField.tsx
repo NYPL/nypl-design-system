@@ -26,7 +26,7 @@ export default function TextField(props: TextFieldProps) {
     "type": "text",
     value: value,
     onChange: onChange,
-    "aria-label": ariaLabel,
+    "aria-label": !ariaLabelledBy ? ariaLabel : undefined,
     "aria-labelledby": ariaLabelledBy
   };
 
