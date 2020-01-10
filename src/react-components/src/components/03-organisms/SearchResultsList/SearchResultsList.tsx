@@ -4,7 +4,7 @@ import bem from "../../../utils/bem";
 import SearchResultItem, { EditionInfo } from "../../02-molecules/Cards/SearchResultItem";
 
 export type SearchResultInfo = {
-  title: string,
+  titleElement: JSX.Element,
   subtitle: string,
   editionInfo: EditionInfo,
   authorElement: JSX.Element,
@@ -30,13 +30,13 @@ export default function SearchResultsList(props: SearchResultsListProps) {
             resultIndex={index}
             modifiers={modifiers}
             blockName={blockName}
-            headingText={item.title}
+            headingContent={item.titleElement}
             subtitleText={item.subtitle}
             authorLinkElement={item.authorElement}
             editionInfo={item.editionInfo}
-            editionsLinkElement={item.editionsLinkElement}/>
+            editionsLinkElement={item.editionsLinkElement} />
         </li>);
       })}
     </ul>
   </div>;
-}
+};
