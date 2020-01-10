@@ -9,7 +9,7 @@ export type SearchResultInfo = {
   editionInfo: EditionInfo,
   authorElement: JSX.Element,
   editionsLinkElement: JSX.Element
-}
+};
 
 export interface SearchResultsListProps {
   modifiers?: [];
@@ -39,4 +39,4 @@ export default function SearchResultsList(props: SearchResultsListProps) {
       })}
     </ul>
   </div>;
-};
+}
