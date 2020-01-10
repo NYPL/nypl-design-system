@@ -7,7 +7,7 @@ import EditionCard from "./EditionCard";
 import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 
 export type EditionInfo = {
-  editionYearHeading: string,
+  editionYearHeading: JSX.Element,
   publisherAndLocation: string,
   coverUrl: string,
   language: string,
@@ -24,7 +24,7 @@ export interface SearchResultItemProps {
   modifiers?: [];
   blockName?: string;
 
-  headingText: string;
+  headingContent: JSX.Element;
 
   subtitleText: string;
 
@@ -42,21 +42,31 @@ export default class SearchResultItem extends React.Component<SearchResultItemPr
   render(): JSX.Element {
     const { id,
       resultIndex,
-      modifiers, blockName, headingText,
+      modifiers, blockName, headingContent,
       subtitleText,
       authorLinkElement,
       editionInfo, editionsLinkElement} = this.props;
     const baseClass = "search-result-item";
 
-    if (headingText.length > 80) {
-      throw new Error("Section Title (h2) Text must be fewer than 80 characters");
-    } else if (headingText.length > 60) {
-      console.warn("Section Title (h2) Text should be fewer than 60 characters");
+    try {
+      React.Children.only(headingContent as React.ReactElement);
+    } catch (e) {
+      const children = React.Children.map(this.props.children, child =>
+        (child as JSX.Element).type);
+      // Catching the error because React's error isn't as helpful.
+      throw new Error(`Please only pass one child into SearchResultItem, got ${children.join(", ")}`);
     }
+
+    // TODO: Decide whether this needs to be in DS, and write/find utilities for us to count text within child components
+    // if (headingContent.innerText > 80) {
+    //   throw new Error("Section Title (h2) Text must be fewer than 80 characters");
+    // } else if (headingContent.textContent > 60) {
+    //   console.warn("Section Title (h2) Text should be fewer than 60 characters");
+    // }
 
     return (
       <div className={bem(baseClass, modifiers, blockName)}>
-        <Heading id={id} level={2} text={headingText} blockName={blockName ? blockName : baseClass} />
+        <Heading id={id} level={2} blockName={blockName ? blockName : baseClass} >{headingContent}</Heading>
         <div className={bem("subtitle", [], baseClass)}>{subtitleText}</div>
         <div className={bem("author", [], baseClass)}>
           {authorLinkElement}
@@ -64,7 +74,7 @@ export default class SearchResultItem extends React.Component<SearchResultItemPr
         <EditionCard
           id={`card-${resultIndex}`}
           coverUrl={editionInfo.coverUrl}
-          editionHeadingText={editionInfo.editionYearHeading}
+          editionHeadingElement={editionInfo.editionYearHeading}
           editionInfo={[editionInfo.publisherAndLocation, editionInfo.language, editionInfo.license]}
           readOnlineLink={editionInfo.readOnlineLink}
           downloadLink={editionInfo.downloadLink}
