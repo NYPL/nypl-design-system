@@ -17,7 +17,7 @@ export interface HeadingProps {
 }
 
 export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
-  const { level, id, baseClass= "heading", modifiers, url, urlClass, text, blockName, attributes } = props;
+  const { level, id, baseClass= "heading", text, modifiers, blockName, url, urlClass, attributes } = props;
 
   let heading_base_class = baseClass;
 
@@ -33,7 +33,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
   if (props.children) {
     content = url ? React.createElement("a", { href: url, className: urlClass }, props.children) : props.children;
   } else {
-      content = props.children;
+    content = url ? React.createElement("a", { href: url, className: urlClass }, text) : text;
   }
 
   let headingProps = {
