@@ -1,0 +1,13 @@
+.rn-section-title {
+  @include heading-xl;
+
+  background-color: $nypl-turquoise-regular;
+  color: $white;
+  font-weight: 300;
+  letter-spacing: -1px;
+  text-decoration: none;
+
+  &__emphasis {
+    font-weight: 500;
+  }
+}

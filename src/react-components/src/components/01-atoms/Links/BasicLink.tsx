@@ -3,7 +3,7 @@
 import * as React from "react";
 
 export interface BasicLinkProps {
-  className: string;
+  className?: string;
   icon?: { element: JSX.Element };
   url?: string;
   attributes?: {};

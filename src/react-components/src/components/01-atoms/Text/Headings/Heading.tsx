@@ -5,28 +5,36 @@ import bem from "../../../../utils/bem";
 export interface HeadingProps {
   level: number;
   id: string;
+  baseClass?: string;
   modifiers?: string[];
   blockName?: string;
+
+  url?: string;
+  urlClass?: string;
 
   text?: string;
   attributes?: {};
 }
 
 export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
-  const { level, id, text, modifiers, blockName, attributes } = props;
+  const { level, id, baseClass= "heading", modifiers, url, urlClass, text, blockName, attributes } = props;
+
+  let heading_base_class = baseClass;
 
   if (level < 1 || level > 6) {
     throw new Error("Heading only supports levels 1-6");
   }
 
+  if (!props.children && !text) {
+    throw new Error("Heading has no children, please pass prop: text");
+  }
+
   let content: string | React.ReactNode;
-  if (text) {
-    content = text;
+  if (props.children) {
+    content = url ? React.createElement("a", { href: url, className: urlClass }, props.children) : props.children;
   } else {
       content = props.children;
   }
-
-  let heading_base_class = "heading";
 
   let headingProps = {
     className: bem(heading_base_class, modifiers, blockName),

@@ -12,6 +12,14 @@ $color-link--hover: $nypl-blue-dark;
   &:hover {
     color: $color-link--hover;
   }
+
+  &--dark-background {
+    color: $white;
+
+    &:hover {
+      color: $gray-light;
+    }
+  }
 }
 
 @mixin more-link {

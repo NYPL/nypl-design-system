@@ -39,6 +39,10 @@ $search-bar--breakpoint: 856px;
 
     flex: 1 1 70%;
     min-height: 40px; // Accommodates the border for the search-bar without parameters
+    
+    &--error::placeholder { //TODO: IE11 support
+      color: $nypl-red-dark;
+    }
   }
 
   &__input-description {
