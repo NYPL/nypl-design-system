@@ -31,10 +31,11 @@ describe("SearchResultsItem", () => {
 
   it("Search Result Item with a Heading Link, Edition Card and Edition Card", () => {
     let shallow = Enzyme.shallow(EditionInfo());
-    console.log("blah", shallow.debug());
+    // Need to render since Heading's child is a component.
+    const heading = shallow.find("Heading").render();
 
-    expect(shallow.find("Heading")).to.have.lengthOf(1);
-    expect(shallow.find("Heading").dive().find("a")).to.have.lengthOf(1);
+    expect(heading).to.have.lengthOf(1);
+    expect(heading.find("a")).to.have.lengthOf(1);
     expect(shallow.find("EditionCard")).to.have.lengthOf(1);
   });
 

@@ -1,6 +1,7 @@
 
 // Base Link Helper Class
 import * as React from "react";
+import WithOneChild from "../../../hoc/WithOneChild";
 
 export interface BasicLinkProps {
   className?: string;
@@ -9,7 +10,7 @@ export interface BasicLinkProps {
   attributes?: {};
 }
 
-export default class BasicLink extends React.Component<BasicLinkProps, {}> {
+export class BasicLink extends React.Component<BasicLinkProps, {}> {
   constructor(props: BasicLinkProps) {
     super(props);
   }
@@ -38,17 +39,6 @@ export default class BasicLink extends React.Component<BasicLinkProps, {}> {
     } else {
       let passedInChild = this.props.children as React.ReactElement;
 
-      // otherwise it is a react element but could have multiple children. If that's
-      // the case, you can check that it's only one element.
-      try {
-        React.Children.only(passedInChild as React.ReactElement);
-      } catch (e) {
-        const children = React.Children.map(this.props.children, child =>
-          (child as JSX.Element).type);
-        // Catching the error because React's error isn't as helpful.
-        throw new Error(`Please only pass one child, got ${children.join(", ")}`);
-      }
-
       let linkChildren = [passedInChild.props.children];
       if (icon) {
         linkChildren.push(icon.element);
@@ -61,3 +51,6 @@ export default class BasicLink extends React.Component<BasicLinkProps, {}> {
     return linkElement;
   }
 }
+
+const BasicLinkWError = WithOneChild<BasicLinkProps>(BasicLink);
+export default BasicLinkWError;

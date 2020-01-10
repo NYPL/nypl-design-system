@@ -1,10 +1,9 @@
 /* MC-25 Search Results Item */
 import * as React from "react";
 import bem from "../../../utils/bem";
-import IconLink from "../../01-atoms/Links/IconLink";
 import Heading from "../../01-atoms/Text/Headings/Heading";
 import EditionCard from "./EditionCard";
-import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
+import WithOneChild from "../../../hoc/WithOneChild";
 
 export type EditionInfo = {
   editionYearHeading: JSX.Element,
@@ -47,15 +46,7 @@ export default class SearchResultItem extends React.Component<SearchResultItemPr
       authorLinkElement,
       editionInfo, editionsLinkElement} = this.props;
     const baseClass = "search-result-item";
-
-    try {
-      React.Children.only(headingContent as React.ReactElement);
-    } catch (e) {
-      const children = React.Children.map(this.props.children, child =>
-        (child as JSX.Element).type);
-      // Catching the error because React's error isn't as helpful.
-      throw new Error(`Please only pass one child into SearchResultItem, got ${children.join(", ")}`);
-    }
+    const OnChildHeadingContent = WithOneChild(headingContent);
 
     // TODO: Decide whether this needs to be in DS, and write/find utilities for us to count text within child components
     // if (headingContent.innerText > 80) {
@@ -66,7 +57,9 @@ export default class SearchResultItem extends React.Component<SearchResultItemPr
 
     return (
       <div className={bem(baseClass, modifiers, blockName)}>
-        <Heading id={id} level={2} blockName={blockName ? blockName : baseClass} >{headingContent}</Heading>
+        <Heading id={id} level={2} blockName={blockName ? blockName : baseClass}>
+          <OnChildHeadingContent />
+        </Heading>
         <div className={bem("subtitle", [], baseClass)}>{subtitleText}</div>
         <div className={bem("author", [], baseClass)}>
           {authorLinkElement}
