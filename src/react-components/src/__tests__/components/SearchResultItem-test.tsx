@@ -1,0 +1,51 @@
+import { expect } from "chai";
+import * as Enzyme from "enzyme";
+import * as React from "react";
+
+import SearchResultItem from "../../components/02-molecules/Cards/SearchResultItem";
+
+describe("SearchResultItem", () => {
+  const validHeading = <a href="hello">headingText</a>;
+const invalidHeading =  <>< a href = "hello" > headingText</a> <span>badText</span></>;
+
+const EditionInfo = (heading: JSX.Element) => {
+  return <SearchResultItem
+    id="Result1"
+    resultIndex={1}
+    modifiers={[]}
+    blockName={""}
+    headingContent={heading}
+    subtitleText="Subtitle need max character count Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    authorLinkElement={<a href="blah">bahah</a>}
+    editionInfo={{
+      editionYearHeading: <a href="blah2">2004 Edition</a>,
+      publisherAndLocation: "Published in New York by Random House",
+      coverUrl: "https://placeimg.com/57/81/arch",
+      language: "Written in English",
+      license: "Under Creative Commons License",
+      readOnlineLink: "#read-online",
+      downloadLink: "#download",
+    }}
+    editionsLinkElement={<a href="blah">bahah</a>} />;
+};
+
+// let shortHeadingText = "hello";
+// let longHeadingText = `hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello `;
+
+it("Search Result Item with a Heading Link, Edition Card and Edition Card", () => {
+  let shallow = Enzyme.shallow(EditionInfo(validHeading));
+
+  expect(shallow.find("Heading")).to.have.lengthOf(1);
+  expect(shallow.find("Heading").dive().find("a")).to.have.lengthOf(1);
+  expect(shallow.find("EditionCard")).to.have.lengthOf(1);
+});
+
+it("Throws error when heading with many children is passed", () => {
+  expect(() => Enzyme.shallow(EditionInfo(invalidHeading))).to.throw("Please only pass one child into SearchResultItem, got a, span");
+});
+
+  // TODO: Figure out how to do text count between multiple unknown children
+  // it("Throws error when Heading Text is too long", () => {
+  //     expect(() => Enzyme.mount(EditionInfo(longHeadingText))).to.throw("Section Title (h2) Text must be fewer than 80 characters");
+  // });
+});

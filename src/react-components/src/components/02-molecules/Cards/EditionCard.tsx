@@ -20,12 +20,17 @@ export interface EditionCardProps {
   downloadLink?: string;
 }
 
-export default class EditionCard extends React.Component<EditionCardProps, {}> {
-  constructor(props: EditionCardProps) {
-    super(props);
-  }
+/**
+ * EditionCard component that renders information for an edition.
+ */
+export default function EditionCard(props: React.PropsWithChildren<EditionCardProps>) {
+  const { id, blockName, coverUrl,
+    editionHeadingElement,
+    editionInfo = [],
+    readOnlineLink, downloadLink } = props;
+  const baseClass = "edition-card";
 
-  getButtonsElement(readOnlineLink: string, downloadLink: string, baseClass: string): JSX.Element {
+  const getButtonsElement = (readOnlineLink: string, downloadLink: string, baseClass: string) => {
     if (!readOnlineLink && !downloadLink) {
       return <div className={(bem("missing-links", [], baseClass))}>Unavailable to read online</div>;
     }
@@ -38,29 +43,24 @@ export default class EditionCard extends React.Component<EditionCardProps, {}> {
         <BasicLink className={bem("card-info-link", [], baseClass)} url={downloadLink}>Download</BasicLink>
       }
     </div>;
-  }
-  render(): JSX.Element {
-    const { id, blockName, coverUrl,
-      editionHeadingElement,
-      editionInfo,
-      readOnlineLink, downloadLink } = this.props;
-    const baseClass = "edition-card";
+  };
 
-    return (
-      <div className={bem(baseClass, [], blockName)}>
-        <Heading id={id} level={3} blockName={blockName ? blockName : baseClass} >{editionHeadingElement}</Heading>
-        <div className={bem("card-content", [], baseClass)}>
-          <div className={bem("card-image", [], baseClass)}>
-            <Image src={coverUrl} isDecorative={true}></Image>
-          </div>
+  return (
+    <div className={bem(baseClass, [], blockName)}>
+      <Heading id={id} level={3} blockName={blockName ? blockName : baseClass} >{editionHeadingElement}</Heading>
+      <div className={bem("card-content", [], baseClass)}>
+        <div className={bem("card-image", [], baseClass)}>
+          <Image src={coverUrl} isDecorative={true}></Image>
+        </div>
+        {editionInfo.length > 0 &&
           <div className={bem("edition-info", [], baseClass)}>
             {editionInfo.map((value, index) => {
               return <span className={bem("edition-info-item", [], baseClass)} key={index}>{value}</span>;
             })}
           </div>
-          {this.getButtonsElement(readOnlineLink, downloadLink, baseClass)}
-        </div>
+        }
+        {getButtonsElement(readOnlineLink, downloadLink, baseClass)}
       </div>
-    );
-  }
+    </div>
+  );
 }
