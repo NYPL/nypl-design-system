@@ -25,7 +25,7 @@ describe("Dropdown", () => {
         labelPosition="left"
         labelText="Sort By"
         labelId="nav-sort-by"
-        dropdownOptions={["one", "two", "three"]}
+        dropdownOptions={["test1", "test2"]}
         onSelectChange={changeCallback}
         onSelectBlur={blurCallback} />
     );
@@ -38,7 +38,7 @@ describe("Dropdown", () => {
       dropdownId="dropdown"
       isRequired={false}
       labelPosition="none"
-      dropdownOptions={["one", "two", "three"]}
+      dropdownOptions={["test1", "test2"]}
       onSelectChange={changeCallback}
       onSelectBlur={blurCallback} />))
       .to.throw("prop ariaLabel must be passed into Dropdown when labelPosition is \"none\"");
@@ -51,7 +51,7 @@ describe("Dropdown", () => {
         isRequired={false}
         labelPosition="none"
         ariaLabel="aria-label"
-        dropdownOptions={["one", "two", "three"]}
+        dropdownOptions={["test1", "test2"]}
         onSelectChange={changeCallback}
         onSelectBlur={blurCallback} />
     );
@@ -64,7 +64,7 @@ describe("Dropdown", () => {
       dropdownId="dropdown"
       isRequired={false}
       labelPosition="invalid"
-      dropdownOptions={["one", "two", "three"]}
+      dropdownOptions={["test1", "test2"]}
       onSelectChange={changeCallback}
       onSelectBlur={blurCallback} />))
       .to.throw("prop labelPosition must be one of \"left\", \"top\", \"none\", but Dropdown was passed invalid");
@@ -78,7 +78,7 @@ describe("Dropdown", () => {
         labelPosition="left"
         labelText="Sort By"
         labelId="nav-sort-by"
-        dropdownOptions={["one", "two", "three"]}
+        dropdownOptions={["test1", "test2"]}
         onSelectChange={changeCallback}
         onSelectBlur={blurCallback} />
     );
@@ -93,7 +93,7 @@ describe("Dropdown", () => {
         labelPosition="left"
         labelText="Sort By"
         labelId="nav-sort-by"
-        dropdownOptions={["one", "two", "three"]}
+        dropdownOptions={["test1", "test2"]}
         onSelectChange={changeCallback}
         onSelectBlur={blurCallback} />
     );
@@ -109,7 +109,7 @@ describe("Dropdown", () => {
         ariaLabel="label"
         helperContentId="helper"
         helperContent={<span>If you're unsure of your size, please see the <a href="#sizing-chart">sizing chart</a></span>}
-        dropdownOptions={["one", "two", "three"]}
+        dropdownOptions={["test1", "test2"]}
         onSelectChange={changeCallback}
         onSelectBlur={blurCallback} />
     );
@@ -122,7 +122,7 @@ describe("Dropdown", () => {
       isRequired={false}
       labelPosition="none"
       ariaLabel="label"
-      dropdownOptions={["one", "two", "three"]}
+      dropdownOptions={["test1", "test2"]}
       helperContent={<span>If you're unsure of your size, please see the <a href="#sizing-chart">sizing chart</a></span>}
       onSelectChange={changeCallback}
       onSelectBlur={blurCallback} />))
@@ -139,7 +139,7 @@ describe("Dropdown", () => {
         hasError={true}
         errorContentId="error"
         errorContent={<span>Error Message Lorem Ipsum</span>}
-        dropdownOptions={["one", "two", "three"]}
+        dropdownOptions={["test1", "test2"]}
         onSelectChange={changeCallback}
         onSelectBlur={blurCallback} />
     );
@@ -152,7 +152,7 @@ describe("Dropdown", () => {
       isRequired={false}
       labelPosition="none"
       ariaLabel="label"
-      dropdownOptions={["one", "two", "three"]}
+      dropdownOptions={["test1", "test2"]}
       hasError={true}
       onSelectChange={changeCallback}
       onSelectBlur={blurCallback} />))

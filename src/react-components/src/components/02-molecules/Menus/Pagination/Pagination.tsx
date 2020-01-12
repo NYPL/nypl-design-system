@@ -18,6 +18,7 @@ export default function Pagination(props: PaginationProps) {
   const { paginationDropdownOptions, currentValue,
     previousPageHandler, nextPageHandler,
     onSelectChange, onSelectBlur } = props;
+console.log("currentValue", currentValue);
 
   const pagination__base_class = "pagination";
   let buttonPrevProps = {
@@ -49,7 +50,7 @@ export default function Pagination(props: PaginationProps) {
     labelId: "pagination-select-label",
     labelText: "Page",
     dropdownOptions: paginationDropdownOptions,
-    currentValue: currentValue,
+    selectedOption: currentValue,
     onSelectChange: onSelectChange,
     onSelectBlur: onSelectBlur
   };

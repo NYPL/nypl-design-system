@@ -27,6 +27,7 @@ describe("Pagination Test", () => {
       paginationDropdownOptions={["1 of 4", "2 of 4", "3 of 4", "4 of 4"]}
       previousPageHandler={previousCallback}
       nextPageHandler={nextCallback}
+      currentValue={"1 of 4"}
       onSelectChange={changeCallback}
       onSelectBlur={blurCallback} />
     );
@@ -39,6 +40,7 @@ describe("Pagination Test", () => {
       paginationDropdownOptions={["1 of 4", "2 of 4", "3 of 4", "4 of 4"]}
       previousPageHandler={previousCallback}
       nextPageHandler={nextCallback}
+      currentValue={"1 of 4"}
       onSelectChange={changeCallback}
       onSelectBlur={blurCallback} />
     );

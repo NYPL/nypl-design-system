@@ -29,7 +29,7 @@ export const requiredField = () => <Dropdown
   labelId="label"
   helperContentId="helper"
   helperContent={<span>If you're unsure of your size, please see the <a href="#sizing-chart">sizing chart</a></span>}
-  dropdownOptions={["one", "two", "three"]}
+  dropdownOptions={["one", "two"]}
   onSelectChange={action("selectChanged")}
   onSelectBlur={action("selectBlur")} />;
 
