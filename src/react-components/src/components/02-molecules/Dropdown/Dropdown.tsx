@@ -19,6 +19,7 @@ export interface DropdownProps {
   errorContentId?: string;
   errorContent?: JSX.Element;
   dropdownOptions: string[];
+  selectedOption?: string;
   onSelectChange: (event: React.FormEvent) => void;
   onSelectBlur: (event: React.FormEvent) => void;
 }
@@ -28,7 +29,7 @@ export default function Dropdown(props: DropdownProps) {
     labelId, labelPosition, labelText, ariaLabel,
     helperContent, helperContentId,
     hasError, errorContent, errorContentId,
-    dropdownOptions,
+    dropdownOptions, selectedOption,
     onSelectChange, onSelectBlur } = props;
 
   let modifiers = [];
@@ -70,6 +71,7 @@ export default function Dropdown(props: DropdownProps) {
       labelId={labelPosition !== "none" ? labelId : undefined}
       isRequired={isRequired}
       ariaLabel={labelPosition === "none" ? ariaLabel : undefined}
+      selectedOption={selectedOption}
       options={dropdownOptions}
       onSelectChange={onSelectChange} onSelectBlur={onSelectBlur} />
 

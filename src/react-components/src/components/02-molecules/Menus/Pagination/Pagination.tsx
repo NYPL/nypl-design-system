@@ -9,12 +9,13 @@ export interface PaginationProps {
   paginationDropdownOptions: string[];
   previousPageHandler: (event: React.MouseEvent) => void;
   nextPageHandler: (event: React.MouseEvent) => void;
+  currentValue: string;
   onSelectChange: (event: React.MouseEvent) => void;
   onSelectBlur: (event: React.MouseEvent) => void;
 }
 
 export default function Pagination(props: PaginationProps) {
-  const { paginationDropdownOptions,
+  const { paginationDropdownOptions, currentValue,
     previousPageHandler, nextPageHandler,
     onSelectChange, onSelectBlur } = props;
 
@@ -48,6 +49,7 @@ export default function Pagination(props: PaginationProps) {
     labelId: "pagination-select-label",
     labelText: "Page",
     dropdownOptions: paginationDropdownOptions,
+    currentValue: currentValue,
     onSelectChange: onSelectChange,
     onSelectBlur: onSelectBlur
   };
