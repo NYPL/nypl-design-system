@@ -1,6 +1,6 @@
 {
   "name": "storybook",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": true,
   "dependencies": {
     "@nypl/design-system-react-components": "file:../src/react-components",
@@ -15,7 +15,6 @@
     "typescript": "^3.6.4"
   },
   "scripts": {
-    "build-storybook": "build-storybook",
     "start:twig": "node ../node_modules/@storybook/html/bin/index -p 8001 -c .storybook-html",
     "start:react": "node ../node_modules/@storybook/react/bin/index -p 9001 -c .storybook-react",
     "static:twig": "node ../node_modules/.bin/build-storybook -c .storybook-html -o ./storybook-static/twig",

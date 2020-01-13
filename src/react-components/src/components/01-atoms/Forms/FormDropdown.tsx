@@ -51,7 +51,7 @@ export default class FormDropdown extends React.Component<FormDropdownProps, { s
     }
 
     let formItemBlockName = blockName ? blockName : "form-item";
-  
+
     if (selectedOption && this.state.selectedOption ) {
       console.log("Got both passed value and also internal value", selectedOption, this.state.selectedOption);
     }

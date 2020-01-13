@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "dist": "webpack --mode production --progress --display-modules --config webpack.prod.js",
     "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.prod.js",
     "lint": "tslint -c tslint.json src/__tests__/components/*.tsx src/components/**/**/*.tsx src/components/**/**/**/*.tsx src/utils/*.tsx",
-    "test": "npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js"
+    "test": "rm -rf lib && npm run lint && tsc && mocha --require lib/__tests__/*.js lib/__tests__/**/*.js"
   },
   "keywords": [],
   "dependencies": {

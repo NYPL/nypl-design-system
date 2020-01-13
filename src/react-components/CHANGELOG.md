@@ -16,6 +16,20 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - added `iconModifiers` to `Button`
 - `buttonId` in `Button` is now required
 - refactored `FormDropdown` to not include its own `label`
+- `RN Header With Search` 
+- a story for `RN Section Title`, which is just a collection of styles
+- `Link` -> `LinkHelper` for clarity
+- Bugfixes in `UnderlineLink` and `IconLink`
+- `Link` missing URL error message
+- Consolidated `Heading` and `PageTitle`
+- Added ResearchNow specific `SearchBar` error state 
+- A11Y changes for `SearchBar` and `HeaderWithSearch`
+- Added stories for AT-79, AT-264 and AT-3
+- `selectedOption` added to `Dropdown` and `FormDropdown` stores selected state
+
+## [0.0.7] - 2020-01-03
+### Added
+- A webpack file in order to build and distribute a compiled version of the react components. Does not replace the /lib folder usage, but the main file is now pointing to `/dist/design-system-react-components.min.js`.
 
 ## [0.0.6] - 2019-12-31
 ### Added
@@ -29,10 +43,6 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - Moved heading-related atoms from `01-atoms/Text` into `01-atoms/Text/Heading` 
 - Updated `Searchbar` component to include Parameters
 - Changed `Breadcrumb` export from `Breadcrumbs` 
-
-## [0.0.6] - 2019-12-19
-### Added
-- A webpack file in order to build and distribute a compiled version of the react components. Does not replace the /lib folder usage, but the main file is now pointing to `/dist/design-system-react-components.min.js`.
 
 ## [0.0.5] - 2019-12-06
 ### Changed

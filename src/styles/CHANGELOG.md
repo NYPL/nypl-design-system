@@ -6,9 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
+
 ## Prerelease
+### Added
+- Styles for `header-with-search`
+
+### Changed 
+- `heading-xl` mixin `font weight: normal` -> `lighter`
+
+## [0.0.7] - 2020-01-03
+### Changes
 - Changes the `$nypl-turquoise` variables to match what is in `IA + Templates` in Figma
 - Tightens up media queries on header-with-image-right
+- Changes `breakpoint` in `wrapper` mixin so that it reads `max-width` correctly
 
 ## [0.0.6] - 2019-12-06
 ### Added
