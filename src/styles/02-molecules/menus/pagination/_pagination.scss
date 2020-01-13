@@ -1,5 +1,11 @@
 .pagination {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+
+  & > * {
+    &:not(:last-child) {
+      @include space-inline-xs;
+    }
+  }
 }

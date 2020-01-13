@@ -10,9 +10,11 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ## Prerelease
 ### Added
 - Styles for `header-with-search`
+- Styles for `pagination`
 
 ### Changed 
 - `heading-xl` mixin `font weight: normal` -> `lighter`
+- `button` type-size and letter-spacing
 
 ## [0.0.7] - 2020-01-03
 ### Changes

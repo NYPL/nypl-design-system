@@ -1,4 +1,24 @@
 .dropdown {
-  align-items: center;
   display: flex;
+  align-items: baseline;
+
+  &__label {
+    @include space-inline-xs;
+
+    font-weight: 500;
+  }
+
+  &__required-message {
+    @include body-small;
+
+    font-weight: 300;
+  }
+
+  &--label-top {
+    flex-flow: column;
+  }
+
+  &--label-left {
+    flex-flow: row;
+  }
 }
