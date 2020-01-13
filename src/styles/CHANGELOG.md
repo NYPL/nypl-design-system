@@ -10,6 +10,7 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ### Added
 - Styles for `edition-card`
 - Styles for `header-with-search`
+- Styles for `search-results-list`
 
 ### Changed
 - Updated `_text.scss` to accomodate the change from Kievit > `system-font-ui`

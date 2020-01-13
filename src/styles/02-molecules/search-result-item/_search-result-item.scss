@@ -1,4 +1,6 @@
 .search-result-item {
+  @include space-stack-m;
+
   &__heading {
     @include space-stack-xxs;
   }

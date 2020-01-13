@@ -19,24 +19,22 @@ export interface SearchResultsListProps {
 export default function SearchResultsList(props: SearchResultsListProps) {
   const { modifiers, blockName, searchResults } = props;
 
-  const base_class = "searchResultItem-list";
+  const base_class = "search-results-list";
 
-  return <div className={bem(base_class, [], blockName)}>
-    <ul className={bem("list", [], base_class)}>
-      {searchResults.map((item, index) => {
-        return (<li key={`search-result-item-${index}`}>
-          <SearchResultItem
-            id={`search-result-item-${index}`}
-            resultIndex={index}
-            modifiers={modifiers}
-            blockName={blockName}
-            headingContent={item.titleElement}
-            subtitleText={item.subtitle}
-            authorLinkElement={item.authorElement}
-            editionInfo={item.editionInfo}
-            editionsLinkElement={item.editionsLinkElement} />
-        </li>);
-      })}
-    </ul>
-  </div>;
+  return <ul className={bem(base_class, [], blockName)}>
+    {searchResults.map((item, index) => {
+      return (<li key={`search-result-item-${index}`}>
+        <SearchResultItem
+          id={`search-result-item-${index}`}
+          resultIndex={index}
+          modifiers={modifiers}
+          blockName={blockName}
+          headingContent={item.titleElement}
+          subtitleText={item.subtitle}
+          authorLinkElement={item.authorElement}
+          editionInfo={item.editionInfo}
+          editionsLinkElement={item.editionsLinkElement} />
+      </li>);
+    })}
+  </ul>;
 }
