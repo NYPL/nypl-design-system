@@ -23,7 +23,7 @@ describe("Label Test", () => {
     expect(wrapper.find("label")).to.have.lengthOf(1);
   });
 
-  it("if both <label> children and labelText prop is passed, use labelText", () => {
+  it("if both <label> children and labelText prop are passed, use labelText", () => {
     wrapper = Enzyme.shallow(<Label id="label" referenceId="so-lonely" labelText="cupcakes" >muffins</Label>);
     expect(wrapper.find("label")).to.have.lengthOf(1);
     expect(wrapper.find("label").text()).to.equal("cupcakes");
