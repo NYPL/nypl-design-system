@@ -22,8 +22,8 @@ export default function SearchResultsList(props: SearchResultsListProps) {
   const base_class = "search-results-list";
 
   return <ul className={bem(base_class, [], blockName)}>
-    {searchResults.map((item, index) => {
-      return (<li key={`search-result-item-${index}`}>
+    {searchResults.map((item, index) =>
+      <li key={`search-result-item-${index}`}>
         <SearchResultItem
           id={`search-result-item-${index}`}
           resultIndex={index}
@@ -34,7 +34,7 @@ export default function SearchResultsList(props: SearchResultsListProps) {
           authorLinkElement={item.authorElement}
           editionInfo={item.editionInfo}
           editionsLinkElement={item.editionsLinkElement} />
-      </li>);
-    })}
+      </li>
+    )}
   </ul>;
 }
