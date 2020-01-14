@@ -29,20 +29,21 @@ export default function EditionCard(props: React.PropsWithChildren<EditionCardPr
     editionInfo = [],
     readOnlineLink, downloadLink } = props;
   const baseClass = "edition-card";
+  console.log("got here2", readOnlineLink, downloadLink);
 
   const getButtonsElement = (readOnlineLink: string, downloadLink: string, baseClass: string) => {
     if (!readOnlineLink && !downloadLink) {
       return <div className={(bem("missing-links", [], baseClass))}>Unavailable to read online</div>;
+    } else {
+      return <div className={bem("card-ctas", [], baseClass)}>
+        {readOnlineLink &&
+          <BasicLink className={bem("card-info-link", [], baseClass)} url={readOnlineLink}>Read Online</BasicLink>
+        }
+        {downloadLink &&
+          <BasicLink className={bem("card-info-link", [], baseClass)} url={downloadLink}>Download</BasicLink>
+        }
+      </div>;
     }
-
-    return <div className={bem("card-ctas", [], baseClass)}>
-      {readOnlineLink &&
-        <BasicLink className={bem("card-info-link", [], baseClass)} url={readOnlineLink}>Read Online</BasicLink>
-      }
-      {downloadLink &&
-        <BasicLink className={bem("card-info-link", [], baseClass)} url={downloadLink}>Download</BasicLink>
-      }
-    </div>;
   };
 
   return (
