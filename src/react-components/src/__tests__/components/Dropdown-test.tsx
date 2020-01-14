@@ -71,7 +71,7 @@ describe("Dropdown", () => {
         onSelectChange={changeCallback}
         onSelectBlur={blurCallback} />
     );
-    expect(wrapper.find(".dropdown--left")).to.have.lengthOf(1);
+    expect(wrapper.find(".dropdown--label-left")).to.have.lengthOf(1);
   });
 
   it("renders 'required' component if Required", () => {
