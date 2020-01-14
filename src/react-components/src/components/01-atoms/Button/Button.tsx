@@ -2,8 +2,10 @@ import * as React from "react";
 import Icon from "../Images/Icons/Icon";
 import bem from "../../../utils/bem";
 
+type BtnContent = string | JSX.Element;
+
 export interface ButtonProps {
-  id?: string;
+  id: string;
   /** The action to perform on the <button>'s onClick function */
   callback: (event: React.MouseEvent) => void;
   content: string | JSX.Element;
@@ -16,6 +18,7 @@ export interface ButtonProps {
 
   iconPosition?: string;
   iconName?: string;
+  iconModifiers?: string[];
   iconDecorative?: boolean;
   iconRole?: string;
 }
@@ -30,7 +33,8 @@ export default class Button extends React.Component<ButtonProps, {}> {
   }
 
   render(): JSX.Element {
-    const { id, callback, content, attributes, modifiers, blockName, type, mouseDown, iconPosition, iconName, iconDecorative, iconRole } = this.props;
+    const { id, callback, content, attributes, modifiers, blockName, type, mouseDown,
+      iconPosition, iconName, iconModifiers, iconDecorative, iconRole } = this.props;
     if (type) {
       if (!(type === "outline" || type === "filled")) {
         throw new Error("Type can only be 'outline' or 'filled'");
@@ -42,11 +46,14 @@ export default class Button extends React.Component<ButtonProps, {}> {
       buttonModifiers.push(type);
     }
 
-    let btnContent = [content];
+    let btnContent: BtnContent[] = [];
+    btnContent.push(typeof(content) === "string" ? content : React.cloneElement(content, {key: `${id}-button-content`}));
+
     let button_base_class = "button";
 
     let iconProps = {
       name: iconName,
+      key: `icon-${id}`,
       blockName: button_base_class,
       modifiers: ["small"],
       decorative: iconDecorative,
@@ -54,6 +61,10 @@ export default class Button extends React.Component<ButtonProps, {}> {
       role: iconDecorative ? undefined : iconRole,
       title: iconDecorative
     };
+
+    if (iconModifiers) {
+      iconProps.modifiers.push(...iconModifiers);
+    }
 
     if (iconPosition) {
       buttonModifiers.push("icon");
@@ -73,12 +84,11 @@ export default class Button extends React.Component<ButtonProps, {}> {
     }
 
     let btnProps = {
+      id: id,
       className: bem(button_base_class, buttonModifiers, blockName),
       type: "submit"
     };
-    if (id) {
-      btnProps[id] = id;
-    }
+
     let btnCallback = mouseDown ? { onMouseDown: callback } : { onClick: callback };
 
     return React.createElement(

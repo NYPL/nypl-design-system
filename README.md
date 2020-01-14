@@ -3,6 +3,10 @@
 # NYPL Design System
 Information about the Design System, philosophy, and timeline is available on [Confluence](https://confluence.nypl.org/pages/viewpage.action?spaceKey=DIGTL&title=Design+Systems+Forum) 
 
+## [WIP] Things to know before you use
+At a high level, Design System is a collection of components.  
+These components, whenever possible, will show content rather than throwing an error.  This is to prevent your entire page from breaking because the database returned an empty string somewhere and there was no fallback for empty data.  It is the product's responsibility to make sure the data is well-checked.
+
 ## Getting Started
 This repo is versioned with [Lerna](https://github.com/lerna/lerna).  
 
