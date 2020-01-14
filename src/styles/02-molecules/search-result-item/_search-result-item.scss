@@ -1,0 +1,17 @@
+.search-result-item {
+  &__heading {
+    @include space-stack-xxs;
+  }
+
+  &__author {
+    @include space-stack-xs;
+  }
+
+  &__subtitle {
+    @include space-stack-xxs;
+  }
+
+  &__all-editions {
+    padding: $space-xxs $space;
+  }
+}
