@@ -42,7 +42,7 @@ export default function Dropdown(props: DropdownProps) {
     if (!labelId || !labelText) {
       throw new Error(`prop labelId and labelText must be passed into Dropdown when labelPosition is not "none".  (Got LabelPosition ${labelPosition})`);
     }
-    modifiers.push(labelPosition);
+    modifiers.push("label-" + labelPosition);
   } else {
     if (!ariaLabel) {
       throw new Error(`prop ariaLabel must be passed into Dropdown when labelPosition is "none"`);
@@ -60,22 +60,30 @@ export default function Dropdown(props: DropdownProps) {
   return <div className={bem(baseClass, modifiers)}>
 
     {labelPosition !== "none" &&
-      <div><Label id={labelId} referenceId={dropdownId}>{labelText}</Label>
-        {isRequired && <span className={bem("required-message", [], baseClass)}>Required</span>}
+      <div className={bem("label", [], baseClass)}>
+        <Label id={labelId} referenceId={dropdownId}>{labelText} </Label>
+
+        {isRequired && <span className={bem("required-message", [], baseClass)}>
+          Required
+        </span>}
       </div>
     }
-    <div>
-    <FormDropdown
-      dropdownId={dropdownId}
-      labelId={labelPosition !== "none" ? labelId : undefined}
-      isRequired={isRequired}
-      ariaLabel={labelPosition === "none" ? ariaLabel : undefined}
-      selectedOption={selectedOption}
-      options={dropdownOptions}
-      onSelectChange={onSelectChange} onSelectBlur={onSelectBlur} />
+    <div className={bem("select-area", [], baseClass)}>
+      <div className={bem("select", [], baseClass)}>
+      <FormDropdown
+        dropdownId={dropdownId}
+        labelId={labelPosition !== "none" ? labelId : undefined}
+        isRequired={isRequired}
+        ariaLabel={labelPosition === "none" ? ariaLabel : undefined}
+        selectedOption={selectedOption}
+        options={dropdownOptions}
+        onSelectChange={onSelectChange} onSelectBlur={onSelectBlur} />
+      </div>
 
-    {helperContent && <HelperErrorText id={helperContentId} isError={false}>{helperContent}</HelperErrorText>}
-    {hasError && <HelperErrorText id={errorContentId} isError={true}>{errorContent}</HelperErrorText>}
+      <div className={bem("help-text", [], baseClass)}>
+        {helperContent && <HelperErrorText id={helperContentId} isError={false}>{helperContent}</HelperErrorText>}
+        {hasError && <HelperErrorText id={errorContentId} isError={true}>{errorContent}</HelperErrorText>}
+      </div>
     </div>
   </div>;
 }
