@@ -34,7 +34,7 @@ export const editionCardMissingLinks = () => <EditionCard
   coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingElement={<a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>}
   editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
-  >
+>
 </EditionCard>;
 
 export const editionCardWithSomeEditionInfo = () => <EditionCard
