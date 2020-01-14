@@ -17,7 +17,7 @@ export interface HeadingProps {
 }
 
 export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
-  const { level, id, baseClass= "heading", modifiers, url, urlClass, text, blockName, attributes } = props;
+  const { level, id, baseClass= "heading", text, modifiers, blockName, url, urlClass, attributes } = props;
 
   let heading_base_class = baseClass;
 
@@ -27,6 +27,13 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
 
   if (!props.children && !text) {
     throw new Error("Heading has no children, please pass prop: text");
+  }
+
+  if (React.Children.count(props.children) > 1) {
+    const children = React.Children.map(props.children, child =>
+      (child as JSX.Element).type);
+    // Catching the error because React's error isn't as helpful.
+    throw new Error(`Please only pass one child into Heading, got ${children.join(", ")}`);
   }
 
   let content: string | React.ReactNode;

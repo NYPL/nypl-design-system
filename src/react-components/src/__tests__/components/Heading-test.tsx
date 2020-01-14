@@ -17,8 +17,14 @@ describe("Section Headings", () => {
     wrapper = Enzyme.shallow(<Heading id="h1" level={1}>Text</Heading>);
     expect(wrapper.find("h1")).to.have.lengthOf(1);
   });
+
+  // TODO: check that header children are links
+  // it("Throws error when invalid heading is passed as child", () => {
+  //   expect(() => Enzyme.mount(<Heading id="h1" level={3}><span>oh no</span></Heading>))
+  //   .to.throw("Headings can only be plain text or bold");
+  // });
   it("Can pass heading content as child span", () => {
-    wrapper = Enzyme.shallow(<Heading id="h1" level={1}>Text <span>hi</span></Heading>);
+    wrapper = Enzyme.shallow(<Heading id="h1" level={1}><span>Text <b>hi</b></span></Heading>);
     expect(wrapper.find("h1")).to.have.lengthOf(1);
     expect(wrapper.find("span")).to.have.lengthOf(1);
   });
@@ -46,5 +52,8 @@ describe("Section Headings", () => {
   it("Throws error when neither child nor text is passed", () => {
     expect(() => Enzyme.mount(<Heading id="h1" level={9} />))
       .to.throw("Heading only supports levels 1-6");
+  });
+  it("Throws error when heading with many children is passed", () => {
+    expect(() => Enzyme.shallow(<Heading id="h1" level={4} ><span>too</span><span>many</span></Heading>)).to.throw("Please only pass one child into Heading, got span, span");
   });
 });

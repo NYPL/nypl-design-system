@@ -5,15 +5,18 @@
 }
 
 @mixin body-copy {
+  @include type-scale(0);
+
   font-family: $font-body;
-  font-size: 1rem;
+  font-weight: 300;
   line-height: 1.5;
-  letter-spacing: 0.0275em;
+  letter-spacing: 0.0175em;
 }
 
 @mixin body-small {
+  @include type-scale(-1);
+
   font-family: $font-body;
-  font-size: 0.875rem;
   line-height: 1.428571429em;
   letter-spacing: -0.017142857em;
 }
@@ -28,6 +31,11 @@ body {
   @include body-copy;
 
   color: $black;
+}
+
+.caption,
+.credit-line {
+  @include type-scale(-1);
 }
 
 p,
@@ -48,6 +56,10 @@ p,
   color: currentColor;
 }
 
+.long-description {
+  @include screenreader-only();
+}
+
 .text-long {
   blockquote {
     @extend .blockquote;
@@ -55,12 +67,5 @@ p,
 
   hr {
     @extend .hr;
-  }
-}
-
-.body-text {
-  a {
-    @include link;
-    text-decoration: underline;
   }
 }

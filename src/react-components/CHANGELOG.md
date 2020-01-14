@@ -4,15 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
-========
-## PRERELEASE
+## PRERELEASE 
 ### Added 
+- `EditionCard` component
+- `SearchResultItem` component that uses `EditionCard` 
 - `RN Header With Search` 
 - a story for `RN Section Title`, which is just a collection of styles
 
 ### Changed
-- `Link` -> `LinkHelper` for clarity
+- `Link` -> `BasicLink` for clarity
 - Bugfixes in `UnderlineLink` and `IconLink`
+- Added stories for `BasicLink`
 - `Link` missing URL error message
 - Consolidated `Heading` and `PageTitle`
 - Added ResearchNow specific `SearchBar` error state 
