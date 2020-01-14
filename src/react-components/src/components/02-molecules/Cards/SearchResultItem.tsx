@@ -45,13 +45,6 @@ export default function SearchResultItem(props: React.PropsWithChildren<SearchRe
     editionInfo, editionsLinkElement } = props;
   const baseClass = "search-result-item";
 
-  if (React.Children.count(headingContent.props.children) !== 1) {
-    const children = React.Children.map(headingContent.props.children, child =>
-      (child as JSX.Element).type);
-    // Catching the error because React's error isn't as helpful.
-    throw new Error(`Please only pass one child into SearchResultItem, got ${children.join(", ")}`);
-  }
-
   // TODO: Decide whether this needs to be in DS, and write/find utilities for us to count text within child components
   // if (headingContent.innerText > 80) {
   //   throw new Error("Section Title (h2) Text must be fewer than 80 characters");
