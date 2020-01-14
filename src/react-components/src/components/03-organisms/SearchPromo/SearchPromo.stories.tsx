@@ -18,7 +18,7 @@ export const searchPromo = () => <SearchPromo
   searchBarId="searchBarId"
   dropdownId="dropdownId"
   searchInputAriaLabel="ariaLabel"
-  searchDropdownOptions={["Keyword", "bye there"]}
+  searchDropdownOptions={["Keyword", "Author"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
   selectBlurHandler={action("selectChanged")}
@@ -33,8 +33,23 @@ export const searchPromoWithError = () => <SearchPromo
   searchInputAriaLabel="ariaLabel"
   hasError={true}
   errorMessage="oh no you messed up"
-  searchDropdownOptions={["Keyword", "bye there"]}
+  searchDropdownOptions={["Keyword", "Author"]}
   searchSubmitHandler={action("searched")}
   selectChangeHandler={action("changed")}
   selectBlurHandler={action("selectChanged")}
 />;
+export const researchNowSearchPromo = () => <SearchPromo
+  headingText="Search the World's Research Collections"
+  titleId="tagline"
+  searchButtonId="searchButtonId"
+  advancedSearchMessage={<div>hello</div>}
+  hasError={true}
+  errorMessage="message"
+  searchBarId="searchBarId"
+  dropdownId="dropdownId"
+  searchInputAriaLabel="Search for keyword, author, title, or subject"
+  searchDropdownOptions={["Keyword", "Author"]}
+  searchSubmitHandler={action("searched")}
+  textChangeHandler={action("searched")}
+  selectChangeHandler={action("searched")}
+  selectBlurHandler={action("searched")} />;

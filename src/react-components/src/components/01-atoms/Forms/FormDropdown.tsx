@@ -6,7 +6,9 @@ import Icon from "../Images/Icons/Icon";
 export interface FormDropdownProps {
   dropdownId: string;
   blockName?: string;
-  labelText?: string;
+  modifiers?: string[];
+  labelId?: string;
+  isRequired: boolean;
   ariaLabel?: string;
   disabled?: boolean;
   options: string[];
@@ -15,34 +17,74 @@ export interface FormDropdownProps {
   onSelectChange: (event: React.FormEvent) => void;
 }
 
-export default function FormDropdown(props: FormDropdownProps) {
-  const { dropdownId, blockName, labelText, options, ariaLabel, disabled, selectedOption, onSelectBlur, onSelectChange } = props;
-  if (!labelText && !ariaLabel) {
-      // TODO: Assign aria-labeledBy to labelText
-      throw new Error("Either labelText or ariaLabel must be defined");
+export default class FormDropdown extends React.Component<FormDropdownProps, { selectedOption: string }> {
+  constructor(props: FormDropdownProps) {
+    super(props);
+    this.state = { selectedOption: props.selectedOption };
+    this.onSelectChange.bind(this);
   }
 
-  let formItemBlockName = blockName ? blockName : "form-item";
-  let labelClassName = bem("label", ["textField"], formItemBlockName);
+  componentDidUpdate() {
+    if (this.state.selectedOption !== this.props.selectedOption) {
+      this.setState({ selectedOption: this.props.selectedOption});
+    }
+  }
 
-  return (
-    <div className={bem("dropdown", [], formItemBlockName)}>
-      {labelText && (<label htmlFor={dropdownId} className={labelClassName}>{labelText}</label>)}
+  onSelectChange(event: React.FormEvent, additionalChange: Function) {
+    let target = event.target as HTMLSelectElement;
+    if (target) {
+      this.setState({ selectedOption: target.value });
+    }
+    additionalChange(event);
+  }
 
-      <select id={dropdownId}
-        className={bem("select", [], formItemBlockName)}
-        value={selectedOption}
-        onChange={onSelectChange}
-        onBlur={onSelectBlur}
-        aria-label={ariaLabel}
-        disabled={disabled ? disabled : false}
-      >
-          { options.map((child, key) => {
-            return <option key={key.toString()} aria-selected={child === selectedOption} value={child}>{ child }</option>;
-          }) }
-      </select>
+  render() {
+    const { dropdownId, blockName = "form-item", options, labelId, isRequired, ariaLabel, disabled = false, selectedOption, onSelectBlur, onSelectChange } = this.props;
+    const modifiers = this.props.modifiers ? this.props.modifiers : [];
+    if (!labelId && !ariaLabel) {
+      throw new Error("Must either have labelId or aria-label");
+    }
 
-      <Icon decorative={true} name={"arrow"} modifiers={["small"]} />
-    </div>
-  );
+    let formItemBlockName = blockName;
+
+    let selectProps = {
+      id: dropdownId,
+      className: bem("select", modifiers, formItemBlockName),
+      defaultValue: selectedOption ? selectedOption : undefined,
+      "aria-required": isRequired,
+      value: this.state.selectedOption ? this.state.selectedOption : undefined,
+      disabled: disabled
+    };
+
+    if (labelId) {
+      selectProps["aria-labelledby"] = labelId;
+    } else {
+      selectProps["aria-label"] = ariaLabel;
+    }
+
+    if (labelId) {
+      selectProps["aria-labelledby"] = labelId;
+    } else {
+      selectProps["aria-label"] = ariaLabel;
+    }
+
+    if (!options.length) return;
+
+    return (
+      <div className={bem("dropdown", modifiers, formItemBlockName)}>
+        <select {...selectProps}
+          onChange={(e) => this.onSelectChange(e, onSelectChange)}
+          onBlur={(e) => this.onSelectChange(e, onSelectBlur)}>
+          {options.map((child, key) => {
+
+            return <option key={key.toString()}
+              aria-selected={child === this.state.selectedOption}
+              value={child}>{child}</option>;
+          })}
+        </select>
+
+        <Icon decorative={true} name={"arrow"} modifiers={["small"]} />
+      </div>
+    );
+  }
 }
