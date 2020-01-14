@@ -4,13 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
-========
-## PRERELEASE
+## PRERELEASE 
 ### Added 
 - `Dropdown` which controls `FormDropdown` and its corresponding `Label`
 - `Label` 
 - `HelperErrorText` 
 - `Pagination`
+- `EditionCard` component
+- `SearchResultItem` component that uses `EditionCard` 
+- `RN Header With Search` 
+- a story for `RN Section Title`, which is just a collection of styles
 
 ### Changed
 - added `iconModifiers` to `Button`
@@ -18,14 +21,16 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - refactored `FormDropdown` to not include its own `label`
 - `RN Header With Search` 
 - a story for `RN Section Title`, which is just a collection of styles
-- `Link` -> `LinkHelper` for clarity
+- `Link` -> `BasicLink` for clarity
 - Bugfixes in `UnderlineLink` and `IconLink`
+- Added stories for `BasicLink`
 - `Link` missing URL error message
 - Consolidated `Heading` and `PageTitle`
+- `Heading` now only takes a single span
 - Added ResearchNow specific `SearchBar` error state 
 - A11Y changes for `SearchBar` and `HeaderWithSearch`
 - Added stories for AT-79, AT-264 and AT-3
-- `selectedOption` added to `Dropdown` and `FormDropdown` stores selected state
+- `selectedOption` added to `FormDropdown` stores selected state
 
 ## [0.0.7] - 2020-01-03
 ### Added

@@ -3,7 +3,7 @@
 import * as React from "react";
 import bem from "../../../utils/bem";
 import Icon from "../Images/Icons/Icon";
-import LinkHelper from "./LinkHelper";
+import BasicLink from "./BasicLink";
 
 export interface IconLinkProps {
   url?: string;
@@ -43,6 +43,6 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
 
     let className = bem(iconLink__base_class, moreLinkModifiers, blockName);
 
-    return <LinkHelper url={url} className={className} attributes={attributes} icon={icon}>{children}</LinkHelper>;
+    return <BasicLink url={url} className={className} attributes={attributes} icon={icon}>{children}</BasicLink>;
   }
 }
