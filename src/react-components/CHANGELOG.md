@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - `SearchResultItem` component that uses `EditionCard` 
 - `RN Header With Search` 
 - a story for `RN Section Title`, which is just a collection of styles
+- `SearchResultsList` component
 
 ### Changed
 - added `iconModifiers` to `Button`
