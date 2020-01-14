@@ -8,24 +8,21 @@ export interface HelperErrorTextProps {
   modifiers?: string[];
   blockName?: string;
   baseClass?: string;
-  attributes?: {};
 }
 
 export default function HelperErrorText(props: React.PropsWithChildren<HelperErrorTextProps>) {
-  const { id, isError, attributes } = props;
-  let blockName = props.blockName ? props.blockName : "input-description";
-  let baseClass = props.baseClass ? props.baseClass : "form-item";
+  const { id, blockName = "input-description", baseClass = "form-item", isError, ...rest } = props;
   let modifiers = [];
+
+  if (!props.children) {
+    throw new Error("Helper and Error Text must have content, or else it should not be used");
+  }
+
   if (isError) {
     modifiers.push("error");
   }
   if (props.modifiers) {
     modifiers.push(...props.modifiers);
   }
-
-  if (!props.children) {
-    throw new Error("Helper and Error Text must have content, or else it should not be used");
-  }
-
-  return <span id={id} className={bem(blockName, modifiers, baseClass)} {...attributes}>{props.children}</span>;
+  return <span id={id} className={bem(blockName, modifiers, baseClass)} {...rest}>{props.children}</span>;
 }

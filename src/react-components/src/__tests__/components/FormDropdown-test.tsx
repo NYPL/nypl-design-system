@@ -105,14 +105,13 @@ describe("FormDropdown", () => {
   expect(wrapper.find("select").props().value).to.equal("test2");
   });
 
-  it("renders empty select form when passed no options", () => {
+  it("renders nothing when passed no options", () => {
     wrapper = Enzyme.shallow(<FormDropdown
       dropdownId="hi"
       labelId="label"
       isRequired={false}
       options={[]}
       onSelectChange={changeCallback} onSelectBlur={blurCallback} />);
-    expect(wrapper.find("select")).to.have.lengthOf(1);
-    expect(wrapper.find("option")).to.have.lengthOf(0);
+    expect(wrapper.getElement()).to.equal(null);
   });
 });

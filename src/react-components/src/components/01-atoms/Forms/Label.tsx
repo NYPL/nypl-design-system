@@ -13,16 +13,15 @@ export default function Label(props: React.PropsWithChildren<LabelProps>) {
 
   if (!labelText && !props.children) {
     throw new Error("Label must have content passed as labelText or children.  Got labelText: " + labelText + " and children: " + props.children);
-  } else {
-    let content = labelText ? labelText : props.children;
-    let attributes = {
-      id: id,
-      htmlFor: referenceId
-    };
-    return React.createElement(
-      "label",
-      attributes,
-      content
-    );
   }
+  let content = labelText ? labelText : props.children;
+  let attributes = {
+    id: id,
+    htmlFor: referenceId
+  };
+  return React.createElement(
+    "label",
+    attributes,
+    content
+  );
 }

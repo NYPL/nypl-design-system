@@ -59,17 +59,6 @@ describe("Dropdown", () => {
     expect(wrapper.find("Label")).to.have.lengthOf(0);
   });
 
-  it("rejects invalid labelPosition", () => {
-    expect(() => Enzyme.mount(<Dropdown
-      dropdownId="dropdown"
-      isRequired={false}
-      labelPosition="invalid"
-      dropdownOptions={["test1", "test2"]}
-      onSelectChange={changeCallback}
-      onSelectBlur={blurCallback} />))
-      .to.throw("prop labelPosition must be one of \"left\", \"top\", \"none\", but Dropdown was passed invalid");
-  });
-
   it("adds appropriate modifier if labelPosition is 'top' or 'left'", () => {
     wrapper = Enzyme.shallow(
       <Dropdown

@@ -9,7 +9,7 @@ import HelperErrorText from "../Helpers/HelperErrorText";
 export interface DropdownProps {
   dropdownId: string;
   isRequired: boolean;
-  labelPosition: string;
+  labelPosition: "top" | "left" | "none";
   labelId?: string;
   labelText?: string;
   ariaLabel?: string;
@@ -33,7 +33,6 @@ export default function Dropdown(props: DropdownProps) {
     onSelectChange, onSelectBlur } = props;
 
   let modifiers = [];
-console.log("dropdown selectedOption", selectedOption);
   const baseClass = "dropdown";
   if (!["left", "top", "none"].includes(labelPosition)) {
     throw new Error(`prop labelPosition must be one of "left", "top", "none", but Dropdown was passed ${labelPosition}`);

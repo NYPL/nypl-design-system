@@ -2,6 +2,8 @@ import * as React from "react";
 import Icon from "../Images/Icons/Icon";
 import bem from "../../../utils/bem";
 
+type BtnContent = string | JSX.Element;
+
 export interface ButtonProps {
   id: string;
   /** The action to perform on the <button>'s onClick function */
@@ -44,7 +46,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
       buttonModifiers.push(type);
     }
 
-    let btnContent: any[] = [];
+    let btnContent: BtnContent[] = [];
     btnContent.push(typeof(content) === "string" ? content : React.cloneElement(content, {key: `${id}-button-content`}));
 
     let button_base_class = "button";

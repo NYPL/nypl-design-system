@@ -18,7 +18,6 @@ export default function Pagination(props: PaginationProps) {
   const { paginationDropdownOptions, currentValue,
     previousPageHandler, nextPageHandler,
     onSelectChange, onSelectBlur } = props;
-console.log("currentValue", currentValue);
 
   const pagination__base_class = "pagination";
   let buttonPrevProps = {
@@ -46,7 +45,6 @@ console.log("currentValue", currentValue);
   let dropdownProps = {
     dropdownId: "pagination-dropdown",
     isRequired: false,
-    labelPosition: "left",
     labelId: "pagination-select-label",
     labelText: "Page",
     dropdownOptions: paginationDropdownOptions,
@@ -57,6 +55,6 @@ console.log("currentValue", currentValue);
 
   return (
     <nav aria-label="Pagination" className={bem(pagination__base_class)}>
-      <Button {...buttonPrevProps}/><Dropdown {...dropdownProps}></Dropdown><Button {...buttonNextProps}/>
+      <Button {...buttonPrevProps}/><Dropdown labelPosition="left" {...dropdownProps}></Dropdown><Button {...buttonNextProps}/>
   </nav>);
 }

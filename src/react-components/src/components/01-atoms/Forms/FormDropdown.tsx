@@ -20,16 +20,11 @@ export interface FormDropdownProps {
 export default class FormDropdown extends React.Component<FormDropdownProps, { selectedOption: string }> {
   constructor(props: FormDropdownProps) {
     super(props);
-    this.state = { selectedOption: "" };
+    this.state = { selectedOption: props.selectedOption };
     this.onSelectChange.bind(this);
   }
 
-  componentDidMount() {
-    console.log("mounted props", this.props);
-    this.setState({ selectedOption: this.props.selectedOption });
-  }
   componentDidUpdate() {
-    console.log("newProps", this.props);
     if (this.state.selectedOption !== this.props.selectedOption) {
       this.setState({ selectedOption: this.props.selectedOption});
     }
@@ -44,24 +39,21 @@ export default class FormDropdown extends React.Component<FormDropdownProps, { s
   }
 
   render() {
-    const { dropdownId, blockName, options, labelId, isRequired, ariaLabel, disabled, selectedOption, onSelectBlur, onSelectChange } = this.props;
+    const { dropdownId, blockName = "form-item", options, labelId, isRequired, ariaLabel, disabled = false, selectedOption, onSelectBlur, onSelectChange } = this.props;
     const modifiers = this.props.modifiers ? this.props.modifiers : [];
     if (!labelId && !ariaLabel) {
       throw new Error("Must either have labelId or aria-label");
     }
 
-    let formItemBlockName = blockName ? blockName : "form-item";
+    let formItemBlockName = blockName;
 
-    if (selectedOption && this.state.selectedOption ) {
-      console.log("Got both passed value and also internal value", selectedOption, this.state.selectedOption);
-    }
     let selectProps = {
       id: dropdownId,
       className: bem("select", modifiers, formItemBlockName),
       defaultValue: selectedOption ? selectedOption : undefined,
       "aria-required": isRequired,
       value: this.state.selectedOption ? this.state.selectedOption : undefined,
-      disabled: disabled ? disabled : false
+      disabled: disabled
     };
 
     if (labelId) {
@@ -75,6 +67,8 @@ export default class FormDropdown extends React.Component<FormDropdownProps, { s
     } else {
       selectProps["aria-label"] = ariaLabel;
     }
+
+    if (!options.length) return;
 
     return (
       <div className={bem("dropdown", modifiers, formItemBlockName)}>
