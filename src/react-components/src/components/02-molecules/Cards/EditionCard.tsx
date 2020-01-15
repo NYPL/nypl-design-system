@@ -5,10 +5,20 @@ import Heading from "../../01-atoms/Text/Headings/Heading";
 import Image from "../../01-atoms/Images/Image/Image";
 import BasicLink from "../../01-atoms/Links/BasicLink";
 
+export type EditionDetails = {
+  editionYearHeading: JSX.Element,
+  publisherAndLocation: string,
+  coverUrl: string,
+  language: string,
+  license: string,
+  readOnlineLink: string,
+  downloadLink: string
+};
 
 export interface EditionCardProps {
   id: string;
   blockName?: string;
+  modifiers?: string[];
 
   coverUrl: string;
 
@@ -24,7 +34,7 @@ export interface EditionCardProps {
  * EditionCard component that renders information for an edition.
  */
 export default function EditionCard(props: React.PropsWithChildren<EditionCardProps>) {
-  const { id, blockName, coverUrl,
+  const { id, blockName, modifiers = [], coverUrl,
     editionHeadingElement,
     editionInfo = [],
     readOnlineLink, downloadLink } = props;
@@ -46,7 +56,7 @@ export default function EditionCard(props: React.PropsWithChildren<EditionCardPr
   };
 
   return (
-    <div className={bem(baseClass, [], blockName)}>
+    <div className={bem(baseClass, modifiers, blockName)}>
       <Heading id={id} level={3} blockName={blockName ? blockName : baseClass} >{editionHeadingElement}</Heading>
       <div className={bem("card-content", [], baseClass)}>
         <div className={bem("card-image", [], baseClass)}>
