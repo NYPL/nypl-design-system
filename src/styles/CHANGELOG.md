@@ -8,7 +8,7 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ========
 ## PRERELEASE 
 ### Added 
-- - Styles for `editions-list`
+- Styles for `editions-list`
 
 ## [0.0.8] - 2020-01-15
 ### Added

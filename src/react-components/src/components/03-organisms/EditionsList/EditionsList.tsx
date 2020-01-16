@@ -4,16 +4,15 @@ import bem from "../../../utils/bem";
 import EditionCard, { EditionDetails } from "../../02-molecules/Cards/EditionCard";
 
 export interface SearchResultsListProps {
-  modifiers?: [];
+  baseClass?: string;
+  modifiers?: string[];
   blockName?: string;
   editions: EditionDetails[];
 }
 export default function SearchResultsList(props: SearchResultsListProps) {
-  const { modifiers, blockName, editions } = props;
+  const { baseClass = "edition-list", modifiers = [], blockName, editions } = props;
 
-  const base_class = "edition-list";
-
-  return <ul className={bem(base_class, [], blockName)}>
+  return <ul className={bem(baseClass, modifiers, blockName)}>
     {editions.map((edition, index) =>
       <li key={`edition-item-${index}`}>
         <EditionCard
@@ -24,7 +23,7 @@ export default function SearchResultsList(props: SearchResultsListProps) {
           editionHeadingElement={edition.editionYearHeading}
           editionInfo={[edition.publisherAndLocation, edition.language, edition.license]}
           readOnlineLink={edition.readOnlineLink}
-          downloadLink={edition.downloadLink}/>
+          downloadLink={edition.downloadLink} />
       </li>
     )}
   </ul>;
