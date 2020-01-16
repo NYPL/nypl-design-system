@@ -45,6 +45,10 @@
   }
 }
 
+.container {
+  @include wrapper;
+}
+
 /// Use the breakout mixin for elements that should be edge-to-edge
 /// Even when a parent container uses the wrapper mixin
 @mixin breakout($v-padding: $space) {

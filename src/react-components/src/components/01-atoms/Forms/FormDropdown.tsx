@@ -54,7 +54,7 @@ export default class FormDropdown extends React.Component<FormDropdownProps, { s
       value: this.state.selectedOption ? this.state.selectedOption : undefined,
       disabled: disabled
     };
-    
+
     if (labelId) {
       selectProps["aria-labelledby"] = labelId;
     } else {

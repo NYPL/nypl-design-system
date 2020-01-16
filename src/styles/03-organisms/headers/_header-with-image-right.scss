@@ -1,16 +1,22 @@
 $header-with-image-right--break: 1028px;
 
 .header-with-image-right {
-  background-color: $gray-warm-xlight;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-end;
+  @include breakout;
 
-  @include breakpoint($medium) {
-    flex-direction: row;
-  }
+  background-color: $gray-warm-xlight;
 
   &__content {
+    @include wrapper;
+
+    display: flex;
+    flex-flow: column;
+
+    @include breakpoint($medium) {
+      flex-flow: row-reverse;
+    }
+  }
+
+  &__heading-text { 
     flex: 1 1 auto;
   }
 
@@ -19,7 +25,7 @@ $header-with-image-right--break: 1028px;
   }
 
   &__image {
-    flex: 1;
+    flex: 1 1 100%;
 
     @include breakpoint($medium) {
       flex: 1 1 600px;
