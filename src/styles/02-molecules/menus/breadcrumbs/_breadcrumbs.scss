@@ -5,7 +5,8 @@ $break-breadcrumbs-mobile: max-width 599px;
   @include breakout;
 
   background-color: $nypl-turquoise-dark;
-  padding: $space-xs 0;
+  padding-top: $space-xs;
+  padding-bottom: $space-xs;
 }
 
 .breadcrumbs__list {

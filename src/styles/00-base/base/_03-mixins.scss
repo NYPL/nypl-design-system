@@ -46,7 +46,7 @@
 }
 
 .container {
-  @include wrapper;
+  @include wrapper($v-margin: $space-m);
 }
 
 /// Use the breakout mixin for elements that should be edge-to-edge
