@@ -95,9 +95,12 @@ export default function SearchBar(props: SearchBarProps) {
     aria-label={searchBarAriaLabel}
     aria-labelledby={searchBarAriaLabelledBy}>
     {dropdownOptions &&
-      <FormDropdown selectedOption={selectedField}
+      <FormDropdown
+        isRequired={false}
+        selectedOption={selectedField}
         ariaLabel="Search by"
-        dropdownId={dropdownId} options={dropdownOptions}
+        dropdownId={dropdownId}
+        options={dropdownOptions}
         onSelectBlur={selectBlurHandler}
         blockName={searchbar__base_class}
         onSelectChange={selectChangeHandler} />

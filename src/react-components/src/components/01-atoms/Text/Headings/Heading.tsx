@@ -29,6 +29,13 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     throw new Error("Heading has no children, please pass prop: text");
   }
 
+  if (React.Children.count(props.children) > 1) {
+    const children = React.Children.map(props.children, child =>
+      (child as JSX.Element).type);
+    // Catching the error because React's error isn't as helpful.
+    throw new Error(`Please only pass one child into Heading, got ${children.join(", ")}`);
+  }
+
   let content: string | React.ReactNode;
   if (props.children) {
     content = url ? React.createElement("a", { href: url, className: urlClass }, props.children) : props.children;

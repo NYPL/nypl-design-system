@@ -10,10 +10,12 @@ import Button from "../../components/01-atoms/Button/Button";
 describe("Button", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;
   let callback;
+
   beforeEach(() => {
     callback = stub();
-    wrapper = Enzyme.shallow(<Button callback={callback} content="Submit" />);
+    wrapper = Enzyme.shallow(<Button id="button" callback={callback} content="Submit" />);
   });
+
   it("calls the callback", () => {
     wrapper.simulate("click");
     expect(callback.callCount).to.equal(1);

@@ -4,14 +4,17 @@ import * as React from "react";
 
 import SearchResultItem from "../../components/02-molecules/Cards/SearchResultItem";
 
-describe("SearchResultsItem", () => {
-  const EditionInfo = () => {
+describe("SearchResultItem", () => {
+  const validHeading = <a href="hello">headingText</a>;
+  const invalidHeading = <>< a href="hello" > headingText</a> <span>badText</span></>;
+
+  const EditionInfo = (heading: JSX.Element) => {
     return <SearchResultItem
       id="Result1"
       resultIndex={1}
       modifiers={[]}
       blockName={""}
-      headingContent={<a href="hello">headingText</a>}
+      headingContent={heading}
       subtitleText="Subtitle need max character count Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       authorLinkElement={<a href="blah">bahah</a>}
       editionInfo={{
@@ -30,7 +33,8 @@ describe("SearchResultsItem", () => {
   // let longHeadingText = `hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello `;
 
   it("Search Result Item with a Heading Link, Edition Card and Edition Card", () => {
-    let shallow = Enzyme.shallow(EditionInfo());
+    let shallow = Enzyme.shallow(EditionInfo(validHeading));
+
     // Need to render since Heading's child is a component.
     const heading = shallow.find("Heading").render();
 

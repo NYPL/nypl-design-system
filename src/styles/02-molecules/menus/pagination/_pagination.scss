@@ -1,0 +1,12 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+
+  & > * {
+    &:not(:last-child) {
+      @include space-inline-xs;
+    }
+  }
+}

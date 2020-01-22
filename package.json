@@ -47,6 +47,7 @@
     "mocha": "^6.2.2",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
+    "react-uid": "^2.2.0",
     "rimraf": "^3.0.0",
     "sinon": "^7.3.0",
     "svg-inline-loader": "^0.8.0",
