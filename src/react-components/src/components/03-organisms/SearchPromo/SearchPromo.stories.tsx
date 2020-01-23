@@ -3,6 +3,7 @@ import * as React from "react";
 import SearchPromo from "./SearchPromo";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, text } from "@storybook/addon-knobs";
+import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 
 
 export default {
@@ -10,11 +11,11 @@ export default {
   component: SearchPromo,
 };
 
-export const searchPromo = () => <SearchPromo
+export const researchNowSearchPromo = () => <SearchPromo
   headingText="Search the World's Research Collections"
   titleId="title"
   searchButtonId="searchButtonId"
-  advancedSearchMessage={<p>Use <a href="#advanced-fake-link">Advanced Search</a> to narrow your results.</p>}
+  advancedSearchMessage={<p>Use <UnderlineLink url="#advanced-fake-link">Advanced Search</UnderlineLink> to narrow your results.</p>}
   searchBarId="searchBarId"
   dropdownId="dropdownId"
   searchInputAriaLabel="ariaLabel"
@@ -26,7 +27,7 @@ export const searchPromo = () => <SearchPromo
 export const searchPromoWithError = () => <SearchPromo
   headingText="Search the World's Research Collections"
   titleId="title"
-  advancedSearchMessage={<p>Use <a href="#advanced-fake-link">Advanced Search</a> to narrow your results.</p>}
+  advancedSearchMessage={<p>Use <UnderlineLink url="#advanced-fake-link">Advanced Search</UnderlineLink> to narrow your results.</p>}
   searchButtonId="searchButtonId"
   searchBarId="searchBarId"
   dropdownId="dropdownId"
@@ -38,18 +39,3 @@ export const searchPromoWithError = () => <SearchPromo
   selectChangeHandler={action("changed")}
   selectBlurHandler={action("selectChanged")}
 />;
-export const researchNowSearchPromo = () => <SearchPromo
-  headingText="Search the World's Research Collections"
-  titleId="tagline"
-  searchButtonId="searchButtonId"
-  advancedSearchMessage={<div>hello</div>}
-  hasError={true}
-  errorMessage="message"
-  searchBarId="searchBarId"
-  dropdownId="dropdownId"
-  searchInputAriaLabel="Search for keyword, author, title, or subject"
-  searchDropdownOptions={["Keyword", "Author"]}
-  searchSubmitHandler={action("searched")}
-  textChangeHandler={action("searched")}
-  selectChangeHandler={action("searched")}
-  selectBlurHandler={action("searched")} />;

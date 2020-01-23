@@ -1,8 +1,10 @@
 .pagination {
-  width: 100%;
-  display: flex;
+  @include space-stack-l;
+
   align-items: stretch;
+  display: flex;
   justify-content: center;
+  width: 100%;
 
   & > * {
     &:not(:last-child) {

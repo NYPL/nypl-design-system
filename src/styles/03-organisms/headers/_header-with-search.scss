@@ -2,7 +2,8 @@ $search-header--breakpoint: 1076px;
 
 .search-header {
   @include breakout;
-
+  @include space-stack-l;
+  
   background-color: $nypl-turquoise-regular;
 
   &__content {
