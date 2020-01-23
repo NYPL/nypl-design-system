@@ -3,18 +3,9 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 import IconLink from "../../01-atoms/Links/IconLink";
 import Heading from "../../01-atoms/Text/Headings/Heading";
-import EditionCard from "./EditionCard";
+import EditionCard, { EditionDetails } from "./EditionCard";
 import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 
-export type EditionInfo = {
-  editionYearHeading: JSX.Element,
-  publisherAndLocation: string,
-  coverUrl: string,
-  language: string,
-  license: string,
-  readOnlineLink: string,
-  downloadLink: string
-};
 
 export interface SearchResultItemProps {
   id: string;
@@ -30,7 +21,7 @@ export interface SearchResultItemProps {
 
   authorLinkElement: JSX.Element;
 
-  editionInfo: EditionInfo;
+  editionInfo: EditionDetails;
   editionsLinkElement: JSX.Element;
 }
 /**

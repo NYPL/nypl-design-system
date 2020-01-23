@@ -1,11 +1,12 @@
 .iconlink-list {
+  @include wrapper;
+  @include space-inset-s;
+
   &__heading {
     @include space-stack-none;
   }
 
   &__list {
-    padding-left: $space-m;
     color: $gray-medium;
-    margin: 0;
   }
 }
