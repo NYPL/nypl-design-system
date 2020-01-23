@@ -1,12 +1,13 @@
 // OL-28 Search Results Item List
 import * as React from "react";
 import bem from "../../../utils/bem";
-import SearchResultItem, { EditionInfo } from "../../02-molecules/Cards/SearchResultItem";
+import SearchResultItem from "../../02-molecules/Cards/SearchResultItem";
+import { EditionDetails } from "../../02-molecules/Cards/EditionCard";
 
 export type SearchResultInfo = {
   titleElement: JSX.Element,
   subtitle: string,
-  editionInfo: EditionInfo,
+  editionInfo: EditionDetails,
   authorElement: JSX.Element,
   editionsLinkElement: JSX.Element
 };

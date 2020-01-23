@@ -21,12 +21,16 @@ export interface HeaderImgRightProps {
 
 export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgRightProps>) {
 
-    const { headerId, pageTitleText, bodyText, imgUrl } = props;
-    const baseClass = "header-with-image-right";
+  const { headerId, pageTitleText, bodyText, imgUrl } = props;
+  const baseClass = "header-with-image-right";
 
-    return (
-      <div className={bem(baseClass)}>
-        <div className={bem("content", [], baseClass)}>
+  return (
+    <div className={bem(baseClass)}>
+      <div className={bem("content", [], baseClass)}>
+        <div className={bem("image", [], baseClass)}>
+          <Image src={imgUrl} isDecorative={true}></Image>
+        </div>
+        <div className={bem("heading-text", [], baseClass)}>
           <div className={bem("heading", [], baseClass)}>
             <Heading level={1} id={headerId}
               blockName="page-title"
@@ -34,14 +38,13 @@ export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgR
               text={pageTitleText}>
             </Heading>
           </div>
+
           <div className={bem("text", [], baseClass)}>
             <BodyText bodyContent={bodyText}></BodyText>
           </div>
         </div>
-        <div className={bem("image", [], baseClass)}>
-          <Image src={imgUrl} isDecorative={true}></Image>
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
