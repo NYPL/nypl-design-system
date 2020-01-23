@@ -2,18 +2,8 @@
 import * as React from "react";
 import bem from "../../../utils/bem";
 import Heading from "../../01-atoms/Text/Headings/Heading";
-import EditionCard from "./EditionCard";
 import withOneChild from "../../../helpers/hoc/WithOneChild";
-
-export type EditionInfo = {
-  editionYearHeading: JSX.Element,
-  publisherAndLocation: string,
-  coverUrl: string,
-  language: string,
-  license: string,
-  readOnlineLink: string,
-  downloadLink: string
-};
+import EditionCard, { EditionDetails } from "./EditionCard";
 
 export interface SearchResultItemProps {
   id: string;
@@ -29,7 +19,7 @@ export interface SearchResultItemProps {
 
   authorLinkElement: JSX.Element;
 
-  editionInfo: EditionInfo;
+  editionInfo: EditionDetails;
   editionsLinkElement: JSX.Element;
 }
 /**

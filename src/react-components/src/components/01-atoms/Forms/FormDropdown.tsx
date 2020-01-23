@@ -26,7 +26,7 @@ export default class FormDropdown extends React.Component<FormDropdownProps, { s
 
   componentDidUpdate() {
     if (this.state.selectedOption !== this.props.selectedOption) {
-      this.setState({ selectedOption: this.props.selectedOption});
+      this.setState({ selectedOption: this.props.selectedOption });
     }
   }
 
@@ -50,7 +50,6 @@ export default class FormDropdown extends React.Component<FormDropdownProps, { s
     let selectProps = {
       id: dropdownId,
       className: bem("select", modifiers, formItemBlockName),
-      defaultValue: selectedOption ? selectedOption : undefined,
       "aria-required": isRequired,
       value: this.state.selectedOption ? this.state.selectedOption : undefined,
       disabled: disabled
@@ -62,21 +61,13 @@ export default class FormDropdown extends React.Component<FormDropdownProps, { s
       selectProps["aria-label"] = ariaLabel;
     }
 
-    if (labelId) {
-      selectProps["aria-labelledby"] = labelId;
-    } else {
-      selectProps["aria-label"] = ariaLabel;
-    }
-
     if (!options.length) return;
-
     return (
       <div className={bem("dropdown", modifiers, formItemBlockName)}>
         <select {...selectProps}
           onChange={(e) => this.onSelectChange(e, onSelectChange)}
           onBlur={(e) => this.onSelectChange(e, onSelectBlur)}>
           {options.map((child, key) => {
-
             return <option key={key.toString()}
               aria-selected={child === this.state.selectedOption}
               value={child}>{child}</option>;
