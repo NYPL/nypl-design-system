@@ -23,7 +23,7 @@ class DummyComponent extends React.Component<DummyProps, {}> {
   }
 }
 
-describe.only("withOneChild HOC", () => {
+describe("withOneChild HOC", () => {
   let wrapper: Enzyme.ReactWrapper<{}, {}>;
 
   // This DummyComponent can take as many children that are passed
