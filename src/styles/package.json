@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-styles",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Design System Styles",
   "scripts": {
     "test": "echo \"There are no tests for styles\" "
