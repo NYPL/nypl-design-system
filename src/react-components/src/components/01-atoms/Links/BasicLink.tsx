@@ -1,7 +1,7 @@
 
 // Base Link Helper Class
 import * as React from "react";
-import WithOneChild from "../../../hoc/WithOneChild";
+import withOneChild from "../../../helpers/hoc/WithOneChild";
 
 export interface BasicLinkProps {
   className?: string;
@@ -10,7 +10,7 @@ export interface BasicLinkProps {
   attributes?: {};
 }
 
-export class BasicLink extends React.Component<BasicLinkProps, {}> {
+export class BasicLinkBase extends React.Component<BasicLinkProps, {}> {
   constructor(props: BasicLinkProps) {
     super(props);
   }
@@ -52,5 +52,5 @@ export class BasicLink extends React.Component<BasicLinkProps, {}> {
   }
 }
 
-const BasicLinkWError = WithOneChild<BasicLinkProps>(BasicLink);
-export default BasicLinkWError;
+const BasicLink = withOneChild<BasicLinkProps>(BasicLinkBase);
+export default BasicLink;

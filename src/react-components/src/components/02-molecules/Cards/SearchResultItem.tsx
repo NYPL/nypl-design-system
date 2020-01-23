@@ -3,7 +3,7 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 import Heading from "../../01-atoms/Text/Headings/Heading";
 import EditionCard from "./EditionCard";
-import WithOneChild from "../../../hoc/WithOneChild";
+import withOneChild from "../../../helpers/hoc/WithOneChild";
 
 export type EditionInfo = {
   editionYearHeading: JSX.Element,
@@ -43,7 +43,7 @@ export default function SearchResultItem(props: React.PropsWithChildren<SearchRe
     authorLinkElement,
     editionInfo, editionsLinkElement } = props;
   const baseClass = "search-result-item";
-  const OnChildHeadingContent = WithOneChild(headingContent);
+  const HeadingContent = withOneChild(headingContent);
   // TODO: Decide whether this needs to be in DS, and write/find utilities for us to count text within child components
   // if (headingContent.innerText > 80) {
   //   throw new Error("Section Title (h2) Text must be fewer than 80 characters");
@@ -54,7 +54,7 @@ export default function SearchResultItem(props: React.PropsWithChildren<SearchRe
   return (
     <div className={bem(baseClass, modifiers, blockName)}>
       <Heading id={id} level={2} blockName={blockName ? blockName : baseClass}>
-        <OnChildHeadingContent />
+        <HeadingContent />
       </Heading>
       <div className={bem("subtitle", [], baseClass)}>{subtitleText}</div>
       <div className={bem("author", [], baseClass)}>
