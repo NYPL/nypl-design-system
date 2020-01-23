@@ -1,5 +1,6 @@
 .edition-card {
   @include space-stack-s;
+
   border: 1px solid $gray-light;
   border-radius: 5px;
   padding: $space-xs $space $space $space;
