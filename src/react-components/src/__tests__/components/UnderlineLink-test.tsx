@@ -33,6 +33,7 @@ describe("Link With Underline", () => {
   // });
   it("throws an error when more than one components are passed", () => {
     expect(() => Enzyme.mount(<UnderlineLink><span>Test</span><span>Test2</span></UnderlineLink>))
-    .to.throw("Please only pass one child, got span, span");
+    .to.throw("Please only pass one child, got elements (span, span), " +
+      "for base component BasicLinkBase");
   });
 });

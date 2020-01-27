@@ -8,5 +8,11 @@ export default {
   component: BasicLink,
 };
 
-export const passedInBasicLink = () => <BasicLink className="passed-in-class"><a href="#passed-in-link">I'm cold</a></BasicLink>;
-export const generatedBasicLink = () => <BasicLink className="passed-in-class" url="#passed-in-link">I'm very cold</BasicLink>;
+export const passedInBasicLink = () =>
+  <BasicLink className="passed-in-class">
+    <a href="#passed-in-link">I'm cold</a>
+  </BasicLink>;
+export const generatedBasicLink = () =>
+  <BasicLink className="passed-in-class" url="#passed-in-link">
+    I'm very cold
+  </BasicLink>;

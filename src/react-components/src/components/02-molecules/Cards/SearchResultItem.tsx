@@ -1,11 +1,9 @@
 /* MC-25 Search Results Item */
 import * as React from "react";
 import bem from "../../../utils/bem";
-import IconLink from "../../01-atoms/Links/IconLink";
 import Heading from "../../01-atoms/Text/Headings/Heading";
+import withOneChild from "../../../helpers/hoc/WithOneChild";
 import EditionCard, { EditionDetails } from "./EditionCard";
-import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
-
 
 export interface SearchResultItemProps {
   id: string;
@@ -35,7 +33,7 @@ export default function SearchResultItem(props: React.PropsWithChildren<SearchRe
     authorLinkElement,
     editionInfo, editionsLinkElement } = props;
   const baseClass = "search-result-item";
-
+  const HeadingContent = withOneChild(headingContent);
   // TODO: Decide whether this needs to be in DS, and write/find utilities for us to count text within child components
   // if (headingContent.innerText > 80) {
   //   throw new Error("Section Title (h2) Text must be fewer than 80 characters");
@@ -45,7 +43,9 @@ export default function SearchResultItem(props: React.PropsWithChildren<SearchRe
 
   return (
     <div className={bem(baseClass, modifiers, blockName)}>
-      <Heading id={id} level={2} blockName={blockName ? blockName : baseClass} >{headingContent}</Heading>
+      <Heading id={id} level={2} blockName={blockName ? blockName : baseClass}>
+        <HeadingContent />
+      </Heading>
       <div className={bem("subtitle", [], baseClass)}>{subtitleText}</div>
       <div className={bem("author", [], baseClass)}>
         {authorLinkElement}
