@@ -12,7 +12,8 @@ export type EditionDetails = {
   language: string,
   license: string,
   readOnlineLink: string,
-  downloadLink: string
+  downloadLink: string,
+  noLinkElement?: JSX.Element
 };
 
 export interface EditionCardProps {
@@ -28,21 +29,30 @@ export interface EditionCardProps {
 
   readOnlineLink?: string;
   downloadLink?: string;
+
+  noLinkElement?: JSX.Element;
 }
 
 /**
  * EditionCard component that renders information for an edition.
  */
 export default function EditionCard(props: React.PropsWithChildren<EditionCardProps>) {
-  const { id, blockName, modifiers = [], coverUrl,
+  const {
+    id,
+    blockName,
+    modifiers = [],
+    coverUrl,
     editionHeadingElement,
     editionInfo = [],
-    readOnlineLink, downloadLink } = props;
+    readOnlineLink,
+    downloadLink,
+    noLinkElement = <>Unavailable to read online</>
+  } = props;
   const baseClass = "edition-card";
 
   const getButtonsElement = (readOnlineLink: string, downloadLink: string, baseClass: string) => {
     if (!readOnlineLink && !downloadLink) {
-      return <div className={(bem("missing-links", [], baseClass))}>Unavailable to read online</div>;
+      return <div className={(bem("missing-links", [], baseClass))}>{noLinkElement}</div>;
     }
 
     return <div className={bem("card-ctas", [], baseClass)}>

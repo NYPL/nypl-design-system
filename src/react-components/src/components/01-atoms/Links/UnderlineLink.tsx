@@ -12,7 +12,7 @@ export interface UnderlineLinkProps {
 
 export default class UnderlineLink extends React.Component<UnderlineLinkProps, {}> {
   constructor(props: UnderlineLinkProps) {
-    super(props);
+  super(props);
   }
 
   render(): JSX.Element {
