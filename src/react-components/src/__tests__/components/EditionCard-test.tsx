@@ -23,6 +23,15 @@ describe("EditionCard", () => {
     editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
   />;
 
+  let missingLinkNoLinkElement = <EditionCard
+    id="card#1"
+    blockName=""
+    coverUrl="https://placeimg.com/300/400/arch"
+    editionHeadingElement={<a href="edition-link">2004 Edition</a>}
+    editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
+    noLinkElement={<span id="noLinkElement">No Links</span>}
+  />;
+
   let editionCardNoInfo = <EditionCard
     id="card#1"
     blockName=""
@@ -40,12 +49,17 @@ describe("EditionCard", () => {
     })).to.have.lengthOf(2);
   });
 
-  it("Shows an error span if Links are missing", () => {
+  it("Shows an error span if Links are missing and not passed a link element", () => {
     let card = Enzyme.mount(missingLinkEditionCard);
     expect(card.find("h3")).to.have.lengthOf(1);
     expect(card.find("h3").find("a")).to.have.lengthOf(1);
     expect(card.find("img")).to.have.lengthOf(1);
     expect(card.find({className: "edition-card__missing-links"})).to.have.lengthOf(1);
+  });
+
+  it("Shows an error span if Links are missing and not passed a link element", () => {
+    let card = Enzyme.mount(missingLinkNoLinkElement);
+    expect(card.find("#noLinkElement")).to.have.lengthOf(1);
   });
 
   it("Generates Edition Card if no Edition Info is passed", () => {

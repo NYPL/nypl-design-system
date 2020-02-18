@@ -23,7 +23,8 @@ export default function SearchResultsList(props: SearchResultsListProps) {
           editionHeadingElement={edition.editionYearHeading}
           editionInfo={[edition.publisherAndLocation, edition.language, edition.license]}
           readOnlineLink={edition.readOnlineLink}
-          downloadLink={edition.downloadLink} />
+          downloadLink={edition.downloadLink}
+          noLinkElement={edition.noLinkElement} />
       </li>
     )}
   </ul>;
