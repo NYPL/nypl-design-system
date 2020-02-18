@@ -75,6 +75,7 @@
   &__missing-links {
     @include space-inset-s;
 
+    flex: 0 0 200px;
     background-color: $gray-light;
 
     @include breakpoint($medium) {
