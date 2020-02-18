@@ -57,6 +57,7 @@ export default function SearchResultItem(props: React.PropsWithChildren<SearchRe
         editionInfo={[editionInfo.publisherAndLocation, editionInfo.language, editionInfo.license]}
         readOnlineLink={editionInfo.readOnlineLink}
         downloadLink={editionInfo.downloadLink}
+        noLinkElement={editionInfo.noLinkElement}
       ></EditionCard>
       <div className={bem("all-editions", [], baseClass)}>
         {editionsLinkElement}

@@ -12,7 +12,9 @@ export type EditionDetails = {
   language: string,
   license: string,
   readOnlineLink: string,
-  downloadLink: string
+  downloadLink: string,
+  /** Element to render when there are no links. */
+  noLinkElement?: JSX.Element
 };
 
 export interface EditionCardProps {
@@ -23,29 +25,33 @@ export interface EditionCardProps {
   coverUrl: string;
 
   editionHeadingElement: JSX.Element;
-
   editionInfo: string[];
 
   readOnlineLink?: string;
   downloadLink?: string;
+
+  noLinkElement?: JSX.Element;
 }
 
 /**
  * EditionCard component that renders information for an edition.
  */
 export default function EditionCard(props: React.PropsWithChildren<EditionCardProps>) {
-  const { id, blockName, modifiers = [], coverUrl,
+  const {
+    id,
+    blockName,
+    modifiers = [],
+    coverUrl,
     editionHeadingElement,
     editionInfo = [],
-    readOnlineLink, downloadLink } = props;
+    readOnlineLink,
+    downloadLink,
+    noLinkElement = <>Unavailable to read online</>
+  } = props;
   const baseClass = "edition-card";
-
-  const getButtonsElement = (readOnlineLink: string, downloadLink: string, baseClass: string) => {
-    if (!readOnlineLink && !downloadLink) {
-      return <div className={(bem("missing-links", [], baseClass))}>Unavailable to read online</div>;
-    }
-
-    return <div className={bem("card-ctas", [], baseClass)}>
+  const noLinksElem = <div className={(bem("missing-links", [], baseClass))}>{noLinkElement}</div>;
+  const getButtonsElem = (readOnlineLink: string, downloadLink: string, baseClass: string) =>
+    <div className={bem("card-ctas", [], baseClass)}>
       {readOnlineLink &&
         <BasicLink className={bem("card-info-link", [], baseClass)} url={readOnlineLink}>Read Online</BasicLink>
       }
@@ -53,7 +59,8 @@ export default function EditionCard(props: React.PropsWithChildren<EditionCardPr
         <BasicLink className={bem("card-info-link", [], baseClass)} url={downloadLink}>Download</BasicLink>
       }
     </div>;
-  };
+
+  const btns = readOnlineLink || downloadLink ? getButtonsElem(readOnlineLink, downloadLink, baseClass) : noLinksElem;
 
   return (
     <div className={bem(baseClass, modifiers, blockName)}>
@@ -69,7 +76,7 @@ export default function EditionCard(props: React.PropsWithChildren<EditionCardPr
             })}
           </div>
         }
-        {getButtonsElement(readOnlineLink, downloadLink, baseClass)}
+        {btns}
       </div>
     </div>
   );
