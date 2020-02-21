@@ -47,6 +47,16 @@ export const editionCardWithSomeEditionInfo = () => <EditionCard
   downloadLink="#downloadUrl">
 </EditionCard>;
 
+export const editionCardWithComponentInfo = () => <EditionCard
+  id="card#1"
+  blockName=""
+  coverUrl="https://placeimg.com/300/400/arch"
+  editionHeadingElement={<a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>}
+  editionInfo={[<span>Published in New York</span>, "Under Creative Commons License"]}
+  readOnlineLink={<span>Read Online</span>}
+  downloadLink="#downloadUrl">
+</EditionCard>;
+
 export const editionCardWithEmptyEditionInfo = () => <EditionCard
   id="card#1"
   blockName=""
