@@ -9,10 +9,16 @@ export type EditionDetails = {
   editionYearHeading: JSX.Element,
   publisherAndLocation: string,
   coverUrl: string,
-  language: string,
-  license: string,
-  readOnlineLink: string,
-  downloadLink: string,
+  language: string | JSX.Element,
+  license: string | JSX.Element,
+
+  /** readOnlineLink and downloadLink take in either urls as a string,
+   *  link-type (<a>, <ReactRouter.Link>) elements
+   * TODO: make it so that it only takes elements.
+   * Having it take URLs is confusing and the logic shouldn't live here.*/
+  readOnlineLink: string | JSX.Element,
+  downloadLink: string | JSX.Element,
+
   /** Element to render when there are no links. */
   noLinkElement?: JSX.Element
 };
@@ -25,10 +31,10 @@ export interface EditionCardProps {
   coverUrl: string;
 
   editionHeadingElement: JSX.Element;
-  editionInfo: string[];
+  editionInfo: (string|JSX.Element)[];
 
-  readOnlineLink?: string;
-  downloadLink?: string;
+  readOnlineLink?: string|JSX.Element;
+  downloadLink?: string|JSX.Element;
 
   noLinkElement?: JSX.Element;
 }
@@ -50,14 +56,20 @@ export default function EditionCard(props: React.PropsWithChildren<EditionCardPr
   } = props;
   const baseClass = "edition-card";
   const noLinksElem = <div className={(bem("missing-links", [], baseClass))}>{noLinkElement}</div>;
-  const getButtonsElem = (readOnlineLink: string, downloadLink: string, baseClass: string) =>
+  const getElem = (link: string|JSX.Element, text: string) => {
+    if (typeof link === "string") {
+      return <BasicLink className={bem("card-info-link", [], baseClass)} url={link}>{text}</BasicLink>;
+    } else {
+      return link;
+    }
+  };
+
+  const getButtonsElem = (readOnlineLink: string | JSX.Element, downloadLink: string | JSX.Element, baseClass: string) =>
     <div className={bem("card-ctas", [], baseClass)}>
       {readOnlineLink &&
-        <BasicLink className={bem("card-info-link", [], baseClass)} url={readOnlineLink}>Read Online</BasicLink>
-      }
+        getElem(readOnlineLink, "Read Online") }
       {downloadLink &&
-        <BasicLink className={bem("card-info-link", [], baseClass)} url={downloadLink}>Download</BasicLink>
-      }
+        getElem(downloadLink, "Download") }
     </div>;
 
   const btns = readOnlineLink || downloadLink ? getButtonsElem(readOnlineLink, downloadLink, baseClass) : noLinksElem;

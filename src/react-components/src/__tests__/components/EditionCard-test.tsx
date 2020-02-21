@@ -15,12 +15,31 @@ describe("EditionCard", () => {
     readOnlineLink="#readOnlineUrl"
     downloadLink="#downloadUrl" />;
 
+  let elementEditionCard = <EditionCard
+    id="card#1"
+    blockName=""
+    coverUrl="https://placeimg.com/300/400/arch"
+    editionHeadingElement={<a href="edition-link" >2004 Edition</a>}
+    editionInfo={[<span id="pub-span">Publisher</span>, "Written in English", <a id="licenceId" href="/licence-page">License</a>]}
+    readOnlineLink="#readOnlineUrl"
+    downloadLink="#downloadUrl" />;
+
   let missingLinkEditionCard = <EditionCard
     id="card#1"
     blockName=""
     coverUrl="https://placeimg.com/300/400/arch"
     editionHeadingElement={<a href="edition-link">2004 Edition</a>}
     editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
+  />;
+
+  let elementLinkEditionCard = <EditionCard
+    id="card#1"
+    blockName=""
+    coverUrl="https://placeimg.com/300/400/arch"
+    editionHeadingElement={<a href="edition-link" >2004 Edition</a>}
+    editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
+    readOnlineLink={<span id="readOnlineSpan">Reading</span>}
+    downloadLink={<span id="downloadSpan">Download</span>}
   />;
 
   let missingLinkNoLinkElement = <EditionCard
@@ -68,5 +87,22 @@ describe("EditionCard", () => {
     expect(card.find("h3").find("a")).to.have.lengthOf(1);
     expect(card.find("img")).to.have.lengthOf(1);
     expect(card.find({className: "edition-card__missing-links"})).to.have.lengthOf(1);
+  });
+
+  it("Generates Edition Card if Edition Info is passed as spans", () => {
+    let card = Enzyme.mount(elementEditionCard);
+    expect(card.find("h3")).to.have.lengthOf(1);
+    expect(card.find("h3").find("a")).to.have.lengthOf(1);
+    expect(card.find("img")).to.have.lengthOf(1);
+    expect(card.find("#pub-span").text()).to.equal("Publisher");
+    expect(card.find("a#licenceId").text()).to.equal("License");
+  });
+
+  it("Passes call-to-action links if it is given as span", () => {
+    let card = Enzyme.mount(elementLinkEditionCard);
+    expect(card.find("h3")).to.have.lengthOf(1);
+    expect(card.find("h3").find("a")).to.have.lengthOf(1);
+    expect(card.find("img")).to.have.lengthOf(1);
+    expect(card.find("#downloadSpan").text()).to.equal("Download");
   });
 });
