@@ -4,6 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 
+// Add all the addons when starting up.
 addDecorator(withInfo);
 addDecorator(withA11y);
 addDecorator(withKnobs);
