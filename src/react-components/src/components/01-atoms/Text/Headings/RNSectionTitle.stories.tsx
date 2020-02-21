@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import RNSectionTitle from "./RNSectionTitle";
-import { action } from "@storybook/addon-actions";
 import bem from "../../../../utils/bem";
 
 export default {

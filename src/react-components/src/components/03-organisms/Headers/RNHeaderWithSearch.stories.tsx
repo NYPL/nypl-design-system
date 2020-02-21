@@ -3,7 +3,6 @@ import * as React from "react";
 
 import RNHeaderWithSearch from "./RNHeaderWithSearch";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, text } from "@storybook/addon-knobs";
 import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 
 import bem from "../../../utils/bem";

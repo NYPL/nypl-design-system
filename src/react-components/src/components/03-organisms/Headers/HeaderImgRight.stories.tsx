@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import HeaderImgRight from "./HeaderImgRight";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Header Image Right",

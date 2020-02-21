@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import BasicLink from "./BasicLink";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Basic Link (Must be Wrapped in another component)",

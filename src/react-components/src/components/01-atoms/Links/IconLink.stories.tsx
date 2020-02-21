@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import IconLink from "./IconLink";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Link with Icon",

@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import Heading from "./Heading";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Heading",

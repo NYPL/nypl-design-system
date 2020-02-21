@@ -8,6 +8,13 @@ module.exports = async ({ config, mode }) => {
   // You can change the configuration based on that.
   // 'PRODUCTION' is used when building the static version of storybook.
 
+  // config.module.rules.push({
+  //   test: /\.(ts|tsx)$/,
+  //   loaders: [
+  //     'ts-loader',
+  //     'react-docgen-typescript-loader'
+  //   ]
+  // });
   config.module.rules.push({
     test: /\.svg$/,
     include: [path.join(__dirname, "./icons/")],
