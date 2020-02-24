@@ -1,3 +1,11 @@
+3.1.1 / 2019-12-21
+=================
+  * [Fix] IE < 9 does not have index access on strings
+  * [Deps] update `es-abstract`
+  * [Dev Deps] update `eslint`, `@ljharb/eslint-config`, `tape`
+  * [meta] remove unused Makefile and associated utilities
+  * [Tests] add string tests
+
 3.1.0 / 2019-12-11
 =================
   * [New] add `auto` entry point

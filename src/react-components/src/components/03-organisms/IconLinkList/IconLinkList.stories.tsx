@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import IconLinkList from "./IconLinkList";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "IconLinkList",

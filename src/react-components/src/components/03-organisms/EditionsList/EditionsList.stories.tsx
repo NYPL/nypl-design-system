@@ -2,7 +2,6 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 
 import EditionsList from "./EditionsList";
-import { action } from "@storybook/addon-actions";
 import { EditionDetails } from "../../02-molecules/Cards/EditionCard";
 
 export default {

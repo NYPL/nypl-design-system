@@ -17,3 +17,10 @@
 ## 2.1.1
 
 - Bumping the version to see if Travis will run green on the master branch
+
+## 2.1.2
+
+- a1c5ef9 Updated the Copyright to 2020 for A11yance
+- 5c5e04d Remove Peer Dependency to ESLint
+- ec1b53b Remove dependencies on @babel/runtime and @babel/runtime-corejs3
+

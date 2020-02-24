@@ -20,12 +20,12 @@ module.exports = function (includes, t) {
 
 	t.test('exceptions', function (et) {
 		et.test('fromIndex conversion', function (st) {
-			st['throws'](includes.bind(null, [0], 0, thrower), RangeError, 'fromIndex conversion throws');
+			st['throws'](function () { includes([0], 0, thrower); }, RangeError, 'fromIndex conversion throws');
 			st.end();
 		});
 
 		et.test('ToLength', function (st) {
-			st['throws'](includes.bind(null, { length: thrower, 0: true }, true), RangeError, 'ToLength conversion throws');
+			st['throws'](function () { includes({ length: thrower, 0: true }, true); }, RangeError, 'ToLength conversion throws');
 			st.end();
 		});
 
@@ -80,5 +80,15 @@ module.exports = function (includes, t) {
 		});
 
 		ft.end();
+	});
+
+	t.test('strings', function (st) {
+		st.equal(true, includes('abc', 'c'), 'string includes one of its chars');
+		st.equal(false, includes('abc', 'd'), 'string does not include a char it should not');
+
+		st.equal(true, includes(Object('abc'), 'c'), 'boxed string includes one of its chars');
+		st.equal(false, includes(Object('abc'), 'd'), 'boxed string does not include a char it should not');
+
+		st.end();
 	});
 };

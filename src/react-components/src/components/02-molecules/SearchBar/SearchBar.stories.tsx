@@ -2,7 +2,6 @@ import * as React from "react";
 
 import SearchBar from "./SearchBar";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, text } from "@storybook/addon-knobs";
 
 
 export default {

@@ -31,8 +31,14 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
           const {
             left,
             right,
-            body
+            body,
+            await: isAwait
           } = path.node;
+
+          if (isAwait) {
+            return;
+          }
+
           const i = scope.generateUidIdentifier("i");
           let array = scope.maybeGenerateMemoised(right, true);
           const inits = [_core.types.variableDeclarator(i, _core.types.numericLiteral(0))];

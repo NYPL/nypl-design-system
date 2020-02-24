@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import HelperErrorText from "./HelperErrorText";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "HelperErrorText",
