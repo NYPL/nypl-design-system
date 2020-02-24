@@ -2,11 +2,10 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 
 import EditionCard from "./EditionCard";
-import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Edition Card",
-  component: EditionCard,
+  component: EditionCard
 };
 
 export const editionCardWithFullData = () => <EditionCard

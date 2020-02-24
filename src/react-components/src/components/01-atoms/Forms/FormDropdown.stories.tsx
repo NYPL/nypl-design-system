@@ -2,18 +2,17 @@ import * as React from "react";
 
 import FormDropdown from "./FormDropdown";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { text } from "@storybook/addon-knobs";
 
 export default {
   title: "FormDropdown",
-  component: FormDropdown,
-  decorators: [withKnobs]
+  component: FormDropdown
 };
 
 export const dropdown = () => <FormDropdown dropdownId="baaah"
   isRequired={false}
   ariaLabel="search"
-  options={["one", "two"]}
+  options={["one", "two", text("third option", "three")]}
   onSelectBlur={action("blur")}
   onSelectChange={action("changed")} />;
 

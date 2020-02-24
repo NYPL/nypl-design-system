@@ -2,7 +2,6 @@ import * as React from "react";
 
 import SearchPromo from "./SearchPromo";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, text } from "@storybook/addon-knobs";
 import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 
 

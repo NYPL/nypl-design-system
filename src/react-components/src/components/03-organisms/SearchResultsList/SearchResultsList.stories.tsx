@@ -2,7 +2,6 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 
 import SearchResultsList, { SearchResultInfo } from "./SearchResultsList";
-import { action } from "@storybook/addon-actions";
 import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 
 export default {
