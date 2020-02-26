@@ -3,13 +3,13 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 import EditionCard, { EditionDetails } from "../../02-molecules/Cards/EditionCard";
 
-export interface SearchResultsListProps {
+export interface EditionsListProps {
   baseClass?: string;
   modifiers?: string[];
   blockName?: string;
   editions: EditionDetails[];
 }
-export default function SearchResultsList(props: SearchResultsListProps) {
+export default function EditionsList(props: EditionsListProps) {
   const { baseClass = "edition-list", modifiers = [], blockName, editions } = props;
 
   return <ul className={bem(baseClass, modifiers, blockName)}>
