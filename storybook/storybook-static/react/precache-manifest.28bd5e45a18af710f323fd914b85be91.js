@@ -248,7 +248,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/02-molecules/SearchBar/SearchBar.stories.d.ts"
   },
   {
-    "revision": "5ad4f8c69a41e8540f612b37e220a3c3",
+    "revision": "3e7435460a0c63c51a549e779d7f3c79",
     "url": "../../../src/react-components/lib/components/03-organisms/EditionsList/EditionsList.d.ts"
   },
   {
@@ -308,17 +308,17 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "f88b82ef937846f0f494200071bc622d",
+    "revision": "efb398f8943682f2cb282ab5e0c30de1",
     "url": "iframe.html"
   },
   {
-    "url": "main.1181cce556bc9d7778c4.bundle.js"
+    "url": "main.6cd7770c3d804175c12d.bundle.js"
   },
   {
-    "url": "runtime~main.1181cce556bc9d7778c4.bundle.js"
+    "url": "runtime~main.6cd7770c3d804175c12d.bundle.js"
   },
   {
-    "revision": "bdd5d50e4dbdf055e80b",
+    "revision": "5212a311329752832e8f",
     "url": "static/css/vendors~main.f8f248a5.chunk.css"
   },
   {
@@ -326,9 +326,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/media/sprite.30835763.svg"
   },
   {
-    "url": "vendors~main.1181cce556bc9d7778c4.bundle.js"
+    "url": "vendors~main.6cd7770c3d804175c12d.bundle.js"
   },
   {
-    "url": "vendors~main.1181cce556bc9d7778c4.bundle.js.LICENSE.txt"
+    "url": "vendors~main.6cd7770c3d804175c12d.bundle.js.LICENSE.txt"
   }
 ]);
