@@ -27,7 +27,7 @@ module.exports = {
     // Alternately, we can run rm -rf dist/ as
     // part of the package.json scripts.
     new MiniCssExtractPlugin({
-      filename: 'styles.css',
+      filename: 'styles.scss',
     }),
   ],
 
@@ -50,12 +50,14 @@ module.exports = {
       }, 
       {
         test: /\.scss?$/,
-        use: [ 'style-loader',
+        use: [MiniCssExtractPlugin.loader, 'css-loader',
           {
             loader: 'sass-loader',
             options: {
-              importer: globImporter(),
-              includePaths: designSystemStylePath,
+              sassOptions: {
+                importer: globImporter(),
+                includePaths: designSystemStylePath,
+              }
             },
           }],
         include: path.resolve(ROOT_PATH, 'src'),
