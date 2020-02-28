@@ -6,7 +6,7 @@
     }
   },
   "packages": [
-    "src/*",
+    "src/**",
     "storybook"
   ],
   "version": "independent"

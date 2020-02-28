@@ -14,9 +14,13 @@
     "@nypl/design-system-icons": "file:../icons",
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
-    "puppeteer": "^2.0.0"
+    "puppeteer": "^2.0.0",
+    "webpack-cli": "^3.3.11"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "sass-loader": "^8.0.2"
   }
 }
