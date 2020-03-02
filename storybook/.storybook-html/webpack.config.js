@@ -6,16 +6,16 @@ module.exports = ({ config, mode }) => {
   config.resolve.alias['components'] = path.resolve(
     __dirname,
     '../templates/components/'
-  )
+  );
   // `mode` has a value of 'DEVELOPMENT' or 'PRODUCTION'
   // You can change the configuration based on that.
   // 'PRODUCTION' is used when building the static version of storybook.
 
-  config.module.rules.push( {
+  config.module.rules.push({
     test: /\.svg$/,
     include: [path.join(__dirname, "./icons/")],
     loader: "file-loader?name=assets/[name].[ext]"
-});
+  });
 
   // Adds SCSS support
   config.module.rules.push({
