@@ -21,8 +21,5 @@
   "keywords": [],
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "webpack-cli": "^3.3.11"
   }
 }

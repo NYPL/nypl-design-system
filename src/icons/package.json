@@ -13,8 +13,7 @@
     "test": "echo \"No Icon tests\""
   },
   "devDependencies": {
-    "svg-sprite": "^1.5.0",
-    "webpack-cli": "^3.3.11"
+    "svg-sprite": "^1.5.0"
   },
   "author": "NYPL Digital",
   "license": "Apache-2.0",

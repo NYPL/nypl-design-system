@@ -21,7 +21,7 @@ const Breadcrumbs = ({ props }) => {
 );
 ```
 
-For a list of components available, check the [export file](https://github.com/NYPL/nypl-design-system/blob/development/src/react-components/src/index.ts).
+For a list of components available, check the [storybook instance](https://nypl.github.io/nypl-design-system/storybook/storybook-static/react/index.html?path=/story/*).  The "Show Info" tab in the top right will give helpful code snippets.  
 
 
 ## Using npm link
@@ -29,4 +29,4 @@ Working simultaneously on an npm package and a repo can be tedious and publishin
 
 For active local development, run `npm run watch-webpack`. This allows webpack to actively watch for any new changes and build a new `design-system-react-components.min.js` bundle.
 
-Troubleshooting note: If you receive a permissions error related to `icons` when running `npm link`, delete the empty `@nypl` folder under `react-components/node_modules` and try again
+Troubleshooting note: If you receive a permissions error related to `icons` when running `npm link`, remove `react-components/node_modules` and run `npm install` from inside `react-components`. 
