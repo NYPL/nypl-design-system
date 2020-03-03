@@ -14,7 +14,6 @@
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
     "normalize.css": "^8.0.1",
-    "sass-loader": "^8.0.2",
     "system-font-css": "^2.0.2"
   },
   "main": "style.scss",
