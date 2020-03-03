@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## [0.0.15] - 2020-03-3
+### Changed
+- `Button` component accepts content to render from its `content` prop or its `children` prop.
+
 ## [0.0.14] - 2020-02-18 
 ### Changed
 - `EditionCard` `EditionInfo` fields accept elements

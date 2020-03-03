@@ -8,14 +8,18 @@ export interface ButtonProps {
   id: string;
   /** The action to perform on the <button>'s onClick function */
   callback: (event: React.MouseEvent) => void;
-  content: string | JSX.Element;
+  /** The content to render inside the the button. An alternative
+   * to passing children elements. */
+  content?: string | JSX.Element;
   attributes?: {};
+  /** Used for BEM css convention. */
   modifiers?: string[];
+  /** Used for BEM css convention. */
   blockName?: string;
   large?: boolean;
   type?: string;
   mouseDown?: boolean;
-
+  /** If an icon is to be rendered, an `iconPosition` prop is required. */
   iconPosition?: string;
   iconName?: string;
   iconModifiers?: string[];
@@ -34,7 +38,8 @@ export default class Button extends React.Component<ButtonProps, {}> {
 
   render(): JSX.Element {
     const { id, callback, content, attributes, modifiers, blockName, type, mouseDown,
-      iconPosition, iconName, iconModifiers, iconDecorative, iconRole } = this.props;
+      iconPosition, iconName, iconModifiers, iconDecorative, iconRole, children } = this.props;
+
     if (type) {
       if (!(type === "outline" || type === "filled")) {
         throw new Error("Type can only be 'outline' or 'filled'");
@@ -47,26 +52,37 @@ export default class Button extends React.Component<ButtonProps, {}> {
     }
 
     let btnContent: BtnContent[] = [];
-    btnContent.push(typeof(content) === "string" ? content : React.cloneElement(content, {key: `${id}-button-content`}));
+
+    // Use either the content prop or the children prop for the rendered content.
+    const contentToRender = content ? content : children;
+    if (contentToRender) {
+      // Make sure we can handle both string and element cases.
+      const contentProp = typeof(contentToRender) === "string" ?
+        contentToRender :
+        React.cloneElement(contentToRender as any, {key: `${id}-button-content`});
+      btnContent.push(contentProp);
+    }
 
     let button_base_class = "button";
 
-    let iconProps = {
-      name: iconName,
-      key: `icon-${id}`,
-      blockName: button_base_class,
-      modifiers: ["small"],
-      decorative: iconDecorative,
-      desc: iconDecorative,
-      role: iconDecorative ? undefined : iconRole,
-      title: iconDecorative
-    };
-
-    if (iconModifiers) {
-      iconProps.modifiers.push(...iconModifiers);
-    }
-
+    // An icon needs a position in order for it to be created and
+    // rendered in the button.
     if (iconPosition) {
+      let iconProps = {
+        name: iconName,
+        key: `icon-${id}`,
+        blockName: button_base_class,
+        modifiers: ["small"],
+        decorative: iconDecorative,
+        desc: iconDecorative,
+        role: iconDecorative ? undefined : iconRole,
+        title: iconDecorative
+      };
+
+      if (iconModifiers) {
+        iconProps.modifiers.push(...iconModifiers);
+      }
+
       buttonModifiers.push("icon");
 
       if (iconPosition === "left") {
