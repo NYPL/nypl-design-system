@@ -1,3 +1,5 @@
+import './styles.scss';
+
 export { default as Container } from "./components/00-base/Container/Container";
 export { default as Button } from "./components/01-atoms/Button/Button";
 export { default as BodyText } from "./components/01-atoms/Text/Text/BodyText";
