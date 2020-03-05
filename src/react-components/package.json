@@ -13,7 +13,7 @@
   "scripts": {
     "prepare": "npm run build",
     "prepublishOnly": "npm run test && npm run dist",
-    "build": "tsc",
+    "build": "tsc && cp src/styles.scss lib",
     "dist": "webpack --mode production --progress --display-modules --config webpack.prod.js",
     "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.prod.js",
     "lint": "tslint -c tslint.json src/__tests__/components/*.tsx src/components/**/**/*.tsx src/components/**/**/**/*.tsx src/utils/*.tsx",

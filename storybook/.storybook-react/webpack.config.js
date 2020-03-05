@@ -24,27 +24,25 @@ module.exports = async ({ config, mode }) => {
     loader: "file-loader?name=assets/[name].[ext]"
   });
 
-  // Adds SCSS support
-  config.module.rules.push({
-    test: /\.scss$/,
-    use: [
-      'style-loader',
-      {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 1,
-          modules: true
-        }
-      },
-      {
-        loader: 'sass-loader',
-        options: {
-          importer: globImporter(),
-        }
-      }
-    ],
-    include: [path.resolve(__dirname, './styles/**/*')]
-  });
+  // // Adds SCSS support
+  // config.module.rules.push({
+  //   test: /\.scss$/,
+  //   use: [
+  //     'style-loader',
+  //     {
+  //       loader: 'css-loader',
+  //       options: {
+  //         importLoaders: 1,
+  //       }
+  //     },
+  //     {
+  //       loader: 'sass-loader',
+  //       options: {
+  //         importer: globImporter(),
+  //       }
+  //     }],
+  //   include: [path.join(__dirname, "./styles/")]
+  // });
 
   config.resolve.extensions.push(".ts", ".tsx");
 

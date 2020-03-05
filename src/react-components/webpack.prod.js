@@ -10,7 +10,8 @@ module.exports = {
   devtool: "source-map",
   entry: {
     app: [
-      "./src/index.ts"
+      "./src/index.ts", 
+      // "./src/styles.scss"
     ]
   },
   output: {

@@ -4,7 +4,7 @@
   "scripts": {
     "prepare": "lerna run prepare",
     "install-all": "npm install; lerna run prepare; lerna exec npm install",
-    "storybook:twig": "lerna exec --scope storybook npm run start:twig",
+    "storybook:twig": "lerna exec --scope storybook npm run start:twig ",
     "storybook:react": "lerna exec --scope storybook npm run start:react",
     "storybook:static": "npm run storybook:static:twig && npm run storybook:static:react",
     "storybook:static:twig": "lerna exec --scope storybook npm run static:twig",
