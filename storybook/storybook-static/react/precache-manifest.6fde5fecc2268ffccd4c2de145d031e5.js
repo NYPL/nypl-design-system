@@ -88,11 +88,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/00-base/Container/Container.d.ts"
   },
   {
-    "revision": "ddd14b6ec3ca4d1df62362dea945f16a",
+    "revision": "cfd213835ec0e5a18f2fecd3be83dabc",
     "url": "../../../src/react-components/lib/components/01-atoms/Button/Button.d.ts"
   },
   {
-    "revision": "bc2705e0aac0e74043eb4a4269bace72",
+    "revision": "248e651cbe17a3f6e13034b5c6e15de6",
     "url": "../../../src/react-components/lib/components/01-atoms/Button/Button.stories.d.ts"
   },
   {
@@ -308,14 +308,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "efb398f8943682f2cb282ab5e0c30de1",
+    "revision": "86908b9bb80a26278664b5a19256442a",
     "url": "iframe.html"
   },
   {
-    "url": "main.6cd7770c3d804175c12d.bundle.js"
+    "url": "main.c51b68cfa4df73042f34.bundle.js"
   },
   {
-    "url": "runtime~main.6cd7770c3d804175c12d.bundle.js"
+    "url": "runtime~main.c51b68cfa4df73042f34.bundle.js"
   },
   {
     "revision": "5212a311329752832e8f",
@@ -326,9 +326,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/media/sprite.30835763.svg"
   },
   {
-    "url": "vendors~main.6cd7770c3d804175c12d.bundle.js"
+    "url": "vendors~main.c51b68cfa4df73042f34.bundle.js"
   },
   {
-    "url": "vendors~main.6cd7770c3d804175c12d.bundle.js.LICENSE.txt"
+    "url": "vendors~main.c51b68cfa4df73042f34.bundle.js.LICENSE.txt"
   }
 ]);
