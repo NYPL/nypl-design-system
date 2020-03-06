@@ -1,8 +1,13 @@
 import '!style-loader!css-loader!sass-loader!import-glob-loader!@nypl/design-system-styles/style.scss';
-import { configure, load, addDecorator } from '@storybook/html';
+import { configure, addDecorator } from '@storybook/html';
+import { withA11y } from '@storybook/addon-a11y';
 const twig = require('twig');
 import bem from '@nypl/design-system-twig/_twig-components/functions/bem';
 import attach_library from '@nypl/design-system-twig/_twig-components/functions/sb_attach-library';
+
+// Add all the addons when starting up. Right now, only the accessibility
+// addon is configured.
+addDecorator(withA11y);
 
 twig.extendFunction("bem", bem);
 twig.extendFunction("attach_library", attach_library);
