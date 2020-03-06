@@ -22,8 +22,4 @@ global.navigator = {
 // Ignore SVG
 require.extensions[".svg"] = () => {};
 
-// Ignore imported stylesheets.
-let noop = () => {};
-require.extensions[".scss"] = noop;
-
 configure({ adapter: new Adapter() });
