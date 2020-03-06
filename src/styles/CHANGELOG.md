@@ -8,7 +8,6 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ========
 ## [0.0.12] - 2020-02-18
 - `missing-link` span width
-- Readme updated to reflect React-Components changes.
 
 ## [0.0.9] — 2020-01-23
 ### Added 
