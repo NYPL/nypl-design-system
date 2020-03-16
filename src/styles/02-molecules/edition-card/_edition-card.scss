@@ -8,26 +8,24 @@
   &__card-content {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 
     @include breakpoint($medium) {
       flex-flow: row nowrap;
+      justify-content: flex-start;
     }
   }
 
   &__card-image {
     @include space-stack-s;
-
+    max-width: 150px;
     flex: 0 0 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     @include breakpoint($medium) {
       @include space-stack-none;
       @include space-inline-s;
 
-      justify-content: flex-start;
     }
   }
 

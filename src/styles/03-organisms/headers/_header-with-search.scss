@@ -13,6 +13,7 @@ $search-header--breakpoint: 1076px;
     display: flex;
     flex-direction: column;
     flex: 100%;
+    @include space-inset-s;
 
     @include breakpoint($search-header--breakpoint) {
       align-items: center;
