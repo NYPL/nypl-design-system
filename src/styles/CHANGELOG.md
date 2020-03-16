@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
+## [0.0.13] 
+- `edition-card` image now has a max-size in mobile 
+- `header-with-search` has an inset
+
 ## [0.0.12] - 2020-02-18
 - `missing-link` span width
 
