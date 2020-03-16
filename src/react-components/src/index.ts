@@ -13,7 +13,7 @@ export { default as Pagination } from "./components/02-molecules/Menus/Paginatio
 export { default as Dropdown } from "./components/02-molecules/Dropdown/Dropdown";
 export { default as EditionCard } from "./components/02-molecules/Cards/EditionCard";
 export { default as SearchResultItem } from "./components/02-molecules/Cards/SearchResultItem";
-export { default as HeaderImgRight } from "./components/03-organisms/Headers/HeaderImgRight";
+export { default as Hero } from "./components/03-organisms/Hero/Hero";
 export { default as SearchPromo } from "./components/03-organisms/SearchPromo/SearchPromo";
 export { default as HeaderWithSearch } from "./components/03-organisms/Headers/RNHeaderWithSearch";
 export { default as UnorderedList } from "./components/03-organisms/List/UnorderedList";

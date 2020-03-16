@@ -1,0 +1,50 @@
+$header-with-image-right--break: 1028px;
+
+.hero {
+  @include breakout;
+
+  background-color: $gray-warm-xlight;
+}
+
+.hero--primary {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  min-height: 350px;
+
+  .hero__heading {
+    background-color: tomato;
+  }
+
+  .hero__image {
+    outline: 2px solid tomato;
+  }
+}
+
+  // &--secondary {}
+
+  // &--locations {
+  //   background-color: $color-locations;
+  // }
+
+  // &--whats-on {
+  //   background-color: $color-whats-on;
+  // }
+
+  // &--research {
+  //   background-color: $color-research;
+  // }
+
+  // &__image {
+  //   flex: 1 1 100%;
+
+  //   @include breakpoint($medium) {
+  //     flex: 1 1 600px;
+  //   }
+
+  //   @include breakpoint($large) {
+  //     flex: 1 1 400px;
+  //   }
+  // }
+// }
