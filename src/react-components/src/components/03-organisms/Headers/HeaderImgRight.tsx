@@ -8,7 +8,7 @@ import Heading from "../../01-atoms/Text/Headings/Heading";
 export interface HeaderImgRightProps {
   headerId: string;
 
-  pageTitleText: string;
+  pageTitleText: JSX.Element;
   isImageDecorative: boolean;
   imageAltText?: string;
 
@@ -34,8 +34,8 @@ export default function HeaderImgRight(props: React.PropsWithChildren<HeaderImgR
           <div className={bem("heading", [], baseClass)}>
             <Heading level={1} id={headerId}
               blockName="page-title"
-              modifiers={["block-color"]}
-              text={pageTitleText}>
+              modifiers={["block-color"]}>
+                {pageTitleText}
             </Heading>
           </div>
 

@@ -256,7 +256,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/03-organisms/EditionsList/EditionsList.stories.d.ts"
   },
   {
-    "revision": "af0dca4121489762b1d55c757f1f2110",
+    "revision": "099d9fd7f03bc8cb20ff29f1f70ddac2",
     "url": "../../../src/react-components/lib/components/03-organisms/Headers/HeaderImgRight.d.ts"
   },
   {
@@ -308,14 +308,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "86908b9bb80a26278664b5a19256442a",
+    "revision": "110d7e8263e47be6ea6386b41ac1bb59",
     "url": "iframe.html"
   },
   {
-    "url": "main.c51b68cfa4df73042f34.bundle.js"
+    "url": "main.97202c09bf40476f5470.bundle.js"
   },
   {
-    "url": "runtime~main.c51b68cfa4df73042f34.bundle.js"
+    "url": "runtime~main.97202c09bf40476f5470.bundle.js"
   },
   {
     "revision": "5212a311329752832e8f",
@@ -326,9 +326,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/media/sprite.30835763.svg"
   },
   {
-    "url": "vendors~main.c51b68cfa4df73042f34.bundle.js"
+    "url": "vendors~main.97202c09bf40476f5470.bundle.js"
   },
   {
-    "url": "vendors~main.c51b68cfa4df73042f34.bundle.js.LICENSE.txt"
+    "url": "vendors~main.97202c09bf40476f5470.bundle.js.LICENSE.txt"
   }
 ]);
