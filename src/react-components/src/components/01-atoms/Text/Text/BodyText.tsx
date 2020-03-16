@@ -51,7 +51,6 @@ function hasString(node: React.ReactNode) {
 
 export default function BodyText(props: React.PropsWithChildren<BodyTextProps>) {
   const { bodyContent, warnchar, maxchar, ...rest } = props;
-  console.log("bodyContent", bodyContent);
   const baseClass = "body-text";
   let passedInContent: React.ReactNode = bodyContent ? bodyContent : props.children;
 
