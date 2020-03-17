@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## [0.0.17] - 2020-03-17
+- Changelog update
+
 ## [0.0.16]
 - `HeaderImgRight` accepts elements
 
