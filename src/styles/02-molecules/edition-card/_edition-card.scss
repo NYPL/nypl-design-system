@@ -39,7 +39,9 @@
 
   &__card-ctas {
     display: flex;
+    width: 100%;
     flex-flow: row nowrap;
+    justify-content: center;
 
     @include breakpoint($medium) {
       @include space-inline-s;
@@ -55,7 +57,6 @@
     @include button--filled;
 
     flex: 1 1 100%;
-
     &:not(:last-child) {
       @include space-inline-s;
     }
@@ -73,7 +74,8 @@
   &__missing-links {
     @include space-inset-s;
 
-    flex: 0 0 200px;
+    flex: 0 0 auto;
+    width: 200px;
     background-color: $gray-light;
 
     @include breakpoint($medium) {
