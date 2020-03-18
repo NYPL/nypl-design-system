@@ -13,8 +13,21 @@ $header-with-image-right--break: 1028px;
   justify-content: center;
   min-height: 350px;
 
-  .hero__heading {
-    background-color: tomato;
+  .hero__headers {
+    color: $white;
+    background-color: $black;
+    flex: 0 0 100%;
+    padding: $space-m $space-l;
+
+    @include breakpoint($medium) {
+      flex: 0 0 60%;
+      max-width: 960px;
+    }
+  }
+
+  .hero__heading,
+  .hero__subtitle {
+    @include space-stack-none;
   }
 
   .hero__image {
