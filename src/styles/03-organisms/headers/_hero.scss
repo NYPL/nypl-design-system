@@ -19,6 +19,11 @@ $header-with-image-right--break: 1028px;
     flex: 0 0 100%;
     padding: $space-m $space-l;
 
+    a {
+      color: inherit;
+      display: inline-block;
+    }
+
     @include breakpoint($medium) {
       flex: 0 0 60%;
       max-width: 960px;
@@ -35,29 +40,6 @@ $header-with-image-right--break: 1028px;
   }
 }
 
-  // &--secondary {}
-
-  // &--locations {
-  //   background-color: $color-locations;
-  // }
-
-  // &--whats-on {
-  //   background-color: $color-whats-on;
-  // }
-
-  // &--research {
-  //   background-color: $color-research;
-  // }
-
-  // &__image {
-  //   flex: 1 1 100%;
-
-  //   @include breakpoint($medium) {
-  //     flex: 1 1 600px;
-  //   }
-
-  //   @include breakpoint($large) {
-  //     flex: 1 1 400px;
-  //   }
-  // }
-// }
+.hero--secondary {
+  
+}

@@ -1,70 +1,62 @@
 /// Link
+<<<<<<< HEAD
+=======
+$color-link: $nypl-red-regular;
+$color-link--hover: $nypl-red-dark;
+>>>>>>> [hero] Adds hover state to links
 
-@mixin link {
-  color: $color-link;
+@mixin link($color: $color-link, $hover: $color-link--hover) {
+  color: $color;
+  font-weight: 500;
 
-  &--no-underline {
-    text-decoration: none;
-  }
-  
   &:hover {
-    color: $color-link--hover;
-  }
-
-  &--dark-background {
-    color: $white;
-
-    &:hover {
-      color: $gray-light;
-    }
+    color: $hover;
+    animation-duration: 0.5s;
+    animation-name: linkSlideUp;
   }
 }
 
-@mixin more-link {
+@mixin more-link($color: $color-link, $color--hover: $color-link--hover) {
+  $selector: &;
+
+  @include type-scale(-1);
+
   display: inline-flex;
-  color: $color-link;
-  text-decoration: underline;
-  font-size: 0.875em;
-  line-height: 1.21;
-  letter-spacing: 0.107142857em;
+  flex-flow: row nowrap;
+  color: #{$color};
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1;
 
   &:hover {
-    color: $color-link--hover;
+    color: #{$color--hover};
     text-decoration: underline;
-  }
-
-  &--icon-left {
-    flex-flow: row-reverse nowrap;
-    text-decoration: none;
-  }
-
-  &--icon-right {
-    flex-flow: row nowrap;
-    text-decoration: none;
   }
 
   &__icon {
     @include icon;
 
+    margin-left: $space-xxs;
     height: 1rem;
-    text-decoration: none;
     width: 1rem;
-
-    &--left {
-      @include space-inline-xxs;
-    }
-
-    &--right {
-      margin-left: $space-xxs;
-    }
-
   }
 }
 
+a,
 .link {
   @include link;
 }
 
 .more-link {
   @include more-link;
+}
+
+@keyframes linkSlideUp {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-2px);
+  }
 }

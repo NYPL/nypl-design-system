@@ -23,6 +23,7 @@ export interface HeroProps {
   imageModifiers?: string[];
 
   additionalDetails?: JSX.Element;
+  // additionalDetails?: string;
 }
 
 export default function Hero(props: React.PropsWithChildren<HeroProps>) {
@@ -45,9 +46,10 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     additionalDetails,
   } = props;
 
-  // Set imageUrl as background if it's a primary hero
-  // else, display normally
-  let heroModifiers = heroPrimary ? ["primary"] : [];
+  // Series of checks for Primary Hero, which
+  // sets the image as a full-scale background
+  // Else, displays image on the right
+  let heroModifiers = heroPrimary ? ["primary"] : ["secondary"];
 
   let backgroundImage = heroPrimary ? "data-responsive-background-image" : "";
 
@@ -89,8 +91,6 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       </div>
 
       {image}
-
-      {/* <BodyText bodyContent={additionalDetails}></BodyText> */}
     </div>
   );
 }
