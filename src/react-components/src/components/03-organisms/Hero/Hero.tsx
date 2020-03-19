@@ -1,29 +1,43 @@
 // OH-30 Header with Image Right
 import * as React from "react";
 import bem from "../../../utils/bem";
-import BodyText from "../../01-atoms/Text/Text/BodyText";
 import Image from "../../01-atoms/Images/Image/Image";
 import Heading from "../../01-atoms/Text/Headings/Heading";
 
 export interface HeroProps {
+  /** Might get deleted?
+    */
   heroPrimary: boolean;
+  /** Might get deleted?
+    */
   heroId: string;
 
-  headerId: string;
-  headerText: string;
+  /** Required heading element.
+    */
+   heading: JSX.Element;
 
+   /** Optional subheader that displays underneath the
+    * required heading element.
+     */
   subHeaderText?: string;
 
+  /** Content creators can modify the foreground color 
+    * when this component is used on Exhibition pages.
+    */
   foregroundColor?: string;
+  /** Content creators can modify the background color 
+    * when this component is used on Exhibition pages.
+    */
   backgroundColor?: string;
 
-  imageUrl: string;
-  imageAltText?: string;
-  imgAttributes?: {};
-  imageModifiers?: string[];
-
-  additionalDetails?: JSX.Element;
-  // additionalDetails?: string;
+  /** Image used for primary Hero types. Note, cannot
+    * be used in conjunction with image.
+    */
+  backgroundImageSrc?: string;
+  /** Image used for secondary Hero types. Note, cannot
+    * be used in conjunction with backgroundImageSrc.
+    */
+  image?: JSX.Element;
 }
 
 export default function Hero(props: React.PropsWithChildren<HeroProps>) {
@@ -34,33 +48,26 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     heroPrimary, 
     heroId, 
 
-    headerId, 
-    headerText, 
+    heading,
 
     subHeaderText,
 
     foregroundColor,
     backgroundColor,
 
-    imageUrl,
-    additionalDetails,
+    backgroundImageSrc,
+    image,
   } = props;
 
-  // Series of checks for Primary Hero, which
-  // sets the image as a full-scale background
-  // Else, displays image on the right
-  let heroModifiers = heroPrimary ? ["primary"] : ["secondary"];
+  if (backgroundImageSrc && image) {
+    throw new Error(`Please only either backgroundImageSrc or image into Hero, got both`);
+  }
 
-  let backgroundImage = heroPrimary ? "data-responsive-background-image" : "";
+  let heroModifiers = backgroundImageSrc ? ["primary"] : ["secondary"];
 
-  let backgroundImageStyle = heroPrimary ? {backgroundImage: 'url(' + imageUrl + ')'} : {};
+  let backgroundImage = backgroundImageSrc ? "data-responsive-background-image" : "";
 
-  let image = heroPrimary ? 
-    '' : <Image 
-      src={imageUrl} 
-      isDecorative={true} 
-      imageBlockname={heroBaseClass} 
-    ></Image>;
+  let backgroundImageStyle = backgroundImageSrc ? {backgroundImage: 'url(' + backgroundImageSrc + ')'} : {};
 
   function createMarkup() {
     return {__html: subHeaderText};
@@ -80,16 +87,10 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
   return (
     <div className={bem(heroBaseClass, heroModifiers)} data-responsive-background-image id={heroId} style={backgroundImageStyle}>
-
-      <div className={bem('headers', [], heroBaseClass)} style={headersStyling}>
-        <Heading level={1} id={headerId}
-          blockName="hero"
-          text={headerText}>
-        </Heading>
-
+      <div className={bem('content', [], heroBaseClass)} style={headersStyling}>
+        {heading}
         <p className={bem('subtitle', [], heroBaseClass)} dangerouslySetInnerHTML={createMarkup()} />
       </div>
-
       {image}
     </div>
   );
