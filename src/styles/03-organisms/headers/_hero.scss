@@ -61,80 +61,8 @@ $header-with-image-right--break: 1028px;
   }
 }
 
-// .exhibition-hero {
-//   &__content {
-//     @include breakpoint($break-exhibition-hero-max) {
-//       padding-top: $space-xl;
-//     }
+.hero--tertiary {
+  
+}
 
-//     @include breakpoint($break-exhibition-hero) {
-//       @include wrapper;
-
-//       display: flex;
-//       flex-flow: row nowrap;
-//       min-height: 350px;
-//     }
-//   }
-
-//   &__heading {
-//     @include space-inset-s;
-
-//     margin: auto;
-
-//     @include breakpoint($break-exhibition-hero-max) {
-//       @include space-stack-xl;
-//     }
-
-//     @include breakpoint($break-exhibition-hero) {
-//       @include space-inset-l;
-//     }
-//   }
-
-//   &__location-info {
-//     @include space-inset-s;
-
-//     background-color: $gray-warm-light;
-
-//     @include breakpoint($break-exhibition-hero) {
-//       @include space-inset-l;
-
-//       flex: 0 0 300px;
-//       margin-left: 5rem;
-//     }
-//   }
-// }
-
-
-// .header-with-image-right {
-
-//   &__heading-text { 
-//     flex: 1 1 auto;
-//   }
-
-//   &__heading {
-//     background-color: $nypl-turquoise-regular;
-//   }
-
-//   &__image {
-//     flex: 1 1 100%;
-
-//     @include breakpoint($medium) {
-//       flex: 1 1 600px;
-//     }
-
-//     @include breakpoint($large) {
-//       flex: 1 1 400px;
-//     }
-//   }
-// }
-
-// .header-with-image-right {
-//   .image {
-//     width: 100%;
-//   }
-// }
-
-// .header-with-image-right__text,
-// .header-with-image-right__heading {
-//   @include wrapper;
-// }
+.hero--quaternary {}

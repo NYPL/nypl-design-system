@@ -8,13 +8,16 @@ export interface HeroProps {
   /** Might get deleted?
     */
   heroPrimary: boolean;
+  /** Primary/secondary/etc.
+    */
+  // heroType: string;
   /** Might get deleted?
     */
   heroId: string;
 
   /** Required heading element.
     */
-   heading: JSX.Element;
+   heading?: JSX.Element;
 
    /** Optional subheader that displays underneath the
     * required heading element.

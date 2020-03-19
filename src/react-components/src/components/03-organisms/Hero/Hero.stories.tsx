@@ -54,6 +54,17 @@ export const heroTertiary = () => <Hero
   />}
 />;
 
+export const heroQuaternary = () => <Hero
+  heroPrimary={false}
+  heroId="2"
+  subHeaderText="Example subtitle"
+  image={<Image 
+    src="https://placeimg.com/200/100/arch" 
+    isDecorative={true} 
+    imageBlockname={"hero"}
+  />}
+/>;
+
 export const heroStaffPicks = () => <Hero
   heroPrimary={true}
   heroId="2"
