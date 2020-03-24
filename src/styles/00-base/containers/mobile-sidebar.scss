@@ -1,0 +1,25 @@
+.container-with-sidebar { 
+  display: flex;
+
+  @include breakpoint($large) {
+    flex-flow: row-reverse;
+  }
+}
+
+.container-mobile-toggle {
+  &--mobile-show {
+    display: block;
+
+    @include breakpoint($large) {
+      display: none;
+    }
+  }
+
+  &--mobile-hide {
+    display: none;
+
+    @include breakpoint($large) {
+      display: block;
+    }
+  }
+}

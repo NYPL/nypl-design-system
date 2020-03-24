@@ -4,10 +4,11 @@ import bem from "../../../utils/bem";
 
 type BtnContent = string | JSX.Element;
 
-export interface ButtonProps {
+export interface ButtonOptions {
   id: string;
+
   /** The action to perform on the <button>'s onClick function */
-  callback: (event: React.MouseEvent) => void;
+  callback?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** The content to render inside the the button. An alternative
    * to passing children elements. */
   content?: string | JSX.Element;
@@ -18,6 +19,34 @@ export interface ButtonProps {
   blockName?: string;
   large?: boolean;
   type?: string;
+  /** The html button attribute */
+  buttonType?: string;
+  mouseDown?: boolean;
+  /** If an icon is to be rendered, an `iconPosition` prop is required. */
+  iconPosition?: string;
+  iconName?: string;
+  iconModifiers?: string[];
+  iconDecorative?: boolean;
+  iconRole?: string;
+}
+
+export interface ButtonProps {
+  id: string;
+
+  /** The action to perform on the <button>'s onClick function */
+  callback: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /** The content to render inside the the button. An alternative
+   * to passing children elements. */
+  content?: string | JSX.Element;
+  attributes?: {};
+  /** Used for BEM css convention. */
+  modifiers?: string[];
+  /** Used for BEM css convention. */
+  blockName?: string;
+  large?: boolean;
+  type?: string;
+  /** The html button attribute */
+  buttonType?: string;
   mouseDown?: boolean;
   /** If an icon is to be rendered, an `iconPosition` prop is required. */
   iconPosition?: string;
@@ -37,12 +66,12 @@ export default class Button extends React.Component<ButtonProps, {}> {
   }
 
   render(): JSX.Element {
-    const { id, callback, content, attributes, modifiers, blockName, type, mouseDown,
+    const { id, callback, content, attributes, modifiers, blockName, type, buttonType="submit", mouseDown,
       iconPosition, iconName, iconModifiers, iconDecorative, iconRole, children } = this.props;
 
     if (type) {
-      if (!(type === "outline" || type === "filled")) {
-        throw new Error("Type can only be 'outline' or 'filled'");
+      if (!(type === "outline" || type === "filled" || type === "link")) {
+        throw new Error("Type can only be 'outline', 'filled' or 'link'");
       }
     }
 
@@ -102,7 +131,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
     let btnProps = {
       id: id,
       className: bem(button_base_class, buttonModifiers, blockName),
-      type: "submit"
+      type: buttonType
     };
 
     let btnCallback = mouseDown ? { onMouseDown: callback } : { onClick: callback };

@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import HelperErrorText from "../../components/02-molecules/Helpers/HelperErrorText";
+import HelperErrorText from "../../components/01-atoms/Forms/HelperErrorText";
 
 describe("HelperErrorText Test", () => {
   it("Throws error when HElperErrorText is called with no content", () => {

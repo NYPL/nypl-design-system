@@ -3,18 +3,33 @@
 import * as React from "react";
 import bem from "../../../utils/bem";
 
-export interface TextFieldProps {
+export interface TextFieldOptions {
+  id?: string;
   ariaLabel?: string;
   ariaLabelledBy?: string;
-  isRequired: boolean;
+  isRequired?: boolean;
   blockName?: string;
   modifiers?: string[];
-  value?: string;
+  value?: string | number;
   placeholderText?: string;
+  type?: string;
+  onChange?: (event: React.FormEvent) => void;
+}
+
+export interface TextFieldProps {
+  id?: string;
+  ariaLabel?: string;
+  ariaLabelledBy?: string;
+  isRequired?: boolean;
+  blockName?: string;
+  modifiers?: string[];
+  value?: string | number;
+  placeholderText?: string;
+  type?: string;
   onChange?: (event: React.FormEvent) => void;
 }
 export default function TextField(props: TextFieldProps) {
-  const { ariaLabel, ariaLabelledBy, isRequired, blockName, modifiers, value, placeholderText, onChange } = props;
+  const { id, ariaLabel, ariaLabelledBy, isRequired = "false", blockName, modifiers, value, placeholderText, type= "text", onChange } = props;
   let textfieldBlockName = blockName ? blockName : "form-item";
 
   if (!ariaLabel && !ariaLabelledBy) {
@@ -23,7 +38,7 @@ export default function TextField(props: TextFieldProps) {
 
   let textFieldProps = {
     className: bem("input", modifiers, textfieldBlockName),
-    "type": "text",
+    type: type,
     value: value,
     onChange: onChange,
     "aria-label": !ariaLabelledBy ? ariaLabel : undefined,
@@ -35,6 +50,6 @@ export default function TextField(props: TextFieldProps) {
     textFieldProps["aria-required"] = true;
   }
 
-  let transformedTextField = <input {...textFieldProps} placeholder={placeholderText} />;
+  let transformedTextField = <input id={id} {...textFieldProps} placeholder={placeholderText} />;
   return transformedTextField;
 }

@@ -2,19 +2,29 @@
 import * as React from "react";
 import bem from "../../../utils/bem";
 
-export interface LabelProps {
+export interface LabelOptions {
   id: string;
-  referenceId: string;
-  labelText?: string;
+  referenceId?: string;
+  labelContent?: JSX.Element;
 }
 
-export default function Label(props: React.PropsWithChildren<LabelProps>) {
-  const { id, referenceId, labelText } = props;
+interface Props {
+  id: string;
 
-  if (!labelText && !props.children) {
-    throw new Error("Label must have content passed as labelText or children.  Got labelText: " + labelText + " and children: " + props.children);
+  /** The id of the html element that this Label is describing */
+  referenceId: string;
+  /** The contents of the label.  An alternative to passing children elements */
+  labelContent?: JSX.Element;
+}
+
+export default function Label(props: React.PropsWithChildren<Props>) {
+  const { id, referenceId, labelContent } = props;
+
+  if (!labelContent && !props.children) {
+    throw new Error("Label must have content passed as labelText or children.  Got labelText: " + labelContent + " and children: " + props.children);
   }
-  let content = labelText ? labelText : props.children;
+
+  let content = labelContent ? labelContent : props.children;
   let attributes = {
     id: id,
     htmlFor: referenceId

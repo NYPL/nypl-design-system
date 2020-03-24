@@ -14,7 +14,7 @@ describe("Label Test", () => {
   });
 
   it("Renders a <label> when passed text as prop", () => {
-    wrapper = Enzyme.shallow(<Label id="label" referenceId="so-lonely" labelText="cupcakes" />);
+  wrapper = Enzyme.shallow(<Label id="label" referenceId="so-lonely" labelContent={<>cupcakes</>} />);
     expect(wrapper.find("label")).to.have.lengthOf(1);
   });
 
@@ -24,7 +24,7 @@ describe("Label Test", () => {
   });
 
   it("if both <label> children and labelText prop are passed, use labelText", () => {
-    wrapper = Enzyme.shallow(<Label id="label" referenceId="so-lonely" labelText="cupcakes" >muffins</Label>);
+    wrapper = Enzyme.shallow(<Label id="label" referenceId="so-lonely" labelContent={<>cupcakes</>} >muffins</Label>);
     expect(wrapper.find("label")).to.have.lengthOf(1);
     expect(wrapper.find("label").text()).to.equal("cupcakes");
   });

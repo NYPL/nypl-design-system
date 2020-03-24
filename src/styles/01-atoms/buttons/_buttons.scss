@@ -71,10 +71,29 @@
   }
 }
 
+@mixin button--link {
+  color: $color-link;
+  background-color: transparent;
+  text-decoration: underline;
+
+  &--no-underline {
+    text-decoration: none;
+  }
+  
+  &:hover {
+    color: $color-link--hover;
+    background-color: transparent;
+  }
+}
+
 .button {
   @include button--filled;
 }
 
 .button--outline {
   @include button--outline;
+}
+
+.button--link {
+  @include button--link;
 }

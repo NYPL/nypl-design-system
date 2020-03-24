@@ -19,6 +19,12 @@
   padding: 0;
 }
 
+@mixin fieldset-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 /// Mixin - Wrapper
 /// Outer container mixin for large screens
 @mixin wrapper(

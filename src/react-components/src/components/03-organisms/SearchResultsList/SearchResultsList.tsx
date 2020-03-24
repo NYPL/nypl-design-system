@@ -1,4 +1,6 @@
 // OL-28 Search Results Item List
+/** DEPRECATION WARNING, please build with <UnorderedList> component */
+
 import * as React from "react";
 import bem from "../../../utils/bem";
 import SearchResultItem from "../../02-molecules/Cards/SearchResultItem";

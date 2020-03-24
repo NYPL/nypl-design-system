@@ -1,4 +1,7 @@
 // OL-32 Text Link with Icon List
+
+/** DEPRECATION WARNING, please build with <UnorderedList> component */
+
 import * as React from "react";
 import bem from "../../../utils/bem";
 import SectionTitle from "../../02-molecules/Headings/SectionTitle";

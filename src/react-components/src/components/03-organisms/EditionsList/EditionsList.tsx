@@ -1,4 +1,6 @@
 // OL-24 Editions List
+/** DEPRECATION WARNING, please build with <UnorderedList> component */
+
 import * as React from "react";
 import bem from "../../../utils/bem";
 import EditionCard, { EditionDetails } from "../../02-molecules/Cards/EditionCard";

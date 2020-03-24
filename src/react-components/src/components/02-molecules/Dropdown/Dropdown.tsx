@@ -4,7 +4,7 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 import FormDropdown from "../../01-atoms/Forms/FormDropdown";
 import Label from "../../01-atoms/Forms/Label";
-import HelperErrorText from "../Helpers/HelperErrorText";
+import HelperErrorText from "../../01-atoms/Forms/HelperErrorText";
 
 export interface DropdownProps {
   dropdownId: string;
@@ -61,7 +61,7 @@ export default function Dropdown(props: DropdownProps) {
 
     {labelPosition !== "none" &&
       <div className={bem("label", [], baseClass)}>
-        <Label id={labelId} referenceId={dropdownId}>{labelText} </Label>
+        <Label id={labelId} referenceId={dropdownId}>{labelText}</Label>
 
         {isRequired && <span className={bem("required-message", [], baseClass)}>
           Required
