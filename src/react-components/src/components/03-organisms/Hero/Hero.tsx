@@ -23,11 +23,11 @@ export interface HeroProps {
   /** Optional details area that contains location data. */
   locationDetails?: JSX.Element;
 
-  /** Content creators can modify the foreground color 
+  /** Content creators can modify the foreground color
     * when this component is used on Exhibition pages.
     */
   foregroundColor?: string;
-  /** Content creators can modify the background color 
+  /** Content creators can modify the background color
     * when this component is used on Exhibition pages.
     */
   backgroundColor?: string;
@@ -48,7 +48,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
   let {
     heroType,
-    heroId, 
+    heroId,
 
     heading,
 
@@ -67,7 +67,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     throw new Error(`Please only either backgroundImageSrc or image into Hero, got both`);
   }
 
-  if (heroType != "PRIMARY" && locationDetails) {
+  if (heroType !== "PRIMARY" && locationDetails) {
     throw new Error(`Please provide locationDetails only to PRIMARY heroTypes`);
   }
 
@@ -75,7 +75,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
   let backgroundImage = backgroundImageSrc ? "data-responsive-background-image" : "";
 
-  let backgroundImageStyle = backgroundImageSrc ? {backgroundImage: 'url(' + backgroundImageSrc + ')'} : {};
+  let backgroundImageStyle = backgroundImageSrc ? {backgroundImage: "url(" + backgroundImageSrc + ")"} : {};
 
   function createMarkup() {
     return {__html: subHeaderText};
@@ -87,7 +87,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       contentBoxStyling = {
         color: foregroundColor,
         backgroundColor: backgroundColor,
-      }
+      };
     } else if (foregroundColor || backgroundColor) {
       throw new Error(`Please provide both foregroundColor and backgroundColor to Hero, got only one`);
     }
@@ -99,12 +99,12 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
   return (
     <div className={bem(heroBaseClass, heroModifiers)} data-responsive-background-image id={heroId} style={backgroundImageStyle}>
-      <div className={bem('content', [], heroBaseClass)} style={contentBoxStyling}>
+      <div className={bem("content", [], heroBaseClass)} style={contentBoxStyling}>
         {heading}
 
         {image}
 
-        <p className={bem('subtitle', [], heroBaseClass)} dangerouslySetInnerHTML={createMarkup()} />
+        <p className={bem("subtitle", [], heroBaseClass)} dangerouslySetInnerHTML={createMarkup()} />
       </div>
 
       {locationDetails}

@@ -15,9 +15,9 @@ export default {
 export const heroPrimary = () => <Hero
   heroType={HeroTypes.Primary}
   heroId="2"
-  heading={<Heading 
-    level={1} 
-    id={"1"} 
+  heading={<Heading
+    level={1}
+    id={"1"}
     text={"Hero Primary"}
     blockName={"hero"}
   />}
@@ -27,15 +27,15 @@ export const heroPrimary = () => <Hero
 export const heroSecondary = () => <Hero
   heroType={HeroTypes.Secondary}
   heroId="2"
-  heading={<Heading 
-    level={1} 
-    id={"1"} 
+  heading={<Heading
+    level={1}
+    id={"1"}
     text={"Hero Secondary"}
     blockName={"hero"}
   />}
   subHeaderText="Example subtitle"
-  image={<Image 
-    src="https://placeimg.com/800/400/arch" 
+  image={<Image
+    src="https://placeimg.com/800/400/arch"
     isDecorative={true}
     imageBlockname={"hero"}
   />}
@@ -44,9 +44,9 @@ export const heroSecondary = () => <Hero
 export const heroStaffPicks = () => <Hero
   heroType={HeroTypes.Primary}
   heroId="2"
-  heading={<Heading 
-    level={1} 
-    id={"1"} 
+  heading={<Heading
+    level={1}
+    id={"1"}
     text={"Staff Picks"}
     blockName={"hero"}
   />}
@@ -59,9 +59,9 @@ export const heroStaffPicks = () => <Hero
 export const ExhibitionsHero = () => <Hero
   heroType={HeroTypes.Primary}
   heroId="2"
-  heading={<Heading 
-    level={1} 
-    id={"1"} 
+  heading={<Heading
+    level={1}
+    id={"1"}
     text={"Syncretic Vibrations: Exploring the Mosaic of Blackness through the Melville J. and Frances S.Herskovits Collection"}
     blockName={"hero"}
   />}
@@ -74,16 +74,16 @@ export const ExhibitionsHero = () => <Hero
 export const ResearchNowHero = () => <SectionName><Hero
   heroType={HeroTypes.Secondary}
   heroId="2"
-  heading={<Heading 
-    level={1} 
-    id={"1"} 
+  heading={<Heading
+    level={1}
+    id={"1"}
     text={"ResearchNow"}
     blockName={"hero"}
   />}
   subHeaderText="The internet’s search engine for research collections and e-books you can use right now.
   Powered by the New York Public Library."
-  image={<Image 
-    src="https://placeimg.com/200/100/arch" 
+  image={<Image
+    src="https://placeimg.com/200/100/arch"
     isDecorative={true}
     imageBlockname={"hero"}
   />}

@@ -24,9 +24,9 @@ describe("Hero Test", () => {
     let wrapper = Enzyme.shallow(<Hero
       heroType={HeroTypes.Primary}
       heroId="2"
-      heading={<Heading 
-        level={1} 
-        id={"1"} 
+      heading={<Heading
+        level={1}
+        id={"1"}
         text={"Hero Primary"}
         blockName={"hero"}
       />}

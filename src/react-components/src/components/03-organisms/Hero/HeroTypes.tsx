@@ -3,4 +3,4 @@ export enum HeroTypes {
   Secondary = "SECONDARY",
   Tertiary = "TERTIARY",
   FiftyFifty = "FIFTYFIFTY"
-};
+}
