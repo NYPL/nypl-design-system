@@ -3,26 +3,29 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 import Image from "../../01-atoms/Images/Image/Image";
 import Heading from "../../01-atoms/Text/Headings/Heading";
+import { HeroTypes } from "./HeroTypes";
 
 export interface HeroProps {
-  /** Might get deleted?
+  /** Can be Primary, secondary, tertiary, or 50/50.
     */
-  heroPrimary: boolean;
-  /** Primary/secondary/etc.
-    */
-  // heroType: string;
-  /** Might get deleted?
+  heroType?: HeroTypes;
+
+  /** To be deleted after Crystal's ID merge
     */
   heroId: string;
 
   /** Required heading element.
     */
-   heading?: JSX.Element;
+  heading?: JSX.Element;
 
    /** Optional subheader that displays underneath the
     * required heading element.
-     */
+    */
   subHeaderText?: string;
+
+  /** Optional details area that contains location data.
+    */
+  locationDetails?: JSX.Element;
 
   /** Content creators can modify the foreground color 
     * when this component is used on Exhibition pages.
@@ -48,12 +51,14 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   const heroBaseClass = "hero";
 
   let {
-    heroPrimary, 
+    heroType,
     heroId, 
 
     heading,
 
     subHeaderText,
+
+    locationDetails,
 
     foregroundColor,
     backgroundColor,
@@ -66,6 +71,10 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     throw new Error(`Please only either backgroundImageSrc or image into Hero, got both`);
   }
 
+  if (heroType != "PRIMARY" && locationDetails) {
+    throw new Error(`Please provide locationDetails only to PRIMARY heroTypes`);
+  }
+
   let heroModifiers = backgroundImageSrc ? ["primary"] : ["secondary"];
 
   let backgroundImage = backgroundImageSrc ? "data-responsive-background-image" : "";
@@ -76,25 +85,34 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     return {__html: subHeaderText};
   }
 
-  let headersStyling;
-
-  if (foregroundColor && backgroundColor) {
-    headersStyling = {
-      color: foregroundColor,
-      backgroundColor: backgroundColor,
+  let contentBoxStyling;
+  if (heroType === "PRIMARY") {
+    if (foregroundColor && backgroundColor) {
+      contentBoxStyling = {
+        color: foregroundColor,
+        backgroundColor: backgroundColor,
+      }
+    } else if (foregroundColor || backgroundColor) {
+      throw new Error(`Please provide both foregroundColor and backgroundColor to Hero, got only one`);
     }
-  } else {
-    console.log("Foreground and background not provided");
-    headersStyling = {};
+    else {
+      console.log("Foreground and background not provided");
+      contentBoxStyling = {};
+    }
   }
 
   return (
     <div className={bem(heroBaseClass, heroModifiers)} data-responsive-background-image id={heroId} style={backgroundImageStyle}>
-      <div className={bem('content', [], heroBaseClass)} style={headersStyling}>
+      <div className={bem('content', [], heroBaseClass)} style={contentBoxStyling}>
         {heading}
+
+        {image}
+
         <p className={bem('subtitle', [], heroBaseClass)} dangerouslySetInnerHTML={createMarkup()} />
       </div>
-      {image}
+
+      {locationDetails}
+
     </div>
   );
 }

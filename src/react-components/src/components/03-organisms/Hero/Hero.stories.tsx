@@ -2,7 +2,10 @@ import * as React from "react";
 
 import Image from "../../01-atoms/Images/Image/Image";
 import Heading from "../../01-atoms/Text/Headings/Heading";
+import { HeroTypes } from "./HeroTypes";
 import Hero from "./Hero";
+import SectionName from "../../00-base/SectionName";
+import Placeholder from "../../00-base/Placeholder";
 
 export default {
   title: "Hero",
@@ -10,7 +13,7 @@ export default {
 };
 
 export const heroPrimary = () => <Hero
-  heroPrimary={true}
+  heroType={HeroTypes.Primary}
   heroId="2"
   heading={<Heading 
     level={1} 
@@ -22,7 +25,7 @@ export const heroPrimary = () => <Hero
 />;
 
 export const heroSecondary = () => <Hero
-  heroPrimary={false}
+  heroType={HeroTypes.Secondary}
   heroId="2"
   heading={<Heading 
     level={1} 
@@ -32,41 +35,14 @@ export const heroSecondary = () => <Hero
   />}
   subHeaderText="Example subtitle"
   image={<Image 
-    src="https://placeimg.com/200/100/arch" 
+    src="https://placeimg.com/800/400/arch" 
     isDecorative={true}
     imageBlockname={"hero"}
   />}
 />;
 
-export const heroTertiary = () => <Hero
-  heroPrimary={false}
-  heroId="2"
-  heading={<Heading 
-    level={1} 
-    id={"1"} 
-    text={"Title of Page"}
-    blockName={"hero"}
-  />}
-  image={<Image 
-    src="https://placeimg.com/200/100/arch" 
-    isDecorative={true} 
-    imageBlockname={"hero"}
-  />}
-/>;
-
-export const heroQuaternary = () => <Hero
-  heroPrimary={false}
-  heroId="2"
-  subHeaderText="Example subtitle"
-  image={<Image 
-    src="https://placeimg.com/200/100/arch" 
-    isDecorative={true} 
-    imageBlockname={"hero"}
-  />}
-/>;
-
 export const heroStaffPicks = () => <Hero
-  heroPrimary={true}
+  heroType={HeroTypes.Primary}
   heroId="2"
   heading={<Heading 
     level={1} 
@@ -81,7 +57,7 @@ export const heroStaffPicks = () => <Hero
 />;
 
 export const heroExhibitions = () => <Hero
-  heroPrimary={true}
+  heroType={HeroTypes.Primary}
   heroId="2"
   heading={<Heading 
     level={1} 
@@ -89,13 +65,14 @@ export const heroExhibitions = () => <Hero
     text={"Syncretic Vibrations: Exploring the Mosaic of Blackness through the Melville J. and Frances S.Herskovits Collection"}
     blockName={"hero"}
   />}
+  locationDetails={<Placeholder>Placeholder for locationDetails, which doesn't exist yet</Placeholder>}
   foregroundColor="#ffffff"
-  backgroundColor="#0071ce"
+  backgroundColor="#0071ce" // have these default to section colors
   backgroundImageSrc="https://images.nypl.org/index.php?id=419627&t=w"
 />;
 
-export const heroResearchNow = () => <Hero
-  heroPrimary={false}
+export const heroResearchNow = () => <SectionName><Hero
+  heroType={HeroTypes.Secondary}
   heroId="2"
   heading={<Heading 
     level={1} 
@@ -110,4 +87,4 @@ export const heroResearchNow = () => <Hero
     isDecorative={true}
     imageBlockname={"hero"}
   />}
-/>;
+/></SectionName>;
