@@ -10,7 +10,7 @@ export interface HeroProps {
     */
   heroType?: HeroTypes;
 
-  /** To be deleted after Crystal's ID merge
+  /** Required ID for tabfocus
     */
   heroId: string;
 
