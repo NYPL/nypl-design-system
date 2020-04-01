@@ -26,6 +26,11 @@ $header-with-image-right--break: 1028px;
       flex: 0 0 60%;
       max-width: 960px;
     }
+
+    & + .placeholder {
+      margin-left: $space-xl;
+      flex: 0 1 200px;
+    }
   }
 
   .hero__heading,
@@ -35,34 +40,82 @@ $header-with-image-right--break: 1028px;
 }
 
 .hero--secondary {
-  display: flex;
-  flex-flow: column nowrap;
-  box-shadow: inset 0 3.5rem $black;
+  @include breakout;
 
-  .hero__heading {
-    padding-top: $space-xxs;
-    color: $white;
-  }
-
-    @include breakpoint($large) {
-      flex-flow: row nowrap;
-      height: 200px;
-      justify-content: stretch;
-    }
+  overflow-x: hidden;
 
   .hero__content {
-    flex: 1 1 100%;
-    padding: 0 $space-s;
-  }
+    @include wrapper;
+    display: flex;
+    flex-flow: column nowrap;
 
-  .hero__image {
-    flex: 0 0 300px;
-    margin: 0 $space-l;
+    @include breakpoint($medium) {
+      flex-flow: row wrap;
+    }
+
+    .hero__heading {
+      @include space-stack-none;
+
+      z-index: 0;
+      position: relative;
+
+      &::before {
+        background-color: $black;
+        content: '';
+        height: 100%;
+        left: -2000px;
+        position: absolute;
+        width: 4000px;
+        z-index: -1;
+      }
+
+      background-color: black;
+      color: white;
+      flex: 1 1 100%;
+      padding-bottom: $space-xxs;
+
+      @include breakpoint($medium) {
+        order: 1;
+      }
+    }
+
+    .hero__subtitle {
+      margin-top: $space-xs;
+
+      @include breakpoint($medium) {
+        @include space-inline-xs;
+
+        order: 2;
+        flex: 1 1 50%;
+      }
+    }
+
+    .hero__image {
+      flex: 1 1 100%;
+      height: 150px;
+      object-fit: cover;
+      min-width: 0; // https://github.com/philipwalton/flexbugs/issues/41
+      width: 100%;
+
+      @include breakpoint($medium) {
+        flex: 0 0 250px;
+        order: 3;
+      }
+    }
   }
 }
 
-.hero--tertiary {
-  
+.main,
+.sb-show-main {
+  &--research {
+    .hero--secondary {
+      .hero__content {
+        .hero__heading {
+          &::before {
+            background-color: $color-research;
+          }
+        }
+      }
+    }
+  }
 }
-
-.hero--quaternary {}
