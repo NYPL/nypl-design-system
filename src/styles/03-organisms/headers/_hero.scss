@@ -7,9 +7,13 @@ $header-with-image-right--break: 1028px;
 .hero--primary {
   align-items: center;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
   min-height: 350px;
+
+  @include breakpoint($medium) {
+    flex-flow: row nowrap;
+  }
 
   .hero__content {
     color: $white;
