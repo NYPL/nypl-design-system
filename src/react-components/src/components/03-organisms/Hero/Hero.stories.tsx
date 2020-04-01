@@ -56,7 +56,7 @@ export const heroStaffPicks = () => <Hero
   backgroundImageSrc="https://placeimg.com/1600/800/arch"
 />;
 
-export const heroExhibitions = () => <Hero
+export const ExhibitionsHero = () => <Hero
   heroType={HeroTypes.Primary}
   heroId="2"
   heading={<Heading 
@@ -71,7 +71,7 @@ export const heroExhibitions = () => <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=419627&t=w"
 />;
 
-export const heroResearchNow = () => <SectionName><Hero
+export const ResearchNowHero = () => <SectionName><Hero
   heroType={HeroTypes.Secondary}
   heroId="2"
   heading={<Heading 
