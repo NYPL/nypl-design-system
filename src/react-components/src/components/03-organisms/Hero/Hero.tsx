@@ -6,16 +6,13 @@ import Heading from "../../01-atoms/Text/Headings/Heading";
 import { HeroTypes } from "./HeroTypes";
 
 export interface HeroProps {
-  /** Can be Primary, secondary, tertiary, or 50/50.
-    */
+  /** Can be Primary, secondary, tertiary, or 50/50. */
   heroType?: HeroTypes;
 
-  /** Required ID for tabfocus
-    */
+  /** Required ID for tabfocus. */
   heroId: string;
 
-  /** Required heading element.
-    */
+  /** Required heading element. */
   heading: JSX.Element;
 
    /** Optional subheader that displays underneath the
@@ -23,8 +20,7 @@ export interface HeroProps {
     */
   subHeaderText?: string;
 
-  /** Optional details area that contains location data.
-    */
+  /** Optional details area that contains location data. */
   locationDetails?: JSX.Element;
 
   /** Content creators can modify the foreground color 
