@@ -86,7 +86,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   }
 
   let contentBoxStyling;
-  if (heroType === "PRIMARY") {
+  if (heroType === HeroTypes.Primary) {
     if (foregroundColor && backgroundColor) {
       contentBoxStyling = {
         color: foregroundColor,
