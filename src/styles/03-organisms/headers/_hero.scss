@@ -38,7 +38,7 @@ $header-with-image-right--break: 1028px;
   }
 
   .hero__heading,
-  .hero__subtitle {
+  .hero__body-text {
     @include space-stack-none;
   }
 }
@@ -83,7 +83,7 @@ $header-with-image-right--break: 1028px;
       }
     }
 
-    .hero__subtitle {
+    .hero__body-text {
       margin-top: $space-xs;
 
       @include breakpoint($medium) {

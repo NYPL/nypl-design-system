@@ -2,6 +2,7 @@ import * as React from "react";
 
 import Image from "../../01-atoms/Images/Image/Image";
 import Heading from "../../01-atoms/Text/Headings/Heading";
+import BodyText from "../../01-atoms/Text/Text/BodyText";
 import { HeroTypes } from "./HeroTypes";
 import Hero from "./Hero";
 import SectionName from "../../00-base/SectionName";
@@ -33,7 +34,7 @@ export const heroSecondary = () => <Hero
     text={"Hero Secondary"}
     blockName={"hero"}
   />}
-  subHeaderText="Example subtitle"
+  subHeaderText={<BodyText blockName="hero">Example subtitle</BodyText>}
   image={<Image
     src="https://placeimg.com/800/400/arch"
     isDecorative={true}
@@ -50,7 +51,7 @@ export const heroStaffPicks = () => <Hero
     text={"Staff Picks"}
     blockName={"hero"}
   />}
-  subHeaderText="Nobody loves books more than our experts. Browse and filter hundreds of their favorites. Want more suggestions? Check out <a href='#'>Best Books</a> and <a href='#'>125 Books We Love</a>."
+  subHeaderText={<BodyText blockName="hero">Nobody loves books more than our experts. Browse and filter hundreds of their favorites. Want more suggestions? Check out <a href='#'>Best Books</a> and <a href='#'>125 Books We Love</a>.</BodyText>}
   foregroundColor="#ffffff"
   backgroundColor="#bb1d12"
   backgroundImageSrc="https://placeimg.com/1600/800/arch"
@@ -80,8 +81,8 @@ export const ResearchNowHero = () => <SectionName><Hero
     text={"ResearchNow"}
     blockName={"hero"}
   />}
-  subHeaderText="The internet’s search engine for research collections and e-books you can use right now.
-  Powered by the New York Public Library."
+  subHeaderText={<BodyText blockName="hero">The internet’s search engine for research collections and e-books you can use right now.
+  Powered by the New York Public Library.</BodyText>}
   image={<Image
     src="https://placeimg.com/200/100/arch"
     isDecorative={true}

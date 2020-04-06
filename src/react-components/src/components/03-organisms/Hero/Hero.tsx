@@ -18,7 +18,7 @@ export interface HeroProps {
    /** Optional subheader that displays underneath the
     * required heading element.
     */
-  subHeaderText?: string;
+  subHeaderText?: JSX.Element;
 
   /** Optional details area that contains location data. */
   locationDetails?: JSX.Element;
@@ -77,10 +77,6 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
   let backgroundImageStyle = backgroundImageSrc ? {backgroundImage: "url(" + backgroundImageSrc + ")"} : {};
 
-  function createMarkup() {
-    return {__html: subHeaderText};
-  }
-
   let contentBoxStyling;
   if (heroType === HeroTypes.Primary) {
     if (foregroundColor && backgroundColor) {
@@ -104,7 +100,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
         {image}
 
-        <p className={bem("subtitle", [], heroBaseClass)} dangerouslySetInnerHTML={createMarkup()} />
+        {subHeaderText}
       </div>
 
       {locationDetails}
