@@ -15,7 +15,6 @@ export default {
 
 export const heroPrimary = () => <Hero
   heroType={HeroTypes.Primary}
-  heroId="2"
   heading={<Heading
     level={1}
     id={"1"}
@@ -27,7 +26,6 @@ export const heroPrimary = () => <Hero
 
 export const heroSecondary = () => <Hero
   heroType={HeroTypes.Secondary}
-  heroId="2"
   heading={<Heading
     level={1}
     id={"1"}
@@ -44,7 +42,6 @@ export const heroSecondary = () => <Hero
 
 export const heroStaffPicks = () => <Hero
   heroType={HeroTypes.Primary}
-  heroId="2"
   heading={<Heading
     level={1}
     id={"1"}
@@ -59,7 +56,6 @@ export const heroStaffPicks = () => <Hero
 
 export const ExhibitionsHero = () => <Hero
   heroType={HeroTypes.Primary}
-  heroId="2"
   heading={<Heading
     level={1}
     id={"1"}
@@ -74,7 +70,6 @@ export const ExhibitionsHero = () => <Hero
 
 export const ResearchNowHero = () => <SectionName><Hero
   heroType={HeroTypes.Secondary}
-  heroId="2"
   heading={<Heading
     level={1}
     id={"1"}

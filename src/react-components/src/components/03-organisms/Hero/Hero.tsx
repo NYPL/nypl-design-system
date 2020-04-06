@@ -9,9 +9,6 @@ export interface HeroProps {
   /** Can be Primary, secondary, tertiary, or 50/50. */
   heroType?: HeroTypes;
 
-  /** Required ID for tabfocus. */
-  heroId: string;
-
   /** Required heading element. */
   heading: JSX.Element;
 
@@ -48,7 +45,6 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
   let {
     heroType,
-    heroId,
 
     heading,
 
@@ -95,13 +91,16 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       throw new Error(`Please provide both foregroundColor and backgroundColor to Hero, only got ` + receivedColor);
     }
     else {
-      console.log("Foreground and background not provided");
       contentBoxStyling = {};
+    }
+  } else {
+    if (foregroundColor || backgroundColor) {
+      throw new Error(`Received foregroundColor and/or backgroundColor, but these are only accepted on HeroTypes.Primary`);
     }
   }
 
   return (
-    <div className={bem(heroBaseClass, heroModifiers)} data-responsive-background-image id={heroId} style={backgroundImageStyle}>
+    <div className={bem(heroBaseClass, heroModifiers)} data-responsive-background-image style={backgroundImageStyle}>
       <div className={bem("content", [], heroBaseClass)} style={contentBoxStyling}>
         {heading}
 

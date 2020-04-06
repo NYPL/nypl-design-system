@@ -23,7 +23,6 @@ describe("Hero Test", () => {
   it("Generates a Hero with a background image", () => {
     let wrapper = Enzyme.shallow(<Hero
       heroType={HeroTypes.Primary}
-      heroId="2"
       heading={<Heading
         level={1}
         id={"1"}
