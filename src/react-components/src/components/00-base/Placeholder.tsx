@@ -14,6 +14,6 @@ export interface PlaceholderProps {
 export default function Placeholder(props: React.PropsWithChildren<PlaceholderProps>) {
   const { modifiers = [], blockName } = props;
   return (
-    <div className={bem("placeholder")}>{props.children}</div>
+    <div className={bem("placeholder", modifiers, blockName)}>{props.children}</div>
   );
 }
