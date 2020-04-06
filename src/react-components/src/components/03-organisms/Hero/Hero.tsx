@@ -63,15 +63,21 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     image,
   } = props;
 
+  let heroModifiers;
+
+  if (heroType === HeroTypes.Primary) {
+    heroModifiers = ["primary"];
+  } else if (heroType === HeroTypes.Secondary) {
+    heroModifiers = ["secondary"];
+  }
+
   if (backgroundImageSrc && image) {
     throw new Error(`Please only either backgroundImageSrc or image into Hero, got both`);
   }
 
-  if (heroType !== "PRIMARY" && locationDetails) {
+  if (heroType !== HeroTypes.Primary && locationDetails) {
     throw new Error(`Please provide locationDetails only to PRIMARY heroTypes`);
   }
-
-  let heroModifiers = backgroundImageSrc ? ["primary"] : ["secondary"];
 
   let backgroundImage = backgroundImageSrc ? "data-responsive-background-image" : "";
 
