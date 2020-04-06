@@ -91,7 +91,8 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         backgroundColor: backgroundColor,
       };
     } else if (foregroundColor || backgroundColor) {
-      throw new Error(`Please provide both foregroundColor and backgroundColor to Hero, got only one`);
+      let receivedColor = foregroundColor ? 'foregroundColor' : 'backgroundColor'
+      throw new Error(`Please provide both foregroundColor and backgroundColor to Hero, only got ` + receivedColor);
     }
     else {
       console.log("Foreground and background not provided");
