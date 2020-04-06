@@ -48,7 +48,7 @@ export const heroStaffPicks = () => <Hero
     text={"Staff Picks"}
     blockName={"hero"}
   />}
-  subHeaderText={<BodyText blockName="hero">Nobody loves books more than our experts. Browse and filter hundreds of their favorites. Want more suggestions? Check out <a href='#'>Best Books</a> and <a href='#'>125 Books We Love</a>.</BodyText>}
+  subHeaderText={<BodyText blockName="hero">Nobody loves books more than our experts. Browse and filter hundreds of their favorites. Want more suggestions? Check out <a href="#etc">Best Books</a> and <a href="#etc2">125 Books We Love</a>.</BodyText>}
   foregroundColor="#ffffff"
   backgroundColor="#bb1d12"
   backgroundImageSrc="https://placeimg.com/1600/800/arch"
