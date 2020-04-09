@@ -1,19 +1,16 @@
+/**
+ * A Form Checkbox component that can be selected and deselected.
+ */
 
 import * as React from "react";
 import bem from "../../../utils/bem";
-import FormDropdown from "../../01-atoms/Forms/FormDropdown";
-import TextField from "../../01-atoms/Forms/TextField";
-import { Button } from "../../..";
 import Label, { LabelOptions } from "./Label";
-import HelperErrorText from "./HelperErrorText";
-import { boolean } from "@storybook/addon-knobs";
 
 export interface CheckboxOptions {
   name?: string;
 
-  baseClass?: string;
+  modifiers?: string[];
   blockName?: string;
-
   labelOptions?: LabelOptions;
 
   isSelected?: boolean;
@@ -21,25 +18,30 @@ export interface CheckboxOptions {
 }
 
 interface CheckboxProps {
+  /** name of the checkbox */
   name?: string;
 
-  baseClass?: string;
-  blockName?: string;
 
+  /** Used for BEM css convention. */
+  blockName?: string;
+  /** Used for BEM css convention. */
+  modifiers?: string[];
+
+  /** Unique ID used by checkbox */
   checkboxId: string;
-  /* The Label that the checkbox is using.
-  To enforce that a Label is used correctly, it must be passed as props and not as children. */
+  /* The Label that the checkbox is using. */
   labelOptions: LabelOptions;
 
+  /* The current selected state of the checkbox */
   isSelected?: boolean;
+  /** The action to perform on the <input>'s onChange function  */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Checkbox(props: CheckboxProps) {
-
   const {
     name,
-    baseClass = "checkbox",
+    modifiers = [],
     blockName = "",
     checkboxId,
     labelOptions,
@@ -47,9 +49,10 @@ export default function Checkbox(props: CheckboxProps) {
     onChange
   } = props;
 
+  const baseClass = "checkbox";
   return (
-    <div className="checkbox">
-      <input id={checkboxId} name={name} className={"checkbox"}  onChange={onChange} type="checkbox" aria-checked={isSelected} checked={isSelected}></input>
+    <div className={bem(baseClass, modifiers, blockName)}>
+      <input id={checkboxId} name={name} className={bem("input", [], baseClass)}  onChange={onChange} type="checkbox" aria-checked={isSelected} checked={isSelected}></input>
       <span className={bem("label", [], baseClass)}>
         <Label referenceId={checkboxId} {...labelOptions} />
       </span>

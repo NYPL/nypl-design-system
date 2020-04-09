@@ -18,7 +18,7 @@ export const inputWithHelper = () => <Input labelId="blah"
   inputId="blah"
   helperContentOpts={{id: "blah", content: <>This is some helpful text</>}}
 />;
-export const inputRequiredWithHelper = () => <Input labelId="blah"
+export const inputRequiredWithError = () => <Input labelId="blah"
   labelContent={<>Label</>}
   inputId="blah"
   isRequired={true}

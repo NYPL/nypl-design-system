@@ -1,41 +1,43 @@
+/** Wrapper component for an unordered list of objects */
 import * as React from "react";
 import bem from "../../../utils/bem";
-import { findFirst } from "../../../helpers/util/Utils";
 import { boolean } from "@storybook/addon-knobs";
 
 export interface UnorderedListOptions {
+  content?: JSX.Element[];
+
   id: string;
   modifiers?: any[];
   blockName?: string;
-  scroll?: boolean;
-  content?: JSX.Element[];
 }
 
-export interface UnorderedListProps {
+interface UnorderedListProps {
+  /** The unique ID of UnorderedList */
   id: string;
+
+  /** Used for BEM css convention. */
   modifiers?: any[];
+  /** Used for BEM css convention. */
   blockName?: string;
-  scroll?: boolean;
-  content?: JSX.Element[];
 }
 
 export default function UnorderedList(props: React.PropsWithChildren<UnorderedListProps>) {
-  const { id, modifiers = [], blockName, scroll = false, content } = props;
+  const { id, modifiers = [], blockName } = props;
 
   const baseClass = "unordered-list";
 
-  const listContent = findFirst(props.children, content);
-  if (scroll) { modifiers.push("scroll"); }
+  if (!Array.isArray(props.children)) {
+    throw new Error("Please pass only an Array as a child of UnorderedList");
+  }
 
-  const blah = listContent.map((content, i) => {
+  const content = props.children.map((content, i) => {
     return <li className={bem("list-item", [], baseClass)} key={id + "-li-" + i}>{content}</li>;
   });
 
-
   return (
-    <div className={bem("list-container", modifiers, baseClass)}>
+    <div className={bem("list-container", modifiers, blockName)}>
       <ul id={id} className={bem(baseClass)}>
-        {blah}
+        {content}
       </ul>
     </div>
   );

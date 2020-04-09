@@ -6,8 +6,23 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 
 ## [0.1.0]
 ### Breaking Changes
-- `LabelText` in `Label` -> `LabelContent`
-- Renamed `HelperErrorText` to be `FormHelper
+- Large classes now have `Opts` inteface that allows for the component to be built over multiple steps. This affects: 
+    - `HelperErrorText`
+    - `Label`
+    - `TextField`
+    - `Button`
+- Deprecated `SearchResultsList`, `IconLinkList` and `EditionsList` in favor of `UnorderedList`
+
+### Added: 
+- `Checkbox`
+- `DateRangeForm` 
+- `Input`
+- `Accordion` 
+- `UnorderedList`
+
+### Changed: 
+- `Button`: now has `link` type, allows passing of `buttonType`
+
 
 ## [0.0.17] - 2020-03-17
 - Changelog update

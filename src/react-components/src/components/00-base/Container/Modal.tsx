@@ -1,14 +1,13 @@
 /* Full-screen modal that appears on top of the body */
 import * as React from "react";
 import bem from "../../../utils/bem";
-import { useViewport } from "../../../helpers/hooks/UseViewport";
-import { breakpoints } from "../../../helpers/constants/Constants";
 
 export interface ModalProps {
+  /** Used by BEM CSS */
   modifiers?: string[];
+
+  /** Used by BEM CSS */
   blockName?: string;
-  /** Should hide automatically in wide-screen mode */
-  mobileOnly?: boolean;
 }
 
 export default class Modal extends React.Component<ModalProps, {}> {

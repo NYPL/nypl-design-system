@@ -61,19 +61,19 @@ export const linkLikeButton = () =>
     callback={action["clicked"]}
     id="button"
     type="link"
-    >
-  <span>button content</span>
-    </Button >;
+  >
+    <span>button content</span>
+  </Button >;
 
 export const linkLikeButtonIconLeft = () =>
-<Button
-callback={action["clicked"]}
-id="button"
-type="link"
-iconPosition="left"
-iconName="arrow-xsmall"
-iconModifiers={["left"]}
-iconDecorative={true}
->
-<span>button content</span>
-</Button >;
+  <Button
+    callback={action["clicked"]}
+    id="button"
+    type="link"
+    iconPosition="left"
+    iconName="arrow-xsmall"
+    iconModifiers={["left"]}
+    iconDecorative={true}
+  >
+    <span>button content</span>
+  </Button >;

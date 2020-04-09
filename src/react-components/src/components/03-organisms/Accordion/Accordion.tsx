@@ -1,13 +1,20 @@
 
-// AF-239 Text Field
+/** Accordion component that shows content on toggle */
+
 import * as React from "react";
 import Button, { ButtonOptions } from "../../01-atoms/Button/Button";
 import bem from "../../../utils/bem";
-import { findFirst } from "../../../helpers/util/Utils";
 
 export interface AccordionProps {
+  id: string;
+
+  /** Used for BEM css convention. */
+  modifiers?: string[];
+  /** Used for BEM css convention. */
+  blockName?: string;
+
+  /** The button that controls the acccordion toggle */
   buttonOptions: ButtonOptions;
-  accordionContent?: JSX.Element;
 }
 
 export default class Accordion extends React.Component<AccordionProps, { isOpen: boolean }> {
@@ -24,19 +31,18 @@ export default class Accordion extends React.Component<AccordionProps, { isOpen:
   }
 
   render() {
-    const { buttonOptions, accordionContent, children } = this.props;
+    const { buttonOptions, modifiers = [], blockName = "" } = this.props;
     buttonOptions.type = "outline";
     buttonOptions.modifiers = ["large"];
     buttonOptions.iconPosition = "right";
     buttonOptions.iconName = this.state.isOpen ? "minus" : "plus";
     buttonOptions.buttonType = "button";
-    let content = findFirst(children, accordionContent);
 
     return (
-      <div className = {bem("accordion")}>
+      <div className={bem("accordion", modifiers, blockName)}>
         <Button callback={this.toggleContentShow} {...buttonOptions}></Button>
-        {this.state.isOpen && <div className={bem("accordion-content", [])}>
-          {content}
+        {this.state.isOpen && <div className="accordion-content">
+          {this.props.children}
         </div>}
       </div >);
   }

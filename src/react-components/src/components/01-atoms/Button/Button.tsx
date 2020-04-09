@@ -129,7 +129,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
     }
 
     let btnProps = {
-      id: id,
+      id: "btn-" + id,
       className: bem(button_base_class, buttonModifiers, blockName),
       type: buttonType
     };
