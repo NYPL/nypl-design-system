@@ -67,6 +67,10 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     heroModifiers = ["secondary"];
   }
 
+  if (heroType === HeroTypes.Primary && !backgroundImageSrc) {
+    throw new Error(`backgroundImageSrc required on PRIMARY heroTypes`);
+  }
+
   if (backgroundImageSrc && image) {
     throw new Error(`Please only either backgroundImageSrc or image into Hero, got both`);
   }
