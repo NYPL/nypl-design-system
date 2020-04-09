@@ -1,0 +1,50 @@
+.main {
+  @include wrapper;
+
+  display: block; // Fix for IE weirdness
+}
+
+.react-embed {
+  min-height: 60px;
+
+  // Unsets the box-sizing the Reno project globs
+  // on all elements as it isn't what the header app expects
+  & *,
+  & *::before,
+  & *::after {
+    box-sizing: unset;
+  }
+
+  @include breakpoint(769px) {
+    min-height: 162px;
+  }
+
+  @include breakpoint(1025px) {
+    min-height: 208px;
+  }
+}
+
+.content-header {
+  @include breakout;
+  @include space-stack-l;
+
+  @include breakpoint($large) {
+    flex: 0 0 100vw;
+  }
+}
+
+.content-primary {
+  width: 100%;
+
+  *:last-child {
+    &.color-band {
+      @include space-stack-none;
+    }
+  }
+}
+
+.color-band {
+  & + & {
+    @include remove-stack-page;
+  }
+}
