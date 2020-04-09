@@ -95,6 +95,6 @@ const searchResults =
       authorLinkElement={searchItemData.authorElement}
       editionInfo={searchItemData.editionInfo}
       editionsLinkElement={searchItemData.editionsLinkElement} />
-  ]
+  ];
 
 export const searchResultsList = () => <UnorderedList id="search-results-list">{searchResults}</UnorderedList>;

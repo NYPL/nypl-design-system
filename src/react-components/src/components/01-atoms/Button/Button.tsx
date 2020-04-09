@@ -66,7 +66,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
   }
 
   render(): JSX.Element {
-    const { id, callback, content, attributes, modifiers, blockName, type, buttonType="submit", mouseDown,
+    const { id, callback, content, attributes, modifiers, blockName, type, buttonType = "submit", mouseDown,
       iconPosition, iconName, iconModifiers, iconDecorative, iconRole, children } = this.props;
 
     if (type) {
@@ -86,9 +86,9 @@ export default class Button extends React.Component<ButtonProps, {}> {
     const contentToRender = content ? content : children;
     if (contentToRender) {
       // Make sure we can handle both string and element cases.
-      const contentProp = typeof(contentToRender) === "string" ?
+      const contentProp = typeof (contentToRender) === "string" ?
         contentToRender :
-        React.cloneElement(contentToRender as any, {key: `${id}-button-content`});
+        React.cloneElement(contentToRender as any, { key: `${id}-button-content` });
       btnContent.push(contentProp);
     }
 

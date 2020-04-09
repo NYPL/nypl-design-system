@@ -17,7 +17,7 @@ export const inputWithHelper = () => <Input labelId="blah"
   labelContent={<>Label</>}
   inputId="blah"
   helperContentOpts={{id: "blah", content: <>This is some helpful text</>}}
-/>
+/>;
 export const inputRequiredWithHelper = () => <Input labelId="blah"
   labelContent={<>Label</>}
   inputId="blah"
@@ -30,5 +30,5 @@ export const inputRequiredWithHelperAndError = () => <Input labelId="blah"
   inputId="blah"
   isRequired={true}
   helperContentOpts={{id: "blah", content: <>This is some helpful text</>}}
-  errorContentOpts={{id:"blah", content: <>Error Message Lorem Ipsum</>}}
+  errorContentOpts={{id: "blah", content: <>Error Message Lorem Ipsum</>}}
   showError={true}></Input>;

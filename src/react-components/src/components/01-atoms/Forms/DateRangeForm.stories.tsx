@@ -57,4 +57,4 @@ export const noButton = () => <DateRangeForm
   showError={true}
   error={{ content: <div>The end year should be the same year as or later than the start year</div>, id: "errorId" }}
 
-/>
+/>;
