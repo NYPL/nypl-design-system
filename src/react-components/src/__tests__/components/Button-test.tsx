@@ -30,7 +30,6 @@ describe("Button", () => {
     expect(wrapper.find(".button")).to.have.lengthOf(1);
   });
 
-  // TODO: Allow other Types
   it("has type submit", () => {
     expect(wrapper.prop("type")).to.equal("submit");
   });

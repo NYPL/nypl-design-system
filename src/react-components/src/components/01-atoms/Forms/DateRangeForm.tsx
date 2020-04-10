@@ -20,19 +20,19 @@ export interface DateCheckFormProps {
   /** The from input */
   fromInputOpts: InputOptions;
   /** Helper text for the from input */
-  fromHelper: HelperErrorTextOptions;
+  fromHelper?: HelperErrorTextOptions;
 
   /** The Label to describe the to input */
   toLabelOpts: LabelOptions;
   /** The to input */
   toInputOpts: InputOptions;
   /** Helper text for the to input */
-  toHelper: HelperErrorTextOptions;
+  toHelper?: HelperErrorTextOptions;
 
   /** Whether the form is currently in an error state */
   showError: boolean;
   /** The error text to render */
-  error: HelperErrorTextOptions;
+  error?: HelperErrorTextOptions;
 
   /** The submit button */
   buttonProps?: ButtonProps;
@@ -52,6 +52,9 @@ export default function DateRangeForm(props: DateCheckFormProps) {
     showError,
     error,
     buttonProps } = props;
+    if (showError && !error) {
+      throw new Error("Error should be shown, but no Error Content exists");
+    }
 
   return (
     <fieldset className={bem(blockName, [], baseClass)}>
@@ -81,7 +84,7 @@ export default function DateRangeForm(props: DateCheckFormProps) {
         <HelperErrorText isError={true} id={error.id}>{error.content}</HelperErrorText>
       }
       {buttonProps &&
-        <Button id={buttonProps.id} callback={buttonProps.callback}>{buttonProps.content}</Button>
+        <Button id={buttonProps.id} {...buttonProps}>{buttonProps.content}</Button>
       }
     </fieldset>
   );

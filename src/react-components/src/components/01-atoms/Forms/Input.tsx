@@ -74,6 +74,10 @@ export default function Input(props: InputProps) {
     showError
   } = props;
 
+  if (showError && !errorContentOpts) {
+    throw new Error("Error should be shown, but no errorContentOpts passed");
+  }
+
   let labelOptions: LabelOptions = { id: labelId, labelContent: labelContent, referenceId: inputId };
   let textFieldOptions: TextFieldOptions = { id: inputId, ariaLabelledBy: labelId, value: inputValue, isRequired: isRequired, type: inputType, onChange: onInputChange };
 

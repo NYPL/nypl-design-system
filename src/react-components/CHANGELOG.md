@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
     - `TextField`
     - `Button`
 - Deprecated `SearchResultsList`, `IconLinkList` and `EditionsList` in favor of `UnorderedList`
+- `type` in `Button` now corresponds to html button types.  `buttonType` in button corresponds to the visual categories of buttons (eg: `filled`, `outline`)
 
 ### Added: 
 - `Checkbox`

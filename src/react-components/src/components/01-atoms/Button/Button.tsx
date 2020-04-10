@@ -1,6 +1,7 @@
 import * as React from "react";
 import Icon from "../Images/Icons/Icon";
 import bem from "../../../utils/bem";
+import { ButtonTypes } from "./ButtonTypes";
 
 type BtnContent = string | JSX.Element;
 
@@ -17,10 +18,9 @@ export interface ButtonOptions {
   modifiers?: string[];
   /** Used for BEM css convention. */
   blockName?: string;
-  large?: boolean;
+  buttonType?: ButtonTypes;
+  /** The html button type attribute */
   type?: string;
-  /** The html button attribute */
-  buttonType?: string;
   mouseDown?: boolean;
   /** If an icon is to be rendered, an `iconPosition` prop is required. */
   iconPosition?: string;
@@ -38,15 +38,16 @@ export interface ButtonProps {
   /** The content to render inside the the button. An alternative
    * to passing children elements. */
   content?: string | JSX.Element;
+  /** Additional attributes passed to the button */
   attributes?: {};
   /** Used for BEM css convention. */
   modifiers?: string[];
   /** Used for BEM css convention. */
   blockName?: string;
-  large?: boolean;
-  type?: string;
+  /** The Kind of button */
+  buttonType?: ButtonTypes;
   /** The html button attribute */
-  buttonType?: string;
+  type?: string;
   mouseDown?: boolean;
   /** If an icon is to be rendered, an `iconPosition` prop is required. */
   iconPosition?: string;
@@ -66,18 +67,13 @@ export default class Button extends React.Component<ButtonProps, {}> {
   }
 
   render(): JSX.Element {
-    const { id, callback, content, attributes, modifiers, blockName, type, buttonType = "submit", mouseDown,
+    const { id, callback, content, attributes, modifiers, blockName, buttonType, type = "submit", mouseDown,
       iconPosition, iconName, iconModifiers, iconDecorative, iconRole, children } = this.props;
 
-    if (type) {
-      if (!(type === "outline" || type === "filled" || type === "link")) {
-        throw new Error("Type can only be 'outline', 'filled' or 'link'");
-      }
-    }
-
+      console.log("buttonType", buttonType);
     let buttonModifiers = modifiers ? modifiers : [];
-    if (!buttonModifiers.find((mod) => mod === type)) {
-      buttonModifiers.push(type);
+    if (!buttonModifiers.find((mod) => mod === buttonType)) {
+      buttonModifiers.push(buttonType);
     }
 
     let btnContent: BtnContent[] = [];
@@ -131,7 +127,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
     let btnProps = {
       id: "btn-" + id,
       className: bem(button_base_class, buttonModifiers, blockName),
-      type: buttonType
+      type: type
     };
 
     let btnCallback = mouseDown ? { onMouseDown: callback } : { onClick: callback };

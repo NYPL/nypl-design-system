@@ -14,11 +14,11 @@ export const defaultState = () => <DateRangeForm
 
   fromLabelOpts={{ labelContent: <>From</>, id: "FromLabel" }}
   fromInputOpts={{ inputId: "fromInput" }}
-  fromHelper={{ content: <>EX. 1901</>, id: "fromyearhelper", isError: false }}
+  fromHelper={{ content: <>E.x., 1901</>, id: "fromyearhelper", isError: false }}
 
   toLabelOpts={{ labelContent: <>To</>, id: "ToLabel" }}
   toInputOpts={{ inputId: "toInput" }}
-  toHelper={{ content: <>EX. 2000</>, id: "toYearHelper", isError: false }}
+  toHelper={{ content: <>E.x., 2000</>, id: "toYearHelper", isError: false }}
 
   showError={false}
   error={{ content: <></>, id: "errorId", isError: true }}
@@ -31,11 +31,11 @@ export const errorState = () => <DateRangeForm
 
   fromLabelOpts={{ labelContent: <>From</>, id: "FromLabel" }}
   fromInputOpts={{ inputId: "fromInput" }}
-  fromHelper={{ content: <>EX. 1901</>, id: "fromyearhelper" }}
+  fromHelper={{ content: <>E.x., 1901</>, id: "fromyearhelper" }}
 
   toLabelOpts={{ labelContent: <>To</>, id: "ToLabel" }}
   toInputOpts={{ inputId: "toInput" }}
-  toHelper={{ content: <>EX. 2000</>, id: "toYearHelper" }}
+  toHelper={{ content: <>E.x., 2000</>, id: "toYearHelper" }}
 
   showError={true}
   error={{ content: <div>The end year should be the same year as or later than the start year</div>, id: "errorId" }}
@@ -48,11 +48,11 @@ export const noButton = () => <DateRangeForm
 
   fromLabelOpts={{ labelContent: <>From</>, id: "FromLabel" }}
   fromInputOpts={{ inputId: "fromInput" }}
-  fromHelper={{ content: <>EX. 1901</>, id: "fromyearhelper" }}
+  fromHelper={{ content: <>E.x., 1901</>, id: "fromyearhelper" }}
 
   toLabelOpts={{ labelContent: <>To</>, id: "ToLabel" }}
   toInputOpts={{ inputId: "toInput" }}
-  toHelper={{ content: <>EX. 2000</>, id: "toYearHelper" }}
+  toHelper={{ content: <>E.x., 2000</>, id: "toYearHelper" }}
 
   showError={true}
   error={{ content: <div>The end year should be the same year as or later than the start year</div>, id: "errorId" }}

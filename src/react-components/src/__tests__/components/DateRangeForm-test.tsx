@@ -1,4 +1,3 @@
-
 import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
@@ -7,12 +6,12 @@ import { stub } from "sinon";
 
 import DateRangeForm from "../../components/01-atoms/Forms/DateRangeForm";
 
-describe("Renders Input", () => {
+describe("Date Range Form", () => {
   let container;
   let callback;
   before(() => {
     callback = stub();
-    const container = Enzyme.mount(<DateRangeForm
+    container = Enzyme.mount(<DateRangeForm
       formLabel={<>Publication Year</>}
 
       fromLabelOpts={{ labelContent: <>From</>, id: "FromLabel" }}
@@ -31,9 +30,12 @@ describe("Renders Input", () => {
   });
 
   it("Renders two inputs", () => {
-
+    expect(container.find("input")).to.have.length(2);
+  });
+  it("renders two helpers", () => {
+    expect(container.find("HelperErrorText")).to.have.length(2);
   });
   it("Renders a submit button", () => {
-
+    expect(container.find("#submitButtonId").exists()).to.equal(true);
   });
 });

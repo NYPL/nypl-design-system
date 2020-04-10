@@ -1,9 +1,9 @@
-
 /** Accordion component that shows content on toggle */
 
 import * as React from "react";
 import Button, { ButtonOptions } from "../../01-atoms/Button/Button";
 import bem from "../../../utils/bem";
+import { ButtonTypes } from "../../01-atoms/Button/ButtonTypes";
 
 export interface AccordionProps {
   id: string;
@@ -32,11 +32,11 @@ export default class Accordion extends React.Component<AccordionProps, { isOpen:
 
   render() {
     const { buttonOptions, modifiers = [], blockName = "" } = this.props;
-    buttonOptions.type = "outline";
+    buttonOptions.type = "button";
     buttonOptions.modifiers = ["large"];
     buttonOptions.iconPosition = "right";
     buttonOptions.iconName = this.state.isOpen ? "minus" : "plus";
-    buttonOptions.buttonType = "button";
+    buttonOptions.buttonType = ButtonTypes.Outline;
 
     return (
       <div className={bem("accordion", modifiers, blockName)}>

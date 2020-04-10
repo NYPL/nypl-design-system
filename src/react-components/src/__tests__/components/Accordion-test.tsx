@@ -1,37 +1,30 @@
-
 import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
-import { stub } from "sinon";
 
 import Accordion from "../../components/03-organisms/Accordion/Accordion";
 
 describe("Renders Input (closed state)", () => {
-  let container;
-  let callback;
+  let container: Enzyme.ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
   before(() => {
-    callback = stub();
-    const container = Enzyme.mount(<Accordion
+    container = Enzyme.mount(<Accordion
       id="accordion"
       buttonOptions={{ id: "accordionBtn", content: <>Click to expand</> }}
     > <div className="accordion-content">content content</div> </Accordion>);
   });
 
   it("Renders a button", () => {
-
+    expect(container.find("Button").exists()).to.equal(true);
   });
   it("does not render content", () => {
-
+    expect(container.find(".accordion-content").exists()).to.equal(false);
   });
 });
 
-describe.only("Renders Input (open state)", () => {
-  let container;
-  let callback;
+describe("Renders Input (open state)", () => {
+  let container: Enzyme.ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
   before(() => {
-    callback = stub();
-    const container = Enzyme.mount(<Accordion
+    container = Enzyme.mount(<Accordion
       id="accordion"
       buttonOptions={{ id: "accordionBtn", content: <>Click to expand</> }}
     > <div className="accordion-content">content content</div> </Accordion>);
@@ -39,9 +32,9 @@ describe.only("Renders Input (open state)", () => {
   });
 
   it("Renders a button", () => {
-
+    expect(container.find("Button").exists()).to.equal(true);
   });
   it("Renders content", () => {
-
+    expect(container.find(".accordion-content").exists()).to.equal(true);
   });
 });

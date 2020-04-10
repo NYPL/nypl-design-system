@@ -1,3 +1,10 @@
 .date-range {
   @include fieldset-reset;
+  
+  &__input-description,
+  &__button {
+    @include space-stack-s;
+  }
 }
+
+

@@ -21,7 +21,6 @@ interface CheckboxProps {
   /** name of the checkbox */
   name?: string;
 
-
   /** Used for BEM css convention. */
   blockName?: string;
   /** Used for BEM css convention. */
@@ -45,7 +44,7 @@ export default function Checkbox(props: CheckboxProps) {
     blockName = "",
     checkboxId,
     labelOptions,
-    isSelected = false,
+    isSelected,
     onChange
   } = props;
 
