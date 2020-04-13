@@ -65,7 +65,7 @@ export const ExhibitionsHero = () => <Hero
   locationDetails={<Placeholder>Placeholder for locationDetails, which doesn't exist yet</Placeholder>}
   foregroundColor="#ffffff"
   backgroundColor="#0071ce" // have these default to section colors
-  backgroundImageSrc="https://images.nypl.org/index.php?id=419627&t=w"
+  backgroundImageSrc="https://p24.f4.n0.cdn.getcloudapp.com/items/NQuDO4xO/index.jpeg?v=d49888fbe420dd2fd163adc2ad0cdac6"
 />;
 
 export const DigitalResearchBooksHeader = () => <SectionName><Hero
