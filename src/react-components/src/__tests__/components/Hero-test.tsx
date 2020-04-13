@@ -4,6 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
+import Placeholder from "../../components/00-base/Placeholder";
 import Image from "../../components/01-atoms/Images/Image/Image";
 import Heading from "../../components/01-atoms/Text/Headings/Heading";
 import { HeroTypes } from "../../components/03-organisms/Hero/HeroTypes";
@@ -77,5 +78,40 @@ describe("Hero Test", () => {
       backgroundImageSrc="https://placeimg.com/1600/800/arch"
     ></Hero>))
     .to.throw("Please only either backgroundImageSrc or image into Hero, got both");
+  });
+
+  it("Throws error if locationDetails are based to non-primary hero types", () => {
+    expect(() => Enzyme.mount(<Hero
+      heroType={HeroTypes.Secondary}
+      heading={<Heading
+        level={1}
+        id={"1"}
+        text={"Hero Secondary"}
+        blockName={"hero"}
+      />}
+      image={<Image
+        src="https://placeimg.com/800/400/arch"
+        isDecorative={true}
+        imageBlockname={"hero"}
+      />}
+      locationDetails={<Placeholder>Placeholder for locationDetails, which doesn't exist yet</Placeholder>}
+    ></Hero>))
+    .to.throw("Please provide locationDetails only to PRIMARY heroTypes");
+  });
+
+  it("Throws error if only one var is passed between foregroundColor and backgroundColor", () => {
+    expect(() => Enzyme.mount(<Hero
+      heroType={HeroTypes.Primary}
+      heading={<Heading
+        level={1}
+        id={"1"}
+        text={"Syncretic Vibrations: Exploring the Mosaic of Blackness through the Melville J. and Frances S.Herskovits Collection"}
+        blockName={"hero"}
+      />}
+      locationDetails={<Placeholder>Placeholder for locationDetails, which doesn't exist yet</Placeholder>}
+      foregroundColor="#ffffff"
+      backgroundImageSrc="https://p24.f4.n0.cdn.getcloudapp.com/items/NQuDO4xO/index.jpeg?v=d49888fbe420dd2fd163adc2ad0cdac6"
+    />))
+    .to.throw("Please provide both foregroundColor and backgroundColor to Hero, only got foregroundColor");
   });
 });
