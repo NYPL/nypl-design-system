@@ -68,7 +68,7 @@ export const ExhibitionsHero = () => <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=419627&t=w"
 />;
 
-export const ResearchNowHero = () => <SectionName><Hero
+export const DigitalResearchBooksHeader = () => <SectionName><Hero
   heroType={HeroTypes.Secondary}
   heading={<Heading
     level={1}
