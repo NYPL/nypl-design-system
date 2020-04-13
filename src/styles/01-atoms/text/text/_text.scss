@@ -60,6 +60,22 @@ p,
   @include screenreader-only();
 }
 
+.unordered-list {
+  @include list-reset;
+
+  &__list-container {
+    &--scroll { 
+      max-height: 350px;
+      overflow-y: auto;
+    }
+  }
+
+  &__list-iconLink {
+    color: $gray-medium;
+  }
+}
+
+
 .text-long {
   blockquote {
     @extend .blockquote;

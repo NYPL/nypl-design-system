@@ -1,4 +1,3 @@
-/* Input fields for date ranges. */
 import React from "react";
 import Button, { ButtonProps } from "../Button/Button";
 import HelperErrorText, { HelperErrorTextOptions } from "./HelperErrorText";
@@ -7,9 +6,9 @@ import { LabelOptions } from "./Label";
 import bem from "../../../utils/bem";
 
 export interface DateCheckFormProps {
-  /** Used for BEM css convention. */
+  /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** Used for BEM css convention. */
+  /** Optional baseClass for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   baseClass?: string;
 
   /** The Label to describe the form */
@@ -37,6 +36,8 @@ export interface DateCheckFormProps {
   /** The submit button */
   buttonProps?: ButtonProps;
 }
+
+/* Input fields for date ranges. */
 
 export default function DateRangeForm(props: DateCheckFormProps) {
   const {

@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
     - `Button`
 - Deprecated `SearchResultsList`, `IconLinkList` and `EditionsList` in favor of `UnorderedList`
 - `type` in `Button` now corresponds to html button types.  `buttonType` in button corresponds to the visual categories of buttons (eg: `filled`, `outline`)
+- `subtitle` in `SearchResultsItem` changed to `subtitleContent` to take a JSX
 
 ### Added: 
 - `Checkbox`
@@ -20,6 +21,7 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - `Input`
 - `Accordion` 
 - `UnorderedList`
+- `Modal`
 
 ### Changed: 
 - `Button`: now has `link` type, allows passing of `buttonType`

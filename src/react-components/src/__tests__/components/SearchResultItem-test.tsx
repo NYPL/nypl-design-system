@@ -15,7 +15,7 @@ describe("SearchResultItem", () => {
       modifiers={[]}
       blockName={""}
       headingContent={heading}
-      subtitleText="Subtitle need max character count Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      subtitleContent={<>"Subtitle need max character count Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</>}
       authorLinkElement={<a href="blah">bahah</a>}
       editionInfo={{
         editionYearHeading: <a href="blah2">2004 Edition</a>,

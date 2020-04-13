@@ -63,7 +63,7 @@ export const editionsList = () => <UnorderedList id="editions-list">{editions}</
 
 let searchItemData = {
   titleElement: <a href="title-link-url" className={bem("link", ["no-underline"])}>Investigation of un-American propaganda activities in the United States. Hear...</a>,
-  subtitle: "Subtitle need max character count Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  subtitle: <>"Subtitle need max character count Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</>,
   editionInfo: {
     editionYearHeading: <a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>,
     publisherAndLocation: "Published in New York by Random House",
@@ -83,7 +83,7 @@ const searchResults =
       id="search-result-item-1"
       resultIndex={1}
       headingContent={searchItemData.titleElement}
-      subtitleText={searchItemData.subtitle}
+      subtitleContent={searchItemData.subtitle}
       authorLinkElement={searchItemData.authorElement}
       editionInfo={searchItemData.editionInfo}
       editionsLinkElement={searchItemData.editionsLinkElement} />,
@@ -91,7 +91,7 @@ const searchResults =
       id="search-result-item-2"
       resultIndex={2}
       headingContent={searchItemData.titleElement}
-      subtitleText={searchItemData.subtitle}
+      subtitleContent={searchItemData.subtitle}
       authorLinkElement={searchItemData.authorElement}
       editionInfo={searchItemData.editionInfo}
       editionsLinkElement={searchItemData.editionsLinkElement} />
@@ -100,6 +100,6 @@ const searchResults =
 export const searchResultsList = () => <UnorderedList id="search-results-list">{searchResults}</UnorderedList>;
 
 const text = <span>Hello</span>;
-let textList: JSX.Element[] = [];
+let textList: JSX.Element[] = new Array(100);
 textList.fill(text, 0, 100);
 export const textListWithScroll = () => <UnorderedList id="text-list-scroll" modifiers={["scroll"]}>{textList}</UnorderedList>;

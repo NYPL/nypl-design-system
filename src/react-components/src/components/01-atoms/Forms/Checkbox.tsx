@@ -1,29 +1,14 @@
-/**
- * A Form Checkbox component that can be selected and deselected.
- */
-
 import * as React from "react";
 import bem from "../../../utils/bem";
 import Label, { LabelOptions } from "./Label";
-
-export interface CheckboxOptions {
-  name?: string;
-
-  modifiers?: string[];
-  blockName?: string;
-  labelOptions?: LabelOptions;
-
-  isSelected?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
 
 interface CheckboxProps {
   /** name of the checkbox */
   name?: string;
 
-  /** Used for BEM css convention. */
+  /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** Used for BEM css convention. */
+  /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
 
   /** Unique ID used by checkbox */
@@ -36,6 +21,10 @@ interface CheckboxProps {
   /** The action to perform on the <input>'s onChange function  */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+/**
+ * A Form Checkbox component that can be selected and deselected.
+ */
 
 export default function Checkbox(props: CheckboxProps) {
   const {

@@ -8,21 +8,14 @@ type BtnContent = string | JSX.Element;
 export interface ButtonOptions {
   id: string;
 
-  /** The action to perform on the <button>'s onClick function */
   callback?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  /** The content to render inside the the button. An alternative
-   * to passing children elements. */
   content?: string | JSX.Element;
   attributes?: {};
-  /** Used for BEM css convention. */
   modifiers?: string[];
-  /** Used for BEM css convention. */
   blockName?: string;
   buttonType?: ButtonTypes;
-  /** The html button type attribute */
   type?: string;
   mouseDown?: boolean;
-  /** If an icon is to be rendered, an `iconPosition` prop is required. */
   iconPosition?: string;
   iconName?: string;
   iconModifiers?: string[];
@@ -40,9 +33,9 @@ export interface ButtonProps {
   content?: string | JSX.Element;
   /** Additional attributes passed to the button */
   attributes?: {};
-  /** Used for BEM css convention. */
+  /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Used for BEM css convention. */
+  /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
   /** The Kind of button */
   buttonType?: ButtonTypes;
@@ -70,7 +63,6 @@ export default class Button extends React.Component<ButtonProps, {}> {
     const { id, callback, content, attributes, modifiers, blockName, buttonType, type = "submit", mouseDown,
       iconPosition, iconName, iconModifiers, iconDecorative, iconRole, children } = this.props;
 
-      console.log("buttonType", buttonType);
     let buttonModifiers = modifiers ? modifiers : [];
     if (!buttonModifiers.find((mod) => mod === buttonType)) {
       buttonModifiers.push(buttonType);

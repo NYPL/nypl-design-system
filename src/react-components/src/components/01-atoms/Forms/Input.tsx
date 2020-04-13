@@ -1,6 +1,3 @@
-/**
- * An Input field that labels a TextField and has Helpers or Errors
- */
 import * as React from "react";
 import bem from "../../../utils/bem";
 import TextField, { TextFieldOptions } from "../../01-atoms/Forms/TextField";
@@ -27,9 +24,9 @@ export interface InputOptions {
   showError?: boolean;
 }
 interface InputProps {
-  /** Used for BEM css convention. */
+  /** Optional baseClass for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   baseClass?: string;
-  /** Used for BEM css convention. */
+  /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
 
   /** The Label ID for the input */
@@ -57,6 +54,9 @@ interface InputProps {
   showError?: boolean;
 }
 
+/**
+ * An Input field that labels a TextField and has Helpers or Errors
+ */
 export default function Input(props: InputProps) {
 
   const {
@@ -83,18 +83,19 @@ export default function Input(props: InputProps) {
 
   return (
     <div className={bem(blockName, [], baseClass)}>
-      <div className={bem("label", [], baseClass)}>
-        <Label referenceId={labelOptions.referenceId} {...labelOptions}></Label>
-        {isRequired && <span className={bem("required-message", [], baseClass)}>
-          Required
-        </span>}
+      <div className="label-container">
+        <div className={bem("label", [], baseClass)}>
+          <Label referenceId={labelOptions.referenceId} {...labelOptions}></Label>
+        </div>
+          {isRequired && <span className={bem("required-message", [], baseClass)}>
+            Required
+          </span>}
       </div>
-
       <TextField id={inputId} {...textFieldOptions}></TextField>
       {helperContentOpts && <div className={bem("help-text", [], baseClass)}>
         <HelperErrorText id={helperContentOpts.id} isError={false}>{helperContentOpts.content}</HelperErrorText>
       </div>}
-      {showError && <div className={bem("help-text", [], baseClass)}>
+      {showError && <div className={bem("error-text", [], baseClass)}>
         <HelperErrorText id={errorContentOpts.id} isError={true}>{errorContentOpts.content}</HelperErrorText>
       </div>}
     </div>

@@ -15,7 +15,6 @@ describe("HelperErrorText Test", () => {
   it("Has 'error' modifier if error is passed", () => {
     const container = Enzyme.mount(<HelperErrorText id="helperTextWithLink"
     isError={true}>Text</HelperErrorText>);
-    console.log("debug", container.debug());
     expect(container.exists("#helperTextWithLink")).to.equal(true);
   });
 });

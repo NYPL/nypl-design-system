@@ -69,6 +69,7 @@ export default function SearchBar(props: SearchBarProps) {
 
   /* TODO: after SFR-637 is merged, Replace Error with MT-51 and add its id to TextField's aria-labelledBy*/
   let textfieldProps = {
+    id: searchBarId + "-input-textfield",
     ariaLabelledBy: buttonId,
     onChange: searchChangeHandler,
     isRequired: true,

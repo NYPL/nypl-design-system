@@ -1,14 +1,15 @@
-/* Full-screen modal that appears on top of the body */
 import * as React from "react";
 import bem from "../../../utils/bem";
 
 export interface ModalProps {
-  /** Used by BEM CSS */
+  /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
 
-  /** Used by BEM CSS */
+  /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
 }
+
+/* Full-screen modal that appears on top of the body */
 
 export default class Modal extends React.Component<ModalProps, {}> {
   componentDidMount() {

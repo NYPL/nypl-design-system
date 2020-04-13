@@ -1,4 +1,3 @@
-/* MT-51 Helper and Error text*/
 import * as React from "react";
 import bem from "../../../utils/bem";
 
@@ -17,14 +16,17 @@ interface HelperErrorTextProps {
   id: string;
   /** Toggles between helper and error styling */
   isError: boolean;
-  /** Used for BEM css convention. */
+  /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Used for BEM css convention. */
+  /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** Used for BEM css convention. */
+  /** Optional baseClass for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   baseClass?: string;
 }
 
+/**
+ * Helper or Error text for forms
+ */
 export default function HelperErrorText(props: React.PropsWithChildren<HelperErrorTextProps>) {
   const { id, blockName = "input-description", baseClass = "form-item", isError } = props;
   let modifiers = [];
