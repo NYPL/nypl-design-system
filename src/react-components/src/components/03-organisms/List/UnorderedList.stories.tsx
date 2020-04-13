@@ -30,14 +30,15 @@ let editionData: EditionDetails = {
 };
 
 const checkboxes = [
-  <Checkbox onChange={action("changed")} checkboxId="checkbox-1" labelOptions={{ id: "checkbox-1-label", labelContent: <>Checkbox 1</> }}></Checkbox>,
-  <Checkbox onChange={action("changed")} checkboxId="checkbox-2" labelOptions={{ id: "checkbox-1-label", labelContent: <>Checkbox 2</> }}></Checkbox>,
-  <Checkbox onChange={action("changed")} checkboxId="checkbox-3" labelOptions={{ id: "checkbox-1-label", labelContent: <>Checkbox 3</> }}></Checkbox>
+  <Checkbox key="checkbox-1" onChange={action("changed")} checkboxId="checkbox-1" labelOptions={{ id: "checkbox-1-label", labelContent: <>Checkbox 1</> }}></Checkbox>,
+  <Checkbox key="checkbox-2" onChange={action("changed")} checkboxId="checkbox-2" labelOptions={{ id: "checkbox-2-label", labelContent: <>Checkbox 2</> }}></Checkbox>,
+  <Checkbox key="checkbox-3" onChange={action("changed")} checkboxId="checkbox-3" labelOptions={{ id: "checkbox-3-label", labelContent: <>Checkbox 3</> }}></Checkbox>
 ];
 export const checkboxList = () => <UnorderedList id="checkbox-list">{checkboxes}</UnorderedList>;
 
 const editions = [
   <EditionCard id="edition-1"
+   key="edition-1"
     coverUrl={editionData.coverUrl}
     editionHeadingElement={editionData.editionYearHeading}
     editionInfo={[editionData.publisherAndLocation, editionData.language, editionData.license]}
@@ -45,6 +46,7 @@ const editions = [
     downloadLink={editionData.downloadLink}
   />,
   <EditionCard id="edition-2"
+    key="edition-2"
     coverUrl={editionData.coverUrl}
     editionHeadingElement={editionData.editionYearHeading}
     editionInfo={[editionData.publisherAndLocation, editionData.language, editionData.license]}
@@ -52,6 +54,7 @@ const editions = [
     downloadLink={editionData.downloadLink}
   />,
   <EditionCard id="edition-3"
+    key="edition-3"
     coverUrl={editionData.coverUrl}
     editionHeadingElement={editionData.editionYearHeading}
     editionInfo={[editionData.publisherAndLocation, editionData.language, editionData.license]}
@@ -80,6 +83,7 @@ let searchItemData = {
 const searchResults =
   [
     <SearchResultItem
+      key="search-result-item-1"
       id="search-result-item-1"
       resultIndex={1}
       headingContent={searchItemData.titleElement}
@@ -88,6 +92,7 @@ const searchResults =
       editionInfo={searchItemData.editionInfo}
       editionsLinkElement={searchItemData.editionsLinkElement} />,
     <SearchResultItem
+      key="search-result-item-2"
       id="search-result-item-2"
       resultIndex={2}
       headingContent={searchItemData.titleElement}
@@ -99,7 +104,9 @@ const searchResults =
 
 export const searchResultsList = () => <UnorderedList id="search-results-list">{searchResults}</UnorderedList>;
 
-const text = <span>Hello</span>;
-let textList: JSX.Element[] = new Array(100);
-textList.fill(text, 0, 100);
+let textList: JSX.Element[] = [];
+
+for (let i = 0; i < 100; i++) {
+  textList.push(<span key={i}>Hello</span>);
+}
 export const textListWithScroll = () => <UnorderedList id="text-list-scroll" modifiers={["scroll"]}>{textList}</UnorderedList>;

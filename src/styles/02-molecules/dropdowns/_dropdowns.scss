@@ -5,6 +5,7 @@
   &__label {
     @include space-inline-xs;
 
+    display: inline-block;
     font-weight: 500;
   }
 

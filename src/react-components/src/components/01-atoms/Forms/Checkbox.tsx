@@ -42,7 +42,7 @@ export default function Checkbox(props: CheckboxProps) {
     <div className={bem(baseClass, modifiers, blockName)}>
       <input id={checkboxId} name={name} className={bem("input", [], baseClass)}  onChange={onChange} type="checkbox" aria-checked={isSelected} checked={isSelected}></input>
       <span className={bem("label", [], baseClass)}>
-        <Label referenceId={checkboxId} {...labelOptions} />
+        <Label referenceId={checkboxId} id={labelOptions.id} >{labelOptions.labelContent}</Label>
       </span>
     </div>
   );

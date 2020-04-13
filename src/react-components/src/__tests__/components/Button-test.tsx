@@ -67,6 +67,7 @@ describe("Button", () => {
       );
       expect(wrapper.text()).to.equal("Submit");
     });
+
     it("should render element children", () => {
       wrapper = Enzyme.shallow(
         <Button id="button" callback={callback}>
@@ -75,6 +76,17 @@ describe("Button", () => {
       );
       expect(wrapper.text()).to.equal("I'm a span element");
       expect(wrapper.find("span")).to.have.lengthOf(1);
+    });
+  });
+
+  describe("passes button type", () => {
+    it("button has passed type", () => {
+      const wrapper = Enzyme.mount(
+        <Button id="button" callback={callback} type="button">
+          <span>I'm a span element</span>
+        </Button>
+      );
+      expect(wrapper.find("#btn-button").prop("type")).to.equal("button");
     });
   });
 });

@@ -85,7 +85,7 @@ export default function Input(props: InputProps) {
     <div className={bem(blockName, [], baseClass)}>
       <div className="label-container">
         <div className={bem("label", [], baseClass)}>
-          <Label referenceId={labelOptions.referenceId} {...labelOptions}></Label>
+          <Label referenceId={labelOptions.referenceId} id={labelOptions.id}>{labelOptions.labelContent}</Label>
         </div>
           {isRequired && <span className={bem("required-message", [], baseClass)}>
             Required
