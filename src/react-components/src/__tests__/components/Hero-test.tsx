@@ -6,21 +6,10 @@ import * as Mocha from "mocha";
 
 import Image from "../../components/01-atoms/Images/Image/Image";
 import Heading from "../../components/01-atoms/Text/Headings/Heading";
-import BodyText from "../../components/01-atoms/Text/Text/BodyText";
 import { HeroTypes } from "../../components/03-organisms/Hero/HeroTypes";
 import Hero from "../../components/03-organisms/Hero/Hero";
 
 describe("Hero Test", () => {
-
-  let blurCallback;
-  let changeCallback;
-  let submitCallback;
-
-  beforeEach(() => {
-    changeCallback = stub();
-    blurCallback = stub();
-  });
-
   it("Generates a Hero with a background image", () => {
     let wrapper = Enzyme.shallow(<Hero
       heroType={HeroTypes.Primary}
