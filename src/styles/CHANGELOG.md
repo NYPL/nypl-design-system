@@ -7,7 +7,7 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ========
 ## [0.0.16] - 2020-04-21
-### Changed
+### Breaking Changes
 - Reworks `HeaderWithImageRight` into `Hero`, which accepts values from an enum to display different kinds of heros based on [this documentation page](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A5314)
 
 ## [0.0.15] 
