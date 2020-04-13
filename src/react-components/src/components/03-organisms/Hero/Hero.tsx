@@ -1,13 +1,11 @@
 // OH-30 Header with Image Right
 import * as React from "react";
 import bem from "../../../utils/bem";
-import Image from "../../01-atoms/Images/Image/Image";
-import Heading from "../../01-atoms/Text/Headings/Heading";
 import { HeroTypes } from "./HeroTypes";
 
 export interface HeroProps {
   /** Can be Primary, secondary, tertiary, or 50/50. */
-  heroType?: HeroTypes;
+  heroType: HeroTypes;
 
   /** Required heading element. */
   heading: JSX.Element;
@@ -79,11 +77,9 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     throw new Error(`Please provide locationDetails only to PRIMARY heroTypes`);
   }
 
-  let backgroundImage = backgroundImageSrc ? "data-responsive-background-image" : "";
-
   let backgroundImageStyle = backgroundImageSrc ? {backgroundImage: "url(" + backgroundImageSrc + ")"} : {};
 
-  let contentBoxStyling;
+  let contentBoxStyling = {};
   if (heroType === HeroTypes.Primary) {
     if (foregroundColor && backgroundColor) {
       contentBoxStyling = {
@@ -93,9 +89,6 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     } else if (foregroundColor || backgroundColor) {
       let receivedColor = foregroundColor ? "foregroundColor" : "backgroundColor";
       throw new Error(`Please provide both foregroundColor and backgroundColor to Hero, only got ` + receivedColor);
-    }
-    else {
-      contentBoxStyling = {};
     }
   } else {
     if (foregroundColor || backgroundColor) {
