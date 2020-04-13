@@ -22,7 +22,8 @@ describe("Hero Test", () => {
       />}
       backgroundImageSrc="https://placeimg.com/1600/800/arch">
     ></Hero>);
-    expect(wrapper.find(".hero")).to.have.lengthOf(1);
+    expect(wrapper.prop("style")).to.deep.equal({ backgroundImage: "url(https://placeimg.com/1600/800/arch)" });
+
   });
 
   it("Generates a Hero with a foreground image", () => {
