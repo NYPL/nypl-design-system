@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button, { ButtonOptions } from "../../01-atoms/Button/Button";
 import bem from "../../../utils/bem";
-import { ButtonTypes } from "../../01-atoms/Button/ButtonTypes";
+import { ButtonTypes, ButtonIconPositions } from "../../01-atoms/Button/ButtonTypes";
 
 export interface AccordionProps {
   id: string;
@@ -34,13 +34,13 @@ export default class Accordion extends React.Component<AccordionProps, { isOpen:
     const { buttonOptions, modifiers = [], blockName = "" } = this.props;
     buttonOptions.type = "button";
     buttonOptions.modifiers = ["large"];
-    buttonOptions.iconPosition = "right";
+    buttonOptions.iconPosition = ButtonIconPositions.JustifyRight;
     buttonOptions.iconName = this.state.isOpen ? "minus" : "plus";
     buttonOptions.buttonType = ButtonTypes.Outline;
 
     return (
       <div className={bem("accordion", modifiers, blockName)}>
-        <Button callback={this.toggleContentShow} {...buttonOptions}></Button>
+        <Button callback={this.toggleContentShow} {...buttonOptions}>{buttonOptions.content}</Button>
         {this.state.isOpen && <div className="accordion-content">
           {this.props.children}
         </div>}

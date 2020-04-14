@@ -1,5 +1,5 @@
 import React from "react";
-import Button, { ButtonProps } from "../Button/Button";
+import Button, { ButtonOptions } from "../Button/Button";
 import HelperErrorText, { HelperErrorTextOptions } from "./HelperErrorText";
 import Input, { InputOptions } from "./Input";
 import { LabelOptions } from "./Label";
@@ -34,7 +34,7 @@ export interface DateCheckFormProps {
   error?: HelperErrorTextOptions;
 
   /** The submit button */
-  buttonProps?: ButtonProps;
+  buttonOpts?: ButtonOptions;
 }
 
 /* Input fields for date ranges. */
@@ -52,7 +52,7 @@ export default function DateRangeForm(props: DateCheckFormProps) {
     toHelper,
     showError,
     error,
-    buttonProps } = props;
+    buttonOpts } = props;
     if (showError && !error) {
       throw new Error("Error should be shown, but no Error Content exists");
     }
@@ -84,8 +84,8 @@ export default function DateRangeForm(props: DateCheckFormProps) {
       {showError &&
         <HelperErrorText isError={true} id={error.id}>{error.content}</HelperErrorText>
       }
-      {buttonProps &&
-        <Button id={buttonProps.id} {...buttonProps}>{buttonProps.content}</Button>
+      {buttonOpts &&
+        <Button callback={buttonOpts.callback} id={buttonOpts.id} {...buttonOpts}>{buttonOpts.content}</Button>
       }
     </fieldset>
   );

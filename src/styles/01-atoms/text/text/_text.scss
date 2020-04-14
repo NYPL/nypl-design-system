@@ -71,10 +71,10 @@ p,
   }
 
   &__list-iconLink {
+    list-style: initial;
     color: $gray-medium;
   }
 }
-
 
 .text-long {
   blockquote {

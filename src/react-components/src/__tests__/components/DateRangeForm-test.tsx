@@ -25,7 +25,7 @@ describe("Date Range Form", () => {
       showError={false}
       error={{ content: <></>, id: "errorId", isError: true }}
 
-      buttonProps={{ id: "submitButtonId", callback: callback, content: <>Submit</> }}
+      buttonOpts={{ id: "submitButtonId", callback: callback, content: <>Submit</> }}
     />);
   });
 

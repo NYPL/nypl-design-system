@@ -13,7 +13,7 @@ describe("Button", () => {
 
   beforeEach(() => {
     callback = stub();
-    wrapper = Enzyme.shallow(<Button id="button" callback={callback} content="Submit" />);
+    wrapper = Enzyme.shallow(<Button id="button" callback={callback} >Submit</Button>);
   });
 
   it("calls the callback", () => {
@@ -21,10 +21,8 @@ describe("Button", () => {
     expect(callback.callCount).to.equal(1);
   });
   it("optionally renders a component", () => {
-    let content = <span>Element!</span>;
-    wrapper.setProps({ content });
     expect(wrapper.find("span").length).to.equal(1);
-    expect(wrapper.text()).to.equal("Element!");
+    expect(wrapper.text()).to.equal("Submit");
   });
   it("has 'button' class", () => {
     expect(wrapper.find(".button")).to.have.lengthOf(1);
@@ -43,21 +41,6 @@ describe("Button", () => {
     expect(callback.callCount).to.equal(1);
   });
 
-  describe("rendering content from the content prop", () => {
-    it("should render custom content as a string", () => {
-      wrapper = Enzyme.shallow(<Button id="button" callback={callback} content="Submit" />);
-      expect(wrapper.text()).to.equal("Submit");
-      wrapper.setProps({ content: "Some other string" });
-      expect(wrapper.text()).to.equal("Some other string");
-    });
-    it("should render custom content as an element", () => {
-      const content = <span>I'm a span element</span>;
-      wrapper = Enzyme.shallow(<Button id="button" callback={callback} content={content} />);
-      expect(wrapper.text()).to.equal("I'm a span element");
-      expect(wrapper.find("span")).to.have.lengthOf(1);
-    });
-  });
-
   describe("rendering content from its children prop", () => {
     it("should render string children", () => {
       wrapper = Enzyme.shallow(
@@ -71,11 +54,11 @@ describe("Button", () => {
     it("should render element children", () => {
       wrapper = Enzyme.shallow(
         <Button id="button" callback={callback}>
-          <span>I'm a span element</span>
+          <em>I'm a em element</em>
         </Button>
       );
-      expect(wrapper.text()).to.equal("I'm a span element");
-      expect(wrapper.find("span")).to.have.lengthOf(1);
+      expect(wrapper.text()).to.equal("I'm a em element");
+      expect(wrapper.find("em")).to.have.lengthOf(1);
     });
   });
 

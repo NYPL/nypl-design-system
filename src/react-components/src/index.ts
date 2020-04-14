@@ -1,6 +1,8 @@
 export { default as Container } from "./components/00-base/Container/Container";
 export { default as Modal } from "./components/00-base/Container/Modal";
 export { default as Button } from "./components/01-atoms/Button/Button";
+export { ButtonIconPositions, ButtonTypes }  from "./components/01-atoms/Button/ButtonTypes";
+
 export { default as BodyText } from "./components/01-atoms/Text/Text/BodyText";
 export { default as UnderlineLink } from "./components/01-atoms/Links/UnderlineLink";
 export { default as IconLink } from "./components/01-atoms/Links/IconLink";

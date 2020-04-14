@@ -15,7 +15,7 @@ export default {
 };
 
 const links = [<IconLink url="#url1">Link1</IconLink>, <IconLink url="#url2">link2</IconLink>, <IconLink url="#url3">link3</IconLink>];
-export const iconLinkList = () => <UnorderedList id="link-list">
+export const iconLinkList = () => <UnorderedList id="link-list" blockName="list-iconLink">
   {links}
 </UnorderedList>;
 

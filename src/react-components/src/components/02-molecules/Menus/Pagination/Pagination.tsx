@@ -1,9 +1,9 @@
-/* MN-10: Pagination */
-
 import * as React from "react";
 import bem from "../../../../utils/bem";
-import Button from "../../../01-atoms/Button/Button";
+import Button, { ButtonOptions } from "../../../01-atoms/Button/Button";
 import Dropdown from "../../../02-molecules/Dropdown/Dropdown";
+import { ButtonIconPositions, ButtonTypes } from "../../../01-atoms/Button/ButtonTypes";
+import ButtonType from "@storybook/addon-knobs/dist/components/types/Button";
 
 export interface PaginationProps {
   paginationDropdownOptions: string[];
@@ -14,29 +14,30 @@ export interface PaginationProps {
   onSelectBlur: (event: React.MouseEvent) => void;
 }
 
+/** Pagination */
 export default function Pagination(props: PaginationProps) {
   const { paginationDropdownOptions, currentValue,
     previousPageHandler, nextPageHandler,
     onSelectChange, onSelectBlur } = props;
 
   const pagination__base_class = "pagination";
-  let buttonPrevProps = {
+  let buttonPrevOpts: ButtonOptions = {
     id: "pagination-previous",
     callback: previousPageHandler,
-    content: "Previous",
-    type: "outline",
-    iconPosition: "left",
+    content: <>Previous</>,
+    buttonType: ButtonTypes.Outline,
+    iconPosition: ButtonIconPositions.Left,
     iconName: "arrow-xsmall",
     iconModifiers: ["left"],
     iconDecorative: true,
   };
 
-  let buttonNextProps = {
+  let buttonNextOpts: ButtonOptions = {
     id: "pagination-next",
     callback: nextPageHandler,
-    content: "Next",
-    type: "outline",
-    iconPosition: "right",
+    content: <>Next</>,
+    buttonType: ButtonTypes.Outline,
+    iconPosition: ButtonIconPositions.Right,
     iconName: "arrow-xsmall",
     iconModifiers: ["right"],
     iconDecorative: true,
@@ -55,6 +56,8 @@ export default function Pagination(props: PaginationProps) {
 
   return (
     <nav aria-label="Pagination" className={bem(pagination__base_class)}>
-      <Button {...buttonPrevProps}/><Dropdown labelPosition="left" {...dropdownProps}></Dropdown><Button {...buttonNextProps}/>
+      <Button callback={buttonPrevOpts.callback} {...buttonPrevOpts}>{buttonPrevOpts.content}</Button>
+      <Dropdown labelPosition="left" {...dropdownProps}></Dropdown>
+      <Button callback={buttonNextOpts.callback} {...buttonNextOpts}>{buttonNextOpts.content}</Button>
   </nav>);
 }

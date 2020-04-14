@@ -23,7 +23,7 @@ export const defaultState = () => <DateRangeForm
   showError={false}
   error={{ content: <></>, id: "errorId", isError: true }}
 
-  buttonProps={{ id: "submitButtonId", callback: callback, content: <>Submit</> }}
+  buttonOpts={{ id: "submitButtonId", callback: callback, content: <>Submit</> }}
 />;
 
 export const errorState = () => <DateRangeForm
@@ -40,7 +40,7 @@ export const errorState = () => <DateRangeForm
   showError={true}
   error={{ content: <div>The end year should be the same year as or later than the start year</div>, id: "errorId" }}
 
-  buttonProps={{ id: "submitButtonId", callback: callback, content: <>Submit</> }}
+  buttonOpts={{ id: "submitButtonId", callback: callback, content: <>Submit</> }}
 />;
 
 export const noButton = () => <DateRangeForm

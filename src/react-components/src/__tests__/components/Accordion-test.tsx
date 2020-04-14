@@ -28,6 +28,7 @@ describe("Renders Input (open state)", () => {
       id="accordion"
       buttonOptions={{ id: "accordionBtn", content: <>Click to expand</> }}
     > <div className="accordion-content">content content</div> </Accordion>);
+    console.log("debug", container.debug());
     container.find("#btn-accordionBtn").simulate("click");
   });
 

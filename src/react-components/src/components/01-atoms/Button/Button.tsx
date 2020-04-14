@@ -1,36 +1,32 @@
 import * as React from "react";
-import Icon from "../Images/Icons/Icon";
+import Icon, { IconProps } from "../Images/Icons/Icon";
 import bem from "../../../utils/bem";
-import { ButtonTypes } from "./ButtonTypes";
-
-type BtnContent = string | JSX.Element;
+import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
 
 export interface ButtonOptions {
+  content?: JSX.Element;
+
   id: string;
 
   callback?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  content?: string | JSX.Element;
   attributes?: {};
   modifiers?: string[];
   blockName?: string;
   buttonType?: ButtonTypes;
-  type?: string;
+  type?: "submit" | "button" | "reset";
   mouseDown?: boolean;
-  iconPosition?: string;
+  iconPosition?: ButtonIconPositions;
   iconName?: string;
   iconModifiers?: string[];
   iconDecorative?: boolean;
   iconRole?: string;
 }
 
-export interface ButtonProps {
+interface ButtonProps {
   id: string;
 
   /** The action to perform on the <button>'s onClick function */
   callback: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  /** The content to render inside the the button. An alternative
-   * to passing children elements. */
-  content?: string | JSX.Element;
   /** Additional attributes passed to the button */
   attributes?: {};
   /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
@@ -40,13 +36,18 @@ export interface ButtonProps {
   /** The Kind of button */
   buttonType?: ButtonTypes;
   /** The html button attribute */
-  type?: string;
+  type?: "submit" | "button" | "reset";
   mouseDown?: boolean;
+
   /** If an icon is to be rendered, an `iconPosition` prop is required. */
-  iconPosition?: string;
+  iconPosition?: ButtonIconPositions;
+  /** The name of the icon.  Corresponds with the name of the icon's svg file */
   iconName?: string;
+  /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   iconModifiers?: string[];
+  /** Is the icon decorative */
   iconDecorative?: boolean;
+  /** The role for the icon, if not decorative */
   iconRole?: string;
 }
 
@@ -60,7 +61,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
   }
 
   render(): JSX.Element {
-    const { id, callback, content, attributes, modifiers, blockName, buttonType, type = "submit", mouseDown,
+    const { id, callback, attributes, modifiers, blockName, buttonType, type = "submit", mouseDown,
       iconPosition, iconName, iconModifiers, iconDecorative, iconRole, children } = this.props;
 
     let buttonModifiers = modifiers ? modifiers : [];
@@ -68,24 +69,12 @@ export default class Button extends React.Component<ButtonProps, {}> {
       buttonModifiers.push(buttonType);
     }
 
-    let btnContent: BtnContent[] = [];
-
-    // Use either the content prop or the children prop for the rendered content.
-    const contentToRender = content ? content : children;
-    if (contentToRender) {
-      // Make sure we can handle both string and element cases.
-      const contentProp = typeof (contentToRender) === "string" ?
-        contentToRender :
-        React.cloneElement(contentToRender as any, { key: `${id}-button-content` });
-      btnContent.push(contentProp);
-    }
-
     let button_base_class = "button";
-
+    let iconProps;
     // An icon needs a position in order for it to be created and
     // rendered in the button.
     if (iconPosition) {
-      let iconProps = {
+      iconProps = {
         name: iconName,
         key: `icon-${id}`,
         blockName: button_base_class,
@@ -102,32 +91,38 @@ export default class Button extends React.Component<ButtonProps, {}> {
 
       buttonModifiers.push("icon");
 
-      if (iconPosition === "left") {
-        buttonModifiers.push("icon-left");
-        iconProps.modifiers.push("icon-left");
-      } else if (iconPosition === "right") {
-        buttonModifiers.push("icon-right");
-        iconProps.modifiers.push("icon-right");
+      switch (iconPosition) {
+        case ButtonIconPositions.Left: {
+          buttonModifiers.push("icon-left");
+          iconProps.modifiers.push("icon-left");
+          break;
+        }
+        case ButtonIconPositions.Right: {
+          buttonModifiers.push("icon-right");
+          iconProps.modifiers.push("icon-right");
+          break;
+        }
+        case ButtonIconPositions.JustifyRight: {
+          buttonModifiers.push("justify-right");
+          iconProps.modifiers.push("justify-right");
+          break;
+        }
+        default: {
+          break;
+        }
       }
-
-      btnContent.push(React.createElement(
-        Icon,
-        iconProps
-      ));
     }
 
-    let btnProps = {
-      id: "btn-" + id,
-      className: bem(button_base_class, buttonModifiers, blockName),
-      type: type
-    };
-
     let btnCallback = mouseDown ? { onMouseDown: callback } : { onClick: callback };
-
-    return React.createElement(
-      "button",
-      { ...btnProps, ...btnCallback, ...attributes },
-      btnContent
-    );
+    return (
+      <button
+        id={"btn-" + id}
+        className={bem(button_base_class, buttonModifiers, blockName)}
+        type={type}
+        {...attributes}
+        {...btnCallback}>
+        <span className={bem("label", buttonModifiers, button_base_class)}>{children}</span>
+        {iconProps && <Icon {...iconProps} />}
+      </button>);
   }
 }

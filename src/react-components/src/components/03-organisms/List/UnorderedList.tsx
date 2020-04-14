@@ -37,7 +37,7 @@ export default function UnorderedList(props: React.PropsWithChildren<UnorderedLi
 
   return (
     <div className={bem("list-container", modifiers, baseClass)}>
-      <ul id={id} className={bem(baseClass)}>
+      <ul id={id} className={bem(blockName, modifiers, baseClass)}>
         {content}
       </ul>
     </div>

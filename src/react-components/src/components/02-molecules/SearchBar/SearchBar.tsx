@@ -5,6 +5,8 @@ import bem from "../../../utils/bem";
 import FormDropdown from "../../01-atoms/Forms/FormDropdown";
 import TextField from "../../01-atoms/Forms/TextField";
 import { Button } from "../../..";
+import { ButtonIconPositions, ButtonTypes } from "../../01-atoms/Button/ButtonTypes";
+import { ButtonOptions } from "../../01-atoms/Button/Button";
 
 export interface SearchBarProps {
   searchBarId: string;
@@ -79,13 +81,13 @@ export default function SearchBar(props: SearchBarProps) {
     modifiers: modifiers,
   };
 
-  let buttonProps = {
+  let buttonProps: ButtonOptions = {
     id: buttonId,
     callback: searchSubmitHandler,
     blockName: searchbar__base_class,
-    content: "Search",
-    type: "filled",
-    iconPosition: "left",
+    content: <>Search</>,
+    buttonType: ButtonTypes.Filled,
+    iconPosition: ButtonIconPositions.Left,
     iconName: "search-small",
     iconDecorative: true,
   };
@@ -109,7 +111,7 @@ export default function SearchBar(props: SearchBarProps) {
 
     <div className={bem("input-group", [], searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
-      <Button {...buttonProps} />
+      <Button callback={searchSubmitHandler} {...buttonProps} >{buttonProps.content}</Button>
       {/* TODO: after SFR-637 is merged, Replace Error with MT-51 and add its id to TextField's aria-labelledBy*/}
       {hasError && !helperVariant && <span className={bem("input-description", modifiers, searchbar__base_class)}>{errorMessage}</span>}
     </div>
