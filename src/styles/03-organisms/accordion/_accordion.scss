@@ -1,0 +1,13 @@
+.accordion {
+  width: 100%;
+  border: 1px solid $gray-light;
+  color: inherit;
+
+  > button {
+    border: unset;
+  }
+}
+
+.accordion-content {
+  @include space-inset-xs;
+}

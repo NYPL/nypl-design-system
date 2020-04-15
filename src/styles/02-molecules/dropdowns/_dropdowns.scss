@@ -1,12 +1,7 @@
 .dropdown {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
-
-  &__label {
-    @include space-inline-xs;
-
-    font-weight: 500;
-  }
 
   &__required-message {
     @include body-small;
@@ -14,11 +9,28 @@
     font-weight: 300;
   }
 
+  &__select-area {
+    width: 100%;
+    flex: 1 1 0;
+  }
+
+  .label-container {
+    flex: 1 1 0;
+  }
+
+  &__label {
+    @include space-inline-xs;
+
+    display: inline-block;
+    font-weight: 500;
+  }
+
   &--label-top {
     flex-flow: column;
   }
 
   &--label-left {
+    width: 100%;
     flex-flow: row;
   }
 }

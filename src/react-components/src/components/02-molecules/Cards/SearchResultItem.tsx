@@ -15,7 +15,7 @@ export interface SearchResultItemProps {
 
   headingContent: JSX.Element;
 
-  subtitleText: string;
+  subtitleContent: JSX.Element;
 
   authorLinkElement: JSX.Element;
 
@@ -28,12 +28,15 @@ export interface SearchResultItemProps {
 export default function SearchResultItem(props: React.PropsWithChildren<SearchResultItemProps>) {
   const { id,
     resultIndex,
-    modifiers, blockName, headingContent,
-    subtitleText = "",
+    modifiers,
+    blockName,
+    headingContent,
+    subtitleContent,
     authorLinkElement,
-    editionInfo, editionsLinkElement } = props;
+    editionInfo,
+    editionsLinkElement } = props;
   const baseClass = "search-result-item";
-  const HeadingContent = withOneChild(headingContent);
+  const HeadingContent = headingContent && withOneChild(headingContent);
   // TODO: Decide whether this needs to be in DS, and write/find utilities for us to count text within child components
   // if (headingContent.innerText > 80) {
   //   throw new Error("Section Title (h2) Text must be fewer than 80 characters");
@@ -46,7 +49,7 @@ export default function SearchResultItem(props: React.PropsWithChildren<SearchRe
       <Heading id={id} level={2} blockName={blockName ? blockName : baseClass}>
         <HeadingContent />
       </Heading>
-      <div className={bem("subtitle", [], baseClass)}>{subtitleText}</div>
+      <div className={bem("subtitle", [], baseClass)}>{subtitleContent}</div>
       <div className={bem("author", [], baseClass)}>
         {authorLinkElement}
       </div>
