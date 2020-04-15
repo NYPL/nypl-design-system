@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
+## [0.0.14] 
+### Added 
+- Styles for `modal`, 
+- `link` and `justify-right` variations to `button` 
+- `unordered-list` class to `text`
+- `checkbox`
+- `date-range`
+- `input`
+- `accordion`
+
+### Changed
+- `dropdown` labels now scale and fill page as needed. 
+
 ## [0.0.13] - 2020-03-17
 - `edition-card` mobile fixes
 - `header-with-search` has an inset

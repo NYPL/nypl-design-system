@@ -340,10 +340,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/03-organisms/SearchPromo/SearchPromo.stories.d.ts"
   },
   {
-    "revision": "3a65eaf6ca59646430b08b225724982f",
-    "url": "../../../src/react-components/lib/helpers/constants/Constants.d.ts"
-  },
-  {
     "revision": "3269c9487d1c14a54899bec416b3cecc",
     "url": "../../../src/react-components/lib/helpers/hoc/WithOneChild.d.ts"
   },

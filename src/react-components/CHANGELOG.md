@@ -16,7 +16,6 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - `subtitle` in `SearchResultsItem` changed to `subtitleContent` to take a JSX
 - `Label` and `Button` only accept children when called directly
 
-
 ### Added: 
 - `Checkbox`
 - `DateRangeForm` 
@@ -24,10 +23,6 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 - `Accordion` 
 - `UnorderedList`
 - `Modal`
-
-### Changed: 
-- `Button`: now has `link` type, allows passing of `buttonType`
-
 
 ## [0.0.17] - 2020-03-17
 - Changelog update
