@@ -23,7 +23,7 @@ interface UnorderedListProps {
 /** Wrapper component for an unordered list of objects */
 
 export default function UnorderedList(props: React.PropsWithChildren<UnorderedListProps>) {
-  const { id, modifiers = [], blockName } = props;
+  const { id, modifiers = [], blockName= "" } = props;
 
   const baseClass = "unordered-list";
 
@@ -37,7 +37,7 @@ export default function UnorderedList(props: React.PropsWithChildren<UnorderedLi
 
   return (
     <div className={bem("list-container", modifiers, baseClass)}>
-      <ul id={id} className={bem(blockName, modifiers, baseClass)}>
+      <ul id={id} className={baseClass + " " + bem(blockName, modifiers, baseClass)}>
         {content}
       </ul>
     </div>

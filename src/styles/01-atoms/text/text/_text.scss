@@ -62,6 +62,7 @@ p,
 
 .unordered-list {
   @include list-reset;
+  list-style-position: outside;
 
   &__list-container {
     &--scroll { 
