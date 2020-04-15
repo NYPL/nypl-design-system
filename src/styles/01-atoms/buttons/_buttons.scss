@@ -19,6 +19,11 @@
     flex-flow: row nowrap;
   }
 
+  &--justify-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   &__icon {
     @include icon;
 
@@ -71,10 +76,29 @@
   }
 }
 
+@mixin button--link {
+  color: $color-link;
+  background-color: transparent;
+  text-decoration: underline;
+
+  &--no-underline {
+    text-decoration: none;
+  }
+  
+  &:hover {
+    color: $color-link--hover;
+    background-color: transparent;
+  }
+}
+
 .button {
   @include button--filled;
 }
 
 .button--outline {
   @include button--outline;
+}
+
+.button--link {
+  @include button--link;
 }

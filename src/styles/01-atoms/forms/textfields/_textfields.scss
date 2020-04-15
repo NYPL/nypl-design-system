@@ -50,6 +50,7 @@
 
 .form-item__input {
   @include input;
+  width: 100%;
 }
 
 @mixin input-description {
@@ -62,6 +63,7 @@
 
 .form-item__input-description {
   @include input-description();
+  @include type-scale(-2);
 }
 
 .form-fieldset {

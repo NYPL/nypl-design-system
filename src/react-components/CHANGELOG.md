@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## [0.1.0]
+### Breaking Changes
+- Large classes now have `Opts` inteface that allows for the component to be built over multiple steps. This affects: 
+    - `HelperErrorText`
+    - `Label`
+    - `TextField`
+    - `Button`
+- Deprecated `SearchResultsList`, `IconLinkList` and `EditionsList` in favor of `UnorderedList`
+- `type` in `Button` now corresponds to html button types.  `buttonType` in button corresponds to the visual categories of buttons (eg: `filled`, `outline`)
+- `subtitle` in `SearchResultsItem` changed to `subtitleContent` to take a JSX
+- `Label` and `Button` only accept children when called directly
+
+
+### Added: 
+- `Checkbox`
+- `DateRangeForm` 
+- `Input`
+- `Accordion` 
+- `UnorderedList`
+- `Modal`
+
+### Changed: 
+- `Button`: now has `link` type, allows passing of `buttonType`
+
+
 ## [0.0.17] - 2020-03-17
 - Changelog update
 

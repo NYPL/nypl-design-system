@@ -1,20 +1,25 @@
-/* AT-50 Label */
 import * as React from "react";
-import bem from "../../../utils/bem";
 
-export interface LabelProps {
+export interface LabelOptions {
+  labelContent?: JSX.Element;
+
   id: string;
-  referenceId: string;
-  labelText?: string;
+  referenceId?: string;
 }
 
-export default function Label(props: React.PropsWithChildren<LabelProps>) {
-  const { id, referenceId, labelText } = props;
+interface LabelProps {
+  id: string;
 
-  if (!labelText && !props.children) {
-    throw new Error("Label must have content passed as labelText or children.  Got labelText: " + labelText + " and children: " + props.children);
-  }
-  let content = labelText ? labelText : props.children;
+  /** The id of the html element that this Label is describing */
+  referenceId: string;
+}
+
+/** A Label for form inputs.
+ * It should never be used alone.
+ */
+export default function Label(props: React.PropsWithChildren<LabelProps>) {
+  const { id, referenceId } = props;
+
   let attributes = {
     id: id,
     htmlFor: referenceId
@@ -22,6 +27,6 @@ export default function Label(props: React.PropsWithChildren<LabelProps>) {
   return React.createElement(
     "label",
     attributes,
-    content
+    props.children
   );
 }

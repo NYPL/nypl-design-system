@@ -4,7 +4,7 @@ import * as React from "react";
 import bem from "../../../utils/bem";
 import FormDropdown from "../../01-atoms/Forms/FormDropdown";
 import Label from "../../01-atoms/Forms/Label";
-import HelperErrorText from "../Helpers/HelperErrorText";
+import HelperErrorText from "../../01-atoms/Forms/HelperErrorText";
 
 export interface DropdownProps {
   dropdownId: string;
@@ -60,24 +60,25 @@ export default function Dropdown(props: DropdownProps) {
   return <div className={bem(baseClass, modifiers)}>
 
     {labelPosition !== "none" &&
-      <div className={bem("label", [], baseClass)}>
-        <Label id={labelId} referenceId={dropdownId}>{labelText} </Label>
-
+      <div className="label-container">
+        <div className={bem("label", [], baseClass)}>
+          <Label referenceId={dropdownId} id={labelId}>{labelText}</Label>
+        </div>
         {isRequired && <span className={bem("required-message", [], baseClass)}>
           Required
-        </span>}
+          </span>}
       </div>
     }
     <div className={bem("select-area", [], baseClass)}>
       <div className={bem("select", [], baseClass)}>
-      <FormDropdown
-        dropdownId={dropdownId}
-        labelId={labelPosition !== "none" ? labelId : undefined}
-        isRequired={isRequired}
-        ariaLabel={labelPosition === "none" ? ariaLabel : undefined}
-        selectedOption={selectedOption}
-        options={dropdownOptions}
-        onSelectChange={onSelectChange} onSelectBlur={onSelectBlur} />
+        <FormDropdown
+          dropdownId={dropdownId}
+          labelId={labelPosition !== "none" ? labelId : undefined}
+          isRequired={isRequired}
+          ariaLabel={labelPosition === "none" ? ariaLabel : undefined}
+          selectedOption={selectedOption}
+          options={dropdownOptions}
+          onSelectChange={onSelectChange} onSelectBlur={onSelectBlur} />
       </div>
 
       <div className={bem("help-text", [], baseClass)}>
