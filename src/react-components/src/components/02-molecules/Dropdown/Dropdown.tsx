@@ -25,12 +25,21 @@ export interface DropdownProps {
 }
 
 export default function Dropdown(props: DropdownProps) {
-  const { dropdownId, isRequired,
-    labelId, labelPosition, labelText, ariaLabel,
-    helperContent, helperContentId,
-    hasError, errorContent, errorContentId,
-    dropdownOptions, selectedOption,
-    onSelectChange, onSelectBlur } = props;
+  const { dropdownId,
+    isRequired,
+    labelId,
+    labelPosition,
+    labelText,
+    ariaLabel,
+    helperContent,
+    helperContentId,
+    hasError,
+    errorContent,
+    errorContentId,
+    dropdownOptions,
+    selectedOption,
+    onSelectChange,
+    onSelectBlur } = props;
 
   let modifiers = [];
   const baseClass = "dropdown";

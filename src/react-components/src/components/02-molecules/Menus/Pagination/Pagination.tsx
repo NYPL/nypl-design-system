@@ -3,7 +3,6 @@ import bem from "../../../../utils/bem";
 import Button, { ButtonOptions } from "../../../01-atoms/Button/Button";
 import Dropdown from "../../../02-molecules/Dropdown/Dropdown";
 import { ButtonIconPositions, ButtonTypes } from "../../../01-atoms/Button/ButtonTypes";
-import ButtonType from "@storybook/addon-knobs/dist/components/types/Button";
 
 export interface PaginationProps {
   paginationDropdownOptions: string[];
@@ -57,7 +56,7 @@ export default function Pagination(props: PaginationProps) {
   return (
     <nav aria-label="Pagination" className={bem(pagination__base_class)}>
       <Button callback={buttonPrevOpts.callback} {...buttonPrevOpts}>{buttonPrevOpts.content}</Button>
-      <Dropdown labelPosition="left" {...dropdownProps}></Dropdown>
+      <div className={bem("dropdown-container", [], pagination__base_class)}><Dropdown labelPosition="left" {...dropdownProps}></Dropdown></div>
       <Button callback={buttonNextOpts.callback} {...buttonNextOpts}>{buttonNextOpts.content}</Button>
   </nav>);
 }
