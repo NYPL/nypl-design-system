@@ -1,7 +1,11 @@
-.dropdown {
+@mixin dropdown-base {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+
+.dropdown {
+  @include dropdown-base;
 
   &__required-message {
     @include body-small;

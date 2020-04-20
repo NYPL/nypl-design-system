@@ -56,7 +56,7 @@ export default function Pagination(props: PaginationProps) {
   return (
     <nav aria-label="Pagination" className={bem(pagination__base_class)}>
       <Button callback={buttonPrevOpts.callback} {...buttonPrevOpts}>{buttonPrevOpts.content}</Button>
-      <div className={bem("dropdown-container", [], pagination__base_class)}><Dropdown labelPosition="left" {...dropdownProps}></Dropdown></div>
+        <Dropdown blockName={pagination__base_class} labelPosition="left" {...dropdownProps}></Dropdown>
       <Button callback={buttonNextOpts.callback} {...buttonNextOpts}>{buttonNextOpts.content}</Button>
   </nav>);
 }
