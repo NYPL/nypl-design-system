@@ -11,4 +11,8 @@
       @include space-inline-xs;
     }
   }
+
+  &__dropdown {
+    @include dropdown-base;
+  }
 }

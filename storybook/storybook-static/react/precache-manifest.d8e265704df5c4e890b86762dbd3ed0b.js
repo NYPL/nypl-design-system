@@ -260,7 +260,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/02-molecules/Cards/SearchResultItem.stories.d.ts"
   },
   {
-    "revision": "78f704f5556777e93ffb75e7da058e1d",
+    "revision": "0c05665e4722e3c6dec0985685691cd9",
     "url": "../../../src/react-components/lib/components/02-molecules/Dropdown/Dropdown.d.ts"
   },
   {
@@ -352,14 +352,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "fbc3278640907947911d1ca247116aac",
+    "revision": "9d05bd5cfffdaea09482d1c0cd99c9cb",
     "url": "iframe.html"
   },
   {
-    "url": "main.a1bf6ac8abf5288b1422.bundle.js"
+    "url": "main.1b02dd2965b9416d5631.bundle.js"
   },
   {
-    "url": "runtime~main.a1bf6ac8abf5288b1422.bundle.js"
+    "url": "runtime~main.1b02dd2965b9416d5631.bundle.js"
   },
   {
     "revision": "e851f16d17734d8519a7",
@@ -370,9 +370,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/media/sprite.b745e93e.svg"
   },
   {
-    "url": "vendors~main.a1bf6ac8abf5288b1422.bundle.js"
+    "url": "vendors~main.1b02dd2965b9416d5631.bundle.js"
   },
   {
-    "url": "vendors~main.a1bf6ac8abf5288b1422.bundle.js.LICENSE.txt"
+    "url": "vendors~main.1b02dd2965b9416d5631.bundle.js.LICENSE.txt"
   }
 ]);

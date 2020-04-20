@@ -50,6 +50,6 @@ export default function TextField(props: TextFieldProps) {
     textFieldProps["aria-required"] = true;
   }
 
-  let transformedTextField = <input id={id} {...textFieldProps} placeholder={placeholderText} />;
+  let transformedTextField = <input id={`input-${id}`} {...textFieldProps} placeholder={placeholderText} />;
   return transformedTextField;
 }
