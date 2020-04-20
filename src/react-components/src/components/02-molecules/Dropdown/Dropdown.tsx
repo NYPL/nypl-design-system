@@ -8,6 +8,8 @@ import HelperErrorText from "../../01-atoms/Forms/HelperErrorText";
 
 export interface DropdownProps {
   dropdownId: string;
+  blockName?: string;
+  modifiers?: string[];
   isRequired: boolean;
   labelPosition: "top" | "left" | "none";
   labelId?: string;
@@ -25,14 +27,25 @@ export interface DropdownProps {
 }
 
 export default function Dropdown(props: DropdownProps) {
-  const { dropdownId, isRequired,
-    labelId, labelPosition, labelText, ariaLabel,
-    helperContent, helperContentId,
-    hasError, errorContent, errorContentId,
-    dropdownOptions, selectedOption,
-    onSelectChange, onSelectBlur } = props;
+  const {
+    dropdownId,
+    isRequired,
+    blockName = "",
+    modifiers = [],
+    labelId,
+    labelPosition,
+    labelText,
+    ariaLabel,
+    helperContent,
+    helperContentId,
+    hasError,
+    errorContent,
+    errorContentId,
+    dropdownOptions,
+    selectedOption,
+    onSelectChange,
+    onSelectBlur } = props;
 
-  let modifiers = [];
   const baseClass = "dropdown";
   if (!["left", "top", "none"].includes(labelPosition)) {
     throw new Error(`prop labelPosition must be one of "left", "top", "none", but Dropdown was passed ${labelPosition}`);
@@ -57,8 +70,7 @@ export default function Dropdown(props: DropdownProps) {
     throw new Error(`prop hasError is ${hasError}, but is missing props errorMessage (got ${errorContent}) and/or errorTextId (got ${errorContent})`);
   }
 
-  return <div className={bem(baseClass, modifiers)}>
-
+  return <div className={bem(baseClass, modifiers, blockName)}>
     {labelPosition !== "none" &&
       <div className="label-container">
         <div className={bem("label", [], baseClass)}>

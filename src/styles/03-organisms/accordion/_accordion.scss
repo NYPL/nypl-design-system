@@ -3,11 +3,11 @@
   border: 1px solid $gray-light;
   color: inherit;
 
-  > button {
+  &__button {
     border: unset;
   }
 }
 
 .accordion-content {
-  @include space-inset-xs;
+  padding: $space-xs 0 $space-xs $space-xs;
 }

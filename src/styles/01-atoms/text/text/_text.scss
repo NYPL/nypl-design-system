@@ -62,7 +62,6 @@ p,
 
 .unordered-list {
   @include list-reset;
-  list-style-position: outside;
 
   &__list-container {
     &--scroll { 
@@ -74,6 +73,10 @@ p,
   &__list-iconLink {
     list-style: initial;
     color: $gray-medium;
+  }
+
+  &__list-item {
+    list-style-position: inside;
   }
 }
 
