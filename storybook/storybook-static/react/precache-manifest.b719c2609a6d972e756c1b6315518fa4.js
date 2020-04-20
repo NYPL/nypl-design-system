@@ -352,14 +352,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "9d05bd5cfffdaea09482d1c0cd99c9cb",
+    "revision": "7238ed2868d3aade1a68c1ea51d1dae0",
     "url": "iframe.html"
   },
   {
-    "url": "main.1b02dd2965b9416d5631.bundle.js"
+    "url": "main.b929b6a2a8f04cc96323.bundle.js"
   },
   {
-    "url": "runtime~main.1b02dd2965b9416d5631.bundle.js"
+    "url": "runtime~main.b929b6a2a8f04cc96323.bundle.js"
   },
   {
     "revision": "e851f16d17734d8519a7",
@@ -370,9 +370,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/media/sprite.b745e93e.svg"
   },
   {
-    "url": "vendors~main.1b02dd2965b9416d5631.bundle.js"
+    "url": "vendors~main.b929b6a2a8f04cc96323.bundle.js"
   },
   {
-    "url": "vendors~main.1b02dd2965b9416d5631.bundle.js.LICENSE.txt"
+    "url": "vendors~main.b929b6a2a8f04cc96323.bundle.js.LICENSE.txt"
   }
 ]);
