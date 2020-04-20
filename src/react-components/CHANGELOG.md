@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## [0.1.1] 
+### Changed
+- `Textfield` id is no longer duplicated
+- `Dropdown` now applies `bem` `blockName`
+- `Pagination` now passes in `blockName` into `Dropdown`
+
 ## [0.1.0]
 ### Breaking Changes
 - Large classes now have `Opts` inteface that allows for the component to be built over multiple steps. This affects: 
