@@ -1,9 +1,6 @@
 /// Link
-<<<<<<< HEAD
-=======
 $color-link: $nypl-red-regular;
 $color-link--hover: $nypl-red-dark;
->>>>>>> [hero] Adds hover state to links
 
 @mixin link($color: $color-link, $hover: $color-link--hover) {
   color: $color;
