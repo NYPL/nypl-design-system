@@ -6,7 +6,7 @@ export interface ImageProps {
   src: string;
   isDecorative: boolean;
   altText?: string;
-  imageModifiers?: [];
+  imageModifiers?: string[];
   imageBlockname?: string;
 }
 
