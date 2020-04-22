@@ -10,6 +10,6 @@ export interface ContainerProps {
 export default function Container(props: React.PropsWithChildren<ContainerProps>) {
   const { modifiers = [], blockName } = props;
   return (
-    <div className={bem("container")}>{props.children}</div>
+    <div className={bem("container", modifiers, blockName)}>{props.children}</div>
   );
 }

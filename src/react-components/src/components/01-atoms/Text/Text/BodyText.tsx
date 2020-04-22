@@ -9,6 +9,8 @@ export interface BodyTextProps {
   warnchar?: number;
   maxchar?: number;
   bodyContent?: JSX.Element;
+  modifiers?: string[];
+  blockName?: string;
 }
 
 // TODO: This does not work in SFR
@@ -50,7 +52,7 @@ function hasString(node: React.ReactNode) {
 }
 
 export default function BodyText(props: React.PropsWithChildren<BodyTextProps>) {
-  const { bodyContent, warnchar, maxchar, ...rest } = props;
+  const { bodyContent, warnchar, maxchar, modifiers, blockName, ...rest } = props;
   const baseClass = "body-text";
   let passedInContent: React.ReactNode = bodyContent ? bodyContent : props.children;
 
@@ -59,7 +61,7 @@ export default function BodyText(props: React.PropsWithChildren<BodyTextProps>) 
   let content: React.ReactNode = hasString(passedInContent) ? React.createElement("p", {}, passedInContent) : passedInContent;
 
   let bodyProps = {
-    className: bem(baseClass)
+    className: bem(baseClass, modifiers, blockName)
   };
 
   return React.createElement(

@@ -1,0 +1,9 @@
+$color-pl-place-holder: $gray-light;
+
+.placeholder {
+  @include space-inset-s;
+
+  color: $black;
+  font-size: 1rem;
+  background-color: $color-pl-place-holder;
+}

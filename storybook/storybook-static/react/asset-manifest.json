@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/main.b929b6a2a8f04cc96323.bundle.js",
-    "main.js.map": "/main.b929b6a2a8f04cc96323.bundle.js.map",
-    "runtime~main.js": "/runtime~main.b929b6a2a8f04cc96323.bundle.js",
-    "runtime~main.js.map": "/runtime~main.b929b6a2a8f04cc96323.bundle.js.map",
+    "main.js": "/main.45e70164835812bef72b.bundle.js",
+    "main.js.map": "/main.45e70164835812bef72b.bundle.js.map",
+    "runtime~main.js": "/runtime~main.45e70164835812bef72b.bundle.js",
+    "runtime~main.js.map": "/runtime~main.45e70164835812bef72b.bundle.js.map",
     "vendors~main.css": "/static/css/vendors~main.f8f248a5.chunk.css",
-    "vendors~main.js": "/vendors~main.b929b6a2a8f04cc96323.bundle.js",
+    "vendors~main.js": "/vendors~main.45e70164835812bef72b.bundle.js",
     "vendors~main.css.map": "/static/css/vendors~main.f8f248a5.chunk.css.map",
-    "vendors~main.js.map": "/vendors~main.b929b6a2a8f04cc96323.bundle.js.map",
+    "vendors~main.js.map": "/vendors~main.45e70164835812bef72b.bundle.js.map",
     "../../../src/react-components/lib/__tests__/components/Accordion-test.d.ts": "/../../../src/react-components/lib/__tests__/components/Accordion-test.d.ts",
     "../../../src/react-components/lib/__tests__/components/BodyText-test.d.ts": "/../../../src/react-components/lib/__tests__/components/BodyText-test.d.ts",
     "../../../src/react-components/lib/__tests__/components/Breadcrumbs-test.d.ts": "/../../../src/react-components/lib/__tests__/components/Breadcrumbs-test.d.ts",
@@ -19,6 +19,7 @@
     "../../../src/react-components/lib/__tests__/components/FormDropdown-test.d.ts": "/../../../src/react-components/lib/__tests__/components/FormDropdown-test.d.ts",
     "../../../src/react-components/lib/__tests__/components/Heading-test.d.ts": "/../../../src/react-components/lib/__tests__/components/Heading-test.d.ts",
     "../../../src/react-components/lib/__tests__/components/HelperErrorText-test.d.ts": "/../../../src/react-components/lib/__tests__/components/HelperErrorText-test.d.ts",
+    "../../../src/react-components/lib/__tests__/components/Hero-test.d.ts": "/../../../src/react-components/lib/__tests__/components/Hero-test.d.ts",
     "../../../src/react-components/lib/__tests__/components/IconLink-test.d.ts": "/../../../src/react-components/lib/__tests__/components/IconLink-test.d.ts",
     "../../../src/react-components/lib/__tests__/components/Image-test.d.ts": "/../../../src/react-components/lib/__tests__/components/Image-test.d.ts",
     "../../../src/react-components/lib/__tests__/components/Input-test.d.ts": "/../../../src/react-components/lib/__tests__/components/Input-test.d.ts",
@@ -36,6 +37,8 @@
     "../../../src/react-components/lib/components/00-base/Container/Container.d.ts": "/../../../src/react-components/lib/components/00-base/Container/Container.d.ts",
     "../../../src/react-components/lib/components/00-base/Container/Modal.d.ts": "/../../../src/react-components/lib/components/00-base/Container/Modal.d.ts",
     "../../../src/react-components/lib/components/00-base/Container/Modal.stories.d.ts": "/../../../src/react-components/lib/components/00-base/Container/Modal.stories.d.ts",
+    "../../../src/react-components/lib/components/00-base/Placeholder.d.ts": "/../../../src/react-components/lib/components/00-base/Placeholder.d.ts",
+    "../../../src/react-components/lib/components/00-base/SectionName.d.ts": "/../../../src/react-components/lib/components/00-base/SectionName.d.ts",
     "../../../src/react-components/lib/components/01-atoms/Button/Button.d.ts": "/../../../src/react-components/lib/components/01-atoms/Button/Button.d.ts",
     "../../../src/react-components/lib/components/01-atoms/Button/Button.stories.d.ts": "/../../../src/react-components/lib/components/01-atoms/Button/Button.stories.d.ts",
     "../../../src/react-components/lib/components/01-atoms/Button/ButtonTypes.d.ts": "/../../../src/react-components/lib/components/01-atoms/Button/ButtonTypes.d.ts",
@@ -89,6 +92,9 @@
     "../../../src/react-components/lib/components/03-organisms/Headers/HeaderImgRight.stories.d.ts": "/../../../src/react-components/lib/components/03-organisms/Headers/HeaderImgRight.stories.d.ts",
     "../../../src/react-components/lib/components/03-organisms/Headers/RNHeaderWithSearch.d.ts": "/../../../src/react-components/lib/components/03-organisms/Headers/RNHeaderWithSearch.d.ts",
     "../../../src/react-components/lib/components/03-organisms/Headers/RNHeaderWithSearch.stories.d.ts": "/../../../src/react-components/lib/components/03-organisms/Headers/RNHeaderWithSearch.stories.d.ts",
+    "../../../src/react-components/lib/components/03-organisms/Hero/Hero.d.ts": "/../../../src/react-components/lib/components/03-organisms/Hero/Hero.d.ts",
+    "../../../src/react-components/lib/components/03-organisms/Hero/Hero.stories.d.ts": "/../../../src/react-components/lib/components/03-organisms/Hero/Hero.stories.d.ts",
+    "../../../src/react-components/lib/components/03-organisms/Hero/HeroTypes.d.ts": "/../../../src/react-components/lib/components/03-organisms/Hero/HeroTypes.d.ts",
     "../../../src/react-components/lib/components/03-organisms/List/UnorderedList.d.ts": "/../../../src/react-components/lib/components/03-organisms/List/UnorderedList.d.ts",
     "../../../src/react-components/lib/components/03-organisms/List/UnorderedList.stories.d.ts": "/../../../src/react-components/lib/components/03-organisms/List/UnorderedList.stories.d.ts",
     "../../../src/react-components/lib/components/03-organisms/SearchPromo/SearchPromo.d.ts": "/../../../src/react-components/lib/components/03-organisms/SearchPromo/SearchPromo.d.ts",
@@ -97,15 +103,15 @@
     "../../../src/react-components/lib/index.d.ts": "/../../../src/react-components/lib/index.d.ts",
     "../../../src/react-components/lib/utils/bem.d.ts": "/../../../src/react-components/lib/utils/bem.d.ts",
     "iframe.html": "/iframe.html",
-    "precache-manifest.b719c2609a6d972e756c1b6315518fa4.js": "/precache-manifest.b719c2609a6d972e756c1b6315518fa4.js",
+    "precache-manifest.9090ff058068790ae48bdeef41dc7206.js": "/precache-manifest.9090ff058068790ae48bdeef41dc7206.js",
     "service-worker.js": "/service-worker.js",
     "static/media/sprite.svg": "/static/media/sprite.b745e93e.svg",
-    "vendors~main.b929b6a2a8f04cc96323.bundle.js.LICENSE.txt": "/vendors~main.b929b6a2a8f04cc96323.bundle.js.LICENSE.txt"
+    "vendors~main.45e70164835812bef72b.bundle.js.LICENSE.txt": "/vendors~main.45e70164835812bef72b.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.b929b6a2a8f04cc96323.bundle.js",
+    "runtime~main.45e70164835812bef72b.bundle.js",
     "static/css/vendors~main.f8f248a5.chunk.css",
-    "vendors~main.b929b6a2a8f04cc96323.bundle.js",
-    "main.b929b6a2a8f04cc96323.bundle.js"
+    "vendors~main.45e70164835812bef72b.bundle.js",
+    "main.45e70164835812bef72b.bundle.js"
   ]
 }

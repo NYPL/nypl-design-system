@@ -45,6 +45,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/__tests__/components/Hero-test.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
     "url": "../../../src/react-components/lib/__tests__/components/IconLink-test.d.ts"
   },
   {
@@ -110,6 +114,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "12005943278995492ecc2a6346216b60",
     "url": "../../../src/react-components/lib/components/00-base/Container/Modal.stories.d.ts"
+  },
+  {
+    "revision": "e9e7743fd445f3103e4e75c412f71b7c",
+    "url": "../../../src/react-components/lib/components/00-base/Placeholder.d.ts"
+  },
+  {
+    "revision": "78133e7ad9f65ffc89d2767a8452f4c9",
+    "url": "../../../src/react-components/lib/components/00-base/SectionName.d.ts"
   },
   {
     "revision": "67db1b59e301375b60b8ce6044b47df9",
@@ -184,7 +196,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/01-atoms/Images/Icons/Icon.d.ts"
   },
   {
-    "revision": "cd5dc193a51c3d0cc8b1ad85d33a526b",
+    "revision": "2fbb9e00d0f91faca5e4b6adff506826",
     "url": "../../../src/react-components/lib/components/01-atoms/Images/Image/Image.d.ts"
   },
   {
@@ -236,7 +248,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/01-atoms/Text/Headings/RNSectionTitle.stories.d.ts"
   },
   {
-    "revision": "6dae84a800d929bae1d98f33a5b16947",
+    "revision": "25537f9b3a5dd31a27b9fced11e9c12d",
     "url": "../../../src/react-components/lib/components/01-atoms/Text/Text/BodyText.d.ts"
   },
   {
@@ -324,6 +336,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/03-organisms/Headers/RNHeaderWithSearch.stories.d.ts"
   },
   {
+    "revision": "b064784346a677ff811e1da88cd1375c",
+    "url": "../../../src/react-components/lib/components/03-organisms/Hero/Hero.d.ts"
+  },
+  {
+    "revision": "0bf681200d081e4a7315b48e443734b7",
+    "url": "../../../src/react-components/lib/components/03-organisms/Hero/Hero.stories.d.ts"
+  },
+  {
+    "revision": "3bf8ae3dd746e2a1184dae2aaebf1f33",
+    "url": "../../../src/react-components/lib/components/03-organisms/Hero/HeroTypes.d.ts"
+  },
+  {
     "revision": "eb2ee4658632e3ebd8e3755c5c1f9f0e",
     "url": "../../../src/react-components/lib/components/03-organisms/List/UnorderedList.d.ts"
   },
@@ -344,7 +368,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/helpers/hoc/WithOneChild.d.ts"
   },
   {
-    "revision": "c15113603b56ffb1038417f7890b7869",
+    "revision": "85b35da8479e8002386b6cb78a38986f",
     "url": "../../../src/react-components/lib/index.d.ts"
   },
   {
@@ -352,17 +376,17 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "7238ed2868d3aade1a68c1ea51d1dae0",
+    "revision": "a09fabe64d808f4378783f82f96bbf29",
     "url": "iframe.html"
   },
   {
-    "url": "main.b929b6a2a8f04cc96323.bundle.js"
+    "url": "main.45e70164835812bef72b.bundle.js"
   },
   {
-    "url": "runtime~main.b929b6a2a8f04cc96323.bundle.js"
+    "url": "runtime~main.45e70164835812bef72b.bundle.js"
   },
   {
-    "revision": "e851f16d17734d8519a7",
+    "revision": "70e470158a231ff4fb21",
     "url": "static/css/vendors~main.f8f248a5.chunk.css"
   },
   {
@@ -370,9 +394,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/media/sprite.b745e93e.svg"
   },
   {
-    "url": "vendors~main.b929b6a2a8f04cc96323.bundle.js"
+    "url": "vendors~main.45e70164835812bef72b.bundle.js"
   },
   {
-    "url": "vendors~main.b929b6a2a8f04cc96323.bundle.js.LICENSE.txt"
+    "url": "vendors~main.45e70164835812bef72b.bundle.js.LICENSE.txt"
   }
 ]);

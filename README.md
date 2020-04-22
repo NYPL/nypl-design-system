@@ -36,9 +36,9 @@ By default, the repo links everything under `src` for local development.  Someti
 
 ## Publishing
 You can publish npm modules from this repo by running:
-```lerna publish from-git```
+```lerna publish```
 Publishing from sub-folders using `npm publish` will result in broken components - don't do this!
-Please only use `from-git`
+Please only use `custom version` and do the bump manually.
 
 `storybook` repo is private - Its version will be bumped, but it will not be published
 
