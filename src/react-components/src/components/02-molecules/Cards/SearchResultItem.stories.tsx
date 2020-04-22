@@ -4,6 +4,8 @@ import SearchResultItem from "./SearchResultItem";
 import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 
 import bem from "../../../utils/bem";
+import BasicLink from "../../01-atoms/Links/BasicLink";
+import IconLink from "../../01-atoms/Links/IconLink";
 
 export default {
   title: "Search Result Item",
@@ -12,12 +14,10 @@ export default {
 
 let exampleEditionInfo = {
   "editionYearHeading": <a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>,
-  "publisherAndLocation": "Published in New York by Random House",
   "coverUrl": "https://placeimg.com/57/81/arch",
-  "language": "Written in English",
-  "license": "Under Creative Commons License",
-  "readOnlineLink": "#read-online",
-  "downloadLink": "#download"
+  "editionInfo": [<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>],
+  readOnlineLink: <BasicLink className={bem("card-button-link", [], "edition-card")} url="blah">Read Online</BasicLink>,
+  downloadLink: <IconLink iconName="download" iconPosition="left" url="blah">Download</IconLink>
 };
 
 export const searchResultItem = () => <SearchResultItem

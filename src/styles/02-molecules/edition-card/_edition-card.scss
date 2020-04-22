@@ -54,21 +54,22 @@
   }
 
   &__card-info-link {
-    @include button--filled;
-
-    flex: 1 1 100%;
-    &:not(:last-child) {
-      @include space-inline-s;
-    }
+    margin: auto; 
 
     @include breakpoint($medium) {
-      flex: 1 1 100%;
 
       &:not(:last-child) {
-        @include space-inline-none;
         @include space-stack-s;
       }
     }
+  }
+
+  &__card-button-link {
+    @include button--filled;
+  }
+
+  &__more-link {
+    text-align: center;
   }
 
   &__missing-links {

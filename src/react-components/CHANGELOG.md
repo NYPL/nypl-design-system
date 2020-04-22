@@ -3,11 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease.  When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
+========
+## [0.3.0]
+### Breaking Changes
+- Edition Card no longer accepts strings for links and descriptions
+
+### Changed
+- Added `iconName` as an optional prop in `IconLink`
 
 ## [0.2.0] - 2020-04-13
 ### Changed
 - Reworks `HeaderWithImageRight` into `Hero`, which accepts values from an enum to display different kinds of heros based on [this documentation page](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A5314)
-========
 
 ## [0.1.1] 
 ### Changed
