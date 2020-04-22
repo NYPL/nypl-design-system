@@ -1,6 +1,6 @@
 {
   "name": "storybook",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "private": true,
   "dependencies": {
     "@nypl/design-system-react-components": "file:../src/react-components",
