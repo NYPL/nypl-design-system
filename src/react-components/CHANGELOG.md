@@ -11,6 +11,10 @@ Currently, this repo is in Prerelease.  When it is released, this project will a
 ### Changed
 - Added `iconName` as an optional prop in `IconLink`
 
+## [0.2.1] - 2020-04-23
+### Removed
+- `HeaderWithImageRight` component and corresponding story
+
 ## [0.2.0] - 2020-04-13
 ### Changed
 - Reworks `HeaderWithImageRight` into `Hero`, which accepts values from an enum to display different kinds of heros based on [this documentation page](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A5314)

@@ -36,13 +36,20 @@ By default, the repo links everything under `src` for local development.  Someti
 
 ## Publishing
 You can publish npm modules from this repo by running:
-```lerna publish from-git```
+```lerna publish``` from the main folder.
 Publishing from sub-folders using `npm publish` will result in broken components - don't do this!
-Please only use `from-git`
 
-`storybook` repo is private - Its version will be bumped, but it will not be published
+If you have already bumped `package.json`:
 
-After publishing new packages, remember also to bump the versions (or run `npm update` in `storybook`) so that it will pull in new npm modules.  
+    Select the custom version option
+    Re-type the version you've specified in your `package.json`
+    ALWAYS bump the `storybook` package with a patch.
+
+If you have NOT already bumped package.json:
+
+    Select patch option
+    ALWAYS bump the `storybook` package with a patch.
+
 
 ## Using the Design System
 The Design Systems offers modules and styles in different packages.  To use modules from the Design System, you need the [styles](https://www.npmjs.com/package/@nypl/design-system-styles) and either [react](https://www.npmjs.com/package/@nypl/design-system-react-components) or [twig](https://www.npmjs.com/package/@nypl/design-system-twig) packages.  
