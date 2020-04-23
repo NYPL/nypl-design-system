@@ -25,7 +25,7 @@ let editionData: EditionDetails = {
   coverUrl: "https://placeimg.com/57/81/arch",
   editionInfo: [<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>],
   readOnlineLink: <BasicLink className={bem("card-button-link", [], "edition-card")} url="blah">Read Online</BasicLink>,
-  downloadLink: <IconLink iconName="download" iconPosition="left" url="blah">Download</IconLink>
+  downloadLink: <IconLink iconName="download" iconPosition="left" iconModifiers={["icon-left"]} url="blah">Download</IconLink>
 };
 
 const checkboxes = [
@@ -72,7 +72,7 @@ let searchItemData = {
     coverUrl: "https://placeimg.com/57/81/arch",
     editionInfo: [<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>],
     readOnlineLink: <BasicLink className={bem("card-button-link", [], "edition-card")} url="blah">Read Online</BasicLink>,
-    downloadLink: <IconLink iconName="download" iconPosition="left" url="blah">Download</IconLink>
+    downloadLink: <IconLink iconName="download" iconPosition="left" iconModifiers={["icon-left"]} url="blah">Download</IconLink>
   },
   authorElement: <UnderlineLink url={"author-url"}>First Last</UnderlineLink>,
   editionsLinkElement: <UnderlineLink url={"#allEditionsUrl"}>{`View All 7 editions`}</UnderlineLink>

@@ -9,6 +9,7 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 ## [0.0.18]
 ### Changed 
 - `Edition card` `card-info-link` is generalized and does not apply button-like styles
+- `more-link` icon margins use `--icon-left` and `--icon-right` modifiers instead of `left` and `right` modifiers to separate them from rotation
 
 ## [0.0.17] - 2020-04-23
 ### Changed

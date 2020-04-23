@@ -52,11 +52,11 @@ $color-link--hover: $nypl-blue-dark;
     text-decoration: none;
     width: 1rem;
 
-    &--left {
+    &--icon-left {
       @include space-inline-xxs;
     }
 
-    &--right {
+    &--icon-right {
       margin-left: $space-xxs;
     }
 
