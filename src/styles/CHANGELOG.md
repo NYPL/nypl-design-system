@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
+## [0.0.18]
+### Changed 
+- `Edition card` `card-info-link` is generalized and does not apply button-like styles
+
 ## [0.0.17] - 2020-04-23
 ### Changed
 - Reverted `@link` and `@more-link` mixins to content pre-0.0.16
