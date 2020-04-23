@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
+## [0.0.17] - 2020-04-23
+### Changed
+- Reverted `@link` and `@more-link` mixins to content pre-0.0.16
+- Reverts link-color to `nypl-blue-regular` and `nypl-blue-dark` for default and hover states respectively
+
 ## [0.0.16] - 2020-04-21
 ### Breaking Changes
 - Reworks `HeaderWithImageRight` into `Hero`, which accepts values from an enum to display different kinds of heros based on [this documentation page](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A5314)
