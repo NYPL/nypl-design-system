@@ -43,17 +43,7 @@ export const editionCardWithSomeEditionInfo = () => <EditionCard
   blockName=""
   coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingElement={<a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>}
-  editionInfo={[<>Published in New York</>, <>Under Creative Commons License</>]}
-  readOnlineLink={<BasicLink className={bem("card-button-link", [], "edition-card")} url="blah">Read Online</BasicLink>}
-  downloadLink={<IconLink iconName="download" iconPosition="left" url="blah">Download</IconLink>}>
-</EditionCard>;
-
-export const editionCardWithComponentInfo = () => <EditionCard
-  id="card#1"
-  blockName=""
-  coverUrl="https://placeimg.com/300/400/arch"
-  editionHeadingElement={<a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>}
-  editionInfo={[<span>Published in New York</span>, <>"Under Creative Commons License"</>]}
+  editionInfo={[<>Published in New York</>, <span>Under Creative Commons License</span>]}
   readOnlineLink={<BasicLink className={bem("card-button-link", [], "edition-card")} url="blah">Read Online</BasicLink>}
   downloadLink={<IconLink iconName="download" iconPosition="left" url="blah">Download</IconLink>}>
 </EditionCard>;

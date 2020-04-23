@@ -48,8 +48,6 @@ $color-link--hover: $nypl-blue-dark;
   &__icon {
     @include icon;
     
-    margin-left: $space-xxs;
-
     height: 1rem;
     text-decoration: none;
     width: 1rem;

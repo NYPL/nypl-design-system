@@ -8,7 +8,7 @@
   &__card-content {
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: flex;
     justify-content: center;
 
     @include breakpoint($medium) {
@@ -19,8 +19,12 @@
 
   &__card-image {
     @include space-stack-s;
+    background-color: $gray-warm-light;
     max-width: 150px;
     flex: 0 0 75px;
+
+    display: flex;
+    align-items: center;
 
     @include breakpoint($medium) {
       @include space-stack-none;
@@ -66,10 +70,10 @@
 
   &__card-button-link {
     @include button--filled;
-  }
 
-  &__more-link {
-    text-align: center;
+    &:hover {
+      color: $gray-light;
+    }
   }
 
   &__missing-links {
