@@ -9,7 +9,6 @@ describe("Modal", () => {
   it("modal applies 'no-scroll' class to body", () => {
     const wrapper = Enzyme.mount(<Modal />, { attachTo: document.body });
     expect(wrapper.find("Modal").exists()).to.equal(true);
-    console.log("classList", document.body.classList);
     expect(document.body.classList[0]).to.equal("no-scroll");
   });
 });
