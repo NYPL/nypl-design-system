@@ -10,6 +10,7 @@ export interface IconLinkProps {
   attributes?: {};
   modifiers?: string[];
   blockName?: string;
+  iconName?: string;
   iconPosition?: string;
   iconModifiers?: string[];
 }
@@ -19,7 +20,7 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
   }
   render(): JSX.Element {
     let iconLink__base_class = "more-link";
-    const { url, attributes, modifiers, blockName, iconPosition, iconModifiers } = this.props;
+    const { url, attributes, modifiers, blockName, iconName= "arrow-xsmall", iconPosition, iconModifiers } = this.props;
 
     let moreLinkModifiers = modifiers ? modifiers : [];
     let children = this.props.children;
@@ -36,7 +37,7 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
       }
 
       icon.element = <Icon
-      name="arrow-xsmall"
+      name={iconName}
       blockName={iconLink__base_class}
       modifiers={iconModifiers} decorative={true} />;
     }

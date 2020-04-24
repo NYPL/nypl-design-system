@@ -4,6 +4,9 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import EditionCard from "../../components/02-molecules/Cards/EditionCard";
+import BasicLink from "../../components/01-atoms/Links/BasicLink";
+import bem from "../../utils/bem";
+import IconLink from "../../components/01-atoms/Links/IconLink";
 
 describe("EditionCard", () => {
   let regularEditionCard = <EditionCard
@@ -11,25 +14,27 @@ describe("EditionCard", () => {
     blockName=""
     coverUrl="https://placeimg.com/300/400/arch"
     editionHeadingElement={<a href="edition-link" >2004 Edition</a>}
-    editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
-    readOnlineLink="#readOnlineUrl"
-    downloadLink="#downloadUrl" />;
+    editionInfo={[<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>]}
+    readOnlineLink={<BasicLink className={bem("card-info-link", [], "edition-card")} url="blah">Read Online</BasicLink>}
+    downloadLink={<IconLink iconName="download" iconPosition="left" url="blah">Download</IconLink>}
+  />;
 
   let elementEditionCard = <EditionCard
     id="card#1"
     blockName=""
     coverUrl="https://placeimg.com/300/400/arch"
     editionHeadingElement={<a href="edition-link" >2004 Edition</a>}
-    editionInfo={[<span id="pub-span">Publisher</span>, "Written in English", <a id="licenceId" href="/licence-page">License</a>]}
-    readOnlineLink="#readOnlineUrl"
-    downloadLink="#downloadUrl" />;
+    editionInfo={[<span id="pub-span">Publisher</span>, <>"Written in English"</>, <a id="licenceId" href="/licence-page">License</a>]}
+    readOnlineLink={<BasicLink className={bem("card-info-link", [], "edition-card")} url="blah">Read Online</BasicLink>}
+    downloadLink={<IconLink iconName="download" iconPosition="left" url="blah">Download</IconLink>}
+  />;
 
   let missingLinkEditionCard = <EditionCard
     id="card#1"
     blockName=""
     coverUrl="https://placeimg.com/300/400/arch"
     editionHeadingElement={<a href="edition-link">2004 Edition</a>}
-    editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
+    editionInfo={[<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>]}
   />;
 
   let elementLinkEditionCard = <EditionCard
@@ -37,7 +42,7 @@ describe("EditionCard", () => {
     blockName=""
     coverUrl="https://placeimg.com/300/400/arch"
     editionHeadingElement={<a href="edition-link" >2004 Edition</a>}
-    editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
+    editionInfo={[<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>]}
     readOnlineLink={<span id="readOnlineSpan">Reading</span>}
     downloadLink={<span id="downloadSpan">Download</span>}
   />;
@@ -47,7 +52,7 @@ describe("EditionCard", () => {
     blockName=""
     coverUrl="https://placeimg.com/300/400/arch"
     editionHeadingElement={<a href="edition-link">2004 Edition</a>}
-    editionInfo={["Published in New York by Random House", "Written in English", "Under Creative Commons License"]}
+    editionInfo={[<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>]}
     noLinkElement={<span id="noLinkElement">No Links</span>}
   />;
 
@@ -64,8 +69,11 @@ describe("EditionCard", () => {
     expect(card.find("h3").find("a")).to.have.lengthOf(1);
     expect(card.find("img")).to.have.lengthOf(1);
     expect(card.findWhere(n => {
-      return n.name() === "a" && n.prop("className") === "edition-card__card-info-link";
-    })).to.have.lengthOf(2);
+      return n.name() === "a" && n.text() === "Download";
+    })).to.have.lengthOf(1);
+    expect(card.findWhere(n => {
+      return n.name() === "a" && n.text() === "Read Online";
+    })).to.have.lengthOf(1);
   });
 
   it("Shows an error span if Links are missing and not passed a link element", () => {
@@ -73,7 +81,7 @@ describe("EditionCard", () => {
     expect(card.find("h3")).to.have.lengthOf(1);
     expect(card.find("h3").find("a")).to.have.lengthOf(1);
     expect(card.find("img")).to.have.lengthOf(1);
-    expect(card.find({className: "edition-card__missing-links"})).to.have.lengthOf(1);
+    expect(card.find({ className: "edition-card__missing-links" })).to.have.lengthOf(1);
   });
 
   it("Shows an error span if Links are missing and not passed a link element", () => {
@@ -86,7 +94,7 @@ describe("EditionCard", () => {
     expect(card.find("h3")).to.have.lengthOf(1);
     expect(card.find("h3").find("a")).to.have.lengthOf(1);
     expect(card.find("img")).to.have.lengthOf(1);
-    expect(card.find({className: "edition-card__missing-links"})).to.have.lengthOf(1);
+    expect(card.find({ className: "edition-card__missing-links" })).to.have.lengthOf(1);
   });
 
   it("Generates Edition Card if Edition Info is passed as spans", () => {

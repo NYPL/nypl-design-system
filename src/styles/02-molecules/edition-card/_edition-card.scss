@@ -8,7 +8,7 @@
   &__card-content {
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: flex;
     justify-content: center;
 
     @include breakpoint($medium) {
@@ -19,8 +19,12 @@
 
   &__card-image {
     @include space-stack-s;
+    background-color: $gray-warm-light;
     max-width: 150px;
     flex: 0 0 75px;
+
+    display: flex;
+    align-items: center;
 
     @include breakpoint($medium) {
       @include space-stack-none;
@@ -54,20 +58,30 @@
   }
 
   &__card-info-link {
-    @include button--filled;
-
-    flex: 1 1 100%;
-    &:not(:last-child) {
-      @include space-inline-s;
-    }
+    margin: auto;
 
     @include breakpoint($medium) {
-      flex: 1 1 100%;
 
       &:not(:last-child) {
-        @include space-inline-none;
         @include space-stack-s;
       }
+    }
+
+    .more-link {
+      color: $black;
+      text-decoration: underline;
+
+      .more-link__icon--icon-left {
+        @include space-inline-xs;
+      }
+    }
+  }
+
+  &__card-button-link {
+    @include button--filled;
+
+    &:hover {
+      color: $gray-light;
     }
   }
 

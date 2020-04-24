@@ -8,6 +8,7 @@ import SearchResultItem from "../../02-molecules/Cards/SearchResultItem";
 import UnderlineLink from "../../01-atoms/Links/UnderlineLink";
 import Checkbox from "../../01-atoms/Forms/Checkbox";
 import { action } from "@storybook/addon-actions";
+import BasicLink from "../../01-atoms/Links/BasicLink";
 
 export default {
   title: "UnorderedList",
@@ -21,12 +22,10 @@ export const iconLinkList = () => <UnorderedList id="link-list" blockName="list-
 
 let editionData: EditionDetails = {
   editionYearHeading: <a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>,
-  publisherAndLocation: "Published in New York by Random House",
   coverUrl: "https://placeimg.com/57/81/arch",
-  language: "Written in English",
-  license: "Under Creative Commons License",
-  readOnlineLink: "#read-online",
-  downloadLink: "#download",
+  editionInfo: [<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>],
+  readOnlineLink: <BasicLink className={bem("card-button-link", [], "edition-card")} url="blah">Read Online</BasicLink>,
+  downloadLink: <IconLink iconName="download" iconPosition="left" iconModifiers={["icon-left"]} url="blah">Download</IconLink>
 };
 
 const checkboxes = [
@@ -41,7 +40,7 @@ const editions = [
    key="edition-1"
     coverUrl={editionData.coverUrl}
     editionHeadingElement={editionData.editionYearHeading}
-    editionInfo={[editionData.publisherAndLocation, editionData.language, editionData.license]}
+    editionInfo={editionData.editionInfo}
     readOnlineLink={editionData.readOnlineLink}
     downloadLink={editionData.downloadLink}
   />,
@@ -49,7 +48,7 @@ const editions = [
     key="edition-2"
     coverUrl={editionData.coverUrl}
     editionHeadingElement={editionData.editionYearHeading}
-    editionInfo={[editionData.publisherAndLocation, editionData.language, editionData.license]}
+    editionInfo={editionData.editionInfo}
     readOnlineLink={editionData.readOnlineLink}
     downloadLink={editionData.downloadLink}
   />,
@@ -57,7 +56,7 @@ const editions = [
     key="edition-3"
     coverUrl={editionData.coverUrl}
     editionHeadingElement={editionData.editionYearHeading}
-    editionInfo={[editionData.publisherAndLocation, editionData.language, editionData.license]}
+    editionInfo={editionData.editionInfo}
     readOnlineLink={editionData.readOnlineLink}
     downloadLink={editionData.downloadLink}
   />];
@@ -71,10 +70,9 @@ let searchItemData = {
     editionYearHeading: <a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>,
     publisherAndLocation: "Published in New York by Random House",
     coverUrl: "https://placeimg.com/57/81/arch",
-    language: "Written in English",
-    license: "Under Creative Commons License",
-    readOnlineLink: "#read-online",
-    downloadLink: "#download",
+    editionInfo: [<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>],
+    readOnlineLink: <BasicLink className={bem("card-button-link", [], "edition-card")} url="blah">Read Online</BasicLink>,
+    downloadLink: <IconLink iconName="download" iconPosition="left" iconModifiers={["icon-left"]} url="blah">Download</IconLink>
   },
   authorElement: <UnderlineLink url={"author-url"}>First Last</UnderlineLink>,
   editionsLinkElement: <UnderlineLink url={"#allEditionsUrl"}>{`View All 7 editions`}</UnderlineLink>

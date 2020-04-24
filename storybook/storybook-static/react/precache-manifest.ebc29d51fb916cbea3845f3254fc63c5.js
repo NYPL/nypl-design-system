@@ -212,7 +212,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/01-atoms/Links/BasicLink.stories.d.ts"
   },
   {
-    "revision": "6dcdd969656135092e777b74c3311b89",
+    "revision": "a4ec13ccea8e42b431d5a1f536fb4aec",
     "url": "../../../src/react-components/lib/components/01-atoms/Links/IconLink.d.ts"
   },
   {
@@ -256,11 +256,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/01-atoms/Text/Text/BodyText.stories.d.ts"
   },
   {
-    "revision": "d3112003dd64e90a4963bafe88a36ea5",
+    "revision": "4df38b99d0ded55e5ff68bac4aac79da",
     "url": "../../../src/react-components/lib/components/02-molecules/Cards/EditionCard.d.ts"
   },
   {
-    "revision": "ad63f1df62a5063dfa86ce22da53cb46",
+    "revision": "e0d858c4ce0010102e396a62b19a36cc",
     "url": "../../../src/react-components/lib/components/02-molecules/Cards/EditionCard.stories.d.ts"
   },
   {
@@ -360,7 +360,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/helpers/hoc/WithOneChild.d.ts"
   },
   {
-    "revision": "85b35da8479e8002386b6cb78a38986f",
+    "revision": "d819893b70288877aac0d5ece53ccf30",
     "url": "../../../src/react-components/lib/index.d.ts"
   },
   {
@@ -368,27 +368,27 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "90c91f2abf1ca5e30d58d6e2e7090cb5",
+    "revision": "6c88f3765aa5944dcb3f979b7d3322cf",
     "url": "iframe.html"
   },
   {
-    "url": "main.8c6bbc5650fe95914ec4.bundle.js"
+    "url": "main.5dac157aad1781ff97d0.bundle.js"
   },
   {
-    "url": "runtime~main.8c6bbc5650fe95914ec4.bundle.js"
+    "url": "runtime~main.5dac157aad1781ff97d0.bundle.js"
   },
   {
-    "revision": "d0acf6a3d3f69a52d9f1",
+    "revision": "42e21324bc5e0519c337",
     "url": "static/css/vendors~main.f8f248a5.chunk.css"
   },
   {
-    "revision": "b745e93eb635b2d144175f6156d90704",
-    "url": "static/media/sprite.b745e93e.svg"
+    "revision": "3328b4c9a0d2686ca172b3bdb9501295",
+    "url": "static/media/sprite.3328b4c9.svg"
   },
   {
-    "url": "vendors~main.8c6bbc5650fe95914ec4.bundle.js"
+    "url": "vendors~main.5dac157aad1781ff97d0.bundle.js"
   },
   {
-    "url": "vendors~main.8c6bbc5650fe95914ec4.bundle.js.LICENSE.txt"
+    "url": "vendors~main.5dac157aad1781ff97d0.bundle.js.LICENSE.txt"
   }
 ]);
