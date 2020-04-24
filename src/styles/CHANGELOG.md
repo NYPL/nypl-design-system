@@ -6,10 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
-## [0.0.18]
+## [0.0.19]
 ### Changed 
 - `Edition card` `card-info-link` is generalized and does not apply button-like styles
 - `more-link` icon margins use `--icon-left` and `--icon-right` modifiers instead of `left` and `right` modifiers to separate them from rotation
+
+## [0.0.18] - 2020-04-24
+### Changed
+- Updates the top of the font stack to include `-apple-system, BlinkMacSystemFont` to fix the Apple typefaces from not loading in Mac Firefox
 
 ## [0.0.17] - 2020-04-23
 ### Changed
