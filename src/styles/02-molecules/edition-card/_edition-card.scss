@@ -58,12 +58,21 @@
   }
 
   &__card-info-link {
-    margin: auto; 
+    margin: auto;
 
     @include breakpoint($medium) {
 
       &:not(:last-child) {
         @include space-stack-s;
+      }
+    }
+
+    .more-link {
+      color: $black;
+      text-decoration: underline;
+
+      .more-link__icon--icon-left {
+        @include space-inline-xs;
       }
     }
   }
