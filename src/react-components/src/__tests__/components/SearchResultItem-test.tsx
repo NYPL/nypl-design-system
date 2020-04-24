@@ -19,12 +19,10 @@ describe("SearchResultItem", () => {
       authorLinkElement={<a href="blah">bahah</a>}
       editionInfo={{
         editionYearHeading: <a href="blah2">2004 Edition</a>,
-        publisherAndLocation: "Published in New York by Random House",
         coverUrl: "https://placeimg.com/57/81/arch",
-        language: "Written in English",
-        license: "Under Creative Commons License",
-        readOnlineLink: "#read-online",
-        downloadLink: "#download",
+        editionInfo: [<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>],
+        readOnlineLink: <a href="#read-online">read</a>,
+        downloadLink: <a href="#download">download</a>,
       }}
       editionsLinkElement={<a href="blah">bahah</a>} />;
   };

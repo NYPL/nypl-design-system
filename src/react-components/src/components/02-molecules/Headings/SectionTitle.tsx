@@ -48,7 +48,7 @@ export default class SectionTitle extends React.Component<SectionTitleProps, {}>
       attributes={passedInAttributes}
       modifiers={linkModifiers}
       iconPosition="right"
-    iconModifiers={["right"]}>{"See All"}</IconLink>; }
+    iconModifiers={["right", "icon-right"]}>{"See All"}</IconLink>; }
 
     let headingModifiers = linkUrl ? ["has-link"] : [];
     return (

@@ -57,7 +57,7 @@ export default function SearchResultItem(props: React.PropsWithChildren<SearchRe
         id={`card-${resultIndex}`}
         coverUrl={editionInfo.coverUrl}
         editionHeadingElement={editionInfo.editionYearHeading}
-        editionInfo={[editionInfo.publisherAndLocation, editionInfo.language, editionInfo.license]}
+        editionInfo={editionInfo.editionInfo}
         readOnlineLink={editionInfo.readOnlineLink}
         downloadLink={editionInfo.downloadLink}
         noLinkElement={editionInfo.noLinkElement}
