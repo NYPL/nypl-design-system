@@ -23,7 +23,7 @@
 
     @include breakpoint($medium) {
       flex-flow: row nowrap;
-      flex: 0 1 400px;
+      flex: 1 1 400px;
     }
   }
 
@@ -34,6 +34,8 @@
     background-color: $gray-warm-light;
     max-width: 150px;
     flex: 0 0 75px;
+    display: flex;
+    align-items: center;
   }
 
   &__edition-info {
