@@ -1,4 +1,3 @@
-
 // Base Link Helper Class
 import * as React from "react";
 import withOneChild from "../../../helpers/hoc/WithOneChild";

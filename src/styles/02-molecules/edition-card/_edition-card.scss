@@ -1,67 +1,65 @@
 .edition-card {
   @include space-stack-s;
 
-  border: 1px solid $gray-light;
   border-radius: 5px;
-  padding: $space-xs $space $space $space;
+  border: 1px solid $gray-light;
+  display: flex;
+  flex-flow: column wrap;
+  padding: $space $space-l;
+
+  @include breakpoint($medium) {
+    justify-content: space-between;
+    flex-flow: row wrap;
+  }
+
+  &__heading {
+    flex: 100%;
+  }
 
   &__card-content {
+    align-items: center;
     display: flex;
-    flex-flow: column nowrap;
-    align-items: flex;
-    justify-content: center;
+    flex-flow: column wrap;
 
     @include breakpoint($medium) {
       flex-flow: row nowrap;
-      justify-content: flex-start;
+      flex: 1 1 400px;
     }
   }
 
   &__card-image {
     @include space-stack-s;
+    @include space-inline-s;
+
     background-color: $gray-warm-light;
     max-width: 150px;
     flex: 0 0 75px;
-
     display: flex;
     align-items: center;
-
-    @include breakpoint($medium) {
-      @include space-stack-none;
-      @include space-inline-s;
-
-    }
   }
 
   &__edition-info {
     @include space-stack-s;
   }
 
-  &__edition-info-item {
-    display: block;
-  }
-
   &__card-ctas {
+    align-items: center;
     display: flex;
-    width: 100%;
     flex-flow: row nowrap;
-    justify-content: center;
 
     @include breakpoint($medium) {
-      @include space-inline-s;
-
       align-self: flex-start;
       flex-flow: column nowrap;
-      flex: 0 0 20%;
-      margin-left: auto;
+      flex: 0 1 20%;
     }
   }
 
   &__card-info-link {
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
     @include breakpoint($medium) {
-
       &:not(:last-child) {
         @include space-stack-s;
       }
@@ -79,6 +77,8 @@
 
   &__card-button-link {
     @include button--filled;
+
+    width: 100%;
 
     &:hover {
       color: $gray-light;
