@@ -26,10 +26,14 @@
     display: flex;
     align-items: center;
 
+    margin-left: auto;
+    margin-right: auto;
+
     @include breakpoint($medium) {
       @include space-stack-none;
       @include space-inline-s;
-
+      
+      margin-left: inherit;
     }
   }
 
