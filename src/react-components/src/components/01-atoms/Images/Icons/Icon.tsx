@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import Icons from "@nypl/design-system-icons/dist/sprite/sprite.svg";
+import iconUrl, {ReactComponent as Icons} from "@nypl/design-system-icons/dist/sprite/sprite.svg";
 import bem from "../../../../utils/bem";
 
   // Wrapper Class for Icon
@@ -39,7 +39,7 @@ import bem from "../../../../utils/bem";
             {desc &&
               <desc id={`title-${name}`}>{ desc }</desc>
             }
-            <use href={`${Icons}#${name}`} />
+            <use href={`${iconUrl}#${name}`} />
         </svg>
       );
     }

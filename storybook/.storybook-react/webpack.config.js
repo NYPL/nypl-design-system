@@ -1,5 +1,6 @@
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
+const packageConfig = require('../../src/react-components/webpack.dev.js');
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
@@ -8,21 +9,8 @@ module.exports = async ({ config, mode }) => {
   // You can change the configuration based on that.
   // 'PRODUCTION' is used when building the static version of storybook.
 
-  // Allows for inline comments to be used with Typescript for documenting
-  // React components.
-  config.module.rules.push({
-    test: /\.(ts|tsx)$/,
-    loaders: [
-      'ts-loader',
-      'react-docgen-typescript-loader'
-    ]
-  });
-
-  config.module.rules.push({
-    test: /\.svg$/,
-    include: [path.join(__dirname, "./icons/")],
-    loader: "file-loader?name=assets/[name].[ext]"
-  });
+  // Add config from react-components
+  config.module.rules.unshift(...packageConfig.module.rules);
 
   // Adds SCSS support
   config.module.rules.push({
@@ -46,7 +34,7 @@ module.exports = async ({ config, mode }) => {
     include: [path.resolve(__dirname, './styles/**/*')]
   });
 
-  config.resolve.extensions.push(".ts", ".tsx");
+  config.resolve.extensions.push(...packageConfig.resolve.extensions);
 
   // Return the altered config
   return config;

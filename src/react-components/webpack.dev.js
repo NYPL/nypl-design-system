@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 module.exports = {
   mode: 'development',
   entry: {
@@ -15,14 +14,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Development',
     })
-    // new SpriteLoaderPlugin(),
   ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".svg", ".json"]
+    extensions: [".ts", ".tsx", ".json"]
   },
   module: {
     rules: [
@@ -34,26 +32,16 @@ module.exports = {
         ]
       },
       {
-
-      },
-      {
         test: /\.svg$/,
-        // include: [path.join(__dirname, "../icons/")],
         use: [
           {
-            loader: 'file-loader',
+            loader: '@svgr/webpack',
             options: {
-              name: '[name].[ext]',
-              outputPath: 'img/',
+              native: true,
             },
           },
-        }]
-      },
-      {
-        test: /\.(ttf|woff|eot|png|svg|woff2|gif|jpg)(\?[\s\S]+)?$/,
-        loader: 'url-loader?limit=100000'
+        ],      
       }
     ]
   }
 };
-
