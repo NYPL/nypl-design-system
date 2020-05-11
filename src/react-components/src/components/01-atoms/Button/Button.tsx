@@ -114,10 +114,11 @@ export default class Button extends React.Component<ButtonProps, {}> {
     }
 
     let btnCallback = mouseDown ? { onMouseDown: callback } : { onClick: callback };
+
     return (
       <button
         id={"btn-" + id}
-        className={bem(button_base_class, buttonModifiers, blockName)}
+        className={`${button_base_class} ${bem(button_base_class, buttonModifiers, blockName)}`}
         type={type}
         {...attributes}
         {...btnCallback}>

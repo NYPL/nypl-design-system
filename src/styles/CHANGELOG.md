@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ========
+## [0.0.21]
+### [Changed]
+- `Edition Card` doesn't collapse on webkit browsers
+- `Accordion` button is not outlined
+- `DateRangeForm` elements stack properly
+
 ##[0.0.20] 
 ### Changed
 - `Edition Card` image is now centered in mobile
