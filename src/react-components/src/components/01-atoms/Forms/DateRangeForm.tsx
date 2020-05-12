@@ -41,8 +41,6 @@ export interface DateCheckFormProps {
 
 export default function DateRangeForm(props: DateCheckFormProps) {
   const {
-    blockName = "date-range",
-    baseClass,
     formLabel,
     fromLabelOpts,
     fromInputOpts,
@@ -56,11 +54,14 @@ export default function DateRangeForm(props: DateCheckFormProps) {
     if (showError && !error) {
       throw new Error("Error should be shown, but no Error Content exists");
     }
+    let baseClass = "date-range";
+
+    if (buttonOpts && !buttonOpts.blockName) { buttonOpts.blockName = baseClass; }
 
   return (
-    <fieldset className={bem(blockName, [], baseClass)}>
-      <legend>{formLabel}</legend>
-      <div className="input-row">
+    <fieldset className={baseClass}>
+      <legend className={bem("legend", [], baseClass)}>{formLabel}</legend>
+      <div className={`input-row ${bem("input-row", [], baseClass)}`}>
         <Input
           baseClass="input-row"
           labelId={fromLabelOpts.id}

@@ -33,6 +33,7 @@ export default class Accordion extends React.Component<AccordionProps, { isOpen:
   render() {
     const { buttonOptions, modifiers = [], blockName = "" } = this.props;
     buttonOptions.type = "button";
+    buttonOptions.blockName = "accordion";
     buttonOptions.modifiers = ["large"];
     buttonOptions.iconPosition = ButtonIconPositions.JustifyRight;
     buttonOptions.iconName = this.state.isOpen ? "minus" : "plus";

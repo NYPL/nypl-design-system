@@ -37,5 +37,5 @@ export default function HelperErrorText(props: React.PropsWithChildren<HelperErr
   if (props.modifiers) {
     modifiers.push(...props.modifiers);
   }
-  return <span id={id} className={bem(blockName, modifiers, baseClass)}>{props.children}</span>;
+  return <div id={id} className={bem(blockName, modifiers, baseClass)}>{props.children}</div>;
 }
