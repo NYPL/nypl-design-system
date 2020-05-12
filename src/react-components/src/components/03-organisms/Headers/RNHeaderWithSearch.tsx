@@ -4,12 +4,13 @@ import SearchBar from "../../02-molecules/SearchBar/SearchBar";
 import bem from "../../../utils/bem";
 import RNSectionTitle from "../../01-atoms/Text/Headings/RNSectionTitle";
 
-
 export interface RNHeaderWithSearchProps {
   modifiers?: [];
   searchBarId: string;
   searchButtonId: string;
   searchBarAriaLabel: string;
+  searchValue?: string;
+  selectedField?: string;
   dropdownId: string;
   sectionTitle: JSX.Element;
   textFieldAriaLabel: string;
@@ -27,11 +28,22 @@ export interface RNHeaderWithSearchProps {
 
 export default function RNHeaderWithSearch(props: React.PropsWithChildren<RNHeaderWithSearchProps>) {
 
-  const { sectionTitle, searchBarId, searchBarAriaLabel,
-    searchButtonId, hasError, errorMessage,
-    dropdownId, searchDropdownOptions,
-    textFieldAriaLabel, advancedSearchElem,
-    selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
+  const { sectionTitle,
+    searchBarId,
+    searchBarAriaLabel,
+    searchValue,
+    selectedField,
+    searchButtonId,
+    hasError,
+    errorMessage,
+    dropdownId,
+    searchDropdownOptions,
+    textFieldAriaLabel,
+    advancedSearchElem,
+    selectChangeHandler,
+    selectBlurHandler,
+    searchSubmitHandler,
+    textChangeHandler } = props;
   const base_class = "search-header";
 
   return (
@@ -43,6 +55,8 @@ export default function RNHeaderWithSearch(props: React.PropsWithChildren<RNHead
         <SearchBar
           searchBarId={searchBarId}
           searchBarAriaLabel={searchBarAriaLabel}
+          searchValue={searchValue}
+          selectedField={selectedField}
           blockName={base_class}
           buttonId={searchButtonId}
           dropdownId={dropdownId}
