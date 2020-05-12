@@ -4,10 +4,8 @@
   color: inherit;
 
   &__button {
-    border: unset;
-  }
-}
+    @include button--outline;
 
-.accordion-content {
-  padding: $space-xs 0 $space-xs $space-xs;
+    border: none;
+  }
 }
