@@ -37,15 +37,26 @@ export interface SearchBarProps {
 
 export default function SearchBar(props: SearchBarProps) {
 
-  const { blockName,
-    searchBarId, buttonId,
-    searchBarAriaLabel, searchBarAriaLabelledBy,
-    dropdownId, dropdownOptions, dropdownAriaLabel,
-    selectedField, searchValue,
+  const {
+    blockName,
+    searchBarId,
+    buttonId,
+    searchBarAriaLabel,
+    searchBarAriaLabelledBy,
+    dropdownId,
+    dropdownOptions,
+    dropdownAriaLabel,
+    selectedField,
+    searchValue,
     placeholderText,
     helperVariant,
-    hasError, errorMessage,
-    selectBlurHandler, searchSubmitHandler, selectChangeHandler, searchChangeHandler } = props;
+    hasError,
+    errorMessage,
+    selectBlurHandler,
+    searchSubmitHandler,
+    selectChangeHandler,
+    searchChangeHandler
+  } = props;
 
   if (dropdownOptions) {
     if (!(dropdownId && dropdownAriaLabel && selectBlurHandler && selectChangeHandler)) {
@@ -69,7 +80,6 @@ export default function SearchBar(props: SearchBarProps) {
 
   let searchbar__base_class = "search-bar";
 
-  /* TODO: after SFR-637 is merged, Replace Error with MT-51 and add its id to TextField's aria-labelledBy*/
   let textfieldProps = {
     id: searchBarId + "-input-textfield",
     ariaLabelledBy: buttonId,
@@ -112,7 +122,6 @@ export default function SearchBar(props: SearchBarProps) {
     <div className={bem("input-group", [], searchbar__base_class)}>
       <TextField {...textfieldProps}></TextField>
       <Button callback={searchSubmitHandler} {...buttonProps} >{buttonProps.content}</Button>
-      {/* TODO: after SFR-637 is merged, Replace Error with MT-51 and add its id to TextField's aria-labelledBy*/}
       {hasError && !helperVariant && <span className={bem("input-description", modifiers, searchbar__base_class)}>{errorMessage}</span>}
     </div>
   </form>;
