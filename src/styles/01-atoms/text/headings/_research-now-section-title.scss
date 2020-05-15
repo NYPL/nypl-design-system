@@ -1,5 +1,6 @@
 .rn-section-title {
   @include heading-xl;
+  @include link;
 
   background-color: $nypl-turquoise-regular;
   color: $white;
