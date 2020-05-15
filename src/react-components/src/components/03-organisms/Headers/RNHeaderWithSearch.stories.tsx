@@ -15,7 +15,7 @@ export default {
 export const researchNowSearchHeader = () => <RNHeaderWithSearch
   searchButtonId="searchButtonId"
   searchBarAriaLabel="Search research catalog"
-  sectionTitle={<a className={`${bem("rn-section-title", [], "search-header")} rn-section-title`} href={"researchNow-home-url"}>
+  sectionTitle={<a className={`${bem("rn-section-title", ["dark-background"], "search-header")} rn-section-title`} href={"researchNow-home-url"}>
     <span id={"research-now-title"}>
       Research<span className={bem("emphasis", [], "rn-section-title")}>Now</span>
     </span>

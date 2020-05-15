@@ -39,6 +39,8 @@ You can publish npm modules from this repo by running:
 ```lerna publish``` from the main folder.
 Publishing from sub-folders using `npm publish` will result in broken components - don't do this!
 
+First, make sure you are on the `development` branch.
+
 If you have already bumped `package.json`:
 
     Select the custom version option

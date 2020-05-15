@@ -73,16 +73,16 @@ export default function EditionCard(props: React.PropsWithChildren<EditionCardPr
       <div className={bem("card-content", [], baseClass)}>
         <div className={bem("card-image", [], baseClass)}>
           <Image src={coverUrl} isDecorative={true}></Image>
-        </div>
+  </div>
         {editionInfo.length > 0 &&
           <div className={bem("edition-info", [], baseClass)}>
             {editionInfo.map((value, index) => {
-              return <span className={bem("edition-info-item", [], baseClass)} key={index}>{value}</span>;
+              return <div className={bem("edition-info-item", [], baseClass)} key={index}>{value}</div>;
             })}
           </div>
         }
-        {btns}
       </div>
+      {btns}
     </div>
   );
 }

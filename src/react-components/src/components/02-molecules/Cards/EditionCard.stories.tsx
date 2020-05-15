@@ -15,7 +15,7 @@ export const editionCardWithFullData = () => <EditionCard
   blockName=""
   coverUrl="https://placeimg.com/300/400/arch"
   editionHeadingElement={<a href="edition-link" className={bem("link", [], "heading")} >2004 Edition</a>}
-  editionInfo={[<>Published in New York by Random House</>, <>Written in English</>, <>Under Creative Commons License</>]}
+  editionInfo={[<>Published in New York by Random House</>, <>Written in English</>, <>License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</>]}
   readOnlineLink={<BasicLink className={bem("card-button-link", [], "edition-card")} url="blah">Read Online</BasicLink>}
   downloadLink={<IconLink iconName="download" iconPosition="left" iconModifiers={["icon-left"]} url="blah">Download</IconLink>}>
 </EditionCard>;

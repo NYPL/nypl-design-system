@@ -54,6 +54,7 @@
 }
 
 @mixin input-description {
+  @include space-stack-s;
   margin-top: $space-xs; // Necessary for the way we do flex on input groups
 
   &--error {
