@@ -2,14 +2,6 @@ $main-width: 60%;
 $sidebar-width: 25%;
 $sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
 
-.header,
-.content-header,
-.content-primary,
-.content-secondary,
-.content-top {
-  @include space-stack-page;
-}
-
 .main {
   @include wrapper;
 
@@ -43,8 +35,6 @@ $sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
   &--with-sidebar-right,
   &--with-sidebar-left {
     @include breakpoint($medium) {
-      @include space-inline-l;
-
       // Bugfix for Slick slider which calculates width via js.
       // It doesn't play well with flexbox
       // unless min-width is set to 0 on its wrapper.
@@ -71,6 +61,12 @@ $sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
 
     &--with-sidebar-left {
       @include space-inline-l;
+
+      flex-basis: $sidebar-width-s;
+    }
+
+    &--with-sidebar-right {
+      margin-left: $space-l;
 
       flex-basis: $sidebar-width-s;
     }

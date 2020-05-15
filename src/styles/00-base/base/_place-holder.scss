@@ -1,6 +1,7 @@
 $color-place-holder: $gray-light;
 
 .placeholder {
+  @include space-stack-page;
   @include space-inset-s;
 
   align-items: center;
