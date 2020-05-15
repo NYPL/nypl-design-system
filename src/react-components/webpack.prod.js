@@ -17,7 +17,6 @@ module.exports = {
     // This allows a server-side app to import this package and not crash.
     globalObject: 'this'
   },
-
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"]
   },
@@ -30,7 +29,13 @@ module.exports = {
         loader: "ts-loader",
       },
       {
-        test: /\.(ttf|woff|eot|svg|png|woff2|gif|jpg)(\?[\s\S]+)?$/,
+        test: /\.svg$/,
+        use: [{
+          loader: 'svg-inline-loader',
+        }],
+      },
+      {
+        test: /\.(ttf|woff|eot|png|woff2|gif|jpg)(\?[\s\S]+)?$/,
         loader: 'url-loader?limit=100000'
       }
     ]

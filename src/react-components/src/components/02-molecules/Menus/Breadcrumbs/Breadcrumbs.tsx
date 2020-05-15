@@ -47,7 +47,7 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
       }
       breadcrumbItems.push(<li key={`${breadcrumbs__base_class}-${index}`} className={bem("item", [], breadcrumbs__base_class)} >
       {last && <Icon
-          name="arrow-xsmall"
+          name="arrow_xsmall"
           blockName={breadcrumbs__base_class}
         modifiers={["small"]} decorative={true} />}
       {linkComponent}

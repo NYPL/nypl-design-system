@@ -20,8 +20,7 @@ describe("Hero Test", () => {
         text={"Hero Primary"}
         blockName={"hero"}
       />}
-      backgroundImageSrc="https://placeimg.com/1600/800/arch">
-    ></Hero>);
+      backgroundImageSrc="https://placeimg.com/1600/800/arch" />);
     expect(wrapper.prop("style")).to.deep.equal({ backgroundImage: "url(https://placeimg.com/1600/800/arch)" });
 
   });
@@ -40,7 +39,7 @@ describe("Hero Test", () => {
         isDecorative={true}
         imageBlockname={"hero"}
       />}
-    ></Hero>);
+    />);
     expect(wrapper.find("Image").dive().find("img")).to.have.lengthOf(1);
   });
 
@@ -58,7 +57,7 @@ describe("Hero Test", () => {
         isDecorative={true}
         imageBlockname={"hero"}
       />}
-    ></Hero>))
+    />))
     .to.throw("backgroundImageSrc required on PRIMARY heroTypes");
   });
 
@@ -77,7 +76,7 @@ describe("Hero Test", () => {
         imageBlockname={"hero"}
       />}
       backgroundImageSrc="https://placeimg.com/1600/800/arch"
-    ></Hero>))
+    />))
     .to.throw("Please only either backgroundImageSrc or image into Hero, got both");
   });
 
@@ -96,7 +95,7 @@ describe("Hero Test", () => {
         imageBlockname={"hero"}
       />}
       locationDetails={<Placeholder>Placeholder for locationDetails, which doesn't exist yet</Placeholder>}
-    ></Hero>))
+    />))
     .to.throw("Please provide locationDetails only to PRIMARY heroTypes");
   });
 

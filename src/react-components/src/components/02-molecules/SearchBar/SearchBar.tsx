@@ -88,7 +88,7 @@ export default function SearchBar(props: SearchBarProps) {
     content: <>Search</>,
     buttonType: ButtonTypes.Filled,
     iconPosition: ButtonIconPositions.Left,
-    iconName: "search-small",
+    iconName: "search_small",
     iconDecorative: true,
   };
 

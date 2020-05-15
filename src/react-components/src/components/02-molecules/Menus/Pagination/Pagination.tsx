@@ -26,7 +26,7 @@ export default function Pagination(props: PaginationProps) {
     content: <>Previous</>,
     buttonType: ButtonTypes.Outline,
     iconPosition: ButtonIconPositions.Left,
-    iconName: "arrow-xsmall",
+    iconName: "arrow_xsmall",
     iconModifiers: ["left", "icon-left"],
     iconDecorative: true,
   };
@@ -37,7 +37,7 @@ export default function Pagination(props: PaginationProps) {
     content: <>Next</>,
     buttonType: ButtonTypes.Outline,
     iconPosition: ButtonIconPositions.Right,
-    iconName: "arrow-xsmall",
+    iconName: "arrow_xsmall",
     iconModifiers: ["right", "icon-right"],
     iconDecorative: true,
   };
