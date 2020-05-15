@@ -2,6 +2,15 @@ $main-width: 60%;
 $sidebar-width: 25%;
 $sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
 
+.header,
+.footer,
+.content-header,
+.content-primary,
+.content-secondary,
+.content-top {
+  @include space-stack-page;
+}
+
 .main {
   @include wrapper;
 
@@ -19,18 +28,19 @@ $sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
 
 .content-header {
   @include breakout;
-  @include space-stack-l;
 
   @include breakpoint($medium) {
     flex: 0 0 100vw;
   }
 }
 
-.content-primary {
-  width: 100%;
+.content-top {
+  flex: 1 0 100%;
 }
 
 .content-primary {
+  width: 100%;
+
   &--with-sidebar-right,
   &--with-sidebar-left {
     @include breakpoint($medium) {
@@ -56,19 +66,11 @@ $sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
 }
 
 .content-secondary {
-  @include space-stack-m;
-
-  @include breakpoint( max-width 599px ) {
-    display: flex;
-  }
-
   @include breakpoint($medium) {
-    @include space-stack-none;
-
     flex: 0 1 $sidebar-width;
     order: 1;
 
-    &--with-sidebar--left {
+    &--with-sidebar-left {
       @include space-inline-l;
 
       flex-basis: $sidebar-width-s;

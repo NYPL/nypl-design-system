@@ -4,29 +4,29 @@ import { LayoutTypes } from "./LayoutTypes"
 import Placeholder from "../00-base/Placeholder"
 
 export interface TemplateProps {
-  /** Enum to control sidebar content, etc. */
+  /** Enum to control if Template has left/right sidebar or is full width. */
   layoutType: LayoutTypes;
 
-  /** hero content **/
-  headerContent?: JSX.Element;
+  /** Content intended for inside <header>. */
+  headerContent: JSX.Element;
 
-  /** hero content **/
-  heroContent?: JSX.Element;
-
-  /** content above main **/
-  topContent?: JSX.Element;
-  
-  /** content in left sidebar **/
-  leftSidebarContent?: JSX.Element;
-
-  /** content in right sidebar **/
-  rightSidebarContent?: JSX.Element;
-
-  /** content in the <main> element **/
+  /** content in the <main> element */
   mainContent: JSX.Element;
 
-  /** content in the <main> element **/
-  footerContent?: JSX.Element;
+  /** content in the <main> element */
+  footerContent: JSX.Element;
+
+  /** Heroes appear inside <main> but extend full-width of template. */
+  heroContent?: JSX.Element;
+
+  /** Separate block for content above primary content within <main>. */
+  topContent?: JSX.Element;
+
+  /** Content intended for inside the sidebar within <main>. Shows up on the left. */
+  leftSidebarContent?: JSX.Element;
+
+  /** Content intended for inside the sidebar within <main>. Shows up on the right. */
+  rightSidebarContent?: JSX.Element;
 }
 
 export default function Template(props: TemplateProps) {
@@ -44,42 +44,45 @@ export default function Template(props: TemplateProps) {
   const templateBaseClass = "layout-container";
 
   let modifiers = [];
-  let blockName;
+  let mainModifiers = [];
 
-  if (layoutType === LayoutTypes.SidebarLeft || layoutType === LayoutTypes.SidebarRight) {
-    // idk
+  if (layoutType = LayoutTypes.SidebarLeft || LayoutTypes.SidebarRight) {
+    mainModifiers.push("with-sidebar");
+
   }
 
-  let rightSidebar;
-
-  if (layoutType === LayoutTypes.SidebarRight) {
-    rightSidebar = true;
+  if (layoutType = LayoutTypes.SidebarLeft) {
+    modifiers.push("with-sidebar-left");
   }
 
   return <div className={bem(templateBaseClass)}>
-    <header>
+    <header className={bem("header")}>
       {headerContent}
     </header>
 
-    <main className={bem("main", modifiers, blockName)}>
+    <main className={bem("main", mainModifiers)}>
       <div className="content-header">
         {heroContent}
       </div>
 
-      {leftSidebarContent}
+      <div className="content-top">
+        {topContent}
+      </div>
 
-      {topContent}
+      <div className={bem("content-secondary", modifiers)}>
+        {leftSidebarContent}
+      </div>
 
-      <div className={bem("content-primary", modifiers, blockName)}>
+      <div className={bem("content-primary", modifiers)}>
         {mainContent}
       </div>
 
-      <div className={bem("content-secondary", modifiers, blockName)}>
+      <div className={bem("content-secondary", modifiers)}>
         {rightSidebarContent}
       </div>
     </main>
 
-    <footer>
+    <footer className={bem("footer", modifiers)}>
       {footerContent}
     </footer>
   </div>;
