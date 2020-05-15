@@ -14,7 +14,7 @@ export default {
 export const FullWidthTemplate = () => <Template
   layoutType={LayoutTypes.FullWidth}
   headerContent={<Placeholder>Header</Placeholder>}
-  mainContent={<Placeholder>Main Content</Placeholder>}
+  primaryContent={<Placeholder>Main Content</Placeholder>}
   footerContent={<Placeholder>Footer</Placeholder>}
 />;
 
@@ -24,7 +24,7 @@ export const LeftSidebarTemplate = () => <Template
   heroContent={<Placeholder>Hero</Placeholder>}
   topContent={<Placeholder>Content Top</Placeholder>}
   leftSidebarContent={<Placeholder>Left Sidebar</Placeholder>}
-  mainContent={<Placeholder>Main Content</Placeholder>}
+  primaryContent={<Placeholder>Main Content</Placeholder>}
   footerContent={<Placeholder>Footer</Placeholder>}
 />;
 
@@ -34,6 +34,6 @@ export const RightSidebarTemplate = () => <Template
   heroContent={<Placeholder>Hero</Placeholder>}
   topContent={<Placeholder>Content Top</Placeholder>}
   rightSidebarContent={<Placeholder>Right Sidebar</Placeholder>}
-  mainContent={<Placeholder>Main Content</Placeholder>}
+  primaryContent={<Placeholder>Main Content</Placeholder>}
   footerContent={<Placeholder>Footer</Placeholder>}
 />;

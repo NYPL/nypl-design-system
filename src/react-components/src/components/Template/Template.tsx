@@ -10,8 +10,8 @@ export interface TemplateProps {
   /** Content intended for inside <header>. */
   headerContent: JSX.Element;
 
-  /** content in the <main> element */
-  mainContent: JSX.Element;
+  /** Primary content within <main> element. */
+  primaryContent: JSX.Element;
 
   /** content in the <main> element */
   footerContent: JSX.Element;
@@ -37,7 +37,7 @@ export default function Template(props: TemplateProps) {
     topContent,
     leftSidebarContent,
     rightSidebarContent,
-    mainContent,
+    primaryContent,
     footerContent,
   } = props;
 
@@ -45,14 +45,28 @@ export default function Template(props: TemplateProps) {
 
   let modifiers = [];
   let mainModifiers = [];
+  let leftSidebar;
+  let rightSidebar;
+
+  const createSidebar = (sidebarContent:  JSX.Element) => 
+    <div className={bem("content-secondary", modifiers)}>
+      {sidebarContent}
+    </div>;
+
+  if (layoutType === LayoutTypes.SidebarLeft) {
+    modifiers.push("with-sidebar-left");
+
+    leftSidebar = createSidebar(leftSidebarContent);
+  } else if (layoutType === LayoutTypes.SidebarRight) {
+    modifiers.push("with-sidebar-right");
+
+    rightSidebar = createSidebar(rightSidebarContent);
+  } else {
+    console.log("Third option");
+  }
 
   if (layoutType = LayoutTypes.SidebarLeft || LayoutTypes.SidebarRight) {
     mainModifiers.push("with-sidebar");
-
-  }
-
-  if (layoutType = LayoutTypes.SidebarLeft) {
-    modifiers.push("with-sidebar-left");
   }
 
   return <div className={bem(templateBaseClass)}>
@@ -69,17 +83,13 @@ export default function Template(props: TemplateProps) {
         {topContent}
       </div>
 
-      <div className={bem("content-secondary", modifiers)}>
-        {leftSidebarContent}
-      </div>
+      {leftSidebar}
 
       <div className={bem("content-primary", modifiers)}>
-        {mainContent}
+        {primaryContent}
       </div>
 
-      <div className={bem("content-secondary", modifiers)}>
-        {rightSidebarContent}
-      </div>
+      {rightSidebar}
     </main>
 
     <footer className={bem("footer", modifiers)}>
