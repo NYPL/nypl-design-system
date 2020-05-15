@@ -28,4 +28,4 @@ export { default as Checkbox } from "./components/01-atoms/Forms/Checkbox";
 export { default as Label } from "./components/01-atoms/Forms/Label";
 export { default as Input } from "./components/01-atoms/Forms/Input";
 export { default as Accordion } from "./components/03-organisms/Accordion/Accordion";
-export { default as Template } from "./components/04-templates/Template";
+export { default as Template } from "./components/Template/Template";

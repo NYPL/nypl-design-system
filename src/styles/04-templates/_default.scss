@@ -1,26 +1,19 @@
+$main-width: 60%;
+$sidebar-width: 25%;
+$sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
+
 .main {
   @include wrapper;
 
   display: block; // Fix for IE weirdness
-}
 
-.react-embed {
-  min-height: 60px;
+  &--with-sidebar {
+    display: flex;
+    flex-flow: column nowrap;
 
-  // Unsets the box-sizing the Reno project globs
-  // on all elements as it isn't what the header app expects
-  & *,
-  & *::before,
-  & *::after {
-    box-sizing: unset;
-  }
-
-  @include breakpoint(769px) {
-    min-height: 162px;
-  }
-
-  @include breakpoint(1025px) {
-    min-height: 208px;
+    @include breakpoint($medium) {
+      flex-flow: row wrap;
+    }
   }
 }
 
@@ -28,23 +21,57 @@
   @include breakout;
   @include space-stack-l;
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     flex: 0 0 100vw;
   }
 }
 
 .content-primary {
   width: 100%;
+}
 
-  *:last-child {
-    &.color-band {
-      @include space-stack-none;
+.content-primary {
+  &--with-sidebar-right,
+  &--with-sidebar-left {
+    @include breakpoint($medium) {
+      @include space-inline-l;
+
+      // Bugfix for Slick slider which calculates width via js.
+      // It doesn't play well with flexbox
+      // unless min-width is set to 0 on its wrapper.
+      min-width: 0;
+      flex: 1 1 $main-width;
+    }
+  }
+
+  &--with-sidebar-left {
+    order: 1;
+    display: flex;
+    flex-flow: column nowrap;
+
+    @include breakpoint($medium) {
+      @include space-inline-none;
     }
   }
 }
 
-.color-band {
-  & + & {
-    @include remove-stack-page;
+.content-secondary {
+  @include space-stack-m;
+
+  @include breakpoint( max-width 599px ) {
+    display: flex;
+  }
+
+  @include breakpoint($medium) {
+    @include space-stack-none;
+
+    flex: 0 1 $sidebar-width;
+    order: 1;
+
+    &--with-sidebar--left {
+      @include space-inline-l;
+
+      flex-basis: $sidebar-width-s;
+    }
   }
 }
