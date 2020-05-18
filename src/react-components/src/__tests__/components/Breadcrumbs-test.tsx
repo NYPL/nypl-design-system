@@ -4,6 +4,7 @@ import * as React from "react";
 import * as Mocha from "mocha";
 
 import Breadcrumbs from "../../components/02-molecules/Menus/Breadcrumbs/Breadcrumbs";
+import Icon from "../../components/01-atoms/Images/Icons/Icon";
 
 describe("Breadcrumbs", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;
@@ -29,9 +30,8 @@ describe("Breadcrumbs", () => {
 
   it("Renders icon", () => {
     wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbComponent} />);
-    let links = wrapper.render();
 
-    expect(links.find("svg")).to.have.lengthOf(1);
+    expect(wrapper.find("Icon")).to.have.lengthOf(1);
   });
 
   it("Throws error when nothing is passed into Breadcrumb", () => {

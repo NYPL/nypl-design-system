@@ -14,12 +14,13 @@
     "jsx": "react",
     "types": [
       "mocha",
-      "node"
+      "node", 
+      "webpack-env"
     ]
   },
   "include": [
     "src",
-    "tsd.d.ts",
+    "tsd.d.ts", "icons",
   ],
   "exclude": [
     "lib",

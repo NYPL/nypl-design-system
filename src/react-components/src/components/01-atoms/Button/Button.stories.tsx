@@ -16,7 +16,7 @@ export const buttonFilledIcon = () =>
     buttonType={ButtonTypes.Filled}
     type="submit"
     iconPosition={ButtonIconPositions.Left}
-    iconName="search-small"
+    iconName="search_small"
     iconDecorative={true}>
     Search
     </Button>;
@@ -45,7 +45,7 @@ export const buttonIconChildrenString = () =>
     buttonType={ButtonTypes.Filled}
     type="submit"
     iconPosition={ButtonIconPositions.Right}
-    iconName="search-small"
+    iconName="search_small"
     iconDecorative={true}
   >
     Search!
@@ -58,7 +58,7 @@ export const buttonIconChildrenElement = () =>
     buttonType={ButtonTypes.Outline}
     type="button"
     iconPosition={ButtonIconPositions.Right}
-    iconName="search-small"
+    iconName="search_small"
     iconDecorative={true}
   >
     <span>I'm wrapped in a span!</span>
@@ -95,7 +95,7 @@ export const linkLikeButtonIconLeft = () =>
     type="button"
     buttonType={ButtonTypes.Link}
     iconPosition={ButtonIconPositions.Left}
-    iconName="arrow-xsmall"
+    iconName="arrow_xsmall"
     iconDecorative={true}
   >
     <span>button content</span>

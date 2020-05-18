@@ -74,7 +74,7 @@ export default class FormDropdown extends React.Component<FormDropdownProps, { s
           })}
         </select>
 
-        <Icon decorative={true} name={"arrow"} modifiers={["small"]} />
+        <Icon decorative={true} name={"arrow"} modifiers={["medium"]} />
       </div>
     );
   }
