@@ -1,9 +1,12 @@
-export { default as Container } from "./components/00-base/Container/Container";
-export { default as Modal } from "./components/00-base/Container/Modal";
+export { default as Container } from "./components/Container/Container";
+export { default as Modal } from "./components/Modal/Modal";
 export { default as Button } from "./components/01-atoms/Button/Button";
 export { default as Image } from "./components/01-atoms/Images/Image/Image";
-export { ButtonIconPositions, ButtonTypes } from "./components/01-atoms/Button/ButtonTypes";
-export { default as SectionName } from "./components/00-base/SectionName"
+export {
+  ButtonIconPositions,
+  ButtonTypes,
+} from "./components/01-atoms/Button/ButtonTypes";
+export { default as SectionName } from "./components/SectionName/SectionName";
 export { default as BodyText } from "./components/01-atoms/Text/Text/BodyText";
 export { default as UnderlineLink } from "./components/01-atoms/Links/UnderlineLink";
 export { default as BasicLink } from "./components/01-atoms/Links/BasicLink";

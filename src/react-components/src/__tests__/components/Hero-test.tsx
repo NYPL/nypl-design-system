@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Placeholder from "../../components/00-base/Placeholder";
+import Placeholder from "../../components/Placeholder/Placeholder";
 import Image from "../../components/01-atoms/Images/Image/Image";
 import Heading from "../../components/01-atoms/Text/Headings/Heading";
 import { HeroTypes } from "../../components/03-organisms/Hero/HeroTypes";
@@ -24,7 +24,8 @@ describe("Hero Test", () => {
           />
         }
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
-      ></Hero>
+      >
+      </Hero>
     );
     expect(wrapper.prop("style")).to.deep.equal({
       backgroundImage: "url(https://placeimg.com/1600/800/arch)",

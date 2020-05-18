@@ -1,5 +1,5 @@
 import * as React from "react";
-import bem from "../../../utils/bem";
+import bem from "../../utils/bem"
 
 export interface ModalProps {
   /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
