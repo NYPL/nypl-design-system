@@ -10,7 +10,8 @@
         "storybook:static:twig": "lerna exec --scope storybook npm run static:twig",
         "storybook:static:react": "lerna exec --scope storybook npm run static:react",
         "test": "lerna exec npm test",
-        "format": "prettier --write \"**/*.{ts, tsx, js,jsx,json}\""
+        "format": "prettier --write \"**/*.{ts, tsx, js,jsx,json}\"",
+        "pretty-quick": "pretty-quick"
     },
     "devDependencies": {
         "@babel/core": "^7.6.4",
@@ -43,13 +44,13 @@
         "chai": "^4.2.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.1",
-        "git-format-staged": "^2.1.0",
         "husky": "^4.2.5",
         "import-glob-loader": "^1.1.0",
         "jsdom": "^15.2.1",
         "lerna": "3.18.1",
         "normalize.css": "^8.0.1",
-        "prettier": "^2.0.5",
+        "prettier": "2.0.5",
+        "pretty-quick": "^2.0.1",
         "prop-types": "^15.7.2",
         "react-docgen-typescript-loader": "^3.1.0",
         "react-uid": "^2.2.0",
@@ -76,7 +77,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run format"
+            "pre-commit": "pretty-quick --staged"
         }
     }
 }
