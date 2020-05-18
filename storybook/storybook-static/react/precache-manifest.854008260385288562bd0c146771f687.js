@@ -104,26 +104,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/__tests__/setupEnzyme.d.ts"
   },
   {
-    "revision": "91277e5c6e6f3d54a467372250f73c6c",
-    "url": "../../../src/react-components/lib/components/00-base/Container/Container.d.ts"
-  },
-  {
-    "revision": "5915e06f5e6badd235883b1677e28d8e",
-    "url": "../../../src/react-components/lib/components/00-base/Container/Modal.d.ts"
-  },
-  {
-    "revision": "12005943278995492ecc2a6346216b60",
-    "url": "../../../src/react-components/lib/components/00-base/Container/Modal.stories.d.ts"
-  },
-  {
-    "revision": "e9e7743fd445f3103e4e75c412f71b7c",
-    "url": "../../../src/react-components/lib/components/00-base/Placeholder.d.ts"
-  },
-  {
-    "revision": "78133e7ad9f65ffc89d2767a8452f4c9",
-    "url": "../../../src/react-components/lib/components/00-base/SectionName.d.ts"
-  },
-  {
     "revision": "67db1b59e301375b60b8ce6044b47df9",
     "url": "../../../src/react-components/lib/components/01-atoms/Button/Button.d.ts"
   },
@@ -356,11 +336,31 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/03-organisms/SearchPromo/SearchPromo.stories.d.ts"
   },
   {
+    "revision": "91277e5c6e6f3d54a467372250f73c6c",
+    "url": "../../../src/react-components/lib/components/Container/Container.d.ts"
+  },
+  {
+    "revision": "5915e06f5e6badd235883b1677e28d8e",
+    "url": "../../../src/react-components/lib/components/Modal/Modal.d.ts"
+  },
+  {
+    "revision": "12005943278995492ecc2a6346216b60",
+    "url": "../../../src/react-components/lib/components/Modal/Modal.stories.d.ts"
+  },
+  {
+    "revision": "e9e7743fd445f3103e4e75c412f71b7c",
+    "url": "../../../src/react-components/lib/components/Placeholder/Placeholder.d.ts"
+  },
+  {
+    "revision": "78133e7ad9f65ffc89d2767a8452f4c9",
+    "url": "../../../src/react-components/lib/components/SectionName/SectionName.d.ts"
+  },
+  {
     "revision": "3269c9487d1c14a54899bec416b3cecc",
     "url": "../../../src/react-components/lib/helpers/hoc/WithOneChild.d.ts"
   },
   {
-    "revision": "6dd3a90f9df57ac5e1d966e57c0bd4b6",
+    "revision": "d313fc8d917dfb8db3d51953e35d50ee",
     "url": "../../../src/react-components/lib/index.d.ts"
   },
   {
@@ -368,17 +368,17 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "17a8001fe8bebc9b0ed6ed287462986e",
+    "revision": "6ec30385272230d539fef8a1e1c75b4e",
     "url": "iframe.html"
   },
   {
-    "url": "main.6476f777507b8fca719b.bundle.js"
+    "url": "main.322ca13e518d84e178ae.bundle.js"
   },
   {
-    "url": "runtime~main.6476f777507b8fca719b.bundle.js"
+    "url": "runtime~main.322ca13e518d84e178ae.bundle.js"
   },
   {
-    "revision": "d591fc1dc45ee7dfaca5",
+    "revision": "579c3071d3d1cee6d0dd",
     "url": "static/css/vendors~main.f8f248a5.chunk.css"
   },
   {
@@ -386,9 +386,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "static/media/sprite.3328b4c9.svg"
   },
   {
-    "url": "vendors~main.6476f777507b8fca719b.bundle.js"
+    "url": "vendors~main.322ca13e518d84e178ae.bundle.js"
   },
   {
-    "url": "vendors~main.6476f777507b8fca719b.bundle.js.LICENSE.txt"
+    "url": "vendors~main.322ca13e518d84e178ae.bundle.js.LICENSE.txt"
   }
 ]);
