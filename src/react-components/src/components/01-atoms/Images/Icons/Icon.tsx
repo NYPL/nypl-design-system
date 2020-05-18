@@ -1,5 +1,4 @@
 import * as React from "react";
-import SVG from "react-inlinesvg";
 import bem from "../../../../utils/bem";
 
 import arrow_xsmall from "../../../../../icons/svg/arrow-xsmall.svg";
@@ -35,7 +34,6 @@ export interface IconProps {
 export default class Icon extends React.Component<IconProps, {}> {
   constructor(props: IconProps) {
     super(props);
-    console.log("allSvgs", allSvgs);
   }
 
   render(): JSX.Element {
@@ -51,9 +49,9 @@ export default class Icon extends React.Component<IconProps, {}> {
       "title": title ? `title-${name}` : undefined,
       "description": desc ? `title-${name}` : undefined
     };
-
+    let svg = allSvgs[name];
     return (
-      <SVG {...iconProps} src={allSvgs[name]}></SVG>
+      <div {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />
     );
   }
 }

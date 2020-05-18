@@ -11,6 +11,8 @@ describe("Renders Input (closed state)", () => {
       id="accordion"
       buttonOptions={{ id: "accordionBtn", content: <>Click to expand</> }}
     > <div className="accordion-content">content content</div> </Accordion>);
+
+    console.log("container", container.debug());
   });
 
   it("Renders a button", () => {
