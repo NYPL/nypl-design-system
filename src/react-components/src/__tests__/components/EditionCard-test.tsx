@@ -65,7 +65,6 @@ describe("EditionCard", () => {
 
   it("Generates an Edition Card with a Heading Link, Image and two Links", () => {
     let card = Enzyme.mount(regularEditionCard);
-    console.log("card debug", card.debug());
     expect(card.find("h3")).to.have.lengthOf(1);
     expect(card.find("h3").find("a")).to.have.lengthOf(1);
     expect(card.find("img")).to.have.lengthOf(1);
