@@ -25,7 +25,6 @@ describe("Hero Test", () => {
         }
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
       >
-        >
       </Hero>
     );
     expect(wrapper.prop("style")).to.deep.equal({
