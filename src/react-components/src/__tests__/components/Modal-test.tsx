@@ -3,7 +3,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Modal from "../../components/00-base/Container/Modal";
+import Modal from "../../components/Modal/Modal";
 
 describe("Modal", () => {
   it("modal applies 'no-scroll' class to body", () => {

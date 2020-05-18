@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import bem from "../../../utils/bem";
-import SectionTitle from "../../02-molecules/Headings/SectionTitle";
+import SectionTitle from "../../Headings/SectionTitle";
 import SearchBar from "../../02-molecules/SearchBar/SearchBar";
 import BodyText from "../../01-atoms/Text/Text/BodyText";
 
@@ -27,39 +27,60 @@ export interface SearchPromoProps {
   textChangeHandler?: (event: React.FormEvent) => void;
 }
 export default function SearchPromo(props: SearchPromoProps) {
-  const { headingText, modifiers, blockName, titleId,
-    searchBarId, searchButtonId,
-    hasError, errorMessage,
-    dropdownId, selectedOption, searchDropdownOptions, advancedSearchMessage, searchValue, searchInputAriaLabel,
-    selectChangeHandler, selectBlurHandler, searchSubmitHandler, textChangeHandler } = props;
+  const {
+    headingText,
+    modifiers,
+    blockName,
+    titleId,
+    searchBarId,
+    searchButtonId,
+    hasError,
+    errorMessage,
+    dropdownId,
+    selectedOption,
+    searchDropdownOptions,
+    advancedSearchMessage,
+    searchValue,
+    searchInputAriaLabel,
+    selectChangeHandler,
+    selectBlurHandler,
+    searchSubmitHandler,
+    textChangeHandler,
+  } = props;
 
   const searchpromo__base_class = "search-promo";
 
+  return (
+    <div className={bem(searchpromo__base_class, modifiers, blockName)}>
+      <div className={bem("content", [], searchpromo__base_class)}>
+        <SectionTitle
+          id={titleId}
+          headingText={headingText}
+          blockName={searchpromo__base_class}
+        />
+        <div className={bem("search-section", [], searchpromo__base_class)}>
+          <SearchBar
+            searchBarId={searchBarId}
+            searchBarAriaLabelledBy={titleId}
+            buttonId={searchButtonId}
+            dropdownId={dropdownId}
+            dropdownOptions={searchDropdownOptions}
+            dropdownAriaLabel="Filter Search"
+            selectedField={selectedOption}
+            searchValue={searchValue}
+            hasError={hasError}
+            errorMessage={errorMessage}
+            selectBlurHandler={selectBlurHandler}
+            selectChangeHandler={selectChangeHandler}
+            searchSubmitHandler={searchSubmitHandler}
+            searchChangeHandler={textChangeHandler}
+          />
 
-  return <div className={bem(searchpromo__base_class, modifiers, blockName)}>
-    <div className={bem("content", [], searchpromo__base_class)}>
-      <SectionTitle id={titleId} headingText={headingText} blockName={searchpromo__base_class} />
-      <div className={bem("search-section", [], searchpromo__base_class)}>
-        <SearchBar
-          searchBarId={searchBarId}
-          searchBarAriaLabelledBy={titleId}
-          buttonId={searchButtonId}
-          dropdownId={dropdownId}
-          dropdownOptions={searchDropdownOptions}
-          dropdownAriaLabel="Filter Search"
-          selectedField={selectedOption}
-          searchValue={searchValue}
-          hasError={hasError}
-          errorMessage={errorMessage}
-          selectBlurHandler={selectBlurHandler}
-          selectChangeHandler={selectChangeHandler}
-          searchSubmitHandler={searchSubmitHandler}
-          searchChangeHandler={textChangeHandler} />
-
-        <div className={bem("promo-text", [], searchpromo__base_class)}>
-          <BodyText bodyContent={advancedSearchMessage} />
+          <div className={bem("promo-text", [], searchpromo__base_class)}>
+            <BodyText bodyContent={advancedSearchMessage} />
+          </div>
         </div>
       </div>
     </div>
-  </div>;
+  );
 }
