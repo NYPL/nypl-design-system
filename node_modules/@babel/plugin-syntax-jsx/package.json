@@ -24,6 +24,7 @@
   },
   "_requiredBy": [
     "/@babel/plugin-transform-react-jsx",
+    "/@babel/plugin-transform-react-jsx-development",
     "/@babel/plugin-transform-react-jsx-self",
     "/@babel/plugin-transform-react-jsx-source"
   ],

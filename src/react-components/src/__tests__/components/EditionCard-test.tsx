@@ -68,12 +68,7 @@ describe("EditionCard", () => {
     expect(card.find("h3")).to.have.lengthOf(1);
     expect(card.find("h3").find("a")).to.have.lengthOf(1);
     expect(card.find("img")).to.have.lengthOf(1);
-    expect(card.findWhere(n => {
-      return n.name() === "a" && n.text() === "Download";
-    })).to.have.lengthOf(1);
-    expect(card.findWhere(n => {
-      return n.name() === "a" && n.text() === "Read Online";
-    })).to.have.lengthOf(1);
+    expect(card.find(".edition-card__card-info-link").find("a")).to.have.lengthOf(2);
   });
 
   it("Shows an error span if Links are missing and not passed a link element", () => {

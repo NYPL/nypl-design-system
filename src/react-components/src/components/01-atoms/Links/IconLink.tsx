@@ -20,7 +20,7 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
   }
   render(): JSX.Element {
     let iconLink__base_class = "more-link";
-    const { url, attributes, modifiers, blockName, iconName= "arrow-xsmall", iconPosition, iconModifiers } = this.props;
+    const { url, attributes, modifiers, blockName, iconName= "arrow_xsmall", iconPosition, iconModifiers } = this.props;
 
     let moreLinkModifiers = modifiers ? modifiers : [];
     let children = this.props.children;

@@ -8,6 +8,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const util = __importStar(require("../util"));
+const util_1 = require("../util");
 const definition = {
     type: 'object',
     properties: {
@@ -16,6 +17,52 @@ const definition = {
     },
     additionalProperties: false,
 };
+function createRules(options) {
+    var _a;
+    const globals = Object.assign(Object.assign({}, ((options === null || options === void 0 ? void 0 : options.before) !== undefined ? { before: options.before } : {})), ((options === null || options === void 0 ? void 0 : options.after) !== undefined ? { after: options.after } : {}));
+    const override = (_a = options === null || options === void 0 ? void 0 : options.overrides) !== null && _a !== void 0 ? _a : {};
+    const colon = Object.assign(Object.assign({ before: false, after: true }, globals), override === null || override === void 0 ? void 0 : override.colon);
+    const arrow = Object.assign(Object.assign({ before: true, after: true }, globals), override === null || override === void 0 ? void 0 : override.arrow);
+    return {
+        colon: colon,
+        arrow: arrow,
+        variable: Object.assign(Object.assign({}, colon), override === null || override === void 0 ? void 0 : override.variable),
+        property: Object.assign(Object.assign({}, colon), override === null || override === void 0 ? void 0 : override.property),
+        parameter: Object.assign(Object.assign({}, colon), override === null || override === void 0 ? void 0 : override.parameter),
+        returnType: Object.assign(Object.assign({}, colon), override === null || override === void 0 ? void 0 : override.returnType),
+    };
+}
+function getIdentifierRules(rules, node) {
+    const scope = node === null || node === void 0 ? void 0 : node.parent;
+    if (util_1.isVariableDeclarator(scope)) {
+        return rules.variable;
+    }
+    else if (util_1.isFunctionOrFunctionType(scope)) {
+        return rules.parameter;
+    }
+    else {
+        return rules.colon;
+    }
+}
+function getRules(rules, node) {
+    var _a;
+    const scope = (_a = node === null || node === void 0 ? void 0 : node.parent) === null || _a === void 0 ? void 0 : _a.parent;
+    if (util_1.isTSFunctionType(scope) || util_1.isTSConstructorType(scope)) {
+        return rules.arrow;
+    }
+    else if (util_1.isIdentifier(scope)) {
+        return getIdentifierRules(rules, scope);
+    }
+    else if (util_1.isClassOrTypeElement(scope)) {
+        return rules.property;
+    }
+    else if (util_1.isFunction(scope)) {
+        return rules.returnType;
+    }
+    else {
+        return rules.colon;
+    }
+}
 exports.default = util.createRule({
     name: 'type-annotation-spacing',
     meta: {
@@ -43,6 +90,10 @@ exports.default = util.createRule({
                         properties: {
                             colon: definition,
                             arrow: definition,
+                            variable: definition,
+                            parameter: definition,
+                            property: definition,
+                            returnType: definition,
                         },
                         additionalProperties: false,
                     },
@@ -57,12 +108,9 @@ exports.default = util.createRule({
         {},
     ],
     create(context, [options]) {
-        var _a, _b;
         const punctuators = [':', '=>'];
         const sourceCode = context.getSourceCode();
-        const overrides = (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.overrides, (_b !== null && _b !== void 0 ? _b : { colon: {}, arrow: {} }));
-        const colonOptions = Object.assign({}, { before: false, after: true }, options, overrides.colon);
-        const arrowOptions = Object.assign({}, { before: true, after: true }, options, overrides.arrow);
+        const ruleSet = createRules(options);
         /**
          * Checks if there's proper spacing around type annotations (no space
          * before colon, one space after).
@@ -76,8 +124,7 @@ exports.default = util.createRule({
             if (!punctuators.includes(type)) {
                 return;
             }
-            const before = type === ':' ? colonOptions.before : arrowOptions.before;
-            const after = type === ':' ? colonOptions.after : arrowOptions.after;
+            const { before, after } = getRules(ruleSet, typeAnnotation);
             if (type === ':' && previousToken.value === '?') {
                 // shift the start to the ?
                 type = '?:';

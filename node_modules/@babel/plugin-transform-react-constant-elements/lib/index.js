@@ -9,10 +9,6 @@ var _helperPluginUtils = require("@babel/helper-plugin-utils");
 
 var _core = require("@babel/core");
 
-var _helperAnnotateAsPure = _interopRequireDefault(require("@babel/helper-annotate-as-pure"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var _default = (0, _helperPluginUtils.declare)((api, options) => {
   api.assertVersion(7);
   const {
@@ -94,14 +90,7 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
         }
 
         path.traverse(immutabilityVisitor, state);
-
-        if (state.isImmutable) {
-          const hoisted = path.hoist();
-
-          if (hoisted) {
-            (0, _helperAnnotateAsPure.default)(hoisted);
-          }
-        }
+        if (state.isImmutable) path.hoist();
       }
 
     }

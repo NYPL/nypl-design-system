@@ -138,7 +138,7 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
         let patternId;
         let node;
 
-        if (this.kind === "const") {
+        if (this.kind === "const" || this.kind === "let") {
           patternId = this.scope.generateUidIdentifier(tempId.name);
           node = this.buildVariableDeclaration(patternId, tempConditional);
         } else {
@@ -467,6 +467,7 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
         }
 
         path.replaceWithMultiple(nodes);
+        path.scope.crawl();
       },
 
       VariableDeclaration(path) {

@@ -852,7 +852,7 @@ class ValidationError extends Error {
           const {
             parentSchema
           } = error;
-          return `${dataPath} should be an instance of ${this.getSchemaPartText(parentSchema)}.`;
+          return `${dataPath} should be an instance of ${this.getSchemaPartText(parentSchema, false, true)}`;
         }
 
       case 'pattern':
@@ -1176,7 +1176,7 @@ class ValidationError extends Error {
           const {
             parentSchema
           } = error;
-          return `${dataPath} should be equal to constant ${this.getSchemaPartText(parentSchema)}`;
+          return `${dataPath} should be equal to constant ${this.getSchemaPartText(parentSchema, false, true)}`;
         }
 
       case 'not':
@@ -1185,7 +1185,7 @@ class ValidationError extends Error {
             schema,
             parentSchema
           } = error;
-          return `${dataPath} should not be ${this.getSchemaPartText(schema)}${parentSchema && likeObject(parentSchema) ? `\n${this.getSchemaPartText(parentSchema)}` : ''}`;
+          return `${dataPath} should not be ${this.getSchemaPartText(schema, false, true)}${parentSchema && likeObject(parentSchema) ? `\n${this.getSchemaPartText(parentSchema)}` : ''}`;
         }
 
       case 'oneOf':
