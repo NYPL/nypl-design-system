@@ -48,6 +48,7 @@
         "import-glob-loader": "^1.1.0",
         "jsdom": "^15.2.1",
         "lerna": "3.18.1",
+        "mocha": "^6.2.2",
         "normalize.css": "^8.0.1",
         "prettier": "2.0.5",
         "pretty-quick": "^2.0.1",
