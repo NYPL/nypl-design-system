@@ -10,14 +10,13 @@ import search_small from "../../../../../icons/svg/search-small.svg";
 import search from "../../../../../icons/svg/search.svg";
 
 const allSvgs = {
-  arrow_xsmall: arrow_xsmall,
-  arrow: arrow,
-  download: download,
-  minus: minus,
-  plus: plus,
-  search_small:
+  arrow_xsmall,
+  arrow,
+  download,
+  minus,
+  plus,
   search_small,
-  search: search
+  search
 };
 
 // Wrapper Class for Icon

@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.3.7",
+  "version": "0.3.5",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -23,9 +23,6 @@
   "devDependencies": {
     "@types/webpack-env": "^1.15.2",
     "file-loader": "^6.0.0",
-    "svg-sprite": "^1.5.0",
-    "svg-inline-loader": "^0.8.2",
-    "@svgr/webpack": "^5.4.0",
     "tslint": "^6.0.0-beta0",
     "typescript": "^3.6.4",
     "webpack": "^4.41.5",

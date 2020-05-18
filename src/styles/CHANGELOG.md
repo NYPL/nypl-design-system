@@ -8,9 +8,10 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ========
 
-## [0.3.5]
-
+## [0.0.22]
+### [Changed]
 - Improve the hover color contrasts for `RNSectionTitle` links on dark backgrounds
+- Removed a superfluous `flex` in SearchPromo
 
 ## [0.0.21]
 
