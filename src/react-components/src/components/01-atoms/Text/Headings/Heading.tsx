@@ -17,7 +17,17 @@ export interface HeadingProps {
 }
 
 export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
-  const { level, id, baseClass= "heading", text, modifiers, blockName, url, urlClass, attributes } = props;
+  const {
+    level,
+    id,
+    baseClass = "heading",
+    text,
+    modifiers,
+    blockName,
+    url,
+    urlClass,
+    attributes,
+  } = props;
 
   let heading_base_class = baseClass;
 
@@ -30,28 +40,37 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
   }
 
   if (React.Children.count(props.children) > 1) {
-    const children = React.Children.map(props.children, child =>
-      (child as JSX.Element).type);
+    const children = React.Children.map(
+      props.children,
+      (child) => (child as JSX.Element).type
+    );
+    console.log("CHILDREN", children);
     // Catching the error because React's error isn't as helpful.
-    throw new Error(`Please only pass one child into Heading, got ${children.join(", ")}`);
+    throw new Error(
+      `Please only pass one child into Heading, got ${children.join(", ")}`
+    );
   }
 
   let content: string | React.ReactNode;
   if (props.children) {
-    content = url ? React.createElement("a", { href: url, className: urlClass }, props.children) : props.children;
+    content = url
+      ? React.createElement(
+          "a",
+          { href: url, className: urlClass },
+          props.children
+        )
+      : props.children;
   } else {
-    content = url ? React.createElement("a", { href: url, className: urlClass }, text) : text;
+    content = url
+      ? React.createElement("a", { href: url, className: urlClass }, text)
+      : text;
   }
 
   let headingProps = {
     className: bem(heading_base_class, modifiers, blockName),
     id: id,
-    ...attributes
+    ...attributes,
   };
 
-  return React.createElement(
-    "h" + level,
-    headingProps,
-    content
-  );
+  return React.createElement("h" + level, headingProps, content);
 }
