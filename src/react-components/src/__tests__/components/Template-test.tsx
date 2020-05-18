@@ -12,17 +12,46 @@ describe("Template Test", () => {
   let wrapper: Enzyme.ShallowWrapper<{}, {}>;
 
   it("Generates a full width Template", () => {
-    let wrapper = Enzyme.shallow(<Template
-      layoutType={LayoutTypes.FullWidth}
-      headerContent={<Placeholder>Header</Placeholder>}
-      primaryContent={<Placeholder>Main Content</Placeholder>}
-      footerContent={<Placeholder>Footer</Placeholder>}
-    ></Template>);
+    let wrapper = Enzyme.shallow(
+      <Template
+        layoutType={LayoutTypes.FullWidth}
+        headerContent={<Placeholder>Header</Placeholder>}
+        primaryContent={<Placeholder>Main Content</Placeholder>}
+        footerContent={<Placeholder>Footer</Placeholder>}
+      ></Template>
+    );
     expect(wrapper.prop("className")).to.equal("layout-container");
   });
-});
 
-// Generates "default template", the skeleton
-// Generates a full width template
-// Generates a template with left sidebar
-// Generates a template with right sidebar
+  it("Generates a template with a left sidebar", () => {
+    let wrapper = Enzyme.shallow(
+      <Template
+        layoutType={LayoutTypes.SidebarLeft}
+        headerContent={<Placeholder>Header</Placeholder>}
+        heroContent={<Placeholder>Hero</Placeholder>}
+        leftSidebarContent={<Placeholder>Left Sidebar</Placeholder>}
+        primaryContent={<Placeholder>Main Content</Placeholder>}
+        footerContent={<Placeholder>Footer</Placeholder>}
+      ></Template>
+    );
+    expect(
+      wrapper.find(".content-secondary--with-sidebar-left")
+    ).to.have.lengthOf(1);
+  });
+
+  it("Generates a template with a right sidebar", () => {
+    let wrapper = Enzyme.shallow(
+      <Template
+        layoutType={LayoutTypes.SidebarRight}
+        headerContent={<Placeholder>Header</Placeholder>}
+        heroContent={<Placeholder>Hero</Placeholder>}
+        rightSidebarContent={<Placeholder>Right Sidebar</Placeholder>}
+        primaryContent={<Placeholder>Main Content</Placeholder>}
+        footerContent={<Placeholder>Footer</Placeholder>}
+      ></Template>
+    );
+    expect(
+      wrapper.find(".content-secondary--with-sidebar-right")
+    ).to.have.lengthOf(1);
+  });
+});

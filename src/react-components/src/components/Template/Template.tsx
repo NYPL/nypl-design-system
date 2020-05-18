@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import { LayoutTypes } from "./LayoutTypes"
-import Placeholder from "../00-base/Placeholder"
+import { LayoutTypes } from "./LayoutTypes";
+import Placeholder from "../00-base/Placeholder";
 
 export interface TemplateProps {
   /** Enum to control if Template has left/right sidebar or is full width. */
@@ -13,7 +13,7 @@ export interface TemplateProps {
   /** Primary content within <main> element. */
   primaryContent: JSX.Element;
 
-  /** content in the <main> element */
+  /** Content intended for inside <footer>. */
   footerContent: JSX.Element;
 
   /** Heroes appear inside <main> but extend full-width of template. */
@@ -22,11 +22,8 @@ export interface TemplateProps {
   /** Separate block for content above primary content within <main>. */
   topContent?: JSX.Element;
 
-  /** Content intended for inside the sidebar within <main>. Shows up on the left. */
-  leftSidebarContent?: JSX.Element;
-
-  /** Content intended for inside the sidebar within <main>. Shows up on the right. */
-  rightSidebarContent?: JSX.Element;
+  /** Content intended for inside the sidebar within <main>. */
+  sidebarContent?: JSX.Element;
 }
 
 export default function Template(props: TemplateProps) {
@@ -35,8 +32,7 @@ export default function Template(props: TemplateProps) {
     headerContent,
     heroContent,
     topContent,
-    leftSidebarContent,
-    rightSidebarContent,
+    sidebarContent,
     primaryContent,
     footerContent,
   } = props;
@@ -48,52 +44,43 @@ export default function Template(props: TemplateProps) {
   let leftSidebar;
   let rightSidebar;
 
-  const createSidebar = (sidebarContent:  JSX.Element) => 
-    <div className={bem("content-secondary", modifiers)}>
-      {sidebarContent}
-    </div>;
+  const createSidebar = (sidebarContent: JSX.Element) => (
+    <div className={bem("content-secondary", modifiers)}>{sidebarContent}</div>
+  );
 
   if (layoutType === LayoutTypes.SidebarLeft) {
     modifiers.push("with-sidebar-left");
-
-    leftSidebar = createSidebar(leftSidebarContent);
+    leftSidebar = createSidebar(sidebarContent);
   } else if (layoutType === LayoutTypes.SidebarRight) {
     modifiers.push("with-sidebar-right");
-
-    rightSidebar = createSidebar(rightSidebarContent);
+    rightSidebar = createSidebar(sidebarContent);
   } else {
-    console.log("Third option");
+    return;
   }
 
-  if (layoutType = LayoutTypes.SidebarLeft || LayoutTypes.SidebarRight) {
+  if (layoutType === LayoutTypes.SidebarLeft || LayoutTypes.SidebarRight) {
     mainModifiers.push("with-sidebar");
   }
 
-  return <div className={bem(templateBaseClass)}>
-    <header className={bem("header")}>
-      {headerContent}
-    </header>
+  return (
+    <div className={bem(templateBaseClass)}>
+      <header className={bem("header")}>{headerContent}</header>
 
-    <main className={bem("main", mainModifiers)}>
-      <div className="content-header">
-        {heroContent}
-      </div>
+      <main className={bem("main", mainModifiers)}>
+        <div className="content-header">{heroContent}</div>
 
-      <div className="content-top">
-        {topContent}
-      </div>
+        <div className="content-top">{topContent}</div>
 
-      {leftSidebar}
+        {leftSidebar}
 
-      <div className={bem("content-primary", modifiers)}>
-        {primaryContent}
-      </div>
+        <div className={bem("content-primary", modifiers)}>
+          {primaryContent}
+        </div>
 
-      {rightSidebar}
-    </main>
+        {rightSidebar}
+      </main>
 
-    <footer className={bem("footer", modifiers)}>
-      {footerContent}
-    </footer>
-  </div>;
+      <footer className={bem("footer", modifiers)}>{footerContent}</footer>
+    </div>
+  );
 }
