@@ -12,7 +12,7 @@ export { default as UnderlineLink } from "./components/01-atoms/Links/UnderlineL
 export { default as BasicLink } from "./components/01-atoms/Links/BasicLink";
 export { default as IconLink } from "./components/01-atoms/Links/IconLink";
 export { default as Heading } from "./components/01-atoms/Text/Headings/Heading";
-export { default as SectionTitle } from "./components/02-molecules/Headings/SectionTitle";
+export { default as SectionTitle } from "./components/Headings/SectionTitle";
 export { default as Breadcrumbs } from "./components/02-molecules/Menus/Breadcrumbs/Breadcrumbs";
 export { default as Pagination } from "./components/02-molecules/Menus/Pagination/Pagination";
 export { default as Dropdown } from "./components/02-molecules/Dropdown/Dropdown";
