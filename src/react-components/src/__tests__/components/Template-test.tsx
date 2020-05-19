@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import Template from "../../components/Template/Template";
 import { LayoutTypes } from "../../components/Template/LayoutTypes";
-import Placeholder from "../../components/00-base/Placeholder";
+import Placeholder from "../../components/Placeholder/Placeholder";
 
 import * as Mocha from "mocha";
 
