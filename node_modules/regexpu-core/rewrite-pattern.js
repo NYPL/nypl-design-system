@@ -202,13 +202,11 @@ const processTerm = (item, regenerateOptions, groups) => {
 			item = processCharacterClass(item, regenerateOptions);
 			break;
 		case 'unicodePropertyEscape':
-			if (config.unicodePropertyEscape) {
-				update(
-					item,
-					getUnicodePropertyEscapeSet(item.value, item.negative)
-						.toString(regenerateOptions)
-				);
-			}
+			update(
+				item,
+				getUnicodePropertyEscapeSet(item.value, item.negative)
+					.toString(regenerateOptions)
+			);
 			break;
 		case 'characterClassEscape':
 			update(
@@ -224,7 +222,7 @@ const processTerm = (item, regenerateOptions, groups) => {
 			if (item.behavior == 'normal') {
 				groups.lastIndex++;
 			}
-			if (item.name && config.namedGroup) {
+			if (item.name) {
 				const name = item.name.value;
 
 				if (groups.names[name]) {
@@ -301,23 +299,19 @@ const config = {
 	'ignoreCase': false,
 	'unicode': false,
 	'dotAll': false,
-	'useUnicodeFlag': false,
-	'unicodePropertyEscape': false,
-	'namedGroup': false
+	'useUnicodeFlag': false
 };
 const rewritePattern = (pattern, flags, options) => {
-	config.unicode = flags && flags.includes('u');
 	const regjsparserFeatures = {
-		'unicodePropertyEscape': config.unicode,
-		'namedGroups': true,
+		'unicodePropertyEscape': options && options.unicodePropertyEscape,
+		'namedGroups': options && options.namedGroup,
 		'lookbehind': options && options.lookbehind
 	};
 	config.ignoreCase = flags && flags.includes('i');
+	config.unicode = flags && flags.includes('u');
 	const supportDotAllFlag = options && options.dotAllFlag;
 	config.dotAll = supportDotAllFlag && flags && flags.includes('s');
-	config.namedGroup = options && options.namedGroup;
 	config.useUnicodeFlag = options && options.useUnicodeFlag;
-	config.unicodePropertyEscape = options && options.unicodePropertyEscape;
 	const regenerateOptions = {
 		'hasUnicodeFlag': config.useUnicodeFlag,
 		'bmpOnly': !config.unicode

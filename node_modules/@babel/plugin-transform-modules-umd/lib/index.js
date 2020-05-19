@@ -101,7 +101,7 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
         exit(path) {
           if (!(0, _helperModuleTransforms.isModule)(path)) return;
           const browserGlobals = globals || {};
-          let moduleName = (0, _helperModuleTransforms.getModuleName)(this.file.opts, options);
+          let moduleName = this.getModuleName();
           if (moduleName) moduleName = _core.types.stringLiteral(moduleName);
           const {
             meta,

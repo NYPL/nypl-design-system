@@ -17,7 +17,6 @@ exports.assertNodeType = assertNodeType;
 exports.assertNodeOrValueType = assertNodeOrValueType;
 exports.assertValueType = assertValueType;
 exports.assertShape = assertShape;
-exports.assertOptionalChainStart = assertOptionalChainStart;
 exports.chain = chain;
 exports.default = defineType;
 exports.NODE_PARENT_VALIDATIONS = exports.DEPRECATED_KEYS = exports.BUILDER_KEYS = exports.NODE_FIELDS = exports.FLIPPED_ALIAS_KEYS = exports.ALIAS_KEYS = exports.VISITOR_KEYS = void 0;
@@ -188,38 +187,6 @@ function assertShape(shape) {
   }
 
   validate.shapeOf = shape;
-  return validate;
-}
-
-function assertOptionalChainStart() {
-  function validate(node) {
-    var _current;
-
-    let current = node;
-
-    while (node) {
-      const {
-        type
-      } = current;
-
-      if (type === "OptionalCallExpression") {
-        if (current.optional) return;
-        current = current.callee;
-        continue;
-      }
-
-      if (type === "OptionalMemberExpression") {
-        if (current.optional) return;
-        current = current.object;
-        continue;
-      }
-
-      break;
-    }
-
-    throw new TypeError(`Non-optional ${node.type} must chain from an optional OptionalMemberExpression or OptionalCallExpression. Found chain from ${(_current = current) == null ? void 0 : _current.type}`);
-  }
-
   return validate;
 }
 

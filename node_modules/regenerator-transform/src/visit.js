@@ -114,9 +114,11 @@ exports.getVisitor = ({ types: t }) => ({
 
       if (context.usesArguments) {
         vars = vars || t.variableDeclaration("var", []);
+        const argumentIdentifier = t.identifier("arguments");
+        // we need to do this as otherwise arguments in arrow functions gets hoisted
+        argumentIdentifier._shadowedFunctionLiteral = path;
         vars.declarations.push(t.variableDeclarator(
-          t.clone(argsId),
-          t.identifier("arguments"),
+          t.clone(argsId), argumentIdentifier
         ));
       }
 
@@ -132,7 +134,7 @@ exports.getVisitor = ({ types: t }) => ({
 
       if (node.generator) {
         wrapArgs.push(outerFnExpr);
-      } else if (context.usesThis || tryLocsList || node.async) {
+      } else if (context.usesThis || tryLocsList) {
         // Async functions that are not generators don't care about the
         // outer function because they don't need it to be marked and don't
         // inherit from its .prototype.
@@ -140,24 +142,11 @@ exports.getVisitor = ({ types: t }) => ({
       }
       if (context.usesThis) {
         wrapArgs.push(t.thisExpression());
-      } else if (tryLocsList || node.async) {
+      } else if (tryLocsList) {
         wrapArgs.push(t.nullLiteral());
       }
       if (tryLocsList) {
         wrapArgs.push(tryLocsList);
-      } else if (node.async) {
-        wrapArgs.push(t.nullLiteral());
-      }
-
-      if (node.async) {
-        // Rename any locally declared "Promise" variable,
-        // to use the global one.
-        let currentScope = path.scope;
-        do {
-          if (currentScope.hasOwnBinding("Promise")) currentScope.rename("Promise");
-        } while (currentScope = currentScope.parent);
-
-        wrapArgs.push(t.identifier("Promise"));
       }
 
       let wrapCall = t.callExpression(

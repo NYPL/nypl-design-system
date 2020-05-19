@@ -47,8 +47,7 @@ function normalizeOptions(code, opts) {
     jsescOption: Object.assign({
       quotes: "double",
       wrap: true
-    }, opts.jsescOption),
-    recordAndTupleSyntaxType: opts.recordAndTupleSyntaxType
+    }, opts.jsescOption)
   };
 
   if (format.minified) {

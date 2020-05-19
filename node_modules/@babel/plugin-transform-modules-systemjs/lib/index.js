@@ -363,7 +363,7 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
             sources.push(_core.types.stringLiteral(specifiers.key));
             setters.push(_core.types.functionExpression(null, [_core.types.identifier(target)], _core.types.blockStatement(setterBody)));
           });
-          let moduleName = (0, _helperModuleTransforms.getModuleName)(this.file.opts, options);
+          let moduleName = this.getModuleName();
           if (moduleName) moduleName = _core.types.stringLiteral(moduleName);
           (0, _helperHoistVariables.default)(path, (id, name, hasInit) => {
             variableIds.push(id);

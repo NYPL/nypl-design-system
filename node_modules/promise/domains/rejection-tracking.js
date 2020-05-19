@@ -12,8 +12,8 @@ var enabled = false;
 exports.disable = disable;
 function disable() {
   enabled = false;
-  Promise._Y = null;
-  Promise._Z = null;
+  Promise._l = null;
+  Promise._m = null;
 }
 
 exports.enable = enable;
@@ -24,27 +24,27 @@ function enable(options) {
   var id = 0;
   var displayId = 0;
   var rejections = {};
-  Promise._Y = function (promise) {
+  Promise._l = function (promise) {
     if (
-      promise._V === 2 && // IS REJECTED
-      rejections[promise._1]
+      promise._i === 2 && // IS REJECTED
+      rejections[promise._o]
     ) {
-      if (rejections[promise._1].logged) {
-        onHandled(promise._1);
+      if (rejections[promise._o].logged) {
+        onHandled(promise._o);
       } else {
-        clearTimeout(rejections[promise._1].timeout);
+        clearTimeout(rejections[promise._o].timeout);
       }
-      delete rejections[promise._1];
+      delete rejections[promise._o];
     }
   };
-  Promise._Z = function (promise, err) {
-    if (promise._U === 0) { // not yet handled
-      promise._1 = id++;
-      rejections[promise._1] = {
+  Promise._m = function (promise, err) {
+    if (promise._h === 0) { // not yet handled
+      promise._o = id++;
+      rejections[promise._o] = {
         displayId: null,
         error: err,
         timeout: setTimeout(
-          onUnhandled.bind(null, promise._1),
+          onUnhandled.bind(null, promise._o),
           // For reference errors and type errors, this almost always
           // means the programmer made a mistake, so log them after just
           // 100ms

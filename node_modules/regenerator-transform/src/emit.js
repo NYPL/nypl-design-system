@@ -995,13 +995,13 @@ Ep.explodeExpression = function(path, ignoreResult) {
     let argsPath = path.get("arguments");
 
     let newCallee;
-    let newArgs;
+    let newArgs = [];
 
-    let hasLeapingArgs = argsPath.some(
-      argPath => meta.containsLeap(argPath.node)
-    );
-
-    let injectFirstArg = null;
+    let hasLeapingArgs = false;
+    argsPath.forEach(function(argPath) {
+      hasLeapingArgs = hasLeapingArgs ||
+        meta.containsLeap(argPath.node);
+    });
 
     if (t.isMemberExpression(calleePath.node)) {
       if (hasLeapingArgs) {
@@ -1022,7 +1022,7 @@ Ep.explodeExpression = function(path, ignoreResult) {
           ? explodeViaTempVar(null, calleePath.get("property"))
           : calleePath.node.property;
 
-        injectFirstArg = newObject;
+        newArgs.unshift(newObject);
 
         newCallee = t.memberExpression(
           t.memberExpression(
@@ -1057,16 +1057,14 @@ Ep.explodeExpression = function(path, ignoreResult) {
       }
     }
 
-    if (hasLeapingArgs) {
-      newArgs = argsPath.map(argPath => explodeViaTempVar(null, argPath));
-      if (injectFirstArg) newArgs.unshift(injectFirstArg);
+    argsPath.forEach(function(argPath) {
+      newArgs.push(explodeViaTempVar(null, argPath));
+    });
 
-      newArgs = newArgs.map(arg => t.cloneDeep(arg));
-    } else {
-      newArgs = path.node.arguments;
-    }
-
-    return finish(t.callExpression(newCallee, newArgs));
+    return finish(t.callExpression(
+      newCallee,
+      newArgs.map(arg => t.cloneDeep(arg))
+    ));
 
   case "NewExpression":
     return finish(t.newExpression(
@@ -1094,13 +1092,7 @@ Ep.explodeExpression = function(path, ignoreResult) {
   case "ArrayExpression":
     return finish(t.arrayExpression(
       path.get("elements").map(function(elemPath) {
-        if (elemPath.isSpreadElement()) {
-          return t.spreadElement(
-            explodeViaTempVar(null, elemPath.get("argument"))
-          );
-        } else {
-          return explodeViaTempVar(null, elemPath);
-        }
+        return explodeViaTempVar(null, elemPath);
       })
     ));
 

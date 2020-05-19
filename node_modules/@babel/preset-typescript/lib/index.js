@@ -12,12 +12,11 @@ var _pluginTransformTypescript = _interopRequireDefault(require("@babel/plugin-t
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = (0, _helperPluginUtils.declare)((api, {
-  allExtensions = false,
-  allowDeclareFields,
-  allowNamespaces,
   jsxPragma,
+  allExtensions = false,
   isTSX = false,
-  onlyRemoveTypeImports
+  allowNamespaces,
+  allowDeclareFields
 }) => {
   api.assertVersion(7);
 
@@ -34,11 +33,10 @@ var _default = (0, _helperPluginUtils.declare)((api, {
   }
 
   const pluginOptions = isTSX => ({
-    allowDeclareFields,
-    allowNamespaces,
-    isTSX,
     jsxPragma,
-    onlyRemoveTypeImports
+    isTSX,
+    allowNamespaces,
+    allowDeclareFields
   });
 
   return {

@@ -5,10 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = cloneWithoutLoc;
 
-var _cloneNode = _interopRequireDefault(require("./cloneNode"));
+var _clone = _interopRequireDefault(require("./clone"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function cloneWithoutLoc(node) {
-  return (0, _cloneNode.default)(node, false, true);
+  const newNode = (0, _clone.default)(node);
+  newNode.loc = null;
+  return newNode;
 }

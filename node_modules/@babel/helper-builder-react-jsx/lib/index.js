@@ -5,15 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
+var _esutils = _interopRequireDefault(require("esutils"));
+
 var t = _interopRequireWildcard(require("@babel/types"));
-
-var _helperAnnotateAsPure = _interopRequireDefault(require("@babel/helper-annotate-as-pure"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _default(opts) {
   const visitor = {};
@@ -21,7 +21,7 @@ function _default(opts) {
   visitor.JSXNamespacedName = function (path) {
     if (opts.throwIfNamespace) {
       throw path.buildCodeFrameError(`Namespace tags are not supported by default. React's JSX doesn't support namespace tags. \
-You can set \`throwIfNamespace: false\` to bypass this warning.`);
+You can turn on the 'throwIfNamespace' flag to bypass this warning.`);
     }
   };
 
@@ -59,7 +59,7 @@ You can set \`throwIfNamespace: false\` to bypass this warning.`);
     if (t.isJSXIdentifier(node)) {
       if (node.name === "this" && t.isReferenced(node, parent)) {
         return t.thisExpression();
-      } else if (t.isValidIdentifier(node.name, false)) {
+      } else if (_esutils.default.keyword.isIdentifierNameES6(node.name)) {
         node.type = "Identifier";
       } else {
         return t.stringLiteral(node.name);
@@ -97,7 +97,7 @@ You can set \`throwIfNamespace: false\` to bypass this warning.`);
 
     if (t.isJSXNamespacedName(node.name)) {
       node.name = t.stringLiteral(node.name.namespace.name + ":" + node.name.name.name);
-    } else if (t.isValidIdentifier(node.name.name, false)) {
+    } else if (_esutils.default.keyword.isIdentifierNameES6(node.name.name)) {
       node.name.type = "Identifier";
     } else {
       node.name = t.stringLiteral(node.name.name);
@@ -123,8 +123,7 @@ You can set \`throwIfNamespace: false\` to bypass this warning.`);
     const state = {
       tagExpr: tagExpr,
       tagName: tagName,
-      args: args,
-      pure: false
+      args: args
     };
 
     if (opts.pre) {
@@ -145,9 +144,7 @@ You can set \`throwIfNamespace: false\` to bypass this warning.`);
       opts.post(state, file);
     }
 
-    const call = state.call || t.callExpression(state.callee, args);
-    if (state.pure) (0, _helperAnnotateAsPure.default)(call);
-    return call;
+    return state.call || t.callExpression(state.callee, args);
   }
 
   function pushProps(_props, objs) {
@@ -219,8 +216,7 @@ You can set \`throwIfNamespace: false\` to bypass this warning.`);
     const state = {
       tagExpr: tagExpr,
       tagName: tagName,
-      args: args,
-      pure: false
+      args: args
     };
 
     if (opts.pre) {
@@ -234,8 +230,6 @@ You can set \`throwIfNamespace: false\` to bypass this warning.`);
     }
 
     file.set("usedFragment", true);
-    const call = state.call || t.callExpression(state.callee, args);
-    if (state.pure) (0, _helperAnnotateAsPure.default)(call);
-    return call;
+    return state.call || t.callExpression(state.callee, args);
   }
 }

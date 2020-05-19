@@ -18,9 +18,9 @@ var _moduleTransformations = _interopRequireDefault(require("./module-transforma
 
 var _normalizeOptions = _interopRequireDefault(require("./normalize-options"));
 
-var _shippedProposals = require("../data/shipped-proposals");
+var _plugins = _interopRequireDefault(require("@babel/compat-data/plugins"));
 
-var _pluginsCompatData = require("./plugins-compat-data");
+var _shippedProposals = require("../data/shipped-proposals");
 
 var _overlappingPlugins = _interopRequireDefault(require("@babel/compat-data/overlapping-plugins"));
 
@@ -58,24 +58,7 @@ function isPluginRequired(targets, support) {
   });
 }
 
-const pluginLists = {
-  withProposals: {
-    withoutBugfixes: _pluginsCompatData.plugins,
-    withBugfixes: Object.assign({}, _pluginsCompatData.plugins, _pluginsCompatData.pluginsBugfixes)
-  },
-  withoutProposals: {
-    withoutBugfixes: (0, _utils.filterStageFromList)(_pluginsCompatData.plugins, _shippedProposals.proposalPlugins),
-    withBugfixes: (0, _utils.filterStageFromList)(Object.assign({}, _pluginsCompatData.plugins, _pluginsCompatData.pluginsBugfixes), _shippedProposals.proposalPlugins)
-  }
-};
-
-function getPluginList(proposals, bugfixes) {
-  if (proposals) {
-    if (bugfixes) return pluginLists.withProposals.withBugfixes;else return pluginLists.withProposals.withoutBugfixes;
-  } else {
-    if (bugfixes) return pluginLists.withoutProposals.withBugfixes;else return pluginLists.withoutProposals.withoutBugfixes;
-  }
-}
+const pluginListWithoutProposals = (0, _utils.filterStageFromList)(_plugins.default, _shippedProposals.proposalPlugins);
 
 const getPlugin = pluginName => {
   const plugin = _availablePlugins.default[pluginName];
@@ -207,7 +190,6 @@ function supportsTopLevelAwait(caller) {
 var _default = (0, _helperPluginUtils.declare)((api, opts) => {
   api.assertVersion(7);
   const {
-    bugfixes,
     configPath,
     debug,
     exclude: optionsExclude,
@@ -257,7 +239,7 @@ var _default = (0, _helperPluginUtils.declare)((api, opts) => {
     shouldTransformDynamicImport: modules !== "auto" || !api.caller || !api.caller(supportsDynamicImport),
     shouldParseTopLevelAwait: !api.caller || api.caller(supportsTopLevelAwait)
   });
-  const pluginNames = (0, _helperCompilationTargets.filterItems)(getPluginList(shippedProposals, bugfixes), include.plugins, exclude.plugins, transformTargets, modulesPluginNames, (0, _getOptionSpecificExcludes.default)({
+  const pluginNames = (0, _helperCompilationTargets.filterItems)(shippedProposals ? _plugins.default : pluginListWithoutProposals, include.plugins, exclude.plugins, transformTargets, modulesPluginNames, (0, _getOptionSpecificExcludes.default)({
     loose
   }), _shippedProposals.pluginSyntaxMap);
   (0, _filterItems.removeUnnecessaryItems)(pluginNames, _overlappingPlugins.default);
@@ -286,7 +268,7 @@ var _default = (0, _helperPluginUtils.declare)((api, opts) => {
     console.log(`\nUsing modules transform: ${modules.toString()}`);
     console.log("\nUsing plugins:");
     pluginNames.forEach(pluginName => {
-      (0, _debug.logPluginOrPolyfill)(pluginName, targets, _pluginsCompatData.plugins);
+      (0, _debug.logPluginOrPolyfill)(pluginName, targets, _plugins.default);
     });
 
     if (!useBuiltIns) {

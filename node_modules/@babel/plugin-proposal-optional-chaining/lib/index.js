@@ -18,11 +18,6 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
   const {
     loose = false
   } = options;
-
-  function isSimpleMemberExpression(expression) {
-    return _core.types.isIdentifier(expression) || _core.types.isSuper(expression) || _core.types.isMemberExpression(expression) && !expression.computed && isSimpleMemberExpression(expression.object);
-  }
-
   return {
     name: "proposal-optional-chaining",
     inherits: _pluginSyntaxOptionalChaining.default,
@@ -73,7 +68,7 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
           let ref;
           let check;
 
-          if (loose && isCall && isSimpleMemberExpression(chain)) {
+          if (loose && isCall) {
             check = ref = chain;
           } else {
             ref = scope.maybeGenerateMemoised(chain);
@@ -87,7 +82,7 @@ var _default = (0, _helperPluginUtils.declare)((api, options) => {
           }
 
           if (isCall && _core.types.isMemberExpression(chain)) {
-            if (loose && isSimpleMemberExpression(chain)) {
+            if (loose) {
               node.callee = chain;
             } else {
               const {

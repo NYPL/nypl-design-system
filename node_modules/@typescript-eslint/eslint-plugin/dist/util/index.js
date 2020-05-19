@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const experimental_utils_1 = require("@typescript-eslint/experimental-utils");
 __export(require("./astUtils"));
 __export(require("./createRule"));
-__export(require("./isTypeReadonly"));
 __export(require("./misc"));
 __export(require("./nullThrows"));
 __export(require("./types"));

@@ -31,12 +31,6 @@ Object.defineProperty(exports, "isSideEffectImport", {
     return _normalizeAndLoadMetadata.isSideEffectImport;
   }
 });
-Object.defineProperty(exports, "getModuleName", {
-  enumerable: true,
-  get: function () {
-    return _getModuleName.default;
-  }
-});
 
 var _assert = _interopRequireDefault(require("assert"));
 
@@ -53,8 +47,6 @@ var _rewriteThis = _interopRequireDefault(require("./rewrite-this"));
 var _rewriteLiveReferences = _interopRequireDefault(require("./rewrite-live-references"));
 
 var _normalizeAndLoadMetadata = _interopRequireWildcard(require("./normalize-and-load-metadata"));
-
-var _getModuleName = _interopRequireDefault(require("./get-module-name"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -183,7 +175,7 @@ function buildNamespaceInitStatements(metadata, sourceMetadata, loose = false) {
 }
 
 const getTemplateForReexport = loose => {
-  return loose ? _template.default.statement`EXPORTS.EXPORT_NAME = NAMESPACE.IMPORT_NAME;` : (0, _template.default)`
+  return loose ? _template.default.statement`EXPORTS.EXPORT_NAME = NAMESPACE.IMPORT_NAME;` : _template.default`
       Object.defineProperty(EXPORTS, "EXPORT_NAME", {
         enumerable: true,
         get: function() {
@@ -239,7 +231,7 @@ function buildNamespaceReexport(metadata, namespace, loose) {
     `)({
     NAMESPACE: namespace,
     EXPORTS: metadata.exportName,
-    VERIFY_NAME_LIST: metadata.exportNameListName ? (0, _template.default)`
+    VERIFY_NAME_LIST: metadata.exportNameListName ? _template.default`
             if (Object.prototype.hasOwnProperty.call(EXPORTS_LIST, key)) return;
           `({
       EXPORTS_LIST: metadata.exportNameListName

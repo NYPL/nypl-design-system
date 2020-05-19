@@ -216,7 +216,7 @@ class AutocompletePrompt extends Prompt {
     let { startIndex, endIndex } = entriesToDisplay(this.select, this.choices.length, this.limit);
 
     this.outputText = [
-      style.symbol(this.done, this.aborted),
+      color.bold(style.symbol(this.done, this.aborted)),
       color.bold(this.msg),
       style.delimiter(this.completing),
       this.done && this.suggestions[this.select]

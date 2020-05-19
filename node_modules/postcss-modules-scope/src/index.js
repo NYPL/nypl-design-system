@@ -86,7 +86,6 @@ const processor = postcss.plugin('postcss-modules-scope', function(options) {
       (options && options.generateScopedName) || processor.generateScopedName;
     const generateExportEntry =
       (options && options.generateExportEntry) || processor.generateExportEntry;
-    const exportGlobals = options && options.exportGlobals;
 
     const exports = Object.create(null);
 
@@ -174,12 +173,6 @@ const processor = postcss.plugin('postcss-modules-scope', function(options) {
           node.each(traverseNode);
           break;
         }
-        case 'id':
-        case 'class': 
-          if (exportGlobals) {
-            exports[node.value] = [node.value];
-          }
-          break;
       }
       return node;
     }

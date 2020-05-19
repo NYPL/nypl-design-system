@@ -304,9 +304,6 @@ defineInterfaceishType("InterfaceDeclaration");
 (0, _utils.default)("StringTypeAnnotation", {
   aliases: ["Flow", "FlowType", "FlowBaseAnnotation"]
 });
-(0, _utils.default)("SymbolTypeAnnotation", {
-  aliases: ["Flow", "FlowType", "FlowBaseAnnotation"]
-});
 (0, _utils.default)("ThisTypeAnnotation", {
   aliases: ["Flow", "FlowType", "FlowBaseAnnotation"]
 });
@@ -390,7 +387,7 @@ defineInterfaceishType("InterfaceDeclaration");
   aliases: ["Flow", "FlowType", "FlowBaseAnnotation"]
 });
 (0, _utils.default)("EnumDeclaration", {
-  aliases: ["Statement", "Declaration"],
+  aliases: ["Declaration"],
   visitor: ["id", "body"],
   fields: {
     id: (0, _utils.validateType)("Identifier"),

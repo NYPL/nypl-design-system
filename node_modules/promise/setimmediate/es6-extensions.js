@@ -16,9 +16,9 @@ var ZERO = valuePromise(0);
 var EMPTYSTRING = valuePromise('');
 
 function valuePromise(value) {
-  var p = new Promise(Promise._0);
-  p._V = 1;
-  p._W = value;
+  var p = new Promise(Promise._n);
+  p._i = 1;
+  p._j = value;
   return p;
 }
 Promise.resolve = function (value) {
@@ -46,20 +46,8 @@ Promise.resolve = function (value) {
   return valuePromise(value);
 };
 
-var iterableToArray = function (iterable) {
-  if (typeof Array.from === 'function') {
-    // ES2015+, iterables exist
-    iterableToArray = Array.from;
-    return Array.from(iterable);
-  }
-
-  // ES5, only arrays and array-likes exist
-  iterableToArray = function (x) { return Array.prototype.slice.call(x); };
-  return Array.prototype.slice.call(iterable);
-}
-
 Promise.all = function (arr) {
-  var args = iterableToArray(arr);
+  var args = Array.prototype.slice.call(arr);
 
   return new Promise(function (resolve, reject) {
     if (args.length === 0) return resolve([]);
@@ -67,11 +55,11 @@ Promise.all = function (arr) {
     function res(i, val) {
       if (val && (typeof val === 'object' || typeof val === 'function')) {
         if (val instanceof Promise && val.then === Promise.prototype.then) {
-          while (val._V === 3) {
-            val = val._W;
+          while (val._i === 3) {
+            val = val._j;
           }
-          if (val._V === 1) return res(i, val._W);
-          if (val._V === 2) reject(val._W);
+          if (val._i === 1) return res(i, val._j);
+          if (val._i === 2) reject(val._j);
           val.then(function (val) {
             res(i, val);
           }, reject);
@@ -106,7 +94,7 @@ Promise.reject = function (value) {
 
 Promise.race = function (values) {
   return new Promise(function (resolve, reject) {
-    iterableToArray(values).forEach(function(value){
+    values.forEach(function(value){
       Promise.resolve(value).then(resolve, reject);
     });
   });

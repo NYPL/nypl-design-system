@@ -15,17 +15,14 @@ const FILE_NAME_VAR = "_jsxFileName";
 var _default = (0, _helperPluginUtils.declare)(api => {
   api.assertVersion(7);
 
-  function makeTrace(fileNameIdentifier, lineNumber, column0Based) {
+  function makeTrace(fileNameIdentifier, lineNumber) {
     const fileLineLiteral = lineNumber != null ? _core.types.numericLiteral(lineNumber) : _core.types.nullLiteral();
-    const fileColumnLiteral = column0Based != null ? _core.types.numericLiteral(column0Based + 1) : _core.types.nullLiteral();
 
     const fileNameProperty = _core.types.objectProperty(_core.types.identifier("fileName"), fileNameIdentifier);
 
     const lineNumberProperty = _core.types.objectProperty(_core.types.identifier("lineNumber"), fileLineLiteral);
 
-    const columnNumberProperty = _core.types.objectProperty(_core.types.identifier("columnNumber"), fileColumnLiteral);
-
-    return _core.types.objectExpression([fileNameProperty, lineNumberProperty, columnNumberProperty]);
+    return _core.types.objectExpression([fileNameProperty, lineNumberProperty]);
   }
 
   const visitor = {
@@ -63,7 +60,7 @@ var _default = (0, _helperPluginUtils.declare)(api => {
         state.fileNameIdentifier = fileNameIdentifier;
       }
 
-      const trace = makeTrace(state.fileNameIdentifier, location.start.line, location.start.column);
+      const trace = makeTrace(state.fileNameIdentifier, location.start.line);
       attributes.push(_core.types.jsxAttribute(id, _core.types.jsxExpressionContainer(trace)));
     }
 

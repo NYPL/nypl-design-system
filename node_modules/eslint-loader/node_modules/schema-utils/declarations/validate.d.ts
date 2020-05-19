@@ -32,7 +32,7 @@ declare function validate(
     | import('json-schema').JSONSchema4
     | import('json-schema').JSONSchema6
     | import('json-schema').JSONSchema7,
-  options: object | object[],
+  options: any,
   configuration?: ValidationErrorConfiguration | undefined
 ): void;
 declare namespace validate {
