@@ -1,46 +1,45 @@
 .search-promo {
-  @include breakout;
+    @include breakout;
 
-  background-color: $gray-warm-light;
-  min-height: 160px;
+    background-color: $gray-warm-light;
+    min-height: 160px;
 
-  &__content {
-    @include wrapper;
-    @include space-inset-s;
+    &__content {
+        @include wrapper;
+        @include space-inset-s;
 
-    display: flex;
-    flex-flow: row wrap;
-  }
-
-  &__heading-section {
-    @include space-stack-none;
-
-    flex: 1 1 100%;
-  }
-
-  &__search-section {
-    align-items: flex-start;
-    display: flex;
-    flex-flow: column wrap;
-    flex: 1;
-
-    @include breakpoint($large) {
-      flex-flow: row nowrap;
+        display: flex;
+        flex-flow: row wrap;
     }
-  }
 
-  &__promo-text {
-    flex: 1;
-  }
+    &__heading-section {
+        @include space-stack-none;
+
+        flex: 1 1 100%;
+    }
+
+    &__search-section {
+        align-items: flex-start;
+        flex-flow: column wrap;
+        flex: 1;
+
+        @include breakpoint($large) {
+            flex-flow: row nowrap;
+        }
+    }
+
+    &__promo-text {
+        flex: 1;
+    }
 }
 
 .search-promo .search-bar {
-  @include space-inline-s;
+    @include space-inline-s;
 
-  flex: 2;
-  width: 100%;
+    flex: 2;
+    width: 100%;
 }
 
 .search-promo .body-text p {
-  @include space-stack-none;
+    @include space-stack-none;
 }

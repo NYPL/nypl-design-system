@@ -67,10 +67,10 @@
         "twigjs-loader": "^1.0.0",
         "typescript": "^3.6.4",
         "webpack": "^4.41.5",
-        "webpack-cli": "^3.3.10"
+        "webpack-cli": "^3.3.10",
+        "webpack-node-externals": "^1.7.2"
     },
     "dependencies": {
-        "@nypl/design-system-icons": "file:src/icons",
         "@nypl/design-system-react-components": "file:src/react-components",
         "@nypl/design-system-styles": "file:src/styles",
         "@nypl/design-system-twig": "file:src/twig",
