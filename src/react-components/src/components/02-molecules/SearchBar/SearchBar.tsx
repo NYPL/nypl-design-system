@@ -1,41 +1,41 @@
 // MF-46 Search Bar with Search By Parameter
 
-import * as React from 'react'
-import bem from '../../../utils/bem'
-import FormDropdown from '../../01-atoms/Forms/FormDropdown'
-import TextField from '../../01-atoms/Forms/TextField'
-import { Button } from '../../..'
+import * as React from "react";
+import bem from "../../../utils/bem";
+import FormDropdown from "../../01-atoms/Forms/FormDropdown";
+import TextField from "../../01-atoms/Forms/TextField";
+import { Button } from "../../..";
 import {
     ButtonIconPositions,
     ButtonTypes,
-} from '../../01-atoms/Button/ButtonTypes'
-import { ButtonOptions } from '../../01-atoms/Button/Button'
+} from "../../01-atoms/Button/ButtonTypes";
+import { ButtonOptions } from "../../01-atoms/Button/Button";
 
 export interface SearchBarProps {
-    searchBarId: string
-    blockName?: string
-    searchBarAriaLabel?: string
-    searchBarAriaLabelledBy?: string
-    buttonId: string
-    dropdownId?: string
-    dropdownAriaLabel?: string
-    dropdownOptions?: string[]
-    selectedField?: string
-    searchValue?: string
-    placeHolder?: string
-    searchButtonAttributes?: {}
-    placeholderText?: string
-    textFieldAriaLabel?: string
-    textFieldAttributes?: {}
+    searchBarId: string;
+    blockName?: string;
+    searchBarAriaLabel?: string;
+    searchBarAriaLabelledBy?: string;
+    buttonId: string;
+    dropdownId?: string;
+    dropdownAriaLabel?: string;
+    dropdownOptions?: string[];
+    selectedField?: string;
+    searchValue?: string;
+    placeHolder?: string;
+    searchButtonAttributes?: {};
+    placeholderText?: string;
+    textFieldAriaLabel?: string;
+    textFieldAttributes?: {};
     // helperVariant enables a ResearchNow specific alternate.
     // It should not be used in any other context.
-    helperVariant?: 'ResearchNow'
-    hasError?: boolean
-    errorMessage?: string
-    selectBlurHandler?: (event: React.MouseEvent) => void
-    selectChangeHandler?: (event: React.MouseEvent) => void
-    searchSubmitHandler: (event: React.MouseEvent) => void
-    searchChangeHandler?: (event: React.FormEvent) => void
+    helperVariant?: "ResearchNow";
+    hasError?: boolean;
+    errorMessage?: string;
+    selectBlurHandler?: (event: React.MouseEvent) => void;
+    selectChangeHandler?: (event: React.MouseEvent) => void;
+    searchSubmitHandler: (event: React.MouseEvent) => void;
+    searchChangeHandler?: (event: React.FormEvent) => void;
 }
 
 export default function SearchBar(props: SearchBarProps) {
@@ -58,7 +58,7 @@ export default function SearchBar(props: SearchBarProps) {
         searchSubmitHandler,
         selectChangeHandler,
         searchChangeHandler,
-    } = props
+    } = props;
 
     if (dropdownOptions) {
         if (
@@ -71,30 +71,30 @@ export default function SearchBar(props: SearchBarProps) {
         ) {
             throw new Error(`If dropdownOptions are passed, dropdownId (currently ${dropdownId}),
       dropdownAriaLabel (currently ${dropdownAriaLabel}), selectChangeHandler (currently ${selectChangeHandler}),
-      and selectBlurHandler (currently ${selectBlurHandler}) must also be passed`)
+      and selectBlurHandler (currently ${selectBlurHandler}) must also be passed`);
         }
     }
 
     if (!searchBarAriaLabel && !searchBarAriaLabelledBy) {
         throw new Error(
-            'Either searchBarAriaLabel and searchBarAriaLabelledBy must be passed'
-        )
+            "Either searchBarAriaLabel and searchBarAriaLabelledBy must be passed"
+        );
     }
 
-    let modifiers = []
+    let modifiers = [];
     if (hasError) {
         if (!errorMessage) {
             throw new Error(
-                'If there is an error, there must also be an error message'
-            )
+                "If there is an error, there must also be an error message"
+            );
         }
-        modifiers.push('error')
+        modifiers.push("error");
     }
 
-    let searchbar__base_class = 'search-bar'
+    let searchbar__base_class = "search-bar";
 
     let textfieldProps = {
-        id: searchBarId + '-input-textfield',
+        id: searchBarId + "-input-textfield",
         ariaLabelledBy: buttonId,
         onChange: searchChangeHandler,
         isRequired: true,
@@ -103,7 +103,7 @@ export default function SearchBar(props: SearchBarProps) {
             hasError && helperVariant ? errorMessage : placeholderText,
         value: searchValue,
         modifiers: modifiers,
-    }
+    };
 
     let buttonProps: ButtonOptions = {
         id: buttonId,
@@ -112,9 +112,9 @@ export default function SearchBar(props: SearchBarProps) {
         content: <>Search</>,
         buttonType: ButtonTypes.Filled,
         iconPosition: ButtonIconPositions.Left,
-        iconName: 'search_small',
+        iconName: "search_small",
         iconDecorative: true,
-    }
+    };
 
     return (
         <form
@@ -141,7 +141,7 @@ export default function SearchBar(props: SearchBarProps) {
                 />
             )}
 
-            <div className={bem('input-group', [], searchbar__base_class)}>
+            <div className={bem("input-group", [], searchbar__base_class)}>
                 <TextField {...textfieldProps}></TextField>
                 <Button callback={searchSubmitHandler} {...buttonProps}>
                     {buttonProps.content}
@@ -149,7 +149,7 @@ export default function SearchBar(props: SearchBarProps) {
                 {hasError && !helperVariant && (
                     <span
                         className={bem(
-                            'input-description',
+                            "input-description",
                             modifiers,
                             searchbar__base_class
                         )}
@@ -159,5 +159,5 @@ export default function SearchBar(props: SearchBarProps) {
                 )}
             </div>
         </form>
-    )
+    );
 }

@@ -1,30 +1,30 @@
 // OF-21 Search Promo
 
-import * as React from 'react'
-import bem from '../../../utils/bem'
-import SectionTitle from '../../Headings/SectionTitle'
-import SearchBar from '../../02-molecules/SearchBar/SearchBar'
-import BodyText from '../../01-atoms/Text/Text/BodyText'
+import * as React from "react";
+import bem from "../../../utils/bem";
+import SectionTitle from "../../Headings/SectionTitle";
+import SearchBar from "../../02-molecules/SearchBar/SearchBar";
+import BodyText from "../../01-atoms/Text/Text/BodyText";
 
 export interface SearchPromoProps {
-    headingText: string
-    modifiers?: []
-    blockName?: string
-    titleId: string
-    searchBarId: string
-    searchButtonId: string
-    searchInputAriaLabel: string
-    dropdownId: string
-    hasError?: boolean
-    errorMessage?: string
-    searchDropdownOptions: string[]
-    selectedOption?: string
-    searchValue?: string
-    advancedSearchMessage: JSX.Element
-    selectChangeHandler: (event: React.FormEvent) => void
-    selectBlurHandler: (event: React.FormEvent) => void
-    searchSubmitHandler: (event: React.MouseEvent) => void
-    textChangeHandler?: (event: React.FormEvent) => void
+    headingText: string;
+    modifiers?: [];
+    blockName?: string;
+    titleId: string;
+    searchBarId: string;
+    searchButtonId: string;
+    searchInputAriaLabel: string;
+    dropdownId: string;
+    hasError?: boolean;
+    errorMessage?: string;
+    searchDropdownOptions: string[];
+    selectedOption?: string;
+    searchValue?: string;
+    advancedSearchMessage: JSX.Element;
+    selectChangeHandler: (event: React.FormEvent) => void;
+    selectBlurHandler: (event: React.FormEvent) => void;
+    searchSubmitHandler: (event: React.MouseEvent) => void;
+    textChangeHandler?: (event: React.FormEvent) => void;
 }
 export default function SearchPromo(props: SearchPromoProps) {
     const {
@@ -46,13 +46,13 @@ export default function SearchPromo(props: SearchPromoProps) {
         selectBlurHandler,
         searchSubmitHandler,
         textChangeHandler,
-    } = props
+    } = props;
 
-    const searchpromo__base_class = 'search-promo'
+    const searchpromo__base_class = "search-promo";
 
     return (
         <div className={bem(searchpromo__base_class, modifiers, blockName)}>
-            <div className={bem('content', [], searchpromo__base_class)}>
+            <div className={bem("content", [], searchpromo__base_class)}>
                 <SectionTitle
                     id={titleId}
                     headingText={headingText}
@@ -60,7 +60,7 @@ export default function SearchPromo(props: SearchPromoProps) {
                 />
                 <div
                     className={bem(
-                        'search-section',
+                        "search-section",
                         [],
                         searchpromo__base_class
                     )}
@@ -84,7 +84,7 @@ export default function SearchPromo(props: SearchPromoProps) {
 
                     <div
                         className={bem(
-                            'promo-text',
+                            "promo-text",
                             [],
                             searchpromo__base_class
                         )}
@@ -94,5 +94,5 @@ export default function SearchPromo(props: SearchPromoProps) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

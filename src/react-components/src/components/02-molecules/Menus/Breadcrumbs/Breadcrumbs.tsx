@@ -1,78 +1,78 @@
-import * as React from 'react'
-import bem from '../../../../utils/bem'
-import Icon from '../../../01-atoms/Images/Icons/Icon'
+import * as React from "react";
+import bem from "../../../../utils/bem";
+import Icon from "../../../01-atoms/Images/Icons/Icon";
 
-type breadcrumb = { url: string; text: string }
+type breadcrumb = { url: string; text: string };
 
 function isTextBreadcrumb(obj: breadcrumb | JSX.Element): obj is breadcrumb {
-    return typeof (obj as breadcrumb).url === 'string'
+    return typeof (obj as breadcrumb).url === "string";
 }
 
 export interface BreadcrumbProps {
-    breadcrumbs: breadcrumb[] | JSX.Element[]
+    breadcrumbs: breadcrumb[] | JSX.Element[];
 }
 
 export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
-    static defaultProps = {}
+    static defaultProps = {};
 
     constructor(props: BreadcrumbProps) {
-        super(props)
+        super(props);
     }
 
     render(): JSX.Element {
-        const { breadcrumbs } = this.props
+        const { breadcrumbs } = this.props;
 
-        let breadcrumbs__base_class = 'breadcrumbs'
+        let breadcrumbs__base_class = "breadcrumbs";
 
-        let breadcrumbItems = []
+        let breadcrumbItems = [];
 
         if (!breadcrumbs || breadcrumbs.length === 0) {
             throw new Error(
-                'Breadcrumbs must contain a set of links. Breadcrumbs currently empty'
-            )
+                "Breadcrumbs must contain a set of links. Breadcrumbs currently empty"
+            );
         }
         breadcrumbs.forEach((item: breadcrumb | JSX.Element, index: number) => {
-            let last = index === breadcrumbs.length - 1
-            let linkComponent: string | JSX.Element
+            let last = index === breadcrumbs.length - 1;
+            let linkComponent: string | JSX.Element;
 
             if (isTextBreadcrumb(item)) {
                 linkComponent = item.url ? (
                     <a
                         href={item.url}
-                        className={bem('link', [], breadcrumbs__base_class)}
+                        className={bem("link", [], breadcrumbs__base_class)}
                     >
                         {item.text}
                     </a>
                 ) : (
                     item.text
-                )
+                );
             } else {
                 let props = {
-                    className: bem('link', [], breadcrumbs__base_class),
-                }
+                    className: bem("link", [], breadcrumbs__base_class),
+                };
                 linkComponent = React.createElement(
                     item.type,
                     { ...props, ...item.props },
                     item.props.children
-                )
+                );
             }
             breadcrumbItems.push(
                 <li
                     key={`${breadcrumbs__base_class}-${index}`}
-                    className={bem('item', [], breadcrumbs__base_class)}
+                    className={bem("item", [], breadcrumbs__base_class)}
                 >
                     {last && (
                         <Icon
                             name="arrow_xsmall"
                             blockName={breadcrumbs__base_class}
-                            modifiers={['small']}
+                            modifiers={["small"]}
                             decorative={true}
                         />
                     )}
                     {linkComponent}
                 </li>
-            )
-        })
+            );
+        });
 
         return (
             <nav
@@ -80,10 +80,10 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
                 role="navigation"
                 aria-label="Breadcrumbs"
             >
-                <ul className={bem('list', [], breadcrumbs__base_class)}>
+                <ul className={bem("list", [], breadcrumbs__base_class)}>
                     {breadcrumbItems}
                 </ul>
             </nav>
-        )
+        );
     }
 }

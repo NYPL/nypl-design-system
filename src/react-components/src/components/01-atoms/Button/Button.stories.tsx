@@ -1,17 +1,17 @@
-import * as React from 'react'
+import * as React from "react";
 
-import Button from './Button'
-import { action } from '@storybook/addon-actions'
-import { ButtonTypes, ButtonIconPositions } from './ButtonTypes'
+import Button from "./Button";
+import { action } from "@storybook/addon-actions";
+import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
 
 export default {
-    title: 'Button',
+    title: "Button",
     component: Button,
-}
+};
 
 export const buttonFilledIcon = () => (
     <Button
-        callback={action('clicked')}
+        callback={action("clicked")}
         id="button"
         buttonType={ButtonTypes.Filled}
         type="submit"
@@ -21,32 +21,32 @@ export const buttonFilledIcon = () => (
     >
         Search
     </Button>
-)
+);
 
 export const buttonOutline = () => (
     <Button
-        callback={action('clicked')}
+        callback={action("clicked")}
         id="button"
         type="submit"
         buttonType={ButtonTypes.Outline}
     >
         Hello World
     </Button>
-)
+);
 
 export const buttonWithSpan = () => (
     <Button
-        callback={action('clicked')}
+        callback={action("clicked")}
         id="button"
         buttonType={ButtonTypes.Outline}
     >
         <span>Style my span!</span>
     </Button>
-)
+);
 
 export const buttonIconChildrenString = () => (
     <Button
-        callback={action('clicked')}
+        callback={action("clicked")}
         id="button"
         buttonType={ButtonTypes.Filled}
         type="submit"
@@ -56,11 +56,11 @@ export const buttonIconChildrenString = () => (
     >
         Search!
     </Button>
-)
+);
 
 export const buttonIconChildrenElement = () => (
     <Button
-        callback={action('clicked')}
+        callback={action("clicked")}
         id="button"
         buttonType={ButtonTypes.Outline}
         type="button"
@@ -70,37 +70,37 @@ export const buttonIconChildrenElement = () => (
     >
         <span>I'm wrapped in a span!</span>
     </Button>
-)
+);
 
 export const buttonFullWidthIconRight = () => (
     <Button
-        callback={action('clicked')}
+        callback={action("clicked")}
         id="button"
         type="submit"
         buttonType={ButtonTypes.Outline}
         iconPosition={ButtonIconPositions.JustifyRight}
-        modifiers={['large']}
+        modifiers={["large"]}
         iconName="plus"
         iconDecorative={true}
     >
         <span>button content</span>
     </Button>
-)
+);
 
 export const linkLikeButton = () => (
     <Button
-        callback={action['clicked']}
+        callback={action["clicked"]}
         id="button"
         type="button"
         buttonType={ButtonTypes.Link}
     >
         <span>button content</span>
     </Button>
-)
+);
 
 export const linkLikeButtonIconLeft = () => (
     <Button
-        callback={action['clicked']}
+        callback={action["clicked"]}
         id="button"
         type="button"
         buttonType={ButtonTypes.Link}
@@ -110,4 +110,4 @@ export const linkLikeButtonIconLeft = () => (
     >
         <span>button content</span>
     </Button>
-)
+);

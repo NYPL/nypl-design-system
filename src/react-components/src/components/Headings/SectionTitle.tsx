@@ -1,23 +1,23 @@
 // MT-82
-import * as React from 'react'
-import bem from '../../utils/bem'
-import IconLink from '../01-atoms/Links/IconLink'
-import Heading from '../01-atoms/Text/Headings/Heading'
+import * as React from "react";
+import bem from "../../utils/bem";
+import IconLink from "../01-atoms/Links/IconLink";
+import Heading from "../01-atoms/Text/Headings/Heading";
 
 export interface SectionTitleProps {
-    id: string
-    modifiers?: []
-    blockName?: string
+    id: string;
+    modifiers?: [];
+    blockName?: string;
 
-    headingText: string
-    headingAttributes?: {}
-    headingModifiers?: string[]
+    headingText: string;
+    headingAttributes?: {};
+    headingModifiers?: string[];
 
-    linkUrl?: string
+    linkUrl?: string;
 
-    linkAttributes?: {}
-    linkModifiers?: string[]
-    linkBlockname?: string
+    linkAttributes?: {};
+    linkModifiers?: string[];
+    linkBlockname?: string;
 }
 
 export default class SectionTitle extends React.Component<
@@ -25,7 +25,7 @@ export default class SectionTitle extends React.Component<
     {}
 > {
     constructor(props: SectionTitleProps) {
-        super(props)
+        super(props);
     }
 
     render(): JSX.Element {
@@ -38,26 +38,26 @@ export default class SectionTitle extends React.Component<
             linkUrl,
             linkAttributes,
             linkModifiers,
-        } = this.props
-        const baseClass = 'heading-section'
+        } = this.props;
+        const baseClass = "heading-section";
 
         if (headingText.length > 80) {
             throw new Error(
-                'Section Title (h2) Text must be fewer than 80 characters'
-            )
+                "Section Title (h2) Text must be fewer than 80 characters"
+            );
         } else if (headingText.length > 60) {
             console.warn(
-                'Section Title (h2) Text should be fewer than 60 characters'
-            )
+                "Section Title (h2) Text should be fewer than 60 characters"
+            );
         }
 
-        let link: JSX.Element | undefined
+        let link: JSX.Element | undefined;
 
         if (linkUrl) {
             let passedInAttributes = {
-                'aria-describedby': id,
+                "aria-describedby": id,
                 ...linkAttributes,
-            }
+            };
 
             link = (
                 <IconLink
@@ -66,14 +66,14 @@ export default class SectionTitle extends React.Component<
                     attributes={passedInAttributes}
                     modifiers={linkModifiers}
                     iconPosition="right"
-                    iconModifiers={['right', 'icon-right']}
+                    iconModifiers={["right", "icon-right"]}
                 >
-                    {'See All'}
+                    {"See All"}
                 </IconLink>
-            )
+            );
         }
 
-        let headingModifiers = linkUrl ? ['has-link'] : []
+        let headingModifiers = linkUrl ? ["has-link"] : [];
         return (
             <div className={bem(baseClass, modifiers, blockName)}>
                 <Heading
@@ -86,6 +86,6 @@ export default class SectionTitle extends React.Component<
                 />
                 {link}
             </div>
-        )
+        );
     }
 }
