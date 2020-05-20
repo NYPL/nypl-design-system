@@ -49,7 +49,8 @@ describe("Dropdown", () => {
                 />
             )
         ).to.throw(
-            "prop ariaLabel must be passed into Dropdown when labelPosition is 'none'"
+            // tslint:disable-next-line
+            'prop ariaLabel must be passed into Dropdown when labelPosition is "none"'
         );
     });
 
