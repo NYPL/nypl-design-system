@@ -6,70 +6,68 @@
 /// use example =   @include cleafix
 
 @mixin clearfix {
-  &::after {
-    clear: both;
-    content: '';
-    display: table;
-  }
+    &::after {
+        clear: both;
+        content: "";
+        display: table;
+    }
 }
 
 @mixin list-reset {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 @mixin fieldset-reset {
-  border: none;
-  margin: 0;
-  padding: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 /// Mixin - Wrapper
 /// Outer container mixin for large screens
 @mixin wrapper(
-  $container-max-width: $max-width,
-  $outer-container-break: $small,
-  $v-margin: 0,
-  $v-padding: 0,
-  $h-padding: $space
+    $container-max-width: $max-width,
+    $outer-container-break: $small,
+    $v-margin: 0,
+    $v-padding: 0,
+    $h-padding: $space
 ) {
-  max-width: #{$container-max-width};
-  width: 100%;
-  margin: #{$v-margin} auto;
-  padding: #{$v-padding} #{$h-padding};
+    max-width: #{$container-max-width};
+    width: 100%;
+    margin: #{$v-margin} auto;
+    padding: #{$v-padding} #{$h-padding};
 
-  @include breakpoint($container-max-width) {
-    padding-left:
-      calc(
-        #{$h-padding} + calc(-50vw + calc(#{$container-max-width} / 2))
-      );
-    padding-right:
-      calc(
-        #{$h-padding} + calc(-50vw + calc(#{$container-max-width} / 2))
-      );
-  }
+    @include breakpoint(max-width $container-max-width) {
+        padding-left: calc(
+            #{$h-padding} + calc(50vw - calc(#{$container-max-width} / 2))
+        );
+        padding-right: calc(
+            #{$h-padding} + calc(50vw - calc(#{$container-max-width} / 2))
+        );
+    }
 }
 
 .container {
-  @include wrapper($v-margin: $space-m);
+    @include space-inset-s;
 }
 
 /// Use the breakout mixin for elements that should be edge-to-edge
 /// Even when a parent container uses the wrapper mixin
 @mixin breakout($v-padding: $space) {
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(#{$v-padding} + calc(-50vw + 50%));
-  padding-right: calc(#{$v-padding} + calc(-50vw + 50%));
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(#{$v-padding} + calc(-50vw + 50%));
+    padding-right: calc(#{$v-padding} + calc(-50vw + 50%));
 }
 
 // Use the screenreader-only mixin for elements that you want to be visually hidden, but still want screenreaders to read out
 @mixin screenreader-only() {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute !important;
-  width: 1px;
-  word-wrap: normal;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal;
 }
