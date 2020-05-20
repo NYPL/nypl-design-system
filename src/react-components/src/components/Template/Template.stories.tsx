@@ -1,43 +1,75 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import { LayoutTypes } from "./LayoutTypes";
-import Template from "./Template";
-import Placeholder from "../00-base/Placeholder";
+import Placeholder from "../Placeholder/Placeholder";
 
 export default {
   title: "Template",
-  component: Template,
 };
 
 export const FullWidthTemplate = () => (
-  <Template
-    layoutType={LayoutTypes.FullWidth}
-    headerContent={<Placeholder>Header</Placeholder>}
-    primaryContent={<Placeholder>Main Content</Placeholder>}
-    footerContent={<Placeholder>Footer</Placeholder>}
-  />
+    <div className={bem("layout-container")}>
+      <header className={bem("header")}><Placeholder>Header</Placeholder></header>
+
+      <main className={"main"}>
+        <div className="content-header">{<Placeholder>Hero</Placeholder>}</div>
+
+        <div className="content-top">{<Placeholder>Content Top</Placeholder>}</div>
+
+        <div className={"content-primary"}>
+        <Placeholder>Main Content</Placeholder>
+        </div>
+
+      </main>
+
+      <footer className={bem("footer")}>
+      <Placeholder>Footer</Placeholder>
+      </footer>
+    </div>
 );
 
 export const LeftSidebarTemplate = () => (
-  <Template
-    layoutType={LayoutTypes.SidebarLeft}
-    headerContent={<Placeholder>Header</Placeholder>}
-    heroContent={<Placeholder>Hero</Placeholder>}
-    topContent={<Placeholder>Content Top</Placeholder>}
-    sidebarContent={<Placeholder>Left Sidebar</Placeholder>}
-    primaryContent={<Placeholder>Main Content</Placeholder>}
-    footerContent={<Placeholder>Footer</Placeholder>}
-  />
+  <div className={bem("layout-container")}>
+      <header className={bem("header")}><Placeholder>Header</Placeholder></header>
+
+      <main className={bem("main", ["with-sidebar"])}>
+        <div className="content-header"><Placeholder>Hero</Placeholder></div>
+
+        <div className="content-top"><Placeholder>Content Top</Placeholder></div>
+
+        <div className={bem("content-secondary", ["with-sidebar-left"])}><Placeholder>Left Sidebar</Placeholder></div>
+
+        <div className={bem("content-primary", ["with-sidebar-left"])}>
+
+        <Placeholder>Main Content</Placeholder>
+        </div>
+      </main>
+
+      <footer className={bem("footer", ["with-sidebar"])}>
+        <Placeholder>Footer</Placeholder>
+      </footer>
+    </div>
 );
 
 export const RightSidebarTemplate = () => (
-  <Template
-    layoutType={LayoutTypes.SidebarRight}
-    headerContent={<Placeholder>Header</Placeholder>}
-    heroContent={<Placeholder>Hero</Placeholder>}
-    topContent={<Placeholder>Content Top</Placeholder>}
-    sidebarContent={<Placeholder>Right Sidebar</Placeholder>}
-    primaryContent={<Placeholder>Main Content</Placeholder>}
-    footerContent={<Placeholder>Footer</Placeholder>}
-  />
+  <div className={bem("layout-container")}>
+      <header className={bem("header")}><Placeholder>Header</Placeholder></header>
+
+      <main className={bem("main", ["with-sidebar"])}>
+        <div className="content-header"><Placeholder>Hero</Placeholder></div>
+
+        <div className="content-top"><Placeholder>Content Top</Placeholder></div>
+
+
+        <div className={bem("content-primary", ["with-sidebar-right"])}>
+
+        <Placeholder>Main Content</Placeholder>
+        </div>
+
+        <div className={bem("content-secondary", ["with-sidebar-right"])}><Placeholder>Left Sidebar</Placeholder></div>
+      </main>
+
+      <footer className={bem("footer", ["with-sidebar"])}>
+        <Placeholder>Footer</Placeholder>
+      </footer>
+    </div>
 );
