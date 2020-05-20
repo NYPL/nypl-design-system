@@ -31,7 +31,7 @@ export const iconLinkList = () => (
 
 let editionData: EditionDetails = {
     editionYearHeading: (
-        <a href="edition-link" className={bem("link", [], "heading")}>
+        <a href="edition-link-2004" className={bem("link", [], "heading")}>
             2004 Edition
         </a>
     ),
@@ -136,7 +136,7 @@ let searchItemData = {
     editionInfo: {
         editionYearHeading: (
             <a href="edition-link" className={bem("link", [], "heading")}>
-                2004 Edition
+                2054 Edition
             </a>
         ),
         publisherAndLocation: "Published in New York by Random House",
