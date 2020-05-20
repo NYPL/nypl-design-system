@@ -1,6 +1,6 @@
 export enum HeroTypes {
-  Primary = "PRIMARY",
-  Secondary = "SECONDARY",
-  Tertiary = "TERTIARY",
-  FiftyFifty = "FIFTYFIFTY"
+    Primary = "PRIMARY",
+    Secondary = "SECONDARY",
+    Tertiary = "TERTIARY",
+    FiftyFifty = "FIFTYFIFTY",
 }

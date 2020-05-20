@@ -1,21 +1,21 @@
-import * as React from 'react'
+import * as React from "react";
 
-import SectionTitle from './SectionTitle'
-import { action } from '@storybook/addon-actions'
+import SectionTitle from "./SectionTitle";
+import { action } from "@storybook/addon-actions";
 
 export default {
-    title: 'Section Title',
+    title: "Section Title",
     component: SectionTitle,
-}
+};
 
 export const headingsWithLinks = () => (
     <SectionTitle
-        id={'section-title-with-link'}
-        headingText={'Heading 2'}
+        id={"section-title-with-link"}
+        headingText={"Heading 2"}
         linkUrl="#heading2"
     />
-)
+);
 
 export const headingNoLink = () => (
-    <SectionTitle id={'section-title-without-link'} headingText={'Heading 2'} />
-)
+    <SectionTitle id={"section-title-without-link"} headingText={"Heading 2"} />
+);

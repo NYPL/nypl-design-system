@@ -7,5 +7,5 @@
 import * as React from "react";
 
 export default function RNSectionTitle(props: React.PropsWithChildren<{}>) {
-  return <>{props.children}</>;
+    return <>{props.children}</>;
 }

@@ -4,8 +4,15 @@ import TextField from "./TextField";
 import { action } from "@storybook/addon-actions";
 
 export default {
-  title: "TextField",
-  component: TextField,
+    title: "TextField",
+    component: TextField,
 };
 
-export const textField = () => <TextField id="text-field" ariaLabel="text field" isRequired={false} onChange={action("changed")}/>;
+export const textField = () => (
+    <TextField
+        id="text-field"
+        ariaLabel="text field"
+        isRequired={false}
+        onChange={action("changed")}
+    />
+);
