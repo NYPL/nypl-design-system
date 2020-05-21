@@ -5,9 +5,9 @@
 
     &--up,
     &--rotate-180 {
+        @include space-inline-xxs;
         transform: rotate(180deg);
     }
-
     &--right,
     &--rotate-270 {
         transform: rotate(270deg);
@@ -16,6 +16,7 @@
 
     &--down,
     &--rotate-0 {
+        @include space-inline-xxs;
         transform: rotate(0deg);
     }
 
