@@ -1,24 +1,24 @@
 {
-  "name": "@nypl/design-system-styles",
-  "version": "0.0.22",
-  "description": "Design System Styles",
-  "scripts": {
-    "test": "echo \"There are no tests for styles\" "
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/styles"
-  },
-  "author": "NYPL Digital",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "breakpoint-sass": "^2.7.1",
-    "normalize.css": "^8.0.1",
-    "system-font-css": "^2.0.2"
-  },
-  "main": "style.scss",
-  "keywords": [],
-  "publishConfig": {
-    "access": "public"
-  }
+    "name": "@nypl/design-system-styles",
+    "version": "0.0.22",
+    "description": "Design System Styles",
+    "scripts": {
+        "test": "echo \"There are no tests for styles\" "
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/styles"
+    },
+    "author": "NYPL Digital",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "breakpoint-sass": "^2.7.1",
+        "normalize.css": "^8.0.1",
+        "system-font-css": "^2.0.2"
+    },
+    "main": "style.scss",
+    "keywords": [],
+    "publishConfig": {
+        "access": "public"
+    }
 }
