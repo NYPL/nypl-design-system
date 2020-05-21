@@ -18,7 +18,7 @@ export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as Dropdown } from "./components/Dropdown/Dropdown";
 export { default as EditionCard } from "./components/EditionCard/EditionCard";
 export { default as SearchResultItem } from "./components/SearchResultItem/SearchResultItem";
-export { default as UnorderedList } from "./components/List/UnorderedList";
+export { default as UnorderedList } from "./components/UnorderedList/UnorderedList";
 export { HeroTypes } from "./components/Hero/HeroTypes";
 export { default as Hero } from "./components/Hero/Hero";
 export { default as SearchPromo } from "./components/SearchPromo/SearchPromo";
