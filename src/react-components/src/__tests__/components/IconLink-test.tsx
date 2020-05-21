@@ -3,7 +3,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import IconLink from "../../components/01-atoms/Links/IconLink";
+import IconLink from "../../components/IconLink/IconLink";
 
 describe("Link With Icon", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
