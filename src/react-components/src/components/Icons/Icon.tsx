@@ -1,13 +1,13 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import arrow_xsmall from "./svgs/arrow-xsmall.svg";
-import arrow from "./svgs/arrow.svg";
-import download from "./svgs/download.svg";
-import minus from "./svgs/minus.svg";
-import plus from "./svgs/plus.svg";
-import search_small from "./svgs/search-small.svg";
-import search from "./svgs/search.svg";
+import arrow_xsmall from "../../../icons/svg/arrow-xsmall.svg";
+import arrow from "../../../icons/svg/arrow.svg";
+import download from "../../../icons/svg/download.svg";
+import minus from "../../../icons/svg/minus.svg";
+import plus from "../../../icons/svg/plus.svg";
+import search_small from "../../../icons/svg/search-small.svg";
+import search from "../../../icons/svg/search.svg";
 
 const allSvgs = {
     arrow_xsmall,

@@ -64,7 +64,7 @@ export default function Dropdown(props: DropdownProps) {
     } else {
         if (!ariaLabel) {
             throw new Error(
-                `prop ariaLabel must be passed into Dropdown when labelPosition is "none"`
+                `prop ariaLabel must be passed into Dropdown when labelPosition is 'none'`
             );
         }
     }

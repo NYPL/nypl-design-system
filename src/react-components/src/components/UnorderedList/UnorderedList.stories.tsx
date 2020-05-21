@@ -31,7 +31,7 @@ export const iconLinkList = () => (
 
 let editionData: EditionDetails = {
     editionYearHeading: (
-        <a href="edition-link" className={bem("link", [], "heading")}>
+        <a href="edition-link2" className={bem("link", [], "heading")}>
             2004 Edition
         </a>
     ),
@@ -44,7 +44,7 @@ let editionData: EditionDetails = {
     readOnlineLink: (
         <BasicLink
             className={bem("card-button-link", [], "edition-card")}
-            url="blah"
+            url="blah2"
         >
             Read Online
         </BasicLink>
@@ -149,7 +149,7 @@ let searchItemData = {
         readOnlineLink: (
             <BasicLink
                 className={bem("card-button-link", [], "edition-card")}
-                url="blah"
+                url="blah3"
             >
                 Read Online
             </BasicLink>
@@ -159,7 +159,7 @@ let searchItemData = {
                 iconName="download"
                 iconPosition="left"
                 iconModifiers={["icon-left"]}
-                url="blah"
+                url="blah4"
             >
                 Download
             </IconLink>

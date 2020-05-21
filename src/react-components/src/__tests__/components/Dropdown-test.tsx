@@ -49,7 +49,7 @@ describe("Dropdown", () => {
                 />
             )
         ).to.throw(
-            'prop ariaLabel must be passed into Dropdown when labelPosition is "none"'
+            "prop ariaLabel must be passed into Dropdown when labelPosition is 'none'"
         );
     });
 
