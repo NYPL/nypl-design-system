@@ -8,6 +8,10 @@ This repo is in Prerelease. When it is released, this project will adhere to [Se
 
 ========
 
+## [0.0.23]
+
+-   added `Template` styles
+
 ## [0.0.22]
 
 ### [Changed]

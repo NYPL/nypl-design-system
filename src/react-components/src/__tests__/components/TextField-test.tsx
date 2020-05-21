@@ -5,37 +5,59 @@ import * as React from "react";
 
 import * as Mocha from "mocha";
 
-import TextField from "../../components/01-atoms/Forms/TextField";
+import TextField from "../../components/TextField/TextField";
 
 describe("Search Bar Text Field", () => {
-  let wrapper: Enzyme.ShallowWrapper<{}, {}>;
+    let wrapper: Enzyme.ShallowWrapper<{}, {}>;
 
-  it("Renders an input field with aria-label", () => {
-    wrapper = Enzyme.shallow(<TextField id="textField" ariaLabel="text" isRequired={false}/>);
-    expect(wrapper.find("input")).to.have.lengthOf(1);
-    expect(wrapper.find("input").props()["aria-label"]).to.equal("text");
-  });
+    it("Renders an input field with aria-label", () => {
+        wrapper = Enzyme.shallow(
+            <TextField id="textField" ariaLabel="text" isRequired={false} />
+        );
+        expect(wrapper.find("input")).to.have.lengthOf(1);
+        expect(wrapper.find("input").props()["aria-label"]).to.equal("text");
+    });
 
-  it("Renders an input field with aria-labelledby", () => {
-    wrapper = Enzyme.shallow(<TextField id="textField" ariaLabelledBy="labelId" isRequired={false}/>);
+    it("Renders an input field with aria-labelledby", () => {
+        wrapper = Enzyme.shallow(
+            <TextField
+                id="textField"
+                ariaLabelledBy="labelId"
+                isRequired={false}
+            />
+        );
 
-    expect(wrapper.find("input")).to.have.lengthOf(1);
-    expect(wrapper.find("input").props()["aria-labelledby"]).to.equal("labelId");
-  });
+        expect(wrapper.find("input")).to.have.lengthOf(1);
+        expect(wrapper.find("input").props()["aria-labelledby"]).to.equal(
+            "labelId"
+        );
+    });
 
-  it("if both labelId and ariaLabel are defined, TextField uses aria-labeledBy", () => {
-    wrapper = Enzyme.shallow(<TextField id="textField" ariaLabelledBy="labelId" ariaLabel="label" isRequired={false} />);
-    expect(wrapper.find("input").props()["aria-label"]).to.equal(undefined);
-    expect(wrapper.find("input").props()["aria-labelledby"]).to.equal("labelId");
-  });
+    it("if both labelId and ariaLabel are defined, TextField uses aria-labeledBy", () => {
+        wrapper = Enzyme.shallow(
+            <TextField
+                id="textField"
+                ariaLabelledBy="labelId"
+                ariaLabel="label"
+                isRequired={false}
+            />
+        );
+        expect(wrapper.find("input").props()["aria-label"]).to.equal(undefined);
+        expect(wrapper.find("input").props()["aria-labelledby"]).to.equal(
+            "labelId"
+        );
+    });
 
-  it("Shows 'aria-required' if required", () => {
-    wrapper = Enzyme.shallow(<TextField id="textField" ariaLabel="text" isRequired={true}/>);
-    expect(wrapper.props()["aria-required"]).to.equal(true);
-  });
+    it("Shows 'aria-required' if required", () => {
+        wrapper = Enzyme.shallow(
+            <TextField id="textField" ariaLabel="text" isRequired={true} />
+        );
+        expect(wrapper.props()["aria-required"]).to.equal(true);
+    });
 
-  it("Throws error if neither label or aria-label are passed", () => {
-    expect(() => Enzyme.mount(<TextField id="textField" isRequired={true}/>))
-    .to.throw("Either label or ariaLabel must be defined");
-  });
+    it("Throws error if neither label or aria-label are passed", () => {
+        expect(() =>
+            Enzyme.mount(<TextField id="textField" isRequired={true} />)
+        ).to.throw("Either label or ariaLabel must be defined");
+    });
 });

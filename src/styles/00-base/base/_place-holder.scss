@@ -1,9 +1,16 @@
-$color-pl-place-holder: $gray-light;
+$color-place-holder: $gray-light;
 
 .placeholder {
-  @include space-inset-s;
+    @include space-stack-page;
+    @include space-inset-s;
 
-  color: $black;
-  font-size: 1rem;
-  background-color: $color-pl-place-holder;
+    align-items: center;
+    border: 4px dashed $color-place-holder;
+    color: $color-place-holder;
+    display: flex;
+    font-size: 3rem;
+    justify-content: center;
+    line-height: 1.4;
+    padding: 4rem 1rem;
+    width: 100%;
 }

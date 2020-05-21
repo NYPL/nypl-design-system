@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import SectionTitle from "../../components/Headings/SectionTitle";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 describe("Section Title", () => {
     it("Shows SectionTitle with link", () => {

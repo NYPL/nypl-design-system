@@ -2,10 +2,10 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import EditionCard from "../../components/02-molecules/Cards/EditionCard";
-import BasicLink from "../../components/01-atoms/Links/BasicLink";
+import EditionCard from "../../components/EditionCard/EditionCard";
+import BasicLink from "../../components/BasicLink/BasicLink";
 import bem from "../../utils/bem";
-import IconLink from "../../components/01-atoms/Links/IconLink";
+import IconLink from "../../components/IconLink/IconLink";
 
 describe("EditionCard", () => {
     let regularEditionCard = (
