@@ -8,7 +8,7 @@ export default {
 };
 
 export const passedInLinkWithLeftIcon = () => (
-    <IconLink iconPosition="left" iconModifiers={["left", "icon-left"]}>
+    <IconLink iconPosition="left" iconRotation="rotate-90">
         <a href="#passed-in-link">hello there</a>
     </IconLink>
 );
@@ -21,7 +21,7 @@ export const linkWithLeftIcon = () => (
     <IconLink
         url="#generated-link-link"
         iconPosition="left"
-        iconModifiers={["left", "icon-left"]}
+        iconRotation="rotate-90"
     >
         hello there
     </IconLink>
@@ -30,7 +30,7 @@ export const linkWithRightIcon = () => (
     <IconLink
         url="#generated-link-link"
         iconPosition="right"
-        iconModifiers={["right", "icon-right"]}
+        iconRotation="rotate-270"
     >
         hello there
     </IconLink>

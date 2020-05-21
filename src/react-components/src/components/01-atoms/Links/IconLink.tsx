@@ -10,6 +10,7 @@ export interface IconLinkProps {
     modifiers?: string[];
     blockName?: string;
     iconName?: string;
+    iconRotation?: "rotate-180" | "rotate-270" | "rotate-0" | "rotate-90";
     iconPosition?: string;
     iconModifiers?: string[];
 }
@@ -27,6 +28,7 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
             iconName = "arrow_xsmall",
             iconPosition,
             iconModifiers,
+            iconRotation,
         } = this.props;
 
         let moreLinkModifiers = modifiers ? modifiers : [];
@@ -35,21 +37,29 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
         let icon: { element: JSX.Element } = { element: undefined };
 
         if (iconPosition) {
-            if (iconPosition === "left") {
-                moreLinkModifiers.push("icon-left");
-            } else if (iconPosition === "right") {
-                moreLinkModifiers.push("icon-right");
-            } else {
-                throw new Error(
-                    "iconPosition can only have values 'left' or 'right'"
-                );
+            if (!iconRotation) {
+                if (iconPosition === "left") {
+                    moreLinkModifiers.push("icon-left");
+                } else if (iconPosition === "right" && !iconRotation) {
+                    moreLinkModifiers.push("icon-right");
+                } else {
+                    throw new Error(
+                        "iconPosition can only have values 'left' or 'right'"
+                    );
+                }
+            }
+
+            let moreIconModifiers = iconModifiers ? iconModifiers : [];
+
+            if (iconRotation) {
+                moreIconModifiers.push(iconRotation);
             }
 
             icon.element = (
                 <Icon
                     name={iconName}
                     blockName={iconLink__base_class}
-                    modifiers={iconModifiers}
+                    modifiers={moreIconModifiers}
                     decorative={true}
                 />
             );
