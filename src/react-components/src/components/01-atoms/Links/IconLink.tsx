@@ -37,16 +37,14 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
         let icon: { element: JSX.Element } = { element: undefined };
 
         if (iconPosition) {
-            if (!iconRotation) {
-                if (iconPosition === "left") {
-                    moreLinkModifiers.push("icon-left");
-                } else if (iconPosition === "right" && !iconRotation) {
-                    moreLinkModifiers.push("icon-right");
-                } else {
-                    throw new Error(
-                        "iconPosition can only have values 'left' or 'right'"
-                    );
-                }
+            if (iconPosition === "left") {
+                moreLinkModifiers.push("icon-left");
+            } else if (iconPosition === "right") {
+                moreLinkModifiers.push("icon-right");
+            } else {
+                throw new Error(
+                    "iconPosition can only have values 'left' or 'right'"
+                );
             }
 
             let moreIconModifiers = iconModifiers ? iconModifiers : [];
