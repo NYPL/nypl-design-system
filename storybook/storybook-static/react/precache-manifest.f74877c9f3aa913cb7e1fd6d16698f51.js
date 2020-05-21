@@ -360,6 +360,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/SectionName/SectionName.d.ts"
   },
   {
+    "revision": "b7df460c44e41d3049e3bced2815d09d",
+    "url": "../../../src/react-components/lib/components/Template/Template.stories.d.ts"
+  },
+  {
     "revision": "3269c9487d1c14a54899bec416b3cecc",
     "url": "../../../src/react-components/lib/helpers/hoc/WithOneChild.d.ts"
   },
@@ -372,23 +376,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "291936134acfbdf4bfac6b18480c25be",
+    "revision": "a39e6744cccc928ade3698a1409225fc",
     "url": "iframe.html"
   },
   {
-    "url": "main.fa9d0243f74e6600dbe9.bundle.js"
+    "url": "main.0d441365190bb2abaab0.bundle.js"
   },
   {
-    "url": "runtime~main.fa9d0243f74e6600dbe9.bundle.js"
+    "url": "runtime~main.0d441365190bb2abaab0.bundle.js"
   },
   {
-    "revision": "8aaeb3e7d5cdf2a16ba6",
+    "revision": "fbfc3df922d6790ff3c2",
     "url": "static/css/vendors~main.f8f248a5.chunk.css"
   },
   {
-    "url": "vendors~main.fa9d0243f74e6600dbe9.bundle.js"
+    "url": "vendors~main.0d441365190bb2abaab0.bundle.js"
   },
   {
-    "url": "vendors~main.fa9d0243f74e6600dbe9.bundle.js.LICENSE.txt"
+    "url": "vendors~main.0d441365190bb2abaab0.bundle.js.LICENSE.txt"
   }
 ]);

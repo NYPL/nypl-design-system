@@ -39,14 +39,14 @@
   margin: #{$v-margin} auto;
   padding: #{$v-padding} #{$h-padding};
 
-  @include breakpoint(max-width $container-max-width) {
+  @include breakpoint($container-max-width) {
     padding-left:
       calc(
-        #{$h-padding} + calc(50vw - calc(#{$container-max-width} / 2))
+        #{$h-padding} + calc(-50vw + calc(#{$container-max-width} / 2))
       );
     padding-right:
       calc(
-        #{$h-padding} + calc(50vw - calc(#{$container-max-width} / 2))
+        #{$h-padding} + calc(-50vw + calc(#{$container-max-width} / 2))
       );
   }
 }
