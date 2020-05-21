@@ -66,7 +66,7 @@ export default class SectionTitle extends React.Component<
                     attributes={passedInAttributes}
                     modifiers={linkModifiers}
                     iconPosition="right"
-                    iconModifiers={["right", "icon-right"]}
+                    iconRotation="rotate-270"
                 >
                     {"See All"}
                 </IconLink>

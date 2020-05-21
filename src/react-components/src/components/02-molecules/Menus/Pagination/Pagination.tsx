@@ -34,8 +34,8 @@ export default function Pagination(props: PaginationProps) {
         content: <>Previous</>,
         buttonType: ButtonTypes.Outline,
         iconPosition: ButtonIconPositions.Left,
+        iconRotation: "rotate-90",
         iconName: "arrow_xsmall",
-        iconModifiers: ["left", "icon-left"],
         iconDecorative: true,
     };
 
@@ -45,8 +45,8 @@ export default function Pagination(props: PaginationProps) {
         content: <>Next</>,
         buttonType: ButtonTypes.Outline,
         iconPosition: ButtonIconPositions.Right,
+        iconRotation: "rotate-270",
         iconName: "arrow_xsmall",
-        iconModifiers: ["right", "icon-right"],
         iconDecorative: true,
     };
 
