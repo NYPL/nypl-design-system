@@ -3,7 +3,7 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import UnorderedList from "../../components/List/UnorderedList";
+import UnorderedList from "../../components/UnorderedList/UnorderedList";
 
 describe("Link With Underline", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
