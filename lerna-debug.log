@@ -1,0 +1,17 @@
+0 silly argv {
+0 silly argv   _: [ 'exec' ],
+0 silly argv   scope: 'storybook',
+0 silly argv   args: [ 'run', 'start:react' ],
+0 silly argv   lernaVersion: '3.18.1',
+0 silly argv   '$0': '/Users/monica/Dev/nypl-design-system/node_modules/.bin/lerna',
+0 silly argv   cmd: 'npm'
+0 silly argv }
+1 notice cli v3.18.1
+2 verbose rootPath /Users/monica/Dev/nypl-design-system
+3 info versioning independent
+4 notice filter including "storybook"
+5 info filter [ 'storybook' ]
+6 info Executing command in 1 package: "npm run start:react"
+7 error Error: Command failed: npm run start:react
+7 error     at makeError (/Users/monica/Dev/nypl-design-system/node_modules/execa/index.js:174:9)
+7 error     at /Users/monica/Dev/nypl-design-system/node_modules/execa/index.js:278:16

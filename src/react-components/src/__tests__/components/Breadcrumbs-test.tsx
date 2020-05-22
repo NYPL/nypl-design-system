@@ -3,8 +3,8 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Breadcrumbs from "../../components/02-molecules/Menus/Breadcrumbs/Breadcrumbs";
-import Icon from "../../components/01-atoms/Images/Icons/Icon";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
+import Icon from "../../components/Icons/Icon";
 
 describe("Breadcrumbs", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;

@@ -5,6 +5,7 @@
 // $space-l: $space*2;     // 32px
 // $space-xl: $space*3;    // 48px
 // $space-xxl: $space*4;   // 64px
+// $space-xxxl: $space*6;  // 96px
 
 @mixin space-stack-none {
   margin-bottom: 0;
@@ -38,10 +39,38 @@
   margin-bottom: $space-xxl;
 }
 
+@mixin space-stack-xxxl {
+  margin-bottom: $space-xxxl;
+}
+
 @mixin space-stack-page {
   @include space-stack-l;
 
   @include breakpoint($large) {
     @include space-stack-xl;
+  }
+
+  &--full {
+    @include space-stack-xxl;
+
+    @include breakpoint($large) {
+      @include space-stack-xxxl;
+    }
+  }
+}
+
+@mixin remove-stack-page {
+  margin-top: calc(-1 * #{$space-l});
+
+  @include breakpoint($large) {
+    margin-top: calc(-1 * #{$space-xl});
+  }
+
+  &--full {
+    margin-top: calc(-1 * #{$space-xxl});
+
+    @include breakpoint($large) {
+      margin-top: calc(-1 * #{$space-xxxl});
+    }
   }
 }

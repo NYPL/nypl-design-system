@@ -2,16 +2,16 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 import UnorderedList from "./UnorderedList";
-import IconLink from "../01-atoms/Links/IconLink";
+import IconLink from "../IconLink/IconLink";
 import EditionCard, {
     EditionDetails,
     EditionCardProps,
-} from "../02-molecules/Cards/EditionCard";
-import SearchResultItem from "../02-molecules/Cards/SearchResultItem";
-import UnderlineLink from "../01-atoms/Links/UnderlineLink";
-import Checkbox from "../01-atoms/Forms/Checkbox";
+} from "../EditionCard/EditionCard";
+import SearchResultItem from "../SearchResultItem/SearchResultItem";
+import UnderlineLink from "../UnderlineLink/UnderlineLink";
+import Checkbox from "../Checkbox/Checkbox";
 import { action } from "@storybook/addon-actions";
-import BasicLink from "../01-atoms/Links/BasicLink";
+import BasicLink from "../BasicLink/BasicLink";
 
 export default {
     title: "UnorderedList",
