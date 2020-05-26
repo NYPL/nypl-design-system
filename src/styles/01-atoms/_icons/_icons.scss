@@ -3,24 +3,37 @@
     width: 24px;
     fill: currentColor;
 
-    &--up,
+    &--up {
+        transform: rotate(180deg);
+    }
+
     &--rotate-180 {
         @include space-inline-xxs;
         transform: rotate(180deg);
     }
-    &--right,
+
+    &--right {
+        transform: rotate(270deg);
+    }
+
     &--rotate-270 {
         transform: rotate(270deg);
         margin-left: $space-xxs;
     }
 
-    &--down,
+    &--down {
+        transform: rotate(0deg);
+    }
+
     &--rotate-0 {
         @include space-inline-xxs;
         transform: rotate(0deg);
     }
 
-    &--left,
+    &--left {
+        transform: rotate(90deg);
+    }
+
     &--rotate-90 {
         @include space-inline-xxs;
         transform: rotate(90deg);
