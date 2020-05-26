@@ -10,10 +10,9 @@ import EditionCard, {
     EditionCardProps,
 } from "../EditionCard/EditionCard";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
-import UnderlineLink from "../UnderlineLink/UnderlineLink";
 import Checkbox from "../Checkbox/Checkbox";
 import { action } from "@storybook/addon-actions";
-import BasicLink from "../BasicLink/BasicLink";
+import Link from "../Link/Link";
 
 export default {
     title: "UnorderedList",
@@ -21,9 +20,9 @@ export default {
 };
 
 const links = [
-    <IconLink url="#url1">Link1</IconLink>,
-    <IconLink url="#url2">link2</IconLink>,
-    <IconLink url="#url3">link3</IconLink>,
+    <Link url="#url1">Link1</Link>,
+    <Link url="#url2">link2</Link>,
+    <Link url="#url3">link3</Link>,
 ];
 export const iconLinkList = () => (
     <UnorderedList id="link-list" blockName="list-iconLink">
@@ -44,12 +43,12 @@ let editionData: EditionDetails = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <BasicLink
+        <Link
             className={bem("card-button-link", [], "edition-card")}
             url="blah2"
         >
             Read Online
-        </BasicLink>
+        </Link>
     ),
     downloadLink: (
         <IconLink
@@ -149,12 +148,12 @@ let searchItemData = {
             <>Under Creative Commons License</>,
         ],
         readOnlineLink: (
-            <BasicLink
+            <Link
                 className={bem("card-button-link", [], "edition-card")}
                 url="blah4"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         ),
         downloadLink: (
             <IconLink
@@ -167,11 +166,9 @@ let searchItemData = {
             </IconLink>
         ),
     },
-    authorElement: <UnderlineLink url={"author-url"}>First Last</UnderlineLink>,
+    authorElement: <Link url={"author-url"}>First Last</Link>,
     editionsLinkElement: (
-        <UnderlineLink
-            url={"#allEditionsUrl"}
-        >{`View All 7 editions`}</UnderlineLink>
+        <Link url={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
     ),
 };
 

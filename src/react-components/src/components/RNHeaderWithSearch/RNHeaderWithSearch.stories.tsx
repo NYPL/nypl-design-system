@@ -3,7 +3,7 @@ import * as React from "react";
 
 import RNHeaderWithSearch from "./RNHeaderWithSearch";
 import { action } from "@storybook/addon-actions";
-import UnderlineLink from "../UnderlineLink/UnderlineLink";
+import Link from "../Link/Link";
 
 import bem from "../../utils/bem";
 
@@ -34,9 +34,7 @@ export const researchNowSearchHeader = () => (
             </a>
         }
         advancedSearchElem={
-            <UnderlineLink url={"advanced-search-link"}>
-                Advanced Search
-            </UnderlineLink>
+            <Link url={"advanced-search-link"}>Advanced Search</Link>
         }
         searchBarId="searchBarId"
         dropdownId="dropdownId"

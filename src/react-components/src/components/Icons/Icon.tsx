@@ -56,6 +56,8 @@ export default class Icon extends React.Component<IconProps, {}> {
             description: desc ? `title-${name}` : undefined,
         };
         let svg = allSvgs[name];
-        return <div {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />;
+        return (
+            <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />
+        );
     }
 }

@@ -5,7 +5,7 @@ import { iconRotationTypes } from "../Icons/IconTypes";
 
 import EditionCard from "./EditionCard";
 import IconLink from "../IconLink/IconLink";
-import BasicLink from "../BasicLink/BasicLink";
+import Link from "../Link/Link";
 
 export default {
     title: "Edition Card",
@@ -31,12 +31,12 @@ export const editionCardWithFullData = () => (
             </>,
         ]}
         readOnlineLink={
-            <BasicLink
+            <Link
                 className={bem("card-button-link", [], "edition-card")}
                 url="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
             <IconLink
@@ -112,12 +112,12 @@ export const editionCardWithSomeEditionInfo = () => (
             <span>Under Creative Commons License</span>,
         ]}
         readOnlineLink={
-            <BasicLink
+            <Link
                 className={bem("card-button-link", [], "edition-card")}
                 url="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
             <IconLink
@@ -144,12 +144,12 @@ export const editionCardWithEmptyEditionInfo = () => (
         }
         editionInfo={[]}
         readOnlineLink={
-            <BasicLink
+            <Link
                 className={bem("card-button-link", [], "edition-card")}
                 url="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
             <IconLink
@@ -180,12 +180,12 @@ export const editionCardWithAtypicalImageSize = () => (
             <>License: Creative Commons</>,
         ]}
         readOnlineLink={
-            <BasicLink
+            <Link
                 className={bem("card-button-link", [], "edition-card")}
                 url="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
             <IconLink
@@ -217,12 +217,12 @@ export const instanceCard = () => (
             </a>,
         ]}
         readOnlineLink={
-            <BasicLink
+            <Link
                 className={bem("card-button-link", [], "edition-card")}
                 url="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
             <IconLink

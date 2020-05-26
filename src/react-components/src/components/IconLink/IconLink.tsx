@@ -2,8 +2,8 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
-import BasicLink from "../BasicLink/BasicLink";
 import { iconRotationTypes } from "../Icons/IconTypes";
+import Link from "../Link/Link";
 
 export interface IconLinkProps {
     url?: string;
@@ -67,14 +67,14 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
         let className = bem(iconLink__base_class, moreLinkModifiers, blockName);
 
         return (
-            <BasicLink
+            <Link
                 url={url}
-                className={className}
+                // className={className}
                 attributes={attributes}
                 icon={icon}
             >
                 {children}
-            </BasicLink>
+            </Link>
         );
     }
 }

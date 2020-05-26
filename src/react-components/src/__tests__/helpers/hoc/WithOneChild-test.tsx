@@ -3,7 +3,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import withOneChild from "../../../helpers/hoc/WithOneChild";
-import BasicLink from "../../../components/BasicLink/BasicLink";
+import Link from "../../../components/Link/Link";
 
 interface DummyProps {
     title: string;
@@ -109,18 +109,18 @@ describe("withOneChild HOC", () => {
         }
     });
 
-    describe("BasicLink as implementation", () => {
+    describe("Link as implementation", () => {
         it("should only allow one child", () => {
             const basicLink = (
-                <BasicLink className="passed-in-class">
+                <Link>
                     <a href="#passed-in-link">Click me</a>
-                </BasicLink>
+                </Link>
             );
-            const wrongBasicLink = (
-                <BasicLink className="passed-in-class">
+            const wrongLink = (
+                <Link>
                     <a href="#passed-in-link">Don't click me</a>
                     <p>Nope</p>
-                </BasicLink>
+                </Link>
             );
 
             wrapper = Enzyme.mount(basicLink);
@@ -129,13 +129,13 @@ describe("withOneChild HOC", () => {
             expect(wrapper.children).to.have.lengthOf(1);
 
             try {
-                wrapper = Enzyme.mount(wrongBasicLink);
+                wrapper = Enzyme.mount(wrongLink);
                 // This shouldn't run since an error is thrown
                 expect(false).to.equal(true);
             } catch (e) {
                 expect(e.message).to.equal(
                     "Please only pass one child, " +
-                        "got elements (a, p), for base component BasicLinkBase"
+                        "got elements (a, p), for base component LinkBase"
                 );
             }
         });

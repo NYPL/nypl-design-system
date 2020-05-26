@@ -3,7 +3,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import EditionCard from "../../components/EditionCard/EditionCard";
-import BasicLink from "../../components/BasicLink/BasicLink";
+import Link from "../../components/Link/Link";
 import bem from "../../utils/bem";
 import IconLink from "../../components/IconLink/IconLink";
 
@@ -20,12 +20,12 @@ describe("EditionCard", () => {
                 <>Under Creative Commons License</>,
             ]}
             readOnlineLink={
-                <BasicLink
+                <Link
                     className={bem("card-info-link", [], "edition-card")}
                     url="blah"
                 >
                     Read Online
-                </BasicLink>
+                </Link>
             }
             downloadLink={
                 <IconLink iconName="download" iconPosition="left" url="blah">
@@ -49,12 +49,12 @@ describe("EditionCard", () => {
                 </a>,
             ]}
             readOnlineLink={
-                <BasicLink
+                <Link
                     className={bem("card-info-link", [], "edition-card")}
                     url="blah"
                 >
                     Read Online
-                </BasicLink>
+                </Link>
             }
             downloadLink={
                 <IconLink iconName="download" iconPosition="left" url="blah">

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import SearchPromo from "./SearchPromo";
 import { action } from "@storybook/addon-actions";
-import UnderlineLink from "../UnderlineLink/UnderlineLink";
+import Link from "../Link/Link";
 
 export default {
     title: "SearchPromo",
@@ -16,11 +16,8 @@ export const researchNowSearchPromo = () => (
         searchButtonId="searchButtonId"
         advancedSearchMessage={
             <p>
-                Use{" "}
-                <UnderlineLink url="#advanced-fake-link">
-                    Advanced Search
-                </UnderlineLink>{" "}
-                to narrow your results.
+                Use <Link url="#advanced-fake-link">Advanced Search</Link> to
+                narrow your results.
             </p>
         }
         searchBarId="searchBarId"
@@ -38,11 +35,8 @@ export const searchPromoWithError = () => (
         titleId="title"
         advancedSearchMessage={
             <p>
-                Use{" "}
-                <UnderlineLink url="#advanced-fake-link">
-                    Advanced Search
-                </UnderlineLink>{" "}
-                to narrow your results.
+                Use <Link url="#advanced-fake-link">Advanced Search</Link> to
+                narrow your results.
             </p>
         }
         searchButtonId="searchButtonId"

@@ -1,10 +1,9 @@
 import * as React from "react";
 
 import SearchResultItem from "./SearchResultItem";
-import UnderlineLink from "../UnderlineLink/UnderlineLink";
+import Link from "../Link/Link";
 
 import bem from "../../utils/bem";
-import BasicLink from "../BasicLink/BasicLink";
 import IconLink from "../IconLink/IconLink";
 import { iconRotationTypes } from "../Icons/IconTypes";
 
@@ -26,12 +25,12 @@ let exampleEditionInfo = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <BasicLink
+        <Link
             className={bem("card-button-link", [], "edition-card")}
             url="blah"
         >
             Read Online
-        </BasicLink>
+        </Link>
     ),
     downloadLink: (
         <IconLink
@@ -62,14 +61,10 @@ export const searchResultItem = () => (
                 labore et dolore magna aliqua."
             </>
         }
-        authorLinkElement={
-            <UnderlineLink url={"author-url"}>First Last</UnderlineLink>
-        }
+        authorLinkElement={<Link url={"author-url"}>First Last</Link>}
         editionInfo={exampleEditionInfo}
         editionsLinkElement={
-            <UnderlineLink
-                url={"#allEditionsUrl"}
-            >{`View All 7 editions`}</UnderlineLink>
+            <Link url={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
         }
     />
 );
@@ -85,14 +80,10 @@ export const searchResultItemNoSubtitle = () => (
             </a>
         }
         subtitleContent={<></>}
-        authorLinkElement={
-            <UnderlineLink url={"author-url"}>First Last</UnderlineLink>
-        }
+        authorLinkElement={<Link url={"author-url"}>First Last</Link>}
         editionInfo={exampleEditionInfo}
         editionsLinkElement={
-            <UnderlineLink
-                url={"#allEditionsUrl"}
-            >{`View All 7 editions`}</UnderlineLink>
+            <Link url={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
         }
     />
 );
