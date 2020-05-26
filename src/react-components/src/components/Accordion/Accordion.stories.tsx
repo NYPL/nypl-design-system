@@ -2,7 +2,7 @@ import * as React from "react";
 
 import Accordion from "./Accordion";
 import { action } from "@storybook/addon-actions";
-import { text } from "@storybook/addon-knobs";
+
 import Checkbox from "../Checkbox/Checkbox";
 import UnorderedList from "../UnorderedList/UnorderedList";
 
