@@ -2,12 +2,11 @@ import * as React from "react";
 import Icon, { IconProps } from "../Icons/Icon";
 import bem from "../../utils/bem";
 import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
+import { iconRotationOptions } from "../Icons/IconTypes";
 
 export interface ButtonOptions {
     content?: JSX.Element;
-
     id: string;
-
     callback?: (event: React.MouseEvent | React.KeyboardEvent) => void;
     attributes?: {};
     modifiers?: string[];
@@ -17,7 +16,7 @@ export interface ButtonOptions {
     mouseDown?: boolean;
     iconPosition?: ButtonIconPositions;
     iconName?: string;
-    iconRotation?: "rotate-180" | "rotate-270" | "rotate-0" | "rotate-90";
+    iconRotation?: iconRotationOptions;
     iconModifiers?: string[];
     iconDecorative?: boolean;
     iconRole?: string;
@@ -45,7 +44,7 @@ interface ButtonProps {
     /** The name of the icon.  Corresponds with the name of the icon's svg file */
     iconName?: string;
     /** Optional amount of degrees to rotate icon */
-    iconRotation?: "rotate-180" | "rotate-270" | "rotate-0" | "rotate-90";
+    iconRotation?: iconRotationOptions;
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     iconModifiers?: string[];
     /** Is the icon decorative */

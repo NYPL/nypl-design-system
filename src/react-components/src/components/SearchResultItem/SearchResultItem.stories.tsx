@@ -6,6 +6,7 @@ import UnderlineLink from "../UnderlineLink/UnderlineLink";
 import bem from "../../utils/bem";
 import BasicLink from "../BasicLink/BasicLink";
 import IconLink from "../IconLink/IconLink";
+import { iconRotationOptions } from "../Icons/IconTypes";
 
 export default {
     title: "Search Result Item",
@@ -36,7 +37,7 @@ let exampleEditionInfo = {
         <IconLink
             iconName="download"
             iconPosition="left"
-            iconRotation="rotate-0"
+            iconRotation={iconRotationOptions.rotate0}
             url="blah"
         >
             Download

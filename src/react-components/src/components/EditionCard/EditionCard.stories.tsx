@@ -1,6 +1,8 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
+import { iconRotationOptions } from "../Icons/IconTypes";
+
 import EditionCard from "./EditionCard";
 import IconLink from "../IconLink/IconLink";
 import BasicLink from "../BasicLink/BasicLink";
@@ -40,7 +42,7 @@ export const editionCardWithFullData = () => (
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconRotation="rotate-0"
+                iconRotation={iconRotationOptions.rotate0}
                 url="blah"
             >
                 Download
@@ -68,7 +70,7 @@ export const editionCardWithOneLinks = () => (
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconRotation="rotate-0"
+                iconRotation={iconRotationOptions.rotate0}
                 url="blah"
             >
                 Download
@@ -121,7 +123,7 @@ export const editionCardWithSomeEditionInfo = () => (
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconRotation="rotate-0"
+                iconRotation={iconRotationOptions.rotate0}
                 url="blah"
             >
                 Download
@@ -153,7 +155,7 @@ export const editionCardWithEmptyEditionInfo = () => (
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconRotation="rotate-0"
+                iconRotation={iconRotationOptions.rotate0}
                 url="blah"
             >
                 Download
@@ -189,7 +191,7 @@ export const editionCardWithAtypicalImageSize = () => (
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconRotation="rotate-0"
+                iconRotation={iconRotationOptions.rotate0}
                 url="blah"
             >
                 Download
@@ -226,7 +228,7 @@ export const instanceCard = () => (
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconRotation="rotate-0"
+                iconRotation={iconRotationOptions.rotate0}
                 url="blah"
             >
                 Download

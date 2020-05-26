@@ -1,6 +1,8 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
+import { iconRotationOptions } from "../Icons/IconTypes";
+
 import UnorderedList from "./UnorderedList";
 import IconLink from "../IconLink/IconLink";
 import EditionCard, {
@@ -53,7 +55,7 @@ let editionData: EditionDetails = {
         <IconLink
             iconName="download"
             iconPosition="left"
-            iconRotation="rotate-0"
+            iconRotation={iconRotationOptions.rotate0}
             url="blah3"
         >
             Download
@@ -158,7 +160,7 @@ let searchItemData = {
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconRotation="rotate-0"
+                iconRotation={iconRotationOptions.rotate0}
                 url="blah"
             >
                 Download
