@@ -15,7 +15,6 @@ export interface SectionTitleProps {
     headingModifiers?: string[];
 
     linkUrl?: string;
-
     linkAttributes?: {};
     linkModifiers?: string[];
     linkBlockname?: string;

@@ -38,7 +38,7 @@ export default function UnorderedList(
     const content = props.children.map((content, i) => {
         return (
             <li
-                className={bem("list-item", [], baseClass)}
+                className={bem(baseClass, [], "list-item")}
                 key={id + "-li-" + i}
             >
                 {content}
@@ -47,11 +47,11 @@ export default function UnorderedList(
     });
 
     return (
-        <div className={bem("list-container", modifiers, baseClass)}>
+        <div className={bem(baseClass, modifiers, "list-container")}>
             <ul
                 id={id}
                 className={
-                    baseClass + " " + bem(blockName, modifiers, baseClass)
+                    baseClass + " " + bem(baseClass, modifiers, blockName)
                 }
             >
                 {content}
