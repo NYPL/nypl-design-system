@@ -13,6 +13,38 @@ describe("Images", () => {
         wrapper = Enzyme.shallow(<Image src="test.png" isDecorative={true} />);
         expect(wrapper.find("img")).to.have.lengthOf(1);
     });
+    it("Shows Image with caption when provided ImageCaption", () => {
+        wrapper = Enzyme.shallow(
+            <Image
+                src="test.png"
+                isDecorative={true}
+                imageCaption={"caption"}
+            />
+        );
+        expect(wrapper.find("p")).to.have.lengthOf(1);
+        expect(wrapper.find("p").text()).to.equal("caption");
+    });
+
+    it("Shows Image with credit when provided ImageCredit", () => {
+        wrapper = Enzyme.shallow(
+            <Image src="test.png" isDecorative={true} imageCredit={"credit"} />
+        );
+        expect(wrapper.find("p")).to.have.lengthOf(1);
+        expect(wrapper.find("p").text()).to.equal("credit");
+    });
+
+    it("Shows Image with credit and caption when provided ImageCredit and ImageCaption", () => {
+        wrapper = Enzyme.shallow(
+            <Image
+                src="test.png"
+                isDecorative={true}
+                imageCaption={"caption"}
+                imageCredit={"credit"}
+            />
+        );
+        expect(wrapper.find("p")).to.have.lengthOf(2);
+    });
+
     it("Throws error when meaningful image is passed without alt text", () => {
         expect(() =>
             Enzyme.mount(<Image src="test.png" isDecorative={false} />)

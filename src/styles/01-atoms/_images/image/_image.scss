@@ -1,0 +1,34 @@
+@mixin image {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+img,
+picture {
+    @include image;
+}
+
+figure {
+    margin: 0; //override normalize
+}
+
+.figure__caption {
+    font-style: italic;
+}
+// p {
+//     background-color: orange;
+//     line-height: 50%;
+// }
+
+.annotation__image {
+    p {
+        font-style: italic;
+    }
+    p:nth-child(odd) {
+        margin-bottom: 0;
+    }
+    p:nth-child(even) {
+        margin-top: 0;
+    }
+}

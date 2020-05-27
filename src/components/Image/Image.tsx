@@ -8,6 +8,8 @@ export interface ImageProps {
     altText?: string;
     imageModifiers?: string[];
     imageBlockname?: string;
+    imageCaption?: string;
+    imageCredit?: string;
 }
 
 export default function Image(props: ImageProps) {
@@ -18,6 +20,8 @@ export default function Image(props: ImageProps) {
         altText,
         imageModifiers,
         imageBlockname,
+        imageCaption,
+        imageCredit,
     } = props;
 
     if (!isDecorative && !altText) {
@@ -34,5 +38,23 @@ export default function Image(props: ImageProps) {
         alt: isDecorative ? "" : altText,
     };
 
-    return <img {...imageProps} />;
+    return (
+        <>
+            <img {...imageProps} />
+            {(imageCaption || imageCredit) && (
+                <div className={bem(image_base_class, [], "annotation")}>
+                    {imageCaption && (
+                        <p className={bem(image_base_class, [], "caption")}>
+                            {imageCaption}
+                        </p>
+                    )}
+                    {imageCredit && (
+                        <p className={bem(image_base_class, [], "heading")}>
+                            {imageCredit}
+                        </p>
+                    )}
+                </div>
+            )}
+        </>
+    );
 }
