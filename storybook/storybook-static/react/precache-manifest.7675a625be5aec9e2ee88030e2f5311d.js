@@ -144,7 +144,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Breadcrumbs/Breadcrumbs.stories.d.ts"
   },
   {
-    "revision": "67db1b59e301375b60b8ce6044b47df9",
+    "revision": "ba752f529a8ad28609b78d247d0a2d46",
     "url": "../../../src/react-components/lib/components/Button/Button.d.ts"
   },
   {
@@ -228,7 +228,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Hero/HeroTypes.d.ts"
   },
   {
-    "revision": "a4ec13ccea8e42b431d5a1f536fb4aec",
+    "revision": "b07be4a4c5ccab621dcfc8b62f28b00f",
     "url": "../../../src/react-components/lib/components/IconLink/IconLink.d.ts"
   },
   {
@@ -238,6 +238,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "d20755bb9a11450af41410f4f887677a",
     "url": "../../../src/react-components/lib/components/Icons/Icon.d.ts"
+  },
+  {
+    "revision": "4c401f3ba56e8ecf60dca8cc4446d5ed",
+    "url": "../../../src/react-components/lib/components/Icons/IconTypes.d.ts"
   },
   {
     "revision": "d41d8cd98f00b204e9800998ecf8427e",
@@ -384,23 +388,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "85aa371691cc4750cb44c32e105f8e01",
+    "revision": "549ad8c18a0e34736825f30237978772",
     "url": "iframe.html"
   },
   {
-    "url": "main.aa4c2afd6e115607f5d7.bundle.js"
+    "url": "main.e97cd623bd0e2312f50c.bundle.js"
   },
   {
-    "url": "runtime~main.aa4c2afd6e115607f5d7.bundle.js"
+    "url": "runtime~main.e97cd623bd0e2312f50c.bundle.js"
   },
   {
-    "revision": "5700e4da963d6d1abc2e",
+    "revision": "5ff19e542f3ccbb670b7",
     "url": "static/css/vendors~main.f8f248a5.chunk.css"
   },
   {
-    "url": "vendors~main.aa4c2afd6e115607f5d7.bundle.js"
+    "url": "vendors~main.e97cd623bd0e2312f50c.bundle.js"
   },
   {
-    "url": "vendors~main.aa4c2afd6e115607f5d7.bundle.js.LICENSE.txt"
+    "url": "vendors~main.e97cd623bd0e2312f50c.bundle.js.LICENSE.txt"
   }
 ]);

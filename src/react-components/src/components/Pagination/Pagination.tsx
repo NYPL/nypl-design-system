@@ -3,7 +3,7 @@ import bem from "../../utils/bem";
 import Button, { ButtonOptions } from "../Button/Button";
 import Dropdown from "../Dropdown/Dropdown";
 import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
-
+import { iconRotationOptions } from "../Icons/IconTypes";
 export interface PaginationProps {
     paginationDropdownOptions: string[];
     previousPageHandler: (event: React.MouseEvent) => void;
@@ -31,8 +31,8 @@ export default function Pagination(props: PaginationProps) {
         content: <>Previous</>,
         buttonType: ButtonTypes.Outline,
         iconPosition: ButtonIconPositions.Left,
+        iconRotation: iconRotationOptions.rotate90,
         iconName: "arrow_xsmall",
-        iconModifiers: ["left", "icon-left"],
         iconDecorative: true,
     };
 
@@ -42,8 +42,8 @@ export default function Pagination(props: PaginationProps) {
         content: <>Next</>,
         buttonType: ButtonTypes.Outline,
         iconPosition: ButtonIconPositions.Right,
+        iconRotation: iconRotationOptions.rotate270,
         iconName: "arrow_xsmall",
-        iconModifiers: ["right", "icon-right"],
         iconDecorative: true,
     };
 

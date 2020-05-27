@@ -7,15 +7,35 @@
         transform: rotate(180deg);
     }
 
+    &--rotate-180 {
+        @include space-inline-xxs;
+        transform: rotate(180deg);
+    }
+
     &--right {
         transform: rotate(270deg);
+    }
+
+    &--rotate-270 {
+        transform: rotate(270deg);
+        margin-left: $space-xxs;
     }
 
     &--down {
         transform: rotate(0deg);
     }
 
+    &--rotate-0 {
+        @include space-inline-xxs;
+        transform: rotate(0deg);
+    }
+
     &--left {
+        transform: rotate(90deg);
+    }
+
+    &--rotate-90 {
+        @include space-inline-xxs;
         transform: rotate(90deg);
     }
 
