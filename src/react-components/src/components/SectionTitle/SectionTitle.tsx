@@ -3,7 +3,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import IconLink from "../IconLink/IconLink";
 import Heading from "../Heading/Heading";
-import { iconRotationOptions } from "../Icons/IconTypes";
+import { iconRotationTypes } from "../Icons/IconTypes";
 
 export interface SectionTitleProps {
     id: string;
@@ -67,7 +67,7 @@ export default class SectionTitle extends React.Component<
                     attributes={passedInAttributes}
                     modifiers={linkModifiers}
                     iconPosition="right"
-                    iconRotation={iconRotationOptions.rotate270}
+                    iconRotation={iconRotationTypes.rotate270}
                 >
                     {"See All"}
                 </IconLink>
