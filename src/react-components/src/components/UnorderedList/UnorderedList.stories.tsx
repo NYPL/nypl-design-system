@@ -1,6 +1,8 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
+import { iconRotationOptions } from "../Icons/IconTypes";
+
 import UnorderedList from "./UnorderedList";
 import IconLink from "../IconLink/IconLink";
 import EditionCard, {
@@ -53,8 +55,8 @@ let editionData: EditionDetails = {
         <IconLink
             iconName="download"
             iconPosition="left"
-            iconModifiers={["icon-left"]}
-            url="blah"
+            iconRotation={iconRotationOptions.rotate0}
+            url="blah3"
         >
             Download
         </IconLink>
@@ -149,7 +151,7 @@ let searchItemData = {
         readOnlineLink: (
             <BasicLink
                 className={bem("card-button-link", [], "edition-card")}
-                url="blah3"
+                url="blah4"
             >
                 Read Online
             </BasicLink>
@@ -158,8 +160,8 @@ let searchItemData = {
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconModifiers={["icon-left"]}
-                url="blah4"
+                iconRotation={iconRotationOptions.rotate0}
+                url="blah"
             >
                 Download
             </IconLink>

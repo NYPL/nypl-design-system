@@ -3,6 +3,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 import BasicLink from "../BasicLink/BasicLink";
+import { iconRotationOptions } from "../Icons/IconTypes";
 
 export interface IconLinkProps {
     url?: string;
@@ -10,6 +11,7 @@ export interface IconLinkProps {
     modifiers?: string[];
     blockName?: string;
     iconName?: string;
+    iconRotation?: iconRotationOptions;
     iconPosition?: string;
     iconModifiers?: string[];
 }
@@ -27,6 +29,7 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
             iconName = "arrow_xsmall",
             iconPosition,
             iconModifiers,
+            iconRotation,
         } = this.props;
 
         let moreLinkModifiers = modifiers ? modifiers : [];
@@ -45,11 +48,17 @@ export default class IconLink extends React.Component<IconLinkProps, {}> {
                 );
             }
 
+            let moreIconModifiers = iconModifiers ? iconModifiers : [];
+
+            if (iconRotation) {
+                moreIconModifiers.push(iconRotation);
+            }
+
             icon.element = (
                 <Icon
                     name={iconName}
                     blockName={iconLink__base_class}
-                    modifiers={iconModifiers}
+                    modifiers={moreIconModifiers}
                     decorative={true}
                 />
             );
