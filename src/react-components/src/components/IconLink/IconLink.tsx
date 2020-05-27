@@ -11,11 +11,7 @@ export interface IconLinkProps {
     modifiers?: string[];
     blockName?: string;
     iconName?: string;
-<<<<<<< HEAD
     iconRotation?: iconRotationTypes;
-=======
-    iconRotation?: iconRotationOptions;
->>>>>>> be8eb23135e68a5b49e1188b6112a3e0777ff773
     iconPosition?: string;
     iconModifiers?: string[];
 }
