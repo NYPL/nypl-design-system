@@ -44,17 +44,6 @@ export default class Link extends React.Component<LinkProps, {}> {
 
         let childProps = {};
 
-        React.Children.forEach(
-            this.props.children,
-            (child: React.ReactElement, i: number) => {
-                if (i === 0) {
-                    childProps = child.props;
-                } else {
-                    throw new Error("Please pass only one child into Link");
-                }
-            }
-        );
-
         let elementChildren = React.Children.map(
             this.props.children,
             (child: React.ReactElement) => {
@@ -74,7 +63,8 @@ export default class Link extends React.Component<LinkProps, {}> {
             return React.cloneElement(child, { key: uid(child) });
         });
 
-        if (icon) {
+        if (this.props.icon) {
+            console.log("icon exists");
             elementChildren.push(
                 React.cloneElement(icon.element, { key: uid(icon) })
             );

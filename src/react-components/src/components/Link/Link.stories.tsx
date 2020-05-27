@@ -20,18 +20,28 @@ export const generatedLink = () => (
 
 export const linkWithLeftIcon = () => (
     <Link url="#passed-in-link" className="more-link">
-        <span>
-            <Icon name="arrow_xsmall" decorative={true}></Icon>
+        <>
+            <Icon
+                name="arrow_xsmall"
+                modifiers={["left"]}
+                blockName="more-link"
+                decorative={true}
+            ></Icon>
             content
-        </span>
+        </>
     </Link>
 );
 
 export const linkWithRightIcon = () => (
     <Link url="#passed-in-link" className="more-link">
-        <span>
+        <>
             content
-            <Icon name="arrow_xsmall" decorative={true}></Icon>
-        </span>
+            <Icon
+                name="arrow_xsmall"
+                blockName="more-link"
+                modifiers={["right"]}
+                decorative={true}
+            ></Icon>
+        </>
     </Link>
 );

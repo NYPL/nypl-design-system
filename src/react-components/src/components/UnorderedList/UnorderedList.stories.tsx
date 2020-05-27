@@ -4,7 +4,7 @@ import bem from "../../utils/bem";
 import { iconRotationTypes } from "../Icons/IconTypes";
 
 import UnorderedList from "./UnorderedList";
-import IconLink from "../IconLink/IconLink";
+import Icon from "../Icons/Icon";
 import EditionCard, {
     EditionDetails,
     EditionCardProps,
@@ -51,14 +51,12 @@ let editionData: EditionDetails = {
         </Link>
     ),
     downloadLink: (
-        <IconLink
-            iconName="download"
-            iconPosition="left"
-            iconRotation={iconRotationTypes.rotate0}
-            url="blah3"
-        >
-            Download
-        </IconLink>
+        <Link className="edition-card__card-info-link" url="blah">
+            <span>
+                <Icon name="download" iconRotation={iconRotationTypes.rotate0} decorative={true}></Icon>
+                Download
+            </span>
+        </Link>
     ),
 };
 
@@ -156,6 +154,7 @@ let searchItemData = {
             </Link>
         ),
         downloadLink: (
+<<<<<<< HEAD
             <IconLink
                 iconName="download"
                 iconPosition="left"
@@ -164,6 +163,14 @@ let searchItemData = {
             >
                 Download
             </IconLink>
+=======
+            <Link url="blah4">
+                <span>
+                    <Icon name="download" decorative={true}></Icon>
+                    Download
+                </span>
+            </Link>
+>>>>>>> Updates <Link> examples to use the <Icon> component
         ),
     },
     authorElement: <Link url={"author-url"}>First Last</Link>,

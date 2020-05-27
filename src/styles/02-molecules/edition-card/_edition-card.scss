@@ -1,98 +1,98 @@
 .edition-card {
-  @include space-stack-s;
+    @include space-stack-s;
 
-  border-radius: 5px;
-  border: 1px solid $gray-light;
-  display: flex;
-  flex-flow: column wrap;
-  padding: $space $space-l;
-
-  @include breakpoint($medium) {
-    justify-content: space-between;
-    flex-flow: row wrap;
-  }
-
-  &__heading {
-    flex: 100%;
-  }
-
-  &__card-content {
-    align-items: center;
+    border-radius: 5px;
+    border: 1px solid $gray-light;
     display: flex;
     flex-flow: column wrap;
+    padding: $space $space-l;
 
     @include breakpoint($medium) {
-      flex-flow: row nowrap;
-      flex: 1 1 400px;
+        justify-content: space-between;
+        flex-flow: row wrap;
     }
-  }
 
-  &__card-image {
-    @include space-stack-s;
-    @include space-inline-s;
-
-    max-width: 150px;
-    flex: 0 0 75px;
-    align-items: center;
-  }
-
-  &__edition-info {
-    @include space-stack-s;
-  }
-
-  &__card-ctas {
-    align-items: center;
-    display: flex;
-    flex-flow: row nowrap;
-
-    @include breakpoint($medium) {
-      align-self: flex-start;
-      flex-flow: column nowrap;
-      flex: 0 1 20%;
+    &__heading {
+        flex: 100%;
     }
-  }
 
-  &__card-info-link {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    &__card-content {
+        align-items: center;
+        display: flex;
+        flex-flow: column wrap;
 
-    @include breakpoint($medium) {
-      &:not(:last-child) {
+        @include breakpoint($medium) {
+            flex-flow: row nowrap;
+            flex: 1 1 400px;
+        }
+    }
+
+    &__card-image {
         @include space-stack-s;
-      }
+        @include space-inline-s;
+
+        max-width: 150px;
+        flex: 0 0 75px;
+        align-items: center;
     }
 
-    .more-link {
-      color: $black;
-      text-decoration: underline;
-
-      .more-link__icon--icon-left {
-        @include space-inline-xs;
-      }
+    &__edition-info {
+        @include space-stack-s;
     }
-  }
 
-  &__card-button-link {
-    @include button--filled;
+    &__card-ctas {
+        align-items: center;
+        display: flex;
+        flex-flow: row nowrap;
 
-    width: 100%;
-
-    &:hover {
-      color: $gray-light;
+        @include breakpoint($medium) {
+            align-self: flex-start;
+            flex-flow: column nowrap;
+            flex: 0 1 20%;
+        }
     }
-  }
 
-  &__missing-links {
-    @include space-inset-s;
+    &__card-info-link {
+        display: flex;
+        justify-content: center;
+        width: 100%;
 
-    flex: 0 0 auto;
-    width: 200px;
-    background-color: $gray-light;
+        @include breakpoint($medium) {
+            &:not(:last-child) {
+                @include space-stack-s;
+            }
+        }
 
-    @include breakpoint($medium) {
-      align-self: flex-start;
-      margin-left: auto;
+        .more-link {
+            color: $black;
+            text-decoration: underline;
+
+            .more-link__icon--icon-left {
+                @include space-inline-xs;
+            }
+        }
     }
-  }
+
+    &__card-button-link {
+        @include button--filled;
+
+        width: 100%;
+
+        &:hover {
+            color: $gray-light;
+        }
+    }
+
+    &__missing-links {
+        @include space-inset-s;
+
+        flex: 0 0 auto;
+        width: 200px;
+        background-color: $gray-light;
+
+        @include breakpoint($medium) {
+            align-self: flex-start;
+            margin-left: auto;
+        }
+    }
 }
