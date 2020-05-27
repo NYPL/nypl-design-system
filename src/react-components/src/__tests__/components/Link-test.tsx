@@ -5,9 +5,75 @@ import * as React from "react";
 import * as Mocha from "mocha";
 
 import Link from "../../components/Link/Link";
+import Icon from "../../components/Icons/Icon";
 
-describe("Link With Underline", () => {
+describe("Link", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
+
+    it("Can pass in left icon", () => {
+        wrapper = Enzyme.mount(
+            <>
+                <Icon
+                    name="arrow_xsmall"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                ></Icon>
+                content
+            </>
+        );
+        expect(wrapper.find("a")).to.have.lengthOf(1);
+        expect(wrapper.find("Icon")).to.have.lengthOf(1);
+    });
+    it("Can pass in right icon", () => {
+        wrapper = Enzyme.mount(
+            <>
+                content
+                <Icon
+                    name="arrow_xsmall"
+                    blockName="more-link"
+                    modifiers={["right"]}
+                    decorative={true}
+                ></Icon>
+            </>
+        );
+        expect(wrapper.find("a")).to.have.lengthOf(1);
+        expect(wrapper.find("Icon")).to.have.lengthOf(1);
+    });
+
+    it("Can pass a link with <a> tag and an icon", () => {
+        wrapper = Enzyme.mount(
+            <Link>
+                <a href="#test">Test</a>
+                <Icon
+                    name="arrow_xsmall"
+                    blockName="more-link"
+                    modifiers={["right"]}
+                    decorative={true}
+                ></Icon>
+            </Link>
+        );
+        expect(wrapper.find("a")).to.have.lengthOf(1);
+        // expect(wrapper.dive().find("icon")).to.have.lengthOf(1);
+    });
+
+    it("Can pass in icon, text as child and url as props", () => {
+        wrapper = Enzyme.mount(
+            <Link url="#test">
+                <>
+                    Test
+                    <Icon
+                        name="arrow_xsmall"
+                        blockName="more-link"
+                        modifiers={["right"]}
+                        decorative={true}
+                    ></Icon>
+                </>
+            </Link>
+        );
+        expect(wrapper.find("a")).to.have.lengthOf(1);
+        expect(wrapper.find("Icon")).to.have.lengthOf(1);
+    });
 
     it("Can pass a link with <a> tag", () => {
         wrapper = Enzyme.mount(
@@ -35,17 +101,18 @@ describe("Link With Underline", () => {
     //   expect(() => Enzyme.mount(<Link><span>Test</span></Link>))
     //   .to.throw("if children [object Object] has no anchor tag, please pass URL");
     // });
-    it("throws an error when more than one components are passed", () => {
-        expect(() =>
-            Enzyme.mount(
-                <Link>
-                    <span>Test</span>
-                    <span>Test2</span>
-                </Link>
-            )
-        ).to.throw(
-            "Please only pass one child, got elements (span, span), " +
-                "for base component BasicLinkBase"
-        );
-    });
+    //   it("Can pass in no icon", () => {
+    //     wrapper = Enzyme.mount(<IconLink url="#test">Test</IconLink>);
+    //     expect(wrapper.find("a")).to.have.lengthOf(1);
+    //     expect(wrapper.find("Icon")).to.have.lengthOf(0);
+    // });
+    // it("throws an error when icon is badly formed", () => {
+    //     expect(() =>
+    //         Enzyme.mount(
+    //             <IconLink iconPosition="center" url="#test">
+    //                 Test
+    //             </IconLink>
+    //         )
+    //     ).to.throw("iconPosition can only have values 'left' or 'right'");
+    // });
 });

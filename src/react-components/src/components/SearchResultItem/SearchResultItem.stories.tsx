@@ -2,10 +2,9 @@ import * as React from "react";
 
 import SearchResultItem from "./SearchResultItem";
 import Link from "../Link/Link";
+import Icon from "../Icons/Icon";
 
 import bem from "../../utils/bem";
-import IconLink from "../IconLink/IconLink";
-import { iconRotationTypes } from "../Icons/IconTypes";
 
 export default {
     title: "Search Result Item",
@@ -33,14 +32,16 @@ let exampleEditionInfo = {
         </Link>
     ),
     downloadLink: (
-        <IconLink
-            iconName="download"
-            iconPosition="left"
-            iconRotation={iconRotationTypes.rotate0}
-            url="blah"
-        >
+        <Link url="#passed-in-link" className="more-link">
+            <Icon
+                name="download"
+                blockName="more-link"
+                modifiers={["left"]}
+                decorative={true}
+                iconRotation={iconRotationTypes.rotate0}
+            ></Icon>
             Download
-        </IconLink>
+        </Link>
     ),
 };
 

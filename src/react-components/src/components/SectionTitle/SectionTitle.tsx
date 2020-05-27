@@ -1,7 +1,7 @@
-// MT-82
 import * as React from "react";
 import bem from "../../utils/bem";
-import IconLink from "../IconLink/IconLink";
+import Link from "../Link/Link";
+import Icon from "../Icons/Icon";
 import Heading from "../Heading/Heading";
 import { iconRotationTypes } from "../Icons/IconTypes";
 
@@ -60,16 +60,16 @@ export default class SectionTitle extends React.Component<
             };
 
             link = (
-                <IconLink
-                    url={linkUrl}
-                    blockName={baseClass}
-                    attributes={passedInAttributes}
-                    modifiers={linkModifiers}
-                    iconPosition="right"
-                    iconRotation={iconRotationTypes.rotate270}
-                >
-                    {"See All"}
-                </IconLink>
+                <Link url="#passed-in-link" className="more-link">
+                    See All
+                    <Icon
+                        name="arrow_xsmall"
+                        blockName="more-link"
+                        modifiers={["right"]}
+                        decorative={true}
+                        iconRotation={iconRotationTypes.rotate270}
+                    ></Icon>
+                </Link>
             );
         }
 

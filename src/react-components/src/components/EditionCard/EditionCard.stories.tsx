@@ -4,7 +4,7 @@ import bem from "../../utils/bem";
 import { iconRotationTypes } from "../Icons/IconTypes";
 
 import EditionCard from "./EditionCard";
-import IconLink from "../IconLink/IconLink";
+import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 
 export default {
@@ -39,14 +39,16 @@ export const editionCardWithFullData = () => (
             </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link url="#passed-in-link" className="more-link">
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={iconRotationTypes.rotate0
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -67,14 +69,16 @@ export const editionCardWithOneLinks = () => (
             <>Under Creative Commons License</>,
         ]}
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link url="#passed-in-link" className="more-link">
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={iconRotationTypes.rotate0
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -120,14 +124,16 @@ export const editionCardWithSomeEditionInfo = () => (
             </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link url="#passed-in-link" className="more-link">
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={iconRotationTypes.rotate0
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -152,14 +158,16 @@ export const editionCardWithEmptyEditionInfo = () => (
             </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link url="#passed-in-link" className="more-link">
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={iconRotationTypes.rotate0
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -188,14 +196,16 @@ export const editionCardWithAtypicalImageSize = () => (
             </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link url="#passed-in-link" className="more-link">
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={iconRotationTypes.rotate0
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -225,14 +235,16 @@ export const instanceCard = () => (
             </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link url="#passed-in-link" className="more-link">
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={iconRotationTypes.rotate0
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );

@@ -34,7 +34,7 @@ export default class Link extends React.Component<LinkProps, {}> {
     }
 
     render(): JSX.Element {
-        const { url, className, attributes, icon } = this.props;
+        const { url, className, attributes } = this.props;
 
         let props = {
             className: className,
@@ -47,14 +47,12 @@ export default class Link extends React.Component<LinkProps, {}> {
         let elementChildren = React.Children.map(
             this.props.children,
             (child: React.ReactElement) => {
-                if (child.type === "a") {
+                if (typeof child === "string" && !props.href) {
+                    throw new Error("Link needs prop 'url'");
+                } else if (child.type === "a") {
                     return child.props.children;
                 } else {
-                    if (!props.href) {
-                        throw new Error("IconLink needs prop 'url'");
-                    } else {
-                        return child.props ? child.props.children : child;
-                    }
+                    return child;
                 }
             }
         );
@@ -62,13 +60,6 @@ export default class Link extends React.Component<LinkProps, {}> {
         elementChildren.map((child) => {
             return React.cloneElement(child, { key: uid(child) });
         });
-
-        if (this.props.icon) {
-            console.log("icon exists");
-            elementChildren.push(
-                React.cloneElement(icon.element, { key: uid(icon) })
-            );
-        }
 
         return React.createElement(
             "a",

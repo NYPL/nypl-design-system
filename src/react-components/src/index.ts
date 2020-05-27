@@ -16,7 +16,6 @@ export { default as Heading } from "./components/Heading/Heading";
 export { default as Hero } from "./components/Hero/Hero";
 export { HeroTypes } from "./components/Hero/HeroTypes";
 export { iconRotationTypes } from "./components/Icons/IconTypes";
-export { default as IconLink } from "./components/IconLink/IconLink";
 export { default as Image } from "./components/Image/Image";
 export { default as Input } from "./components/Input/Input";
 export { default as Label } from "./components/Label/Label";

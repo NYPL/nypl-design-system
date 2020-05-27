@@ -5,7 +5,7 @@ import * as React from "react";
 import EditionCard from "../../components/EditionCard/EditionCard";
 import Link from "../../components/Link/Link";
 import bem from "../../utils/bem";
-import IconLink from "../../components/IconLink/IconLink";
+import Icon from "../../components/Icons/Icon";
 
 describe("EditionCard", () => {
     let regularEditionCard = (
@@ -28,9 +28,15 @@ describe("EditionCard", () => {
                 </Link>
             }
             downloadLink={
-                <IconLink iconName="download" iconPosition="left" url="blah">
+                <Link url="#passed-in-link" className="more-link">
+                    <Icon
+                        name="download"
+                        blockName="more-link"
+                        modifiers={["left"]}
+                        decorative={true}
+                    ></Icon>
                     Download
-                </IconLink>
+                </Link>
             }
         />
     );
@@ -57,9 +63,15 @@ describe("EditionCard", () => {
                 </Link>
             }
             downloadLink={
-                <IconLink iconName="download" iconPosition="left" url="blah">
+                <Link url="#passed-in-link" className="more-link">
+                    <Icon
+                        name="download"
+                        blockName="more-link"
+                        modifiers={["left"]}
+                        decorative={true}
+                    ></Icon>
                     Download
-                </IconLink>
+                </Link>
             }
         />
     );

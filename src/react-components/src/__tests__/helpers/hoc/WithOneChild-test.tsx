@@ -108,36 +108,4 @@ describe("withOneChild HOC", () => {
             );
         }
     });
-
-    describe("Link as implementation", () => {
-        it("should only allow one child", () => {
-            const basicLink = (
-                <Link>
-                    <a href="#passed-in-link">Click me</a>
-                </Link>
-            );
-            const wrongLink = (
-                <Link>
-                    <a href="#passed-in-link">Don't click me</a>
-                    <p>Nope</p>
-                </Link>
-            );
-
-            wrapper = Enzyme.mount(basicLink);
-            expect(wrapper.find("a").prop("href")).to.equal("#passed-in-link");
-            expect(wrapper.find("a").text()).to.equal("Click me");
-            expect(wrapper.children).to.have.lengthOf(1);
-
-            try {
-                wrapper = Enzyme.mount(wrongLink);
-                // This shouldn't run since an error is thrown
-                expect(false).to.equal(true);
-            } catch (e) {
-                expect(e.message).to.equal(
-                    "Please only pass one child, " +
-                        "got elements (a, p), for base component LinkBase"
-                );
-            }
-        });
-    });
 });
