@@ -50,7 +50,11 @@ export default function Image(props: ImageProps) {
                     )}
                     {imageCredit && (
                         <p className={bem(image_base_class, [], "credit")}>
+<<<<<<< HEAD:src/components/Image/Image.tsx
                             {imageCredit}
+=======
+                            Credit: {imageCredit}
+>>>>>>> prepend credit with 'credit:':src/react-components/src/components/Image/Image.tsx
                         </p>
                     )}
                 </div>
