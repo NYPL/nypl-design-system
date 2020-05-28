@@ -113,3 +113,25 @@ export const linkLikeButtonIconLeft = () => (
         <span>button content</span>
     </Button>
 );
+
+buttonFilledIcon.story = {
+    name: "Button Filled Icon",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14972%3A0",
+        },
+    },
+};
+
+buttonOutline.story = {
+    name: "Button Outline",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14972%3A143",
+        },
+    },
+};
