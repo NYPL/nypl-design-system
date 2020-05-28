@@ -42,22 +42,24 @@ export default function Image(props: ImageProps) {
         <>
             <img {...imageProps} />
             {(imageCaption || imageCredit) && (
-                <div className={bem(image_base_class, [], "annotation")}>
+                <figure
+                    className={bem(image_base_class, [], "figure__caption")}
+                >
                     {imageCaption && (
-                        <p className={bem(image_base_class, [], "caption")}>
+                        <figcaption
+                            className={bem(image_base_class, [], "caption")}
+                        >
                             {imageCaption}
-                        </p>
+                        </figcaption>
                     )}
                     {imageCredit && (
-                        <p className={bem(image_base_class, [], "credit")}>
-<<<<<<< HEAD:src/components/Image/Image.tsx
+                        <figcaption
+                            className={bem(image_base_class, [], "credit")}
+                        >
                             {imageCredit}
-=======
-                            Credit: {imageCredit}
->>>>>>> prepend credit with 'credit:':src/react-components/src/components/Image/Image.tsx
-                        </p>
+                        </figcaption>
                     )}
-                </div>
+                </figure>
             )}
         </>
     );

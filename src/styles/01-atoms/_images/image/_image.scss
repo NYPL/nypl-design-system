@@ -13,18 +13,9 @@ figure {
     margin: 0; //override normalize
 }
 
-.figure__caption {
+.figure__caption__image {
     font-style: italic;
-}
-
-.annotation__image {
-    p {
-        font-style: italic;
-    }
-    p:nth-child(odd) {
-        margin-bottom: 0;
-    }
-    p:nth-child(even) {
-        margin-top: 0;
+    figcaption:nth-child(odd) {
+        @include space-stack-none;
     }
 }
