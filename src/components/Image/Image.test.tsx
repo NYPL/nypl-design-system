@@ -21,22 +21,17 @@ describe("Images", () => {
                 imageCaption={"caption"}
             />
         );
-        expect(wrapper.find("p")).to.have.lengthOf(1);
-        expect(wrapper.find("p").text()).to.equal("caption");
+        expect(wrapper.find("figcaption")).to.have.lengthOf(1);
+        expect(wrapper.find("figcaption").text()).to.equal("caption");
     });
 
     it("Shows Image with credit when provided ImageCredit", () => {
         wrapper = Enzyme.shallow(
             <Image src="test.png" isDecorative={true} imageCredit={"credit"} />
         );
-<<<<<<< HEAD:src/components/Image/Image.test.tsx
 
-        expect(wrapper.find("p").text()).to.equal("credit");
-        expect(wrapper.find("p")).to.have.lengthOf(1);
-=======
-        expect(wrapper.find("p")).to.have.lengthOf(1);
-        expect(wrapper.find("p").text()).to.equal("Credit: credit");
->>>>>>> prepend credit with 'credit:':src/react-components/src/__tests__/components/Image-test.tsx
+        expect(wrapper.find("figcaption")).to.have.lengthOf(1);
+        expect(wrapper.find("figcaption").text()).to.equal("credit");
     });
 
     it("Shows Image with credit and caption when provided ImageCredit and ImageCaption", () => {
@@ -48,7 +43,7 @@ describe("Images", () => {
                 imageCredit={"credit"}
             />
         );
-        expect(wrapper.find("p")).to.have.lengthOf(2);
+        expect(wrapper.find("figcaption")).to.have.lengthOf(2);
     });
 
     it("Throws error when meaningful image is passed without alt text", () => {
