@@ -6,6 +6,7 @@ import { iconRotationTypes } from "../Icons/IconTypes";
 import EditionCard from "./EditionCard";
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
 
 export default {
     title: "Edition Card",
@@ -32,14 +33,16 @@ export const editionCardWithFullData = () => (
         ]}
         readOnlineLink={
             <Link
-                className={bem("card-button-link", [], "edition-card")}
+                // className={bem("card-button-link", [], "edition-card")}
+                linkType={LinkTypes.Button}
+                blockName="edition-card"
                 url="blah"
             >
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" className="more-link">
+            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -69,7 +72,7 @@ export const editionCardWithOneLinks = () => (
             <>Under Creative Commons License</>,
         ]}
         downloadLink={
-            <Link url="#passed-in-link" className="more-link">
+            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -116,15 +119,12 @@ export const editionCardWithSomeEditionInfo = () => (
             <span>Under Creative Commons License</span>,
         ]}
         readOnlineLink={
-            <Link
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah"
-            >
+            <Link blockName="edition-card" url="blah">
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" className="more-link">
+            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -150,15 +150,12 @@ export const editionCardWithEmptyEditionInfo = () => (
         }
         editionInfo={[]}
         readOnlineLink={
-            <Link
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah"
-            >
+            <Link blockName="edition-card" url="blah">
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" className="more-link">
+            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -189,14 +186,16 @@ export const editionCardWithAtypicalImageSize = () => (
         ]}
         readOnlineLink={
             <Link
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah"
+                blockName="edition-card"
+                // className={bem("card-button-link", [], "edition-card")}
+                linkType={LinkTypes.Button}
+                url="#blah"
             >
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" className="more-link">
+            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -228,14 +227,16 @@ export const instanceCard = () => (
         ]}
         readOnlineLink={
             <Link
-                className={bem("card-button-link", [], "edition-card")}
+                // className={bem("card-button-link", [], "edition-card")}
+                blockName="edition-card"
+                linkType={LinkTypes.Button}
                 url="blah"
             >
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" className="more-link">
+            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"

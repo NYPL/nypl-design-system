@@ -3,3 +3,8 @@ export enum LinkTypes {
     Button = "button",
     Default = "otherkind",
 }
+
+export enum LinkIconPositions {
+    Left = "left",
+    Right = "right",
+}

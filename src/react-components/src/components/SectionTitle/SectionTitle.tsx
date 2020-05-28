@@ -1,6 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
 import Icon from "../Icons/Icon";
 import Heading from "../Heading/Heading";
 import { iconRotationTypes } from "../Icons/IconTypes";
@@ -60,7 +61,7 @@ export default class SectionTitle extends React.Component<
             };
 
             link = (
-                <Link url="#passed-in-link" className="more-link">
+                <Link url="#passed-in-link" linkType={LinkTypes.Action}>
                     See All
                     <Icon
                         name="arrow_xsmall"

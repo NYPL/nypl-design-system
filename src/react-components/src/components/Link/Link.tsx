@@ -6,11 +6,8 @@ export interface LinkProps {
     /** Controls the link visuals—action, button, or default. */
     linkType?: LinkTypes;
 
-    /** Why is this optional? */
+    /** Href attribute */
     url?: string;
-
-    /** Icon that can be included idk */
-    icon?: { element: JSX.Element };
 
     /** Determines if icon appears on the right or left */
     iconPosition?: LinkIconPositions;
@@ -34,10 +31,10 @@ export default class Link extends React.Component<LinkProps, {}> {
     }
 
     render(): JSX.Element {
-        const { url, className, attributes } = this.props;
+        let { url, attributes } = this.props;
 
         let props = {
-            className: className,
+            className: "link",
             href: url,
             ...attributes,
         };
@@ -56,6 +53,14 @@ export default class Link extends React.Component<LinkProps, {}> {
                 }
             }
         );
+
+        if (this.props.linkType === LinkTypes.Action) {
+            props.className = "more-link";
+        } else if (this.props.linkType === LinkTypes.Button) {
+            props.className = "button";
+        } else {
+            console.log("default");
+        }
 
         elementChildren.map((child) => {
             return React.cloneElement(child, { key: uid(child) });

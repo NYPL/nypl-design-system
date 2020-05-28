@@ -2,6 +2,7 @@ import * as React from "react";
 
 import SearchResultItem from "./SearchResultItem";
 import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
 import Icon from "../Icons/Icon";
 
 import bem from "../../utils/bem";
@@ -25,14 +26,16 @@ let exampleEditionInfo = {
     ],
     readOnlineLink: (
         <Link
-            className={bem("card-button-link", [], "edition-card")}
+            // className={bem("card-button-link", [], "edition-card")}
             url="blah"
+            blockName="edition-card"
+            linkType={LinkTypes.Button}
         >
             Read Online
         </Link>
     ),
     downloadLink: (
-        <Link url="#passed-in-link" className="more-link">
+        <Link url="#passed-in-link" linkType={LinkTypes.Action}>
             <Icon
                 name="download"
                 blockName="more-link"

@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import Link from "./Link";
+import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 
 export default {
@@ -9,17 +10,25 @@ export default {
 };
 
 export const passedInLink = () => (
-    <Link>
+    <Link linkType={LinkTypes.Default}>
         <a href="#passed-in-link">I'm cold</a>
     </Link>
 );
 
 export const generatedLink = () => (
-    <Link url="#passed-in-link">I'm very cold</Link>
+    <Link url="#passed-in-link" linkType={LinkTypes.Default}>
+        I'm very cold
+    </Link>
 );
 
-export const linkWithLeftIcon = () => (
-    <Link className="more-link">
+export const buttonLink = () => (
+    <Link linkType={LinkTypes.Button} url="#passed-in-link">
+        I'm very cold
+    </Link>
+);
+
+export const defaultLinkWithLeftIcon = () => (
+    <Link linkType={LinkTypes.Action}>
         <Icon
             name="arrow_xsmall"
             modifiers={["left"]}
@@ -31,7 +40,7 @@ export const linkWithLeftIcon = () => (
 );
 
 export const linkWithRightIcon = () => (
-    <Link url="#passed-in-link" className="more-link">
+    <Link url="#passed-in-link" linkType={LinkTypes.Action}>
         content
         <Icon
             name="arrow_xsmall"

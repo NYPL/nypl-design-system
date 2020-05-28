@@ -13,6 +13,7 @@ import SearchResultItem from "../SearchResultItem/SearchResultItem";
 import Checkbox from "../Checkbox/Checkbox";
 import { action } from "@storybook/addon-actions";
 import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
 
 export default {
     title: "UnorderedList",
@@ -43,17 +44,19 @@ let editionData: EditionDetails = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <Link
-            className={bem("card-button-link", [], "edition-card")}
-            url="blah2"
-        >
+        <Link blockName="edition-card" linkType={LinkTypes.Button} url="blah2">
             Read Online
         </Link>
     ),
     downloadLink: (
-        <Link className="edition-card__card-info-link" url="blah">
+        // className="edition-card__card-info-link"
+        <Link blockName="card-info-link" url="blah">
             <span>
-                <Icon name="download" iconRotation={iconRotationTypes.rotate0} decorative={true}></Icon>
+                <Icon
+                    name="download"
+                    iconRotation={iconRotationTypes.rotate0}
+                    decorative={true}
+                ></Icon>
                 Download
             </span>
         </Link>
@@ -147,30 +150,23 @@ let searchItemData = {
         ],
         readOnlineLink: (
             <Link
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah4"
+                // className={bem("card-button-link", [], "edition-card")}
+                url="blah3"
             >
                 Read Online
             </Link>
         ),
         downloadLink: (
-<<<<<<< HEAD
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
-                Download
-            </IconLink>
-=======
             <Link url="blah4">
                 <span>
-                    <Icon name="download" decorative={true}></Icon>
+                    <Icon
+                        name="download"
+                        iconRotation={iconRotationTypes.rotate0}
+                        decorative={true}
+                    ></Icon>
                     Download
                 </span>
             </Link>
->>>>>>> Updates <Link> examples to use the <Icon> component
         ),
     },
     authorElement: <Link url={"author-url"}>First Last</Link>,
