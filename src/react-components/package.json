@@ -26,7 +26,7 @@
         "tslint": "^6.0.0-beta0",
         "typescript": "^3.6.4",
         "webpack": "^4.41.5",
-        "webpack-cli": "^3.3.10"
+        "webpack-cli": "^3.3.11"
     },
     "publishConfig": {
         "access": "public"
