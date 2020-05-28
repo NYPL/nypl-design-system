@@ -29,8 +29,9 @@ describe("Images", () => {
         wrapper = Enzyme.shallow(
             <Image src="test.png" isDecorative={true} imageCredit={"credit"} />
         );
-        expect(wrapper.find("p")).to.have.lengthOf(1);
+
         expect(wrapper.find("p").text()).to.equal("credit");
+        expect(wrapper.find("p")).to.have.lengthOf(1);
     });
 
     it("Shows Image with credit and caption when provided ImageCredit and ImageCaption", () => {

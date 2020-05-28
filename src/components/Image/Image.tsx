@@ -49,7 +49,7 @@ export default function Image(props: ImageProps) {
                         </p>
                     )}
                     {imageCredit && (
-                        <p className={bem(image_base_class, [], "heading")}>
+                        <p className={bem(image_base_class, [], "credit")}>
                             {imageCredit}
                         </p>
                     )}
