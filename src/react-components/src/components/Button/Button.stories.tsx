@@ -2,11 +2,13 @@ import * as React from "react";
 
 import Button from "./Button";
 import { action } from "@storybook/addon-actions";
+import { withDesign } from "storybook-addon-designs";
 import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
 
 export default {
     title: "Button",
     component: Button,
+    decorators: [withDesign],
 };
 
 export const buttonFilledIcon = () => (
