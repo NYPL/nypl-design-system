@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { iconRotationOptions } from "../Icons/IconTypes";
+import { iconRotationTypes } from "../Icons/IconTypes";
 
 import UnorderedList from "./UnorderedList";
 import IconLink from "../IconLink/IconLink";
@@ -55,7 +55,7 @@ let editionData: EditionDetails = {
         <IconLink
             iconName="download"
             iconPosition="left"
-            iconRotation={iconRotationOptions.rotate0}
+            iconRotation={iconRotationTypes.rotate0}
             url="blah3"
         >
             Download
@@ -160,7 +160,7 @@ let searchItemData = {
             <IconLink
                 iconName="download"
                 iconPosition="left"
-                iconRotation={iconRotationOptions.rotate0}
+                iconRotation={iconRotationTypes.rotate0}
                 url="blah"
             >
                 Download

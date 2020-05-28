@@ -3,7 +3,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 import BasicLink from "../BasicLink/BasicLink";
-import { iconRotationOptions } from "../Icons/IconTypes";
+import { iconRotationTypes } from "../Icons/IconTypes";
 
 export interface IconLinkProps {
     url?: string;
@@ -11,7 +11,7 @@ export interface IconLinkProps {
     modifiers?: string[];
     blockName?: string;
     iconName?: string;
-    iconRotation?: iconRotationOptions;
+    iconRotation?: iconRotationTypes;
     iconPosition?: string;
     iconModifiers?: string[];
 }
