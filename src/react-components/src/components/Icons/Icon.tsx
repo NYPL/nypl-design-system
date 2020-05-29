@@ -46,7 +46,6 @@ export default class Icon extends React.Component<IconProps, {}> {
             desc,
         } = this.props;
         let icon_base_class = "icon";
-
         let iconProps = {
             className: bem(icon_base_class, modifiers, blockName),
             role: decorative ? "img" : role,
