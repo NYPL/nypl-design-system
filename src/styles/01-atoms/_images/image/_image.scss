@@ -15,7 +15,4 @@ figure {
 
 .figure__caption__image {
     font-style: italic;
-    figcaption:nth-child(odd) {
-        @include space-stack-none;
-    }
 }

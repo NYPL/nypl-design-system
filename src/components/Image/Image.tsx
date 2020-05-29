@@ -42,23 +42,25 @@ export default function Image(props: ImageProps) {
         <>
             <img {...imageProps} />
             {(imageCaption || imageCredit) && (
-                <figure
-                    className={bem(image_base_class, [], "figure__caption")}
-                >
-                    {imageCaption && (
-                        <figcaption
-                            className={bem(image_base_class, [], "caption")}
-                        >
-                            {imageCaption}
-                        </figcaption>
-                    )}
-                    {imageCredit && (
-                        <figcaption
-                            className={bem(image_base_class, [], "credit")}
-                        >
-                            {imageCredit}
-                        </figcaption>
-                    )}
+                <figure className={bem(image_base_class, [], "figure")}>
+                    <figcaption
+                        className={bem(image_base_class, [], "figure__caption")}
+                    >
+                        {imageCaption && (
+                            <div
+                                className={bem(image_base_class, [], "caption")}
+                            >
+                                {imageCaption}
+                            </div>
+                        )}
+                        {imageCredit && (
+                            <div
+                                className={bem(image_base_class, [], "credit")}
+                            >
+                                {imageCredit}
+                            </div>
+                        )}
+                    </figcaption>
                 </figure>
             )}
         </>

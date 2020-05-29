@@ -22,7 +22,7 @@ describe("Images", () => {
             />
         );
         expect(wrapper.find("figcaption")).to.have.lengthOf(1);
-        expect(wrapper.find("figcaption").text()).to.equal("caption");
+        expect(wrapper.find("div").text()).to.equal("caption");
     });
 
     it("Shows Image with credit when provided ImageCredit", () => {
@@ -31,7 +31,7 @@ describe("Images", () => {
         );
 
         expect(wrapper.find("figcaption")).to.have.lengthOf(1);
-        expect(wrapper.find("figcaption").text()).to.equal("credit");
+        expect(wrapper.find("div").text()).to.equal("credit");
     });
 
     it("Shows Image with credit and caption when provided ImageCredit and ImageCaption", () => {
@@ -43,7 +43,8 @@ describe("Images", () => {
                 imageCredit={"credit"}
             />
         );
-        expect(wrapper.find("figcaption")).to.have.lengthOf(2);
+        expect(wrapper.find("figcaption")).to.have.lengthOf(1);
+        expect(wrapper.find("div")).to.have.lengthOf(2);
     });
 
     it("Throws error when meaningful image is passed without alt text", () => {
