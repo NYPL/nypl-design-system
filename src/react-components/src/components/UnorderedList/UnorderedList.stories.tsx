@@ -161,6 +161,7 @@ let searchItemData = {
                 <span>
                     <Icon
                         name="download"
+                        linkType={LinkTypes.Action}
                         iconRotation={iconRotationTypes.rotate0}
                         decorative={true}
                     ></Icon>

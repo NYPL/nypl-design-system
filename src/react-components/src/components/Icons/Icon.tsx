@@ -1,6 +1,8 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
+import { iconRotationTypes } from "./IconTypes";
+
 import arrow_xsmall from "../../../icons/svg/arrow-xsmall.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import download from "../../../icons/svg/download.svg";
@@ -28,6 +30,7 @@ export interface IconProps {
     role?: string;
     title?: boolean;
     desc?: boolean;
+    iconRotation?: iconRotationTypes;
 }
 
 export default class Icon extends React.Component<IconProps, {}> {
@@ -44,6 +47,7 @@ export default class Icon extends React.Component<IconProps, {}> {
             role,
             title,
             desc,
+            iconRotation,
         } = this.props;
         let icon_base_class = "icon";
         let iconProps = {
@@ -56,6 +60,9 @@ export default class Icon extends React.Component<IconProps, {}> {
             description: desc ? `title-${name}` : undefined,
         };
         let svg = allSvgs[name];
+        if (iconRotation) {
+            modifiers.push(iconRotation);
+        }
         return (
             <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />
         );
