@@ -33,7 +33,6 @@ export const editionCardWithFullData = () => (
         ]}
         readOnlineLink={
             <Link
-                // className={bem("card-button-link", [], "edition-card")}
                 linkType={LinkTypes.Button}
                 blockName="edition-card"
                 url="blah"
@@ -42,13 +41,12 @@ export const editionCardWithFullData = () => (
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+            <Link url="#url" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
-                    modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0
+                    iconRotation={iconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -76,9 +74,8 @@ export const editionCardWithOneLinks = () => (
                 <Icon
                     name="download"
                     blockName="more-link"
-                    modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0
+                    iconRotation={iconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -128,9 +125,8 @@ export const editionCardWithSomeEditionInfo = () => (
                 <Icon
                     name="download"
                     blockName="more-link"
-                    modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0
+                    iconRotation={iconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -159,9 +155,8 @@ export const editionCardWithEmptyEditionInfo = () => (
                 <Icon
                     name="download"
                     blockName="more-link"
-                    modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0
+                    iconRotation={iconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -187,7 +182,6 @@ export const editionCardWithAtypicalImageSize = () => (
         readOnlineLink={
             <Link
                 blockName="edition-card"
-                // className={bem("card-button-link", [], "edition-card")}
                 linkType={LinkTypes.Button}
                 url="#blah"
             >
@@ -199,9 +193,8 @@ export const editionCardWithAtypicalImageSize = () => (
                 <Icon
                     name="download"
                     blockName="more-link"
-                    modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0
+                    iconRotation={iconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -240,9 +233,8 @@ export const instanceCard = () => (
                 <Icon
                     name="download"
                     blockName="more-link"
-                    modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0
+                    iconRotation={iconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>

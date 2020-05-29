@@ -4,6 +4,7 @@ import SearchResultItem from "./SearchResultItem";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Icon from "../Icons/Icon";
+import { iconRotationTypes } from "../Icons/IconTypes";
 
 import bem from "../../utils/bem";
 

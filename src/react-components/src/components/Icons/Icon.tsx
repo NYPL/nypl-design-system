@@ -40,7 +40,7 @@ export default class Icon extends React.Component<IconProps, {}> {
 
     render(): JSX.Element {
         let {
-            modifiers,
+            modifiers = [],
             blockName,
             name,
             decorative,
@@ -49,7 +49,13 @@ export default class Icon extends React.Component<IconProps, {}> {
             desc,
             iconRotation,
         } = this.props;
+
         let icon_base_class = "icon";
+
+        if (this.props.iconRotation) {
+            modifiers.push(this.props.iconRotation);
+        }
+
         let iconProps = {
             className: bem(icon_base_class, modifiers, blockName),
             role: decorative ? "img" : role,
@@ -59,10 +65,9 @@ export default class Icon extends React.Component<IconProps, {}> {
             title: title ? `title-${name}` : undefined,
             description: desc ? `title-${name}` : undefined,
         };
+
         let svg = allSvgs[name];
-        if (iconRotation) {
-            modifiers.push(iconRotation);
-        }
+
         return (
             <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />
         );

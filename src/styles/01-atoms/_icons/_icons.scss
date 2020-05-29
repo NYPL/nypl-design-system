@@ -3,39 +3,19 @@
     width: 24px;
     fill: currentColor;
 
-    &--up {
-        transform: rotate(180deg);
-    }
-
     &--rotate-180 {
-        @include space-inline-xxs;
         transform: rotate(180deg);
-    }
-
-    &--right {
-        transform: rotate(270deg);
     }
 
     &--rotate-270 {
         transform: rotate(270deg);
-        margin-left: $space-xxs;
-    }
-
-    &--down {
-        transform: rotate(0deg);
     }
 
     &--rotate-0 {
-        @include space-inline-xxs;
         transform: rotate(0deg);
     }
 
-    &--left {
-        transform: rotate(90deg);
-    }
-
     &--rotate-90 {
-        @include space-inline-xxs;
         transform: rotate(90deg);
     }
 
@@ -62,31 +42,4 @@
 
 .icon {
     @include icon;
-}
-
-// These styles are strictly for Pattern Lab use.
-// They will have no effect on the live site.
-.pl {
-    #icons {
-        & > div {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        & > div > div {
-            @include space-inset-s;
-            @include space-inline-s;
-            @include space-stack-s;
-
-            border: 1px solid #eee;
-            text-align: center;
-        }
-
-        .icons-all {
-            .icon {
-                height: 4rem;
-                width: 4rem;
-            }
-        }
-    }
 }

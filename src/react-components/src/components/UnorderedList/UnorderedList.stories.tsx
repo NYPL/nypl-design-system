@@ -1,10 +1,9 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { iconRotationTypes } from "../Icons/IconTypes";
-
 import UnorderedList from "./UnorderedList";
 import Icon from "../Icons/Icon";
+import { iconRotationTypes } from "../Icons/IconTypes";
 import EditionCard, {
     EditionDetails,
     EditionCardProps,
@@ -157,11 +156,10 @@ let searchItemData = {
             </Link>
         ),
         downloadLink: (
-            <Link url="blah4">
+            <Link url="blah4" linkType={LinkTypes.Action}>
                 <span>
                     <Icon
                         name="download"
-                        linkType={LinkTypes.Action}
                         iconRotation={iconRotationTypes.rotate0}
                         decorative={true}
                     ></Icon>
