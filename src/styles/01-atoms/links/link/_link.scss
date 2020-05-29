@@ -41,14 +41,6 @@ $color-link--hover: $nypl-blue-dark;
         text-decoration: none;
         width: $space;
 
-        &:first-child {
-            outline: 1px solid tomato;
-        }
-
-        &:last-of-type {
-            outline: 1px solid dodgerblue;
-        }
-
         &--left {
             margin-right: $space-xxs;
         }

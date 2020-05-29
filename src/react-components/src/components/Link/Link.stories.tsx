@@ -1,8 +1,9 @@
 import * as React from "react";
 
 import Link from "./Link";
-import { LinkTypes } from "./LinkTypes";
+import { LinkTypes, LinkIconPositions } from "./LinkTypes";
 import Icon from "../Icons/Icon";
+import { iconRotationTypes } from "../Icons/IconTypes";
 
 export default {
     title: "Link",
@@ -28,25 +29,22 @@ export const buttonLink = () => (
 );
 
 export const defaultLinkWithLeftIcon = () => (
-    <Link linkType={LinkTypes.Action}>
-        <Icon
-            name="arrow_xsmall"
-            modifiers={["left"]}
-            blockName="more-link"
-            decorative={true}
-        ></Icon>
+    <Link
+        linkType={LinkTypes.Action}
+        iconPosition={LinkIconPositions.Left}
+        iconRotation={iconRotationTypes.rotate90}
+    >
         <a href="#passedinlink">content</a>
     </Link>
 );
 
 export const linkWithRightIcon = () => (
-    <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+    <Link
+        url="#passed-in-link"
+        linkType={LinkTypes.Action}
+        iconPosition={LinkIconPositions.Right}
+        iconRotation={iconRotationTypes.rotate270}
+    >
         content
-        <Icon
-            name="arrow_xsmall"
-            blockName="more-link"
-            modifiers={["right"]}
-            decorative={true}
-        ></Icon>
     </Link>
 );

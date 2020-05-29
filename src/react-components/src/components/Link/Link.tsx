@@ -1,6 +1,10 @@
 import * as React from "react";
+import bem from "../../utils/bem";
 import { uid } from "react-uid";
 import { LinkTypes, LinkIconPositions } from "./LinkTypes";
+import { element } from "prop-types";
+import Icon from "../Icons/Icon";
+import { iconRotationTypes } from "../Icons/IconTypes";
 
 export interface LinkProps {
     /** Controls the link visuals—action, button, or default. */
@@ -11,6 +15,7 @@ export interface LinkProps {
 
     /** Determines if icon appears on the right or left */
     iconPosition?: LinkIconPositions;
+    iconRotation?: iconRotationTypes;
 
     /** An option to pass an entire className over blockName */
     className?: string;
@@ -31,15 +36,25 @@ export default class Link extends React.Component<LinkProps, {}> {
     }
 
     render(): JSX.Element {
-        let { url, attributes } = this.props;
+        let {
+            url,
+            iconPosition,
+            modifiers,
+            blockName,
+            attributes,
+        } = this.props;
+
+        let link_base_class = "link";
 
         let props = {
-            className: "link",
+            className: "",
             href: url,
             ...attributes,
         };
 
         let childProps = {};
+
+        let icon;
 
         let elementChildren = React.Children.map(
             this.props.children,
@@ -55,21 +70,53 @@ export default class Link extends React.Component<LinkProps, {}> {
         );
 
         if (this.props.linkType === LinkTypes.Action) {
-            props.className = "more-link";
+            link_base_class = "more-link";
         } else if (this.props.linkType === LinkTypes.Button) {
-            props.className = "button";
-        } else {
-            console.log("default");
+            link_base_class = "button";
+        }
+
+        let iconProps, iconRotation, iconLeft, iconRight;
+        // An icon needs a position in order for it to be created and
+        // rendered in the button.
+        if (iconPosition) {
+            if (iconPosition === LinkIconPositions.Left) {
+                iconRotation = iconRotationTypes.rotate90;
+            } else if (iconPosition === LinkIconPositions.Right) {
+                iconRotation = iconRotationTypes.rotate270;
+            }
+        }
+
+        iconProps = {
+            name: "arrow_xsmall",
+            modifiers: [iconPosition, iconRotation],
+            blockName: "more-link",
+            decorative: "true",
+        };
+
+        if (iconPosition) {
+            if (iconPosition === LinkIconPositions.Left) {
+                iconLeft = <Icon {...iconProps} />;
+            } else if (iconPosition === LinkIconPositions.Right) {
+                iconRight = <Icon {...iconProps} />;
+            }
         }
 
         elementChildren.map((child) => {
             return React.cloneElement(child, { key: uid(child) });
         });
 
+        props.className = bem(
+            link_base_class,
+            this.props.modifiers,
+            this.props.blockName
+        );
+
         return React.createElement(
             "a",
             { ...props, ...childProps },
-            elementChildren
+            iconLeft,
+            elementChildren,
+            iconRight
         );
     }
 }
