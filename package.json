@@ -75,6 +75,7 @@
         "@nypl/design-system-styles": "file:src/styles",
         "@nypl/design-system-twig": "file:src/twig",
         "storybook": "file:storybook",
+        "storybook-addon-designs": "^5.2.1",
         "webpack-node-modules": "^0.1.1"
     },
     "husky": {
