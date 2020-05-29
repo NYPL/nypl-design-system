@@ -40,6 +40,7 @@ export default class Accordion extends React.Component<
         buttonOptions.modifiers = ["large"];
         buttonOptions.iconPosition = ButtonIconPositions.JustifyRight;
         buttonOptions.iconName = this.state.isOpen ? "minus" : "plus";
+        buttonOptions.iconModifiers = ["medium"];
         buttonOptions.buttonType = ButtonTypes.Outline;
 
         return (
