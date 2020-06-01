@@ -5,6 +5,7 @@
         "prepare": "lerna run prepare",
         "install-all": "npm install; lerna run prepare; lerna exec npm install",
         "start": "lerna exec --scope storybook npm run start:react",
+        "storybook": "lerna exec --scope storybook npm run start:react",
         "storybook static": "npm run storybook:static:react",
         "test": "lerna exec npm test",
         "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
