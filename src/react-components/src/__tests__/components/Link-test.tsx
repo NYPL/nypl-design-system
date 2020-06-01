@@ -95,14 +95,4 @@ describe("Link", () => {
             "Link needs prop 'url'"
         );
     });
-
-    // it("throws an error when icon is badly formed", () => {
-    //     expect(() =>
-    //         Enzyme.mount(
-    //             <IconLink iconPosition="center" url="#test">
-    //                 Test
-    //             </IconLink>
-    //         )
-    //     ).to.throw("iconPosition can only have values 'left' or 'right'");
-    // });
 });

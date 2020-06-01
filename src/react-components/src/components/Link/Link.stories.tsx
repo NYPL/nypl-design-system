@@ -28,23 +28,31 @@ export const buttonLink = () => (
     </Link>
 );
 
-export const defaultLinkWithLeftIcon = () => (
-    <Link
-        linkType={LinkTypes.Action}
-        iconPosition={LinkIconPositions.Left}
-        iconRotation={iconRotationTypes.rotate90}
-    >
+export const actionLinkWithLeftIcon = () => (
+    <Link linkType={LinkTypes.Action} iconPosition={LinkIconPositions.Left}>
         <a href="#passedinlink">content</a>
     </Link>
 );
 
-export const linkWithRightIcon = () => (
+export const actionLinkWithRightIcon = () => (
     <Link
         url="#passed-in-link"
         linkType={LinkTypes.Action}
         iconPosition={LinkIconPositions.Right}
-        iconRotation={iconRotationTypes.rotate270}
     >
         content
+    </Link>
+);
+
+export const actionLinkWithNonArrowIcon = () => (
+    <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+        <Icon
+            name="download"
+            blockName="more-link"
+            modifiers={["left"]}
+            decorative={true}
+            iconRotation={iconRotationTypes.rotate0}
+        ></Icon>
+        Download
     </Link>
 );
