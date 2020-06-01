@@ -7,7 +7,7 @@ install:
 script: npm test
 
 before_deploy:
-    - npm run storybook static
+    - npm run storybook:static
 deploy:
     provider: pages
     on:
