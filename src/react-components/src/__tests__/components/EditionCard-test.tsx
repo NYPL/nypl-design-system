@@ -22,7 +22,6 @@ describe("EditionCard", () => {
             ]}
             readOnlineLink={
                 <Link
-                    // className={bem("card-info-link", [], "edition-card")}
                     blockName="edition-card"
                     linkType={LinkTypes.Button}
                     url="blah"
@@ -59,7 +58,6 @@ describe("EditionCard", () => {
             ]}
             readOnlineLink={
                 <Link
-                    // className={bem("card-info-link", [], "edition-card")}
                     blockName="edition-card"
                     linkType={LinkTypes.Button}
                     url="blah"
@@ -151,8 +149,9 @@ describe("EditionCard", () => {
         expect(card.find("h3")).to.have.lengthOf(1);
         expect(card.find("h3").find("a")).to.have.lengthOf(1);
         expect(card.find("img")).to.have.lengthOf(1);
-        // expect().to.have.lengthOf(1);
-        // card.find({ className: "edition-card__missing-links" })
+        expect(
+            card.find({ className: "edition-card__missing-links" })
+        ).to.have.lengthOf(1);
     });
 
     it("Shows an error span if Links are missing and not passed a link element", () => {
@@ -165,8 +164,9 @@ describe("EditionCard", () => {
         expect(card.find("h3")).to.have.lengthOf(1);
         expect(card.find("h3").find("a")).to.have.lengthOf(1);
         expect(card.find("img")).to.have.lengthOf(1);
-        // expect().to.have.lengthOf(1);
-        // card.find({ className: "edition-card__missing-links" })
+        expect(
+            card.find({ className: "edition-card__missing-links" })
+        ).to.have.lengthOf(1);
     });
 
     it("Generates Edition Card if Edition Info is passed as spans", () => {
