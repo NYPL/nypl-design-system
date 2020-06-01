@@ -43,7 +43,7 @@ let editionData: EditionDetails = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <Link blockName="edition-card" linkType={LinkTypes.Button} url="blah2">
+        <Link blockName="edition-card" linkType={LinkTypes.Button} url="blah">
             Read Online
         </Link>
     ),
@@ -146,7 +146,15 @@ let searchItemData = {
             <>Written in English</>,
             <>Under Creative Commons License</>,
         ],
-        readOnlineLink: <Link url="blah3">Read Online</Link>,
+        readOnlineLink: (
+            <Link
+                blockName="edition-card"
+                linkType={LinkTypes.Button}
+                url="blah"
+            >
+                Read Online
+            </Link>
+        ),
         downloadLink: (
             <Link url="#blah4" linkType={LinkTypes.Action}>
                 <Icon
