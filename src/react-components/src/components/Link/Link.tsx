@@ -13,12 +13,6 @@ export interface LinkProps {
     /** Href attribute */
     href?: string;
 
-    /** Determines if icon appears on the right or left */
-    iconPosition?: LinkIconPositions;
-
-    /** Determines the passed icon's rotation */
-    iconRotation?: iconRotationTypes;
-
     /** BEM specifiers */
     modifiers?: string[];
 
@@ -30,7 +24,7 @@ export interface LinkProps {
 }
 
 export default function Link(props: React.PropsWithChildren<LinkProps>) {
-    let { href, iconPosition, modifiers, blockName, attributes } = props;
+    let { href, modifiers, blockName, attributes } = props;
 
     let link_base_class = "link";
 
@@ -61,7 +55,7 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
         link_base_class = "button";
     }
 
-    let navigationIconProps, iconRotation, iconLeft, iconRight;
+    let navigationIconProps, iconRotation, iconPosition, iconLeft, iconRight;
     // An icon needs a position in order for it to be created and
     // rendered in the link.
     if (props.linkType === LinkTypes.Backwards) {
