@@ -5,21 +5,24 @@ import * as React from "react";
 import * as Mocha from "mocha";
 
 import Link from "../../components/Link/Link";
+import { LinkTypes, LinkIconPositions } from "../../components/Link/LinkTypes";
 import Icon from "../../components/Icons/Icon";
+import { iconRotationTypes } from "../../components/Icons/IconTypes";
 
 describe("Link", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
 
     it("Can pass in icon, text as child and url as props", () => {
         wrapper = Enzyme.mount(
-            <Link href="#test">
-                Test
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
-                    name="arrow_xsmall"
+                    name="download"
                     blockName="more-link"
-                    modifiers={["right"]}
+                    modifiers={["left"]}
                     decorative={true}
+                    iconRotation={iconRotationTypes.rotate0}
                 ></Icon>
+                Download
             </Link>
         );
         expect(wrapper.find("a")).to.have.lengthOf(1);
@@ -40,10 +43,11 @@ describe("Link", () => {
             <Link>
                 <a href="#test">Test</a>
                 <Icon
-                    name="arrow_xsmall"
+                    name="download"
                     blockName="more-link"
-                    modifiers={["right"]}
+                    modifiers={["left"]}
                     decorative={true}
+                    iconRotation={iconRotationTypes.rotate0}
                 ></Icon>
             </Link>
         );
@@ -51,15 +55,9 @@ describe("Link", () => {
         expect(wrapper.find("Icon")).to.have.lengthOf(1);
     });
 
-    it("Can pass in left icon", () => {
+    it("Can generate a back link", () => {
         wrapper = Enzyme.mount(
-            <Link href="#nice-url">
-                <Icon
-                    name="arrow_xsmall"
-                    blockName="more-link"
-                    modifiers={["left"]}
-                    decorative={true}
-                ></Icon>
+            <Link href="#passed-in-link" linkType={LinkTypes.Backwards}>
                 content
             </Link>
         );
@@ -70,14 +68,8 @@ describe("Link", () => {
 
     it("Can pass in right icon", () => {
         wrapper = Enzyme.mount(
-            <Link href="#whatever">
+            <Link href="#passed-in-link" linkType={LinkTypes.Forwards}>
                 content
-                <Icon
-                    name="arrow_xsmall"
-                    blockName="more-link"
-                    modifiers={["right"]}
-                    decorative={true}
-                ></Icon>
             </Link>
         );
         expect(

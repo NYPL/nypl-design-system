@@ -15,10 +15,9 @@ export interface LinkProps {
 
     /** Determines if icon appears on the right or left */
     iconPosition?: LinkIconPositions;
-    iconRotation?: iconRotationTypes;
 
-    /** An option to pass an entire className over blockName */
-    // className?: string;
+    /** Determines the passed icon's rotation */
+    iconRotation?: iconRotationTypes;
 
     /** BEM specifiers */
     modifiers?: string[];
