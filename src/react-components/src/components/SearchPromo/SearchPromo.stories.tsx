@@ -16,7 +16,7 @@ export const researchNowSearchPromo = () => (
         searchButtonId="searchButtonId"
         advancedSearchMessage={
             <p>
-                Use <Link url="#advanced-fake-link">Advanced Search</Link> to
+                Use <Link href="#advanced-fake-link">Advanced Search</Link> to
                 narrow your results.
             </p>
         }
@@ -35,7 +35,7 @@ export const searchPromoWithError = () => (
         titleId="title"
         advancedSearchMessage={
             <p>
-                Use <Link url="#advanced-fake-link">Advanced Search</Link> to
+                Use <Link href="#advanced-fake-link">Advanced Search</Link> to
                 narrow your results.
             </p>
         }

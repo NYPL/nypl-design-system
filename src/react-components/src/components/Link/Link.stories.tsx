@@ -17,13 +17,13 @@ export const passedInLink = () => (
 );
 
 export const generatedLink = () => (
-    <Link url="#passed-in-link" linkType={LinkTypes.Default}>
+    <Link href="#passed-in-link" linkType={LinkTypes.Default}>
         I'm very cold
     </Link>
 );
 
 export const buttonLink = () => (
-    <Link linkType={LinkTypes.Button} url="#passed-in-link">
+    <Link linkType={LinkTypes.Button} href="#passed-in-link">
         I'm very cold
     </Link>
 );
@@ -36,7 +36,7 @@ export const actionLinkWithLeftIcon = () => (
 
 export const actionLinkWithRightIcon = () => (
     <Link
-        url="#passed-in-link"
+        href="#passed-in-link"
         linkType={LinkTypes.Action}
         iconPosition={LinkIconPositions.Right}
     >
@@ -45,7 +45,7 @@ export const actionLinkWithRightIcon = () => (
 );
 
 export const actionLinkWithNonArrowIcon = () => (
-    <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+    <Link href="#passed-in-link" linkType={LinkTypes.Action}>
         <Icon
             name="download"
             blockName="more-link"

@@ -12,7 +12,7 @@ describe("Link", () => {
 
     it("Can pass in icon, text as child and url as props", () => {
         wrapper = Enzyme.mount(
-            <Link url="#test">
+            <Link href="#test">
                 Test
                 <Icon
                     name="arrow_xsmall"
@@ -53,7 +53,7 @@ describe("Link", () => {
 
     it("Can pass in left icon", () => {
         wrapper = Enzyme.mount(
-            <Link url="#nice-url">
+            <Link href="#nice-url">
                 <Icon
                     name="arrow_xsmall"
                     blockName="more-link"
@@ -70,7 +70,7 @@ describe("Link", () => {
 
     it("Can pass in right icon", () => {
         wrapper = Enzyme.mount(
-            <Link url="#whatever">
+            <Link href="#whatever">
                 content
                 <Icon
                     name="arrow_xsmall"
@@ -86,7 +86,7 @@ describe("Link", () => {
     });
 
     it("Can pass in text as child and url as props", () => {
-        wrapper = Enzyme.mount(<Link url="#test">Test</Link>);
+        wrapper = Enzyme.mount(<Link href="#test">Test</Link>);
         expect(wrapper.find("a")).to.have.lengthOf(1);
     });
 

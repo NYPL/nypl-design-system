@@ -34,7 +34,7 @@ export const researchNowSearchHeader = () => (
             </a>
         }
         advancedSearchElem={
-            <Link url={"advanced-search-link"}>Advanced Search</Link>
+            <Link href={"advanced-search-link"}>Advanced Search</Link>
         }
         searchBarId="searchBarId"
         dropdownId="dropdownId"

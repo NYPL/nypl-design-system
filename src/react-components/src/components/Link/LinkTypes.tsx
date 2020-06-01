@@ -1,7 +1,7 @@
 export enum LinkTypes {
     Action = "action",
     Button = "button",
-    Default = "otherkind",
+    Default = "default",
 }
 
 export enum LinkIconPositions {

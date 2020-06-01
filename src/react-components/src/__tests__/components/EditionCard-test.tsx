@@ -24,13 +24,13 @@ describe("EditionCard", () => {
                 <Link
                     blockName="edition-card"
                     linkType={LinkTypes.Button}
-                    url="blah"
+                    href="blah"
                 >
                     Read Online
                 </Link>
             }
             downloadLink={
-                <Link url="#passed-in-link">
+                <Link href="#passed-in-link">
                     <Icon
                         name="download"
                         blockName="more-link"
@@ -60,13 +60,13 @@ describe("EditionCard", () => {
                 <Link
                     blockName="edition-card"
                     linkType={LinkTypes.Button}
-                    url="blah"
+                    href="blah"
                 >
                     Read Online
                 </Link>
             }
             downloadLink={
-                <Link url="#passed-in-link">
+                <Link href="#passed-in-link">
                     <Icon
                         name="download"
                         blockName="more-link"

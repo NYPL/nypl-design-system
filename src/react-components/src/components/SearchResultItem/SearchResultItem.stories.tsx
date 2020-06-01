@@ -26,12 +26,12 @@ let exampleEditionInfo = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <Link url="blah" blockName="edition-card" linkType={LinkTypes.Button}>
+        <Link href="blah" blockName="edition-card" linkType={LinkTypes.Button}>
             Read Online
         </Link>
     ),
     downloadLink: (
-        <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+        <Link href="#passed-in-link" linkType={LinkTypes.Action}>
             <Icon
                 name="download"
                 blockName="more-link"
@@ -61,10 +61,10 @@ export const searchResultItem = () => (
                 labore et dolore magna aliqua."
             </>
         }
-        authorLinkElement={<Link url={"author-url"}>First Last</Link>}
+        authorLinkElement={<Link href={"author-url"}>First Last</Link>}
         editionInfo={exampleEditionInfo}
         editionsLinkElement={
-            <Link url={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
+            <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
         }
     />
 );
@@ -80,10 +80,10 @@ export const searchResultItemNoSubtitle = () => (
             </a>
         }
         subtitleContent={<></>}
-        authorLinkElement={<Link url={"author-url"}>First Last</Link>}
+        authorLinkElement={<Link href={"author-url"}>First Last</Link>}
         editionInfo={exampleEditionInfo}
         editionsLinkElement={
-            <Link url={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
+            <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
         }
     />
 );

@@ -35,13 +35,13 @@ export const editionCardWithFullData = () => (
             <Link
                 linkType={LinkTypes.Button}
                 blockName="edition-card"
-                url="blah"
+                href="blah"
             >
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#url" linkType={LinkTypes.Action}>
+            <Link href="#url" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -71,7 +71,7 @@ export const editionCardWithOneLinks = () => (
             <>Under Creative Commons License</>,
         ]}
         downloadLink={
-            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -121,13 +121,13 @@ export const editionCardWithSomeEditionInfo = () => (
             <Link
                 blockName="edition-card"
                 linkType={LinkTypes.Button}
-                url="blah"
+                href="blah"
             >
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -156,13 +156,13 @@ export const editionCardWithEmptyEditionInfo = () => (
             <Link
                 blockName="edition-card"
                 linkType={LinkTypes.Button}
-                url="blah"
+                href="blah"
             >
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -195,13 +195,13 @@ export const editionCardWithAtypicalImageSize = () => (
             <Link
                 blockName="edition-card"
                 linkType={LinkTypes.Button}
-                url="#blah"
+                href="#blah"
             >
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -235,13 +235,13 @@ export const instanceCard = () => (
             <Link
                 blockName="edition-card"
                 linkType={LinkTypes.Button}
-                url="blah"
+                href="blah"
             >
                 Read Online
             </Link>
         }
         downloadLink={
-            <Link url="#passed-in-link" linkType={LinkTypes.Action}>
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"

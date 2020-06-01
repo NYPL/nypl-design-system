@@ -20,9 +20,9 @@ export default {
 };
 
 const links = [
-    <Link url="#url1">Link1</Link>,
-    <Link url="#url2">link2</Link>,
-    <Link url="#url3">link3</Link>,
+    <Link href="#url1">Link1</Link>,
+    <Link href="#url2">link2</Link>,
+    <Link href="#url3">link3</Link>,
 ];
 export const iconLinkList = () => (
     <UnorderedList id="link-list" blockName="list-iconLink">
@@ -43,12 +43,12 @@ let editionData: EditionDetails = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <Link blockName="edition-card" linkType={LinkTypes.Button} url="blah">
+        <Link blockName="edition-card" linkType={LinkTypes.Button} href="blah">
             Read Online
         </Link>
     ),
     downloadLink: (
-        <Link url="#blah" linkType={LinkTypes.Action}>
+        <Link href="#blah" linkType={LinkTypes.Action}>
             <Icon
                 name="download"
                 blockName="more-link"
@@ -150,13 +150,13 @@ let searchItemData = {
             <Link
                 blockName="edition-card"
                 linkType={LinkTypes.Button}
-                url="blah"
+                href="blah"
             >
                 Read Online
             </Link>
         ),
         downloadLink: (
-            <Link url="#blah4" linkType={LinkTypes.Action}>
+            <Link href="#blah4" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
@@ -168,9 +168,9 @@ let searchItemData = {
             </Link>
         ),
     },
-    authorElement: <Link url={"author-url"}>First Last</Link>,
+    authorElement: <Link href={"author-url"}>First Last</Link>,
     editionsLinkElement: (
-        <Link url={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
+        <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
     ),
 };
 
