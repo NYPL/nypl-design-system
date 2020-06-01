@@ -28,23 +28,19 @@ export const buttonLink = () => (
     </Link>
 );
 
-export const actionLinkWithLeftIcon = () => (
-    <Link linkType={LinkTypes.Action} iconPosition={LinkIconPositions.Left}>
+export const forwardsLink = () => (
+    <Link linkType={LinkTypes.Forwards}>
         <a href="#passedinlink">content</a>
     </Link>
 );
 
-export const actionLinkWithRightIcon = () => (
-    <Link
-        href="#passed-in-link"
-        linkType={LinkTypes.Action}
-        iconPosition={LinkIconPositions.Right}
-    >
+export const backwardsLink = () => (
+    <Link href="#passed-in-link" linkType={LinkTypes.Backwards}>
         content
     </Link>
 );
 
-export const actionLinkWithNonArrowIcon = () => (
+export const actionLinkWithDownloadIcon = () => (
     <Link href="#passed-in-link" linkType={LinkTypes.Action}>
         <Icon
             name="download"

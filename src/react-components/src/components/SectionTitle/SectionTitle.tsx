@@ -61,11 +61,7 @@ export default class SectionTitle extends React.Component<
             };
 
             link = (
-                <Link
-                    href="#passed-in-link"
-                    linkType={LinkTypes.Action}
-                    iconPosition={LinkIconPositions.Right}
-                >
+                <Link href="#passed-in-link" linkType={LinkTypes.Forwards}>
                     See All
                 </Link>
             );

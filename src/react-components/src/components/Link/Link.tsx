@@ -52,34 +52,38 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
         }
     );
 
-    if (props.linkType === LinkTypes.Action) {
+    if (
+        props.linkType === LinkTypes.Action ||
+        props.linkType === LinkTypes.Forwards ||
+        props.linkType === LinkTypes.Backwards
+    ) {
         link_base_class = "more-link";
     } else if (props.linkType === LinkTypes.Button) {
         link_base_class = "button";
     }
 
-    let iconProps, iconRotation, iconLeft, iconRight;
+    let navigationIconProps, iconRotation, iconLeft, iconRight;
     // An icon needs a position in order for it to be created and
     // rendered in the link.
-    if (iconPosition) {
-        if (iconPosition === LinkIconPositions.Left) {
-            iconRotation = iconRotationTypes.rotate90;
-        } else if (iconPosition === LinkIconPositions.Right) {
-            iconRotation = iconRotationTypes.rotate270;
-        }
+    if (props.linkType === LinkTypes.Backwards) {
+        iconRotation = iconRotationTypes.rotate90;
+        iconPosition = LinkIconPositions.Left;
+    } else if (props.linkType === LinkTypes.Forwards) {
+        iconRotation = iconRotationTypes.rotate270;
+        iconPosition = LinkIconPositions.Right;
     }
 
-    iconProps = {
+    navigationIconProps = {
         name: "arrow_xsmall",
         modifiers: [iconPosition, iconRotation, modifiers],
         blockName: "more-link",
         decorative: "true",
     };
 
-    if (iconPosition === LinkIconPositions.Left) {
-        iconLeft = <Icon {...iconProps} />;
-    } else if (iconPosition === LinkIconPositions.Right) {
-        iconRight = <Icon {...iconProps} />;
+    if (props.linkType === LinkTypes.Backwards) {
+        iconLeft = <Icon {...navigationIconProps} />;
+    } else if (props.linkType === LinkTypes.Forwards) {
+        iconRight = <Icon {...navigationIconProps} />;
     }
 
     elementChildren.map((child) => {
