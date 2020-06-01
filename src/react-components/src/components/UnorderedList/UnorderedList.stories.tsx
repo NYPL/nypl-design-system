@@ -48,16 +48,15 @@ let editionData: EditionDetails = {
         </Link>
     ),
     downloadLink: (
-        // className="edition-card__card-info-link"
-        <Link blockName="card-info-link" url="blah">
-            <span>
-                <Icon
-                    name="download"
-                    iconRotation={iconRotationTypes.rotate0}
-                    decorative={true}
-                ></Icon>
-                Download
-            </span>
+        <Link url="#blah" linkType={LinkTypes.Action}>
+            <Icon
+                name="download"
+                blockName="more-link"
+                modifiers={["left"]}
+                decorative={true}
+                iconRotation={iconRotationTypes.rotate0}
+            ></Icon>
+            Download
         </Link>
     ),
 };
@@ -147,24 +146,17 @@ let searchItemData = {
             <>Written in English</>,
             <>Under Creative Commons License</>,
         ],
-        readOnlineLink: (
-            <Link
-                // className={bem("card-button-link", [], "edition-card")}
-                url="blah3"
-            >
-                Read Online
-            </Link>
-        ),
+        readOnlineLink: <Link url="blah3">Read Online</Link>,
         downloadLink: (
-            <Link url="blah4" linkType={LinkTypes.Action}>
-                <span>
-                    <Icon
-                        name="download"
-                        iconRotation={iconRotationTypes.rotate0}
-                        decorative={true}
-                    ></Icon>
-                    Download
-                </span>
+            <Link url="#blah4" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={iconRotationTypes.rotate0}
+                ></Icon>
+                Download
             </Link>
         ),
     },

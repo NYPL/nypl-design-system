@@ -26,12 +26,7 @@ let exampleEditionInfo = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <Link
-            // className={bem("card-button-link", [], "edition-card")}
-            url="blah"
-            blockName="edition-card"
-            linkType={LinkTypes.Button}
-        >
+        <Link url="blah" blockName="edition-card" linkType={LinkTypes.Button}>
             Read Online
         </Link>
     ),
