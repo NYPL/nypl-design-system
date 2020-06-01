@@ -1,17 +1,17 @@
 language: node_js
 node_js:
-- '10.16.0'
-install: 
-  - npm install lerna -g
-  - npm run install-all
+    - "10.16.0"
+install:
+    - npm install lerna -g
+    - npm run install-all
 script: npm test
 
 before_deploy:
-  - npm run storybook:static
+    - npm run storybook:static
 deploy:
-  provider: pages
-  on:
-    branch: development
-  skip_cleanup: true
-  keep-history: true
-  github_token: $GITHUB_TOKEN
+    provider: pages
+    on:
+        branch: development
+    skip_cleanup: true
+    keep-history: true
+    github_token: $GITHUB_TOKEN
