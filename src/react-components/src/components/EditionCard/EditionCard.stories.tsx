@@ -16,21 +16,22 @@ export default {
 export const editionCardWithFullData = () => (
     <EditionCard
         id="card#1"
-        blockName=""
         coverUrl="https://placeimg.com/300/400/arch"
         editionHeadingElement={
             <a href="edition-link" className={bem("link", [], "heading")}>
                 2004 Edition
             </a>
         }
-        editionInfo={[
-            <>Published in New York by Random House</>,
-            <>Written in English</>,
+        editionInfo={
             <>
-                License: Creative Commons
-                Attribution-NonCommercial-NoDerivatives 4.0 International
-            </>,
-        ]}
+                <div>Published in New York by Random House</div>
+                <div>Written in English</div>
+                <div>License: Creative Commons</div>
+                <div>
+                    Attribution-NonCommercial-NoDerivatives 4.0 International
+                </div>
+            </>
+        }
         readOnlineLink={
             <Link
                 linkType={LinkTypes.Button}
@@ -65,11 +66,13 @@ export const editionCardWithOneLinks = () => (
                 2004 Edition
             </a>
         }
-        editionInfo={[
-            <>Published in New York by Random House</>,
-            <>Written in English</>,
-            <>Under Creative Commons License</>,
-        ]}
+        editionInfo={
+            <>
+                <div>Published in New York by Random House</div>
+                <div>Written in English</div>
+                <div>Under Creative Commons License</div>
+            </>
+        }
         downloadLink={
             <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
@@ -95,11 +98,13 @@ export const editionCardMissingLinks = () => (
                 2004 Edition
             </a>
         }
-        editionInfo={[
-            <>Published in New York by Random House</>,
-            <>Written in English</>,
-            <>Under Creative Commons License</>,
-        ]}
+        editionInfo={
+            <>
+                <div>Published in New York</div>
+                <div>Written in English</div>
+                <div>Under Creative Commons License</div>
+            </>
+        }
     ></EditionCard>
 );
 
@@ -113,10 +118,12 @@ export const editionCardWithSomeEditionInfo = () => (
                 2004 Edition
             </a>
         }
-        editionInfo={[
-            <>Published in New York</>,
-            <span>Under Creative Commons License</span>,
-        ]}
+        editionInfo={
+            <>
+                <div>Published in New York</div>
+                <div>Under Creative Commons License</div>
+            </>
+        }
         readOnlineLink={
             <Link
                 blockName="edition-card"
@@ -151,7 +158,6 @@ export const editionCardWithEmptyEditionInfo = () => (
                 2004 Edition
             </a>
         }
-        editionInfo={[]}
         readOnlineLink={
             <Link
                 blockName="edition-card"
@@ -186,11 +192,13 @@ export const editionCardWithAtypicalImageSize = () => (
                 2004 Edition
             </a>
         }
-        editionInfo={[
-            <>Publish Place: New York</>,
-            <>Language: English</>,
-            <>License: Creative Commons</>,
-        ]}
+        editionInfo={
+            <>
+                <div>Publish Place: New York</div>
+                <div>Language: English</div>
+                <div>License: Creative Commons</div>
+            </>
+        }
         readOnlineLink={
             <Link
                 blockName="edition-card"
@@ -225,12 +233,14 @@ export const instanceCard = () => (
                 2004 Edition
             </a>
         }
-        editionInfo={[
-            <>Published in New York by Random House"</>,
-            <a href="find-link" className={bem("link", [], "heading")}>
-                Find in a library
-            </a>,
-        ]}
+        editionInfo={
+            <>
+                <div>Published in New York by Random House</div>
+                <a href="find-link" className={bem("link", [], "heading")}>
+                    Find in a library
+                </a>
+            </>
+        }
         readOnlineLink={
             <Link
                 blockName="edition-card"

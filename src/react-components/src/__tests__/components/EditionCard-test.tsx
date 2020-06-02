@@ -15,11 +15,13 @@ describe("EditionCard", () => {
             blockName=""
             coverUrl="https://placeimg.com/300/400/arch"
             editionHeadingElement={<a href="edition-link">2004 Edition</a>}
-            editionInfo={[
-                <>Published in New York by Random House</>,
-                <>Written in English</>,
-                <>Under Creative Commons License</>,
-            ]}
+            editionInfo={
+                <>
+                    <p>Published in New York by Random House</p>
+                    <p>Written in English</p>
+                    <p>Under Creative Commons License</p>
+                </>
+            }
             readOnlineLink={
                 <Link
                     blockName="edition-card"
@@ -49,13 +51,16 @@ describe("EditionCard", () => {
             blockName=""
             coverUrl="https://placeimg.com/300/400/arch"
             editionHeadingElement={<a href="edition-link">2004 Edition</a>}
-            editionInfo={[
-                <span id="pub-span">Publisher</span>,
-                <>"Written in English"</>,
-                <a id="licenceId" href="/licence-page">
-                    License
-                </a>,
-            ]}
+            editionInfo={
+                <>
+                    <span id="pub-span">Publisher</span>,
+                    <p>"Written in English"</p>,
+                    <a id="licenceId" href="/licence-page">
+                        License
+                    </a>
+                    ,
+                </>
+            }
             readOnlineLink={
                 <Link
                     blockName="edition-card"
@@ -85,11 +90,13 @@ describe("EditionCard", () => {
             blockName=""
             coverUrl="https://placeimg.com/300/400/arch"
             editionHeadingElement={<a href="edition-link">2004 Edition</a>}
-            editionInfo={[
-                <>Published in New York by Random House</>,
-                <>Written in English</>,
-                <>Under Creative Commons License</>,
-            ]}
+            editionInfo={
+                <>
+                    <p>Published in New York by Random House</p>,
+                    <p>Written in English</p>,
+                    <p>Under Creative Commons License</p>,
+                </>
+            }
         />
     );
 
@@ -99,11 +106,13 @@ describe("EditionCard", () => {
             blockName=""
             coverUrl="https://placeimg.com/300/400/arch"
             editionHeadingElement={<a href="edition-link">2004 Edition</a>}
-            editionInfo={[
-                <>Published in New York by Random House</>,
-                <>Written in English</>,
-                <>Under Creative Commons License</>,
-            ]}
+            editionInfo={
+                <>
+                    <p>Published in New York by Random House</p>
+                    <p>Written in English</p>
+                    <p>Under Creative Commons License</p>
+                </>
+            }
             readOnlineLink={<span id="readOnlineSpan">Reading</span>}
             downloadLink={<span id="downloadSpan">Download</span>}
         />
@@ -115,11 +124,13 @@ describe("EditionCard", () => {
             blockName=""
             coverUrl="https://placeimg.com/300/400/arch"
             editionHeadingElement={<a href="edition-link">2004 Edition</a>}
-            editionInfo={[
-                <>Published in New York by Random House</>,
-                <>Written in English</>,
-                <>Under Creative Commons License</>,
-            ]}
+            editionInfo={
+                <>
+                    <p>Published in New York by Random House</p>,
+                    <p>Written in English</p>,
+                    <p>Under Creative Commons License</p>,
+                </>
+            }
             noLinkElement={<span id="noLinkElement">No Links</span>}
         />
     );
@@ -130,7 +141,7 @@ describe("EditionCard", () => {
             blockName=""
             coverUrl="fake-link"
             editionHeadingElement={<a href="edition-link">2004 Edition</a>}
-            editionInfo={[]}
+            editionInfo={<></>}
         />
     );
 

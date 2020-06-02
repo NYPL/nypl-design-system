@@ -7,7 +7,7 @@ import Image from "../Image/Image";
 export type EditionDetails = {
     editionYearHeading: JSX.Element;
     coverUrl: string;
-    editionInfo: JSX.Element[];
+    editionInfo?: JSX.Element;
 
     readOnlineLink: JSX.Element;
     downloadLink: JSX.Element;
@@ -23,7 +23,7 @@ export interface EditionCardProps {
     coverUrl: string;
 
     editionHeadingElement: JSX.Element;
-    editionInfo: JSX.Element[];
+    editionInfo?: JSX.Element;
 
     /** readOnlineLink and downloadLink take in either urls as a string,
      * link-type (<a>, <ReactRouter.Link>) elements
@@ -48,7 +48,7 @@ export default function EditionCard(
         modifiers = [],
         coverUrl,
         editionHeadingElement,
-        editionInfo = [],
+        editionInfo,
         readOnlineLink,
         downloadLink,
         noLinkElement = <>Unavailable to read online</>,
@@ -94,24 +94,9 @@ export default function EditionCard(
                 <div className={bem("card-image", [], baseClass)}>
                     <Image src={coverUrl} isDecorative={true}></Image>
                 </div>
-                {editionInfo.length > 0 && (
-                    <div className={bem("edition-info", [], baseClass)}>
-                        {editionInfo.map((value, index) => {
-                            return (
-                                <div
-                                    className={bem(
-                                        "edition-info-item",
-                                        [],
-                                        baseClass
-                                    )}
-                                    key={index}
-                                >
-                                    {value}
-                                </div>
-                            );
-                        })}
-                    </div>
-                )}
+                <div className={bem("edition-info", [], baseClass)}>
+                    {editionInfo}
+                </div>
             </div>
             {btns}
         </div>

@@ -37,11 +37,13 @@ let editionData: EditionDetails = {
         </a>
     ),
     coverUrl: "https://placeimg.com/57/81/arch",
-    editionInfo: [
-        <>Published in New York by Random House</>,
-        <>Written in English</>,
-        <>Under Creative Commons License</>,
-    ],
+    editionInfo: (
+        <>
+            <p>Published in New York by Random House</p>
+            <p>Written in English</p>
+            <p>Under Creative Commons License</p>
+        </>
+    ),
     readOnlineLink: (
         <Link blockName="edition-card" linkType={LinkTypes.Button} href="blah">
             Read Online
@@ -141,11 +143,13 @@ let searchItemData = {
         ),
         publisherAndLocation: "Published in New York by Random House",
         coverUrl: "https://placeimg.com/57/81/arch",
-        editionInfo: [
-            <>Published in New York by Random House</>,
-            <>Written in English</>,
-            <>Under Creative Commons License</>,
-        ],
+        editionInfo: (
+            <>
+                <p>Published in New York by Random House</p>
+                <p>Written in English</p>
+                <p>Under Creative Commons License</p>
+            </>
+        ),
         readOnlineLink: (
             <Link
                 blockName="edition-card"

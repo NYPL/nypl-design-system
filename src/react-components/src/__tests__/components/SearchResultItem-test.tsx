@@ -31,11 +31,13 @@ describe("SearchResultItem", () => {
                 editionInfo={{
                     editionYearHeading: <a href="blah2">2004 Edition</a>,
                     coverUrl: "https://placeimg.com/57/81/arch",
-                    editionInfo: [
-                        <>Published in New York by Random House</>,
-                        <>Written in English</>,
-                        <>Under Creative Commons License</>,
-                    ],
+                    editionInfo: (
+                        <>
+                            <p>Published in New York by Random House</p>,
+                            <p>Written in English</p>
+                            <p>Under Creative Commons License</p>
+                        </>
+                    ),
                     readOnlineLink: <a href="#read-online">read</a>,
                     downloadLink: <a href="#download">download</a>,
                 }}
