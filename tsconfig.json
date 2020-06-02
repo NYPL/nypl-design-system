@@ -4,13 +4,13 @@
         "moduleResolution": "node",
         "target": "es6",
         "declaration": true,
-        "baseUrl": "../../",
+        "baseUrl": ".",
         "lib": ["es2017", "dom"],
         "esModuleInterop": true,
         "outDir": "lib",
         "jsx": "react",
         "types": ["mocha", "node", "webpack-env"]
     },
-    "include": ["src", "tsd.d.ts", "icons"],
+    "include": ["src", "tsd.d.ts", "icons", "tsconfig.json", "lib", "dist"],
     "exclude": ["lib", "node_modules"]
 }

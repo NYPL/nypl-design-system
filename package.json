@@ -1,17 +1,29 @@
 {
-    "name": "root",
-    "private": true,
-    "scripts": {
-        "prepare": "lerna run prepare",
-        "install-all": "npm install; lerna run prepare; lerna exec npm install",
-        "start": "lerna exec --scope storybook npm run start:react",
-        "storybook": "lerna exec --scope storybook npm run start:react",
-        "storybook:static": "lerna exec --scope storybook npm run static:react",
-        "test": "lerna exec npm test",
-        "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
-        "pretty-quick": "pretty-quick"
+    "name": "@nypl/design-system-react-components",
+    "version": "0.3.7",
+    "description": "Design System React Components",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/react-components"
     },
-    "devDependencies": {
+    "main": "src/dist/design-system-react-components.min.js",
+    "types": "src/lib/index.d.ts",
+    "author": "NYPL",
+    "license": "Apache-2.0",
+    "scripts": {
+        "prepare": "npm run build",
+        "start": "node node_modules/@storybook/react/bin/index -p 9001 -c .storybook-react",
+        "static": "node node_modules/.bin/build-storybook -c .storybook-react -o ./storybook-static/react",
+        "test": "rm -rf lib && npm run lint && tsc && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/__tests__",
+        "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
+        "pretty-quick": "pretty-quick",
+        "prepublishOnly": "npm run test && npm run dist",
+        "build": "tsc",
+        "dist": "rm -rf dist && webpack --mode production --progress --display-modules --config webpack.prod.js",
+        "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.prod.js",
+        "lint": "tslint -c tslint.json src/__tests__/components/*.tsx src/components/**/**/*.tsx src/components/**/**/**/*.tsx src/utils/*.tsx"
+    },
+    "dependencies": {
         "@babel/core": "^7.6.4",
         "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/plugin-proposal-export-default-from": "^7.5.2",
@@ -43,8 +55,8 @@
         "husky": "^4.2.5",
         "import-glob-loader": "^1.1.0",
         "jsdom": "^15.2.1",
-        "lerna": "3.18.1",
         "mocha": "^6.2.2",
+        "node-sass-glob-importer": "^5.3.2",
         "normalize.css": "^8.0.1",
         "prettier": "2.0.5",
         "pretty-quick": "^2.0.1",
@@ -53,6 +65,7 @@
         "react-uid": "^2.2.0",
         "rimraf": "^3.0.0",
         "sinon": "^7.3.0",
+        "storybook-addon-designs": "^5.2.1",
         "svg-inline-loader": "^0.8.0",
         "svg-sprite": "^1.5.0",
         "ts-loader": "^6.2.0",
@@ -64,13 +77,7 @@
         "typescript": "^3.6.4",
         "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10",
-        "webpack-node-externals": "^1.7.2"
-    },
-    "dependencies": {
-        "@nypl/design-system-react-components": "file:src/react-components",
-        "@nypl/design-system-styles": "file:src/styles",
-        "storybook": "file:storybook",
-        "storybook-addon-designs": "^5.2.1",
+        "webpack-node-externals": "^1.7.2",
         "webpack-node-modules": "^0.1.1"
     },
     "husky": {

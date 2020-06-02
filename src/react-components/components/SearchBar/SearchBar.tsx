@@ -1,5 +1,3 @@
-// MF-46 Search Bar with Search By Parameter
-
 import * as React from "react";
 import bem from "../../utils/bem";
 import FormDropdown from "../FormDropdown/FormDropdown";
