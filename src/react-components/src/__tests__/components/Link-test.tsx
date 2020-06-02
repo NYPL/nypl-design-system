@@ -55,7 +55,7 @@ describe("Link", () => {
         expect(wrapper.find("Icon")).to.have.lengthOf(1);
     });
 
-    it("Can generate a back link", () => {
+    it("Generated back link has icon", () => {
         wrapper = Enzyme.mount(
             <Link href="#passed-in-link" linkType={LinkTypes.Backwards}>
                 content
@@ -66,7 +66,7 @@ describe("Link", () => {
         ).to.equal(true);
     });
 
-    it("Can create a forwards link", () => {
+    it("Generated forwards link has icon", () => {
         wrapper = Enzyme.mount(
             <Link href="#passed-in-link" linkType={LinkTypes.Forwards}>
                 content

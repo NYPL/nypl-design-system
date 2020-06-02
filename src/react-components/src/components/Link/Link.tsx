@@ -32,6 +32,10 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
         linkType = LinkTypes.Default,
     } = props;
 
+    const passedProps = { href, attributes };
+    passedProps.href = props.href;
+    passedProps.attributes = props.attributes;
+
     let link_base_class = "link";
 
     let childProps = {};
@@ -44,6 +48,7 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
             if (typeof child === "string" && !props.href) {
                 throw new Error("Link needs prop 'href'");
             } else if (child.type === "a") {
+                childProps = child.props;
                 return child.props.children;
             } else {
                 return child;
@@ -95,7 +100,7 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
 
     return React.createElement(
         "a",
-        { ...props, className, ...childProps },
+        { ...passedProps, className, ...childProps },
         iconLeft,
         elementChildren,
         iconRight
