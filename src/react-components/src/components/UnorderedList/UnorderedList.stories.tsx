@@ -39,9 +39,9 @@ let editionData: EditionDetails = {
     coverUrl: "https://placeimg.com/57/81/arch",
     editionInfo: (
         <>
-            <p>Published in New York by Random House</p>
-            <p>Written in English</p>
-            <p>Under Creative Commons License</p>
+            <div>Published in New York by Random House</div>
+            <div>Written in English</div>
+            <div>Under Creative Commons License</div>
         </>
     ),
     readOnlineLink: (
@@ -145,9 +145,9 @@ let searchItemData = {
         coverUrl: "https://placeimg.com/57/81/arch",
         editionInfo: (
             <>
-                <p>Published in New York by Random House</p>
-                <p>Written in English</p>
-                <p>Under Creative Commons License</p>
+                <div>Published in New York by Random House</div>
+                <div>Written in English</div>
+                <div>Under Creative Commons License</div>
             </>
         ),
         readOnlineLink: (
