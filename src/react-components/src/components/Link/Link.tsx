@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import { uid } from "react-uid";
-import { LinkTypes, LinkIconPositions } from "./LinkTypes";
+import { LinkTypes } from "./LinkTypes";
 import { element } from "prop-types";
 import Icon from "../Icons/Icon";
 import { iconRotationTypes } from "../Icons/IconTypes";
@@ -24,7 +24,13 @@ export interface LinkProps {
 }
 
 export default function Link(props: React.PropsWithChildren<LinkProps>) {
-    let { href, modifiers, blockName, attributes } = props;
+    const {
+        href,
+        modifiers,
+        blockName,
+        attributes,
+        linkType = LinkTypes.Default,
+    } = props;
 
     let link_base_class = "link";
 
@@ -53,6 +59,8 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
         link_base_class = "more-link";
     } else if (props.linkType === LinkTypes.Button) {
         link_base_class = "button";
+    } else {
+        link_base_class = "link";
     }
 
     let navigationIconProps, iconRotation, iconPosition, iconLeft, iconRight;
@@ -60,10 +68,10 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
     // rendered in the link.
     if (props.linkType === LinkTypes.Backwards) {
         iconRotation = iconRotationTypes.rotate90;
-        iconPosition = LinkIconPositions.Left;
+        iconPosition = "left";
     } else if (props.linkType === LinkTypes.Forwards) {
         iconRotation = iconRotationTypes.rotate270;
-        iconPosition = LinkIconPositions.Right;
+        iconPosition = "right";
     }
 
     navigationIconProps = {
@@ -83,7 +91,7 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
         return React.cloneElement(child, { key: uid(child) });
     });
 
-    let className = bem(link_base_class, props.modifiers, props.blockName);
+    let className = bem(link_base_class, modifiers, blockName);
 
     return React.createElement(
         "a",

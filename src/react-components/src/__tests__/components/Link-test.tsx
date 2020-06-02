@@ -5,7 +5,7 @@ import * as React from "react";
 import * as Mocha from "mocha";
 
 import Link from "../../components/Link/Link";
-import { LinkTypes, LinkIconPositions } from "../../components/Link/LinkTypes";
+import { LinkTypes } from "../../components/Link/LinkTypes";
 import Icon from "../../components/Icons/Icon";
 import { iconRotationTypes } from "../../components/Icons/IconTypes";
 
@@ -40,7 +40,7 @@ describe("Link", () => {
 
     it("Can pass a link with <a> tag and an icon", () => {
         wrapper = Enzyme.mount(
-            <Link>
+            <Link linkType={LinkTypes.Action}>
                 <a href="#test">Test</a>
                 <Icon
                     name="download"
@@ -66,7 +66,7 @@ describe("Link", () => {
         ).to.equal(true);
     });
 
-    it("Can pass in right icon", () => {
+    it("Can create a forwards link", () => {
         wrapper = Enzyme.mount(
             <Link href="#passed-in-link" linkType={LinkTypes.Forwards}>
                 content
@@ -84,7 +84,7 @@ describe("Link", () => {
 
     it("throws an error if text is passed but no url is passed", () => {
         expect(() => Enzyme.mount(<Link>Test</Link>)).to.throw(
-            "Link needs prop 'url'"
+            "Link needs prop 'href'"
         );
     });
 });

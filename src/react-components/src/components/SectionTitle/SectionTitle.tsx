@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Link from "../Link/Link";
-import { LinkTypes, LinkIconPositions } from "../Link/LinkTypes";
+import { LinkTypes } from "../Link/LinkTypes";
 import Icon from "../Icons/Icon";
 import Heading from "../Heading/Heading";
 import { iconRotationTypes } from "../Icons/IconTypes";

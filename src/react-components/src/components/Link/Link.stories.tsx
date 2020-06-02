@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Link from "./Link";
-import { LinkTypes, LinkIconPositions } from "./LinkTypes";
+import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 import { iconRotationTypes } from "../Icons/IconTypes";
 

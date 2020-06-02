@@ -5,8 +5,3 @@ export enum LinkTypes {
     Default = "default",
     Forwards = "forwards",
 }
-
-export enum LinkIconPositions {
-    Left = "left",
-    Right = "right",
-}
