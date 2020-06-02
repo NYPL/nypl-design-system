@@ -2,11 +2,13 @@ import * as React from "react";
 
 import Button from "./Button";
 import { action } from "@storybook/addon-actions";
+import { withDesign } from "storybook-addon-designs";
 import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
 
 export default {
     title: "Button",
     component: Button,
+    decorators: [withDesign],
 };
 
 export const buttonFilledIcon = () => (
@@ -23,6 +25,17 @@ export const buttonFilledIcon = () => (
     </Button>
 );
 
+buttonFilledIcon.story = {
+    name: "Button Filled Icon",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14972%3A0",
+        },
+    },
+};
+
 export const buttonOutline = () => (
     <Button
         callback={action("clicked")}
@@ -33,6 +46,17 @@ export const buttonOutline = () => (
         Hello World
     </Button>
 );
+
+buttonOutline.story = {
+    name: "Button Outline",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14972%3A143",
+        },
+    },
+};
 
 export const buttonWithSpan = () => (
     <Button

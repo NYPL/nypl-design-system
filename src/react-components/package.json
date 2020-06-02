@@ -23,6 +23,7 @@
     "devDependencies": {
         "@types/webpack-env": "^1.15.2",
         "file-loader": "^6.0.0",
+        "storybook-addon-designs": "^5.2.1",
         "tslint": "^6.0.0-beta0",
         "typescript": "^3.6.4",
         "webpack": "^4.41.5",
