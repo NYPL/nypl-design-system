@@ -4,7 +4,7 @@ import * as React from "react";
 import * as Mocha from "mocha";
 import { stub } from "sinon";
 
-import DateRangeForm from "../../components/DateRangeForm/DateRangeForm";
+import DateRangeForm from "./DateRangeForm";
 
 describe("Date Range Form", () => {
     let container;

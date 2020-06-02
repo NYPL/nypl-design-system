@@ -3,7 +3,7 @@ import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "./SearchBar";
 
 describe("Search Bar with Optional Parameters", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;

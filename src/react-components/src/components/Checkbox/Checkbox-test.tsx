@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Checkbox from "../../components/Checkbox/Checkbox";
+import Checkbox from "./Checkbox";
 
 describe("Checkbox Test", () => {
     it("Renders Checkbox", () => {

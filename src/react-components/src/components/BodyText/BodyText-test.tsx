@@ -5,7 +5,7 @@ import * as React from "react";
 
 import * as Mocha from "mocha";
 
-import BodyText from "../../components/BodyText/BodyText";
+import BodyText from "./BodyText";
 
 describe("BodyText", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;

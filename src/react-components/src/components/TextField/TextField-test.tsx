@@ -5,7 +5,7 @@ import * as React from "react";
 
 import * as Mocha from "mocha";
 
-import TextField from "../../components/TextField/TextField";
+import TextField from "./TextField";
 
 describe("Search Bar Text Field", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;

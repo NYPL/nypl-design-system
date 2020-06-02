@@ -5,7 +5,7 @@ import * as React from "react";
 
 import * as Mocha from "mocha";
 
-import FormDropdown from "../../components/FormDropdown/FormDropdown";
+import FormDropdown from "./FormDropdown";
 
 describe("FormDropdown", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;
