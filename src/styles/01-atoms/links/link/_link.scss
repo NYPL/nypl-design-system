@@ -3,81 +3,69 @@ $color-link: $nypl-blue-regular;
 $color-link--hover: $nypl-blue-dark;
 
 @mixin link {
-  color: $color-link;
+    color: $color-link;
 
-  &--no-underline {
-    text-decoration: none;
-  }
-  
-  &:hover {
-    color: $color-link--hover;
-  }
-
-  &--dark-background {
-    color: $white;
+    &--no-underline {
+        text-decoration: none;
+    }
 
     &:hover {
-      color: $gray-light;
+        color: $color-link--hover;
     }
-  }
+
+    &--dark-background {
+        color: $white;
+
+        &:hover {
+            color: $gray-light;
+        }
+    }
 }
 
 @mixin more-link($color: $color-link, $color--hover: $color-link--hover) {
-  display: inline-flex;
-  color: $color-link;
-  text-decoration: underline;
-  font-size: 0.875em;
-  line-height: 1.21;
-  letter-spacing: 0.107142857em;
-
-  &:hover {
-    color: $color-link--hover;
+    align-items: center;
+    color: $color-link;
+    display: inline-flex;
+    justify-content: space-between;
     text-decoration: underline;
-  }
 
-  &--icon-left {
-    flex-flow: row-reverse nowrap;
-    text-decoration: none;
-  }
-
-  &--icon-right {
-    flex-flow: row nowrap;
-    text-decoration: none;
-  }
-
-  &__icon {
-    @include icon;
-    
-    height: 1rem;
-    text-decoration: none;
-    width: 1rem;
-
-    &--icon-left {
-      @include space-inline-xxs;
+    &:hover {
+        color: $color-link--hover;
+        text-decoration: underline;
     }
 
-    &--icon-right {
-      margin-left: $space-xxs;
-    }
+    &__icon {
+        @include icon;
 
-  }
+        height: $space;
+        text-decoration: none;
+        width: $space;
+
+        &--left {
+            margin-right: $space-xxs;
+        }
+
+        &--right {
+            margin-left: $space-xxs;
+        }
+    }
 }
 
 a,
 .link {
-  @include link;
+    @include link;
 }
 
 .more-link {
-  @include more-link;
+    @include more-link;
 }
 
 @keyframes linkSlideUp {
-  from {
-    transform: translateY(0);
-  }
+    from {
+        transform: translateY(0);
+    }
 
-  to {
-    transform: translateY(-2px);
-  }
+    to {
+        transform: translateY(-2px);
+    }
 }

@@ -1,0 +1,35 @@
+{
+    "name": "@nypl/design-system-react-components",
+    "version": "0.4.1",
+    "description": "Design System React Components",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NYPL/nypl-design-system/tree/development/src/react-components"
+    },
+    "main": "dist/design-system-react-components.min.js",
+    "types": "lib/index.d.ts",
+    "author": "NYPL",
+    "license": "Apache-2.0",
+    "scripts": {
+        "prepare": "npm run build",
+        "prepublishOnly": "npm run test && npm run dist",
+        "build": "tsc",
+        "dist": "rm -rf dist && webpack --mode production --progress --display-modules --config webpack.prod.js",
+        "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.prod.js",
+        "lint": "tslint -c tslint.json src/__tests__/helpers/*.tsx src/components/**/**/*.tsx src/components/**/**/**/*.tsx src/utils/*.tsx",
+        "test": "rm -rf lib && npm run lint && tsc && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/__tests__ --recursive lib/components"
+    },
+    "keywords": [],
+    "devDependencies": {
+        "@types/webpack-env": "^1.15.2",
+        "file-loader": "^6.0.0",
+        "storybook-addon-designs": "^5.2.1",
+        "tslint": "^6.0.0-beta0",
+        "typescript": "^3.6.4",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.11"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

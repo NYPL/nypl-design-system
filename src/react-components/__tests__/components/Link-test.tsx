@@ -4,21 +4,23 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
+import Link from "../../components/Link/Link";
+import { LinkTypes } from "../../components/Link/LinkTypes";
 import Icon from "../../components/Icons/Icon";
-import { iconRotationTypes } from "../../components/Icons/IconTypes";
+import { IconRotationTypes } from "../../components/Icons/IconTypes";
 
 describe("Link", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
 
     it("Can pass in icon, text as child and url as props", () => {
         wrapper = Enzyme.mount(
-            <Link href="#passed-in-link" linktype={LinkTypes.Action}>
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
                     name="download"
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -38,14 +40,14 @@ describe("Link", () => {
 
     it("Can pass a link with <a> tag and an icon", () => {
         wrapper = Enzyme.mount(
-            <Link linktype={LinkTypes.Action}>
+            <Link linkType={LinkTypes.Action}>
                 <a href="#test">Test</a>
                 <Icon
                     name="download"
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
             </Link>
         );
@@ -55,7 +57,7 @@ describe("Link", () => {
 
     it("Generated back link has icon", () => {
         wrapper = Enzyme.mount(
-            <Link href="#passed-in-link" linktype={LinkTypes.Backwards}>
+            <Link href="#passed-in-link" linkType={LinkTypes.Backwards}>
                 content
             </Link>
         );
@@ -66,7 +68,7 @@ describe("Link", () => {
 
     it("Generated forwards link has icon", () => {
         wrapper = Enzyme.mount(
-            <Link href="#passed-in-link" linktype={LinkTypes.Forwards}>
+            <Link href="#passed-in-link" linkType={LinkTypes.Forwards}>
                 content
             </Link>
         );

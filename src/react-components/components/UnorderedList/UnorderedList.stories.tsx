@@ -1,19 +1,18 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { iconRotationTypes } from "../Icons/IconTypes";
-
 import UnorderedList from "./UnorderedList";
-import IconLink from "../IconLink/IconLink";
+import Icon from "../Icons/Icon";
+import { IconRotationTypes } from "../Icons/IconTypes";
 import EditionCard, {
     EditionDetails,
     EditionCardProps,
 } from "../EditionCard/EditionCard";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
-import UnderlineLink from "../UnderlineLink/UnderlineLink";
 import Checkbox from "../Checkbox/Checkbox";
 import { action } from "@storybook/addon-actions";
-import BasicLink from "../BasicLink/BasicLink";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
 
 export default {
     title: "UnorderedList",
@@ -21,9 +20,9 @@ export default {
 };
 
 const links = [
-    <IconLink url="#url1">Link1</IconLink>,
-    <IconLink url="#url2">link2</IconLink>,
-    <IconLink url="#url3">link3</IconLink>,
+    <Link href="#url1">Link1</Link>,
+    <Link href="#url2">link2</Link>,
+    <Link href="#url3">link3</Link>,
 ];
 export const iconLinkList = () => (
     <UnorderedList id="link-list" blockName="list-iconLink">
@@ -44,22 +43,21 @@ let editionData: EditionDetails = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <BasicLink
-            className={bem("card-button-link", [], "edition-card")}
-            url="blah2"
-        >
+        <Link blockName="edition-card" linkType={LinkTypes.Button} href="blah">
             Read Online
-        </BasicLink>
+        </Link>
     ),
     downloadLink: (
-        <IconLink
-            iconName="download"
-            iconPosition="left"
-            iconRotation={iconRotationTypes.rotate0}
-            url="blah3"
-        >
+        <Link href="#blah" linkType={LinkTypes.Action}>
+            <Icon
+                name="download"
+                blockName="more-link"
+                modifiers={["left"]}
+                decorative={true}
+                iconRotation={IconRotationTypes.rotate0}
+            ></Icon>
             Download
-        </IconLink>
+        </Link>
     ),
 };
 
@@ -149,29 +147,30 @@ let searchItemData = {
             <>Under Creative Commons License</>,
         ],
         readOnlineLink: (
-            <BasicLink
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah4"
+            <Link
+                blockName="edition-card"
+                linkType={LinkTypes.Button}
+                href="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         ),
         downloadLink: (
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link href="#blah4" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         ),
     },
-    authorElement: <UnderlineLink url={"author-url"}>First Last</UnderlineLink>,
+    authorElement: <Link href={"author-url"}>First Last</Link>,
     editionsLinkElement: (
-        <UnderlineLink
-            url={"#allEditionsUrl"}
-        >{`View All 7 editions`}</UnderlineLink>
+        <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
     ),
 };
 
