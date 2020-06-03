@@ -23,7 +23,6 @@ export { default as Link } from "./components/Link/Link";
 export { LinkTypes } from "./components/Link/LinkTypes";
 export { default as Modal } from "./components/Modal/Modal";
 export { default as Pagination } from "./components/Pagination/Pagination";
-export { default as SearchBar } from "./components/SearchBar/SearchBar";
 export { default as SearchPromo } from "./components/SearchPromo/SearchPromo";
 export { default as SearchResultItem } from "./components/SearchResultItem/SearchResultItem";
 export { default as SectionName } from "./components/SectionName/SectionName";
