@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 import EditionCard from "./EditionCard";
 import Icon from "../Icons/Icon";
@@ -47,7 +47,7 @@ export const editionCardWithFullData = () => (
                     blockName="more-link"
                     decorative={true}
                     modifiers={["left"]}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -77,7 +77,7 @@ export const editionCardWithOneLinks = () => (
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -133,7 +133,7 @@ export const editionCardWithSomeEditionInfo = () => (
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -168,7 +168,7 @@ export const editionCardWithEmptyEditionInfo = () => (
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -207,7 +207,7 @@ export const editionCardWithAtypicalImageSize = () => (
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -247,7 +247,7 @@ export const instanceCard = () => (
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>

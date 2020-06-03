@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { iconRotationTypes } from "./IconTypes";
+import { IconRotationTypes } from "./IconTypes";
 
 import arrow_xsmall from "../../../icons/svg/arrow-xsmall.svg";
 import arrow from "../../../icons/svg/arrow.svg";
@@ -30,7 +30,7 @@ export interface IconProps {
     role?: string;
     title?: boolean;
     desc?: boolean;
-    iconRotation?: iconRotationTypes;
+    iconRotation?: IconRotationTypes;
 }
 
 export default class Icon extends React.Component<IconProps, {}> {

@@ -4,7 +4,7 @@ import SearchResultItem from "./SearchResultItem";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Icon from "../Icons/Icon";
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 import bem from "../../utils/bem";
 
@@ -37,7 +37,7 @@ let exampleEditionInfo = {
                 blockName="more-link"
                 modifiers={["left"]}
                 decorative={true}
-                iconRotation={iconRotationTypes.rotate0}
+                iconRotation={IconRotationTypes.rotate0}
             ></Icon>
             Download
         </Link>

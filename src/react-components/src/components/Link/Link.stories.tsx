@@ -3,7 +3,7 @@ import * as React from "react";
 import Link from "./Link";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 export default {
     title: "Link",
@@ -47,7 +47,7 @@ export const actionLinkWithDownloadIcon = () => (
             blockName="more-link"
             modifiers={["left"]}
             decorative={true}
-            iconRotation={iconRotationTypes.rotate0}
+            iconRotation={IconRotationTypes.rotate0}
         ></Icon>
         Download
     </Link>

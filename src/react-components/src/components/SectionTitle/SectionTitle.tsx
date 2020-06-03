@@ -4,7 +4,7 @@ import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Icon from "../Icons/Icon";
 import Heading from "../Heading/Heading";
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface SectionTitleProps {
     id: string;

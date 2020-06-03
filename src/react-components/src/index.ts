@@ -15,11 +15,12 @@ export { default as HeaderWithSearch } from "./components/RNHeaderWithSearch/RNH
 export { default as Heading } from "./components/Heading/Heading";
 export { default as Hero } from "./components/Hero/Hero";
 export { HeroTypes } from "./components/Hero/HeroTypes";
-export { iconRotationTypes } from "./components/Icons/IconTypes";
+export { IconRotationTypes } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
 export { default as Input } from "./components/Input/Input";
 export { default as Label } from "./components/Label/Label";
 export { default as Link } from "./components/Link/Link";
+export { LinkTypes } from "./components/Link/LinkTypes";
 export { default as Modal } from "./components/Modal/Modal";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as SearchPromo } from "./components/SearchPromo/SearchPromo";

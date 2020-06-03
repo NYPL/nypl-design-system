@@ -7,7 +7,7 @@ import * as Mocha from "mocha";
 import Link from "../../components/Link/Link";
 import { LinkTypes } from "../../components/Link/LinkTypes";
 import Icon from "../../components/Icons/Icon";
-import { iconRotationTypes } from "../../components/Icons/IconTypes";
+import { IconRotationTypes } from "../../components/Icons/IconTypes";
 
 describe("Link", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
@@ -20,7 +20,7 @@ describe("Link", () => {
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
@@ -47,7 +47,7 @@ describe("Link", () => {
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
             </Link>
         );

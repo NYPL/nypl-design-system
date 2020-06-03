@@ -4,7 +4,7 @@ import { uid } from "react-uid";
 import { LinkTypes } from "./LinkTypes";
 import { element } from "prop-types";
 import Icon from "../Icons/Icon";
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface LinkProps {
     /** Controls the link visuals—action, button, or default. */
@@ -72,10 +72,10 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
     // An icon needs a position in order for it to be created and
     // rendered in the link.
     if (props.linkType === LinkTypes.Backwards) {
-        iconRotation = iconRotationTypes.rotate90;
+        iconRotation = IconRotationTypes.rotate90;
         iconPosition = "left";
     } else if (props.linkType === LinkTypes.Forwards) {
-        iconRotation = iconRotationTypes.rotate270;
+        iconRotation = IconRotationTypes.rotate270;
         iconPosition = "right";
     }
 

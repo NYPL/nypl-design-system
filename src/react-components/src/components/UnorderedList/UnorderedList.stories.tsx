@@ -3,7 +3,7 @@ import bem from "../../utils/bem";
 
 import UnorderedList from "./UnorderedList";
 import Icon from "../Icons/Icon";
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 import EditionCard, {
     EditionDetails,
     EditionCardProps,
@@ -54,7 +54,7 @@ let editionData: EditionDetails = {
                 blockName="more-link"
                 modifiers={["left"]}
                 decorative={true}
-                iconRotation={iconRotationTypes.rotate0}
+                iconRotation={IconRotationTypes.rotate0}
             ></Icon>
             Download
         </Link>
@@ -162,7 +162,7 @@ let searchItemData = {
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
-                    iconRotation={iconRotationTypes.rotate0}
+                    iconRotation={IconRotationTypes.rotate0}
                 ></Icon>
                 Download
             </Link>
