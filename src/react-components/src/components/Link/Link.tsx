@@ -2,7 +2,6 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import { uid } from "react-uid";
 import { LinkTypes } from "./LinkTypes";
-import { element } from "prop-types";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes } from "../Icons/IconTypes";
 
@@ -23,29 +22,23 @@ export interface LinkProps {
     attributes?: {};
 }
 
-export default function Link(props: React.PropsWithChildren<LinkProps>) {
+export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     const {
         href,
         modifiers,
         blockName,
         attributes,
         linkType = LinkTypes.Default,
-    } = props;
-
-    const passedProps = { href, attributes };
-    passedProps.href = props.href;
-    passedProps.attributes = props.attributes;
+    } = linkProps;
 
     let link_base_class = "link";
 
     let childProps = {};
 
-    let icon;
-
     let elementChildren = React.Children.map(
-        props.children,
+        linkProps.children,
         (child: React.ReactElement) => {
-            if (typeof child === "string" && !props.href) {
+            if (typeof child === "string" && !linkProps.href) {
                 throw new Error("Link needs prop 'href'");
             } else if (child.type === "a") {
                 childProps = child.props;
@@ -57,12 +50,12 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
     );
 
     if (
-        props.linkType === LinkTypes.Action ||
-        props.linkType === LinkTypes.Forwards ||
-        props.linkType === LinkTypes.Backwards
+        linkType === LinkTypes.Action ||
+        linkType === LinkTypes.Forwards ||
+        linkType === LinkTypes.Backwards
     ) {
         link_base_class = "more-link";
-    } else if (props.linkType === LinkTypes.Button) {
+    } else if (linkType === LinkTypes.Button) {
         link_base_class = "button";
     } else {
         link_base_class = "link";
@@ -71,10 +64,10 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
     let navigationIconProps, iconRotation, iconPosition, iconLeft, iconRight;
     // An icon needs a position in order for it to be created and
     // rendered in the link.
-    if (props.linkType === LinkTypes.Backwards) {
+    if (linkType === LinkTypes.Backwards) {
         iconRotation = IconRotationTypes.rotate90;
         iconPosition = "left";
-    } else if (props.linkType === LinkTypes.Forwards) {
+    } else if (linkType === LinkTypes.Forwards) {
         iconRotation = IconRotationTypes.rotate270;
         iconPosition = "right";
     }
@@ -86,9 +79,9 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
         decorative: "true",
     };
 
-    if (props.linkType === LinkTypes.Backwards) {
+    if (linkType === LinkTypes.Backwards) {
         iconLeft = <Icon {...navigationIconProps} />;
-    } else if (props.linkType === LinkTypes.Forwards) {
+    } else if (linkType === LinkTypes.Forwards) {
         iconRight = <Icon {...navigationIconProps} />;
     }
 
@@ -100,7 +93,7 @@ export default function Link(props: React.PropsWithChildren<LinkProps>) {
 
     return React.createElement(
         "a",
-        { ...passedProps, className, ...childProps },
+        { ...linkProps, className, ...childProps },
         iconLeft,
         elementChildren,
         iconRight
