@@ -49,10 +49,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/IconLink-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
     "url": "../../../src/react-components/lib/__tests__/components/Image-test.d.ts"
   },
   {
@@ -62,6 +58,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e2ebd7ddedcadeeadbf819c35985c768",
     "url": "../../../src/react-components/lib/__tests__/components/Label-test.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/__tests__/components/Link-test.d.ts"
   },
   {
     "revision": "e2ebd7ddedcadeeadbf819c35985c768",
@@ -93,10 +93,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/UnderlineLink-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
     "url": "../../../src/react-components/lib/__tests__/components/UnorderedList-test.d.ts"
   },
   {
@@ -120,14 +116,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Accordion/Accordion.stories.d.ts"
   },
   {
-    "revision": "7058be26530fe0cbfe6ff4db8e3d5b44",
-    "url": "../../../src/react-components/lib/components/BasicLink/BasicLink.d.ts"
-  },
-  {
-    "revision": "5226c858f046549b067a612ef0b68e75",
-    "url": "../../../src/react-components/lib/components/BasicLink/BasicLink.stories.d.ts"
-  },
-  {
     "revision": "f49bd85eb6a88383952986a3249f0d44",
     "url": "../../../src/react-components/lib/components/BodyText/BodyText.d.ts"
   },
@@ -144,7 +132,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Breadcrumbs/Breadcrumbs.stories.d.ts"
   },
   {
-    "revision": "d25d156cd5db19835b760432761941ca",
+    "revision": "b507ff7531c160bdf5e337c763b2305b",
     "url": "../../../src/react-components/lib/components/Button/Button.d.ts"
   },
   {
@@ -228,19 +216,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Hero/HeroTypes.d.ts"
   },
   {
-    "revision": "b935034042dfc179efdbebf7d2869a3c",
-    "url": "../../../src/react-components/lib/components/IconLink/IconLink.d.ts"
-  },
-  {
-    "revision": "64c8e62e288d7b999ef45e308a2409bf",
-    "url": "../../../src/react-components/lib/components/IconLink/IconLink.stories.d.ts"
-  },
-  {
-    "revision": "d20755bb9a11450af41410f4f887677a",
+    "revision": "6ad9a736268bc0368c10115106c18a10",
     "url": "../../../src/react-components/lib/components/Icons/Icon.d.ts"
   },
   {
-    "revision": "91dafe188d4c5f7c127021e5a0af2e0a",
+    "revision": "acbc28fd9ac1adaaf01c2cfb2d51c0fb",
     "url": "../../../src/react-components/lib/components/Icons/IconTypes.d.ts"
   },
   {
@@ -272,8 +252,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Label/Label.stories.d.ts"
   },
   {
-    "revision": "2117c9d0f6a2c295b19e9dcf464ea666",
-    "url": "../../../src/react-components/lib/components/Links/Link.d.ts"
+    "revision": "d2468f65b1dc513c31fcfb62f0a93306",
+    "url": "../../../src/react-components/lib/components/Link/Link.d.ts"
+  },
+  {
+    "revision": "fa1a03b661f4b357db14b61b33a69874",
+    "url": "../../../src/react-components/lib/components/Link/Link.stories.d.ts"
+  },
+  {
+    "revision": "78a45666209d7eb577f981cef1ef7838",
+    "url": "../../../src/react-components/lib/components/Link/LinkTypes.d.ts"
   },
   {
     "revision": "5915e06f5e6badd235883b1677e28d8e",
@@ -360,14 +348,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/TextField/TextField.stories.d.ts"
   },
   {
-    "revision": "b030af783f8e2ff1aa0ecb4e98312594",
-    "url": "../../../src/react-components/lib/components/UnderlineLink/UnderlineLink.d.ts"
-  },
-  {
-    "revision": "d96664152ea4672d6df3cdb1021a2015",
-    "url": "../../../src/react-components/lib/components/UnderlineLink/UnderlineLink.stories.d.ts"
-  },
-  {
     "revision": "d40a4a7e4ab8c86c6176a2cda433acb4",
     "url": "../../../src/react-components/lib/components/UnorderedList/UnorderedList.d.ts"
   },
@@ -380,7 +360,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/helpers/hoc/WithOneChild.d.ts"
   },
   {
-    "revision": "20539bb9967fcc5cc4c72d02ad2ef5bf",
+    "revision": "3058bd15ba135aabb188270b8d5a76a1",
     "url": "../../../src/react-components/lib/index.d.ts"
   },
   {
@@ -388,23 +368,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "fdd834ff41e9ff3161a94c69fab0d217",
+    "revision": "8cf27991058b2414b567c5608ffeff9f",
     "url": "iframe.html"
   },
   {
-    "url": "main.a05924519bbaf97380bf.bundle.js"
+    "url": "main.4a0264cb99412e87f844.bundle.js"
   },
   {
-    "url": "runtime~main.a05924519bbaf97380bf.bundle.js"
+    "url": "runtime~main.4a0264cb99412e87f844.bundle.js"
   },
   {
-    "revision": "a9d4f745a8ec99a223e8",
+    "revision": "3b8f59016f3ca590c2fe",
     "url": "static/css/vendors~main.f8f248a5.chunk.css"
   },
   {
-    "url": "vendors~main.a05924519bbaf97380bf.bundle.js"
+    "url": "vendors~main.4a0264cb99412e87f844.bundle.js"
   },
   {
-    "url": "vendors~main.a05924519bbaf97380bf.bundle.js.LICENSE.txt"
+    "url": "vendors~main.4a0264cb99412e87f844.bundle.js.LICENSE.txt"
   }
 ]);

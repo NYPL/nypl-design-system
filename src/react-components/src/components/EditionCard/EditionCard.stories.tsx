@@ -1,11 +1,12 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 import EditionCard from "./EditionCard";
-import IconLink from "../IconLink/IconLink";
-import BasicLink from "../BasicLink/BasicLink";
+import Icon from "../Icons/Icon";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
 
 export default {
     title: "Edition Card",
@@ -31,22 +32,25 @@ export const editionCardWithFullData = () => (
             </>,
         ]}
         readOnlineLink={
-            <BasicLink
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah"
+            <Link
+                linkType={LinkTypes.Button}
+                blockName="edition-card"
+                href="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link href="#url" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    decorative={true}
+                    modifiers={["left"]}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -67,14 +71,16 @@ export const editionCardWithOneLinks = () => (
             <>Under Creative Commons License</>,
         ]}
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -112,22 +118,25 @@ export const editionCardWithSomeEditionInfo = () => (
             <span>Under Creative Commons License</span>,
         ]}
         readOnlineLink={
-            <BasicLink
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah"
+            <Link
+                blockName="edition-card"
+                linkType={LinkTypes.Button}
+                href="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -144,22 +153,25 @@ export const editionCardWithEmptyEditionInfo = () => (
         }
         editionInfo={[]}
         readOnlineLink={
-            <BasicLink
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah"
+            <Link
+                blockName="edition-card"
+                linkType={LinkTypes.Button}
+                href="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -180,22 +192,25 @@ export const editionCardWithAtypicalImageSize = () => (
             <>License: Creative Commons</>,
         ]}
         readOnlineLink={
-            <BasicLink
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah"
+            <Link
+                blockName="edition-card"
+                linkType={LinkTypes.Button}
+                href="#blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );
@@ -217,22 +232,25 @@ export const instanceCard = () => (
             </a>,
         ]}
         readOnlineLink={
-            <BasicLink
-                className={bem("card-button-link", [], "edition-card")}
-                url="blah"
+            <Link
+                blockName="edition-card"
+                linkType={LinkTypes.Button}
+                href="blah"
             >
                 Read Online
-            </BasicLink>
+            </Link>
         }
         downloadLink={
-            <IconLink
-                iconName="download"
-                iconPosition="left"
-                iconRotation={iconRotationTypes.rotate0}
-                url="blah"
-            >
+            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
                 Download
-            </IconLink>
+            </Link>
         }
     ></EditionCard>
 );

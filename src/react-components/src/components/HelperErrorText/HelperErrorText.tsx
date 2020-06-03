@@ -1,6 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface HelperErrorTextOptions {
     content?: JSX.Element;
