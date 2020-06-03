@@ -1,10 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Link-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
     "url": "../../../src/react-components/lib/__tests__/helpers/hoc/WithOneChild.test.d.ts"
   },
   {
@@ -228,6 +224,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Link/Link.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Link/Link.test.d.ts"
+  },
+  {
     "revision": "78a45666209d7eb577f981cef1ef7838",
     "url": "../../../src/react-components/lib/components/Link/LinkTypes.d.ts"
   },
@@ -360,7 +360,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/helpers/hoc/WithOneChild.d.ts"
   },
   {
-    "revision": "3058bd15ba135aabb188270b8d5a76a1",
+    "revision": "32fc31d79b81b2371c0b78128ec50bbe",
     "url": "../../../src/react-components/lib/index.d.ts"
   },
   {
@@ -368,23 +368,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/utils/bem.d.ts"
   },
   {
-    "revision": "8cf27991058b2414b567c5608ffeff9f",
+    "revision": "334ca4e5f8662febf9a062f185da18ba",
     "url": "iframe.html"
   },
   {
-    "url": "main.4a0264cb99412e87f844.bundle.js"
+    "url": "main.014e07efa019a37b233c.bundle.js"
   },
   {
-    "url": "runtime~main.4a0264cb99412e87f844.bundle.js"
+    "url": "runtime~main.014e07efa019a37b233c.bundle.js"
   },
   {
-    "revision": "3b8f59016f3ca590c2fe",
+    "revision": "9b48c2da81834d61d6a1",
     "url": "static/css/vendors~main.f8f248a5.chunk.css"
   },
   {
-    "url": "vendors~main.4a0264cb99412e87f844.bundle.js"
+    "url": "vendors~main.014e07efa019a37b233c.bundle.js"
   },
   {
-    "url": "vendors~main.4a0264cb99412e87f844.bundle.js.LICENSE.txt"
+    "url": "vendors~main.014e07efa019a37b233c.bundle.js.LICENSE.txt"
   }
 ]);

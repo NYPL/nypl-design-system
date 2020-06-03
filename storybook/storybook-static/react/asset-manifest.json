@@ -1,14 +1,13 @@
 {
   "files": {
-    "main.js": "/main.4a0264cb99412e87f844.bundle.js",
-    "main.js.map": "/main.4a0264cb99412e87f844.bundle.js.map",
-    "runtime~main.js": "/runtime~main.4a0264cb99412e87f844.bundle.js",
-    "runtime~main.js.map": "/runtime~main.4a0264cb99412e87f844.bundle.js.map",
+    "main.js": "/main.014e07efa019a37b233c.bundle.js",
+    "main.js.map": "/main.014e07efa019a37b233c.bundle.js.map",
+    "runtime~main.js": "/runtime~main.014e07efa019a37b233c.bundle.js",
+    "runtime~main.js.map": "/runtime~main.014e07efa019a37b233c.bundle.js.map",
     "vendors~main.css": "/static/css/vendors~main.f8f248a5.chunk.css",
-    "vendors~main.js": "/vendors~main.4a0264cb99412e87f844.bundle.js",
+    "vendors~main.js": "/vendors~main.014e07efa019a37b233c.bundle.js",
     "vendors~main.css.map": "/static/css/vendors~main.f8f248a5.chunk.css.map",
-    "vendors~main.js.map": "/vendors~main.4a0264cb99412e87f844.bundle.js.map",
-    "../../../src/react-components/lib/__tests__/components/Link-test.d.ts": "/../../../src/react-components/lib/__tests__/components/Link-test.d.ts",
+    "vendors~main.js.map": "/vendors~main.014e07efa019a37b233c.bundle.js.map",
     "../../../src/react-components/lib/__tests__/helpers/hoc/WithOneChild.test.d.ts": "/../../../src/react-components/lib/__tests__/helpers/hoc/WithOneChild.test.d.ts",
     "../../../src/react-components/lib/__tests__/setupEnzyme.d.ts": "/../../../src/react-components/lib/__tests__/setupEnzyme.d.ts",
     "../../../src/react-components/lib/__tests__/utils/bem.test.d.ts": "/../../../src/react-components/lib/__tests__/utils/bem.test.d.ts",
@@ -65,6 +64,7 @@
     "../../../src/react-components/lib/components/Label/Label.test.d.ts": "/../../../src/react-components/lib/components/Label/Label.test.d.ts",
     "../../../src/react-components/lib/components/Link/Link.d.ts": "/../../../src/react-components/lib/components/Link/Link.d.ts",
     "../../../src/react-components/lib/components/Link/Link.stories.d.ts": "/../../../src/react-components/lib/components/Link/Link.stories.d.ts",
+    "../../../src/react-components/lib/components/Link/Link.test.d.ts": "/../../../src/react-components/lib/components/Link/Link.test.d.ts",
     "../../../src/react-components/lib/components/Link/LinkTypes.d.ts": "/../../../src/react-components/lib/components/Link/LinkTypes.d.ts",
     "../../../src/react-components/lib/components/Modal/Modal.d.ts": "/../../../src/react-components/lib/components/Modal/Modal.d.ts",
     "../../../src/react-components/lib/components/Modal/Modal.stories.d.ts": "/../../../src/react-components/lib/components/Modal/Modal.stories.d.ts",
@@ -101,14 +101,14 @@
     "../../../src/react-components/lib/index.d.ts": "/../../../src/react-components/lib/index.d.ts",
     "../../../src/react-components/lib/utils/bem.d.ts": "/../../../src/react-components/lib/utils/bem.d.ts",
     "iframe.html": "/iframe.html",
-    "precache-manifest.81aa0159c662ec4de983fdf661c89d3f.js": "/precache-manifest.81aa0159c662ec4de983fdf661c89d3f.js",
+    "precache-manifest.27f8e65a5b3d7f90bcaaba8d09cb0824.js": "/precache-manifest.27f8e65a5b3d7f90bcaaba8d09cb0824.js",
     "service-worker.js": "/service-worker.js",
-    "vendors~main.4a0264cb99412e87f844.bundle.js.LICENSE.txt": "/vendors~main.4a0264cb99412e87f844.bundle.js.LICENSE.txt"
+    "vendors~main.014e07efa019a37b233c.bundle.js.LICENSE.txt": "/vendors~main.014e07efa019a37b233c.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.4a0264cb99412e87f844.bundle.js",
+    "runtime~main.014e07efa019a37b233c.bundle.js",
     "static/css/vendors~main.f8f248a5.chunk.css",
-    "vendors~main.4a0264cb99412e87f844.bundle.js",
-    "main.4a0264cb99412e87f844.bundle.js"
+    "vendors~main.014e07efa019a37b233c.bundle.js",
+    "main.014e07efa019a37b233c.bundle.js"
   ]
 }
