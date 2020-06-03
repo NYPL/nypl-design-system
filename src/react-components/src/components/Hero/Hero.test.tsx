@@ -4,11 +4,11 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Placeholder from "../../components/Placeholder/Placeholder";
-import Image from "../../components/Image/Image";
-import Heading from "../../components/Heading/Heading";
-import { HeroTypes } from "../../components/Hero/HeroTypes";
-import Hero from "../../components/Hero/Hero";
+import Placeholder from "../Placeholder/Placeholder";
+import Image from "../Image/Image";
+import Heading from "../Heading/Heading";
+import { HeroTypes } from "./HeroTypes";
+import Hero from "./Hero";
 
 describe("Hero Test", () => {
     it("Generates a Hero with a background image", () => {

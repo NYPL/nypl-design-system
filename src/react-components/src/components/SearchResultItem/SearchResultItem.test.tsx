@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import SearchResultItem from "../../components/SearchResultItem/SearchResultItem";
+import SearchResultItem from "./SearchResultItem";
 
 describe("SearchResultItem", () => {
     const validHeading = <a href="hello">headingText</a>;

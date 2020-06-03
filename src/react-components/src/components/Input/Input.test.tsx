@@ -3,7 +3,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Input from "../../components/Input/Input";
+import Input from "./Input";
 
 describe("Renders Input", () => {
     let container;

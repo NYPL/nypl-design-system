@@ -1,103 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Accordion-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/BodyText-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Breadcrumbs-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Button-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Checkbox-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/DateRangeForm-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Dropdown-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/EditionCard-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/FormDropdown-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Heading-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/HelperErrorText-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Hero-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Image-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Input-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Label-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
     "url": "../../../src/react-components/lib/__tests__/components/Link-test.d.ts"
   },
   {
     "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Modal-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/Pagination-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/RNHeaderWithSearch-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/SearchBar-Test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/SearchResultItem-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/SectionTitle-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/TextField-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/components/UnorderedList-test.d.ts"
-  },
-  {
-    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
-    "url": "../../../src/react-components/lib/__tests__/helpers/hoc/WithOneChild-test.d.ts"
+    "url": "../../../src/react-components/lib/__tests__/helpers/hoc/WithOneChild.test.d.ts"
   },
   {
     "revision": "8a3c96f932cea6e82563ac0667d6ce0c",
@@ -116,12 +24,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Accordion/Accordion.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Accordion/Accordion.test.d.ts"
+  },
+  {
     "revision": "f49bd85eb6a88383952986a3249f0d44",
     "url": "../../../src/react-components/lib/components/BodyText/BodyText.d.ts"
   },
   {
     "revision": "e30bae7e17e38599f16ad89d01cfbc3d",
     "url": "../../../src/react-components/lib/components/BodyText/BodyText.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/BodyText/BodyText.test.d.ts"
   },
   {
     "revision": "e00737652ad1080bbdb7918dd3ca2548",
@@ -132,12 +48,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Breadcrumbs/Breadcrumbs.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Breadcrumbs/Breadcrumbs.test.d.ts"
+  },
+  {
     "revision": "b507ff7531c160bdf5e337c763b2305b",
     "url": "../../../src/react-components/lib/components/Button/Button.d.ts"
   },
   {
     "revision": "fd56892d5cf543aed02462d6a47a6b94",
     "url": "../../../src/react-components/lib/components/Button/Button.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Button/Button.test.d.ts"
   },
   {
     "revision": "bbdea582ee542d2f9780274980a7ffea",
@@ -152,6 +76,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Checkbox/Checkbox.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Checkbox/Checkbox.test.d.ts"
+  },
+  {
     "revision": "0d8f948c13057bad5bcc5ac692bc992c",
     "url": "../../../src/react-components/lib/components/Container/Container.d.ts"
   },
@@ -164,12 +92,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/DateRangeForm/DateRangeForm.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/DateRangeForm/DateRangeForm.test.d.ts"
+  },
+  {
     "revision": "5eae8677f0ccfbee78ece8f9c217ca57",
     "url": "../../../src/react-components/lib/components/Dropdown/Dropdown.d.ts"
   },
   {
     "revision": "13e5c7e0394643c5efa68b80bdd25c2d",
     "url": "../../../src/react-components/lib/components/Dropdown/Dropdown.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Dropdown/Dropdown.test.d.ts"
   },
   {
     "revision": "079c412f97e81a8df9aa9db0056a4251",
@@ -180,12 +116,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/EditionCard/EditionCard.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/EditionCard/EditionCard.test.d.ts"
+  },
+  {
     "revision": "215e0f29f156a2ae20e5364e367524b6",
     "url": "../../../src/react-components/lib/components/FormDropdown/FormDropdown.d.ts"
   },
   {
     "revision": "f89059bd59b28b4ccc59cdd7ffa85df6",
     "url": "../../../src/react-components/lib/components/FormDropdown/FormDropdown.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/FormDropdown/FormDropdown.test.d.ts"
   },
   {
     "revision": "5135708e29a93b27a6e3dc04933a2d4f",
@@ -196,6 +140,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Heading/Heading.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Heading/Heading.test.d.ts"
+  },
+  {
     "revision": "211b62d6076b151973c947acc56e7bb7",
     "url": "../../../src/react-components/lib/components/HelperErrorText/HelperErrorText.d.ts"
   },
@@ -204,12 +152,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/HelperErrorText/HelperErrorText.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/HelperErrorText/HelperErrorText.test.d.ts"
+  },
+  {
     "revision": "7ce6af4022872c720915c09011e42ee9",
     "url": "../../../src/react-components/lib/components/Hero/Hero.d.ts"
   },
   {
     "revision": "0bf681200d081e4a7315b48e443734b7",
     "url": "../../../src/react-components/lib/components/Hero/Hero.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Hero/Hero.test.d.ts"
   },
   {
     "revision": "3bf8ae3dd746e2a1184dae2aaebf1f33",
@@ -236,6 +192,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Image/Image.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Image/Image.test.d.ts"
+  },
+  {
     "revision": "ac06c5d9c6e55609af96dae343fba21e",
     "url": "../../../src/react-components/lib/components/Input/Input.d.ts"
   },
@@ -244,12 +204,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Input/Input.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Input/Input.test.d.ts"
+  },
+  {
     "revision": "b7d6f7b7ae07c143d569d5e65feb7583",
     "url": "../../../src/react-components/lib/components/Label/Label.d.ts"
   },
   {
     "revision": "3ff2f3c1625d92a1921f4e6ecc0f0cd1",
     "url": "../../../src/react-components/lib/components/Label/Label.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Label/Label.test.d.ts"
   },
   {
     "revision": "d2468f65b1dc513c31fcfb62f0a93306",
@@ -272,12 +240,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/Modal/Modal.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Modal/Modal.test.d.ts"
+  },
+  {
     "revision": "3a349ab6752226066f6ee907d84f1c1b",
     "url": "../../../src/react-components/lib/components/Pagination/Pagination.d.ts"
   },
   {
     "revision": "b39e015633c864614e06e6721107212f",
     "url": "../../../src/react-components/lib/components/Pagination/Pagination.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/Pagination/Pagination.test.d.ts"
   },
   {
     "revision": "a9aad55a4f47ad765690aaa31a0be542",
@@ -292,12 +268,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/RNHeaderWithSearch/RNHeaderWithSearch.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/RNHeaderWithSearch/RNHeaderWithSearch.test.d.ts"
+  },
+  {
     "revision": "e73456c191db010600768932319a1564",
     "url": "../../../src/react-components/lib/components/RNSectionTitle/RNSectionTitle.d.ts"
   },
   {
     "revision": "dc43f5837c74cde6662ef29d4da3268d",
     "url": "../../../src/react-components/lib/components/RNSectionTitle/RNSectionTitle.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/SearchBar/SearchBar.Test.d.ts"
   },
   {
     "revision": "935700d23712f84dee10f4787ecf883e",
@@ -324,6 +308,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/SearchResultItem/SearchResultItem.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/SearchResultItem/SearchResultItem.test.d.ts"
+  },
+  {
     "revision": "e5fc69bf50cbdfee06e9e0144601d2ff",
     "url": "../../../src/react-components/lib/components/SectionName/SectionName.d.ts"
   },
@@ -334,6 +322,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "bf751989c2465ae2be6fd7bdde2aee6b",
     "url": "../../../src/react-components/lib/components/SectionTitle/SectionTitle.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/SectionTitle/SectionTitle.test.d.ts"
   },
   {
     "revision": "b7df460c44e41d3049e3bced2815d09d",
@@ -348,12 +340,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../../src/react-components/lib/components/TextField/TextField.stories.d.ts"
   },
   {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/TextField/TextField.test.d.ts"
+  },
+  {
     "revision": "d40a4a7e4ab8c86c6176a2cda433acb4",
     "url": "../../../src/react-components/lib/components/UnorderedList/UnorderedList.d.ts"
   },
   {
     "revision": "4853cb7ecaf103d14d6bea608ffd14c7",
     "url": "../../../src/react-components/lib/components/UnorderedList/UnorderedList.stories.d.ts"
+  },
+  {
+    "revision": "e2ebd7ddedcadeeadbf819c35985c768",
+    "url": "../../../src/react-components/lib/components/UnorderedList/UnorderedList.test.d.ts"
   },
   {
     "revision": "3269c9487d1c14a54899bec416b3cecc",

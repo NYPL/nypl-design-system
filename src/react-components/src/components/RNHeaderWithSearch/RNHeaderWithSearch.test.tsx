@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import RNHeaderWithSearch from "../../components/RNHeaderWithSearch/RNHeaderWithSearch";
+import RNHeaderWithSearch from "./RNHeaderWithSearch";
 
 describe("HeaderWithSearch", () => {
     let blurCallback;
