@@ -2,8 +2,8 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import EditionCard from "../../components/EditionCard/EditionCard";
-import Link from "../../components/Link/Link";
+import EditionCard from "./EditionCard";
+import Link from "../Link/Link";
 import bem from "../../utils/bem";
 import Icon from "../../components/Icons/Icon";
 import { LinkTypes } from "../../components/Link/LinkTypes";

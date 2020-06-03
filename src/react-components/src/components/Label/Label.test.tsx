@@ -3,7 +3,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Label from "../../components/Label/Label";
+import Label from "./Label";
 
 describe("Label Test", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;

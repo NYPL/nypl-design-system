@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Pagination from "../../components/Pagination/Pagination";
+import Pagination from "./Pagination";
 
 describe("Pagination Test", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;

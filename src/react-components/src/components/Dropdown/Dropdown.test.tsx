@@ -5,7 +5,7 @@ import * as React from "react";
 
 import * as Mocha from "mocha";
 
-import Dropdown from "../../components/Dropdown/Dropdown";
+import Dropdown from "./Dropdown";
 
 describe("Dropdown", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;

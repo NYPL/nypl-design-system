@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import Accordion from "../../components/Accordion/Accordion";
+import Accordion from "./Accordion";
 
 describe("Renders Input (closed state)", () => {
     let container: Enzyme.ReactWrapper<
