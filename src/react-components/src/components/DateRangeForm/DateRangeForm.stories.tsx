@@ -2,6 +2,7 @@ import * as React from "react";
 
 import DateRangeForm from "./DateRangeForm";
 import { action } from "@storybook/addon-actions";
+import { ButtonTypes } from "../Button/ButtonTypes";
 
 export default {
     title: "DateRangeForm",
@@ -34,6 +35,7 @@ export const defaultState = () => (
             id: "submitButtonId",
             callback: callback,
             content: <>Submit</>,
+            buttonType: ButtonTypes.Outline,
         }}
     />
 );

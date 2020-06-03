@@ -1,7 +1,7 @@
 .accordion {
-    width: 100%;
     border: 1px solid $gray-light;
     color: inherit;
+    width: 100%;
 
     &__button {
         @include button--outline;

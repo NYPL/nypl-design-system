@@ -1,0 +1,61 @@
+/// Link
+$color-link: $nypl-blue-regular;
+$color-link--hover: $nypl-blue-dark;
+
+@mixin link {
+    color: $color-link;
+
+    &--no-underline {
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: $color-link--hover;
+    }
+
+    &--dark-background {
+        color: $white;
+
+        &:hover {
+            color: $gray-light;
+        }
+    }
+}
+
+@mixin more-link($color: $color-link, $color--hover: $color-link--hover) {
+    align-items: center;
+    color: $color-link;
+    display: inline-flex;
+    justify-content: space-between;
+    text-decoration: underline;
+
+    &:hover {
+        color: $color-link--hover;
+        text-decoration: underline;
+    }
+
+    &__icon {
+        @include icon;
+
+        height: $space;
+        text-decoration: none;
+        width: $space;
+
+        &--left {
+            margin-right: $space-xxs;
+        }
+
+        &--right {
+            margin-left: $space-xxs;
+        }
+    }
+}
+
+a,
+.link {
+    @include link;
+}
+
+.more-link {
+    @include more-link;
+}
