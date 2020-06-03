@@ -3,9 +3,10 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import EditionCard from "../../components/EditionCard/EditionCard";
-import BasicLink from "../../components/BasicLink/BasicLink";
+import Link from "../../components/Link/Link";
 import bem from "../../utils/bem";
-import IconLink from "../../components/IconLink/IconLink";
+import Icon from "../../components/Icons/Icon";
+import { LinkTypes } from "../../components/Link/LinkTypes";
 
 describe("EditionCard", () => {
     let regularEditionCard = (
@@ -20,17 +21,24 @@ describe("EditionCard", () => {
                 <>Under Creative Commons License</>,
             ]}
             readOnlineLink={
-                <BasicLink
-                    className={bem("card-info-link", [], "edition-card")}
-                    url="blah"
+                <Link
+                    blockName="edition-card"
+                    linkType={LinkTypes.Button}
+                    href="blah"
                 >
                     Read Online
-                </BasicLink>
+                </Link>
             }
             downloadLink={
-                <IconLink iconName="download" iconPosition="left" url="blah">
+                <Link href="#passed-in-link">
+                    <Icon
+                        name="download"
+                        blockName="more-link"
+                        modifiers={["left"]}
+                        decorative={true}
+                    ></Icon>
                     Download
-                </IconLink>
+                </Link>
             }
         />
     );
@@ -49,17 +57,24 @@ describe("EditionCard", () => {
                 </a>,
             ]}
             readOnlineLink={
-                <BasicLink
-                    className={bem("card-info-link", [], "edition-card")}
-                    url="blah"
+                <Link
+                    blockName="edition-card"
+                    linkType={LinkTypes.Button}
+                    href="blah"
                 >
                     Read Online
-                </BasicLink>
+                </Link>
             }
             downloadLink={
-                <IconLink iconName="download" iconPosition="left" url="blah">
+                <Link href="#passed-in-link">
+                    <Icon
+                        name="download"
+                        blockName="more-link"
+                        modifiers={["left"]}
+                        decorative={true}
+                    ></Icon>
                     Download
-                </IconLink>
+                </Link>
             }
         />
     );

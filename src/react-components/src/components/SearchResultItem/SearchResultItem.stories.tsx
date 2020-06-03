@@ -1,12 +1,12 @@
 import * as React from "react";
 
 import SearchResultItem from "./SearchResultItem";
-import UnderlineLink from "../UnderlineLink/UnderlineLink";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
+import Icon from "../Icons/Icon";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 import bem from "../../utils/bem";
-import BasicLink from "../BasicLink/BasicLink";
-import IconLink from "../IconLink/IconLink";
-import { iconRotationTypes } from "../Icons/IconTypes";
 
 export default {
     title: "Search Result Item",
@@ -26,22 +26,21 @@ let exampleEditionInfo = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <BasicLink
-            className={bem("card-button-link", [], "edition-card")}
-            url="blah"
-        >
+        <Link href="blah" blockName="edition-card" linkType={LinkTypes.Button}>
             Read Online
-        </BasicLink>
+        </Link>
     ),
     downloadLink: (
-        <IconLink
-            iconName="download"
-            iconPosition="left"
-            iconRotation={iconRotationTypes.rotate0}
-            url="blah"
-        >
+        <Link href="#passed-in-link" linkType={LinkTypes.Action}>
+            <Icon
+                name="download"
+                blockName="more-link"
+                modifiers={["left"]}
+                decorative={true}
+                iconRotation={IconRotationTypes.rotate0}
+            ></Icon>
             Download
-        </IconLink>
+        </Link>
     ),
 };
 
@@ -62,14 +61,10 @@ export const searchResultItem = () => (
                 labore et dolore magna aliqua."
             </>
         }
-        authorLinkElement={
-            <UnderlineLink url={"author-url"}>First Last</UnderlineLink>
-        }
+        authorLinkElement={<Link href={"author-url"}>First Last</Link>}
         editionInfo={exampleEditionInfo}
         editionsLinkElement={
-            <UnderlineLink
-                url={"#allEditionsUrl"}
-            >{`View All 7 editions`}</UnderlineLink>
+            <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
         }
     />
 );
@@ -85,14 +80,10 @@ export const searchResultItemNoSubtitle = () => (
             </a>
         }
         subtitleContent={<></>}
-        authorLinkElement={
-            <UnderlineLink url={"author-url"}>First Last</UnderlineLink>
-        }
+        authorLinkElement={<Link href={"author-url"}>First Last</Link>}
         editionInfo={exampleEditionInfo}
         editionsLinkElement={
-            <UnderlineLink
-                url={"#allEditionsUrl"}
-            >{`View All 7 editions`}</UnderlineLink>
+            <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
         }
     />
 );
