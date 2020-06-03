@@ -1,0 +1,39 @@
+// $space-xxs: $space/4;   //  4px
+// $space-xs: $space/2;    //  8px
+// $space-s: $space*1;     // 16px
+// $space-m: $space*1.5;   // 24px
+// $space-l: $space*2;     // 32px
+// $space-xl: $space*3;    // 48px
+// $space-xxl: $space*4;   // 64px
+
+@mixin space-inline-none {
+    margin-right: 0;
+}
+
+@mixin space-inline-xxs {
+    margin-right: $space-xxs;
+}
+
+@mixin space-inline-xs {
+    margin-right: $space-xs;
+}
+
+@mixin space-inline-s {
+    margin-right: $space-s;
+}
+
+@mixin space-inline-m {
+    margin-right: $space-m;
+}
+
+@mixin space-inline-l {
+    margin-right: $space-l;
+}
+
+@mixin space-inline-xl {
+    margin-right: $space-xl;
+}
+
+@mixin space-inline-xxl {
+    margin-right: $space-xxl;
+}
