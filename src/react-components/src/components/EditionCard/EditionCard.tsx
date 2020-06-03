@@ -22,7 +22,7 @@ export interface EditionCardProps {
 
     coverUrl: string;
 
-    editionHeadingElement: JSX.Element;
+    editionHeadingElement?: JSX.Element;
     editionInfo?: JSX.Element;
 
     /** readOnlineLink and downloadLink take in either urls as a string,
