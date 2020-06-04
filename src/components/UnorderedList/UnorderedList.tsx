@@ -1,6 +1,5 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import { boolean } from "@storybook/addon-knobs";
 
 export interface UnorderedListOptions {
     content?: JSX.Element[];

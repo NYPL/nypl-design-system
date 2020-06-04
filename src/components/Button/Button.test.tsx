@@ -55,7 +55,7 @@ describe("Button", () => {
         it("should render element children", () => {
             wrapper = Enzyme.shallow(
                 <Button id="button" callback={callback}>
-                    <em>I'm a em element</em>
+                    <em>I am a em element</em>
                 </Button>
             );
             expect(wrapper.text()).to.equal("I'm a em element");
@@ -67,7 +67,7 @@ describe("Button", () => {
         it("button has passed type", () => {
             const wrapper = Enzyme.mount(
                 <Button id="button" callback={callback} type="button">
-                    <span>I'm a span element</span>
+                    <span>I am a span element</span>
                 </Button>
             );
             expect(wrapper.find("#btn-button").prop("type")).to.equal("button");

@@ -17,7 +17,8 @@ export interface BodyTextProps {
 // if HTML is invalid, throw an error.
 // This checker is excessively strict because it should only be set by internal engineers.
 // Please do not pass user inputs into <BodyText> before first formatting it.
-function checkHTML(node: React.ReactNode): void {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function checkHTML(node: React.ReactElement): void {
     const html = ReactDOMServer.renderToString(node);
 
     const doc = document.createElement("div");
@@ -29,8 +30,9 @@ function checkHTML(node: React.ReactNode): void {
     }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function validateCharCount(
-    node: React.ReactNode,
+    node: React.ReactElement,
     warnChar?: number,
     maxChar?: number
 ): void {
@@ -59,6 +61,7 @@ function hasString(node: React.ReactNode) {
             if (!child.type) {
                 return child;
             }
+            return undefined;
         }).length > 0
     );
 }

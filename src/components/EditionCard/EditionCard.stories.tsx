@@ -115,7 +115,7 @@ export const editionCardWithSomeEditionInfo = () => (
         }
         editionInfo={[
             <>Published in New York</>,
-            <span>Under Creative Commons License</span>,
+            <span key="2">Under Creative Commons License</span>,
         ]}
         readOnlineLink={
             <Link
@@ -226,8 +226,8 @@ export const instanceCard = () => (
             </a>
         }
         editionInfo={[
-            <>Published in New York by Random House"</>,
-            <a href="find-link" className={bem("link", [], "heading")}>
+            <>Published in New York by Random House</>,
+            <a key="2" href="find-link" className={bem("link", [], "heading")}>
                 Find in a library
             </a>,
         ]}

@@ -121,7 +121,7 @@ describe("Dropdown", () => {
                 helperContentId="helper"
                 helperContent={
                     <span>
-                        If you're unsure of your size, please see the{" "}
+                        If you are unsure of your size, please see the{" "}
                         <a href="#sizing-chart">sizing chart</a>
                     </span>
                 }
@@ -144,7 +144,7 @@ describe("Dropdown", () => {
                     dropdownOptions={["test1", "test2"]}
                     helperContent={
                         <span>
-                            If you're unsure of your size, please see the{" "}
+                            If you are unsure of your size, please see the{" "}
                             <a href="#sizing-chart">sizing chart</a>
                         </span>
                     }

@@ -20,6 +20,7 @@ global.navigator = {
 };
 
 // Ignore SVG
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 require.extensions[".svg"] = () => {};
 
 configure({ adapter: new Adapter() });

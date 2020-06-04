@@ -58,10 +58,6 @@ export default class Button extends React.Component<ButtonProps, {}> {
         mouseDown: false,
     };
 
-    constructor(props: ButtonProps) {
-        super(props);
-    }
-
     render(): JSX.Element {
         const {
             id,

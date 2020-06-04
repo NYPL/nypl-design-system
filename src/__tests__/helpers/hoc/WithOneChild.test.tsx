@@ -10,9 +10,6 @@ interface DummyProps {
 }
 
 class DummyComponent extends React.Component<DummyProps, {}> {
-    constructor(props) {
-        super(props);
-    }
     render(): JSX.Element {
         return (
             <div>

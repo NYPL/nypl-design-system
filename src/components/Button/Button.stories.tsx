@@ -92,7 +92,7 @@ export const buttonIconChildrenElement = () => (
         iconName="search_small"
         iconDecorative={true}
     >
-        <span>I'm wrapped in a span!</span>
+        <span>I am wrapped in a span!</span>
     </Button>
 );
 

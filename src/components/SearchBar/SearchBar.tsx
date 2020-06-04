@@ -4,7 +4,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import FormDropdown from "../FormDropdown/FormDropdown";
 import TextField from "../TextField/TextField";
-import { Button } from "../..";
+import Button from "../Button/Button";
 import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
 import { ButtonOptions } from "../Button/Button";
 

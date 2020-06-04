@@ -23,13 +23,7 @@ export interface LinkProps {
 }
 
 export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
-    const {
-        href,
-        modifiers,
-        blockName,
-        attributes,
-        linkType = LinkTypes.Default,
-    } = linkProps;
+    const { modifiers, blockName, linkType = LinkTypes.Default } = linkProps;
 
     let link_base_class = "link";
 
@@ -76,7 +70,7 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
         name: "arrow_xsmall",
         modifiers: [iconPosition, iconRotation, modifiers],
         blockName: "more-link",
-        decorative: "true",
+        decorative: true,
     };
 
     if (linkType === LinkTypes.Backwards) {

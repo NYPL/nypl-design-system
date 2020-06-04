@@ -50,7 +50,6 @@ export default class FormDropdown extends React.Component<
             isRequired,
             ariaLabel,
             disabled = false,
-            selectedOption,
             onSelectBlur,
             onSelectChange,
         } = this.props;
@@ -77,7 +76,7 @@ export default class FormDropdown extends React.Component<
             selectProps["aria-label"] = ariaLabel;
         }
 
-        if (!options.length) return;
+        if (!options.length) return null;
         return (
             <div className={bem("dropdown", modifiers, formItemBlockName)}>
                 <select
