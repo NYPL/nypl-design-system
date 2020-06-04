@@ -40,9 +40,9 @@ export default function Image(props: ImageProps) {
 
     return (
         <>
-            <img {...imageProps} />
-            {(imageCaption || imageCredit) && (
+            {imageCaption || imageCredit ? (
                 <figure className={bem(image_base_class, [], "figure")}>
+                    <img {...imageProps} />
                     <figcaption
                         className={bem(image_base_class, [], "figure__caption")}
                     >
@@ -62,6 +62,8 @@ export default function Image(props: ImageProps) {
                         )}
                     </figcaption>
                 </figure>
+            ) : (
+                <img {...imageProps} />
             )}
         </>
     );
