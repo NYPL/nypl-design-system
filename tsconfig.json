@@ -1,5 +1,5 @@
 {
-  "include": ["src", "types", "tsdx.config.js", "jest.config.js"],
+  "include": ["src", "types", "tsdx.config.js", "jest.config.js", "__mocks__"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
