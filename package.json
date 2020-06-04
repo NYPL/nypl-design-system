@@ -1,81 +1,71 @@
 {
-    "name": "root",
-    "private": true,
-    "scripts": {
-        "prepare": "lerna run prepare",
-        "install-all": "npm install; lerna run prepare; lerna exec npm install",
-        "start": "lerna exec --scope storybook npm run start:react",
-        "storybook": "lerna exec --scope storybook npm run start:react",
-        "storybook:static": "lerna exec --scope storybook npm run static:react",
-        "test": "lerna exec npm test",
-        "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
-        "pretty-quick": "pretty-quick"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.6.4",
-        "@babel/plugin-proposal-class-properties": "^7.5.5",
-        "@babel/plugin-proposal-export-default-from": "^7.5.2",
-        "@babel/plugin-transform-arrow-functions": "^7.2.0",
-        "@babel/preset-env": "^7.6.3",
-        "@babel/preset-react": "^7.6.3",
-        "@storybook/addon-a11y": "^5.2.4",
-        "@storybook/addon-actions": "^5.2.3",
-        "@storybook/addon-info": "^5.0.11",
-        "@storybook/addon-knobs": "^5.2.3",
-        "@storybook/addon-links": "^5.2.3",
-        "@storybook/addons": "^5.2.3",
-        "@storybook/react": "^5.2.3",
-        "@types/chai": "^4.2.3",
-        "@types/enzyme": "^3.10.3",
-        "@types/jsdom": "^12.2.4",
-        "@types/mocha": "^5.2.6",
-        "@types/node": "^12.7.12",
-        "@types/react": "^16.9.5",
-        "@types/sinon": "^7.5.0",
-        "@types/storybook__react": "^4.0.2",
-        "awesome-typescript-loader": "^5.2.1",
-        "babel-loader": "^8.0.6",
-        "babel-plugin-symlink-import": "^0.1.1",
-        "babel-plugin-transform-class-properties": "^6.24.1",
-        "chai": "^4.2.0",
-        "enzyme": "^3.10.0",
-        "enzyme-adapter-react-16": "^1.15.1",
-        "husky": "^4.2.5",
-        "import-glob-loader": "^1.1.0",
-        "jsdom": "^15.2.1",
-        "lerna": "3.18.1",
-        "mocha": "^6.2.2",
-        "normalize.css": "^8.0.1",
-        "prettier": "2.0.5",
-        "pretty-quick": "^2.0.1",
-        "prop-types": "^15.7.2",
-        "react-docgen-typescript-loader": "^3.1.0",
-        "react-uid": "^2.2.0",
-        "rimraf": "^3.0.0",
-        "sinon": "^7.3.0",
-        "svg-inline-loader": "^0.8.0",
-        "svg-sprite": "^1.5.0",
-        "ts-loader": "^6.2.0",
-        "tslint": "^5.0.0",
-        "tslint-react-a11y": "^1.0.0",
-        "twig": "^1.13.3",
-        "twig-loader": "^0.5.1",
-        "twigjs-loader": "^1.0.0",
-        "typescript": "^3.6.4",
-        "webpack": "^4.41.5",
-        "webpack-cli": "^3.3.10",
-        "webpack-node-externals": "^1.7.2"
-    },
-    "dependencies": {
-        "@nypl/design-system-react-components": "file:src/react-components",
-        "@nypl/design-system-styles": "file:src/styles",
-        "storybook": "file:storybook",
-        "storybook-addon-designs": "^5.2.1",
-        "webpack-node-modules": "^0.1.1"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged"
-        }
+  "name": "root",
+  "private": true,
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "module": "dist/testlib.esm.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
     }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@rollup/plugin-image": "^2.0.5",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "@types/chai": "^4.2.11",
+    "@types/enzyme": "^3.10.5",
+    "@types/mocha": "^7.0.2",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/sinon": "^9.0.4",
+    "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "husky": "^4.2.5",
+    "mocha": "^7.2.0",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "sinon": "^9.0.2",
+    "ts-loader": "^7.0.5",
+    "tsdx": "^0.13.2",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "react-uid": "^2.3.0"
+  }
 }
