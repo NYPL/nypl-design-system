@@ -81,5 +81,6 @@
     "rollup-plugin-svg": "^2.0.0",
     "storybook-addon-designs": "^5.2.1",
     "system-font-css": "^2.0.2"
-  }
+  },
+  "version": "0.4.0"
 }
