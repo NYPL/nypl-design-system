@@ -6,7 +6,6 @@ import HelperErrorText, {
 import Input, { InputOptions } from "../Input/Input";
 import { LabelOptions } from "../Label/Label";
 import bem from "../../utils/bem";
-import { ButtonTypes } from "../Button/ButtonTypes";
 
 export interface DateCheckFormProps {
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */

@@ -136,3 +136,12 @@ h6 {
         margin-right: $space-xs;
     }
 }
+
+.page-title {
+    &__heading {
+        &--block-color {
+            background-color: $nypl-turquoise-regular;
+            color: $white;
+        }
+    }
+}
