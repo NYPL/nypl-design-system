@@ -12,19 +12,19 @@ export default {
 
 export const passedInLink = () => (
     <Link linkType={LinkTypes.Default}>
-        <a href="#passed-in-link">I'm cold</a>
+        <a href="#passed-in-link">I&apos;m cold</a>
     </Link>
 );
 
 export const generatedLink = () => (
     <Link href="#passed-in-link" linkType={LinkTypes.Default}>
-        I'm very cold
+        I am very cold
     </Link>
 );
 
 export const buttonLink = () => (
     <Link linkType={LinkTypes.Button} href="#passed-in-link">
-        I'm very cold
+        I am very cold
     </Link>
 );
 

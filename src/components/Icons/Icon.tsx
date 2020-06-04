@@ -34,10 +34,6 @@ export interface IconProps {
 }
 
 export default class Icon extends React.Component<IconProps, {}> {
-    constructor(props: IconProps) {
-        super(props);
-    }
-
     render(): JSX.Element {
         const {
             modifiers = [],

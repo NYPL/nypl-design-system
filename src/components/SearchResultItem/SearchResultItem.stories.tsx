@@ -56,9 +56,9 @@ export const searchResultItem = () => (
         }
         subtitleContent={
             <>
-                "Subtitle need max character count Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua."
+                &quot;Subtitle need max character count Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.&quot;
             </>
         }
         authorLinkElement={<Link href={"author-url"}>First Last</Link>}

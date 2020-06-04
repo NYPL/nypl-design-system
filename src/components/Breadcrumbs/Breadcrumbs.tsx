@@ -15,10 +15,6 @@ export interface BreadcrumbProps {
 export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
     static defaultProps = {};
 
-    constructor(props: BreadcrumbProps) {
-        super(props);
-    }
-
     render(): JSX.Element {
         const { breadcrumbs } = this.props;
 

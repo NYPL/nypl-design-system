@@ -31,8 +31,7 @@ export default function Image(props: ImageProps) {
     const imageProps = {
         className: bem(image_base_class, imageModifiers, imageBlockname),
         src: src,
-        alt: isDecorative ? "" : altText,
     };
 
-    return <img {...imageProps} />;
+    return <img alt={isDecorative ? "" : altText} {...imageProps} />;
 }

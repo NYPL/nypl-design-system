@@ -3,7 +3,6 @@ import * as React from "react";
 
 import EditionCard from "./EditionCard";
 import Link from "../Link/Link";
-import bem from "../../utils/bem";
 import Icon from "../../components/Icons/Icon";
 import { LinkTypes } from "../../components/Link/LinkTypes";
 
@@ -49,9 +48,11 @@ describe("EditionCard", () => {
             coverUrl="https://placeimg.com/300/400/arch"
             editionHeadingElement={<a href="edition-link">2004 Edition</a>}
             editionInfo={[
-                <span id="pub-span">Publisher</span>,
-                <>"Written in English"</>,
-                <a id="licenceId" href="/licence-page">
+                <span id="pub-span" key="1">
+                    Publisher
+                </span>,
+                <>Written in English</>,
+                <a id="licenceId" href="/licence-page" key="2">
                     License
                 </a>,
             ]}

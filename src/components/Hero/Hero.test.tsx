@@ -132,8 +132,8 @@ describe("Hero Test", () => {
                     }
                     locationDetails={
                         <Placeholder>
-                            Placeholder for locationDetails, which doesn't exist
-                            yet
+                            Placeholder for locationDetails, which doesn&apos;t
+                            exist yet
                         </Placeholder>
                     }
                 ></Hero>
@@ -160,8 +160,8 @@ describe("Hero Test", () => {
                     }
                     locationDetails={
                         <Placeholder>
-                            Placeholder for locationDetails, which doesn't exist
-                            yet
+                            Placeholder for locationDetails, which doesn&apos;t
+                            exist yet
                         </Placeholder>
                     }
                     foregroundColor="#ffffff"

@@ -4,10 +4,7 @@ import bem from "../../utils/bem";
 import UnorderedList from "./UnorderedList";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes } from "../Icons/IconTypes";
-import EditionCard, {
-    EditionDetails,
-    EditionCardProps,
-} from "../EditionCard/EditionCard";
+import EditionCard, { EditionDetails } from "../EditionCard/EditionCard";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
 import Checkbox from "../Checkbox/Checkbox";
 import { action } from "@storybook/addon-actions";
@@ -20,9 +17,15 @@ export default {
 };
 
 const links = [
-    <Link href="#url1">Link1</Link>,
-    <Link href="#url2">link2</Link>,
-    <Link href="#url3">link3</Link>,
+    <Link href="#url1" key="1">
+        Link1
+    </Link>,
+    <Link href="#url2" key="2">
+        link2
+    </Link>,
+    <Link href="#url3" key="3">
+        link3
+    </Link>,
 ];
 export const iconLinkList = () => (
     <UnorderedList id="link-list" blockName="list-iconLink">
@@ -128,9 +131,9 @@ const searchItemData = {
     ),
     subtitle: (
         <>
-            "Subtitle need max character count Lorem ipsum dolor sit amet,
+            &quot;Subtitle need max character count Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua."
+            labore et dolore magna aliqua.&quot;
         </>
     ),
     editionInfo: {

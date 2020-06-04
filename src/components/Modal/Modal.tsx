@@ -25,7 +25,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
         const baseClass = "modal";
 
         return (
-            <div tabIndex={0} className={bem(baseClass, modifiers, blockName)}>
+            <div className={bem(baseClass, modifiers, blockName)}>
                 {this.props.children}
             </div>
         );

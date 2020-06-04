@@ -5,11 +5,6 @@ import SearchResultItem from "./SearchResultItem";
 
 describe("SearchResultItem", () => {
     const validHeading = <a href="hello">headingText</a>;
-    const invalidHeading = (
-        <>
-            <a href="hello"> headingText</a> <span>badText</span>
-        </>
-    );
 
     const EditionInfo = (heading: JSX.Element) => {
         return (
@@ -21,9 +16,10 @@ describe("SearchResultItem", () => {
                 headingContent={heading}
                 subtitleContent={
                     <>
-                        "Subtitle need max character count Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua."
+                        &quot;Subtitle need max character count Lorem ipsum
+                        dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua.&quot;
                     </>
                 }
                 authorLinkElement={<a href="blah">bahah</a>}

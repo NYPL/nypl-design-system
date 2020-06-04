@@ -9,7 +9,7 @@ export default {
 
 export const helperTextWithLink = () => (
     <HelperErrorText id="helperTextWithLink" isError={false}>
-        If you're unsure of your size, please view the{" "}
+        If you are unsure of your size, please view the{" "}
         <a href="#sizing-chart">Sizing Chart</a>
     </HelperErrorText>
 );

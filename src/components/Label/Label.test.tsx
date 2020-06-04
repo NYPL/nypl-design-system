@@ -8,7 +8,7 @@ describe("Label Test", () => {
     it("Renders a <label> when passed text as children", () => {
         wrapper = Enzyme.shallow(
             <Label id="label" referenceId="so-lonely">
-                Cupcake's
+                Cupcakes
             </Label>
         );
         expect(wrapper.find("label")).toHaveLength(1);

@@ -41,7 +41,6 @@ export default function SearchPromo(props: SearchPromoProps) {
         searchDropdownOptions,
         advancedSearchMessage,
         searchValue,
-        searchInputAriaLabel,
         selectChangeHandler,
         selectBlurHandler,
         searchSubmitHandler,

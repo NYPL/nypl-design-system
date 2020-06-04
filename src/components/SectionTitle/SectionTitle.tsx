@@ -2,9 +2,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
-import Icon from "../Icons/Icon";
 import Heading from "../Heading/Heading";
-import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface SectionTitleProps {
     id: string;
@@ -25,10 +23,6 @@ export default class SectionTitle extends React.Component<
     SectionTitleProps,
     {}
 > {
-    constructor(props: SectionTitleProps) {
-        super(props);
-    }
-
     render(): JSX.Element {
         const {
             id,
@@ -37,8 +31,6 @@ export default class SectionTitle extends React.Component<
             headingText,
             headingAttributes,
             linkUrl,
-            linkAttributes,
-            linkModifiers,
         } = this.props;
         const baseClass = "heading-section";
 
@@ -55,11 +47,6 @@ export default class SectionTitle extends React.Component<
         let link: JSX.Element | undefined;
 
         if (linkUrl) {
-            const passedInAttributes = {
-                "aria-describedby": id,
-                ...linkAttributes,
-            };
-
             link = (
                 <Link href="#passed-in-link" linkType={LinkTypes.Forwards}>
                     See All

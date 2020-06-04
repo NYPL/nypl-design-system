@@ -90,7 +90,7 @@ export const ExhibitionsHero = () => (
         }
         locationDetails={
             <Placeholder>
-                Placeholder for locationDetails, which doesn't exist yet
+                Placeholder for locationDetails, which does not exist yet
             </Placeholder>
         }
         foregroundColor="#ffffff"
