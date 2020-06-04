@@ -1,11 +1,12 @@
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
+const globImporter = require("node-sass-glob-importer");
 
 module.exports = {
     mode: "production",
     devtool: "source-map",
     entry: {
-        app: ["./src/react-components/src/index.ts"],
+        app: ["./src/react-components/index.ts"],
     },
     target: "node",
     externals: [nodeExternals()],
@@ -34,6 +35,24 @@ module.exports = {
                 use: [
                     {
                         loader: "svg-inline-loader",
+                    },
+                ],
+            },
+            {
+                test: /\.scss?$/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 1,
+                        },
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            importer: globImporter(),
+                        },
                     },
                 ],
             },

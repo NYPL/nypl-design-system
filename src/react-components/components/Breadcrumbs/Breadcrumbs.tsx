@@ -17,6 +17,7 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
 
     constructor(props: BreadcrumbProps) {
         super(props);
+        console.log("got here");
     }
 
     render(): JSX.Element {

@@ -1,4 +1,4 @@
-import "!style-loader!css-loader!sass-loader!import-glob-loader!@nypl/design-system-styles/style.scss";
+import "!style-loader!css-loader!sass-loader!import-glob-loader!../src/styles/style.scss";
 import { configure, addDecorator } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { withKnobs } from "@storybook/addon-knobs";

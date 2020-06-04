@@ -1,5 +1,5 @@
 import * as React from "react";
-import { iconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 import IconLink from "./IconLink";
 
 export default {
@@ -8,7 +8,7 @@ export default {
 };
 
 export const passedInLinkWithLeftIcon = () => (
-    <IconLink iconPosition="left" iconRotation={iconRotationTypes.rotate90}>
+    <IconLink iconPosition="left" iconRotation={IconRotationTypes.rotate90}>
         <a href="#passed-in-link">hello there</a>
     </IconLink>
 );
@@ -21,7 +21,7 @@ export const linkWithLeftIcon = () => (
     <IconLink
         url="#generated-link-link"
         iconPosition="left"
-        iconRotation={iconRotationTypes.rotate90}
+        iconRotation={IconRotationTypes.rotate90}
     >
         hello there
     </IconLink>
@@ -30,7 +30,7 @@ export const linkWithRightIcon = () => (
     <IconLink
         url="#generated-link-link"
         iconPosition="right"
-        iconRotation={iconRotationTypes.rotate270}
+        iconRotation={IconRotationTypes.rotate270}
     >
         hello there
     </IconLink>
