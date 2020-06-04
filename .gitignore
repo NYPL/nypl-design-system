@@ -1,7 +1,5 @@
-node_modules
-dependencyGraph.json
-public
+*.log
 .DS_Store
-src/react-components/lib/
-src/react-components/dist/
-src/icons/dist
+node_modules
+.cache
+dist
