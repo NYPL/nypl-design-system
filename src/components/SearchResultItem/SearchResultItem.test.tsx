@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -53,9 +52,9 @@ describe("SearchResultItem", () => {
         // Need to render since Heading's child is a component.
         const heading = shallow.find("Heading").render();
 
-        expect(heading).to.have.lengthOf(1);
-        expect(heading.find("a")).to.have.lengthOf(1);
-        expect(shallow.find("EditionCard")).to.have.lengthOf(1);
+        expect(heading).toHaveLength(1);
+        expect(heading.find("a")).toHaveLength(1);
+        expect(shallow.find("EditionCard")).toHaveLength(1);
     });
 
     // TODO: Figure out how to do text count between multiple unknown children

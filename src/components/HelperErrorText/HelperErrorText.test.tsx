@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -11,7 +10,7 @@ describe("HelperErrorText Test", () => {
                 Text
             </HelperErrorText>
         );
-        expect(container.exists("#helperTextWithLink")).to.equal(true);
+        expect(container.exists("#helperTextWithLink")).toBe(true);
     });
 
     it("Has 'error' modifier if error is passed", () => {
@@ -20,6 +19,6 @@ describe("HelperErrorText Test", () => {
                 Text
             </HelperErrorText>
         );
-        expect(container.exists("#helperTextWithLink")).to.equal(true);
+        expect(container.exists("#helperTextWithLink")).toBe(true);
     });
 });

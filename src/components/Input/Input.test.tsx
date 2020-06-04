@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -18,14 +17,14 @@ describe("Renders Input", () => {
     });
 
     it("Renders label for inputId", () => {
-        expect(container.find("label").exists()).to.equal(true);
-        expect(container.find("label").prop("htmlFor")).to.equal("input");
+        expect(container.find("label").exists()).toBe(true);
+        expect(container.find("label").prop("htmlFor")).toBe("input");
     });
     it("Renters TextField", () => {
-        expect(container.find("input").exists()).to.equal(true);
+        expect(container.find("input").exists()).toBe(true);
     });
     it("Does not render helper if none is passed", () => {
-        expect(container.find("HelperErrorText").exists()).to.equal(false);
+        expect(container.find("HelperErrorText").exists()).toBe(false);
     });
 });
 
@@ -52,17 +51,17 @@ describe("Input with Helper and Error", () => {
     });
 
     it("Renders label for inputId", () => {
-        expect(container.find("label").exists()).to.equal(true);
-        expect(container.find("label").prop("htmlFor")).to.equal("input");
+        expect(container.find("label").exists()).toBe(true);
+        expect(container.find("label").prop("htmlFor")).toBe("input");
     });
     it("Renters TextField", () => {
-        expect(container.find("input").exists()).to.equal(true);
+        expect(container.find("input").exists()).toBe(true);
     });
     it("Renders Helper", () => {
-        expect(container.find("#input-helper").exists()).to.equal(true);
+        expect(container.find("#input-helper").exists()).toBe(true);
     });
     it("Renders error", () => {
-        expect(container.find("#input-helper").exists()).to.equal(true);
+        expect(container.find("#input-helper").exists()).toBe(true);
     });
 });
 
@@ -78,6 +77,6 @@ describe("input errors", () => {
                     showError={true}
                 ></Input>
             )
-        ).to.throw("Error should be shown, but no errorContentOpts passed");
+        ).toThrowError("Error should be shown, but no errorContentOpts passed");
     });
 });

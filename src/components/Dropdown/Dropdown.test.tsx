@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -32,13 +31,13 @@ describe("Dropdown", () => {
                 .find("FormDropdown")
                 .dive()
                 .find("select")
-        ).to.have.lengthOf(1);
+        ).toHaveLength(1);
         expect(
             wrapper
                 .find("Label")
                 .dive()
                 .find("label")
-        ).to.have.lengthOf(1);
+        ).toHaveLength(1);
     });
 
     it("requires ariaLabel if labelPosition is none", () => {
@@ -53,9 +52,7 @@ describe("Dropdown", () => {
                     onSelectBlur={blurCallback}
                 />
             )
-        ).to.throw(
-            "prop ariaLabel must be passed into Dropdown when labelPosition is 'none'"
-        );
+        ).toThrowError("prop ariaLabel must be passed into Dropdown when labelPosition is 'none'");
     });
 
     it("does not render Label if labelPosition is none", () => {
@@ -75,8 +72,8 @@ describe("Dropdown", () => {
                 .find("FormDropdown")
                 .dive()
                 .find("select")
-        ).to.have.lengthOf(1);
-        expect(wrapper.find("Label")).to.have.lengthOf(0);
+        ).toHaveLength(1);
+        expect(wrapper.find("Label")).toHaveLength(0);
     });
 
     it("adds appropriate modifier if labelPosition is 'top' or 'left'", () => {
@@ -92,7 +89,7 @@ describe("Dropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find(".dropdown--label-left")).to.have.lengthOf(1);
+        expect(wrapper.find(".dropdown--label-left")).toHaveLength(1);
     });
 
     it("renders 'required' component if Required", () => {
@@ -108,7 +105,7 @@ describe("Dropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find(".dropdown__required-message")).to.have.lengthOf(1);
+        expect(wrapper.find(".dropdown__required-message")).toHaveLength(1);
     });
 
     it("renders HelperErrorText if helper passed", () => {
@@ -130,7 +127,7 @@ describe("Dropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("HelperErrorText")).to.have.lengthOf(1);
+        expect(wrapper.find("HelperErrorText")).toHaveLength(1);
     });
 
     it("throws error if HelperContent is passed without an id", () => {
@@ -152,7 +149,7 @@ describe("Dropdown", () => {
                     onSelectBlur={blurCallback}
                 />
             )
-        ).to.throw(
+        ).toThrowError(
             "prop helperText [object Object] is passed, but it is missing prop helperTextId"
         );
     });
@@ -172,7 +169,7 @@ describe("Dropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("HelperErrorText")).to.have.lengthOf(1);
+        expect(wrapper.find("HelperErrorText")).toHaveLength(1);
     });
 
     it("throws error if passed error with no content", () => {
@@ -189,7 +186,7 @@ describe("Dropdown", () => {
                     onSelectBlur={blurCallback}
                 />
             )
-        ).to.throw(
+        ).toThrowError(
             "prop hasError is true, but is missing props errorMessage (got undefined) and/or errorTextId (got undefined)"
         );
     });

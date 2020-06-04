@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -10,7 +9,7 @@ describe("BodyText", () => {
     it("Wraps <p> tag when there is text with no tag", () => {
         wrapper = Enzyme.shallow(<BodyText>Cupcakes</BodyText>);
         const paragraph = wrapper.render();
-        expect(paragraph.find("p")).to.have.lengthOf(1);
+        expect(paragraph.find("p")).toHaveLength(1);
     });
 
     it("Wraps a <p> tag when passed an ignoreable tag", () => {
@@ -20,7 +19,7 @@ describe("BodyText", () => {
             </BodyText>
         );
         const paragraph = wrapper.render();
-        expect(paragraph.find("p")).to.have.lengthOf(1);
+        expect(paragraph.find("p")).toHaveLength(1);
     });
 
     // TODO: Differentiate between inner (<ol>, <ul>, <h> tags) and other tags
@@ -37,7 +36,7 @@ describe("BodyText", () => {
             </BodyText>
         );
         const paragraph = wrapper.render();
-        expect(paragraph.find("p")).to.have.lengthOf(1);
+        expect(paragraph.find("p")).toHaveLength(1);
     });
 
     it("Doesn't do anything when passed non-text tags", () => {
@@ -47,8 +46,8 @@ describe("BodyText", () => {
             </BodyText>
         );
         const paragraph = wrapper.render();
-        expect(paragraph.find("p")).to.have.lengthOf(0);
-        expect(paragraph.find("span")).to.have.lengthOf(1);
+        expect(paragraph.find("p")).toHaveLength(0);
+        expect(paragraph.find("span")).toHaveLength(1);
     });
 
     // it("Throws error when passed invalid HTML", () => {

@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -12,7 +11,7 @@ describe("Label Test", () => {
                 Cupcake's
             </Label>
         );
-        expect(wrapper.find("label")).to.have.lengthOf(1);
+        expect(wrapper.find("label")).toHaveLength(1);
     });
 
     it("Renders a <label> when passed element as children", () => {
@@ -21,6 +20,6 @@ describe("Label Test", () => {
                 <span>Cupcakes</span>
             </Label>
         );
-        expect(wrapper.find("label")).to.have.lengthOf(1);
+        expect(wrapper.find("label")).toHaveLength(1);
     });
 });

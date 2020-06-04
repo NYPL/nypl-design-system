@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -13,15 +12,15 @@ describe("Section Title", () => {
                 linkUrl="#heading2"
             />
         );
-        expect(mounted.find("h2")).to.have.lengthOf(1);
-        expect(mounted.find("a")).to.have.lengthOf(1);
+        expect(mounted.find("h2")).toHaveLength(1);
+        expect(mounted.find("a")).toHaveLength(1);
     });
 
     it("Shows SectionTitle without link", () => {
         const mounted = Enzyme.mount(
             <SectionTitle id={"test-section-title"} headingText={"Heading 1"} />
         );
-        expect(mounted.find("h2")).to.have.lengthOf(1);
+        expect(mounted.find("h2")).toHaveLength(1);
     });
 
     it("SectionTitle throws error when text is too long", () => {
@@ -34,6 +33,6 @@ describe("Section Title", () => {
                     }
                 />
             )
-        ).to.throw("Section Title (h2) Text must be fewer than 80 characters");
+        ).toThrowError("Section Title (h2) Text must be fewer than 80 characters");
     });
 });

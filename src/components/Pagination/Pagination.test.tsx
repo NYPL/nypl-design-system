@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -34,8 +33,8 @@ describe("Pagination Test", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("Button")).to.have.lengthOf(2);
-        expect(wrapper.find("Dropdown")).to.have.lengthOf(1);
+        expect(wrapper.find("Button")).toHaveLength(2);
+        expect(wrapper.find("Dropdown")).toHaveLength(1);
     });
 
     it("Renders two buttons and a Select when there are zero pages", () => {
@@ -54,7 +53,7 @@ describe("Pagination Test", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("Button")).to.have.lengthOf(2);
-        expect(wrapper.find("Dropdown")).to.have.lengthOf(1);
+        expect(wrapper.find("Button")).toHaveLength(2);
+        expect(wrapper.find("Dropdown")).toHaveLength(1);
     });
 });

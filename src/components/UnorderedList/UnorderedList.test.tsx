@@ -1,5 +1,3 @@
-import { expect } from "chai";
-
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -21,7 +19,7 @@ describe("Link With Underline", () => {
                 .hasClass(
                     "unordered-list unordered-list unordered-list--scroll"
                 )
-        ).to.equal(true);
+        ).toBe(true);
     });
 
     it("Returns proper classes for UnorderedList without modifier", () => {
@@ -30,6 +28,6 @@ describe("Link With Underline", () => {
         );
         expect(
             wrapper.find("ul").hasClass("unordered-list unordered-list")
-        ).to.equal(true);
+        ).toBe(true);
     });
 });

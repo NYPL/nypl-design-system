@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -136,53 +135,53 @@ describe("EditionCard", () => {
 
     it("Generates an Edition Card with a Heading Link, Image and two Links", () => {
         const card = Enzyme.mount(regularEditionCard);
-        expect(card.find("h3")).to.have.lengthOf(1);
-        expect(card.find("h3").find("a")).to.have.lengthOf(1);
-        expect(card.find("img")).to.have.lengthOf(1);
+        expect(card.find("h3")).toHaveLength(1);
+        expect(card.find("h3").find("a")).toHaveLength(1);
+        expect(card.find("img")).toHaveLength(1);
         expect(
             card.find(".edition-card__card-info-link").find("a")
-        ).to.have.lengthOf(2);
+        ).toHaveLength(2);
     });
 
     it("Shows an error span if Links are missing and not passed a link element", () => {
         const card = Enzyme.mount(missingLinkEditionCard);
-        expect(card.find("h3")).to.have.lengthOf(1);
-        expect(card.find("h3").find("a")).to.have.lengthOf(1);
-        expect(card.find("img")).to.have.lengthOf(1);
+        expect(card.find("h3")).toHaveLength(1);
+        expect(card.find("h3").find("a")).toHaveLength(1);
+        expect(card.find("img")).toHaveLength(1);
         expect(
             card.find({ className: "edition-card__missing-links" })
-        ).to.have.lengthOf(1);
+        ).toHaveLength(1);
     });
 
     it("Shows an error span if Links are missing and not passed a link element", () => {
         const card = Enzyme.mount(missingLinkNoLinkElement);
-        expect(card.find("#noLinkElement")).to.have.lengthOf(1);
+        expect(card.find("#noLinkElement")).toHaveLength(1);
     });
 
     it("Generates Edition Card if no Edition Info is passed", () => {
         const card = Enzyme.mount(editionCardNoInfo);
-        expect(card.find("h3")).to.have.lengthOf(1);
-        expect(card.find("h3").find("a")).to.have.lengthOf(1);
-        expect(card.find("img")).to.have.lengthOf(1);
+        expect(card.find("h3")).toHaveLength(1);
+        expect(card.find("h3").find("a")).toHaveLength(1);
+        expect(card.find("img")).toHaveLength(1);
         expect(
             card.find({ className: "edition-card__missing-links" })
-        ).to.have.lengthOf(1);
+        ).toHaveLength(1);
     });
 
     it("Generates Edition Card if Edition Info is passed as spans", () => {
         const card = Enzyme.mount(elementEditionCard);
-        expect(card.find("h3")).to.have.lengthOf(1);
-        expect(card.find("h3").find("a")).to.have.lengthOf(1);
-        expect(card.find("img")).to.have.lengthOf(1);
-        expect(card.find("#pub-span").text()).to.equal("Publisher");
-        expect(card.find("a#licenceId").text()).to.equal("License");
+        expect(card.find("h3")).toHaveLength(1);
+        expect(card.find("h3").find("a")).toHaveLength(1);
+        expect(card.find("img")).toHaveLength(1);
+        expect(card.find("#pub-span").text()).toBe("Publisher");
+        expect(card.find("a#licenceId").text()).toBe("License");
     });
 
     it("Passes call-to-action links if it is given as span", () => {
         const card = Enzyme.mount(elementLinkEditionCard);
-        expect(card.find("h3")).to.have.lengthOf(1);
-        expect(card.find("h3").find("a")).to.have.lengthOf(1);
-        expect(card.find("img")).to.have.lengthOf(1);
-        expect(card.find("#downloadSpan").text()).to.equal("Download");
+        expect(card.find("h3")).toHaveLength(1);
+        expect(card.find("h3").find("a")).toHaveLength(1);
+        expect(card.find("img")).toHaveLength(1);
+        expect(card.find("#downloadSpan").text()).toBe("Download");
     });
 });

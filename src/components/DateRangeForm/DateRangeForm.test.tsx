@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -38,12 +37,12 @@ describe("Date Range Form", () => {
     });
 
     it("Renders two inputs", () => {
-        expect(container.find("input")).to.have.length(2);
+        expect(container.find("input")).toHaveLength(2);
     });
     it("renders two helpers", () => {
-        expect(container.find("HelperErrorText")).to.have.length(2);
+        expect(container.find("HelperErrorText")).toHaveLength(2);
     });
     it("Renders a submit button", () => {
-        expect(container.find("#submitButtonId").exists()).to.equal(true);
+        expect(container.find("#submitButtonId").exists()).toBe(true);
     });
 });

@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -22,8 +21,8 @@ describe("Search Bar with Optional Parameters", () => {
                 searchSubmitHandler={searchCallback}
             />
         );
-        expect(wrapper.find("TextField")).to.have.lengthOf(1);
-        expect(wrapper.find("Button")).to.have.lengthOf(1);
+        expect(wrapper.find("TextField")).toHaveLength(1);
+        expect(wrapper.find("Button")).toHaveLength(1);
     });
 
     it("Search Bar calls callback on Submit ", () => {
@@ -37,7 +36,7 @@ describe("Search Bar with Optional Parameters", () => {
             />
         );
         mounted.find("Button").simulate("click");
-        expect(searchCallback.callCount).to.equal(1);
+        expect(searchCallback.callCount).toBe(1);
     });
 
     it("SearchBar calls optional onChange property", () => {
@@ -56,7 +55,7 @@ describe("Search Bar with Optional Parameters", () => {
             .dive()
             .find("input")
             .simulate("change", { target: { value: "Hello" } });
-        expect(onChangeCallback.callCount).to.equal(1);
+        expect(onChangeCallback.callCount).toBe(1);
     });
 
     it("Shows 'error' span when error is passed", () => {
@@ -72,7 +71,7 @@ describe("Search Bar with Optional Parameters", () => {
         );
         expect(
             wrapper.find(".search-bar__input-description--error")
-        ).to.have.lengthOf(1);
+        ).toHaveLength(1);
     });
 
     it("Shows 'error' text inside input when error is passed with ResearchNow Variation", () => {
@@ -90,8 +89,8 @@ describe("Search Bar with Optional Parameters", () => {
 
         expect(
             mounted.find(".search-bar__input-description--error")
-        ).to.have.lengthOf(0);
-        expect(mounted.find("input").prop("placeholder")).to.equal("test");
+        ).toHaveLength(0);
+        expect(mounted.find("input").prop("placeholder")).toBe("test");
     });
 
     it("Throws error when SearchBar is not passed aria-label or aria-labelledby", () => {
@@ -103,9 +102,7 @@ describe("Search Bar with Optional Parameters", () => {
                     searchSubmitHandler={searchCallback}
                 />
             )
-        ).to.throw(
-            "Either searchBarAriaLabel and searchBarAriaLabelledBy must be passed"
-        );
+        ).toThrowError("Either searchBarAriaLabel and searchBarAriaLabelledBy must be passed");
     });
 
     it("Throws error when hasError is true and no errorMessage is passed", () => {
@@ -119,6 +116,6 @@ describe("Search Bar with Optional Parameters", () => {
                     searchSubmitHandler={searchCallback}
                 />
             )
-        ).to.throw("If there is an error, there must also be an error message");
+        ).toThrowError("If there is an error, there must also be an error message");
     });
 });

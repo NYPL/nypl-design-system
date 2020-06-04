@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -18,6 +17,6 @@ describe("Checkbox Test", () => {
                 onChange={callback}
             />
         );
-        expect(container.exists("#checkbox")).to.equal(true);
+        expect(container.exists("#checkbox")).toBe(true);
     });
 });

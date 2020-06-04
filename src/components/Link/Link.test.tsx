@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -23,8 +22,8 @@ describe("Link", () => {
                 Download
             </Link>
         );
-        expect(wrapper.find("a")).to.have.lengthOf(1);
-        expect(wrapper.find("Icon")).to.have.lengthOf(1);
+        expect(wrapper.find("a")).toHaveLength(1);
+        expect(wrapper.find("Icon")).toHaveLength(1);
     });
 
     it("Can pass a link with <a> tag", () => {
@@ -33,7 +32,7 @@ describe("Link", () => {
                 <a href="#test">Test</a>
             </Link>
         );
-        expect(wrapper.find("a")).to.have.lengthOf(1);
+        expect(wrapper.find("a")).toHaveLength(1);
     });
 
     it("Can pass a link with <a> tag and an icon", () => {
@@ -49,8 +48,8 @@ describe("Link", () => {
                 ></Icon>
             </Link>
         );
-        expect(wrapper.find("a")).to.have.lengthOf(1);
-        expect(wrapper.find("Icon")).to.have.lengthOf(1);
+        expect(wrapper.find("a")).toHaveLength(1);
+        expect(wrapper.find("Icon")).toHaveLength(1);
     });
 
     it("Generated back link has icon", () => {
@@ -61,7 +60,7 @@ describe("Link", () => {
         );
         expect(
             wrapper.find(".more-link__icon").hasClass("more-link__icon--left")
-        ).to.equal(true);
+        ).toBe(true);
     });
 
     it("Generated forwards link has icon", () => {
@@ -72,17 +71,15 @@ describe("Link", () => {
         );
         expect(
             wrapper.find(".more-link__icon").hasClass("more-link__icon--right")
-        ).to.equal(true);
+        ).toBe(true);
     });
 
     it("Can pass in text as child and url as props", () => {
         wrapper = Enzyme.mount(<Link href="#test">Test</Link>);
-        expect(wrapper.find("a")).to.have.lengthOf(1);
+        expect(wrapper.find("a")).toHaveLength(1);
     });
 
     it("throws an error if text is passed but no url is passed", () => {
-        expect(() => Enzyme.mount(<Link>Test</Link>)).to.throw(
-            "Link needs prop 'href'"
-        );
+        expect(() => Enzyme.mount(<Link>Test</Link>)).toThrowError("Link needs prop 'href'");
     });
 });

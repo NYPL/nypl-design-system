@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -25,19 +24,19 @@ describe("Breadcrumbs", () => {
         );
         const links = wrapper.render();
 
-        expect(links.find("a.breadcrumbs__link")).to.have.lengthOf(2);
+        expect(links.find("a.breadcrumbs__link")).toHaveLength(2);
         expect(
             links
                 .find("a.breadcrumbs__link")
                 .first()
                 .text()
-        ).to.equal("test1");
+        ).toBe("test1");
         expect(
             links
                 .find("a.breadcrumbs__link")
                 .last()
                 .text()
-        ).to.equal("test2");
+        ).toBe("test2");
     });
 
     it("Renders breadcrumb when passed components", () => {
@@ -50,7 +49,7 @@ describe("Breadcrumbs", () => {
                 .find("a.breadcrumbs__link")
                 .first()
                 .text()
-        ).to.equal("Hello");
+        ).toBe("Hello");
     });
 
     it("Renders icon", () => {
@@ -58,12 +57,10 @@ describe("Breadcrumbs", () => {
             <Breadcrumbs breadcrumbs={breadcrumbComponent} />
         );
 
-        expect(wrapper.find("Icon")).to.have.lengthOf(1);
+        expect(wrapper.find("Icon")).toHaveLength(1);
     });
 
     it("Throws error when nothing is passed into Breadcrumb", () => {
-        expect(() => Enzyme.mount(<Breadcrumbs breadcrumbs={[]} />)).to.throw(
-            "Breadcrumbs must contain a set of links. Breadcrumbs currently empty"
-        );
+        expect(() => Enzyme.mount(<Breadcrumbs breadcrumbs={[]} />)).toThrowError("Breadcrumbs must contain a set of links. Breadcrumbs currently empty");
     });
 });

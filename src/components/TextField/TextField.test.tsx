@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -11,8 +10,8 @@ describe("Search Bar Text Field", () => {
         wrapper = Enzyme.shallow(
             <TextField id="textField" ariaLabel="text" isRequired={false} />
         );
-        expect(wrapper.find("input")).to.have.lengthOf(1);
-        expect(wrapper.find("input").props()["aria-label"]).to.equal("text");
+        expect(wrapper.find("input")).toHaveLength(1);
+        expect(wrapper.find("input").props()["aria-label"]).toBe("text");
     });
 
     it("Renders an input field with aria-labelledby", () => {
@@ -24,10 +23,8 @@ describe("Search Bar Text Field", () => {
             />
         );
 
-        expect(wrapper.find("input")).to.have.lengthOf(1);
-        expect(wrapper.find("input").props()["aria-labelledby"]).to.equal(
-            "labelId"
-        );
+        expect(wrapper.find("input")).toHaveLength(1);
+        expect(wrapper.find("input").props()["aria-labelledby"]).toBe("labelId");
     });
 
     it("if both labelId and ariaLabel are defined, TextField uses aria-labeledBy", () => {
@@ -39,22 +36,20 @@ describe("Search Bar Text Field", () => {
                 isRequired={false}
             />
         );
-        expect(wrapper.find("input").props()["aria-label"]).to.equal(undefined);
-        expect(wrapper.find("input").props()["aria-labelledby"]).to.equal(
-            "labelId"
-        );
+        expect(wrapper.find("input").props()["aria-label"]).toBeUndefined();
+        expect(wrapper.find("input").props()["aria-labelledby"]).toBe("labelId");
     });
 
     it("Shows 'aria-required' if required", () => {
         wrapper = Enzyme.shallow(
             <TextField id="textField" ariaLabel="text" isRequired={true} />
         );
-        expect(wrapper.props()["aria-required"]).to.equal(true);
+        expect(wrapper.props()["aria-required"]).toBe(true);
     });
 
     it("Throws error if neither label or aria-label are passed", () => {
         expect(() =>
             Enzyme.mount(<TextField id="textField" isRequired={true} />)
-        ).to.throw("Either label or ariaLabel must be defined");
+        ).toThrowError("Either label or ariaLabel must be defined");
     });
 });

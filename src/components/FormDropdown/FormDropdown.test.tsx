@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -24,7 +23,7 @@ describe("FormDropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("select")).to.have.lengthOf(1);
+        expect(wrapper.find("select")).toHaveLength(1);
     });
 
     it("requires either label or aria-label", () => {
@@ -38,7 +37,7 @@ describe("FormDropdown", () => {
                     onSelectBlur={blurCallback}
                 />
             )
-        ).to.throw("Must either have labelId or aria-label");
+        ).toThrowError("Must either have labelId or aria-label");
     });
 
     it("if both labelId and ariaLabel are defined, select has aria-labeledBy", () => {
@@ -53,9 +52,7 @@ describe("FormDropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("select").props()["aria-labelledby"]).to.equal(
-            "label"
-        );
+        expect(wrapper.find("select").props()["aria-labelledby"]).toBe("label");
     });
 
     it("if only aria-label is defined, select has aria-label", () => {
@@ -69,9 +66,7 @@ describe("FormDropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("select").props()["aria-label"]).to.equal(
-            "aria-label"
-        );
+        expect(wrapper.find("select").props()["aria-label"]).toBe("aria-label");
     });
 
     it("Form Dropdown should render an icon", () => {
@@ -85,7 +80,7 @@ describe("FormDropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("Icon")).to.have.lengthOf(1);
+        expect(wrapper.find("Icon")).toHaveLength(1);
     });
 
     it("sends callback with value on change", () => {
@@ -102,7 +97,7 @@ describe("FormDropdown", () => {
 
         wrapper.find("select").simulate("change", "", { value: ["val"] });
 
-        expect(changeCallback.callCount).to.equal(1);
+        expect(changeCallback.callCount).toBe(1);
     });
 
     it("sends callback with no value on blur", () => {
@@ -118,7 +113,7 @@ describe("FormDropdown", () => {
         );
         wrapper.find("select").simulate("blur", "");
 
-        expect(blurCallback.callCount).to.equal(1);
+        expect(blurCallback.callCount).toBe(1);
     });
 
     it("displays selected when passed selectedOption", () => {
@@ -133,7 +128,7 @@ describe("FormDropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.find("select").props().value).to.equal("test2");
+        expect(wrapper.find("select").props().value).toBe("test2");
     });
 
     it("renders nothing when passed no options", () => {
@@ -147,6 +142,6 @@ describe("FormDropdown", () => {
                 onSelectBlur={blurCallback}
             />
         );
-        expect(wrapper.getElement()).to.equal(null);
+        expect(wrapper.getElement()).toBe(null);
     });
 });

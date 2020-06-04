@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -26,10 +25,10 @@ describe("Renders Input (closed state)", () => {
     });
 
     it("Renders a button", () => {
-        expect(container.find("Button").exists()).to.equal(true);
+        expect(container.find("Button").exists()).toBe(true);
     });
     it("does not render content", () => {
-        expect(container.find(".accordion-content").exists()).to.equal(false);
+        expect(container.find(".accordion-content").exists()).toBe(false);
     });
 });
 
@@ -56,9 +55,9 @@ describe("Renders Input (open state)", () => {
     });
 
     it("Renders a button", () => {
-        expect(container.find("Button").exists()).to.equal(true);
+        expect(container.find("Button").exists()).toBe(true);
     });
     it("Renders content", () => {
-        expect(container.find(".accordion-content").exists()).to.equal(true);
+        expect(container.find(".accordion-content").exists()).toBe(true);
     });
 });

@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -35,9 +34,9 @@ describe("withOneChild HOC", () => {
         );
         wrapper = Enzyme.mount(multipleChildrenDummy);
 
-        expect(wrapper.find("p")).to.have.lengthOf(2);
-        expect(wrapper.prop("title")).to.equal("Wizard");
-        expect(wrapper.prop("age")).to.equal("old");
+        expect(wrapper.find("p")).toHaveLength(2);
+        expect(wrapper.prop("title")).toBe("Wizard");
+        expect(wrapper.prop("age")).toBe("old");
     });
 
     it("should modify the original component to allow one child as a string", () => {
@@ -53,14 +52,14 @@ describe("withOneChild HOC", () => {
             wrapper = Enzyme.mount(singleChildDummy);
         } catch (e) {
             // This shouldn't run since no error is thrown.
-            expect(false).to.equal(true);
+            expect(false).toBe(true);
         }
 
         // The text of the component doesn't include spaces in the test.
-        expect(wrapper.text()).to.equal("ElfoldLegolas");
+        expect(wrapper.text()).toBe("ElfoldLegolas");
         // Make sure that any props passed propagate correctly.
-        expect(wrapper.prop("title")).to.equal("Elf");
-        expect(wrapper.prop("age")).to.equal("old");
+        expect(wrapper.prop("title")).toBe("Elf");
+        expect(wrapper.prop("age")).toBe("old");
     });
 
     it("should modify the original component to allow one child as a component", () => {
@@ -75,13 +74,13 @@ describe("withOneChild HOC", () => {
             wrapper = Enzyme.mount(singleChildDummy);
         } catch (e) {
             // This shouldn't run since no error is thrown.
-            expect(false).to.equal(true);
+            expect(false).toBe(true);
         }
 
-        expect(wrapper.find("p")).to.have.lengthOf(1);
-        expect(wrapper.find("p").text()).to.equal("Saruman");
-        expect(wrapper.prop("title")).to.equal("Wizard");
-        expect(wrapper.prop("age")).to.equal("old");
+        expect(wrapper.find("p")).toHaveLength(1);
+        expect(wrapper.find("p").text()).toBe("Saruman");
+        expect(wrapper.prop("title")).toBe("Wizard");
+        expect(wrapper.prop("age")).toBe("old");
     });
 
     it("should throw an error if more than one child is passed", () => {
@@ -96,12 +95,10 @@ describe("withOneChild HOC", () => {
         try {
             wrapper = Enzyme.mount(singleChildDummy);
             // This shouldn't run since an error is thrown
-            expect(false).to.equal(true);
+            expect(false).toBe(true);
         } catch (e) {
-            expect(e.message).to.equal(
-                "Please only pass one child, " +
-                    "got elements (p, p), for base component DummyComponent"
-            );
+            expect(e.message).toBe("Please only pass one child, " +
+                "got elements (p, p), for base component DummyComponent");
         }
     });
 });

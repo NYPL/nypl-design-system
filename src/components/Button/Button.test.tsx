@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -19,27 +18,27 @@ describe("Button", () => {
 
     it("calls the callback", () => {
         wrapper.simulate("click");
-        expect(callback.callCount).to.equal(1);
+        expect(callback.callCount).toBe(1);
     });
     it("optionally renders a component", () => {
-        expect(wrapper.find("span").length).to.equal(1);
-        expect(wrapper.text()).to.equal("Submit");
+        expect(wrapper.find("span").length).toBe(1);
+        expect(wrapper.text()).toBe("Submit");
     });
     it("has 'button' class", () => {
-        expect(wrapper.find(".button")).to.have.lengthOf(1);
+        expect(wrapper.find(".button")).toHaveLength(1);
     });
 
     it("has type submit", () => {
-        expect(wrapper.prop("type")).to.equal("submit");
+        expect(wrapper.prop("type")).toBe("submit");
     });
 
     it("optionally calls the callback on mouseDown instead of on click", () => {
-        expect(callback.callCount).to.equal(0);
+        expect(callback.callCount).toBe(0);
         wrapper.setProps({ mouseDown: true });
         wrapper.simulate("click");
-        expect(callback.callCount).to.equal(0);
+        expect(callback.callCount).toBe(0);
         wrapper.simulate("mouseDown");
-        expect(callback.callCount).to.equal(1);
+        expect(callback.callCount).toBe(1);
     });
 
     describe("rendering content from its children prop", () => {
@@ -49,7 +48,7 @@ describe("Button", () => {
                     Submit
                 </Button>
             );
-            expect(wrapper.text()).to.equal("Submit");
+            expect(wrapper.text()).toBe("Submit");
         });
 
         it("should render element children", () => {
@@ -58,8 +57,8 @@ describe("Button", () => {
                     <em>I am a em element</em>
                 </Button>
             );
-            expect(wrapper.text()).to.equal("I'm a em element");
-            expect(wrapper.find("em")).to.have.lengthOf(1);
+            expect(wrapper.text()).toBe("I'm a em element");
+            expect(wrapper.find("em")).toHaveLength(1);
         });
     });
 
@@ -70,7 +69,7 @@ describe("Button", () => {
                     <span>I am a span element</span>
                 </Button>
             );
-            expect(wrapper.find("#btn-button").prop("type")).to.equal("button");
+            expect(wrapper.find("#btn-button").prop("type")).toBe("button");
         });
     });
 });

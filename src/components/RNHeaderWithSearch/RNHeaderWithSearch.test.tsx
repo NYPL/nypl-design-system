@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -30,7 +29,7 @@ describe("HeaderWithSearch", () => {
                 selectBlurHandler={blurCallback}
             />
         );
-        expect(wrapper.find("RNSectionTitle")).to.have.lengthOf(1);
-        expect(wrapper.find("SearchBar")).to.have.lengthOf(1);
+        expect(wrapper.find("RNSectionTitle")).toHaveLength(1);
+        expect(wrapper.find("SearchBar")).toHaveLength(1);
     });
 });

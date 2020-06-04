@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -24,7 +23,7 @@ describe("Hero Test", () => {
                 backgroundImageSrc="https://placeimg.com/1600/800/arch"
             ></Hero>
         );
-        expect(wrapper.prop("style")).to.deep.equal({
+        expect(wrapper.prop("style")).toEqual({
             backgroundImage: "url(https://placeimg.com/1600/800/arch)",
         });
     });
@@ -55,7 +54,7 @@ describe("Hero Test", () => {
                 .find("Image")
                 .dive()
                 .find("img")
-        ).to.have.lengthOf(1);
+        ).toHaveLength(1);
     });
 
     it("On primary hero, background image is required", () => {
@@ -80,7 +79,7 @@ describe("Hero Test", () => {
                     }
                 ></Hero>
             )
-        ).to.throw("backgroundImageSrc required on PRIMARY heroTypes");
+        ).toThrowError("backgroundImageSrc required on PRIMARY heroTypes");
     });
 
     it("Throws error if both backgroundImage and foregroundImage are passed", () => {
@@ -106,9 +105,7 @@ describe("Hero Test", () => {
                     backgroundImageSrc="https://placeimg.com/1600/800/arch"
                 ></Hero>
             )
-        ).to.throw(
-            "Please only either backgroundImageSrc or image into Hero, got both"
-        );
+        ).toThrowError("Please only either backgroundImageSrc or image into Hero, got both");
     });
 
     it("Throws error if locationDetails are based to non-primary hero types", () => {
@@ -139,7 +136,7 @@ describe("Hero Test", () => {
                     }
                 ></Hero>
             )
-        ).to.throw("Please provide locationDetails only to PRIMARY heroTypes");
+        ).toThrowError("Please provide locationDetails only to PRIMARY heroTypes");
     });
 
     it("Throws error if only one var is passed between foregroundColor and backgroundColor", () => {
@@ -167,7 +164,7 @@ describe("Hero Test", () => {
                     backgroundImageSrc="https://p24.f4.n0.cdn.getcloudapp.com/items/NQuDO4xO/index.jpeg?v=d49888fbe420dd2fd163adc2ad0cdac6"
                 />
             )
-        ).to.throw(
+        ).toThrowError(
             "Please provide both foregroundColor and backgroundColor to Hero, only got foregroundColor"
         );
     });
