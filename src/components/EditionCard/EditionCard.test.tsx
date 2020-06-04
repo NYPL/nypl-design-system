@@ -9,7 +9,7 @@ import Icon from "../../components/Icons/Icon";
 import { LinkTypes } from "../../components/Link/LinkTypes";
 
 describe("EditionCard", () => {
-    let regularEditionCard = (
+    const regularEditionCard = (
         <EditionCard
             id="card#1"
             blockName=""
@@ -43,7 +43,7 @@ describe("EditionCard", () => {
         />
     );
 
-    let elementEditionCard = (
+    const elementEditionCard = (
         <EditionCard
             id="card#1"
             blockName=""
@@ -79,7 +79,7 @@ describe("EditionCard", () => {
         />
     );
 
-    let missingLinkEditionCard = (
+    const missingLinkEditionCard = (
         <EditionCard
             id="card#1"
             blockName=""
@@ -93,7 +93,7 @@ describe("EditionCard", () => {
         />
     );
 
-    let elementLinkEditionCard = (
+    const elementLinkEditionCard = (
         <EditionCard
             id="card#1"
             blockName=""
@@ -109,7 +109,7 @@ describe("EditionCard", () => {
         />
     );
 
-    let missingLinkNoLinkElement = (
+    const missingLinkNoLinkElement = (
         <EditionCard
             id="card#1"
             blockName=""
@@ -124,7 +124,7 @@ describe("EditionCard", () => {
         />
     );
 
-    let editionCardNoInfo = (
+    const editionCardNoInfo = (
         <EditionCard
             id="card#1"
             blockName=""
@@ -135,7 +135,7 @@ describe("EditionCard", () => {
     );
 
     it("Generates an Edition Card with a Heading Link, Image and two Links", () => {
-        let card = Enzyme.mount(regularEditionCard);
+        const card = Enzyme.mount(regularEditionCard);
         expect(card.find("h3")).to.have.lengthOf(1);
         expect(card.find("h3").find("a")).to.have.lengthOf(1);
         expect(card.find("img")).to.have.lengthOf(1);
@@ -145,7 +145,7 @@ describe("EditionCard", () => {
     });
 
     it("Shows an error span if Links are missing and not passed a link element", () => {
-        let card = Enzyme.mount(missingLinkEditionCard);
+        const card = Enzyme.mount(missingLinkEditionCard);
         expect(card.find("h3")).to.have.lengthOf(1);
         expect(card.find("h3").find("a")).to.have.lengthOf(1);
         expect(card.find("img")).to.have.lengthOf(1);
@@ -155,12 +155,12 @@ describe("EditionCard", () => {
     });
 
     it("Shows an error span if Links are missing and not passed a link element", () => {
-        let card = Enzyme.mount(missingLinkNoLinkElement);
+        const card = Enzyme.mount(missingLinkNoLinkElement);
         expect(card.find("#noLinkElement")).to.have.lengthOf(1);
     });
 
     it("Generates Edition Card if no Edition Info is passed", () => {
-        let card = Enzyme.mount(editionCardNoInfo);
+        const card = Enzyme.mount(editionCardNoInfo);
         expect(card.find("h3")).to.have.lengthOf(1);
         expect(card.find("h3").find("a")).to.have.lengthOf(1);
         expect(card.find("img")).to.have.lengthOf(1);
@@ -170,7 +170,7 @@ describe("EditionCard", () => {
     });
 
     it("Generates Edition Card if Edition Info is passed as spans", () => {
-        let card = Enzyme.mount(elementEditionCard);
+        const card = Enzyme.mount(elementEditionCard);
         expect(card.find("h3")).to.have.lengthOf(1);
         expect(card.find("h3").find("a")).to.have.lengthOf(1);
         expect(card.find("img")).to.have.lengthOf(1);
@@ -179,7 +179,7 @@ describe("EditionCard", () => {
     });
 
     it("Passes call-to-action links if it is given as span", () => {
-        let card = Enzyme.mount(elementLinkEditionCard);
+        const card = Enzyme.mount(elementLinkEditionCard);
         expect(card.find("h3")).to.have.lengthOf(1);
         expect(card.find("h3").find("a")).to.have.lengthOf(1);
         expect(card.find("img")).to.have.lengthOf(1);

@@ -20,7 +20,7 @@ interface LabelProps {
 export default function Label(props: React.PropsWithChildren<LabelProps>) {
     const { id, referenceId } = props;
 
-    let attributes = {
+    const attributes = {
         id: id,
         htmlFor: referenceId,
     };

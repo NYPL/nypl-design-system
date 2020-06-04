@@ -11,7 +11,7 @@ export interface Global extends NodeJS.Global {
     navigator: { userAgent: string };
 }
 
-declare var global: Global;
+declare let global: Global;
 
 global.window = window;
 global.document = window.document;

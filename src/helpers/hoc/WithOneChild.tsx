@@ -35,7 +35,7 @@ const withOneChild = <P extends object>(
         } catch (e) {
             const children = React.Children.map(
                 componentChildren,
-                (child) => (child as JSX.Element).type
+                child => (child as JSX.Element).type
             );
             // Catch the error and return a new one with the wrapper
             // component's name for better debugging.

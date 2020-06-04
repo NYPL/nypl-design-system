@@ -29,7 +29,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
         attributes,
     } = props;
 
-    let heading_base_class = baseClass;
+    const heading_base_class = baseClass;
 
     if (level < 1 || level > 6) {
         throw new Error("Heading only supports levels 1-6");
@@ -42,7 +42,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     if (React.Children.count(props.children) > 1) {
         const children = React.Children.map(
             props.children,
-            (child) => (child as JSX.Element).type
+            child => (child as JSX.Element).type
         );
         // Catching the error because React's error isn't as helpful.
         throw new Error(
@@ -67,7 +67,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
             : text;
     }
 
-    let headingProps = {
+    const headingProps = {
         className: bem(heading_base_class, modifiers, blockName),
         id: id,
         ...attributes,

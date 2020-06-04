@@ -55,7 +55,7 @@ export default class SectionTitle extends React.Component<
         let link: JSX.Element | undefined;
 
         if (linkUrl) {
-            let passedInAttributes = {
+            const passedInAttributes = {
                 "aria-describedby": id,
                 ...linkAttributes,
             };
@@ -67,7 +67,7 @@ export default class SectionTitle extends React.Component<
             );
         }
 
-        let headingModifiers = linkUrl ? ["has-link"] : [];
+        const headingModifiers = linkUrl ? ["has-link"] : [];
         return (
             <div className={bem(baseClass, modifiers, blockName)}>
                 <Heading

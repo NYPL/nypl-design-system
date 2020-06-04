@@ -28,7 +28,7 @@ export default function Image(props: ImageProps) {
         throw new Error("Alt Text must be less than 300 characters");
     }
 
-    let imageProps = {
+    const imageProps = {
         className: bem(image_base_class, imageModifiers, imageBlockname),
         src: src,
         alt: isDecorative ? "" : altText,

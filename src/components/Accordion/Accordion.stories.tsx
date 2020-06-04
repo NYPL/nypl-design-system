@@ -15,16 +15,19 @@ const checkboxes = [
         onChange={action("changed")}
         checkboxId="checkbox-1"
         labelOptions={{ id: "checkbox-1-label", labelContent: <>Checkbox 1</> }}
+        key="1"
     ></Checkbox>,
     <Checkbox
         onChange={action("changed")}
         checkboxId="checkbox-2"
         labelOptions={{ id: "checkbox-1-label", labelContent: <>Checkbox 2</> }}
+        key="2"
     ></Checkbox>,
     <Checkbox
         onChange={action("changed")}
         checkboxId="checkbox-3"
         labelOptions={{ id: "checkbox-1-label", labelContent: <>Checkbox 3</> }}
+        key="3"
     ></Checkbox>,
 ];
 

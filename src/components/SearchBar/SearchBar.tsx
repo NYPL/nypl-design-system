@@ -78,7 +78,7 @@ export default function SearchBar(props: SearchBarProps) {
         );
     }
 
-    let modifiers = [];
+    const modifiers = [];
     if (hasError) {
         if (!errorMessage) {
             throw new Error(
@@ -88,9 +88,9 @@ export default function SearchBar(props: SearchBarProps) {
         modifiers.push("error");
     }
 
-    let searchbar__base_class = "search-bar";
+    const searchbar__base_class = "search-bar";
 
-    let textfieldProps = {
+    const textfieldProps = {
         id: searchBarId + "-input-textfield",
         ariaLabelledBy: buttonId,
         onChange: searchChangeHandler,
@@ -102,7 +102,7 @@ export default function SearchBar(props: SearchBarProps) {
         modifiers: modifiers,
     };
 
-    let buttonProps: ButtonOptions = {
+    const buttonProps: ButtonOptions = {
         id: buttonId,
         callback: searchSubmitHandler,
         blockName: searchbar__base_class,

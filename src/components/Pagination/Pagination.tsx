@@ -25,7 +25,7 @@ export default function Pagination(props: PaginationProps) {
     } = props;
 
     const pagination__base_class = "pagination";
-    let buttonPrevOpts: ButtonOptions = {
+    const buttonPrevOpts: ButtonOptions = {
         id: "pagination-previous",
         callback: previousPageHandler,
         content: <>Previous</>,
@@ -36,7 +36,7 @@ export default function Pagination(props: PaginationProps) {
         iconDecorative: true,
     };
 
-    let buttonNextOpts: ButtonOptions = {
+    const buttonNextOpts: ButtonOptions = {
         id: "pagination-next",
         callback: nextPageHandler,
         content: <>Next</>,
@@ -47,7 +47,7 @@ export default function Pagination(props: PaginationProps) {
         iconDecorative: true,
     };
 
-    let dropdownProps = {
+    const dropdownProps = {
         dropdownId: "pagination-dropdown",
         isRequired: false,
         labelId: "pagination-select-label",

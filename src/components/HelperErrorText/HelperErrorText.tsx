@@ -37,7 +37,7 @@ export default function HelperErrorText(
         baseClass = "form-item",
         isError,
     } = props;
-    let modifiers = [];
+    const modifiers = [];
 
     if (isError) {
         modifiers.push("error");

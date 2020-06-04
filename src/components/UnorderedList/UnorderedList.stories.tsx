@@ -30,7 +30,7 @@ export const iconLinkList = () => (
     </UnorderedList>
 );
 
-let editionData: EditionDetails = {
+const editionData: EditionDetails = {
     editionYearHeading: (
         <a href="edition-link2" className={bem("link", [], "heading")}>
             2004 Edition
@@ -119,7 +119,7 @@ export const editionsList = () => (
     <UnorderedList id="editions-list">{editions}</UnorderedList>
 );
 
-let searchItemData = {
+const searchItemData = {
     titleElement: (
         <a href="title-link-url" className={bem("link", ["no-underline"])}>
             Investigation of un-American propaganda activities in the United
@@ -201,7 +201,7 @@ export const searchResultsList = () => (
     <UnorderedList id="search-results-list">{searchResults}</UnorderedList>
 );
 
-let textList: JSX.Element[] = [];
+const textList: JSX.Element[] = [];
 
 for (let i = 0; i < 100; i++) {
     textList.push(<span key={i}>Hello</span>);

@@ -13,7 +13,7 @@ export default {
     component: SearchResultItem,
 };
 
-let exampleEditionInfo = {
+const exampleEditionInfo = {
     editionYearHeading: (
         <a href="edition-link" className={bem("link", [], "heading")}>
             2004 Edition

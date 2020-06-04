@@ -30,7 +30,7 @@ export default class Accordion extends React.Component<
     }
 
     toggleContentShow() {
-        this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+        this.setState(prevState => ({ isOpen: !prevState.isOpen }));
     }
 
     render() {

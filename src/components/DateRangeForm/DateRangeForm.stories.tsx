@@ -8,9 +8,9 @@ export default {
     component: DateRangeForm,
 };
 
-let callback: (event: React.MouseEvent | React.KeyboardEvent) => void = action(
-    "clicked"
-);
+const callback: (
+    event: React.MouseEvent | React.KeyboardEvent
+) => void = action("clicked");
 export const defaultState = () => (
     <DateRangeForm
         formLabel={<>Publication Year</>}

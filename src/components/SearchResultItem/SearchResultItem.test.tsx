@@ -48,7 +48,7 @@ describe("SearchResultItem", () => {
     // let longHeadingText = `hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello `;
 
     it("Search Result Item with a Heading Link, Edition Card and Edition Card", () => {
-        let shallow = Enzyme.shallow(EditionInfo(validHeading));
+        const shallow = Enzyme.shallow(EditionInfo(validHeading));
 
         // Need to render since Heading's child is a component.
         const heading = shallow.find("Heading").render();

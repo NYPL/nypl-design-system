@@ -6,7 +6,7 @@ import SectionTitle from "./SectionTitle";
 
 describe("Section Title", () => {
     it("Shows SectionTitle with link", () => {
-        let mounted = Enzyme.mount(
+        const mounted = Enzyme.mount(
             <SectionTitle
                 id={"test-section-title"}
                 headingText={"Heading 1"}
@@ -18,7 +18,7 @@ describe("Section Title", () => {
     });
 
     it("Shows SectionTitle without link", () => {
-        let mounted = Enzyme.mount(
+        const mounted = Enzyme.mount(
             <SectionTitle id={"test-section-title"} headingText={"Heading 1"} />
         );
         expect(mounted.find("h2")).to.have.lengthOf(1);

@@ -18,9 +18,9 @@ export interface BodyTextProps {
 // This checker is excessively strict because it should only be set by internal engineers.
 // Please do not pass user inputs into <BodyText> before first formatting it.
 function checkHTML(node: React.ReactNode): void {
-    let html = ReactDOMServer.renderToString(node);
+    const html = ReactDOMServer.renderToString(node);
 
-    let doc = document.createElement("div");
+    const doc = document.createElement("div");
     doc.innerHTML = html;
     if (doc.innerHTML !== he.decode(html)) {
         throw new Error(
@@ -36,8 +36,8 @@ function validateCharCount(
 ): void {
     if (!maxChar) return;
 
-    let html = he.decode(ReactDOMServer.renderToString(node));
-    let doc = document.createElement("div");
+    const html = he.decode(ReactDOMServer.renderToString(node));
+    const doc = document.createElement("div");
     doc.innerHTML = html;
 
     if (warnChar && doc.textContent.length >= warnChar) {
@@ -75,17 +75,17 @@ export default function BodyText(
         ...rest
     } = props;
     const baseClass = "body-text";
-    let passedInContent: React.ReactNode = bodyContent
+    const passedInContent: React.ReactNode = bodyContent
         ? bodyContent
         : props.children;
 
     // validateCharCount(passedInContent, warnchar, maxchar);
     // checkHTML(passedInContent);
-    let content: React.ReactNode = hasString(passedInContent)
+    const content: React.ReactNode = hasString(passedInContent)
         ? React.createElement("p", {}, passedInContent)
         : passedInContent;
 
-    let bodyProps = {
+    const bodyProps = {
         className: bem(baseClass, modifiers, blockName),
     };
 

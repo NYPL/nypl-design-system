@@ -22,9 +22,9 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
     render(): JSX.Element {
         const { breadcrumbs } = this.props;
 
-        let breadcrumbs__base_class = "breadcrumbs";
+        const breadcrumbs__base_class = "breadcrumbs";
 
-        let breadcrumbItems = [];
+        const breadcrumbItems = [];
 
         if (!breadcrumbs || breadcrumbs.length === 0) {
             throw new Error(
@@ -32,7 +32,7 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
             );
         }
         breadcrumbs.forEach((item: breadcrumb | JSX.Element, index: number) => {
-            let last = index === breadcrumbs.length - 1;
+            const last = index === breadcrumbs.length - 1;
             let linkComponent: string | JSX.Element;
 
             if (isTextBreadcrumb(item)) {
@@ -47,7 +47,7 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
                     item.text
                 );
             } else {
-                let props = {
+                const props = {
                     className: bem("link", [], breadcrumbs__base_class),
                 };
                 linkComponent = React.createElement(

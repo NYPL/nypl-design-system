@@ -81,12 +81,12 @@ export default function Input(props: InputProps) {
         );
     }
 
-    let labelOptions: LabelOptions = {
+    const labelOptions: LabelOptions = {
         id: labelId,
         labelContent: labelContent,
         referenceId: inputId,
     };
-    let textFieldOptions: TextFieldOptions = {
+    const textFieldOptions: TextFieldOptions = {
         id: inputId,
         ariaLabelledBy: labelId,
         value: inputValue,

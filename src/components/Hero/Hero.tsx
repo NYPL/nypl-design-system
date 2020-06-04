@@ -40,7 +40,7 @@ export interface HeroProps {
 export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     const heroBaseClass = "hero";
 
-    let {
+    const {
         heroType,
 
         heading,
@@ -80,7 +80,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         );
     }
 
-    let backgroundImageStyle = backgroundImageSrc
+    const backgroundImageStyle = backgroundImageSrc
         ? { backgroundImage: "url(" + backgroundImageSrc + ")" }
         : {};
 
@@ -92,7 +92,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
                 backgroundColor: backgroundColor,
             };
         } else if (foregroundColor || backgroundColor) {
-            let receivedColor = foregroundColor
+            const receivedColor = foregroundColor
                 ? "foregroundColor"
                 : "backgroundColor";
             throw new Error(

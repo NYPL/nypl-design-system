@@ -2,7 +2,6 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-
 import Heading from "./Heading";
 
 describe("Section Headings", () => {

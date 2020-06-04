@@ -34,7 +34,7 @@ export default class FormDropdown extends React.Component<
     }
 
     onSelectChange(event: React.FormEvent, additionalChange: Function) {
-        let target = event.target as HTMLSelectElement;
+        const target = event.target as HTMLSelectElement;
         if (target) {
             this.setState({ selectedOption: target.value });
         }
@@ -59,9 +59,9 @@ export default class FormDropdown extends React.Component<
             throw new Error("Must either have labelId or aria-label");
         }
 
-        let formItemBlockName = blockName;
+        const formItemBlockName = blockName;
 
-        let selectProps = {
+        const selectProps = {
             id: dropdownId,
             className: bem("select", modifiers, formItemBlockName),
             "aria-required": isRequired,
@@ -82,8 +82,8 @@ export default class FormDropdown extends React.Component<
             <div className={bem("dropdown", modifiers, formItemBlockName)}>
                 <select
                     {...selectProps}
-                    onChange={(e) => this.onSelectChange(e, onSelectChange)}
-                    onBlur={(e) => this.onSelectChange(e, onSelectBlur)}
+                    onChange={e => this.onSelectChange(e, onSelectChange)}
+                    onBlur={e => this.onSelectChange(e, onSelectBlur)}
                 >
                     {options.map((child, key) => {
                         return (

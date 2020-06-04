@@ -57,7 +57,7 @@ export default function DateRangeForm(props: DateCheckFormProps) {
     if (showError && !error) {
         throw new Error("Error should be shown, but no Error Content exists");
     }
-    let baseClass = "date-range";
+    const baseClass = "date-range";
 
     if (buttonOpts && !buttonOpts.blockName) {
         buttonOpts.blockName = baseClass;

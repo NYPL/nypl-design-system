@@ -7,7 +7,7 @@ import UnorderedList from "./UnorderedList";
 
 describe("Link With Underline", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
-    let textList: JSX.Element[] = [];
+    const textList: JSX.Element[] = [];
 
     it("Returns proper classes for UnorderedList with modifier", () => {
         wrapper = Enzyme.mount(

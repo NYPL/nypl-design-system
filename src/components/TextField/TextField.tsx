@@ -40,13 +40,13 @@ export default function TextField(props: TextFieldProps) {
         type = "text",
         onChange,
     } = props;
-    let textfieldBlockName = blockName ? blockName : "form-item";
+    const textfieldBlockName = blockName ? blockName : "form-item";
 
     if (!ariaLabel && !ariaLabelledBy) {
         throw new Error("Either label or ariaLabel must be defined");
     }
 
-    let textFieldProps = {
+    const textFieldProps = {
         className: bem("input", modifiers, textfieldBlockName),
         type: type,
         value: value,
@@ -59,7 +59,7 @@ export default function TextField(props: TextFieldProps) {
         textFieldProps["aria-required"] = true;
     }
 
-    let transformedTextField = (
+    const transformedTextField = (
         <input
             id={`input-${id}`}
             {...textFieldProps}
