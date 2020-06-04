@@ -3,7 +3,7 @@ import bem from "../../utils/bem";
 
 import { IconRotationTypes } from "./IconTypes";
 
-import arrow_xsmall from "../../icons/svg/arrow_xsmall.svg";
+import arrow_xsmall from "../../icons/svg/arrow-xsmall.svg";
 import arrow from "../../icons/svg/arrow.svg";
 import download from "../../icons/svg/download.svg";
 import minus from "../../icons/svg/minus.svg";
