@@ -5,10 +5,9 @@ import Button from "./Button";
 
 describe("Button", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;
-    let callback;
+    const callback = jest.fn();
 
     beforeEach(() => {
-        callback = jest.fn();
         wrapper = Enzyme.shallow(
             <Button id="button" callback={callback}>
                 Submit
@@ -18,7 +17,7 @@ describe("Button", () => {
 
     it("calls the callback", () => {
         wrapper.simulate("click");
-        expect(callback.callCount).toBe(1);
+        expect(callback).toHaveBeenCalledTimes(1);
     });
     it("optionally renders a component", () => {
         expect(wrapper.find("span").length).toBe(1);
@@ -33,12 +32,12 @@ describe("Button", () => {
     });
 
     it("optionally calls the callback on mouseDown instead of on click", () => {
-        expect(callback.callCount).toBe(0);
+        expect(callback).toHaveBeenCalledTimes(0);
         wrapper.setProps({ mouseDown: true });
         wrapper.simulate("click");
-        expect(callback.callCount).toBe(0);
+        expect(callback).toHaveBeenCalledTimes(0);
         wrapper.simulate("mouseDown");
-        expect(callback.callCount).toBe(1);
+        expect(callback).toHaveBeenCalledTimes(1);
     });
 
     describe("rendering content from its children prop", () => {
@@ -57,7 +56,7 @@ describe("Button", () => {
                     <em>I am a em element</em>
                 </Button>
             );
-            expect(wrapper.text()).toBe("I'm a em element");
+            expect(wrapper.text()).toBe("I am a em element");
             expect(wrapper.find("em")).toHaveLength(1);
         });
     });

@@ -6,7 +6,7 @@ import DateRangeForm from "./DateRangeForm";
 describe("Date Range Form", () => {
     let container;
     let callback;
-    before(() => {
+    beforeEach(() => {
         callback = jest.fn();
         container = Enzyme.mount(
             <DateRangeForm

@@ -5,7 +5,7 @@ import Input from "./Input";
 
 describe("Renders Input", () => {
     let container;
-    before(() => {
+    beforeEach(() => {
         container = Enzyme.mount(
             <Input
                 labelId="label-input"
@@ -30,7 +30,7 @@ describe("Renders Input", () => {
 
 describe("Input with Helper and Error", () => {
     let container;
-    before(() => {
+    beforeEach(() => {
         container = Enzyme.mount(
             <Input
                 labelId="label-input"

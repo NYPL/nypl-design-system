@@ -9,7 +9,7 @@ describe("Renders Input (closed state)", () => {
         Readonly<{}>,
         React.Component<{}, {}, any>
     >;
-    before(() => {
+    beforeEach(() => {
         container = Enzyme.mount(
             <Accordion
                 id="accordion"
@@ -38,7 +38,7 @@ describe("Renders Input (open state)", () => {
         Readonly<{}>,
         React.Component<{}, {}, any>
     >;
-    before(() => {
+    beforeEach(() => {
         container = Enzyme.mount(
             <Accordion
                 id="accordion"

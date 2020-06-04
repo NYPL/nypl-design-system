@@ -5,13 +5,9 @@ import FormDropdown from "./FormDropdown";
 
 describe("FormDropdown", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;
-    let blurCallback;
-    let changeCallback;
+    const blurCallback = jest.fn();
+    const changeCallback = jest.fn();
 
-    beforeEach(() => {
-        changeCallback = jest.fn();
-        blurCallback = jest.fn();
-    });
     it("Form Dropdown should render a FormDropdown", () => {
         wrapper = Enzyme.shallow(
             <FormDropdown
@@ -97,7 +93,7 @@ describe("FormDropdown", () => {
 
         wrapper.find("select").simulate("change", "", { value: ["val"] });
 
-        expect(changeCallback.callCount).toBe(1);
+        expect(changeCallback).toHaveBeenCalledTimes(1);
     });
 
     it("sends callback with no value on blur", () => {
@@ -113,7 +109,7 @@ describe("FormDropdown", () => {
         );
         wrapper.find("select").simulate("blur", "");
 
-        expect(blurCallback.callCount).toBe(1);
+        expect(blurCallback).toHaveBeenCalledTimes(1);
     });
 
     it("displays selected when passed selectedOption", () => {
