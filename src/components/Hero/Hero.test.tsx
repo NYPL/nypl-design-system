@@ -105,7 +105,9 @@ describe("Hero Test", () => {
                     backgroundImageSrc="https://placeimg.com/1600/800/arch"
                 ></Hero>
             )
-        ).toThrowError("Please only either backgroundImageSrc or image into Hero, got both");
+        ).toThrowError(
+            "Please only either backgroundImageSrc or image into Hero, got both"
+        );
     });
 
     it("Throws error if locationDetails are based to non-primary hero types", () => {
@@ -136,7 +138,9 @@ describe("Hero Test", () => {
                     }
                 ></Hero>
             )
-        ).toThrowError("Please provide locationDetails only to PRIMARY heroTypes");
+        ).toThrowError(
+            "Please provide locationDetails only to PRIMARY heroTypes"
+        );
     });
 
     it("Throws error if only one var is passed between foregroundColor and backgroundColor", () => {

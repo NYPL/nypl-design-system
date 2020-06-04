@@ -97,8 +97,10 @@ describe("withOneChild HOC", () => {
             // This shouldn't run since an error is thrown
             expect(false).toBe(true);
         } catch (e) {
-            expect(e.message).toBe("Please only pass one child, " +
-                "got elements (p, p), for base component DummyComponent");
+            expect(e.message).toBe(
+                "Please only pass one child, " +
+                    "got elements (p, p), for base component DummyComponent"
+            );
         }
     });
 });

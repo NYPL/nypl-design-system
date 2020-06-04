@@ -102,7 +102,9 @@ describe("Search Bar with Optional Parameters", () => {
                     searchSubmitHandler={searchCallback}
                 />
             )
-        ).toThrowError("Either searchBarAriaLabel and searchBarAriaLabelledBy must be passed");
+        ).toThrowError(
+            "Either searchBarAriaLabel and searchBarAriaLabelledBy must be passed"
+        );
     });
 
     it("Throws error when hasError is true and no errorMessage is passed", () => {
@@ -116,6 +118,8 @@ describe("Search Bar with Optional Parameters", () => {
                     searchSubmitHandler={searchCallback}
                 />
             )
-        ).toThrowError("If there is an error, there must also be an error message");
+        ).toThrowError(
+            "If there is an error, there must also be an error message"
+        );
     });
 });

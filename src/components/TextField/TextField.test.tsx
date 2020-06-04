@@ -24,7 +24,9 @@ describe("Search Bar Text Field", () => {
         );
 
         expect(wrapper.find("input")).toHaveLength(1);
-        expect(wrapper.find("input").props()["aria-labelledby"]).toBe("labelId");
+        expect(wrapper.find("input").props()["aria-labelledby"]).toBe(
+            "labelId"
+        );
     });
 
     it("if both labelId and ariaLabel are defined, TextField uses aria-labeledBy", () => {
@@ -37,7 +39,9 @@ describe("Search Bar Text Field", () => {
             />
         );
         expect(wrapper.find("input").props()["aria-label"]).toBeUndefined();
-        expect(wrapper.find("input").props()["aria-labelledby"]).toBe("labelId");
+        expect(wrapper.find("input").props()["aria-labelledby"]).toBe(
+            "labelId"
+        );
     });
 
     it("Shows 'aria-required' if required", () => {

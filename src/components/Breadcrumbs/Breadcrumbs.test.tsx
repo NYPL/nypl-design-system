@@ -61,6 +61,10 @@ describe("Breadcrumbs", () => {
     });
 
     it("Throws error when nothing is passed into Breadcrumb", () => {
-        expect(() => Enzyme.mount(<Breadcrumbs breadcrumbs={[]} />)).toThrowError("Breadcrumbs must contain a set of links. Breadcrumbs currently empty");
+        expect(() =>
+            Enzyme.mount(<Breadcrumbs breadcrumbs={[]} />)
+        ).toThrowError(
+            "Breadcrumbs must contain a set of links. Breadcrumbs currently empty"
+        );
     });
 });

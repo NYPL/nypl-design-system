@@ -33,6 +33,8 @@ describe("Section Title", () => {
                     }
                 />
             )
-        ).toThrowError("Section Title (h2) Text must be fewer than 80 characters");
+        ).toThrowError(
+            "Section Title (h2) Text must be fewer than 80 characters"
+        );
     });
 });

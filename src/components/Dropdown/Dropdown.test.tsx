@@ -52,7 +52,9 @@ describe("Dropdown", () => {
                     onSelectBlur={blurCallback}
                 />
             )
-        ).toThrowError("prop ariaLabel must be passed into Dropdown when labelPosition is 'none'");
+        ).toThrowError(
+            "prop ariaLabel must be passed into Dropdown when labelPosition is 'none'"
+        );
     });
 
     it("does not render Label if labelPosition is none", () => {

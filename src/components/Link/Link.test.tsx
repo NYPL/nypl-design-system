@@ -80,6 +80,8 @@ describe("Link", () => {
     });
 
     it("throws an error if text is passed but no url is passed", () => {
-        expect(() => Enzyme.mount(<Link>Test</Link>)).toThrowError("Link needs prop 'href'");
+        expect(() => Enzyme.mount(<Link>Test</Link>)).toThrowError(
+            "Link needs prop 'href'"
+        );
     });
 });

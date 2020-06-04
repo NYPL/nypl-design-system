@@ -73,7 +73,9 @@ describe("Section Headings", () => {
         ).toThrowError("Heading only supports levels 1-6");
     });
     it("Throws error when neither child nor text is passed", () => {
-        expect(() => Enzyme.mount(<Heading id="h1" level={9} />)).toThrowError("Heading only supports levels 1-6");
+        expect(() => Enzyme.mount(<Heading id="h1" level={9} />)).toThrowError(
+            "Heading only supports levels 1-6"
+        );
     });
     it("Throws error when heading with many children is passed", () => {
         expect(() =>
@@ -83,6 +85,8 @@ describe("Section Headings", () => {
                     <span>many</span>
                 </Heading>
             )
-        ).toThrowError("Please only pass one child into Heading, got span, span");
+        ).toThrowError(
+            "Please only pass one child into Heading, got span, span"
+        );
     });
 });
