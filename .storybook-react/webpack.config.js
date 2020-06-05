@@ -24,29 +24,8 @@ module.exports = async ({ config, mode }) => {
     // Add config from react-components
     config.module.rules.unshift(...packageConfig.module.rules);
 
-    // Adds SCSS support
-    config.module.rules.push({
-        test: /\.scss$/,
-        use: [
-            "style-loader",
-            {
-                loader: "css-loader",
-                options: {
-                    importLoaders: 1,
-                    modules: true,
-                },
-            },
-            {
-                loader: "sass-loader",
-                options: {
-                    importer: globImporter(),
-                },
-            },
-        ],
-        include: [path.resolve(__dirname, "./styles/**/*")],
-    });
-
     config.resolve.extensions.push(...packageConfig.resolve.extensions);
     // Return the altered config
+    console.log("config", config.module.rules);
     return config;
 };

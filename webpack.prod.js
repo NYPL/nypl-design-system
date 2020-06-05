@@ -1,12 +1,13 @@
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 const globImporter = require("node-sass-glob-importer");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: "production",
     devtool: "source-map",
     entry: {
-        app: ["./src/react-components/index.ts"],
+        app: ["./src/index.ts"],
     },
     target: "node",
     externals: [nodeExternals()],
@@ -23,9 +24,14 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js", ".json"],
     },
 
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "styles.css",
+        }),
+    ],
+
     module: {
         rules: [
-            // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
             {
                 test: /\.tsx?$/,
                 loader: "ts-loader",
@@ -41,7 +47,12 @@ module.exports = {
             {
                 test: /\.scss?$/,
                 use: [
-                    "style-loader",
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: path.resolve(__dirname, "./dist"),
+                        },
+                    },
                     {
                         loader: "css-loader",
                         options: {
@@ -55,6 +66,7 @@ module.exports = {
                         },
                     },
                 ],
+                include: [path.resolve(__dirname, "./styles/**/*")],
             },
             {
                 test: /\.(ttf|woff|eot|png|woff2|gif|jpg)(\?[\s\S]+)?$/,
