@@ -4,8 +4,6 @@
     "private": true,
     "dependencies": {
         "@nypl/design-system-react-components": "file:../src/react-components",
-        "@nypl/design-system-styles": "file:../src/styles",
-        "@nypl/design-system-twig": "file:../src/twig",
         "@types/webpack-env": "^1.15.2",
         "babel": "^6.23.0",
         "node-sass": "^4.12.0",
