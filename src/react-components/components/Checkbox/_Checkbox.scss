@@ -1,0 +1,10 @@
+.form-item--checkboxes,
+.form-item--checkbox__item {
+    @include list-reset;
+}
+
+.checkbox {
+    input {
+        @include space-inline-s;
+    }
+}
