@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import Container from "../Container/Container";
 import Button from "../Button/Button";
 import Modal from "./Modal";
 
@@ -31,7 +30,7 @@ class ModalStory extends React.Component<{}, { isModalOpen: boolean }> {
 
     render() {
         return (
-            <Container>
+            <div>
                 <Button id="1" callback={this.openModal}>
                     Open Modal
                 </Button>
@@ -42,7 +41,7 @@ class ModalStory extends React.Component<{}, { isModalOpen: boolean }> {
                         </Button>
                     </Modal>
                 )}
-            </Container>
+            </div>
         );
     }
 }
