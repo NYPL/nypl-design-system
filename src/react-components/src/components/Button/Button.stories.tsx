@@ -129,8 +129,8 @@ export const linkLikeButtonIconLeft = () => (
         type="button"
         buttonType={ButtonTypes.Link}
         iconPosition={ButtonIconPositions.Left}
+        modifiers={["left"]}
         iconName="arrow_xsmall"
-        iconModifiers={["left"]}
         iconDecorative={true}
     >
         <span>button content</span>
