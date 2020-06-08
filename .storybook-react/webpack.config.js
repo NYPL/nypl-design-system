@@ -1,6 +1,6 @@
 const path = require("path");
 const globImporter = require("node-sass-glob-importer");
-const packageConfig = require("../webpack.prod.js");
+const packageConfig = require("../webpack.config.js");
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {

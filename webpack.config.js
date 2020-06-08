@@ -21,12 +21,13 @@ module.exports = {
         globalObject: "this",
     },
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json"],
+        extensions: [".ts", ".tsx", ".js", ".json", ".scss"],
     },
 
     plugins: [
         new MiniCssExtractPlugin({
             filename: "styles.css",
+            chunkFilename: "[id].css",
         }),
     ],
 
@@ -47,12 +48,7 @@ module.exports = {
             {
                 test: /\.scss?$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: path.resolve(__dirname, "./dist"),
-                        },
-                    },
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
                         options: {
@@ -62,11 +58,13 @@ module.exports = {
                     {
                         loader: "sass-loader",
                         options: {
-                            importer: globImporter(),
+                            sassOptions: {
+                                importer: globImporter(),
+                            },
                         },
                     },
                 ],
-                include: [path.resolve(__dirname, "./styles/**/*")],
+                include: [path.resolve(__dirname, "src")],
             },
             {
                 test: /\.(ttf|woff|eot|png|woff2|gif|jpg)(\?[\s\S]+)?$/,
