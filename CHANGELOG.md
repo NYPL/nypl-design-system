@@ -6,20 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## [0.4.2]
-
--   Moves styles into their corresponding component folders
--   Moves base styles into the react-components package
-
-## [0.4.1]
-
--   Moves tests into their corresponding component folders
-
 ## [0.4.0]
 
 ### Breaking Changes
 
 -   Concatenates `BasicLink`, `UnderlineLink`, and `IconLink` into `Link` with `LinkTypes` enum
+-   Moves styles into their corresponding component folders
+-   Moves base styles into the react-components package
+-   Deprecates `@nypl/design-system-styles`
+
+### Changes
+
+-   Moves tests into their corresponding component folders
+-   Flattens component structure to export as one package.
 
 ## [0.3.7]
 

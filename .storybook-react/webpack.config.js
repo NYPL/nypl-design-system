@@ -26,6 +26,5 @@ module.exports = async ({ config, mode }) => {
 
     config.resolve.extensions.push(...packageConfig.resolve.extensions);
     // Return the altered config
-    console.log("config", config.module.rules);
     return config;
 };
