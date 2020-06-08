@@ -17,7 +17,7 @@ module.exports = async ({ config, mode }) => {
         })
     );
 
-    //Remove SVG config from storybook
+    // Remove SVG config from storybook
     config.module.rules = config.module.rules.map((rule) => {
         if (rule.test.toString().includes("svg")) {
             const test = rule.test

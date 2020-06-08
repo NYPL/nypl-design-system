@@ -42,4 +42,4 @@ function NewComponent(props) {
 
 There should be no need to run the static Storybook instances. If the static Storybook npm script is run, make sure to not commit the `storybook/storybook-static` directory.
 
-When change are merged into `master` (currently using `development`), Travis CI will automatically build the Storybook instance as a static site and deploy to the `gh-pages` branch. If this needs to be tested locally, run `npm run storybook:static` and then view the `storybook/index.html` file in a browser. No server needs to be running since this is a static web site.
+When change are merged into `development`, Travis CI will automatically build the Storybook instance as a static site and deploy to the `gh-pages` branch. If this needs to be tested locally, run `npm run storybook:static` and then view the `storybook/index.html` file in a browser. No server needs to be running since this is a static web site.
