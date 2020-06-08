@@ -23,14 +23,12 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json", ".scss"],
     },
-
     plugins: [
         new MiniCssExtractPlugin({
             filename: "styles.css",
             chunkFilename: "[id].css",
         }),
     ],
-
     module: {
         rules: [
             {
