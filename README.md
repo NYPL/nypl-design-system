@@ -11,8 +11,6 @@ These components, whenever possible, will show content rather than throwing an e
 
 ## Getting Started
 
-This repo is versioned with [Lerna](https://github.com/lerna/lerna).
-
 Follow these steps for setup:
 
 1. Pull the repo `git clone https://github.com/NYPL/nypl-design-system.git`
@@ -20,6 +18,15 @@ Follow these steps for setup:
 3. Run the storybook instance `npm start`
 
 You can now edit styles or templates in `src`, and they will update and re-build.
+Adding new stories or changing story names will still require a Storybook restart.
+
+To develop with a local version of the design system:
+
+1. run `npm link`
+2. go to the consuming application and run `npm link @nypl/design-system-react-components`
+3. go back to the Design System repo and run `npm run watch-webpack`
+
+Changes in the local Design System will now be rebuilt and exported automatically.
 
 ## Using the Design System
 
@@ -31,10 +38,21 @@ To use the Design System in your project:
 4. Usage example
 
 ```
-import * as DS from '@nypl/design-system-react-components';
+import { Link } from '@nypl/design-system-react-components';
 
 function NewComponent(props) {
-  return <DS.Link href="https://www.hathitrust.org/">HathiTrust</DS.Link>;
+  return <Link href="https://www.hathitrust.org/">HathiTrust</Link>;
+}
+```
+
+Sometimes you may have conflicts, perhaps with `React-Router`. In that case, you can alias your imports:
+
+```
+import * as DS from '@nypl/design-system-react-components';
+import { Link } from 'react-router'
+
+function NewComponent(props) {
+  return <DS.Link><Link to="/license">public domain</Link></DS.Link>;
 }
 ```
 
