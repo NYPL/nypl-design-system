@@ -4,10 +4,10 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
 
-import Link from "../../components/Link/Link";
-import { LinkTypes } from "../../components/Link/LinkTypes";
-import Icon from "../../components/Icons/Icon";
-import { IconRotationTypes } from "../../components/Icons/IconTypes";
+import Link from "./Link";
+import { LinkTypes } from "./LinkTypes";
+import Icon from "../Icons/Icon";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 describe("Link", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;

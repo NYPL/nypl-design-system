@@ -19,7 +19,12 @@ global.navigator = {
     userAgent: "node.js",
 };
 
+let noop = () => {};
+
 // Ignore SVG
-require.extensions[".svg"] = () => {};
+require.extensions[".svg"] = noop;
+
+// Ignore imported stylesheets.
+require.extensions[".scss"] = noop;
 
 configure({ adapter: new Adapter() });

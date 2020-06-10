@@ -11,71 +11,53 @@ These components, whenever possible, will show content rather than throwing an e
 
 ## Getting Started
 
-This repo is versioned with [Lerna](https://github.com/lerna/lerna).
-
 Follow these steps for setup:
 
 1. Pull the repo `git clone https://github.com/NYPL/nypl-design-system.git`
-2. Install Lerna globally `npm i -g lerna`
-3. Install all the packages `npm run install-all`
-4. Run `npm start`.
+2. Install the module `npm install`
+3. Run the storybook instance `npm start`
 
 You can now edit styles or templates in `src`, and they will update and re-build.
+Adding new stories or changing story names will still require a Storybook restart.
 
-## Troubleshooting
+To develop with a local version of the design system:
 
-If there is an issue with `npm run install-all`, eg:
+1. run `npm link`
+2. go to the consuming application and run `npm link @nypl/design-system-react-components`
+3. go back to the Design System repo and run `npm run watch-webpack`
 
--   cb() not called
--   Cannot read package.json.[random string of numbers]
-
-Clean your git state thorougly with `git clean -fdx` and get rid of all your `package-lock.json`s with `find . -name "package-lock.json" -exec rm -rf '{}' +;`, and try `npm run install-all` again. We are tracking fixes to this in https://github.com/NYPL/nypl-design-system/issues/36
-
-While we are getting our `lerna` process ironed out, packages will sometimes not get pulled in correctly. When this happens, auto-rebuild can be broken. If a single package is not found, cd into the directory and run `npm link {package name}`.
-
-## Contributing to Design System
-
-By default, the repo links everything under `src` for local development. Sometimes, development may need to happen under a fixed version of `styles`.
-
-1. Navigate to `storybook`
-2. `Run npm install design-system-styles@[version-number] --save-dev --save-exact`
-3. You may need to remove `node_modules` and/or `package-lock.json`, depending on whether the install is throwing errors
-
-## Publishing
-
-You can publish npm modules from this repo by running:
-`lerna publish` from the main folder.
-Publishing from sub-folders using `npm publish` will result in broken components - don't do this!
-
-First, make sure you are on the `development` branch.
-
-If you have already bumped `package.json`:
-
-    Select the custom version option
-    Re-type the version you've specified in your `package.json`
-    ALWAYS bump the `storybook` package with a patch.
-
-If you have NOT already bumped package.json:
-
-    Select patch option
-    ALWAYS bump the `storybook` package with a patch.
+Changes in the local Design System will now be rebuilt and exported automatically.
 
 ## Using the Design System
 
-The Design Systems offers modules and styles in different packages. To use modules from the Design System, you need the [styles](https://www.npmjs.com/package/@nypl/design-system-styles) and either [react](https://www.npmjs.com/package/@nypl/design-system-react-components) or [twig](https://www.npmjs.com/package/@nypl/design-system-twig) packages.
+To use the Design System in your project:
 
-### Importing Styles
+1. Install the design system `npm install @nypl/design-system-react-components`
+2. Import the styles in your main css file `@import '~@nypl/design-system-react-components/dist/app.css';`
+3. Consult Storybook for the list of available components and props that they require.
+4. Usage example
 
-The design system does not compile styles and templates. It is up to the product to do this. This generally means updating your webpack (grunt, gulp, etc) config. You can use the [storybook config](https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook-react/webpack.config.js) as an example, and further documentation in the [styles readme](https://github.com/NYPL/nypl-design-system/blob/development/styles/README.md).
+```
+import { Link } from '@nypl/design-system-react-components';
 
-Make sure to include `glob-importer` in your (sass-loader)[https://github.com/NYPL/nypl-design-system/blob/development/storybook/.storybook-react/webpack.config.js#L2].
+function NewComponent(props) {
+  return <Link href="https://www.hathitrust.org/">HathiTrust</Link>;
+}
+```
 
-### Importing React Components
+Sometimes you may have conflicts, perhaps with `React-Router`. In that case, you can alias your imports:
 
-Once the Design System Styles package is imported, follow the steps in the React Components [README](https://github.com/NYPL/nypl-design-system/blob/development/src/react-components/README.md) to import and use the React Components.
+```
+import * as DS from '@nypl/design-system-react-components';
+import { Link } from 'react-router'
+
+function NewComponent(props) {
+  return <DS.Link><Link to="/license">public domain</Link></DS.Link>;
+}
+```
 
 ### Storybook
 
-There should be no need to run the static Storybook instances. Following the instructions above, the two development Storybook instances can run on a server that tracks changes. If the static Storybook npm script is run, make sure to not commit the `storybook/storybook-static` directory.
+There should be no need to run the static Storybook instances. If the static Storybook npm script is run, make sure to not commit the `storybook/storybook-static` directory.
 
-When change are merged into `master` (currently using `development`), Travis CI will automatically build the two Twig and React Storybook instances as static sites and deploy them to the `gh-pages` branch. If this needs to be tested locally, run `npm run storybook:static` and then view the `storybook/index.html` file in a browser. No server needs to be running since this is a static web site.
+When change are merged into `development`, Travis CI will automatically build the Storybook instance as a static site and deploy to the `gh-pages` branch. If this needs to be tested locally, run `npm run storybook:static` and then view the `storybook/index.html` file in a browser. No server needs to be running since this is a static web site.

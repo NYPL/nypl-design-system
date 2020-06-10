@@ -5,8 +5,8 @@ import * as React from "react";
 import EditionCard from "./EditionCard";
 import Link from "../Link/Link";
 import bem from "../../utils/bem";
-import Icon from "../../components/Icons/Icon";
-import { LinkTypes } from "../../components/Link/LinkTypes";
+import Icon from "../Icons/Icon";
+import { LinkTypes } from "../Link/LinkTypes";
 
 describe("EditionCard", () => {
     let regularEditionCard = (
