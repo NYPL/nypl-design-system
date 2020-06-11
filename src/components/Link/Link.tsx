@@ -26,7 +26,7 @@ export interface LinkProps {
 export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     const {
         href,
-        modifiers,
+        modifiers = [],
         blockName,
         attributes,
         linkType = LinkTypes.Default,
@@ -75,7 +75,6 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     } else if (linkType === LinkTypes.Forwards) {
         iconRight = <Icon {...navigationIconProps} />;
     }
-
     let className = bem(link_base_class, modifiers, blockName);
 
     if (!linkProps.href) {
@@ -87,9 +86,12 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
         let children = linkProps.children[0]
             ? linkProps.children[0]
             : linkProps.children;
+        childProps = children.props;
+
         return React.cloneElement(
             children,
-            { ...linkProps, className, ...childProps }[children.children]
+            { className: className, ...linkProps, ...childProps },
+            [children.props.children]
         );
     } else {
         return React.createElement(
