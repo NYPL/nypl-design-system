@@ -6,12 +6,12 @@ import RNSectionTitle from "../RNSectionTitle/RNSectionTitle";
 
 export interface RNHeaderWithSearchProps {
     modifiers?: [];
-    searchBarId: string;
-    searchButtonId: string;
+    searchBarId?: string;
+    searchButtonId?: string;
     searchBarAriaLabel: string;
     searchValue?: string;
     selectedField?: string;
-    dropdownId: string;
+    dropdownId?: string;
     sectionTitle: JSX.Element;
     textFieldAriaLabel: string;
     hasError?: boolean;

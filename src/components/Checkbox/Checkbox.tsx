@@ -12,7 +12,7 @@ interface CheckboxProps {
     modifiers?: string[];
 
     /** Unique ID used by checkbox */
-    checkboxId: string;
+    checkboxId?: string;
     /* The Label that the checkbox is using. */
     labelOptions: LabelOptions;
 

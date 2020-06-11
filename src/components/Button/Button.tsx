@@ -6,7 +6,7 @@ import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface ButtonOptions {
     content?: JSX.Element;
-    id: string;
+    id?: string;
     callback?: (event: React.MouseEvent | React.KeyboardEvent) => void;
     attributes?: {};
     modifiers?: string[];
@@ -23,7 +23,7 @@ export interface ButtonOptions {
 }
 
 interface ButtonProps {
-    id: string;
+    id?: string;
 
     /** The action to perform on the <button>'s onClick function */
     callback: (event: React.MouseEvent | React.KeyboardEvent) => void;

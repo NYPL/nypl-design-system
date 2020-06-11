@@ -4,7 +4,7 @@ import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 
 export interface FormDropdownProps {
-    dropdownId: string;
+    dropdownId?: string;
     blockName?: string;
     modifiers?: string[];
     labelId?: string;

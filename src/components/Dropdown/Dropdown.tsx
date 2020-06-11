@@ -7,7 +7,7 @@ import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export interface DropdownProps {
-    dropdownId: string;
+    dropdownId?: string;
     blockName?: string;
     modifiers?: string[];
     isRequired: boolean;

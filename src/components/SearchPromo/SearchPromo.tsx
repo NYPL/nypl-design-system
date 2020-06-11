@@ -10,11 +10,11 @@ export interface SearchPromoProps {
     headingText: string;
     modifiers?: [];
     blockName?: string;
-    titleId: string;
-    searchBarId: string;
-    searchButtonId: string;
+    titleId?: string;
+    searchBarId?: string;
+    searchButtonId?: string;
     searchInputAriaLabel: string;
-    dropdownId: string;
+    dropdownId?: string;
     hasError?: boolean;
     errorMessage?: string;
     searchDropdownOptions: string[];

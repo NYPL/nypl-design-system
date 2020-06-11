@@ -16,7 +16,7 @@ export type EditionDetails = {
 };
 
 export interface EditionCardProps {
-    id: string;
+    id?: string;
     blockName?: string;
     modifiers?: string[];
 
