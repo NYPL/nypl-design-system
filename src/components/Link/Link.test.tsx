@@ -41,14 +41,16 @@ describe("Link", () => {
     it("Can pass a link with <a> tag and an icon", () => {
         wrapper = Enzyme.mount(
             <Link linkType={LinkTypes.Action}>
-                <a href="#test">Test</a>
-                <Icon
-                    name="download"
-                    blockName="more-link"
-                    modifiers={["left"]}
-                    decorative={true}
-                    iconRotation={IconRotationTypes.rotate0}
-                ></Icon>
+                <a href="#test2">
+                    <Icon
+                        name="download"
+                        blockName="more-link"
+                        modifiers={["left"]}
+                        decorative={true}
+                        iconRotation={IconRotationTypes.rotate0}
+                    ></Icon>
+                    Test
+                </a>
             </Link>
         );
         expect(wrapper.find("a")).to.have.lengthOf(1);
@@ -86,5 +88,22 @@ describe("Link", () => {
         expect(() => Enzyme.mount(<Link>Test</Link>)).to.throw(
             "Link needs prop 'href'"
         );
+    });
+
+    it("throws an error if more than one child is passed", () => {
+        expect(() =>
+            Enzyme.mount(
+                <Link>
+                    <Icon
+                        name="download"
+                        blockName="more-link"
+                        modifiers={["left"]}
+                        decorative={true}
+                        iconRotation={IconRotationTypes.rotate0}
+                    ></Icon>
+                    <a href="#test">Test</a>
+                </Link>
+            )
+        ).to.throw("Please pass only one child into Link");
     });
 });

@@ -4,6 +4,7 @@ import Button from "./Button";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
+import { IconRotationTypes } from "../Icons/IconTypes";
 
 export default {
     title: "Button",
@@ -129,6 +130,7 @@ export const linkLikeButtonIconLeft = () => (
         type="button"
         buttonType={ButtonTypes.Link}
         iconPosition={ButtonIconPositions.Left}
+        iconRotation={IconRotationTypes.rotate90}
         modifiers={["left"]}
         iconName="arrow_xsmall"
         iconDecorative={true}
