@@ -5,14 +5,14 @@ import { boolean } from "@storybook/addon-knobs";
 export interface UnorderedListOptions {
     content?: JSX.Element[];
 
-    id: string;
+    id?: string;
     modifiers?: any[];
     blockName?: string;
 }
 
 interface UnorderedListProps {
     /** The unique ID of UnorderedList */
-    id: string;
+    id?: string;
 
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: any[];

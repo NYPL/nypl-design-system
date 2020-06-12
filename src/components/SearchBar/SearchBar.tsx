@@ -7,11 +7,11 @@ import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
 import { ButtonOptions } from "../Button/Button";
 
 export interface SearchBarProps {
-    searchBarId: string;
+    searchBarId?: string;
     blockName?: string;
     searchBarAriaLabel?: string;
     searchBarAriaLabelledBy?: string;
-    buttonId: string;
+    buttonId?: string;
     dropdownId?: string;
     dropdownAriaLabel?: string;
     dropdownOptions?: string[];

@@ -4,7 +4,7 @@ import bem from "../../utils/bem";
 
 export interface HeadingProps {
     level: number;
-    id: string;
+    id?: string;
     baseClass?: string;
     modifiers?: string[];
     blockName?: string;

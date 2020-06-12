@@ -7,7 +7,7 @@ import Heading from "../Heading/Heading";
 import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface SectionTitleProps {
-    id: string;
+    id?: string;
     modifiers?: [];
     blockName?: string;
 
