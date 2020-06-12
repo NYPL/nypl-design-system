@@ -16,7 +16,7 @@ export interface TextFieldOptions {
 }
 
 export interface TextFieldProps {
-    id: string;
+    id?: string;
     ariaLabel?: string;
     ariaLabelledBy?: string;
     isRequired?: boolean;

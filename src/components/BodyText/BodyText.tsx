@@ -3,8 +3,6 @@ import ReactDOMServer from "react-dom/server";
 import bem from "../../utils/bem";
 import * as he from "he";
 
-/* AT-43 Body Text */
-
 export interface BodyTextProps {
     warnchar?: number;
     maxchar?: number;

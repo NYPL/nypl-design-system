@@ -32,12 +32,12 @@ interface InputProps {
     blockName?: string;
 
     /** The Label ID for the input */
-    labelId: string;
+    labelId?: string;
     /** The label content for the input */
     labelContent: JSX.Element;
 
     /** The unique ID of the input */
-    inputId: string;
+    inputId?: string;
     /** The HTML inputType */
     inputType?: string;
     /** The current input value */

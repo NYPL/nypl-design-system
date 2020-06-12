@@ -6,7 +6,7 @@ import withOneChild from "../../helpers/hoc/WithOneChild";
 import EditionCard, { EditionDetails } from "../EditionCard/EditionCard";
 
 export interface SearchResultItemProps {
-    id: string;
+    id?: string;
 
     resultIndex: number;
 

@@ -3,15 +3,15 @@ import * as React from "react";
 export interface LabelOptions {
     labelContent?: JSX.Element;
 
-    id: string;
+    id?: string;
     referenceId?: string;
 }
 
 interface LabelProps {
-    id: string;
+    id?: string;
 
     /** The id of the html element that this Label is describing */
-    referenceId: string;
+    referenceId?: string;
 }
 
 /** A Label for form inputs.
