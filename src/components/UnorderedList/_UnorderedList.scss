@@ -1,0 +1,25 @@
+.edition-list {
+    @include list-reset;
+}
+
+.iconlink-list {
+    @include wrapper;
+    @include space-inset-s;
+
+    &__heading {
+        @include space-stack-none;
+    }
+
+    &__list {
+        color: $gray-medium;
+    }
+}
+
+.search-results-list {
+    @include list-reset;
+}
+
+.form-item--radios,
+.form-item--radio__item {
+    @include list-reset;
+}

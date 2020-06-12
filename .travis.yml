@@ -2,12 +2,11 @@ language: node_js
 node_js:
     - "10.16.0"
 install:
-    - npm install lerna -g
-    - npm run install-all
+    - npm install
 script: npm test
 
 before_deploy:
-    - npm run storybook:static
+    - npm run static
 deploy:
     provider: pages
     on:

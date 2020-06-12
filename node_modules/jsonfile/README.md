@@ -44,8 +44,9 @@ jsonfile.readFile(file, function(err, obj) {
 
 ### readFileSync(filename, [options])
 
-`options` (`object`, default `undefined`): Pass in any `fs.readFileSync` options or set `reviver` for a [JSON reviver](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
-- `throws` (`boolean`, default: `true`). If an error is encountered reading or parsing the file, throw the error. If `false`, returns `null` for the object.
+`options` (`object`, default `undefined`): Pass in any `fs.readFileSync` options or set `reviver` for a [JSON reviver](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse). 
+- `throws` (`boolean`, default: `true`). If `JSON.parse` throws an error, throw the error.
+If `false`, returns `null` for the object.
 
 ```js
 var jsonfile = require('jsonfile')
@@ -57,7 +58,7 @@ console.dir(jsonfile.readFileSync(file))
 
 ### writeFile(filename, obj, [options], callback)
 
-`options`: Pass in any `fs.writeFile` options or set `replacer` for a [JSON replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Can also pass in `spaces` and override `EOL` string.
+`options`: Pass in any `fs.writeFile` options or set `replacer` for a [JSON replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Can also pass in `spaces`.
 
 
 ```js
@@ -84,37 +85,10 @@ jsonfile.writeFile(file, obj, {spaces: 2}, function(err) {
 })
 ```
 
-**overriding EOL:**
-
-```js
-var jsonfile = require('jsonfile')
-
-var file = '/tmp/data.json'
-var obj = {name: 'JP'}
-
-jsonfile.writeFile(file, obj, {spaces: 2, EOL: '\r\n'}, function(err) {
-  console.error(err)
-})
-```
-
-**appending to an existing JSON file:**
-
-You can use `fs.writeFile` option `{flag: 'a'}` to achieve this.
-
-```js
-var jsonfile = require('jsonfile')
-
-var file = '/tmp/mayAlreadyExistedData.json'
-var obj = {name: 'JP'}
-
-jsonfile.writeFile(file, obj, {flag: 'a'}, function (err) {
-  console.error(err)
-})
-```
 
 ### writeFileSync(filename, obj, [options])
 
-`options`: Pass in any `fs.writeFileSync` options or set `replacer` for a [JSON replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Can also pass in `spaces` and override `EOL` string.
+`options`: Pass in any `fs.writeFileSync` options or set `replacer` for a [JSON replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Can also pass in `spaces`.
 
 ```js
 var jsonfile = require('jsonfile')
@@ -136,29 +110,49 @@ var obj = {name: 'JP'}
 jsonfile.writeFileSync(file, obj, {spaces: 2})
 ```
 
-**overriding EOL:**
+
+
+### spaces
+
+Global configuration to set spaces to indent JSON files.
+
+**default:** `null`
 
 ```js
 var jsonfile = require('jsonfile')
+
+jsonfile.spaces = 4
 
 var file = '/tmp/data.json'
 var obj = {name: 'JP'}
 
-jsonfile.writeFileSync(file, obj, {spaces: 2, EOL: '\r\n'})
+// json file has four space indenting now
+jsonfile.writeFile(file, obj, function (err) {
+  console.error(err)
+})
 ```
 
-**appending to an existing JSON file:**
+Note, it's bound to `this.spaces`. So, if you do this:
 
-You can use `fs.writeFileSync` option `{flag: 'a'}` to achieve this.
+```js
+var myObj = {}
+myObj.writeJsonSync = jsonfile.writeFileSync
+// => this.spaces = null
+```
+
+Could do the following:
 
 ```js
 var jsonfile = require('jsonfile')
+jsonfile.spaces = 4
+jsonfile.writeFileSync(file, obj) // will have 4 spaces indentation
 
-var file = '/tmp/mayAlreadyExistedData.json'
-var obj = {name: 'JP'}
-
-jsonfile.writeFileSync(file, obj, {flag: 'a'})
+var myCrazyObj = {spaces: 32}
+myCrazyObj.writeJsonSync = jsonfile.writeFileSync
+myCrazyObj.writeJsonSync(file, obj) // will have 32 space indentation
+myCrazyObj.writeJsonSync(file, obj, {spaces: 2}) // will have only 2
 ```
+
 
 License
 -------

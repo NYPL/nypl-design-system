@@ -7,17 +7,24 @@ exports.default = void 0;
 
 /** @typedef {import("ajv").Ajv} Ajv */
 
+/** @typedef {import("ajv").ValidateFunction} ValidateFunction */
+
 /** @typedef {import("../validate").SchemaUtilErrorObject} SchemaUtilErrorObject */
 
 /**
- *
- * @param {string} data
- * @param {object} schema
  * @param {string} message
- * @returns {object} // Todo `returns` should be `SchemaUtilErrorObject`
+ * @param {object} schema
+ * @param {string} data
+ * @returns {SchemaUtilErrorObject}
  */
 function errorMessage(message, schema, data) {
   return {
+    // @ts-ignore
+    // eslint-disable-next-line no-undefined
+    dataPath: undefined,
+    // @ts-ignore
+    // eslint-disable-next-line no-undefined
+    schemaPath: undefined,
     keyword: 'absolutePath',
     params: {
       absolutePath: data
@@ -30,7 +37,7 @@ function errorMessage(message, schema, data) {
  * @param {boolean} shouldBeAbsolute
  * @param {object} schema
  * @param {string} data
- * @returns {object}
+ * @returns {SchemaUtilErrorObject}
  */
 
 
@@ -51,11 +58,8 @@ function addAbsolutePathKeyword(ajv) {
     type: 'string',
 
     compile(schema, parentSchema) {
-      /**
-       * @param {any} data
-       * @returns {boolean}
-       */
-      function callback(data) {
+      /** @type {ValidateFunction} */
+      const callback = data => {
         let passes = true;
         const isExclamationMarkPresent = data.includes('!');
 
@@ -75,9 +79,7 @@ function addAbsolutePathKeyword(ajv) {
         }
 
         return passes;
-      }
-      /** @type {null | Array<SchemaUtilErrorObject>}*/
-
+      };
 
       callback.errors = [];
       return callback;

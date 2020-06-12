@@ -181,6 +181,8 @@
     			error(("Expected closing tag </" + tagName + "> to match opening tag <" + (currentElement.tagName) + ">"));
     		}
 
+    		allowSpaces();
+
     		if (source[i] !== '>') {
     			error('Expected >');
     		}

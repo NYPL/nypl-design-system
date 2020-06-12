@@ -1,0 +1,25 @@
+.input {
+    &__label {
+        @include space-inline-xs;
+
+        display: inline-block;
+        font-weight: 500;
+    }
+
+    &__required-message {
+        @include body-small;
+
+        font-weight: 300;
+    }
+}
+
+.input-row {
+    display: flex;
+    &__form-item {
+        @include space-inline-m;
+
+        :last-child {
+            @include space-inline-none;
+        }
+    }
+}

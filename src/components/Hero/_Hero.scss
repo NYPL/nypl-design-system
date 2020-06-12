@@ -1,0 +1,124 @@
+.hero {
+    background-color: $gray-warm-xlight;
+}
+
+.hero--primary {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    min-height: 350px;
+
+    @include breakpoint($medium) {
+        flex-flow: row nowrap;
+    }
+
+    .hero__content {
+        color: $white;
+        background-color: $black;
+        flex: 0 0 100%;
+        padding: $space-m $space-l;
+
+        a {
+            color: inherit;
+            display: inline-block;
+        }
+
+        @include breakpoint($medium) {
+            flex: 0 0 60%;
+            max-width: 960px;
+        }
+
+        & + .placeholder {
+            margin-left: $space-xl;
+            flex: 0 1 200px;
+        }
+    }
+
+    .hero__heading,
+    .hero__body-text {
+        @include space-stack-none;
+    }
+}
+
+.hero--secondary {
+    @include breakout;
+
+    overflow-x: hidden;
+
+    .hero__content {
+        @include wrapper;
+        display: flex;
+        flex-flow: column nowrap;
+
+        @include breakpoint($medium) {
+            flex-flow: row wrap;
+        }
+
+        .hero__heading {
+            @include space-stack-none;
+            margin-top: 0;
+
+            z-index: 0;
+            position: relative;
+
+            &::before {
+                background-color: $black;
+                content: "";
+                height: 100%;
+                left: -2000px;
+                position: absolute;
+                width: 4000px;
+                z-index: -1;
+            }
+
+            background-color: black;
+            color: white;
+            flex: 1 1 100%;
+            padding-bottom: $space-xxs;
+
+            @include breakpoint($medium) {
+                order: 1;
+            }
+        }
+
+        .hero__body-text {
+            margin-top: $space-xs;
+
+            @include breakpoint($medium) {
+                @include space-inline-xs;
+
+                order: 2;
+                flex: 1 1 50%;
+            }
+        }
+
+        .hero__image {
+            flex: 1 1 100%;
+            height: 150px;
+            object-fit: cover;
+            min-width: 0; // https://github.com/philipwalton/flexbugs/issues/41
+            width: 100%;
+
+            @include breakpoint($medium) {
+                flex: 0 0 250px;
+                order: 3;
+            }
+        }
+    }
+}
+
+.main,
+.sb-show-main {
+    &--research {
+        .hero--secondary {
+            .hero__content {
+                .hero__heading {
+                    &::before {
+                        background-color: $color-research;
+                    }
+                }
+            }
+        }
+    }
+}

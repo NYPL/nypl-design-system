@@ -13,10 +13,14 @@ var _core = require("@babel/core");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _default = (0, _helperPluginUtils.declare)(api => {
+var _default = (0, _helperPluginUtils.declare)((api, opts) => {
   api.assertVersion(7);
   const FLOW_DIRECTIVE = /(@flow(\s+(strict(-local)?|weak))?|@noflow)/;
   let skipStrip = false;
+  const {
+    requireDirective = false,
+    allowDeclareFields = false
+  } = opts;
   return {
     name: "transform-flow-strip-types",
     inherits: _pluginSyntaxFlow.default,
@@ -26,8 +30,7 @@ var _default = (0, _helperPluginUtils.declare)(api => {
           ast: {
             comments
           }
-        },
-        opts
+        }
       }) {
         skipStrip = false;
         let directiveFound = false;
@@ -45,7 +48,7 @@ var _default = (0, _helperPluginUtils.declare)(api => {
           }
         }
 
-        if (!directiveFound && opts.requireDirective) {
+        if (!directiveFound && requireDirective) {
           skipStrip = true;
         }
       },
@@ -75,13 +78,6 @@ var _default = (0, _helperPluginUtils.declare)(api => {
         path.remove();
       },
 
-      ClassProperty(path) {
-        if (skipStrip) return;
-        path.node.variance = null;
-        path.node.typeAnnotation = null;
-        if (!path.node.value) path.remove();
-      },
-
       ClassPrivateProperty(path) {
         if (skipStrip) return;
         path.node.typeAnnotation = null;
@@ -92,8 +88,22 @@ var _default = (0, _helperPluginUtils.declare)(api => {
         path.node.implements = null;
         path.get("body.body").forEach(child => {
           if (child.isClassProperty()) {
-            child.node.typeAnnotation = null;
-            if (!child.node.value) child.remove();
+            const {
+              node
+            } = child;
+
+            if (!allowDeclareFields && node.declare) {
+              throw child.buildCodeFrameError(`The 'declare' modifier is only allowed when the ` + `'allowDeclareFields' option of ` + `@babel/plugin-transform-flow-strip-types or ` + `@babel/preset-flow is enabled.`);
+            }
+
+            if (node.declare) {
+              child.remove();
+            } else if (!allowDeclareFields && !node.value && !node.decorators) {
+              child.remove();
+            } else {
+              node.variance = null;
+              node.typeAnnotation = null;
+            }
           }
         });
       },

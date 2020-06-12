@@ -1,0 +1,35 @@
+@mixin dropdown-base {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.dropdown {
+    @include dropdown-base;
+
+    &__required-message {
+        @include body-small;
+
+        font-weight: 300;
+    }
+
+    &__select-area {
+        width: 100%;
+    }
+
+    &__label {
+        @include space-inline-xs;
+
+        display: inline-block;
+        font-weight: 500;
+    }
+
+    &--label-top {
+        flex-flow: column;
+    }
+
+    &--label-left {
+        width: 100%;
+        flex-flow: row;
+    }
+}

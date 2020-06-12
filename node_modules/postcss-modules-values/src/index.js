@@ -1,8 +1,7 @@
 'use strict';
 
 const postcss = require('postcss');
-const ICSSReplaceSymbols = require('icss-replace-symbols');
-const replaceSymbols = require('icss-replace-symbols');
+const ICSSUtils = require('icss-utils');
 
 const matchImports = /^(.+?|\([\s\S]+?\))\s+from\s+("[^"]*"|'[^']*'|[\w-]+)$/;
 const matchValueDefinition = /(?:\s+|^)([\w-]+):?\s+(.+?)\s*$/g;
@@ -26,7 +25,7 @@ module.exports = postcss.plugin(
       while ((matches = matchValueDefinition.exec(atRule.params))) {
         let [, /*match*/ key, value] = matches;
         // Add to the definitions, knowing that values can refer to each other
-        definitions[key] = replaceSymbols.replaceAll(definitions, value);
+        definitions[key] = ICSSUtils.replaceValueSymbols(value, definitions);
         atRule.remove();
       }
     };
@@ -87,7 +86,7 @@ module.exports = postcss.plugin(
     }
 
     /* Perform replacements */
-    ICSSReplaceSymbols.default(css, definitions);
+    ICSSUtils.replaceSymbols(css, definitions);
 
     /* Add export rules if any */
     if (exportDeclarations.length > 0) {

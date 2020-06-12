@@ -19,7 +19,10 @@ function readFile (file, options, callback) {
   var fs = options.fs || _fs
 
   var shouldThrow = true
-  if ('throws' in options) {
+  // DO NOT USE 'passParsingErrors' THE NAME WILL CHANGE!!!, use 'throws' instead
+  if ('passParsingErrors' in options) {
+    shouldThrow = options.passParsingErrors
+  } else if ('throws' in options) {
     shouldThrow = options.throws
   }
 
@@ -53,13 +56,17 @@ function readFileSync (file, options) {
   var fs = options.fs || _fs
 
   var shouldThrow = true
-  if ('throws' in options) {
+  // DO NOT USE 'passParsingErrors' THE NAME WILL CHANGE!!!, use 'throws' instead
+  if ('passParsingErrors' in options) {
+    shouldThrow = options.passParsingErrors
+  } else if ('throws' in options) {
     shouldThrow = options.throws
   }
 
+  var content = fs.readFileSync(file, options)
+  content = stripBom(content)
+
   try {
-    var content = fs.readFileSync(file, options)
-    content = stripBom(content)
     return JSON.parse(content, options.reviver)
   } catch (err) {
     if (shouldThrow) {
@@ -71,23 +78,6 @@ function readFileSync (file, options) {
   }
 }
 
-function stringify (obj, options) {
-  var spaces
-  var EOL = '\n'
-  if (typeof options === 'object' && options !== null) {
-    if (options.spaces) {
-      spaces = options.spaces
-    }
-    if (options.EOL) {
-      EOL = options.EOL
-    }
-  }
-
-  var str = JSON.stringify(obj, options ? options.replacer : null, spaces)
-
-  return str.replace(/\n/g, EOL) + EOL
-}
-
 function writeFile (file, obj, options, callback) {
   if (callback == null) {
     callback = options
@@ -96,13 +86,16 @@ function writeFile (file, obj, options, callback) {
   options = options || {}
   var fs = options.fs || _fs
 
+  var spaces = typeof options === 'object' && options !== null
+    ? 'spaces' in options
+    ? options.spaces : this.spaces
+    : this.spaces
+
   var str = ''
   try {
-    str = stringify(obj, options)
+    str = JSON.stringify(obj, options ? options.replacer : null, spaces) + '\n'
   } catch (err) {
-    // Need to return whether a callback was passed or not
-    if (callback) callback(err, null)
-    return
+    if (callback) return callback(err, null)
   }
 
   fs.writeFile(file, str, options, callback)
@@ -112,7 +105,12 @@ function writeFileSync (file, obj, options) {
   options = options || {}
   var fs = options.fs || _fs
 
-  var str = stringify(obj, options)
+  var spaces = typeof options === 'object' && options !== null
+    ? 'spaces' in options
+    ? options.spaces : this.spaces
+    : this.spaces
+
+  var str = JSON.stringify(obj, options.replacer, spaces) + '\n'
   // not sure if fs.writeFileSync returns anything, but just in case
   return fs.writeFileSync(file, str, options)
 }
@@ -125,6 +123,7 @@ function stripBom (content) {
 }
 
 var jsonfile = {
+  spaces: null,
   readFile: readFile,
   readFileSync: readFileSync,
   writeFile: writeFile,
