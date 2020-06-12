@@ -25,6 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Moves tests into their corresponding component folders
 -   Flattens component structure to export as one package.
+-   Exports `Icon`
 
 ## [0.3.7]
 

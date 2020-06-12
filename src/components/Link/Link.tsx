@@ -4,6 +4,7 @@ import { uid } from "react-uid";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes } from "../Icons/IconTypes";
+import { element } from "prop-types";
 
 export interface LinkProps {
     /** Controls the link visuals—action, button, or default. */
@@ -25,7 +26,7 @@ export interface LinkProps {
 export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     const {
         href,
-        modifiers,
+        modifiers = [],
         blockName,
         attributes,
         linkType = LinkTypes.Default,
@@ -35,19 +36,9 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
 
     let childProps = {};
 
-    let elementChildren = React.Children.map(
-        linkProps.children,
-        (child: React.ReactElement) => {
-            if (typeof child === "string" && !linkProps.href) {
-                throw new Error("Link needs prop 'href'");
-            } else if (child.type === "a") {
-                childProps = child.props;
-                return child.props.children;
-            } else {
-                return child;
-            }
-        }
-    );
+    if (typeof linkProps.children === "string" && !linkProps.href) {
+        throw new Error("Link needs prop 'href'");
+    }
 
     if (
         linkType === LinkTypes.Action ||
@@ -84,18 +75,31 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     } else if (linkType === LinkTypes.Forwards) {
         iconRight = <Icon {...navigationIconProps} />;
     }
-
-    elementChildren.map((child) => {
-        return React.cloneElement(child, { key: uid(child) });
-    });
-
     let className = bem(link_base_class, modifiers, blockName);
 
-    return React.createElement(
-        "a",
-        { ...linkProps, className, ...childProps },
-        iconLeft,
-        elementChildren,
-        iconRight
-    );
+    if (!linkProps.href) {
+        // React Types error makes this fail:  https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
+        // let children = React.Children.only(linkProps.children);
+        if (React.Children.count(linkProps.children) > 1) {
+            throw new Error("Please pass only one child into Link");
+        }
+        let children = linkProps.children[0]
+            ? linkProps.children[0]
+            : linkProps.children;
+        childProps = children.props;
+
+        return React.cloneElement(
+            children,
+            { className: className, ...linkProps, ...childProps },
+            [children.props.children]
+        );
+    } else {
+        return React.createElement(
+            "a",
+            { ...linkProps, className, ...childProps },
+            iconLeft,
+            linkProps.children,
+            iconRight
+        );
+    }
 }
