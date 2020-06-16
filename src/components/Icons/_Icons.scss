@@ -1,7 +1,8 @@
 @mixin icon {
+    display: inline-block;
+    fill: currentColor;
     height: 24px;
     width: 24px;
-    fill: currentColor;
 
     &--rotate-180 {
         transform: rotate(180deg);
@@ -17,6 +18,14 @@
 
     &--rotate-90 {
         transform: rotate(90deg);
+    }
+
+    &--left {
+        margin-right: $space-xxs;
+    }
+
+    &--right {
+        margin-left: $space-xxs;
     }
 
     &--xlarge {
