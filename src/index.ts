@@ -8,6 +8,7 @@ export {
     ButtonIconPositions,
     ButtonTypes,
 } from "./components/Button/ButtonTypes";
+export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as Container } from "./components/Container/Container";
 export { default as DateRangeForm } from "./components/DateRangeForm/DateRangeForm";
