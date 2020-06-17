@@ -66,7 +66,7 @@ describe("SearchResultItem", () => {
     // let shortHeadingText = "hello";
     // let longHeadingText = `hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello `;
 
-    it("Search Result Item with a Heading Link, Edition Card and Edition Card", () => {
+    it("Search Result Item with a Heading Link and Card", () => {
         let shallow = Enzyme.shallow(EditionInfo(validHeading));
 
         // Need to render since Heading's child is a component.
@@ -74,7 +74,7 @@ describe("SearchResultItem", () => {
 
         expect(heading).to.have.lengthOf(1);
         expect(heading.find("a")).to.have.lengthOf(1);
-        expect(shallow.find("EditionCard")).to.have.lengthOf(1);
+        expect(shallow.find("Card")).to.have.lengthOf(1);
     });
 
     // TODO: Figure out how to do text count between multiple unknown children
