@@ -16,6 +16,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Icon for audiobook
 
+### Changes
+
+-   Buttons from black by default to blue
+
 ## [0.4.1]
 
 ### Changes
