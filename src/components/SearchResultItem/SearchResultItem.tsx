@@ -3,7 +3,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Heading from "../Heading/Heading";
 import withOneChild from "../../helpers/hoc/WithOneChild";
-import EditionCard, { EditionDetails } from "../EditionCard/EditionCard";
+import Card from "../Card/Card";
 
 export interface SearchResultItemProps {
     id?: string;
@@ -63,15 +63,13 @@ export default function SearchResultItem(
             <div className={bem("author", [], baseClass)}>
                 {authorLinkElement}
             </div>
-            <EditionCard
+            <Card
                 id={`card-${resultIndex}`}
-                coverUrl={editionInfo.coverUrl}
-                editionHeadingElement={editionInfo.editionYearHeading}
-                editionInfo={editionInfo.editionInfo}
-                readOnlineLink={editionInfo.readOnlineLink}
-                downloadLink={editionInfo.downloadLink}
-                noLinkElement={editionInfo.noLinkElement}
-            ></EditionCard>
+                heading={editionInfo.editionYearHeading}
+                image={editionInfo.coverUrl}
+                content={editionInfo.editionInfo}
+                ctas={editionInfo.readOnlineLink}
+            ></Card>
             <div className={bem("all-editions", [], baseClass)}>
                 {editionsLinkElement}
             </div>

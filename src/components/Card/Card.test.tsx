@@ -209,7 +209,7 @@ describe("Card", () => {
         expect(card.find(".card__ctas").find("a")).to.have.lengthOf(2);
     });
 
-    it("Generates a card without a CTA block if none are provided", () => {
+    it("Generates a card without a CTA block if one isn't provided", () => {
         let card = Enzyme.mount(cardWithNoCTAs);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(1);
@@ -217,7 +217,7 @@ describe("Card", () => {
         expect(card.find(".card__ctas")).to.have.lengthOf(0);
     });
 
-    it("Generates a card without a content block if none are provided", () => {
+    it("Generates a card without a content block if one isn't provided", () => {
         let card = Enzyme.mount(cardWithNoCTAs);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(1);
