@@ -2,6 +2,10 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
+import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Card from "../Card/Card";
+import Image from "../Image/Image";
 import SearchResultItem from "./SearchResultItem";
 
 describe("SearchResultItem", () => {
@@ -28,17 +32,32 @@ describe("SearchResultItem", () => {
                     </>
                 }
                 authorLinkElement={<a href="blah">bahah</a>}
-                editionInfo={{
-                    editionYearHeading: <a href="blah2">2004 Edition</a>,
-                    coverUrl: "https://placeimg.com/57/81/arch",
-                    editionInfo: [
-                        <>Published in New York by Random House</>,
-                        <>Written in English</>,
-                        <>Under Creative Commons License</>,
-                    ],
-                    readOnlineLink: <a href="#read-online">read</a>,
-                    downloadLink: <a href="#download">download</a>,
-                }}
+                card={
+                    <Card
+                        id="edition-2"
+                        key="edition-2"
+                        extraClassName={["edition-card"]}
+                        image={
+                            <Image
+                                src="https://placeimg.com/400/200/arch"
+                                isDecorative={true}
+                            />
+                        }
+                        content={<div>Middle column content</div>}
+                        ctas={
+                            <Button
+                                callback={function () {
+                                    console.log(this);
+                                }}
+                                id="button1"
+                                buttonType={ButtonTypes.Filled}
+                                type="submit"
+                            >
+                                Example CTA
+                            </Button>
+                        }
+                    />
+                }
                 editionsLinkElement={<a href="blah">bahah</a>}
             />
         );

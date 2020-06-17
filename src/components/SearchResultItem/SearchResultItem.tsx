@@ -19,7 +19,8 @@ export interface SearchResultItemProps {
 
     authorLinkElement: JSX.Element;
 
-    editionInfo: EditionDetails;
+    card: JSX.Element;
+
     editionsLinkElement: JSX.Element;
 }
 /**
@@ -36,7 +37,7 @@ export default function SearchResultItem(
         headingContent,
         subtitleContent,
         authorLinkElement,
-        editionInfo,
+        card,
         editionsLinkElement,
     } = props;
     const baseClass = "search-result-item";
@@ -63,13 +64,7 @@ export default function SearchResultItem(
             <div className={bem("author", [], baseClass)}>
                 {authorLinkElement}
             </div>
-            <Card
-                id={`card-${resultIndex}`}
-                heading={editionInfo.editionYearHeading}
-                image={editionInfo.coverUrl}
-                content={editionInfo.editionInfo}
-                ctas={editionInfo.readOnlineLink}
-            ></Card>
+            {card}
             <div className={bem("all-editions", [], baseClass)}>
                 {editionsLinkElement}
             </div>
