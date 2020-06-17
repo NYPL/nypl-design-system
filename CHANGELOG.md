@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   `EditionCard` is now `Card`
 
+### Adds
+
+-   Icon for audiobook
+
 ## [0.4.1]
 
 ### Changes

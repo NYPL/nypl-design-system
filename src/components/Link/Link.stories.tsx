@@ -42,7 +42,7 @@ export const backwardsLink = () => (
 
 export const actionLinkWithDownloadIcon = () => (
     // To Pass in an icon and its link, make sure that the link tag wraps the icon.
-    <Link linkType={LinkTypes.Action}>
+    <Link linkType={LinkTypes.Action} id="beepbeep">
         <a href="#passed-link">
             <Icon
                 name="download"

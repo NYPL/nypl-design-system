@@ -72,10 +72,26 @@
             justify-content: center;
         }
 
-        &__button {
+        .button {
             @include space-stack-xs;
+        }
 
-            width: 100%;
+        &__download {
+            flex: 1 1 100%;
+            text-align: center;
+        }
+
+        &__missing-links {
+            @include space-inset-s;
+
+            flex: 0 0 auto;
+            width: 200px;
+            background-color: $gray-light;
+
+            @include breakpoint($medium) {
+                align-self: flex-start;
+                margin-left: auto;
+            }
         }
     }
 

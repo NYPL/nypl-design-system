@@ -19,6 +19,7 @@ export default {
 
 export const CardWithFullData = () => (
     <Card
+        id="cardID"
         heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
         image={
             <Image
@@ -26,7 +27,7 @@ export const CardWithFullData = () => (
                 isDecorative={true}
             />
         }
-        content={<div>Required middle column content</div>}
+        content={<div>Middle column content</div>}
         ctas={
             <Button
                 callback={action("clicked")}
@@ -42,8 +43,11 @@ export const CardWithFullData = () => (
 
 export const EditionCard = () => (
     <Card
+        id="card#1"
         extraClassName={["edition-card"]}
-        heading={<Heading level={3} id="heading1" text={"2004 Edition"} />}
+        heading={
+            <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
+        }
         image={
             <Image
                 src="https://placeimg.com/300/400/arch"
@@ -62,14 +66,215 @@ export const EditionCard = () => (
         }
         ctas={
             <div className="edition-card__ctas">
-                <Link
-                    linkType={LinkTypes.Button}
-                    blockName="edition-card"
-                    href="blah"
-                >
+                <Link linkType={LinkTypes.Button} href="blah">
                     Read Online
                 </Link>
-                <div className="edition-card__card-info-link">
+                <div className="edition-card__download">
+                    <Link href="#url" linkType={LinkTypes.Action}>
+                        <Icon
+                            name="download"
+                            blockName="more-link"
+                            decorative={true}
+                            modifiers={["left"]}
+                            iconRotation={IconRotationTypes.rotate0}
+                        ></Icon>
+                        Download
+                    </Link>
+                </div>
+            </div>
+        }
+    ></Card>
+);
+
+export const EditionCardWithOneLink = () => (
+    <Card
+        extraClassName={["edition-card"]}
+        heading={
+            <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
+        }
+        image={
+            <Image
+                src="https://placeimg.com/300/400/arch"
+                isDecorative={true}
+            />
+        }
+        content={
+            <>
+                <div>Published in New York by Random House</div>
+                <div>Written in English</div>
+                <div>
+                    License: Creative Commons
+                    Attribution-NonCommercial-NoDerivatives 4.0 International
+                </div>
+            </>
+        }
+        ctas={
+            <div className="edition-card__ctas">
+                <div className="edition-card__download">
+                    <Link href="#url" linkType={LinkTypes.Action}>
+                        <Icon
+                            name="download"
+                            blockName="more-link"
+                            decorative={true}
+                            modifiers={["left"]}
+                            iconRotation={IconRotationTypes.rotate0}
+                        ></Icon>
+                        Download
+                    </Link>
+                </div>
+            </div>
+        }
+    ></Card>
+);
+
+export const editionCardNoLinks = () => (
+    <Card
+        id="card#1"
+        image={
+            <Image
+                src="https://placeimg.com/300/400/arch"
+                isDecorative={true}
+            />
+        }
+        extraClassName={["edition-card"]}
+        heading={
+            <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
+        }
+        content={
+            <>
+                <div>Published in New York by Random House</div>
+                <div>Written in English</div>
+                <div>Under Creative Commons License</div>
+            </>
+        }
+        ctas={
+            <div className="edition-card__missing-links">
+                Unavailable to read online
+            </div>
+        }
+    ></Card>
+);
+
+export const editionCardWithSomeEditionInfo = () => (
+    <Card
+        id="card#1"
+        extraClassName={["edition-card"]}
+        image={
+            <Image
+                src="https://placeimg.com/300/400/arch"
+                isDecorative={true}
+            />
+        }
+        heading={
+            <Heading
+                level={2}
+                id="editioncardheading1"
+                url="#edition-link"
+                text={"2004 Edition"}
+            />
+        }
+        content={
+            <>
+                <div>Published in New York</div>
+                <div>Under Creative Commons License</div>
+            </>
+        }
+        ctas={
+            <div className="edition-card__ctas">
+                <Link linkType={LinkTypes.Button} href="blah">
+                    Read Online
+                </Link>
+                <div className="edition-card__download">
+                    <Link href="#url" linkType={LinkTypes.Action}>
+                        <Icon
+                            name="download"
+                            blockName="more-link"
+                            decorative={true}
+                            modifiers={["left"]}
+                            iconRotation={IconRotationTypes.rotate0}
+                        ></Icon>
+                        Download
+                    </Link>
+                </div>
+            </div>
+        }
+    ></Card>
+);
+
+export const editionCardWithEmptyEditionInfo = () => (
+    <Card
+        id="card#1"
+        extraClassName={["edition-card"]}
+        image={
+            <Image
+                src="https://placeimg.com/300/400/arch"
+                isDecorative={true}
+            />
+        }
+        heading={
+            <Heading
+                level={2}
+                id="editioncardheading1"
+                url="#edition-link"
+                text={"2004 Edition"}
+            />
+        }
+        ctas={
+            <div className="edition-card__ctas">
+                <Link linkType={LinkTypes.Button} href="blah">
+                    Read Online
+                </Link>
+                <div className="edition-card__download">
+                    <Link href="#url" linkType={LinkTypes.Action}>
+                        <Icon
+                            name="download"
+                            blockName="more-link"
+                            decorative={true}
+                            modifiers={["left"]}
+                            iconRotation={IconRotationTypes.rotate0}
+                        ></Icon>
+                        Download
+                    </Link>
+                </div>
+            </div>
+        }
+    ></Card>
+);
+
+export const editionCardWithAtypicalImageSize = () => (
+    <Card
+        id="card#1"
+        extraClassName={["edition-card"]}
+        image={
+            <Image
+                src="https://placeimg.com/100/800/arch"
+                isDecorative={true}
+            />
+        }
+        heading={
+            <Heading
+                level={2}
+                id="editioncardheading1"
+                url="#edition-link"
+                text={"2004 Edition"}
+            />
+        }
+        content={
+            <>
+                <div>Published in New York by Random House</div>
+                <div>Written in English</div>
+                <div>
+                    License: Creative Commons
+                    Attribution-NonCommercial-NoDerivatives 4.0 International
+                </div>
+            </>
+        }
+        ctas={
+            <div className="edition-card__ctas">
+                <Link linkType={LinkTypes.Button} href="blah">
+                    Read Online
+                </Link>
+                <div className="edition-card__download">
                     <Link href="#url" linkType={LinkTypes.Action}>
                         <Icon
                             name="download"

@@ -2,6 +2,9 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 interface CardProps {
+    /** Uh id  */
+    id?: string;
+
     /** ClassName that appears in addition to "card" */
     extraClassName?: string[];
 
@@ -19,7 +22,7 @@ interface CardProps {
     image?: JSX.Element;
 
     /** Main content within the card */
-    content: JSX.Element;
+    content?: JSX.Element;
 
     /** Calls to Action for the card, such as "download" on a card for a book */
     ctas?: JSX.Element;
@@ -27,6 +30,7 @@ interface CardProps {
 
 export default function Card(props: React.PropsWithChildren<CardProps>) {
     const {
+        id,
         extraClassName,
         heading,
         image,
@@ -38,7 +42,10 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     const baseClass = "card";
 
     return (
-        <div className={bem(baseClass, modifiers, blockName, extraClassName)}>
+        <div
+            className={bem(baseClass, modifiers, blockName, extraClassName)}
+            id={id}
+        >
             {heading && (
                 <div className={bem("heading", modifiers, baseClass)}>
                     {heading}
