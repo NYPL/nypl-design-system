@@ -27,7 +27,7 @@ export const CardWithFullData = () => (
                 isDecorative={true}
             />
         }
-        content={<div>Middle column content</div>}
+        // content={<div>Middle column content</div>}
         ctas={
             <Button
                 callback={action("clicked")}
@@ -38,6 +38,21 @@ export const CardWithFullData = () => (
                 Example CTA
             </Button>
         }
+        footer={<>Optional footer</>}
+    ></Card>
+);
+
+export const CardWithNoCallsToAction = () => (
+    <Card
+        id="cardID"
+        heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
+        image={
+            <Image
+                src="https://placeimg.com/400/200/arch"
+                isDecorative={true}
+            />
+        }
+        content={<div>Middle column content</div>}
     ></Card>
 );
 
@@ -127,7 +142,7 @@ export const EditionCardWithOneLink = () => (
     ></Card>
 );
 
-export const editionCardNoLinks = () => (
+export const editionCardNoLinksWithEmptyState = () => (
     <Card
         id="card#1"
         image={

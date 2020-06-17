@@ -40,6 +40,7 @@ describe("Card", () => {
                     Example CTA
                 </Button>
             }
+            footer={<>Optional footer</>}
         ></Card>
     );
 
@@ -172,6 +173,7 @@ describe("Card", () => {
                     text={"2004 Edition"}
                 />
             }
+            content={<div>Required middle column content</div>}
             ctas={
                 <div className="edition-card__ctas">
                     <Link linkType={LinkTypes.Button} href="blah">
@@ -194,18 +196,19 @@ describe("Card", () => {
         ></Card>
     );
 
-    it("Generates a Card with an optional header, image, middle content, and CTAs", () => {
+    it("Generates a Card with an optional header, footer, image, middle content, and CTAs", () => {
         let card = Enzyme.mount(regularCard);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(1);
         expect(card.find(".card__content")).to.have.lengthOf(1);
         expect(card.find(".card__ctas")).to.have.lengthOf(1);
+        expect(card.find(".card__footer")).to.have.lengthOf(1);
     });
 
     it("Generates a Card with variable data", () => {
         let card = Enzyme.mount(cardWithExtendedStyles);
         expect(card.find("h2")).to.have.lengthOf(1);
-        expect(card.find(".card__content").find("div")).to.have.lengthOf(3);
+        expect(card.find(".card__content").find("div")).to.have.lengthOf(4);
         expect(card.find(".card__ctas").find("a")).to.have.lengthOf(2);
     });
 
@@ -218,7 +221,7 @@ describe("Card", () => {
     });
 
     it("Generates a card without a content block if one isn't provided", () => {
-        let card = Enzyme.mount(cardWithNoCTAs);
+        let card = Enzyme.mount(cardWithNoContent);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(1);
         expect(card.find(".card__content")).to.have.lengthOf(0);
@@ -226,7 +229,7 @@ describe("Card", () => {
     });
 
     it("Generates a card without an image block if no image is provided", () => {
-        let card = Enzyme.mount(cardWithNoCTAs);
+        let card = Enzyme.mount(cardWithNoImage);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(0);
         expect(card.find(".card__content")).to.have.lengthOf(1);

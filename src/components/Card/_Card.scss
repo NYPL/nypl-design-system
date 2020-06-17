@@ -8,7 +8,8 @@
     flex-flow: column wrap;
     padding: $space $space-l;
 
-    &__heading {
+    &__heading,
+    &__footer {
         flex: 100%;
     }
 
@@ -21,6 +22,10 @@
         @include breakpoint($medium) {
             flex-flow: row wrap;
         }
+    }
+
+    &__columns + &__footer {
+        margin-top: $space-xs;
     }
 
     &__image {

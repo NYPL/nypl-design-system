@@ -15,8 +15,10 @@ interface CardProps {
     blockName?: string;
 
     /** Heading that appears within the card but above the three columns within it */
-
     heading?: JSX.Element;
+
+    /** Footer that appears within the card but below the three columns within it */
+    footer?: JSX.Element;
 
     /** First column within the card */
     image?: JSX.Element;
@@ -36,6 +38,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
         image,
         content,
         ctas,
+        footer,
         blockName,
         modifiers = [],
     } = props;
@@ -57,15 +60,22 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
                         {image}
                     </div>
                 )}
-                <div className={bem("content", modifiers, baseClass)}>
-                    {content}
-                </div>
+                {content && (
+                    <div className={bem("content", modifiers, baseClass)}>
+                        {content}
+                    </div>
+                )}
                 {ctas && (
                     <div className={bem("ctas", modifiers, baseClass)}>
                         {ctas}
                     </div>
                 )}
             </div>
+            {footer && (
+                <div className={bem("footer", modifiers, baseClass)}>
+                    {footer}
+                </div>
+            )}
         </div>
     );
 }
