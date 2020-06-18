@@ -1,9 +1,11 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Placeholder from "../Placeholder/Placeholder";
+import { withDesign } from "storybook-addon-designs";
 
 export default {
     title: "Template",
+    decorators: [withDesign],
 };
 
 export const FullWidthTemplate = () => (
@@ -69,6 +71,17 @@ export const LeftSidebarTemplate = () => (
     </div>
 );
 
+LeftSidebarTemplate.story = {
+    name: "Left Sidebar Template",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
+        },
+    },
+};
+
 export const RightSidebarTemplate = () => (
     <div className={bem("layout-container")}>
         <header className={bem("header")}>
@@ -101,3 +114,14 @@ export const RightSidebarTemplate = () => (
         </footer>
     </div>
 );
+
+RightSidebarTemplate.story = {
+    name: "Right Sidebar Template",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16770%3A53427",
+        },
+    },
+};
