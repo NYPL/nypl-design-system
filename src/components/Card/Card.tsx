@@ -6,7 +6,7 @@ interface CardProps {
     id?: string;
 
     /** ClassName that appears in addition to "card" */
-    className?: string[];
+    className?: string;
 
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
@@ -43,7 +43,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
 
     return (
         <div
-            className={bem(baseClass, modifiers, blockName, className)}
+            className={bem(baseClass, modifiers, blockName, [className])}
             id={id}
         >
             {heading && (

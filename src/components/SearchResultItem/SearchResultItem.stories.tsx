@@ -103,7 +103,7 @@ export const searchResultItem = () => (
             <Card
                 id="edition-2"
                 key="edition-2"
-                className={["edition-card"]}
+                className="edition-card"
                 image={cardImage}
                 ctas={cardCTAs}
             >
@@ -132,7 +132,7 @@ export const searchResultItemNoSubtitle = () => (
             <Card
                 id="edition-2"
                 key="edition-2"
-                className={["edition-card"]}
+                className="edition-card"
                 image={cardImage}
                 ctas={cardCTAs}
             >

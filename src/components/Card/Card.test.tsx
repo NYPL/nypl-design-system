@@ -48,7 +48,7 @@ describe("Card", () => {
     let cardWithExtendedStyles = (
         <Card
             id="card#1"
-            className={["edition-card"]}
+            className="edition-card"
             heading={
                 <Heading
                     level={2}
@@ -102,7 +102,7 @@ describe("Card", () => {
                     isDecorative={true}
                 />
             }
-            className={["edition-card"]}
+            className="edition-card"
             heading={
                 <Heading
                     level={2}
@@ -122,7 +122,7 @@ describe("Card", () => {
     let cardWithNoContent = (
         <Card
             id="card#1"
-            className={["edition-card"]}
+            className="edition-card"
             image={
                 <Image
                     src="https://placeimg.com/300/400/arch"
@@ -162,7 +162,7 @@ describe("Card", () => {
     let cardWithNoImage = (
         <Card
             id="card#1"
-            className={["edition-card"]}
+            className="edition-card"
             heading={
                 <Heading
                     level={2}
