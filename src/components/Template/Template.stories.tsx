@@ -24,6 +24,10 @@ export const FullWidthTemplate = () => (
             <div className={"content-primary"}>
                 <Placeholder>Main Content</Placeholder>
             </div>
+
+            <div className="content-bottom">
+                {<Placeholder>Content Bottom</Placeholder>}
+            </div>
         </main>
 
         <footer className={bem("footer")}>
@@ -53,6 +57,9 @@ export const LeftSidebarTemplate = () => (
 
             <div className={bem("content-primary", ["with-sidebar-left"])}>
                 <Placeholder>Main Content</Placeholder>
+                <div className="content-bottom">
+                    {<Placeholder>Content Bottom</Placeholder>}
+                </div>
             </div>
         </main>
 
@@ -79,6 +86,9 @@ export const RightSidebarTemplate = () => (
 
             <div className={bem("content-primary", ["with-sidebar-right"])}>
                 <Placeholder>Main Content</Placeholder>
+                <div className="content-bottom">
+                    {<Placeholder>Content Bottom</Placeholder>}
+                </div>
             </div>
 
             <div className={bem("content-secondary", ["with-sidebar-right"])}>
