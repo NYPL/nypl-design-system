@@ -37,7 +37,7 @@ Changes in the local Design System will now be rebuilt and exported automaticall
 To use the Design System in your project:
 
 1. Install the design system `npm install @nypl/design-system-react-components`
-2. Import the styles in your main css file `@import '~@nypl/design-system-react-components/dist/app.css';`
+2. Import the styles in your main css file `@import '~@nypl/design-system-react-components/dist/styles.css';`
 3. Consult Storybook for the list of available components and props that they require.
 
 Here's an example with `Link`:
