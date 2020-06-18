@@ -11,14 +11,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 -   `EditionCard` is now `Card`
+-   Buttons from black by default to blue
 
 ### Adds
 
 -   Icon for audiobook
-
-### Changes
-
--   Buttons from black by default to blue
 
 ## [0.4.1]
 
