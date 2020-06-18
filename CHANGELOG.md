@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 -   Icon for audiobook
+-   Changes the line-height values on some of the heading mixins
 
 ## [0.4.1]
 
