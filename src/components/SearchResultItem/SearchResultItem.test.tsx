@@ -63,9 +63,6 @@ describe("SearchResultItem", () => {
         );
     };
 
-    // let shortHeadingText = "hello";
-    // let longHeadingText = `hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello `;
-
     it("Search Result Item with a Heading Link and Card", () => {
         let shallow = Enzyme.shallow(EditionInfo(validHeading));
 
@@ -76,9 +73,4 @@ describe("SearchResultItem", () => {
         expect(heading.find("a")).to.have.lengthOf(1);
         expect(shallow.find("Card")).to.have.lengthOf(1);
     });
-
-    // TODO: Figure out how to do text count between multiple unknown children
-    // it("Throws error when Heading Text is too long", () => {
-    //     expect(() => Enzyme.mount(EditionInfo(longHeadingText))).to.throw("Section Title (h2) Text must be fewer than 80 characters");
-    // });
 });
