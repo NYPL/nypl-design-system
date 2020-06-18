@@ -23,9 +23,6 @@ interface CardProps {
     /** First column within the card */
     image?: React.ReactNode;
 
-    /** Main content within the card */
-    content?: React.ReactNode;
-
     /** Calls to Action for the card, such as "download" on a card for a book */
     ctas?: React.ReactNode;
 }
