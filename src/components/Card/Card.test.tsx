@@ -27,7 +27,6 @@ describe("Card", () => {
                     isDecorative={true}
                 />
             }
-            content={<div>Required middle column content</div>}
             ctas={
                 <Button
                     callback={function () {
@@ -41,7 +40,9 @@ describe("Card", () => {
                 </Button>
             }
             footer={<>Optional footer</>}
-        ></Card>
+        >
+            middle column content
+        </Card>
     );
 
     let cardWithExtendedStyles = (
@@ -60,17 +61,6 @@ describe("Card", () => {
                     src="https://placeimg.com/300/400/arch"
                     isDecorative={true}
                 />
-            }
-            content={
-                <>
-                    <div>Published in New York by Random House</div>
-                    <div>Written in English</div>
-                    <div>
-                        License: Creative Commons
-                        Attribution-NonCommercial-NoDerivatives 4.0
-                        International
-                    </div>
-                </>
             }
             ctas={
                 <div className="edition-card__ctas">
@@ -91,7 +81,16 @@ describe("Card", () => {
                     </div>
                 </div>
             }
-        ></Card>
+        >
+            <>
+                <div>Published in New York by Random House</div>
+                <div>Written in English</div>
+                <div>
+                    License: Creative Commons
+                    Attribution-NonCommercial-NoDerivatives 4.0 International
+                </div>
+            </>
+        </Card>
     );
 
     let cardWithNoCTAs = (
@@ -111,14 +110,13 @@ describe("Card", () => {
                     text={"2004 Edition"}
                 />
             }
-            content={
-                <>
-                    <div>Published in New York by Random House</div>
-                    <div>Written in English</div>
-                    <div>Under Creative Commons License</div>
-                </>
-            }
-        ></Card>
+        >
+            <>
+                <div>Published in New York by Random House</div>
+                <div>Written in English</div>
+                <div>Under Creative Commons License</div>
+            </>
+        </Card>
     );
 
     let cardWithNoContent = (
@@ -173,7 +171,6 @@ describe("Card", () => {
                     text={"2004 Edition"}
                 />
             }
-            content={<div>Required middle column content</div>}
             ctas={
                 <div className="edition-card__ctas">
                     <Link linkType={LinkTypes.Button} href="blah">
@@ -193,7 +190,9 @@ describe("Card", () => {
                     </div>
                 </div>
             }
-        ></Card>
+        >
+            middle column content
+        </Card>
     );
 
     it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
