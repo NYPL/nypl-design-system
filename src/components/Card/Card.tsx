@@ -2,11 +2,11 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 interface CardProps {
-    /** Uh id  */
+    /** ID  */
     id?: string;
 
     /** ClassName that appears in addition to "card" */
-    extraClassName?: string[];
+    ClassName?: string[];
 
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
@@ -15,38 +15,39 @@ interface CardProps {
     blockName?: string;
 
     /** Heading that appears within the card but above the three columns within it */
-    heading?: JSX.Element;
+    heading?: React.ReactNode;
 
     /** Footer that appears within the card but below the three columns within it */
-    footer?: JSX.Element;
+    footer?: React.ReactNode;
 
     /** First column within the card */
-    image?: JSX.Element;
+    image?: React.ReactNode;
 
     /** Main content within the card */
-    content?: JSX.Element;
+    content?: React.ReactNode;
 
     /** Calls to Action for the card, such as "download" on a card for a book */
-    ctas?: JSX.Element;
+    ctas?: React.ReactNode;
 }
 
 export default function Card(props: React.PropsWithChildren<CardProps>) {
     const {
         id,
-        extraClassName,
+        ClassName,
         heading,
         image,
         content,
         ctas,
         footer,
         blockName,
+        children,
         modifiers = [],
     } = props;
     const baseClass = "card";
 
     return (
         <div
-            className={bem(baseClass, modifiers, blockName, extraClassName)}
+            className={bem(baseClass, modifiers, blockName, ClassName)}
             id={id}
         >
             {heading && (
@@ -60,9 +61,9 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
                         {image}
                     </div>
                 )}
-                {content && (
+                {children && (
                     <div className={bem("content", modifiers, baseClass)}>
-                        {content}
+                        {children}
                     </div>
                 )}
                 {ctas && (

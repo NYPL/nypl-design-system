@@ -47,7 +47,7 @@ describe("Card", () => {
     let cardWithExtendedStyles = (
         <Card
             id="card#1"
-            extraClassName={["edition-card"]}
+            ClassName={["edition-card"]}
             heading={
                 <Heading
                     level={2}
@@ -103,7 +103,7 @@ describe("Card", () => {
                     isDecorative={true}
                 />
             }
-            extraClassName={["edition-card"]}
+            ClassName={["edition-card"]}
             heading={
                 <Heading
                     level={2}
@@ -124,7 +124,7 @@ describe("Card", () => {
     let cardWithNoContent = (
         <Card
             id="card#1"
-            extraClassName={["edition-card"]}
+            ClassName={["edition-card"]}
             image={
                 <Image
                     src="https://placeimg.com/300/400/arch"
@@ -164,7 +164,7 @@ describe("Card", () => {
     let cardWithNoImage = (
         <Card
             id="card#1"
-            extraClassName={["edition-card"]}
+            ClassName={["edition-card"]}
             heading={
                 <Heading
                     level={2}
@@ -196,7 +196,7 @@ describe("Card", () => {
         ></Card>
     );
 
-    it("Generates a Card with an optional header, footer, image, middle content, and CTAs", () => {
+    it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
         let card = Enzyme.mount(regularCard);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(1);

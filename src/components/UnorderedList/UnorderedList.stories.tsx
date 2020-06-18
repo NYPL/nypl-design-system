@@ -74,27 +74,30 @@ const editions = [
     <Card
         id="edition-1"
         key="edition-1"
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         image={cardImage}
-        content={cardContent}
         ctas={cardCTAs}
-    />,
+    >
+        {cardContent}
+    </Card>,
     <Card
         id="edition-2"
         key="edition-2"
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         image={cardImage}
-        content={cardContent}
         ctas={cardCTAs}
-    />,
+    >
+        {cardContent}
+    </Card>,
     <Card
         id="edition-3"
         key="edition-3"
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         image={cardImage}
-        content={cardContent}
         ctas={cardCTAs}
-    />,
+    >
+        {cardContent}
+    </Card>,
 ];
 
 export const cardList = () => (
@@ -140,7 +143,7 @@ const searchResults = [
         card={
             <Card
                 id="card#1"
-                extraClassName={["edition-card"]}
+                ClassName={["edition-card"]}
                 heading={
                     <Heading
                         level={2}
@@ -153,17 +156,6 @@ const searchResults = [
                         src="https://placeimg.com/300/400/arch"
                         isDecorative={true}
                     />
-                }
-                content={
-                    <>
-                        <div>Published in New York by Random House</div>
-                        <div>Written in English</div>
-                        <div>
-                            License: Creative Commons
-                            Attribution-NonCommercial-NoDerivatives 4.0
-                            International
-                        </div>
-                    </>
                 }
                 ctas={
                     <div className="edition-card__ctas">
@@ -184,7 +176,17 @@ const searchResults = [
                         </div>
                     </div>
                 }
-            ></Card>
+            >
+                <>
+                    <div>Published in New York by Random House</div>
+                    <div>Written in English</div>
+                    <div>
+                        License: Creative Commons
+                        Attribution-NonCommercial-NoDerivatives 4.0
+                        International
+                    </div>
+                </>
+            </Card>
         }
         editionsLinkElement={searchItemData.editionsLinkElement}
     />,
@@ -198,7 +200,7 @@ const searchResults = [
         card={
             <Card
                 id="card#1"
-                extraClassName={["edition-card"]}
+                ClassName={["edition-card"]}
                 heading={
                     <Heading
                         level={2}
@@ -211,17 +213,6 @@ const searchResults = [
                         src="https://placeimg.com/300/400/arch"
                         isDecorative={true}
                     />
-                }
-                content={
-                    <>
-                        <div>Published in New York by Random House</div>
-                        <div>Written in English</div>
-                        <div>
-                            License: Creative Commons
-                            Attribution-NonCommercial-NoDerivatives 4.0
-                            International
-                        </div>
-                    </>
                 }
                 ctas={
                     <div className="edition-card__ctas">
@@ -242,7 +233,17 @@ const searchResults = [
                         </div>
                     </div>
                 }
-            ></Card>
+            >
+                <>
+                    <div>Published in New York by Random House</div>
+                    <div>Written in English</div>
+                    <div>
+                        License: Creative Commons
+                        Attribution-NonCommercial-NoDerivatives 4.0
+                        International
+                    </div>
+                </>
+            </Card>
         }
         editionsLinkElement={searchItemData.editionsLinkElement}
     />,

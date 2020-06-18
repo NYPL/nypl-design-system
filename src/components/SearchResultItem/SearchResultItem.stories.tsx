@@ -103,11 +103,12 @@ export const searchResultItem = () => (
             <Card
                 id="edition-2"
                 key="edition-2"
-                extraClassName={["edition-card"]}
+                ClassName={["edition-card"]}
                 image={cardImage}
-                content={cardContent}
                 ctas={cardCTAs}
-            />
+            >
+                {cardContent}
+            </Card>
         }
         editionsLinkElement={
             <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
@@ -131,11 +132,12 @@ export const searchResultItemNoSubtitle = () => (
             <Card
                 id="edition-2"
                 key="edition-2"
-                extraClassName={["edition-card"]}
+                ClassName={["edition-card"]}
                 image={cardImage}
-                content={cardContent}
                 ctas={cardCTAs}
-            />
+            >
+                {cardContent}
+            </Card>
         }
         editionsLinkElement={
             <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>

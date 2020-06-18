@@ -36,7 +36,7 @@ describe("SearchResultItem", () => {
                     <Card
                         id="edition-2"
                         key="edition-2"
-                        extraClassName={["edition-card"]}
+                        ClassName={["edition-card"]}
                         image={
                             <Image
                                 src="https://placeimg.com/400/200/arch"

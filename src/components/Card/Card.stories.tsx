@@ -17,6 +17,10 @@ export default {
     component: Card,
 };
 
+export const CardWithChildrenOnly = () => (
+    <Card>I'm a card, put whatever you'd like here</Card>
+);
+
 export const CardWithFullData = () => (
     <Card
         id="cardID"
@@ -27,7 +31,6 @@ export const CardWithFullData = () => (
                 isDecorative={true}
             />
         }
-        // content={<div>Middle column content</div>}
         ctas={
             <Button
                 callback={action("clicked")}
@@ -39,7 +42,9 @@ export const CardWithFullData = () => (
             </Button>
         }
         footer={<>Optional footer</>}
-    ></Card>
+    >
+        Middle column content
+    </Card>
 );
 
 export const CardWithNoCallsToAction = () => (
@@ -52,14 +57,15 @@ export const CardWithNoCallsToAction = () => (
                 isDecorative={true}
             />
         }
-        content={<div>Middle column content</div>}
-    ></Card>
+    >
+        Middle column content
+    </Card>
 );
 
 export const EditionCard = () => (
     <Card
         id="card#1"
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         heading={
             <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
         }
@@ -68,16 +74,6 @@ export const EditionCard = () => (
                 src="https://placeimg.com/300/400/arch"
                 isDecorative={true}
             />
-        }
-        content={
-            <>
-                <div>Published in New York by Random House</div>
-                <div>Written in English</div>
-                <div>
-                    License: Creative Commons
-                    Attribution-NonCommercial-NoDerivatives 4.0 International
-                </div>
-            </>
         }
         ctas={
             <div className="edition-card__ctas">
@@ -98,12 +94,21 @@ export const EditionCard = () => (
                 </div>
             </div>
         }
-    ></Card>
+    >
+        <>
+            <div>Published in New York by Random House</div>
+            <div>Written in English</div>
+            <div>
+                License: Creative Commons
+                Attribution-NonCommercial-NoDerivatives 4.0 International
+            </div>
+        </>
+    </Card>
 );
 
 export const EditionCardWithOneLink = () => (
     <Card
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         heading={
             <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
         }
@@ -112,16 +117,6 @@ export const EditionCardWithOneLink = () => (
                 src="https://placeimg.com/300/400/arch"
                 isDecorative={true}
             />
-        }
-        content={
-            <>
-                <div>Published in New York by Random House</div>
-                <div>Written in English</div>
-                <div>
-                    License: Creative Commons
-                    Attribution-NonCommercial-NoDerivatives 4.0 International
-                </div>
-            </>
         }
         ctas={
             <div className="edition-card__ctas">
@@ -139,7 +134,16 @@ export const EditionCardWithOneLink = () => (
                 </div>
             </div>
         }
-    ></Card>
+    >
+        <>
+            <div>Published in New York by Random House</div>
+            <div>Written in English</div>
+            <div>
+                License: Creative Commons
+                Attribution-NonCommercial-NoDerivatives 4.0 International
+            </div>
+        </>
+    </Card>
 );
 
 export const editionCardNoLinksWithEmptyState = () => (
@@ -151,29 +155,28 @@ export const editionCardNoLinksWithEmptyState = () => (
                 isDecorative={true}
             />
         }
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         heading={
             <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
-        }
-        content={
-            <>
-                <div>Published in New York by Random House</div>
-                <div>Written in English</div>
-                <div>Under Creative Commons License</div>
-            </>
         }
         ctas={
             <div className="edition-card__missing-links">
                 Unavailable to read online
             </div>
         }
-    ></Card>
+    >
+        <>
+            <div>Published in New York by Random House</div>
+            <div>Written in English</div>
+            <div>Under Creative Commons License</div>
+        </>
+    </Card>
 );
 
 export const editionCardWithSomeEditionInfo = () => (
     <Card
         id="card#1"
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         image={
             <Image
                 src="https://placeimg.com/300/400/arch"
@@ -188,12 +191,6 @@ export const editionCardWithSomeEditionInfo = () => (
                 text={"2004 Edition"}
             />
         }
-        content={
-            <>
-                <div>Published in New York</div>
-                <div>Under Creative Commons License</div>
-            </>
-        }
         ctas={
             <div className="edition-card__ctas">
                 <Link linkType={LinkTypes.Button} href="blah">
@@ -213,13 +210,18 @@ export const editionCardWithSomeEditionInfo = () => (
                 </div>
             </div>
         }
-    ></Card>
+    >
+        <>
+            <div>Published in New York</div>
+            <div>Under Creative Commons License</div>
+        </>
+    </Card>
 );
 
 export const editionCardWithEmptyEditionInfo = () => (
     <Card
         id="card#1"
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         image={
             <Image
                 src="https://placeimg.com/300/400/arch"
@@ -259,7 +261,7 @@ export const editionCardWithEmptyEditionInfo = () => (
 export const editionCardWithAtypicalImageSize = () => (
     <Card
         id="card#1"
-        extraClassName={["edition-card"]}
+        ClassName={["edition-card"]}
         image={
             <Image
                 src="https://placeimg.com/100/800/arch"
@@ -273,16 +275,6 @@ export const editionCardWithAtypicalImageSize = () => (
                 url="#edition-link"
                 text={"2004 Edition"}
             />
-        }
-        content={
-            <>
-                <div>Published in New York by Random House</div>
-                <div>Written in English</div>
-                <div>
-                    License: Creative Commons
-                    Attribution-NonCommercial-NoDerivatives 4.0 International
-                </div>
-            </>
         }
         ctas={
             <div className="edition-card__ctas">
@@ -303,48 +295,26 @@ export const editionCardWithAtypicalImageSize = () => (
                 </div>
             </div>
         }
-    ></Card>
+    >
+        <>
+            <div>Published in New York by Random House</div>
+            <div>Written in English</div>
+            <div>
+                License: Creative Commons
+                Attribution-NonCommercial-NoDerivatives 4.0 International
+            </div>
+        </>
+    </Card>
 );
 
 export const CirculationPatronWebCard = () => (
     <Card
-        extraClassName={["lyrasis-card"]}
+        ClassName={["lyrasis-card"]}
         image={
             <Image
                 src="https://placeimg.com/300/400/arch"
                 isDecorative={true}
             />
-        }
-        content={
-            <>
-                <Heading
-                    level={2}
-                    id="heading1"
-                    text={"The Year of Magical Thinking"}
-                />
-                <div className="book__callout">
-                    A portrait of loss and grief
-                </div>
-                <div>
-                    By <Link href="#joan-didion">Joan Didion</Link>,{" "}
-                    <Link href="#another-author">Another Author</Link>,{" "}
-                    <Link href="#third-author">Third Author</Link>
-                </div>
-                <div className="book__filetype">
-                    <Icon
-                        name="headset"
-                        decorative={true}
-                        modifiers={["left", "small"]}
-                        iconRotation={IconRotationTypes.rotate0}
-                    ></Icon>
-                    Audiobook
-                </div>
-                <div className="book__description">
-                    'An act of consummate literary bravery, a writer known for
-                    her clarity allowing us to watch her mind as it becomes
-                    clouded... <Link href="#">Read More</Link>
-                </div>
-            </>
         }
         ctas={
             <>
@@ -359,5 +329,33 @@ export const CirculationPatronWebCard = () => (
                 </Link>
             </>
         }
-    ></Card>
+    >
+        <>
+            <Heading
+                level={2}
+                id="heading1"
+                text={"The Year of Magical Thinking"}
+            />
+            <div className="book__callout">A portrait of loss and grief</div>
+            <div>
+                By <Link href="#joan-didion">Joan Didion</Link>,{" "}
+                <Link href="#another-author">Another Author</Link>,{" "}
+                <Link href="#third-author">Third Author</Link>
+            </div>
+            <div className="book__filetype">
+                <Icon
+                    name="headset"
+                    decorative={true}
+                    modifiers={["left", "small"]}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
+                Audiobook
+            </div>
+            <div className="book__description">
+                'An act of consummate literary bravery, a writer known for her
+                clarity allowing us to watch her mind as it becomes clouded...{" "}
+                <Link href="#">Read More</Link>
+            </div>
+        </>
+    </Card>
 );
