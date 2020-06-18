@@ -65,7 +65,7 @@ export const CardWithNoCallsToAction = () => (
 export const EditionCard = () => (
     <Card
         id="card#1"
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         heading={
             <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
         }
@@ -108,7 +108,7 @@ export const EditionCard = () => (
 
 export const EditionCardWithOneLink = () => (
     <Card
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         heading={
             <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
         }
@@ -155,7 +155,7 @@ export const editionCardNoLinksWithEmptyState = () => (
                 isDecorative={true}
             />
         }
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         heading={
             <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
         }
@@ -176,7 +176,7 @@ export const editionCardNoLinksWithEmptyState = () => (
 export const editionCardWithSomeEditionInfo = () => (
     <Card
         id="card#1"
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         image={
             <Image
                 src="https://placeimg.com/300/400/arch"
@@ -221,7 +221,7 @@ export const editionCardWithSomeEditionInfo = () => (
 export const editionCardWithEmptyEditionInfo = () => (
     <Card
         id="card#1"
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         image={
             <Image
                 src="https://placeimg.com/300/400/arch"
@@ -261,7 +261,7 @@ export const editionCardWithEmptyEditionInfo = () => (
 export const editionCardWithAtypicalImageSize = () => (
     <Card
         id="card#1"
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         image={
             <Image
                 src="https://placeimg.com/100/800/arch"
@@ -309,7 +309,7 @@ export const editionCardWithAtypicalImageSize = () => (
 
 export const CirculationPatronWebCard = () => (
     <Card
-        ClassName={["lyrasis-card"]}
+        className={["lyrasis-card"]}
         image={
             <Image
                 src="https://placeimg.com/300/400/arch"

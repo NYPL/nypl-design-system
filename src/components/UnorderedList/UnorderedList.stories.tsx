@@ -74,7 +74,7 @@ const editions = [
     <Card
         id="edition-1"
         key="edition-1"
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         image={cardImage}
         ctas={cardCTAs}
     >
@@ -83,7 +83,7 @@ const editions = [
     <Card
         id="edition-2"
         key="edition-2"
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         image={cardImage}
         ctas={cardCTAs}
     >
@@ -92,7 +92,7 @@ const editions = [
     <Card
         id="edition-3"
         key="edition-3"
-        ClassName={["edition-card"]}
+        className={["edition-card"]}
         image={cardImage}
         ctas={cardCTAs}
     >
@@ -143,7 +143,7 @@ const searchResults = [
         card={
             <Card
                 id="card#1"
-                ClassName={["edition-card"]}
+                className={["edition-card"]}
                 heading={
                     <Heading
                         level={2}
@@ -200,7 +200,7 @@ const searchResults = [
         card={
             <Card
                 id="card#1"
-                ClassName={["edition-card"]}
+                className={["edition-card"]}
                 heading={
                     <Heading
                         level={2}

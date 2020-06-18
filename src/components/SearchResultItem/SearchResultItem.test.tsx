@@ -36,14 +36,13 @@ describe("SearchResultItem", () => {
                     <Card
                         id="edition-2"
                         key="edition-2"
-                        ClassName={["edition-card"]}
+                        className={["edition-card"]}
                         image={
                             <Image
                                 src="https://placeimg.com/400/200/arch"
                                 isDecorative={true}
                             />
                         }
-                        content={<div>Middle column content</div>}
                         ctas={
                             <Button
                                 callback={function () {
@@ -56,7 +55,9 @@ describe("SearchResultItem", () => {
                                 Example CTA
                             </Button>
                         }
-                    />
+                    >
+                        Middle column content
+                    </Card>
                 }
                 editionsLinkElement={<a href="blah">bahah</a>}
             />
