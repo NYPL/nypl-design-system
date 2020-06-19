@@ -18,12 +18,15 @@ export const researchNowSearchHeader = () => (
         searchButtonId="searchButtonId"
         searchBarAriaLabel="Search research catalog"
         sectionTitle={
-            <Heading level={3} url={"researchNow-home-url"}>
+            <Heading
+                level={1}
+                url={"researchNow-home-url"}
+                urlClass="researchnow__heading"
+                blockName="search-header"
+            >
                 <>
                     Research
-                    <span className={bem("emphasis", [], "rn-section-title")}>
-                        Now
-                    </span>
+                    <span style={{ fontWeight: "bold" }}>Now</span>
                 </>
             </Heading>
         }
