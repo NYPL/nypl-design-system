@@ -4,6 +4,7 @@ import * as React from "react";
 import RNHeaderWithSearch from "./RNHeaderWithSearch";
 import { action } from "@storybook/addon-actions";
 import Link from "../Link/Link";
+import Heading from "../Heading/Heading";
 
 import bem from "../../utils/bem";
 
@@ -17,21 +18,17 @@ export const researchNowSearchHeader = () => (
         searchButtonId="searchButtonId"
         searchBarAriaLabel="Search research catalog"
         sectionTitle={
-            <a
-                className={`${bem(
-                    "rn-section-title",
-                    ["dark-background"],
-                    "search-header"
-                )} rn-section-title`}
-                href={"researchNow-home-url"}
+            <Heading
+                level={1}
+                url={"researchNow-home-url"}
+                urlClass="researchnow__heading"
+                blockName="search-header"
             >
-                <span id={"research-now-title"}>
+                <>
                     Research
-                    <span className={bem("emphasis", [], "rn-section-title")}>
-                        Now
-                    </span>
-                </span>
-            </a>
+                    <span style={{ fontWeight: "bold" }}>Now</span>
+                </>
+            </Heading>
         }
         advancedSearchElem={
             <Link href={"advanced-search-link"}>Advanced Search</Link>
