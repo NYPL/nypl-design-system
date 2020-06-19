@@ -2,6 +2,10 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
+import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Card from "../Card/Card";
+import Image from "../Image/Image";
 import SearchResultItem from "./SearchResultItem";
 
 describe("SearchResultItem", () => {
@@ -28,26 +32,39 @@ describe("SearchResultItem", () => {
                     </>
                 }
                 authorLinkElement={<a href="blah">bahah</a>}
-                editionInfo={{
-                    editionYearHeading: <a href="blah2">2004 Edition</a>,
-                    coverUrl: "https://placeimg.com/57/81/arch",
-                    editionInfo: [
-                        <>Published in New York by Random House</>,
-                        <>Written in English</>,
-                        <>Under Creative Commons License</>,
-                    ],
-                    readOnlineLink: <a href="#read-online">read</a>,
-                    downloadLink: <a href="#download">download</a>,
-                }}
+                card={
+                    <Card
+                        id="edition-2"
+                        key="edition-2"
+                        className="edition-card"
+                        image={
+                            <Image
+                                src="https://placeimg.com/400/200/arch"
+                                isDecorative={true}
+                            />
+                        }
+                        ctas={
+                            <Button
+                                callback={function () {
+                                    console.log(this);
+                                }}
+                                id="button1"
+                                buttonType={ButtonTypes.Filled}
+                                type="submit"
+                            >
+                                Example CTA
+                            </Button>
+                        }
+                    >
+                        Middle column content
+                    </Card>
+                }
                 editionsLinkElement={<a href="blah">bahah</a>}
             />
         );
     };
 
-    // let shortHeadingText = "hello";
-    // let longHeadingText = `hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello `;
-
-    it("Search Result Item with a Heading Link, Edition Card and Edition Card", () => {
+    it("Search Result Item with a Heading Link and Card", () => {
         let shallow = Enzyme.shallow(EditionInfo(validHeading));
 
         // Need to render since Heading's child is a component.
@@ -55,11 +72,6 @@ describe("SearchResultItem", () => {
 
         expect(heading).to.have.lengthOf(1);
         expect(heading.find("a")).to.have.lengthOf(1);
-        expect(shallow.find("EditionCard")).to.have.lengthOf(1);
+        expect(shallow.find("Card")).to.have.lengthOf(1);
     });
-
-    // TODO: Figure out how to do text count between multiple unknown children
-    // it("Throws error when Heading Text is too long", () => {
-    //     expect(() => Enzyme.mount(EditionInfo(longHeadingText))).to.throw("Section Title (h2) Text must be fewer than 80 characters");
-    // });
 });

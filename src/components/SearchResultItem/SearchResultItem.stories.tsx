@@ -2,7 +2,9 @@ import * as React from "react";
 
 import SearchResultItem from "./SearchResultItem";
 import Link from "../Link/Link";
+import Card from "../Card/Card";
 import { LinkTypes } from "../Link/LinkTypes";
+import Image from "../Image/Image";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes } from "../Icons/IconTypes";
 
@@ -12,6 +14,41 @@ export default {
     title: "Search Result Item",
     component: SearchResultItem,
 };
+
+let cardImage = (
+    <Image src="https://placeimg.com/400/200/arch" isDecorative={true} />
+);
+
+let cardContent = (
+    <>
+        <div>Published in New York by Random House</div>
+        <div>Written in English</div>
+        <div>
+            License: Creative Commons Attribution-NonCommercial-NoDerivatives
+            4.0 International
+        </div>
+    </>
+);
+
+let cardCTAs = (
+    <div className="edition-card__ctas">
+        <Link linkType={LinkTypes.Button} href="blah">
+            Read Online
+        </Link>
+        <div className="edition-card__download">
+            <Link href="#url" linkType={LinkTypes.Action}>
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    decorative={true}
+                    modifiers={["left"]}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
+                Download
+            </Link>
+        </div>
+    </div>
+);
 
 let exampleEditionInfo = {
     editionYearHeading: (
@@ -62,7 +99,17 @@ export const searchResultItem = () => (
             </>
         }
         authorLinkElement={<Link href={"author-url"}>First Last</Link>}
-        editionInfo={exampleEditionInfo}
+        card={
+            <Card
+                id="edition-2"
+                key="edition-2"
+                className="edition-card"
+                image={cardImage}
+                ctas={cardCTAs}
+            >
+                {cardContent}
+            </Card>
+        }
         editionsLinkElement={
             <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
         }
@@ -81,7 +128,17 @@ export const searchResultItemNoSubtitle = () => (
         }
         subtitleContent={<></>}
         authorLinkElement={<Link href={"author-url"}>First Last</Link>}
-        editionInfo={exampleEditionInfo}
+        card={
+            <Card
+                id="edition-2"
+                key="edition-2"
+                className="edition-card"
+                image={cardImage}
+                ctas={cardCTAs}
+            >
+                {cardContent}
+            </Card>
+        }
         editionsLinkElement={
             <Link href={"#allEditionsUrl"}>{`View All 7 editions`}</Link>
         }
