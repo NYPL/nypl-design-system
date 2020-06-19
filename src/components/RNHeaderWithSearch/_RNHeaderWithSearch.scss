@@ -21,7 +21,7 @@ $search-header--breakpoint: 1076px;
         }
     }
 
-    &__rn-section-title {
+    &__heading {
         @include space-stack-none;
         @include space-inline-s;
 
@@ -51,4 +51,15 @@ $search-header--breakpoint: 1076px;
             align-self: flex-end;
         }
     }
+}
+
+// Stories-only CSS
+.researchnow__heading {
+    @include space-stack-none;
+    @include space-inline-s;
+    @include link;
+
+    text-decoration: none;
+    color: white;
+    align-self: center;
 }
