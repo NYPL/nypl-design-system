@@ -32,7 +32,7 @@ describe("HeaderWithSearch", () => {
                 selectBlurHandler={blurCallback}
             />
         );
-        expect(wrapper.find("RNSectionTitle")).to.have.lengthOf(1);
+        expect(wrapper.find(".search-header__heading")).to.have.lengthOf(1);
         expect(wrapper.find("SearchBar")).to.have.lengthOf(1);
     });
 });
