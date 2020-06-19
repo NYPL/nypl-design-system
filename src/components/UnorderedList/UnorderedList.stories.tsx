@@ -2,12 +2,11 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 import UnorderedList from "./UnorderedList";
+import Image from "../Image/Image";
+import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes } from "../Icons/IconTypes";
-import EditionCard, {
-    EditionDetails,
-    EditionCardProps,
-} from "../EditionCard/EditionCard";
+import Card from "../Card/Card";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
 import Checkbox from "../Checkbox/Checkbox";
 import { action } from "@storybook/addon-actions";
@@ -30,36 +29,21 @@ export const iconLinkList = () => (
     </UnorderedList>
 );
 
-let editionData: EditionDetails = {
-    editionYearHeading: (
-        <a href="edition-link2" className={bem("link", [], "heading")}>
-            2004 Edition
-        </a>
-    ),
-    coverUrl: "https://placeimg.com/57/81/arch",
-    editionInfo: [
-        <>Published in New York by Random House</>,
-        <>Written in English</>,
-        <>Under Creative Commons License</>,
-    ],
-    readOnlineLink: (
-        <Link blockName="edition-card" linkType={LinkTypes.Button} href="blah">
-            Read Online
-        </Link>
-    ),
-    downloadLink: (
-        <Link href="#blah" linkType={LinkTypes.Action}>
-            <Icon
-                name="download"
-                blockName="more-link"
-                modifiers={["left"]}
-                decorative={true}
-                iconRotation={IconRotationTypes.rotate0}
-            ></Icon>
-            Download
-        </Link>
-    ),
-};
+let cardImage = (
+    <Image src="https://placeimg.com/400/200/arch" isDecorative={true} />
+);
+
+let cardContent = (
+    <>
+        <div>Example content</div>
+    </>
+);
+
+let cardCTAs = (
+    <Link linkType={LinkTypes.Button} href="blah">
+        Example CTA
+    </Link>
+);
 
 const checkboxes = [
     <Checkbox
@@ -81,41 +65,42 @@ const checkboxes = [
         labelOptions={{ id: "checkbox-3-label", labelContent: <>Checkbox 3</> }}
     ></Checkbox>,
 ];
+
 export const checkboxList = () => (
     <UnorderedList id="checkbox-list">{checkboxes}</UnorderedList>
 );
 
 const editions = [
-    <EditionCard
+    <Card
         id="edition-1"
         key="edition-1"
-        coverUrl={editionData.coverUrl}
-        editionHeadingElement={editionData.editionYearHeading}
-        editionInfo={editionData.editionInfo}
-        readOnlineLink={editionData.readOnlineLink}
-        downloadLink={editionData.downloadLink}
-    />,
-    <EditionCard
+        className="edition-card"
+        image={cardImage}
+        ctas={cardCTAs}
+    >
+        {cardContent}
+    </Card>,
+    <Card
         id="edition-2"
         key="edition-2"
-        coverUrl={editionData.coverUrl}
-        editionHeadingElement={editionData.editionYearHeading}
-        editionInfo={editionData.editionInfo}
-        readOnlineLink={editionData.readOnlineLink}
-        downloadLink={editionData.downloadLink}
-    />,
-    <EditionCard
+        className="edition-card"
+        image={cardImage}
+        ctas={cardCTAs}
+    >
+        {cardContent}
+    </Card>,
+    <Card
         id="edition-3"
         key="edition-3"
-        coverUrl={editionData.coverUrl}
-        editionHeadingElement={editionData.editionYearHeading}
-        editionInfo={editionData.editionInfo}
-        readOnlineLink={editionData.readOnlineLink}
-        downloadLink={editionData.downloadLink}
-    />,
+        className="edition-card"
+        image={cardImage}
+        ctas={cardCTAs}
+    >
+        {cardContent}
+    </Card>,
 ];
 
-export const editionsList = () => (
+export const cardList = () => (
     <UnorderedList id="editions-list">{editions}</UnorderedList>
 );
 
@@ -135,38 +120,11 @@ let searchItemData = {
     ),
     editionInfo: {
         editionYearHeading: (
-            <a href="edition-link" className={bem("link", [], "heading")}>
-                2004 Edition
-            </a>
+            <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
         ),
-        publisherAndLocation: "Published in New York by Random House",
-        coverUrl: "https://placeimg.com/57/81/arch",
-        editionInfo: [
-            <>Published in New York by Random House</>,
-            <>Written in English</>,
-            <>Under Creative Commons License</>,
-        ],
-        readOnlineLink: (
-            <Link
-                blockName="edition-card"
-                linkType={LinkTypes.Button}
-                href="blah"
-            >
-                Read Online
-            </Link>
-        ),
-        downloadLink: (
-            <Link href="#blah4" linkType={LinkTypes.Action}>
-                <Icon
-                    name="download"
-                    blockName="more-link"
-                    modifiers={["left"]}
-                    decorative={true}
-                    iconRotation={IconRotationTypes.rotate0}
-                ></Icon>
-                Download
-            </Link>
-        ),
+        coverUrl: cardImage,
+        editionInfo: cardContent,
+        readOnlineLink: cardCTAs,
     },
     authorElement: <Link href={"author-url"}>First Last</Link>,
     editionsLinkElement: (
@@ -182,7 +140,54 @@ const searchResults = [
         headingContent={searchItemData.titleElement}
         subtitleContent={searchItemData.subtitle}
         authorLinkElement={searchItemData.authorElement}
-        editionInfo={searchItemData.editionInfo}
+        card={
+            <Card
+                id="card#1"
+                className="edition-card"
+                heading={
+                    <Heading
+                        level={2}
+                        id="editioncardheading1"
+                        text={"2004 Edition"}
+                    />
+                }
+                image={
+                    <Image
+                        src="https://placeimg.com/300/400/arch"
+                        isDecorative={true}
+                    />
+                }
+                ctas={
+                    <div className="edition-card__ctas">
+                        <Link linkType={LinkTypes.Button} href="blah">
+                            Read Online
+                        </Link>
+                        <div className="edition-card__download">
+                            <Link href="#url" linkType={LinkTypes.Action}>
+                                <Icon
+                                    name="download"
+                                    blockName="more-link"
+                                    decorative={true}
+                                    modifiers={["left"]}
+                                    iconRotation={IconRotationTypes.rotate0}
+                                ></Icon>
+                                Download
+                            </Link>
+                        </div>
+                    </div>
+                }
+            >
+                <>
+                    <div>Published in New York by Random House</div>
+                    <div>Written in English</div>
+                    <div>
+                        License: Creative Commons
+                        Attribution-NonCommercial-NoDerivatives 4.0
+                        International
+                    </div>
+                </>
+            </Card>
+        }
         editionsLinkElement={searchItemData.editionsLinkElement}
     />,
     <SearchResultItem
@@ -192,12 +197,59 @@ const searchResults = [
         headingContent={searchItemData.titleElement}
         subtitleContent={searchItemData.subtitle}
         authorLinkElement={searchItemData.authorElement}
-        editionInfo={searchItemData.editionInfo}
+        card={
+            <Card
+                id="card#1"
+                className="edition-card"
+                heading={
+                    <Heading
+                        level={2}
+                        id="editioncardheading1"
+                        text={"2004 Edition"}
+                    />
+                }
+                image={
+                    <Image
+                        src="https://placeimg.com/300/400/arch"
+                        isDecorative={true}
+                    />
+                }
+                ctas={
+                    <div className="edition-card__ctas">
+                        <Link linkType={LinkTypes.Button} href="blah">
+                            Read Online
+                        </Link>
+                        <div className="edition-card__download">
+                            <Link href="#url" linkType={LinkTypes.Action}>
+                                <Icon
+                                    name="download"
+                                    blockName="more-link"
+                                    decorative={true}
+                                    modifiers={["left"]}
+                                    iconRotation={IconRotationTypes.rotate0}
+                                ></Icon>
+                                Download
+                            </Link>
+                        </div>
+                    </div>
+                }
+            >
+                <>
+                    <div>Published in New York by Random House</div>
+                    <div>Written in English</div>
+                    <div>
+                        License: Creative Commons
+                        Attribution-NonCommercial-NoDerivatives 4.0
+                        International
+                    </div>
+                </>
+            </Card>
+        }
         editionsLinkElement={searchItemData.editionsLinkElement}
     />,
 ];
 
-export const searchResultsList = () => (
+export const searchResultsListWithEditionCards = () => (
     <UnorderedList id="search-results-list">{searchResults}</UnorderedList>
 );
 

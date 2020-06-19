@@ -77,7 +77,7 @@
 }
 
 @mixin heading-xs($color: inherit) {
-    @include type-scale(1);
+    @include type-scale(1p5);
 
     color: #{$color};
     font-weight: 400;

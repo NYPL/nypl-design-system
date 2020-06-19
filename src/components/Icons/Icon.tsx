@@ -6,6 +6,7 @@ import { IconRotationTypes } from "./IconTypes";
 import arrow_xsmall from "../../../icons/svg/arrow-xsmall.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import download from "../../../icons/svg/download.svg";
+import headset from "../../../icons/svg/headset.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
 import search_small from "../../../icons/svg/search-small.svg";
@@ -15,6 +16,7 @@ const allSvgs = {
     arrow_xsmall,
     arrow,
     download,
+    headset,
     minus,
     plus,
     search_small,

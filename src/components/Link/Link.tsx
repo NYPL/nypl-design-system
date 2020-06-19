@@ -13,6 +13,9 @@ export interface LinkProps {
     /** Href attribute */
     href?: string;
 
+    /** ID */
+    id?: string;
+
     /** BEM specifiers */
     modifiers?: string[];
 
@@ -25,6 +28,7 @@ export interface LinkProps {
 
 export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     const {
+        id,
         href,
         modifiers = [],
         blockName,
