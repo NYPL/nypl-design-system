@@ -4,7 +4,6 @@ import * as React from "react";
 import RNHeaderWithSearch from "./RNHeaderWithSearch";
 import { action } from "@storybook/addon-actions";
 import Link from "../Link/Link";
-import Heading from "../Heading/Heading";
 
 import bem from "../../utils/bem";
 
