@@ -21,13 +21,17 @@ $search-header--breakpoint: 1076px;
         }
     }
 
-    &__rn-section-title {
+    &__heading {
         @include space-stack-none;
         @include space-inline-s;
 
         @include link;
 
         flex: 1 1;
+
+        a {
+            color: white;
+        }
     }
 
     &__search-bar {
