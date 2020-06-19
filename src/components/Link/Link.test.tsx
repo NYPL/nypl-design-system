@@ -6,6 +6,10 @@ import * as Mocha from "mocha";
 
 import Link from "./Link";
 import { LinkTypes } from "./LinkTypes";
+import {
+    BrowserRouter as Router,
+    Link as ReactRouterLink,
+} from "react-router-dom";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes } from "../Icons/IconTypes";
 
@@ -81,6 +85,26 @@ describe("Link", () => {
 
     it("Can pass in text as child and url as props", () => {
         wrapper = Enzyme.mount(<Link href="#test">Test</Link>);
+        expect(wrapper.find("a")).to.have.lengthOf(1);
+    });
+
+    it("Can pass in a ReactRouter Link", () => {
+        wrapper = Enzyme.mount(
+            <Router>
+                <Link linkType={LinkTypes.Action}>
+                    <ReactRouterLink to="#">
+                        <Icon
+                            name="download"
+                            blockName="more-link"
+                            modifiers={["left"]}
+                            decorative={true}
+                            iconRotation={IconRotationTypes.rotate0}
+                        ></Icon>
+                        Download
+                    </ReactRouterLink>
+                </Link>
+            </Router>
+        );
         expect(wrapper.find("a")).to.have.lengthOf(1);
     });
 

@@ -1,6 +1,10 @@
 import * as React from "react";
 
 import Link from "./Link";
+import {
+    BrowserRouter as Router,
+    Link as ReactRouterLink,
+} from "react-router-dom";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes } from "../Icons/IconTypes";
@@ -54,4 +58,21 @@ export const actionLinkWithDownloadIcon = () => (
             Download
         </a>
     </Link>
+);
+
+export const LinkWithReactRouter = () => (
+    <Router>
+        <Link linkType={LinkTypes.Action}>
+            <ReactRouterLink to="#">
+                <Icon
+                    name="download"
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
+                Download
+            </ReactRouterLink>
+        </Link>
+    </Router>
 );
