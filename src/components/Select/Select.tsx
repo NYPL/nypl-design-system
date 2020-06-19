@@ -3,7 +3,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 
-export interface FormDropdownProps {
+export interface SelectProps {
     dropdownId?: string;
     blockName?: string;
     modifiers?: string[];
@@ -17,11 +17,11 @@ export interface FormDropdownProps {
     onSelectChange: (event: React.FormEvent) => void;
 }
 
-export default class FormDropdown extends React.Component<
-    FormDropdownProps,
+export default class Select extends React.Component<
+    SelectProps,
     { selectedOption: string }
 > {
-    constructor(props: FormDropdownProps) {
+    constructor(props: SelectProps) {
         super(props);
         this.state = { selectedOption: props.selectedOption };
         this.onSelectChange.bind(this);

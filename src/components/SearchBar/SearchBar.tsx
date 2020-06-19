@@ -1,6 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import FormDropdown from "../FormDropdown/FormDropdown";
+import Select from "../Select/Select";
 import TextField from "../TextField/TextField";
 import { Button } from "../..";
 import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
@@ -124,7 +124,7 @@ export default function SearchBar(props: SearchBarProps) {
             aria-labelledby={searchBarAriaLabelledBy}
         >
             {dropdownOptions && (
-                <FormDropdown
+                <Select
                     isRequired={false}
                     selectedOption={selectedField}
                     ariaLabel="Search by"

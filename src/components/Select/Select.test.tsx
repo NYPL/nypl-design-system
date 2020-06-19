@@ -5,9 +5,9 @@ import * as React from "react";
 
 import * as Mocha from "mocha";
 
-import FormDropdown from "./FormDropdown";
+import Select from "./Select";
 
-describe("FormDropdown", () => {
+describe("Select", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;
     let blurCallback;
     let changeCallback;
@@ -16,9 +16,9 @@ describe("FormDropdown", () => {
         changeCallback = stub();
         blurCallback = stub();
     });
-    it("Form Dropdown should render a FormDropdown", () => {
+    it("Form Dropdown should render a Select", () => {
         wrapper = Enzyme.shallow(
-            <FormDropdown
+            <Select
                 labelId="label"
                 isRequired={false}
                 dropdownId="hi"
@@ -33,7 +33,7 @@ describe("FormDropdown", () => {
     it("requires either label or aria-label", () => {
         expect(() =>
             Enzyme.mount(
-                <FormDropdown
+                <Select
                     isRequired={false}
                     dropdownId="hi"
                     options={["test1", "test2"]}
@@ -46,7 +46,7 @@ describe("FormDropdown", () => {
 
     it("if both labelId and ariaLabel are defined, select has aria-labeledBy", () => {
         wrapper = Enzyme.shallow(
-            <FormDropdown
+            <Select
                 labelId="label"
                 ariaLabel="aria-label"
                 isRequired={false}
@@ -63,7 +63,7 @@ describe("FormDropdown", () => {
 
     it("if only aria-label is defined, select has aria-label", () => {
         wrapper = Enzyme.shallow(
-            <FormDropdown
+            <Select
                 ariaLabel="aria-label"
                 isRequired={false}
                 dropdownId="hi"
@@ -79,7 +79,7 @@ describe("FormDropdown", () => {
 
     it("Form Dropdown should render an icon", () => {
         wrapper = Enzyme.shallow(
-            <FormDropdown
+            <Select
                 labelId="label"
                 isRequired={false}
                 dropdownId="hi"
@@ -93,7 +93,7 @@ describe("FormDropdown", () => {
 
     it("sends callback with value on change", () => {
         wrapper = Enzyme.shallow(
-            <FormDropdown
+            <Select
                 labelId="label"
                 isRequired={false}
                 dropdownId="hi"
@@ -110,7 +110,7 @@ describe("FormDropdown", () => {
 
     it("sends callback with no value on blur", () => {
         wrapper = Enzyme.shallow(
-            <FormDropdown
+            <Select
                 dropdownId="hi"
                 labelId="label"
                 isRequired={false}
@@ -126,7 +126,7 @@ describe("FormDropdown", () => {
 
     it("displays selected when passed selectedOption", () => {
         wrapper = Enzyme.shallow(
-            <FormDropdown
+            <Select
                 labelId="label"
                 isRequired={false}
                 dropdownId="hi"
@@ -141,7 +141,7 @@ describe("FormDropdown", () => {
 
     it("renders nothing when passed no options", () => {
         wrapper = Enzyme.shallow(
-            <FormDropdown
+            <Select
                 dropdownId="hi"
                 labelId="label"
                 isRequired={false}

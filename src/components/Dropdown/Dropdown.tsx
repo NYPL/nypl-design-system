@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import bem from "../../utils/bem";
-import FormDropdown from "../FormDropdown/FormDropdown";
+import Select from "../Select/Select";
 import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
@@ -101,7 +101,7 @@ export default function Dropdown(props: DropdownProps) {
             )}
             <div className={bem("select-area", [], baseClass)}>
                 <div className={bem("select", [], baseClass)}>
-                    <FormDropdown
+                    <Select
                         dropdownId={dropdownId}
                         labelId={labelPosition !== "none" ? labelId : undefined}
                         isRequired={isRequired}

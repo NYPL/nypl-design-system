@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 -   Removes `RNSectionTitle`
+-   `FormDropDown` and `Dropdown` are now `Select`
 
 ### Changes
 
