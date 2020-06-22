@@ -9,7 +9,7 @@ describe("Label Test", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;
     it("Renders a <label> when passed text as children", () => {
         wrapper = Enzyme.shallow(
-            <Label id="label" referenceId="so-lonely">
+            <Label id="label" htmlFor="so-lonely">
                 Cupcake's
             </Label>
         );
@@ -18,7 +18,7 @@ describe("Label Test", () => {
 
     it("Renders a <label> when passed element as children", () => {
         wrapper = Enzyme.shallow(
-            <Label id="label" referenceId="so-lonely">
+            <Label id="label" htmlFor="so-lonely">
                 <span>Cupcakes</span>
             </Label>
         );

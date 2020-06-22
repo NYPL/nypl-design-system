@@ -86,7 +86,7 @@ export default function Dropdown(props: DropdownProps) {
             {labelPosition !== "none" && (
                 <div className="label-container">
                     <div className={bem("label", [], baseClass)}>
-                        <Label referenceId={dropdownId} id={labelId}>
+                        <Label htmlFor={dropdownId} id={labelId}>
                             {labelText}
                         </Label>
                     </div>

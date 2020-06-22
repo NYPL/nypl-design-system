@@ -8,7 +8,11 @@ export default {
 };
 
 export const label = () => (
-    <Label id="label-id" referenceId="should-never-be-used-alone">
-        <div>Lonely</div>
+    <Label
+        id="label-id"
+        htmlFor="should-never-be-used-alone"
+        requiredHelper={true}
+    >
+        Lonely
     </Label>
 );

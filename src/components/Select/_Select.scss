@@ -1,4 +1,58 @@
 // CSS-only select styling (from https://github.com/filamentgroup/select-css)
+.select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid $gray-light;
+    display: block;
+    font-size: 1rem;
+    margin: 0;
+    padding: $space-xs $space-xl $space-xs $space-s;
+    width: 100%;
+
+    /* Arrow svg */
+    /* More info here: https://css-tricks.com/probably-dont-base64-svg/ */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 70%;
+    background-size: $space auto;
+
+    /* Hide arrow icon in IE browsers */
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:hover {
+        border-color: #888;
+    }
+
+    &:focus {
+        box-shadow: 0;
+        outline: 2px solid $ui-link-primary;
+    }
+}
+
+/* Support for rtl text, explicit support for Arabic and Hebrew */
+*[dir="rtl"] .select,
+:root:lang(ar) .select,
+:root:lang(iw) .select {
+    background-position: left 0.7em top 70%;
+    padding: $space-xs $space-l $space-xs $space-s;
+}
+
+/* Disabled styles */
+.select-css:disabled,
+.select-css[aria-disabled="true"] {
+    color: $gray-xdark;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
+}
+
+.select-css:disabled:hover,
+.select-css[aria-disabled="true"] {
+    border-color: #aaa;
+}
 
 @mixin form-item {
     // Wrapper for the <select> and its icon
@@ -30,51 +84,6 @@
             right: $space-xs;
             top: 32%;
             z-index: -1;
-        }
-    }
-
-    &__select {
-        border: 1px solid $gray-light;
-        font-size: 16px;
-        margin: 0;
-        outline: none;
-        padding: 0.6em 0.8em 0.5em;
-        width: 100%;
-
-        :focus {
-            outline: none;
-            color: #222;
-        }
-
-        @supports (-webkit-appearance: none) or (appearance: none) or
-            ((-moz-appearance: none) and (mask-type: alpha)) {
-            padding-right: 2em; /* Match-01 */
-
-            /* inside @supports so that iOS <= 8 display the native arrow */
-            background: none; /* Match-04 */
-
-            /* inside @supports so that Android <= 4.3 display the native arrow */
-            border: 1px solid transparent; /* Match-05 */
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-
-            &:focus {
-                border-color: $gray-medium;
-                border-radius: 0;
-            }
-        }
-    }
-
-    &__textfield {
-        border-left: 1px solid $gray-medium;
-        border-top: 1px solid $gray-medium;
-        border-bottom: 1px solid $gray-medium;
-        border-right: none;
-        padding: $space-xs $space-s;
-
-        &:focus {
-            outline: 2px solid $form-focus;
         }
     }
 }

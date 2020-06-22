@@ -44,7 +44,7 @@ export default class Select extends React.Component<
     render() {
         const {
             dropdownId,
-            blockName = "form-item",
+            blockName,
             options,
             labelId,
             isRequired,
@@ -55,15 +55,10 @@ export default class Select extends React.Component<
             onSelectChange,
         } = this.props;
         const modifiers = this.props.modifiers ? this.props.modifiers : [];
-        if (!labelId && !ariaLabel) {
-            throw new Error("Must either have labelId or aria-label");
-        }
-
-        let formItemBlockName = blockName;
 
         let selectProps = {
             id: dropdownId,
-            className: bem("select", modifiers, formItemBlockName),
+            className: bem("select", modifiers, blockName),
             "aria-required": isRequired,
             value: this.state.selectedOption
                 ? this.state.selectedOption
@@ -79,7 +74,7 @@ export default class Select extends React.Component<
 
         if (!options.length) return;
         return (
-            <div className={bem("dropdown", modifiers, formItemBlockName)}>
+            <div className={bem("dropdown", modifiers, blockName)}>
                 <select
                     {...selectProps}
                     onChange={(e) => this.onSelectChange(e, onSelectChange)}
@@ -99,8 +94,6 @@ export default class Select extends React.Component<
                         );
                     })}
                 </select>
-
-                <Icon decorative={true} name={"arrow"} modifiers={["medium"]} />
             </div>
         );
     }

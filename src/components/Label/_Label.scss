@@ -1,0 +1,29 @@
+.label {
+    @include space-stack-xs;
+
+    align-items: baseline;
+    display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+
+    &__required-helper {
+        @include type-scale(-1);
+
+        font-weight: 300;
+    }
+}
+
+.input {
+    &__label {
+        @include space-inline-xs;
+
+        display: inline-block;
+        font-weight: 500;
+    }
+
+    &__required-message {
+        @include body-small;
+
+        font-weight: 300;
+    }
+}

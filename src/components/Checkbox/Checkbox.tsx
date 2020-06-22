@@ -50,7 +50,7 @@ export default function Checkbox(props: CheckboxProps) {
                 checked={isSelected}
             ></input>
             <span className={bem("label", [], baseClass)}>
-                <Label referenceId={checkboxId} id={labelOptions.id}>
+                <Label htmlFor={checkboxId} id={labelOptions.id}>
                     {labelOptions.labelContent}
                 </Label>
             </span>
