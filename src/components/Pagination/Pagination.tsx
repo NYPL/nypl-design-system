@@ -1,7 +1,8 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Button, { ButtonOptions } from "../Button/Button";
-import Dropdown from "../Dropdown/Dropdown";
+import Label from "../Label/Label";
+import Select from "../Select/Select";
 import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
 import { IconRotationTypes } from "../Icons/IconTypes";
 export interface PaginationProps {
@@ -52,7 +53,7 @@ export default function Pagination(props: PaginationProps) {
         isRequired: false,
         labelId: "pagination-select-label",
         labelText: "Page",
-        dropdownOptions: paginationDropdownOptions,
+        options: paginationDropdownOptions,
         selectedOption: currentValue,
         onSelectChange: onSelectChange,
         onSelectBlur: onSelectBlur,
@@ -63,11 +64,13 @@ export default function Pagination(props: PaginationProps) {
             <Button callback={buttonPrevOpts.callback} {...buttonPrevOpts}>
                 {buttonPrevOpts.content}
             </Button>
-            <Dropdown
+            <Label htmlFor="pagination-dropdown">
+                {dropdownProps.labelText}
+            </Label>
+            <Select
                 blockName={pagination__base_class}
-                labelPosition="left"
                 {...dropdownProps}
-            ></Dropdown>
+            ></Select>
             <Button callback={buttonNextOpts.callback} {...buttonNextOpts}>
                 {buttonNextOpts.content}
             </Button>
