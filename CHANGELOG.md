@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Removes `RNSectionTitle`
 
+### Changes
+
+-   Updates `$nypl-blue-regular` from #0071ce to #0576d3
+
 ## [0.5.0]
 
 ### Breaking Changes
