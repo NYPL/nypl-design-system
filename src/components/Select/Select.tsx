@@ -1,20 +1,41 @@
-// AF-121 Form Dropdown
 import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 
 export interface SelectProps {
-    dropdownId?: string;
+    /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
+
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+
+    /** ID of associated label */
     labelId?: string;
+
+    /** ID of associated HelperText */
     helperTextId?: string;
+
+    /** Attribute indicating that an option with a non-empty string value must be selected */
     isRequired: boolean;
+
+    /** When passed, will populate the aria-label on the select */
     ariaLabel?: string;
+
+    /** When true, disables the select */
     disabled?: boolean;
+
+    /** Populates the selects' options */
     options: string[];
+
+    /** Sets whatever string you pass it as the default selected */
     selectedOption?: string;
+
     onSelectBlur: (event: React.FormEvent) => void;
+
+    /** Passes selects' current value to the React state handler */
     onSelectChange: (event: React.FormEvent) => void;
 }
 
@@ -41,7 +62,7 @@ export default class Select extends React.Component<
 
     render() {
         const {
-            dropdownId,
+            id,
             blockName,
             options,
             labelId,
@@ -57,7 +78,7 @@ export default class Select extends React.Component<
         const disabled = this.props.disabled ? this.props.disabled : false;
 
         let selectProps = {
-            id: dropdownId,
+            id: id,
             className: bem("select", modifiers, blockName),
             "aria-required": isRequired,
             value: this.state.selectedOption,
@@ -85,7 +106,11 @@ export default class Select extends React.Component<
             >
                 {options.map((child, key) => {
                     return (
-                        <option key={key.toString()} value={child}>
+                        <option
+                            key={key.toString()}
+                            value={child}
+                            aria-selected={child === this.state.selectedOption}
+                        >
                             {child}
                         </option>
                     );

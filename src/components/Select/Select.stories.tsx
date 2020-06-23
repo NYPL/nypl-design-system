@@ -31,7 +31,7 @@ export const selectWithOptionalLabel = () => (
             </Label>
         )}
         <Select
-            dropdownId={"select"}
+            id={"select"}
             isRequired={false}
             ariaLabel="Select Label"
             options={[

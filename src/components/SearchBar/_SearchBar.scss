@@ -1,8 +1,6 @@
 $search-bar--breakpoint: 856px;
 
 .search-bar {
-    @include form-item;
-
     display: flex;
     flex-flow: column nowrap;
 
