@@ -3,28 +3,40 @@ import * as React from "react";
 import Select from "./Select";
 import Label from "../Label/Label";
 import { action } from "@storybook/addon-actions";
-import { text } from "@storybook/addon-knobs";
+import { text, boolean, select } from "@storybook/addon-knobs";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export default {
     title: "Select",
     component: Select,
 };
 
-export const select = () => (
+let optionsGroup = [
+    text("Option One", "Apples"),
+    text("Option Two", "Pears"),
+    text("Option Three", "Oranges"),
+    text("Option Four", "Peaches"),
+    text("Option Five", "Coconuts"),
+];
+
+export const selectWithoutLabel = () => (
     <Select
         isRequired={false}
         ariaLabel="Select Label"
-        options={[
-            "Option One",
-            "Option Two",
-            text("Third Option", "Option Three"),
-        ]}
+        options={optionsGroup}
+        selectedOption={select(
+            "Selected Option",
+            optionsGroup,
+            optionsGroup[0]
+        )}
         onSelectBlur={action("blur")}
         onSelectChange={action("changed")}
+        modifiers={boolean("Errored", false) ? ["error"] : [""]}
+        disabled={boolean("Disabled", false)}
     />
 );
 
-select.story = {
+selectWithoutLabel.story = {
     name: "Select",
     parameters: {
         design: {
@@ -74,45 +86,45 @@ export const selectWithLabelAndRequiredFlag = () => (
     </>
 );
 
-export const selectWithLabelandHelperContent = () => (
+export const selectWithLabelAndHelperContent = () => (
     <>
-        <Label id="label" htmlFor="select">
+        <Label id="label" htmlFor="select" requiredHelper={false}>
             Select Label
         </Label>
         <Select
             dropdownId="label"
-            isRequired={false}
+            isRequired={true}
             ariaLabel="search"
-            selectedOption={"two"}
-            options={["one", "two"]}
+            labelId={"label"}
+            helperTextId={"helperText"}
+            options={["Option One", "Option Two"]}
+            onSelectBlur={action("blur")}
+            onSelectChange={action("changed")}
+        />
+        <HelperErrorText
+            isError={boolean("Is Errored", false)}
+            id={"helperText"}
+        >
+            {text("Helper Text Content", "Helper Text")}
+        </HelperErrorText>
+    </>
+);
+
+export const selectWithLeftLabel = () => (
+    <>
+        <Label id="label" htmlFor="select" requiredHelper={false}>
+            Select Label
+        </Label>
+        <Select
+            dropdownId="label"
+            isRequired={true}
+            ariaLabel="search"
+            labelId={"label"}
+            options={["Option One", "Option Two"]}
             onSelectBlur={action("blur")}
             onSelectChange={action("changed")}
         />
     </>
-);
-
-export const selectWithRequiredField = () => (
-    <Select
-        dropdownId="baaah"
-        isRequired={false}
-        ariaLabel="search"
-        selectedOption={"two"}
-        options={["one", "two"]}
-        onSelectBlur={action("blur")}
-        onSelectChange={action("changed")}
-    />
-);
-
-export const selectWithLeftLabel = () => (
-    <Select
-        dropdownId="baaah"
-        isRequired={false}
-        ariaLabel="search"
-        selectedOption={"two"}
-        options={["one", "two"]}
-        onSelectBlur={action("blur")}
-        onSelectChange={action("changed")}
-    />
 );
 
 export const selectWithError = () => (

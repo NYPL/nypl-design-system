@@ -1,6 +1,5 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface HelperErrorTextOptions {
     content?: JSX.Element;
@@ -23,6 +22,10 @@ interface HelperErrorTextProps {
     blockName?: string;
     /** Optional baseClass for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     baseClass?: string;
+    /** Added prop when HelperText is errored */
+    ariaLive?: boolean;
+    /** Added prop when HelperText is errored */
+    ariaAtomic?: boolean;
 }
 
 /**
@@ -31,22 +34,27 @@ interface HelperErrorTextProps {
 export default function HelperErrorText(
     props: React.PropsWithChildren<HelperErrorTextProps>
 ) {
-    const {
-        id,
-        blockName = "input-description",
-        baseClass = "form-item",
-        isError,
-    } = props;
+    const { id, blockName, baseClass = "helper-text", isError } = props;
+
     let modifiers = [];
+    let ariaLive, ariaAtomic;
 
     if (isError) {
         modifiers.push("error");
+        ariaLive = true;
     }
+
     if (props.modifiers) {
         modifiers.push(...props.modifiers);
     }
+
     return (
-        <div id={id} className={bem(blockName, modifiers, baseClass)}>
+        <div
+            id={id}
+            className={bem(baseClass, modifiers, blockName)}
+            aria-live={ariaLive ? "polite" : "off"}
+            aria-atomic={ariaLive}
+        >
             {props.children}
         </div>
     );

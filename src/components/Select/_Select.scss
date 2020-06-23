@@ -1,5 +1,7 @@
 // CSS-only select styling (from https://github.com/filamentgroup/select-css)
 .select {
+    @include space-stack-xs;
+
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
@@ -8,13 +10,12 @@
     border: 1px solid $gray-light;
     display: block;
     font-size: 1rem;
-    margin: 0;
     padding: $space-xs $space-xl $space-xs $space-s;
     width: 100%;
 
     /* Arrow svg */
     /* More info here: https://css-tricks.com/probably-dont-base64-svg/ */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.7em top 70%;
     background-size: $space auto;
@@ -30,7 +31,16 @@
 
     &:focus {
         box-shadow: 0;
-        outline: 2px solid $ui-link-primary;
+        outline: 1px solid $ui-link-primary;
+    }
+
+    &:disabled {
+        background-color: $gray-xxlight;
+        color: $gray-xdark;
+    }
+
+    &--error {
+        border: 1px solid $ui-error;
     }
 }
 

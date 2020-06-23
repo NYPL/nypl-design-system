@@ -8,6 +8,7 @@ export interface SelectProps {
     blockName?: string;
     modifiers?: string[];
     labelId?: string;
+    helperTextId?: string;
     isRequired: boolean;
     ariaLabel?: string;
     disabled?: boolean;
@@ -47,14 +48,16 @@ export default class Select extends React.Component<
             blockName,
             options,
             labelId,
+            helperTextId,
             isRequired,
             ariaLabel,
-            disabled = false,
             selectedOption,
             onSelectBlur,
             onSelectChange,
         } = this.props;
+
         const modifiers = this.props.modifiers ? this.props.modifiers : [];
+        const disabled = this.props.disabled ? this.props.disabled : false;
 
         let selectProps = {
             id: dropdownId,
@@ -66,35 +69,35 @@ export default class Select extends React.Component<
             disabled: disabled,
         };
 
-        if (labelId) {
+        if (labelId && !helperTextId) {
             selectProps["aria-labelledby"] = labelId;
+        } else if (helperTextId && !labelId) {
+            selectProps["aria-labelledby"] = helperTextId;
+        } else if (labelId && helperTextId) {
+            selectProps["aria-labelledby"] = labelId + " " + helperTextId;
         } else {
             selectProps["aria-label"] = ariaLabel;
         }
 
         if (!options.length) return;
         return (
-            <div className={bem("dropdown", modifiers, blockName)}>
-                <select
-                    {...selectProps}
-                    onChange={(e) => this.onSelectChange(e, onSelectChange)}
-                    onBlur={(e) => this.onSelectChange(e, onSelectBlur)}
-                >
-                    {options.map((child, key) => {
-                        return (
-                            <option
-                                key={key.toString()}
-                                aria-selected={
-                                    child === this.state.selectedOption
-                                }
-                                value={child}
-                            >
-                                {child}
-                            </option>
-                        );
-                    })}
-                </select>
-            </div>
+            <select
+                {...selectProps}
+                onChange={(e) => this.onSelectChange(e, onSelectChange)}
+                onBlur={(e) => this.onSelectChange(e, onSelectBlur)}
+            >
+                {options.map((child, key) => {
+                    return (
+                        <option
+                            key={key.toString()}
+                            aria-selected={child === this.state.selectedOption}
+                            value={child}
+                        >
+                            {child}
+                        </option>
+                    );
+                })}
+            </select>
         );
     }
 }
