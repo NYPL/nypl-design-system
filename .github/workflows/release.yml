@@ -1,0 +1,86 @@
+# This workflow will tag, release, publish to npm, and upload to gh pages.
+name: Production Release
+
+# workflow will only run when a pull request to the release branch is closed.
+on:
+    push:
+        branches: [release]
+
+jobs:
+    release_master:
+        name: Tag, Release and Publish
+        # only run if PR is merged (not just closed)
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            # we take the message of the commit to use for tag and release body.
+            - name: get commit message
+              run: |
+                  echo ::set-env name=commitmsg::$(git log --format=%b -n 1 ${{ github.event.after }})
+
+            # the tag will match the package.json version (eg. v1.0.0)
+            - name: Tag
+              id: autotagger
+              uses: butlerlogic/action-autotag@stable
+              with:
+                  GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+                  strategy: package
+                  prefix: v
+                  # use the body of the PR commit as the tag message
+                  tag_message: $commitmsg
+
+            - name: Release
+              id: create_release
+              if: steps.autotagger.outputs.tagname != ''
+              uses: actions/create-release@v1.0.0
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ steps.autotagger.outputs.tagname }}
+                  release_name: ${{ steps.autotagger.outputs.tagname }}
+                  # use the body of the PR commit as the release body
+                  body: $commitmsg
+                  draft: false
+                  prerelease: false
+
+    publish_to_npm:
+        name: Publish to NPM
+        runs-on: ubuntu-latest
+        env:
+            CI: true
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js 13.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 13.x
+                  registry-url: "https://registry.npmjs.org"
+            - name: Cache and install node modules
+              uses: bahmutov/npm-install@v1
+            - name: Publish
+              run: npm publish --access public
+
+    github_pages:
+        name: Deploy to Github Pages
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+              with:
+                  persist-credentials: false
+
+            - name: Cache and install node modules
+              uses: bahmutov/npm-install@v1
+            - name: Build Storybook
+              run: |
+                  npm install
+                  npm run build-storybook
+
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@releases/v3
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages # The branch the action should deploy to.
+                  FOLDER: storybook-static # The folder the action should deploy.
