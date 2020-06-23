@@ -64,16 +64,15 @@ export default class Select extends React.Component<
             disabled: disabled,
         };
 
-        // switch(selectProps) {
-        //   case labelId && !helperTextId : selectProps["aria-labelledby"] = labelId;
-        // }
         if (labelId && !helperTextId) {
             selectProps["aria-labelledby"] = labelId;
         } else if (helperTextId && !labelId) {
             selectProps["aria-labelledby"] = helperTextId;
         } else if (labelId && helperTextId) {
             selectProps["aria-labelledby"] = labelId + " " + helperTextId;
-        } else {
+        }
+
+        if (ariaLabel) {
             selectProps["aria-label"] = ariaLabel;
         }
 

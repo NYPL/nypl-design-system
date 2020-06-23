@@ -1,6 +1,6 @@
 /// Link
-$color-link: $nypl-blue-regular;
-$color-link--hover: $nypl-blue-dark;
+$color-link: $ui-link-primary;
+$color-link--hover: $ui-link-secondary;
 
 @mixin link {
     color: $color-link;

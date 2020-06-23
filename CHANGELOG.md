@@ -16,7 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 -   Updates `$nypl-blue-regular` from #0071ce to #0576d3
--   `$nypl-blue-regular` is now extended by `$ui-link-primary`
+-   `$nypl-blue-regular` is now extended with `$ui-link-primary`
 
 ## [0.5.0]
 
