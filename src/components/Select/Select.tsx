@@ -24,14 +24,11 @@ export default class Select extends React.Component<
 > {
     constructor(props: SelectProps) {
         super(props);
+        if (!props.selectedOption) {
+            props.selectedOption = props.options[0];
+        }
         this.state = { selectedOption: props.selectedOption };
         this.onSelectChange.bind(this);
-    }
-
-    componentDidUpdate() {
-        if (this.state.selectedOption !== this.props.selectedOption) {
-            this.setState({ selectedOption: this.props.selectedOption });
-        }
     }
 
     onSelectChange(event: React.FormEvent, additionalChange: Function) {
@@ -63,12 +60,13 @@ export default class Select extends React.Component<
             id: dropdownId,
             className: bem("select", modifiers, blockName),
             "aria-required": isRequired,
-            value: this.state.selectedOption
-                ? this.state.selectedOption
-                : undefined,
+            value: this.state.selectedOption,
             disabled: disabled,
         };
 
+        // switch(selectProps) {
+        //   case labelId && !helperTextId : selectProps["aria-labelledby"] = labelId;
+        // }
         if (labelId && !helperTextId) {
             selectProps["aria-labelledby"] = labelId;
         } else if (helperTextId && !labelId) {
@@ -88,11 +86,7 @@ export default class Select extends React.Component<
             >
                 {options.map((child, key) => {
                     return (
-                        <option
-                            key={key.toString()}
-                            aria-selected={child === this.state.selectedOption}
-                            value={child}
-                        >
+                        <option key={key.toString()} value={child}>
                             {child}
                         </option>
                     );

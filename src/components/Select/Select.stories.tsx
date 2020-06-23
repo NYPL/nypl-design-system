@@ -11,32 +11,64 @@ export default {
     component: Select,
 };
 
-let optionsGroup = [
-    text("Option One", "Apples"),
-    text("Option Two", "Pears"),
-    text("Option Three", "Oranges"),
-    text("Option Four", "Peaches"),
-    text("Option Five", "Coconuts"),
-];
+let optionsGroup = ["Apples", "Pears", "Oranges", "Peaches", "Coconuts"];
 
-export const selectWithoutLabel = () => (
-    <Select
-        isRequired={false}
-        ariaLabel="Select Label"
-        options={optionsGroup}
-        selectedOption={select(
-            "Selected Option",
-            optionsGroup,
-            optionsGroup[0]
+let showLabel, showHelperText;
+
+export const selectWithOptionalLabel = () => (
+    <>
+        {boolean("Show Label", true) ? (showLabel = true) : (showLabel = false)}
+        {showLabel && (
+            <Label
+                htmlFor="select"
+                optReqFlag={select(
+                    "Optional/Required Flag",
+                    ["Required", "Optional", ""],
+                    "Required"
+                )}
+            >
+                {text("Select Label", "Fruit on your island: ")}
+            </Label>
         )}
-        onSelectBlur={action("blur")}
-        onSelectChange={action("changed")}
-        modifiers={boolean("Errored", false) ? ["error"] : [""]}
-        disabled={boolean("Disabled", false)}
-    />
+        <Select
+            dropdownId={"select"}
+            isRequired={false}
+            ariaLabel="Select Label"
+            options={[
+                text("Option One", optionsGroup[0]),
+                text("Option Two", optionsGroup[1]),
+                text("Option Three", optionsGroup[2]),
+                text("Option Four", optionsGroup[3]),
+                text("Option Five", optionsGroup[4]),
+            ]}
+            selectedOption={select(
+                "Initial Selected Option",
+                optionsGroup,
+                optionsGroup[3]
+            )}
+            onSelectBlur={action("blur")}
+            onSelectChange={action("changed")}
+            modifiers={boolean("Errored", false) ? ["error"] : null}
+            disabled={boolean("Disabled", false)}
+        />
+        {boolean("Show Helper Text", true)
+            ? (showHelperText = true)
+            : (showHelperText = false)}
+        {showHelperText && (
+            <HelperErrorText
+                isError={boolean("Is Errored", false)}
+                id={"helperText"}
+            >
+                {text(
+                    "Helper Text Content",
+                    "Once you pick a fruit for your island it cannot be changed, so choose wisely!"
+                )}
+            </HelperErrorText>
+        )}
+    </>
 );
 
-selectWithoutLabel.story = {
+selectWithOptionalLabel.story = {
     name: "Select",
     parameters: {
         design: {
@@ -46,119 +78,3 @@ selectWithoutLabel.story = {
         },
     },
 };
-
-export const selectWithSelectedOption = () => (
-    <Select
-        isRequired={false}
-        ariaLabel="Select Label"
-        selectedOption={"Option Two"}
-        options={["Option One", "Option Two"]}
-        onSelectBlur={action("blur")}
-        onSelectChange={action("changed")}
-    />
-);
-
-export const selectWithLabel = () => (
-    <>
-        <Label htmlFor="select">Select Label</Label>
-        <Select
-            dropdownId="select"
-            isRequired={false}
-            options={["Option One", "Option Two"]}
-            onSelectBlur={action("blur")}
-            onSelectChange={action("changed")}
-        />
-    </>
-);
-
-export const selectWithLabelAndRequiredFlag = () => (
-    <>
-        <Label htmlFor="select" requiredHelper={true}>
-            Select Label
-        </Label>
-        <Select
-            dropdownId="select"
-            isRequired={false}
-            options={["Option One", "Option Two"]}
-            onSelectBlur={action("blur")}
-            onSelectChange={action("changed")}
-        />
-    </>
-);
-
-export const selectWithLabelAndHelperContent = () => (
-    <>
-        <Label id="label" htmlFor="select" requiredHelper={false}>
-            Select Label
-        </Label>
-        <Select
-            dropdownId="label"
-            isRequired={true}
-            ariaLabel="search"
-            labelId={"label"}
-            helperTextId={"helperText"}
-            options={["Option One", "Option Two"]}
-            onSelectBlur={action("blur")}
-            onSelectChange={action("changed")}
-        />
-        <HelperErrorText
-            isError={boolean("Is Errored", false)}
-            id={"helperText"}
-        >
-            {text("Helper Text Content", "Helper Text")}
-        </HelperErrorText>
-    </>
-);
-
-export const selectWithLeftLabel = () => (
-    <>
-        <Label id="label" htmlFor="select" requiredHelper={false}>
-            Select Label
-        </Label>
-        <Select
-            dropdownId="label"
-            isRequired={true}
-            ariaLabel="search"
-            labelId={"label"}
-            options={["Option One", "Option Two"]}
-            onSelectBlur={action("blur")}
-            onSelectChange={action("changed")}
-        />
-    </>
-);
-
-export const selectWithError = () => (
-    <Select
-        dropdownId="baaah"
-        isRequired={false}
-        ariaLabel="search"
-        selectedOption={"two"}
-        options={["one", "two"]}
-        onSelectBlur={action("blur")}
-        onSelectChange={action("changed")}
-    />
-);
-
-export const selectWithLeftLabelAndError = () => (
-    <Select
-        dropdownId="baaah"
-        isRequired={false}
-        ariaLabel="search"
-        selectedOption={"two"}
-        options={["one", "two"]}
-        onSelectBlur={action("blur")}
-        onSelectChange={action("changed")}
-    />
-);
-
-export const selectWithNoLabelAndError = () => (
-    <Select
-        dropdownId="baaah"
-        isRequired={false}
-        ariaLabel="search"
-        selectedOption={"two"}
-        options={["one", "two"]}
-        onSelectBlur={action("blur")}
-        onSelectChange={action("changed")}
-    />
-);
