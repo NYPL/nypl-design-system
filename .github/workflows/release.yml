@@ -73,9 +73,7 @@ jobs:
             - name: Cache and install node modules
               uses: bahmutov/npm-install@v1
             - name: Build Storybook
-              run: |
-                  npm install
-                  npm run build-storybook
+              run: npm run build-storybook
 
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@releases/v3
