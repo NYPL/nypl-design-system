@@ -8,7 +8,7 @@ on:
 
 jobs:
     release_master:
-        name: Tag, Release and Publish
+        name: Tag and Release
         # only run if PR is merged (not just closed)
         runs-on: ubuntu-latest
         steps:
@@ -26,9 +26,7 @@ jobs:
               with:
                   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
                   strategy: package
-                  prefix: v
-                  # use the body of the PR commit as the tag message
-                  tag_message: $commitmsg
+                  tag_prefix: v
 
             - name: Release
               id: create_release
