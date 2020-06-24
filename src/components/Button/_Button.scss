@@ -41,7 +41,7 @@
 }
 
 @mixin button--filled(
-    $bg: $black,
+    $bg: $color-link,
     $color: $white,
     $hoverBg: lighten($bg, 0.8)
 ) {

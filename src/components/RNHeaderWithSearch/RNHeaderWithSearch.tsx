@@ -2,7 +2,7 @@
 import * as React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import bem from "../../utils/bem";
-import RNSectionTitle from "../RNSectionTitle/RNSectionTitle";
+import Heading from "../Heading/Heading";
 
 export interface RNHeaderWithSearchProps {
     modifiers?: [];
@@ -52,7 +52,9 @@ export default function RNHeaderWithSearch(
     return (
         <div className={bem(base_class)}>
             <div className={bem("content", [], base_class)}>
-                <RNSectionTitle>{sectionTitle}</RNSectionTitle>
+                <div className={bem("heading", [], base_class)}>
+                    {sectionTitle}
+                </div>
                 <SearchBar
                     searchBarId={searchBarId}
                     searchBarAriaLabel={searchBarAriaLabel}

@@ -66,6 +66,6 @@ function NewComponent(props) {
 
 The NYPL Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
 
-### Storybook and `npm run static`
+## Storybook and `npm run static`
 
 There should be no need to run the static Storybook instances while actively developing—it's used exclusively for building out `gh-pages` environment. In the event that you do run the static Storybook npm script, make sure to not commit the `storybook/storybook-static` directory.

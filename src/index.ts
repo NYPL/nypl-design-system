@@ -8,11 +8,11 @@ export {
     ButtonIconPositions,
     ButtonTypes,
 } from "./components/Button/ButtonTypes";
+export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as Container } from "./components/Container/Container";
 export { default as DateRangeForm } from "./components/DateRangeForm/DateRangeForm";
 export { default as Dropdown } from "./components/Dropdown/Dropdown";
-export { default as EditionCard } from "./components/EditionCard/EditionCard";
 export { default as HeaderWithSearch } from "./components/RNHeaderWithSearch/RNHeaderWithSearch";
 export { default as Heading } from "./components/Heading/Heading";
 export { default as Hero } from "./components/Hero/Hero";
