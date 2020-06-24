@@ -45,9 +45,6 @@ export default class Select extends React.Component<
 > {
     constructor(props: SelectProps) {
         super(props);
-        if (!props.selectedOption) {
-            props.selectedOption = props.options[0];
-        }
         this.state = { selectedOption: props.selectedOption };
         this.onSelectChange.bind(this);
     }

@@ -26,6 +26,7 @@ export const selectWithOptionalLabel = () => (
                     ["Required", "Optional", ""],
                     "Required"
                 )}
+                id={"label"}
             >
                 {text("Select Label", "Fruit on your island: ")}
             </Label>
@@ -34,6 +35,8 @@ export const selectWithOptionalLabel = () => (
             id={"select"}
             isRequired={false}
             ariaLabel="Select Label"
+            labelId={"label"}
+            helperTextId={"helperText"}
             options={[
                 text("Option One", optionsGroup[0]),
                 text("Option Two", optionsGroup[1]),
