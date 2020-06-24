@@ -30,11 +30,7 @@ describe("HelperErrorText Test", () => {
                 Text
             </HelperErrorText>
         );
-        expect(
-            container.find("#helperTextWithLink").props()["aria-live"]
-        ).to.equal("polite");
-        // expect(
-        //     container.find("#helperTextWithLink").props()["aria-atomic"]
-        // ).to.equal("true");
+        expect(container.find("div").props()["aria-live"]).to.equal("polite");
+        expect(container.find("div").props()["aria-atomic"]).to.equal(true);
     });
 });
