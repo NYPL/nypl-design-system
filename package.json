@@ -12,17 +12,19 @@
     "license": "Apache-2.0",
     "scripts": {
         "start": "node node_modules/@storybook/react/bin/index -p 9001 -c .storybook-react",
-        "static": "node node_modules/.bin/build-storybook -c .storybook-react -o ./storybook-static/react",
-        "test": "npm run lint && npm run build-ts && cp src/styles.scss lib && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/**/*.test.js",
+        "build-storybook": "node node_modules/.bin/build-storybook -c .storybook-react -o ./storybook-static/react",
+        "test": "npm run lint && npm run test:ci",
+        "test:ci": "npm run build-ts && cp src/styles.scss lib && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/**/*.test.js",
         "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
         "pretty-quick": "pretty-quick",
-        "prepublishOnly": "npm run test && npm run dist",
+        "prepare": "npm run dist",
         "build-ts": "rm -rf lib && tsc",
         "dist": "rm -rf dist && webpack --mode production --progress --display-modules --config webpack.config.js",
         "lint": "tslint -c tslint.json src/__tests__/components/*.tsx src/components/**/**/*.tsx src/components/**/**/**/*.tsx src/utils/*.tsx",
         "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.config.js"
     },
     "dependencies": {
+        "he": "^1.2.0",
         "react": "^16.13.1",
         "react-router-dom": "^5.2.0",
         "react-uid": "^2.3.0",
