@@ -8,7 +8,7 @@ on:
 
 jobs:
     release_master:
-        name: Tag, Release and Publish
+        name: Tag and Release
         # only run if PR is merged (not just closed)
         runs-on: ubuntu-latest
         steps:
@@ -22,13 +22,11 @@ jobs:
             # the tag will match the package.json version (eg. v1.0.0)
             - name: Tag
               id: autotagger
-              uses: butlerlogic/action-autotag@stable
+              uses: butlerlogic/action-autotag@v1
               with:
                   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
                   strategy: package
-                  prefix: v
-                  # use the body of the PR commit as the tag message
-                  tag_message: $commitmsg
+                  tag_prefix: v
 
             - name: Release
               id: create_release
