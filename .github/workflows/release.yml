@@ -38,7 +38,7 @@ jobs:
                   tag_name: ${{ steps.autotagger.outputs.tagname }}
                   release_name: ${{ steps.autotagger.outputs.tagname }}
                   # use the body of the PR commit as the release body
-                  body: "${{ commitmsg }}"
+                  body: "$commitmsg"
                   draft: false
                   prerelease: false
 
