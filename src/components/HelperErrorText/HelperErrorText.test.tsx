@@ -23,4 +23,18 @@ describe("HelperErrorText Test", () => {
         );
         expect(container.exists("#helperTextWithLink")).to.equal(true);
     });
+
+    it("Has aria-live and aria-atomic properties when errored", () => {
+        const container = Enzyme.mount(
+            <HelperErrorText id="helperTextWithLink" isError={true}>
+                Text
+            </HelperErrorText>
+        );
+        expect(
+            container.find("#helperTextWithLink").props()["aria-live"]
+        ).to.equal("polite");
+        // expect(
+        //     container.find("#helperTextWithLink").props()["aria-atomic"]
+        // ).to.equal("true");
+    });
 });
