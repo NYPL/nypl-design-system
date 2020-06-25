@@ -1,6 +1,6 @@
 {
     "name": "@nypl/design-system-react-components",
-    "version": "0.5.0",
+    "version": "0.6.2",
     "description": "Design System React Components",
     "repository": {
         "type": "git",
@@ -10,6 +10,9 @@
     "types": "lib/index.d.ts",
     "author": "NYPL",
     "license": "Apache-2.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "start": "node node_modules/@storybook/react/bin/index -p 9001 -c .storybook-react",
         "build-storybook": "node node_modules/.bin/build-storybook -c .storybook-react -o ./storybook-static/react",
