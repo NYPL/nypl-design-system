@@ -8,7 +8,7 @@ on:
 
 jobs:
     release_master:
-        name: Tag, Release and Publish
+        name: Tag and Release
         # only run if PR is merged (not just closed)
         runs-on: ubuntu-latest
         steps:
@@ -26,9 +26,7 @@ jobs:
               with:
                   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
                   strategy: package
-                  prefix: v
-                  # use the body of the PR commit as the tag message
-                  tag_message: $commitmsg
+                  tag_prefix: v
 
             - name: Release
               id: create_release
@@ -40,7 +38,7 @@ jobs:
                   tag_name: ${{ steps.autotagger.outputs.tagname }}
                   release_name: ${{ steps.autotagger.outputs.tagname }}
                   # use the body of the PR commit as the release body
-                  body: $commitmsg
+                  body: "$commitmsg"
                   draft: false
                   prerelease: false
 
@@ -49,7 +47,6 @@ jobs:
         runs-on: ubuntu-latest
         env:
             CI: true
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         steps:
             - uses: actions/checkout@v2
             - name: Use Node.js 13.x
@@ -61,6 +58,8 @@ jobs:
               uses: bahmutov/npm-install@v1
             - name: Publish
               run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     github_pages:
         name: Deploy to Github Pages
@@ -74,9 +73,7 @@ jobs:
             - name: Cache and install node modules
               uses: bahmutov/npm-install@v1
             - name: Build Storybook
-              run: |
-                  npm install
-                  npm run build-storybook
+              run: npm run build-storybook
 
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@releases/v3
