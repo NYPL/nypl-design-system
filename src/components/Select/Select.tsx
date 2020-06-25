@@ -30,9 +30,6 @@ export interface SelectProps {
     /** When true, disables the select */
     disabled?: boolean;
 
-    /** Populates the selects' options */
-    options: string[];
-
     /** Sets whatever string you pass it as the default selected */
     selectedOption?: string;
 
@@ -65,12 +62,12 @@ export default class Select extends React.Component<
             id,
             className,
             blockName,
-            options,
             labelId,
             helperTextId,
             isRequired,
             ariaLabel,
             selectedOption,
+            children,
             onBlur,
             onChange,
         } = this.props;
@@ -95,24 +92,23 @@ export default class Select extends React.Component<
             selectProps["aria-labelledby"] = labelId + " " + helperTextId;
         }
 
-        if (!options.length) return;
+        {
+            React.Children.map(children, (child) => {
+                console.log("Child:" + child + " " + this.state.selectedOption);
+            });
+        }
+
         return (
             <select
                 {...selectProps}
                 onBlur={(e) => this.onSelectChange(e, onBlur)}
                 onChange={(e) => this.onSelectChange(e, onChange)}
             >
-                {options.map((child, key) => {
-                    return (
-                        <option
-                            key={key.toString()}
-                            value={child}
-                            aria-selected={child === this.state.selectedOption}
-                        >
-                            {child}
-                        </option>
-                    );
-                })}
+                {React.Children.map(children, (child) =>
+                    React.cloneElement(child as React.ReactElement<any>, {
+                        "aria-selected": child === this.state.selectedOption,
+                    })
+                )}
             </select>
         );
     }

@@ -37,13 +37,6 @@ export const selectWithOptionalLabel = () => (
             ariaLabel="Select Label"
             labelId={"label"}
             helperTextId={"helperText"}
-            options={[
-                text("Option One", optionsGroup[0]),
-                text("Option Two", optionsGroup[1]),
-                text("Option Three", optionsGroup[2]),
-                text("Option Four", optionsGroup[3]),
-                text("Option Five", optionsGroup[4]),
-            ]}
             selectedOption={select(
                 "Initial Selected Option",
                 optionsGroup,
@@ -53,7 +46,15 @@ export const selectWithOptionalLabel = () => (
             onChange={action("changed")}
             modifiers={boolean("Errored", false) ? ["error"] : null}
             disabled={boolean("Disabled", false)}
-        />
+        >
+            <option aria-selected={true}>
+                {text("Option One", optionsGroup[0])}
+            </option>
+            <option>{text("Option Two", optionsGroup[1])}</option>
+            <option>{text("Option Three", optionsGroup[2])}</option>
+            <option>{text("Option Four", optionsGroup[3])}</option>
+            <option>{text("Option Five", optionsGroup[4])}</option>
+        </Select>
         {boolean("Show Helper Text", true)
             ? (showHelperText = true)
             : (showHelperText = false)}

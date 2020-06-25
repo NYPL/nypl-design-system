@@ -21,10 +21,12 @@ describe("Select", () => {
         wrapper = Enzyme.mount(
             <Select
                 isRequired={false}
-                options={["test1", "test2"]}
                 onChange={changeCallback}
                 onBlur={blurCallback}
-            />
+            >
+                <option aria-selected={true}>test1</option>
+                <option>test2</option>
+            </Select>
         );
         expect(wrapper.find("Select")).to.have.lengthOf(1);
     });
@@ -33,11 +35,13 @@ describe("Select", () => {
         wrapper = Enzyme.mount(
             <Select
                 isRequired={false}
-                options={["test1", "test2"]}
                 onChange={changeCallback}
                 onBlur={blurCallback}
                 ariaLabel={"arialabel"}
-            />
+            >
+                <option aria-selected={true}>test1</option>
+                <option>test2</option>
+            </Select>
         );
         expect(wrapper.find("select").props()["aria-label"]).to.equal(
             "arialabel"
@@ -48,12 +52,14 @@ describe("Select", () => {
         wrapper = Enzyme.mount(
             <Select
                 isRequired={false}
-                options={["test1", "test2"]}
                 onChange={changeCallback}
                 onBlur={blurCallback}
                 labelId={"1"}
                 helperTextId={"2"}
-            />
+            >
+                <option aria-selected={true}>test1</option>
+                <option>test2</option>
+            </Select>
         );
         expect(wrapper.find("select").props()["aria-labelledby"]).to.equal(
             "1 2"
@@ -66,10 +72,12 @@ describe("Select", () => {
                 labelId="label"
                 isRequired={false}
                 id="hi"
-                options={["test1", "test2"]}
                 onChange={changeCallback}
                 onBlur={blurCallback}
-            />
+            >
+                <option aria-selected={true}>test1</option>
+                <option>test2</option>
+            </Select>
         );
 
         wrapper.find("select").simulate("change", "", { value: ["val"] });
@@ -83,10 +91,12 @@ describe("Select", () => {
                 id="hi"
                 labelId="label"
                 isRequired={false}
-                options={["test1", "test2"]}
                 onChange={changeCallback}
                 onBlur={blurCallback}
-            />
+            >
+                <option aria-selected={true}>test1</option>
+                <option>test2</option>
+            </Select>
         );
         wrapper.find("select").simulate("blur", "");
 
@@ -100,10 +110,12 @@ describe("Select", () => {
                 isRequired={false}
                 id="hi"
                 selectedOption={"test2"}
-                options={["test1", "test2"]}
                 onChange={changeCallback}
                 onBlur={blurCallback}
-            />
+            >
+                <option aria-selected={true}>test1</option>
+                <option aria-selected={false}>test2</option>
+            </Select>
         );
         expect(wrapper.find("select").props().value).to.equal("test2");
     });
