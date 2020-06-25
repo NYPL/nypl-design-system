@@ -55,8 +55,8 @@ export default function Pagination(props: PaginationProps) {
         labelText: "Page",
         options: paginationDropdownOptions,
         selectedOption: currentValue,
-        onSelectChange: onSelectChange,
-        onSelectBlur: onSelectBlur,
+        onChange: onSelectChange,
+        onBlur: onSelectBlur,
     };
 
     return (

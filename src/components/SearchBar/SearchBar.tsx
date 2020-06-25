@@ -130,9 +130,9 @@ export default function SearchBar(props: SearchBarProps) {
                     ariaLabel="Search by"
                     id={dropdownId}
                     options={dropdownOptions}
-                    onSelectBlur={selectBlurHandler}
+                    onBlur={selectBlurHandler}
                     blockName={searchbar__base_class}
-                    onSelectChange={selectChangeHandler}
+                    onChange={selectChangeHandler}
                 />
             )}
 

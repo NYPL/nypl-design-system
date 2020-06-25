@@ -49,8 +49,8 @@ export const selectWithOptionalLabel = () => (
                 optionsGroup,
                 optionsGroup[3]
             )}
-            onSelectBlur={action("blur")}
-            onSelectChange={action("changed")}
+            onBlur={action("blur")}
+            onChange={action("changed")}
             modifiers={boolean("Errored", false) ? ["error"] : null}
             disabled={boolean("Disabled", false)}
         />

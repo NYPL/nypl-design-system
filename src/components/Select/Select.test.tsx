@@ -22,8 +22,8 @@ describe("Select", () => {
             <Select
                 isRequired={false}
                 options={["test1", "test2"]}
-                onSelectChange={changeCallback}
-                onSelectBlur={blurCallback}
+                onChange={changeCallback}
+                onBlur={blurCallback}
             />
         );
         expect(wrapper.find("Select")).to.have.lengthOf(1);
@@ -34,8 +34,8 @@ describe("Select", () => {
             <Select
                 isRequired={false}
                 options={["test1", "test2"]}
-                onSelectChange={changeCallback}
-                onSelectBlur={blurCallback}
+                onChange={changeCallback}
+                onBlur={blurCallback}
                 ariaLabel={"arialabel"}
             />
         );
@@ -49,8 +49,8 @@ describe("Select", () => {
             <Select
                 isRequired={false}
                 options={["test1", "test2"]}
-                onSelectChange={changeCallback}
-                onSelectBlur={blurCallback}
+                onChange={changeCallback}
+                onBlur={blurCallback}
                 labelId={"1"}
                 helperTextId={"2"}
             />
@@ -67,8 +67,8 @@ describe("Select", () => {
                 isRequired={false}
                 id="hi"
                 options={["test1", "test2"]}
-                onSelectChange={changeCallback}
-                onSelectBlur={blurCallback}
+                onChange={changeCallback}
+                onBlur={blurCallback}
             />
         );
 
@@ -84,8 +84,8 @@ describe("Select", () => {
                 labelId="label"
                 isRequired={false}
                 options={["test1", "test2"]}
-                onSelectChange={changeCallback}
-                onSelectBlur={blurCallback}
+                onChange={changeCallback}
+                onBlur={blurCallback}
             />
         );
         wrapper.find("select").simulate("blur", "");
@@ -101,8 +101,8 @@ describe("Select", () => {
                 id="hi"
                 selectedOption={"test2"}
                 options={["test1", "test2"]}
-                onSelectChange={changeCallback}
-                onSelectBlur={blurCallback}
+                onChange={changeCallback}
+                onBlur={blurCallback}
             />
         );
         expect(wrapper.find("select").props().value).to.equal("test2");

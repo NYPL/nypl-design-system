@@ -3,6 +3,9 @@ import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 
 export interface SelectProps {
+    /** className you can add in addition to 'select' */
+    className?: string;
+
     /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
 
@@ -33,10 +36,10 @@ export interface SelectProps {
     /** Sets whatever string you pass it as the default selected */
     selectedOption?: string;
 
-    onSelectBlur: (event: React.FormEvent) => void;
+    onBlur: (event: React.FormEvent) => void;
 
     /** Passes selects' current value to the React state handler */
-    onSelectChange: (event: React.FormEvent) => void;
+    onChange: (event: React.FormEvent) => void;
 }
 
 export default class Select extends React.Component<
@@ -60,6 +63,7 @@ export default class Select extends React.Component<
     render() {
         const {
             id,
+            className,
             blockName,
             options,
             labelId,
@@ -67,8 +71,8 @@ export default class Select extends React.Component<
             isRequired,
             ariaLabel,
             selectedOption,
-            onSelectBlur,
-            onSelectChange,
+            onBlur,
+            onChange,
         } = this.props;
 
         const modifiers = this.props.modifiers ? this.props.modifiers : [];
@@ -76,7 +80,7 @@ export default class Select extends React.Component<
 
         let selectProps = {
             id: id,
-            className: bem("select", modifiers, blockName),
+            className: bem("select", modifiers, blockName, [className]),
             "aria-required": isRequired,
             value: this.state.selectedOption,
             disabled: disabled,
@@ -95,8 +99,8 @@ export default class Select extends React.Component<
         return (
             <select
                 {...selectProps}
-                onChange={(e) => this.onSelectChange(e, onSelectChange)}
-                onBlur={(e) => this.onSelectChange(e, onSelectBlur)}
+                onBlur={(e) => this.onSelectChange(e, onBlur)}
+                onChange={(e) => this.onSelectChange(e, onChange)}
             >
                 {options.map((child, key) => {
                     return (
