@@ -20,6 +20,7 @@ export { default as Icon } from "./components/Icons/Icon";
 export { IconRotationTypes } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
 export { default as Input } from "./components/Input/Input";
+export { InputTypes } from "./components/Input/InputTypes";
 export { default as Label } from "./components/Label/Label";
 export { default as Link } from "./components/Link/Link";
 export { LinkTypes } from "./components/Link/LinkTypes";

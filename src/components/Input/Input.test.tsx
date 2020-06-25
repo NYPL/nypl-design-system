@@ -10,10 +10,8 @@ describe("Renders Input", () => {
     before(() => {
         container = Enzyme.mount(
             <Input
-                labelId="label-input"
-                labelContent={<>Label</>}
-                inputId="input"
-                isRequired={false}
+                id="label-input"
+                // isRequired={false}
             ></Input>
         );
     });
@@ -35,19 +33,8 @@ describe("Input with Helper and Error", () => {
     before(() => {
         container = Enzyme.mount(
             <Input
-                labelId="label-input"
-                labelContent={<>Label</>}
-                inputId="input"
-                isRequired={true}
-                helperContentOpts={{
-                    id: "input-helper",
-                    content: <>This is some helpful text</>,
-                }}
-                errorContentOpts={{
-                    id: "input-error",
-                    content: <>Error Message Lorem Ipsum</>,
-                }}
-                showError={true}
+                id="label-input"
+                // isRequired={true}
             ></Input>
         );
     });
@@ -69,16 +56,8 @@ describe("Input with Helper and Error", () => {
 
 describe("input errors", () => {
     it("throws error if showError is passed without content", () => {
-        expect(() =>
-            Enzyme.mount(
-                <Input
-                    labelId="label-input"
-                    labelContent={<>Label</>}
-                    inputId="input"
-                    isRequired={true}
-                    showError={true}
-                ></Input>
-            )
-        ).to.throw("Error should be shown, but no errorContentOpts passed");
+        expect(() => Enzyme.mount(<Input id="label-input"></Input>)).to.throw(
+            "Error should be shown, but no errorContentOpts passed"
+        );
     });
 });

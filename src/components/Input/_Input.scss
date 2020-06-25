@@ -1,68 +1,45 @@
-.input-row {
-    display: flex;
-    &__form-item {
-        @include space-inline-m;
+.input {
+    @include space-inset-xs;
+    @include space-stack-xs;
 
-        :last-child {
-            @include space-inline-none;
-        }
-    }
-}
-
-@mixin input {
-    &__textfield {
-        @include space-inset-xs;
-
-        border: 1px solid $gray-medium;
-        max-width: 100%;
-
-        &:focus {
-            border-color: $form-focus;
-        }
-
-        &::-webkit-input-placeholder {
-            color: $gray-light;
-        }
-
-        &:-moz-placeholder {
-            color: $gray-light;
-        }
-
-        &::-moz-placeholder {
-            color: $gray-light;
-        }
-
-        &:-ms-input-placeholder {
-            color: $gray-light;
-        }
-    }
-}
-
-.form-item__input {
-    @include input;
+    border: 1px solid $gray-medium;
     width: 100%;
-}
 
-@mixin input-description {
-    @include space-stack-s;
-    margin-top: $space-xs; // Necessary for the way we do flex on input groups
+    &:focus {
+        border-color: $form-focus;
+    }
+
+    &::-webkit-input-placeholder {
+        color: $gray-dark;
+    }
+
+    &:-moz-placeholder {
+        color: $gray-dark;
+    }
+
+    &::-moz-placeholder {
+        color: $gray-dark;
+    }
+
+    &:-ms-input-placeholder {
+        color: $gray-dark;
+    }
+
+    &:hover {
+        border-color: darken($gray-medium, 10%);
+    }
+
+    &:focus {
+        box-shadow: 0;
+        outline: 1px solid $ui-link-primary;
+    }
+
+    &:disabled {
+        background-color: $gray-xxlight;
+        color: $gray-xdark;
+    }
 
     &--error {
-        color: $nypl-red-dark;
-    }
-}
-
-.input {
-    &__label {
-        @include space-inline-xs;
-
-        display: inline-block;
-        font-weight: 500;
-    }
-
-    &__required-message {
-        @include body-small;
-
-        font-weight: 300;
+        border: 1px solid $ui-error;
     }
 }

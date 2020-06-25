@@ -70,24 +70,21 @@ export default function DateRangeForm(props: DateCheckFormProps) {
             </legend>
             <div className={`input-row ${bem("input-row", [], baseClass)}`}>
                 <Input
-                    baseClass="input-row"
-                    labelId={fromLabelOpts.id}
-                    labelContent={fromLabelOpts.labelContent}
-                    inputId={fromInputOpts.inputId}
-                    inputType="number"
-                    inputValue={fromInputOpts.inputValue}
-                    onInputChange={fromInputOpts.onInputChange}
-                    helperContentOpts={fromHelper}
+                    id={fromLabelOpts.id}
+                    // inputType="number"
+                    // inputValue={fromInputOpts.inputValue}
+                    // onInputChange={fromInputOpts.onInputChange}
+                    // helperContentOpts={fromHelper}
                 />
                 <Input
-                    baseClass="input-row"
-                    labelId={toLabelOpts.id}
-                    labelContent={toLabelOpts.labelContent}
-                    inputId={toInputOpts.inputId}
-                    inputType="number"
-                    inputValue={toInputOpts.inputValue}
-                    onInputChange={toInputOpts.onInputChange}
-                    helperContentOpts={toHelper}
+                // baseClass="input-row"
+                // labelId={toLabelOpts.id}
+                // labelContent={toLabelOpts.labelContent}
+                // inputId={toInputOpts.inputId}
+                // inputType="number"
+                // inputValue={toInputOpts.inputValue}
+                // onInputChange={toInputOpts.onInputChange}
+                // helperContentOpts={toHelper}
                 />
             </div>
             {showError && (
