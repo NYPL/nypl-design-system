@@ -80,6 +80,7 @@ export default class Select extends React.Component<
             "aria-required": isRequired,
             value: this.state.selectedOption,
             disabled: disabled,
+            "aria-label": ariaLabel,
         };
 
         if (labelId && !helperTextId) {
@@ -88,10 +89,6 @@ export default class Select extends React.Component<
             selectProps["aria-labelledby"] = helperTextId;
         } else if (labelId && helperTextId) {
             selectProps["aria-labelledby"] = labelId + " " + helperTextId;
-        }
-
-        if (ariaLabel) {
-            selectProps["aria-label"] = ariaLabel;
         }
 
         if (!options.length) return;
