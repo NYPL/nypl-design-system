@@ -65,7 +65,7 @@ export default function RNHeaderWithSearch(
                     dropdownId={dropdownId}
                     dropdownAriaLabel="Filter Search"
                     textFieldAriaLabel={textFieldAriaLabel}
-                    dropdownOptions={searchDropdownOptions}
+                    options={searchDropdownOptions}
                     helperVariant="ResearchNow"
                     hasError={hasError}
                     errorMessage={errorMessage}

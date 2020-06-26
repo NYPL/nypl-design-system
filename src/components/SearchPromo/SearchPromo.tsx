@@ -17,7 +17,7 @@ export interface SearchPromoProps {
     dropdownId?: string;
     hasError?: boolean;
     errorMessage?: string;
-    searchDropdownOptions: string[];
+    searchDropdownOptions: React.ReactNode;
     selectedOption?: string;
     searchValue?: string;
     advancedSearchMessage: JSX.Element;
@@ -70,7 +70,7 @@ export default function SearchPromo(props: SearchPromoProps) {
                         searchBarAriaLabelledBy={titleId}
                         buttonId={searchButtonId}
                         dropdownId={dropdownId}
-                        dropdownOptions={searchDropdownOptions}
+                        options={searchDropdownOptions}
                         dropdownAriaLabel="Filter Search"
                         selectedField={selectedOption}
                         searchValue={searchValue}

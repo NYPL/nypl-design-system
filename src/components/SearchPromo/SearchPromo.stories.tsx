@@ -23,7 +23,12 @@ export const researchNowSearchPromo = () => (
         searchBarId="searchBarId"
         dropdownId="dropdownId"
         searchInputAriaLabel="ariaLabel"
-        searchDropdownOptions={["Keyword", "Author"]}
+        searchDropdownOptions={
+            <>
+                <option aria-selected={true}>Keyword</option>
+                <option aria-selected={false}>Other Keyword</option>
+            </>
+        }
         searchSubmitHandler={action("searched")}
         selectChangeHandler={action("changed")}
         selectBlurHandler={action("selectChanged")}
