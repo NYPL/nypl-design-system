@@ -92,19 +92,6 @@ export default class Select extends React.Component<
             selectProps["aria-labelledby"] = labelId + " " + helperTextId;
         }
 
-        {
-            React.Children.map(children, (child, key) => {
-                console.log(typeof child);
-                console.dir(child);
-                console.log(this.props.children[key].props.children);
-                console.log(key);
-                // console.log(child.props);
-
-                // console.log(child.props);
-                // console.log("Child:" + child + " " + this.state.selectedOption);
-            });
-        }
-
         return (
             <select
                 {...selectProps}

@@ -50,10 +50,18 @@ export const selectWithOptionalLabel = () => (
             <option aria-selected={true}>
                 {text("Option One", optionsGroup[0])}
             </option>
-            <option>{text("Option Two", optionsGroup[1])}</option>
-            <option>{text("Option Three", optionsGroup[2])}</option>
-            <option>{text("Option Four", optionsGroup[3])}</option>
-            <option>{text("Option Five", optionsGroup[4])}</option>
+            <option aria-selected={false}>
+                {text("Option Two", optionsGroup[1])}
+            </option>
+            <option aria-selected={false}>
+                {text("Option Three", optionsGroup[2])}
+            </option>
+            <option aria-selected={false}>
+                {text("Option Four", optionsGroup[3])}
+            </option>
+            <option aria-selected={false}>
+                {text("Option Five", optionsGroup[4])}
+            </option>
         </Select>
         {boolean("Show Helper Text", true)
             ? (showHelperText = true)

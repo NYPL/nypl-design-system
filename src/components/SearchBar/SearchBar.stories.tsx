@@ -19,7 +19,7 @@ export const searchWithParams = () => (
         options={
             <>
                 <option aria-selected={true}>Keyword</option>
-                <option>Other Keyword</option>
+                <option aria-selected={false}>Other Keyword</option>
             </>
         }
         searchSubmitHandler={action("searched")}
@@ -60,8 +60,8 @@ export const searchFormWithParamsAndError = () => (
         dropdownAriaLabel="filter"
         options={
             <>
-                <option>Keyword</option>
-                <option>Other Keyword</option>
+                <option aria-selected={true}>Keyword</option>
+                <option aria-selected={false}>Other Keyword</option>
             </>
         }
         searchSubmitHandler={action("searched")}

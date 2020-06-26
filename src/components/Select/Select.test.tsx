@@ -25,7 +25,7 @@ describe("Select", () => {
                 onBlur={blurCallback}
             >
                 <option aria-selected={true}>test1</option>
-                <option>test2</option>
+                <option aria-selected={false}>test2</option>
             </Select>
         );
         expect(wrapper.find("Select")).to.have.lengthOf(1);
@@ -40,7 +40,7 @@ describe("Select", () => {
                 ariaLabel={"arialabel"}
             >
                 <option aria-selected={true}>test1</option>
-                <option>test2</option>
+                <option aria-selected={false}>test2</option>
             </Select>
         );
         expect(wrapper.find("select").props()["aria-label"]).to.equal(
@@ -58,7 +58,7 @@ describe("Select", () => {
                 helperTextId={"2"}
             >
                 <option aria-selected={true}>test1</option>
-                <option>test2</option>
+                <option aria-selected={false}>test2</option>
             </Select>
         );
         expect(wrapper.find("select").props()["aria-labelledby"]).to.equal(
@@ -76,7 +76,7 @@ describe("Select", () => {
                 onBlur={blurCallback}
             >
                 <option aria-selected={true}>test1</option>
-                <option>test2</option>
+                <option aria-selected={false}>test2</option>
             </Select>
         );
 
@@ -95,7 +95,7 @@ describe("Select", () => {
                 onBlur={blurCallback}
             >
                 <option aria-selected={true}>test1</option>
-                <option>test2</option>
+                <option aria-selected={false}>test2</option>
             </Select>
         );
         wrapper.find("select").simulate("blur", "");
