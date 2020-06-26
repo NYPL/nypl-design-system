@@ -8,7 +8,7 @@ export default {
     component: Image,
 };
 
-export const ImageWithCaption = () => [
+export const ImageWithOptionalCaptionandCredit = () => [
     <Image
         src="https://placeimg.com/400/200/arch"
         isDecorative={true}

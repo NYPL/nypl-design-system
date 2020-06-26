@@ -8,6 +8,7 @@ export interface ImageProps {
     altText?: string;
     imageModifiers?: string[];
     imageBlockname?: string;
+    figureBlockname?: string;
     imageCaption?: string;
     imageCredit?: string;
 }
@@ -19,7 +20,6 @@ export default function Image(props: ImageProps) {
         isDecorative,
         altText,
         imageModifiers,
-        imageBlockname,
         imageCaption,
         imageCredit,
     } = props;
@@ -32,6 +32,9 @@ export default function Image(props: ImageProps) {
         throw new Error("Alt Text must be less than 300 characters");
     }
 
+    let imageBlockname;
+    imageBlockname = imageCaption || imageCredit ? "figure" : null;
+
     let imageProps = {
         className: bem(image_base_class, imageModifiers, imageBlockname),
         src: src,
@@ -41,22 +44,18 @@ export default function Image(props: ImageProps) {
     return (
         <>
             {imageCaption || imageCredit ? (
-                <figure className={bem(image_base_class, [], "figure")}>
+                <figure className={bem("figure")}>
                     <img {...imageProps} />
                     <figcaption
-                        className={bem(image_base_class, [], "figure__caption")}
+                        className={bem("figcaption", [], "figure", ["image"])}
                     >
                         {imageCaption && (
-                            <div
-                                className={bem(image_base_class, [], "caption")}
-                            >
+                            <div className={bem("caption", [], "figcaption")}>
                                 {imageCaption}
                             </div>
                         )}
                         {imageCredit && (
-                            <div
-                                className={bem(image_base_class, [], "credit")}
-                            >
+                            <div className={bem("credit", [], "figcaption")}>
                                 {imageCredit}
                             </div>
                         )}

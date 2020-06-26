@@ -1,18 +1,22 @@
-@mixin image {
+.image {
     display: block;
     height: auto;
     max-width: 100%;
 }
 
-img,
-picture {
-    @include image;
+.figure {
+    &__image {
+        @include space-stack-xxs;
+    }
+
+    &__figcaption {
+        font-style: italic;
+    }
 }
 
-figure {
-    margin: 0; //override normalize
-}
-
-.figure__caption {
-    font-style: italic;
+.figcaption {
+    &__credit,
+    &__caption {
+        @include space-stack-xxs;
+    }
 }
