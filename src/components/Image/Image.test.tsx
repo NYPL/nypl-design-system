@@ -13,7 +13,7 @@ describe("Images", () => {
         wrapper = Enzyme.shallow(<Image src="test.png" isDecorative={true} />);
         expect(wrapper.find("img")).to.have.lengthOf(1);
     });
-    it("Shows Image with caption when provided ImageCaption", () => {
+    it("Shows Image wrapped in figure when provided ImageCaption", () => {
         wrapper = Enzyme.shallow(
             <Image
                 src="test.png"
@@ -21,20 +21,20 @@ describe("Images", () => {
                 imageCaption={"caption"}
             />
         );
+        expect(wrapper.find("figure")).to.have.lengthOf(1);
         expect(wrapper.find("figcaption")).to.have.lengthOf(1);
-        expect(wrapper.find("div").text()).to.equal("caption");
     });
 
-    it("Shows Image with credit when provided ImageCredit", () => {
+    it("Shows Image wrapped in figure when provided ImageCredit", () => {
         wrapper = Enzyme.shallow(
             <Image src="test.png" isDecorative={true} imageCredit={"credit"} />
         );
 
+        expect(wrapper.find("figure")).to.have.lengthOf(1);
         expect(wrapper.find("figcaption")).to.have.lengthOf(1);
-        expect(wrapper.find("div").text()).to.equal("credit");
     });
 
-    it("Shows Image with credit and caption when provided ImageCredit and ImageCaption", () => {
+    it("Shows Image wrapped in figure with credit and caption when provided ImageCredit and ImageCaption", () => {
         wrapper = Enzyme.shallow(
             <Image
                 src="test.png"
