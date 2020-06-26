@@ -2,11 +2,19 @@
     display: block;
     height: auto;
     max-width: 100%;
+
+    &--circle {
+        border-radius: 50%;
+    }
 }
 
 .figure {
     &__image {
         @include space-stack-xxs;
+
+        &--circle {
+            border-radius: 50%;
+        }
     }
 
     &__figcaption {

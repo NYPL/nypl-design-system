@@ -2,45 +2,59 @@ import * as React from "react";
 
 import Image from "./Image";
 import { action } from "@storybook/addon-actions";
+import { text, boolean, select } from "@storybook/addon-knobs";
 
 export default {
     title: "Image",
     component: Image,
 };
 
-export const ImageWithOptionalCaptionandCredit = () => [
-    <Image
-        src="https://placeimg.com/400/200/arch"
-        isDecorative={true}
-        imageCaption={"Image Caption"}
-    />,
-];
+let showCaption, showCredit, circleMask;
 
-export const ImageWithCredit = () => [
-    <Image
-        src="https://placeimg.com/400/200/arch"
-        isDecorative={true}
-        imageCaption={"Image Credit"}
-    />,
-];
+const imageRatios = {
+    "1x1": "https://placeimg.com/100/100/animals",
+    "2x1": "https://placeimg.com/200/100/animals",
+    "3x4": "https://placeimg.com/150/200/animals",
+    "4x1": "https://placeimg.com/400/100/animals",
+    "4x3": "https://placeimg.com/200/150/animals",
+    "16x9": "https://placeimg.com/400/225/animals",
+};
 
-export const ImageWithCreditAndCaption = () => [
-    <Image
-        src="https://placeimg.com/400/200/arch"
-        isDecorative={true}
-        imageCaption={"Image Caption"}
-        imageCredit={"Image Credit"}
-    />,
-];
+export const ImageWithOptionalCaptionandCredit = () => (
+    <>
+        {boolean("Show Caption", true)
+            ? (showCaption = true)
+            : (showCaption = false)}
+        {boolean("Show Credit", true)
+            ? (showCredit = true)
+            : (showCredit = false)}
+        <Image
+            src={select(
+                "Initial Selected Option",
+                imageRatios,
+                imageRatios["2x1"]
+            )}
+            isDecorative={true}
+            imageCaption={
+                showCaption
+                    ? text("Image Caption", "Deserted Islander Relocator")
+                    : null
+            }
+            imageCredit={
+                showCredit ? text("Image Credit", "Taken by Tom Nook") : null
+            }
+            modifiers={boolean("Apply Circle Mask", false) ? ["circle"] : null}
+        />
+    </>
+);
 
-export const twoByOne = () => [
-    <Image src="https://placeimg.com/200/100/arch" isDecorative={true} />,
-    <Image src="https://placeimg.com/400/200/arch" isDecorative={true} />,
-    <Image src="https://placeimg.com/1600/800/arch" isDecorative={true} />,
-    <Image src="https://placeimg.com/2000/1000/arch" isDecorative={true} />,
-];
-
-export const threeByFour = () => [
-    <Image src="https://placeimg.com/150/200/arch" isDecorative={true} />,
-    <Image src="https://placeimg.com/300/400/arch" isDecorative={true} />,
-];
+ImageWithOptionalCaptionandCredit.story = {
+    name: "Image with Optional Caption and Credit",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11896%3A45379",
+        },
+    },
+};

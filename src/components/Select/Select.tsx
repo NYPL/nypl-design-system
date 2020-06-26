@@ -3,10 +3,10 @@ import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 
 export interface SelectProps {
-    /** className you can add in addition to 'select' */
+    /** ClassName you can add in addition to 'select' */
     className?: string;
 
-    /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
 
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
