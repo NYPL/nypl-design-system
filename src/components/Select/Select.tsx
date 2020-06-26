@@ -93,8 +93,15 @@ export default class Select extends React.Component<
         }
 
         {
-            React.Children.map(children, (child) => {
-                console.log("Child:" + child + " " + this.state.selectedOption);
+            React.Children.map(children, (child, key) => {
+                console.log(typeof child);
+                console.dir(child);
+                console.log(this.props.children[key].props.children);
+                console.log(key);
+                // console.log(child.props);
+
+                // console.log(child.props);
+                // console.log("Child:" + child + " " + this.state.selectedOption);
             });
         }
 
@@ -104,9 +111,11 @@ export default class Select extends React.Component<
                 onBlur={(e) => this.onSelectChange(e, onBlur)}
                 onChange={(e) => this.onSelectChange(e, onChange)}
             >
-                {React.Children.map(children, (child) =>
+                {React.Children.map(children, (child, key) =>
                     React.cloneElement(child as React.ReactElement<any>, {
-                        "aria-selected": child === this.state.selectedOption,
+                        "aria-selected":
+                            children[key].props.children ===
+                            this.state.selectedOption,
                     })
                 )}
             </select>
