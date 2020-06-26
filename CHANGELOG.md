@@ -23,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Fixes bug in former `FormDropdown` (now `Select`) where the select value would not change if `selectedOption` were passed
 -   `Link`'s scss now references `$ui-link-primary` instead of `$nypl-blue-regular`
 -   Changes `Select`'s SCSS to use the updated styling from Filament Group
+-   `Image` is wrapped in `figure` when `imageCaption` or `imageCredit` is passed to `Image`
 
 ## 0.6.0
 
