@@ -41,7 +41,7 @@ export default class Accordion extends React.Component<
         buttonOptions.iconPosition = ButtonIconPositions.JustifyRight;
         buttonOptions.iconName = this.state.isOpen ? "minus" : "plus";
         buttonOptions.iconModifiers = ["medium"];
-        buttonOptions.buttonType = ButtonTypes.Outline;
+        buttonOptions.buttonType = ButtonTypes.Secondary;
 
         return (
             <div className={bem("accordion", modifiers, blockName)}>

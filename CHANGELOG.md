@@ -15,7 +15,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   `Textfield` has been retired in favor of `Input`
 -   `Input` type is now controlled via an enum defined in `InputTypes` instead of a string
 -   `DateRangeForm` now represented as an `Input` story
+<<<<<<< HEAD
 -   Deprecates `BodyText`
+=======
+-   In the `ButtonTypes` enum, `Filled` and `Outline` have been changed to `Primary` and `Secondary`, respectively
+>>>>>>> [button] Changes the ButtonTypes enum options
 
 ### Adds
 

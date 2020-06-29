@@ -1,10 +1,11 @@
 import * as React from "react";
 
 import Button from "./Button";
-import { action } from "@storybook/addon-actions";
-import { withDesign } from "storybook-addon-designs";
 import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
 import { IconRotationTypes } from "../Icons/IconTypes";
+import { action } from "@storybook/addon-actions";
+import { withDesign } from "storybook-addon-designs";
+import { text, boolean, select } from "@storybook/addon-knobs";
 
 export default {
     title: "Button",
@@ -16,7 +17,7 @@ export const buttonFilledIcon = () => (
     <Button
         callback={action("clicked")}
         id="button"
-        buttonType={ButtonTypes.Filled}
+        buttonType={select("Button Type", ButtonTypes, ButtonTypes.Primary)}
         type="submit"
         iconPosition={ButtonIconPositions.Left}
         iconName="search_small"
@@ -42,7 +43,7 @@ export const buttonOutline = () => (
         callback={action("clicked")}
         id="button"
         type="submit"
-        buttonType={ButtonTypes.Outline}
+        buttonType={ButtonTypes.Secondary}
     >
         Hello World
     </Button>
@@ -63,7 +64,7 @@ export const buttonWithSpan = () => (
     <Button
         callback={action("clicked")}
         id="button"
-        buttonType={ButtonTypes.Outline}
+        buttonType={ButtonTypes.Secondary}
     >
         <span>Style my span!</span>
     </Button>
@@ -73,7 +74,7 @@ export const buttonIconChildrenString = () => (
     <Button
         callback={action("clicked")}
         id="button"
-        buttonType={ButtonTypes.Filled}
+        buttonType={ButtonTypes.Primary}
         type="submit"
         iconPosition={ButtonIconPositions.Right}
         iconName="search_small"
@@ -87,7 +88,7 @@ export const buttonIconChildrenElement = () => (
     <Button
         callback={action("clicked")}
         id="button"
-        buttonType={ButtonTypes.Outline}
+        buttonType={ButtonTypes.Secondary}
         type="button"
         iconPosition={ButtonIconPositions.Right}
         iconName="search_small"
@@ -102,7 +103,7 @@ export const buttonFullWidthIconRight = () => (
         callback={action("clicked")}
         id="button"
         type="submit"
-        buttonType={ButtonTypes.Outline}
+        buttonType={ButtonTypes.Secondary}
         iconPosition={ButtonIconPositions.JustifyRight}
         modifiers={["large"]}
         iconName="plus"

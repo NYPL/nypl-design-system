@@ -132,7 +132,7 @@ export const inputGroup = () => (
         <Button
             callback={action("clicked")}
             id="button"
-            buttonType={ButtonTypes.Filled}
+            buttonType={ButtonTypes.Primary}
             type="submit"
         >
             Apply

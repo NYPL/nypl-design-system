@@ -107,7 +107,7 @@ export default function SearchBar(props: SearchBarProps) {
         callback: searchSubmitHandler,
         blockName: searchbar__base_class,
         content: <>Search</>,
-        buttonType: ButtonTypes.Filled,
+        buttonType: ButtonTypes.Primary,
         iconPosition: ButtonIconPositions.Left,
         iconName: "search_small",
         iconDecorative: true,

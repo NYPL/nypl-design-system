@@ -35,7 +35,7 @@ export const CardWithFullData = () => (
             <Button
                 callback={action("clicked")}
                 id="button1"
-                buttonType={ButtonTypes.Filled}
+                buttonType={ButtonTypes.Primary}
                 type="submit"
             >
                 Example CTA
