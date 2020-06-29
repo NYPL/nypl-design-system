@@ -33,6 +33,7 @@ interface ButtonProps {
     modifiers?: string[];
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+    className?: string;
     /** The Kind of button */
     buttonType?: ButtonTypes;
     /** The html button attribute */
@@ -64,21 +65,22 @@ export default class Button extends React.Component<ButtonProps, {}> {
 
     render(): JSX.Element {
         const {
-            id,
-            callback,
             attributes,
-            modifiers,
             blockName,
             buttonType,
-            type = "submit",
-            mouseDown,
-            iconPosition,
-            iconRotation,
-            iconName,
-            iconModifiers = ["small"],
-            iconDecorative,
-            iconRole,
+            callback,
             children,
+            className,
+            iconDecorative,
+            iconModifiers = ["small"],
+            iconName,
+            iconPosition,
+            iconRole,
+            iconRotation,
+            id,
+            modifiers,
+            mouseDown,
+            type = "submit",
         } = this.props;
 
         let buttonModifiers = modifiers ? modifiers : [];
@@ -144,7 +146,8 @@ export default class Button extends React.Component<ButtonProps, {}> {
                 className={`${button_base_class} ${bem(
                     button_base_class,
                     buttonModifiers,
-                    blockName
+                    blockName,
+                    [className]
                 )}`}
                 type={type}
                 {...attributes}

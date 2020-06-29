@@ -2,7 +2,7 @@ import * as React from "react";
 
 import Button from "./Button";
 import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
-import { IconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 import { text, boolean, select } from "@storybook/addon-knobs";
@@ -13,49 +13,30 @@ export default {
     decorators: [withDesign],
 };
 
-export const buttonFilledIcon = () => (
+console.log(IconNames.search_small);
+
+export const button = () => (
     <Button
         callback={action("clicked")}
         id="button"
         buttonType={select("Button Type", ButtonTypes, ButtonTypes.Primary)}
         type="submit"
         iconPosition={ButtonIconPositions.Left}
-        iconName="search_small"
+        // iconName="search_small"
+        iconName={select("Icon", IconNames, IconNames.search_small)}
         iconDecorative={true}
     >
         Search
     </Button>
 );
 
-buttonFilledIcon.story = {
-    name: "Button Filled Icon",
+button.story = {
+    name: "Button",
     parameters: {
         design: {
             type: "figma",
             url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14972%3A0",
-        },
-    },
-};
-
-export const buttonOutline = () => (
-    <Button
-        callback={action("clicked")}
-        id="button"
-        type="submit"
-        buttonType={ButtonTypes.Secondary}
-    >
-        Hello World
-    </Button>
-);
-
-buttonOutline.story = {
-    name: "Button Outline",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14972%3A143",
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
         },
     },
 };

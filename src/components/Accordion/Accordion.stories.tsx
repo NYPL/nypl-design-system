@@ -31,9 +31,9 @@ const checkboxes = [
 export const accordionWithCheckboxes = () => (
     <Accordion
         id="accordion"
-        buttonOptions={{ id: "accordionBtn", content: <>Click to expand</> }}
+        accordionLabel="Click to expand"
+        labelId="accordionBtn"
     >
-        {" "}
         <UnorderedList id="checkbox-list">{checkboxes}</UnorderedList>{" "}
     </Accordion>
 );

@@ -12,7 +12,7 @@ import Image from "../Image/Image";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 describe("Card", () => {
     let regularCard = (
@@ -70,7 +70,7 @@ describe("Card", () => {
                     <div className="edition-card__download">
                         <Link href="#url" linkType={LinkTypes.Action}>
                             <Icon
-                                name="download"
+                                name={IconNames.download}
                                 blockName="more-link"
                                 decorative={true}
                                 modifiers={["left"]}
@@ -145,7 +145,7 @@ describe("Card", () => {
                     <div className="edition-card__download">
                         <Link href="#url" linkType={LinkTypes.Action}>
                             <Icon
-                                name="download"
+                                name={IconNames.download}
                                 blockName="more-link"
                                 decorative={true}
                                 modifiers={["left"]}
@@ -179,7 +179,7 @@ describe("Card", () => {
                     <div className="edition-card__download">
                         <Link href="#url" linkType={LinkTypes.Action}>
                             <Icon
-                                name="download"
+                                name={IconNames.download}
                                 blockName="more-link"
                                 decorative={true}
                                 modifiers={["left"]}

@@ -6,17 +6,17 @@ import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 export interface AccordionProps {
     id?: string;
 
+    accordionLabel?: string;
+
+    labelId?: string;
+
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
-
-    /** The button that controls the acccordion toggle */
-    buttonOptions: ButtonOptions;
 }
 
 /** Accordion component that shows content on toggle */
-
 export default class Accordion extends React.Component<
     AccordionProps,
     { isOpen: boolean }
@@ -34,19 +34,21 @@ export default class Accordion extends React.Component<
     }
 
     render() {
-        const { buttonOptions, modifiers = [], blockName = "" } = this.props;
-        buttonOptions.type = "button";
-        buttonOptions.blockName = "accordion";
-        buttonOptions.modifiers = ["large"];
-        buttonOptions.iconPosition = ButtonIconPositions.JustifyRight;
-        buttonOptions.iconName = this.state.isOpen ? "minus" : "plus";
-        buttonOptions.iconModifiers = ["medium"];
-        buttonOptions.buttonType = ButtonTypes.Secondary;
+        const { modifiers = [], blockName = "" } = this.props;
+
+        let ButtonProps: { [key: string]: any } = {};
+        ButtonProps.id = this.props.labelId;
+        ButtonProps.type = "button";
+        ButtonProps.blockName = "accordion";
+        ButtonProps.iconPosition = ButtonIconPositions.JustifyRight;
+        ButtonProps.iconName = this.state.isOpen ? "minus" : "plus";
+        ButtonProps.iconModifiers = ["medium"];
+        ButtonProps.buttonType = ButtonTypes.Secondary;
 
         return (
             <div className={bem("accordion", modifiers, blockName)}>
-                <Button callback={this.toggleContentShow} {...buttonOptions}>
-                    {buttonOptions.content}
+                <Button callback={this.toggleContentShow} {...ButtonProps}>
+                    {this.props.accordionLabel}
                 </Button>
                 {this.state.isOpen && (
                     <div className="accordion-content">
