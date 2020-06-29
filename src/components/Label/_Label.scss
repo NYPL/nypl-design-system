@@ -12,3 +12,12 @@
         font-weight: 300;
     }
 }
+
+.fieldset {
+    @include fieldset-reset;
+}
+
+.legend {
+    border: 0;
+    font-weight: 500;
+}

@@ -29,8 +29,17 @@ export interface InputProps {
 
     /** Will add 'aria-required: true' to input */
     required?: boolean;
+
+    /** className you can add in addition to 'input' */
+    className?: string;
+
+    /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
+
+    errored?: boolean;
 
     /** Populates the value of the select */
     value?: string | number;
@@ -38,33 +47,42 @@ export interface InputProps {
     /** Populates the placeholder of the select */
     placeholder?: string;
 
-    /**  */
+    /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
     type?: InputTypes;
 
-    /**  */
+    /** ID of associated label */
+    labelId?: string;
+
+    /** ID of associated HelperText */
     helperTextId?: string;
-    onChange?: (event: React.FormEvent) => void;
 }
 
 export default function Input(props: InputProps) {
     const {
-        id,
         ariaLabel,
         ariaLabelledBy,
-        required,
         blockName,
-        modifiers,
-        value,
+        className,
+        errored,
+        helperTextId,
+        id,
+        labelId,
         placeholder,
+        required,
         type = "text",
-        onChange,
+        value,
     } = props;
 
+    let modifiers = props.modifiers ? props.modifiers : [];
+
+    if (errored) {
+        modifiers.push("error");
+    }
+
     let inputProps = {
-        className: bem("input", modifiers, blockName),
+        className: bem("input", modifiers, blockName, [className]),
         type: type,
         value: value,
-        onChange: onChange,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
     };
@@ -73,13 +91,13 @@ export default function Input(props: InputProps) {
         inputProps["aria-required"] = true;
     }
 
-    // if (labelId && !helperTextId) {
-    //     selectProps["aria-labelledby"] = labelId;
-    // } else if (helperTextId && !labelId) {
-    //     selectProps["aria-labelledby"] = helperTextId;
-    // } else if (labelId && helperTextId) {
-    //     selectProps["aria-labelledby"] = labelId + " " + helperTextId;
-    // }
+    if (labelId && !helperTextId) {
+        inputProps["aria-labelledby"] = labelId;
+    } else if (helperTextId && !labelId) {
+        inputProps["aria-labelledby"] = helperTextId;
+    } else if (labelId && helperTextId) {
+        inputProps["aria-labelledby"] = labelId + " " + helperTextId;
+    }
 
     let transformedInput = (
         <input id={`input-${id}`} {...inputProps} placeholder={placeholder} />

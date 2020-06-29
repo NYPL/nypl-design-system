@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Changes `referenceId` to `htmlFor` on `Label`
 -   `Textfield` has been retired in favor of `Input`
 -   `Input` type is now controlled via an enum defined in `InputTypes` instead of a string
+-   `DateRangeForm` now represented as an `Input` story
 
 ### Adds
 

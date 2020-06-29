@@ -3,8 +3,11 @@ import * as React from "react";
 import Input from "./Input";
 import { InputTypes } from "./InputTypes";
 import Label from "../Label/Label";
+import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import { text, boolean, select } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
 
 export default {
     title: "Input",
@@ -26,7 +29,7 @@ export const input = () => (
                 )}
                 id={"label"}
             >
-                {text("Select Label", "Choose your islander name: ")}
+                {text("Input Label", "Choose your islander name: ")}
             </Label>
         )}
         <Input
@@ -42,7 +45,7 @@ export const input = () => (
             : (showHelperText = false)}
         {showHelperText && (
             <HelperErrorText
-                isError={boolean("Is Errored", false)}
+                isError={boolean("Helper Text Errored", false)}
                 id={"helperText"}
             >
                 {text(
@@ -65,11 +68,85 @@ input.story = {
     },
 };
 
-// export const inputRequiredWithError = () => (
-//     <Input
-//         id="blah"
-//         isRequired={true}
-//         placeholder={"beep"}
-//         // showError={true}
-//     ></Input>
-// );
+let groupErrored;
+
+export const inputGroup = () => (
+    <fieldset className="fieldset">
+        {boolean("Input Group Errored", false)
+            ? (groupErrored = true)
+            : (groupErrored = false)}
+        <legend className="legend">
+            {text("Input Group Label", "Construction Time Request Form: ")}
+        </legend>
+        <div className="input-group">
+            <div style={{ flex: "1" }}>
+                <Label htmlFor="input1" id={"label1"}>
+                    From
+                </Label>
+                <Input
+                    id="input1"
+                    labelId="label1"
+                    helperTextId={
+                        groupErrored
+                            ? "helperText1 sharedHelperText"
+                            : "helperText1"
+                    }
+                    errored={groupErrored ? true : false}
+                    required={true}
+                    type={InputTypes.text}
+                ></Input>
+                <HelperErrorText isError={false} id={"helperText1"}>
+                    {text("Input 1 Helper Text", "E.g., 10am")}
+                </HelperErrorText>
+            </div>
+
+            <div style={{ flex: "1" }}>
+                <Label htmlFor="input2" id={"label2"}>
+                    To
+                </Label>
+                <Input
+                    id="input2"
+                    labelId="label2"
+                    helperTextId={
+                        groupErrored
+                            ? "helperText2 sharedHelperText"
+                            : "helperText2"
+                    }
+                    errored={groupErrored ? true : false}
+                    required={true}
+                    type={InputTypes.text}
+                ></Input>
+                <HelperErrorText isError={false} id={"helperText2"}>
+                    {text("Input 2 Helper Text", "E.g., 11am")}
+                </HelperErrorText>
+            </div>
+        </div>
+        {groupErrored && (
+            <HelperErrorText isError={true} id={"sharedHelperText"}>
+                {text(
+                    "Additional Error Text",
+                    "Sorry villager! Those times are not available right now."
+                )}
+            </HelperErrorText>
+        )}
+        <Button
+            callback={action("clicked")}
+            id="button"
+            buttonType={ButtonTypes.Filled}
+            type="submit"
+        >
+            Apply
+        </Button>
+    </fieldset>
+);
+
+inputGroup.story = {
+    name: "Input Group",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+        },
+    },
+};

@@ -43,3 +43,12 @@
         border: 1px solid $ui-error;
     }
 }
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+
+    > *:not(:last-child) {
+        @include space-inline-m;
+    }
+}
