@@ -1,22 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import { InputTypes } from "./InputTypes";
-export interface InputOptions {
-    baseClass?: string;
-    blockName?: string;
 
-    labelId?: string;
-    labelContent?: JSX.Element;
-
-    inputId?: string;
-    inputType?: string;
-    inputValue?: string | number;
-    onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-
-    required?: boolean;
-
-    showError?: boolean;
-}
 export interface InputProps {
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
