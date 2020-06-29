@@ -68,13 +68,19 @@ describe("Input with Label", () => {
         );
     });
 
+    it("Renders Input", () => {
+        expect(container.find("input").exists()).to.equal(true);
+    });
+
     it("Label points to its associated input", () => {
         expect(container.find("label").exists()).to.equal(true);
         expect(container.find("label").prop("htmlFor")).to.equal("inputID");
     });
 
-    it("Renders Input", () => {
-        expect(container.find("input").exists()).to.equal(true);
+    it("Renders aria-label", () => {
+        expect(container.find("input").prop("aria-label")).to.equal(
+            "Input Label"
+        );
     });
 
     it("Renders aria-labelledby for inputId and helperTextId", () => {
