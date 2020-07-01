@@ -47,7 +47,7 @@ export default class Accordion extends React.Component<
 
         return (
             <div className={bem("accordion", modifiers, blockName)}>
-                <Button callback={this.toggleContentShow} {...ButtonProps}>
+                <Button onClick={this.toggleContentShow} {...ButtonProps}>
                     {this.props.accordionLabel}
                 </Button>
                 {this.state.isOpen && (

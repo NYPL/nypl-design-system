@@ -7,7 +7,7 @@ import { IconRotationTypes } from "../Icons/IconTypes";
 export interface ButtonOptions {
     content?: JSX.Element;
     id?: string;
-    callback?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+    onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
     attributes?: {};
     modifiers?: string[];
     blockName?: string;
@@ -26,7 +26,7 @@ interface ButtonProps {
     id?: string;
 
     /** The action to perform on the <button>'s onClick function */
-    callback: (event: React.MouseEvent | React.KeyboardEvent) => void;
+    onClick: (event: React.MouseEvent | React.KeyboardEvent) => void;
     /** Additional attributes passed to the button */
     attributes?: {};
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
@@ -68,7 +68,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
             attributes,
             blockName,
             buttonType,
-            callback,
+            onClick,
             children,
             className,
             iconDecorative,
@@ -137,8 +137,8 @@ export default class Button extends React.Component<ButtonProps, {}> {
         }
 
         let btnCallback = mouseDown
-            ? { onMouseDown: callback }
-            : { onClick: callback };
+            ? { onMouseDown: onClick }
+            : { onClick: onClick };
 
         return (
             <button

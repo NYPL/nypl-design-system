@@ -28,7 +28,7 @@ export default function Pagination(props: PaginationProps) {
     const pagination__base_class = "pagination";
     let buttonPrevOpts: ButtonOptions = {
         id: "pagination-previous",
-        callback: previousPageHandler,
+        onClick: previousPageHandler,
         content: <>Previous</>,
         buttonType: ButtonTypes.Secondary,
         iconPosition: ButtonIconPositions.Left,
@@ -39,7 +39,7 @@ export default function Pagination(props: PaginationProps) {
 
     let buttonNextOpts: ButtonOptions = {
         id: "pagination-next",
-        callback: nextPageHandler,
+        onClick: nextPageHandler,
         content: <>Next</>,
         buttonType: ButtonTypes.Secondary,
         iconPosition: ButtonIconPositions.Right,
@@ -61,7 +61,7 @@ export default function Pagination(props: PaginationProps) {
 
     return (
         <nav aria-label="Pagination" className={bem(pagination__base_class)}>
-            <Button callback={buttonPrevOpts.callback} {...buttonPrevOpts}>
+            <Button onClick={buttonPrevOpts.onClick} {...buttonPrevOpts}>
                 {buttonPrevOpts.content}
             </Button>
             <Label htmlFor="pagination-dropdown">
@@ -71,7 +71,7 @@ export default function Pagination(props: PaginationProps) {
                 blockName={pagination__base_class}
                 {...dropdownProps}
             ></Select>
-            <Button callback={buttonNextOpts.callback} {...buttonNextOpts}>
+            <Button onClick={buttonNextOpts.onClick} {...buttonNextOpts}>
                 {buttonNextOpts.content}
             </Button>
         </nav>

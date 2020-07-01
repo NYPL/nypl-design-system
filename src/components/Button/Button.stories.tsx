@@ -17,12 +17,15 @@ console.log(IconNames.search_small);
 
 export const button = () => (
     <Button
-        callback={action("clicked")}
+        onClick={action("clicked")}
         id="button"
         buttonType={select("Button Type", ButtonTypes, ButtonTypes.Primary)}
         type="submit"
-        iconPosition={ButtonIconPositions.Left}
-        // iconName="search_small"
+        iconPosition={select(
+            "Icon Position",
+            ButtonIconPositions,
+            ButtonIconPositions.Left
+        )}
         iconName={select("Icon", IconNames, IconNames.search_small)}
         iconDecorative={true}
     >
@@ -40,83 +43,3 @@ button.story = {
         },
     },
 };
-
-export const buttonWithSpan = () => (
-    <Button
-        callback={action("clicked")}
-        id="button"
-        buttonType={ButtonTypes.Secondary}
-    >
-        <span>Style my span!</span>
-    </Button>
-);
-
-export const buttonIconChildrenString = () => (
-    <Button
-        callback={action("clicked")}
-        id="button"
-        buttonType={ButtonTypes.Primary}
-        type="submit"
-        iconPosition={ButtonIconPositions.Right}
-        iconName="search_small"
-        iconDecorative={true}
-    >
-        Search!
-    </Button>
-);
-
-export const buttonIconChildrenElement = () => (
-    <Button
-        callback={action("clicked")}
-        id="button"
-        buttonType={ButtonTypes.Secondary}
-        type="button"
-        iconPosition={ButtonIconPositions.Right}
-        iconName="search_small"
-        iconDecorative={true}
-    >
-        <span>I'm wrapped in a span!</span>
-    </Button>
-);
-
-export const buttonFullWidthIconRight = () => (
-    <Button
-        callback={action("clicked")}
-        id="button"
-        type="submit"
-        buttonType={ButtonTypes.Secondary}
-        iconPosition={ButtonIconPositions.JustifyRight}
-        modifiers={["large"]}
-        iconName="plus"
-        iconDecorative={true}
-    >
-        <span>button content</span>
-    </Button>
-);
-
-export const linkLikeButton = () => (
-    <Button
-        callback={action["clicked"]}
-        id="button"
-        type="button"
-        buttonType={ButtonTypes.Link}
-    >
-        <span>button content</span>
-    </Button>
-);
-
-export const linkLikeButtonIconLeft = () => (
-    <Button
-        callback={action["clicked"]}
-        id="button"
-        type="button"
-        buttonType={ButtonTypes.Link}
-        iconPosition={ButtonIconPositions.Left}
-        iconRotation={IconRotationTypes.rotate90}
-        modifiers={["left"]}
-        iconName="arrow_xsmall"
-        iconDecorative={true}
-    >
-        <span>button content</span>
-    </Button>
-);

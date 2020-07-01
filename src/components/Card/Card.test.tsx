@@ -29,7 +29,7 @@ describe("Card", () => {
             }
             ctas={
                 <Button
-                    callback={function () {
+                    onClick={function () {
                         console.log(this);
                     }}
                     id="button1"

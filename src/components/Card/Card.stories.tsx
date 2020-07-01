@@ -33,7 +33,7 @@ export const CardWithFullData = () => (
         }
         ctas={
             <Button
-                callback={action("clicked")}
+                onClick={action("clicked")}
                 id="button1"
                 buttonType={ButtonTypes.Primary}
                 type="submit"

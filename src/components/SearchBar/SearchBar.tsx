@@ -104,7 +104,7 @@ export default function SearchBar(props: SearchBarProps) {
 
     let buttonProps: ButtonOptions = {
         id: buttonId,
-        callback: searchSubmitHandler,
+        onClick: searchSubmitHandler,
         blockName: searchbar__base_class,
         content: <>Search</>,
         buttonType: ButtonTypes.Primary,
@@ -139,7 +139,7 @@ export default function SearchBar(props: SearchBarProps) {
 
             <div className={bem("input-group", [], searchbar__base_class)}>
                 <TextField {...textfieldProps}></TextField>
-                <Button callback={searchSubmitHandler} {...buttonProps}>
+                <Button onClick={searchSubmitHandler} {...buttonProps}>
                     {buttonProps.content}
                 </Button>
                 {hasError && !helperVariant && (
