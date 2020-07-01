@@ -1,129 +1,96 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import TextField, { TextFieldOptions } from "../TextField/TextField";
-import Label, { LabelOptions } from "../Label/Label";
-import HelperErrorText, {
-    HelperErrorTextOptions,
-} from "../HelperErrorText/HelperErrorText";
+import { InputTypes } from "./InputTypes";
 
-export interface InputOptions {
-    baseClass?: string;
+export interface InputProps {
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+
+    /** Populates the aria-label on the select */
+    ariaLabel?: string;
+
+    /** Populates the aria-labelledby on the select */
+    ariaLabelledBy?: string;
+
+    /** Will add 'aria-required: true' to input */
+    required?: boolean;
+
+    /** className you can add in addition to 'input' */
+    className?: string;
+
+    /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
 
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
+
+    errored?: boolean;
+
+    /** Populates the value of the select */
+    value?: string | number;
+
+    /** Populates the placeholder of the select */
+    placeholder?: string;
+
+    /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
+    type?: InputTypes;
+
+    /** ID of associated label */
     labelId?: string;
-    labelContent?: JSX.Element;
 
-    inputId?: string;
-    inputType?: string;
-    inputValue?: string | number;
-    onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    /** ID of associated HelperText */
+    helperTextId?: string;
 
-    isRequired?: boolean;
-
-    helperContentOpts?: HelperErrorTextOptions;
-    errorContentOpts?: HelperErrorTextOptions;
-
-    showError?: boolean;
-}
-interface InputProps {
-    /** Optional baseClass for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-    baseClass?: string;
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-    blockName?: string;
-
-    /** The Label ID for the input */
-    labelId?: string;
-    /** The label content for the input */
-    labelContent: JSX.Element;
-
-    /** The unique ID of the input */
-    inputId?: string;
-    /** The HTML inputType */
-    inputType?: string;
-    /** The current input value */
-    inputValue?: string | number;
-    /** The action to perform on the <input>'s onChange function  */
-    onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    /** Whether the "required" flag is shown */
-    isRequired?: boolean;
-
-    /** The input helper text */
-    helperContentOpts?: HelperErrorTextOptions;
-    /** The input error text */
-    errorContentOpts?: HelperErrorTextOptions;
-
-    /** Whether the input is currently in an error state */
-    showError?: boolean;
+    /** Additional attributes to pass to the <input> tag */
+    attributes?: {};
 }
 
-/**
- * An Input field that labels a TextField and has Helpers or Errors
- */
 export default function Input(props: InputProps) {
     const {
-        baseClass = "input",
-        blockName = "form-item",
+        ariaLabel,
+        ariaLabelledBy,
+        attributes,
+        blockName,
+        className,
+        errored,
+        helperTextId,
+        id,
         labelId,
-        labelContent,
-        inputId,
-        inputType = "text",
-        inputValue,
-        onInputChange,
-        isRequired,
-        helperContentOpts,
-        errorContentOpts,
-        showError,
+        placeholder,
+        required,
+        type = "text",
+        value,
     } = props;
 
-    if (showError && !errorContentOpts) {
-        throw new Error(
-            "Error should be shown, but no errorContentOpts passed"
-        );
+    let modifiers = props.modifiers ? props.modifiers : [];
+
+    if (errored) {
+        modifiers.push("error");
     }
 
-    let labelOptions: LabelOptions = {
-        id: labelId,
-        labelContent: labelContent,
-        htmlFor: inputId,
-    };
-    let textFieldOptions: TextFieldOptions = {
-        id: inputId,
-        ariaLabelledBy: labelId,
-        value: inputValue,
-        isRequired: isRequired,
-        type: inputType,
-        onChange: onInputChange,
+    let inputProps = {
+        className: bem("input", modifiers, blockName, [className]),
+        type: type,
+        value: value,
+        "aria-label": ariaLabel,
+        "aria-labelledby": ariaLabelledBy,
     };
 
-    return (
-        <div className={bem(blockName, [], baseClass)}>
-            <div className="label-container">
-                <div className={bem("label", [], baseClass)}>
-                    <Label htmlFor={labelOptions.htmlFor} id={labelOptions.id}>
-                        {labelOptions.labelContent}
-                    </Label>
-                </div>
-                {isRequired && (
-                    <span className={bem("required-message", [], baseClass)}>
-                        Required
-                    </span>
-                )}
-            </div>
-            <TextField id={inputId} {...textFieldOptions}></TextField>
-            {helperContentOpts && (
-                <div className={bem("help-text", [], baseClass)}>
-                    <HelperErrorText id={helperContentOpts.id} isError={false}>
-                        {helperContentOpts.content}
-                    </HelperErrorText>
-                </div>
-            )}
-            {showError && (
-                <div className={bem("error-text", [], baseClass)}>
-                    <HelperErrorText id={errorContentOpts.id} isError={true}>
-                        {errorContentOpts.content}
-                    </HelperErrorText>
-                </div>
-            )}
-        </div>
+    if (required) {
+        inputProps["aria-required"] = true;
+    }
+
+    if (labelId && !helperTextId) {
+        inputProps["aria-labelledby"] = labelId;
+    } else if (helperTextId && !labelId) {
+        inputProps["aria-labelledby"] = helperTextId;
+    } else if (labelId && helperTextId) {
+        inputProps["aria-labelledby"] = labelId + " " + helperTextId;
+    }
+
+    let transformedInput = (
+        <input id={`input-${id}`} {...inputProps} placeholder={placeholder} />
     );
+
+    return transformedInput;
 }

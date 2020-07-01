@@ -1,5 +1,6 @@
 .helper-text {
     @include type-scale(-1);
+    @include space-stack-xs;
 
     &--error {
         color: $ui-error;

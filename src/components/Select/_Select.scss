@@ -26,7 +26,7 @@
     }
 
     &:hover {
-        border-color: #888;
+        border-color: darken($gray-light, 10%);
     }
 
     &:focus {
