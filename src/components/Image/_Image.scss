@@ -1,0 +1,30 @@
+.image {
+    display: block;
+    height: auto;
+    max-width: 100%;
+
+    &--circle {
+        border-radius: 50%;
+    }
+}
+
+.figure {
+    &__image {
+        @include space-stack-xxs;
+
+        &--circle {
+            border-radius: 50%;
+        }
+    }
+
+    &__figcaption {
+        font-style: italic;
+    }
+}
+
+.figcaption {
+    &__credit,
+    &__caption {
+        @include space-stack-xxs;
+    }
+}

@@ -1,0 +1,25 @@
+//Type scale information to keep our font-sizes consistent across the system
+$font-sizes: (
+    -2: 0.75rem,
+    // 12px
+        -1: 0.875rem,
+    // 14px
+        0: 1rem,
+    // 16px
+        1: 1.25rem,
+    // 18px
+        1p5: 1.125rem,
+    // 20px
+        2: 1.375rem,
+    // 22px
+        3: 1.75rem,
+    // 28px
+        4: 2.25rem,
+    // 36px
+        5: 3rem,
+    // 48px
+);
+
+@mixin type-scale($size) {
+    font-size: map-get($font-sizes, $size);
+}

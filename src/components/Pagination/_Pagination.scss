@@ -1,0 +1,26 @@
+.pagination {
+    @include space-stack-l;
+
+    align-items: stretch;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    & > * {
+        &:not(:last-child) {
+            @include space-inline-xs;
+        }
+    }
+
+    .label {
+        @include space-stack-none;
+
+        align-self: center;
+    }
+
+    &__dropdown {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+}
