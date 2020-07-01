@@ -15,7 +15,7 @@
     },
     "scripts": {
         "start": "node node_modules/@storybook/react/bin/index -p 9001 -c .storybook-react",
-        "build-storybook": "node node_modules/.bin/build-storybook -c .storybook-react -o ./storybook-static/react",
+        "build-storybook": "node node_modules/.bin/build-storybook -c .storybook-react -o ./storybook-static",
         "test": "npm run lint && npm run test:ci",
         "test:ci": "npm run build-ts && cp src/styles.scss lib && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/**/*.test.js",
         "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
