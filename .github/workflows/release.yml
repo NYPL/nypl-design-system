@@ -81,3 +81,7 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   BRANCH: gh-pages # The branch the action should deploy to.
                   FOLDER: storybook-static # The folder the action should deploy.
+        on:
+            push:
+                branches:
+                    - development
