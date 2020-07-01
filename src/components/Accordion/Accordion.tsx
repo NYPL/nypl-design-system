@@ -1,17 +1,21 @@
 import * as React from "react";
-import Button, { ButtonOptions } from "../Button/Button";
+import Button from "../Button/Button";
 import bem from "../../utils/bem";
 import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 
 export interface AccordionProps {
+    /** ID that other components can cross reference for accessibility purposes */
     id?: string;
 
+    /** String labelling the button that opens the accordion */
     accordionLabel?: string;
 
+    /** accordionLabel's ID */
     labelId?: string;
 
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
+
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
 }
