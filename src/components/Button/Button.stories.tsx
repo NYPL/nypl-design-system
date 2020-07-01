@@ -13,24 +13,35 @@ export default {
     decorators: [withDesign],
 };
 
-console.log(IconNames.search_small);
+let showIcon;
 
 export const button = () => (
-    <Button
-        onClick={action("clicked")}
-        id="button"
-        buttonType={select("Button Type", ButtonTypes, ButtonTypes.Primary)}
-        type="submit"
-        iconPosition={select(
-            "Icon Position",
-            ButtonIconPositions,
-            ButtonIconPositions.Left
-        )}
-        iconName={select("Icon", IconNames, IconNames.search_small)}
-        iconDecorative={true}
-    >
-        Search
-    </Button>
+    <>
+        {boolean("Show Icon", true) ? (showIcon = true) : (showIcon = false)}
+        <Button
+            onClick={action("clicked")}
+            id="button"
+            buttonType={select("Button Type", ButtonTypes, ButtonTypes.Primary)}
+            type="submit"
+            iconPosition={
+                showIcon
+                    ? select(
+                          "Icon Position",
+                          ButtonIconPositions,
+                          ButtonIconPositions.Left
+                      )
+                    : null
+            }
+            iconName={
+                showIcon
+                    ? select("Icon", IconNames, IconNames.search_small)
+                    : null
+            }
+            iconDecorative={true}
+        >
+            {text("Button Text", "Search")}
+        </Button>
+    </>
 );
 
 button.story = {
