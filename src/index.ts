@@ -11,7 +11,6 @@ export {
 export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as Container } from "./components/Container/Container";
-export { default as DateRangeForm } from "./components/DateRangeForm/DateRangeForm";
 export { default as HeaderWithSearch } from "./components/RNHeaderWithSearch/RNHeaderWithSearch";
 export { default as Heading } from "./components/Heading/Heading";
 export { default as Hero } from "./components/Hero/Hero";
@@ -20,6 +19,7 @@ export { default as Icon } from "./components/Icons/Icon";
 export { IconRotationTypes } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
 export { default as Input } from "./components/Input/Input";
+export { InputTypes } from "./components/Input/InputTypes";
 export { default as Label } from "./components/Label/Label";
 export { default as Link } from "./components/Link/Link";
 export { LinkTypes } from "./components/Link/LinkTypes";
