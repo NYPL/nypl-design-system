@@ -23,7 +23,7 @@ describe("Renders Input", () => {
         );
     });
 
-    it("Renters Input", () => {
+    it("Renders Input", () => {
         expect(container.find("input").exists()).to.equal(true);
     });
 
@@ -70,11 +70,6 @@ describe("Input with Label", () => {
 
     it("Renders Input", () => {
         expect(container.find("input").exists()).to.equal(true);
-    });
-
-    it("Label points to its associated input", () => {
-        expect(container.find("label").exists()).to.equal(true);
-        expect(container.find("label").prop("htmlFor")).to.equal("inputID");
     });
 
     it("Renders aria-label", () => {

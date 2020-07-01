@@ -40,12 +40,16 @@ export interface InputProps {
 
     /** ID of associated HelperText */
     helperTextId?: string;
+
+    /** Additional attributes to pass to the <input> tag */
+    attributes?: {};
 }
 
 export default function Input(props: InputProps) {
     const {
         ariaLabel,
         ariaLabelledBy,
+        attributes,
         blockName,
         className,
         errored,
