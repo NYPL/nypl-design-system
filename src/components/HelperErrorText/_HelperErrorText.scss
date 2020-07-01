@@ -1,7 +1,0 @@
-.helper-text {
-    @include type-scale(-1);
-
-    &--error {
-        color: $ui-error;
-    }
-}
