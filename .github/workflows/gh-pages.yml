@@ -19,8 +19,8 @@ jobs:
               with:
                   persist-credentials: false
 
-            # - name: Cache and install node modules
-            #   uses: bahmutov/npm-install@v1
+            - name: Cache and install node modules
+              uses: bahmutov/npm-install@v1
             - name: Build Storybook
               run: npm run build-storybook
 
