@@ -7,14 +7,27 @@ export default {
     component: Heading,
 };
 
-export const allHeadings = () => [
-    <Heading level={1} id="heading1" text={"Heading 1"} />,
-    <Heading level={2} id="heading2" text={"Heading 2"} />,
-    <Heading level={3} id="heading3" text={"Heading 3"} />,
-    <Heading level={4} id="heading4" text={"Heading 4"} />,
-    <Heading level={5} id="heading5" text={"Heading 5"} />,
-    <Heading level={6} id="heading6" text={"Heading 6"} />,
-];
+export const allHeadings = () => (
+    <>
+        <Heading level={1} id="heading1" text={"Heading 1"} />
+        <Heading level={2} id="heading2" text={"Heading 2"} />
+        <Heading level={3} id="heading3" text={"Heading 3"} />
+        <Heading level={4} id="heading4" text={"Heading 4"} />
+        <Heading level={5} id="heading5" text={"Heading 5"} />
+        <Heading level={6} id="heading6" text={"Heading 6"} />
+    </>
+);
+
+allHeadings.story = {
+    name: "All Headings",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+        },
+    },
+};
 
 export const headingsWithBold = () => (
     <Heading id="heading1" level={1}>
@@ -23,6 +36,18 @@ export const headingsWithBold = () => (
         </>
     </Heading>
 );
+
+headingsWithBold.story = {
+    name: "Headings With Bold",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+        },
+    },
+};
+
 export const headingsWithLink = () => (
     <Heading id="heading1" level={1}>
         <>
@@ -31,29 +56,13 @@ export const headingsWithLink = () => (
     </Heading>
 );
 
-export const pageTitleAT79 = () => (
-    <Heading
-        level={1}
-        id="hello-page-title"
-        blockName="page-title"
-        modifiers={["block-color"]}
-        text="hello"
-    ></Heading>
-);
-
-export const pageTitleAT3 = () => (
-    <Heading
-        level={1}
-        id="hello-page-title"
-        blockName="page-title"
-        text="hello"
-    ></Heading>
-);
-
-export const heading2AT264 = () => (
-    <Heading
-        level={2}
-        id="hello-h2-heading"
-        text="Viewing 1 out of 10"
-    ></Heading>
-);
+headingsWithLink.story = {
+    name: "Headings With Link",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+        },
+    },
+};

@@ -1,6 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import FormDropdown from "../FormDropdown/FormDropdown";
+import Select from "../Select/Select";
 import TextField from "../TextField/TextField";
 import { Button } from "../..";
 import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
@@ -14,7 +14,7 @@ export interface SearchBarProps {
     buttonId?: string;
     dropdownId?: string;
     dropdownAriaLabel?: string;
-    dropdownOptions?: string[];
+    options?: React.ReactNode;
     selectedField?: string;
     searchValue?: string;
     placeHolder?: string;
@@ -41,7 +41,7 @@ export default function SearchBar(props: SearchBarProps) {
         searchBarAriaLabel,
         searchBarAriaLabelledBy,
         dropdownId,
-        dropdownOptions,
+        options,
         dropdownAriaLabel,
         selectedField,
         searchValue,
@@ -55,7 +55,7 @@ export default function SearchBar(props: SearchBarProps) {
         searchChangeHandler,
     } = props;
 
-    if (dropdownOptions) {
+    if (options) {
         if (
             !(
                 dropdownId &&
@@ -85,6 +85,8 @@ export default function SearchBar(props: SearchBarProps) {
         }
         modifiers.push("error");
     }
+
+    console.log("beepbeep:" + typeof options);
 
     let searchbar__base_class = "search-bar";
 
@@ -123,18 +125,17 @@ export default function SearchBar(props: SearchBarProps) {
             aria-label={searchBarAriaLabel}
             aria-labelledby={searchBarAriaLabelledBy}
         >
-            {dropdownOptions && (
-                <FormDropdown
-                    isRequired={false}
-                    selectedOption={selectedField}
-                    ariaLabel="Search by"
-                    dropdownId={dropdownId}
-                    options={dropdownOptions}
-                    onSelectBlur={selectBlurHandler}
-                    blockName={searchbar__base_class}
-                    onSelectChange={selectChangeHandler}
-                />
-            )}
+            <Select
+                isRequired={false}
+                selectedOption={selectedField}
+                ariaLabel="Search by"
+                id={dropdownId}
+                onBlur={selectBlurHandler}
+                blockName={searchbar__base_class}
+                onChange={selectChangeHandler}
+            >
+                {options}
+            </Select>
 
             <div className={bem("input-group", [], searchbar__base_class)}>
                 <TextField {...textfieldProps}></TextField>

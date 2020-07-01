@@ -84,7 +84,7 @@ export default function Input(props: InputProps) {
     let labelOptions: LabelOptions = {
         id: labelId,
         labelContent: labelContent,
-        referenceId: inputId,
+        htmlFor: inputId,
     };
     let textFieldOptions: TextFieldOptions = {
         id: inputId,
@@ -99,10 +99,7 @@ export default function Input(props: InputProps) {
         <div className={bem(blockName, [], baseClass)}>
             <div className="label-container">
                 <div className={bem("label", [], baseClass)}>
-                    <Label
-                        referenceId={labelOptions.referenceId}
-                        id={labelOptions.id}
-                    >
+                    <Label htmlFor={labelOptions.htmlFor} id={labelOptions.id}>
                         {labelOptions.labelContent}
                     </Label>
                 </div>

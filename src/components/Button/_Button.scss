@@ -41,7 +41,7 @@
 }
 
 @mixin button--filled(
-    $bg: $color-link,
+    $bg: $ui-link-primary,
     $color: $white,
     $hoverBg: lighten($bg, 0.8)
 ) {
@@ -77,7 +77,7 @@
 }
 
 @mixin button--link {
-    color: $color-link;
+    color: $ui-link-primary;
     background-color: transparent;
     text-decoration: underline;
 
@@ -86,8 +86,8 @@
     }
 
     &:hover {
-        color: $color-link--hover;
         background-color: transparent;
+        color: $ui-link-secondary;
     }
 }
 

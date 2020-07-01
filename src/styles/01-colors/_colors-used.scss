@@ -10,8 +10,9 @@ $color-help: $nypl-blue-dark;
 
 // Utilities
 $color-success: $nypl-turquoise-regular;
-$color-error: $nypl-red-dark;
 $color-warning: $nypl-yellow-dark;
 $color-information: $nypl-blue-regular;
-$color-link: $nypl-blue-regular;
-$color-link--hover: $nypl-blue-dark;
+
+$ui-error: $nypl-red-dark;
+$ui-link-primary: $nypl-blue-regular;
+$ui-link-secondary: $nypl-blue-dark;

@@ -37,7 +37,7 @@ describe("Pagination Test", () => {
             />
         );
         expect(wrapper.find("Button")).to.have.lengthOf(2);
-        expect(wrapper.find("Dropdown")).to.have.lengthOf(1);
+        expect(wrapper.find("Select")).to.have.lengthOf(1);
     });
 
     it("Renders two buttons and a Select when there are zero pages", () => {
@@ -57,6 +57,6 @@ describe("Pagination Test", () => {
             />
         );
         expect(wrapper.find("Button")).to.have.lengthOf(2);
-        expect(wrapper.find("Dropdown")).to.have.lengthOf(1);
+        expect(wrapper.find("Select")).to.have.lengthOf(1);
     });
 });

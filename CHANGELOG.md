@@ -10,7 +10,31 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Breaking Changes
 
+-   `FormDropDown` and `Dropdown` are now `Select`
+-   Changes `referenceId` to `htmlFor` on `Label`
+
+### Adds
+
+-   `aria-live` and `aria-atomic` to `HelperErrorText` in its errored state
+-   Adds "Optional", "Required", or empty string inside `Label` for forms
+
+### Changes
+
+-   Fixes bug in former `FormDropdown` (now `Select`) where the select value would not change if `selectedOption` were passed
+-   `Link`'s scss now references `$ui-link-primary` instead of `$nypl-blue-regular`
+-   Changes `Select`'s SCSS to use the updated styling from Filament Group
+-   `Image` is wrapped in `figure` when `imageCaption` or `imageCredit` is passed to `Image`
+
+## 0.6.0
+
+### Breaking Changes
+
 -   Removes `RNSectionTitle`
+
+### Changes
+
+-   Updates `$nypl-blue-regular` from #0071ce to #0576d3
+-   `$nypl-blue-regular` is now extended with `$ui-link-primary`
 
 ## [0.5.0]
 
@@ -22,6 +46,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 -   Icon for audiobook
+-   Changes the line-height values on some of the heading mixins
 
 ## [0.4.1]
 

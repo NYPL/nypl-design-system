@@ -16,7 +16,12 @@ export const searchWithParams = () => (
         dropdownId="dropdownId"
         dropdownAriaLabel="filter"
         textFieldAriaLabel="Text Field aria-label"
-        dropdownOptions={["Keyword", "Other Keyword"]}
+        options={
+            <>
+                <option aria-selected={true}>Keyword</option>
+                <option aria-selected={false}>Other Keyword</option>
+            </>
+        }
         searchSubmitHandler={action("searched")}
         selectChangeHandler={action("selectChanged")}
         selectBlurHandler={action("selectChanged")}
@@ -53,7 +58,12 @@ export const searchFormWithParamsAndError = () => (
         searchBarAriaLabel="search"
         dropdownId="dropdownId"
         dropdownAriaLabel="filter"
-        dropdownOptions={["Keyword", "Other Keyword"]}
+        options={
+            <>
+                <option aria-selected={true}>Keyword</option>
+                <option aria-selected={false}>Other Keyword</option>
+            </>
+        }
         searchSubmitHandler={action("searched")}
         selectChangeHandler={action("selectChanged")}
         selectBlurHandler={action("selectChanged")}

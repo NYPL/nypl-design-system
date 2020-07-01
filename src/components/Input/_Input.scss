@@ -1,3 +1,57 @@
+.input-row {
+    display: flex;
+    &__form-item {
+        @include space-inline-m;
+
+        :last-child {
+            @include space-inline-none;
+        }
+    }
+}
+
+@mixin input {
+    &__textfield {
+        @include space-inset-xs;
+
+        border: 1px solid $gray-medium;
+        max-width: 100%;
+
+        &:focus {
+            border-color: $form-focus;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $gray-light;
+        }
+
+        &:-moz-placeholder {
+            color: $gray-light;
+        }
+
+        &::-moz-placeholder {
+            color: $gray-light;
+        }
+
+        &:-ms-input-placeholder {
+            color: $gray-light;
+        }
+    }
+}
+
+.form-item__input {
+    @include input;
+    width: 100%;
+}
+
+@mixin input-description {
+    @include space-stack-s;
+    margin-top: $space-xs; // Necessary for the way we do flex on input groups
+
+    &--error {
+        color: $nypl-red-dark;
+    }
+}
+
 .input {
     &__label {
         @include space-inline-xs;
@@ -10,16 +64,5 @@
         @include body-small;
 
         font-weight: 300;
-    }
-}
-
-.input-row {
-    display: flex;
-    &__form-item {
-        @include space-inline-m;
-
-        :last-child {
-            @include space-inline-none;
-        }
     }
 }
