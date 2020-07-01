@@ -44,7 +44,7 @@ export const heroSecondary = () => (
             <Image
                 src="https://placeimg.com/800/400/arch"
                 isDecorative={true}
-                imageBlockname={"hero"}
+                blockName={"hero"}
             />
         }
     />
@@ -122,7 +122,7 @@ export const DigitalResearchBooksHeader = () => (
                 <Image
                     src="https://placeimg.com/200/100/arch"
                     isDecorative={true}
-                    imageBlockname={"hero"}
+                    blockName={"hero"}
                 />
             }
         />
