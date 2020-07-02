@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   `Button` now accepts an `onClick` instead of a `callback`
 -   In the `ButtonTypes` enum, `Filled` and `Outline` have been changed to `Primary` and `Secondary`, respectively
 -   `Accordion` now accepts `accordionLabel` and `labelId` instead of `buttonOpts` properties
+-   Removes project-specific styles for now deprecated `EditionCard`
 
 ### Adds
 
