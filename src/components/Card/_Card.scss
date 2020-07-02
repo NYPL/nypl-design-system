@@ -70,37 +70,7 @@
 
 // Stories-only styles
 .sb-show-main {
-    .edition-card {
-        &__ctas {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: center;
-        }
-
-        .button {
-            @include space-stack-xs;
-        }
-
-        &__download {
-            flex: 1 1 100%;
-            text-align: center;
-        }
-
-        &__missing-links {
-            @include space-inset-s;
-
-            background-color: $gray-light;
-            flex: 0 0 auto;
-            width: 200px;
-
-            @include breakpoint($medium) {
-                align-self: flex-start;
-                margin-left: auto;
-            }
-        }
-    }
-
-    .lyrasis-card {
+    .example-card {
         .card__content {
             > * {
                 @include space-stack-xxs;

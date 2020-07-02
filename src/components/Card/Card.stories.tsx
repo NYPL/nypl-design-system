@@ -1,6 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import { action } from "@storybook/addon-actions";
+import { text, boolean, select } from "@storybook/addon-knobs";
 
 import Card from "./Card";
 import Heading from "../Heading/Heading";
@@ -17,299 +18,91 @@ export default {
     component: Card,
 };
 
-export const CardWithChildrenOnly = () => (
-    <Card>I'm a card, put whatever you'd like here</Card>
+let showCTAs, showImage, showHeader, showFooter;
+
+const headerLevels = [1, 2, 3, 4, 5, 6];
+
+const imageRatios = {
+    "1x1": "https://placeimg.com/100/100/animals",
+    "2x1": "https://placeimg.com/200/100/animals",
+    "3x4": "https://placeimg.com/150/200/animals",
+    "4x1": "https://placeimg.com/400/100/animals",
+    "4x3": "https://placeimg.com/200/150/animals",
+    "16x9": "https://placeimg.com/400/225/animals",
+};
+
+export const card = () => (
+    <>
+        {boolean("Show Header", true)
+            ? (showHeader = true)
+            : (showHeader = false)}
+        {boolean("Show Image", true) ? (showImage = true) : (showImage = false)}
+        {boolean("Show CTAs", true) ? (showCTAs = true) : (showCTAs = false)}
+        {boolean("Show Footer", true)
+            ? (showFooter = true)
+            : (showFooter = false)}
+        <Card
+            id="cardID"
+            heading={
+                showHeader ? (
+                    <Heading
+                        level={select(
+                            "Header Level",
+                            headerLevels,
+                            headerLevels[2]
+                        )}
+                        id="heading1"
+                        text={text("Header Content", "Optional Header")}
+                    />
+                ) : (
+                    false
+                )
+            }
+            image={
+                showImage ? (
+                    <Image
+                        src={select("Image Ratio", imageRatios, imageRatios[2])}
+                        isDecorative={true}
+                    />
+                ) : null
+            }
+            ctas={
+                showCTAs ? (
+                    <Button
+                        callback={action("clicked")}
+                        id="button1"
+                        buttonType={ButtonTypes.Filled}
+                        type="submit"
+                    >
+                        {text("CTA Button Text: ", "Example CTA")}
+                    </Button>
+                ) : null
+            }
+            footer={
+                showFooter ? (
+                    <>{text("Footer content: ", "Optional footer")}</>
+                ) : null
+            }
+        >
+            {text("Card Content: ", "Middle column content")}
+        </Card>
+    </>
 );
 
-export const CardWithFullData = () => (
-    <Card
-        id="cardID"
-        heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
-        image={
-            <Image
-                src="https://placeimg.com/400/200/arch"
-                isDecorative={true}
-            />
-        }
-        ctas={
-            <Button
-                onClick={action("clicked")}
-                id="button1"
-                buttonType={ButtonTypes.Primary}
-                type="submit"
-            >
-                Example CTA
-            </Button>
-        }
-        footer={<>Optional footer</>}
-    >
-        Middle column content
-    </Card>
-);
+card.story = {
+    name: "Card",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+        },
+    },
+};
 
-export const CardWithNoCallsToAction = () => (
+export const ExampleCard = () => (
     <Card
-        id="cardID"
-        heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
-        image={
-            <Image
-                src="https://placeimg.com/400/200/arch"
-                isDecorative={true}
-            />
-        }
-    >
-        Middle column content
-    </Card>
-);
-
-export const EditionCard = () => (
-    <Card
-        id="card#1"
-        className="edition-card"
-        heading={
-            <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
-        }
-        image={
-            <Image
-                src="https://placeimg.com/300/400/arch"
-                isDecorative={true}
-            />
-        }
-        ctas={
-            <div className="edition-card__ctas">
-                <Link linkType={LinkTypes.Button} href="blah">
-                    Read Online
-                </Link>
-                <div className="edition-card__download">
-                    <Link href="#url" linkType={LinkTypes.Action}>
-                        <Icon
-                            name={IconNames.download}
-                            blockName="more-link"
-                            decorative={true}
-                            modifiers={["left"]}
-                            iconRotation={IconRotationTypes.rotate0}
-                        ></Icon>
-                        Download
-                    </Link>
-                </div>
-            </div>
-        }
-    >
-        <>
-            <div>Published in New York by Random House</div>
-            <div>Written in English</div>
-            <div>
-                License: Creative Commons
-                Attribution-NonCommercial-NoDerivatives 4.0 International
-            </div>
-        </>
-    </Card>
-);
-
-export const EditionCardWithOneLink = () => (
-    <Card
-        className="edition-card"
-        heading={
-            <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
-        }
-        image={
-            <Image
-                src="https://placeimg.com/300/400/arch"
-                isDecorative={true}
-            />
-        }
-        ctas={
-            <div className="edition-card__ctas">
-                <div className="edition-card__download">
-                    <Link href="#url" linkType={LinkTypes.Action}>
-                        <Icon
-                            name={IconNames.download}
-                            blockName="more-link"
-                            decorative={true}
-                            modifiers={["left"]}
-                            iconRotation={IconRotationTypes.rotate0}
-                        ></Icon>
-                        Download
-                    </Link>
-                </div>
-            </div>
-        }
-    >
-        <>
-            <div>Published in New York by Random House</div>
-            <div>Written in English</div>
-            <div>
-                License: Creative Commons
-                Attribution-NonCommercial-NoDerivatives 4.0 International
-            </div>
-        </>
-    </Card>
-);
-
-export const editionCardNoLinksWithEmptyState = () => (
-    <Card
-        id="card#1"
-        image={
-            <Image
-                src="https://placeimg.com/300/400/arch"
-                isDecorative={true}
-            />
-        }
-        className="edition-card"
-        heading={
-            <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
-        }
-        ctas={
-            <div className="edition-card__missing-links">
-                Unavailable to read online
-            </div>
-        }
-    >
-        <>
-            <div>Published in New York by Random House</div>
-            <div>Written in English</div>
-            <div>Under Creative Commons License</div>
-        </>
-    </Card>
-);
-
-export const editionCardWithSomeEditionInfo = () => (
-    <Card
-        id="card#1"
-        className="edition-card"
-        image={
-            <Image
-                src="https://placeimg.com/300/400/arch"
-                isDecorative={true}
-            />
-        }
-        heading={
-            <Heading
-                level={2}
-                id="editioncardheading1"
-                url="#edition-link"
-                text={"2004 Edition"}
-            />
-        }
-        ctas={
-            <div className="edition-card__ctas">
-                <Link linkType={LinkTypes.Button} href="blah">
-                    Read Online
-                </Link>
-                <div className="edition-card__download">
-                    <Link href="#url" linkType={LinkTypes.Action}>
-                        <Icon
-                            name={IconNames.download}
-                            blockName="more-link"
-                            decorative={true}
-                            modifiers={["left"]}
-                            iconRotation={IconRotationTypes.rotate0}
-                        ></Icon>
-                        Download
-                    </Link>
-                </div>
-            </div>
-        }
-    >
-        <>
-            <div>Published in New York</div>
-            <div>Under Creative Commons License</div>
-        </>
-    </Card>
-);
-
-export const editionCardWithEmptyEditionInfo = () => (
-    <Card
-        id="card#1"
-        className="edition-card"
-        image={
-            <Image
-                src="https://placeimg.com/300/400/arch"
-                isDecorative={true}
-            />
-        }
-        heading={
-            <Heading
-                level={2}
-                id="editioncardheading1"
-                url="#edition-link"
-                text={"2004 Edition"}
-            />
-        }
-        ctas={
-            <div className="edition-card__ctas">
-                <Link linkType={LinkTypes.Button} href="blah">
-                    Read Online
-                </Link>
-                <div className="edition-card__download">
-                    <Link href="#url" linkType={LinkTypes.Action}>
-                        <Icon
-                            name={IconNames.download}
-                            blockName="more-link"
-                            decorative={true}
-                            modifiers={["left"]}
-                            iconRotation={IconRotationTypes.rotate0}
-                        ></Icon>
-                        Download
-                    </Link>
-                </div>
-            </div>
-        }
-    ></Card>
-);
-
-export const editionCardWithAtypicalImageSize = () => (
-    <Card
-        id="card#1"
-        className="edition-card"
-        image={
-            <Image
-                src="https://placeimg.com/100/800/arch"
-                isDecorative={true}
-            />
-        }
-        heading={
-            <Heading
-                level={2}
-                id="editioncardheading1"
-                url="#edition-link"
-                text={"2004 Edition"}
-            />
-        }
-        ctas={
-            <div className="edition-card__ctas">
-                <Link linkType={LinkTypes.Button} href="blah">
-                    Read Online
-                </Link>
-                <div className="edition-card__download">
-                    <Link href="#url" linkType={LinkTypes.Action}>
-                        <Icon
-                            name={IconNames.download}
-                            blockName="more-link"
-                            decorative={true}
-                            modifiers={["left"]}
-                            iconRotation={IconRotationTypes.rotate0}
-                        ></Icon>
-                        Download
-                    </Link>
-                </div>
-            </div>
-        }
-    >
-        <>
-            <div>Published in New York by Random House</div>
-            <div>Written in English</div>
-            <div>
-                License: Creative Commons
-                Attribution-NonCommercial-NoDerivatives 4.0 International
-            </div>
-        </>
-    </Card>
-);
-
-export const CirculationPatronWebCard = () => (
-    <Card
-        className="lyrasis-card"
+        className="example-card"
         image={
             <Image
                 src="https://placeimg.com/300/400/arch"
@@ -359,3 +152,14 @@ export const CirculationPatronWebCard = () => (
         </>
     </Card>
 );
+
+ExampleCard.story = {
+    name: "Example Card",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+        },
+    },
+};

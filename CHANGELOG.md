@@ -26,6 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Adds "Optional", "Required", or empty string inside `Label` for forms
 -   Adds `IconNames` enum to make `allSVGs` array globally accessible
 -   Adds `width: 100%` globally to SVGs
+-   `Card` now constrains items in its `image` column to the column width
 
 ### Changes
 
