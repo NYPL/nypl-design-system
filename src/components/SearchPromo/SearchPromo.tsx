@@ -4,7 +4,6 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import SearchBar from "../SearchBar/SearchBar";
-import BodyText from "../BodyText/BodyText";
 
 export interface SearchPromoProps {
     headingText: string;
@@ -89,7 +88,10 @@ export default function SearchPromo(props: SearchPromoProps) {
                             searchpromo__base_class
                         )}
                     >
-                        <BodyText bodyContent={advancedSearchMessage} />
+                        <div className="body-text">
+                            {advancedSearchMessage}
+                            <div />
+                        </div>
                     </div>
                 </div>
             </div>
