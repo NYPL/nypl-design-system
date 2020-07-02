@@ -6,19 +6,18 @@
     -webkit-appearance: none;
     appearance: none;
     background-color: #fff;
-    border-radius: 2px;
+    /* Arrow svg */
+    /* More info here: https://css-tricks.com/probably-dont-base64-svg/ */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
+    background-position: right 0.7em top 70%;
+    background-repeat: no-repeat;
+    background-size: $space auto;
     border: 1px solid $gray-light;
+    border-radius: 2px;
     display: block;
     font-size: 1rem;
     padding: $space-xs $space-xl $space-xs $space-s;
     width: 100%;
-
-    /* Arrow svg */
-    /* More info here: https://css-tricks.com/probably-dont-base64-svg/ */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.7em top 70%;
-    background-size: $space auto;
 
     /* Hide arrow icon in IE browsers */
     &::-ms-expand {
@@ -55,8 +54,8 @@
 /* Disabled styles */
 .select-css:disabled,
 .select-css[aria-disabled="true"] {
-    color: $gray-xdark;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
+    color: $gray-xdark;
 }
 
 .select-css:disabled:hover,

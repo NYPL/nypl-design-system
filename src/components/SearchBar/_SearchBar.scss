@@ -26,6 +26,7 @@ $search-bar--breakpoint: 856px;
 
         @include breakpoint($search-bar--breakpoint) {
             @include space-stack-none;
+
             flex: 0 1 25%;
         }
     }

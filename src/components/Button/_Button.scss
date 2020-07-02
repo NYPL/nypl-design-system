@@ -77,8 +77,8 @@
 }
 
 @mixin button--link {
-    color: $ui-link-primary;
     background-color: transparent;
+    color: $ui-link-primary;
     text-decoration: underline;
 
     &--no-underline {
