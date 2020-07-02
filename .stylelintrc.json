@@ -1,0 +1,32 @@
+{
+    "extends": "stylelint-config-recommended",
+    "plugins": ["stylelint-prettier", "stylelint-scss", "stylelint-order"],
+    "rules": {
+        "at-rule-name-space-after": "always",
+        "at-rule-no-unknown": null,
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "blockless-after-same-name-blockless",
+                    "first-nested"
+                ]
+            }
+        ],
+        "declaration-empty-line-before": [
+            "always",
+            {
+                "except": ["after-declaration", "first-nested"]
+            }
+        ],
+        "color-hex-case": "lower",
+        "order/properties-alphabetical-order": true,
+        "rule-empty-line-before": "always",
+        "scss/at-rule-no-unknown": true,
+        "scss/selector-no-redundant-nesting-selector": true,
+        "scss/at-else-closing-brace-space-after": "always-intermediate",
+        "scss/at-else-empty-line-before": "never",
+        "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+        "scss/at-if-closing-brace-space-after": "always-intermediate"
+    }
+}
