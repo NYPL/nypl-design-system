@@ -20,8 +20,8 @@
 
     &__search-section {
         align-items: flex-start;
-        flex-flow: column wrap;
         flex: 1;
+        flex-flow: column wrap;
 
         @include breakpoint($large) {
             flex-flow: row nowrap;

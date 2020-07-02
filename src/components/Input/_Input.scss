@@ -5,19 +5,16 @@
     border: 1px solid $gray-medium;
     width: 100%;
 
-    &:focus {
-        border-color: $form-focus;
-    }
-
     &::-webkit-input-placeholder {
         color: $gray-dark;
     }
 
-    &:-moz-placeholder {
-        color: $gray-dark;
+    &:focus {
+        box-shadow: 0;
+        outline: 1px solid $form-focus;
     }
 
-    &::-moz-placeholder {
+    &:-moz-placeholder {
         color: $gray-dark;
     }
 
@@ -27,11 +24,6 @@
 
     &:hover {
         border-color: darken($gray-medium, 10%);
-    }
-
-    &:focus {
-        box-shadow: 0;
-        outline: 1px solid $ui-link-primary;
     }
 
     &:disabled {

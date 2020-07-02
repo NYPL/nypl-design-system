@@ -19,8 +19,8 @@
     }
 
     &__dropdown {
+        align-items: baseline;
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
     }
 }

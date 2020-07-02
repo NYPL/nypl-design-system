@@ -14,8 +14,8 @@
     }
 
     .hero__content {
-        color: $white;
         background-color: $black;
+        color: $white;
         flex: 0 0 100%;
         padding: $space-m $space-l;
 
@@ -29,9 +29,9 @@
             max-width: 960px;
         }
 
-        & + .placeholder {
-            margin-left: $space-xl;
+        + .placeholder {
             flex: 0 1 200px;
+            margin-left: $space-xl;
         }
     }
 
@@ -48,6 +48,7 @@
 
     .hero__content {
         @include wrapper;
+
         display: flex;
         flex-flow: column nowrap;
 
@@ -57,10 +58,14 @@
 
         .hero__heading {
             @include space-stack-none;
-            margin-top: 0;
 
-            z-index: 0;
+            background-color: black;
+            color: white;
+            flex: 1 1 100%;
+            margin-top: 0;
+            padding-bottom: $space-xxs;
             position: relative;
+            z-index: 0;
 
             &::before {
                 background-color: $black;
@@ -71,11 +76,6 @@
                 width: 4000px;
                 z-index: -1;
             }
-
-            background-color: black;
-            color: white;
-            flex: 1 1 100%;
-            padding-bottom: $space-xxs;
 
             @include breakpoint($medium) {
                 order: 1;
@@ -88,16 +88,16 @@
             @include breakpoint($medium) {
                 @include space-inline-xs;
 
-                order: 2;
                 flex: 1 1 50%;
+                order: 2;
             }
         }
 
         .hero__image {
             flex: 1 1 100%;
             height: 150px;
-            object-fit: cover;
             min-width: 0; // https://github.com/philipwalton/flexbugs/issues/41
+            object-fit: cover;
             width: 100%;
 
             @include breakpoint($medium) {

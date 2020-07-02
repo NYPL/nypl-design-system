@@ -6,12 +6,12 @@
 .modal {
     @include space-inset-s;
 
-    z-index: 999;
-    position: fixed;
-    top: 0;
+    background-color: $gray-warm-xlight;
+    height: 100vh;
     left: 0;
     overflow-y: auto;
-    height: 100vh;
+    position: fixed;
+    top: 0;
     width: 100vw;
-    background-color: $gray-warm-xlight;
+    z-index: 999;
 }
