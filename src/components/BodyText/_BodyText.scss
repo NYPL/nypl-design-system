@@ -9,16 +9,16 @@
 
     font-family: $font-body;
     font-weight: 300;
-    line-height: 1.5;
     letter-spacing: 0.0175em;
+    line-height: 1.5;
 }
 
 @mixin body-small {
     @include type-scale(-1);
 
     font-family: $font-body;
-    line-height: 1.428571429em;
     letter-spacing: -0.017142857em;
+    line-height: 1.428571429em;
 }
 
 @mixin body-small-bold {
@@ -44,8 +44,8 @@ p,
 }
 
 .blockquote {
-    font-style: italic;
     border-left: solid 3px $gray-light;
+    font-style: italic;
     margin-left: 1em;
     padding-left: 1em;
 }
@@ -71,8 +71,8 @@ p,
     }
 
     &__list-iconLink {
-        list-style: initial;
         color: $gray-medium;
+        list-style: initial;
     }
 
     &__list-item {
