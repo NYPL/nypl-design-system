@@ -40,18 +40,18 @@ export default class Accordion extends React.Component<
     render() {
         const { modifiers = [], blockName = "" } = this.props;
 
-        let ButtonProps: { [key: string]: any } = {};
-        ButtonProps.id = this.props.labelId;
-        ButtonProps.type = "button";
-        ButtonProps.blockName = "accordion";
-        ButtonProps.iconPosition = ButtonIconPositions.JustifyRight;
-        ButtonProps.iconName = this.state.isOpen ? "minus" : "plus";
-        ButtonProps.iconModifiers = ["medium"];
-        ButtonProps.buttonType = ButtonTypes.Secondary;
-
         return (
             <div className={bem("accordion", modifiers, blockName)}>
-                <Button onClick={this.toggleContentShow} {...ButtonProps}>
+                <Button
+                    onClick={this.toggleContentShow}
+                    id={this.props.labelId}
+                    type="button"
+                    blockName="accordion"
+                    iconPosition={ButtonIconPositions.JustifyRight}
+                    iconName={this.state.isOpen ? "minus" : "plus"}
+                    iconModifiers={["medium"]}
+                    buttonType={ButtonTypes.Secondary}
+                >
                     {this.props.accordionLabel}
                 </Button>
                 {this.state.isOpen && (
