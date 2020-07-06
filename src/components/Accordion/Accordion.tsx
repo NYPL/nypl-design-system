@@ -7,8 +7,8 @@ export interface AccordionProps {
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
 
-    /** String labelling the button that opens the accordion */
-    accordionLabel?: string;
+    /** Inner label on the button that opens the accordion */
+    accordionLabel?: React.ReactNode;
 
     /** accordionLabel's ID */
     labelId?: string;
