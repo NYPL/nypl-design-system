@@ -33,26 +33,29 @@ export interface SearchBarProps {
     searchChangeHandler?: (event: React.FormEvent) => void;
 }
 
-export default function SearchBar(props: SearchBarProps) {
+export default function SearchBar(
+    props: React.PropsWithChildren<SearchBarProps>
+) {
     const {
         blockName,
-        searchBarId,
         buttonId,
+        children,
+        dropdownAriaLabel,
+        dropdownId,
+        errorMessage,
+        hasError,
+        helperVariant,
+        options,
+        placeholderText,
         searchBarAriaLabel,
         searchBarAriaLabelledBy,
-        dropdownId,
-        options,
-        dropdownAriaLabel,
-        selectedField,
-        searchValue,
-        placeholderText,
-        helperVariant,
-        hasError,
-        errorMessage,
-        selectBlurHandler,
-        searchSubmitHandler,
-        selectChangeHandler,
+        searchBarId,
         searchChangeHandler,
+        searchSubmitHandler,
+        searchValue,
+        selectBlurHandler,
+        selectChangeHandler,
+        selectedField,
     } = props;
 
     if (options) {
@@ -70,12 +73,6 @@ export default function SearchBar(props: SearchBarProps) {
         }
     }
 
-    if (!searchBarAriaLabel && !searchBarAriaLabelledBy) {
-        throw new Error(
-            "Either searchBarAriaLabel and searchBarAriaLabelledBy must be passed"
-        );
-    }
-
     let modifiers = [];
     if (hasError) {
         if (!errorMessage) {
@@ -86,74 +83,17 @@ export default function SearchBar(props: SearchBarProps) {
         modifiers.push("error");
     }
 
-    console.log("beepbeep:" + typeof options);
-
     let searchbar__base_class = "search-bar";
-
-    let textfieldProps = {
-        id: searchBarId + "-input-textfield",
-        ariaLabelledBy: buttonId,
-        onChange: searchChangeHandler,
-        isRequired: true,
-        blockName: searchbar__base_class,
-        placeholderText:
-            hasError && helperVariant ? errorMessage : placeholderText,
-        value: searchValue,
-        modifiers: modifiers,
-    };
-
-    let buttonProps: ButtonOptions = {
-        id: buttonId,
-        onClick: searchSubmitHandler,
-        blockName: searchbar__base_class,
-        content: <>Search</>,
-        buttonType: ButtonTypes.Primary,
-        iconPosition: ButtonIconPositions.Left,
-        iconName: "search_small",
-        iconDecorative: true,
-    };
 
     return (
         <form
-            className={`${bem(
-                searchbar__base_class,
-                modifiers,
-                blockName
-            )} ${bem(searchbar__base_class, modifiers)}`}
+            className={bem(searchbar__base_class, modifiers, blockName)}
             id={searchBarId}
             role="search"
             aria-label={searchBarAriaLabel}
             aria-labelledby={searchBarAriaLabelledBy}
         >
-            <Select
-                isRequired={false}
-                selectedOption={selectedField}
-                ariaLabel="Search by"
-                id={dropdownId}
-                onBlur={selectBlurHandler}
-                blockName={searchbar__base_class}
-                onChange={selectChangeHandler}
-            >
-                {options}
-            </Select>
-
-            <div className={bem("input-group", [], searchbar__base_class)}>
-                <TextField {...textfieldProps}></TextField>
-                <Button onClick={searchSubmitHandler} {...buttonProps}>
-                    {buttonProps.content}
-                </Button>
-                {hasError && !helperVariant && (
-                    <span
-                        className={bem(
-                            "input-description",
-                            modifiers,
-                            searchbar__base_class
-                        )}
-                    >
-                        {errorMessage}
-                    </span>
-                )}
-            </div>
+            {props.children}
         </form>
     );
 }

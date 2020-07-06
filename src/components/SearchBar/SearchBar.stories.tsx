@@ -2,8 +2,10 @@ import * as React from "react";
 
 import SearchBar from "./SearchBar";
 import Select from "../Select/Select";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
+import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
 import { action } from "@storybook/addon-actions";
@@ -14,52 +16,77 @@ export default {
     component: SearchBar,
 };
 
-let optionsGroup = ["Apples", "Pears", "Oranges", "Peaches", "Coconuts"];
+let optionsGroup = [
+    "Art",
+    "Bushes",
+    "Clothing",
+    "DIY Recipes",
+    "Flowers",
+    "Fossils",
+    "Fruits",
+    "Furniture",
+    "Materials",
+    "NPC",
+    "Photos",
+    "Posters",
+    "Services",
+    "Songs",
+    "Tools",
+    "Villagers",
+];
 
-let showLabel, showHelperText;
+let showLabel, showHelperText, formErrored;
 
 export const searchBar = () => (
     <>
-        <Select
-            id={"select"}
-            isRequired={false}
-            ariaLabel="Select Label"
-            labelId={"label"}
-            helperTextId={"helperText"}
-            selectedOption={select(
-                "Initial Selected Option",
-                optionsGroup,
-                optionsGroup[3]
-            )}
-            onBlur={action("blur")}
-            onChange={action("changed")}
-            modifiers={boolean("Errored", false) ? ["error"] : null}
-            disabled={boolean("Disabled", false)}
+        {boolean("Form Errored", false)
+            ? (formErrored = true)
+            : (formErrored = false)}
+        <SearchBar
+            searchSubmitHandler={action("clicked")}
+            searchBarAriaLabel={"New Horizons Item Search"}
         >
-            <option aria-selected={true}>
-                {text("Option One", optionsGroup[0])}
-            </option>
-            <option aria-selected={false}>
-                {text("Option Two", optionsGroup[1])}
-            </option>
-            <option aria-selected={false}>
-                {text("Option Three", optionsGroup[2])}
-            </option>
-            <option aria-selected={false}>
-                {text("Option Four", optionsGroup[3])}
-            </option>
-            <option aria-selected={false}>
-                {text("Option Five", optionsGroup[4])}
-            </option>
-        </Select>
-        <Input
-            id="input1"
-            labelId="label1"
-            helperTextId={"beep"}
-            errored={false}
-            required={true}
-            type={InputTypes.text}
-        ></Input>
+            <Select
+                id={"select"}
+                isRequired={false}
+                ariaLabel="Select Label"
+                labelId={"label"}
+                helperTextId={"helperText"}
+                onBlur={action("blur")}
+                onChange={action("changed")}
+                modifiers={formErrored ? ["error"] : null}
+                disabled={boolean("Disabled", false)}
+            >
+                {optionsGroup.map((nhOption) => (
+                    <option aria-select={false}>{nhOption}</option>
+                ))}
+            </Select>
+            <Input
+                id="input1"
+                labelId="label1"
+                helperTextId={"beep"}
+                errored={formErrored ? true : false}
+                placeholder={"Item Search"}
+                required={true}
+                type={InputTypes.text}
+            ></Input>
+            <Button
+                onClick={action("clicked")}
+                id="button"
+                buttonType={ButtonTypes.Primary}
+                type="submit"
+                iconPosition={ButtonIconPositions.Left}
+                iconName={IconNames.search_small}
+                iconDecorative={true}
+            >
+                {text("Button Text", "Search")}
+            </Button>
+        </SearchBar>
+        <HelperErrorText id={"2"} isError={formErrored ? true : false}>
+            {formErrored
+                ? "Sorry, we can't find that item!"
+                : "Search for items in Animal Crossing New Horizons"}
+        </HelperErrorText>
     </>
 );
 
@@ -73,80 +100,3 @@ searchBar.story = {
         },
     },
 };
-
-export const searchWithParams = () => (
-    <SearchBar
-        searchBarId="searchBarId"
-        buttonId="searchButtonId"
-        searchBarAriaLabel="search"
-        dropdownId="dropdownId"
-        dropdownAriaLabel="filter"
-        textFieldAriaLabel="Text Field aria-label"
-        options={
-            <>
-                <option aria-selected={true}>Keyword</option>
-                <option aria-selected={false}>Other Keyword</option>
-            </>
-        }
-        searchSubmitHandler={action("searched")}
-        selectChangeHandler={action("selectChanged")}
-        selectBlurHandler={action("selectChanged")}
-    />
-);
-
-export const searchWithNoParams = () => (
-    <SearchBar
-        searchBarId="searchBarId"
-        buttonId="searchButtonId"
-        searchBarAriaLabel="search"
-        textFieldAriaLabel="Text Field aria-label"
-        searchSubmitHandler={action("searched")}
-    />
-);
-
-export const searchWithFormError = () => (
-    <SearchBar
-        searchBarId="searchBarId"
-        searchBarAriaLabel="search"
-        buttonId="searchButtonId"
-        textFieldAriaLabel="Text Field aria-label"
-        searchSubmitHandler={action("searched")}
-        hasError={true}
-        errorMessage={"Error text"}
-    />
-);
-
-export const searchFormWithParamsAndError = () => (
-    <SearchBar
-        searchBarId="searchBarId"
-        buttonId="searchButtonId"
-        textFieldAriaLabel="Text Field aria-label"
-        searchBarAriaLabel="search"
-        dropdownId="dropdownId"
-        dropdownAriaLabel="filter"
-        options={
-            <>
-                <option aria-selected={true}>Keyword</option>
-                <option aria-selected={false}>Other Keyword</option>
-            </>
-        }
-        searchSubmitHandler={action("searched")}
-        selectChangeHandler={action("selectChanged")}
-        selectBlurHandler={action("selectChanged")}
-        hasError={true}
-        errorMessage={"Error text"}
-    />
-);
-
-export const searchFormResearchNowVariantError = () => (
-    <SearchBar
-        searchBarId="searchBarId"
-        searchBarAriaLabel="search"
-        buttonId="searchButtonId"
-        textFieldAriaLabel="Text Field aria-label"
-        searchSubmitHandler={action("searched")}
-        helperVariant="ResearchNow"
-        hasError={true}
-        errorMessage={"Error text"}
-    />
-);
