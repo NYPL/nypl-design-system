@@ -13,7 +13,7 @@ export interface HelperErrorTextOptions {
 
 interface HelperErrorTextProps {
     /** unique ID for helper */
-    id: string;
+    id?: string;
     /** Toggles between helper and error styling */
     isError: boolean;
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */

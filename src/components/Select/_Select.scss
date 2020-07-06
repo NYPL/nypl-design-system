@@ -28,7 +28,9 @@
         border-color: darken($gray-light, 10%);
     }
 
+    &:active,
     &:focus {
+        border: 1px solid $ui-link-primary;
         box-shadow: 0;
         outline: 1px solid $ui-link-primary;
     }
