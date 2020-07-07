@@ -53,7 +53,6 @@ export default function Pagination(props: PaginationProps) {
         isRequired: false,
         labelId: "pagination-select-label",
         labelText: "Page",
-        options: paginationDropdownOptions,
         selectedOption: currentValue,
         onChange: onSelectChange,
         onBlur: onSelectBlur,
@@ -64,13 +63,14 @@ export default function Pagination(props: PaginationProps) {
             <Button onClick={buttonPrevOpts.onClick} {...buttonPrevOpts}>
                 {buttonPrevOpts.content}
             </Button>
-            <Label htmlFor="pagination-dropdown">
+            <Label htmlFor="pagination-dropdown" id={dropdownProps.labelId}>
                 {dropdownProps.labelText}
             </Label>
-            <Select
-                blockName={pagination__base_class}
-                {...dropdownProps}
-            ></Select>
+            <Select blockName={pagination__base_class} {...dropdownProps}>
+                {paginationDropdownOptions.map((item) => (
+                    <option aria-selected={false}>{item}</option>
+                ))}
+            </Select>
             <Button onClick={buttonNextOpts.onClick} {...buttonNextOpts}>
                 {buttonNextOpts.content}
             </Button>
