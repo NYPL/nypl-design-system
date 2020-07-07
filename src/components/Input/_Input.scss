@@ -9,13 +9,6 @@
         color: $gray-dark;
     }
 
-    &:active,
-    &:focus {
-        box-shadow: 0;
-        outline: 1px solid $form-focus;
-        border: 1px solid $form-focus;
-    }
-
     &:-moz-placeholder {
         color: $gray-dark;
     }
@@ -31,6 +24,15 @@
     &:disabled {
         background-color: $gray-xxlight;
         color: $gray-xdark;
+    }
+
+    &:active,
+    &:focus,
+    &:active:hover,
+    &:focus:hover {
+        border: 1px solid $form-focus;
+        box-shadow: 0;
+        outline: 1px solid $form-focus;
     }
 
     &--error {

@@ -35,16 +35,19 @@ let optionsGroup = [
     "Villagers",
 ];
 
-let showLabel, showHelperText, formErrored;
+let showLabel, showHelperText, formErrored, formDisabled;
 
 export const searchBar = () => (
     <>
         {boolean("Form Errored", false)
             ? (formErrored = true)
             : (formErrored = false)}
+        {boolean("Form Disabled", false)
+            ? (formDisabled = true)
+            : (formDisabled = false)}
         <SearchBar
             searchSubmitHandler={action("clicked")}
-            searchBarAriaLabel={"New Horizons Item Search"}
+            ariaLabel={"New Horizons Item Search"}
         >
             <Select
                 id={"select"}
@@ -55,7 +58,7 @@ export const searchBar = () => (
                 onBlur={action("blur")}
                 onChange={action("changed")}
                 modifiers={formErrored ? ["error"] : null}
-                disabled={boolean("Disabled", false)}
+                disabled={formDisabled}
             >
                 {optionsGroup.map((nhOption) => (
                     <option aria-select={false}>{nhOption}</option>
@@ -79,7 +82,7 @@ export const searchBar = () => (
                 iconName={IconNames.search_small}
                 iconDecorative={true}
             >
-                {text("Button Text", "Search")}
+                Search
             </Button>
         </SearchBar>
         <HelperErrorText id={"2"} isError={formErrored ? true : false}>
