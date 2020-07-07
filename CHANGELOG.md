@@ -11,11 +11,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 -   `FormDropDown` and `Dropdown` are now `Select`
--   Changes `referenceId` to `htmlFor` on `Label`
 -   `Textfield` has been retired in favor of `Input`
 -   `Input` type is now controlled via an enum defined in `InputTypes` instead of a string
--   `DateRangeForm` now represented as an `Input` story
--   Deprecates `BodyText`
+-   Changes `referenceId` to `htmlFor` on `Label`
+-   Deprecates `DateRangeForm`, `BodyText`, `SearchPromo`, and `RNHeaderWithSearch`
 -   `Button` now accepts an `onClick` instead of a `callback`
 -   In the `ButtonTypes` enum, `Filled` and `Outline` have been changed to `Primary` and `Secondary`, respectively
 -   `Accordion` now accepts `accordionLabel` and `labelId` instead of `buttonOpts` properties

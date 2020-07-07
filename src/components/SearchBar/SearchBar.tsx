@@ -7,10 +7,13 @@ import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
 import { ButtonOptions } from "../Button/Button";
 
 export interface SearchBarProps {
-    searchBarId?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+
+    /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
-    searchBarAriaLabel?: string;
-    searchBarAriaLabelledBy?: string;
+    ariaLabel?: string;
+    ariaLabelledBy?: string;
     buttonId?: string;
     dropdownId?: string;
     dropdownAriaLabel?: string;
@@ -22,9 +25,6 @@ export interface SearchBarProps {
     placeholderText?: string;
     textFieldAriaLabel?: string;
     textFieldAttributes?: {};
-    // helperVariant enables a ResearchNow specific alternate.
-    // It should not be used in any other context.
-    helperVariant?: "ResearchNow";
     hasError?: boolean;
     errorMessage?: string;
     selectBlurHandler?: (event: React.MouseEvent) => void;
@@ -44,12 +44,11 @@ export default function SearchBar(
         dropdownId,
         errorMessage,
         hasError,
-        helperVariant,
         options,
         placeholderText,
-        searchBarAriaLabel,
-        searchBarAriaLabelledBy,
-        searchBarId,
+        ariaLabel,
+        ariaLabelledBy,
+        id,
         searchChangeHandler,
         searchSubmitHandler,
         searchValue,
@@ -88,10 +87,10 @@ export default function SearchBar(
     return (
         <form
             className={bem(searchbar__base_class, modifiers, blockName)}
-            id={searchBarId}
+            id={id}
             role="search"
-            aria-label={searchBarAriaLabel}
-            aria-labelledby={searchBarAriaLabelledBy}
+            aria-label={ariaLabel}
+            aria-labelledby={ariaLabelledBy}
         >
             {props.children}
         </form>

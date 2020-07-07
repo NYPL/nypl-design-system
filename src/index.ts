@@ -10,7 +10,6 @@ export {
 export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as Container } from "./components/Container/Container";
-export { default as HeaderWithSearch } from "./components/RNHeaderWithSearch/RNHeaderWithSearch";
 export { default as Heading } from "./components/Heading/Heading";
 export { default as Hero } from "./components/Hero/Hero";
 export { HeroTypes } from "./components/Hero/HeroTypes";
@@ -25,7 +24,6 @@ export { LinkTypes } from "./components/Link/LinkTypes";
 export { default as Modal } from "./components/Modal/Modal";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
-export { default as SearchPromo } from "./components/SearchPromo/SearchPromo";
 export { default as SearchResultItem } from "./components/SearchResultItem/SearchResultItem";
 export { default as SectionName } from "./components/SectionName/SectionName";
 export { default as SectionTitle } from "./components/SectionTitle/SectionTitle";
