@@ -29,4 +29,5 @@ export { default as SearchResultItem } from "./components/SearchResultItem/Searc
 export { default as SectionName } from "./components/SectionName/SectionName";
 export { default as SectionTitle } from "./components/SectionTitle/SectionTitle";
 export { default as Select } from "./components/Select/Select";
-export { default as UnorderedList } from "./components/UnorderedList/UnorderedList";
+export { default as List } from "./components/List/List";
+export { ListTypes } from "./components/List/ListTypes";

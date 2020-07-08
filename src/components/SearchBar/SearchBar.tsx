@@ -14,9 +14,6 @@ export interface SearchBarProps {
     blockName?: string;
     ariaLabel?: string;
     ariaLabelledBy?: string;
-    buttonId?: string;
-    dropdownId?: string;
-    dropdownAriaLabel?: string;
     options?: React.ReactNode;
     selectedField?: string;
     searchValue?: string;
@@ -38,11 +35,7 @@ export default function SearchBar(
 ) {
     const {
         blockName,
-        buttonId,
         children,
-        dropdownAriaLabel,
-        dropdownId,
-        errorMessage,
         hasError,
         options,
         placeholderText,
@@ -58,29 +51,22 @@ export default function SearchBar(
     } = props;
 
     if (options) {
-        if (
-            !(
-                dropdownId &&
-                dropdownAriaLabel &&
-                selectBlurHandler &&
-                selectChangeHandler
-            )
-        ) {
-            throw new Error(`If dropdownOptions are passed, dropdownId (currently ${dropdownId}),
-      dropdownAriaLabel (currently ${dropdownAriaLabel}), selectChangeHandler (currently ${selectChangeHandler}),
-      and selectBlurHandler (currently ${selectBlurHandler}) must also be passed`);
+        if (!(selectBlurHandler && selectChangeHandler)) {
+            // throw new Error(`If dropdownOptions are passed, dropdownId (currently ${dropdownId}),
+            // dropdownAriaLabel (currently ${dropdownAriaLabel}), selectChangeHandler (currently ${selectChangeHandler}),
+            // and selectBlurHandler (currently ${selectBlurHandler}) must also be passed`);
         }
     }
 
     let modifiers = [];
-    if (hasError) {
-        if (!errorMessage) {
-            throw new Error(
-                "If there is an error, there must also be an error message"
-            );
-        }
-        modifiers.push("error");
-    }
+    // if (hasError) {
+    //     if (!errorMessage) {
+    //         throw new Error(
+    //             "If there is an error, there must also be an error message"
+    //         );
+    //     }
+    //     modifiers.push("error");
+    // }
 
     let searchbar__base_class = "search-bar";
 

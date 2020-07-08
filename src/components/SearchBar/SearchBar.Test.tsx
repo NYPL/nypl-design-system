@@ -19,7 +19,6 @@ describe("Search Bar with Optional Parameters", () => {
             <SearchBar
                 id="id"
                 ariaLabel="label"
-                buttonId="searchButtonId"
                 searchSubmitHandler={searchCallback}
             />
         );
@@ -33,7 +32,6 @@ describe("Search Bar with Optional Parameters", () => {
                 textFieldAriaLabel="searchBar"
                 id="id"
                 ariaLabel="label"
-                buttonId="searchButtonId"
                 searchSubmitHandler={searchCallback}
             />
         );
@@ -47,7 +45,6 @@ describe("Search Bar with Optional Parameters", () => {
                 textFieldAriaLabel="searchBar"
                 id="id"
                 ariaLabel="label"
-                buttonId="searchButtonId"
                 searchChangeHandler={onChangeCallback}
                 searchSubmitHandler={searchCallback}
             />
@@ -64,7 +61,6 @@ describe("Search Bar with Optional Parameters", () => {
         wrapper = Enzyme.shallow(
             <SearchBar
                 id="id"
-                buttonId="searchButtonId"
                 ariaLabel="label"
                 hasError={true}
                 errorMessage="test"
@@ -80,7 +76,6 @@ describe("Search Bar with Optional Parameters", () => {
         let mounted = Enzyme.mount(
             <SearchBar
                 id="id"
-                buttonId="searchButtonId"
                 ariaLabel="label"
                 hasError={true}
                 errorMessage="test"
@@ -97,11 +92,7 @@ describe("Search Bar with Optional Parameters", () => {
     it("Throws error when SearchBar is not passed aria-label or aria-labelledby", () => {
         expect(() =>
             Enzyme.mount(
-                <SearchBar
-                    id="id"
-                    buttonId="searchButtonId"
-                    searchSubmitHandler={searchCallback}
-                />
+                <SearchBar id="id" searchSubmitHandler={searchCallback} />
             )
         ).to.throw("Either ariaLabel and ariaLabelledBy must be passed");
     });
@@ -111,7 +102,6 @@ describe("Search Bar with Optional Parameters", () => {
             Enzyme.mount(
                 <SearchBar
                     id="id"
-                    buttonId="searchButtonId"
                     ariaLabel="label"
                     hasError={true}
                     searchSubmitHandler={searchCallback}
