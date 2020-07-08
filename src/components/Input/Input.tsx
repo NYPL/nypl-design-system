@@ -35,12 +35,6 @@ export interface InputProps {
     /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
     type?: InputTypes;
 
-    /** ID of associated label */
-    labelId?: string;
-
-    /** ID of associated HelperText */
-    helperTextId?: string;
-
     /** Additional attributes to pass to the <input> tag */
     attributes?: {};
 }
@@ -53,9 +47,7 @@ export default function Input(props: InputProps) {
         blockName,
         className,
         errored,
-        helperTextId,
         id,
-        labelId,
         placeholder,
         required,
         type = "text",
@@ -78,14 +70,6 @@ export default function Input(props: InputProps) {
 
     if (required) {
         inputProps["aria-required"] = true;
-    }
-
-    if (labelId && !helperTextId) {
-        inputProps["aria-labelledby"] = labelId;
-    } else if (helperTextId && !labelId) {
-        inputProps["aria-labelledby"] = helperTextId;
-    } else if (labelId && helperTextId) {
-        inputProps["aria-labelledby"] = labelId + " " + helperTextId;
     }
 
     let transformedInput = (

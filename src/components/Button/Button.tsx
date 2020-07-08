@@ -156,7 +156,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
 
         return (
             <button
-                id={"btn-" + id}
+                id={id}
                 className={`${button_base_class} ${bem(
                     button_base_class,
                     buttonModifiers,

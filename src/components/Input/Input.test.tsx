@@ -15,7 +15,7 @@ describe("Renders Input", () => {
             <Input
                 id="inputID"
                 ariaLabel="Input Label"
-                helperTextId={"helperText"}
+                ariaLabelledBy={"helperText"}
                 required={true}
                 placeholder={"Input Placeholder"}
                 type={InputTypes.text}
@@ -54,9 +54,8 @@ describe("Input with Label", () => {
                 </Label>
                 <Input
                     id="inputID"
-                    labelId="label"
+                    ariaLabelledBy="label helperText"
                     ariaLabel="Input Label"
-                    helperTextId={"helperText"}
                     required={true}
                     placeholder={"Input Placeholder"}
                     type={InputTypes.text}
@@ -98,8 +97,7 @@ describe("Input Group", () => {
                         </Label>
                         <Input
                             id="input1"
-                            labelId="label1"
-                            helperTextId={"helperText1 sharedHelperText"}
+                            ariaLabelledBy="label1 helperText1 sharedHelperText"
                             required={true}
                             type={InputTypes.text}
                         ></Input>
@@ -114,8 +112,9 @@ describe("Input Group", () => {
                         </Label>
                         <Input
                             id="input2"
-                            labelId="label2"
-                            helperTextId={"helperText2 sharedHelperText"}
+                            ariaLabelledBy={
+                                "label2 helperText2 sharedHelperText"
+                            }
                             required={true}
                             type={InputTypes.text}
                         ></Input>

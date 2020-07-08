@@ -35,7 +35,7 @@ export const input = () => (
         <Input
             id="inputID"
             ariaLabel="Input Label"
-            helperTextId={"helperText"}
+            ariaLabelledBy={"helperText"}
             required={boolean("Input Required", false)}
             placeholder={text("Input Placeholder", "CoolPerson99")}
             type={select("Input Type", InputTypes, InputTypes.text)}
@@ -85,11 +85,10 @@ export const inputGroup = () => (
                 </Label>
                 <Input
                     id="input1"
-                    labelId="label1"
-                    helperTextId={
+                    ariaLabelledBy={
                         groupErrored
-                            ? "helperText1 sharedHelperText"
-                            : "helperText1"
+                            ? "helperText1 sharedHelperText label1"
+                            : "helperText1 label1"
                     }
                     errored={groupErrored ? true : false}
                     required={true}
@@ -106,11 +105,10 @@ export const inputGroup = () => (
                 </Label>
                 <Input
                     id="input2"
-                    labelId="label2"
-                    helperTextId={
+                    ariaLabelledBy={
                         groupErrored
-                            ? "helperText2 sharedHelperText"
-                            : "helperText2"
+                            ? "helperText2 sharedHelperText label2"
+                            : "helperText2 label2"
                     }
                     errored={groupErrored ? true : false}
                     required={true}
