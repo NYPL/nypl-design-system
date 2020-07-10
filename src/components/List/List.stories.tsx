@@ -2,6 +2,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import { action } from "@storybook/addon-actions";
 import { boolean, number, select } from "@storybook/addon-knobs";
+import { addDecorator } from "@storybook/react";
 
 import Card from "../Card/Card";
 import Heading from "../Heading/Heading";
@@ -16,6 +17,7 @@ import { ListTypes } from "./ListTypes";
 export default {
     title: "List",
     component: List,
+    decorators: [(storyFn) => <div style={{ padding: "2%" }}>{storyFn()}</div>],
 };
 
 let listStyling;
@@ -121,7 +123,7 @@ const exampleCard = (
 
 let cards = [];
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 3; i++) {
     cards.push(<li key={i}>{exampleCard}</li>);
 }
 

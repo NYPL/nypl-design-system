@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   In the `ButtonTypes` enum, `Filled` and `Outline` have been changed to `Primary` and `Secondary`, respectively
 -   `Accordion` now accepts `accordionLabel` and `labelId` instead of `buttonOpts` properties
 -   Removes project-specific styles for now deprecated `EditionCard`
+-   Removes project-specific styles of `.search-results-list` and `.form-item--radios`
 
 ### Adds
 

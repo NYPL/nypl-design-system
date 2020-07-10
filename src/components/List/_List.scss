@@ -3,12 +3,3 @@
         @include list-reset;
     }
 }
-
-.search-results-list {
-    @include list-reset;
-}
-
-.form-item--radios,
-.form-item--radio__item {
-    @include list-reset;
-}
