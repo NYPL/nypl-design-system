@@ -28,9 +28,9 @@ export default function Pagination(props: PaginationProps) {
     const pagination__base_class = "pagination";
     let buttonPrevOpts: ButtonOptions = {
         id: "pagination-previous",
-        callback: previousPageHandler,
+        onClick: previousPageHandler,
         content: <>Previous</>,
-        buttonType: ButtonTypes.Outline,
+        buttonType: ButtonTypes.Secondary,
         iconPosition: ButtonIconPositions.Left,
         iconRotation: IconRotationTypes.rotate90,
         iconName: "arrow_xsmall",
@@ -39,9 +39,9 @@ export default function Pagination(props: PaginationProps) {
 
     let buttonNextOpts: ButtonOptions = {
         id: "pagination-next",
-        callback: nextPageHandler,
+        onClick: nextPageHandler,
         content: <>Next</>,
-        buttonType: ButtonTypes.Outline,
+        buttonType: ButtonTypes.Secondary,
         iconPosition: ButtonIconPositions.Right,
         iconRotation: IconRotationTypes.rotate270,
         iconName: "arrow_xsmall",
@@ -53,7 +53,6 @@ export default function Pagination(props: PaginationProps) {
         isRequired: false,
         labelId: "pagination-select-label",
         labelText: "Page",
-        options: paginationDropdownOptions,
         selectedOption: currentValue,
         onChange: onSelectChange,
         onBlur: onSelectBlur,
@@ -61,17 +60,18 @@ export default function Pagination(props: PaginationProps) {
 
     return (
         <nav aria-label="Pagination" className={bem(pagination__base_class)}>
-            <Button callback={buttonPrevOpts.callback} {...buttonPrevOpts}>
+            <Button onClick={buttonPrevOpts.onClick} {...buttonPrevOpts}>
                 {buttonPrevOpts.content}
             </Button>
-            <Label htmlFor="pagination-dropdown">
+            <Label htmlFor="pagination-dropdown" id={dropdownProps.labelId}>
                 {dropdownProps.labelText}
             </Label>
-            <Select
-                blockName={pagination__base_class}
-                {...dropdownProps}
-            ></Select>
-            <Button callback={buttonNextOpts.callback} {...buttonNextOpts}>
+            <Select blockName={pagination__base_class} {...dropdownProps}>
+                {paginationDropdownOptions.map((item) => (
+                    <option aria-selected={false}>{item}</option>
+                ))}
+            </Select>
+            <Button onClick={buttonNextOpts.onClick} {...buttonNextOpts}>
                 {buttonNextOpts.content}
             </Button>
         </nav>

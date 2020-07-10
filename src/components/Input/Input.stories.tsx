@@ -130,9 +130,9 @@ export const inputGroup = () => (
             </HelperErrorText>
         )}
         <Button
-            callback={action("clicked")}
+            onClick={action("clicked")}
             id="button"
-            buttonType={ButtonTypes.Filled}
+            buttonType={ButtonTypes.Primary}
             type="submit"
         >
             Apply

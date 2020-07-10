@@ -11,7 +11,7 @@ import {
     Link as ReactRouterLink,
 } from "react-router-dom";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 describe("Link", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
@@ -20,7 +20,7 @@ describe("Link", () => {
         wrapper = Enzyme.mount(
             <Link href="#passed-in-link" linkType={LinkTypes.Action}>
                 <Icon
-                    name="download"
+                    name={IconNames.download}
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}
@@ -47,7 +47,7 @@ describe("Link", () => {
             <Link linkType={LinkTypes.Action}>
                 <a href="#test2">
                     <Icon
-                        name="download"
+                        name={IconNames.download}
                         blockName="more-link"
                         modifiers={["left"]}
                         decorative={true}
@@ -94,7 +94,7 @@ describe("Link", () => {
                 <Link linkType={LinkTypes.Action}>
                     <ReactRouterLink to="#">
                         <Icon
-                            name="download"
+                            name={IconNames.download}
                             blockName="more-link"
                             modifiers={["left"]}
                             decorative={true}
@@ -119,7 +119,7 @@ describe("Link", () => {
             Enzyme.mount(
                 <Link>
                     <Icon
-                        name="download"
+                        name={IconNames.download}
                         blockName="more-link"
                         modifiers={["left"]}
                         decorative={true}

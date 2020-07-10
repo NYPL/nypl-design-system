@@ -45,11 +45,11 @@ describe("SearchResultItem", () => {
                         }
                         ctas={
                             <Button
-                                callback={function () {
+                                onClick={function () {
                                     console.log(this);
                                 }}
                                 id="button1"
-                                buttonType={ButtonTypes.Filled}
+                                buttonType={ButtonTypes.Primary}
                                 type="submit"
                             >
                                 Example CTA

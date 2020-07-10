@@ -8,7 +8,7 @@ import Image from "../Image/Image";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import { LinkTypes } from "../Link/LinkTypes";
 import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 
@@ -33,9 +33,9 @@ export const CardWithFullData = () => (
         }
         ctas={
             <Button
-                callback={action("clicked")}
+                onClick={action("clicked")}
                 id="button1"
-                buttonType={ButtonTypes.Filled}
+                buttonType={ButtonTypes.Primary}
                 type="submit"
             >
                 Example CTA
@@ -83,7 +83,7 @@ export const EditionCard = () => (
                 <div className="edition-card__download">
                     <Link href="#url" linkType={LinkTypes.Action}>
                         <Icon
-                            name="download"
+                            name={IconNames.download}
                             blockName="more-link"
                             decorative={true}
                             modifiers={["left"]}
@@ -123,7 +123,7 @@ export const EditionCardWithOneLink = () => (
                 <div className="edition-card__download">
                     <Link href="#url" linkType={LinkTypes.Action}>
                         <Icon
-                            name="download"
+                            name={IconNames.download}
                             blockName="more-link"
                             decorative={true}
                             modifiers={["left"]}
@@ -199,7 +199,7 @@ export const editionCardWithSomeEditionInfo = () => (
                 <div className="edition-card__download">
                     <Link href="#url" linkType={LinkTypes.Action}>
                         <Icon
-                            name="download"
+                            name={IconNames.download}
                             blockName="more-link"
                             decorative={true}
                             modifiers={["left"]}
@@ -244,7 +244,7 @@ export const editionCardWithEmptyEditionInfo = () => (
                 <div className="edition-card__download">
                     <Link href="#url" linkType={LinkTypes.Action}>
                         <Icon
-                            name="download"
+                            name={IconNames.download}
                             blockName="more-link"
                             decorative={true}
                             modifiers={["left"]}
@@ -284,7 +284,7 @@ export const editionCardWithAtypicalImageSize = () => (
                 <div className="edition-card__download">
                     <Link href="#url" linkType={LinkTypes.Action}>
                         <Icon
-                            name="download"
+                            name={IconNames.download}
                             blockName="more-link"
                             decorative={true}
                             modifiers={["left"]}
@@ -344,7 +344,7 @@ export const CirculationPatronWebCard = () => (
             </div>
             <div className="book__filetype">
                 <Icon
-                    name="headset"
+                    name={IconNames.headset}
                     decorative={true}
                     modifiers={["left", "small"]}
                     iconRotation={IconRotationTypes.rotate0}

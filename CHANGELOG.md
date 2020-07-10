@@ -16,11 +16,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   `Input` type is now controlled via an enum defined in `InputTypes` instead of a string
 -   `DateRangeForm` now represented as an `Input` story
 -   Deprecates `BodyText`
+-   `Button` now accepts an `onClick` instead of a `callback`
+-   In the `ButtonTypes` enum, `Filled` and `Outline` have been changed to `Primary` and `Secondary`, respectively
+-   `Accordion` now accepts `accordionLabel` and `labelId` instead of `buttonOpts` properties
 
 ### Adds
 
 -   `aria-live` and `aria-atomic` to `HelperErrorText` in its errored state
 -   Adds "Optional", "Required", or empty string inside `Label` for forms
+-   Adds `IconNames` enum to make `allSVGs` array globally accessible
+-   Adds `width: 100%` globally to SVGs
 
 ### Changes
 
@@ -28,6 +33,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   `Link`'s scss now references `$ui-link-primary` instead of `$nypl-blue-regular`
 -   Changes `Select`'s SCSS to use the updated styling from Filament Group
 -   `Image` is wrapped in `figure` when `imageCaption` or `imageCredit` is passed to `Image`
+-   Adds `viewport` properties to any SVG files that were missing it
 
 ## 0.6.0
 
