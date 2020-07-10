@@ -69,9 +69,9 @@ export const card = () => (
             ctas={
                 showCTAs ? (
                     <Button
-                        callback={action("clicked")}
+                        onClick={action("clicked")}
                         id="button1"
-                        buttonType={ButtonTypes.Filled}
+                        buttonType={ButtonTypes.Primary}
                         type="submit"
                     >
                         {text("CTA Button Text: ", "Example CTA")}
