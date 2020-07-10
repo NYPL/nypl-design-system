@@ -7,6 +7,8 @@ import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Button from "../Button/Button";
 import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 import Input from "../Input/Input";
+import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
 import { InputTypes } from "../Input/InputTypes";
 import { action } from "@storybook/addon-actions";
 import { text, boolean, select } from "@storybook/addon-knobs";
@@ -126,7 +128,6 @@ export const searchBar = () => (
                 required={true}
                 type={InputTypes.text}
             ></Input>
-
             <Button
                 onClick={action("clicked")}
                 id="button"
@@ -139,11 +140,11 @@ export const searchBar = () => (
                 Search
             </Button>
         </SearchBar>
-        <ul>
+        <List type={ListTypes.Unordered}>
             {Object.values(optionsGroup["Art"]).map((value) => (
                 <li>{value}</li>
             ))}
-        </ul>
+        </List>
         {showHelperText && (
             <HelperErrorText
                 id={"helper-error-text"}
