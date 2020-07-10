@@ -59,14 +59,6 @@ export default function SearchBar(
     }
 
     let modifiers = [];
-    // if (hasError) {
-    //     if (!errorMessage) {
-    //         throw new Error(
-    //             "If there is an error, there must also be an error message"
-    //         );
-    //     }
-    //     modifiers.push("error");
-    // }
 
     let searchbar__base_class = "search-bar";
 
