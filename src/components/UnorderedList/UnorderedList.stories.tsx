@@ -5,7 +5,7 @@ import UnorderedList from "./UnorderedList";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Card from "../Card/Card";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
 import Checkbox from "../Checkbox/Checkbox";
@@ -165,7 +165,7 @@ const searchResults = [
                         <div className="edition-card__download">
                             <Link href="#url" linkType={LinkTypes.Action}>
                                 <Icon
-                                    name="download"
+                                    name={IconNames.download}
                                     blockName="more-link"
                                     decorative={true}
                                     modifiers={["left"]}
@@ -222,7 +222,7 @@ const searchResults = [
                         <div className="edition-card__download">
                             <Link href="#url" linkType={LinkTypes.Action}>
                                 <Icon
-                                    name="download"
+                                    name={IconNames.download}
                                     blockName="more-link"
                                     decorative={true}
                                     modifiers={["left"]}

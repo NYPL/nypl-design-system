@@ -49,11 +49,9 @@ export default function Checkbox(props: CheckboxProps) {
                 aria-checked={isSelected}
                 checked={isSelected}
             ></input>
-            <span className={bem("label", [], baseClass)}>
-                <Label htmlFor={checkboxId} id={labelOptions.id}>
-                    {labelOptions.labelContent}
-                </Label>
-            </span>
+            <Label htmlFor={checkboxId} id={labelOptions.id}>
+                {labelOptions.labelContent}
+            </Label>
         </div>
     );
 }

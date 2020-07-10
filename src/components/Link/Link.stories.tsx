@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 export default {
     title: "Link",
@@ -49,7 +49,7 @@ export const actionLinkWithDownloadIcon = () => (
     <Link linkType={LinkTypes.Action} id="beepbeep">
         <a href="#passed-link">
             <Icon
-                name="download"
+                name={IconNames.download}
                 blockName="more-link"
                 modifiers={["left"]}
                 decorative={true}
@@ -65,7 +65,7 @@ export const LinkWithReactRouter = () => (
         <Link linkType={LinkTypes.Action}>
             <ReactRouterLink to="#">
                 <Icon
-                    name="download"
+                    name={IconNames.download}
                     blockName="more-link"
                     modifiers={["left"]}
                     decorative={true}

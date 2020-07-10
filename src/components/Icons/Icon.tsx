@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { IconRotationTypes } from "./IconTypes";
+import { IconRotationTypes, IconNames } from "./IconTypes";
 
 import arrow_xsmall from "../../../icons/svg/arrow-xsmall.svg";
 import arrow from "../../../icons/svg/arrow.svg";
@@ -25,7 +25,7 @@ const allSvgs = {
 
 // Wrapper Class for Icon
 export interface IconProps {
-    name: string;
+    name: IconNames;
     blockName?: string;
     modifiers?: string[];
     decorative: boolean;

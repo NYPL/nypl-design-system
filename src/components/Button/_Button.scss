@@ -91,14 +91,25 @@
     }
 }
 
+@mixin button--pill {
+    @include button-base;
+    @include button--outline;
+
+    border-radius: 20px;
+}
+
 .button {
     @include button--filled;
-}
 
-.button--outline {
-    @include button--outline;
-}
+    &--link {
+        @include button--link;
+    }
 
-.button--link {
-    @include button--link;
+    &--outline {
+        @include button--outline;
+    }
+
+    &--pill {
+        @include button--pill;
+    }
 }
