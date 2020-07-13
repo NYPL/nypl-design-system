@@ -143,11 +143,11 @@ describe("Input Group", () => {
     });
 
     it("Inputs have aria-labelledby pointing to labelId, helperTextId, and sharedHelperTextId", () => {
-        expect(
-            container.find("#input-input1").prop("aria-labelledby")
-        ).to.equal("label1 helperText1 sharedHelperText");
-        expect(
-            container.find("#input-input2").prop("aria-labelledby")
-        ).to.equal("label2 helperText2 sharedHelperText");
+        expect(container.find("#input1").prop("aria-labelledby")).to.equal(
+            "label1 helperText1 sharedHelperText"
+        );
+        expect(container.find("#input2").prop("aria-labelledby")).to.equal(
+            "label2 helperText2 sharedHelperText"
+        );
     });
 });

@@ -24,7 +24,11 @@ export interface InputProps {
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 
+    /** Helper for modifiers array; adds 'errored' styling */
     errored?: boolean;
+
+    /** Adds the 'disabled' prop to the input when true */
+    disabled?: boolean;
 
     /** Populates the value of the select */
     value?: string | number;
@@ -46,6 +50,7 @@ export default function Input(props: InputProps) {
         attributes,
         blockName,
         className,
+        disabled,
         errored,
         id,
         placeholder,
@@ -66,6 +71,7 @@ export default function Input(props: InputProps) {
         value: value,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
+        disabled: disabled,
     };
 
     if (required) {
@@ -73,7 +79,7 @@ export default function Input(props: InputProps) {
     }
 
     let transformedInput = (
-        <input id={`input-${id}`} {...inputProps} placeholder={placeholder} />
+        <input id={id} {...inputProps} placeholder={placeholder} />
     );
 
     return transformedInput;

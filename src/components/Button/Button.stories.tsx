@@ -23,6 +23,7 @@ export const button = () => (
             id="button"
             buttonType={select("Button Type", ButtonTypes, ButtonTypes.Primary)}
             type="submit"
+            disabled={boolean("Disabled", false)}
             iconPosition={
                 showIcon
                     ? select(

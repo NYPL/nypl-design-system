@@ -32,6 +32,9 @@ interface ButtonProps {
     /** Additional attributes passed to the button */
     attributes?: {};
 
+    /** Adds 'disabled' property to the button */
+    disabled?: boolean;
+
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 
@@ -85,6 +88,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
             onClick,
             children,
             className,
+            disabled,
             iconDecorative,
             iconModifiers = ["small"],
             iconName,
@@ -164,6 +168,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
                     [className]
                 )}`}
                 type={type}
+                disabled={disabled}
                 {...attributes}
                 {...btnCallback}
             >

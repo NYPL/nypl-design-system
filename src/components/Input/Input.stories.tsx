@@ -39,6 +39,7 @@ export const input = () => (
             required={boolean("Input Required", false)}
             placeholder={text("Input Placeholder", "CoolPerson99")}
             type={select("Input Type", InputTypes, InputTypes.text)}
+            disabled={boolean("Disabled", false)}
         ></Input>
         {boolean("Show Helper Text", true)
             ? (showHelperText = true)
