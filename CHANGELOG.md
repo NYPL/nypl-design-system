@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Removes project-specific styles of `.search-results-list` and `.form-item--radios`
 -   `UnorderedList` is now `List`, with an enum to control whether is it ordered or unordered
 -   `Input` `id` is no longer prepended with `input-`
+-   `Button` `id` is no longer prepended with `btn-`
 -   `SearchBar` no longer has props for `selectChangeHandler`, `selectBlurHandler`, or `searchChangeHandler`.
 
 ### Adds
