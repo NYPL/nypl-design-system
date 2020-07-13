@@ -39,7 +39,6 @@ describe("Search Bar with Optional Parameters", () => {
             <SearchBar
                 ariaLabel="searchBar"
                 id="id"
-                searchChangeHandler={onChangeCallback}
                 onSubmit={searchCallback}
             />
         );
