@@ -21,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Removes project-specific styles for now deprecated `EditionCard`
 -   Removes project-specific styles of `.search-results-list` and `.form-item--radios`
 -   `UnorderedList` is now `List`, with an enum to control whether is it ordered or unordered
+-   `Input` `id` is no longer prepended with `input-`
 
 ### Adds
 
@@ -30,6 +31,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Adds `width: 100%` globally to SVGs
 -   `Card` now constrains items in its `image` column to the column width
 -   Adds the `forwardRef` implementation to the `Input` component
+-   Adds `disabled` prop to `Input` and `Button` components
+-   Adds `disabled` styling to `Button.Primary`
 
 ### Changes
 

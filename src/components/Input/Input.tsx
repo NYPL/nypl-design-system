@@ -24,7 +24,11 @@ export interface InputProps {
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 
+    /** Helper for modifiers array; adds 'errored' styling */
     errored?: boolean;
+
+    /** Adds the 'disabled' prop to the input when true */
+    disabled?: boolean;
 
     /** Populates the value of the select */
     value?: string | number;
@@ -46,6 +50,7 @@ let Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         attributes,
         blockName,
         className,
+        disabled,
         errored,
         id,
         placeholder,
@@ -66,7 +71,11 @@ let Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         value: value,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
+<<<<<<< HEAD
         ...attributes,
+=======
+        disabled: disabled,
+>>>>>>> [searchbar] Updates stories to include disabled knobs
     };
 
     if (required) {
@@ -74,12 +83,16 @@ let Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
     }
 
     let transformedInput = (
+<<<<<<< HEAD
         <input
             id={`input-${id}`}
             {...inputProps}
             placeholder={placeholder}
             ref={ref}
         />
+=======
+        <input id={id} {...inputProps} placeholder={placeholder} />
+>>>>>>> [searchbar] Updates stories to include disabled knobs
     );
 
     return transformedInput;

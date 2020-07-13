@@ -4,7 +4,7 @@ import * as React from "react";
 
 import Accordion from "./Accordion";
 
-describe("Renders Input (closed state)", () => {
+describe("Renders Accordion (closed state)", () => {
     let container: Enzyme.ReactWrapper<
         any,
         Readonly<{}>,
@@ -14,11 +14,10 @@ describe("Renders Input (closed state)", () => {
         container = Enzyme.mount(
             <Accordion
                 id="accordion"
-                labelId="accordionBtn"
                 accordionLabel="Click to expand"
+                labelId="accordionBtn"
             >
-                {" "}
-                <div className="accordion-content">content content</div>{" "}
+                <div className="accordion-content">content content</div>
             </Accordion>
         );
     });
@@ -31,7 +30,7 @@ describe("Renders Input (closed state)", () => {
     });
 });
 
-describe("Renders Input (open state)", () => {
+describe("Renders Accordion (open state)", () => {
     let container: Enzyme.ReactWrapper<
         any,
         Readonly<{}>,
@@ -40,15 +39,14 @@ describe("Renders Input (open state)", () => {
     before(() => {
         container = Enzyme.mount(
             <Accordion
+                accordionLabel="Click to expand"
                 id="accordion"
                 labelId="accordionBtn"
-                accordionLabel="Click to expand"
             >
-                {" "}
-                <div className="accordion-content">content content</div>{" "}
+                content content
             </Accordion>
         );
-        container.find("#btn-accordionBtn").simulate("click");
+        container.find("#accordion").simulate("click");
     });
 
     it("Renders a button", () => {

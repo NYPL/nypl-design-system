@@ -77,12 +77,6 @@ const optionsGroup = {
     Villagers: ["Agnes", "Alfonso", "Anchovy", "Axel", "Aurora"],
 };
 
-// console.log(Object.values(optionsGroup["Art"]));
-
-Object.values(optionsGroup["Art"]).map((value) => {
-    console.log(value);
-});
-
 let showSelect, showHelperText, formErrored, formDisabled;
 
 export const searchBar = () => (
@@ -100,20 +94,20 @@ export const searchBar = () => (
             ? (showHelperText = true)
             : (showHelperText = false)}
         <SearchBar
-            searchSubmitHandler={action("clicked")}
+            onSubmit={action("clicked")}
             ariaLabel={"New Horizons Item Search"}
         >
             {showSelect && (
                 <Select
+                    ariaLabel="Filter Search"
+                    disabled={formDisabled}
+                    helperTextId={"helperText"}
                     id={"select"}
                     isRequired={false}
-                    ariaLabel="Filter Search"
                     labelId={"label"}
-                    helperTextId={"helperText"}
+                    modifiers={formErrored ? ["error"] : null}
                     onBlur={action("blur")}
                     onChange={action("changed")}
-                    modifiers={formErrored ? ["error"] : null}
-                    disabled={formDisabled}
                 >
                     {Object.keys(optionsGroup).map((nhOption) => (
                         <option aria-selected={false}>{nhOption}</option>
@@ -121,30 +115,27 @@ export const searchBar = () => (
                 </Select>
             )}
             <Input
-                id="input1"
                 ariaLabelledBy={"button helper-error-text"}
+                disabled={formDisabled}
                 errored={formErrored ? true : false}
+                id="input1"
                 placeholder={"Item Search"}
                 required={true}
                 type={InputTypes.text}
             ></Input>
             <Button
-                onClick={action("clicked")}
-                id="button"
                 buttonType={ButtonTypes.Primary}
-                type="submit"
-                iconPosition={ButtonIconPositions.Left}
-                iconName={IconNames.search_small}
                 iconDecorative={true}
+                iconName={IconNames.search_small}
+                iconPosition={ButtonIconPositions.Left}
+                id="button"
+                onClick={action("clicked")}
+                type="submit"
+                disabled={formErrored || formDisabled ? true : false}
             >
                 Search
             </Button>
         </SearchBar>
-        <List type={ListTypes.Unordered}>
-            {Object.values(optionsGroup["Art"]).map((value) => (
-                <li>{value}</li>
-            ))}
-        </List>
         {showHelperText && (
             <HelperErrorText
                 id={"helper-error-text"}

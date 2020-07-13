@@ -12,21 +12,20 @@ export interface SearchBarProps {
 
     /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+
+    /** Populates aria-label on the form */
     ariaLabel?: string;
+
+    /** Populates aria-labelledby on the form */
     ariaLabelledBy?: string;
-    options?: React.ReactNode;
-    selectedField?: string;
-    searchValue?: string;
-    placeHolder?: string;
-    searchButtonAttributes?: {};
-    placeholderText?: string;
-    textFieldAriaLabel?: string;
-    textFieldAttributes?: {};
-    hasError?: boolean;
-    errorMessage?: string;
+
+    /** TBD */
+    errored?: boolean;
     selectBlurHandler?: (event: React.MouseEvent) => void;
     selectChangeHandler?: (event: React.MouseEvent) => void;
-    searchSubmitHandler: (event: React.MouseEvent) => void;
+
+    /** Handler on form submit */
+    onSubmit: (event: React.MouseEvent) => void;
     searchChangeHandler?: (event: React.FormEvent) => void;
 }
 
@@ -34,29 +33,23 @@ export default function SearchBar(
     props: React.PropsWithChildren<SearchBarProps>
 ) {
     const {
-        blockName,
-        children,
-        hasError,
-        options,
-        placeholderText,
         ariaLabel,
         ariaLabelledBy,
+        blockName,
+        children,
+        errored,
         id,
         searchChangeHandler,
-        searchSubmitHandler,
-        searchValue,
+        onSubmit,
         selectBlurHandler,
         selectChangeHandler,
-        selectedField,
     } = props;
 
-    if (options) {
-        if (!(selectBlurHandler && selectChangeHandler)) {
-            // throw new Error(`If dropdownOptions are passed, dropdownId (currently ${dropdownId}),
-            // dropdownAriaLabel (currently ${dropdownAriaLabel}), selectChangeHandler (currently ${selectChangeHandler}),
-            // and selectBlurHandler (currently ${selectBlurHandler}) must also be passed`);
-        }
-    }
+    // if (!(selectBlurHandler && selectChangeHandler)) {
+    // throw new Error(`If dropdownOptions are passed, dropdownId (currently ${dropdownId}),
+    // dropdownAriaLabel (currently ${dropdownAriaLabel}), selectChangeHandler (currently ${selectChangeHandler}),
+    // and selectBlurHandler (currently ${selectBlurHandler}) must also be passed`);
+    // }
 
     let modifiers = [];
 

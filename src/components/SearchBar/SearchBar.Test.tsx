@@ -16,11 +16,7 @@ describe("Search Bar with Optional Parameters", () => {
 
     it("Search Bar has an input field and button", () => {
         let wrapper = Enzyme.shallow(
-            <SearchBar
-                id="id"
-                ariaLabel="label"
-                searchSubmitHandler={searchCallback}
-            />
+            <SearchBar id="id" ariaLabel="label" onSubmit={searchCallback} />
         );
         expect(wrapper.find("TextField")).to.have.lengthOf(1);
         expect(wrapper.find("Button")).to.have.lengthOf(1);
@@ -29,10 +25,9 @@ describe("Search Bar with Optional Parameters", () => {
     it("Search Bar calls callback on Submit ", () => {
         let mounted = Enzyme.mount(
             <SearchBar
-                textFieldAriaLabel="searchBar"
+                ariaLabel="searchBar"
                 id="id"
-                ariaLabel="label"
-                searchSubmitHandler={searchCallback}
+                onSubmit={searchCallback}
             />
         );
         mounted.find("Button").simulate("click");
@@ -42,11 +37,10 @@ describe("Search Bar with Optional Parameters", () => {
     it("SearchBar calls optional onChange property", () => {
         wrapper = Enzyme.shallow(
             <SearchBar
-                textFieldAriaLabel="searchBar"
+                ariaLabel="searchBar"
                 id="id"
-                ariaLabel="label"
                 searchChangeHandler={onChangeCallback}
-                searchSubmitHandler={searchCallback}
+                onSubmit={searchCallback}
             />
         );
         wrapper
@@ -62,9 +56,8 @@ describe("Search Bar with Optional Parameters", () => {
             <SearchBar
                 id="id"
                 ariaLabel="label"
-                hasError={true}
-                errorMessage="test"
-                searchSubmitHandler={searchCallback}
+                errored={true}
+                onSubmit={searchCallback}
             />
         );
         expect(
@@ -77,9 +70,8 @@ describe("Search Bar with Optional Parameters", () => {
             <SearchBar
                 id="id"
                 ariaLabel="label"
-                hasError={true}
-                errorMessage="test"
-                searchSubmitHandler={searchCallback}
+                errored={true}
+                onSubmit={searchCallback}
             />
         );
 
@@ -91,20 +83,18 @@ describe("Search Bar with Optional Parameters", () => {
 
     it("Throws error when SearchBar is not passed aria-label or aria-labelledby", () => {
         expect(() =>
-            Enzyme.mount(
-                <SearchBar id="id" searchSubmitHandler={searchCallback} />
-            )
+            Enzyme.mount(<SearchBar id="id" onSubmit={searchCallback} />)
         ).to.throw("Either ariaLabel and ariaLabelledBy must be passed");
     });
 
-    it("Throws error when hasError is true and no errorMessage is passed", () => {
+    it("Throws error when errored is true and no errorMessage is passed", () => {
         expect(() =>
             Enzyme.mount(
                 <SearchBar
                     id="id"
                     ariaLabel="label"
-                    hasError={true}
-                    searchSubmitHandler={searchCallback}
+                    errored={true}
+                    onSubmit={searchCallback}
                 />
             )
         ).to.throw("If there is an error, there must also be an error message");
