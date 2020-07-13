@@ -24,10 +24,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   `Input` `id` is no longer prepended with `input-`
 -   `Button` `id` is no longer prepended with `btn-`
 -   `SearchBar` no longer has props for `selectChangeHandler`, `selectBlurHandler`, or `searchChangeHandler`.
+-   `Input` offers `ariaLabel` and `ariaLabelledby` props in favor of `labelId` and `helperTextId`
 
 ### Adds
 
--   `aria-live` and `aria-atomic` to `HelperErrorText` in its errored state
+-   Adds `aria-live` and `aria-atomic` to `HelperErrorText` in its errored state
 -   Adds "Optional", "Required", or empty string inside `Label` for forms
 -   Adds `IconNames` enum to make `allSVGs` array globally accessible
 -   Adds `width: 100%` globally to SVGs

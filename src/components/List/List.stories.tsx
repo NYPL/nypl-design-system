@@ -45,16 +45,12 @@ for (let i = 0; i < itemGroups.length; i++) {
 }
 
 export const list = () => (
-    <>
-        <List
-            type={select("List Type", ListTypes, ListTypes.Unordered)}
-            modifiers={
-                boolean("List Styling", true) ? null : ["no-list-styling"]
-            }
-        >
-            {itemList}
-        </List>
-    </>
+    <List
+        type={select("List Type", ListTypes, ListTypes.Unordered)}
+        modifiers={boolean("List Styling", true) ? null : ["no-list-styling"]}
+    >
+        {itemList}
+    </List>
 );
 
 list.story = {

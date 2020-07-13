@@ -14,9 +14,6 @@ export interface SearchBarProps {
     /** Populates aria-labelledby on the form */
     ariaLabelledBy?: string;
 
-    /** TBD */
-    errored?: boolean;
-
     /** Handler on form submit */
     onSubmit: (event: React.FormEvent) => void;
 
@@ -32,7 +29,6 @@ export default function SearchBar(
         ariaLabelledBy,
         blockName,
         children,
-        errored,
         id,
         onSubmit,
     } = props;
