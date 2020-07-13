@@ -29,23 +29,13 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
 
     if (type === ListTypes.Unordered) {
         listTag = (
-            <ul
-                id={id}
-                className={
-                    baseClass + " " + bem(baseClass, modifiers, blockName)
-                }
-            >
+            <ul id={id} className={bem(baseClass, modifiers, blockName)}>
                 {children}
             </ul>
         );
     } else if (type === ListTypes.Ordered) {
         listTag = (
-            <ol
-                id={id}
-                className={
-                    baseClass + " " + bem(baseClass, modifiers, blockName)
-                }
-            >
+            <ol id={id} className={bem(baseClass, modifiers, blockName)}>
                 {children}
             </ol>
         );

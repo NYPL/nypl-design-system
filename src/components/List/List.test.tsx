@@ -10,33 +10,25 @@ describe("Link With Underline", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
     let textList: JSX.Element[] = [];
 
-    it("Returns proper classes for List with modifier", () => {
+    it("Returns unordered list", () => {
         wrapper = Enzyme.mount(
-            <List
-                type={ListTypes.Unordered}
-                id="text-list-scroll"
-                modifiers={["scroll"]}
-            >
-                {textList}
+            <List type={ListTypes.Unordered}>
+                <li>hello</li>
             </List>
         );
-        expect(
-            wrapper
-                .find("ul")
-                .hasClass(
-                    "unordered-list unordered-list unordered-list--scroll"
-                )
-        ).to.equal(true);
+        expect(wrapper.find("ul").exists()).to.equal(true);
+        expect(wrapper.find("ul").hasClass("list")).to.equal(true);
+        expect(wrapper.find("li").exists()).to.equal(true);
     });
 
-    it("Returns proper classes for List without modifier", () => {
+    it("Returns ordered list", () => {
         wrapper = Enzyme.mount(
-            <List type={ListTypes.Unordered} id="search-results-list">
-                {textList}
+            <List type={ListTypes.Ordered}>
+                <li>hello</li>
             </List>
         );
-        expect(
-            wrapper.find("ul").hasClass("unordered-list unordered-list")
-        ).to.equal(true);
+        expect(wrapper.find("ol").exists()).to.equal(true);
+        expect(wrapper.find("ol").hasClass("list")).to.equal(true);
+        expect(wrapper.find("li").exists()).to.equal(true);
     });
 });
