@@ -18,10 +18,21 @@ interface ListProps {
 
     /** Ordered or Unordered */
     type: ListTypes;
+
+    /** Additional attributes passed to the list */
+    attributes?: {};
 }
 
 export default function List(props: React.PropsWithChildren<ListProps>) {
-    const { id, modifiers, blockName, className, type, children } = props;
+    const {
+        attributes,
+        blockName,
+        children,
+        className,
+        id,
+        modifiers,
+        type,
+    } = props;
 
     const baseClass = "list";
 
@@ -29,13 +40,21 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
 
     if (type === ListTypes.Unordered) {
         listTag = (
-            <ul id={id} className={bem(baseClass, modifiers, blockName)}>
+            <ul
+                id={id}
+                className={bem(baseClass, modifiers, blockName)}
+                {...attributes}
+            >
                 {children}
             </ul>
         );
     } else if (type === ListTypes.Ordered) {
         listTag = (
-            <ol id={id} className={bem(baseClass, modifiers, blockName)}>
+            <ol
+                id={id}
+                className={bem(baseClass, modifiers, blockName)}
+                {...attributes}
+            >
                 {children}
             </ol>
         );

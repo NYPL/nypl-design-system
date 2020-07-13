@@ -1,10 +1,5 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import Select from "../Select/Select";
-import TextField from "../TextField/TextField";
-import { Button } from "../..";
-import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
-import { ButtonOptions } from "../Button/Button";
 
 export interface SearchBarProps {
     /** ID that other components can cross reference for accessibility purposes */
@@ -21,12 +16,12 @@ export interface SearchBarProps {
 
     /** TBD */
     errored?: boolean;
-    selectBlurHandler?: (event: React.MouseEvent) => void;
-    selectChangeHandler?: (event: React.MouseEvent) => void;
 
     /** Handler on form submit */
-    onSubmit: (event: React.MouseEvent) => void;
-    searchChangeHandler?: (event: React.FormEvent) => void;
+    onSubmit: (event: React.FormEvent) => void;
+
+    /** Additional attributes passed to the form */
+    attributes?: {};
 }
 
 export default function SearchBar(
@@ -39,17 +34,8 @@ export default function SearchBar(
         children,
         errored,
         id,
-        searchChangeHandler,
         onSubmit,
-        selectBlurHandler,
-        selectChangeHandler,
     } = props;
-
-    // if (!(selectBlurHandler && selectChangeHandler)) {
-    // throw new Error(`If dropdownOptions are passed, dropdownId (currently ${dropdownId}),
-    // dropdownAriaLabel (currently ${dropdownAriaLabel}), selectChangeHandler (currently ${selectChangeHandler}),
-    // and selectBlurHandler (currently ${selectBlurHandler}) must also be passed`);
-    // }
 
     let modifiers = [];
 
@@ -62,6 +48,8 @@ export default function SearchBar(
             role="search"
             aria-label={ariaLabel}
             aria-labelledby={ariaLabelledBy}
+            onSubmit={props.onSubmit}
+            {...props.attributes}
         >
             {props.children}
         </form>

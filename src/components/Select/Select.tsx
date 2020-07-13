@@ -59,17 +59,17 @@ export default class Select extends React.Component<
 
     render() {
         const {
-            id,
-            className,
-            blockName,
-            labelId,
-            helperTextId,
-            isRequired,
             ariaLabel,
-            selectedOption,
+            blockName,
             children,
+            className,
+            helperTextId,
+            id,
+            isRequired,
+            labelId,
             onBlur,
             onChange,
+            selectedOption,
         } = this.props;
 
         const modifiers = this.props.modifiers ? this.props.modifiers : [];
