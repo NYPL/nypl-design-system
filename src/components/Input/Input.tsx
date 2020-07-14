@@ -59,11 +59,8 @@ let Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         value: value,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-<<<<<<< HEAD
         ...attributes,
-=======
         disabled: disabled,
->>>>>>> [searchbar] Updates stories to include disabled knobs
     };
 
     if (required) {
@@ -71,16 +68,13 @@ let Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
     }
 
     let transformedInput = (
-<<<<<<< HEAD
         <input
             id={`input-${id}`}
             {...inputProps}
             placeholder={placeholder}
             ref={ref}
+            {...attributes}
         />
-=======
-        <input id={id} {...inputProps} placeholder={placeholder} />
->>>>>>> [searchbar] Updates stories to include disabled knobs
     );
 
     return transformedInput;
