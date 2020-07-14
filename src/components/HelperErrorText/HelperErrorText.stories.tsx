@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import HelperErrorText from "./HelperErrorText";
+import { boolean, text } from "@storybook/addon-knobs";
 
 export default {
     title: "HelperErrorText",
@@ -27,5 +28,17 @@ export const longHelperText = () => (
         tiramisu biscuit cookie cake. Cookie chocolate jelly-o topping. Halvah
         bear claw wafer cupcake tiramisu ice cream tart gummi bears. Lemon drops
         chocolate cake croissant lemon drops gummies ice cream sugar plum.
+    </HelperErrorText>
+);
+
+export const withAriaProps = () => (
+    <HelperErrorText
+        id="withAriaProps"
+        isError={true}
+        ariaAtomic={boolean("ariaAtomic", false)}
+        ariaLive="assertive"
+    >
+        We'll be making a water landing,{" "}
+        <span>but that's OK because this is a seaplane.</span>
     </HelperErrorText>
 );

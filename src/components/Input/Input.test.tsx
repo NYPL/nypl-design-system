@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
+import { stub } from "sinon";
 
 import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
@@ -150,5 +150,65 @@ describe("Input Group", () => {
         expect(
             container.find("#input-input2").prop("aria-labelledby")
         ).to.equal("label2 helperText2 sharedHelperText");
+    });
+});
+
+describe("Renders HTML attributes passed through the `attributes` prop", () => {
+    const onChangeSpy = stub();
+    const onBlurSpy = stub();
+    let container;
+    before(() => {
+        container = Enzyme.mount(
+            <Input
+                id="inputID-attributes"
+                ariaLabel="Input Label"
+                helperTextId={"helperText-attributes"}
+                placeholder={"Input Placeholder"}
+                type={InputTypes.text}
+                attributes={{
+                    onChange: onChangeSpy,
+                    onBlur: onBlurSpy,
+                    maxLength: 10,
+                    tabIndex: 0,
+                }}
+            ></Input>
+        );
+    });
+
+    it("Has a maxlength for the input element", () => {
+        expect(container.find("input").prop("maxLength")).to.equal(10);
+    });
+
+    it("Has a tabIndex", () => {
+        expect(container.find("input").prop("tabIndex")).to.equal(0);
+    });
+
+    it("Calls the onChange function", () => {
+        expect(onChangeSpy.callCount).to.equal(0);
+        container.find("input").simulate("change");
+        expect(onChangeSpy.callCount).to.equal(1);
+    });
+
+    it("Calls the onBlur function", () => {
+        expect(onBlurSpy.callCount).to.equal(0);
+        container.find("input").simulate("blur");
+        expect(onBlurSpy.callCount).to.equal(1);
+    });
+});
+
+describe("Forwarding refs", () => {
+    it("Passes the ref to the input element", () => {
+        const ref = React.createRef<HTMLInputElement>();
+        const container = Enzyme.mount(
+            <Input
+                id="inputID-attributes"
+                ariaLabel="Input Label"
+                helperTextId={"helperText-attributes"}
+                placeholder={"Input Placeholder"}
+                type={InputTypes.text}
+                ref={ref}
+            ></Input>
+        );
+        expect(container.find("input").instance()).to.equal(ref.current);
     });
 });

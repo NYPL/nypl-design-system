@@ -15,7 +15,7 @@ interface LabelProps {
     htmlFor?: string;
 
     /** Displays "Required" or "Optional" string alongside label */
-    optReqFlag?: string;
+    optReqFlag?: "Optional" | "Required" | "" | null;
 
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
@@ -29,21 +29,13 @@ interface LabelProps {
  */
 export default function Label(props: React.PropsWithChildren<LabelProps>) {
     const { id, htmlFor, optReqFlag, modifiers, blockName } = props;
-
+    const baseClass = "label";
     let helperString;
 
-    const baseClass = "label";
-
-    if (optReqFlag === "Optional") {
+    if (optReqFlag) {
         helperString = (
             <div className={bem("required-helper", [], baseClass)}>
-                Optional
-            </div>
-        );
-    } else if (optReqFlag === "Required") {
-        helperString = (
-            <div className={bem("required-helper", [], baseClass)}>
-                Required
+                {optReqFlag}
             </div>
         );
     }

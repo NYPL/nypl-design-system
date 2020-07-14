@@ -33,7 +33,7 @@ export default function Checkbox(props: CheckboxProps) {
         blockName = "",
         checkboxId,
         labelOptions,
-        isSelected,
+        isSelected = false,
         onChange,
     } = props;
 

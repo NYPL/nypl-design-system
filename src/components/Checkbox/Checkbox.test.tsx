@@ -22,4 +22,25 @@ describe("Checkbox Test", () => {
         );
         expect(container.exists("#checkbox")).to.equal(true);
     });
+
+    it("Updates its check value based on the `isSelected` prop", () => {
+        let callback = stub();
+
+        const container = Enzyme.mount(
+            <Checkbox
+                checkboxId="checkbox"
+                labelOptions={{
+                    id: "label",
+                    labelContent: <>Label Text</>,
+                }}
+                onChange={callback}
+            />
+        );
+
+        // `false` by default.
+        expect(container.find("input").prop("checked")).to.equal(false);
+
+        container.setProps({ isSelected: true });
+        expect(container.find("input").prop("checked")).to.equal(true);
+    });
 });
