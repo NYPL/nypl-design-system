@@ -153,24 +153,16 @@ inputGroup.story = {
 
 export const inputAttributes = () => (
     <>
-        <Label
-            htmlFor="inputID-attrs"
-            optReqFlag={select(
-                "Optional/Required Flag",
-                ["Required", "Optional", ""],
-                "Required"
-            )}
-            id={"label"}
-        >
-            {text("Input Label", "Choose your islander name: ")}
+        <Label htmlFor="inputID-attrs" optReqFlag={"Required"} id={"label"}>
+            Choose your islander name:
         </Label>
         <Input
             id="inputID-attrs"
             ariaLabel="Input Label"
             helperTextId="helperText-attrs"
-            required={boolean("Input Required", false)}
-            placeholder={text("Input Placeholder", "CoolPerson42")}
-            type={select("Input Type", InputTypes, InputTypes.text)}
+            required={false}
+            placeholder={"CoolPerson42"}
+            type={InputTypes.text}
             attributes={{
                 onBlur: action("onBlur"),
                 onChange: action("onChange"),
