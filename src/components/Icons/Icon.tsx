@@ -28,6 +28,8 @@ export interface IconProps {
     attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+    /** className that appears in addition to "icon" */
+    className?: string;
     /** Decorative icons are skipped by screenreaders */
     decorative: boolean;
     /** Desc prop added to the <svg> element */
@@ -54,9 +56,10 @@ export default class Icon extends React.Component<IconProps, {}> {
             attributes,
             blockName,
             decorative,
+            className,
             desc,
             iconRotation,
-            modifiers = [],
+            modifiers,
             name,
             role,
             title,
@@ -69,7 +72,7 @@ export default class Icon extends React.Component<IconProps, {}> {
         }
 
         let iconProps = {
-            className: bem(icon_base_class, modifiers, blockName),
+            className: bem(icon_base_class, modifiers, blockName, [className]),
             role: decorative ? "img" : role,
             "aria-hidden": decorative,
             "aria-labelledby": title ? "title-" + name : undefined,

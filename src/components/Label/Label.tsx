@@ -13,6 +13,8 @@ interface LabelProps {
     attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+    /** className that appears in addition to "label" */
+    className?: string;
     /** The id of the html element that this Label is describing */
     htmlFor?: string;
     /** ID that other components can cross reference for accessibility purposes */
@@ -27,7 +29,15 @@ interface LabelProps {
  * It should never be used alone.
  */
 export default function Label(props: React.PropsWithChildren<LabelProps>) {
-    const { id, htmlFor, optReqFlag, modifiers, blockName, attributes } = props;
+    const {
+        attributes,
+        blockName,
+        className,
+        htmlFor,
+        id,
+        modifiers,
+        optReqFlag,
+    } = props;
 
     const baseClass = "label";
     let helperString;
@@ -43,7 +53,7 @@ export default function Label(props: React.PropsWithChildren<LabelProps>) {
     let labelAttributes = {
         id: id,
         htmlFor: htmlFor,
-        className: bem(baseClass, modifiers, blockName),
+        className: bem(baseClass, modifiers, blockName, [className]),
     };
     return React.createElement(
         "label",

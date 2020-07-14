@@ -6,6 +6,8 @@ export interface ModalProps {
     attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+    /** ClassName that appears in addition to "modal" */
+    className?: string;
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
     /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
@@ -24,13 +26,13 @@ export default class Modal extends React.Component<ModalProps, {}> {
     }
 
     render() {
-        const { modifiers, blockName, id, attributes } = this.props;
+        const { modifiers, blockName, id, attributes, className } = this.props;
         let baseClass = "modal";
 
         return (
             <div
                 tabIndex={0}
-                className={bem(baseClass, modifiers, blockName)}
+                className={bem(baseClass, modifiers, blockName, [className])}
                 id={id}
                 {...attributes}
             >

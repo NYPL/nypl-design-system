@@ -11,6 +11,8 @@ export interface LinkProps {
     attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+    /** className that appears in addition to "link" */
+    className?: string;
     /** Href attribute */
     href?: string;
     /** ID */
@@ -23,12 +25,13 @@ export interface LinkProps {
 
 export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     const {
-        id,
-        href,
-        modifiers = [],
-        blockName,
         attributes,
+        blockName,
+        className,
+        href,
+        id,
         linkType = LinkTypes.Default,
+        modifiers,
     } = linkProps;
 
     let link_base_class = "link";
@@ -74,7 +77,7 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     } else if (linkType === LinkTypes.Forwards) {
         iconRight = <Icon {...navigationIconProps} />;
     }
-    let className = bem(link_base_class, modifiers, blockName);
+    let linkClassName = bem(link_base_class, modifiers, blockName, [className]);
 
     if (!linkProps.href) {
         // React Types error makes this fail:  https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
@@ -90,7 +93,7 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
         return React.cloneElement(
             children,
             {
-                className: className,
+                className: linkClassName,
                 ...linkProps,
                 ...childProps,
                 ...attributes,

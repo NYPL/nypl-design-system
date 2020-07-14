@@ -7,23 +7,29 @@ import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
 import { IconRotationTypes } from "../Icons/IconTypes";
 export interface PaginationProps {
     attributes?: {};
+    blockName?: string;
+    className?: string;
+    currentValue: string;
+    modifiers?: string[];
+    nextPageHandler: (event: React.MouseEvent) => void;
+    onSelectBlur: (event: React.MouseEvent) => void;
+    onSelectChange: (event: React.MouseEvent) => void;
     paginationDropdownOptions: string[];
     previousPageHandler: (event: React.MouseEvent) => void;
-    nextPageHandler: (event: React.MouseEvent) => void;
-    currentValue: string;
-    onSelectChange: (event: React.MouseEvent) => void;
-    onSelectBlur: (event: React.MouseEvent) => void;
 }
 
 export default function Pagination(props: PaginationProps) {
     const {
         attributes,
-        paginationDropdownOptions,
+        blockName,
+        className,
         currentValue,
-        previousPageHandler,
+        modifiers,
         nextPageHandler,
-        onSelectChange,
         onSelectBlur,
+        onSelectChange,
+        paginationDropdownOptions,
+        previousPageHandler,
     } = props;
 
     const pagination__base_class = "pagination";
@@ -62,7 +68,9 @@ export default function Pagination(props: PaginationProps) {
     return (
         <nav
             aria-label="Pagination"
-            className={bem(pagination__base_class)}
+            className={bem(pagination__base_class, modifiers, blockName, [
+                className,
+            ])}
             {...attributes}
         >
             <Button onClick={buttonPrevOpts.onClick} {...buttonPrevOpts}>
