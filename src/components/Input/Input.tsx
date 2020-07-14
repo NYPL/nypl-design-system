@@ -67,7 +67,12 @@ export default function Input(props: InputProps) {
     }
 
     let transformedInput = (
-        <input id={id} {...inputProps} placeholder={placeholder} />
+        <input
+            id={id}
+            {...inputProps}
+            placeholder={placeholder}
+            {...attributes}
+        />
     );
 
     return transformedInput;
