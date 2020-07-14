@@ -4,23 +4,18 @@ import { boolean } from "@storybook/addon-knobs";
 import { ListTypes } from "./ListTypes";
 
 interface ListProps {
-    /** ID that other components can cross reference for accessibility purposes */
-    id?: string;
-
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: any[];
-
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-    blockName?: string;
-
-    /** ClassName you can add in addition to 'list' */
-    className?: string;
-
-    /** Ordered or Unordered */
-    type: ListTypes;
-
     /** Additional attributes passed to the list */
     attributes?: {};
+    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    blockName?: string;
+    /** ClassName you can add in addition to 'list' */
+    className?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: any[];
+    /** Ordered or Unordered */
+    type: ListTypes;
 }
 
 export default function List(props: React.PropsWithChildren<ListProps>) {

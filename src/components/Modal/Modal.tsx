@@ -2,11 +2,14 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 export interface ModalProps {
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: string[];
-
+    /** Additional attributes passed to the modal */
+    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
 }
 
 /* Full-screen modal that appears on top of the body */
@@ -21,11 +24,16 @@ export default class Modal extends React.Component<ModalProps, {}> {
     }
 
     render() {
-        const { modifiers = [], blockName = "" } = this.props;
+        const { modifiers, blockName, id, attributes } = this.props;
         let baseClass = "modal";
 
         return (
-            <div tabIndex={0} className={bem(baseClass, modifiers, blockName)}>
+            <div
+                tabIndex={0}
+                className={bem(baseClass, modifiers, blockName)}
+                id={id}
+                {...attributes}
+            >
                 {this.props.children}
             </div>
         );

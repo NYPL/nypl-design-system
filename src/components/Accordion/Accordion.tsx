@@ -4,20 +4,20 @@ import bem from "../../utils/bem";
 import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 
 export interface AccordionProps {
-    /** ID that other components can cross reference for accessibility purposes */
-    id?: string;
-
     /** Inner label on the button that opens the accordion */
     accordionLabel?: React.ReactNode;
-
-    /** accordionLabel's ID */
-    labelId?: string;
-
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: string[];
-
+    /** Additional attributes passed to the accordion */
+    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+    /** className you can add in addition to 'input' */
+    className?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    /** accordionLabel's ID */
+    labelId?: string;
+    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
 }
 
 /** Accordion component that shows content on toggle */
@@ -38,10 +38,13 @@ export default class Accordion extends React.Component<
     }
 
     render() {
-        const { modifiers = [], blockName = "" } = this.props;
+        const { modifiers, blockName, attributes, className } = this.props;
 
         return (
-            <div className={bem("accordion", modifiers, blockName)}>
+            <div
+                className={bem("accordion", modifiers, blockName, [className])}
+                {...attributes}
+            >
                 <Button
                     onClick={this.toggleContentShow}
                     id={this.props.labelId}

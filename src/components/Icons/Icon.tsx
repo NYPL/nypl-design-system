@@ -23,16 +23,25 @@ const allSvgs = {
     search,
 };
 
-// Wrapper Class for Icon
 export interface IconProps {
-    name: IconNames;
+    /** Additional attributes passed to <Icon> */
+    attributes?: {};
+    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
-    modifiers?: string[];
+    /** Decorative icons are skipped by screenreaders */
     decorative: boolean;
-    role?: string;
-    title?: boolean;
+    /** Desc prop added to the <svg> element */
     desc?: boolean;
+    /** Rotates icons in quarters */
     iconRotation?: IconRotationTypes;
+    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
+    /** Name of the icon */
+    name: IconNames;
+    /** Icon role */
+    role?: string;
+    /** Icon title */
+    title?: boolean;
 }
 
 export default class Icon extends React.Component<IconProps, {}> {
@@ -42,14 +51,15 @@ export default class Icon extends React.Component<IconProps, {}> {
 
     render(): JSX.Element {
         let {
-            modifiers = [],
+            attributes,
             blockName,
-            name,
             decorative,
-            role,
-            title,
             desc,
             iconRotation,
+            modifiers = [],
+            name,
+            role,
+            title,
         } = this.props;
 
         let icon_base_class = "icon";
@@ -71,7 +81,11 @@ export default class Icon extends React.Component<IconProps, {}> {
         let svg = allSvgs[name];
 
         return (
-            <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />
+            <span
+                {...iconProps}
+                dangerouslySetInnerHTML={{ __html: svg }}
+                {...attributes}
+            />
         );
     }
 }

@@ -3,40 +3,31 @@ import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 
 export interface SelectProps {
-    /** ClassName you can add in addition to 'select' */
-    className?: string;
-
-    /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    blockName?: string;
-
-    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: string[];
-
-    /** ID that other components can cross reference for accessibility purposes */
-    id?: string;
-
-    /** ID of associated label */
-    labelId?: string;
-
-    /** ID of associated HelperText */
-    helperTextId?: string;
-
-    /** Attribute indicating that an option with a non-empty string value must be selected */
-    isRequired: boolean;
-
     /** When passed, will populate the aria-label on the select */
     ariaLabel?: string;
-
+    /** Additional attributes passed to the <select> tag */
+    attributes?: {};
+    /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    blockName?: string;
+    /** ClassName you can add in addition to 'select' */
+    className?: string;
     /** When true, disables the select */
     disabled?: boolean;
-
-    /** Sets whatever string you pass it as the default selected */
-    selectedOption?: string;
-
+    /** ID of associated HelperText */
+    helperTextId?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    /** ID of associated label */
+    labelId?: string;
+    /** Attribute indicating that an option with a non-empty string value must be selected */
+    isRequired: boolean;
     onBlur: (event: React.FormEvent) => void;
-
     /** Passes selects' current value to the React state handler */
     onChange: (event: React.FormEvent) => void;
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
+    /** Sets whatever string you pass it as the default selected */
+    selectedOption?: string;
 }
 
 export default class Select extends React.Component<
