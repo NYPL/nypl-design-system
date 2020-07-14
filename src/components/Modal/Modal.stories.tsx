@@ -1,12 +1,14 @@
 import * as React from "react";
 
-import Container from "../Container/Container";
 import Button from "../Button/Button";
 import Modal from "./Modal";
 
 export default {
     title: "Modal",
     component: Modal,
+    decorators: [
+        (storyFn) => <div style={{ padding: "1rem" }}>{storyFn()}</div>,
+    ],
 };
 
 class ModalStory extends React.Component<{}, { isModalOpen: boolean }> {
@@ -31,7 +33,7 @@ class ModalStory extends React.Component<{}, { isModalOpen: boolean }> {
 
     render() {
         return (
-            <Container>
+            <>
                 <Button id="1" onClick={this.openModal}>
                     Open Modal
                 </Button>
@@ -42,7 +44,7 @@ class ModalStory extends React.Component<{}, { isModalOpen: boolean }> {
                         </Button>
                     </Modal>
                 )}
-            </Container>
+            </>
         );
     }
 }

@@ -6,22 +6,18 @@ import withOneChild from "../../helpers/hoc/WithOneChild";
 import Card from "../Card/Card";
 
 export interface SearchResultItemProps {
-    id?: string;
-
-    resultIndex: number;
-
-    modifiers?: [];
-    blockName?: string;
-
-    headingContent: JSX.Element;
-
-    subtitleContent: JSX.Element;
-
+    /** Additional attributes passed to the form */
+    attributes?: {};
     authorLinkElement: JSX.Element;
-
+    blockName?: string;
     card: JSX.Element;
-
     editionsLinkElement: JSX.Element;
+    headingContent: JSX.Element;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    modifiers?: [];
+    resultIndex: number;
+    subtitleContent: JSX.Element;
 }
 /**
  *  SearchResultItem component that displays information for a work on a search results page.

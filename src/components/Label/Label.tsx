@@ -9,26 +9,25 @@ export interface LabelOptions {
 }
 
 interface LabelProps {
-    id?: string;
-
-    /** The id of the html element that this Label is describing */
-    htmlFor?: string;
-
-    /** Displays "Required" or "Optional" string alongside label */
-    optReqFlag?: string;
-
+    /** Additional attributes to pass to the <label> tag */
+    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
-
+    /** The id of the html element that this Label is describing */
+    htmlFor?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
     /** Optional modifiers for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
+    /** Displays "Required" or "Optional" string alongside label */
+    optReqFlag?: string;
 }
 
 /** A Label for form inputs.
  * It should never be used alone.
  */
 export default function Label(props: React.PropsWithChildren<LabelProps>) {
-    const { id, htmlFor, optReqFlag, modifiers, blockName } = props;
+    const { id, htmlFor, optReqFlag, modifiers, blockName, attributes } = props;
 
     let helperString;
 
@@ -48,13 +47,14 @@ export default function Label(props: React.PropsWithChildren<LabelProps>) {
         );
     }
 
-    let attributes = {
+    let labelAttributes = {
         id: id,
         htmlFor: htmlFor,
         className: bem(baseClass, modifiers, blockName),
     };
     return React.createElement(
         "label",
+        labelAttributes,
         attributes,
         props.children,
         helperString

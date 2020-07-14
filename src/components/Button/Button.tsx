@@ -23,52 +23,37 @@ export interface ButtonOptions {
 }
 
 interface ButtonProps {
-    /** ID that other components can cross reference for accessibility purposes */
-    id?: string;
-
-    /** The action to perform on the <button>'s onClick function */
-    onClick: (event: React.MouseEvent | React.KeyboardEvent) => void;
-
     /** Additional attributes passed to the button */
     attributes?: {};
-
-    /** Adds 'disabled' property to the button */
-    disabled?: boolean;
-
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: string[];
-
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
-
-    /** Optional additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-    className?: string;
-
     /** The Kind of button */
     buttonType?: ButtonTypes;
-
-    /** The html button attribute */
-    type?: "submit" | "button" | "reset";
-
-    mouseDown?: boolean;
-
-    /** If an icon is to be rendered, an `iconPosition` prop is required. */
-    iconPosition?: ButtonIconPositions;
-
-    /** The name of the icon.  Corresponds with the name of the icon's svg file */
-    iconName?: string;
-
-    /** Optional amount of degrees to rotate icon */
-    iconRotation?: IconRotationTypes;
-
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    iconModifiers?: string[];
-
+    /** Optional additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    className?: string;
+    /** Adds 'disabled' property to the button */
+    disabled?: boolean;
     /** Is the icon decorative */
     iconDecorative?: boolean;
-
+    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    iconModifiers?: string[];
+    /** The name of the icon.  Corresponds with the name of the icon's svg file */
+    iconName?: string;
+    /** If an icon is to be rendered, an `iconPosition` prop is required. */
+    iconPosition?: ButtonIconPositions;
     /** The role for the icon, if not decorative */
     iconRole?: string;
+    /** Optional amount of degrees to rotate icon */
+    iconRotation?: IconRotationTypes;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
+    mouseDown?: boolean;
+    /** The action to perform on the <button>'s onClick function */
+    onClick: (event: React.MouseEvent | React.KeyboardEvent) => void;
+    /** The html button attribute */
+    type?: "submit" | "button" | "reset";
 }
 
 export default class Button extends React.Component<ButtonProps, {}> {
@@ -85,7 +70,6 @@ export default class Button extends React.Component<ButtonProps, {}> {
             attributes,
             blockName,
             buttonType,
-            onClick,
             children,
             className,
             disabled,
@@ -98,6 +82,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
             id,
             modifiers,
             mouseDown,
+            onClick,
             type = "submit",
         } = this.props;
 

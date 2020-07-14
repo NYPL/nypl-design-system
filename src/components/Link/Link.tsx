@@ -7,23 +7,18 @@ import { IconRotationTypes } from "../Icons/IconTypes";
 import { element } from "prop-types";
 
 export interface LinkProps {
-    /** Controls the link visuals—action, button, or default. */
-    linkType?: LinkTypes;
-
-    /** Href attribute */
-    href?: string;
-
-    /** ID */
-    id?: string;
-
-    /** BEM specifiers */
-    modifiers?: string[];
-
-    /** BEM specifiers */
-    blockName?: string;
-
     /** Additional attributes, such as rel=nofollow, to pass to the <a> tag */
     attributes?: {};
+    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    blockName?: string;
+    /** Href attribute */
+    href?: string;
+    /** ID */
+    id?: string;
+    /** Controls the link visuals—action, button, or default. */
+    linkType?: LinkTypes;
+    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
 }
 
 export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
@@ -94,13 +89,18 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
 
         return React.cloneElement(
             children,
-            { className: className, ...linkProps, ...childProps },
+            {
+                className: className,
+                ...linkProps,
+                ...childProps,
+                ...attributes,
+            },
             [children.props.children]
         );
     } else {
         return React.createElement(
             "a",
-            { ...linkProps, className, ...childProps },
+            { ...linkProps, className, ...childProps, ...attributes },
             iconLeft,
             linkProps.children,
             iconRight
