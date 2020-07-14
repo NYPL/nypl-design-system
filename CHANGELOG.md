@@ -36,6 +36,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Adds the `forwardRef` implementation to the `Input` component
 -   Adds `disabled` prop to `Input` and `Button` components
 -   Adds `disabled` styling to `Button.Primary`
+-   Adds `attributes?: {};` and `className?: string;` as additional props to all components
 
 ### Changes
 
