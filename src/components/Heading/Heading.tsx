@@ -7,6 +7,8 @@ export interface HeadingProps {
     attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
+    /** ClassName that appears in addition to "heading" */
+    className?: string;
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
     /** Number 1-6, creating the <h*> tag */
@@ -25,6 +27,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     const {
         attributes,
         blockName,
+        className,
         id,
         level,
         modifiers,
@@ -72,7 +75,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     }
 
     let headingProps = {
-        className: bem(heading_base_class, modifiers, blockName),
+        className: bem(heading_base_class, modifiers, blockName, [className]),
         id: id,
         ...attributes,
     };

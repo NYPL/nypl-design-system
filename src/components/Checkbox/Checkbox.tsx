@@ -9,6 +9,8 @@ interface CheckboxProps {
     blockName?: string;
     /** Unique ID used by checkbox */
     checkboxId?: string;
+    /** ClassName that appears in addition to "checkbox" */
+    className?: string;
     /* The current selected state of the checkbox */
     isSelected?: boolean;
     /* The Label that the checkbox is using. */
@@ -30,9 +32,10 @@ export default function Checkbox(props: CheckboxProps) {
         attributes,
         blockName = "",
         checkboxId,
+        className,
         isSelected,
         labelOptions,
-        modifiers = [],
+        modifiers,
         name,
         onChange,
     } = props;
@@ -43,7 +46,7 @@ export default function Checkbox(props: CheckboxProps) {
             <input
                 id={checkboxId}
                 name={name}
-                className={bem("input", [], baseClass)}
+                className={bem("input", modifiers, baseClass, [className])}
                 onChange={onChange}
                 type="checkbox"
                 aria-checked={isSelected}

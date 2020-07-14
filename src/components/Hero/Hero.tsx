@@ -14,6 +14,10 @@ export interface HeroProps {
      * be used in conjunction with image.
      */
     backgroundImageSrc?: string;
+    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    blockName?: string;
+    /** ClassName that appears in addition to "hero" */
+    className?: string;
     /** Content creators can modify the foreground color
      * when this component is used on Exhibition pages.
      */
@@ -41,6 +45,8 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         attributes,
         backgroundColor,
         backgroundImageSrc,
+        blockName,
+        className,
         foregroundColor,
         heading,
         heroType,
@@ -103,7 +109,9 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
     return (
         <div
-            className={bem(heroBaseClass, heroModifiers)}
+            className={bem(heroBaseClass, heroModifiers, blockName, [
+                className,
+            ])}
             data-responsive-background-image
             style={backgroundImageStyle}
             {...attributes}
