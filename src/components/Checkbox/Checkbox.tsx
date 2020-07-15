@@ -5,7 +5,7 @@ import Label, { LabelOptions } from "../Label/Label";
 interface CheckboxProps {
     /** Additional attributes passed to the checkbox */
     attributes?: {};
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** Unique ID used by checkbox */
     checkboxId?: string;

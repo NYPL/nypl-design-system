@@ -6,7 +6,7 @@ import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 export interface AccordionProps {
     /** Inner label on the button that opens the accordion */
     accordionLabel?: React.ReactNode;
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** className you can add in addition to 'input' */
     className?: string;

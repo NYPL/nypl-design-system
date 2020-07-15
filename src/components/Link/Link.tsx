@@ -9,7 +9,7 @@ import { element } from "prop-types";
 export interface LinkProps {
     /** Additional attributes, such as rel=nofollow, to pass to the <a> tag */
     attributes?: {};
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** className that appears in addition to "link" */
     className?: string;

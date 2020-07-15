@@ -17,7 +17,7 @@ interface HelperErrorTextProps {
     ariaLive?: boolean;
     /** Additional className to add to the helperErrorText */
     className?: string;
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** unique ID for helper */
     id?: string;
