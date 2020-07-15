@@ -29,7 +29,7 @@ interface ButtonProps {
     blockName?: string;
     /** The Kind of button */
     buttonType?: ButtonTypes;
-    /** Optional additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** Additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     className?: string;
     /** Adds 'disabled' property to the button */
     disabled?: boolean;
