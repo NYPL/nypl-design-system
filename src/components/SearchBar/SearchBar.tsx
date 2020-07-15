@@ -8,12 +8,15 @@ export interface SearchBarProps {
     /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
 
-    /** Populates aria-label on the form */
+    /** Populates aria-label on the form;
+     * defines a hidden string that labels
+     * the SearchBar
+     */
     ariaLabel?: string;
 
-    /** Populates aria-labelledby on the form
-     * E.g., could point to the id of the <Label>
-     * passed in children
+    /** Populates aria-labelledby on the form;
+     * defines a visible string that labels
+     * the SearchBar
      */
     ariaLabelledBy?: string;
 
