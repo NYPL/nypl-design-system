@@ -18,7 +18,7 @@ export interface SectionTitleProps {
     linkBlockname?: string;
     linkModifiers?: string[];
     linkUrl?: string;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 }
 

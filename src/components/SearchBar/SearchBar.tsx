@@ -20,7 +20,7 @@ export interface SearchBarProps {
     className?: string;
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Handler on form submit */
     onSubmit: (event: React.FormEvent) => void;

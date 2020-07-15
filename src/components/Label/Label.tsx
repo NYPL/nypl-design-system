@@ -19,7 +19,7 @@ interface LabelProps {
     htmlFor?: string;
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
-    /** Optional modifiers for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Displays "Required" or "Optional" string alongside label */
     optReqFlag?: string;

@@ -11,7 +11,7 @@ export interface HeadingProps {
     id?: string;
     /** Number 1-6, creating the <h*> tag */
     level: number;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Inner text of the <h*> element */
     text?: string;

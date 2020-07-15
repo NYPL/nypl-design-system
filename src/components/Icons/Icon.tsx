@@ -34,7 +34,7 @@ export interface IconProps {
     desc?: boolean;
     /** Rotates icons in quarters */
     iconRotation?: IconRotationTypes;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Name of the icon */
     name: IconNames;

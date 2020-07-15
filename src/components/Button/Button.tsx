@@ -35,7 +35,7 @@ interface ButtonProps {
     disabled?: boolean;
     /** Is the icon decorative */
     iconDecorative?: boolean;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     iconModifiers?: string[];
     /** The name of the icon.  Corresponds with the name of the icon's svg file */
     iconName?: string;
@@ -47,7 +47,7 @@ interface ButtonProps {
     iconRotation?: IconRotationTypes;
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     mouseDown?: boolean;
     /** The action to perform on the <button>'s onClick function */
