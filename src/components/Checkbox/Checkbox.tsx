@@ -23,10 +23,6 @@ interface CheckboxProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-/**
- * A Form Checkbox component that can be selected and deselected.
- */
-
 export default function Checkbox(props: CheckboxProps) {
     const {
         attributes,
@@ -42,7 +38,7 @@ export default function Checkbox(props: CheckboxProps) {
 
     const baseClass = "checkbox";
     return (
-        <div className={bem(baseClass, modifiers, blockName)} {...attributes}>
+        <div className={bem(baseClass, modifiers, blockName)}>
             <input
                 id={checkboxId}
                 name={name}
@@ -51,6 +47,7 @@ export default function Checkbox(props: CheckboxProps) {
                 type="checkbox"
                 aria-checked={isSelected}
                 checked={isSelected}
+                {...attributes}
             ></input>
             <Label htmlFor={checkboxId} id={labelOptions.id}>
                 {labelOptions.labelContent}

@@ -24,6 +24,7 @@ interface CardProps {
 
 export default function Card(props: React.PropsWithChildren<CardProps>) {
     const {
+        attributes,
         blockName,
         children,
         className,
@@ -40,6 +41,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
         <div
             className={bem(baseClass, modifiers, blockName, [className])}
             id={id}
+            {...attributes}
         >
             {heading && (
                 <div className={bem("heading", modifiers, baseClass)}>
