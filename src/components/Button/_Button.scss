@@ -43,7 +43,7 @@
 @mixin button--filled(
     $bg: $ui-link-primary,
     $color: $white,
-    $hoverBg: lighten($bg, 0.8)
+    $hoverBg: $ui-link-secondary
 ) {
     @include button-base;
 
