@@ -38,7 +38,7 @@ let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
     const baseClass = "checkbox";
     return (
-        <div className={bem(baseClass, modifiers, blockName)} {...attributes}>
+        <div className={bem(baseClass, modifiers, blockName)}>
             <input
                 id={checkboxId}
                 name={name}
