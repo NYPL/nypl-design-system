@@ -38,6 +38,14 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
 
     let listTag;
 
+    React.Children.map(children, function (child) {
+        console.log(child);
+    });
+
+    //   if (typeof children === "string") {
+    //     throw new Error("Link needs prop 'href'");
+    // }
+
     if (type === ListTypes.Unordered) {
         listTag = (
             <ul

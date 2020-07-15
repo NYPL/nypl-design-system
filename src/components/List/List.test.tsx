@@ -6,7 +6,7 @@ import * as React from "react";
 import List from "./List";
 import { ListTypes } from "./ListTypes";
 
-describe("Link With Underline", () => {
+describe("List", () => {
     let wrapper: Enzyme.ReactWrapper<{}, {}>;
     let textList: JSX.Element[] = [];
 
