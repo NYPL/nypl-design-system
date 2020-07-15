@@ -11,7 +11,10 @@ export interface SearchBarProps {
     /** Populates aria-label on the form */
     ariaLabel?: string;
 
-    /** Populates aria-labelledby on the form */
+    /** Populates aria-labelledby on the form
+     * E.g., could point to the id of the <Label>
+     * passed in children
+     */
     ariaLabelledBy?: string;
 
     /** Handler on form submit */
@@ -27,6 +30,7 @@ export default function SearchBar(
     const {
         ariaLabel,
         ariaLabelledBy,
+        attributes,
         blockName,
         children,
         id,
@@ -44,10 +48,10 @@ export default function SearchBar(
             role="search"
             aria-label={ariaLabel}
             aria-labelledby={ariaLabelledBy}
-            onSubmit={props.onSubmit}
-            {...props.attributes}
+            onSubmit={onSubmit}
+            {...attributes}
         >
-            {props.children}
+            {children}
         </form>
     );
 }
