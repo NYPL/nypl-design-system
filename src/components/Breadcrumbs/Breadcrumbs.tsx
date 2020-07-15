@@ -10,8 +10,6 @@ function isTextBreadcrumb(obj: breadcrumb | JSX.Element): obj is breadcrumb {
 }
 
 export interface BreadcrumbProps {
-    /** Additional attributes passed to the breadcrumbs */
-    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** Breadcrumb links as an array */
@@ -30,13 +28,7 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
     }
 
     render(): JSX.Element {
-        const {
-            breadcrumbs,
-            attributes,
-            className,
-            blockName,
-            modifiers,
-        } = this.props;
+        const { breadcrumbs, className, blockName, modifiers } = this.props;
 
         let breadcrumbs__base_class = "breadcrumbs";
 
@@ -97,7 +89,6 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
                 ])}
                 role="navigation"
                 aria-label="Breadcrumbs"
-                {...attributes}
             >
                 <ul className={bem("list", [], breadcrumbs__base_class)}>
                     {breadcrumbItems}

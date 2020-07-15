@@ -2,8 +2,6 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 export interface ModalProps {
-    /** Additional attributes passed to the modal */
-    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName that appears in addition to "modal" */
@@ -26,7 +24,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     }
 
     render() {
-        const { modifiers, blockName, id, attributes, className } = this.props;
+        const { modifiers, blockName, id, className } = this.props;
         let baseClass = "modal";
 
         return (
@@ -34,7 +32,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
                 tabIndex={0}
                 className={bem(baseClass, modifiers, blockName, [className])}
                 id={id}
-                {...attributes}
             >
                 {this.props.children}
             </div>

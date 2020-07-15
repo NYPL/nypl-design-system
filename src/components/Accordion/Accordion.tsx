@@ -6,8 +6,6 @@ import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 export interface AccordionProps {
     /** Inner label on the button that opens the accordion */
     accordionLabel?: React.ReactNode;
-    /** Additional attributes passed to the accordion */
-    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** className you can add in addition to 'input' */
@@ -38,13 +36,12 @@ export default class Accordion extends React.Component<
     }
 
     render() {
-        const { modifiers, blockName, attributes, id, className } = this.props;
+        const { modifiers, blockName, id, className } = this.props;
 
         return (
             <div
                 className={bem("accordion", modifiers, blockName, [className])}
                 id={id}
-                {...attributes}
             >
                 <Button
                     onClick={this.toggleContentShow}

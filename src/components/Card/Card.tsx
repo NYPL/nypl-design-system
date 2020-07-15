@@ -2,8 +2,6 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 interface CardProps {
-    /** Additional attributes passed to the card */
-    attributes?: {};
     /** ClassName that appears in addition to "card" */
     className?: string;
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
@@ -24,7 +22,6 @@ interface CardProps {
 
 export default function Card(props: React.PropsWithChildren<CardProps>) {
     const {
-        attributes,
         blockName,
         children,
         className,
@@ -41,7 +38,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
         <div
             className={bem(baseClass, modifiers, blockName, [className])}
             id={id}
-            {...attributes}
         >
             {heading && (
                 <div className={bem("heading", modifiers, baseClass)}>

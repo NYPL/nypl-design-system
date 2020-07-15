@@ -6,7 +6,6 @@ import Select from "../Select/Select";
 import { ButtonIconPositions, ButtonTypes } from "../Button/ButtonTypes";
 import { IconRotationTypes } from "../Icons/IconTypes";
 export interface PaginationProps {
-    attributes?: {};
     blockName?: string;
     className?: string;
     currentValue: string;
@@ -20,7 +19,6 @@ export interface PaginationProps {
 
 export default function Pagination(props: PaginationProps) {
     const {
-        attributes,
         blockName,
         className,
         currentValue,
@@ -71,7 +69,6 @@ export default function Pagination(props: PaginationProps) {
             className={bem(pagination__base_class, modifiers, blockName, [
                 className,
             ])}
-            {...attributes}
         >
             <Button onClick={buttonPrevOpts.onClick} {...buttonPrevOpts}>
                 {buttonPrevOpts.content}

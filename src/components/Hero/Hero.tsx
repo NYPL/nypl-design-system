@@ -4,8 +4,6 @@ import bem from "../../utils/bem";
 import { HeroTypes } from "./HeroTypes";
 
 export interface HeroProps {
-    /** Additional attributes passed to <Hero> */
-    attributes?: {};
     /** Content creators can modify the background color
      * when this component is used on Exhibition pages.
      */
@@ -42,7 +40,6 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     const heroBaseClass = "hero";
 
     let {
-        attributes,
         backgroundColor,
         backgroundImageSrc,
         blockName,
@@ -114,7 +111,6 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
             ])}
             data-responsive-background-image
             style={backgroundImageStyle}
-            {...attributes}
         >
             <div
                 className={bem("content", [], heroBaseClass)}

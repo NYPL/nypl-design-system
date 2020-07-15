@@ -6,8 +6,6 @@ import withOneChild from "../../helpers/hoc/WithOneChild";
 import Card from "../Card/Card";
 
 export interface SearchResultItemProps {
-    /** Additional attributes passed to the form */
-    attributes?: {};
     authorLinkElement: JSX.Element;
     blockName?: string;
     card: JSX.Element;

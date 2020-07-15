@@ -25,6 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   `Button` `id` is no longer prepended with `btn-`
 -   `SearchBar` no longer has props for `selectChangeHandler`, `selectBlurHandler`, or `searchChangeHandler`.
 -   `Input` offers `ariaLabel` and `ariaLabelledby` props in favor of `labelId` and `helperTextId`
+-   Removes `headingAttributes?: {}` from `SectionTitle`
 
 ### Adds
 
@@ -35,7 +36,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   `Card` now constrains items in its `image` column to the column width
 -   Adds `disabled` prop to `Input` and `Button` components
 -   Adds `disabled` styling to `Button.Primary`
--   Adds `attributes?: {};` and `className?: string;` as additional props to all components
+-   Adds `className?: string;` as additional props to all components
+-   Adds `attributes?: {};` to `Input`, `Button`, `Select`, `Link`, and `Image`
 
 ### Changes
 
