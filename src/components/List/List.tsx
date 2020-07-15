@@ -4,8 +4,6 @@ import { boolean } from "@storybook/addon-knobs";
 import { ListTypes } from "./ListTypes";
 
 interface ListProps {
-    /** Additional attributes passed to the list */
-    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName you can add in addition to 'list' */
@@ -19,15 +17,7 @@ interface ListProps {
 }
 
 export default function List(props: React.PropsWithChildren<ListProps>) {
-    const {
-        attributes,
-        blockName,
-        children,
-        className,
-        id,
-        modifiers,
-        type,
-    } = props;
+    const { blockName, children, className, id, modifiers, type } = props;
 
     const baseClass = "list";
 
@@ -43,21 +33,13 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
 
     if (type === ListTypes.Unordered) {
         listTag = (
-            <ul
-                id={id}
-                className={bem(baseClass, modifiers, blockName)}
-                {...attributes}
-            >
+            <ul id={id} className={bem(baseClass, modifiers, blockName)}>
                 {children}
             </ul>
         );
     } else if (type === ListTypes.Ordered) {
         listTag = (
-            <ol
-                id={id}
-                className={bem(baseClass, modifiers, blockName)}
-                {...attributes}
-            >
+            <ol id={id} className={bem(baseClass, modifiers, blockName)}>
                 {children}
             </ol>
         );

@@ -3,8 +3,6 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 export interface HeadingProps {
-    /** Additional attributes passed to the accordion */
-    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName that appears in addition to "heading" */
@@ -25,7 +23,6 @@ export interface HeadingProps {
 
 export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     const {
-        attributes,
         blockName,
         className,
         id,
@@ -77,7 +74,6 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     let headingProps = {
         className: bem(heading_base_class, modifiers, blockName, [className]),
         id: id,
-        ...attributes,
     };
 
     return React.createElement("h" + level, headingProps, content);

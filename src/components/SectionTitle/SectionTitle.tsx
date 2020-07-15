@@ -7,13 +7,10 @@ import Heading from "../Heading/Heading";
 import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface SectionTitleProps {
-    /** Additional attributes passed to the wrapping div */
-    attributes?: {};
     /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** className that appears in addition to "heading-section" */
     className?: string;
-    headingAttributes?: {};
     headingModifiers?: string[];
     headingText: string;
     id?: string;
@@ -37,7 +34,6 @@ export default class SectionTitle extends React.Component<
         const {
             blockName,
             className,
-            headingAttributes,
             headingText,
             id,
             linkAttributes,
@@ -81,7 +77,6 @@ export default class SectionTitle extends React.Component<
                     text={headingText}
                     blockName={blockName ? blockName : baseClass}
                     modifiers={headingModifiers}
-                    attributes={headingAttributes}
                 />
                 {link}
             </div>

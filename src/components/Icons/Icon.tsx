@@ -24,8 +24,6 @@ const allSvgs = {
 };
 
 export interface IconProps {
-    /** Additional attributes passed to <Icon> */
-    attributes?: {};
     /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** className that appears in addition to "icon" */
@@ -53,7 +51,6 @@ export default class Icon extends React.Component<IconProps, {}> {
 
     render(): JSX.Element {
         let {
-            attributes,
             blockName,
             decorative,
             className,
@@ -84,11 +81,7 @@ export default class Icon extends React.Component<IconProps, {}> {
         let svg = allSvgs[name];
 
         return (
-            <span
-                {...iconProps}
-                dangerouslySetInnerHTML={{ __html: svg }}
-                {...attributes}
-            />
+            <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />
         );
     }
 }
