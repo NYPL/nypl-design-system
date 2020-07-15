@@ -1,4 +1,5 @@
 import { expect } from "chai";
+import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 import * as Mocha from "mocha";
@@ -10,7 +11,10 @@ import { InputTypes } from "./InputTypes";
 
 describe("Renders Input", () => {
     let container;
+    let clickHander;
+
     before(() => {
+        clickHander = stub();
         container = Enzyme.mount(
             <Input
                 id="inputID"
@@ -19,6 +23,7 @@ describe("Renders Input", () => {
                 required={true}
                 placeholder={"Input Placeholder"}
                 type={InputTypes.text}
+                attributes={{ onClick: clickHander }}
             ></Input>
         );
     });
@@ -41,6 +46,11 @@ describe("Renders Input", () => {
 
     it("Adds aria-required prop if input is required", () => {
         expect(container.find("input").prop("aria-required")).to.equal(true);
+    });
+
+    it("Allows user to pass in additional attributes", () => {
+        container.simulate("click");
+        expect(clickHander.callCount).to.equal(1);
     });
 });
 
