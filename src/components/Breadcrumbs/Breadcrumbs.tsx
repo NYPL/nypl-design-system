@@ -10,7 +10,7 @@ function isTextBreadcrumb(obj: breadcrumb | JSX.Element): obj is breadcrumb {
 }
 
 export interface BreadcrumbProps {
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** Breadcrumb links as an array */
     breadcrumbs: breadcrumb[] | JSX.Element[];

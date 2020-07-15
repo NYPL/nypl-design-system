@@ -11,7 +11,7 @@ export interface LabelOptions {
 interface LabelProps {
     /** Additional attributes to pass to the <label> tag */
     attributes?: {};
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** className that appears in addition to "label" */
     className?: string;

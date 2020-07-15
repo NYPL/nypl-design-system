@@ -4,7 +4,7 @@ import { boolean } from "@storybook/addon-knobs";
 import { ListTypes } from "./ListTypes";
 
 interface ListProps {
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName you can add in addition to 'list' */
     className?: string;

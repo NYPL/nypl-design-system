@@ -24,7 +24,7 @@ const allSvgs = {
 };
 
 export interface IconProps {
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** className that appears in addition to "icon" */
     className?: string;

@@ -4,7 +4,7 @@ import bem from "../../utils/bem";
 interface CardProps {
     /** ClassName that appears in addition to "card" */
     className?: string;
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** Calls to Action for the card, such as "download" on a card for a book */
     ctas?: React.ReactNode;

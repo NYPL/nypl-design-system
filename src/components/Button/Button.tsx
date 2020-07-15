@@ -25,7 +25,7 @@ export interface ButtonOptions {
 interface ButtonProps {
     /** Additional attributes passed to the button */
     attributes?: {};
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** The Kind of button */
     buttonType?: ButtonTypes;

@@ -9,7 +9,7 @@ export interface InputProps {
     ariaLabel?: string;
     /** Populates the aria-labelledby on the select */
     ariaLabelledBy?: string;
-    /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** className you can add in addition to 'input' */
     className?: string;

@@ -12,7 +12,7 @@ export interface HeroProps {
      * be used in conjunction with image.
      */
     backgroundImageSrc?: string;
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName that appears in addition to "hero" */
     className?: string;

@@ -3,7 +3,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 export interface HeadingProps {
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName that appears in addition to "heading" */
     className?: string;
