@@ -23,7 +23,7 @@ interface HelperErrorTextProps {
     id?: string;
     /** Toggles between helper and error styling */
     isError: boolean;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 }
 

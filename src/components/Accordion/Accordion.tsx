@@ -14,7 +14,7 @@ export interface AccordionProps {
     id?: string;
     /** accordionLabel's ID */
     labelId?: string;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 }
 

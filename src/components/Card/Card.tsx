@@ -16,7 +16,7 @@ interface CardProps {
     id?: string;
     /** First column within the card */
     image?: React.ReactNode;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 }
 

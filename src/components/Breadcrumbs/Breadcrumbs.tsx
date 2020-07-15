@@ -16,7 +16,7 @@ export interface BreadcrumbProps {
     breadcrumbs: breadcrumb[] | JSX.Element[];
     /** className you can add in addition to 'input' */
     className?: string;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 }
 
