@@ -38,11 +38,12 @@ export default class Accordion extends React.Component<
     }
 
     render() {
-        const { modifiers, blockName, attributes, className } = this.props;
+        const { modifiers, blockName, attributes, id, className } = this.props;
 
         return (
             <div
                 className={bem("accordion", modifiers, blockName, [className])}
+                id={id}
                 {...attributes}
             >
                 <Button
