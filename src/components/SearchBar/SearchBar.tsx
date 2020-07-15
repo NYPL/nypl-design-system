@@ -2,9 +2,15 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 export interface SearchBarProps {
-    /** Populates aria-label on the form */
+    /** Populates aria-label on the form;
+     * defines a hidden string that labels
+     * the SearchBar
+     */
     ariaLabel?: string;
-    /** Populates aria-labelledby on the form */
+    /** Populates aria-labelledby on the form;
+     * defines a visible string that labels
+     * the SearchBar
+     */
     ariaLabelledBy?: string;
     /** Additional attributes passed to the form */
     attributes?: {};
