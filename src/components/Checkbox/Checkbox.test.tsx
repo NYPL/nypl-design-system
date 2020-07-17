@@ -38,9 +38,26 @@ describe("Checkbox Test", () => {
         );
 
         // `false` by default.
-        expect(container.find("input").prop("checked")).to.equal(false);
+        expect(container.find("input").prop("defaultChecked")).to.equal(false);
 
         container.setProps({ isSelected: true });
-        expect(container.find("input").prop("checked")).to.equal(true);
+        expect(container.find("input").prop("defaultChecked")).to.equal(true);
+    });
+
+    it("Passes the ref to the input element", () => {
+        const ref = React.createRef<HTMLInputElement>();
+        let callback = stub();
+        const container = Enzyme.mount(
+            <Checkbox
+                checkboxId="CheckboxID-attributes"
+                labelOptions={{
+                    id: "label",
+                    labelContent: <>Label Text</>,
+                }}
+                onChange={callback}
+                ref={ref}
+            ></Checkbox>
+        );
+        expect(container.find("input").instance()).to.equal(ref.current);
     });
 });
