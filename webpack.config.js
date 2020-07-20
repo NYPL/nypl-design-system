@@ -33,7 +33,14 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                loader: "ts-loader",
+                use: [
+                    {
+                        loader: "ts-loader",
+                    },
+                    {
+                        loader: "react-docgen-typescript-loader",
+                    },
+                ],
             },
             {
                 test: /\.svg$/,

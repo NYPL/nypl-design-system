@@ -12,6 +12,7 @@ export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as Container } from "./components/Container/Container";
 export { default as HeaderWithSearch } from "./components/RNHeaderWithSearch/RNHeaderWithSearch";
 export { default as Heading } from "./components/Heading/Heading";
+export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";
 export { default as Hero } from "./components/Hero/Hero";
 export { HeroTypes } from "./components/Hero/HeroTypes";
 export { default as Icon } from "./components/Icons/Icon";

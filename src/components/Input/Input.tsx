@@ -45,7 +45,7 @@ export interface InputProps {
     attributes?: {};
 }
 
-export default function Input(props: InputProps) {
+let Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
     const {
         ariaLabel,
         ariaLabelledBy,
@@ -74,6 +74,7 @@ export default function Input(props: InputProps) {
         value: value,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
+        ...attributes,
     };
 
     if (required) {
@@ -89,8 +90,15 @@ export default function Input(props: InputProps) {
     }
 
     let transformedInput = (
-        <input id={`input-${id}`} {...inputProps} placeholder={placeholder} />
+        <input
+            id={`input-${id}`}
+            {...inputProps}
+            placeholder={placeholder}
+            ref={ref}
+        />
     );
 
     return transformedInput;
-}
+});
+
+export default Input;

@@ -23,7 +23,7 @@ interface HelperErrorTextProps {
     /** Optional baseClass for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     baseClass?: string;
     /** Added prop when HelperText is errored */
-    ariaLive?: boolean;
+    ariaLive?: "polite" | "off" | "assertive";
     /** Added prop when HelperText is errored */
     ariaAtomic?: boolean;
 }
@@ -34,14 +34,21 @@ interface HelperErrorTextProps {
 export default function HelperErrorText(
     props: React.PropsWithChildren<HelperErrorTextProps>
 ) {
-    const { id, blockName, baseClass = "helper-text", isError } = props;
+    const {
+        id,
+        blockName,
+        baseClass = "helper-text",
+        isError,
+        ariaLive = "polite",
+        ariaAtomic = true,
+    } = props;
 
     let modifiers = [];
-    let ariaLive, ariaAtomic;
+    let announceAriaLive = false;
 
     if (isError) {
         modifiers.push("error");
-        ariaLive = true;
+        announceAriaLive = true;
     }
 
     if (props.modifiers) {
@@ -52,8 +59,8 @@ export default function HelperErrorText(
         <div
             id={id}
             className={bem(baseClass, modifiers, blockName)}
-            aria-live={ariaLive ? "polite" : "off"}
-            aria-atomic={ariaLive}
+            aria-live={announceAriaLive ? ariaLive : "off"}
+            aria-atomic={ariaAtomic}
         >
             {props.children}
         </div>
