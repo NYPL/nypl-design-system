@@ -86,7 +86,7 @@ describe("Input with Label", () => {
         );
     });
 
-    it("Renders aria-labelledby for inputId and helperTextId", () => {
+    it("Renders aria-labelledby for inputId and ariaLabelledBy", () => {
         expect(container.find("input").prop("aria-labelledby")).to.equal(
             "label helperText"
         );
@@ -150,15 +150,6 @@ describe("Input Group", () => {
     it("Renders two inputs", () => {
         expect(container.find("input")).to.have.length(2);
     });
-
-    it("Inputs have aria-labelledby pointing to labelId, helperTextId, and sharedHelperTextId", () => {
-        expect(container.find("input#input1").prop("aria-labelledby")).to.equal(
-            "label1 helperText1 sharedHelperText"
-        );
-        expect(container.find("input#input2").prop("aria-labelledby")).to.equal(
-            "label2 helperText2 sharedHelperText"
-        );
-    });
 });
 
 describe("Renders HTML attributes passed through the `attributes` prop", () => {
@@ -170,7 +161,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
             <Input
                 id="inputID-attributes"
                 ariaLabel="Input Label"
-                helperTextId={"helperText-attributes"}
+                ariaLabelledBy={"helperText-attributes"}
                 placeholder={"Input Placeholder"}
                 type={InputTypes.text}
                 attributes={{

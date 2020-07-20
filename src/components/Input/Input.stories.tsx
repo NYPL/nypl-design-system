@@ -158,7 +158,7 @@ export const inputAttributes = () => (
         <Input
             id="inputID-attrs"
             ariaLabel="Input Label"
-            helperTextId="helperText-attrs"
+            ariaLabelledBy="helperText-attrs"
             required={false}
             placeholder={"CoolPerson42"}
             type={InputTypes.text}
