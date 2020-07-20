@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 import { LinkTypes } from "../Link/LinkTypes";
 import Image from "../Image/Image";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 import bem from "../../utils/bem";
 
@@ -38,7 +38,7 @@ let cardCTAs = (
         <div className="edition-card__download">
             <Link href="#url" linkType={LinkTypes.Action}>
                 <Icon
-                    name="download"
+                    name={IconNames.download}
                     blockName="more-link"
                     decorative={true}
                     modifiers={["left"]}
@@ -70,7 +70,7 @@ let exampleEditionInfo = {
     downloadLink: (
         <Link href="#passed-in-link" linkType={LinkTypes.Action}>
             <Icon
-                name="download"
+                name={IconNames.download}
                 blockName="more-link"
                 modifiers={["left"]}
                 decorative={true}

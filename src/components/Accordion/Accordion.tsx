@@ -1,22 +1,24 @@
 import * as React from "react";
-import Button, { ButtonOptions } from "../Button/Button";
+import Button from "../Button/Button";
 import bem from "../../utils/bem";
 import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
 
 export interface AccordionProps {
-    id?: string;
-
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: string[];
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** Inner label on the button that opens the accordion */
+    accordionLabel?: React.ReactNode;
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
-
-    /** The button that controls the acccordion toggle */
-    buttonOptions: ButtonOptions;
+    /** className you can add in addition to 'input' */
+    className?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    /** accordionLabel's ID */
+    labelId?: string;
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
 }
 
 /** Accordion component that shows content on toggle */
-
 export default class Accordion extends React.Component<
     AccordionProps,
     { isOpen: boolean }
@@ -34,19 +36,24 @@ export default class Accordion extends React.Component<
     }
 
     render() {
-        const { buttonOptions, modifiers = [], blockName = "" } = this.props;
-        buttonOptions.type = "button";
-        buttonOptions.blockName = "accordion";
-        buttonOptions.modifiers = ["large"];
-        buttonOptions.iconPosition = ButtonIconPositions.JustifyRight;
-        buttonOptions.iconName = this.state.isOpen ? "minus" : "plus";
-        buttonOptions.iconModifiers = ["medium"];
-        buttonOptions.buttonType = ButtonTypes.Outline;
+        const { modifiers, blockName, id, className } = this.props;
 
         return (
-            <div className={bem("accordion", modifiers, blockName)}>
-                <Button callback={this.toggleContentShow} {...buttonOptions}>
-                    {buttonOptions.content}
+            <div
+                className={bem("accordion", modifiers, blockName, [className])}
+                id={id}
+            >
+                <Button
+                    onClick={this.toggleContentShow}
+                    id={this.props.labelId}
+                    type="button"
+                    blockName="accordion"
+                    iconPosition={ButtonIconPositions.JustifyRight}
+                    iconName={this.state.isOpen ? "minus" : "plus"}
+                    iconModifiers={["medium"]}
+                    buttonType={ButtonTypes.Secondary}
+                >
+                    {this.props.accordionLabel}
                 </Button>
                 {this.state.isOpen && (
                     <div className="accordion-content">

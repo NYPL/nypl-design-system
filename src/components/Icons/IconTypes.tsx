@@ -4,3 +4,14 @@ export enum IconRotationTypes {
     rotate0 = "rotate-0",
     rotate90 = "rotate-90",
 }
+
+export enum IconNames {
+    arrow_xsmall = "arrow_xsmall",
+    arrow = "arrow",
+    download = "download",
+    headset = "headset",
+    minus = "minus",
+    plus = "plus",
+    search_small = "search_small",
+    search = "search",
+}

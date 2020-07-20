@@ -5,8 +5,8 @@ $break-breadcrumbs-mobile: max-width 599px;
     @include breakout;
 
     background-color: $nypl-turquoise-dark;
-    padding-top: $space-xs;
     padding-bottom: $space-xs;
+    padding-top: $space-xs;
 }
 
 .breadcrumbs__list {
@@ -48,9 +48,9 @@ $break-breadcrumbs-mobile: max-width 599px;
 .breadcrumbs__icon {
     @include icon;
 
+    left: 0;
     position: absolute;
     top: 50%;
-    left: 0;
     transform: rotate(90deg) translateX(-50%);
 
     @include breakpoint($break-breadcrumbs) {

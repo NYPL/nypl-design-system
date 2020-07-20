@@ -9,7 +9,7 @@
     color: #{$color};
     font-weight: 300;
     letter-spacing: 0;
-    line-height: 1.25;
+    line-height: 1.1;
     margin: 0 0 0.5em;
     width: auto;
 
@@ -27,7 +27,7 @@
 
     color: #{$color};
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1.25;
     margin: 0 0 0.5em;
     width: auto;
 
@@ -45,7 +45,7 @@
 
     color: #{$color};
     font-weight: 500;
-    line-height: 1.15;
+    line-height: 1.25;
     margin: 0 0 0.5em;
     width: auto;
 
@@ -63,7 +63,7 @@
 
     color: #{$color};
     font-weight: 500;
-    line-height: 1.15;
+    line-height: 1.25;
     margin: 0 0 0.5em;
     width: auto;
 
@@ -133,6 +133,7 @@ h6 {
         &--has-link {
             display: inline;
         }
+
         margin-right: $space-xs;
     }
 }

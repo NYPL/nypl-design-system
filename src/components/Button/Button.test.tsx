@@ -8,20 +8,20 @@ import Button from "./Button";
 
 describe("Button", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;
-    let callback;
+    let onClick;
 
     beforeEach(() => {
-        callback = stub();
+        onClick = stub();
         wrapper = Enzyme.shallow(
-            <Button id="button" callback={callback}>
+            <Button id="button" onClick={onClick}>
                 Submit
             </Button>
         );
     });
 
-    it("calls the callback", () => {
+    it("calls the onClick", () => {
         wrapper.simulate("click");
-        expect(callback.callCount).to.equal(1);
+        expect(onClick.callCount).to.equal(1);
     });
     it("optionally renders a component", () => {
         expect(wrapper.find("span").length).to.equal(1);
@@ -35,19 +35,19 @@ describe("Button", () => {
         expect(wrapper.prop("type")).to.equal("submit");
     });
 
-    it("optionally calls the callback on mouseDown instead of on click", () => {
-        expect(callback.callCount).to.equal(0);
+    it("optionally calls the onClick on mouseDown instead of on click", () => {
+        expect(onClick.callCount).to.equal(0);
         wrapper.setProps({ mouseDown: true });
         wrapper.simulate("click");
-        expect(callback.callCount).to.equal(0);
+        expect(onClick.callCount).to.equal(0);
         wrapper.simulate("mouseDown");
-        expect(callback.callCount).to.equal(1);
+        expect(onClick.callCount).to.equal(1);
     });
 
     describe("rendering content from its children prop", () => {
         it("should render string children", () => {
             wrapper = Enzyme.shallow(
-                <Button id="button" callback={callback}>
+                <Button id="button" onClick={onClick}>
                     Submit
                 </Button>
             );
@@ -56,7 +56,7 @@ describe("Button", () => {
 
         it("should render element children", () => {
             wrapper = Enzyme.shallow(
-                <Button id="button" callback={callback}>
+                <Button id="button" onClick={onClick}>
                     <em>I'm a em element</em>
                 </Button>
             );
@@ -68,11 +68,11 @@ describe("Button", () => {
     describe("passes button type", () => {
         it("button has passed type", () => {
             const wrapper = Enzyme.mount(
-                <Button id="button" callback={callback} type="button">
+                <Button id="button" onClick={onClick} type="button">
                     <span>I'm a span element</span>
                 </Button>
             );
-            expect(wrapper.find("#btn-button").prop("type")).to.equal("button");
+            expect(wrapper.find("button").prop("type")).to.equal("button");
         });
     });
 });

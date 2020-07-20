@@ -1,28 +1,23 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import { IconRotationTypes } from "../Icons/IconTypes";
-
-export interface HelperErrorTextOptions {
-    content?: JSX.Element;
-
-    id?: string;
-    isError?: boolean;
-    modifiers?: string[];
-    blockName?: string;
-    baseClass?: string;
-}
 
 interface HelperErrorTextProps {
+    /** Added prop when HelperText is errored */
+    ariaLive?: "polite" | "off" | "assertive";
+    /** Added prop when HelperText is errored */
+    ariaAtomic?: boolean;
+    /** Additional attributes passed to <HelperErrorText> */
+    attributes?: {};
+    /** Additional className to add to the helperErrorText */
+    className?: string;
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    blockName?: string;
     /** unique ID for helper */
-    id: string;
+    id?: string;
     /** Toggles between helper and error styling */
     isError: boolean;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-    blockName?: string;
-    /** Optional baseClass for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-    baseClass?: string;
 }
 
 /**
@@ -32,21 +27,35 @@ export default function HelperErrorText(
     props: React.PropsWithChildren<HelperErrorTextProps>
 ) {
     const {
+        attributes,
         id,
-        blockName = "input-description",
-        baseClass = "form-item",
+        blockName,
         isError,
+        ariaLive = "polite",
+        ariaAtomic = true,
     } = props;
+
+    let baseClass = "helper-text";
     let modifiers = [];
+    let announceAriaLive = false;
 
     if (isError) {
         modifiers.push("error");
+        announceAriaLive = true;
     }
+
     if (props.modifiers) {
         modifiers.push(...props.modifiers);
     }
+
     return (
-        <div id={id} className={bem(blockName, modifiers, baseClass)}>
+        <div
+            id={id}
+            className={bem(baseClass, modifiers, blockName)}
+            aria-live={announceAriaLive ? ariaLive : "off"}
+            aria-atomic={ariaAtomic}
+            {...attributes}
+        >
             {props.children}
         </div>
     );

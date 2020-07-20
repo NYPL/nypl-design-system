@@ -7,33 +7,31 @@ import { IconRotationTypes } from "../Icons/IconTypes";
 import { element } from "prop-types";
 
 export interface LinkProps {
-    /** Controls the link visuals—action, button, or default. */
-    linkType?: LinkTypes;
-
-    /** Href attribute */
-    href?: string;
-
-    /** ID */
-    id?: string;
-
-    /** BEM specifiers */
-    modifiers?: string[];
-
-    /** BEM specifiers */
-    blockName?: string;
-
     /** Additional attributes, such as rel=nofollow, to pass to the <a> tag */
     attributes?: {};
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    blockName?: string;
+    /** className that appears in addition to "link" */
+    className?: string;
+    /** Href attribute */
+    href?: string;
+    /** ID */
+    id?: string;
+    /** Controls the link visuals—action, button, or default. */
+    linkType?: LinkTypes;
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
 }
 
 export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     const {
-        id,
-        href,
-        modifiers = [],
-        blockName,
         attributes,
+        blockName,
+        className,
+        href,
+        id,
         linkType = LinkTypes.Default,
+        modifiers,
     } = linkProps;
 
     let link_base_class = "link";
@@ -79,7 +77,7 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     } else if (linkType === LinkTypes.Forwards) {
         iconRight = <Icon {...navigationIconProps} />;
     }
-    let className = bem(link_base_class, modifiers, blockName);
+    let linkClassName = bem(link_base_class, modifiers, blockName, [className]);
 
     if (!linkProps.href) {
         // React Types error makes this fail:  https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
@@ -94,13 +92,18 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
 
         return React.cloneElement(
             children,
-            { className: className, ...linkProps, ...childProps },
+            {
+                className: linkClassName,
+                ...linkProps,
+                ...childProps,
+                ...attributes,
+            },
             [children.props.children]
         );
     } else {
         return React.createElement(
             "a",
-            { ...linkProps, className, ...childProps },
+            { ...linkProps, className, ...childProps, ...attributes },
             iconLeft,
             linkProps.children,
             iconRight

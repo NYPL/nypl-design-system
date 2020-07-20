@@ -7,7 +7,7 @@ import { IconRotationTypes } from "../Icons/IconTypes";
 export interface ButtonOptions {
     content?: JSX.Element;
     id?: string;
-    callback?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+    onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
     attributes?: {};
     modifiers?: string[];
     blockName?: string;
@@ -23,34 +23,37 @@ export interface ButtonOptions {
 }
 
 interface ButtonProps {
-    id?: string;
-
-    /** The action to perform on the <button>'s onClick function */
-    callback: (event: React.MouseEvent | React.KeyboardEvent) => void;
     /** Additional attributes passed to the button */
     attributes?: {};
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: string[];
-    /** Optional blockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** The Kind of button */
     buttonType?: ButtonTypes;
-    /** The html button attribute */
-    type?: "submit" | "button" | "reset";
-    mouseDown?: boolean;
-
-    /** If an icon is to be rendered, an `iconPosition` prop is required. */
-    iconPosition?: ButtonIconPositions;
-    /** The name of the icon.  Corresponds with the name of the icon's svg file */
-    iconName?: string;
-    /** Optional amount of degrees to rotate icon */
-    iconRotation?: IconRotationTypes;
-    /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    iconModifiers?: string[];
+    /** Additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    className?: string;
+    /** Adds 'disabled' property to the button */
+    disabled?: boolean;
     /** Is the icon decorative */
     iconDecorative?: boolean;
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    iconModifiers?: string[];
+    /** The name of the icon.  Corresponds with the name of the icon's svg file */
+    iconName?: string;
+    /** If an icon is to be rendered, an `iconPosition` prop is required. */
+    iconPosition?: ButtonIconPositions;
     /** The role for the icon, if not decorative */
     iconRole?: string;
+    /** Optional amount of degrees to rotate icon */
+    iconRotation?: IconRotationTypes;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
+    mouseDown?: boolean;
+    /** The action to perform on the <button>'s onClick function */
+    onClick: (event: React.MouseEvent | React.KeyboardEvent) => void;
+    /** The html button attribute */
+    type?: "submit" | "button" | "reset";
 }
 
 export default class Button extends React.Component<ButtonProps, {}> {
@@ -64,25 +67,27 @@ export default class Button extends React.Component<ButtonProps, {}> {
 
     render(): JSX.Element {
         const {
-            id,
-            callback,
             attributes,
-            modifiers,
             blockName,
             buttonType,
-            type = "submit",
-            mouseDown,
-            iconPosition,
-            iconRotation,
-            iconName,
-            iconModifiers = ["small"],
-            iconDecorative,
-            iconRole,
             children,
+            className,
+            disabled,
+            iconDecorative,
+            iconModifiers = ["small"],
+            iconName,
+            iconPosition,
+            iconRole,
+            iconRotation,
+            id,
+            modifiers,
+            mouseDown,
+            onClick,
+            type = "submit",
         } = this.props;
 
         let buttonModifiers = modifiers ? modifiers : [];
-        if (!buttonModifiers.find((mod) => mod === buttonType)) {
+        if (!buttonModifiers.find((modifier) => modifier === buttonType)) {
             buttonModifiers.push(buttonType);
         }
 
@@ -135,18 +140,20 @@ export default class Button extends React.Component<ButtonProps, {}> {
         }
 
         let btnCallback = mouseDown
-            ? { onMouseDown: callback }
-            : { onClick: callback };
+            ? { onMouseDown: onClick }
+            : { onClick: onClick };
 
         return (
             <button
-                id={"btn-" + id}
+                id={id}
                 className={`${button_base_class} ${bem(
                     button_base_class,
                     buttonModifiers,
-                    blockName
+                    blockName,
+                    [className]
                 )}`}
                 type={type}
+                disabled={disabled}
                 {...attributes}
                 {...btnCallback}
             >

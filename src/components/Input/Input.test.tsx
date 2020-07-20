@@ -1,84 +1,213 @@
 import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
+import { stub } from "sinon";
 
+import Label from "../Label/Label";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import Input from "./Input";
+import { InputTypes } from "./InputTypes";
 
 describe("Renders Input", () => {
     let container;
+    let clickHander;
+
     before(() => {
+        clickHander = stub();
         container = Enzyme.mount(
             <Input
-                labelId="label-input"
-                labelContent={<>Label</>}
-                inputId="input"
-                isRequired={false}
+                id="inputID"
+                ariaLabel="Input Label"
+                ariaLabelledBy={"helperText"}
+                required={true}
+                placeholder={"Input Placeholder"}
+                type={InputTypes.text}
+                attributes={{ onClick: clickHander }}
             ></Input>
         );
     });
 
-    it("Renders label for inputId", () => {
-        expect(container.find("label").exists()).to.equal(true);
-        expect(container.find("label").prop("htmlFor")).to.equal("input");
-    });
-    it("Renters TextField", () => {
+    it("Renders Input", () => {
         expect(container.find("input").exists()).to.equal(true);
     });
-    it("Does not render helper if none is passed", () => {
-        expect(container.find("HelperErrorText").exists()).to.equal(false);
+
+    it("Renders aria-label", () => {
+        expect(container.find("input").prop("aria-label")).to.equal(
+            "Input Label"
+        );
+    });
+
+    it("Renders placeholder text", () => {
+        expect(container.find("input").props().placeholder).to.equal(
+            "Input Placeholder"
+        );
+    });
+
+    it("Adds aria-required prop if input is required", () => {
+        expect(container.find("input").prop("aria-required")).to.equal(true);
+    });
+
+    it("Allows user to pass in additional attributes", () => {
+        container.simulate("click");
+        expect(clickHander.callCount).to.equal(1);
     });
 });
 
-describe("Input with Helper and Error", () => {
+describe("Input with Label", () => {
+    let container;
+    before(() => {
+        container = Enzyme.mount(
+            <>
+                <Label htmlFor="inputID" id={"label"}>
+                    Input Label
+                </Label>
+                <Input
+                    id="inputID"
+                    ariaLabelledBy="label helperText"
+                    ariaLabel="Input Label"
+                    required={true}
+                    placeholder={"Input Placeholder"}
+                    type={InputTypes.text}
+                ></Input>
+                <HelperErrorText isError={false} id={"helperText"}>
+                    Helper Text Content
+                </HelperErrorText>
+            </>
+        );
+    });
+
+    it("Renders Input", () => {
+        expect(container.find("input").exists()).to.equal(true);
+    });
+
+    it("Renders aria-label", () => {
+        expect(container.find("input").prop("aria-label")).to.equal(
+            "Input Label"
+        );
+    });
+
+    it("Renders aria-labelledby for inputId and ariaLabelledBy", () => {
+        expect(container.find("input").prop("aria-labelledby")).to.equal(
+            "label helperText"
+        );
+    });
+});
+
+describe("Input Group", () => {
+    let container;
+    before(() => {
+        container = Enzyme.mount(
+            <fieldset>
+                <legend>Input Group Label</legend>
+                <>
+                    <>
+                        <Label htmlFor="input1" id={"label1"}>
+                            From
+                        </Label>
+                        <Input
+                            id="input1"
+                            ariaLabelledBy="label1 helperText1 sharedHelperText"
+                            required={true}
+                            type={InputTypes.text}
+                        ></Input>
+                        <HelperErrorText isError={false} id={"helperText1"}>
+                            Input 1 Helper Text
+                        </HelperErrorText>
+                    </>
+
+                    <>
+                        <Label htmlFor="input2" id={"label2"}>
+                            To
+                        </Label>
+                        <Input
+                            id="input2"
+                            ariaLabelledBy={
+                                "label2 helperText2 sharedHelperText"
+                            }
+                            required={true}
+                            type={InputTypes.text}
+                        ></Input>
+                        <HelperErrorText isError={false} id={"helperText2"}>
+                            Input 2 Helper Text
+                        </HelperErrorText>
+                    </>
+                </>
+                <HelperErrorText isError={true} id={"sharedHelperText"}>
+                    Additional Error Text
+                </HelperErrorText>
+            </fieldset>
+        );
+    });
+
+    it("Renders fieldset", () => {
+        expect(container.find("fieldset").exists()).to.equal(true);
+    });
+
+    it("Renders legend", () => {
+        expect(container.find("legend").exists()).to.equal(true);
+    });
+
+    it("Renders two inputs", () => {
+        expect(container.find("input")).to.have.length(2);
+    });
+});
+
+describe("Renders HTML attributes passed through the `attributes` prop", () => {
+    const onChangeSpy = stub();
+    const onBlurSpy = stub();
     let container;
     before(() => {
         container = Enzyme.mount(
             <Input
-                labelId="label-input"
-                labelContent={<>Label</>}
-                inputId="input"
-                isRequired={true}
-                helperContentOpts={{
-                    id: "input-helper",
-                    content: <>This is some helpful text</>,
+                id="inputID-attributes"
+                ariaLabel="Input Label"
+                ariaLabelledBy={"helperText-attributes"}
+                placeholder={"Input Placeholder"}
+                type={InputTypes.text}
+                attributes={{
+                    onChange: onChangeSpy,
+                    onBlur: onBlurSpy,
+                    maxLength: 10,
+                    tabIndex: 0,
                 }}
-                errorContentOpts={{
-                    id: "input-error",
-                    content: <>Error Message Lorem Ipsum</>,
-                }}
-                showError={true}
             ></Input>
         );
     });
 
-    it("Renders label for inputId", () => {
-        expect(container.find("label").exists()).to.equal(true);
-        expect(container.find("label").prop("htmlFor")).to.equal("input");
+    it("Has a maxlength for the input element", () => {
+        expect(container.find("input").prop("maxLength")).to.equal(10);
     });
-    it("Renters TextField", () => {
-        expect(container.find("input").exists()).to.equal(true);
+
+    it("Has a tabIndex", () => {
+        expect(container.find("input").prop("tabIndex")).to.equal(0);
     });
-    it("Renders Helper", () => {
-        expect(container.find("#input-helper").exists()).to.equal(true);
+
+    it("Calls the onChange function", () => {
+        expect(onChangeSpy.callCount).to.equal(0);
+        container.find("input").simulate("change");
+        expect(onChangeSpy.callCount).to.equal(1);
     });
-    it("Renders error", () => {
-        expect(container.find("#input-helper").exists()).to.equal(true);
+
+    it("Calls the onBlur function", () => {
+        expect(onBlurSpy.callCount).to.equal(0);
+        container.find("input").simulate("blur");
+        expect(onBlurSpy.callCount).to.equal(1);
     });
 });
 
-describe("input errors", () => {
-    it("throws error if showError is passed without content", () => {
-        expect(() =>
-            Enzyme.mount(
-                <Input
-                    labelId="label-input"
-                    labelContent={<>Label</>}
-                    inputId="input"
-                    isRequired={true}
-                    showError={true}
-                ></Input>
-            )
-        ).to.throw("Error should be shown, but no errorContentOpts passed");
+describe("Forwarding refs", () => {
+    it("Passes the ref to the input element", () => {
+        const ref = React.createRef<HTMLInputElement>();
+        const container = Enzyme.mount(
+            <Input
+                id="inputID-attributes"
+                ariaLabel="Input Label"
+                ariaLabelledBy={"helperText-attributes"}
+                placeholder={"Input Placeholder"}
+                type={InputTypes.text}
+                ref={ref}
+            ></Input>
+        );
+        expect(container.find("input").instance()).to.equal(ref.current);
     });
 });

@@ -1,6 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
 
 type breadcrumb = { url: string; text: string };
 
@@ -9,7 +10,14 @@ function isTextBreadcrumb(obj: breadcrumb | JSX.Element): obj is breadcrumb {
 }
 
 export interface BreadcrumbProps {
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+    blockName?: string;
+    /** Breadcrumb links as an array */
     breadcrumbs: breadcrumb[] | JSX.Element[];
+    /** className you can add in addition to 'input' */
+    className?: string;
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
 }
 
 export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
@@ -20,7 +28,7 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
     }
 
     render(): JSX.Element {
-        const { breadcrumbs } = this.props;
+        const { breadcrumbs, className, blockName, modifiers } = this.props;
 
         let breadcrumbs__base_class = "breadcrumbs";
 
@@ -63,7 +71,7 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
                 >
                     {last && (
                         <Icon
-                            name="arrow_xsmall"
+                            name={IconNames.arrow_xsmall}
                             blockName={breadcrumbs__base_class}
                             modifiers={["small"]}
                             decorative={true}
@@ -76,7 +84,9 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
 
         return (
             <nav
-                className={bem(breadcrumbs__base_class)}
+                className={bem(breadcrumbs__base_class, modifiers, blockName, [
+                    className,
+                ])}
                 role="navigation"
                 aria-label="Breadcrumbs"
             >

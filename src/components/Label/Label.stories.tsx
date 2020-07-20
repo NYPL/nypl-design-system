@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import Label from "./Label";
+import Label from "../Label/Label";
+import { text, boolean, select } from "@storybook/addon-knobs";
 
 export default {
     title: "Label",
@@ -8,7 +9,17 @@ export default {
 };
 
 export const label = () => (
-    <Label id="label-id" referenceId="should-never-be-used-alone">
-        <div>Lonely</div>
-    </Label>
+    <div style={{ width: "500px" }}>
+        <Label
+            htmlFor="some-input-element"
+            optReqFlag={select(
+                "Optional/Required Flag",
+                ["Required", "Optional", ""],
+                "Required"
+            )}
+            id="label"
+        >
+            {text("Input Label", "A label for a villager.")}
+        </Label>
+    </div>
 );

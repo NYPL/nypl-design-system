@@ -1,6 +1,6 @@
 {
     "name": "@nypl/design-system-react-components",
-    "version": "0.6.2",
+    "version": "0.7.0",
     "description": "Design System React Components",
     "repository": {
         "type": "git",
@@ -15,7 +15,7 @@
     },
     "scripts": {
         "start": "node node_modules/@storybook/react/bin/index -p 9001 -c .storybook-react",
-        "build-storybook": "node node_modules/.bin/build-storybook -c .storybook-react -o ./storybook-static/react",
+        "build-storybook": "node node_modules/.bin/build-storybook -c .storybook-react -o ./storybook-static",
         "test": "npm run lint && npm run test:ci",
         "test:ci": "npm run build-ts && cp src/styles.scss lib && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/**/*.test.js",
         "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
@@ -87,6 +87,11 @@
         "sass-loader": "^8.0.2",
         "sinon": "^7.3.0",
         "storybook-addon-designs": "^5.2.1",
+        "stylelint": "^13.6.1",
+        "stylelint-config-recommended": "^3.0.0",
+        "stylelint-order": "^4.1.0",
+        "stylelint-prettier": "^1.1.2",
+        "stylelint-scss": "^3.18.0",
         "svg-inline-loader": "^0.8.0",
         "svg-sprite": "^1.5.0",
         "ts-loader": "^6.2.0",

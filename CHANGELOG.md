@@ -6,6 +6,53 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.7.0
+
+### Breaking Changes
+
+-   `FormDropDown` and `Dropdown` are now `Select`
+-   `Textfield` has been retired in favor of `Input`
+-   `Input` type is now controlled via an enum defined in `InputTypes` instead of a string
+-   Changes `referenceId` to `htmlFor` on `Label`
+-   Deprecates `DateRangeForm`, `BodyText`, `SearchPromo`, `Container`, and `RNHeaderWithSearch`
+-   `Button` now accepts an `onClick` instead of a `callback`
+-   In the `ButtonTypes` enum, `Filled` and `Outline` have been changed to `Primary` and `Secondary`, respectively
+-   `Accordion` now accepts `accordionLabel` and `labelId` instead of `buttonOpts` properties
+-   Removes project-specific styles for now deprecated `EditionCard`
+-   Removes project-specific styles of `.search-results-list` and `.form-item--radios`
+-   `UnorderedList` is now `List`, with an enum to control whether is it ordered or unordered
+-   `Input` `id` is no longer prepended with `input-`
+-   `Button` `id` is no longer prepended with `btn-`
+-   `SearchBar` no longer has props for `selectChangeHandler`, `selectBlurHandler`, or `searchChangeHandler`.
+-   `Input` offers `ariaLabel` and `ariaLabelledby` props in favor of `labelId` and `helperTextId`
+-   Removes `headingAttributes?: {}` from `SectionTitle`
+
+### Adds
+
+-   Adds `aria-live` and `aria-atomic` to `HelperErrorText` in its errored state
+-   Adds "Optional", "Required", or empty string inside `Label` for forms
+-   Adds `IconNames` enum to make `allSVGs` array globally accessible
+-   Adds `width: 100%` globally to SVGs
+-   `Card` now constrains items in its `image` column to the column width
+-   Adds the `forwardRef` implementation to the `Input` component
+-   Adds `disabled` prop to `Input` and `Button` components
+-   Adds `disabled` styling to `Button.Primary`
+-   Adds `className?: string;` as additional props to all components
+-   Adds `attributes?: {};` to `Input`, `Button`, `Select`, `Link`, and `Image`
+-   Adds `justify-content: center` for `Button` with icon to adjust for mobile
+
+### Changes
+
+-   Fixes bug in former `FormDropdown` (now `Select`) where the select value would not change if `selectedOption` were passed
+-   `Link`'s scss now references `$ui-link-primary` instead of `$nypl-blue-regular`
+-   Changes `Select`'s SCSS to use the updated styling from Filament Group
+-   `Image` is wrapped in `figure` when `imageCaption` or `imageCredit` is passed to `Image`
+-   Adds `viewport` properties to any SVG files that were missing it
+
+### Removes
+
+-   Removes `HelperErrorTextOptions`
+
 ## 0.6.0
 
 ### Breaking Changes
@@ -15,6 +62,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 -   Updates `$nypl-blue-regular` from #0071ce to #0576d3
+-   `$nypl-blue-regular` is now extended with `$ui-link-primary`
 
 ## [0.5.0]
 
@@ -26,6 +74,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 -   Icon for audiobook
+-   Changes the line-height values on some of the heading mixins
 
 ## [0.4.1]
 

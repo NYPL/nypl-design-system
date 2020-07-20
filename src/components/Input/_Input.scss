@@ -1,25 +1,50 @@
 .input {
-    &__label {
-        @include space-inline-xs;
+    @include space-inset-xs;
+    @include space-stack-xs;
 
-        display: inline-block;
-        font-weight: 500;
+    border: 1px solid $gray-medium;
+    width: 100%;
+
+    &::-webkit-input-placeholder {
+        color: $gray-dark;
     }
 
-    &__required-message {
-        @include body-small;
+    &:-moz-placeholder {
+        color: $gray-dark;
+    }
 
-        font-weight: 300;
+    &:-ms-input-placeholder {
+        color: $gray-dark;
+    }
+
+    &:hover {
+        border-color: darken($gray-medium, 10%);
+    }
+
+    &:disabled {
+        background-color: $gray-xxlight;
+        color: $gray-xdark;
+    }
+
+    &:active,
+    &:focus,
+    &:active:hover,
+    &:focus:hover {
+        border: 1px solid $form-focus;
+        box-shadow: 0;
+        outline: 1px solid $form-focus;
+    }
+
+    &--error {
+        border: 1px solid $ui-error;
     }
 }
 
-.input-row {
+.input-group {
     display: flex;
-    &__form-item {
-        @include space-inline-m;
+    justify-content: space-between;
 
-        :last-child {
-            @include space-inline-none;
-        }
+    > *:not(:last-child) {
+        @include space-inline-m;
     }
 }

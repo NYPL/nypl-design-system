@@ -12,7 +12,15 @@
         }
     }
 
+    .label {
+        @include space-stack-none;
+
+        align-self: center;
+    }
+
     &__dropdown {
-        @include dropdown-base;
+        align-items: baseline;
+        display: flex;
+        justify-content: space-between;
     }
 }

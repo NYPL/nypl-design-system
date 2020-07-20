@@ -3,12 +3,13 @@
 
     border-radius: 2px;
     cursor: pointer;
-    text-decoration: none;
     text-align: center;
+    text-decoration: none;
 
     &--icon {
         align-items: center;
         display: inline-flex;
+        justify-content: center;
     }
 
     &--icon-left {
@@ -20,8 +21,8 @@
     }
 
     &--justify-right {
-        width: 100%;
         justify-content: space-between;
+        width: 100%;
     }
 
     &__icon {
@@ -41,9 +42,9 @@
 }
 
 @mixin button--filled(
-    $bg: $color-link,
+    $bg: $ui-link-primary,
     $color: $white,
-    $hoverBg: lighten($bg, 0.8)
+    $hoverBg: $ui-link-secondary
 ) {
     @include button-base;
 
@@ -57,6 +58,11 @@
 
     &:hover {
         background-color: $hoverBg;
+    }
+
+    &:disabled {
+        background-color: $gray-light;
+        color: $gray-dark;
     }
 }
 
@@ -77,8 +83,8 @@
 }
 
 @mixin button--link {
-    color: $color-link;
     background-color: transparent;
+    color: $ui-link-primary;
     text-decoration: underline;
 
     &--no-underline {
@@ -86,19 +92,30 @@
     }
 
     &:hover {
-        color: $color-link--hover;
         background-color: transparent;
+        color: $ui-link-secondary;
     }
+}
+
+@mixin button--pill {
+    @include button-base;
+    @include button--outline;
+
+    border-radius: 20px;
 }
 
 .button {
     @include button--filled;
-}
 
-.button--outline {
-    @include button--outline;
-}
+    &--link {
+        @include button--link;
+    }
 
-.button--link {
-    @include button--link;
+    &--outline {
+        @include button--outline;
+    }
+
+    &--pill {
+        @include button--pill;
+    }
 }

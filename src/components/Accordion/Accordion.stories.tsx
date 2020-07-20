@@ -4,7 +4,8 @@ import Accordion from "./Accordion";
 import { action } from "@storybook/addon-actions";
 
 import Checkbox from "../Checkbox/Checkbox";
-import UnorderedList from "../UnorderedList/UnorderedList";
+import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
 
 export default {
     title: "Accordion",
@@ -31,9 +32,11 @@ const checkboxes = [
 export const accordionWithCheckboxes = () => (
     <Accordion
         id="accordion"
-        buttonOptions={{ id: "accordionBtn", content: <>Click to expand</> }}
+        accordionLabel="Click to expand"
+        labelId="accordionBtn"
     >
-        {" "}
-        <UnorderedList id="checkbox-list">{checkboxes}</UnorderedList>{" "}
+        <List type={ListTypes.Unordered} id="checkbox-list">
+            {checkboxes}
+        </List>{" "}
     </Accordion>
 );

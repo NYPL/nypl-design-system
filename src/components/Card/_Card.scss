@@ -2,8 +2,8 @@
     @include space-stack-s;
 
     align-items: flex-start;
-    border-radius: 5px;
     border: 1px solid $gray-light;
+    border-radius: 5px;
     display: flex;
     flex-flow: column wrap;
     padding: $space $space-l;
@@ -35,8 +35,8 @@
         background-color: $gray-xlight;
         display: flex;
         flex: 0 0 150px;
-        justify-content: center;
         height: 150px;
+        justify-content: center;
 
         .image {
             max-height: 100%;
@@ -70,39 +70,9 @@
 
 // Stories-only styles
 .sb-show-main {
-    .edition-card {
-        &__ctas {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: center;
-        }
-
-        .button {
-            @include space-stack-xs;
-        }
-
-        &__download {
-            flex: 1 1 100%;
-            text-align: center;
-        }
-
-        &__missing-links {
-            @include space-inset-s;
-
-            flex: 0 0 auto;
-            width: 200px;
-            background-color: $gray-light;
-
-            @include breakpoint($medium) {
-                align-self: flex-start;
-                margin-left: auto;
-            }
-        }
-    }
-
-    .lyrasis-card {
+    .example-card {
         .card__content {
-            & > * {
+            > * {
                 @include space-stack-xxs;
             }
         }
@@ -125,7 +95,7 @@
                 width: 100%;
             }
 
-            & > * {
+            > * {
                 @include space-stack-xxs;
             }
         }

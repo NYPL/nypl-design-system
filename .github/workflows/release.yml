@@ -1,4 +1,4 @@
-# This workflow will tag, release, publish to npm, and upload to gh pages.
+# This workflow will tag, release, and publish to npm.
 name: Production Release
 
 # workflow will only run when a pull request to the release branch is closed.
@@ -60,24 +60,3 @@ jobs:
               run: npm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-    github_pages:
-        name: Deploy to Github Pages
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
-              with:
-                  persist-credentials: false
-
-            - name: Cache and install node modules
-              uses: bahmutov/npm-install@v1
-            - name: Build Storybook
-              run: npm run build-storybook
-
-            - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@releases/v3
-              with:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  BRANCH: gh-pages # The branch the action should deploy to.
-                  FOLDER: storybook-static # The folder the action should deploy.

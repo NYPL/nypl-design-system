@@ -1,12 +1,14 @@
 import * as React from "react";
 
-import Container from "../Container/Container";
 import Button from "../Button/Button";
 import Modal from "./Modal";
 
 export default {
     title: "Modal",
     component: Modal,
+    decorators: [
+        (storyFn) => <div style={{ padding: "1rem" }}>{storyFn()}</div>,
+    ],
 };
 
 class ModalStory extends React.Component<{}, { isModalOpen: boolean }> {
@@ -31,18 +33,18 @@ class ModalStory extends React.Component<{}, { isModalOpen: boolean }> {
 
     render() {
         return (
-            <Container>
-                <Button id="1" callback={this.openModal}>
+            <>
+                <Button id="1" onClick={this.openModal}>
                     Open Modal
                 </Button>
                 {this.state.isModalOpen && (
                     <Modal>
-                        <Button id="2" callback={this.closeModal}>
+                        <Button id="2" onClick={this.closeModal}>
                             Close Modal
                         </Button>
                     </Modal>
                 )}
-            </Container>
+            </>
         );
     }
 }

@@ -2,7 +2,6 @@ import * as React from "react";
 
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
-import BodyText from "../BodyText/BodyText";
 import { HeroTypes } from "./HeroTypes";
 import Hero from "./Hero";
 import SectionName from "../SectionName/SectionName";
@@ -39,12 +38,12 @@ export const heroSecondary = () => (
                 blockName={"hero"}
             />
         }
-        subHeaderText={<BodyText blockName="hero">Example subtitle</BodyText>}
+        subHeaderText={<div className="hero__body-text">Example subtitle</div>}
         image={
             <Image
                 src="https://placeimg.com/800/400/arch"
                 isDecorative={true}
-                imageBlockname={"hero"}
+                blockName={"hero"}
             />
         }
     />
@@ -62,12 +61,12 @@ export const heroStaffPicks = () => (
             />
         }
         subHeaderText={
-            <BodyText blockName="hero">
+            <div className="hero__body-text">
                 Nobody loves books more than our experts. Browse and filter
                 hundreds of their favorites. Want more suggestions? Check out{" "}
                 <a href="#etc">Best Books</a> and{" "}
                 <a href="#etc2">125 Books We Love</a>.
-            </BodyText>
+            </div>
         }
         foregroundColor="#ffffff"
         backgroundColor="#bb1d12"
@@ -112,17 +111,17 @@ export const DigitalResearchBooksHeader = () => (
                 />
             }
             subHeaderText={
-                <BodyText blockName="hero">
+                <div className="hero__body-text">
                     The internet’s search engine for research collections and
                     e-books you can use right now. Powered by the New York
                     Public Library.
-                </BodyText>
+                </div>
             }
             image={
                 <Image
                     src="https://placeimg.com/200/100/arch"
                     isDecorative={true}
-                    imageBlockname={"hero"}
+                    blockName={"hero"}
                 />
             }
         />

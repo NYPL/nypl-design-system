@@ -14,10 +14,8 @@ describe("Renders Input (closed state)", () => {
         container = Enzyme.mount(
             <Accordion
                 id="accordion"
-                buttonOptions={{
-                    id: "accordionBtn",
-                    content: <>Click to expand</>,
-                }}
+                labelId="accordionBtn"
+                accordionLabel="Click to expand"
             >
                 {" "}
                 <div className="accordion-content">content content</div>{" "}
@@ -43,16 +41,14 @@ describe("Renders Input (open state)", () => {
         container = Enzyme.mount(
             <Accordion
                 id="accordion"
-                buttonOptions={{
-                    id: "accordionBtn",
-                    content: <>Click to expand</>,
-                }}
+                labelId="accordionBtn2"
+                accordionLabel="Click to expand"
             >
                 {" "}
                 <div className="accordion-content">content content</div>{" "}
             </Accordion>
         );
-        container.find("#btn-accordionBtn").simulate("click");
+        container.find("button").simulate("click");
     });
 
     it("Renders a button", () => {
