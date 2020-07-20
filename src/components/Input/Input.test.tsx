@@ -1,5 +1,4 @@
 import { expect } from "chai";
-import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 import { stub } from "sinon";
@@ -212,7 +211,7 @@ describe("Forwarding refs", () => {
             <Input
                 id="inputID-attributes"
                 ariaLabel="Input Label"
-                helperTextId={"helperText-attributes"}
+                ariaLabelledBy={"helperText-attributes"}
                 placeholder={"Input Placeholder"}
                 type={InputTypes.text}
                 ref={ref}
