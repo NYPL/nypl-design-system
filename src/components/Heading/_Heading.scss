@@ -134,15 +134,15 @@ h6 {
             display: inline;
         }
 
-        margin-right: $space-xs;
+        margin-right: var(--space-xs);
     }
 }
 
 .page-title {
     &__heading {
         &--block-color {
-            background-color: $nypl-turquoise-regular;
-            color: $white;
+            background-color: var(--nypl-turquoise-regular);
+            color: var(--white);
         }
     }
 }

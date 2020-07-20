@@ -2,19 +2,19 @@
     @include space-inset-xs;
     @include space-stack-xs;
 
-    border: 1px solid $gray-medium;
+    border: 1px solid var(--gray-medium);
     width: 100%;
 
     &::-webkit-input-placeholder {
-        color: $gray-dark;
+        color: var(--gray-dark);
     }
 
     &:-moz-placeholder {
-        color: $gray-dark;
+        color: var(--gray-dark);
     }
 
     &:-ms-input-placeholder {
-        color: $gray-dark;
+        color: var(--gray-dark);
     }
 
     &:hover {
@@ -22,21 +22,21 @@
     }
 
     &:disabled {
-        background-color: $gray-xxlight;
-        color: $gray-xdark;
+        background-color: var(--gray-xxlight);
+        color: var(--gray-xdark);
     }
 
     &:active,
     &:focus,
     &:active:hover,
     &:focus:hover {
-        border: 1px solid $form-focus;
+        border: 1px solid var(--form-focus);
         box-shadow: 0;
-        outline: 1px solid $form-focus;
+        outline: 1px solid var(--form-focus);
     }
 
     &--error {
-        border: 1px solid $ui-error;
+        border: 1px solid var(--ui-error);
     }
 }
 

@@ -5,18 +5,18 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background-color: #fff;
+    background-color: var(--white);
     /* Arrow svg */
     /* More info here: https://css-tricks.com/probably-dont-base64-svg/ */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
     background-position: right 0.7em top 70%;
     background-repeat: no-repeat;
-    background-size: $space auto;
-    border: 1px solid $gray-medium;
+    background-size: var(--space) auto;
+    border: 1px solid var(--gray-medium);
     border-radius: 2px;
     display: block;
     font-size: 1rem;
-    padding: $space-xs $space-xl $space-xs $space-s;
+    padding: var(--space-xs) var(--space-xl) var(--space-xs) var(--space-s);
     width: 100%;
 
     /* Hide arrow icon in IE browsers */
@@ -25,23 +25,23 @@
     }
 
     &:hover {
-        border-color: darken($gray-light, 10%);
+        border-color: var(--gray-medium);
     }
 
     &:active,
     &:focus {
-        border: 1px solid $form-focus;
+        border: 1px solid var(--form-focus);
         box-shadow: 0;
-        outline: 1px solid $form-focus;
+        outline: 1px solid var(--form-focus);
     }
 
     &:disabled {
-        background-color: $gray-xxlight;
-        color: $gray-xdark;
+        background-color: var(--gray-xxlight);
+        color: var(--gray-xdark);
     }
 
     &--error {
-        border: 1px solid $ui-error;
+        border: 1px solid var(--ui-error);
     }
 }
 
@@ -50,14 +50,14 @@
 :root:lang(ar) .select,
 :root:lang(iw) .select {
     background-position: left 0.7em top 70%;
-    padding: $space-xs $space-l $space-xs $space-s;
+    padding: var(--space-xs) var(--space-l) var(--space-xs) var(--space-s);
 }
 
 /* Disabled styles */
 .select-css:disabled,
 .select-css[aria-disabled="true"] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
-    color: $gray-xdark;
+    color: var(--gray-xdark);
 }
 
 .select-css:disabled:hover,

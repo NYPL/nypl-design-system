@@ -1,19 +1,18 @@
-$break-breadcrumbs: $medium; // $medium = 600px
 $break-breadcrumbs-mobile: max-width 599px;
 
 .breadcrumbs {
     @include breakout;
 
-    background-color: $nypl-turquoise-dark;
-    padding-bottom: $space-xs;
-    padding-top: $space-xs;
+    background-color: var(--nypl-turquoise-dark);
+    padding-bottom: var(--space-xs);
+    padding-top: var(--space-xs);
 }
 
 .breadcrumbs__list {
     @include list-reset;
     @include wrapper;
 
-    color: $white;
+    color: var(--white);
 }
 
 .breadcrumbs__item {
@@ -30,7 +29,7 @@ $break-breadcrumbs-mobile: max-width 599px;
     &:not(:last-child) {
         &::after {
             content: "/";
-            padding-left: $space-xxs;
+            padding-left: var(--space-xxs);
         }
 
         @include breakpoint($break-breadcrumbs-mobile) {
@@ -40,7 +39,7 @@ $break-breadcrumbs-mobile: max-width 599px;
 
     &:last-child {
         @include breakpoint($break-breadcrumbs-mobile) {
-            padding-left: $space-m;
+            padding-left: --space-m;
         }
     }
 }
@@ -53,7 +52,7 @@ $break-breadcrumbs-mobile: max-width 599px;
     top: 50%;
     transform: rotate(90deg) translateX(-50%);
 
-    @include breakpoint($break-breadcrumbs) {
+    @include breakpoint($medium) {
         display: none;
     }
 }

@@ -32,11 +32,11 @@
         fill: currentColor;
 
         &--icon-left {
-            margin-right: $space-xs;
+            margin-right: var(--space-xs);
         }
 
         &--icon-right {
-            margin-left: $space-xs;
+            margin-left: var(--space-xs);
         }
     }
 }
@@ -61,16 +61,16 @@
     }
 
     &:disabled {
-        background-color: $gray-light;
-        color: $gray-dark;
+        background-color: var(--gray-light);
+        color: var(--gray-dark);
     }
 }
 
 @mixin button--outline {
     @include button-base;
 
-    background-color: $white;
-    border: 1px solid $gray-light;
+    background-color: var(--white);
+    border: 1px solid var(--gray-light);
     color: inherit;
 
     &:visited {
@@ -78,13 +78,13 @@
     }
 
     &:hover {
-        background-color: $gray-xxlight;
+        background-color: var(--gray-xxlight);
     }
 }
 
 @mixin button--link {
     background-color: transparent;
-    color: $ui-link-primary;
+    color: var(--ui-link-primary);
     text-decoration: underline;
 
     &--no-underline {
@@ -93,7 +93,7 @@
 
     &:hover {
         background-color: transparent;
-        color: $ui-link-secondary;
+        color: var(--ui-link-secondary);
     }
 }
 

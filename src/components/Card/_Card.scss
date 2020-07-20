@@ -2,11 +2,11 @@
     @include space-stack-s;
 
     align-items: flex-start;
-    border: 1px solid $gray-light;
+    border: 1px solid var(--gray-light);
     border-radius: 5px;
     display: flex;
     flex-flow: column wrap;
-    padding: $space $space-l;
+    padding: var(--space) var(--space-l);
 
     &__heading,
     &__footer {
@@ -25,14 +25,14 @@
     }
 
     &__columns + &__footer {
-        margin-top: $space-xs;
+        margin-top: var(--space-xs);
     }
 
     &__image {
         @include space-stack-s;
 
         align-items: center;
-        background-color: $gray-xlight;
+        background-color: var(--gray-xlight);
         display: flex;
         flex: 0 0 150px;
         height: 150px;

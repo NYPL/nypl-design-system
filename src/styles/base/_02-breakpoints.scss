@@ -10,6 +10,14 @@
 // Avoid using in favor of atomic, content-specific, breakpoints.
 // These should be used for generic code, like layouts and typography, only.
 $small: 320px;
+
+:root {
+    --small: 320px;
+    --medium: 600px;
+    --large: 960px;
+    --xl: 1280px;
+}
+
 $medium: 600px;
 $large: 960px;
 $xl: 1280px;

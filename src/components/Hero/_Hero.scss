@@ -1,5 +1,5 @@
 .hero {
-    background-color: $gray-warm-xlight;
+    background-color: var(--gray-warm-xlight);
 }
 
 .hero--primary {
@@ -14,10 +14,10 @@
     }
 
     .hero__content {
-        background-color: $black;
-        color: $white;
+        background-color: var(--black);
+        color: var(--white);
         flex: 0 0 100%;
-        padding: $space-m $space-l;
+        padding: var(--space-m) var(--space-l);
 
         a {
             color: inherit;
@@ -31,7 +31,7 @@
 
         + .placeholder {
             flex: 0 1 200px;
-            margin-left: $space-xl;
+            margin-left: var(--space-xl);
         }
     }
 
@@ -59,16 +59,16 @@
         .hero__heading {
             @include space-stack-none;
 
-            background-color: black;
-            color: white;
+            background-color: var(--black);
+            color: var(--white);
             flex: 1 1 100%;
             margin-top: 0;
-            padding-bottom: $space-xxs;
+            padding-bottom: var(--space-xxs);
             position: relative;
             z-index: 0;
 
             &::before {
-                background-color: $black;
+                background-color: var(--black);
                 content: "";
                 height: 100%;
                 left: -2000px;
@@ -83,7 +83,7 @@
         }
 
         .hero__body-text {
-            margin-top: $space-xs;
+            margin-top: var(--space-xs);
 
             @include breakpoint($medium) {
                 @include space-inline-xs;
@@ -115,7 +115,7 @@
             .hero__content {
                 .hero__heading {
                     &::before {
-                        background-color: $color-research;
+                        background-color: var(--color-research);
                     }
                 }
             }

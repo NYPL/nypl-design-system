@@ -34,10 +34,10 @@
     $v-padding: 0,
     $h-padding: $space
 ) {
-    max-width: #{$container-max-width};
-    width: 100%;
     margin: #{$v-margin} auto;
+    max-width: #{$container-max-width};
     padding: #{$v-padding} #{$h-padding};
+    width: 100%;
 
     @include breakpoint(max-width $container-max-width) {
         padding-left: calc(

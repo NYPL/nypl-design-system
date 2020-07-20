@@ -21,11 +21,11 @@
     }
 
     &--left {
-        margin-right: $space-xxs;
+        margin-right: var(--space-xxs);
     }
 
     &--right {
-        margin-left: $space-xxs;
+        margin-left: var(--space-xxs);
     }
 
     &--xlarge {

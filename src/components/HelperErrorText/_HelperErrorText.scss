@@ -3,6 +3,6 @@
     @include space-stack-xs;
 
     &--error {
-        color: $ui-error;
+        color: var(--ui-error);
     }
 }
