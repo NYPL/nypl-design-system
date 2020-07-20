@@ -23,13 +23,11 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
 
     let listTag;
 
-    React.Children.map(children, function (child) {
-        console.log(child);
+    React.Children.map(children, function (child: React.ReactElement) {
+        if (child.type !== "li") {
+            throw new Error("Direct children of `List` should be `<li>`s");
+        }
     });
-
-    //   if (typeof children === "string") {
-    //     throw new Error("Link needs prop 'href'");
-    // }
 
     if (type === ListTypes.Unordered) {
         listTag = (

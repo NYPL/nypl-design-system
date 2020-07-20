@@ -31,4 +31,17 @@ describe("List", () => {
         expect(wrapper.find("ol").hasClass("list")).to.equal(true);
         expect(wrapper.find("li").exists()).to.equal(true);
     });
+
+    it("Throws an error when you pass it children that aren't <li>s", () => {
+        expect(
+            () =>
+                (wrapper = Enzyme.mount(
+                    <List type={ListTypes.Ordered}>
+                        <span>hello</span>
+                        <span>hello</span>
+                        <span>hello</span>
+                    </List>
+                ))
+        ).to.throw("Direct children of `List` should be `<li>`s");
+    });
 });
