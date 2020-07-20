@@ -49,6 +49,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   `Image` is wrapped in `figure` when `imageCaption` or `imageCredit` is passed to `Image`
 -   Adds `viewport` properties to any SVG files that were missing it
 
+### Removes
+
+-   Removes `HelperErrorTextOptions`
+
 ## 0.6.0
 
 ### Breaking Changes
