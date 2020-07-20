@@ -6,7 +6,7 @@ import Label from "../Label/Label";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import { text, boolean, select } from "@storybook/addon-knobs";
+import { text, boolean, select, number } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
 export default {
@@ -150,3 +150,30 @@ inputGroup.story = {
         },
     },
 };
+
+export const inputAttributes = () => (
+    <>
+        <Label htmlFor="inputID-attrs" optReqFlag={"Required"} id={"label"}>
+            Choose your islander name:
+        </Label>
+        <Input
+            id="inputID-attrs"
+            ariaLabel="Input Label"
+            helperTextId="helperText-attrs"
+            required={false}
+            placeholder={"CoolPerson42"}
+            type={InputTypes.text}
+            attributes={{
+                onBlur: action("onBlur"),
+                onChange: action("onChange"),
+                maxLength: number("maxLength", 10),
+                tabIndex: number("tabIndex", 0),
+            }}
+        ></Input>
+        <HelperErrorText isError={false} id="helperText-attrs">
+            Change the max length for "text" input as an example! And note the
+            actions being called for the passed object in the `attributes`
+            props.
+        </HelperErrorText>
+    </>
+);
