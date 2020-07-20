@@ -3,12 +3,13 @@
 
     border-radius: 2px;
     cursor: pointer;
-    text-decoration: none;
     text-align: center;
+    text-decoration: none;
 
     &--icon {
         align-items: center;
         display: inline-flex;
+        justify-content: center;
     }
 
     &--icon-left {
@@ -20,8 +21,8 @@
     }
 
     &--justify-right {
-        width: 100%;
         justify-content: space-between;
+        width: 100%;
     }
 
     &__icon {
@@ -43,7 +44,7 @@
 @mixin button--filled(
     $bg: $ui-link-primary,
     $color: $white,
-    $hoverBg: lighten($bg, 0.8)
+    $hoverBg: $ui-link-secondary
 ) {
     @include button-base;
 
@@ -57,6 +58,11 @@
 
     &:hover {
         background-color: $hoverBg;
+    }
+
+    &:disabled {
+        background-color: $gray-light;
+        color: $gray-dark;
     }
 }
 

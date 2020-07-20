@@ -7,18 +7,19 @@ import Heading from "../Heading/Heading";
 import { IconRotationTypes } from "../Icons/IconTypes";
 
 export interface SectionTitleProps {
-    id?: string;
-    modifiers?: [];
+    /** blockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
-
-    headingText: string;
-    headingAttributes?: {};
+    /** className that appears in addition to "heading-section" */
+    className?: string;
     headingModifiers?: string[];
-
-    linkUrl?: string;
+    headingText: string;
+    id?: string;
     linkAttributes?: {};
-    linkModifiers?: string[];
     linkBlockname?: string;
+    linkModifiers?: string[];
+    linkUrl?: string;
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
 }
 
 export default class SectionTitle extends React.Component<
@@ -31,14 +32,14 @@ export default class SectionTitle extends React.Component<
 
     render(): JSX.Element {
         const {
-            id,
-            modifiers,
             blockName,
+            className,
             headingText,
-            headingAttributes,
-            linkUrl,
+            id,
             linkAttributes,
             linkModifiers,
+            linkUrl,
+            modifiers,
         } = this.props;
         const baseClass = "heading-section";
 
@@ -69,14 +70,13 @@ export default class SectionTitle extends React.Component<
 
         let headingModifiers = linkUrl ? ["has-link"] : [];
         return (
-            <div className={bem(baseClass, modifiers, blockName)}>
+            <div className={bem(baseClass, modifiers, blockName, [className])}>
                 <Heading
                     id={id}
                     level={2}
                     text={headingText}
                     blockName={blockName ? blockName : baseClass}
                     modifiers={headingModifiers}
-                    attributes={headingAttributes}
                 />
                 {link}
             </div>

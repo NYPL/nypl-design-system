@@ -3,33 +3,37 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 export interface HeadingProps {
-    level: number;
-    id?: string;
-    baseClass?: string;
-    modifiers?: string[];
+    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
-
-    url?: string;
-    urlClass?: string;
-
+    /** ClassName that appears in addition to "heading" */
+    className?: string;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    /** Number 1-6, creating the <h*> tag */
+    level: number;
+    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+    modifiers?: string[];
+    /** Inner text of the <h*> element */
     text?: string;
-    attributes?: {};
+    /** URL that header points to */
+    url?: string;
+    /** className for the URL when the url prop is passed */
+    urlClass?: string;
 }
 
 export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     const {
-        level,
-        id,
-        baseClass = "heading",
-        text,
-        modifiers,
         blockName,
+        className,
+        id,
+        level,
+        modifiers,
+        text,
         url,
         urlClass,
-        attributes,
     } = props;
 
-    let heading_base_class = baseClass;
+    let heading_base_class = "heading";
 
     if (level < 1 || level > 6) {
         throw new Error("Heading only supports levels 1-6");
@@ -68,9 +72,8 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     }
 
     let headingProps = {
-        className: bem(heading_base_class, modifiers, blockName),
+        className: bem(heading_base_class, modifiers, blockName, [className]),
         id: id,
-        ...attributes,
     };
 
     return React.createElement("h" + level, headingProps, content);

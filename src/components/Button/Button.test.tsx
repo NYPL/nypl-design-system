@@ -72,7 +72,7 @@ describe("Button", () => {
                     <span>I'm a span element</span>
                 </Button>
             );
-            expect(wrapper.find("#btn-button").prop("type")).to.equal("button");
+            expect(wrapper.find("button").prop("type")).to.equal("button");
         });
     });
 });
