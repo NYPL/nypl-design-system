@@ -1,15 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-export interface HelperErrorTextOptions {
-    baseClass?: string;
-    blockName?: string;
-    content?: JSX.Element;
-    id?: string;
-    isError?: boolean;
-    modifiers?: string[];
-}
-
 interface HelperErrorTextProps {
     /** Added prop when HelperText is errored */
     ariaLive?: "polite" | "off" | "assertive";
