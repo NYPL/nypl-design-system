@@ -6,22 +6,18 @@ import withOneChild from "../../helpers/hoc/WithOneChild";
 import Card from "../Card/Card";
 
 export interface SearchResultItemProps {
-    id?: string;
-
-    resultIndex: number;
-
-    modifiers?: [];
-    blockName?: string;
-
-    headingContent: JSX.Element;
-
-    subtitleContent: JSX.Element;
-
     authorLinkElement: JSX.Element;
-
+    blockName?: string;
     card: JSX.Element;
-
+    /** className that appears in addition to "search-result-item" */
+    className?: string;
     editionsLinkElement: JSX.Element;
+    headingContent: JSX.Element;
+    /** ID that other components can cross reference for accessibility purposes */
+    id?: string;
+    modifiers?: [];
+    resultIndex: number;
+    subtitleContent: JSX.Element;
 }
 /**
  *  SearchResultItem component that displays information for a work on a search results page.
@@ -30,27 +26,22 @@ export default function SearchResultItem(
     props: React.PropsWithChildren<SearchResultItemProps>
 ) {
     const {
-        id,
-        resultIndex,
-        modifiers,
-        blockName,
-        headingContent,
-        subtitleContent,
         authorLinkElement,
+        blockName,
         card,
+        className,
         editionsLinkElement,
+        headingContent,
+        id,
+        modifiers,
+        resultIndex,
+        subtitleContent,
     } = props;
     const baseClass = "search-result-item";
     const HeadingContent = headingContent && withOneChild(headingContent);
-    // TODO: Decide whether this needs to be in DS, and write/find utilities for us to count text within child components
-    // if (headingContent.innerText > 80) {
-    //   throw new Error("Section Title (h2) Text must be fewer than 80 characters");
-    // } else if (headingContent.textContent > 60) {
-    //   console.warn("Section Title (h2) Text should be fewer than 60 characters");
-    // }
 
     return (
-        <div className={bem(baseClass, modifiers, blockName)}>
+        <div className={bem(baseClass, modifiers, blockName, [className])}>
             <Heading
                 id={id}
                 level={2}

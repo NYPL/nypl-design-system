@@ -12,7 +12,7 @@
     background-position: right 0.7em top 70%;
     background-repeat: no-repeat;
     background-size: $space auto;
-    border: 1px solid $gray-light;
+    border: 1px solid $gray-medium;
     border-radius: 2px;
     display: block;
     font-size: 1rem;
@@ -28,9 +28,11 @@
         border-color: darken($gray-light, 10%);
     }
 
+    &:active,
     &:focus {
+        border: 1px solid $form-focus;
         box-shadow: 0;
-        outline: 1px solid $ui-link-primary;
+        outline: 1px solid $form-focus;
     }
 
     &:disabled {

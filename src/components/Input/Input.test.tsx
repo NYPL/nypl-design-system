@@ -10,15 +10,19 @@ import { InputTypes } from "./InputTypes";
 
 describe("Renders Input", () => {
     let container;
+    let clickHander;
+
     before(() => {
+        clickHander = stub();
         container = Enzyme.mount(
             <Input
                 id="inputID"
                 ariaLabel="Input Label"
-                helperTextId={"helperText"}
+                ariaLabelledBy={"helperText"}
                 required={true}
                 placeholder={"Input Placeholder"}
                 type={InputTypes.text}
+                attributes={{ onClick: clickHander }}
             ></Input>
         );
     });
@@ -42,6 +46,11 @@ describe("Renders Input", () => {
     it("Adds aria-required prop if input is required", () => {
         expect(container.find("input").prop("aria-required")).to.equal(true);
     });
+
+    it("Allows user to pass in additional attributes", () => {
+        container.simulate("click");
+        expect(clickHander.callCount).to.equal(1);
+    });
 });
 
 describe("Input with Label", () => {
@@ -54,9 +63,8 @@ describe("Input with Label", () => {
                 </Label>
                 <Input
                     id="inputID"
-                    labelId="label"
+                    ariaLabelledBy="label helperText"
                     ariaLabel="Input Label"
-                    helperTextId={"helperText"}
                     required={true}
                     placeholder={"Input Placeholder"}
                     type={InputTypes.text}
@@ -78,7 +86,7 @@ describe("Input with Label", () => {
         );
     });
 
-    it("Renders aria-labelledby for inputId and helperTextId", () => {
+    it("Renders aria-labelledby for inputId and ariaLabelledBy", () => {
         expect(container.find("input").prop("aria-labelledby")).to.equal(
             "label helperText"
         );
@@ -98,8 +106,7 @@ describe("Input Group", () => {
                         </Label>
                         <Input
                             id="input1"
-                            labelId="label1"
-                            helperTextId={"helperText1 sharedHelperText"}
+                            ariaLabelledBy="label1 helperText1 sharedHelperText"
                             required={true}
                             type={InputTypes.text}
                         ></Input>
@@ -114,8 +121,9 @@ describe("Input Group", () => {
                         </Label>
                         <Input
                             id="input2"
-                            labelId="label2"
-                            helperTextId={"helperText2 sharedHelperText"}
+                            ariaLabelledBy={
+                                "label2 helperText2 sharedHelperText"
+                            }
                             required={true}
                             type={InputTypes.text}
                         ></Input>
@@ -142,15 +150,6 @@ describe("Input Group", () => {
     it("Renders two inputs", () => {
         expect(container.find("input")).to.have.length(2);
     });
-
-    it("Inputs have aria-labelledby pointing to labelId, helperTextId, and sharedHelperTextId", () => {
-        expect(
-            container.find("#input-input1").prop("aria-labelledby")
-        ).to.equal("label1 helperText1 sharedHelperText");
-        expect(
-            container.find("#input-input2").prop("aria-labelledby")
-        ).to.equal("label2 helperText2 sharedHelperText");
-    });
 });
 
 describe("Renders HTML attributes passed through the `attributes` prop", () => {
@@ -162,7 +161,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
             <Input
                 id="inputID-attributes"
                 ariaLabel="Input Label"
-                helperTextId={"helperText-attributes"}
+                ariaLabelledBy={"helperText-attributes"}
                 placeholder={"Input Placeholder"}
                 type={InputTypes.text}
                 attributes={{
@@ -203,7 +202,7 @@ describe("Forwarding refs", () => {
             <Input
                 id="inputID-attributes"
                 ariaLabel="Input Label"
-                helperTextId={"helperText-attributes"}
+                ariaLabelledBy={"helperText-attributes"}
                 placeholder={"Input Placeholder"}
                 type={InputTypes.text}
                 ref={ref}
