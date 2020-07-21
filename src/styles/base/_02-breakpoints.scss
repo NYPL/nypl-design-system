@@ -9,6 +9,8 @@
 
 // Avoid using in favor of atomic, content-specific, breakpoints.
 // These should be used for generic code, like layouts and typography, only. The CSS variables and the Sass variables below need to stay in sync.
+// Sass' breakpoint() mixin doesn't work without Sass variables.
+// CSS variables expose the breakpoint variables to consumers.
 :root {
     --small: 320px;
     --medium: 600px;
