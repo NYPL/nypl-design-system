@@ -16,12 +16,11 @@ $break-breadcrumbs-mobile: max-width 599px;
 }
 
 .breadcrumbs__item {
-    @include type-scale(-1);
     @include space-inline-xxs;
 
     align-items: center;
     display: inline;
-    letter-spacing: -0.023em;
+    font-size: var(--font-size--1);
     line-height: 1.5;
     position: relative;
     word-break: break-word;
@@ -39,7 +38,7 @@ $break-breadcrumbs-mobile: max-width 599px;
 
     &:last-child {
         @include breakpoint($break-breadcrumbs-mobile) {
-            padding-left: --space-m;
+            padding-left: var(--space-m);
         }
     }
 }

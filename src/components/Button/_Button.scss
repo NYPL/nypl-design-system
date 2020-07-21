@@ -41,23 +41,19 @@
     }
 }
 
-@mixin button--filled(
-    $bg: $ui-link-primary,
-    $color: $white,
-    $hoverBg: $ui-link-secondary
-) {
+@mixin button--filled {
     @include button-base;
 
-    background-color: $bg;
+    background-color: var(--ui-link-primary);
     border: none;
-    color: $color;
+    color: var(--white);
 
     &:visited {
-        color: $color;
+        color: var(--white);
     }
 
     &:hover {
-        background-color: $hoverBg;
+        background-color: var(--ui-link-secondary);
     }
 
     &:disabled {

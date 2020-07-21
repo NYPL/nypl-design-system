@@ -1,6 +1,6 @@
 $main-width: 60%;
 $sidebar-width: 25%;
-$sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
+$sidebar-width-s: calc(25% - calc(4 * #{var(--space-s)}));
 
 .main {
     @include wrapper;
@@ -64,7 +64,7 @@ $sidebar-width-s: calc(25% - calc(4 * #{$space-s}));
 
         &--with-sidebar-right {
             flex-basis: $sidebar-width-s;
-            margin-left: $space-l;
+            margin-left: var(--space-l);
         }
     }
 }

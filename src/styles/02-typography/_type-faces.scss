@@ -1,5 +1,7 @@
 // Typography Variables
 @import "~system-font-css/_system-font.scss";
 
-$font-body: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-$font-heading: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+:root {
+    --font-body: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-heading: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}

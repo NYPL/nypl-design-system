@@ -18,7 +18,7 @@
     }
 
     &:hover {
-        border-color: darken($gray-medium, 10%);
+        border-color: var(--gray-dark);
     }
 
     &:disabled {
