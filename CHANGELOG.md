@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## Prerelease
+
+### Changes
+
+-   `$color-success` is now
+
+### Adds
+
+-   Exposes color and typography constants as CSS variables
+-   Adds Section colors for `--section-research-library-lpa`, `--section-research-library-schomburg`, and `--section-research-library-schwartzman`
+
 ## 0.8.0
 
 ### Removes
@@ -27,6 +38,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 -   Updated the Select component to take in a ref using ForwardRef and also a `name` prop.
+
+### Removes
+
+-   Removes `$color-spotlight`, `$color-your-interests`, `$color-support`, and `$color-help`
 
 ## 0.7.0
 

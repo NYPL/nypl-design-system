@@ -5,7 +5,7 @@
 
 @mixin heading-xl($color: inherit) {
     color: #{$color};
-    font-size: var(--type-size-4);
+    font-size: var(--font-size-4);
     font-weight: 300;
     letter-spacing: 0;
     line-height: 1.1;
@@ -23,7 +23,7 @@
 
 @mixin heading-large($color: inherit) {
     color: #{$color};
-    font-size: var(--type-size-3);
+    font-size: var(--font-size-3);
     font-weight: 500;
     line-height: 1.25;
     margin: 0 0 0.5em;
@@ -40,7 +40,7 @@
 
 @mixin heading-medium($color: inherit) {
     color: #{$color};
-    font-size: var(--type-size-2);
+    font-size: var(--font-size-2);
     font-weight: 500;
     line-height: 1.25;
     margin: 0 0 0.5em;
@@ -57,7 +57,7 @@
 
 @mixin heading-small($color: inherit) {
     color: #{$color};
-    font-size: var(--type-size-1);
+    font-size: var(--font-size-1);
     font-weight: 500;
     line-height: 1.25;
     margin: 0 0 0.5em;
@@ -74,7 +74,7 @@
 
 @mixin heading-xs($color: inherit) {
     color: #{$color};
-    font-size: var(--type-size-1p5);
+    font-size: var(--font-size-1p5);
     font-weight: 400;
     line-height: 1.15;
     margin: 0 0 0.5em;
