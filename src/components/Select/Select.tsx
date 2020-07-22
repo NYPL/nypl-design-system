@@ -1,6 +1,5 @@
-import * as React from "react";
+import React, { useState } from "react";
 import bem from "../../utils/bem";
-import Icon from "../Icons/Icon";
 
 export interface SelectProps {
     /** When passed, will populate the aria-label on the select */
@@ -11,44 +10,53 @@ export interface SelectProps {
     blockName?: string;
     /** ClassName you can add in addition to 'select' */
     className?: string;
+    children?: React.ReactNode;
     /** When true, disables the select */
     disabled?: boolean;
     /** ID of associated HelperText */
     helperTextId?: string;
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
-    /** ID of associated label */
-    labelId?: string;
     /** Attribute indicating that an option with a non-empty string value must be selected */
     isRequired: boolean;
-    onBlur: (event: React.FormEvent) => void;
-    /** Passes selects' current value to the React state handler */
-    onChange: (event: React.FormEvent) => void;
+    /** ID of associated label */
+    labelId?: string;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
+    /**  */
+    name: string;
+    onBlur?: (event: React.FormEvent) => void;
+    /** Passes selects' current value to the React state handler */
+    onChange?: (event: React.FormEvent) => void;
     /** Sets whatever string you pass it as the default selected */
     selectedOption?: string;
 }
 
-export default class Select extends React.Component<
-    SelectProps,
-    { selectedOption: string }
-> {
-    constructor(props: SelectProps) {
-        super(props);
-        this.state = { selectedOption: props.selectedOption };
-        this.onSelectChange.bind(this);
-    }
-
-    onSelectChange(event: React.FormEvent, additionalChange: Function) {
-        let target = event.target as HTMLSelectElement;
-        if (target) {
-            this.setState({ selectedOption: target.value });
-        }
-        additionalChange(event);
-    }
-
-    render() {
+/**
+ * Select
+ * A component that renders a `select` DOM element along with its `option`
+ * children.
+ */
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+    (props, ref?) => {
+        const [selectedOption, setSelectedOption] = useState(
+            props.selectedOption
+        );
+        /**
+         * onSelectChange
+         * Update the state value for the option that was selected and fire off
+         * any additional callbacks.
+         */
+        const onSelectChange = (
+            event: React.FormEvent,
+            additionalChange: Function
+        ) => {
+            let target = event.target as HTMLSelectElement;
+            if (target) {
+                setSelectedOption(target.value);
+            }
+            additionalChange && additionalChange(event);
+        };
         const {
             ariaLabel,
             blockName,
@@ -60,17 +68,18 @@ export default class Select extends React.Component<
             labelId,
             onBlur,
             onChange,
-            selectedOption,
-        } = this.props;
+            name,
+            attributes,
+            disabled = false,
+        } = props;
 
-        const modifiers = this.props.modifiers ? this.props.modifiers : [];
-        const disabled = this.props.disabled ? this.props.disabled : false;
+        const modifiers = props.modifiers ? props.modifiers : [];
 
         let selectProps = {
             id: id,
             className: bem("select", modifiers, blockName, [className]),
             "aria-required": isRequired,
-            value: this.state.selectedOption,
+            value: selectedOption,
             disabled: disabled,
             "aria-label": ariaLabel,
         };
@@ -85,18 +94,22 @@ export default class Select extends React.Component<
 
         return (
             <select
+                name={name}
                 {...selectProps}
-                onBlur={(e) => this.onSelectChange(e, onBlur)}
-                onChange={(e) => this.onSelectChange(e, onChange)}
+                {...attributes}
+                ref={ref}
+                onBlur={(e) => onSelectChange(e, onBlur)}
+                onChange={(e) => onSelectChange(e, onChange)}
             >
                 {React.Children.map(children, (child, key) =>
                     React.cloneElement(child as React.ReactElement<any>, {
                         "aria-selected":
-                            children[key].props.children ===
-                            this.state.selectedOption,
+                            children[key].props.children === selectedOption,
                     })
                 )}
             </select>
         );
     }
-}
+);
+
+export default Select;
