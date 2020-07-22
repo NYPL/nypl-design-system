@@ -41,7 +41,7 @@ export interface SelectProps {
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     (props, ref?) => {
         const [selectedOption, setSelectedOption] = useState(
-            props.selectedOption
+            props.selectedOption || null
         );
         /**
          * onSelectChange
@@ -59,7 +59,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             additionalChange && additionalChange(event);
         };
         const {
-            ariaLabel,
+            ariaLabel = null,
             blockName,
             children,
             className,
@@ -73,34 +73,31 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             attributes,
             disabled = false,
         } = props;
-
         const modifiers = props.modifiers ? props.modifiers : [];
-
-        let selectProps = {
-            id: id,
-            className: bem("select", modifiers, blockName, [className]),
-            "aria-required": isRequired,
-            value: selectedOption,
-            disabled: disabled,
-            "aria-label": ariaLabel,
-        };
+        let ariaLabelledBy = null;
 
         if (labelId && !helperTextId) {
-            selectProps["aria-labelledby"] = labelId;
+            ariaLabelledBy = labelId;
         } else if (helperTextId && !labelId) {
-            selectProps["aria-labelledby"] = helperTextId;
+            ariaLabelledBy = helperTextId;
         } else if (labelId && helperTextId) {
-            selectProps["aria-labelledby"] = labelId + " " + helperTextId;
+            ariaLabelledBy = labelId + " " + helperTextId;
         }
 
         return (
             <select
                 name={name}
-                {...selectProps}
-                {...attributes}
+                id={id}
+                className={bem("select", modifiers, blockName, [className])}
+                aria-required={isRequired}
+                disabled={disabled}
+                aria-label={ariaLabel}
+                aria-labelledBy={ariaLabelledBy}
+                value={selectedOption}
                 ref={ref}
                 onBlur={(e) => onSelectChange(e, onBlur)}
                 onChange={(e) => onSelectChange(e, onChange)}
+                {...attributes}
             >
                 {React.Children.map(children, (child, key) =>
                     React.cloneElement(child as React.ReactElement<any>, {

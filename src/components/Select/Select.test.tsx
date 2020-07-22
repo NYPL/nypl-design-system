@@ -78,7 +78,8 @@ describe("Select", () => {
                 <option aria-selected={false}>test2</option>
             </Select>
         );
-        expect(wrapper.find("select").props()["aria-labelledby"]).to.equal(
+
+        expect(wrapper.find("select").prop("aria-labelledBy")).to.equal(
             "labelId helperTextId"
         );
     });
