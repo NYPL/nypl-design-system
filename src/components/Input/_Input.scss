@@ -30,9 +30,9 @@
     &:focus,
     &:active:hover,
     &:focus:hover {
-        border: 1px solid var(--form-focus);
+        border: 1px solid var(--ui-focus);
         box-shadow: 0;
-        outline: 1px solid var(--form-focus);
+        outline: 1px solid var(--ui-focus);
     }
 
     &--error {
