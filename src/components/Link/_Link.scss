@@ -10,10 +10,10 @@
     }
 
     &--dark-background {
-        color: var(--white);
+        color: var(--ui-white);
 
         &:hover {
-            color: var(--gray-light);
+            color: var(--ui-gray-light);
         }
     }
 }

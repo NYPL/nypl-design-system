@@ -34,7 +34,7 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
         modifiers,
     } = linkProps;
 
-    let link_base_class = "link";
+    let link_base_class;
 
     let childProps = {};
 
@@ -103,7 +103,12 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
     } else {
         return React.createElement(
             "a",
-            { ...linkProps, className, ...childProps, ...attributes },
+            {
+                ...linkProps,
+                className: linkClassName,
+                ...childProps,
+                ...attributes,
+            },
             iconLeft,
             linkProps.children,
             iconRight

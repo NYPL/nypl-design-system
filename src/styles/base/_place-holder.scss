@@ -1,5 +1,5 @@
 .placeholder {
-    --color-place-holder: var(--gray-light);
+    --color-place-holder: var(--ui-gray-light);
 
     @include space-stack-page;
     @include space-inset-s;

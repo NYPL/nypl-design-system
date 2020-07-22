@@ -8,6 +8,10 @@
     }
 }
 
+figure {
+    margin: unset;
+}
+
 .figure {
     &__image {
         @include space-stack-xxs;
@@ -26,5 +30,7 @@
     &__credit,
     &__caption {
         @include space-stack-xxs;
+
+        font-size: var(--font-size--1);
     }
 }

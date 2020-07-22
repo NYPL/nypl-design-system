@@ -5,17 +5,11 @@
 }
 
 body {
-    color: var(--black);
+    color: var(--ui-black);
     font-family: var(--font-body);
     font-size: var(--font-size-0);
     font-weight: 300;
-    letter-spacing: 0.0175em;
     line-height: 1.5;
-}
-
-.caption,
-.credit-line {
-    font-size: var(--font-size--1);
 }
 
 p,
@@ -24,7 +18,7 @@ p,
 }
 
 .blockquote {
-    border-left: solid 3px var(--gray-light);
+    border-left: solid 3px var(--ui-gray-light);
     font-style: italic;
     margin-left: 1em;
     padding-left: 1em;

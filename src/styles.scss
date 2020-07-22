@@ -6,9 +6,11 @@
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import "~breakpoint-sass/stylesheets/breakpoint";
 
+@import "~system-font-css/_system-font.scss";
 // End libs
 
 // Order important
+@import "./styles/**/*.css";
 @import "./styles/**/*.scss";
 @import "./components/Icons/_Icons.scss";
 @import "./components/Button/_Button.scss";

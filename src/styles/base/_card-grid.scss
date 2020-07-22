@@ -1,0 +1,81 @@
+@mixin cards--spacing {
+    // Select all immediate children except the last
+    > *:not(:last-child) {
+        @include space-stack-s;
+
+        @include breakpoint($large) {
+            @include space-stack-none;
+
+            // Now, also remove children that are a multiple of 3.
+            // Add margin between columns.
+            &:not(:nth-child(3n)) {
+                @include space-inline-l;
+            }
+
+            // Now, also remove the second and third-to-last items from selection.
+            // Then add margin between rows.
+            &:not(:nth-last-child(2)):not(:nth-last-child(3)) {
+                @include space-stack-l;
+            }
+        }
+    }
+
+    &--full {
+        @include breakpoint($large) {
+            > *:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)) {
+                @include space-stack-xxl;
+            }
+
+            > *:nth-child(3n) {
+                @include space-stack-xxl;
+            }
+
+            > *:nth-child(3n
+                    + 2):not(:last-child):not(:nth-child(3n)):not(:nth-last-child(2)) {
+                @include space-stack-xxl;
+            }
+        }
+    }
+}
+
+.card-grid {
+    @include space-stack-page;
+
+    &__cards {
+        @include list-reset;
+        @include cards--spacing;
+
+        display: flex;
+        flex-flow: column nowrap;
+
+        @include breakpoint($large) {
+            flex-flow: row wrap;
+
+            > * {
+                flex: 0 0 30%;
+            }
+
+            > .featured-card {
+                flex: 1 0 31%;
+            }
+        }
+
+        &--bg-color {
+            @include wrapper(
+                $v-padding: var(--space-s),
+                $h-padding: var(--space-s)
+            );
+
+            @include breakpoint($large) {
+                @include wrapper(
+                    $v-padding: var(--space-xxl),
+                    $h-padding: var(--space-xxl)
+                );
+            }
+
+            > *:last-child {
+                @include space-stack-none;
+            }
+        }
+    }
+}

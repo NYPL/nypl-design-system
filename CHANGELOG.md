@@ -42,6 +42,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removes
 
 -   Removes `$color-spotlight`, `$color-your-interests`, `$color-support`, and `$color-help`
+-   Letterspacing property on all body copy
 
 ## 0.7.0
 

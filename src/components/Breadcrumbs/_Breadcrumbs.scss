@@ -12,7 +12,7 @@ $break-breadcrumbs-mobile: max-width 599px;
     @include list-reset;
     @include wrapper;
 
-    color: var(--white);
+    color: var(--ui-white);
 }
 
 .breadcrumbs__item {

@@ -1,5 +1,5 @@
 .hero {
-    background-color: var(--gray-warm-xlight);
+    background-color: var(--ui-gray-warm-xlight);
 }
 
 .hero--primary {
@@ -14,8 +14,8 @@
     }
 
     .hero__content {
-        background-color: var(--black);
-        color: var(--white);
+        background-color: var(--ui-black);
+        color: var(--ui-white);
         flex: 0 0 100%;
         padding: var(--space-m) var(--space-l);
 
@@ -59,8 +59,8 @@
         .hero__heading {
             @include space-stack-none;
 
-            background-color: var(--black);
-            color: var(--white);
+            background-color: var(--ui-black);
+            color: var(--ui-white);
             flex: 1 1 100%;
             margin-top: 0;
             padding-bottom: var(--space-xxs);
@@ -68,7 +68,7 @@
             z-index: 0;
 
             &::before {
-                background-color: var(--black);
+                background-color: var(--ui-black);
                 content: "";
                 height: 100%;
                 left: -2000px;

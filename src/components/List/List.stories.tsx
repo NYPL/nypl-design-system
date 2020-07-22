@@ -78,9 +78,7 @@ const exampleCard = (
                 <Link linkType={LinkTypes.Button} href="blah">
                     Reserve
                 </Link>
-                <div className="italicized ui-gray-dark">
-                    0 of 11 copies available. 3 patrons in the queue.
-                </div>
+                <div>0 of 11 copies available. 3 patrons in the queue.</div>
                 <Link href="#url" linkType={LinkTypes.Forwards}>
                     View Book Details
                 </Link>

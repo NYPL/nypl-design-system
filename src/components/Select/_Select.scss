@@ -5,14 +5,14 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background-color: var(--white);
+    background-color: var(--ui-white);
     /* Arrow svg */
     /* More info here: https://css-tricks.com/probably-dont-base64-svg/ */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
     background-position: right 0.7em top 70%;
     background-repeat: no-repeat;
     background-size: var(--space) auto;
-    border: 1px solid var(--gray-medium);
+    border: 1px solid var(--ui-gray-medium);
     border-radius: 2px;
     display: block;
     font-size: 1rem;
@@ -25,7 +25,7 @@
     }
 
     &:hover {
-        border-color: var(--gray-medium);
+        border-color: var(--ui-gray-medium);
     }
 
     &:active,
@@ -36,8 +36,8 @@
     }
 
     &:disabled {
-        background-color: var(--gray-xxlight);
-        color: var(--gray-xdark);
+        background-color: var(--ui-gray-xxlight);
+        color: var(--ui-gray-xdark);
     }
 
     &--error {
@@ -57,7 +57,7 @@
 .select-css:disabled,
 .select-css[aria-disabled="true"] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
-    color: var(--gray-xdark);
+    color: var(--ui-gray-xdark);
 }
 
 .select-css:disabled:hover,

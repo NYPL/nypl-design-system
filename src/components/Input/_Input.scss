@@ -2,28 +2,28 @@
     @include space-inset-xs;
     @include space-stack-xs;
 
-    border: 1px solid var(--gray-medium);
+    border: 1px solid var(--ui-gray-medium);
     width: 100%;
 
     &::-webkit-input-placeholder {
-        color: var(--gray-dark);
+        color: var(--ui-gray-dark);
     }
 
     &:-moz-placeholder {
-        color: var(--gray-dark);
+        color: var(--ui-gray-dark);
     }
 
     &:-ms-input-placeholder {
-        color: var(--gray-dark);
+        color: var(--ui-gray-dark);
     }
 
     &:hover {
-        border-color: var(--gray-dark);
+        border-color: var(--ui-gray-dark);
     }
 
     &:disabled {
-        background-color: var(--gray-xxlight);
-        color: var(--gray-xdark);
+        background-color: var(--ui-gray-xxlight);
+        color: var(--ui-gray-xdark);
     }
 
     &:active,
