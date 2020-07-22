@@ -23,8 +23,9 @@ export interface SelectProps {
     labelId?: string;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
-    /**  */
+    /** The name of the select element to use in form submission */
     name: string;
+    /** Passes selects' current value to the React state handler */
     onBlur?: (event: React.FormEvent) => void;
     /** Passes selects' current value to the React state handler */
     onChange?: (event: React.FormEvent) => void;
