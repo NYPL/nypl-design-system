@@ -31,7 +31,7 @@ export interface InputProps {
     value?: string | number;
 }
 
-let Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
     const {
         ariaLabel,
         ariaLabelledBy,

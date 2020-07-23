@@ -2,9 +2,9 @@ import { expect } from "chai";
 import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
 
 import Pagination from "./Pagination";
+import Select from "../Select/Select";
 
 describe("Pagination Test", () => {
     let wrapper: Enzyme.ShallowWrapper<{}, {}>;
@@ -37,7 +37,7 @@ describe("Pagination Test", () => {
             />
         );
         expect(wrapper.find("Button")).to.have.lengthOf(2);
-        expect(wrapper.find("Select")).to.have.lengthOf(1);
+        expect(wrapper.find(Select)).to.have.lengthOf(1);
     });
 
     it("Renders two buttons and a Select when there are zero pages", () => {
@@ -57,6 +57,6 @@ describe("Pagination Test", () => {
             />
         );
         expect(wrapper.find("Button")).to.have.lengthOf(2);
-        expect(wrapper.find("Select")).to.have.lengthOf(1);
+        expect(wrapper.find(Select)).to.have.lengthOf(1);
     });
 });
