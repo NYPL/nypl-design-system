@@ -76,7 +76,11 @@ export default function Pagination(props: PaginationProps) {
             <Label htmlFor="pagination-dropdown" id={dropdownProps.labelId}>
                 {dropdownProps.labelText}
             </Label>
-            <Select blockName={pagination__base_class} {...dropdownProps}>
+            <Select
+                name="pagination-select"
+                blockName={pagination__base_class}
+                {...dropdownProps}
+            >
                 {paginationDropdownOptions.map((item) => (
                     <option aria-selected={false}>{item}</option>
                 ))}

@@ -99,6 +99,7 @@ export const searchBar = () => (
         >
             {showSelect && (
                 <Select
+                    name="nhItemSearch"
                     ariaLabel="Filter Search"
                     disabled={formDisabled}
                     helperTextId={"helperText"}
