@@ -15,6 +15,8 @@ let cssVariables: {
     [k: string]: string;
 } = {};
 
+console.dir(cssVariables);
+
 var allCSS = [].slice
     .call(document.styleSheets)
     .reduce(function (prev, styleSheet) {
@@ -44,25 +46,31 @@ var allCSS = [].slice
         }
     }, "");
 
-// console.dir(cssVariables);
-
 const uiVariables: { [k: string]: string } = {};
 const grayScaleVariables: { [k: string]: string } = {};
-const sectionVariables: { [k: string]: string } = {};
+const breakpointVariables: { [k: string]: string } = {};
+const spaceVariables: { [k: string]: string } = {};
+const fontSizeVariables: { [k: string]: string } = {};
+const typefaceVariables: { [k: string]: string } = {};
 
 for (const [key, value] of Object.entries(cssVariables)) {
     if (key.startsWith(" --ui-gray")) {
         grayScaleVariables[key] = value;
     } else if (key.startsWith(" --ui")) {
         uiVariables[key] = value;
-    } else if (key.startsWith(" --section")) {
-        sectionVariables[key] = value;
+    } else if (key.startsWith(" --breakpoint")) {
+        breakpointVariables[key] = value;
+    } else if (key.startsWith(" --space")) {
+        spaceVariables[key] = value;
+    } else if (key.startsWith(" --font-size")) {
+        fontSizeVariables[key] = value;
+    } else if (key.startsWith(" --typeface")) {
+        fontSizeVariables[key] = value;
     }
 }
 
 let uiVariableDocs = [];
 let grayscaleDocs = [];
-let sectionDocs = [];
 
 for (const [key, value] of Object.entries(uiVariables)) {
     uiVariableDocs.push(
@@ -115,18 +123,6 @@ utilityColors.story = {
         },
     },
 };
-
-for (const [key, value] of Object.entries(sectionVariables)) {
-    sectionDocs.push(
-        <li style={{ textAlign: "center" }}>
-            <UIDocCard backgroundColor={value}>
-                {key}: {value}
-            </UIDocCard>
-        </li>
-    );
-}
-
-console.dir(sectionVariables);
 
 const getSetCSSVariable = function (name: string) {
     let propertyValue = "";
