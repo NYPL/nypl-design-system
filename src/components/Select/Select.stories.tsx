@@ -32,6 +32,7 @@ export const selectWithOptionalLabel = () => (
             </Label>
         )}
         <Select
+            name="optionalLabelSelect"
             id={"select"}
             isRequired={false}
             ariaLabel="Select Label"
