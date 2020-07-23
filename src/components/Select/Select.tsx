@@ -56,7 +56,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             if (target) {
                 setSelectedOption(target.value);
             }
-            additionalChange && additionalChange(event);
+            if (additionalChange) {
+                additionalChange(event);
+            }
         };
         const {
             ariaLabel = null,
