@@ -36,7 +36,14 @@ export default class Accordion extends React.Component<
     }
 
     render() {
-        const { modifiers, blockName, id, className } = this.props;
+        const {
+            modifiers,
+            blockName,
+            id,
+            className,
+            labelId,
+            accordionLabel,
+        } = this.props;
 
         return (
             <div
@@ -45,7 +52,7 @@ export default class Accordion extends React.Component<
             >
                 <Button
                     onClick={this.toggleContentShow}
-                    id={this.props.labelId}
+                    id={labelId}
                     type="button"
                     blockName="accordion"
                     iconPosition={ButtonIconPositions.JustifyRight}
@@ -53,7 +60,7 @@ export default class Accordion extends React.Component<
                     iconModifiers={["medium"]}
                     buttonType={ButtonTypes.Secondary}
                 >
-                    {this.props.accordionLabel}
+                    {accordionLabel}
                 </Button>
                 {this.state.isOpen && (
                     <div className="accordion-content">
