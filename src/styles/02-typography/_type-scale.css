@@ -1,5 +1,6 @@
 /** Type scale information to keep our font-sizes consistent across the system */
 :root {
+    --font-size--3: 0.625rem;
     --font-size--2: 0.75rem;
     --font-size--1: 0.875rem;
     --font-size-0: 1rem;
