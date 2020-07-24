@@ -94,7 +94,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                 aria-required={isRequired}
                 disabled={disabled}
                 aria-label={ariaLabel}
-                aria-labelledBy={ariaLabelledBy}
+                aria-labelledby={ariaLabelledBy}
                 value={selectedOption}
                 ref={ref}
                 onBlur={(e) => onSelectChange(e, onBlur)}

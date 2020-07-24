@@ -79,7 +79,7 @@ describe("Select", () => {
             </Select>
         );
 
-        expect(wrapper.find("select").prop("aria-labelledBy")).to.equal(
+        expect(wrapper.find("select").prop("aria-labelledby")).to.equal(
             "labelId helperTextId"
         );
     });
