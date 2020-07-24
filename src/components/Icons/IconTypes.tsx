@@ -6,6 +6,8 @@ export enum IconRotationTypes {
 }
 
 export enum IconNames {
+    accessibility_full = "accessibility_full",
+    accessibility_partial = "accessibility_partial",
     arrow_xsmall = "arrow_xsmall",
     arrow = "arrow",
     download = "download",

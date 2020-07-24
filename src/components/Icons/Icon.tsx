@@ -3,6 +3,8 @@ import bem from "../../utils/bem";
 
 import { IconRotationTypes, IconNames } from "./IconTypes";
 
+import accessibility_full from "../../../icons/svg/accessibility-full.svg";
+import accessibility_partial from "../../../icons/svg/accessibility-partial.svg";
 import arrow_xsmall from "../../../icons/svg/arrow-xsmall.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import download from "../../../icons/svg/download.svg";
@@ -13,6 +15,8 @@ import search_small from "../../../icons/svg/search-small.svg";
 import search from "../../../icons/svg/search.svg";
 
 const allSvgs = {
+    accessibility_full,
+    accessibility_partial,
     arrow_xsmall,
     arrow,
     download,
