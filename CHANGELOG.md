@@ -17,6 +17,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Exposes color and typography constants as CSS variables
 -   Adds Section colors for `--section-research-library-lpa`, `--section-research-library-schomburg`, and `--section-research-library-schwartzman`
 
+### Removes
+
+-   `--font-size-1p5`, which was originally added as certain designs call out `20px` for headings and others at `18px`. Figma documentation refers to `18px` only as of [0.1.1](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16).
+
 ## 0.8.0
 
 ### Removes

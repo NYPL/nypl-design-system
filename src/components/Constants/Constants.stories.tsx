@@ -343,7 +343,6 @@ typefaces.story = {
 };
 
 let headingSizes = ["Callout", "Tertiary", "Secondary", "Primary"];
-
 let headings = [];
 
 for (let i = headingSizes.length; i--; i >= 1) {
@@ -364,6 +363,15 @@ for (let i = headingSizes.length; i--; i >= 1) {
     );
 }
 
+let bodySizes = [0, -1, -2, -3];
+let bodyCopies = [];
+
+console.log(bodySizes.length);
+
+for (let j = 0; j++; j < bodySizes.length) {
+    bodyCopies.push(<p>asldkjf</p>);
+}
+
 export const typeScale = () => (
     <>
         <Heading level={1}>Type Scale</Heading>
@@ -376,11 +384,9 @@ export const typeScale = () => (
         </p>
         <>{headings}</>
 
-        <Heading level={1}>Body Styles</Heading>
-        <p style={{ fontSize: "var(--font-size-0)" }}>Body (0)</p>
-        <p style={{ fontSize: "var(--font-size--1)" }}>-1</p>
-        <p style={{ fontSize: "var(--font-size--2)" }}>-2</p>
-        <p style={{ fontSize: "var(--font-size--3)" }}>-3</p>
+        <Heading level={2}>Body Sizes</Heading>
+        <p>Used for body copy, captions, and secondary captions.</p>
+        <>{bodyCopies}</>
     </>
 );
 
