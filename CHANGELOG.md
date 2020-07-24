@@ -12,12 +12,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Adds icons for `accessibility_full`, `accessibility_partial`, `clock`, `check`, and `close`
 
+### Changes
+
+-   Updates the `download` icon to Google Material Design's icon.
+
 ## 0.7.1
 
 ### Changes
 
 -   Updated the Select component to take in a ref using ForwardRef and also a `name` prop.
--   Updates the `download` icon to Google Material Design's icon.
 
 ## 0.7.0
 
