@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
--   `$color-success` is now
+-   `$color-success` is now `--ui-success`.
 
 ### Adds
 

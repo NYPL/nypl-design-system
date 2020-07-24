@@ -51,7 +51,7 @@ $break-breadcrumbs-mobile: max-width 599px;
     top: 50%;
     transform: rotate(90deg) translateX(-50%);
 
-    @include breakpoint($medium) {
+    @include breakpoint($breakpoint-medium) {
         display: none;
     }
 }

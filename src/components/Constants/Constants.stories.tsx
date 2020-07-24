@@ -92,38 +92,6 @@ for (const [key, value] of Object.entries(grayScaleVariables)) {
     );
 }
 
-export const utilityColors = () => (
-    <>
-        <Heading level={1}>Utility Colors</Heading>
-        <List
-            type={ListTypes.Unordered}
-            modifiers={["no-list-styling"]}
-            className="card-grid__cards"
-        >
-            {uiVariableDocs}
-        </List>
-        <Heading level={1}>Grayscale</Heading>
-        <List
-            type={ListTypes.Unordered}
-            modifiers={["no-list-styling"]}
-            className="card-grid__cards"
-        >
-            {grayscaleDocs}
-        </List>
-    </>
-);
-
-utilityColors.story = {
-    name: "Utility Colors",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14989%3A37",
-        },
-    },
-};
-
 const getCSSVariable = function (name: string) {
     let propertyValue = "";
     propertyValue = getComputedStyle(document.documentElement).getPropertyValue(
@@ -132,7 +100,7 @@ const getCSSVariable = function (name: string) {
     return propertyValue;
 };
 
-export const brandFills = () => (
+export const colorsBrand = () => (
     <>
         <Heading level={1}>Section Colors</Heading>
         <Heading level={2}>What's On</Heading>
@@ -294,13 +262,45 @@ export const brandFills = () => (
     </>
 );
 
-brandFills.story = {
-    name: "Brand Fills",
+colorsBrand.story = {
+    name: "Colors—Brand",
     parameters: {
         design: {
             type: "figma",
             url:
                 "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=15454%3A47007",
+        },
+    },
+};
+
+export const colorsUtility = () => (
+    <>
+        <Heading level={1}>Utility Colors</Heading>
+        <List
+            type={ListTypes.Unordered}
+            modifiers={["no-list-styling"]}
+            className="card-grid__cards"
+        >
+            {uiVariableDocs}
+        </List>
+        <Heading level={1}>Grayscale</Heading>
+        <List
+            type={ListTypes.Unordered}
+            modifiers={["no-list-styling"]}
+            className="card-grid__cards"
+        >
+            {grayscaleDocs}
+        </List>
+    </>
+);
+
+colorsUtility.story = {
+    name: "Colors—Utility",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14989%3A37",
         },
     },
 };
@@ -342,34 +342,41 @@ typefaces.story = {
     },
 };
 
-let headingSizes = ["Callout", "Tertiary", "Secondary", "Primary"];
-let headings = [];
-
-for (let i = headingSizes.length; i--; i >= 1) {
-    headings.push(
-        <p>
-            <span
-                style={{
-                    fontSize: `var(--font-size-${i + 1})`,
-                    marginRight: "var(--space-s)",
-                }}
-            >
-                {headingSizes[i]}
-            </span>
-            <span>
-                --font-size-{i + 1}: {getCSSVariable(`--font-size-${i}`)}
-            </span>
-        </p>
+const typeDocs = function (key, value) {
+    return (
+        <div style={{ marginBottom: "2%" }}>
+            <div>
+                <span
+                    style={{
+                        fontSize: `var(--font-size-${value})`,
+                        marginRight: "var(--space-s)",
+                    }}
+                >
+                    {key}
+                </span>
+                <span>--font-size-{value}</span>
+            </div>
+            <p>{getCSSVariable(`--font-size-${value}`)}</p>
+        </div>
     );
-}
+};
 
-let bodySizes = [0, -1, -2, -3];
+let headingSizes = {
+    Primary: "4",
+    Secondary: "3",
+    Tertiary: "2",
+    Callout: "1",
+};
+let headings = [];
+let bodySizes = { Body: "0", Caption: "-1", Tag: "-2", Mini: "-3" };
 let bodyCopies = [];
 
-console.log(bodySizes.length);
+for (const [key, value] of Object.entries(headingSizes)) {
+    headings.push(typeDocs(key, value));
+}
 
-for (let j = 0; j++; j < bodySizes.length) {
-    bodyCopies.push(<p>asldkjf</p>);
+for (const [key, value] of Object.entries(bodySizes)) {
+    bodyCopies.push(typeDocs(key, value));
 }
 
 export const typeScale = () => (

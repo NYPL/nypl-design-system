@@ -46,14 +46,14 @@
 @mixin space-stack-page {
     @include space-stack-l;
 
-    @include breakpoint($large) {
+    @include breakpoint($breakpoint-large) {
         @include space-stack-xl;
     }
 
     &--full {
         @include space-stack-xxl;
 
-        @include breakpoint($large) {
+        @include breakpoint($breakpoint-large) {
             @include space-stack-xxxl;
         }
     }
@@ -62,14 +62,14 @@
 @mixin remove-stack-page {
     margin-top: calc(-1 * #{$space-l});
 
-    @include breakpoint($large) {
+    @include breakpoint($breakpoint-large) {
         margin-top: calc(-1 * #{$space-xl});
     }
 
     &--full {
         margin-top: calc(-1 * #{$space-xxl});
 
-        @include breakpoint($large) {
+        @include breakpoint($breakpoint-large) {
             margin-top: calc(-1 * #{$space-xxxl});
         }
     }

@@ -3,7 +3,7 @@
     > *:not(:last-child) {
         @include space-stack-s;
 
-        @include breakpoint($large) {
+        @include breakpoint($breakpoint-large) {
             @include space-stack-none;
 
             // Now, also remove children that are a multiple of 3.
@@ -21,7 +21,7 @@
     }
 
     &--full {
-        @include breakpoint($large) {
+        @include breakpoint($breakpoint-large) {
             > *:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)) {
                 @include space-stack-xxl;
             }
@@ -48,7 +48,7 @@
         display: flex;
         flex-flow: column nowrap;
 
-        @include breakpoint($large) {
+        @include breakpoint($breakpoint-large) {
             flex-flow: row wrap;
 
             > * {
@@ -66,7 +66,7 @@
                 $h-padding: var(--space-s)
             );
 
-            @include breakpoint($large) {
+            @include breakpoint($breakpoint-large) {
                 @include wrapper(
                     $v-padding: var(--space-xxl),
                     $h-padding: var(--space-xxl)

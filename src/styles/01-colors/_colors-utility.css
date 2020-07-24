@@ -13,6 +13,7 @@
     --ui-gray-xxlight: #fafafa;
 
     /** State and link utilities */
+    --ui-success: #077719;
     --ui-error: #97272c;
     --ui-focus: #4181f1;
     --ui-link-primary: #0576d3;

@@ -11,7 +11,7 @@ $sidebar-width-s: calc(25% - calc(4 * #{var(--space-s)}));
         display: flex;
         flex-flow: column nowrap;
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             flex-flow: row wrap;
         }
     }
@@ -20,7 +20,7 @@ $sidebar-width-s: calc(25% - calc(4 * #{var(--space-s)}));
 .content-header {
     @include breakout;
 
-    @include breakpoint($medium) {
+    @include breakpoint($breakpoint-medium) {
         flex: 0 0 100vw;
     }
 }
@@ -34,7 +34,7 @@ $sidebar-width-s: calc(25% - calc(4 * #{var(--space-s)}));
 
     &--with-sidebar-right,
     &--with-sidebar-left {
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             flex: 1 1 $main-width;
             min-width: 0;
         }
@@ -45,14 +45,14 @@ $sidebar-width-s: calc(25% - calc(4 * #{var(--space-s)}));
         flex-flow: column nowrap;
         order: 1;
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             @include space-inline-none;
         }
     }
 }
 
 .content-secondary {
-    @include breakpoint($medium) {
+    @include breakpoint($breakpoint-medium) {
         flex: 0 1 $sidebar-width;
         order: 1;
 

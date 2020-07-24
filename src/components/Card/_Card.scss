@@ -19,7 +19,7 @@
         justify-content: space-between;
         width: 100%;
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             flex-flow: row wrap;
         }
     }
@@ -43,7 +43,7 @@
             max-width: 100%;
         }
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             @include space-stack-none;
             @include space-inline-s;
 
@@ -57,7 +57,7 @@
 
         flex: 1 1;
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             @include space-stack-none;
         }
     }

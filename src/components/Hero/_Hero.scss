@@ -9,7 +9,7 @@
     justify-content: center;
     min-height: 350px;
 
-    @include breakpoint($medium) {
+    @include breakpoint($breakpoint-medium) {
         flex-flow: row nowrap;
     }
 
@@ -24,7 +24,7 @@
             display: inline-block;
         }
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             flex: 0 0 60%;
             max-width: 960px;
         }
@@ -52,7 +52,7 @@
         display: flex;
         flex-flow: column nowrap;
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             flex-flow: row wrap;
         }
 
@@ -77,7 +77,7 @@
                 z-index: -1;
             }
 
-            @include breakpoint($medium) {
+            @include breakpoint($breakpoint-medium) {
                 order: 1;
             }
         }
@@ -85,7 +85,7 @@
         .hero__body-text {
             margin-top: var(--space-xs);
 
-            @include breakpoint($medium) {
+            @include breakpoint($breakpoint-medium) {
                 @include space-inline-xs;
 
                 flex: 1 1 50%;
@@ -100,7 +100,7 @@
             object-fit: cover;
             width: 100%;
 
-            @include breakpoint($medium) {
+            @include breakpoint($breakpoint-medium) {
                 flex: 0 0 250px;
                 order: 3;
             }
