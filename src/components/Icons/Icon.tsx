@@ -3,8 +3,13 @@ import bem from "../../utils/bem";
 
 import { IconRotationTypes, IconNames } from "./IconTypes";
 
+import accessibility_full from "../../../icons/svg/accessibility-full.svg";
+import accessibility_partial from "../../../icons/svg/accessibility-partial.svg";
 import arrow_xsmall from "../../../icons/svg/arrow-xsmall.svg";
 import arrow from "../../../icons/svg/arrow.svg";
+import check from "../../../icons/svg/check.svg";
+import clock from "../../../icons/svg/clock.svg";
+import close from "../../../icons/svg/close.svg";
 import download from "../../../icons/svg/download.svg";
 import headset from "../../../icons/svg/headset.svg";
 import minus from "../../../icons/svg/minus.svg";
@@ -13,8 +18,13 @@ import search_small from "../../../icons/svg/search-small.svg";
 import search from "../../../icons/svg/search.svg";
 
 const allSvgs = {
+    accessibility_full,
+    accessibility_partial,
     arrow_xsmall,
     arrow,
+    check,
+    clock,
+    close,
     download,
     headset,
     minus,
