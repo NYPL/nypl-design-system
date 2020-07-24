@@ -1,25 +1,27 @@
 import * as React from "react";
 
-import Card from "../Card/Card";
 import Icon from "./Icon";
 import { IconNames } from "./IconTypes";
+import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
 
 export default {
     title: "Icon",
     component: Icon,
+    decorators: [(storyFn) => <div style={{ padding: "2%" }}>{storyFn()}</div>],
 };
 
 let icons = [];
 
 for (let icon in IconNames) {
     icons.push(
-        <Card>
-            <Icon name={IconNames[icon]} decorative={true}></Icon>
-        </Card>
+        <li style={{ marginBottom: "10px" }}>
+            <Icon name={IconNames[icon]} decorative={true}></Icon> {icon}
+        </li>
     );
 }
 
-export const Icons = () => <>{icons}</>;
+export const Icons = () => <List type={ListTypes.Unordered}>{icons}</List>;
 
 Icons.story = {
     name: "Icons",
