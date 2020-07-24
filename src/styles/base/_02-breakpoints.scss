@@ -12,10 +12,10 @@
 // Sass' breakpoint() mixin doesn't work without Sass variables.
 // CSS variables expose the breakpoint variables to consumers.
 :root {
-    --breakpoint-small: $breakpoint-small;
-    --breakpoint-medium: $breakpoint-medium;
-    --breakpoint-large: $breakpoint-large;
-    --breakpoint-xl: $breakpoint-xl;
+    --breakpoint-small: 320px;
+    --breakpoint-medium: 600px;
+    --breakpoint-large: 960px;
+    --breakpoint-xl: 1280px;
 }
 
 $breakpoint-small: 320px;

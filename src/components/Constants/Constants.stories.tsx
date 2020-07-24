@@ -100,6 +100,60 @@ const getCSSVariable = function (name: string) {
     return propertyValue;
 };
 
+const typeDocs = function (varPrefix: string, key, value) {
+    let showFontSize =
+        varPrefix === "font-size" ? `var(--${varPrefix}-${value})` : null;
+    return (
+        <div style={{ marginBottom: "2%" }}>
+            <div>
+                <span
+                    style={{
+                        fontSize: showFontSize,
+                        marginRight: "var(--space-s)",
+                    }}
+                >
+                    {key}
+                </span>
+                <span>
+                    --{varPrefix}-{value}
+                </span>
+            </div>
+            <p>{getCSSVariable(`--${varPrefix}-${value}`)}</p>
+        </div>
+    );
+};
+
+const breakpointSizes = {
+    Desktop: "xl",
+    "Tablet Landscape": "large",
+    "Tablet Portrait": "medium",
+    Mobile: "small",
+};
+
+let breakpointDocs = [];
+
+for (const [key, value] of Object.entries(breakpointSizes)) {
+    breakpointDocs.push(typeDocs("breakpoint", key, value));
+}
+
+export const breakpoints = () => (
+    <>
+        <Heading level={1}>Breakpoints</Heading>
+        {breakpointDocs}
+    </>
+);
+
+breakpoints.story = {
+    name: "Breakpoints",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17983%3A60146",
+        },
+    },
+};
+
 export const colorsBrand = () => (
     <>
         <Heading level={1}>Section Colors</Heading>
@@ -342,25 +396,6 @@ typefaces.story = {
     },
 };
 
-const typeDocs = function (key, value) {
-    return (
-        <div style={{ marginBottom: "2%" }}>
-            <div>
-                <span
-                    style={{
-                        fontSize: `var(--font-size-${value})`,
-                        marginRight: "var(--space-s)",
-                    }}
-                >
-                    {key}
-                </span>
-                <span>--font-size-{value}</span>
-            </div>
-            <p>{getCSSVariable(`--font-size-${value}`)}</p>
-        </div>
-    );
-};
-
 let headingSizes = {
     Primary: "4",
     Secondary: "3",
@@ -372,11 +407,11 @@ let bodySizes = { Body: "0", Caption: "-1", Tag: "-2", Mini: "-3" };
 let bodyCopies = [];
 
 for (const [key, value] of Object.entries(headingSizes)) {
-    headings.push(typeDocs(key, value));
+    headings.push(typeDocs("font-size", key, value));
 }
 
 for (const [key, value] of Object.entries(bodySizes)) {
-    bodyCopies.push(typeDocs(key, value));
+    bodyCopies.push(typeDocs("font-size", key, value));
 }
 
 export const typeScale = () => (
