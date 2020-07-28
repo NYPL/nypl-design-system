@@ -397,6 +397,7 @@ for (const [key, value] of Object.entries(spaceVariables)) {
 export const Spacing = () => (
     <>
         <Heading level={1}>Spacing Variables</Heading>
+        <p>1rem in the Design System is equal to 16px.</p>
         <List
             type={ListTypes.Unordered}
             modifiers={["no-list-styling"]}
@@ -472,10 +473,12 @@ export const typeScale = () => (
             style applied out of the box, for example, but the Headline Primary
             style can be applied to any type element on the page.
         </p>
+        <p>1rem in the Design System is equal to 16px.</p>
         <>{headings}</>
 
         <Heading level={2}>Body Sizes</Heading>
         <p>Used for body copy, captions, and secondary captions.</p>
+        <p>1rem in the Design System is equal to 16px.</p>
         <>{bodyCopies}</>
     </>
 );
