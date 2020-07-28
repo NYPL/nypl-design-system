@@ -28,7 +28,6 @@
     },
     "dependencies": {
         "he": "^1.2.0",
-        "postcss-loader": "^3.0.0",
         "react": "^16.13.1",
         "react-router-dom": "^5.2.0",
         "react-uid": "^2.3.0",

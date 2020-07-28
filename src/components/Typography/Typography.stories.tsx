@@ -55,18 +55,6 @@ export const typefaces = () => (
         <p style={{ fontWeight: 500 }}>Medium / 500</p>
         <p style={{ fontWeight: 400 }}>Regular / 400</p>
         <p style={{ fontWeight: 300 }}>Light / 300</p>
-
-        <p>
-            White, percolator aroma, trifecta, doppio blue mountain eu con panna
-            kopi-luwak café au lait. Pumpkin spice galão breve skinny so sugar
-            cream seasonal White, percolator aroma, trifecta, doppio blue
-            mountain eu con panna kopi-luwak café au lait. Pumpkin spice galão
-            breve skinny so sugar cream seasonal White, percolator aroma,
-            trifecta, doppio blue mountain eu con panna kopi-luwak café au lait.
-            Pumpkin spice galão breve con panna kopi-luwak café au lait Pumpkin
-            spice galão breve Pumpkin spicePumpkin spice galão breve con panna
-            kopi-luwak café au lait Pumpkin spice galão breve Pumpkin spice.
-        </p>
     </>
 );
 
@@ -76,7 +64,7 @@ typefaces.story = {
         design: {
             type: "figma",
             url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A0",
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
         },
     },
 };
@@ -125,7 +113,7 @@ typefaces.story = {
         design: {
             type: "figma",
             url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A0",
         },
     },
 };

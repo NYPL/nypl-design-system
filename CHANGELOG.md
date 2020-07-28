@@ -21,6 +21,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removes
 
 -   `--font-size-1p5`, which was originally added as certain designs call out `20px` for headings and others at `18px`. Figma documentation refers to `18px` only as of [0.1.1](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16).
+-   Removes `$color-spotlight`, `$color-your-interests`, `$color-support`, and `$color-help`
+-   Letterspacing property on all body copy
+-   Removes all `$nypl-` prefixed Sass variables
 
 ## 0.8.0
 
@@ -43,11 +46,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 -   Updated the Select component to take in a ref using ForwardRef and also a `name` prop.
-
-### Removes
-
--   Removes `$color-spotlight`, `$color-your-interests`, `$color-support`, and `$color-help`
--   Letterspacing property on all body copy
 
 ## 0.7.0
 

@@ -62,12 +62,12 @@
         }
     }
 
-    &__content + &__ctas {
-        @include space-inline-s;
-    }
-
     &__ctas {
         flex: 0 1 20%;
+    }
+
+    &__content + &__ctas {
+        @include space-inline-s;
     }
 }
 
