@@ -1,13 +1,13 @@
 import * as React from "react";
 import Card from "../Card/Card";
 
-interface uiDocCardProps {
+interface UIDocCardProps {
     /** backgroundColor of the doc card */
     backgroundColor: string;
 }
 
-export default function uiDocCard(
-    props: React.PropsWithChildren<uiDocCardProps>
+export default function UIDocCard(
+    props: React.PropsWithChildren<UIDocCardProps>
 ) {
     const { backgroundColor, children } = props;
 
