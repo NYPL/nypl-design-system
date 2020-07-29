@@ -28,24 +28,21 @@ for (const [key, value] of Object.entries(cssVariables)) {
 let uiVariableDocs = [];
 let grayscaleDocs = [];
 
-for (const [key, value] of Object.entries(uiVariables)) {
-    uiVariableDocs.push(
+const makeUIDocCard = function (key, value, docArray: React.ReactElement[]) {
+    docArray.push(
         <li style={{ textAlign: "center" }}>
             <UIDocCard backgroundColor={value}>
                 {key}: {value}
             </UIDocCard>
         </li>
     );
-}
+};
 
+for (const [key, value] of Object.entries(uiVariables)) {
+    makeUIDocCard(key, value, uiVariableDocs);
+}
 for (const [key, value] of Object.entries(grayScaleVariables)) {
-    grayscaleDocs.push(
-        <li style={{ textAlign: "center" }}>
-            <UIDocCard backgroundColor={value}>
-                {key}: {value}
-            </UIDocCard>
-        </li>
-    );
+    makeUIDocCard(key, value, grayscaleDocs);
 }
 
 export const colorsBrand = () => (
