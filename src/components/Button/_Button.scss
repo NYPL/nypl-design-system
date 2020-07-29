@@ -28,7 +28,6 @@
     &__icon {
         @include icon;
 
-        display: inline-flex;
         fill: currentColor;
 
         &--icon-left {
