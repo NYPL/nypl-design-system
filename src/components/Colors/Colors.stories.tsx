@@ -52,6 +52,11 @@ export const colorsBrand = () => (
     <>
         <Heading level={1}>Section Colors</Heading>
         <Heading level={2}>What's On</Heading>
+        <p>
+            Section colors are branding colors only in use at NYPL. These are
+            used with components that consume theme colors such as
+            `Breadcrumbs`.
+        </p>
         <p>What's On is used for Exhibitions & Events.</p>
         <List
             type={ListTypes.Unordered}
