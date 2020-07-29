@@ -11,7 +11,6 @@ import { ListTypes } from "../List/ListTypes";
 
 export default {
     title: "Colors",
-    decorators: [(storyFn) => <div style={{ padding: "2%" }}>{storyFn()}</div>],
 };
 
 const uiVariables: { [k: string]: string } = {};

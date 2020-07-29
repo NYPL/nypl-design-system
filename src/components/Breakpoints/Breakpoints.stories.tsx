@@ -8,7 +8,6 @@ import { ListTypes } from "../List/ListTypes";
 
 export default {
     title: "Breakpoints",
-    decorators: [(storyFn) => <div style={{ padding: "2%" }}>{storyFn()}</div>],
 };
 
 const breakpointVariables: { [k: string]: string } = {};

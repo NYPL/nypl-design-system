@@ -7,7 +7,6 @@ import Heading from "../Heading/Heading";
 
 export default {
     title: "Typography",
-    decorators: [(storyFn) => <div style={{ padding: "2%" }}>{storyFn()}</div>],
 };
 
 const fontSizeVariables: { [k: string]: string } = {};

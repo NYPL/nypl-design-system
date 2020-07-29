@@ -6,6 +6,10 @@ interface UIDocCardProps {
     backgroundColor: string;
 }
 
+/**
+ * UIDocCard
+ * Component only used for Storybook.
+ */
 export default function UIDocCard(
     props: React.PropsWithChildren<UIDocCardProps>
 ) {

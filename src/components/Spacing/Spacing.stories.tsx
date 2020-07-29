@@ -10,7 +10,6 @@ import { ListTypes } from "../List/ListTypes";
 
 export default {
     title: "Spacing",
-    decorators: [(storyFn) => <div style={{ padding: "2%" }}>{storyFn()}</div>],
 };
 
 const spaceVariables: { [k: string]: string } = {};

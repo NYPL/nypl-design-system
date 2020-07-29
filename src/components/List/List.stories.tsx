@@ -17,7 +17,6 @@ import { ListTypes } from "./ListTypes";
 export default {
     title: "List",
     component: List,
-    decorators: [(storyFn) => <div style={{ padding: "2%" }}>{storyFn()}</div>],
 };
 
 let listStyling;
