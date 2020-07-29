@@ -5,12 +5,13 @@ import cssVariables from "../../helpers/CSSVariablesHelper";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import Heading from "../Heading/Heading";
 import { ListTypes } from "../List/ListTypes";
+import { CSSVariablesInterface } from "../../interfaces";
 
 export default {
     title: "Breakpoints",
 };
 
-const breakpointVariables: { [k: string]: string } = {};
+const breakpointVariables: CSSVariablesInterface = {};
 
 for (const [key, value] of Object.entries(cssVariables)) {
     if (key.startsWith(" --breakpoint")) {

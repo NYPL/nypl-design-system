@@ -4,13 +4,14 @@ import { boolean, text } from "@storybook/addon-knobs";
 import cssVariables from "../../helpers/CSSVariablesHelper";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import Heading from "../Heading/Heading";
+import { CSSVariablesInterface } from "../../interfaces";
 
 export default {
     title: "Typography",
 };
 
-const fontSizeVariables: { [k: string]: string } = {};
-const typefaceVariables: { [k: string]: string } = {};
+const fontSizeVariables: CSSVariablesInterface = {};
+const typefaceVariables: CSSVariablesInterface = {};
 
 for (const [key, value] of Object.entries(cssVariables)) {
     if (key.startsWith(" --font-size")) {

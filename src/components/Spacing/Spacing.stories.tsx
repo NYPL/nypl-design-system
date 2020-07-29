@@ -7,12 +7,13 @@ import Card from "../Card/Card";
 import List from "../List/List";
 import Heading from "../Heading/Heading";
 import { ListTypes } from "../List/ListTypes";
+import { CSSVariablesInterface } from "../../interfaces";
 
 export default {
     title: "Spacing",
 };
 
-const spaceVariables: { [k: string]: string } = {};
+const spaceVariables: CSSVariablesInterface = {};
 
 for (const [key, value] of Object.entries(cssVariables)) {
     if (key.startsWith(" --space")) {
