@@ -1,5 +1,5 @@
 import * as React from "react";
-import { select } from "@storybook/addon-knobs";
+import { select, boolean } from "@storybook/addon-knobs";
 import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs from "./Breadcrumbs";
@@ -33,11 +33,13 @@ const longItems = [
 ];
 
 const sections = ["locations", "books-and-more", "research", "whats-on"];
-
-const breadcrumbsLengths = [shortItems, longItems];
+let showLongItems;
 
 export const breadcrumbs = () => (
     <>
+        {boolean("Show Long Items", false)
+            ? (showLongItems = true)
+            : (showLongItems = false)}
         <Heading level={1}>Breadcrumbs</Heading>
         <p>
             Breadcrumbs background color matches the secondary section color of
@@ -45,17 +47,11 @@ export const breadcrumbs = () => (
             <Link href="?path=/story/colors--colors-brand">here</Link>.
         </p>
         <Breadcrumbs
-            breadcrumbs={select(
-                "Length of beadcrumbs",
-                breadcrumbsLengths,
-                breadcrumbsLengths[0]
-            )}
+            breadcrumbs={showLongItems ? longItems : shortItems}
             modifiers={[select("Section", sections, sections[0])]}
         />
     </>
 );
-
-// export const longBreadcrumbs = () => <Breadcrumbs breadcrumbs={longItems} />;
 
 breadcrumbs.story = {
     name: "Breadcrumbs",
