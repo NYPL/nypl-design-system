@@ -6,12 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## Prerelease
+## 0.9.0
 
-### Changes
+### Breaking Changes
 
+-   Removes `$color-spotlight`, `$color-your-interests`, `$color-support`, and `$color-help`
+-   Removes all `$nypl-` prefixed Sass variables
 -   `$color-success` is now `--ui-success`.
 -   Breakpoint variables are now prefixed with `breakpoint`.
+-   Type sizing variables are now prefixed with `font-size`.
+-   Typeface variables are now prefixed with `typeface`.
+-   Removes `--font-size-1p5`, which was originally added as certain designs call out `20px` for headings and others at `18px`. Figma documentation refers to `18px` only as of [0.1.1](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16).
 
 ### Adds
 
@@ -20,10 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Removes
 
--   `--font-size-1p5`, which was originally added as certain designs call out `20px` for headings and others at `18px`. Figma documentation refers to `18px` only as of [0.1.1](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16).
--   Removes `$color-spotlight`, `$color-your-interests`, `$color-support`, and `$color-help`
 -   Letterspacing property on all body copy
--   Removes all `$nypl-` prefixed Sass variables
 
 ## 0.8.0
 
