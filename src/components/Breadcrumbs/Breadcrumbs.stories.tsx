@@ -32,7 +32,12 @@ const longItems = [
     },
 ];
 
-const sections = ["locations", "books-and-more", "research", "whats-on"];
+const sections = [
+    "nypl--books-and-more",
+    "nypl--locations",
+    "nypl--research",
+    "nypl--whats-on",
+];
 let showLongItems;
 
 export const breadcrumbs = () => (
@@ -46,10 +51,9 @@ export const breadcrumbs = () => (
             the website section they're placed into. See more about brand colors{" "}
             <Link href="?path=/story/colors--colors-brand">here</Link>.
         </p>
-        <Breadcrumbs
-            breadcrumbs={showLongItems ? longItems : shortItems}
-            modifiers={[select("Section", sections, sections[0])]}
-        />
+        <div className={select("Section", sections, sections[0])}>
+            <Breadcrumbs breadcrumbs={showLongItems ? longItems : shortItems} />
+        </div>
     </>
 );
 

@@ -67,19 +67,19 @@ $break-breadcrumbs-mobile: max-width 599px;
         color: var(--ui-white);
     }
 
-    &--books-and-more {
+    .nypl--books-and-more & {
         background-color: var(--section-books-and-more-secondary);
     }
 
-    &--locations {
+    .nypl--locations & {
         background-color: var(--section-locations-secondary);
     }
 
-    &--research {
+    .nypl--research & {
         background-color: var(--section-research-secondary);
     }
 
-    &--whats-on {
+    .nypl--whats-on & {
         background-color: var(--section-whats-on-secondary);
     }
 }
