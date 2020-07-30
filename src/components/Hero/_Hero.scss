@@ -1,5 +1,5 @@
 .hero {
-    background-color: $gray-warm-xlight;
+    background-color: var(--ui-gray-warm-xlight);
 }
 
 .hero--primary {
@@ -9,29 +9,29 @@
     justify-content: center;
     min-height: 350px;
 
-    @include breakpoint($medium) {
+    @include breakpoint($breakpoint-medium) {
         flex-flow: row nowrap;
     }
 
     .hero__content {
-        background-color: $black;
-        color: $white;
+        background-color: var(--ui-black);
+        color: var(--ui-white);
         flex: 0 0 100%;
-        padding: $space-m $space-l;
+        padding: var(--space-m) var(--space-l);
 
         a {
             color: inherit;
             display: inline-block;
         }
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             flex: 0 0 60%;
             max-width: 960px;
         }
 
         + .placeholder {
             flex: 0 1 200px;
-            margin-left: $space-xl;
+            margin-left: var(--space-xl);
         }
     }
 
@@ -52,23 +52,23 @@
         display: flex;
         flex-flow: column nowrap;
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             flex-flow: row wrap;
         }
 
         .hero__heading {
             @include space-stack-none;
 
-            background-color: black;
-            color: white;
+            background-color: var(--ui-black);
+            color: var(--ui-white);
             flex: 1 1 100%;
             margin-top: 0;
-            padding-bottom: $space-xxs;
+            padding-bottom: var(--space-xxs);
             position: relative;
             z-index: 0;
 
             &::before {
-                background-color: $black;
+                background-color: var(--ui-black);
                 content: "";
                 height: 100%;
                 left: -2000px;
@@ -77,15 +77,15 @@
                 z-index: -1;
             }
 
-            @include breakpoint($medium) {
+            @include breakpoint($breakpoint-medium) {
                 order: 1;
             }
         }
 
         .hero__body-text {
-            margin-top: $space-xs;
+            margin-top: var(--space-xs);
 
-            @include breakpoint($medium) {
+            @include breakpoint($breakpoint-medium) {
                 @include space-inline-xs;
 
                 flex: 1 1 50%;
@@ -100,7 +100,7 @@
             object-fit: cover;
             width: 100%;
 
-            @include breakpoint($medium) {
+            @include breakpoint($breakpoint-medium) {
                 flex: 0 0 250px;
                 order: 3;
             }
@@ -115,7 +115,7 @@
             .hero__content {
                 .hero__heading {
                     &::before {
-                        background-color: $color-research;
+                        background-color: var(--section-research-primary);
                     }
                 }
             }

@@ -29,15 +29,15 @@
 /// Outer container mixin for large screens
 @mixin wrapper(
     $container-max-width: $max-width,
-    $outer-container-break: $small,
+    $outer-container-break: $breakpoint-small,
     $v-margin: 0,
     $v-padding: 0,
-    $h-padding: $space
+    $h-padding: var(--space)
 ) {
-    max-width: #{$container-max-width};
-    width: 100%;
     margin: #{$v-margin} auto;
+    max-width: #{$container-max-width};
     padding: #{$v-padding} #{$h-padding};
+    width: 100%;
 
     @include breakpoint(max-width $container-max-width) {
         padding-left: calc(
@@ -55,7 +55,7 @@
 
 /// Use the breakout mixin for elements that should be edge-to-edge
 /// Even when a parent container uses the wrapper mixin
-@mixin breakout($v-padding: $space) {
+@mixin breakout($v-padding: var(--space)) {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     padding-left: calc(#{$v-padding} + calc(-50vw + 50%));

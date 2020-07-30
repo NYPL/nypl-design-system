@@ -2,41 +2,41 @@
     @include space-inset-xs;
     @include space-stack-xs;
 
-    border: 1px solid $gray-medium;
+    border: 1px solid var(--ui-gray-medium);
     width: 100%;
 
     &::-webkit-input-placeholder {
-        color: $gray-dark;
+        color: var(--ui-gray-dark);
     }
 
     &:-moz-placeholder {
-        color: $gray-dark;
+        color: var(--ui-gray-dark);
     }
 
     &:-ms-input-placeholder {
-        color: $gray-dark;
+        color: var(--ui-gray-dark);
     }
 
     &:hover {
-        border-color: darken($gray-medium, 10%);
+        border-color: var(--ui-gray-dark);
     }
 
     &:disabled {
-        background-color: $gray-xxlight;
-        color: $gray-xdark;
+        background-color: var(--ui-gray-xxlight);
+        color: var(--ui-gray-xdark);
     }
 
     &:active,
     &:focus,
     &:active:hover,
     &:focus:hover {
-        border: 1px solid $form-focus;
+        border: 1px solid var(--ui-focus);
         box-shadow: 0;
-        outline: 1px solid $form-focus;
+        outline: 1px solid var(--ui-focus);
     }
 
     &--error {
-        border: 1px solid $ui-error;
+        border: 1px solid var(--ui-error);
     }
 }
 
