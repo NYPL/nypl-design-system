@@ -1,8 +1,9 @@
 .helper-text {
-    @include type-scale(-1);
     @include space-stack-xs;
 
+    font-size: var(--font-size--1);
+
     &--error {
-        color: $ui-error;
+        color: var(--ui-error);
     }
 }

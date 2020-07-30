@@ -8,7 +8,6 @@ import { ListTypes } from "../List/ListTypes";
 export default {
     title: "Icon",
     component: Icon,
-    decorators: [(storyFn) => <div style={{ padding: "2%" }}>{storyFn()}</div>],
 };
 
 let icons = [];

@@ -1,12 +1,12 @@
-$color-place-holder: $gray-light;
-
 .placeholder {
+    --color-place-holder: var(--ui-gray-light);
+
     @include space-stack-page;
     @include space-inset-s;
 
     align-items: center;
-    border: 4px dashed $color-place-holder;
-    color: $color-place-holder;
+    border: 4px dashed var(--color-place-holder);
+    color: var(--color-place-holder);
     display: flex;
     font-size: 3rem;
     justify-content: center;

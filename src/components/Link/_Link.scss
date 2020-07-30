@@ -1,52 +1,48 @@
-/// Link
-$color-link: $ui-link-primary;
-$color-link--hover: $ui-link-secondary;
-
 @mixin link {
-    color: $color-link;
+    color: var(--ui-link-primary);
 
     &--no-underline {
         text-decoration: none;
     }
 
     &:hover {
-        color: $color-link--hover;
+        color: var(--ui-link-secondary);
     }
 
     &--dark-background {
-        color: $white;
+        color: var(--ui-white);
 
         &:hover {
-            color: $gray-light;
+            color: var(--ui-gray-light);
         }
     }
 }
 
-@mixin more-link($color: $color-link, $color--hover: $color-link--hover) {
+@mixin more-link {
     align-items: center;
-    color: $color-link;
+    color: var(--ui-link-primary);
     display: inline-flex;
     justify-content: space-between;
     text-decoration: underline;
 
     &:hover {
-        color: $color-link--hover;
+        color: var(--ui-link-secondary);
         text-decoration: underline;
     }
 
     &__icon {
         @include icon;
 
-        height: $space;
+        height: var(--space);
         text-decoration: none;
-        width: $space;
+        width: var(--space);
 
         &--left {
-            margin-right: $space-xxs;
+            margin-right: var(--space-xxs);
         }
 
         &--right {
-            margin-left: $space-xxs;
+            margin-left: var(--space-xxs);
         }
     }
 }

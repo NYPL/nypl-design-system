@@ -2,11 +2,11 @@
     @include space-stack-s;
 
     align-items: flex-start;
-    border: 1px solid $gray-light;
+    border: 1px solid var(--ui-gray-light);
     border-radius: 5px;
     display: flex;
     flex-flow: column wrap;
-    padding: $space $space-l;
+    padding: var(--space) var(--space-l);
 
     &__heading,
     &__footer {
@@ -19,20 +19,20 @@
         justify-content: space-between;
         width: 100%;
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             flex-flow: row wrap;
         }
     }
 
     &__columns + &__footer {
-        margin-top: $space-xs;
+        margin-top: var(--space-xs);
     }
 
     &__image {
         @include space-stack-s;
 
         align-items: center;
-        background-color: $gray-xlight;
+        background-color: var(--ui-gray-xlight);
         display: flex;
         flex: 0 0 150px;
         height: 150px;
@@ -43,7 +43,7 @@
             max-width: 100%;
         }
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             @include space-stack-none;
             @include space-inline-s;
 
@@ -53,12 +53,11 @@
     }
 
     &__content {
-        @include space-inline-s;
         @include space-stack-s;
 
         flex: 1 1;
 
-        @include breakpoint($medium) {
+        @include breakpoint($breakpoint-medium) {
             @include space-stack-none;
         }
     }
@@ -66,10 +65,18 @@
     &__ctas {
         flex: 0 1 20%;
     }
+
+    &__content + &__ctas {
+        @include space-inline-s;
+    }
 }
 
 // Stories-only styles
 .sb-show-main {
+    .var-docs {
+        padding: 0 0 var(--space) 0;
+    }
+
     .example-card {
         .card__content {
             > * {

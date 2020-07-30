@@ -1,6 +1,11 @@
 {
     "extends": "stylelint-config-recommended",
-    "plugins": ["stylelint-prettier", "stylelint-scss", "stylelint-order"],
+    "plugins": [
+        "stylelint-prettier",
+        "stylelint-scss",
+        "stylelint-order",
+        "stylelint-value-no-unknown-custom-properties"
+    ],
     "rules": {
         "at-rule-name-space-after": "always",
         "at-rule-no-unknown": null,
@@ -12,6 +17,18 @@
                     "first-nested"
                 ],
                 "ignore": ["after-comment"]
+            }
+        ],
+        "csstools/value-no-unknown-custom-properties": [
+            true,
+            {
+                "importFrom": [
+                    "src/styles/01-colors/_colors-brand.css",
+                    "src/styles/01-colors/_colors-utility.css",
+                    "src/styles/02-typography/_typefaces.css",
+                    "src/styles/02-typography/_type-scale.css",
+                    "src/styles/03-space/_space.css"
+                ]
             }
         ],
         "declaration-empty-line-before": [
