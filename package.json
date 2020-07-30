@@ -29,6 +29,7 @@
     "dependencies": {
         "he": "^1.2.0",
         "react": "^16.13.1",
+        "react-autosuggest": "^10.0.2",
         "react-router-dom": "^5.2.0",
         "react-uid": "^2.3.0",
         "system-font-css": "^2.0.2",
