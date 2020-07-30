@@ -3,67 +3,83 @@ $break-breadcrumbs-mobile: max-width 599px;
 .breadcrumbs {
     @include breakout;
 
-    background-color: var(--section-research-secondary);
+    background-color: var(--ui-black);
     padding-bottom: var(--space-xs);
     padding-top: var(--space-xs);
-}
 
-.breadcrumbs__list {
-    @include list-reset;
-    @include wrapper;
+    &__item {
+        @include space-inline-xxs;
 
-    color: var(--ui-white);
-}
+        align-items: center;
+        display: inline;
+        font-size: var(--font-size--1);
+        line-height: 1.5;
+        position: relative;
+        word-break: break-word;
 
-.breadcrumbs__item {
-    @include space-inline-xxs;
+        &:not(:last-child) {
+            &::after {
+                content: "/";
+                padding-left: var(--space-xxs);
+            }
 
-    align-items: center;
-    display: inline;
-    font-size: var(--font-size--1);
-    line-height: 1.5;
-    position: relative;
-    word-break: break-word;
-
-    &:not(:last-child) {
-        &::after {
-            content: "/";
-            padding-left: var(--space-xxs);
+            @include breakpoint($break-breadcrumbs-mobile) {
+                display: none;
+            }
         }
 
-        @include breakpoint($break-breadcrumbs-mobile) {
+        &:last-child {
+            @include breakpoint($break-breadcrumbs-mobile) {
+                padding-left: var(--space-m);
+            }
+        }
+    }
+
+    &__icon {
+        @include icon;
+
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: rotate(90deg) translateX(-50%);
+
+        @include breakpoint($breakpoint-medium) {
             display: none;
         }
     }
 
-    &:last-child {
-        @include breakpoint($break-breadcrumbs-mobile) {
-            padding-left: var(--space-m);
-        }
+    &__link,
+    &__link:link,
+    &__link:visited,
+    &__link:focus {
+        color: inherit;
+        text-decoration: none;
     }
-}
 
-.breadcrumbs__icon {
-    @include icon;
-
-    left: 0;
-    position: absolute;
-    top: 50%;
-    transform: rotate(90deg) translateX(-50%);
-
-    @include breakpoint($breakpoint-medium) {
-        display: none;
+    &__link:hover {
+        text-decoration: underline;
     }
-}
 
-.breadcrumbs__link,
-.breadcrumbs__link:link,
-.breadcrumbs__link:visited,
-.breadcrumbs__link:focus {
-    color: inherit;
-    text-decoration: none;
-}
+    &__list {
+        @include list-reset;
+        @include wrapper;
 
-.breadcrumbs__link:hover {
-    text-decoration: underline;
+        color: var(--ui-white);
+    }
+
+    &--books-and-more {
+        background-color: var(--section-books-and-more-secondary);
+    }
+
+    &--locations {
+        background-color: var(--section-locations-secondary);
+    }
+
+    &--research {
+        background-color: var(--section-research-secondary);
+    }
+
+    &--whats-on {
+        background-color: var(--section-whats-on-secondary);
+    }
 }

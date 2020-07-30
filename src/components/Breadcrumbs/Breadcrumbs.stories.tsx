@@ -1,10 +1,15 @@
 import * as React from "react";
+import { select } from "@storybook/addon-knobs";
+import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs from "./Breadcrumbs";
+import Heading from "../Heading/Heading";
+import Link from "../Link/Link";
 
 export default {
     title: "Breadcrumb",
     component: Breadcrumbs,
+    decorators: [withDesign],
 };
 
 const shortItems = [
@@ -27,5 +32,38 @@ const longItems = [
     },
 ];
 
-export const shortBreadcrumbs = () => <Breadcrumbs breadcrumbs={shortItems} />;
-export const longBreadcrumbs = () => <Breadcrumbs breadcrumbs={longItems} />;
+const sections = ["locations", "books-and-more", "research", "whats-on"];
+
+const breadcrumbsLengths = [shortItems, longItems];
+
+export const breadcrumbs = () => (
+    <>
+        <Heading level={1}>Breadcrumbs</Heading>
+        <p>
+            Breadcrumbs background color matches the secondary section color of
+            the website section they're placed into. See more about brand colors{" "}
+            <Link href="?path=/story/colors--colors-brand">here</Link>.
+        </p>
+        <Breadcrumbs
+            breadcrumbs={select(
+                "Length of beadcrumbs",
+                breadcrumbsLengths,
+                breadcrumbsLengths[0]
+            )}
+            modifiers={[select("Section", sections, sections[0])]}
+        />
+    </>
+);
+
+// export const longBreadcrumbs = () => <Breadcrumbs breadcrumbs={longItems} />;
+
+breadcrumbs.story = {
+    name: "Breadcrumbs",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10766%3A1031",
+        },
+    },
+};
