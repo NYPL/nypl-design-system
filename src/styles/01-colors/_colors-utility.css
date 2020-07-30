@@ -1,0 +1,21 @@
+:root {
+    --ui-black: black;
+    --ui-white: white;
+
+    /** Grayscale */
+    --ui-gray-xdark: #424242;
+    --ui-gray-dark: #616161;
+    --ui-gray-medium: #bdbdbd;
+    --ui-gray-light: #e0e0e0;
+    --ui-gray-warm-light: #efedeb;
+    --ui-gray-xlight: #f5f5f5;
+    --ui-gray-warm-xlight: #f8f8f7;
+    --ui-gray-xxlight: #fafafa;
+
+    /** State and link utilities */
+    --ui-success: #077719;
+    --ui-error: #97272c;
+    --ui-focus: #4181f1;
+    --ui-link-primary: #0576d3;
+    --ui-link-secondary: #004b98;
+}

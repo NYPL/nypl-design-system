@@ -1,41 +1,15 @@
 // Create a mixin for paragraph styles that can be implemented
 // in components with other classnames.
-@mixin paragraph($margin: 0 0 $space) {
+@mixin paragraph($margin: 0 0 var(--space)) {
     margin: #{$margin};
 }
 
-@mixin body-copy {
-    @include type-scale(0);
-
-    font-family: $font-body;
-    font-weight: 300;
-    letter-spacing: 0.0175em;
-    line-height: 1.5;
-}
-
-@mixin body-small {
-    @include type-scale(-1);
-
-    font-family: $font-body;
-    letter-spacing: -0.017142857em;
-    line-height: 1.428571429em;
-}
-
-@mixin body-small-bold {
-    @include body-small;
-
-    font-weight: 700;
-}
-
 body {
-    @include body-copy;
-
-    color: $black;
-}
-
-.caption,
-.credit-line {
-    @include type-scale(-1);
+    color: var(--ui-black);
+    font-family: var(--typeface-body);
+    font-size: var(--font-size-0);
+    font-weight: 300;
+    line-height: 1.5;
 }
 
 p,
@@ -44,7 +18,7 @@ p,
 }
 
 .blockquote {
-    border-left: solid 3px $gray-light;
+    border-left: solid 3px var(--ui-gray-light);
     font-style: italic;
     margin-left: 1em;
     padding-left: 1em;
@@ -58,26 +32,6 @@ p,
 
 .long-description {
     @include screenreader-only();
-}
-
-.unordered-list {
-    @include list-reset;
-
-    &__list-container {
-        &--scroll {
-            max-height: 350px;
-            overflow-y: auto;
-        }
-    }
-
-    &__list-iconLink {
-        color: $gray-medium;
-        list-style: initial;
-    }
-
-    &__list-item {
-        list-style-position: inside;
-    }
 }
 
 .text-long {

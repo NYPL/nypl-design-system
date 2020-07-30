@@ -11,29 +11,29 @@
 }
 
 @mixin space-inline-xxs {
-    margin-right: $space-xxs;
+    margin-right: var(--space-xxs);
 }
 
 @mixin space-inline-xs {
-    margin-right: $space-xs;
+    margin-right: var(--space-xs);
 }
 
 @mixin space-inline-s {
-    margin-right: $space-s;
+    margin-right: var(--space-s);
 }
 
 @mixin space-inline-m {
-    margin-right: $space-m;
+    margin-right: var(--space-m);
 }
 
 @mixin space-inline-l {
-    margin-right: $space-l;
+    margin-right: var(--space-l);
 }
 
 @mixin space-inline-xl {
-    margin-right: $space-xl;
+    margin-right: var(--space-xl);
 }
 
 @mixin space-inline-xxl {
-    margin-right: $space-xxl;
+    margin-right: var(--space-xxl);
 }

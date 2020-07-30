@@ -9,21 +9,21 @@
 }
 
 @mixin space-inset-xs {
-    padding: $space-xs;
+    padding: var(--space-xs);
 }
 
 @mixin space-inset-s {
-    padding: $space-s;
+    padding: var(--space-s);
 }
 
 @mixin space-inset-m {
-    padding: $space-m;
+    padding: var(--space-m);
 }
 
 @mixin space-inset-l {
-    padding: $space-l;
+    padding: var(--space-l);
 }
 
 @mixin space-inset-xl {
-    padding: $space-xl;
+    padding: var(--space-xl);
 }
