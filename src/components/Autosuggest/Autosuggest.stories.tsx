@@ -13,57 +13,67 @@ export default {
     component: Autosuggest,
 };
 
+/**
+ * autosuggestLibrary
+ * An example component that internally uses the `react-autosuggest` library.
+ * The list is made up of objects with `label` key. It adds a Label, Input, and
+ * HelperErrorText as elements for the autosuggest component to render.
+ */
 export const autosuggestLibrary = () => {
     const [value, setValue] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const libraryList = [
-        { label: "SimplyE", value: "eb" },
-        { label: "53rd Street Branch", value: "ft" },
-        { label: "Aguilar Branch", value: "ag" },
-        { label: "Allerton Branch", value: "al" },
-        { label: "Battery Park City", value: "bt" },
-        { label: "Baychester Branch", value: "ba" },
-        { label: "Belmont Branch", value: "be" },
-        { label: "South Beach Branch", value: "sb" },
-        { label: "St. Agnes", value: "sa" },
-        { label: "Sedgwick Branch", value: "sd" },
-        { label: "Seward Park Branch", value: "se" },
-        { label: "Soundview Branch", value: "sv" },
-        { label: "St. George Library Center", value: "sg" },
+        { label: "SimplyE" },
+        { label: "53rd Street Branch" },
+        { label: "Aguilar Branch" },
+        { label: "Allerton Branch" },
+        { label: "Battery Park City" },
+        { label: "Baychester Branch" },
+        { label: "Belmont Branch" },
+        { label: "South Beach Branch" },
+        { label: "St. Agnes" },
+        { label: "Sedgwick Branch" },
+        { label: "Seward Park Branch" },
+        { label: "Soundview Branch" },
+        { label: "St. George Library Center" },
     ];
     const isRequired = true;
-    const helperText = "Write something.";
-    const renderInputComponent = (inputProps) => {
+    /**
+     *
+     */
+    const renderInputComponent = (
+        inputProps: React.HTMLProps<HTMLInputElement>
+    ) => {
         return (
             <>
                 <Label
-                    htmlFor="input-autosuggest"
-                    id="input-autosuggest-label"
+                    htmlFor="library-autosuggest"
+                    id="library-autosuggest-label"
                     optReqFlag={isRequired ? "Required" : ""}
                 >
-                    <span>Some label</span>
+                    Home Library
                 </Label>
                 <Input
                     type={InputTypes.text}
-                    id="input-autosuggest"
+                    id="library-autosuggest"
                     aria-required={isRequired}
-                    aria-labelledby="input-autosuggest-label"
+                    aria-labelledby="library-autosuggest-label id-helperText"
                     attributes={{
-                        name: "fieldName",
+                        name: "homeLibraryName",
                         ...inputProps,
                     }}
                 />
-                {helperText && (
-                    <HelperErrorText id="id-helperText" isError={false}>
-                        {helperText}
-                    </HelperErrorText>
-                )}
+                <HelperErrorText id="id-helperText" isError={false}>
+                    Select your home library. Start by typing the name of the
+                    library.
+                </HelperErrorText>
             </>
         );
     };
 
     const onChange = (event, { newValue }) => setValue(newValue);
-    // Teach Autosuggest how to calculate suggestions for any given input value.
+    // Tell autosuggest to suggest by the first letter of the library. This can
+    // be manipulated.
     const getSuggestions = (value, list) => {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
@@ -80,15 +90,14 @@ export const autosuggestLibrary = () => {
     // updated. `getSuggestions` must be passed.
     const onSuggestionsFetchRequested = ({ value }) =>
         setSuggestions(getSuggestions(value, libraryList));
-
+    // Clear out any suggestions.
     const onSuggestionsClearRequested = () => setSuggestions([]);
 
     // When suggestion is clicked, Autosuggest needs to populate the input
-    // based on the clicked suggestion. We want the label from each object.
+    // based on the clicked suggestion. We want the label from that object.
     const getSuggestionValue = (suggestion) => suggestion.label;
-    // How we want to render the suggestion.
+    // Render every suggestion in a span.
     const renderSuggestion = (suggestion) => <span>{suggestion.label}</span>;
-
     // Autosuggest will pass through all these props to the Input component.
     const inputProps = {
         placeholder: "Type a library name",
@@ -109,6 +118,12 @@ export const autosuggestLibrary = () => {
     );
 };
 
+/**
+ * autosuggestFish
+ * An example component that internally uses the `react-autosuggest` library.
+ * The list is made up of strings. It adds an Input element for the autosuggest
+ * component to render and renders the Label separately.
+ */
 export const autosuggestFish = () => {
     const [value, setValue] = useState("");
     const [suggestions, setSuggestions] = useState([]);
@@ -127,37 +142,29 @@ export const autosuggestFish = () => {
     ];
     const renderInputComponent = (inputProps) => {
         return (
-            <>
-                <Input
-                    type={InputTypes.text}
-                    id="input-autosuggest"
-                    aria-required={false}
-                    aria-labelledby="input-autosuggest-label"
-                    attributes={{
-                        name: "favoriteFish",
-                        ...inputProps,
-                    }}
-                />
-            </>
+            <Input
+                type={InputTypes.text}
+                id="fish-autosuggest"
+                aria-required={false}
+                aria-labelledby="fish-autosuggest-label"
+                attributes={{
+                    name: "favoriteFish",
+                    ...inputProps,
+                }}
+            />
         );
     };
-
     const onChange = (event, { newValue }) => setValue(newValue);
-
-    // Use your imagination to render suggestions.
+    // Just adding a simple icon to show how suggestions can be rendered.
     const renderSuggestion = (suggestion) => (
         <span>
             {suggestion}
             <Icon name={IconNames["check"]} decorative={true}></Icon>
         </span>
     );
-
-    // When suggestion is clicked, Autosuggest needs to populate the input
-    // based on the clicked suggestion. Teach Autosuggest how to calculate the
-    // input value for every given suggestion.
     const getSuggestionValue = (suggestion) => suggestion;
-
-    // Teach Autosuggest how to calculate suggestions for any given input value.
+    // Here, we want to filter suggestions if we can the user-typed string in
+    // any of the suggestion string list.
     const getSuggestions = (value, list) => {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
@@ -166,15 +173,9 @@ export const autosuggestFish = () => {
             ? []
             : list.filter((l) => l.indexOf(inputValue) !== -1);
     };
-
-    // Autosuggest will call this function every time suggestions need to be
-    // updated. `getSuggestions` must be passed.
     const onSuggestionsFetchRequested = ({ value }) =>
         setSuggestions(getSuggestions(value, fishList));
-
     const onSuggestionsClearRequested = () => setSuggestions([]);
-
-    // Autosuggest will pass through all these props to the Input component.
     const inputProps = {
         placeholder: "Try the letter 'c' or 'tr'",
         value,
@@ -182,15 +183,21 @@ export const autosuggestFish = () => {
     };
 
     return (
-        <Autosuggest
-            renderSuggestion={renderSuggestion}
-            getSuggestionValue={getSuggestionValue}
-            getSuggestions={getSuggestions}
-            suggestions={suggestions}
-            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-            onSuggestionsClearRequested={onSuggestionsClearRequested}
-            inputProps={inputProps}
-            renderInputComponent={renderInputComponent}
-        />
+        <>
+            <Label htmlFor="fish-autosuggest" id="fish-autosuggest-label">
+                Fish in Animal Crossing
+            </Label>
+            <Autosuggest
+                renderSuggestion={renderSuggestion}
+                getSuggestionValue={getSuggestionValue}
+                getSuggestions={getSuggestions}
+                suggestions={suggestions}
+                onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                onSuggestionsClearRequested={onSuggestionsClearRequested}
+                inputProps={inputProps}
+                renderInputComponent={renderInputComponent}
+                highlightFirstSuggestion={true}
+            />
+        </>
     );
 };
