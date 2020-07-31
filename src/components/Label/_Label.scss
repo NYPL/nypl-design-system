@@ -7,8 +7,7 @@
     justify-content: space-between;
 
     &__required-helper {
-        @include type-scale(-1);
-
+        font-size: var(--type-size--1);
         font-weight: 300;
     }
 }

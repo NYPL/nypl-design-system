@@ -6,9 +6,6 @@ import Modal from "./Modal";
 export default {
     title: "Modal",
     component: Modal,
-    decorators: [
-        (storyFn) => <div style={{ padding: "1rem" }}>{storyFn()}</div>,
-    ],
 };
 
 class ModalStory extends React.Component<{}, { isModalOpen: boolean }> {

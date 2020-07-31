@@ -21,7 +21,7 @@ module.exports = {
         globalObject: "this",
     },
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json", ".scss"],
+        extensions: [".ts", ".tsx", ".js", ".json", ".scss", ".css"],
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -51,7 +51,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.scss?$/,
+                test: /\.scss?$/ || /\.css?$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {

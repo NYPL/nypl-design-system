@@ -14,6 +14,6 @@
     }
 
     &__all-editions {
-        padding: $space-xxs $space;
+        padding: var(--space-xxs) var(--space);
     }
 }

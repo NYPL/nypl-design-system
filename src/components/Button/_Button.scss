@@ -28,49 +28,44 @@
     &__icon {
         @include icon;
 
-        display: inline-flex;
         fill: currentColor;
 
         &--icon-left {
-            margin-right: $space-xs;
+            margin-right: var(--space-xs);
         }
 
         &--icon-right {
-            margin-left: $space-xs;
+            margin-left: var(--space-xs);
         }
     }
 }
 
-@mixin button--filled(
-    $bg: $ui-link-primary,
-    $color: $white,
-    $hoverBg: $ui-link-secondary
-) {
+@mixin button--filled {
     @include button-base;
 
-    background-color: $bg;
+    background-color: var(--ui-link-primary);
     border: none;
-    color: $color;
+    color: var(--ui-white);
 
     &:visited {
-        color: $color;
+        color: var(--ui-white);
     }
 
     &:hover {
-        background-color: $hoverBg;
+        background-color: var(--ui-link-secondary);
     }
 
     &:disabled {
-        background-color: $gray-light;
-        color: $gray-dark;
+        background-color: var(--ui-gray-light);
+        color: var(--ui-gray-dark);
     }
 }
 
 @mixin button--outline {
     @include button-base;
 
-    background-color: $white;
-    border: 1px solid $gray-light;
+    background-color: var(--ui-white);
+    border: 1px solid var(--ui-gray-light);
     color: inherit;
 
     &:visited {
@@ -78,13 +73,13 @@
     }
 
     &:hover {
-        background-color: $gray-xxlight;
+        background-color: var(--ui-gray-xxlight);
     }
 }
 
 @mixin button--link {
     background-color: transparent;
-    color: $ui-link-primary;
+    color: var(--ui-link-primary);
     text-decoration: underline;
 
     &--no-underline {
@@ -93,7 +88,7 @@
 
     &:hover {
         background-color: transparent;
-        color: $ui-link-secondary;
+        color: var(--ui-link-secondary);
     }
 }
 
