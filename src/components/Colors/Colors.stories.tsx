@@ -1,9 +1,10 @@
 import * as React from "react";
 
-import { boolean, text } from "@storybook/addon-knobs";
+import { boolean, text, select } from "@storybook/addon-knobs";
 import cssVariables from "../../helpers/CSSVariablesHelper";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import UIDocCard from "./UIDocCard";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import Card from "../Card/Card";
 import List from "../List/List";
 import Heading from "../Heading/Heading";
@@ -45,16 +46,59 @@ for (const [key, value] of Object.entries(grayScaleVariables)) {
     makeUIDocCard(key, value, grayscaleDocs);
 }
 
+const sections = [
+    "nypl--books-and-more",
+    "nypl--locations",
+    "nypl--research",
+    "nypl--whats-on",
+];
+
+const sectionDefault = sections[3];
+
 export const colorsBrand = () => (
     <>
         <Heading level={1}>Section Colors</Heading>
         <Heading level={2}>What's On</Heading>
         <p>
-            Section colors are branding colors only in use at NYPL. These are
-            used with components that consume theme colors such as
-            `Breadcrumbs`.
+            Section colors are branding colors only in use at NYPL. Certain
+            components, such as Breadcrumbs below, change color based on the
+            modifier applied the body tag.
         </p>
-        <p>What's On is used for Exhibitions & Events.</p>
+        <div
+            className={
+                select("Section", sections, sectionDefault) +
+                " storybook-breadcrumbsExample"
+            }
+            style={{ marginBottom: "2%", display: "flex", width: "100%" }}
+        >
+            <Breadcrumbs
+                breadcrumbs={[
+                    { url: "#", text: "Parent" },
+                    { url: "#", text: "Home" },
+                ]}
+            />
+            <div
+                style={{
+                    flex: "1 1 50%",
+                    backgroundColor: "var(--ui-gray-xlight)",
+                    padding: "2%",
+                }}
+            >
+                <pre>
+                    <code>
+                        {"<div className="}
+                        {"'" +
+                            select("Section", sections, sectionDefault) +
+                            "'"}
+                        {">\n"}
+                        {"    <Breadcrumbs...></Breadcrumbs>"}
+                        {"\n"}
+                        {"</div>"}
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <p>What's On is used for Events, Exhibitions & Audio Guides.</p>
         <List
             type={ListTypes.Unordered}
             modifiers={["no-list-styling"]}
