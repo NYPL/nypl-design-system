@@ -53,6 +53,10 @@ export const autosuggestLibrary = () => {
                 >
                     Home Library
                 </Label>
+                <HelperErrorText id="id-helperText" isError={false}>
+                    Select your home library. Start by typing the name of the
+                    library.
+                </HelperErrorText>
                 <Input
                     type={InputTypes.text}
                     id="library-autosuggest"
@@ -63,10 +67,6 @@ export const autosuggestLibrary = () => {
                         ...inputProps,
                     }}
                 />
-                <HelperErrorText id="id-helperText" isError={false}>
-                    Select your home library. Start by typing the name of the
-                    library.
-                </HelperErrorText>
             </>
         );
     };
