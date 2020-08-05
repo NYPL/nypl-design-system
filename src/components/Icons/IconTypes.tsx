@@ -15,11 +15,14 @@ export enum IconNames {
     close = "close",
     download = "download",
     headset = "headset",
-    logo_brooklyn = "logo_brooklyn",
-    logo_nypl = "logo_nypl",
-    logo_queens = "logo_queens",
     minus = "minus",
     plus = "plus",
     search_small = "search_small",
     search = "search",
+}
+
+export enum LogoNames {
+    logo_brooklyn = "logo_brooklyn",
+    logo_nypl = "logo_nypl",
+    logo_queens = "logo_queens",
 }
