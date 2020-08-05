@@ -211,3 +211,33 @@ describe("Forwarding refs", () => {
         expect(container.find("input").instance()).to.equal(ref.current);
     });
 });
+
+describe("Radio buttons", () => {
+    it("Renders a radio type input", () => {
+        const onChange = stub();
+        const container = Enzyme.mount(
+            <Input
+                id="inputID-attributes"
+                ariaLabel="Input Label"
+                ariaLabelledBy={"helperText-attributes"}
+                placeholder={"Input Placeholder"}
+                type={InputTypes.radio}
+                attributes={{
+                    checked: true,
+                    "aria-checked": true,
+                    onChange,
+                }}
+            ></Input>
+        );
+
+        const input = container.find("input");
+
+        expect(input.prop("type")).to.equal("radio");
+        expect(input.prop("checked")).to.equal(true);
+        expect(input.prop("aria-checked")).to.equal(true);
+        expect(onChange.callCount).to.equal(0);
+
+        input.simulate("change");
+        expect(onChange.callCount).to.equal(1);
+    });
+});
