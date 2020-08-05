@@ -6,11 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## 0.9.1
+## 0.9.2
 
 ### Adds
 
 -   CSS to style [React Autosuggest](https://github.com/moroshko/react-autosuggest/)
+
+## 0.9.1
+
+### Changes
+
+-   `Breadcrumbs`'s background color now reflects the app's globally applied section modifier, such as `.nypl--locations`. It recognizes these for `--locations`, `--whats-on`, `--research`, and `--books-and-more`.
 
 ## 0.9.0
 
