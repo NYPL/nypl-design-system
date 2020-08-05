@@ -20,3 +20,9 @@ export enum IconNames {
     search_small = "search_small",
     search = "search",
 }
+
+export enum LogoNames {
+    logo_brooklyn = "logo_brooklyn",
+    logo_nypl = "logo_nypl",
+    logo_queens = "logo_queens",
+}
