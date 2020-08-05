@@ -12,6 +12,9 @@ import clock from "../../../icons/svg/clock.svg";
 import close from "../../../icons/svg/close.svg";
 import download from "../../../icons/svg/download.svg";
 import headset from "../../../icons/svg/headset.svg";
+import logo_brooklyn from "../../../icons/svg/logo-brooklynpl.svg";
+import logo_nypl from "../../../icons/svg/logo-nypl.svg";
+import logo_queens from "../../../icons/svg/logo-queenspl.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
 import search_small from "../../../icons/svg/search-small.svg";
@@ -27,6 +30,9 @@ const allSvgs = {
     close,
     download,
     headset,
+    logo_brooklyn,
+    logo_nypl,
+    logo_queens,
     minus,
     plus,
     search_small,
