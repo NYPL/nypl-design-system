@@ -3,8 +3,12 @@ import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
+import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import Icon from "../Icons/Icon";
+import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import Label from "../Label/Label";
 import Pagination from "./Pagination";
+import Select from "../Select/Select";
 
 export default {
     title: "Pagination",
@@ -24,7 +28,11 @@ export const pagination = () => (
         previousPage={
             <Button
                 buttonType={ButtonTypes.Secondary}
-                onClick={action("back clicked")}
+                onClick={action("Previous clicked")}
+                iconDecorative={true}
+                iconName={IconNames.arrow}
+                iconPosition={ButtonIconPositions.Left}
+                iconRotation={IconRotationTypes.rotate90}
             >
                 Previous
             </Button>
@@ -32,13 +40,36 @@ export const pagination = () => (
         nextPage={
             <Button
                 buttonType={ButtonTypes.Secondary}
-                onClick={action("back clicked")}
+                onClick={action("Next clicked")}
+                iconDecorative={true}
+                iconName={IconNames.arrow}
+                iconPosition={ButtonIconPositions.Right}
+                iconRotation={IconRotationTypes.rotate270}
             >
                 Next
             </Button>
         }
     >
-        asdf
+        <Label htmlFor="select" id={"label"}>
+            Page
+        </Label>
+        <Select
+            name="optionalLabelSelect"
+            id={"select"}
+            isRequired={false}
+            ariaLabel="Select Label"
+            labelId={"label"}
+            onBlur={action("blur")}
+            onChange={action("changed")}
+        >
+            <option aria-selected={true}>1 of 7</option>
+            <option aria-selected={false}>2 of 7</option>
+            <option aria-selected={false}>3 of 7</option>
+            <option aria-selected={false}>4 of 7</option>
+            <option aria-selected={false}>5 of 7</option>
+            <option aria-selected={false}>6 of 7</option>
+            <option aria-selected={false}>7 of 7</option>
+        </Select>
     </Pagination>
 );
 
