@@ -16,13 +16,6 @@ export default {
     decorators: [withDesign],
 };
 
-// paginationDropdownOptions={["1 of 4", "2 of 4", "3 of 4", "4 of 4"]}
-// previousPageHandler={action("goToPrevious")}
-// nextPageHandler={action("goToNext")}
-// currentValue={"1 of 4"}
-// onSelectChange={action("selectChange")}
-// onSelectBlur={action("selectBlur")}
-
 export const pagination = () => (
     <Pagination
         previousPage={
@@ -50,15 +43,15 @@ export const pagination = () => (
             </Button>
         }
     >
-        <Label htmlFor="select" id={"label"}>
+        <Label htmlFor="paginationSelect" id={"paginationLabel"}>
             Page
         </Label>
         <Select
-            name="optionalLabelSelect"
-            id={"select"}
+            name="Pagination Select"
+            id={"paginationSelect"}
             isRequired={false}
-            ariaLabel="Select Label"
-            labelId={"label"}
+            ariaLabel="Pagination Label"
+            labelId={"paginationLabel"}
             onBlur={action("blur")}
             onChange={action("changed")}
         >
