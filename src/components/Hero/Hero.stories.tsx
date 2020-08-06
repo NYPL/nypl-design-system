@@ -4,7 +4,6 @@ import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
 import Hero from "./Hero";
-import SectionName from "../SectionName/SectionName";
 import Placeholder from "../Placeholder/Placeholder";
 
 export default {
@@ -99,7 +98,7 @@ export const ExhibitionsHero = () => (
 );
 
 export const DigitalResearchBooksHeader = () => (
-    <SectionName>
+    <>
         <Hero
             heroType={HeroTypes.Secondary}
             heading={
@@ -125,5 +124,5 @@ export const DigitalResearchBooksHeader = () => (
                 />
             }
         />
-    </SectionName>
+    </>
 );
