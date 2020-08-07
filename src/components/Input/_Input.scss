@@ -3,7 +3,21 @@
     @include space-stack-xs;
 
     border: 1px solid var(--ui-gray-medium);
-    width: 100%;
+
+    &[type="text"],
+    &[type="number"],
+    &[type="password"] {
+        width: 100%;
+    }
+
+    &[type="radio"] {
+        width: unset;
+
+        + .label {
+            display: unset;
+            margin-left: var(--space-s);
+        }
+    }
 
     &::-webkit-input-placeholder {
         color: var(--ui-gray-dark);

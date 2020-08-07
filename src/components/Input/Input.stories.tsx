@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 
 import Input from "./Input";
 import { InputTypes } from "./InputTypes";
@@ -176,3 +176,52 @@ export const inputAttributes = () => (
         </HelperErrorText>
     </>
 );
+
+export const radioInput = () => {
+    const [stateValue, setStateValue] = useState("");
+    const fieldName = "bugName";
+
+    const onChange = (e) => {
+        setStateValue(e.target?.value);
+        action("onChange");
+    };
+    const radioInputs = [
+        { value: "ab", label: "Agrias Butterfly" },
+        { value: "dd", label: "Darner Dragonfly" },
+        { value: "sb", label: "Scarab Beetle" },
+        { value: "wr", label: "Wharf Roach" },
+    ];
+    const createInput = (value, label) => {
+        const checked = value === stateValue;
+        const inputId = `${fieldName}-${value}`;
+        const labelId = `radio-${fieldName}-${value}`;
+        return (
+            <div key={value}>
+                <Input
+                    aria-labelledby={`radio-field-legend ${labelId}`}
+                    id={inputId}
+                    type={InputTypes.radio}
+                    attributes={{
+                        name: fieldName,
+                        "aria-checked": checked,
+                        defaultChecked: checked,
+                        onChange,
+                    }}
+                    value={value}
+                />
+                <Label id={labelId} htmlFor={`input-${inputId}`}>
+                    {label}
+                </Label>
+            </div>
+        );
+    };
+    const createRadioForm = (inputList: any[]) =>
+        inputList.map((input) => createInput(input.value, input.label));
+
+    return (
+        <fieldset>
+            <legend id="radio-field-legend">Select a bug:</legend>
+            {createRadioForm(radioInputs)}
+        </fieldset>
+    );
+};
