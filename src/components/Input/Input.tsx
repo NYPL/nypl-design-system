@@ -59,7 +59,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         value: value,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        ...attributes,
         disabled: disabled,
     };
 
