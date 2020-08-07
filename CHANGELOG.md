@@ -6,11 +6,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+<<<<<<< HEAD
+
 ## 0.9.3
+
+=======
+
+## 0.10.1
+
+> > > > > > > 3b37670d613c052aeede68a64b46b99a3233f955
 
 ### Changes
 
 -   Updates the `Input` element to allow props and attributes to be able to render input elements of type "radio".
+
+# <<<<<<< HEAD
+
+## 0.10.0
+
+### Removes
+
+-   Deprecates `SectionName` in favor of the stories under `Colors—Brand`
+
+## 0.9.3
+
+### Adds
+
+-   SVGs for NYPL full logo lockup, Queens Public Library Logo, and Brooklyn Public Library Logo
+
+> > > > > > > 3b37670d613c052aeede68a64b46b99a3233f955
 
 ## 0.9.2
 

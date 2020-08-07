@@ -196,7 +196,7 @@ export const radioInput = () => {
         const inputId = `${fieldName}-${value}`;
         const labelId = `radio-${fieldName}-${value}`;
         return (
-            <React.Fragment key={value}>
+            <div key={value}>
                 <Input
                     aria-labelledby={`radio-field-legend ${labelId}`}
                     id={inputId}
@@ -209,10 +209,10 @@ export const radioInput = () => {
                     }}
                     value={value}
                 />
-                <Label id={labelId} htmlFor={inputId}>
+                <Label id={labelId} htmlFor={`input-${inputId}`}>
                     {label}
                 </Label>
-            </React.Fragment>
+            </div>
         );
     };
     const createRadioForm = (inputList: any[]) =>
