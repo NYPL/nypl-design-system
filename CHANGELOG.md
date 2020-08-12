@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Updates the `Icon` component's `name` prop to allow for `LogoNames` enum types.
 
+### Adds
+
+-   Adds a "negative" NYPL logo to be used on non-white backgrounds.
+
 ## 0.10.2
 
 ### Changes
