@@ -14,6 +14,7 @@ import download from "../../../icons/svg/download.svg";
 import headset from "../../../icons/svg/headset.svg";
 import logo_brooklyn from "../../../icons/svg/logo_brooklynpl.svg";
 import logo_nypl from "../../../icons/svg/logo_nypl.svg";
+import logo_nypl_negative from "../../../icons/svg/logo_nypl_negative.svg";
 import logo_queens from "../../../icons/svg/logo_queenspl.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
@@ -32,6 +33,7 @@ const allSvgs = {
     headset,
     logo_brooklyn,
     logo_nypl,
+    logo_nypl_negative,
     logo_queens,
     minus,
     plus,

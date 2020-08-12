@@ -11,13 +11,17 @@ export default {
 };
 
 const iconRow = function (array, icon, modifiers = "") {
+    let mods = [modifiers];
+    if (icon.indexOf("_negative") !== -1) {
+        mods.push("negative");
+    }
     array.push(
         <li
             style={{
                 marginBottom: "var(--space-s)",
             }}
         >
-            <Icon name={icon} decorative={true} modifiers={[modifiers]}></Icon>
+            <Icon name={icon} decorative={true} modifiers={mods} />
             <span style={{ marginLeft: "var(--space-s)" }}>{icon}</span>
         </li>
     );
