@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.10.3
+
+### Changes
+
+-   Updates the `Icon` component's `name` prop to allow for `LogoNames` enum types.
+
 ## 0.10.2
 
 ### Changes
