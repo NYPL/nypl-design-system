@@ -14,54 +14,71 @@ export default {
     component: Link,
 };
 
-export const passedInLink = () => (
+export const passedInAnchorElement = () => (
     <Link linkType={LinkTypes.Default}>
-        <a href="#passed-in-link">I'm cold</a>
+        <a href="#passed-in-link">I'm an anchor element link!</a>
     </Link>
 );
 
 export const generatedLink = () => (
     <Link href="#passed-in-link" linkType={LinkTypes.Default}>
-        I'm very cold
+        I'm just a string
     </Link>
 );
 
 export const buttonLink = () => (
     <Link linkType={LinkTypes.Button} href="#passed-in-link">
-        I'm very cold
+        I look like a button but I'm actually a link
     </Link>
 );
 
 export const forwardsLink = () => (
-    <Link linkType={LinkTypes.Forwards}>
-        <a href="#passedinlink">content</a>
-    </Link>
+    <>
+        This link's icon is predefined and set with the `Forwards` `linkType`
+        prop.
+        <br />
+        <Link href="#passedinlink" linkType={LinkTypes.Forwards}>
+            content
+        </Link>
+    </>
 );
 
 export const backwardsLink = () => (
-    <Link href="#passed-in-link" linkType={LinkTypes.Backwards}>
-        content
-    </Link>
+    <>
+        This link's icon is predefined and set with the `Backwards` `linkType`
+        prop.
+        <br />
+        <Link href="#passed-in-link" linkType={LinkTypes.Backwards}>
+            content
+        </Link>
+    </>
 );
 
 export const actionLinkWithDownloadIcon = () => (
-    // To Pass in an icon and its link, make sure that the link tag wraps the icon.
-    <Link linkType={LinkTypes.Action} id="beepbeep">
-        <a href="#passed-link">
-            <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                modifiers={["left"]}
-                decorative={true}
-                iconRotation={IconRotationTypes.rotate0}
-            ></Icon>
-            Download
-        </a>
-    </Link>
+    <>
+        A custom icon is added to the anchor child element.
+        <br />
+        {/* To Pass in an icon and its link, make sure that the link tag wraps the icon. */}
+        <Link linkType={LinkTypes.Action} id="beepbeep">
+            <a href="#passed-link">
+                <Icon
+                    name={IconNames.download}
+                    blockName="more-link"
+                    modifiers={["left"]}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate0}
+                ></Icon>
+                Download
+            </a>
+        </Link>
+    </>
 );
 
 export const LinkWithReactRouter = () => (
     <Router>
+        The Design System's `Link` component should wrap around react-router's
+        own `Link` component.
+        <br />
         <Link linkType={LinkTypes.Action}>
             <ReactRouterLink to="#">
                 <Icon
@@ -75,4 +92,20 @@ export const LinkWithReactRouter = () => (
             </ReactRouterLink>
         </Link>
     </Router>
+);
+
+/**
+ * Dummy component as a NextJS `Link` example component.
+ */
+const NextJsLink = (props: any) => <div>{props.children}</div>;
+
+export const LinkWithNextJSRouter = () => (
+    <>
+        NextJS's `Link` component should wrap the Design System's `Link`
+        component wraps around with the `href` and `passHref` props.
+        <br />
+        <NextJsLink href="#" passHref>
+            <Link linkType={LinkTypes.Action}>Next Page</Link>
+        </NextJsLink>
+    </>
 );

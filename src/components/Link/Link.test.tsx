@@ -2,7 +2,6 @@ import { expect } from "chai";
 import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
 
 import Link from "./Link";
 import { LinkTypes } from "./LinkTypes";
@@ -129,5 +128,15 @@ describe("Link", () => {
                 </Link>
             )
         ).to.throw("Please pass only one child into Link");
+    });
+
+    it("Passes the ref to the input element", () => {
+        const ref = React.createRef<HTMLAnchorElement>();
+        const container = Enzyme.mount(
+            <Link href="/some-link" ref={ref}>
+                Go to page
+            </Link>
+        );
+        expect(container.find("a").instance()).to.equal(ref.current);
     });
 });
