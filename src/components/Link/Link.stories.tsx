@@ -15,19 +15,19 @@ export default {
 };
 
 export const passedInAnchorElement = () => (
-    <Link linkType={LinkTypes.Default}>
+    <Link type={LinkTypes.Default}>
         <a href="#passed-in-link">I'm an anchor element link!</a>
     </Link>
 );
 
 export const generatedLink = () => (
-    <Link href="#passed-in-link" linkType={LinkTypes.Default}>
+    <Link href="#passed-in-link" type={LinkTypes.Default}>
         I'm just a string
     </Link>
 );
 
 export const buttonLink = () => (
-    <Link linkType={LinkTypes.Button} href="#passed-in-link">
+    <Link type={LinkTypes.Button} href="#passed-in-link">
         I look like a button but I'm actually a link
     </Link>
 );
@@ -37,7 +37,7 @@ export const forwardsLink = () => (
         This link's icon is predefined and set with the `Forwards` `linkType`
         prop.
         <br />
-        <Link href="#passedinlink" linkType={LinkTypes.Forwards}>
+        <Link href="#passedinlink" type={LinkTypes.Forwards}>
             content
         </Link>
     </>
@@ -48,7 +48,7 @@ export const backwardsLink = () => (
         This link's icon is predefined and set with the `Backwards` `linkType`
         prop.
         <br />
-        <Link href="#passed-in-link" linkType={LinkTypes.Backwards}>
+        <Link href="#passed-in-link" type={LinkTypes.Backwards}>
             content
         </Link>
     </>
@@ -59,7 +59,7 @@ export const actionLinkWithDownloadIcon = () => (
         A custom icon is added to the anchor child element.
         <br />
         {/* To Pass in an icon and its link, make sure that the link tag wraps the icon. */}
-        <Link linkType={LinkTypes.Action} id="beepbeep">
+        <Link type={LinkTypes.Action} id="beepbeep">
             <a href="#passed-link">
                 <Icon
                     name={IconNames.download}
@@ -79,7 +79,7 @@ export const LinkWithReactRouter = () => (
         The Design System's `Link` component should wrap around react-router's
         own `Link` component.
         <br />
-        <Link linkType={LinkTypes.Action}>
+        <Link type={LinkTypes.Action}>
             <ReactRouterLink to="#">
                 <Icon
                     name={IconNames.download}
@@ -105,7 +105,7 @@ export const LinkWithNextJSRouter = () => (
         component wraps around with the `href` and `passHref` props.
         <br />
         <NextJsLink href="#" passHref>
-            <Link linkType={LinkTypes.Action}>Next Page</Link>
+            <Link type={LinkTypes.Action}>Next Page</Link>
         </NextJsLink>
     </>
 );

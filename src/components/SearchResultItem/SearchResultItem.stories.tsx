@@ -32,11 +32,11 @@ let cardContent = (
 
 let cardCTAs = (
     <div className="edition-card__ctas">
-        <Link linkType={LinkTypes.Button} href="blah">
+        <Link type={LinkTypes.Button} href="blah">
             Read Online
         </Link>
         <div className="edition-card__download">
-            <Link href="#url" linkType={LinkTypes.Action}>
+            <Link href="#url" type={LinkTypes.Action}>
                 <Icon
                     name={IconNames.download}
                     blockName="more-link"
@@ -63,12 +63,12 @@ let exampleEditionInfo = {
         <>Under Creative Commons License</>,
     ],
     readOnlineLink: (
-        <Link href="blah" blockName="edition-card" linkType={LinkTypes.Button}>
+        <Link href="blah" blockName="edition-card" type={LinkTypes.Button}>
             Read Online
         </Link>
     ),
     downloadLink: (
-        <Link href="#passed-in-link" linkType={LinkTypes.Action}>
+        <Link href="#passed-in-link" type={LinkTypes.Action}>
             <Icon
                 name={IconNames.download}
                 blockName="more-link"

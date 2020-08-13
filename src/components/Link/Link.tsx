@@ -16,7 +16,7 @@ export interface LinkProps {
     /** ID */
     id?: string;
     /** Controls the link visuals—action, button, or default. */
-    linkType?: LinkTypes;
+    type?: LinkTypes;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Any child node passed to the component. */
@@ -30,7 +30,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
         className,
         href,
         id,
-        linkType = LinkTypes.Default,
+        type = LinkTypes.Default,
         modifiers,
         children,
     } = props;
@@ -50,22 +50,22 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     }
 
     if (
-        linkType === LinkTypes.Action ||
-        linkType === LinkTypes.Forwards ||
-        linkType === LinkTypes.Backwards
+        type === LinkTypes.Action ||
+        type === LinkTypes.Forwards ||
+        type === LinkTypes.Backwards
     ) {
         link_base_class = "more-link";
-    } else if (linkType === LinkTypes.Button) {
+    } else if (type === LinkTypes.Button) {
         link_base_class = "button";
     }
 
     let navigationIconProps, iconRotation, iconPosition, iconLeft, iconRight;
     // An icon needs a position in order for it to be created and
     // rendered in the link.
-    if (linkType === LinkTypes.Backwards) {
+    if (type === LinkTypes.Backwards) {
         iconRotation = IconRotationTypes.rotate90;
         iconPosition = "left";
-    } else if (linkType === LinkTypes.Forwards) {
+    } else if (type === LinkTypes.Forwards) {
         iconRotation = IconRotationTypes.rotate270;
         iconPosition = "right";
     }
@@ -77,9 +77,9 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
         decorative: "true",
     };
 
-    if (linkType === LinkTypes.Backwards) {
+    if (type === LinkTypes.Backwards) {
         iconLeft = <Icon {...navigationIconProps} />;
-    } else if (linkType === LinkTypes.Forwards) {
+    } else if (type === LinkTypes.Forwards) {
         iconRight = <Icon {...navigationIconProps} />;
     }
     let linkClassName = bem(link_base_class, modifiers, blockName, [className]);
