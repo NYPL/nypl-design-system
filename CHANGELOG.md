@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.10.4
+
+### Changes
+
+-   Updates the `Link` component's `linkType` prop to `type`, implements `React.forwardRef` to use with other libraries, and updates the stories.
+
 ## 0.10.3
 
 ### Changes
