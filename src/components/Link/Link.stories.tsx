@@ -99,9 +99,19 @@ export const LinkWithReactRouter = () => (
 );
 
 /**
- * Dummy component as a NextJS `Link` example component.
+ * Dummy component as a NextJS `Link` example component. In real life, NextJS's
+ * `Link` component will do something similar but with pass down props and ref
+ * and make it workable. This is just an example wrapper.
  */
-const NextJsLink = (props: any) => <div>{props.children}</div>;
+const NextJsLink = (props: any) => (
+    <div>
+        {React.cloneElement(
+            props.children,
+            { ...props },
+            props.children.props.children
+        )}
+    </div>
+);
 
 export const LinkWithNextJSRouter = () => (
     <>
