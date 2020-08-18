@@ -5,6 +5,11 @@
         text-decoration: none;
     }
 
+    // .button links have a blue background
+    &.button:hover {
+        color: var(--ui-white);
+    }
+
     &:hover {
         color: var(--ui-link-secondary);
     }
