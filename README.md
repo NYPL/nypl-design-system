@@ -7,8 +7,9 @@ This design system is NYPL’s open-source extensible tool for products and expe
 | 1.                | [Contributing Quickstart](#contributing-quickstart)                                 |
 | 2.                | [Developing With NPM Link](#developing-with-npm-link)                               |
 | 3.                | [Using the Design System in Your Product](#using-the-design-system-in-your-product) |
-| 4.                | [Design System and Product Requirements](#design-system-and-product-requirements)   |
-| 5.                | [Storybook and `npm run static`](#storybook-and-npm-run-static)                     |
+| 4.                | [CDN](#cdn)                                                                         |
+| 5.                | [Design System and Product Requirements](#design-system-and-product-requirements)   |
+| 6.                | [Storybook and `npm run static`](#storybook-and-npm-run-static)                     |
 
 ## Contributing Quickstart
 
@@ -65,6 +66,18 @@ function NewComponent(props) {
 Some things in the Design System, such as the universal focus styling and the box-model the DS uses, are namespaced to the `.nypl-ds` class. To include those in your app, add `.nypl-ds` to whichever wrapper tag makes sense in your application (e.g., `<div class="app">` or `<div class="container">`).
 
 Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds` wrapper class.
+
+### CDN
+
+You can also use the Design System in your project with our CDN:
+
+`<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.min.js"></script>`
+
+`<link href="https://unpkg.com/@nypl/design-system-react-components/dist/styles.css">`
+
+If you need to reference a particular version you can do do by including the version number in the URL:
+
+`<script src="https://unpkg.com/@nypl/design-system-react-components@0.9.1/dist/design-system-react-components.min.js"></script>`
 
 ## Design System and Product Requirements
 
