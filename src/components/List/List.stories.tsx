@@ -74,11 +74,11 @@ const exampleCard = (
         }
         ctas={
             <>
-                <Link linkType={LinkTypes.Button} href="blah">
+                <Link type={LinkTypes.Button} href="blah">
                     Reserve
                 </Link>
                 <div>0 of 11 copies available. 3 patrons in the queue.</div>
-                <Link href="#url" linkType={LinkTypes.Forwards}>
+                <Link href="#url" type={LinkTypes.Forwards}>
                     View Book Details
                 </Link>
             </>

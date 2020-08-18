@@ -24,5 +24,6 @@ export enum IconNames {
 export enum LogoNames {
     logo_brooklyn = "logo_brooklyn",
     logo_nypl = "logo_nypl",
+    logo_nypl_negative = "logo_nypl_negative",
     logo_queens = "logo_queens",
 }
