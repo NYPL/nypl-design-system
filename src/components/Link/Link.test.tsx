@@ -2,7 +2,6 @@ import { expect } from "chai";
 import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
 
 import Link from "./Link";
 import { LinkTypes } from "./LinkTypes";
@@ -18,7 +17,7 @@ describe("Link", () => {
 
     it("Can pass in icon, text as child and url as props", () => {
         wrapper = Enzyme.mount(
-            <Link href="#passed-in-link" linkType={LinkTypes.Action}>
+            <Link href="#passed-in-link" type={LinkTypes.Action}>
                 <Icon
                     name={IconNames.download}
                     blockName="more-link"
@@ -44,7 +43,7 @@ describe("Link", () => {
 
     it("Can pass a link with <a> tag and an icon", () => {
         wrapper = Enzyme.mount(
-            <Link linkType={LinkTypes.Action}>
+            <Link type={LinkTypes.Action}>
                 <a href="#test2">
                     <Icon
                         name={IconNames.download}
@@ -63,7 +62,7 @@ describe("Link", () => {
 
     it("Generated back link has icon", () => {
         wrapper = Enzyme.mount(
-            <Link href="#passed-in-link" linkType={LinkTypes.Backwards}>
+            <Link href="#passed-in-link" type={LinkTypes.Backwards}>
                 content
             </Link>
         );
@@ -74,7 +73,7 @@ describe("Link", () => {
 
     it("Generated forwards link has icon", () => {
         wrapper = Enzyme.mount(
-            <Link href="#passed-in-link" linkType={LinkTypes.Forwards}>
+            <Link href="#passed-in-link" type={LinkTypes.Forwards}>
                 content
             </Link>
         );
@@ -91,7 +90,7 @@ describe("Link", () => {
     it("Can pass in a ReactRouter Link", () => {
         wrapper = Enzyme.mount(
             <Router>
-                <Link linkType={LinkTypes.Action}>
+                <Link type={LinkTypes.Action}>
                     <ReactRouterLink to="#">
                         <Icon
                             name={IconNames.download}
@@ -129,5 +128,15 @@ describe("Link", () => {
                 </Link>
             )
         ).to.throw("Please pass only one child into Link");
+    });
+
+    it("Passes the ref to the input element", () => {
+        const ref = React.createRef<HTMLAnchorElement>();
+        const container = Enzyme.mount(
+            <Link href="/some-link" ref={ref}>
+                Go to page
+            </Link>
+        );
+        expect(container.find("a").instance()).to.equal(ref.current);
     });
 });

@@ -12,7 +12,7 @@ export default {
     component: Accordion,
 };
 const checkboxes = [
-    <li>
+    <li key="one">
         <Checkbox
             onChange={action("changed")}
             checkboxId="checkbox-1"
@@ -22,7 +22,7 @@ const checkboxes = [
             }}
         ></Checkbox>
     </li>,
-    <li>
+    <li key="two">
         <Checkbox
             onChange={action("changed")}
             checkboxId="checkbox-2"
@@ -32,7 +32,7 @@ const checkboxes = [
             }}
         ></Checkbox>
     </li>,
-    <li>
+    <li key="three">
         <Checkbox
             onChange={action("changed")}
             checkboxId="checkbox-3"

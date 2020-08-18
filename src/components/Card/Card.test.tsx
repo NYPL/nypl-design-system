@@ -64,11 +64,11 @@ describe("Card", () => {
             }
             ctas={
                 <div className="edition-card__ctas">
-                    <Link linkType={LinkTypes.Button} href="blah">
+                    <Link type={LinkTypes.Button} href="blah">
                         Read Online
                     </Link>
                     <div className="edition-card__download">
-                        <Link href="#url" linkType={LinkTypes.Action}>
+                        <Link href="#url" type={LinkTypes.Action}>
                             <Icon
                                 name={IconNames.download}
                                 blockName="more-link"
@@ -139,11 +139,11 @@ describe("Card", () => {
             }
             ctas={
                 <div className="edition-card__ctas">
-                    <Link linkType={LinkTypes.Button} href="blah">
+                    <Link type={LinkTypes.Button} href="blah">
                         Read Online
                     </Link>
                     <div className="edition-card__download">
-                        <Link href="#url" linkType={LinkTypes.Action}>
+                        <Link href="#url" type={LinkTypes.Action}>
                             <Icon
                                 name={IconNames.download}
                                 blockName="more-link"
@@ -173,11 +173,11 @@ describe("Card", () => {
             }
             ctas={
                 <div className="edition-card__ctas">
-                    <Link linkType={LinkTypes.Button} href="blah">
+                    <Link type={LinkTypes.Button} href="blah">
                         Read Online
                     </Link>
                     <div className="edition-card__download">
-                        <Link href="#url" linkType={LinkTypes.Action}>
+                        <Link href="#url" type={LinkTypes.Action}>
                             <Icon
                                 name={IconNames.download}
                                 blockName="more-link"
