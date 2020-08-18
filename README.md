@@ -62,6 +62,18 @@ function NewComponent(props) {
 }
 ```
 
+### CDN
+
+You can also use the Design System in your project with our CDN:
+
+`<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.min.js"></script>`
+
+`<link href="https://unpkg.com/@nypl/design-system-react-components/dist/styles.css">`
+
+If you need to reference a particular version you can do do by including the version number in the URL:
+
+`<script src="https://unpkg.com/@nypl/design-system-react-components@0.9.1/dist/design-system-react-components.min.js"></script>`
+
 ## Design System and Product Requirements
 
 The NYPL Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
