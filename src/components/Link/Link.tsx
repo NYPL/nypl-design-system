@@ -1,10 +1,8 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import { uid } from "react-uid";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes } from "../Icons/IconTypes";
-import { element } from "prop-types";
 
 export interface LinkProps {
     /** Additional attributes, such as rel=nofollow, to pass to the <a> tag */
@@ -18,49 +16,56 @@ export interface LinkProps {
     /** ID */
     id?: string;
     /** Controls the link visuals—action, button, or default. */
-    linkType?: LinkTypes;
+    type?: LinkTypes;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
+    /** Any child node passed to the component. */
+    children: React.ReactNode;
 }
 
-export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     const {
         attributes,
         blockName,
         className,
         href,
         id,
-        linkType = LinkTypes.Default,
+        type = LinkTypes.Default,
         modifiers,
-    } = linkProps;
-
-    let link_base_class;
+        children,
+    } = props;
+    // Merge the necessary props alongside any extra props for the
+    // anchor element.
+    const linkProps = {
+        id,
+        href,
+        ...attributes,
+    };
+    let link_base_class = "link";
 
     let childProps = {};
 
-    if (typeof linkProps.children === "string" && !linkProps.href) {
+    if (typeof children === "string" && !href) {
         throw new Error("Link needs prop 'href'");
     }
 
     if (
-        linkType === LinkTypes.Action ||
-        linkType === LinkTypes.Forwards ||
-        linkType === LinkTypes.Backwards
+        type === LinkTypes.Action ||
+        type === LinkTypes.Forwards ||
+        type === LinkTypes.Backwards
     ) {
         link_base_class = "more-link";
-    } else if (linkType === LinkTypes.Button) {
+    } else if (type === LinkTypes.Button) {
         link_base_class = "button";
-    } else {
-        link_base_class = "link";
     }
 
     let navigationIconProps, iconRotation, iconPosition, iconLeft, iconRight;
     // An icon needs a position in order for it to be created and
     // rendered in the link.
-    if (linkType === LinkTypes.Backwards) {
+    if (type === LinkTypes.Backwards) {
         iconRotation = IconRotationTypes.rotate90;
         iconPosition = "left";
-    } else if (linkType === LinkTypes.Forwards) {
+    } else if (type === LinkTypes.Forwards) {
         iconRotation = IconRotationTypes.rotate270;
         iconPosition = "right";
     }
@@ -72,22 +77,20 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
         decorative: "true",
     };
 
-    if (linkType === LinkTypes.Backwards) {
+    if (type === LinkTypes.Backwards) {
         iconLeft = <Icon {...navigationIconProps} />;
-    } else if (linkType === LinkTypes.Forwards) {
+    } else if (type === LinkTypes.Forwards) {
         iconRight = <Icon {...navigationIconProps} />;
     }
     let linkClassName = bem(link_base_class, modifiers, blockName, [className]);
 
-    if (!linkProps.href) {
+    if (!props.href) {
         // React Types error makes this fail:  https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
-        // let children = React.Children.only(linkProps.children);
-        if (React.Children.count(linkProps.children) > 1) {
+        // let children = React.Children.only(props.children);
+        if (React.Children.count(props.children) > 1) {
             throw new Error("Please pass only one child into Link");
         }
-        let children = linkProps.children[0]
-            ? linkProps.children[0]
-            : linkProps.children;
+        let children = props.children[0] ? props.children[0] : props.children;
         childProps = children.props;
 
         return React.cloneElement(
@@ -96,7 +99,7 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
                 className: linkClassName,
                 ...linkProps,
                 ...childProps,
-                ...attributes,
+                ref,
             },
             [children.props.children]
         );
@@ -106,12 +109,13 @@ export default function Link(linkProps: React.PropsWithChildren<LinkProps>) {
             {
                 ...linkProps,
                 className: linkClassName,
-                ...childProps,
-                ...attributes,
+                ref,
             },
             iconLeft,
-            linkProps.children,
+            props.children,
             iconRight
         );
     }
-}
+});
+
+export default Link;

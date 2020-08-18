@@ -14,7 +14,11 @@ export { default as HelperErrorText } from "./components/HelperErrorText/HelperE
 export { default as Hero } from "./components/Hero/Hero";
 export { HeroTypes } from "./components/Hero/HeroTypes";
 export { default as Icon } from "./components/Icons/Icon";
-export { IconRotationTypes, IconNames } from "./components/Icons/IconTypes";
+export {
+    IconRotationTypes,
+    IconNames,
+    LogoNames,
+} from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
 export { default as Input } from "./components/Input/Input";
 export { InputTypes } from "./components/Input/InputTypes";

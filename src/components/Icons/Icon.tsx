@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { IconRotationTypes, IconNames } from "./IconTypes";
+import { IconRotationTypes, IconNames, LogoNames } from "./IconTypes";
 
 import accessibility_full from "../../../icons/svg/accessibility_full.svg";
 import accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
@@ -14,6 +14,7 @@ import download from "../../../icons/svg/download.svg";
 import headset from "../../../icons/svg/headset.svg";
 import logo_brooklyn from "../../../icons/svg/logo_brooklynpl.svg";
 import logo_nypl from "../../../icons/svg/logo_nypl.svg";
+import logo_nypl_negative from "../../../icons/svg/logo_nypl_negative.svg";
 import logo_queens from "../../../icons/svg/logo_queenspl.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
@@ -32,6 +33,7 @@ const allSvgs = {
     headset,
     logo_brooklyn,
     logo_nypl,
+    logo_nypl_negative,
     logo_queens,
     minus,
     plus,
@@ -53,7 +55,7 @@ export interface IconProps {
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Name of the icon */
-    name: IconNames;
+    name: IconNames | LogoNames;
     /** Icon role */
     role?: string;
     /** Icon title */
@@ -80,8 +82,8 @@ export default class Icon extends React.Component<IconProps, {}> {
 
         let icon_base_class = "icon";
 
-        if (this.props.iconRotation) {
-            modifiers.push(this.props.iconRotation);
+        if (iconRotation) {
+            modifiers.push(iconRotation);
         }
 
         let iconProps = {
