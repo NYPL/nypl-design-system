@@ -3,10 +3,9 @@
 
     align-items: stretch;
     display: flex;
-    justify-content: center;
     width: 100%;
 
-    & > * {
+    > * {
         &:not(:last-child) {
             @include space-inline-xs;
         }
@@ -18,9 +17,7 @@
         align-self: center;
     }
 
-    &__dropdown {
-        align-items: baseline;
-        display: flex;
-        justify-content: space-between;
+    .select {
+        @include space-stack-none;
     }
 }

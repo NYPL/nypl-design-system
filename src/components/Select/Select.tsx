@@ -86,6 +86,12 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             ariaLabelledBy = labelId + " " + helperTextId;
         }
 
+        if (React.Children.count(children) > 7) {
+            console.warn(
+                "NYPL DS recommends that your <select>s have fewer than 8 options"
+            );
+        }
+
         return (
             <select
                 name={name}
