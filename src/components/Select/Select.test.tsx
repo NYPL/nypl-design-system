@@ -260,4 +260,5 @@ describe("Select", () => {
         );
         expect(container.find("select").instance()).to.equal(ref.current);
     });
+    it("should throw warning when there are more than 7 options");
 });
