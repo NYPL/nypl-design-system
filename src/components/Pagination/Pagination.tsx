@@ -5,8 +5,6 @@ export interface PaginationProps {
     blockName?: string;
     /** Additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     className?: string;
-    /** ID that other components can cross reference for accessibility purposes */
-    id?: string;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Right hand element that is the next handler, typically a button */
@@ -22,7 +20,6 @@ export default function Pagination(
         blockName,
         children,
         className,
-        id,
         modifiers,
         nextPage,
         previousPage,

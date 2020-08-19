@@ -1,6 +1,7 @@
 import * as React from "react";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
+import { text } from "@storybook/addon-knobs";
 
 import Button from "../Button/Button";
 import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
@@ -27,7 +28,7 @@ export const pagination = () => (
                 iconPosition={ButtonIconPositions.Left}
                 iconRotation={IconRotationTypes.rotate90}
             >
-                Previous
+                {text("Previous Button Label", "Previous")}
             </Button>
         }
         nextPage={
@@ -39,12 +40,12 @@ export const pagination = () => (
                 iconPosition={ButtonIconPositions.Right}
                 iconRotation={IconRotationTypes.rotate270}
             >
-                Next
+                {text("Next Button Label", "Next")}
             </Button>
         }
     >
         <Label htmlFor="paginationSelect" id={"paginationLabel"}>
-            Page
+            {text("Select Label", "Page ")}
         </Label>
         <Select
             name="Pagination Select"
@@ -55,13 +56,27 @@ export const pagination = () => (
             onBlur={action("blur")}
             onChange={action("changed")}
         >
-            <option aria-selected={true}>1 of 7</option>
-            <option aria-selected={false}>2 of 7</option>
-            <option aria-selected={false}>3 of 7</option>
-            <option aria-selected={false}>4 of 7</option>
-            <option aria-selected={false}>5 of 7</option>
-            <option aria-selected={false}>6 of 7</option>
-            <option aria-selected={false}>7 of 7</option>
+            <option aria-selected={true}>
+                {text("Option 1 Text", "1 of 7")}
+            </option>
+            <option aria-selected={false}>
+                {text("Option 2 Text", "2 of 7")}
+            </option>
+            <option aria-selected={false}>
+                {text("Option 3 Text", "3 of 7")}
+            </option>
+            <option aria-selected={false}>
+                {text("Option 4 Text", "4 of 7")}
+            </option>
+            <option aria-selected={false}>
+                {text("Option 5 Text", "5 of 7")}
+            </option>
+            <option aria-selected={false}>
+                {text("Option 6 Text", "6 of 7")}
+            </option>
+            <option aria-selected={false}>
+                {text("Option 7 Text", "7 of 7")}
+            </option>
         </Select>
     </Pagination>
 );
