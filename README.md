@@ -74,6 +74,8 @@ If you need to reference a particular version you can do do by including the ver
 
 `<script src="https://unpkg.com/@nypl/design-system-react-components@0.9.1/dist/design-system-react-components.min.js"></script>`
 
+You can check out a working Codepen with unpkg [here](https://codepen.io/scoooooooby/pen/wvGzebO).
+
 ## Design System and Product Requirements
 
 The NYPL Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
