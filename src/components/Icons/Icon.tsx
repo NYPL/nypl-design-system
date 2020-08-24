@@ -96,6 +96,10 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
 
     if (name && children) {
         throw new Error("Icon accepts either a name or children, not both");
+    } else if (!name && !children) {
+        console.warn(
+            "Pass a name or any children to Icon to ensure an icon appears"
+        );
     }
 
     if (name) {
