@@ -94,6 +94,10 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
 
     let svg;
 
+    if (name && children) {
+        throw new Error("Icon accepts either a name or children, not both");
+    }
+
     if (name) {
         svg = allSvgs[name];
         return (

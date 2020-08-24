@@ -79,7 +79,7 @@ export const customIcon = () => (
             If you'd like to pass a custom svg to your application, you can pass
             it as children to Icon:
         </p>
-        <Icon decorative={boolean("Decorative", true)} modifiers={["xlarge"]}>
+        <Icon decorative={true} modifiers={["xlarge"]}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 750 750"
