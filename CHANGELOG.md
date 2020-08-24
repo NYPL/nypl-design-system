@@ -18,6 +18,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Removes the `description` tag from the `<span>` element wrapping svg icons (#360)
 
+## 0.11.4
+
+### Adds
+
+-   Universal focus styling
+
 ## 0.11.3
 
 ### Changes
