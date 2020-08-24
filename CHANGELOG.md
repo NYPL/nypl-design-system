@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.11.1
+
+### Changes
+
+-   DS bundle is now compiled for es5 instead of es6 to accommodate for IE11 and the arrow functions we're using in DS
+
 ## 0.11.0
 
 ## Breaking Changes
