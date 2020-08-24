@@ -1,9 +1,9 @@
 .status-badge {
+    border-radius: 2px;
     color: var(--ui-black);
     display: block;
     font-style: italic;
-    margin-bottom: calc(var(--space-m) / 2);
-    padding: calc(var(--space-s) / 2);
+    padding: var(--space-xs);
     text-align: center;
 
     &--inactive {
