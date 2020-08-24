@@ -4,7 +4,6 @@ import Icon from "./Icon";
 import { IconNames, LogoNames } from "./IconTypes";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
-import { boolean, text } from "@storybook/addon-knobs";
 
 export default {
     title: "Icon",
