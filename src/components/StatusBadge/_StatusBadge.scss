@@ -1,0 +1,17 @@
+.status-badge {
+    border-radius: 4px;
+    color: var(--ui-black);
+    display: block;
+    font-size: var(--font-size--1);
+    font-style: italic;
+    padding: var(--space-xxs);
+    text-align: center;
+
+    &--inactive {
+        background-color: var(--ui-gray-light);
+    }
+
+    &--warning {
+        background-color: #f9e08e;
+    }
+}
