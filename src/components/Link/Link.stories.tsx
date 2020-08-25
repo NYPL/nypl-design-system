@@ -8,10 +8,14 @@ import {
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import { action } from "@storybook/addon-actions";
+import { withDesign } from "storybook-addon-designs";
+import { text, select } from "@storybook/addon-knobs";
 
 export default {
     title: "Link",
     component: Link,
+    decorators: [withDesign],
 };
 
 export const passedInAnchorElement = () => (
@@ -26,35 +30,31 @@ export const generatedLink = () => (
     </Link>
 );
 
-export const buttonLink = () => (
-    <Link type={LinkTypes.Button} href="#passed-in-link">
-        I look like a button but I'm actually a link
+export const linkWithOnClick = () => (
+    <Link href="#" type={LinkTypes.Default} ref={(onclick = action("clicked"))}>
+        I pass an onClick action somewhere
     </Link>
 );
 
-export const forwardsLink = () => (
-    <>
-        <p>
-            This link's icon is predefined and set with the `Forwards`
-            `linkType` prop.
-        </p>
-        <Link href="#passedinlink" type={LinkTypes.Forwards}>
-            content
-        </Link>
-    </>
+export const link = () => (
+    <Link
+        type={select("Link Type", LinkTypes, LinkTypes.Default)}
+        href="#passed-in-link"
+    >
+        {text("Link Text", "Link")}
+    </Link>
 );
 
-export const backwardsLink = () => (
-    <>
-        <p>
-            This link's icon is predefined and set with the `Backwards`
-            `linkType` prop.
-        </p>
-        <Link href="#passed-in-link" type={LinkTypes.Backwards}>
-            content
-        </Link>
-    </>
-);
+link.story = {
+    name: "Link",
+    parameters: {
+        design: {
+            type: "figma",
+            url:
+                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A407",
+        },
+    },
+};
 
 export const actionLinkWithDownloadIcon = () => (
     <>
@@ -75,7 +75,7 @@ export const actionLinkWithDownloadIcon = () => (
     </>
 );
 
-export const LinkWithReactRouter = () => (
+export const linkWithReactRouter = () => (
     <>
         <p>
             The Design System's `Link` component should wrap around
@@ -113,7 +113,7 @@ const NextJsLink = (props: any) => (
     </div>
 );
 
-export const LinkWithNextJSRouter = () => (
+export const linkWithNextJSRouter = () => (
     <>
         <p>
             NextJS's `Link` component should wrap the Design System's `Link`
