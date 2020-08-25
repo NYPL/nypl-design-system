@@ -55,51 +55,60 @@ export interface IconProps {
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
     /** Name of the icon */
-    name: IconNames | LogoNames;
+    name?: IconNames | LogoNames;
     /** Icon role */
     role?: string;
     /** Icon title */
     title?: boolean;
 }
 
-export default class Icon extends React.Component<IconProps, {}> {
-    constructor(props: IconProps) {
-        super(props);
+export default function Icon(props: React.PropsWithChildren<IconProps>) {
+    let {
+        blockName,
+        decorative,
+        className,
+        desc,
+        iconRotation,
+        modifiers,
+        name,
+        role,
+        title,
+        children,
+    } = props;
+
+    let icon_base_class = "icon";
+
+    if (iconRotation) {
+        modifiers.push(iconRotation);
     }
 
-    render(): JSX.Element {
-        let {
-            blockName,
-            decorative,
-            className,
-            desc,
-            iconRotation,
-            modifiers,
-            name,
-            role,
-            title,
-        } = this.props;
+    let iconProps = {
+        className: bem(icon_base_class, modifiers, blockName, [className]),
+        role: decorative ? "img" : role,
+        "aria-hidden": decorative,
+        "aria-labelledby": title ? "title-" + name : undefined,
+        "aria-describedby": desc ? "desc-" + name : undefined,
+        title: title ? `title-${name}` : undefined,
+        description: desc ? `title-${name}` : undefined,
+    };
 
-        let icon_base_class = "icon";
+    let svg;
 
-        if (iconRotation) {
-            modifiers.push(iconRotation);
-        }
+    if (name && children) {
+        throw new Error("Icon accepts either a name or children, not both");
+    } else if (!name && !children) {
+        console.warn(
+            "Pass a name or any children to Icon to ensure an icon appears"
+        );
+    }
 
-        let iconProps = {
-            className: bem(icon_base_class, modifiers, blockName, [className]),
-            role: decorative ? "img" : role,
-            "aria-hidden": decorative,
-            "aria-labelledby": title ? "title-" + name : undefined,
-            "aria-describedby": desc ? "desc-" + name : undefined,
-            title: title ? `title-${name}` : undefined,
-            description: desc ? `title-${name}` : undefined,
-        };
-
-        let svg = allSvgs[name];
-
+    if (name) {
+        svg = allSvgs[name];
         return (
             <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />
         );
+    } else {
+        svg = children;
+        return <span {...iconProps}>{children}</span>;
     }
 }
