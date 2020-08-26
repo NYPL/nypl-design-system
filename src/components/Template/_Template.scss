@@ -20,9 +20,7 @@ $sidebar-width-s: calc(25% - calc(4 * #{var(--space-s)}));
 .content-header {
     @include breakout;
 
-    @include breakpoint($breakpoint-medium) {
-        flex: 0 0 100vw;
-    }
+    width: 100vw;
 }
 
 .content-top {

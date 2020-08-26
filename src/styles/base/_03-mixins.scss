@@ -58,8 +58,6 @@
 @mixin breakout($v-padding: var(--space)) {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
-    padding-left: calc(#{$v-padding} + calc(-50vw + 50%));
-    padding-right: calc(#{$v-padding} + calc(-50vw + 50%));
 }
 
 // Use the screenreader-only mixin for elements that you want to be visually hidden, but still want screenreaders to read out

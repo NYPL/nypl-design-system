@@ -2,11 +2,14 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Placeholder from "../Placeholder/Placeholder";
 import { withDesign } from "storybook-addon-designs";
+import { boolean, select } from "@storybook/addon-knobs";
 
 export default {
     title: "Template",
     decorators: [withDesign],
 };
+
+let showSidebar;
 
 export const FullWidthTemplate = () => (
     <div className={bem("layout-container")}>
@@ -26,6 +29,10 @@ export const FullWidthTemplate = () => (
             <div className={"content-primary"}>
                 <Placeholder>Main Content</Placeholder>
             </div>
+
+            {/* <div className={bem("content-secondary", ["with-sidebar-left"])}>
+                <Placeholder>Left Sidebar</Placeholder>
+            </div> */}
 
             <div className="content-bottom">
                 {<Placeholder>Content Bottom</Placeholder>}
