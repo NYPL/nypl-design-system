@@ -11,6 +11,8 @@ export default {
 
 let showSidebarLeft;
 let showSidebarRight;
+const sidebarLeftModifier = ["with-sidebar-left"];
+const sidebarRightModifier = ["with-sidebar-right"];
 
 export const Template = () => (
     <>
@@ -51,12 +53,31 @@ export const Template = () => (
                     </div>
                 )}
 
-                <div
-                    className={bem("content-primary", [
-                        showSidebarLeft ? "with-sidebar-left" : "",
-                        showSidebarRight ? "with-sidebar-right" : "",
-                    ])}
-                >
+                {showSidebarLeft && (
+                    <div
+                        className={bem("content-primary", [
+                            "with-sidebar-left",
+                        ])}
+                    >
+                        <Placeholder>Main Content</Placeholder>
+                        <div className="content-bottom">
+                            {<Placeholder>Content Bottom</Placeholder>}
+                        </div>
+                    </div>
+                )}
+                {showSidebarRight && (
+                    <div
+                        className={bem("content-primary", [
+                            "with-sidebar-right",
+                        ])}
+                    >
+                        <Placeholder>Main Content</Placeholder>
+                        <div className="content-bottom">
+                            {<Placeholder>Content Bottom</Placeholder>}
+                        </div>
+                    </div>
+                )}
+                <div className={bem("content-primary")}>
                     <Placeholder>Main Content</Placeholder>
                     <div className="content-bottom">
                         {<Placeholder>Content Bottom</Placeholder>}
