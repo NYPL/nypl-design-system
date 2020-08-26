@@ -38,16 +38,21 @@
     &__icon {
         @include icon;
 
-        height: var(--space);
+        height: var(--space-s);
         text-decoration: none;
-        width: var(--space);
+        width: var(--space-s);
 
         &--left {
-            margin-right: var(--space-xxs);
+            margin-right: var(--space-xs);
         }
 
         &--right {
-            margin-left: var(--space-xxs);
+            margin-left: var(--space-xs);
+        }
+
+        svg {
+            height: 100%;
+            width: 100%;
         }
     }
 }
