@@ -9,122 +9,83 @@ export default {
     decorators: [withDesign],
 };
 
-let showSidebar;
+let showSidebarLeft;
+let showSidebarRight;
 
-export const FullWidthTemplate = () => (
-    <div className={bem("layout-container")}>
-        <header className={bem("header")}>
-            <Placeholder>Header</Placeholder>
-        </header>
+export const Template = () => (
+    <>
+        {boolean("Show Sidebar Left", true)
+            ? (showSidebarLeft = true)
+            : (showSidebarLeft = false)}
+        {boolean("Show Sidebar Right", false)
+            ? (showSidebarRight = true)
+            : (showSidebarRight = false)}
 
-        <main className={"main"}>
-            <div className="content-header">
-                {<Placeholder>Hero</Placeholder>}
-            </div>
+        <div className={bem("layout-container")}>
+            <header className={bem("header")}>
+                <Placeholder>Header</Placeholder>
+            </header>
 
-            <div className="content-top">
-                {<Placeholder>Content Top</Placeholder>}
-            </div>
-
-            <div className={"content-primary"}>
-                <Placeholder>Main Content</Placeholder>
-            </div>
-
-            {/* <div className={bem("content-secondary", ["with-sidebar-left"])}>
-                <Placeholder>Left Sidebar</Placeholder>
-            </div> */}
-
-            <div className="content-bottom">
-                {<Placeholder>Content Bottom</Placeholder>}
-            </div>
-        </main>
-
-        <footer className={bem("footer")}>
-            <Placeholder>Footer</Placeholder>
-        </footer>
-    </div>
-);
-
-export const LeftSidebarTemplate = () => (
-    <div className={bem("layout-container")}>
-        <header className={bem("header")}>
-            <Placeholder>Header</Placeholder>
-        </header>
-
-        <main className={bem("main", ["with-sidebar"])}>
-            <div className="content-header">
-                <Placeholder>Hero</Placeholder>
-            </div>
-
-            <div className="content-top">
-                <Placeholder>Content Top</Placeholder>
-            </div>
-
-            <div className={bem("content-secondary", ["with-sidebar-left"])}>
-                <Placeholder>Left Sidebar</Placeholder>
-            </div>
-
-            <div className={bem("content-primary", ["with-sidebar-left"])}>
-                <Placeholder>Main Content</Placeholder>
-                <div className="content-bottom">
-                    {<Placeholder>Content Bottom</Placeholder>}
+            <main
+                className={
+                    showSidebarLeft || showSidebarRight
+                        ? bem("main", ["with-sidebar"])
+                        : "main"
+                }
+            >
+                <div className="content-header">
+                    {<Placeholder>Hero</Placeholder>}
                 </div>
-            </div>
-        </main>
 
-        <footer className={bem("footer", ["with-sidebar"])}>
-            <Placeholder>Footer</Placeholder>
-        </footer>
-    </div>
+                <div className="content-top">
+                    {<Placeholder>Content Top</Placeholder>}
+                </div>
+
+                {showSidebarLeft && (
+                    <div
+                        className={bem("content-secondary", [
+                            "with-sidebar-left",
+                        ])}
+                    >
+                        <Placeholder>Left Sidebar</Placeholder>
+                    </div>
+                )}
+
+                <div
+                    className={bem("content-primary", [
+                        showSidebarLeft ? "with-sidebar-left" : "",
+                        showSidebarRight ? "with-sidebar-right" : "",
+                    ])}
+                >
+                    <Placeholder>Main Content</Placeholder>
+                    <div className="content-bottom">
+                        {<Placeholder>Content Bottom</Placeholder>}
+                    </div>
+                </div>
+
+                {showSidebarRight && (
+                    <div
+                        className={bem("content-secondary", [
+                            "with-sidebar-right",
+                        ])}
+                    >
+                        <Placeholder>Right Sidebar</Placeholder>
+                    </div>
+                )}
+            </main>
+
+            <footer className={bem("footer")}>
+                <Placeholder>Footer</Placeholder>
+            </footer>
+        </div>
+    </>
 );
 
-LeftSidebarTemplate.storyName = "Left Sidebar Template";
-LeftSidebarTemplate.parameters = {
+Template.storyName = "Template";
+Template.parameters = {
     design: {
         type: "figma",
         url:
             "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
-    },
-};
-
-export const RightSidebarTemplate = () => (
-    <div className={bem("layout-container")}>
-        <header className={bem("header")}>
-            <Placeholder>Header</Placeholder>
-        </header>
-
-        <main className={bem("main", ["with-sidebar"])}>
-            <div className="content-header">
-                <Placeholder>Hero</Placeholder>
-            </div>
-
-            <div className="content-top">
-                <Placeholder>Content Top</Placeholder>
-            </div>
-
-            <div className={bem("content-primary", ["with-sidebar-right"])}>
-                <Placeholder>Main Content</Placeholder>
-                <div className="content-bottom">
-                    {<Placeholder>Content Bottom</Placeholder>}
-                </div>
-            </div>
-
-            <div className={bem("content-secondary", ["with-sidebar-right"])}>
-                <Placeholder>Right Sidebar</Placeholder>
-            </div>
-        </main>
-
-        <footer className={bem("footer", ["with-sidebar"])}>
-            <Placeholder>Footer</Placeholder>
-        </footer>
-    </div>
-);
-
-RightSidebarTemplate.storyName = "Right Sidebar Template";
-RightSidebarTemplate.parameters = {
-    design: {
-        type: "figma",
-        url:
-            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16770%3A53427",
     },
 };
