@@ -77,12 +77,28 @@ export const Template = () => (
                         </div>
                     </div>
                 )}
-                <div className={bem("content-primary")}>
-                    <Placeholder>Main Content</Placeholder>
-                    <div className="content-bottom">
-                        {<Placeholder>Content Bottom</Placeholder>}
+                {!showSidebarRight && !showSidebarLeft && (
+                    <div className={bem("content-primary")}>
+                        <p>
+                            Culpa cupidatat irure exercitation qui ea pariatur
+                            consequat sit exercitation nulla ea commodo. Velit
+                            cupidatat mollit non est tempor aliquip est culpa
+                            officia labore ullamco ex laboris. Pariatur
+                            reprehenderit Lorem dolor et exercitation velit
+                            consectetur deserunt laboris tempor esse anim
+                            proident labore. Dolor commodo Lorem eu qui non qui
+                            tempor dolore veniam. Ipsum ipsum consectetur
+                            proident elit sit labore consequat velit aliquip
+                            excepteur. Mollit excepteur nisi incididunt sunt
+                            incididunt anim deserunt do ullamco officia eu. Est
+                            aliquip enim id qui officia irure cillum minim
+                            aliquip proident eu.
+                        </p>
+                        <div className="content-bottom">
+                            {<Placeholder>Content Bottom</Placeholder>}
+                        </div>
                     </div>
-                </div>
+                )}
 
                 {showSidebarRight && (
                     <div

@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 -   Removes the padding on the `breakout` mixin
+-   Removes the padding on the `wrapper` mixin at the `xl` breakpoint
 
 ## 0.15.1
 
