@@ -6,6 +6,11 @@
         "type": "git",
         "url": "https://github.com/NYPL/nypl-design-system/"
     },
+    "release": {
+        "branches": [
+            "release"
+        ]
+    },
     "main": "dist/design-system-react-components.min.js",
     "types": "lib/index.d.ts",
     "author": "NYPL",
@@ -86,6 +91,7 @@
         "react-docgen-typescript-loader": "^3.1.0",
         "rimraf": "^3.0.0",
         "sass-loader": "^8.0.2",
+        "semantic-release-slack-bot": "^1.6.2",
         "sinon": "^7.3.0",
         "storybook-addon-designs": "^5.2.1",
         "stylelint": "^13.6.1",
