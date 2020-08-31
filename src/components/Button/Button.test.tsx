@@ -24,7 +24,6 @@ describe("Button", () => {
         expect(onClick.callCount).to.equal(1);
     });
     it("optionally renders a component", () => {
-        expect(wrapper.find("span").length).to.equal(1);
         expect(wrapper.text()).to.equal("Submit");
     });
     it("has 'button' class", () => {
