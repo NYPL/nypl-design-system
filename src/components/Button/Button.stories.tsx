@@ -2,6 +2,7 @@ import * as React from "react";
 
 import Button from "./Button";
 import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
+import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
@@ -24,22 +25,14 @@ export const button = () => (
             buttonType={select("Button Type", ButtonTypes, ButtonTypes.Primary)}
             type="submit"
             disabled={boolean("Disabled", false)}
-            iconPosition={
-                showIcon
-                    ? select(
-                          "Icon Position",
-                          ButtonIconPositions,
-                          ButtonIconPositions.Left
-                      )
-                    : null
-            }
-            iconName={
-                showIcon
-                    ? select("Icon", IconNames, IconNames.search_small)
-                    : null
-            }
-            iconDecorative={true}
         >
+            {showIcon && (
+                <Icon
+                    name={select("Icon", IconNames, IconNames.search_small)}
+                    decorative={true}
+                    modifiers={["small", "icon-left"]}
+                />
+            )}
             {text("Button Text", "Search")}
         </Button>
     </>

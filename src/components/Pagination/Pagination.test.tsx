@@ -32,11 +32,12 @@ describe("Pagination Test", () => {
                     <Button
                         buttonType={ButtonTypes.Secondary}
                         onClick={previousCallback()}
-                        iconDecorative={true}
-                        iconName={IconNames.arrow}
-                        iconPosition={ButtonIconPositions.Left}
-                        iconRotation={IconRotationTypes.rotate90}
                     >
+                        <Icon
+                            name={IconNames.arrow}
+                            decorative={true}
+                            iconRotation={IconRotationTypes.rotate90}
+                        />
                         Previous
                     </Button>
                 }
@@ -44,12 +45,13 @@ describe("Pagination Test", () => {
                     <Button
                         buttonType={ButtonTypes.Secondary}
                         onClick={nextCallback()}
-                        iconDecorative={true}
-                        iconName={IconNames.arrow}
-                        iconPosition={ButtonIconPositions.Right}
-                        iconRotation={IconRotationTypes.rotate270}
                     >
                         Next
+                        <Icon
+                            name={IconNames.arrow}
+                            decorative={true}
+                            iconRotation={IconRotationTypes.rotate270}
+                        />
                     </Button>
                 }
             >

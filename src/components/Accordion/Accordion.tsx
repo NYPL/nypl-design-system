@@ -2,6 +2,8 @@ import * as React from "react";
 import Button from "../Button/Button";
 import bem from "../../utils/bem";
 import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
 
 export interface AccordionProps {
     /** Inner label on the button that opens the accordion */
@@ -55,12 +57,16 @@ export default class Accordion extends React.Component<
                     id={labelId}
                     type="button"
                     blockName="accordion"
-                    iconPosition={ButtonIconPositions.JustifyRight}
-                    iconName={this.state.isOpen ? "minus" : "plus"}
-                    iconModifiers={["medium"]}
                     buttonType={ButtonTypes.Secondary}
                 >
                     {accordionLabel}
+                    <Icon
+                        name={
+                            this.state.isOpen ? IconNames.minus : IconNames.plus
+                        }
+                        decorative={true}
+                        modifiers={["small"]}
+                    />
                 </Button>
                 {this.state.isOpen && (
                     <div className="accordion-content">
