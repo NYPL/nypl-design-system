@@ -21,7 +21,7 @@ interface ButtonProps {
     modifiers?: string[];
     mouseDown?: boolean;
     /** The action to perform on the <button>'s onClick function */
-    onClick: (event: React.MouseEvent | React.KeyboardEvent) => void;
+    onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
     /** The html button attribute */
     type?: "submit" | "button" | "reset";
 }
