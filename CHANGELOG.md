@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Moves box-sizing declarations to a `.nypl-ds` namespace. All future "global" CSS settings will move to exist under this namespace.
 
+### Adds
+
+-   Universal focus styling
+
 ## 0.11.5
 
 ### Changes
@@ -23,12 +27,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 -   Removes the `description` tag from the `<span>` element wrapping svg icons (#360)
-
-## 0.11.4
-
-### Adds
-
--   Universal focus styling
 
 ## 0.11.3
 
