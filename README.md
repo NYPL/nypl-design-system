@@ -64,6 +64,8 @@ function NewComponent(props) {
 
 Some things in the Design System, such as the universal focus styling and the box-model the DS uses, are namespaced to the `.nypl-ds` class. To include those in your app, add `.nypl-ds` to whichever wrapper tag makes sense in your application (e.g., `<html>`, `<body>`, or `<div class="app">`).
 
+Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds` wrapper class.
+
 ## Design System and Product Requirements
 
 The NYPL Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
