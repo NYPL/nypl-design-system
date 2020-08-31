@@ -44,6 +44,7 @@ export const ImageWithOptionalCaptionandCredit = () => (
                 showCredit ? text("Image Credit", "Taken by Tom Nook") : null
             }
             modifiers={boolean("Apply Circle Mask", false) ? ["circle"] : null}
+            alt={text("Image alt", "alt")}
         />
     </>
 );

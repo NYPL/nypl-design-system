@@ -10,7 +10,9 @@ describe("Images", () => {
     let tooManyChars =
         "UNwbNIp1GFehVO1LBBIFYF6Nv5IhHeCPgW5JHet2VRuuKnKlGxSgjbFcfCbcttVTkxbE7ItibBIuG9cTA9HGntZSKv31u7egV88bIg7DGDHmi2nKq3ssZkBDl7oWfYpyjWbfV4kZx9EDPsKHUTKb2xIKZWSbRMuTUtsJWonQyfitDp8ui1P7QR80LA236yE5fCkRImbltEsqJWEYxyotQpLjFbruJsPcGSCp6ET6DCrNQeWFsRVaM2Co99ewZjLuY42kdpBEXjcw9HPcTjKKZw141sKBNOoFfNMueYaHtNjNI";
     it("Shows Image", () => {
-        wrapper = Enzyme.shallow(<Image src="test.png" isDecorative={true} />);
+        wrapper = Enzyme.shallow(
+            <Image src="test.png" isDecorative={true} alt={""} />
+        );
         expect(wrapper.find("img")).to.have.lengthOf(1);
     });
     it("Shows Image wrapped in figure when provided ImageCaption", () => {
@@ -19,6 +21,7 @@ describe("Images", () => {
                 src="test.png"
                 isDecorative={true}
                 imageCaption={"caption"}
+                alt={""}
             />
         );
         expect(wrapper.find("figure")).to.have.lengthOf(1);
@@ -27,7 +30,12 @@ describe("Images", () => {
 
     it("Shows Image wrapped in figure when provided ImageCredit", () => {
         wrapper = Enzyme.shallow(
-            <Image src="test.png" isDecorative={true} imageCredit={"credit"} />
+            <Image
+                src="test.png"
+                isDecorative={true}
+                imageCredit={"credit"}
+                alt={""}
+            />
         );
 
         expect(wrapper.find("figure")).to.have.lengthOf(1);
@@ -41,6 +49,7 @@ describe("Images", () => {
                 isDecorative={true}
                 imageCaption={"caption"}
                 imageCredit={"credit"}
+                alt={""}
             />
         );
         expect(wrapper.find("figcaption")).to.have.lengthOf(1);
@@ -49,17 +58,13 @@ describe("Images", () => {
 
     it("Throws error when meaningful image is passed without alt text", () => {
         expect(() =>
-            Enzyme.mount(<Image src="test.png" isDecorative={false} />)
+            Enzyme.mount(<Image src="test.png" isDecorative={false} alt={""} />)
         ).to.throw("If image is decorative, alt text is required");
     });
     it("Throws error when alt text is too long", () => {
         expect(() =>
             Enzyme.mount(
-                <Image
-                    src="test.png"
-                    isDecorative={false}
-                    altText={tooManyChars}
-                />
+                <Image src="test.png" isDecorative={false} alt={tooManyChars} />
             )
         ).to.throw("Alt Text must be less than 300 characters");
     });

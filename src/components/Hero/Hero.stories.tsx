@@ -43,6 +43,7 @@ export const heroSecondary = () => (
                 src="https://placeimg.com/800/400/arch"
                 isDecorative={true}
                 blockName={"hero"}
+                alt={""}
             />
         }
     />
@@ -121,6 +122,7 @@ export const DigitalResearchBooksHeader = () => (
                     src="https://placeimg.com/200/100/arch"
                     isDecorative={true}
                     blockName={"hero"}
+                    alt={""}
                 />
             }
         />

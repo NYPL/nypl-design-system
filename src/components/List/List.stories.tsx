@@ -70,6 +70,7 @@ const exampleCard = (
             <Image
                 src="https://placeimg.com/300/400/arch"
                 isDecorative={true}
+                alt={""}
             />
         }
         ctas={

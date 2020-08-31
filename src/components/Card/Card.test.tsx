@@ -25,6 +25,7 @@ describe("Card", () => {
                 <Image
                     src="https://placeimg.com/400/200/arch"
                     isDecorative={true}
+                    alt={""}
                 />
             }
             ctas={
@@ -60,6 +61,7 @@ describe("Card", () => {
                 <Image
                     src="https://placeimg.com/300/400/arch"
                     isDecorative={true}
+                    alt={""}
                 />
             }
             ctas={
@@ -100,6 +102,7 @@ describe("Card", () => {
                 <Image
                     src="https://placeimg.com/300/400/arch"
                     isDecorative={true}
+                    alt={""}
                 />
             }
             className="edition-card"
@@ -127,6 +130,7 @@ describe("Card", () => {
                 <Image
                     src="https://placeimg.com/300/400/arch"
                     isDecorative={true}
+                    alt={""}
                 />
             }
             heading={

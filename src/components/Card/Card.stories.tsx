@@ -63,6 +63,7 @@ export const card = () => (
                     <Image
                         src={select("Image Ratio", imageRatios, imageRatios[2])}
                         isDecorative={true}
+                        alt={""}
                     />
                 ) : null
             }
@@ -107,6 +108,7 @@ export const ExampleCard = () => (
             <Image
                 src="https://placeimg.com/300/400/arch"
                 isDecorative={true}
+                alt={""}
             />
         }
         ctas={

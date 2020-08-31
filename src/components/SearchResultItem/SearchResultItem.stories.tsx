@@ -16,7 +16,11 @@ export default {
 };
 
 let cardImage = (
-    <Image src="https://placeimg.com/400/200/arch" isDecorative={true} />
+    <Image
+        src="https://placeimg.com/400/200/arch"
+        isDecorative={true}
+        alt={""}
+    />
 );
 
 let cardContent = (
