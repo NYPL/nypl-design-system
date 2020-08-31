@@ -62,6 +62,9 @@ export interface IconProps {
     title?: boolean;
 }
 
+/**
+ * Icon component
+ */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
     let {
         blockName,

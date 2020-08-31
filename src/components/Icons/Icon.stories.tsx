@@ -1,13 +1,23 @@
 import * as React from "react";
 
-import Icon from "./Icon";
+import Icon, { IconProps } from "./Icon";
 import { IconNames, LogoNames } from "./IconTypes";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
     title: "Icon",
     component: Icon,
+};
+
+const Template: Story<IconProps> = (args) => <Icon {...args} />;
+
+export const ControlProps = Template.bind({});
+ControlProps.args = {
+    name: "accessibility_full",
+    decorative: true,
+    modifiers: ["xlarge"],
 };
 
 const iconRow = function (array, icon, modifiers = "") {
@@ -45,14 +55,12 @@ for (let logo in LogoNames) {
 
 export const Icons = () => <List type={ListTypes.Unordered}>{icons}</List>;
 
-Icons.story = {
-    name: "Icons",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A630",
-        },
+Icons.storyName = "Icons";
+Icons.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A630",
     },
 };
 
@@ -62,14 +70,12 @@ export const Logos = () => (
     </List>
 );
 
-Logos.story = {
-    name: "Logos",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A2377",
-        },
+Logos.storyName = "Logos";
+Logos.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A2377",
     },
 };
 

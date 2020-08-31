@@ -5,7 +5,6 @@ import { text } from "@storybook/addon-knobs";
 
 import Button from "../Button/Button";
 import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
-import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
 import Pagination from "./Pagination";
@@ -81,13 +80,11 @@ export const pagination = () => (
     </Pagination>
 );
 
-pagination.story = {
-    name: "Pagination",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
-        },
+pagination.storyName = "Pagination";
+pagination.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
     },
 };

@@ -19,7 +19,7 @@ export interface CheckboxProps {
     modifiers?: string[];
     /** name of the checkbox */
     name?: string;
-    /** The action to perform on the <input>'s onChange function  */
+    /** The action to perform on the `<input>`'s onChange function  */
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -39,7 +39,7 @@ let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
         const baseClass = "checkbox";
         return (
-            <div className={bem(baseClass, modifiers, blockName)}>
+            <div className={bem(baseClass, modifiers, blockName, [className])}>
                 <input
                     id={checkboxId}
                     name={name}

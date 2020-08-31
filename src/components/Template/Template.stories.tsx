@@ -71,14 +71,12 @@ export const LeftSidebarTemplate = () => (
     </div>
 );
 
-LeftSidebarTemplate.story = {
-    name: "Left Sidebar Template",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
-        },
+LeftSidebarTemplate.storyName = "Left Sidebar Template";
+LeftSidebarTemplate.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
     },
 };
 
@@ -115,13 +113,11 @@ export const RightSidebarTemplate = () => (
     </div>
 );
 
-RightSidebarTemplate.story = {
-    name: "Right Sidebar Template",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16770%3A53427",
-        },
+RightSidebarTemplate.storyName = "Right Sidebar Template";
+RightSidebarTemplate.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16770%3A53427",
     },
 };
