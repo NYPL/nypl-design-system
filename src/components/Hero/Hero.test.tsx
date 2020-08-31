@@ -46,7 +46,6 @@ describe("Hero Test", () => {
                 image={
                     <Image
                         src="https://placeimg.com/800/400/arch"
-                        isDecorative={true}
                         blockName={"hero"}
                         alt={""}
                     />
@@ -72,7 +71,6 @@ describe("Hero Test", () => {
                     image={
                         <Image
                             src="https://placeimg.com/800/400/arch"
-                            isDecorative={true}
                             blockName={"hero"}
                             alt={""}
                         />
@@ -98,7 +96,6 @@ describe("Hero Test", () => {
                     image={
                         <Image
                             src="https://placeimg.com/800/400/arch"
-                            isDecorative={true}
                             blockName={"hero"}
                             alt={""}
                         />
@@ -127,7 +124,6 @@ describe("Hero Test", () => {
                     image={
                         <Image
                             src="https://placeimg.com/800/400/arch"
-                            isDecorative={true}
                             blockName={"hero"}
                             alt={""}
                         />

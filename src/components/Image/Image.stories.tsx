@@ -34,7 +34,6 @@ export const ImageWithOptionalCaptionandCredit = () => (
                 imageRatios,
                 imageRatios["2x1"]
             )}
-            isDecorative={true}
             imageCaption={
                 showCaption
                     ? text("Image Caption", "Deserted Islander Relocator")

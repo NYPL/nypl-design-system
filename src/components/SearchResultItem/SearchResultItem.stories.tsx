@@ -15,13 +15,7 @@ export default {
     component: SearchResultItem,
 };
 
-let cardImage = (
-    <Image
-        src="https://placeimg.com/400/200/arch"
-        isDecorative={true}
-        alt={""}
-    />
-);
+let cardImage = <Image src="https://placeimg.com/400/200/arch" alt={""} />;
 
 let cardContent = (
     <>

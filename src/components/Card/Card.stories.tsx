@@ -62,7 +62,6 @@ export const card = () => (
                 showImage ? (
                     <Image
                         src={select("Image Ratio", imageRatios, imageRatios[2])}
-                        isDecorative={true}
                         alt={""}
                     />
                 ) : null
@@ -104,13 +103,7 @@ card.story = {
 export const ExampleCard = () => (
     <Card
         className="example-card"
-        image={
-            <Image
-                src="https://placeimg.com/300/400/arch"
-                isDecorative={true}
-                alt={""}
-            />
-        }
+        image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
         ctas={
             <>
                 <Link type={LinkTypes.Button} href="blah">

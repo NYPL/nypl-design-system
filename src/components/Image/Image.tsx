@@ -15,12 +15,10 @@ export interface ImageProps {
     imageCaption?: string;
     /** Adding will wrap the image in a <figure> */
     imageCredit?: string;
-    /** Decorative images are skipped by screenreaders */
-    isDecorative: boolean;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
-    /** Note */
-    onError?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+    /** Handler for when image errors */
+    onError?: () => void;
     /** The src attribute is required, and contains the path to the image you want to embed. */
     src: string;
 }
@@ -34,14 +32,10 @@ export default function Image(props: ImageProps) {
         className,
         imageCaption,
         imageCredit,
-        isDecorative,
+        onError,
         modifiers,
         src,
     } = props;
-
-    if (!isDecorative && !alt) {
-        throw new Error("If image is decorative, alt text is required");
-    }
 
     if (alt && alt.length > 300) {
         throw new Error("Alt Text must be less than 300 characters");
@@ -54,7 +48,7 @@ export default function Image(props: ImageProps) {
             className,
         ]),
         src: src,
-        alt: isDecorative ? "" : alt,
+        alt: alt,
     };
 
     return (

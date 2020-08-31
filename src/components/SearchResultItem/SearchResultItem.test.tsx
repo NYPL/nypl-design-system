@@ -40,7 +40,6 @@ describe("SearchResultItem", () => {
                         image={
                             <Image
                                 src="https://placeimg.com/400/200/arch"
-                                isDecorative={true}
                                 alt={""}
                             />
                         }
