@@ -62,7 +62,7 @@ function NewComponent(props) {
 }
 ```
 
-Some things in the Design System, such as the universal focus styling and the box-model the DS uses, are namespaced to the `.nypl-ds` class. To include those in your app, add `.nypl-ds` to whichever wrapper tag makes sense in your application (e.g., `<html>`, `<body>`, or `<div class="app">`).
+Some things in the Design System, such as the universal focus styling and the box-model the DS uses, are namespaced to the `.nypl-ds` class. To include those in your app, add `.nypl-ds` to whichever wrapper tag makes sense in your application (e.g., `<div class="app">` or `<div class="container">`).
 
 Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds` wrapper class.
 
