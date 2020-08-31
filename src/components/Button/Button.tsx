@@ -15,7 +15,7 @@ interface ButtonProps {
     className?: string;
     /** Adds 'disabled' property to the button */
     disabled?: boolean;
-
+    /** ID that other components can cross reference for accessibility purposes */
     id?: string;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
