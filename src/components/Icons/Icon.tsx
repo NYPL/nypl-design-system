@@ -92,7 +92,6 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
         "aria-labelledby": title ? "title-" + name : undefined,
         "aria-describedby": desc ? "desc-" + name : undefined,
         title: title ? `title-${name}` : undefined,
-        description: desc ? `title-${name}` : undefined,
     };
 
     let svg;

@@ -12,6 +12,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Updates Storybook to version 6, its configuration, and minor updates to components to get the service running. Not all stories are optimized at this time.
 
+## 0.11.5
+
+### Changes
+
+-   Updates the margin on action-links from `xxs` to `xs`
+
+## 0.11.4
+
+### Changes
+
+-   Removes the `description` tag from the `<span>` element wrapping svg icons (#360)
+
 ## 0.11.3
 
 ### Changes
