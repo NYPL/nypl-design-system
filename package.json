@@ -9,7 +9,9 @@
     "release": {
         "branches": [
             "release"
-        ]
+        ],
+        "notifyOnSuccess": true,
+        "notifyOnFail": false
     },
     "main": "dist/design-system-react-components.min.js",
     "types": "lib/index.d.ts",
