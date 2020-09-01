@@ -43,11 +43,6 @@ describe("Images", () => {
         expect(wrapper.find("div")).to.have.lengthOf(2);
     });
 
-    it("Throws error when meaningful image is passed without alt text", () => {
-        expect(() => Enzyme.mount(<Image src="test.png" alt={""} />)).to.throw(
-            "If image is decorative, alt text is required"
-        );
-    });
     it("Throws error when alt text is too long", () => {
         expect(() =>
             Enzyme.mount(<Image src="test.png" alt={tooManyChars} />)
