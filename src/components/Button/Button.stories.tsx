@@ -14,11 +14,17 @@ export default {
     decorators: [withDesign],
 };
 
-let showIcon;
+let showIconLeft;
+let showIconRight;
 
 export const button = () => (
     <>
-        {boolean("Show Icon", true) ? (showIcon = true) : (showIcon = false)}
+        {boolean("Show Icon on Left", true)
+            ? (showIconLeft = true)
+            : (showIconLeft = false)}
+        {boolean("Show Icon on Right", false)
+            ? (showIconRight = true)
+            : (showIconRight = false)}
         <Button
             onClick={action("clicked")}
             id="button"
@@ -26,7 +32,7 @@ export const button = () => (
             type="submit"
             disabled={boolean("Disabled", false)}
         >
-            {showIcon && (
+            {showIconLeft && (
                 <Icon
                     name={select("Icon", IconNames, IconNames.search_small)}
                     decorative={true}
@@ -34,6 +40,13 @@ export const button = () => (
                 />
             )}
             {text("Button Text", "Search")}
+            {showIconRight && (
+                <Icon
+                    name={select("Icon", IconNames, IconNames.search_small)}
+                    decorative={true}
+                    modifiers={["small", "icon-right"]}
+                />
+            )}
         </Button>
     </>
 );
