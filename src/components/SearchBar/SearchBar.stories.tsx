@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import Select from "../Select/Select";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import Button from "../Button/Button";
-import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Input from "../Input/Input";

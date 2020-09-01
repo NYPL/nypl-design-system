@@ -1,7 +1,7 @@
 import * as React from "react";
 import Icon, { IconProps } from "../Icons/Icon";
 import bem from "../../utils/bem";
-import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
+import { ButtonTypes } from "./ButtonTypes";
 import { IconRotationTypes } from "../Icons/IconTypes";
 
 interface ButtonProps {

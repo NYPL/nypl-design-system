@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from "../Button/Button";
 import bem from "../../utils/bem";
-import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
 

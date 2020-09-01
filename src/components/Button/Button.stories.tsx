@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Button from "./Button";
-import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
+import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";

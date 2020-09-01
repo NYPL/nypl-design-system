@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import Button from "../Button/Button";
-import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
