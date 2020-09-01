@@ -6,6 +6,10 @@
     &__button {
         @include button--outline;
 
+        align-items: center;
         border: none;
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
     }
 }
