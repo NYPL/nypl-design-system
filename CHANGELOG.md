@@ -11,6 +11,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 -   `Image` now has an `alt` prop instead of an `altText` prop
+-   Removes `isDecorative` property in favor of an empty `alt`
+
+### Adds
+
+-   Adds HTML `<img>` props to the `Image` component
 
 ### Adds
 
