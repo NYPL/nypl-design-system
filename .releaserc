@@ -1,0 +1,18 @@
+{
+    "branches": [
+        "release"
+    ],
+    "notifyOnSuccess": true,
+    "notifyOnFail": false,
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+    [
+      "semantic-release-slack-bot",
+      {
+        "notifyOnSuccess": false,
+        "notifyOnFail": true
+      }
+    ]
+  ]
+}
