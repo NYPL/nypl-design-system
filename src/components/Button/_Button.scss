@@ -76,6 +76,11 @@
     &:hover {
         background-color: var(--ui-gray-xxlight);
     }
+
+    &:disabled {
+        background-color: var(--ui-gray-light);
+        color: var(--ui-gray-dark);
+    }
 }
 
 @mixin button--link {
@@ -90,6 +95,11 @@
     &:hover {
         background-color: transparent;
         color: var(--ui-link-secondary);
+    }
+
+    &:disabled {
+        background-color: transparent;
+        color: var(--ui-gray-dark);
     }
 }
 
