@@ -1,7 +1,8 @@
 import * as React from "react";
 
 import Button from "./Button";
-import { ButtonTypes, ButtonIconPositions } from "./ButtonTypes";
+import { ButtonTypes } from "./ButtonTypes";
+import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
@@ -13,34 +14,39 @@ export default {
     decorators: [withDesign],
 };
 
-let showIcon;
+let showIconLeft;
+let showIconRight;
 
 export const button = () => (
     <>
-        {boolean("Show Icon", true) ? (showIcon = true) : (showIcon = false)}
+        {boolean("Show Icon on Left", true)
+            ? (showIconLeft = true)
+            : (showIconLeft = false)}
+        {boolean("Show Icon on Right", false)
+            ? (showIconRight = true)
+            : (showIconRight = false)}
         <Button
             onClick={action("clicked")}
             id="button"
             buttonType={select("Button Type", ButtonTypes, ButtonTypes.Primary)}
             type="submit"
             disabled={boolean("Disabled", false)}
-            iconPosition={
-                showIcon
-                    ? select(
-                          "Icon Position",
-                          ButtonIconPositions,
-                          ButtonIconPositions.Left
-                      )
-                    : null
-            }
-            iconName={
-                showIcon
-                    ? select("Icon", IconNames, IconNames.search_small)
-                    : null
-            }
-            iconDecorative={true}
         >
+            {showIconLeft && (
+                <Icon
+                    name={select("Icon", IconNames, IconNames.search_small)}
+                    decorative={true}
+                    modifiers={["small", "icon-left"]}
+                />
+            )}
             {text("Button Text", "Search")}
+            {showIconRight && (
+                <Icon
+                    name={select("Icon", IconNames, IconNames.search_small)}
+                    decorative={true}
+                    modifiers={["small", "icon-right"]}
+                />
+            )}
         </Button>
     </>
 );

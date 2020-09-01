@@ -69,7 +69,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
         className,
         desc,
         iconRotation,
-        modifiers,
+        modifiers = [],
         name,
         role,
         title,
