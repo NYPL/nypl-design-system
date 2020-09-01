@@ -11,7 +11,7 @@ import Link from "../Link/Link";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import { LinkTypes } from "../Link/LinkTypes";
-import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
 
 export default {
     title: "Card",
