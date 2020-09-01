@@ -17,13 +17,11 @@ export interface ImageProps {
     imageCredit?: string;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
-    /** Handler for when image errors */
-    onError?: () => void;
     /** The src attribute is required, and contains the path to the image you want to embed. */
     src: string;
 }
 
-export default function Image(props: ImageProps) {
+export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
     const image_base_class = "image";
     const {
         alt,
@@ -32,9 +30,9 @@ export default function Image(props: ImageProps) {
         className,
         imageCaption,
         imageCredit,
-        onError,
         modifiers,
         src,
+        ...imgHTMLProps
     } = props;
 
     if (alt && alt.length > 300) {
@@ -55,7 +53,7 @@ export default function Image(props: ImageProps) {
         <>
             {imageCaption || imageCredit ? (
                 <figure className={bem("figure")}>
-                    <img {...imageProps} />
+                    <img {...imageProps} {...imgHTMLProps} {...attributes} />
                     <figcaption
                         className={bem("figcaption", [], "figure", ["image"])}
                     >
@@ -72,7 +70,7 @@ export default function Image(props: ImageProps) {
                     </figcaption>
                 </figure>
             ) : (
-                <img {...imageProps} {...attributes} />
+                <img {...imageProps} {...imgHTMLProps} {...attributes} />
             )}
         </>
     );
