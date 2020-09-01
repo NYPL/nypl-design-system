@@ -6,11 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## 0.12.0
+## 0.13.0
 
 ### Adds
 
 -   Updates Storybook to version 6, its configuration, and minor updates to components to get the service running. Not all stories are optimized at this time.
+
+## 0.12.0
+
+### Breaking Changes
+
+-   Moves box-sizing declarations to a `.nypl-ds` namespace. All future "global" CSS settings will move to exist under this namespace.
+
+### Adds
+
+-   Universal focus styling
 
 ## 0.11.5
 
