@@ -3,9 +3,10 @@ import * as React from "react";
 import SearchBar from "./SearchBar";
 import Select from "../Select/Select";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import { IconNames } from "../Icons/IconTypes";
 import Button from "../Button/Button";
-import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Icon from "../Icons/Icon";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
 import { action } from "@storybook/addon-actions";
@@ -124,14 +125,12 @@ export const searchBar = () => (
             ></Input>
             <Button
                 buttonType={ButtonTypes.Primary}
-                iconDecorative={true}
-                iconName={IconNames.search_small}
-                iconPosition={ButtonIconPositions.Left}
                 id="button"
                 onClick={action("clicked")}
                 type="submit"
                 disabled={formErrored || formDisabled ? true : false}
             >
+                <Icon name={IconNames.search_small} decorative={true} />
                 Search
             </Button>
         </SearchBar>

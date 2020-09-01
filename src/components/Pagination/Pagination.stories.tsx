@@ -4,7 +4,8 @@ import { withDesign } from "storybook-addon-designs";
 import { text } from "@storybook/addon-knobs";
 
 import Button from "../Button/Button";
-import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
 import Pagination from "./Pagination";
@@ -22,11 +23,13 @@ export const pagination = () => (
             <Button
                 buttonType={ButtonTypes.Secondary}
                 onClick={action("Previous clicked")}
-                iconDecorative={true}
-                iconName={IconNames.arrow}
-                iconPosition={ButtonIconPositions.Left}
-                iconRotation={IconRotationTypes.rotate90}
             >
+                <Icon
+                    name={IconNames.arrow}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate90}
+                    modifiers={["small", "icon-left"]}
+                />
                 {text("Previous Button Label", "Previous")}
             </Button>
         }
@@ -34,12 +37,14 @@ export const pagination = () => (
             <Button
                 buttonType={ButtonTypes.Secondary}
                 onClick={action("Next clicked")}
-                iconDecorative={true}
-                iconName={IconNames.arrow}
-                iconPosition={ButtonIconPositions.Right}
-                iconRotation={IconRotationTypes.rotate270}
             >
                 {text("Next Button Label", "Next")}
+                <Icon
+                    name={IconNames.arrow}
+                    decorative={true}
+                    iconRotation={IconRotationTypes.rotate270}
+                    modifiers={["small", "icon-right"]}
+                />
             </Button>
         }
     >

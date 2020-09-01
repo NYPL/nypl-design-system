@@ -4,7 +4,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import Button from "../Button/Button";
-import { ButtonTypes, ButtonIconPositions } from "../Button/ButtonTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
@@ -32,11 +32,12 @@ describe("Pagination Test", () => {
                     <Button
                         buttonType={ButtonTypes.Secondary}
                         onClick={previousCallback()}
-                        iconDecorative={true}
-                        iconName={IconNames.arrow}
-                        iconPosition={ButtonIconPositions.Left}
-                        iconRotation={IconRotationTypes.rotate90}
                     >
+                        <Icon
+                            name={IconNames.arrow}
+                            decorative={true}
+                            iconRotation={IconRotationTypes.rotate90}
+                        />
                         Previous
                     </Button>
                 }
@@ -44,12 +45,13 @@ describe("Pagination Test", () => {
                     <Button
                         buttonType={ButtonTypes.Secondary}
                         onClick={nextCallback()}
-                        iconDecorative={true}
-                        iconName={IconNames.arrow}
-                        iconPosition={ButtonIconPositions.Right}
-                        iconRotation={IconRotationTypes.rotate270}
                     >
                         Next
+                        <Icon
+                            name={IconNames.arrow}
+                            decorative={true}
+                            iconRotation={IconRotationTypes.rotate270}
+                        />
                     </Button>
                 }
             >
