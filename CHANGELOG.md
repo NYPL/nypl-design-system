@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.14.0
+
+### Breaking Changes
+
+-   `Image` now has an `alt` prop instead of an `altText` prop
+-   Removes `isDecorative` property in favor of an empty `alt`
+
+### Adds
+
+-   Adds HTML `<img>` props to the `Image` component
+
+### Adds
+
+-   Adds html image props to `Image`
+
 ## 0.13.0
 
 ### Breaking Changes
