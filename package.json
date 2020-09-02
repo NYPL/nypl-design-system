@@ -1,17 +1,10 @@
 {
     "name": "@nypl/design-system-react-components",
-    "version": "0.13.0",
+    "version": "0.14.0",
     "description": "Design System React Components",
     "repository": {
         "type": "git",
         "url": "https://github.com/NYPL/nypl-design-system/"
-    },
-    "release": {
-        "branches": [
-            "release"
-        ],
-        "notifyOnSuccess": true,
-        "notifyOnFail": false
     },
     "main": "dist/design-system-react-components.min.js",
     "types": "lib/index.d.ts",
