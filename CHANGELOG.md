@@ -15,6 +15,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## 0.15.1
 
+### Changes
+
+-   Changes Schwartzman building brand color to the NYPL red as driven by Communications
+
+## 0.15.1
+
 ### Removes
 
 -   `arrow_xsmall` and `search_small` icons
