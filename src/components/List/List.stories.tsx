@@ -59,12 +59,7 @@ list.parameters = {
 const exampleCard = (
     <Card
         className="example-card"
-        image={
-            <Image
-                src="https://placeimg.com/300/400/arch"
-                isDecorative={true}
-            />
-        }
+        image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
         ctas={
             <>
                 <Link type={LinkTypes.Button} href="blah">

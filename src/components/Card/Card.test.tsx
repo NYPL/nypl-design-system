@@ -21,12 +21,7 @@ describe("Card", () => {
             heading={
                 <Heading level={3} id="heading1" text={"Optional Header"} />
             }
-            image={
-                <Image
-                    src="https://placeimg.com/400/200/arch"
-                    isDecorative={true}
-                />
-            }
+            image={<Image src="https://placeimg.com/400/200/arch" alt={""} />}
             ctas={
                 <Button
                     onClick={function () {
@@ -56,12 +51,7 @@ describe("Card", () => {
                     text={"2004 Edition"}
                 />
             }
-            image={
-                <Image
-                    src="https://placeimg.com/300/400/arch"
-                    isDecorative={true}
-                />
-            }
+            image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
             ctas={
                 <div className="edition-card__ctas">
                     <Link type={LinkTypes.Button} href="blah">
@@ -96,12 +86,7 @@ describe("Card", () => {
     let cardWithNoCTAs = (
         <Card
             id="card#1"
-            image={
-                <Image
-                    src="https://placeimg.com/300/400/arch"
-                    isDecorative={true}
-                />
-            }
+            image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
             className="edition-card"
             heading={
                 <Heading
@@ -123,12 +108,7 @@ describe("Card", () => {
         <Card
             id="card#1"
             className="edition-card"
-            image={
-                <Image
-                    src="https://placeimg.com/300/400/arch"
-                    isDecorative={true}
-                />
-            }
+            image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
             heading={
                 <Heading
                     level={2}
