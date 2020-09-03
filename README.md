@@ -69,15 +69,13 @@ Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds
 
 ### CDN
 
-You can also use the Design System in your project with our CDN:
-
-`<script src="https://unpkg.com/@nypl/design-system-react-components/dist/design-system-react-components.min.js"></script>`
+You can also use the Design System styles in your project with our CDN:
 
 `<link href="https://unpkg.com/@nypl/design-system-react-components/dist/styles.css">`
 
 If you need to reference a particular version you can do do by including the version number in the URL:
 
-`<script src="https://unpkg.com/@nypl/design-system-react-components@0.9.1/dist/design-system-react-components.min.js"></script>`
+`<link href="https://unpkg.com/@nypl/design-system-react-components@0.9.1/dist/styles.css">`
 
 You can check out a working Codepen with unpkg [here](https://codepen.io/scoooooooby/pen/wvGzebO).
 
