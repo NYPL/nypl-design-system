@@ -8,7 +8,6 @@ export enum IconRotationTypes {
 export enum IconNames {
     accessibility_full = "accessibility_full",
     accessibility_partial = "accessibility_partial",
-    arrow_xsmall = "arrow_xsmall",
     arrow = "arrow",
     check = "check",
     clock = "clock",
@@ -17,7 +16,6 @@ export enum IconNames {
     headset = "headset",
     minus = "minus",
     plus = "plus",
-    search_small = "search_small",
     search = "search",
 }
 
