@@ -1,0 +1,29 @@
+// @See https://codepen.io/oslego/pen/XdvWmd
+.skeleton-loader:empty {
+    animation: shine 1s infinite;
+    background-image: linear-gradient(
+            100deg,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0) 80%
+        ),
+        linear-gradient(var(--ui-gray-warm-light) 20px, transparent 0),
+        linear-gradient(var(--ui-gray-warm-light) 20px, transparent 0),
+        linear-gradient(var(--ui-gray-warm-light) 20px, transparent 0),
+        linear-gradient(var(--ui-gray-warm-light) 20px, transparent 0);
+    background-position: 0 0, /* highlight */ 0px 0, 0px 30px, 0px 60px,
+        0px 90px;
+    background-repeat: repeat-y;
+    background-size: 50px 180px, /* highlight */ 150px 180px, 350px 180px,
+        300px 180px, 250px 180px;
+    height: 485px; /* change height to see repeat-y behavior */
+    margin: auto;
+    width: 100%;
+}
+
+@keyframes shine {
+    to {
+        background-position: 100% 0, /* move highlight to right */ 0px 0,
+            0px 30px, 0px 60px, 0px 90px;
+    }
+}
