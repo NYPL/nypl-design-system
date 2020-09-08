@@ -4,27 +4,8 @@
     border-radius: 2px;
     cursor: pointer;
     display: flex;
-    text-align: center;
+    justify-content: center;
     text-decoration: none;
-
-    &--icon {
-        align-items: center;
-        display: inline-flex;
-        justify-content: center;
-    }
-
-    &--icon-left {
-        flex-flow: row-reverse nowrap;
-    }
-
-    &--icon-right {
-        flex-flow: row nowrap;
-    }
-
-    &--justify-right {
-        justify-content: space-between;
-        width: 100%;
-    }
 
     .icon {
         @include icon;
