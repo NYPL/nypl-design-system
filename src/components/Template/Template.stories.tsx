@@ -2,7 +2,6 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Placeholder from "../Placeholder/Placeholder";
 import { withDesign } from "storybook-addon-designs";
-import { boolean, select } from "@storybook/addon-knobs";
 import { Meta, Story } from "@storybook/react/types-6-0";
 
 export default {
