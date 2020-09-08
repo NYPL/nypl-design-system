@@ -2,6 +2,7 @@ import * as React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import Accordion, { AccordionProps } from "./Accordion";
 import { action } from "@storybook/addon-actions";
+import { withDesign } from "storybook-addon-designs";
 
 import Checkbox from "../Checkbox/Checkbox";
 import List from "../List/List";
@@ -10,6 +11,7 @@ import { ListTypes } from "../List/ListTypes";
 export default {
     title: "Accordion",
     component: Accordion,
+    decorators: [withDesign],
 } as Meta;
 
 // Set up the reusable template to create multiple stories for the
@@ -51,7 +53,11 @@ const checkboxes = [
     </li>,
 ];
 const childrenList = (
-    <List type={ListTypes.Unordered} id="checkbox-list">
+    <List
+        type={ListTypes.Unordered}
+        id="checkbox-list"
+        modifiers={["no-list-styling"]}
+    >
         {checkboxes}
     </List>
 );
@@ -64,4 +70,12 @@ export const AccordionWithCheckboxes = Template.bind({});
 AccordionWithCheckboxes.args = {
     accordionLabel: "Click to expand",
     labelId: "accordionBtn",
+};
+
+AccordionWithCheckboxes.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
+    },
 };

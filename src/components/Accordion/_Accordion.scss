@@ -1,5 +1,5 @@
 .accordion {
-    border: 1px solid var(--ui-gray-light);
+    border: 1px solid var(--ui-gray-medium);
     color: inherit;
     width: 100%;
 
@@ -12,4 +12,8 @@
         justify-content: space-between;
         width: 100%;
     }
+}
+
+.accordion-content {
+    padding: var(--space-xxs) var(--space-xs) 0 var(--space-xs);
 }
