@@ -9,31 +9,25 @@ export default {
     decorators: [withDesign],
 };
 
-let showSidebarLeft;
-let showSidebarRight;
-const sidebarLeftModifier = ["with-sidebar-left"];
-const sidebarRightModifier = ["with-sidebar-right"];
+let showSidebar;
+let sidebarSide;
 
 export const Template = () => (
     <>
-        {boolean("Show Sidebar Left", true)
-            ? (showSidebarLeft = true)
-            : (showSidebarLeft = false)}
-        {boolean("Show Sidebar Right", false)
-            ? (showSidebarRight = true)
-            : (showSidebarRight = false)}
+        {boolean("Show Sidebar", true)
+            ? (showSidebar = true)
+            : (showSidebar = false)}
+        <div className="template-hidden">
+            {(sidebarSide = select("Sidebar Side", ["left", "right"], "left"))}
+        </div>
 
-        <div className={bem("layout-container")}>
+        <div className={bem("layout-container nypl-ds")}>
             <header className={bem("header")}>
                 <Placeholder>Header</Placeholder>
             </header>
 
             <main
-                className={
-                    showSidebarLeft || showSidebarRight
-                        ? bem("main", ["with-sidebar"])
-                        : "main"
-                }
+                className={showSidebar ? bem("main", ["with-sidebar"]) : "main"}
             >
                 <div className="content-header">
                     {<Placeholder>Hero</Placeholder>}
@@ -43,7 +37,7 @@ export const Template = () => (
                     {<Placeholder>Content Top</Placeholder>}
                 </div>
 
-                {showSidebarLeft && (
+                {showSidebar && sidebarSide === "left" && (
                     <div
                         className={bem("content-secondary", [
                             "with-sidebar-left",
@@ -53,7 +47,7 @@ export const Template = () => (
                     </div>
                 )}
 
-                {showSidebarLeft && (
+                {showSidebar && sidebarSide === "left" && (
                     <div
                         className={bem("content-primary", [
                             "with-sidebar-left",
@@ -65,7 +59,7 @@ export const Template = () => (
                         </div>
                     </div>
                 )}
-                {showSidebarRight && (
+                {showSidebar && sidebarSide === "right" && (
                     <div
                         className={bem("content-primary", [
                             "with-sidebar-right",
@@ -77,30 +71,16 @@ export const Template = () => (
                         </div>
                     </div>
                 )}
-                {!showSidebarRight && !showSidebarLeft && (
+                {!showSidebar && (
                     <div className={bem("content-primary")}>
-                        <p>
-                            Culpa cupidatat irure exercitation qui ea pariatur
-                            consequat sit exercitation nulla ea commodo. Velit
-                            cupidatat mollit non est tempor aliquip est culpa
-                            officia labore ullamco ex laboris. Pariatur
-                            reprehenderit Lorem dolor et exercitation velit
-                            consectetur deserunt laboris tempor esse anim
-                            proident labore. Dolor commodo Lorem eu qui non qui
-                            tempor dolore veniam. Ipsum ipsum consectetur
-                            proident elit sit labore consequat velit aliquip
-                            excepteur. Mollit excepteur nisi incididunt sunt
-                            incididunt anim deserunt do ullamco officia eu. Est
-                            aliquip enim id qui officia irure cillum minim
-                            aliquip proident eu.
-                        </p>
+                        <Placeholder>Main Content</Placeholder>
                         <div className="content-bottom">
                             {<Placeholder>Content Bottom</Placeholder>}
                         </div>
                     </div>
                 )}
 
-                {showSidebarRight && (
+                {showSidebar && sidebarSide === "right" && (
                     <div
                         className={bem("content-secondary", [
                             "with-sidebar-right",
