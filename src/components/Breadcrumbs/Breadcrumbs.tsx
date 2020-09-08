@@ -71,7 +71,7 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
                 >
                     {last && (
                         <Icon
-                            name={IconNames.arrow_xsmall}
+                            name={IconNames.arrow}
                             blockName={breadcrumbs__base_class}
                             modifiers={["small"]}
                             decorative={true}
