@@ -57,13 +57,12 @@ export const breadcrumbs = () => (
     </>
 );
 
-breadcrumbs.story = {
-    name: "Breadcrumbs",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10766%3A1031",
-        },
+breadcrumbs.storyName = "Breadcrumbs";
+
+breadcrumbs.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10766%3A1031",
     },
 };

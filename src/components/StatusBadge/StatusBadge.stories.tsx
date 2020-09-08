@@ -18,13 +18,11 @@ export const StatusBadge = () => (
     </div>
 );
 
-StatusBadge.story = {
-    name: "Status Badge",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/QonD3Efc5SjEDUuyQleqkPTq/Locations?node-id=2116%3A84904",
-        },
+StatusBadge.storyName = "Status Badge";
+StatusBadge.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/QonD3Efc5SjEDUuyQleqkPTq/Locations?node-id=2116%3A84904",
     },
 };

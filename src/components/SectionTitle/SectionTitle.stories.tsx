@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import SectionTitle from "./SectionTitle";
-import { action } from "@storybook/addon-actions";
 
 export default {
     title: "Section Title",

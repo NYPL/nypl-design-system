@@ -18,14 +18,12 @@ export const allHeadings = () => (
     </>
 );
 
-allHeadings.story = {
-    name: "All Headings",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
-        },
+allHeadings.storyName = "All Headings";
+allHeadings.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
 };
 
@@ -37,14 +35,12 @@ export const headingsWithBold = () => (
     </Heading>
 );
 
-headingsWithBold.story = {
-    name: "Headings With Bold",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
-        },
+headingsWithBold.storyName = "Headings With Bold";
+headingsWithBold.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
 };
 
@@ -56,13 +52,11 @@ export const headingsWithLink = () => (
     </Heading>
 );
 
-headingsWithLink.story = {
-    name: "Headings With Link",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
-        },
+headingsWithLink.storyName = "Headings With Link";
+headingsWithLink.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
 };

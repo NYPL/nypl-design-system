@@ -51,13 +51,12 @@ export const button = () => (
     </>
 );
 
-button.story = {
-    name: "Button",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
-        },
+button.storyName = "Button";
+
+button.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
     },
 };

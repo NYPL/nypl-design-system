@@ -1,8 +1,5 @@
 import * as React from "react";
-import bem from "../../utils/bem";
-import { action } from "@storybook/addon-actions";
-import { boolean, number, select } from "@storybook/addon-knobs";
-import { addDecorator } from "@storybook/react";
+import { boolean, select } from "@storybook/addon-knobs";
 
 import Card from "../Card/Card";
 import Heading from "../Heading/Heading";
@@ -18,8 +15,6 @@ export default {
     title: "List",
     component: List,
 };
-
-let listStyling;
 
 let itemList = [];
 
@@ -52,14 +47,12 @@ export const list = () => (
     </List>
 );
 
-list.story = {
-    name: "List",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
-        },
+list.storyName = "List";
+list.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
     },
 };
 

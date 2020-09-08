@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import HelperErrorText from "./HelperErrorText";
-import { boolean, text } from "@storybook/addon-knobs";
+import { boolean } from "@storybook/addon-knobs";
 
 export default {
     title: "HelperErrorText",

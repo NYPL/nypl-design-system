@@ -8,11 +8,9 @@ import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Input from "../Input/Input";
-import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import { InputTypes } from "../Input/InputTypes";
 import { action } from "@storybook/addon-actions";
-import { text, boolean, select } from "@storybook/addon-knobs";
+import { boolean } from "@storybook/addon-knobs";
 
 export default {
     title: "SearchBar",
@@ -149,13 +147,11 @@ export const searchBar = () => (
     </>
 );
 
-searchBar.story = {
-    name: "Search Bar",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
-        },
+searchBar.storyName = "Search Bar";
+searchBar.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
     },
 };
