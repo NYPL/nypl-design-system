@@ -5,7 +5,6 @@ import { IconRotationTypes, IconNames, LogoNames } from "./IconTypes";
 
 import accessibility_full from "../../../icons/svg/accessibility_full.svg";
 import accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
-import arrow_xsmall from "../../../icons/svg/arrow_xsmall.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
@@ -18,13 +17,11 @@ import logo_nypl_negative from "../../../icons/svg/logo_nypl_negative.svg";
 import logo_queens from "../../../icons/svg/logo_queenspl.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
-import search_small from "../../../icons/svg/search_small.svg";
 import search from "../../../icons/svg/search.svg";
 
 const allSvgs = {
     accessibility_full,
     accessibility_partial,
-    arrow_xsmall,
     arrow,
     check,
     clock,
@@ -37,7 +34,6 @@ const allSvgs = {
     logo_queens,
     minus,
     plus,
-    search_small,
     search,
 };
 

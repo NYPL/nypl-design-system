@@ -34,7 +34,7 @@ export const button = () => (
         >
             {showIconLeft && (
                 <Icon
-                    name={select("Icon", IconNames, IconNames.search_small)}
+                    name={select("Icon", IconNames, IconNames.search)}
                     decorative={true}
                     modifiers={["small", "icon-left"]}
                 />
@@ -42,7 +42,7 @@ export const button = () => (
             {text("Button Text", "Search")}
             {showIconRight && (
                 <Icon
-                    name={select("Icon", IconNames, IconNames.search_small)}
+                    name={select("Icon", IconNames, IconNames.search)}
                     decorative={true}
                     modifiers={["small", "icon-right"]}
                 />
