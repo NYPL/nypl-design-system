@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removes
 
 -   Additional `Button` CSS that was no longer used after Button API refactor in 0.13.0
+-   Deprecates `SearchResultItem`
 
 ## 0.14.0
 
