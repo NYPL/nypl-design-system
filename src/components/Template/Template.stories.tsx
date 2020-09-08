@@ -100,4 +100,5 @@ Template.parameters = {
         url:
             "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
     },
+    layout: "fullscreen",
 };
