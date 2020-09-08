@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import Image from "./Image";
-import { action } from "@storybook/addon-actions";
 import { text, boolean, select } from "@storybook/addon-knobs";
 
 export default {
@@ -9,7 +8,7 @@ export default {
     component: Image,
 };
 
-let showCaption, showCredit, circleMask;
+let showCaption, showCredit;
 
 const imageRatios = {
     "1x1": "https://placeimg.com/100/100/animals",
@@ -48,13 +47,12 @@ export const ImageWithOptionalCaptionandCredit = () => (
     </>
 );
 
-ImageWithOptionalCaptionandCredit.story = {
-    name: "Image with Optional Caption and Credit",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11896%3A45379",
-        },
+ImageWithOptionalCaptionandCredit.storyName =
+    "Image with Optional Caption and Credit";
+ImageWithOptionalCaptionandCredit.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11896%3A45379",
     },
 };
