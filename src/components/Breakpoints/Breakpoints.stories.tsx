@@ -1,10 +1,8 @@
 import * as React from "react";
 
-import { boolean, text } from "@storybook/addon-knobs";
 import cssVariables from "../../helpers/CSSVariablesHelper";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import Heading from "../Heading/Heading";
-import { ListTypes } from "../List/ListTypes";
 import { CSSVariablesInterface } from "../../interfaces";
 
 export default {
@@ -53,13 +51,11 @@ export const breakpoints = () => (
     </>
 );
 
-breakpoints.story = {
-    name: "Breakpoints",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17983%3A60146",
-        },
+breakpoints.storyName = "Breakpoints";
+breakpoints.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17983%3A60146",
     },
 };

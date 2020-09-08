@@ -81,13 +81,11 @@ export const selectWithOptionalLabel = () => (
     </>
 );
 
-selectWithOptionalLabel.story = {
-    name: "Select",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
-        },
+selectWithOptionalLabel.storyName = "Select";
+selectWithOptionalLabel.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
     },
 };
