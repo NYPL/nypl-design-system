@@ -3,24 +3,15 @@ import bem from "../../utils/bem";
 import Placeholder from "../Placeholder/Placeholder";
 import { withDesign } from "storybook-addon-designs";
 import { boolean, select } from "@storybook/addon-knobs";
+import { Meta, Story } from "@storybook/react/types-6-0";
 
 export default {
     title: "Template",
     decorators: [withDesign],
-};
+} as Meta;
 
-let showSidebar;
-let sidebarSide;
-
-export const Template = () => (
+export const Template = ({ showSidebar, sidebarSide, ...args }) => (
     <>
-        {boolean("Show Sidebar", true)
-            ? (showSidebar = true)
-            : (showSidebar = false)}
-        <div className="template-hidden">
-            {(sidebarSide = select("Sidebar Side", ["left", "right"], "left"))}
-        </div>
-
         <div className={bem("layout-container nypl-ds")}>
             <header className={bem("header")}>
                 <Placeholder>Header</Placeholder>
@@ -98,6 +89,10 @@ export const Template = () => (
     </>
 );
 
+Template.args = { showSidebar: true, sidebarSide: "left" };
+Template.argTypes = {
+    sidebarSide: { control: { type: "select", options: ["left", "right"] } },
+};
 Template.storyName = "Template";
 Template.parameters = {
     design: {
