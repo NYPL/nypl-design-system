@@ -256,14 +256,12 @@ export const colorsBrand = () => (
     </>
 );
 
-colorsBrand.story = {
-    name: "Colors—Brand",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=15454%3A47007",
-        },
+colorsBrand.storyName = "Colors—Brand";
+colorsBrand.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=15454%3A47007",
     },
 };
 
@@ -288,13 +286,11 @@ export const colorsUtility = () => (
     </>
 );
 
-colorsUtility.story = {
-    name: "Colors—Utility",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14989%3A37",
-        },
+colorsUtility.storyName = "Colors—Utility";
+colorsUtility.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14989%3A37",
     },
 };

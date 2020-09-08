@@ -3,7 +3,6 @@ import bem from "../../utils/bem";
 
 export interface LabelOptions {
     labelContent?: JSX.Element;
-
     id?: string;
     htmlFor?: string;
 }

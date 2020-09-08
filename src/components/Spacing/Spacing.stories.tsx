@@ -1,8 +1,6 @@
 import * as React from "react";
 
-import { boolean, text } from "@storybook/addon-knobs";
 import cssVariables from "../../helpers/CSSVariablesHelper";
-import getCSSVariable from "../../helpers/getCSSVariable";
 import Card from "../Card/Card";
 import List from "../List/List";
 import Heading from "../Heading/Heading";
@@ -75,14 +73,11 @@ export const Spacing = () => (
         </List>
     </>
 );
-
-Spacing.story = {
-    name: "Spacing",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17249%3A13",
-        },
+Spacing.storyName = "Spacing";
+Spacing.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17249%3A13",
     },
 };

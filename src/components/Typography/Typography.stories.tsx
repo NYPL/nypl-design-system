@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import { boolean, text } from "@storybook/addon-knobs";
 import cssVariables from "../../helpers/CSSVariablesHelper";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import Heading from "../Heading/Heading";
@@ -58,14 +57,12 @@ export const typefaces = () => (
     </>
 );
 
-typefaces.story = {
-    name: "Typefaces",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
-        },
+typefaces.storyName = "Typefaces";
+typefaces.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
 };
 
@@ -106,14 +103,3 @@ export const typeScale = () => (
         <>{bodyCopies}</>
     </>
 );
-
-typefaces.story = {
-    name: "Typefaces",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A0",
-        },
-    },
-};

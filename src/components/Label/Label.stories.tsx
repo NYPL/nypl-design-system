@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Label from "../Label/Label";
-import { text, boolean, select } from "@storybook/addon-knobs";
+import { text, select } from "@storybook/addon-knobs";
 
 export default {
     title: "Label",

@@ -58,14 +58,12 @@ export const input = () => (
     </>
 );
 
-input.story = {
-    name: "Input",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
-        },
+input.storyName = "Input";
+input.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
 };
 
@@ -139,14 +137,12 @@ export const inputGroup = () => (
     </fieldset>
 );
 
-inputGroup.story = {
-    name: "Input Group",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
-        },
+inputGroup.storyName = "Input Group";
+inputGroup.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
 };
 

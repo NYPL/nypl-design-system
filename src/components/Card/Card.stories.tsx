@@ -1,5 +1,4 @@
 import * as React from "react";
-import bem from "../../utils/bem";
 import { action } from "@storybook/addon-actions";
 import { text, boolean, select } from "@storybook/addon-knobs";
 
@@ -89,14 +88,13 @@ export const card = () => (
     </>
 );
 
-card.story = {
-    name: "Card",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
-        },
+card.storyName = "Card";
+
+card.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
     },
 };
 
@@ -148,13 +146,12 @@ export const ExampleCard = () => (
     </Card>
 );
 
-ExampleCard.story = {
-    name: "Example Card",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
-        },
+ExampleCard.storyName = "Example Card";
+
+ExampleCard.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
     },
 };
