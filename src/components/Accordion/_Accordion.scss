@@ -9,11 +9,21 @@
         align-items: center;
         border: none;
         display: inline-flex;
+        font-weight: 500;
         justify-content: space-between;
         width: 100%;
-    }
-}
 
-.accordion-content {
-    padding: var(--space-xxs) var(--space-xs) 0 var(--space-xs);
+        &:hover {
+            background-color: var(--ui-gray-light);
+        }
+
+        &--faq {
+            font-size: var(--font-size-1);
+            padding: var(--space-s);
+        }
+    }
+
+    &__content {
+        padding: var(--space-xxs) var(--space-xs) 0 var(--space-xs);
+    }
 }
