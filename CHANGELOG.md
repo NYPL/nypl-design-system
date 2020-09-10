@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.16.1
+
+### Adds
+
+-   Styling for `Accordion` sets
+
+### Changes
+
+-   `className`s within `Accordion` for content
+-   Hover stylings for `Accordion`
+
 ## 0.16.0
 
 ### Breaking Changes
