@@ -6,18 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.16.1
+
+### Changes
+
+-   Changes Schwartzman building brand color to the NYPL red as driven by Communications
+
 ## 0.16.0
 
 ### Breaking Changes
 
 -   Removes the padding on the `breakout` mixin
 -   Removes the padding on the `wrapper` mixin at the `xl` breakpoint
-
-## 0.15.1
-
-### Changes
-
--   Changes Schwartzman building brand color to the NYPL red as driven by Communications
 
 ## 0.15.1
 
