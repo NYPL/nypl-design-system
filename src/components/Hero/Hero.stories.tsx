@@ -1,14 +1,33 @@
 import * as React from "react";
+import { Story } from "@storybook/react/types-6-0";
 
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
-import Hero from "./Hero";
+import Hero, { HeroProps } from "./Hero";
 import Placeholder from "../Placeholder/Placeholder";
 
 export default {
     title: "Hero",
     component: Hero,
+};
+
+const HeroTemplate: Story<HeroProps> = (args) => <Hero {...args} />;
+
+export const hero = HeroTemplate.bind({});
+hero.args = {
+    heroType: HeroTypes.Primary,
+    heading: "Heading",
+    subHeaderText: "Subheading",
+    backgroundImageSrc: "https://placeimg.com/1600/800/arch",
+    image: "alskdjf",
+};
+
+hero.argTypes = {
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    children: { table: { disable: true } },
 };
 
 export const heroPrimary = () => (

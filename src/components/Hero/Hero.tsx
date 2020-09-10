@@ -64,11 +64,11 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         throw new Error(`backgroundImageSrc required on PRIMARY heroTypes`);
     }
 
-    if (backgroundImageSrc && image) {
-        throw new Error(
-            `Please only either backgroundImageSrc or image into Hero, got both`
-        );
-    }
+    // if (backgroundImageSrc && image) {
+    //     throw new Error(
+    //         `Please only either backgroundImageSrc or image into Hero, got both`
+    //     );
+    // }
 
     if (heroType !== HeroTypes.Primary && locationDetails) {
         throw new Error(
