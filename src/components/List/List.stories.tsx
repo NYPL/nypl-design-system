@@ -1,5 +1,6 @@
 import * as React from "react";
 import { boolean, select } from "@storybook/addon-knobs";
+import { Story } from "@storybook/react/types-6-0";
 
 import Card from "../Card/Card";
 import Heading from "../Heading/Heading";
@@ -8,7 +9,7 @@ import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
-import List from "./List";
+import List, { ListProps } from "./List";
 import { ListTypes } from "./ListTypes";
 
 export default {
@@ -34,18 +35,19 @@ const itemGroups = [
     "Villagers",
 ];
 
-for (let i = 0; i < itemGroups.length; i++) {
-    itemList.push(<li key={i}>{itemGroups[i]}</li>);
-}
-
-export const list = () => (
-    <List
-        type={select("List Type", ListTypes, ListTypes.Unordered)}
-        modifiers={boolean("List Styling", true) ? null : ["no-list-styling"]}
-    >
-        {itemList}
+const ListTemplate = ({ items, ...args }) => (
+    <List type={ListTypes.Unordered} {...args}>
+        {items.map((item, i) => (
+            <li key={i}>{...item}</li>
+        ))}
     </List>
 );
+
+export const list = ListTemplate.bind({});
+
+list.args = {
+    items: itemGroups,
+};
 
 list.storyName = "List";
 list.parameters = {

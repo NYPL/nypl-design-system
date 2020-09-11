@@ -2,7 +2,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import { ListTypes } from "./ListTypes";
 
-interface ListProps {
+export interface ListProps {
     /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName you can add in addition to 'list' */

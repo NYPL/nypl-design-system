@@ -58,6 +58,7 @@ export default class Accordion extends React.Component<
                     type="button"
                     blockName="accordion"
                     buttonType={ButtonTypes.Secondary}
+                    modifiers={modifiers}
                 >
                     {accordionLabel}
                     <Icon
@@ -69,7 +70,7 @@ export default class Accordion extends React.Component<
                     />
                 </Button>
                 {this.state.isOpen && (
-                    <div className="accordion-content">
+                    <div className={bem("content", modifiers, "accordion")}>
                         {this.props.children}
                     </div>
                 )}
