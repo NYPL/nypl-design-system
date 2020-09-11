@@ -34,7 +34,7 @@ export const AccordionWithCheckboxes = AccordionTemplate.bind({});
 AccordionWithCheckboxes.args = {
     accordionLabel: "Click to expand",
     labelId: "accordionBtn",
-    children: ListStory,
+    children: <ListStory {...ListStory.args} />,
     count: 1,
 };
 

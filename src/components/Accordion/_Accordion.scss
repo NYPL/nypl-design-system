@@ -24,7 +24,8 @@
     }
 
     &__content {
-        padding: var(--space-xxs) var(--space-xxxl) 0 var(--space-s);
+        padding: var(--space-xxs) var(--space-xxxl) var(--space-xs)
+            var(--space-s);
     }
 
     // Eliminates the double border on accordion sets
