@@ -1,5 +1,5 @@
 .accordion {
-    border: 1px solid var(--ui-gray-light);
+    border: 1px solid var(--ui-gray-medium);
     color: inherit;
     width: 100%;
 
@@ -9,7 +9,27 @@
         align-items: center;
         border: none;
         display: inline-flex;
+        font-weight: 500;
         justify-content: space-between;
         width: 100%;
+
+        &:hover {
+            background-color: var(--ui-gray-light);
+        }
+
+        &--faq {
+            font-size: var(--font-size-1);
+            padding: var(--space-s);
+        }
+    }
+
+    &__content {
+        padding: var(--space-xxs) var(--space-xxxl) var(--space-xs)
+            var(--space-s);
+    }
+
+    // Eliminates the double border on accordion sets in ul-lis
+    li & {
+        margin-top: -1px;
     }
 }
