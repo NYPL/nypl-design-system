@@ -108,17 +108,18 @@
     }
 }
 
-.main,
-.sb-show-main {
-    &--research {
-        .hero--secondary {
-            .hero__content {
-                .hero__heading {
-                    &::before {
-                        background-color: var(--section-research-primary);
-                    }
-                }
-            }
-        }
+.hero--50-50 {
+    padding: var(--space-l) 0;
+
+    .hero__inner {
+        @include wrapper;
+
+        align-items: center;
+        display: flex;
+        flex-flow: column nowrap;
+
+        // @include breakpoint($breakpoint-large) {
+        //     flex-flow: row nowrap;
+        // }
     }
 }
