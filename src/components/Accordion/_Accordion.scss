@@ -28,8 +28,8 @@
             var(--space-s);
     }
 
-    // Eliminates the double border on accordion sets
-    + .accordion {
+    // Eliminates the double border on accordion sets in ul-lis
+    li & {
         margin-top: -1px;
     }
 }

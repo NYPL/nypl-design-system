@@ -5,8 +5,8 @@ import Accordion, { AccordionProps } from "./Accordion";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 
-// import List from "../List/List";
-// import { ListTypes } from "../List/ListTypes";
+import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
 import { list as ListStory } from "../List/List.stories";
 import Link from "../Link/Link";
 
@@ -18,27 +18,29 @@ export default {
 
 // Set up the reusable template to create multiple stories for the
 // Accordian component.
-const AccordionTemplate = ({ count, children, ...args }) => (
-    <>
+const AccordionListTemplate = ({ count, children, ...args }) => (
+    <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
         {range(count).map((i) => (
-            <Accordion {...args}>{children}</Accordion>
+            <li>
+                <Accordion {...args}>{children}</Accordion>
+            </li>
         ))}
-    </>
+    </List>
 );
 
 // This is one specific story where it will render a list of checkboxes.
-export const AccordionWithCheckboxes = AccordionTemplate.bind({});
+export const AccordionWithList = AccordionListTemplate.bind({});
 
 // The `args` allow these props to be updated in the UI through the
 // "Controls" tab.
-AccordionWithCheckboxes.args = {
+AccordionWithList.args = {
     accordionLabel: "Click to expand",
     labelId: "accordionBtn",
     children: <ListStory {...ListStory.args} />,
     count: 1,
 };
 
-AccordionWithCheckboxes.argTypes = {
+AccordionWithList.argTypes = {
     blockName: { table: { disable: true } },
     className: { table: { disable: true } },
     id: { table: { disable: true } },
@@ -46,7 +48,7 @@ AccordionWithCheckboxes.argTypes = {
     children: { table: { disable: true } },
 };
 
-AccordionWithCheckboxes.parameters = {
+AccordionWithList.parameters = {
     design: {
         type: "figma",
         url:
@@ -72,7 +74,7 @@ const faqContent = (
 );
 
 // This is one specific story where it will render a list of FAQs.
-export const AccordionAsFAQSet = AccordionTemplate.bind({});
+export const AccordionAsFAQSet = AccordionListTemplate.bind({});
 AccordionAsFAQSet.args = {
     accordionLabel: "FAQ Question Lorem Ipsum",
     modifiers: ["faq"],
