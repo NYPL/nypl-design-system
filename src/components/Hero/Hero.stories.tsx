@@ -14,7 +14,11 @@ export default {
     decorators: [withDesign],
 };
 
-const HeroTemplate: Story<HeroProps> = (args) => <Hero {...args} />;
+const HeroTemplate: Story<HeroProps> = (args) => (
+    <div className={"nypl-ds"}>
+        <Hero {...args} />
+    </div>
+);
 
 export const heroPrimary = HeroTemplate.bind({});
 
@@ -95,22 +99,26 @@ export const hero5050 = HeroTemplate.bind({});
 
 hero5050.args = {
     heroType: HeroTypes.FiftyFifty,
-    subHeaderText: "Example subtitle",
+    subHeaderText:
+        "Lorem ipsum with 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.",
     image: (
         <Image
-            src="https://placeimg.com/800/400/arch"
+            src="https://placeimg.com/600/200/arch"
             blockName={"hero"}
             alt={""}
         />
     ),
+    backgroundColor: "#d0343a",
+    foregroundColor: "#ffffff",
 };
 
 hero5050.argTypes = {
     heroType: { table: { disable: true } },
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    heading: { table: { disable: true } },
     backgroundImageSrc: { table: { disable: true } },
     subHeaderText: { table: { disable: true } },
-    foregroundColor: { table: { disable: true } },
-    backgroundColor: { table: { disable: true } },
     image: { table: { disable: true } },
     locationDetails: { table: { disable: true } },
     children: { table: { disable: true } },

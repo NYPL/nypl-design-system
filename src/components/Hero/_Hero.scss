@@ -109,17 +109,27 @@
 }
 
 .hero--50-50 {
-    padding: var(--space-l) 0;
-
-    .hero__inner {
+    .hero__content {
         @include wrapper;
 
         align-items: center;
         display: flex;
         flex-flow: column nowrap;
+        padding: 0 var(--space) var(--space) var(--space);
 
-        // @include breakpoint($breakpoint-large) {
-        //     flex-flow: row nowrap;
-        // }
+        @include breakpoint($breakpoint-large) {
+            flex-flow: row nowrap;
+            padding: unset;
+        }
+    }
+
+    .hero__image {
+        margin-bottom: var(--space-s);
+
+        @include breakpoint($breakpoint-large) {
+            margin-bottom: unset;
+            margin-right: var(--space-s);
+            max-width: 50%;
+        }
     }
 }
