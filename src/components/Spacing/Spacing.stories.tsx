@@ -1,7 +1,11 @@
 import * as React from "react";
+import { withDesign } from "storybook-addon-designs";
+import { Meta } from "@storybook/react/types-6-0";
+import range from "lodash/range";
 
 import cssVariables from "../../helpers/CSSVariablesHelper";
 import Card from "../Card/Card";
+import { ExampleCard } from "../Card/Card.stories";
 import List from "../List/List";
 import Heading from "../Heading/Heading";
 import { ListTypes } from "../List/ListTypes";
@@ -9,7 +13,8 @@ import { CSSVariablesInterface } from "../../interfaces";
 
 export default {
     title: "Spacing",
-};
+    decorators: [withDesign],
+} as Meta;
 
 const spaceVariables: CSSVariablesInterface = {};
 
@@ -79,5 +84,47 @@ Spacing.parameters = {
         type: "figma",
         url:
             "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17249%3A13",
+    },
+};
+
+export const SpacingInContext = (args) => (
+    <>
+        <Heading level={1}>Spacing in Context</Heading>
+        <p>
+            Adjust the controls to see how margin-bottoms change with the CSS
+            variables exported specifically for spacing.
+        </p>
+        <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
+            {range(8).map((i) => (
+                <li style={{ marginBottom: "var(" + args.marginBottom + ")" }}>
+                    <ExampleCard />
+                </li>
+            ))}
+        </List>
+    </>
+);
+
+const spaceVariableArgs = [];
+for (const [key, value] of Object.entries(spaceVariables)) {
+    let variable = key.substring(1);
+    spaceVariableArgs.push(variable);
+}
+SpacingInContext.args = {
+    marginBottom: "--space-xs",
+};
+SpacingInContext.argTypes = {
+    marginBottom: {
+        control: {
+            type: "select",
+            options: spaceVariableArgs,
+        },
+    },
+};
+SpacingInContext.storyName = "Spacing In Context";
+SpacingInContext.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17185%3A204",
     },
 };

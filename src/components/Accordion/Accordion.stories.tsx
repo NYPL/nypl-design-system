@@ -21,7 +21,7 @@ export default {
 const AccordionListTemplate = ({ count, children, ...args }) => (
     <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
         {range(count).map((i) => (
-            <li>
+            <li key={i}>
                 <Accordion {...args}>{children}</Accordion>
             </li>
         ))}
