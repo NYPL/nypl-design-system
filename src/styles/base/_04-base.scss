@@ -1,5 +1,7 @@
 .nypl-ds {
     box-sizing: border-box;
+    // Sets up the base font-size, 1rem, for the system
+    font-size: 16px;
     // Users with non-overlay scrollbars have a small horiznotal scrollbar from our breakout mixin. Fix identified here: https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#one-big-dumb-caveat
     overflow-x: hidden;
 
