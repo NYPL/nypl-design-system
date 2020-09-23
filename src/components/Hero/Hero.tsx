@@ -58,6 +58,8 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         heroModifiers = ["primary"];
     } else if (heroType === HeroTypes.Secondary) {
         heroModifiers = ["secondary"];
+    } else if (heroType === HeroTypes.FiftyFifty) {
+        heroModifiers = ["50-50"];
     }
 
     if (heroType === HeroTypes.Primary && !backgroundImageSrc) {
@@ -78,10 +80,10 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
     let backgroundImageStyle = backgroundImageSrc
         ? { backgroundImage: "url(" + backgroundImageSrc + ")" }
-        : {};
+        : { backgroundColor: backgroundColor };
 
     let contentBoxStyling = {};
-    if (heroType === HeroTypes.Primary) {
+    if (heroType === HeroTypes.Primary || heroType === HeroTypes.FiftyFifty) {
         if (foregroundColor && backgroundColor) {
             contentBoxStyling = {
                 color: foregroundColor,
@@ -99,7 +101,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     } else {
         if (foregroundColor || backgroundColor) {
             throw new Error(
-                `Received foregroundColor and/or backgroundColor, but these are only accepted on HeroTypes.Primary`
+                `Received foregroundColor and/or backgroundColor, but these are only accepted on HeroTypes.Primary and HeroTypes.FiftyFifty`
             );
         }
     }
