@@ -1,128 +1,134 @@
 import * as React from "react";
+import { Story } from "@storybook/react/types-6-0";
+import { withDesign } from "storybook-addon-designs";
 
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
-import Hero from "./Hero";
+import Hero, { HeroProps } from "./Hero";
 import Placeholder from "../Placeholder/Placeholder";
 
 export default {
     title: "Hero",
     component: Hero,
+    decorators: [withDesign],
 };
 
-export const heroPrimary = () => (
-    <Hero
-        heroType={HeroTypes.Primary}
-        heading={
-            <Heading
-                level={1}
-                id={"1"}
-                text={"Hero Primary"}
-                blockName={"hero"}
-            />
-        }
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
-    />
+const HeroTemplate: Story<HeroProps> = (args) => (
+    <div className={"nypl-ds"}>
+        <Hero {...args} />
+    </div>
 );
 
-export const heroSecondary = () => (
-    <Hero
-        heroType={HeroTypes.Secondary}
-        heading={
-            <Heading
-                level={1}
-                id={"1"}
-                text={"Hero Secondary"}
-                blockName={"hero"}
-            />
-        }
-        subHeaderText={<div className="hero__body-text">Example subtitle</div>}
-        image={
-            <Image
-                src="https://placeimg.com/800/400/arch"
-                blockName={"hero"}
-                alt={""}
-            />
-        }
-    />
-);
+export const heroPrimary = HeroTemplate.bind({});
 
-export const heroStaffPicks = () => (
-    <Hero
-        heroType={HeroTypes.Primary}
-        heading={
-            <Heading
-                level={1}
-                id={"1"}
-                text={"Staff Picks"}
-                blockName={"hero"}
-            />
-        }
-        subHeaderText={
-            <div className="hero__body-text">
-                Nobody loves books more than our experts. Browse and filter
-                hundreds of their favorites. Want more suggestions? Check out{" "}
-                <a href="#etc">Best Books</a> and{" "}
-                <a href="#etc2">125 Books We Love</a>.
-            </div>
-        }
-        foregroundColor="#ffffff"
-        backgroundColor="#bb1d12"
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
-    />
-);
+heroPrimary.args = {
+    heroType: HeroTypes.Primary,
+    heading: (
+        <Heading level={1} id={"1"} text={"Hero Primary"} blockName={"hero"} />
+    ),
+    subHeaderText: "Example subtitle",
+    backgroundColor: "#000000",
+    foregroundColor: "#ffffff",
+    backgroundImageSrc: "https://placeimg.com/1600/800/arch",
+};
 
-export const ExhibitionsHero = () => (
-    <Hero
-        heroType={HeroTypes.Primary}
-        heading={
-            <Heading
-                level={1}
-                id={"1"}
-                text={
-                    "Syncretic Vibrations: Exploring the Mosaic of Blackness through the Melville J. and Frances S.Herskovits Collection"
-                }
-                blockName={"hero"}
-            />
-        }
-        locationDetails={
-            <Placeholder>
-                Placeholder for locationDetails, which doesn't exist yet
-            </Placeholder>
-        }
-        foregroundColor="#ffffff"
-        backgroundColor="#0071ce"
-        backgroundImageSrc="https://p24.f4.n0.cdn.getcloudapp.com/items/NQuDO4xO/index.jpeg?v=d49888fbe420dd2fd163adc2ad0cdac6"
-    />
-);
+heroPrimary.argTypes = {
+    heroType: { table: { disable: true } },
+    image: { table: { disable: true } },
+    foregroundColor: { control: { type: "color" } },
+    backgroundColor: { control: { type: "color" } },
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    children: { table: { disable: true } },
+};
 
-export const DigitalResearchBooksHeader = () => (
-    <>
-        <Hero
-            heroType={HeroTypes.Secondary}
-            heading={
-                <Heading
-                    level={1}
-                    id={"1"}
-                    text={"ResearchNow"}
-                    blockName={"hero"}
-                />
-            }
-            subHeaderText={
-                <div className="hero__body-text">
-                    The internet’s search engine for research collections and
-                    e-books you can use right now. Powered by the New York
-                    Public Library.
-                </div>
-            }
-            image={
-                <Image
-                    src="https://placeimg.com/200/100/arch"
-                    blockName={"hero"}
-                    alt={""}
-                />
-            }
+heroPrimary.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A5314",
+    },
+    layout: "fullscreen",
+};
+
+export const heroSecondary = HeroTemplate.bind({});
+
+heroSecondary.args = {
+    heroType: HeroTypes.Secondary,
+    heading: (
+        <Heading
+            level={1}
+            id={"1"}
+            text={"Hero Secondary"}
+            blockName={"hero"}
         />
-    </>
-);
+    ),
+    subHeaderText: <div className="hero__body-text">Example subtitle</div>,
+    image: (
+        <Image
+            src="https://placeimg.com/800/400/arch"
+            blockName={"hero"}
+            alt={""}
+        />
+    ),
+};
+
+heroSecondary.argTypes = {
+    heroType: { table: { disable: true } },
+    backgroundImageSrc: { table: { disable: true } },
+    subHeaderText: { table: { disable: true } },
+    foregroundColor: { table: { disable: true } },
+    backgroundColor: { table: { disable: true } },
+    image: { table: { disable: true } },
+    locationDetails: { table: { disable: true } },
+    children: { table: { disable: true } },
+};
+
+heroSecondary.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A5314",
+    },
+    layout: "fullscreen",
+};
+
+export const hero5050 = HeroTemplate.bind({});
+
+hero5050.args = {
+    heroType: HeroTypes.FiftyFifty,
+    subHeaderText:
+        "Lorem ipsum with 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.",
+    image: (
+        <Image
+            src="https://placeimg.com/600/200/arch"
+            blockName={"hero"}
+            alt={""}
+        />
+    ),
+    backgroundColor: "#d0343a",
+    foregroundColor: "#ffffff",
+};
+
+hero5050.argTypes = {
+    heroType: { table: { disable: true } },
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    heading: { table: { disable: true } },
+    backgroundImageSrc: { table: { disable: true } },
+    subHeaderText: { table: { disable: true } },
+    image: { table: { disable: true } },
+    locationDetails: { table: { disable: true } },
+    children: { table: { disable: true } },
+};
+
+hero5050.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A5314",
+    },
+    layout: "fullscreen",
+};
