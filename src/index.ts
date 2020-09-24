@@ -27,5 +27,6 @@ export { ListTypes } from "./components/List/ListTypes";
 export { default as Modal } from "./components/Modal/Modal";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
+export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export { default as SectionTitle } from "./components/SectionTitle/SectionTitle";
 export { default as Select } from "./components/Select/Select";
