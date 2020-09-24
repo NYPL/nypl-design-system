@@ -5,7 +5,6 @@
 
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import "~breakpoint-sass/stylesheets/breakpoint";
-
 @import "~system-font-css/_system-font.scss";
 // End libs
 
@@ -36,6 +35,7 @@
 @import "./components/Modal/_Modal.scss";
 @import "./components/Pagination/_Pagination.scss";
 @import "./components/SearchBar/_SearchBar.scss";
+@import "./components/SkeletonLoader/_SkeletonLoader.scss";
 @import "./components/StatusBadge/_StatusBadge.scss";
 @import "./components/Template/_Template.scss";
 @import "./components/List/_List.scss";
