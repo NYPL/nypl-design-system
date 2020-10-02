@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.18.0
+
+### Breaking Changes
+
+-   Removes type, color, and line-height declarations from `body` tags and moves them to the `.nypl-ds` namespace
+
 ## 0.17.4
 
 ### Changes
