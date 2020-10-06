@@ -21,7 +21,7 @@ BasicCheckbox.args = {
     onChange: () => {},
 };
 
-// @TOD) Add properties to "controls"
+// @TODO Add properties to "controls"
 export const ControlledCheckbox = () => {
     const [isChecked, setChecked] = useState<boolean>(false);
 

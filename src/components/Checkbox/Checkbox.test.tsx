@@ -23,7 +23,7 @@ describe("Checkbox Test", () => {
         expect(container.exists("#checkbox")).to.equal(true);
     });
 
-    it("Updates its check value based on the `isSelected` prop", () => {
+    it("Updates its check value based on the `checked` prop", () => {
         let callback = stub();
 
         const container = Enzyme.mount(
@@ -36,12 +36,10 @@ describe("Checkbox Test", () => {
                 onChange={callback}
             />
         );
-
         // `false` by default.
-        expect(container.find("input").prop("defaultChecked")).to.equal(false);
-
-        container.setProps({ isSelected: true });
-        expect(container.find("input").prop("defaultChecked")).to.equal(true);
+        expect(container.find("input").prop("checked")).to.equal(false);
+        // Set to true
+        expect(container.find("input").prop("checked")).to.equal(true);
     });
 
     it("Passes the ref to the input element", () => {

@@ -12,7 +12,7 @@ export interface CheckboxProps {
     /** ClassName that appears in addition to "checkbox" */
     className?: string;
     /* For a controlled component only. If checked is not defined, the state of the uncontrolled native `input` component will be used. */
-    checked: boolean;
+    checked?: boolean;
     /* For uncontrolled component only. The initial value of an uncontrolled checkbox component. */
     defaultChecked?: boolean;
     /* The Label that the checkbox is using. */
