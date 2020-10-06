@@ -15,7 +15,6 @@ export interface CheckboxProps {
     checked: boolean;
     /* For uncontrolled component only. The initial value of an uncontrolled checkbox component. */
     defaultChecked?: boolean;
-
     /* The Label that the checkbox is using. */
     labelOptions: LabelOptions;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
