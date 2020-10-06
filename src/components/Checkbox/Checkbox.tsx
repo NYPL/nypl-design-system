@@ -11,14 +11,10 @@ export interface CheckboxProps {
     checkboxId?: string;
     /** ClassName that appears in addition to "checkbox" */
     className?: string;
-    /* The current selected state of the checkbox */
-    //isSelected?: boolean;
-
     /* For a controlled component only. If checked is not defined, the state of the uncontrolled native `input` component will be used. */
     checked: boolean;
-
     /* For uncontrolled component only. The initial value of an uncontrolled checkbox component. */
-    defaultChecked: boolean;
+    defaultChecked?: boolean;
 
     /* The Label that the checkbox is using. */
     labelOptions: LabelOptions;
@@ -40,7 +36,6 @@ let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             blockName = "",
             checkboxId,
             labelOptions,
-            //isSelected = false,
             checked,
             defaultChecked,
             onChange,
