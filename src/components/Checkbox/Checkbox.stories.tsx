@@ -33,6 +33,7 @@ export const ControlledCheckbox = () => {
         <Checkbox
             checkboxId={"checkbox"}
             checked={isChecked}
+            aria-checked={isChecked}
             labelOptions={{
                 id: "label",
                 labelContent: (
@@ -42,15 +43,4 @@ export const ControlledCheckbox = () => {
             onChange={onChange}
         />
     );
-};
-
-export const CheckboxWithLongLabel = Template.bind({});
-CheckboxWithLongLabel.args = {
-    checkboxId: "checkbox2",
-    defaultChecked: true,
-    labelOptions: {
-        id: "label",
-        labelContent: <>This is a long label but just another example</>,
-    },
-    onChange: () => {},
 };

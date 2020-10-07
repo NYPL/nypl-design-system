@@ -41,6 +41,7 @@ let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         } = props;
 
         const baseClass = "checkbox";
+
         return (
             <div className={bem(baseClass, modifiers, blockName, [className])}>
                 <input
@@ -50,7 +51,10 @@ let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                     onChange={onChange}
                     type="checkbox"
                     {...(props.checked !== undefined
-                        ? { checked: props.checked }
+                        ? {
+                              checked: props.checked,
+                              "aria-checked": props.checked,
+                          }
                         : { defaultChecked: props.defaultChecked })}
                     ref={ref}
                     {...attributes}
