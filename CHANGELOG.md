@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.18.1
+
+### Breaking Changes
+
+-   For `Input` components that use the `.input-group` class, on mobile those input elements are now stacked on top of each other rather than side-to-side.
+
+### Updates
+
+-   Updates the `Input` component to allow it to render a "hidden" input type.
+
 ## 0.18.0
 
 ### Breaking Changes
