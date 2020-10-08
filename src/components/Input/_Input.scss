@@ -1,3 +1,5 @@
+$break-input-mobile: 400px;
+
 .input {
     @include space-inset-xs;
     @include space-stack-xs;
@@ -55,10 +57,12 @@
 }
 
 .input-group {
-    display: flex;
-    justify-content: space-between;
+    @include breakpoint($break-input-mobile) {
+        display: flex;
+        justify-content: space-between;
 
-    > *:not(:last-child) {
-        @include space-inline-m;
+        > *:not(:last-child) {
+            @include space-inline-m;
+        }
     }
 }

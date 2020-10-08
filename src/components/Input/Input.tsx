@@ -66,6 +66,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         inputProps["aria-required"] = true;
     }
 
+    if (type === InputTypes.hidden) {
+        inputProps["aria-hidden"] = true;
+    }
+
     let transformedInput = (
         <input
             id={`input-${id}`}
