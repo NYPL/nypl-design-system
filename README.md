@@ -1,6 +1,6 @@
 # NYPL Design System
 
-This design system is NYPL’s open-source extensible tool for products and experiences. With the accessibility as its foundation, the system consists of working code via this React library, our [Drupal library](https://github.com/NYPL/nypl-d8/tree/development/web/themes/custom/nypl_emulsify), and our [design tools and resources](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10733%3A56795).
+This design system is NYPL’s open-source extensible tool for products and experiences with the accessibility as its foundation. You can learn more about the project and its goals [here](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System).
 
 | Table of Contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
