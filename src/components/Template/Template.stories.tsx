@@ -80,11 +80,10 @@ export const Template = ({ showSidebar, sidebarSide, ...args }) => (
                     </div>
                 )}
             </main>
-
-            <footer className={bem("footer")}>
-                <Placeholder>Footer</Placeholder>
-            </footer>
         </div>
+        <footer className={bem("footer")}>
+            <Placeholder>Footer</Placeholder>
+        </footer>
     </>
 );
 

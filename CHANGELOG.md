@@ -6,6 +6,58 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 0.18.2
+
+### Changes
+
+-   Updates Accordion sets so that first item in list doesn't have `-1px` top margin
+
+## 0.18.1
+
+### Breaking Changes
+
+-   For `Input` components that use the `.input-group` class, on mobile those input elements are now stacked on top of each other rather than side-to-side.
+
+### Updates
+
+-   Updates the `Input` component to allow it to render a "hidden" input type.
+
+## 0.18.0
+
+### Breaking Changes
+
+-   Removes type, color, and line-height declarations from `body` tags and moves them to the `.nypl-ds` namespace
+
+## 0.17.4
+
+### Changes
+
+-   Moves footer outside of `.nypl-ds` namespace on Template story
+
+## 0.17.3
+
+### Adds
+
+-   `SkeletonLoader` component for loading screens
+
+## 0.17.2
+
+### Adds
+
+-   `selectedOption` to `Pagination` story
+
+## 0.17.1
+
+### Adds
+
+-   `FiftyFifty` Hero type styling
+
+## 0.17.0
+
+### Breaking Changes
+
+-   Sets up the default `font-size` value in the `.nypl-ds` namespace.
+
 ## 0.16.1
 
 ### Adds
