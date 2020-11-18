@@ -101,7 +101,7 @@ export const searchBar = () => (
                     name="nhItemSearch"
                     ariaLabel="Filter Search"
                     disabled={formDisabled}
-                    helperTextId={"helperText"}
+                    helperTextId={"helper-error-text"}
                     id={"select"}
                     isRequired={false}
                     labelId={"label"}
@@ -110,7 +110,9 @@ export const searchBar = () => (
                     onChange={action("changed")}
                 >
                     {Object.keys(optionsGroup).map((nhOption) => (
-                        <option aria-selected={false}>{nhOption}</option>
+                        <option key={nhOption} aria-selected={false}>
+                            {nhOption}
+                        </option>
                     ))}
                 </Select>
             )}
