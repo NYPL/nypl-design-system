@@ -54,6 +54,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
     }
 
     let inputProps = {
+        id: id ? `input-${id}` : null,
         className: bem("input", modifiers, blockName, [className]),
         type: type,
         value: value,
@@ -72,7 +73,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
 
     let transformedInput = (
         <input
-            id={`input-${id}`}
             {...inputProps}
             placeholder={placeholder}
             ref={ref}
