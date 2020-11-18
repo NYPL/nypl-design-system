@@ -106,15 +106,17 @@ export const autosuggestLibrary = () => {
     };
 
     return (
-        <Autosuggest
-            suggestions={suggestions}
-            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-            onSuggestionsClearRequested={onSuggestionsClearRequested}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            inputProps={inputProps}
-            renderInputComponent={renderInputComponent}
-        />
+        <div style={{ padding: "5px", minHeight: "400px" }}>
+            <Autosuggest
+                suggestions={suggestions}
+                onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                onSuggestionsClearRequested={onSuggestionsClearRequested}
+                getSuggestionValue={getSuggestionValue}
+                renderSuggestion={renderSuggestion}
+                inputProps={inputProps}
+                renderInputComponent={renderInputComponent}
+            />
+        </div>
     );
 };
 
@@ -183,8 +185,8 @@ export const autosuggestFish = () => {
     };
 
     return (
-        <>
-            <Label htmlFor="fish-autosuggest" id="fish-autosuggest-label">
+        <div style={{ padding: "5px", minHeight: "400px" }}>
+            <Label htmlFor="input-fish-autosuggest" id="fish-autosuggest-label">
                 Fish in Animal Crossing
             </Label>
             <Autosuggest
@@ -198,6 +200,6 @@ export const autosuggestFish = () => {
                 renderInputComponent={renderInputComponent}
                 highlightFirstSuggestion={true}
             />
-        </>
+        </div>
     );
 };
