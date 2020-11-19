@@ -1,0 +1,38 @@
+.reusable-tabs {
+    padding: 0;
+    margin: 20px;
+    .tab-navs {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        .tab-nav {
+            display: inline-block;
+            &.current {
+                button {
+                    background: var(--ui-gray-xdark);
+                    color: var(--ui-white);
+                }
+            }
+            .btn {
+                background: var(--ui-gray-medium);
+                color: var(--ui-gray-xdark);
+                transition: background 0.5s, color 0.5s;
+                &:hover {
+                    background: var(--ui-gray-xdark);
+                    color: var(--ui-white);
+                }
+                &:active,
+                &:focus {
+                    color: var(--ui-white);
+                }
+            }
+        }
+    }
+    .tab-content {
+        border: 1px solid var(--ui-gray-xdark);
+        padding: 5px;
+    }
+    .hidden {
+        display: none;
+    }
+}
