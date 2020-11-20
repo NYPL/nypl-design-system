@@ -52,28 +52,23 @@ export default class Accordion extends React.Component<
                 className={bem("accordion", modifiers, blockName, [className])}
                 id={id}
             >
-                <Button
-                    onClick={this.toggleContentShow}
-                    id={labelId}
-                    type="button"
-                    blockName="accordion"
-                    buttonType={ButtonTypes.Secondary}
-                    modifiers={modifiers}
-                >
+                <input type="checkbox" id="chck1" />
+                <label className="tab-label" htmlFor="chck1">
                     {accordionLabel}
                     <Icon
-                        name={
-                            this.state.isOpen ? IconNames.minus : IconNames.plus
-                        }
+                        name={IconNames.minus}
                         decorative={true}
-                        modifiers={["small"]}
+                        modifiers={["small", `${IconNames.minus}`]}
                     />
-                </Button>
-                {this.state.isOpen && (
-                    <div className={bem("content", modifiers, "accordion")}>
-                        {this.props.children}
-                    </div>
-                )}
+                    <Icon
+                        name={IconNames.plus}
+                        decorative={true}
+                        modifiers={["small", `${IconNames.plus}`]}
+                    />
+                </label>
+                <div className={bem("content", modifiers, "accordion")}>
+                    {this.props.children}
+                </div>
             </div>
         );
     }
