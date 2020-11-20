@@ -12,6 +12,6 @@ const tabItems = {
     "3": <p>...And content for the third tab item!</p>,
 };
 
-export const tabs = () => <Tabs items={tabItems} uniqueId="demo" />;
+export const tabs = () => <Tabs items={tabItems} id="demo" />;
 
 tabs.storyName = "Tabs";

@@ -16,7 +16,7 @@ describe("Tabs", () => {
                     content2: content2,
                     content3: content3,
                 }}
-                uniqueId="test"
+                id="test"
             />
         );
     });
@@ -59,13 +59,13 @@ describe("Tabs", () => {
             .false;
     });
     it("should generate unique IDs", () => {
-        // Each button should have an ID in the format "button-{idx}-{this.props.uniqueId}",
+        // Each button should have an ID in the format "button-{idx}-{this.props.id}",
         // and an aria-controls property pointing to the ID of the corresponding panel.
         wrapper.find(".tab-nav button").map((b, idx) => {
             expect(b.prop("id")).to.equal(`button-${idx}-test`);
             expect(b.prop("aria-controls")).to.equal(`content-${idx}-test`);
         });
-        // Each panel should have an ID in the format "panel-{idx}-{this.props.uniqueId}",
+        // Each panel should have an ID in the format "panel-{idx}-{this.props.id}",
         // and an aria-labelledby property pointing to the ID of the corresponding button.
         wrapper.find(".tab-content").map((p, idx) => {
             expect(p.prop("id")).to.equal(`content-${idx}-test`);

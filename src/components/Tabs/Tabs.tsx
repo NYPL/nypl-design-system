@@ -4,7 +4,7 @@ export interface TabsProps {
     items: {
         [key: string]: JSX.Element;
     };
-    uniqueId: string;
+    id: string;
 }
 
 export interface TabsState {
@@ -30,7 +30,7 @@ export default class Tabs extends React.Component<TabsProps, TabsState> {
         e: React.KeyboardEvent<HTMLButtonElement> &
             React.MouseEvent<HTMLButtonElement>
     ) {
-        // The element's ID is in the form `button-{idx}-{uniqueId}`
+        // The element's ID is in the form `button-{idx}-{id}`
         let idx = parseInt(
             (e.currentTarget as HTMLElement).id.split("button-")[1],
             10
@@ -69,7 +69,7 @@ export default class Tabs extends React.Component<TabsProps, TabsState> {
         items.map((item, idx) => {
             let [name, data] = item;
             let current = idx === this.state.tab;
-            let idString = `${idx.toString()}-${this.props.uniqueId
+            let idString = `${idx.toString()}-${this.props.id
                 .split(" ")
                 .join("-")}`;
 
