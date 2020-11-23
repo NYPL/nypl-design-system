@@ -1,48 +1,37 @@
-.tab {
-    &-label {
-        display: flex;
-        justify-content: space-between;
-        padding: 1em;
-        font-weight: bold;
-        cursor: pointer;
-    }
-}
-
-input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-}
-.tab-label .icon--minus {
-    display: none;
-}
-
-input:checked {
-    + .tab-label .icon--minus {
-        display: inline;
-    }
-    + .tab-label .icon--plus {
-        display: none;
-    }
-    ~ .accordion__content {
-        max-height: 100vh;
-    }
-}
-
 .accordion {
     border: 1px solid var(--ui-gray-medium);
     color: inherit;
     width: 100%;
 
-    &__button {
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+
+        &:checked {
+            + .accordion__label .icon--minus {
+                display: inline;
+            }
+            + .accordion__label .icon--plus {
+                display: none;
+            }
+            ~ .accordion__content {
+                display: inline-block;
+            }
+        }
+    }
+
+    &__label {
         @include button--outline;
 
-        align-items: center;
         border: none;
-        display: inline-flex;
-        font-weight: 500;
         justify-content: space-between;
-        width: 100%;
+        font-weight: 500;
+        cursor: pointer;
+
+        .icon--minus {
+            display: none;
+        }
 
         &:hover {
             background-color: var(--ui-gray-light);
@@ -55,7 +44,9 @@ input:checked {
     }
 
     &__content {
-        max-height: 0;
+        padding: var(--space-xxs) var(--space-xxxl) var(--space-xs)
+            var(--space-s);
+        display: none;
         transition: all 0.35s;
     }
 

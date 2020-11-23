@@ -5,30 +5,26 @@ import * as React from "react";
 import Accordion from "./Accordion";
 
 describe("Renders Input (closed state)", () => {
-    let container: Enzyme.ReactWrapper<
-        any,
-        Readonly<{}>,
-        React.Component<{}, {}, any>
-    >;
+    let container;
     before(() => {
         container = Enzyme.mount(
             <Accordion
                 id="accordion"
-                labelId="accordionBtn"
+                inputId="accordionBtn"
                 accordionLabel="Click to expand"
             >
-                {" "}
-                <div className="accordion-content">content content</div>{" "}
+                <div className="accordion-content">
+                    this is the accordion content
+                </div>
             </Accordion>
         );
     });
 
-    it("Renders a button", () => {
-        expect(container.find("Button").exists()).to.equal(true);
+    it("Renders an input", () => {
+        expect(container.find("input").exists()).to.equal(true);
     });
-    it("does not render content", () => {
-        expect(container.find(".accordion-content").exists()).to.equal(false);
-    });
+    // TODO:
+    // it("renders content but is hidden", () => {});
 });
 
 describe("Renders Input (open state)", () => {
@@ -41,20 +37,18 @@ describe("Renders Input (open state)", () => {
         container = Enzyme.mount(
             <Accordion
                 id="accordion"
-                labelId="accordionBtn2"
+                inputId="accordionBtn2"
                 accordionLabel="Click to expand"
             >
-                {" "}
-                <div className="accordion-content">content content</div>{" "}
+                <div className="accordion-content">content content</div>
             </Accordion>
         );
-        container.find("button").simulate("click");
+        container.find("input").simulate("click");
     });
 
-    it("Renders a button", () => {
-        expect(container.find("Button").exists()).to.equal(true);
+    it("Renders an input", () => {
+        expect(container.find("input").exists()).to.equal(true);
     });
-    it("Renders content", () => {
-        expect(container.find(".accordion-content").exists()).to.equal(true);
-    });
+    // TODO:
+    // it("Renders content and is visible", () => {});
 });
