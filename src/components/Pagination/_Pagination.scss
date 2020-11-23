@@ -10,14 +10,16 @@
             @include space-inline-xs;
         }
     }
-
-    .label {
-        @include space-stack-none;
-
-        align-self: center;
-    }
-
-    .select {
-        @include space-stack-none;
+    ul {
+        display: flex;
+        li {
+            list-style-type: none;
+            button {
+                text-decoration: none;
+                &.selected {
+                    color: var(--ui-black);
+                }
+            }
+        }
     }
 }
