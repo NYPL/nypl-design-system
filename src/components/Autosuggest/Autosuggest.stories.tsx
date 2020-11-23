@@ -14,12 +14,21 @@ export default {
 };
 
 /**
- * autosuggestLibrary
+ * StoryWrapper
+ * Wrapper component just to give the Autosuggest examples more space for the
+ * suggestions dropdown to display.
+ */
+const StoryWrapper = ({ children }) => (
+    <div style={{ padding: "5px", minHeight: "400px" }}>{children}</div>
+);
+
+/**
+ * LibraryExample
  * An example component that internally uses the `react-autosuggest` library.
  * The list is made up of objects with `label` key. It adds a Label, Input, and
  * HelperErrorText as elements for the autosuggest component to render.
  */
-export const autosuggestLibrary = () => {
+const LibraryExample = () => {
     const [value, setValue] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const libraryList = [
@@ -55,7 +64,7 @@ export const autosuggestLibrary = () => {
                 </Label>
                 <HelperErrorText id="id-helperText" isError={false}>
                     Select your home library. Start by typing the name of the
-                    library.
+                    library. Try "ba".
                 </HelperErrorText>
                 <Input
                     type={InputTypes.text}
@@ -118,13 +127,19 @@ export const autosuggestLibrary = () => {
     );
 };
 
+export const AutosuggestLibrary = () => (
+    <StoryWrapper>
+        <LibraryExample />
+    </StoryWrapper>
+);
+
 /**
- * autosuggestFish
+ * FishExample
  * An example component that internally uses the `react-autosuggest` library.
  * The list is made up of strings. It adds an Input element for the autosuggest
  * component to render and renders the Label separately.
  */
-export const autosuggestFish = () => {
+const FishExample = () => {
     const [value, setValue] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const fishList = [
@@ -184,7 +199,7 @@ export const autosuggestFish = () => {
 
     return (
         <>
-            <Label htmlFor="fish-autosuggest" id="fish-autosuggest-label">
+            <Label htmlFor="input-fish-autosuggest" id="fish-autosuggest-label">
                 Fish in Animal Crossing
             </Label>
             <Autosuggest
@@ -201,3 +216,9 @@ export const autosuggestFish = () => {
         </>
     );
 };
+
+export const AutosuggestFish = () => (
+    <StoryWrapper>
+        <FishExample />
+    </StoryWrapper>
+);
