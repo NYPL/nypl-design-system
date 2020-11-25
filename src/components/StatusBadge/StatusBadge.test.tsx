@@ -10,13 +10,13 @@ describe("StatusBadge Test", () => {
 
     it("Shows status badge", () => {
         wrapper = Enzyme.shallow(
-            <StatusBadge type={'notice'} text={"Registration Required"} />
+            <StatusBadge type={"notice"} text={"Registration Required"} />
         );
         expect(wrapper.find("div")).to.have.lengthOf(1);
     });
     it("Can pass status badge content as child", () => {
         wrapper = Enzyme.shallow(
-            <StatusBadge type={'alert'}>
+            <StatusBadge type={"alert"}>
                 Cancelled
             </StatusBadge>
         );

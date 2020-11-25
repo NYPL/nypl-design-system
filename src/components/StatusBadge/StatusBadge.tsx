@@ -26,12 +26,12 @@ export default function Heading(props: React.PropsWithChildren<StatusBadgeProps>
         throw new Error("Status Badge has no children, please pass prop: text");
     }
 
-    let statusBadgeModifiers = ['warning'];
+    let statusBadgeModifiers = ["warning"];
 
-    if (type && type == 'notice') {
+    if (type && type === "notice") {
         statusBadgeModifiers = [type];
     } else {
-        statusBadgeModifiers = ['warning'];
+        statusBadgeModifiers = ["warning"];
     }
 
     let content;
