@@ -1,6 +1,5 @@
 import * as React from "react";
-import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
+import Link from "../Link/Link";
 import bem from "../../utils/bem";
 
 export interface PaginationProps {
@@ -12,7 +11,7 @@ export interface PaginationProps {
     modifiers?: string[];
     /** The total number of pages */
     pageCount: number;
-    /** The function to call when a page is clicked. */
+    /** The method to callback when an item is selected. Passes the selected page to the consuming app as an argument. */
     onPageChange?: (selected) => void;
 }
 
@@ -32,28 +31,31 @@ export default class Pagination extends React.Component<
         };
     }
 
-    previousPage = () => {
+    previousPage = (evt) => {
         const { selected } = this.state;
+        evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
         if (selected > 0) {
-            this.selectPage(selected - 1);
+            this.selectPage(evt, selected - 1);
         }
     };
 
-    nextPage = () => {
+    nextPage = (evt) => {
         const { selected } = this.state;
         const { pageCount } = this.props;
 
+        evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
         if (selected < pageCount - 1) {
-            this.selectPage(selected + 1);
+            this.selectPage(evt, selected + 1);
         }
     };
 
-    selectPage = (index) => {
+    selectPage = (evt, index) => {
+        evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
         if (this.state.selected === index) return;
 
         this.setState({ selected: index });
 
-        // Call the callback with the new selected item:
+        // Run the callback with the new selected item:
         this.runCallback(index);
     };
 
@@ -68,17 +70,26 @@ export default class Pagination extends React.Component<
 
     getPageElement(index) {
         const { selected } = this.state;
+        const pageNumber = index + 1;
+
+        let pageAttributes = {
+            "aria-label": null,
+            onClick: (evt) => this.selectPage(evt, index),
+            role: "button",
+            tabIndex: 0,
+        };
+
+        pageAttributes["aria-label"] = pageNumber ? pageNumber : null;
 
         return (
-            <li key={index + 1}>
-                <Button
-                    onClick={this.selectPage.bind(null, index)}
-                    type="button"
-                    buttonType={ButtonTypes.Link}
-                    className={selected === index ? "selected" : ""}
+            <li key={pageNumber}>
+                <Link
+                    attributes={{ ...pageAttributes }}
+                    className={selected === index ? "selected" : null}
+                    href="#"
                 >
-                    {index + 1}
-                </Button>
+                    {pageNumber}
+                </Link>
             </li>
         );
     }
@@ -97,6 +108,36 @@ export default class Pagination extends React.Component<
 
     render() {
         const pagination__base_class = "pagination";
+
+        // Attributes for Previous and Next Buttons
+        let prevAttributes = {
+            "aria-disabled": null,
+            "aria-label": "Previous page",
+            onClick: this.previousPage,
+            role: "button",
+            tabIndex: 0,
+        };
+
+        let nextAttributes = {
+            "aria-disabled": null,
+            "aria-label": "Next page",
+            onClick: this.nextPage,
+            role: "button",
+            tabIndex: 0,
+        };
+
+        // When at the beginning, disable Previous. When at the end, disable Next.
+        const { selected } = this.state;
+        const { pageCount } = this.props;
+        const prevDisabled = selected === 0;
+        const nextDisabled = selected === pageCount - 1;
+
+        // When disabled, add aria label and remove tabbing
+        prevAttributes["aria-disabled"] = prevDisabled ? "true" : null;
+        prevAttributes["tabIndex"] = prevDisabled ? -1 : 0;
+        nextAttributes["aria-disabled"] = nextDisabled ? "true" : null;
+        nextAttributes["tabIndex"] = nextDisabled ? -1 : null;
+
         return (
             <nav
                 aria-label="Pagination"
@@ -109,31 +150,27 @@ export default class Pagination extends React.Component<
             >
                 <ul>
                     <li key="previous">
-                        <Button
-                            onClick={this.previousPage}
-                            type="button"
-                            buttonType={ButtonTypes.Link}
-                            disabled={this.state.selected === 0 ? true : null}
+                        <Link
+                            attributes={{ ...prevAttributes }}
+                            className={prevDisabled ? "disabled" : null}
+                            href="#"
                         >
                             Previous
-                        </Button>
+                        </Link>
                     </li>
 
                     {this.pagination()}
 
                     <li key="next">
-                        <Button
-                            onClick={this.nextPage}
-                            type="button"
-                            buttonType={ButtonTypes.Link}
-                            disabled={
-                                this.state.selected === this.props.pageCount - 1
-                                    ? true
-                                    : null
-                            }
+                        <Link
+                            attributes={{
+                                ...nextAttributes,
+                            }}
+                            className={nextDisabled ? "disabled" : null}
+                            href="#"
                         >
                             Next
-                        </Button>
+                        </Link>
                     </li>
                 </ul>
             </nav>

@@ -14,10 +14,19 @@
         display: flex;
         li {
             list-style-type: none;
-            button {
+            a {
+                line-height: 1.15;
+                padding: 8px;
                 text-decoration: none;
                 &.selected {
                     color: var(--ui-black);
+                }
+                &[role="button"] {
+                    cursor: pointer;
+                }
+                &.disabled {
+                    color: var(--ui-gray-medium);
+                    pointer-events: none;
                 }
             }
         }
