@@ -4,7 +4,7 @@ import * as React from "react";
 
 import Accordion from "./Accordion";
 
-describe("Renders Input (closed state)", () => {
+describe("Accordion", () => {
     let container;
     before(() => {
         container = Enzyme.mount(
@@ -13,42 +13,17 @@ describe("Renders Input (closed state)", () => {
                 inputId="accordionBtn"
                 accordionLabel="Click to expand"
             >
-                <div className="accordion-content">
+                <p className="accordion-content">
                     this is the accordion content
-                </div>
+                </p>
             </Accordion>
         );
     });
 
-    it("Renders an input", () => {
+    it("Renders an input checkbox and label", () => {
         expect(container.find("input").exists()).to.equal(true);
-    });
-    // TODO:
-    // it("renders content but is hidden", () => {});
-});
-
-describe("Renders Input (open state)", () => {
-    let container: Enzyme.ReactWrapper<
-        any,
-        Readonly<{}>,
-        React.Component<{}, {}, any>
-    >;
-    before(() => {
-        container = Enzyme.mount(
-            <Accordion
-                id="accordion"
-                inputId="accordionBtn2"
-                accordionLabel="Click to expand"
-            >
-                <div className="accordion-content">content content</div>
-            </Accordion>
+        expect(container.find(".accordion__label").text()).to.contain(
+            "Click to expand"
         );
-        container.find("input").simulate("click");
     });
-
-    it("Renders an input", () => {
-        expect(container.find("input").exists()).to.equal(true);
-    });
-    // TODO:
-    // it("Renders content and is visible", () => {});
 });

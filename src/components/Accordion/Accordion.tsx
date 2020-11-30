@@ -34,31 +34,27 @@ export default function Accordion(
 
     return (
         <div
-            className={bem("accordion", modifiers, blockName, [className])}
             id={id}
+            className={bem("accordion", modifiers, blockName, [className])}
         >
-            <input
-                id={`accordion-${inputId}`}
-                type="checkbox"
-                value="empty checkbox"
-                aria-checked={false}
-            />
+            <input id={`accordion-${inputId}`} type="checkbox" />
             <label
-                className={bem("label", modifiers, "accordion")}
                 htmlFor={`accordion-${inputId}`}
+                className={bem("label", modifiers, "accordion")}
             >
                 {accordionLabel}
                 <Icon
-                    name={IconNames.minus}
                     decorative={true}
+                    name={IconNames.minus}
                     modifiers={["small", `${IconNames.minus}`]}
                 />
                 <Icon
-                    name={IconNames.plus}
                     decorative={true}
+                    name={IconNames.plus}
                     modifiers={["small", `${IconNames.plus}`]}
                 />
             </label>
+
             <div className={bem("content", modifiers, "accordion")}>
                 {children}
             </div>
