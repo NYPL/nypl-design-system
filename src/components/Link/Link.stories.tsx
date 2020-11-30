@@ -66,14 +66,12 @@ export const link = () => (
     </>
 );
 
-link.story = {
-    name: "Link",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A407",
-        },
+link.storyName = "Link";
+link.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A407",
     },
 };
 
@@ -127,13 +125,11 @@ export const linkWithOtherRouters = () => (
     </>
 );
 
-linkWithOtherRouters.story = {
-    name: "Link With Other Routers",
-    parameters: {
-        design: {
-            type: "figma",
-            url:
-                "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A407",
-        },
+linkWithOtherRouters.storyName = "Link With Other Routers";
+linkWithOtherRouters.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A407",
     },
 };
