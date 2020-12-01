@@ -1,4 +1,3 @@
-//import * as React from "react";
 import React, { useState } from "react";
 import Checkbox, { CheckboxProps } from "./Checkbox";
 import { Story } from "@storybook/react/types-6-0";
