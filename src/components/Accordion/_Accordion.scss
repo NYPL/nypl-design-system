@@ -3,32 +3,21 @@
     color: inherit;
     width: 100%;
 
-    input {
-        position: absolute;
-        opacity: 0;
-        z-index: -1;
-
-        &:checked {
-            + .accordion__label .icon--minus {
-                display: inline;
-            }
-            + .accordion__label .icon--plus {
-                display: none;
-            }
-            ~ .accordion__content {
-                display: inline-block;
-            }
-        }
+    &__content {
+        display: none;
+        padding: var(--space-xxs) var(--space-xxxl) var(--space-xs)
+            var(--space-s);
+        transition: all 0.35s;
     }
 
     &__label {
         @include button--outline;
 
-        border: none;
-        justify-content: space-between;
-        font-weight: 500;
-        cursor: pointer;
         align-items: center;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        justify-content: space-between;
 
         .icon--minus {
             display: none;
@@ -44,11 +33,24 @@
         }
     }
 
-    &__content {
-        padding: var(--space-xxs) var(--space-xxxl) var(--space-xs)
-            var(--space-s);
-        display: none;
-        transition: all 0.35s;
+    input {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+
+        &:checked {
+            + .accordion__label .icon--minus {
+                display: inline;
+            }
+
+            + .accordion__label .icon--plus {
+                display: none;
+            }
+
+            ~ .accordion__content {
+                display: inline-block;
+            }
+        }
     }
 
     // Eliminates the double border on accordion sets in ul-lis
