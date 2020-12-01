@@ -31,6 +31,8 @@
             "check-operator",
             "check-separator",
             "check-type"
-        ]
+        ],
+        "react-a11y-input-elements": false,
+        "react-a11y-role-has-required-aria-props": false
     }
 }
