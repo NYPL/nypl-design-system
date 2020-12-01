@@ -1,7 +1,5 @@
 import * as React from "react";
-import Button from "../Button/Button";
 import bem from "../../utils/bem";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
 
@@ -14,67 +12,52 @@ export interface AccordionProps {
     className?: string;
     /** ID that other components can cross reference for accessibility purposes */
     id?: string;
-    /** accordionLabel's ID */
-    labelId?: string;
+    /** accordionLabel's input ID */
+    inputId?: string;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
 }
 
 /** Accordion component that shows content on toggle */
-export default class Accordion extends React.Component<
-    AccordionProps,
-    { isOpen: boolean }
-> {
-    constructor(props: AccordionProps) {
-        super(props);
-        this.state = {
-            isOpen: false,
-        };
-        this.toggleContentShow = this.toggleContentShow.bind(this);
-    }
+export default function Accordion(
+    props: React.PropsWithChildren<AccordionProps>
+) {
+    const {
+        modifiers,
+        blockName,
+        id,
+        className,
+        inputId,
+        accordionLabel,
+        children,
+    } = props;
 
-    toggleContentShow() {
-        this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
-    }
-
-    render() {
-        const {
-            modifiers,
-            blockName,
-            id,
-            className,
-            labelId,
-            accordionLabel,
-        } = this.props;
-
-        return (
-            <div
-                className={bem("accordion", modifiers, blockName, [className])}
-                id={id}
+    return (
+        <div
+            id={id}
+            className={bem("accordion", modifiers, blockName, [className])}
+        >
+            <input id={`accordion-${inputId}`} type="checkbox" />
+            <label
+                htmlFor={`accordion-${inputId}`}
+                className={bem("label", modifiers, "accordion")}
             >
-                <Button
-                    onClick={this.toggleContentShow}
-                    id={labelId}
-                    type="button"
-                    blockName="accordion"
-                    buttonType={ButtonTypes.Secondary}
-                    modifiers={modifiers}
-                >
-                    {accordionLabel}
-                    <Icon
-                        name={
-                            this.state.isOpen ? IconNames.minus : IconNames.plus
-                        }
-                        decorative={true}
-                        modifiers={["small"]}
-                    />
-                </Button>
-                {this.state.isOpen && (
-                    <div className={bem("content", modifiers, "accordion")}>
-                        {this.props.children}
-                    </div>
-                )}
+                {accordionLabel}
+                <Icon
+                    decorative={true}
+                    name={IconNames.minus}
+                    modifiers={["small", `${IconNames.minus}`]}
+                />
+                <Icon
+                    decorative={true}
+                    name={IconNames.plus}
+                    modifiers={["small", `${IconNames.plus}`]}
+                />
+            </label>
+
+            <div className={bem("content", modifiers, "accordion")}>
+                {children}
             </div>
-        );
-    }
+        </div>
+    );
 }
