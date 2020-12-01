@@ -8,45 +8,50 @@ export interface StatusBadgeProps {
     className?: string;
     /** Inner text of the element */
     text?: string;
-    /** Type of badge **/
-    type?: string;
+    /** Level of badge **/
+    level?: "low" | "medium" | "high";
 }
 
-export default function Heading(props: React.PropsWithChildren<StatusBadgeProps>) {
-    const {
-        blockName,
-        className,
-        text,
-        type,
-    } = props;
+export default class StatusBadge extends React.Component<StatusBadgeProps, {}> {
 
-    let status_badge_base_class = "heading";
-
-    if (!props.children && !text) {
-        throw new Error("Status Badge has no children, please pass prop: text");
+    constructor(props: StatusBadgeProps) {
+        super(props);
     }
 
-    let statusBadgeModifiers = ["warning"];
+    render() {
+        const {
+            blockName,
+            className,
+            text,
+            level,
+        } = this.props;
 
-    if (type && type === "notice") {
-        statusBadgeModifiers = [type];
-    } else {
-        statusBadgeModifiers = ["warning"];
+        let status_badge_base_class = "status-badge";
+
+        if (!this.props.children && !text) {
+            throw new Error("Status Badge has no children");
+        }
+
+        let statusBadgeModifiers = ["low"];
+
+        if (level) {
+            statusBadgeModifiers = [level];
+        }
+
+        let content;
+
+        if (this.props.children) {
+            content = this.props.children;
+        } else {
+            content = text;
+        }
+
+        return(
+            <div
+                className={bem(status_badge_base_class, statusBadgeModifiers, blockName, [className])}
+            >
+                {content}
+            </div>
+        );
     }
-
-    let content;
-
-    if (props.children) {
-        content = props.children;
-    } else {
-        content = text;
-    }
-
-    return(
-        <div
-            className={bem(status_badge_base_class, statusBadgeModifiers, blockName, [className])}
-        >
-            {content}
-        </div>
-    );
 }

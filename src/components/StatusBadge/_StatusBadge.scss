@@ -7,11 +7,15 @@
     padding: var(--space-xxs);
     text-align: center;
 
-    &--inactive {
+    &--low {
         background-color: var(--ui-gray-light);
     }
 
-    &--warning {
+    &--medium {
         background-color: #f9e08e;
+    }
+
+    &--high {
+        background-color: #fbe7e1;
     }
 }
