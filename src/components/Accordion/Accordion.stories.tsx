@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Meta, Story } from "@storybook/react/types-6-0";
+import { Meta } from "@storybook/react/types-6-0";
 import range from "lodash/range";
-import Accordion, { AccordionProps } from "./Accordion";
-import { action } from "@storybook/addon-actions";
+import Accordion from "./Accordion";
 import { withDesign } from "storybook-addon-designs";
 
 import List from "../List/List";
@@ -22,7 +21,9 @@ const AccordionListTemplate = ({ count, children, ...args }) => (
     <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
         {range(count).map((i) => (
             <li key={i}>
-                <Accordion {...args}>{children}</Accordion>
+                <Accordion {...args} inputId={`${args.inputId}-${i}`}>
+                    {children}
+                </Accordion>
             </li>
         ))}
     </List>
@@ -35,7 +36,7 @@ export const AccordionWithList = AccordionListTemplate.bind({});
 // "Controls" tab.
 AccordionWithList.args = {
     accordionLabel: "Click to expand",
-    labelId: "accordionBtn",
+    inputId: "accordionBtn",
     children: <ListStory {...ListStory.args} />,
     count: 1,
 };
@@ -78,7 +79,7 @@ export const AccordionAsFAQSet = AccordionListTemplate.bind({});
 AccordionAsFAQSet.args = {
     accordionLabel: "FAQ Question Lorem Ipsum",
     modifiers: ["faq"],
-    labelId: "accordionBtn",
+    inputId: "accordionBtn",
     children: faqContent,
     count: 3,
 };
