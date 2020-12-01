@@ -28,6 +28,7 @@ describe("Checkbox Test", () => {
 
         const container = Enzyme.mount(
             <Checkbox
+                checked={false}
                 checkboxId="checkbox"
                 labelOptions={{
                     id: "label",
@@ -39,6 +40,7 @@ describe("Checkbox Test", () => {
         // `false` by default.
         expect(container.find("input").prop("checked")).to.equal(false);
         // Set to true
+        container.setProps({ checked: true });
         expect(container.find("input").prop("checked")).to.equal(true);
     });
 
