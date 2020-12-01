@@ -241,3 +241,21 @@ describe("Radio buttons", () => {
         expect(onChange.callCount).to.equal(1);
     });
 });
+
+describe("Hidden input", () => {
+    it("Renders a hidden type input", () => {
+        const container = Enzyme.mount(
+            <Input
+                id="inputID-hidden"
+                ariaLabel="Hidden Input Label"
+                type={InputTypes.hidden}
+                value="hidden"
+            />
+        );
+
+        const input = container.find("input");
+
+        expect(input.prop("aria-hidden")).to.equal(true);
+        expect(input.prop("value")).to.equal("hidden");
+    });
+});
