@@ -16,13 +16,14 @@
     "scripts": {
         "start": "node node_modules/@storybook/react/bin/index -p 9001 -c .storybook",
         "build-storybook": "node node_modules/.bin/build-storybook -c .storybook -o ./storybook-static",
-        "test": "npm run lint && npm run test:ci",
+        "test": "npm run lint && npm run stylelint && npm run test:ci",
         "test:ci": "npm run build-ts && cp src/styles.scss lib && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/**/*.test.js",
         "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
         "pretty-quick": "pretty-quick",
         "prepare": "npm run dist",
         "build-ts": "rm -rf lib && tsc",
         "dist": "rm -rf dist && webpack --mode production --progress --display-modules --config webpack.config.js",
+        "stylelint": "npx stylelint '**/*.scss'",
         "lint": "tslint -c tslint.json src/__tests__/components/*.tsx src/components/**/**/*.tsx src/components/**/**/**/*.tsx src/utils/*.tsx",
         "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.config.js"
     },
