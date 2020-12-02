@@ -7,7 +7,7 @@ export interface StatusBadgeProps {
     /** ClassName that appears in addition to "status-badge" */
     className?: string;
     /** Inner text of the element */
-    text?: string;
+    statusBadgeText?: string;
     /** Level of badge **/
     level?: "low" | "medium" | "high";
 }
@@ -22,14 +22,14 @@ export default class StatusBadge extends React.Component<StatusBadgeProps, {}> {
         const {
             blockName,
             className,
-            text,
+            statusBadgeText,
             level,
         } = this.props;
 
         let status_badge_base_class = "status-badge";
 
-        if (!this.props.children && !text) {
-            throw new Error("Status Badge has no children");
+        if (!this.props.children) {
+            console.warn("Status Badge has no children");
         }
 
         let statusBadgeModifiers = ["low"];
@@ -38,19 +38,11 @@ export default class StatusBadge extends React.Component<StatusBadgeProps, {}> {
             statusBadgeModifiers = [level];
         }
 
-        let content;
-
-        if (this.props.children) {
-            content = this.props.children;
-        } else {
-            content = text;
-        }
-
         return(
             <div
                 className={bem(status_badge_base_class, statusBadgeModifiers, blockName, [className])}
             >
-                {content}
+                {statusBadgeText}
             </div>
         );
     }

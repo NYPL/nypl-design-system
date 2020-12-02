@@ -10,7 +10,7 @@ describe("StatusBadge Test", () => {
 
     it("Shows status badge", () => {
         wrapper = Enzyme.shallow(
-            <StatusBadge level={"low"} text={"Registration Required"} />
+            <StatusBadge level={"low"} statusBadgeText={"Registration Required"} />
         );
         expect(wrapper.find("div")).to.have.lengthOf(1);
     });
