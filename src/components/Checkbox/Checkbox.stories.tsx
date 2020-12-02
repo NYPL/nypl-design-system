@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Checkbox, { CheckboxProps } from "./Checkbox";
 import { Story } from "@storybook/react/types-6-0";
+import { withDesign } from "storybook-addon-designs";
 
 // Set defaults for the checkbox stories.
 export default {
@@ -8,22 +9,12 @@ export default {
     component: Checkbox,
     // Remove some props for all checkbox stories.
     argTypes: {
-        checkboxId: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
-            table: {
-                disable: true,
-            },
-        },
-        labelOptions: {
-            table: {
-                disable: true,
-            },
-        },
+        checkboxId: { table: { disable: true } },
+        onChange: { table: { disable: true } },
+        labelOptions: { table: { disable: true } },
+        defaultChecked: { table: { disable: true } },
     },
+    decorators: [withDesign],
 };
 
 const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
@@ -42,13 +33,9 @@ UncontrolledCheckbox.args = {
     onChange: () => {},
 };
 
-// Uncontrolled checkbox set controls
+// Remove checked prop from controls as it shouldnt be used for uncontrolled checkbox.
 UncontrolledCheckbox.argTypes = {
-    checked: {
-        table: {
-            disable: true,
-        },
-    },
+    checked: { table: { disable: true } },
 };
 
 // Controlled checkbox.
@@ -58,6 +45,11 @@ const ControlledCheckboxTemplate: Story<CheckboxProps> = (args) => {
     const onChange = (event) => {
         setChecked(!isChecked);
     };
+
+    // Allows storybook controls to toggle checked state.
+    useEffect(() => {
+        setChecked(args.checked);
+    }, [args.checked]);
 
     return (
         <Checkbox
@@ -76,18 +68,29 @@ const ControlledCheckboxTemplate: Story<CheckboxProps> = (args) => {
 
 export const ControlledCheckbox = ControlledCheckboxTemplate.bind({});
 
+// Set controlled checkbox to be checked by default.
 ControlledCheckbox.args = {
     checked: true,
 };
 
-// Controlled checkbox set controls
+// Remove controls that are not relevant to controlled checkbox.
 ControlledCheckbox.argTypes = {
-    checked: {
-        type: "boolean",
+    defaultChecked: { table: { disable: true } },
+};
+
+// Design tab with figma embeds.
+UncontrolledCheckbox.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
     },
-    defaultChecked: {
-        table: {
-            disable: true,
-        },
+};
+
+ControlledCheckbox.parameters = {
+    design: {
+        type: "figma",
+        url:
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
     },
 };
