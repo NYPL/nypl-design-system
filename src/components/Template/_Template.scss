@@ -1,5 +1,5 @@
 $sidebar-width: 25%;
-$sidebar-width-s: calc(25% - calc(4 * #{var(--space-s)}));
+$sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
 
 .main {
     @include wrapper;
