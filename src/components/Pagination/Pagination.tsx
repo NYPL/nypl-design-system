@@ -1,4 +1,5 @@
 import * as React from "react";
+import range from "lodash/range";
 import Link from "../Link/Link";
 import bem from "../../utils/bem";
 
@@ -27,14 +28,14 @@ export default class Pagination extends React.Component<
     constructor(props: PaginationProps) {
         super(props);
         this.state = {
-            selected: 0,
+            selected: 1,
         };
     }
 
     previousPage = (evt) => {
         const { selected } = this.state;
         evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-        if (selected > 0) {
+        if (selected > 1) {
             this.selectPage(evt, selected - 1);
         }
     };
@@ -44,19 +45,19 @@ export default class Pagination extends React.Component<
         const { pageCount } = this.props;
 
         evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-        if (selected < pageCount - 1) {
+        if (selected < pageCount) {
             this.selectPage(evt, selected + 1);
         }
     };
 
-    selectPage = (evt, index) => {
+    selectPage = (evt, item) => {
         evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-        if (this.state.selected === index) return;
+        if (this.state.selected === item) return;
 
-        this.setState({ selected: index });
+        this.setState({ selected: item });
 
         // Run the callback with the new selected item:
-        this.runCallback(index);
+        this.runCallback(item);
     };
 
     runCallback = (selectedItem) => {
@@ -68,42 +69,80 @@ export default class Pagination extends React.Component<
         }
     };
 
-    getPageElement(index) {
+    getPageElement(item) {
         const { selected } = this.state;
-        const pageNumber = index + 1;
+        // const pageNumber = index + 1;
 
         let pageAttributes = {
             "aria-label": null,
-            onClick: (evt) => this.selectPage(evt, index),
+            onClick: (evt) => this.selectPage(evt, item),
             role: "button",
             tabIndex: 0,
         };
 
-        pageAttributes["aria-label"] = pageNumber ? pageNumber : null;
+        pageAttributes["aria-label"] = item ? item : null;
 
         return (
-            <li key={pageNumber}>
+            <li key={item}>
                 <Link
                     attributes={{ ...pageAttributes }}
-                    className={selected === index ? "selected" : null}
+                    className={selected === item ? "selected" : null}
                     href="#"
                 >
-                    {pageNumber}
+                    {item}
                 </Link>
             </li>
         );
     }
 
-    pagination = () => {
-        const items = [];
-
+    pagination = (selected) => {
         const { pageCount } = this.props;
 
-        for (let index = 0; index < pageCount; index++) {
-            items.push(this.getPageElement(index));
-        }
+        // 1, (2 or ...), pageStart - pageEnd, (next to last item or ...), pageCount
+        const pageStart = Math.max(
+            3, // if near the beginning, inner pages start at 3
+            Math.min(
+                // If in the middle, inner pages begin two items before the selected page
+                selected - 2,
+                // If near the end, count back and show 7 items
+                pageCount - 6
+            )
+        );
 
-        return items;
+        const pageEnd = Math.min(
+            // if near the end, inner pages end just before next to last item (or ellipse)
+            pageCount - 2,
+            Math.max(
+                // If in the middle, inner pages end two items after the selected page
+                selected + 2,
+                // If near the beginning, show the first 7 items
+                7
+            )
+        );
+
+        const truncatedList = [
+            // list always starts at and displays the first page item
+            1,
+            // second item will either be item 2 or an ellipse
+            pageStart > 3 ? "ellipse-start" : 2,
+            // Adding + 1 here since lodash range() doesn't include the last item passed to it
+            ...range(pageStart, pageEnd + 1),
+            // next to last item will either be an ellipse or the next to last page number
+            pageEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,
+            // list always ends at and displays the last page number in the pageCount
+            pageCount,
+        ];
+
+        const pageItems = truncatedList.map((item) => {
+            // if it's a number, render that page item, otherwise return the ellipse
+            return typeof item === "number" ? (
+                this.getPageElement(item)
+            ) : (
+                <li key={item}>...</li>
+            );
+        });
+
+        return pageItems;
     };
 
     render() {
@@ -129,8 +168,8 @@ export default class Pagination extends React.Component<
         // When at the beginning, disable Previous. When at the end, disable Next.
         const { selected } = this.state;
         const { pageCount } = this.props;
-        const prevDisabled = selected === 0;
-        const nextDisabled = selected === pageCount - 1;
+        const prevDisabled = selected === 1;
+        const nextDisabled = selected === pageCount;
 
         // When disabled, add aria label and remove tabbing
         prevAttributes["aria-disabled"] = prevDisabled ? "true" : null;
@@ -159,7 +198,7 @@ export default class Pagination extends React.Component<
                         </Link>
                     </li>
 
-                    {this.pagination()}
+                    {this.pagination(selected)}
 
                     <li key="next">
                         <Link
