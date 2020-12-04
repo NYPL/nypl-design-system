@@ -27,6 +27,7 @@
         "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.config.js"
     },
     "dependencies": {
+        "focus-trap-react": "^8.3.2",
         "he": "^1.2.0",
         "react": "^16.13.1",
         "react-router-dom": "^5.2.0",
