@@ -17,7 +17,7 @@ jobs:
             # we take the message of the commit to use for tag and release body.
             - name: get commit message
               run: |
-                  echo ::set-env name=commitmsg::$(git log --format=%b -n 1 ${{ github.event.after }})
+                  echo "commitmsg=$(git log --format=%b -n 1 ${{ github.event.after }})" >> $GITHUB_ENV
 
             # the tag will match the package.json version (eg. v1.0.0)
             - name: Tag
