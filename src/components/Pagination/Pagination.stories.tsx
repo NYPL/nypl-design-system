@@ -11,13 +11,14 @@ export default {
 };
 
 const PaginationTemplate: Story<PaginationProps> = (args) => (
-    <Pagination {...args}></Pagination>
+    <Pagination pageCount={args.pageCount} currentPage={args.currentPage} />
 );
 
 export const pagination = PaginationTemplate.bind({});
 
 pagination.args = {
     pageCount: 100,
+    currentPage: 1,
 };
 
 pagination.argTypes = {
