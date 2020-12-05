@@ -18,7 +18,7 @@ export const pagination = PaginationTemplate.bind({});
 
 pagination.args = {
     pageCount: 100,
-    currentPage: 1,
+    currentPage: 7,
 };
 
 pagination.argTypes = {
