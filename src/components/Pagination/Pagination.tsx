@@ -63,7 +63,6 @@ export default class Pagination extends React.Component<PaginationProps> {
 
     getPageElement(item) {
         const { currentPage } = this.props;
-        // const pageNumber = index + 1;
 
         let pageAttributes = {
             "aria-label": null,
