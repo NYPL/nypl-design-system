@@ -10,51 +10,43 @@ export interface PaginationProps {
     className?: string;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
-    /** The total number of pages */
+    /** The total number of pages. */
     pageCount: number;
+    /** The current page selected. */
+    currentPage: number;
     /** The method to callback when an item is selected. Passes the selected page to the consuming app as an argument. */
     onPageChange?: (selected) => void;
 }
 
-export interface PaginationState {
-    selected: number;
-}
-
 /** Pagination component that provides a list of page items */
-export default class Pagination extends React.Component<
-    PaginationProps,
-    PaginationState
-> {
+export default class Pagination extends React.Component<PaginationProps> {
     constructor(props: PaginationProps) {
         super(props);
-        this.state = {
-            selected: 1,
-        };
     }
 
     previousPage = (evt) => {
-        const { selected } = this.state;
+        const { currentPage } = this.props;
         evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-        if (selected > 1) {
-            this.selectPage(evt, selected - 1);
+        if (currentPage > 1) {
+            this.selectPage(evt, currentPage - 1);
         }
     };
 
     nextPage = (evt) => {
-        const { selected } = this.state;
+        const { currentPage } = this.props;
         const { pageCount } = this.props;
 
         evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-        if (selected < pageCount) {
-            this.selectPage(evt, selected + 1);
+        if (currentPage < pageCount) {
+            this.selectPage(evt, currentPage + 1);
         }
     };
 
     selectPage = (evt, item) => {
-        evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-        if (this.state.selected === item) return;
+        const { currentPage } = this.props;
 
-        this.setState({ selected: item });
+        evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
+        if (currentPage === item) return;
 
         // Run the callback with the new selected item:
         this.runCallback(item);
@@ -65,12 +57,12 @@ export default class Pagination extends React.Component<
             typeof this.props.onPageChange !== "undefined" &&
             typeof this.props.onPageChange === "function"
         ) {
-            this.props.onPageChange({ selected: selectedItem });
+            this.props.onPageChange(selectedItem);
         }
     };
 
     getPageElement(item) {
-        const { selected } = this.state;
+        const { currentPage } = this.props;
         // const pageNumber = index + 1;
 
         let pageAttributes = {
@@ -86,7 +78,7 @@ export default class Pagination extends React.Component<
             <li key={item}>
                 <Link
                     attributes={{ ...pageAttributes }}
-                    className={selected === item ? "selected" : null}
+                    className={currentPage === item ? "selected" : null}
                     href="#"
                 >
                     {item}
@@ -166,10 +158,10 @@ export default class Pagination extends React.Component<
         };
 
         // When at the beginning, disable Previous. When at the end, disable Next.
-        const { selected } = this.state;
+        const { currentPage } = this.props;
         const { pageCount } = this.props;
-        const prevDisabled = selected === 1;
-        const nextDisabled = selected === pageCount;
+        const prevDisabled = currentPage === 1;
+        const nextDisabled = currentPage === pageCount;
 
         // When disabled, add aria label and remove tabbing
         prevAttributes["aria-disabled"] = prevDisabled ? "true" : null;
@@ -198,7 +190,7 @@ export default class Pagination extends React.Component<
                         </Link>
                     </li>
 
-                    {this.pagination(selected)}
+                    {this.pagination(currentPage)}
 
                     <li key="next">
                         <Link
