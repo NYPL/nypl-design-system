@@ -11,16 +11,6 @@ export default {
     decorators: [withDesign],
 };
 
-/*export const statusBadge = () => (
-    <StatusBadge level={select(
-        "Status of Badge",
-        ["low", "medium", "high"],
-        "low"
-    )}>
-        {text("Status Badge Text", "Location is temporarily closed")}
-    </StatusBadge>
-);*/
-
 const StatusBadgeTemplate: Story<StatusBadgeProps> = (args) => (
     <StatusBadge {...args} />
 );
@@ -30,7 +20,7 @@ export const statusBadge = StatusBadgeTemplate.bind({});
 // The `args` allow these props to be updated in the UI through the
 // "Controls" tab.
 statusBadge.args = {
-    statusBadgeText: "Click to expand",
+    statusBadgeText: "Location is temporarily closed",
 };
 
 statusBadge.storyName = "Status Badge";
