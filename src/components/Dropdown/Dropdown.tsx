@@ -4,7 +4,9 @@ import FocusTrap from "focus-trap-react";
 
 import Checkbox from "../Checkbox/Checkbox";
 import Button from "../Button/Button";
-import Icon from "../Icon/Icon";
+import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
 
 /**
   this is used for the item Filters
@@ -83,18 +85,16 @@ const ItemFilter = ({
     };
 
     const isSelected = (option) => {
-        if (!query) return false;
-        const result = isOptionSelected(query[filter], option.id);
+        if (!option) return false;
+        const result = isOptionSelected(option[filter], option.id);
 
         return result;
     };
 
     const distinctOptions = parseDistinctOptions(options);
     const determineNumOfSelections = () => {
-        if (!thisFilterSelections) return null;
-        return typeof thisFilterSelections === "string"
-            ? 1
-            : thisFilterSelections.length;
+        if (!options) return null;
+        return typeof options === "string" ? 1 : options.length;
     };
     const numOfSelections = determineNumOfSelections();
 
@@ -118,51 +118,66 @@ const ItemFilter = ({
                 }}
                 active={isOpen}
             >
-                <Button
-                    className={`item-filter-button ${isOpen ? " open" : ""}`}
-                    buttonType="outline"
-                    onClick={clickHandler}
-                    type="button"
-                >
-                    {filter}
-                    {numOfSelections ? ` (${numOfSelections})` : null}{" "}
-                    <Icon name={isOpen ? "minus" : "plus"} />
-                </Button>
-                {open ? (
-                    <div className="item-filter-content">
-                        <fieldset>
-                            {distinctOptions.map((option, i) => (
-                                <Checkbox
-                                    labelOptions={{
-                                        id: option.id,
-                                        labelContent: option.label,
-                                    }}
-                                    onChange={() => handleCheckbox(option)}
-                                    key={option.id || i}
-                                    isSelected={isSelected(option)}
-                                />
-                            ))}
-                        </fieldset>
-                        {!mobile ? (
-                            <div className="item-filter-buttons">
-                                <Button
-                                    buttonType="link"
-                                    onClick={() => manageFilterDisplay("none")}
-                                >
-                                    Clear
-                                </Button>
-                                <Button
-                                    onClick={() =>
-                                        submitFilterSelections(selectedFilters)
-                                    }
-                                    disabled={!selectionMade}
-                                >
-                                    Apply
-                                </Button>
-                            </div>
-                        ) : null}
-                    </div>
-                ) : null}
+                <>
+                    <Button
+                        className={`item-filter-button ${
+                            isOpen ? " open" : ""
+                        }`}
+                        buttonType={ButtonTypes.Secondary}
+                        onClick={clickHandler}
+                        type="button"
+                    >
+                        {filter}
+                        {numOfSelections ? ` (${numOfSelections})` : null}{" "}
+                        <Icon
+                            name={isOpen ? IconNames.minus : IconNames.plus}
+                            decorative={true}
+                        />
+                    </Button>
+                    {open ? (
+                        <div className="item-filter-content">
+                            <fieldset>
+                                {distinctOptions.map(
+                                    (option: { id: string; label: any }, i) => (
+                                        <Checkbox
+                                            labelOptions={{
+                                                id: option.id,
+                                                labelContent: option.label,
+                                            }}
+                                            onChange={() =>
+                                                handleCheckbox(option)
+                                            }
+                                            key={option.id || i}
+                                            isSelected={isSelected(option)}
+                                        />
+                                    )
+                                )}
+                            </fieldset>
+                            {!mobile ? (
+                                <div className="item-filter-buttons">
+                                    <Button
+                                        buttonType={ButtonTypes.Link}
+                                        onClick={() =>
+                                            manageFilterDisplay("none")
+                                        }
+                                    >
+                                        Clear
+                                    </Button>
+                                    <Button
+                                        onClick={() =>
+                                            submitFilterSelections(
+                                                selectedFilters
+                                            )
+                                        }
+                                        disabled={!selectionMade}
+                                    >
+                                        Apply
+                                    </Button>
+                                </div>
+                            ) : null}
+                        </div>
+                    ) : null}
+                </>
             </FocusTrap>
         </div>
     );

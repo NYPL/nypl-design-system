@@ -10,6 +10,6 @@ export default {
 
 export const dropdown = () => (
     <div style={{ width: "500px" }}>
-        <Dropdown></Dropdown>
+        <Dropdown options={["bugs", "fish"]}></Dropdown>
     </div>
 );
