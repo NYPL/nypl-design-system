@@ -11,32 +11,32 @@
         }
     }
 
-    ul {
+    &__list {
         @include list-reset;
 
         display: flex;
+    }
 
-        li {
-            list-style-type: none;
+    &__item {
+        list-style-type: none;
+    }
 
-            a {
-                line-height: 1.15;
-                padding: 8px;
-                text-decoration: none;
+    &__link {
+        line-height: 1.15;
+        padding: 8px;
+        text-decoration: none;
 
-                &.selected {
-                    color: var(--ui-black);
-                }
+        &.selected {
+            color: var(--ui-black);
+        }
 
-                &[role="button"] {
-                    cursor: pointer;
-                }
+        &[role="button"] {
+            cursor: pointer;
+        }
 
-                &.disabled {
-                    color: var(--ui-gray-dark);
-                    pointer-events: none;
-                }
-            }
+        &.disabled {
+            color: var(--ui-gray-dark);
+            pointer-events: none;
         }
     }
 }

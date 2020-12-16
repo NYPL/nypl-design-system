@@ -62,7 +62,7 @@ export default class Pagination extends React.Component<PaginationProps> {
     };
 
     getPageElement(item) {
-        const { currentPage } = this.props;
+        const { currentPage, modifiers } = this.props;
 
         let pageAttributes = {
             "aria-label": null,
@@ -73,11 +73,15 @@ export default class Pagination extends React.Component<PaginationProps> {
 
         pageAttributes["aria-label"] = item ? item : null;
 
+        const pageClass = currentPage === item ? "selected" : null;
+
         return (
-            <li key={item}>
+            <li key={item} className={bem("item", modifiers, "pagination")}>
                 <Link
                     attributes={{ ...pageAttributes }}
-                    className={currentPage === item ? "selected" : null}
+                    className={bem("link", modifiers, "pagination", [
+                        pageClass,
+                    ])}
                     href="#"
                 >
                     {item}
@@ -137,7 +141,7 @@ export default class Pagination extends React.Component<PaginationProps> {
     };
 
     render() {
-        const pagination__base_class = "pagination";
+        const { blockName, className, modifiers } = this.props;
 
         // Attributes for Previous and Next Buttons
         let prevAttributes = {
@@ -168,21 +172,24 @@ export default class Pagination extends React.Component<PaginationProps> {
         nextAttributes["aria-disabled"] = nextDisabled ? "true" : null;
         nextAttributes["tabIndex"] = nextDisabled ? -1 : null;
 
+        const prevClass = prevDisabled ? "disabled" : null;
+        const nextClass = nextDisabled ? "disabled" : null;
+
         return (
             <nav
                 aria-label="Pagination"
-                className={bem(
-                    pagination__base_class,
-                    this.props.modifiers,
-                    this.props.blockName,
-                    [this.props.className]
-                )}
+                className={bem("pagination", modifiers, blockName, [className])}
             >
-                <ul>
-                    <li key="previous">
+                <ul className={bem("list", modifiers, "pagination")}>
+                    <li
+                        key="previous"
+                        className={bem("item", modifiers, "pagination")}
+                    >
                         <Link
                             attributes={{ ...prevAttributes }}
-                            className={prevDisabled ? "disabled" : null}
+                            className={bem("link", modifiers, "pagination", [
+                                prevClass,
+                            ])}
                             href="#"
                         >
                             Previous
@@ -191,12 +198,17 @@ export default class Pagination extends React.Component<PaginationProps> {
 
                     {this.pagination(currentPage)}
 
-                    <li key="next">
+                    <li
+                        key="next"
+                        className={bem("item", modifiers, "pagination")}
+                    >
                         <Link
                             attributes={{
                                 ...nextAttributes,
                             }}
-                            className={nextDisabled ? "disabled" : null}
+                            className={bem("link", modifiers, "pagination", [
+                                nextClass,
+                            ])}
                             href="#"
                         >
                             Next
