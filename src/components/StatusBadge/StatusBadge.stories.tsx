@@ -1,28 +1,33 @@
 import * as React from "react";
+
+import { Story } from "@storybook/react/types-6-0";
+import StatusBadge, { StatusBadgeProps } from "./StatusBadge";
 import bem from "../../utils/bem";
 import { withDesign } from "storybook-addon-designs";
-import { select, text } from "@storybook/addon-knobs";
 
 export default {
     title: "Status Badge",
+    component: StatusBadge,
     decorators: [withDesign],
 };
 
-export const StatusBadge = () => (
-    <div
-        className={bem("status-badge", [
-            select("Status of Badge", ["inactive", "warning"], "warning"),
-        ])}
-    >
-        {text("Status Badge Text", "Location is temporarily closed")}
-    </div>
+const StatusBadgeTemplate: Story<StatusBadgeProps> = (args) => (
+    <StatusBadge {...args} />
 );
 
-StatusBadge.storyName = "Status Badge";
-StatusBadge.parameters = {
+export const statusBadge = StatusBadgeTemplate.bind({});
+
+// The `args` allow these props to be updated in the UI through the
+// "Controls" tab.
+statusBadge.args = {
+    statusBadgeText: "Location is temporarily closed",
+};
+
+statusBadge.storyName = "Status Badge";
+statusBadge.parameters = {
     design: {
         type: "figma",
         url:
-            "https://www.figma.com/file/QonD3Efc5SjEDUuyQleqkPTq/Locations?node-id=2116%3A84904",
+            "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11256%3A0",
     },
 };
