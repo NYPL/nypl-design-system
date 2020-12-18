@@ -12,6 +12,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Updates `Pagination` component to match new design.
 
+## 0.18.7
+
+### Changes
+
+-   Adds actual `StatusBadge` component with props for setting levels [RENO-1882](https://jira.nypl.org/browse/RENO-1882)
+
 ## 0.18.6
 
 ### Changes
