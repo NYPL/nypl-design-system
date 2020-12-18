@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 import { withDesign } from "storybook-addon-designs";
 
@@ -10,9 +10,27 @@ export default {
     decorators: [withDesign],
 };
 
-const PaginationTemplate: Story<PaginationProps> = (args) => (
-    <Pagination pageCount={args.pageCount} currentPage={args.currentPage} />
-);
+const PaginationTemplate: Story<PaginationProps> = (args) => {
+    const [page, setPage] = useState(7);
+
+    const pageUpdate = (page) => {
+        setPage(page);
+        console.log(`Changed. Current page is ${page}`);
+    };
+
+    // Allows storybook controls to control currentPage prop.
+    useEffect(() => {
+        setPage(args.currentPage);
+    }, [args.currentPage]);
+
+    return (
+        <Pagination
+            pageCount={args.pageCount}
+            currentPage={page}
+            onPageChange={pageUpdate}
+        />
+    );
+};
 
 export const pagination = PaginationTemplate.bind({});
 
