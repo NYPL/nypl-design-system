@@ -30,7 +30,6 @@ UncontrolledCheckbox.args = {
         id: "label",
         labelContent: <>This is an uncontrolled checkbox.</>,
     },
-    onChange: () => {},
 };
 
 // Remove checked prop from controls as it shouldnt be used for uncontrolled checkbox.
