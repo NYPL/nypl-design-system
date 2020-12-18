@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
--   Adds actual `StatusBadge`'s component with props for setting levels [RENO-1882](https://jira.nypl.org/browse/RENO-1882)
+-   Adds actual `StatusBadge` component with props for setting levels [RENO-1882](https://jira.nypl.org/browse/RENO-1882)
 
 ## 0.18.6
 
