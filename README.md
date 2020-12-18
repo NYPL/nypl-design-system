@@ -1,6 +1,6 @@
 # NYPL Design System
 
-This design system is NYPL’s open-source extensible tool for products and experiences with the accessibility as its foundation. You can learn more about the project and its goals [here](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System).
+This design system is NYPL’s open-source extensible React library for products and experiences with the accessibility as its foundation. It ships functional, stateless components with consistent NYPL styling. You can learn more about the project and its goals [here](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System).
 
 | Table of Contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |

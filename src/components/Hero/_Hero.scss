@@ -2,6 +2,32 @@
     background-color: var(--ui-gray-warm-xlight);
 }
 
+.hero--50-50 {
+    .hero__content {
+        @include wrapper;
+
+        align-items: center;
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 0 var(--space) var(--space) var(--space);
+
+        @include breakpoint($breakpoint-large) {
+            flex-flow: row nowrap;
+            padding: unset;
+        }
+    }
+
+    .hero__image {
+        margin-bottom: var(--space-s);
+
+        @include breakpoint($breakpoint-large) {
+            margin-bottom: unset;
+            margin-right: var(--space-s);
+            max-width: 50%;
+        }
+    }
+}
+
 .hero--primary {
     align-items: center;
     display: flex;
@@ -17,7 +43,7 @@
         background-color: var(--ui-black);
         color: var(--ui-white);
         flex: 0 0 100%;
-        padding: var(--space-m) var(--space-l);
+        padding: var(--space-xxl) var(--space-l);
 
         a {
             color: inherit;
@@ -104,32 +130,6 @@
                 flex: 0 0 250px;
                 order: 3;
             }
-        }
-    }
-}
-
-.hero--50-50 {
-    .hero__content {
-        @include wrapper;
-
-        align-items: center;
-        display: flex;
-        flex-flow: column nowrap;
-        padding: 0 var(--space) var(--space) var(--space);
-
-        @include breakpoint($breakpoint-large) {
-            flex-flow: row nowrap;
-            padding: unset;
-        }
-    }
-
-    .hero__image {
-        margin-bottom: var(--space-s);
-
-        @include breakpoint($breakpoint-large) {
-            margin-bottom: unset;
-            margin-right: var(--space-s);
-            max-width: 50%;
         }
     }
 }

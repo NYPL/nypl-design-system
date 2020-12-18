@@ -22,11 +22,11 @@
 
     &--full {
         @include breakpoint($breakpoint-large) {
-            > *:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)) {
+            > *:nth-child(3n) {
                 @include space-stack-xxl;
             }
 
-            > *:nth-child(3n) {
+            > *:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3)) {
                 @include space-stack-xxl;
             }
 
