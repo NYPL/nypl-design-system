@@ -22,7 +22,7 @@ export interface CheckboxProps {
     /** name of the checkbox */
     name?: string;
     /** The action to perform on the `<input>`'s onChange function  */
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
@@ -49,13 +49,13 @@ let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                     name={name}
                     className={bem("input", [], baseClass)}
                     type="checkbox"
-                    {...(props.checked !== undefined
+                    {...(checked !== undefined
                         ? {
-                              checked: props.checked,
-                              "aria-checked": props.checked,
+                              checked: checked,
+                              "aria-checked": checked,
                               onChange: onChange,
                           }
-                        : { defaultChecked: props.defaultChecked })}
+                        : { defaultChecked: defaultChecked })}
                     ref={ref}
                     {...attributes}
                 ></input>
