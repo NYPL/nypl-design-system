@@ -1,22 +1,20 @@
 import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
 
 import Breadcrumbs from "./Breadcrumbs";
-import Icon from "../Icons/Icon";
 
 describe("Breadcrumbs", () => {
-    let wrapper: Enzyme.ShallowWrapper<{}, {}>;
-    let breadcrumbString = [
+    let wrapper: Enzyme.ShallowWrapper<any, any>;
+    const breadcrumbString = [
         { url: "#", text: "test1" },
         { url: "#", text: "test2" },
     ];
-    let breadcrumbComponent = [
-        <a role="link" href="#test1">
+    const breadcrumbComponent = [
+        <a key="link1" href="#test1">
             <span>Hello</span>
         </a>,
-        <a role="link" href="#test2">
+        <a key="link2" href="#test2">
             Goodbye
         </a>,
     ];
@@ -25,7 +23,7 @@ describe("Breadcrumbs", () => {
         wrapper = Enzyme.shallow(
             <Breadcrumbs breadcrumbs={breadcrumbString} />
         );
-        let links = wrapper.render();
+        const links = wrapper.render();
 
         expect(links.find("a.breadcrumbs__link")).to.have.lengthOf(2);
         expect(links.find("a.breadcrumbs__link").first().text()).to.equal(
@@ -40,7 +38,7 @@ describe("Breadcrumbs", () => {
         wrapper = Enzyme.shallow(
             <Breadcrumbs breadcrumbs={breadcrumbComponent} />
         );
-        let links = wrapper.render();
+        const links = wrapper.render();
         expect(links.find("a.breadcrumbs__link").first().text()).to.equal(
             "Hello"
         );

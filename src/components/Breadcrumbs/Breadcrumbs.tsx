@@ -20,7 +20,7 @@ export interface BreadcrumbProps {
     modifiers?: string[];
 }
 
-export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
+export default class Breadcrumbs extends React.Component<BreadcrumbProps, any> {
     static defaultProps = {};
 
     constructor(props: BreadcrumbProps) {
@@ -30,9 +30,9 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
     render(): JSX.Element {
         const { breadcrumbs, className, blockName, modifiers } = this.props;
 
-        let breadcrumbs__base_class = "breadcrumbs";
+        const baseClass = "breadcrumbs";
 
-        let breadcrumbItems = [];
+        const breadcrumbItems = [];
 
         if (!breadcrumbs || breadcrumbs.length === 0) {
             throw new Error(
@@ -40,23 +40,20 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
             );
         }
         breadcrumbs.forEach((item: breadcrumb | JSX.Element, index: number) => {
-            let last = index === breadcrumbs.length - 1;
+            const last = index === breadcrumbs.length - 1;
             let linkComponent: string | JSX.Element;
 
             if (isTextBreadcrumb(item)) {
                 linkComponent = item.url ? (
-                    <a
-                        href={item.url}
-                        className={bem("link", [], breadcrumbs__base_class)}
-                    >
+                    <a href={item.url} className={bem("link", [], baseClass)}>
                         {item.text}
                     </a>
                 ) : (
                     item.text
                 );
             } else {
-                let props = {
-                    className: bem("link", [], breadcrumbs__base_class),
+                const props = {
+                    className: bem("link", [], baseClass),
                 };
                 linkComponent = React.createElement(
                     item.type,
@@ -66,13 +63,13 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
             }
             breadcrumbItems.push(
                 <li
-                    key={`${breadcrumbs__base_class}-${index}`}
-                    className={bem("item", [], breadcrumbs__base_class)}
+                    key={`${baseClass}-${index}`}
+                    className={bem("item", [], baseClass)}
                 >
                     {last && (
                         <Icon
                             name={IconNames.arrow}
-                            blockName={breadcrumbs__base_class}
+                            blockName={baseClass}
                             modifiers={["small"]}
                             decorative={true}
                         />
@@ -84,13 +81,11 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, {}> {
 
         return (
             <nav
-                className={bem(breadcrumbs__base_class, modifiers, blockName, [
-                    className,
-                ])}
+                className={bem(baseClass, modifiers, blockName, [className])}
                 role="navigation"
                 aria-label="Breadcrumbs"
             >
-                <ul className={bem("list", [], breadcrumbs__base_class)}>
+                <ul className={bem("list", [], baseClass)}>
                     {breadcrumbItems}
                 </ul>
             </nav>

@@ -2,12 +2,11 @@ import { expect } from "chai";
 import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
 
 import Button from "./Button";
 
 describe("Button", () => {
-    let wrapper: Enzyme.ShallowWrapper<{}, {}>;
+    let wrapper: Enzyme.ShallowWrapper<any, any>;
     let onClick;
 
     beforeEach(() => {
@@ -56,7 +55,7 @@ describe("Button", () => {
         it("should render element children", () => {
             wrapper = Enzyme.shallow(
                 <Button id="button" onClick={onClick}>
-                    <em>I'm a em element</em>
+                    <em>{"I'm a em element"}</em>
                 </Button>
             );
             expect(wrapper.text()).to.equal("I'm a em element");
@@ -68,7 +67,7 @@ describe("Button", () => {
         it("button has passed type", () => {
             const wrapper = Enzyme.mount(
                 <Button id="button" onClick={onClick} type="button">
-                    <span>I'm a span element</span>
+                    <span>{"I'm a span element"}</span>
                 </Button>
             );
             expect(wrapper.find("button").prop("type")).to.equal("button");

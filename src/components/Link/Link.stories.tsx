@@ -9,7 +9,6 @@ import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 import Heading from "../Heading/Heading";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
-import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 import { boolean, text, select } from "@storybook/addon-knobs";
 
@@ -24,8 +23,8 @@ let showIcon;
 export const link = () => (
     <>
         <p>
-            Use "Link Type = Action" to apply appropriate styling to links with
-            icons.
+            Use {'"'}Link Type = Action{'"'} to apply appropriate styling to
+            links with icons.
         </p>
         <p>
             To Pass in an icon and its link, make sure that the link tag wraps
@@ -55,12 +54,14 @@ export const link = () => (
         </p>
         <p>
             <Link type={LinkTypes.Default}>
-                <a href="#passed-in-link">I'm an anchor element inside Link!</a>
+                <a href="#passed-in-link">
+                    {"I'm an anchor element inside Link!"}
+                </a>
             </Link>
         </p>
         <p>
             <Link href="#passed-in-link" type={LinkTypes.Default}>
-                I'm a link with string-only children
+                {"I'm a link with string-only children"}
             </Link>
         </p>
     </>
@@ -94,8 +95,9 @@ export const linkWithOtherRouters = () => (
     <>
         <Heading level={2}>React Router</Heading>
         <p>
-            The Design System's `Link` component should wrap around
-            react-router's own `Link` component.
+            {
+                "The Design System's `Link` component should wrap around react-router's own `Link` component."
+            }
         </p>
         <p>
             <Router>
@@ -116,8 +118,10 @@ export const linkWithOtherRouters = () => (
 
         <Heading level={2}>NextJS Link</Heading>
         <p>
-            NextJS's <code>Link</code> component should wrap the Design System's
-            `Link` component with `href` and `passHref` props.
+            {`NextJS's ${(
+                <code>Link</code>
+            )} component should wrap the Design System's
+            ${"`Link`"} component with ${"`href`"} and ${"`passHref`"} props.`}
         </p>
         <NextJsLink href="#" passHref>
             <Link type={LinkTypes.Action}>Next Page</Link>

@@ -23,7 +23,7 @@ export default function Accordion(
     props: React.PropsWithChildren<AccordionProps>
 ) {
     const {
-        modifiers,
+        modifiers = [],
         blockName,
         id,
         className,

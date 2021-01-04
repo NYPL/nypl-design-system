@@ -14,7 +14,7 @@ export interface ModalProps {
 
 /* Full-screen modal that appears on top of the body */
 
-export default class Modal extends React.Component<ModalProps, {}> {
+export default class Modal extends React.Component<ModalProps, any> {
     componentDidMount() {
         document.body.classList.add("no-scroll");
     }
@@ -24,11 +24,12 @@ export default class Modal extends React.Component<ModalProps, {}> {
     }
 
     render() {
-        const { modifiers, blockName, id, className } = this.props;
-        let baseClass = "modal";
+        const { modifiers = [], blockName, id, className } = this.props;
+        const baseClass = "modal";
 
         return (
             <div
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                 tabIndex={0}
                 className={bem(baseClass, modifiers, blockName, [className])}
                 id={id}

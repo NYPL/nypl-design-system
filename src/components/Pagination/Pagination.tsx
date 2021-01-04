@@ -20,19 +20,17 @@ export default function Pagination(
         blockName,
         children,
         className,
-        modifiers,
+        modifiers = [],
         nextPage,
         previousPage,
     } = props;
 
-    const pagination__base_class = "pagination";
+    const baseClass = "pagination";
 
     return (
         <nav
             aria-label="Pagination"
-            className={bem(pagination__base_class, modifiers, blockName, [
-                className,
-            ])}
+            className={bem(baseClass, modifiers, blockName, [className])}
         >
             {previousPage}
             {children}

@@ -1,11 +1,10 @@
 import * as React from "react";
 
-import { boolean, text, select } from "@storybook/addon-knobs";
+import { select } from "@storybook/addon-knobs";
 import cssVariables from "../../helpers/CSSVariablesHelper";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import UIDocCard from "./UIDocCard";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-import Card from "../Card/Card";
 import List from "../List/List";
 import Heading from "../Heading/Heading";
 import { ListTypes } from "../List/ListTypes";
@@ -26,8 +25,8 @@ for (const [key, value] of Object.entries(cssVariables)) {
     }
 }
 
-let uiVariableDocs = [];
-let grayscaleDocs = [];
+const uiVariableDocs = [];
+const grayscaleDocs = [];
 
 const makeUIDocCard = function (key, value, docArray: React.ReactElement[]) {
     docArray.push(
@@ -58,7 +57,7 @@ const sectionDefault = sections[3];
 export const colorsBrand = () => (
     <>
         <Heading level={1}>Section Colors</Heading>
-        <Heading level={2}>What's On</Heading>
+        <Heading level={2}>{"What's On"}</Heading>
         <p>
             Section colors are branding colors only in use at NYPL. Certain
             components, such as Breadcrumbs below, change color based on the
@@ -98,7 +97,7 @@ export const colorsBrand = () => (
                 </pre>
             </div>
         </div>
-        <p>What's On is used for Events, Exhibitions & Audio Guides.</p>
+        <p>{"What's On is used for Events, Exhibitions & Audio Guides."}</p>
         <List
             type={ListTypes.Unordered}
             modifiers={["no-list-styling"]}

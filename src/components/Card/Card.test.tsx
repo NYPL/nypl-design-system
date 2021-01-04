@@ -2,8 +2,6 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import bem from "../../utils/bem";
-
 import Card from "./Card";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
@@ -15,7 +13,7 @@ import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 describe("Card", () => {
-    let regularCard = (
+    const regularCard = (
         <Card
             id="cardID"
             heading={
@@ -40,7 +38,7 @@ describe("Card", () => {
         </Card>
     );
 
-    let cardWithExtendedStyles = (
+    const cardWithExtendedStyles = (
         <Card
             id="card#1"
             className="edition-card"
@@ -83,7 +81,7 @@ describe("Card", () => {
         </Card>
     );
 
-    let cardWithNoCTAs = (
+    const cardWithNoCTAs = (
         <Card
             id="card#1"
             image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
@@ -104,7 +102,7 @@ describe("Card", () => {
         </Card>
     );
 
-    let cardWithNoContent = (
+    const cardWithNoContent = (
         <Card
             id="card#1"
             className="edition-card"
@@ -139,7 +137,7 @@ describe("Card", () => {
         ></Card>
     );
 
-    let cardWithNoImage = (
+    const cardWithNoImage = (
         <Card
             id="card#1"
             className="edition-card"
@@ -176,7 +174,7 @@ describe("Card", () => {
     );
 
     it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
-        let card = Enzyme.mount(regularCard);
+        const card = Enzyme.mount(regularCard);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(1);
         expect(card.find(".card__content")).to.have.lengthOf(1);
@@ -185,14 +183,14 @@ describe("Card", () => {
     });
 
     it("Generates a Card with variable data", () => {
-        let card = Enzyme.mount(cardWithExtendedStyles);
+        const card = Enzyme.mount(cardWithExtendedStyles);
         expect(card.find("h2")).to.have.lengthOf(1);
         expect(card.find(".card__content").find("div")).to.have.lengthOf(4);
         expect(card.find(".card__ctas").find("a")).to.have.lengthOf(2);
     });
 
     it("Generates a card without a CTA block if one isn't provided", () => {
-        let card = Enzyme.mount(cardWithNoCTAs);
+        const card = Enzyme.mount(cardWithNoCTAs);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(1);
         expect(card.find(".card__content")).to.have.lengthOf(1);
@@ -200,7 +198,7 @@ describe("Card", () => {
     });
 
     it("Generates a card without a content block if one isn't provided", () => {
-        let card = Enzyme.mount(cardWithNoContent);
+        const card = Enzyme.mount(cardWithNoContent);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(1);
         expect(card.find(".card__content")).to.have.lengthOf(0);
@@ -208,7 +206,7 @@ describe("Card", () => {
     });
 
     it("Generates a card without an image block if no image is provided", () => {
-        let card = Enzyme.mount(cardWithNoImage);
+        const card = Enzyme.mount(cardWithNoImage);
         expect(card.find(".card__heading")).to.have.lengthOf(1);
         expect(card.find(".card__image")).to.have.lengthOf(0);
         expect(card.find(".card__content")).to.have.lengthOf(1);

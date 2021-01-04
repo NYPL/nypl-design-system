@@ -8,15 +8,13 @@ import { ButtonTypes } from "../Button/ButtonTypes";
 import SearchBar from "./SearchBar";
 
 describe("SearchBar", () => {
-    let wrapper: Enzyme.ShallowWrapper<{}, {}>;
     let searchBarSubmit, buttonCallback;
     beforeEach(() => {
         searchBarSubmit = stub();
-        (buttonCallback) => searchBarSubmit();
     });
 
     it("Renders SearchBar", () => {
-        let wrapper = Enzyme.shallow(
+        const wrapper = Enzyme.shallow(
             <SearchBar
                 id="id"
                 ariaLabel="searchbar"
@@ -30,7 +28,7 @@ describe("SearchBar", () => {
     });
 
     it("Search Bar calls call back on Submit ", () => {
-        let mounted = Enzyme.mount(
+        const mounted = Enzyme.mount(
             <SearchBar ariaLabel="searchBar" id="id" onSubmit={searchBarSubmit}>
                 <Button
                     buttonType={ButtonTypes.Primary}

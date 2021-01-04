@@ -2,14 +2,13 @@ import * as React from "react";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 import { text } from "@storybook/addon-knobs";
-import { Story } from "@storybook/react/types-6-0";
 
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
-import Pagination, { PaginationProps } from "./Pagination";
+import Pagination from "./Pagination";
 import Select from "../Select/Select";
 
 export default {

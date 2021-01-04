@@ -11,7 +11,7 @@ export default {
     component: Select,
 };
 
-let optionsGroup = ["Apples", "Pears", "Oranges", "Peaches", "Coconuts"];
+const optionsGroup = ["Apples", "Pears", "Oranges", "Peaches", "Coconuts"];
 
 let showLabel, showHelperText;
 

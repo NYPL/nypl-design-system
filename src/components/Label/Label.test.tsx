@@ -5,11 +5,11 @@ import * as React from "react";
 import Label from "./Label";
 
 describe("Label Test", () => {
-    let wrapper: Enzyme.ShallowWrapper<{}, {}>;
+    let wrapper: Enzyme.ShallowWrapper<any, any>;
     it("Renders a <label> when passed text as children", () => {
         wrapper = Enzyme.shallow(
             <Label id="label" htmlFor="so-lonely">
-                Cupcake's
+                {"Cupcake's"}
             </Label>
         );
         expect(wrapper.find("label")).to.have.lengthOf(1);

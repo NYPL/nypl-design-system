@@ -19,7 +19,7 @@ export default {
 // Accordian component.
 const AccordionListTemplate = ({ count, children, ...args }) => (
     <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
-        {range(count).map((i) => (
+        {range(count).map(i => (
             <li key={i}>
                 <Accordion {...args} inputId={`${args.inputId}-${i}`}>
                     {children}

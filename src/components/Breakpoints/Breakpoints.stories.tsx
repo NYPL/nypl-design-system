@@ -24,7 +24,7 @@ const breakpointSizes = {
     Mobile: "small",
 };
 
-let breakpointDocs = [];
+const breakpointDocs = [];
 
 for (const [key, value] of Object.entries(breakpointSizes)) {
     breakpointDocs.push(

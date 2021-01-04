@@ -6,14 +6,14 @@ export default function bem(
     blockName?: string,
     extra?: string[]
 ) {
-    let classes = [];
+    const classes = [];
     // If using a blockname to override default class.
     if (blockName) {
         classes.push(blockName.concat("__").concat(baseClass));
 
         // Set blockname--modifier classes for each modifier.
         if (modifiers) {
-            modifiers.forEach((modifier) => {
+            modifiers.forEach(modifier => {
                 classes.push(
                     blockName
                         .concat("__")
@@ -30,7 +30,7 @@ export default function bem(
         classes.push(baseClass);
 
         if (modifiers) {
-            modifiers.forEach((modifier) => {
+            modifiers.forEach(modifier => {
                 classes.push(baseClass.concat("--").concat(modifier));
             });
         }
@@ -38,11 +38,11 @@ export default function bem(
 
     // If extra non-BEM classes are added.
     if (extra) {
-        extra.forEach((extraClass) => {
+        extra.forEach(extraClass => {
             classes.push(extraClass);
         });
     }
 
-    let attributes = classes.join(" ");
+    const attributes = classes.join(" ");
     return attributes;
 }

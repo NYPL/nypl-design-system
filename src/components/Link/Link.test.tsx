@@ -1,5 +1,4 @@
 import { expect } from "chai";
-import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
@@ -13,7 +12,7 @@ import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 describe("Link", () => {
-    let wrapper: Enzyme.ReactWrapper<{}, {}>;
+    let wrapper: Enzyme.ReactWrapper<any, any>;
 
     it("Can pass in icon, text as child and url as props", () => {
         wrapper = Enzyme.mount(

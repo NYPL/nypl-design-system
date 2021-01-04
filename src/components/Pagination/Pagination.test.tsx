@@ -12,7 +12,7 @@ import Pagination from "./Pagination";
 import Select from "../Select/Select";
 
 describe("Pagination Test", () => {
-    let wrapper: Enzyme.ShallowWrapper<{}, {}>;
+    let wrapper: Enzyme.ShallowWrapper<any, any>;
     let previousCallback;
     let nextCallback;
     let changeCallback;

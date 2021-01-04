@@ -3,7 +3,7 @@ import * as React from "react";
 import Button from "./Button";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import { IconNames } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";
 import { withDesign } from "storybook-addon-designs";
 import { text, boolean, select } from "@storybook/addon-knobs";

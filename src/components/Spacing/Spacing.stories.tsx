@@ -24,15 +24,9 @@ for (const [key, value] of Object.entries(cssVariables)) {
     }
 }
 
-let spaceDocs = [];
-const breakpointSizes = {
-    Desktop: "xl",
-    "Tablet Landscape": "large",
-    "Tablet Portrait": "medium",
-    Mobile: "small",
-};
+const spaceDocs = [];
 
-let spaceBoxStyle = {
+const spaceBoxStyle = {
     backgroundColor: "var(--ui-focus)",
     marginBottom: "var(--space-xs)",
     padding: "2%",
@@ -87,7 +81,7 @@ Spacing.parameters = {
     },
 };
 
-export const SpacingInContext = (args) => (
+export const SpacingInContext = args => (
     <>
         <Heading level={1}>Spacing in Context</Heading>
         <p>
@@ -95,8 +89,11 @@ export const SpacingInContext = (args) => (
             variables exported specifically for spacing.
         </p>
         <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
-            {range(8).map((i) => (
-                <li style={{ marginBottom: "var(" + args.marginBottom + ")" }}>
+            {range(8).map(i => (
+                <li
+                    key={i}
+                    style={{ marginBottom: "var(" + args.marginBottom + ")" }}
+                >
                     <ExampleCard />
                 </li>
             ))}
@@ -105,8 +102,8 @@ export const SpacingInContext = (args) => (
 );
 
 const spaceVariableArgs = [];
-for (const [key, value] of Object.entries(spaceVariables)) {
-    let variable = key.substring(1);
+for (const key of Object.keys(spaceVariables)) {
+    const variable = key.substring(1);
     spaceVariableArgs.push(variable);
 }
 SpacingInContext.args = {

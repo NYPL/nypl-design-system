@@ -7,8 +7,7 @@ import List from "./List";
 import { ListTypes } from "./ListTypes";
 
 describe("List", () => {
-    let wrapper: Enzyme.ReactWrapper<{}, {}>;
-    let textList: JSX.Element[] = [];
+    let wrapper: Enzyme.ReactWrapper<any, any>;
 
     it("Returns unordered list", () => {
         wrapper = Enzyme.mount(

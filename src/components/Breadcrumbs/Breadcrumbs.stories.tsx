@@ -47,8 +47,8 @@ export const breadcrumbs = () => (
             : (showLongItems = false)}
         <Heading level={1}>Breadcrumbs</Heading>
         <p>
-            Breadcrumbs background color matches the secondary section color of
-            the website section they're placed into. See more about brand colors{" "}
+            {"Breadcrumbs background color matches the secondary section color of " +
+                "the website section they're placed into. See more about brand colors "}
             <Link href="?path=/story/colors--colors-brand">here</Link>.
         </p>
         <div className={select("Section", sections, sections[0])}>

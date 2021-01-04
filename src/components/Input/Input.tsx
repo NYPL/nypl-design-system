@@ -4,7 +4,8 @@ import { InputTypes } from "./InputTypes";
 
 export interface InputProps {
     /** Additional attributes to pass to the <input> tag */
-    attributes?: {};
+    attributes?: { [key: string]: any };
+
     /** Populates the aria-label on the select */
     ariaLabel?: string;
     /** Populates the aria-labelledby on the select */
@@ -47,13 +48,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         value,
     } = props;
 
-    let modifiers = props.modifiers ? props.modifiers : [];
+    const modifiers = props.modifiers ? props.modifiers : [];
 
     if (errored) {
         modifiers.push("error");
     }
 
-    let inputProps = {
+    const inputProps = {
         id: id ? `input-${id}` : null,
         className: bem("input", modifiers, blockName, [className]),
         type: type,
@@ -71,7 +72,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         inputProps["aria-hidden"] = true;
     }
 
-    let transformedInput = (
+    const transformedInput = (
         <input
             {...inputProps}
             placeholder={placeholder}
@@ -82,5 +83,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
 
     return transformedInput;
 });
+
+Input.displayName = "Input";
 
 export default Input;

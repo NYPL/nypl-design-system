@@ -1,24 +1,24 @@
 import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
 
 import StatusBadge from "./StatusBadge";
 
 describe("StatusBadge Test", () => {
-    let wrapper: Enzyme.ShallowWrapper<{}, {}>;
+    let wrapper: Enzyme.ShallowWrapper<any, any>;
 
     it("Shows status badge", () => {
         wrapper = Enzyme.shallow(
-            <StatusBadge level={"low"} statusBadgeText={"Registration Required"} />
+            <StatusBadge
+                level={"low"}
+                statusBadgeText={"Registration Required"}
+            />
         );
         expect(wrapper.find("div")).to.have.lengthOf(1);
     });
     it("Can pass status badge content as child", () => {
         wrapper = Enzyme.shallow(
-            <StatusBadge level={"medium"}>
-                Cancelled
-            </StatusBadge>
+            <StatusBadge level={"medium"}>Cancelled</StatusBadge>
         );
         expect(wrapper.find("div")).to.have.lengthOf(1);
     });

@@ -1,12 +1,11 @@
 import * as React from "react";
-import Icon, { IconProps } from "../Icons/Icon";
 import bem from "../../utils/bem";
 import { ButtonTypes } from "./ButtonTypes";
-import { IconRotationTypes } from "../Icons/IconTypes";
 
 interface ButtonProps {
     /** Additional attributes passed to the button */
-    attributes?: {};
+    attributes?: { [key: string]: any };
+
     /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** The Kind of button */
@@ -26,7 +25,7 @@ interface ButtonProps {
     type?: "submit" | "button" | "reset";
 }
 
-export default class Button extends React.Component<ButtonProps, {}> {
+export default class Button extends React.Component<ButtonProps, any> {
     static defaultProps = {
         mouseDown: false,
     };
@@ -44,28 +43,28 @@ export default class Button extends React.Component<ButtonProps, {}> {
             className,
             disabled,
             id,
-            modifiers,
+            modifiers = [],
             mouseDown,
             onClick,
             type = "submit",
         } = this.props;
 
-        let buttonModifiers = modifiers ? modifiers : [];
-        if (!buttonModifiers.find((modifier) => modifier === buttonType)) {
+        const buttonModifiers = modifiers ? modifiers : [];
+        if (!buttonModifiers.find(modifier => modifier === buttonType)) {
             buttonModifiers.push(buttonType);
         }
 
-        let button_base_class = "button";
+        const baseClass = "button";
 
-        let btnCallback = mouseDown
+        const btnCallback = mouseDown
             ? { onMouseDown: onClick }
             : { onClick: onClick };
 
         return (
             <button
                 id={id}
-                className={`${button_base_class} ${bem(
-                    button_base_class,
+                className={`${baseClass} ${bem(
+                    baseClass,
                     buttonModifiers,
                     blockName,
                     [className]

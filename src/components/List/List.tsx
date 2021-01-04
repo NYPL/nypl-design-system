@@ -16,7 +16,7 @@ export interface ListProps {
 }
 
 export default function List(props: React.PropsWithChildren<ListProps>) {
-    const { blockName, children, className, id, modifiers, type } = props;
+    const { blockName, children, className, id, modifiers = [], type } = props;
 
     const baseClass = "list";
 

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export enum IconRotationTypes {
     rotate180 = "rotate-180",
     rotate270 = "rotate-270",

@@ -21,7 +21,7 @@ for (const [key, value] of Object.entries(cssVariables)) {
 }
 
 const typeDocs = function (varPrefix: string, key, value) {
-    let showFontSize =
+    const showFontSize =
         varPrefix === "font-size" ? `var(--${varPrefix}-${value})` : null;
     return (
         <div style={{ marginBottom: "2%" }}>
@@ -66,15 +66,15 @@ typefaces.parameters = {
     },
 };
 
-let headingSizes = {
+const headingSizes = {
     Primary: "4",
     Secondary: "3",
     Tertiary: "2",
     Callout: "1",
 };
-let headings = [];
-let bodySizes = { Body: "0", Caption: "-1", Tag: "-2", Mini: "-3" };
-let bodyCopies = [];
+const headings = [];
+const bodySizes = { Body: "0", Caption: "-1", Tag: "-2", Mini: "-3" };
+const bodyCopies = [];
 
 for (const [key, value] of Object.entries(headingSizes)) {
     headings.push(typeDocs("font-size", key, value));
@@ -90,9 +90,9 @@ export const typeScale = () => (
         <Heading level={2}>Display Sizes</Heading>
         <p>
             Used for Headings on pages and callouts. These are separate from
-            semantic elements—an <code>h1</code> has the "Headline Primary"
-            style applied out of the box, for example, but the Headline Primary
-            style can be applied to any type element on the page.
+            semantic elements—an <code>h1</code> has the {'"'}Headline Primary
+            {'"'} style applied out of the box, for example, but the Headline
+            Primary style can be applied to any type element on the page.
         </p>
         <p>1rem in the Design System is equal to 16px.</p>
         <>{headings}</>

@@ -1,8 +1,6 @@
 import { expect } from "chai";
-import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
 
 import Placeholder from "../Placeholder/Placeholder";
 import Image from "../Image/Image";
@@ -12,7 +10,7 @@ import Hero from "./Hero";
 
 describe("Hero Test", () => {
     it("Generates a Hero with a background image", () => {
-        let wrapper = Enzyme.shallow(
+        const wrapper = Enzyme.shallow(
             <Hero
                 heroType={HeroTypes.Primary}
                 heading={
@@ -32,7 +30,7 @@ describe("Hero Test", () => {
     });
 
     it("Generates a Hero with a foreground image", () => {
-        let wrapper = Enzyme.shallow(
+        const wrapper = Enzyme.shallow(
             <Hero
                 heroType={HeroTypes.Secondary}
                 heading={
@@ -130,8 +128,9 @@ describe("Hero Test", () => {
                     }
                     locationDetails={
                         <Placeholder>
-                            Placeholder for locationDetails, which doesn't exist
-                            yet
+                            {
+                                "Placeholder for locationDetails, which doesn't exist yet"
+                            }
                         </Placeholder>
                     }
                 ></Hero>
@@ -156,8 +155,9 @@ describe("Hero Test", () => {
                     }
                     locationDetails={
                         <Placeholder>
-                            Placeholder for locationDetails, which doesn't exist
-                            yet
+                            {
+                                "Placeholder for locationDetails, which doesn't exist yet"
+                            }
                         </Placeholder>
                     }
                     foregroundColor="#ffffff"

@@ -6,7 +6,8 @@ import * as React from "react";
 import Select from "./Select";
 
 describe("Select", () => {
-    let wrapper: Enzyme.ReactWrapper<{}, {}>;
+    let wrapper: Enzyme.ReactWrapper<any, any>;
+
     let blurCallback;
     let changeCallback;
 
@@ -108,7 +109,7 @@ describe("Select", () => {
 
     it("Calls the callback onChange function with the updated value", () => {
         let currentValue = "";
-        const onChange = (event) => {
+        const onChange = event => {
             currentValue = event?.target?.value;
         };
         wrapper = Enzyme.mount(
@@ -163,7 +164,7 @@ describe("Select", () => {
 
     it("Calls the callback onBlur function with the updated value", () => {
         let currentValue = "";
-        const onBlur = (event) => {
+        const onBlur = event => {
             currentValue = event?.target?.value;
         };
         wrapper = Enzyme.mount(

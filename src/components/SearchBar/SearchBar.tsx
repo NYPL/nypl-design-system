@@ -13,7 +13,8 @@ export interface SearchBarProps {
      */
     ariaLabelledBy?: string;
     /** Additional attributes passed to the form */
-    attributes?: {};
+    attributes?: { [key: string]: any };
+
     /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName that appears in addition to "search-bar" */
@@ -36,17 +37,15 @@ export default function SearchBar(
         children,
         className,
         id,
-        modifiers,
+        modifiers = [],
         onSubmit,
     } = props;
 
-    let searchbar__base_class = "search-bar";
+    const baseClass = "search-bar";
 
     return (
         <form
-            className={bem(searchbar__base_class, modifiers, blockName, [
-                className,
-            ])}
+            className={bem(baseClass, modifiers, blockName, [className])}
             id={id}
             role="search"
             aria-label={ariaLabel}

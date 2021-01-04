@@ -2,14 +2,14 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Placeholder from "../Placeholder/Placeholder";
 import { withDesign } from "storybook-addon-designs";
-import { Meta, Story } from "@storybook/react/types-6-0";
+import { Meta } from "@storybook/react/types-6-0";
 
 export default {
     title: "Template",
     decorators: [withDesign],
 } as Meta;
 
-export const Template = ({ showSidebar, sidebarSide, ...args }) => (
+export const Template = ({ showSidebar, sidebarSide }) => (
     <>
         <div className={bem("layout-container nypl-ds")}>
             <header className={bem("header")}>

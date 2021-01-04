@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { Story } from "@storybook/react/types-6-0";
 import StatusBadge, { StatusBadgeProps } from "./StatusBadge";
-import bem from "../../utils/bem";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
@@ -11,7 +10,7 @@ export default {
     decorators: [withDesign],
 };
 
-const StatusBadgeTemplate: Story<StatusBadgeProps> = (args) => (
+const StatusBadgeTemplate: Story<StatusBadgeProps> = args => (
     <StatusBadge {...args} />
 );
 

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as React from "react";
 import bem from "../../utils/bem";
 
@@ -62,7 +63,7 @@ export interface IconProps {
  * Icon component
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
-    let {
+    const {
         blockName,
         decorative,
         className,
@@ -75,13 +76,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
         children,
     } = props;
 
-    let icon_base_class = "icon";
+    const icon_base_class = "icon";
 
     if (iconRotation) {
         modifiers.push(iconRotation);
     }
 
-    let iconProps = {
+    const iconProps = {
         className: bem(icon_base_class, modifiers, blockName, [className]),
         role: decorative ? "img" : role,
         "aria-hidden": decorative,

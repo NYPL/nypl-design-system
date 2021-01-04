@@ -11,7 +11,7 @@ export default {
     component: Icon,
 };
 
-const Template: Story<IconProps> = (args) => <Icon {...args} />;
+const Template: Story<IconProps> = args => <Icon {...args} />;
 
 export const ControlProps = Template.bind({});
 ControlProps.args = {
@@ -21,7 +21,7 @@ ControlProps.args = {
 };
 
 const iconRow = function (array, icon, modifiers = "") {
-    let styles = {} as any;
+    const styles = {} as any;
     if (icon.indexOf("_negative") !== -1) {
         styles.backgroundColor = "#000";
         styles.display = "inline-block";
@@ -41,15 +41,15 @@ const iconRow = function (array, icon, modifiers = "") {
     );
 };
 
-let icons = [];
+const icons = [];
 
-for (let icon in IconNames) {
+for (const icon in IconNames) {
     iconRow(icons, icon);
 }
 
-let logos = [];
+const logos = [];
 
-for (let logo in LogoNames) {
+for (const logo in LogoNames) {
     iconRow(logos, logo, "xlarge");
 }
 
@@ -82,8 +82,9 @@ Logos.parameters = {
 export const customIcon = () => (
     <>
         <p>
-            If you'd like to pass a custom svg to your application, you can pass
-            it as children to Icon:
+            {
+                "If you'd like to pass a custom svg to your application, you can pass it as children to Icon:"
+            }
         </p>
         <Icon decorative={true} modifiers={["xlarge"]}>
             <svg

@@ -6,7 +6,8 @@ export interface ImageProps {
     /** Text description of the image */
     alt: string;
     /** Additional attributes passed to the image */
-    attributes?: {};
+    attributes?: { [key: string]: any };
+
     /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName you can add in addition to 'image' */
@@ -22,7 +23,7 @@ export interface ImageProps {
 }
 
 export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
-    const image_base_class = "image";
+    const baseClass = "image";
     const {
         alt,
         attributes,
@@ -30,7 +31,7 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
         className,
         imageCaption,
         imageCredit,
-        modifiers,
+        modifiers = [],
         src,
         ...imgHTMLProps
     } = props;
@@ -39,12 +40,10 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
         throw new Error("Alt Text must be less than 300 characters");
     }
 
-    let figureBlockName = imageCaption || imageCredit ? "figure" : blockName;
+    const figureBlockName = imageCaption || imageCredit ? "figure" : blockName;
 
-    let imageProps = {
-        className: bem(image_base_class, modifiers, figureBlockName, [
-            className,
-        ]),
+    const imageProps: ImageProps = {
+        className: bem(baseClass, modifiers, figureBlockName, [className]),
         src: src,
         alt: alt,
     };
@@ -53,7 +52,12 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
         <>
             {imageCaption || imageCredit ? (
                 <figure className={bem("figure")}>
-                    <img {...imageProps} {...imgHTMLProps} {...attributes} />
+                    <img
+                        alt={imageProps.alt}
+                        {...imageProps}
+                        {...imgHTMLProps}
+                        {...attributes}
+                    />
                     <figcaption
                         className={bem("figcaption", [], "figure", ["image"])}
                     >
@@ -70,7 +74,12 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
                     </figcaption>
                 </figure>
             ) : (
-                <img {...imageProps} {...imgHTMLProps} {...attributes} />
+                <img
+                    alt={imageProps.alt}
+                    {...imageProps}
+                    {...imgHTMLProps}
+                    {...attributes}
+                />
             )}
         </>
     );

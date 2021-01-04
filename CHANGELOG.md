@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## [Unreleased]
+
+### Changes
+
+-   Uses stricter linters and more Prettier configs.
+
+### Breaking Changes
+
+-   Removed `SectionTitle`
+
 ## 0.18.7
 
 ### Changes
@@ -318,7 +328,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 -   Adds `disabled` prop to `Input` and `Button` components
 -   Adds `disabled` styling to `Button.Primary`
 -   Adds `className?: string;` as additional props to all components
--   Adds `attributes?: {};` to `Input`, `Button`, `Select`, `Link`, and `Image`
+-   Adds `attributes?: { [key: string]: string }; ` to `Input`, `Button`, `Select`, `Link`, and `Image`
 -   Adds `justify-content: center` for `Button` with icon to adjust for mobile
 
 ### Changes

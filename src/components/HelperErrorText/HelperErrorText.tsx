@@ -7,7 +7,8 @@ interface HelperErrorTextProps {
     /** Added prop when HelperText is errored */
     ariaAtomic?: boolean;
     /** Additional attributes passed to <HelperErrorText> */
-    attributes?: {};
+    attributes?: { [key: string]: any };
+
     /** Additional className to add to the helperErrorText */
     className?: string;
     /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
@@ -35,8 +36,8 @@ export default function HelperErrorText(
         ariaAtomic = true,
     } = props;
 
-    let baseClass = "helper-text";
-    let modifiers = [];
+    const baseClass = "helper-text";
+    const modifiers = [];
     let announceAriaLive = false;
 
     if (isError) {

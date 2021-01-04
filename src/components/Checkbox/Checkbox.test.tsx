@@ -2,13 +2,12 @@ import { expect } from "chai";
 import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import * as Mocha from "mocha";
 
 import Checkbox from "./Checkbox";
 
 describe("Checkbox Test", () => {
     it("Renders Checkbox", () => {
-        let callback = stub();
+        const callback = stub();
 
         const container = Enzyme.mount(
             <Checkbox
@@ -24,7 +23,7 @@ describe("Checkbox Test", () => {
     });
 
     it("Updates its check value based on the `isSelected` prop", () => {
-        let callback = stub();
+        const callback = stub();
 
         const container = Enzyme.mount(
             <Checkbox
@@ -46,7 +45,7 @@ describe("Checkbox Test", () => {
 
     it("Passes the ref to the input element", () => {
         const ref = React.createRef<HTMLInputElement>();
-        let callback = stub();
+        const callback = stub();
         const container = Enzyme.mount(
             <Checkbox
                 checkboxId="CheckboxID-attributes"

@@ -6,7 +6,7 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import { IconNames } from "../Icons/IconTypes";
 import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
 import { action } from "@storybook/addon-actions";
@@ -109,7 +109,7 @@ export const searchBar = () => (
                     onBlur={action("blur")}
                     onChange={action("changed")}
                 >
-                    {Object.keys(optionsGroup).map((nhOption) => (
+                    {Object.keys(optionsGroup).map(nhOption => (
                         <option key={nhOption} aria-selected={false}>
                             {nhOption}
                         </option>

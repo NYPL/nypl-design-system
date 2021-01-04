@@ -11,7 +11,7 @@ export interface Global extends NodeJS.Global {
     navigator: { userAgent: string };
 }
 
-declare var global: Global;
+declare let global: Global;
 
 global.window = window;
 global.document = window.document;
@@ -19,7 +19,8 @@ global.navigator = {
     userAgent: "node.js",
 };
 
-let noop = () => {};
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const noop = () => {};
 
 // Ignore SVG
 require.extensions[".svg"] = noop;

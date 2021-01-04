@@ -4,15 +4,15 @@ const cssVariables: CSSVariablesInterface = {};
 
 const buildCSSObject = function (prev, cssRule) {
     // All of our global variables are applied to :root
-    if (cssRule.selectorText == ":root") {
-        var css = cssRule.cssText.split("{");
+    if (cssRule.selectorText === ":root") {
+        let css = cssRule.cssText.split("{");
         css = css[1].replace("}", "").split(";");
-        for (var i = 0; i < css.length; i++) {
-            var prop = css[i].split(":");
+        for (let i = 0; i < css.length; i++) {
+            const prop = css[i].split(":");
             if (
                 // if a valid CSS variable, i.e. --[whatever]
-                prop.length == 2 &&
-                prop[0].indexOf("--") == 1
+                prop.length === 2 &&
+                prop[0].indexOf("--") === 1
             ) {
                 cssVariables[prop[0]] = prop[1];
             }

@@ -64,7 +64,7 @@ const LibraryExample = () => {
                 </Label>
                 <HelperErrorText id="id-helperText" isError={false}>
                     Select your home library. Start by typing the name of the
-                    library. Try "ba".
+                    library. Try {'"'}ba{'"'}.
                 </HelperErrorText>
                 <Input
                     type={InputTypes.text}
@@ -90,7 +90,7 @@ const LibraryExample = () => {
         return inputLength === 0
             ? []
             : list.filter(
-                  (l) =>
+                  l =>
                       l.label.toLowerCase().slice(0, inputLength) === inputValue
               );
     };
@@ -104,9 +104,9 @@ const LibraryExample = () => {
 
     // When suggestion is clicked, Autosuggest needs to populate the input
     // based on the clicked suggestion. We want the label from that object.
-    const getSuggestionValue = (suggestion) => suggestion.label;
+    const getSuggestionValue = suggestion => suggestion.label;
     // Render every suggestion in a span.
-    const renderSuggestion = (suggestion) => <span>{suggestion.label}</span>;
+    const renderSuggestion = suggestion => <span>{suggestion.label}</span>;
     // Autosuggest will pass through all these props to the Input component.
     const inputProps = {
         placeholder: "Type a library name",
@@ -155,7 +155,7 @@ const FishExample = () => {
         "neon tetra",
         "blowfish",
     ];
-    const renderInputComponent = (inputProps) => {
+    const renderInputComponent = inputProps => {
         return (
             <Input
                 type={InputTypes.text}
@@ -171,13 +171,13 @@ const FishExample = () => {
     };
     const onChange = (event, { newValue }) => setValue(newValue);
     // Just adding a simple icon to show how suggestions can be rendered.
-    const renderSuggestion = (suggestion) => (
+    const renderSuggestion = suggestion => (
         <span>
             {suggestion}
             <Icon name={IconNames["check"]} decorative={true}></Icon>
         </span>
     );
-    const getSuggestionValue = (suggestion) => suggestion;
+    const getSuggestionValue = suggestion => suggestion;
     // Here, we want to filter suggestions if we can the user-typed string in
     // any of the suggestion string list.
     const getSuggestions = (value, list) => {
@@ -186,7 +186,7 @@ const FishExample = () => {
 
         return inputLength === 0
             ? []
-            : list.filter((l) => l.indexOf(inputValue) !== -1);
+            : list.filter(l => l.indexOf(inputValue) !== -1);
     };
     const onSuggestionsFetchRequested = ({ value }) =>
         setSuggestions(getSuggestions(value, fishList));

@@ -8,7 +8,7 @@ export default {
     component: Checkbox,
 };
 
-const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
+const Template: Story<CheckboxProps> = args => <Checkbox {...args} />;
 
 export const BasicCheckbox = Template.bind({});
 BasicCheckbox.args = {
@@ -18,7 +18,6 @@ BasicCheckbox.args = {
         id: "label",
         labelContent: <>Label Text</>,
     },
-    onChange: () => {},
 };
 
 export const CheckboxWithLongLabel = Template.bind({});
@@ -29,5 +28,4 @@ CheckboxWithLongLabel.args = {
         id: "label",
         labelContent: <>This is a long label but just another example</>,
     },
-    onChange: () => {},
 };

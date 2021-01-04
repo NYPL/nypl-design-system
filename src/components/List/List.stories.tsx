@@ -1,6 +1,5 @@
 import * as React from "react";
 import { boolean, select } from "@storybook/addon-knobs";
-import { Story } from "@storybook/react/types-6-0";
 
 import Card from "../Card/Card";
 import Heading from "../Heading/Heading";
@@ -9,15 +8,13 @@ import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
-import List, { ListProps } from "./List";
+import List from "./List";
 import { ListTypes } from "./ListTypes";
 
 export default {
     title: "List",
     component: List,
 };
-
-let itemList = [];
 
 const itemGroups = [
     "Art",
@@ -96,7 +93,7 @@ const exampleCard = (
                 Audiobook
             </div>
             <div className="book__description">
-                'An act of consummate literary bravery, a writer known for her
+                An act of consummate literary bravery, a writer known for her
                 clarity allowing us to watch her mind as it becomes clouded...{" "}
                 <Link href="#">Read More</Link>
             </div>
@@ -104,7 +101,7 @@ const exampleCard = (
     </Card>
 );
 
-let cards = [];
+const cards = [];
 
 for (let i = 0; i < 3; i++) {
     cards.push(<li key={i}>{exampleCard}</li>);

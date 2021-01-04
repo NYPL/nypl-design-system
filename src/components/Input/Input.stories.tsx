@@ -6,6 +6,7 @@ import Label from "../Label/Label";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
+// eslint-disable-next-line id-blacklist
 import { text, boolean, select, number } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
@@ -166,18 +167,17 @@ export const inputAttributes = () => (
             }}
         ></Input>
         <HelperErrorText isError={false} id="helperText-attrs">
-            Change the max length for "text" input as an example! And note the
-            actions being called for the passed object in the `attributes`
-            props.
+            {"Change the max length for 'text' input as an example! And note " +
+                "the actions being called for the passed object in the `attributes` props."}
         </HelperErrorText>
     </>
 );
 
-export const radioInput = () => {
+export const RadioInput = () => {
     const [stateValue, setStateValue] = useState("");
     const fieldName = "bugName";
 
-    const onChange = (e) => {
+    const onChange = e => {
         setStateValue(e.target?.value);
         action("onChange");
     };
@@ -212,7 +212,7 @@ export const radioInput = () => {
         );
     };
     const createRadioForm = (inputList: any[]) =>
-        inputList.map((input) => createInput(input.value, input.label));
+        inputList.map(input => createInput(input.value, input.label));
 
     return (
         <fieldset>

@@ -5,7 +5,7 @@ export interface SelectProps {
     /** When passed, will populate the aria-label on the select */
     ariaLabel?: string;
     /** Additional attributes passed to the <select> tag */
-    attributes?: {};
+    attributes?: { [key: string]: any };
     /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** ClassName you can add in addition to 'select' */
@@ -50,9 +50,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
          */
         const onSelectChange = (
             event: React.FormEvent,
-            additionalChange: Function
+            additionalChange: (event: any) => void
         ) => {
-            let target = event.target as HTMLSelectElement;
+            const target = event.target as HTMLSelectElement;
             if (target) {
                 setSelectedOption(target.value);
             }
@@ -103,8 +103,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                 aria-labelledby={ariaLabelledBy}
                 value={selectedOption}
                 ref={ref}
-                onBlur={(e) => onSelectChange(e, onBlur)}
-                onChange={(e) => onSelectChange(e, onChange)}
+                onBlur={e => onSelectChange(e, onBlur)}
+                onChange={e => onSelectChange(e, onChange)}
                 {...attributes}
             >
                 {React.Children.map(children, (child, key) =>
@@ -117,5 +117,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         );
     }
 );
+
+Select.displayName = "Select";
 
 export default Select;

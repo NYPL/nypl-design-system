@@ -4,7 +4,8 @@ import Label, { LabelOptions } from "../Label/Label";
 
 export interface CheckboxProps {
     /** Additional attributes passed to the checkbox */
-    attributes?: {};
+    attributes?: { [key: string]: any };
+
     /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
     /** Unique ID used by checkbox */
@@ -23,7 +24,7 @@ export interface CheckboxProps {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     (props, ref?) => {
         const {
             name,
@@ -58,5 +59,7 @@ let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         );
     }
 );
+
+Checkbox.displayName = "Checkbox";
 
 export default Checkbox;

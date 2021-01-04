@@ -6,7 +6,6 @@ import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
 import Hero, { HeroProps } from "./Hero";
-import Placeholder from "../Placeholder/Placeholder";
 
 export default {
     title: "Hero",
@@ -14,7 +13,7 @@ export default {
     decorators: [withDesign],
 };
 
-const HeroTemplate: Story<HeroProps> = (args) => (
+const HeroTemplate: Story<HeroProps> = args => (
     <div className={"nypl-ds"}>
         <Hero {...args} />
     </div>
