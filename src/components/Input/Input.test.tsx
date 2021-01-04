@@ -259,3 +259,21 @@ describe("Hidden input", () => {
         expect(input.prop("value")).to.equal("hidden");
     });
 });
+
+describe("Renders default value", () => {
+    const container = Enzyme.mount(
+        <Input
+            id="inputID"
+            ariaLabel="Input Label"
+            ariaLabelledBy={"helperText"}
+            required={true}
+            placeholder={"Input Placeholder"}
+            defaultValue={"Default Value"}
+            type={InputTypes.text}
+            attributes={{ onClick: () => {} }}
+        ></Input>
+    );
+    expect(container.find("input").prop("defaultValue")).to.equal(
+        "Default Value"
+    );
+});

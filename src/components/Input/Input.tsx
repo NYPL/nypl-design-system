@@ -5,9 +5,9 @@ import { InputTypes } from "./InputTypes";
 export interface InputProps {
     /** Additional attributes to pass to the <input> tag */
     attributes?: {};
-    /** Populates the aria-label on the select */
+    /** Populates the aria-label on the input */
     ariaLabel?: string;
-    /** Populates the aria-labelledby on the select */
+    /** Populates the aria-labelledby on the input */
     ariaLabelledBy?: string;
     /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     blockName?: string;
@@ -17,17 +17,19 @@ export interface InputProps {
     id?: string;
     /** Adds the 'disabled' prop to the input when true */
     disabled?: boolean;
+    /** Default value */
+    defaultValue?: string;
     /** Helper for modifiers array; adds 'errored' styling */
     errored?: boolean;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
     modifiers?: string[];
-    /** Populates the placeholder of the select */
+    /** Populates the placeholder of the input */
     placeholder?: string;
     /** Will add 'aria-required: true' to input */
     required?: boolean;
     /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
     type?: InputTypes;
-    /** Populates the value of the select */
+    /** Populates the value of the input */
     value?: string | number;
 }
 
@@ -38,6 +40,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         attributes,
         blockName,
         className,
+        defaultValue,
         disabled,
         errored,
         id,
@@ -56,6 +59,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
     let inputProps = {
         id: id ? `input-${id}` : null,
         className: bem("input", modifiers, blockName, [className]),
+        defaultValue: defaultValue,
         type: type,
         value: value,
         "aria-label": ariaLabel,
