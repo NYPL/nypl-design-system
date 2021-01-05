@@ -5,13 +5,17 @@
         text-decoration: none;
     }
 
+    &:hover {
+        color: var(--ui-link-secondary);
+    }
+
     // .button links have a blue background
     &.button:hover {
         color: var(--ui-white);
     }
 
-    &:hover {
-        color: var(--ui-link-secondary);
+    &[role="button"] {
+        cursor: pointer;
     }
 
     &--dark-background {
