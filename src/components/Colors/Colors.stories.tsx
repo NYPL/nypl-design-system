@@ -97,7 +97,7 @@ export const colorsBrand = () => (
                 </pre>
             </div>
         </div>
-        <p>{"What's On is used for Events, Exhibitions & Audio Guides."}</p>
+        <p>What's On is used for Events, Exhibitions & Audio Guides.</p>
         <List
             type={ListTypes.Unordered}
             modifiers={["no-list-styling"]}

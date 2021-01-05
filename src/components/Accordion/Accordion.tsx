@@ -37,7 +37,11 @@ export default function Accordion(
             id={id}
             className={bem("accordion", modifiers, blockName, [className])}
         >
-            <input id={`accordion-${inputId}`} type="checkbox" />
+            <input
+                id={`accordion-${inputId}`}
+                className={bem("input", modifiers, "accordion")}
+                type="checkbox"
+            />
             <label
                 htmlFor={`accordion-${inputId}`}
                 className={bem("label", modifiers, "accordion")}

@@ -76,14 +76,14 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
         children,
     } = props;
 
-    const icon_base_class = "icon";
+    const baseClass = "icon";
 
     if (iconRotation) {
         modifiers.push(iconRotation);
     }
 
     const iconProps = {
-        className: bem(icon_base_class, modifiers, blockName, [className]),
+        className: bem(baseClass, modifiers, blockName, [className]),
         role: decorative ? "img" : role,
         "aria-hidden": decorative,
         "aria-labelledby": title ? "title-" + name : undefined,

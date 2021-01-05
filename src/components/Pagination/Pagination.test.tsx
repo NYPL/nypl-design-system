@@ -2,83 +2,54 @@ import { expect } from "chai";
 import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-
-import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
-import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
-import Label from "../Label/Label";
 import Pagination from "./Pagination";
-import Select from "../Select/Select";
 
 describe("Pagination Test", () => {
-    let wrapper: Enzyme.ShallowWrapper<any, any>;
-    let previousCallback;
-    let nextCallback;
+    let wrapper: Enzyme.ReactWrapper<{}, {}>;
     let changeCallback;
-    let blurCallback;
 
     beforeEach(() => {
-        previousCallback = stub();
-        nextCallback = stub();
         changeCallback = stub();
-        blurCallback = stub();
     });
 
-    it("Renders two buttons and a Select", () => {
-        wrapper = Enzyme.shallow(
+    it("Renders a nav element with an unordered list of items", () => {
+        wrapper = Enzyme.mount(<Pagination pageCount={11} currentPage={6} />);
+        expect(wrapper.find("nav")).to.have.lengthOf(1);
+        expect(wrapper.find("ul")).to.have.lengthOf(1);
+        // Previous/Next buttons + truncated item list = 11 total items
+        expect(wrapper.find("li")).to.have.lengthOf(11);
+    });
+
+    it("Previous link is disabled when on the first page item", () => {
+        wrapper = Enzyme.mount(<Pagination pageCount={11} currentPage={1} />);
+        expect(wrapper.find("a").first().hasClass("disabled")).to.equal(true);
+        expect(
+            wrapper.find("a").first().find("[aria-disabled='true']")
+        ).to.have.lengthOf(1);
+    });
+
+    it("Next link is disabled when on the last page item", () => {
+        wrapper = Enzyme.mount(<Pagination pageCount={11} currentPage={11} />);
+        expect(wrapper.find("a").last().hasClass("disabled")).to.equal(true);
+        expect(
+            wrapper.find("a").last().find("[aria-disabled='true']")
+        ).to.have.lengthOf(1);
+    });
+
+    it("Current page item has active class", () => {
+        wrapper = Enzyme.mount(<Pagination pageCount={11} currentPage={5} />);
+        expect(wrapper.find("a").at(5).hasClass("selected")).to.equal(true);
+    });
+
+    it("When page item is selected, runs the onPageChange callback", () => {
+        wrapper = Enzyme.mount(
             <Pagination
-                previousPage={
-                    <Button
-                        buttonType={ButtonTypes.Secondary}
-                        onClick={previousCallback()}
-                    >
-                        <Icon
-                            name={IconNames.arrow}
-                            decorative={true}
-                            iconRotation={IconRotationTypes.rotate90}
-                        />
-                        Previous
-                    </Button>
-                }
-                nextPage={
-                    <Button
-                        buttonType={ButtonTypes.Secondary}
-                        onClick={nextCallback()}
-                    >
-                        Next
-                        <Icon
-                            name={IconNames.arrow}
-                            decorative={true}
-                            iconRotation={IconRotationTypes.rotate270}
-                        />
-                    </Button>
-                }
-            >
-                <Label htmlFor="select" id={"label"}>
-                    Page
-                </Label>
-                <Select
-                    name="optionalLabelSelect"
-                    id={"select"}
-                    isRequired={false}
-                    ariaLabel="Select Label"
-                    labelId={"label"}
-                    onBlur={blurCallback()}
-                    onChange={changeCallback()}
-                >
-                    <option aria-selected={true}>1 of 7</option>
-                    <option aria-selected={false}>2 of 7</option>
-                    <option aria-selected={false}>3 of 7</option>
-                    <option aria-selected={false}>4 of 7</option>
-                    <option aria-selected={false}>5 of 7</option>
-                    <option aria-selected={false}>6 of 7</option>
-                    <option aria-selected={false}>7 of 7</option>
-                </Select>
-            </Pagination>
+                pageCount={11}
+                currentPage={5}
+                onPageChange={changeCallback}
+            />
         );
-        expect(wrapper.find(Button)).to.have.lengthOf(2);
-        expect(wrapper.find(Select)).to.have.lengthOf(1);
-        expect(wrapper.find(Label)).to.have.lengthOf(1);
+        expect(wrapper.find("a").at(2).simulate("click"));
+        expect(changeCallback.callCount).to.equal(1);
     });
 });

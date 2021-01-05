@@ -16,6 +16,19 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Removed `SectionTitle`
 
+## 0.19.1
+
+### Breaking Changes
+
+-   Accordion: Accordion input styling affects only direct children
+-   Checkbox: Allows checkbox to be used as a controlled component or uncontrolled component.
+
+## 0.19.0
+
+### Breaking Changes
+
+-   Updates `Pagination` component to match new design.
+
 ## 0.18.7
 
 ### Changes
