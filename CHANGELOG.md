@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 -   Input: added defaultValue prop
+-   Accordion: Accordion input styling affects only direct children
 
 ## 0.19.0
 

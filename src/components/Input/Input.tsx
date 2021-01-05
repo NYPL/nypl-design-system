@@ -31,6 +31,8 @@ export interface InputProps {
     type?: InputTypes;
     /** Populates the value of the input */
     value?: string | number;
+    /** The action to perform on the `<input>`'s onChange function  */
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
@@ -48,6 +50,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         required,
         type = "text",
         value,
+        onChange,
     } = props;
 
     let modifiers = props.modifiers ? props.modifiers : [];
@@ -77,8 +80,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
 
     let transformedInput = (
         <input
-            {...inputProps}
+            id={id}
+            className={bem("input", modifiers, blockName, [className])}
+            defaultValue={defaultValue}
+            type={type}
+            value={value}
+            aria-label={ariaLabel}
+            aria-labelledby={ariaLabelledBy}
+            disabled={disabled}
             placeholder={placeholder}
+            onChange={onChange}
             ref={ref}
             {...attributes}
         />
