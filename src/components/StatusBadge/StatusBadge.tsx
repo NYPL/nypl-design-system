@@ -12,14 +12,10 @@ export interface StatusBadgeProps {
     level?: "low" | "medium" | "high";
 }
 
-export default function StatusBadge(props: React.PropsWithChildren<StatusBadgeProps>) {
-
-    const {
-        blockName,
-        className,
-        statusBadgeText,
-        level,
-    } = props;
+export default function StatusBadge(
+    props: React.PropsWithChildren<StatusBadgeProps>
+) {
+    const { blockName, className, statusBadgeText, level } = props;
 
     const status_badge_base_class = "status-badge";
 
@@ -33,9 +29,14 @@ export default function StatusBadge(props: React.PropsWithChildren<StatusBadgePr
         statusBadgeModifiers = [level];
     }
 
-    return(
+    return (
         <div
-            className={bem(status_badge_base_class, statusBadgeModifiers, blockName, [className])}
+            className={bem(
+                status_badge_base_class,
+                statusBadgeModifiers,
+                blockName,
+                [className]
+            )}
         >
             {statusBadgeText}
         </div>

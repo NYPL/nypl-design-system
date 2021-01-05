@@ -10,15 +10,16 @@ describe("StatusBadge Test", () => {
 
     it("Shows status badge", () => {
         wrapper = Enzyme.shallow(
-            <StatusBadge level={"low"} statusBadgeText={"Registration Required"} />
+            <StatusBadge
+                level={"low"}
+                statusBadgeText={"Registration Required"}
+            />
         );
         expect(wrapper.find("div")).to.have.lengthOf(1);
     });
     it("Can pass status badge content as child", () => {
         wrapper = Enzyme.shallow(
-            <StatusBadge level={"medium"}>
-                Cancelled
-            </StatusBadge>
+            <StatusBadge level={"medium"}>Cancelled</StatusBadge>
         );
         expect(wrapper.find("div")).to.have.lengthOf(1);
     });
