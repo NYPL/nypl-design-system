@@ -12,6 +12,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 -   Input: added defaultValue prop
 
+## 0.19.0
+
+### Breaking Changes
+
+-   Updates `Pagination` component to match new design.
+
 ## 0.18.7
 
 ### Changes
