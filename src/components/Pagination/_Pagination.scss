@@ -11,13 +11,28 @@
         }
     }
 
-    .label {
-        @include space-stack-none;
+    &__list {
+        @include list-reset;
 
-        align-self: center;
+        display: flex;
     }
 
-    .select {
-        @include space-stack-none;
+    &__item {
+        list-style-type: none;
+    }
+
+    &__link {
+        line-height: 1.15;
+        padding: 8px;
+        text-decoration: none;
+
+        &.selected {
+            color: var(--ui-black);
+        }
+
+        &.disabled {
+            color: var(--ui-gray-dark);
+            pointer-events: none;
+        }
     }
 }
