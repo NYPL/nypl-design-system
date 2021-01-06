@@ -17,8 +17,6 @@ export interface InputProps {
     id?: string;
     /** Adds the 'disabled' prop to the input when true */
     disabled?: boolean;
-    /** Default value */
-    defaultValue?: string;
     /** Helper for modifiers array; adds 'errored' styling */
     errored?: boolean;
     /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
@@ -42,7 +40,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         attributes,
         blockName,
         className,
-        defaultValue,
         disabled,
         errored,
         id,
@@ -59,34 +56,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         modifiers.push("error");
     }
 
-    let inputProps = {
-        id: id ? `input-${id}` : null,
-        className: bem("input", modifiers, blockName, [className]),
-        defaultValue: defaultValue,
-        type: type,
-        value: value,
-        "aria-label": ariaLabel,
-        "aria-labelledby": ariaLabelledBy,
-        disabled: disabled,
-    };
-
-    if (required) {
-        inputProps["aria-required"] = true;
-    }
-
-    if (type === InputTypes.hidden) {
-        inputProps["aria-hidden"] = true;
-    }
-
     let transformedInput = (
         <input
             id={id}
             className={bem("input", modifiers, blockName, [className])}
-            defaultValue={defaultValue}
             type={type}
             value={value}
             aria-label={ariaLabel}
             aria-labelledby={ariaLabelledBy}
+            aria-required={required}
+            aria-hidden={type === InputTypes.hidden}
             disabled={disabled}
             placeholder={placeholder}
             onChange={onChange}
