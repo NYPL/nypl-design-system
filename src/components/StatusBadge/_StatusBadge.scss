@@ -1,21 +1,21 @@
 .status-badge {
-    border-radius: 4px;
-    color: var(--ui-black);
-    display: block;
-    font-size: var(--font-size--1);
-    font-style: italic;
-    padding: var(--space-xxs);
-    text-align: center;
+  border-radius: 4px;
+  color: var(--ui-black);
+  display: block;
+  font-size: var(--font-size--1);
+  font-style: italic;
+  padding: var(--space-xxs);
+  text-align: center;
 
-    &--low {
-        background-color: var(--ui-gray-light);
-    }
+  &--low {
+    background-color: var(--ui-gray-light);
+  }
 
-    &--medium {
-        background-color: #f9e08e;
-    }
+  &--medium {
+    background-color: #f9e08e;
+  }
 
-    &--high {
-        background-color: #fbe7e1;
-    }
+  &--high {
+    background-color: #fbe7e1;
+  }
 }

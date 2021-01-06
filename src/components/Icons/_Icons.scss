@@ -1,54 +1,54 @@
 @mixin icon {
-    display: inline-block;
-    fill: currentColor;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+
+  &--rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  &--rotate-270 {
+    transform: rotate(270deg);
+  }
+
+  &--rotate-0 {
+    transform: rotate(0deg);
+  }
+
+  &--rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  &--left {
+    margin-right: var(--space-xxs);
+  }
+
+  &--right {
+    margin-left: var(--space-xxs);
+  }
+
+  &--xlarge {
+    height: 68px;
+    width: 68px;
+  }
+
+  &--large {
+    height: 36px;
+    width: 36px;
+  }
+
+  &--medium {
     height: 24px;
     width: 24px;
+  }
 
-    &--rotate-180 {
-        transform: rotate(180deg);
-    }
-
-    &--rotate-270 {
-        transform: rotate(270deg);
-    }
-
-    &--rotate-0 {
-        transform: rotate(0deg);
-    }
-
-    &--rotate-90 {
-        transform: rotate(90deg);
-    }
-
-    &--left {
-        margin-right: var(--space-xxs);
-    }
-
-    &--right {
-        margin-left: var(--space-xxs);
-    }
-
-    &--xlarge {
-        height: 68px;
-        width: 68px;
-    }
-
-    &--large {
-        height: 36px;
-        width: 36px;
-    }
-
-    &--medium {
-        height: 24px;
-        width: 24px;
-    }
-
-    &--small {
-        height: 18px;
-        width: 18px;
-    }
+  &--small {
+    height: 18px;
+    width: 18px;
+  }
 }
 
 .icon {
-    @include icon;
+  @include icon;
 }

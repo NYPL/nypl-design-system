@@ -8,69 +8,69 @@
 // --space-xxxl: -calc(-space*6);  // 96px
 
 @mixin space-stack-none {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 @mixin space-stack-xxs {
-    margin-bottom: var(--space-xxs);
+  margin-bottom: var(--space-xxs);
 }
 
 @mixin space-stack-xs {
-    margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-xs);
 }
 
 @mixin space-stack-s {
-    margin-bottom: var(--space-s);
+  margin-bottom: var(--space-s);
 }
 
 @mixin space-stack-m {
-    margin-bottom: var(--space-m);
+  margin-bottom: var(--space-m);
 }
 
 @mixin space-stack-l {
-    margin-bottom: var(--space-l);
+  margin-bottom: var(--space-l);
 }
 
 @mixin space-stack-xl {
-    margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-xl);
 }
 
 @mixin space-stack-xxl {
-    margin-bottom: var(--space-xxl);
+  margin-bottom: var(--space-xxl);
 }
 
 @mixin space-stack-xxxl {
-    margin-bottom: var(--space-xxxl);
+  margin-bottom: var(--space-xxxl);
 }
 
 @mixin space-stack-page {
-    @include space-stack-l;
+  @include space-stack-l;
+
+  @include breakpoint($breakpoint-large) {
+    @include space-stack-xl;
+  }
+
+  &--full {
+    @include space-stack-xxl;
 
     @include breakpoint($breakpoint-large) {
-        @include space-stack-xl;
+      @include space-stack-xxxl;
     }
-
-    &--full {
-        @include space-stack-xxl;
-
-        @include breakpoint($breakpoint-large) {
-            @include space-stack-xxxl;
-        }
-    }
+  }
 }
 
 @mixin remove-stack-page {
-    margin-top: calc(-1 * #{$space-l});
+  margin-top: calc(-1 * #{$space-l});
+
+  @include breakpoint($breakpoint-large) {
+    margin-top: calc(-1 * #{$space-xl});
+  }
+
+  &--full {
+    margin-top: calc(-1 * #{$space-xxl});
 
     @include breakpoint($breakpoint-large) {
-        margin-top: calc(-1 * #{$space-xl});
+      margin-top: calc(-1 * #{$space-xxxl});
     }
-
-    &--full {
-        margin-top: calc(-1 * #{$space-xxl});
-
-        @include breakpoint($breakpoint-large) {
-            margin-top: calc(-1 * #{$space-xxxl});
-        }
-    }
+  }
 }
