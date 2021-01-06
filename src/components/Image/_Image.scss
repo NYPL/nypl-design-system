@@ -1,36 +1,36 @@
 .image {
-    display: block;
-    height: auto;
-    max-width: 100%;
+  display: block;
+  height: auto;
+  max-width: 100%;
 
-    &--circle {
-        border-radius: 50%;
-    }
+  &--circle {
+    border-radius: 50%;
+  }
 }
 
 figure {
-    margin: unset;
+  margin: unset;
 }
 
 .figure {
-    &__image {
-        @include space-stack-xxs;
+  &__image {
+    @include space-stack-xxs;
 
-        &--circle {
-            border-radius: 50%;
-        }
+    &--circle {
+      border-radius: 50%;
     }
+  }
 
-    &__figcaption {
-        font-style: italic;
-    }
+  &__figcaption {
+    font-style: italic;
+  }
 }
 
 .figcaption {
-    &__credit,
-    &__caption {
-        @include space-stack-xxs;
+  &__credit,
+  &__caption {
+    @include space-stack-xxs;
 
-        font-size: var(--font-size--1);
-    }
+    font-size: var(--font-size--1);
+  }
 }

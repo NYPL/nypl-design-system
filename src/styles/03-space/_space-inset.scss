@@ -5,25 +5,25 @@
 // $space-xl: $space*3;    // 48px
 
 @mixin space-inset-none {
-    padding: 0;
+  padding: 0;
 }
 
 @mixin space-inset-xs {
-    padding: var(--space-xs);
+  padding: var(--space-xs);
 }
 
 @mixin space-inset-s {
-    padding: var(--space-s);
+  padding: var(--space-s);
 }
 
 @mixin space-inset-m {
-    padding: var(--space-m);
+  padding: var(--space-m);
 }
 
 @mixin space-inset-l {
-    padding: var(--space-l);
+  padding: var(--space-l);
 }
 
 @mixin space-inset-xl {
-    padding: var(--space-xl);
+  padding: var(--space-xl);
 }

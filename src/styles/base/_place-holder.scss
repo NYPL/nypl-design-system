@@ -1,16 +1,16 @@
 .placeholder {
-    --color-place-holder: var(--ui-gray-light);
+  --color-place-holder: var(--ui-gray-light);
 
-    @include space-stack-page;
-    @include space-inset-s;
+  @include space-stack-page;
+  @include space-inset-s;
 
-    align-items: center;
-    border: 4px dashed var(--color-place-holder);
-    color: var(--color-place-holder);
-    display: flex;
-    font-size: 3rem;
-    justify-content: center;
-    line-height: 1.4;
-    padding: 4rem 1rem;
-    width: 100%;
+  align-items: center;
+  border: 4px dashed var(--color-place-holder);
+  color: var(--color-place-holder);
+  display: flex;
+  font-size: 3rem;
+  justify-content: center;
+  line-height: 1.4;
+  padding: 4rem 1rem;
+  width: 100%;
 }

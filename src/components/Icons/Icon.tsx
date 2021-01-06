@@ -21,93 +21,91 @@ import plus from "../../../icons/svg/plus.svg";
 import search from "../../../icons/svg/search.svg";
 
 const allSvgs = {
-    accessibility_full,
-    accessibility_partial,
-    arrow,
-    check,
-    clock,
-    close,
-    download,
-    headset,
-    logo_brooklyn,
-    logo_nypl,
-    logo_nypl_negative,
-    logo_queens,
-    minus,
-    plus,
-    search,
+  accessibility_full,
+  accessibility_partial,
+  arrow,
+  check,
+  clock,
+  close,
+  download,
+  headset,
+  logo_brooklyn,
+  logo_nypl,
+  logo_nypl_negative,
+  logo_queens,
+  minus,
+  plus,
+  search,
 };
 
 export interface IconProps {
-    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-    blockName?: string;
-    /** className that appears in addition to "icon" */
-    className?: string;
-    /** Decorative icons are skipped by screenreaders */
-    decorative: boolean;
-    /** Desc prop added to the <svg> element */
-    desc?: boolean;
-    /** Rotates icons in quarters */
-    iconRotation?: IconRotationTypes;
-    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: string[];
-    /** Name of the icon */
-    name?: IconNames | LogoNames;
-    /** Icon role */
-    role?: string;
-    /** Icon title */
-    title?: boolean;
+  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+  blockName?: string;
+  /** className that appears in addition to "icon" */
+  className?: string;
+  /** Decorative icons are skipped by screenreaders */
+  decorative: boolean;
+  /** Desc prop added to the <svg> element */
+  desc?: boolean;
+  /** Rotates icons in quarters */
+  iconRotation?: IconRotationTypes;
+  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+  modifiers?: string[];
+  /** Name of the icon */
+  name?: IconNames | LogoNames;
+  /** Icon role */
+  role?: string;
+  /** Icon title */
+  title?: boolean;
 }
 
 /**
  * Icon component
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
-    const {
-        blockName,
-        decorative,
-        className,
-        desc,
-        iconRotation,
-        modifiers = [],
-        name,
-        role,
-        title,
-        children,
-    } = props;
+  const {
+    blockName,
+    decorative,
+    className,
+    desc,
+    iconRotation,
+    modifiers = [],
+    name,
+    role,
+    title,
+    children,
+  } = props;
 
-    const baseClass = "icon";
+  const baseClass = "icon";
 
-    if (iconRotation) {
-        modifiers.push(iconRotation);
-    }
+  if (iconRotation) {
+    modifiers.push(iconRotation);
+  }
 
-    const iconProps = {
-        className: bem(baseClass, modifiers, blockName, [className]),
-        role: decorative ? "img" : role,
-        "aria-hidden": decorative,
-        "aria-labelledby": title ? "title-" + name : undefined,
-        "aria-describedby": desc ? "desc-" + name : undefined,
-        title: title ? `title-${name}` : undefined,
-    };
+  const iconProps = {
+    className: bem(baseClass, modifiers, blockName, [className]),
+    role: decorative ? "img" : role,
+    "aria-hidden": decorative,
+    "aria-labelledby": title ? "title-" + name : undefined,
+    "aria-describedby": desc ? "desc-" + name : undefined,
+    title: title ? `title-${name}` : undefined,
+  };
 
-    let svg;
+  let svg;
 
-    if (name && children) {
-        throw new Error("Icon accepts either a name or children, not both");
-    } else if (!name && !children) {
-        console.warn(
-            "Pass a name or any children to Icon to ensure an icon appears"
-        );
-    }
+  if (name && children) {
+    throw new Error("Icon accepts either a name or children, not both");
+  } else if (!name && !children) {
+    console.warn(
+      "Pass a name or any children to Icon to ensure an icon appears"
+    );
+  }
 
-    if (name) {
-        svg = allSvgs[name];
-        return (
-            <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />
-        );
-    } else {
-        svg = children;
-        return <span {...iconProps}>{children}</span>;
-    }
+  if (name) {
+    svg = allSvgs[name];
+    return <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />;
+  } else {
+    svg = children;
+    return <span {...iconProps}>{children}</span>;
+  }
 }

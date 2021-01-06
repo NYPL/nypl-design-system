@@ -1,37 +1,37 @@
 // Create a mixin for paragraph styles that can be implemented
 // in components with other classnames.
 @mixin paragraph($margin: 0 0 var(--space)) {
-    margin: #{$margin};
+  margin: #{$margin};
 }
 
 p,
 .paragraph {
-    @include paragraph;
+  @include paragraph;
 }
 
 .blockquote {
-    border-left: solid 3px var(--ui-gray-light);
-    font-style: italic;
-    margin-left: 1em;
-    padding-left: 1em;
+  border-left: solid 3px var(--ui-gray-light);
+  font-style: italic;
+  margin-left: 1em;
+  padding-left: 1em;
 }
 
 .hr {
-    border-style: solid;
-    border-width: 1px 0 0;
-    color: currentColor;
+  border-style: solid;
+  border-width: 1px 0 0;
+  color: currentColor;
 }
 
 .long-description {
-    @include screenreader-only();
+  @include screenreader-only();
 }
 
 .text-long {
-    blockquote {
-        @extend .blockquote;
-    }
+  blockquote {
+    @extend .blockquote;
+  }
 
-    hr {
-        @extend .hr;
-    }
+  hr {
+    @extend .hr;
+  }
 }
