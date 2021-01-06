@@ -1,8 +1,8 @@
 .checkbox {
-    align-items: baseline;
-    display: flex;
+  align-items: baseline;
+  display: flex;
 
-    &__input {
-        @include space-inline-xs;
-    }
+  &__input {
+    @include space-inline-xs;
+  }
 }

@@ -1,68 +1,68 @@
 $break-input-mobile: 400px;
 
 .input {
-    @include space-inset-xs;
-    @include space-stack-xs;
+  @include space-inset-xs;
+  @include space-stack-xs;
 
-    border: 1px solid var(--ui-gray-medium);
+  border: 1px solid var(--ui-gray-medium);
 
-    &[type="text"],
-    &[type="number"],
-    &[type="password"] {
-        width: 100%;
+  &[type="text"],
+  &[type="number"],
+  &[type="password"] {
+    width: 100%;
+  }
+
+  &[type="radio"] {
+    width: unset;
+
+    + .label {
+      display: unset;
+      margin-left: var(--space-s);
     }
+  }
 
-    &[type="radio"] {
-        width: unset;
+  &::-webkit-input-placeholder {
+    color: var(--ui-gray-dark);
+  }
 
-        + .label {
-            display: unset;
-            margin-left: var(--space-s);
-        }
-    }
+  &:-moz-placeholder {
+    color: var(--ui-gray-dark);
+  }
 
-    &::-webkit-input-placeholder {
-        color: var(--ui-gray-dark);
-    }
+  &:-ms-input-placeholder {
+    color: var(--ui-gray-dark);
+  }
 
-    &:-moz-placeholder {
-        color: var(--ui-gray-dark);
-    }
+  &:hover {
+    border-color: var(--ui-gray-dark);
+  }
 
-    &:-ms-input-placeholder {
-        color: var(--ui-gray-dark);
-    }
+  &:disabled {
+    background-color: var(--ui-gray-xxlight);
+    color: var(--ui-gray-xdark);
+  }
 
-    &:hover {
-        border-color: var(--ui-gray-dark);
-    }
+  &:active,
+  &:focus,
+  &:active:hover,
+  &:focus:hover {
+    border: 1px solid var(--ui-focus);
+    box-shadow: 0;
+    outline: 1px solid var(--ui-focus);
+  }
 
-    &:disabled {
-        background-color: var(--ui-gray-xxlight);
-        color: var(--ui-gray-xdark);
-    }
-
-    &:active,
-    &:focus,
-    &:active:hover,
-    &:focus:hover {
-        border: 1px solid var(--ui-focus);
-        box-shadow: 0;
-        outline: 1px solid var(--ui-focus);
-    }
-
-    &--error {
-        border: 1px solid var(--ui-error);
-    }
+  &--error {
+    border: 1px solid var(--ui-error);
+  }
 }
 
 .input-group {
-    @include breakpoint($break-input-mobile) {
-        display: flex;
-        justify-content: space-between;
+  @include breakpoint($break-input-mobile) {
+    display: flex;
+    justify-content: space-between;
 
-        > *:not(:last-child) {
-            @include space-inline-m;
-        }
+    > *:not(:last-child) {
+      @include space-inline-m;
     }
+  }
 }

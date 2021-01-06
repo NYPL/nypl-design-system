@@ -1,22 +1,22 @@
 .label {
-    @include space-stack-xs;
+  @include space-stack-xs;
 
-    align-items: baseline;
-    display: flex;
-    font-weight: 500;
-    justify-content: space-between;
+  align-items: baseline;
+  display: flex;
+  font-weight: 500;
+  justify-content: space-between;
 
-    &__required-helper {
-        font-size: var(--font-size--1);
-        font-weight: 300;
-    }
+  &__required-helper {
+    font-size: var(--font-size--1);
+    font-weight: 300;
+  }
 }
 
 .fieldset {
-    @include fieldset-reset;
+  @include fieldset-reset;
 }
 
 .legend {
-    border: 0;
-    font-weight: 500;
+  border: 0;
+  font-weight: 500;
 }
