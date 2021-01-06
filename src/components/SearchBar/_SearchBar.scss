@@ -1,16 +1,16 @@
 .search-bar {
-    display: flex;
-    flex-flow: column nowrap;
+  display: flex;
+  flex-flow: column nowrap;
 
-    @include breakpoint($breakpoint-medium) {
-        flex-flow: row nowrap;
-    }
+  @include breakpoint($breakpoint-medium) {
+    flex-flow: row nowrap;
+  }
 
-    .select {
-        flex: 1 1 25%;
-    }
+  .select {
+    flex: 1 1 25%;
+  }
 
-    .button {
-        @include space-stack-xs;
-    }
+  .button {
+    @include space-stack-xs;
+  }
 }

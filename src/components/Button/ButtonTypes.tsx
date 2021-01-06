@@ -1,6 +1,6 @@
 export enum ButtonTypes {
-    Primary = "filled",
-    Secondary = "outline",
-    Pill = "pill",
-    Link = "link",
+  Primary = "filled",
+  Secondary = "outline",
+  Pill = "pill",
+  Link = "link",
 }

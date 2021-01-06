@@ -1,19 +1,19 @@
 .nypl-ds {
-    box-sizing: border-box;
-    color: var(--ui-black);
-    font-family: var(--typeface-body);
+  box-sizing: border-box;
+  color: var(--ui-black);
+  font-family: var(--typeface-body);
 
-    // Sets up the base font-size, 1rem, for the system
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.5;
+  // Sets up the base font-size, 1rem, for the system
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
 
-    // Users with non-overlay scrollbars have a small horiznotal scrollbar from our breakout mixin. Fix identified here: https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#one-big-dumb-caveat
-    overflow-x: hidden;
+  // Users with non-overlay scrollbars have a small horiznotal scrollbar from our breakout mixin. Fix identified here: https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#one-big-dumb-caveat
+  overflow-x: hidden;
 
-    *,
-    *::after,
-    *::before {
-        box-sizing: inherit;
-    }
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
 }

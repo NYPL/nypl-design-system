@@ -1,9 +1,9 @@
 .helper-text {
-    @include space-stack-xs;
+  @include space-stack-xs;
 
-    font-size: var(--font-size--1);
+  font-size: var(--font-size--1);
 
-    &--error {
-        color: var(--ui-error);
-    }
+  &--error {
+    color: var(--ui-error);
+  }
 }
