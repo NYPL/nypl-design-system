@@ -29,7 +29,7 @@ export interface SelectProps {
     onBlur?: (event: React.FormEvent) => void;
     /** Passes selects' current value to the React state handler */
     onChange?: (event: React.FormEvent) => void;
-    /** Sets whatever string you pass it as the default selected */
+    /** The selected value */
     selectedOption?: string;
 }
 
@@ -40,26 +40,6 @@ export interface SelectProps {
  */
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     (props, ref?) => {
-        const [selectedOption, setSelectedOption] = useState(
-            props.selectedOption || null
-        );
-        /**
-         * onSelectChange
-         * Update the state value for the option that was selected and fire off
-         * any additional callbacks.
-         */
-        const onSelectChange = (
-            event: React.FormEvent,
-            additionalChange: Function
-        ) => {
-            let target = event.target as HTMLSelectElement;
-            if (target) {
-                setSelectedOption(target.value);
-            }
-            if (additionalChange) {
-                additionalChange(event);
-            }
-        };
         const {
             ariaLabel = null,
             blockName,
@@ -74,6 +54,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             name,
             attributes,
             disabled = false,
+            selectedOption,
         } = props;
         const modifiers = props.modifiers ? props.modifiers : [];
         let ariaLabelledBy = null;
@@ -103,8 +84,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                 aria-labelledby={ariaLabelledBy}
                 value={selectedOption}
                 ref={ref}
-                onBlur={(e) => onSelectChange(e, onBlur)}
-                onChange={(e) => onSelectChange(e, onChange)}
+                onBlur={onBlur}
+                onChange={onChange}
                 {...attributes}
             >
                 {React.Children.map(children, (child, key) =>
