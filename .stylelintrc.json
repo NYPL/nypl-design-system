@@ -1,55 +1,52 @@
 {
-    "extends": "stylelint-config-recommended",
-    "plugins": [
-        "stylelint-prettier",
-        "stylelint-scss",
-        "stylelint-order",
-        "stylelint-value-no-unknown-custom-properties"
+  "extends": "stylelint-config-recommended",
+  "plugins": [
+    "stylelint-prettier",
+    "stylelint-scss",
+    "stylelint-order",
+    "stylelint-value-no-unknown-custom-properties"
+  ],
+  "rules": {
+    "at-rule-name-space-after": "always",
+    "at-rule-no-unknown": null,
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-same-name-blockless", "first-nested"],
+        "ignore": ["after-comment"]
+      }
     ],
-    "rules": {
-        "at-rule-name-space-after": "always",
-        "at-rule-no-unknown": null,
-        "at-rule-empty-line-before": [
-            "always",
-            {
-                "except": [
-                    "blockless-after-same-name-blockless",
-                    "first-nested"
-                ],
-                "ignore": ["after-comment"]
-            }
-        ],
-        "csstools/value-no-unknown-custom-properties": [
-            true,
-            {
-                "importFrom": [
-                    "src/styles/01-colors/_colors-brand.css",
-                    "src/styles/01-colors/_colors-utility.css",
-                    "src/styles/02-typography/_typefaces.css",
-                    "src/styles/02-typography/_type-scale.css",
-                    "src/styles/03-space/_space.css"
-                ]
-            }
-        ],
-        "declaration-empty-line-before": [
-            "always",
-            {
-                "except": ["after-comment", "after-declaration", "first-nested"]
-            }
-        ],
-        "color-hex-case": "lower",
-        "order/properties-alphabetical-order": true,
-        "rule-empty-line-before": [
-            "always",
-            {
-                "except": ["after-single-line-comment", "first-nested"]
-            }
-        ],
-        "scss/at-rule-no-unknown": true,
-        "scss/selector-no-redundant-nesting-selector": true,
-        "scss/at-else-closing-brace-space-after": "always-intermediate",
-        "scss/at-else-empty-line-before": "never",
-        "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
-        "scss/at-if-closing-brace-space-after": "always-intermediate"
-    }
+    "csstools/value-no-unknown-custom-properties": [
+      true,
+      {
+        "importFrom": [
+          "src/styles/01-colors/_colors-brand.css",
+          "src/styles/01-colors/_colors-utility.css",
+          "src/styles/02-typography/_typefaces.css",
+          "src/styles/02-typography/_type-scale.css",
+          "src/styles/03-space/_space.css"
+        ]
+      }
+    ],
+    "declaration-empty-line-before": [
+      "always",
+      {
+        "except": ["after-comment", "after-declaration", "first-nested"]
+      }
+    ],
+    "color-hex-case": "lower",
+    "order/properties-alphabetical-order": true,
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["after-single-line-comment", "first-nested"]
+      }
+    ],
+    "scss/at-rule-no-unknown": true,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/at-else-closing-brace-space-after": "always-intermediate",
+    "scss/at-else-empty-line-before": "never",
+    "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+    "scss/at-if-closing-brace-space-after": "always-intermediate"
+  }
 }

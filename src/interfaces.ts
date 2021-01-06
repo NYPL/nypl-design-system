@@ -1,3 +1,3 @@
 export interface CSSVariablesInterface {
-    key?: string;
+  key?: string;
 }

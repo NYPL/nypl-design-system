@@ -1,16 +1,16 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "target": "es5",
-        "declaration": true,
-        "baseUrl": "./src",
-        "lib": ["es2017", "dom"],
-        "esModuleInterop": true,
-        "outDir": "lib",
-        "jsx": "react",
-        "types": ["mocha", "node", "webpack-env"]
-    },
-    "include": ["src", "tsd.d.ts", "icons", "tsconfig.json", "dist"],
-    "exclude": ["node_modules", "lib"]
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "declaration": true,
+    "baseUrl": "./src",
+    "lib": ["es2017", "dom"],
+    "esModuleInterop": true,
+    "outDir": "lib",
+    "jsx": "react",
+    "types": ["mocha", "node", "webpack-env"]
+  },
+  "include": ["src", "tsd.d.ts", "icons", "tsconfig.json", "dist"],
+  "exclude": ["node_modules", "lib"]
 }

@@ -1,18 +1,18 @@
 .no-scroll {
-    overflow: hidden;
-    position: fixed;
-    top: -100vh;
+  overflow: hidden;
+  position: fixed;
+  top: -100vh;
 }
 
 .modal {
-    @include space-inset-s;
+  @include space-inset-s;
 
-    background-color: var(--ui-gray-warm-xlight);
-    height: 100vh;
-    left: 0;
-    overflow-y: auto;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 999;
+  background-color: var(--ui-gray-warm-xlight);
+  height: 100vh;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 999;
 }
