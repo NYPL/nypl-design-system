@@ -10,10 +10,12 @@ import { InputTypes } from "./InputTypes";
 
 describe("Renders Input", () => {
   let container;
+  let changeHandler;
   let clickHander;
 
   before(() => {
     clickHander = stub();
+    changeHandler = stub();
     container = Enzyme.mount(
       <Input
         id="inputID"
@@ -23,6 +25,7 @@ describe("Renders Input", () => {
         placeholder={"Input Placeholder"}
         type={InputTypes.text}
         attributes={{ onClick: clickHander }}
+        onChange={changeHandler}
       ></Input>
     );
   });
@@ -48,6 +51,12 @@ describe("Renders Input", () => {
   it("Allows user to pass in additional attributes", () => {
     container.simulate("click");
     expect(clickHander.callCount).to.equal(1);
+  });
+
+  it("Changing the value calls the onChange handler", () => {
+    container.find("input").simulate("change", { target: { value: "Hello" } });
+
+    expect(changeHandler.callCount).to.equal(1);
   });
 });
 
