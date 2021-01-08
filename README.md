@@ -28,11 +28,16 @@ Information about active maintainers, how we run reviews, and more can be found 
 
 To develop with a local version of the design system:
 
-1. Run `npm link`
+1. Run `npm link` in the Design System repo
 2. Go to the consuming application and run `npm link @nypl/design-system-react-components`
 3. Go back to the Design System repo and run `npm run watch-webpack`
 
 Changes in the local Design System will now be rebuilt and exported automatically.
+
+To unlink:
+
+1. Run `npm unlink` in the Design System repo
+2. Run `npm unlink --no-save @nypl/design-system-react-components` in the consuming application
 
 ## Using the Design System in Your Product
 
