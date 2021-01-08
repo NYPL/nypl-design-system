@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Story } from "@storybook/react/types-6-0";
+import { Story, Meta } from "@storybook/react/types-6-0";
 import { withDesign } from "storybook-addon-designs";
 
 import Image from "../Image/Image";
@@ -7,14 +7,21 @@ import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
 import Hero, { HeroProps } from "./Hero";
 
+const sections = [
+  "nypl--books-and-more",
+  "nypl--locations",
+  "nypl--research",
+  "nypl--whats-on",
+];
+
 export default {
   title: "Hero",
   component: Hero,
   decorators: [withDesign],
-};
+} as Meta;
 
-const HeroTemplate: Story<HeroProps> = args => (
-  <div className={"nypl-ds"}>
+const HeroTemplate = ({ section, ...args }) => (
+  <div className={"nypl-ds " + section}>
     <Hero {...args} />
   </div>
 );
@@ -67,6 +74,7 @@ heroSecondary.args = {
       alt={""}
     />
   ),
+  section: sections[0],
 };
 
 heroSecondary.argTypes = {
@@ -76,6 +84,8 @@ heroSecondary.argTypes = {
   foregroundColor: { table: { disable: true } },
   backgroundColor: { table: { disable: true } },
   image: { table: { disable: true } },
+  blockName: { table: { disable: true } },
+  className: { table: { disable: true } },
   locationDetails: { table: { disable: true } },
   children: { table: { disable: true } },
 };

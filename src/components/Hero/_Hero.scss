@@ -1,5 +1,9 @@
 .hero {
   background-color: var(--ui-gray-warm-xlight);
+
+  .nypl--whats-on & {
+    background-color: tomato;
+  }
 }
 
 .hero--50-50 {
