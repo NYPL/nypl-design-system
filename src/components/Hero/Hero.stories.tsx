@@ -88,6 +88,12 @@ heroSecondary.argTypes = {
   className: { table: { disable: true } },
   locationDetails: { table: { disable: true } },
   children: { table: { disable: true } },
+  section: {
+    control: {
+      type: "select",
+      options: sections,
+    },
+  },
 };
 
 heroSecondary.parameters = {
