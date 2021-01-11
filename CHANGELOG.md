@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - `Select`: selectedOption holds the selected value, instead of just the default.
 - `Hero`: `Hero.Secondary` now changes background color based on NYPL site section
+- `Hero`: All props are now optional
 - `Input`: added onChange prop to explicitly allow it to be used as a controlled component
 - Uses stricter linters and more Prettier configs.
 
