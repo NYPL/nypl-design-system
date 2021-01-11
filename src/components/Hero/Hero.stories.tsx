@@ -1,13 +1,12 @@
 import * as React from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { Meta } from "@storybook/react/types-6-0";
 import { withDesign } from "storybook-addon-designs";
 
 import sections from "../../utils/siteSections";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
-import Hero, { HeroProps } from "./Hero";
-import { string } from "prop-types";
+import Hero from "./Hero";
 
 export default {
   title: "Hero",
