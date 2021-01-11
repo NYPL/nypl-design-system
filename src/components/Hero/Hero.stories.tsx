@@ -2,22 +2,23 @@ import * as React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { withDesign } from "storybook-addon-designs";
 
+import sections from "../../utils/siteSections";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
 import Hero, { HeroProps } from "./Hero";
-
-const sections = [
-  "nypl--books-and-more",
-  "nypl--locations",
-  "nypl--research",
-  "nypl--whats-on",
-];
+import { string } from "prop-types";
 
 export default {
   title: "Hero",
   component: Hero,
   decorators: [withDesign],
+  argTypes: {
+    section: {
+      type: "select",
+      options: sections,
+    },
+  },
 } as Meta;
 
 const HeroTemplate = ({ section, ...args }) => (

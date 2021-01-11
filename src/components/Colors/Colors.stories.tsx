@@ -9,6 +9,7 @@ import List from "../List/List";
 import Heading from "../Heading/Heading";
 import { ListTypes } from "../List/ListTypes";
 import { CSSVariablesInterface } from "../../interfaces";
+import sections from "../../utils/siteSections";
 
 export default {
   title: "Colors",
@@ -44,13 +45,6 @@ for (const [key, value] of Object.entries(uiVariables)) {
 for (const [key, value] of Object.entries(grayScaleVariables)) {
   makeUIDocCard(key, value, grayscaleDocs);
 }
-
-const sections = [
-  "nypl--books-and-more",
-  "nypl--locations",
-  "nypl--research",
-  "nypl--whats-on",
-];
 
 const sectionDefault = sections[3];
 

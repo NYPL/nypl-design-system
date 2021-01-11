@@ -1,9 +1,5 @@
 .hero {
   background-color: var(--ui-gray-warm-xlight);
-
-  .nypl--whats-on & {
-    background-color: tomato;
-  }
 }
 
 .hero--50-50 {
@@ -109,6 +105,38 @@
 
       @include breakpoint($breakpoint-medium) {
         order: 1;
+      }
+
+      .nypl--books-and-more & {
+        background-color: var(--section-books-and-more-primary);
+
+        &::before {
+          background-color: var(--section-books-and-more-primary);
+        }
+      }
+
+      .nypl--locations & {
+        background-color: var(--section-locations-primary);
+
+        &::before {
+          background-color: var(--section-locations-primary);
+        }
+      }
+
+      .nypl--research & {
+        background-color: var(--section-research-primary);
+
+        &::before {
+          background-color: var(--section-research-primary);
+        }
+      }
+
+      .nypl--whats-on & {
+        background-color: var(--section-whats-on-primary);
+
+        &::before {
+          background-color: var(--section-whats-on-primary);
+        }
       }
     }
 
