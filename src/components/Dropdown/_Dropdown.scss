@@ -1,0 +1,68 @@
+.dropdown {
+  color: inherit;
+
+  &__content {
+    border: 1px solid var(--ui-gray-medium);
+    display: none;
+    padding: var(--space-xxs) var(--space-s) var(--space-xs);
+    transition: all 0.35s;
+    width: 259px;
+  }
+
+  &__label {
+    @include button--outline;
+
+    align-items: center;
+    border: 1px solid var(--ui-gray-medium);
+    cursor: pointer;
+    font-weight: 300;
+    justify-content: space-between;
+    width: 148px;
+
+    .icon--minus {
+      display: none;
+    }
+
+    &:hover {
+      background-color: var(--ui-gray-light);
+    }
+
+    &--set {
+      font-size: var(--font-size-1);
+      padding: var(--space-s);
+    }
+  }
+
+  &__input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+
+    &:checked {
+      + .dropdown__label .icon--minus {
+        display: inline;
+      }
+
+      + .dropdown__label .icon--plus {
+        display: none;
+      }
+
+      ~ .dropdown__content {
+        display: inline-block;
+      }
+    }
+  }
+
+  // Style label in open state
+  &__input:checked + .dropdown__label {
+    background-color: var(--ui-gray-light);
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  // Eliminates the double border on dropdown sets in ul-lis
+  li:not(:first-of-type) & {
+    margin-top: -1px;
+  }
+}

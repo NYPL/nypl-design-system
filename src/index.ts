@@ -6,6 +6,7 @@ export { default as Button } from "./components/Button/Button";
 export { ButtonTypes } from "./components/Button/ButtonTypes";
 export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
+export { default as Dropdown } from "./components/Dropdown/Dropdown";
 export { default as Heading } from "./components/Heading/Heading";
 export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";
 export { default as Hero } from "./components/Hero/Hero";
