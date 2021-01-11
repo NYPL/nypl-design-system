@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 - Removed `SectionTitle`
+- Scopes all element selects to the `.nypl-ds` class
 
 ## 0.19.1
 
