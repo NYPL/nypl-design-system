@@ -1,10 +1,9 @@
 @mixin button-base {
-  @include space-inset-xs;
-
   border-radius: 2px;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  padding: var(--space-xs);
   text-decoration: none;
 
   .icon {

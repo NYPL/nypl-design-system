@@ -51,23 +51,16 @@ module.exports = {
         ],
       },
       {
-        test: /\.scss?$/ || /\.css?$/,
+        test: /\.css?$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          "style-loader",
           {
             loader: "css-loader",
             options: {
               importLoaders: 1,
             },
           },
-          {
-            loader: "sass-loader",
-            options: {
-              sassOptions: {
-                importer: globImporter(),
-              },
-            },
-          },
+          "postcss-loader",
         ],
         include: [path.resolve(__dirname, "src")],
       },

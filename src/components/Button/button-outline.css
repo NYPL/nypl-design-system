@@ -1,0 +1,45 @@
+@import "../Icons/_Icons.scss";
+
+@mixin button-base {
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xs);
+  text-decoration: none;
+
+  .icon {
+    @include icon;
+
+    fill: currentColor;
+
+    &--icon-left {
+      margin-right: var(--space-xs);
+    }
+
+    &--icon-right {
+      margin-left: var(--space-xs);
+    }
+  }
+}
+
+@mixin button--outline {
+  @include button-base;
+
+  background-color: var(--ui-white);
+  border: 1px solid var(--ui-gray-light);
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    background-color: var(--ui-gray-xxlight);
+  }
+
+  &:disabled {
+    background-color: var(--ui-gray-light);
+    color: var(--ui-gray-dark);
+  }
+}

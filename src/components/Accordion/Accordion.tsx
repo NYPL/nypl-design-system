@@ -1,6 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
+import "./Accordion.css";
 import { IconNames } from "../Icons/IconTypes";
 
 export interface AccordionProps {

@@ -30,6 +30,12 @@
   },
   "dependencies": {
     "he": "^1.2.0",
+    "postcss": "^8.2.4",
+    "postcss-import": "^14.0.0",
+    "postcss-loader": "^4.1.0",
+    "postcss-mixins": "^7.0.2",
+    "postcss-nested": "^5.0.3",
+    "precss": "^4.0.0",
     "react": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-uid": "^2.3.0",
