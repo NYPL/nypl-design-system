@@ -80,6 +80,7 @@ heroSecondary.args = {
 heroSecondary.argTypes = {
   heroType: { table: { disable: true } },
   backgroundImageSrc: { table: { disable: true } },
+  heading: { table: { disable: true } },
   subHeaderText: { table: { disable: true } },
   foregroundColor: { table: { disable: true } },
   backgroundColor: { table: { disable: true } },
