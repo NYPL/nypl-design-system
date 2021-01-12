@@ -10,6 +10,8 @@ describe("Select", () => {
   let blurCallback;
   let changeCallback;
 
+  const warn = spy(console, "warn");
+
   beforeEach(() => {
     changeCallback = spy();
     blurCallback = stub();
@@ -218,7 +220,6 @@ describe("Select", () => {
     expect(wrapper.find("select").props().value).to.equal("value1");
 
     wrapper.find("select").simulate("change", { target: { value: "value2" } });
-    console.log("wrapper html", wrapper.html());
     expect(changeCallback.callCount).to.equal(1);
 
     wrapper.find("select").simulate("blur", { target: { value: "value3" } });
@@ -242,10 +243,23 @@ describe("Select", () => {
     expect(container.find("select").instance()).to.equal(ref.current);
   });
 
+  it("should throw warning when fewer than 2 options", () => {
+    wrapper = Enzyme.mount(
+      <Select labelId="label" isRequired={false} id="ref-test" name="test1">
+        <option aria-selected={false}>test1</option>
+      </Select>
+    );
+    expect(wrapper.find("select").prop("name")).to.equal("test1");
+    expect(
+      warn.calledWith(
+        "NYPL DS recommends <select> not be used for 1 or fewer options"
+      )
+    );
+  });
+
   it("should throw warning when there are more than 7 options", () => {
-    const warn = spy(console, "warn");
-    Enzyme.mount(
-      <Select labelId="label" isRequired={false} id="ref-test" name="test11">
+    wrapper = Enzyme.mount(
+      <Select labelId="label" isRequired={false} id="ref-test" name="test1">
         <option aria-selected={false}>test1</option>
         <option aria-selected={false}>test2</option>
         <option aria-selected={false}>test3</option>
@@ -256,6 +270,7 @@ describe("Select", () => {
         <option aria-selected={false}>test8</option>
       </Select>
     );
+    expect(wrapper.find("select").prop("name")).to.equal("test1");
     expect(
       warn.calledWith(
         "NYPL DS recommends that your <select>s have fewer than 8 options"

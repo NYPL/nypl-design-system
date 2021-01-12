@@ -67,6 +67,18 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       ariaLabelledBy = labelId + " " + helperTextId;
     }
 
+    if (React.Children.count(children) > 7) {
+      console.warn(
+        "NYPL DS recommends that your <select>s have fewer than 8 options"
+      );
+    }
+
+    if (React.Children.count(children) < 2) {
+      console.warn(
+        "NYPL DS recomments <select> not be used with 1 or fewer options"
+      );
+    }
+
     return (
       <select
         name={name}
@@ -82,11 +94,13 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         onChange={onChange}
         {...attributes}
       >
-        {React.Children.map(children, (child, key) =>
-          React.cloneElement(child as React.ReactElement<any>, {
-            "aria-selected": children[key].props.children === selectedOption,
-          })
-        )}
+        {React.Children.map(children, (child, key) => {
+          return React.cloneElement(child as React.ReactElement<any>, {
+            "aria-selected": children[key]
+              ? children[key].props.children === selectedOption
+              : false,
+          });
+        })}
       </select>
     );
   }
