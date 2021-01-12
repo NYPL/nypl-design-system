@@ -12,9 +12,7 @@ describe("Dropdown", () => {
         id="dropdown"
         inputId="dropdownBtn"
         dropdownLabel="Click to expand"
-      >
-        <p className="dropdown-content">this is the dropdown content</p>
-      </Dropdown>
+      />
     );
   });
 
