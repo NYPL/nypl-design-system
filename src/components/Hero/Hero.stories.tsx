@@ -41,6 +41,7 @@ heroPrimary.args = {
 
 heroPrimary.argTypes = {
   heroType: { table: { disable: true } },
+  heading: { table: { disable: true } },
   image: { table: { disable: true } },
   foregroundColor: { control: { type: "color" } },
   backgroundColor: { control: { type: "color" } },
@@ -79,8 +80,8 @@ heroSecondary.args = {
 
 heroSecondary.argTypes = {
   heroType: { table: { disable: true } },
-  backgroundImageSrc: { table: { disable: true } },
   heading: { table: { disable: true } },
+  backgroundImageSrc: { table: { disable: true } },
   subHeaderText: { table: { disable: true } },
   foregroundColor: { table: { disable: true } },
   backgroundColor: { table: { disable: true } },
