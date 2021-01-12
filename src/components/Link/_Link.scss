@@ -61,9 +61,11 @@
   }
 }
 
-a,
-.link {
-  @include link;
+.nypl-ds {
+  a,
+  .link {
+    @include link;
+  }
 }
 
 .more-link {

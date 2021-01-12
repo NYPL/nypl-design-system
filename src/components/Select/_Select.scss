@@ -46,9 +46,9 @@
 }
 
 /* Support for rtl text, explicit support for Arabic and Hebrew */
-*[dir="rtl"] .select,
-:root:lang(ar) .select,
-:root:lang(iw) .select {
+*[dir="rtl"] .nypl-ds .select,
+:root:lang(ar) .nypl-ds .select,
+:root:lang(iw) .nypl-ds .select {
   background-position: left 0.7em top 70%;
   padding: var(--space-xs) var(--space-l) var(--space-xs) var(--space-s);
 }
