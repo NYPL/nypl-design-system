@@ -17,8 +17,6 @@ export interface DropdownProps {
   inputId?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** options to populate Dropdown */
-  options?: { [name: string]: string }[];
 }
 
 /** Dropdown component that shows content on toggle */
@@ -32,7 +30,7 @@ export default function Dropdown(
     className,
     inputId,
     dropdownLabel,
-    options,
+    children,
   } = props;
 
   return (
@@ -58,18 +56,7 @@ export default function Dropdown(
           modifiers={["small", `${IconNames.plus}`]}
         />
       </label>
-      <div className={bem("content", modifiers, "dropdown")}>
-        <form>
-          <fieldset>
-            {options.map(option => (
-              <div>
-                <input type="checkbox" name={option.name} />
-                <label htmlFor={option.name}>{option.name}</label>
-              </div>
-            ))}
-          </fieldset>
-        </form>
-      </div>
+      <div className={bem("content", modifiers, "dropdown")}>{children}</div>
     </div>
   );
 }

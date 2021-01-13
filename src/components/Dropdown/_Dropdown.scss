@@ -1,7 +1,9 @@
 .dropdown {
   color: inherit;
+  display: inline-block;
 
   &__content {
+    background-color: var(--ui-white);
     border: 1px solid var(--ui-gray-medium);
     display: none;
     padding: var(--space-xxs) var(--space-s) var(--space-xs);
@@ -26,11 +28,6 @@
     &:hover {
       background-color: var(--ui-gray-light);
     }
-
-    &--set {
-      font-size: var(--font-size-1);
-      padding: var(--space-s);
-    }
   }
 
   &__input {
@@ -48,7 +45,9 @@
       }
 
       ~ .dropdown__content {
+        background-color: #ffffff;
         display: inline-block;
+        position: absolute;
       }
     }
   }
@@ -61,13 +60,15 @@
     border-bottom-right-radius: 0;
   }
 
-  // Eliminates the double border on dropdown sets in ul-lis
-  li:not(:first-of-type) & {
-    margin-top: -1px;
-  }
+  &--fieldset {
+    fieldset {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
 
-  fieldset {
-    border: 0;
-    padding: none;
+    input {
+      margin-right: var(--space-s);
+    }
   }
 }
