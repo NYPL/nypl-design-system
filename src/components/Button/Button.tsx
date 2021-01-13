@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Button.css";
 import { ButtonTypes } from "./ButtonTypes";
 
 interface ButtonProps {

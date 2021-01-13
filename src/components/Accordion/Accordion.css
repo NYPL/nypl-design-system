@@ -1,4 +1,4 @@
-@import "../Button/button-outline";
+@import "../Button/Button.css";
 
 .accordion {
   border: 1px solid var(--ui-gray-medium);

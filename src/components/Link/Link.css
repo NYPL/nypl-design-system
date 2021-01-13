@@ -1,3 +1,5 @@
+@import "../Icons/_Icons.css";
+
 @mixin link {
   color: var(--ui-link-primary);
 

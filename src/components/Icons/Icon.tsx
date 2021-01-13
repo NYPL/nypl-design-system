@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import * as React from "react";
+import "./Icons.css";
 import bem from "../../utils/bem";
 
 import { IconRotationTypes, IconNames, LogoNames } from "./IconTypes";

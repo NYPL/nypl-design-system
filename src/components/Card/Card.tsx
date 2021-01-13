@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Card.css";
 
 interface CardProps {
   /** ClassName that appears in addition to "card" */

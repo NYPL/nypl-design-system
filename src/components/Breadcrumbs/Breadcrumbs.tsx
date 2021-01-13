@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Breadcrumbs.css";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
 

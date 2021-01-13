@@ -1,3 +1,5 @@
+@import "../Icons/_Icons.css";
+
 @mixin button-base {
   border-radius: 2px;
   cursor: pointer;
