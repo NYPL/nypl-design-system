@@ -7,9 +7,10 @@ import Select from "./Select";
 
 describe("Select", () => {
   let wrapper: Enzyme.ReactWrapper<any, any>;
-
   let blurCallback;
   let changeCallback;
+
+  const warn = spy(console, "warn");
 
   beforeEach(() => {
     changeCallback = spy();
@@ -200,7 +201,7 @@ describe("Select", () => {
     expect(wrapper.find("select").props().value).to.equal("test2");
   });
 
-  it("Updates the component's state when a new value is selected", () => {
+  it("Calls the correct handlers when a new value is selected", () => {
     wrapper = Enzyme.mount(
       <Select
         labelId="label"
@@ -219,10 +220,10 @@ describe("Select", () => {
     expect(wrapper.find("select").props().value).to.equal("value1");
 
     wrapper.find("select").simulate("change", { target: { value: "value2" } });
-    expect(wrapper.find("select").props().value).to.equal("value2");
+    expect(changeCallback.callCount).to.equal(1);
 
     wrapper.find("select").simulate("blur", { target: { value: "value3" } });
-    expect(wrapper.find("select").props().value).to.equal("value3");
+    expect(blurCallback.callCount).to.equal(1);
   });
 
   it("Passes the ref to the select element", () => {
@@ -241,5 +242,39 @@ describe("Select", () => {
     );
     expect(container.find("select").instance()).to.equal(ref.current);
   });
-  it("should throw warning when there are more than 7 options");
+
+  it("should throw warning when fewer than 2 options", () => {
+    wrapper = Enzyme.mount(
+      <Select labelId="label" isRequired={false} id="ref-test" name="test1">
+        <option aria-selected={false}>test1</option>
+      </Select>
+    );
+    expect(wrapper.find("select").prop("name")).to.equal("test1");
+    expect(
+      warn.calledWith(
+        "NYPL DS recommends <select> not be used for 1 or fewer options"
+      )
+    );
+  });
+
+  it("should throw warning when there are more than 7 options", () => {
+    wrapper = Enzyme.mount(
+      <Select labelId="label" isRequired={false} id="ref-test" name="test1">
+        <option aria-selected={false}>test1</option>
+        <option aria-selected={false}>test2</option>
+        <option aria-selected={false}>test3</option>
+        <option aria-selected={false}>test4</option>
+        <option aria-selected={false}>test5</option>
+        <option aria-selected={false}>test6</option>
+        <option aria-selected={false}>test7</option>
+        <option aria-selected={false}>test8</option>
+      </Select>
+    );
+    expect(wrapper.find("select").prop("name")).to.equal("test1");
+    expect(
+      warn.calledWith(
+        "NYPL DS recommends that your <select>s have fewer than 8 options"
+      )
+    );
+  });
 });

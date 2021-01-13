@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Input: added onChange prop to explicitly allow it to be used as a controlled component
+- Select: selectedOption holds the selected value, instead of just the default.
 - Uses stricter linters and more Prettier configs.
 
 ### Breaking Changes
