@@ -21,9 +21,9 @@ export interface HeroProps {
    */
   foregroundColor?: string;
   /** Required heading element. */
-  heading: JSX.Element;
+  heading?: JSX.Element;
   /** Can be Primary, secondary, tertiary, or 50/50. */
-  heroType: HeroTypes;
+  heroType?: HeroTypes;
   /** Image used for secondary Hero types. Note, cannot
    * be used in conjunction with backgroundImageSrc.
    */
