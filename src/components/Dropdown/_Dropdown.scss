@@ -7,9 +7,9 @@
     border: 1px solid var(--ui-gray-medium);
     display: none;
     padding: var(--space-xxs) var(--space-s) var(--space-xs);
+    position: absolute;
     transition: all 0.35s;
     width: 259px;
-    position: absolute;
   }
 
   &__label {

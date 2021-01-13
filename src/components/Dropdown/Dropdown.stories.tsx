@@ -1,12 +1,7 @@
 import * as React from "react";
 import { Meta } from "@storybook/react/types-6-0";
-import range from "lodash/range";
 import Dropdown from "./Dropdown";
 import { withDesign } from "storybook-addon-designs";
-
-import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
-import Modal from "../Modal/Modal";
 
 export default {
   title: "Dropdown",

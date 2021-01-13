@@ -2,7 +2,6 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
-import Checkbox from "../Checkbox/Checkbox";
 
 export interface DropdownProps {
   /** Inner label on the button that opens the dropdown */
