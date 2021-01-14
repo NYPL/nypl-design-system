@@ -12,8 +12,6 @@ export interface DropdownProps {
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** dropdownLabel's input ID */
-  inputId?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
 }
@@ -27,7 +25,6 @@ export default function Dropdown(
     blockName,
     id,
     className,
-    inputId,
     dropdownLabel,
     children,
   } = props;
@@ -35,15 +32,17 @@ export default function Dropdown(
   return (
     <div id={id} className={bem("dropdown", modifiers, blockName, [className])}>
       <input
-        id={`dropdown-${inputId}`}
+        id={`dropdown-${id}`}
         className={bem("input", modifiers, "dropdown")}
         type="checkbox"
       />
       <label
-        htmlFor={`dropdown-${inputId}`}
-        className={bem("label", modifiers, "dropdown")}
+        htmlFor={`dropdown-${id}`}
+        className={bem("label-group", modifiers, "dropdown")}
       >
-        {dropdownLabel}
+        <span className={bem("label", modifiers, "dropdown")}>
+          {dropdownLabel}
+        </span>
         <Icon
           decorative={true}
           name={IconNames.minus}

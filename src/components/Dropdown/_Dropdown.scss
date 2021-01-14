@@ -9,11 +9,10 @@
     padding: var(--space-xxs) var(--space-s) var(--space-xs);
     position: absolute;
     transition: all 0.35s;
-    width: 259px;
     z-index: 1;
   }
 
-  &__label {
+  &__label-group {
     @include button--outline;
 
     align-items: center;
@@ -21,7 +20,6 @@
     cursor: pointer;
     font-weight: 300;
     justify-content: space-between;
-    width: 148px;
 
     .icon--minus {
       display: none;
@@ -38,16 +36,15 @@
     z-index: -1;
 
     &:checked {
-      + .dropdown__label .icon--minus {
+      + .dropdown__label-group .icon--minus {
         display: inline;
       }
 
-      + .dropdown__label .icon--plus {
+      + .dropdown__label-group .icon--plus {
         display: none;
       }
 
       ~ .dropdown__content {
-        background-color: #ffffff;
         display: inline-block;
         // compensate for absence of border-bottom on label
         margin-top: -1px;
@@ -57,7 +54,7 @@
   }
 
   // Style label in open state
-  &__input:checked + .dropdown__label {
+  &__input:checked + .dropdown__label-group {
     background-color: var(--ui-gray-light);
     border-bottom: 0;
     border-bottom-left-radius: 0;
@@ -66,15 +63,9 @@
     margin-bottom: 1px;
   }
 
-  &--fieldset {
-    fieldset {
-      border: 0;
-      margin: 0;
-      padding: 0;
-    }
-
-    input {
-      margin-right: var(--space-s);
-    }
+  &__fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
   }
 }

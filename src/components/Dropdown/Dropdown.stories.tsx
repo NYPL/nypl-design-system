@@ -1,4 +1,5 @@
 import * as React from "react";
+import bem from "../../utils/bem";
 import { Meta } from "@storybook/react/types-6-0";
 import Dropdown from "./Dropdown";
 import { withDesign } from "storybook-addon-designs";
@@ -14,7 +15,7 @@ export default {
 // Dropdown component.
 const DropdownTemplate = ({ ...args }) => (
   <>
-    <Dropdown {...args} inputId={`${args.inputId}`} />
+    <Dropdown {...args} id={`${args.id}`} />
     <ExampleCard />
   </>
 );
@@ -26,15 +27,18 @@ const options = [{ name: "Cats" }, { name: "Dogs" }, { name: "Rabbits" }];
 // The `args` allow these props to be updated in the UI through the
 // "Controls" tab.
 ExampleDropdown.args = {
-  modifiers: ["fieldset"],
   dropdownLabel: "Click to expand",
-  inputId: "dropdownBtn",
+  id: "exampleDropdown",
   children: (
     <form>
-      <fieldset>
+      <fieldset className={bem("fieldset", this.modifiers, "dropdown")}>
         {options.map(option => (
           <div key={`option-${option.name}`}>
-            <input type="checkbox" id={option.name} />
+            <input
+              type="checkbox"
+              id={option.name}
+              className={bem("checkbox", this.modifiers, "dropdown")}
+            />
             <label htmlFor={option.name}>{option.name}</label>
           </div>
         ))}

@@ -8,11 +8,7 @@ describe("Dropdown", () => {
   let container;
   before(() => {
     container = Enzyme.mount(
-      <Dropdown
-        id="dropdown"
-        inputId="dropdownBtn"
-        dropdownLabel="Click to expand"
-      />
+      <Dropdown id="dropdown" dropdownLabel="Click to expand" />
     );
   });
 
