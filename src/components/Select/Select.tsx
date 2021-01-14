@@ -1,5 +1,6 @@
 import React from "react";
 import bem from "../../utils/bem";
+import "./Select.css";
 
 export interface SelectProps {
   /** When passed, will populate the aria-label on the select */

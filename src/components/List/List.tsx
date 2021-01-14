@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./List.css";
 import { ListTypes } from "./ListTypes";
 
 export interface ListProps {

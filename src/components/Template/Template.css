@@ -1,3 +1,5 @@
+@import "../../styles/base/03-mixins";
+
 $sidebar-width: 25%;
 $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
 
@@ -43,7 +45,7 @@ $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
     order: 1;
 
     @include breakpoint($breakpoint-medium) {
-      @include space-inline-none;
+      margin-right: 0;
     }
   }
 }
@@ -54,9 +56,8 @@ $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
     order: 1;
 
     &--with-sidebar-left {
-      @include space-inline-l;
-
       flex-basis: $sidebar-width-s;
+      margin-right: var(--space-l);
     }
 
     &--with-sidebar-right {

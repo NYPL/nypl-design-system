@@ -2,6 +2,7 @@ import * as React from "react";
 import range from "lodash/range";
 import Link from "../Link/Link";
 import bem from "../../utils/bem";
+import "./Pagination.css";
 
 export interface PaginationProps {
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */

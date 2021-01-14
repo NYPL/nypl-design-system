@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Template.css";
 import Placeholder from "../Placeholder/Placeholder";
 import { withDesign } from "storybook-addon-designs";
 import { Meta } from "@storybook/react/types-6-0";

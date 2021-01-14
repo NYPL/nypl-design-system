@@ -1,5 +1,7 @@
 @import "../Heading/Heading.css";
 
+@custom-media --card-break (max-width var(--breakpoint-medium));
+
 .card {
   @include space-stack-s;
 
@@ -21,7 +23,7 @@
     justify-content: space-between;
     width: 100%;
 
-    @include breakpoint($breakpoint-medium) {
+    @media (--card-break) {
       flex-flow: row wrap;
     }
   }
@@ -45,7 +47,7 @@
       max-width: 100%;
     }
 
-    @include breakpoint($breakpoint-medium) {
+    @media (--card-break) {
       @include space-stack-none;
       @include space-inline-s;
 
@@ -59,7 +61,7 @@
 
     flex: 1 1;
 
-    @include breakpoint($breakpoint-medium) {
+    @media (--card-break) {
       @include space-stack-none;
     }
   }

@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./SearchBar.css";
 
 export interface SearchBarProps {
   /** Populates aria-label on the form;

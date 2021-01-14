@@ -1,4 +1,4 @@
-@import "../Icons/_Icons.css";
+@import "../Icons/Icons.css";
 
 @mixin link {
   color: var(--ui-link-primary);
@@ -11,7 +11,7 @@
     color: var(--ui-link-secondary);
   }
 
-  // .button links have a blue background
+  /* // .button links have a blue background */
   &.button:hover {
     color: var(--ui-white);
   }

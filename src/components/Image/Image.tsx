@@ -1,6 +1,7 @@
 // Images
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Image.css";
 
 export interface ImageProps {
   /** Text description of the image */

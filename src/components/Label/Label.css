@@ -1,10 +1,9 @@
 .label {
-  @include space-stack-xs;
-
   align-items: baseline;
   display: flex;
   font-weight: 500;
   justify-content: space-between;
+  margin-bottom: var(--space-xs);
 
   &__required-helper {
     font-size: var(--font-size--1);
@@ -13,7 +12,9 @@
 }
 
 .fieldset {
-  @include fieldset-reset;
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .legend {

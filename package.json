@@ -31,6 +31,7 @@
   "dependencies": {
     "he": "^1.2.0",
     "postcss": "^8.2.4",
+    "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.1.0",
     "postcss-mixins": "^7.0.2",

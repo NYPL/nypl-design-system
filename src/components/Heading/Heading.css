@@ -1,11 +1,11 @@
 @import "../Link/Link.css";
-//
+/* //
 // Generic header styles:
 // All arguments are optional. If not defined, the defaults below will be used
-//
+// */
 
-@mixin heading-xl($color: inherit) {
-  color: #{$color};
+@mixin heading-xl {
+  color: inherit;
   font-size: var(--font-size-4);
   font-weight: 300;
   letter-spacing: 0;
@@ -22,8 +22,8 @@
   }
 }
 
-@mixin heading-large($color: inherit) {
-  color: #{$color};
+@mixin heading-large {
+  color: inherit;
   font-size: var(--font-size-3);
   font-weight: 500;
   line-height: 1.25;
@@ -39,8 +39,8 @@
   }
 }
 
-@mixin heading-medium($color: inherit) {
-  color: #{$color};
+@mixin heading-medium {
+  color: inherit;
   font-size: var(--font-size-2);
   font-weight: 500;
   line-height: 1.25;
@@ -56,8 +56,8 @@
   }
 }
 
-@mixin heading-small($color: inherit) {
-  color: #{$color};
+@mixin heading-small {
+  color: inherit;
   font-size: var(--font-size-1);
   font-weight: 500;
   line-height: 1.25;
@@ -73,8 +73,8 @@
   }
 }
 
-@mixin heading-xs($color: inherit) {
-  color: #{$color};
+@mixin heading-xs {
+  color: inherit;
   font-size: var(--font-size-1);
   font-weight: 400;
   line-height: 1.15;

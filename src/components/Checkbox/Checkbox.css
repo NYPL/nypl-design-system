@@ -3,6 +3,6 @@
   display: flex;
 
   &__input {
-    @include space-inline-xs;
+    margin-right: var(--space-xs);
   }
 }

@@ -1,8 +1,9 @@
-.pagination {
-  @include space-stack-l;
+@import "../../styles/base/03-mixins";
 
+.pagination {
   align-items: stretch;
   display: flex;
+  margin-bottom: var(--space-l);
   width: 100%;
 
   > * {

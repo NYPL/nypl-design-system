@@ -16,7 +16,7 @@
 
 .figure {
   &__image {
-    @include space-stack-xxs;
+    margin-bottom: var(--space-xxs);
 
     &--circle {
       border-radius: 50%;
@@ -31,8 +31,7 @@
 .figcaption {
   &__credit,
   &__caption {
-    @include space-stack-xxs;
-
     font-size: var(--font-size--1);
+    margin-bottom: var(--space-xxs);
   }
 }

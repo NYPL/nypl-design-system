@@ -1,6 +1,7 @@
 @import "../Icons/_Icons.css";
+@import "../../styles/base/03-mixins";
 
-$break-breadcrumbs-mobile: max-width 599px;
+@custom-media --break-breadcrumbs-mobile (max-width var(--breakpoint-medium));
 
 .breadcrumbs {
   @include breakout;
@@ -25,13 +26,13 @@ $break-breadcrumbs-mobile: max-width 599px;
         padding-left: var(--space-xxs);
       }
 
-      @include breakpoint($break-breadcrumbs-mobile) {
+      @media (--break-breadcrumbs-mobile) {
         display: none;
       }
     }
 
     &:last-child {
-      @include breakpoint($break-breadcrumbs-mobile) {
+      @media (--break-breadcrumbs-mobile) {
         padding-left: var(--space-m);
       }
     }
@@ -45,7 +46,7 @@ $break-breadcrumbs-mobile: max-width 599px;
     top: 50%;
     transform: rotate(90deg) translateX(-50%);
 
-    @include breakpoint($breakpoint-medium) {
+    @media (--break-breadcrumbs-mobile) {
       display: none;
     }
   }

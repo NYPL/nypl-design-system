@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./HelperErrorText.css";
 
 interface HelperErrorTextProps {
   /** Added prop when HelperText is errored */

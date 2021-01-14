@@ -1,7 +1,5 @@
 // CSS-only select styling (from https://github.com/filamentgroup/select-css)
 .select {
-  @include space-stack-xs;
-
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -16,6 +14,7 @@
   border-radius: 2px;
   display: block;
   font-size: 1rem;
+  margin-bottom: var(--space-xs);
   padding: var(--space-xs) var(--space-xl) var(--space-xs) var(--space-s);
   width: 100%;
 

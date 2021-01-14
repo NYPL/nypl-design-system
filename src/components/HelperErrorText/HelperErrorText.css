@@ -1,7 +1,6 @@
 .helper-text {
-  @include space-stack-xs;
-
   font-size: var(--font-size--1);
+  margin-bottom: var(--space-xs);
 
   &--error {
     color: var(--ui-error);

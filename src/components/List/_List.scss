@@ -1,7 +1,0 @@
-.list {
-  margin: unset; // browser automatically applies margin
-
-  &--no-list-styling {
-    @include list-reset;
-  }
-}

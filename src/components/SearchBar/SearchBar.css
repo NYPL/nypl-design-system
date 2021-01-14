@@ -11,6 +11,6 @@
   }
 
   .button {
-    @include space-stack-xs;
+    margin-bottom: var(--space-xs);
   }
 }

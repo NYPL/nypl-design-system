@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Checkbox.css";
 import Label, { LabelOptions } from "../Label/Label";
 
 export interface CheckboxProps {

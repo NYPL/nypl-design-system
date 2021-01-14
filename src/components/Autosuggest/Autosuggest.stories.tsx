@@ -6,6 +6,7 @@ import { IconNames } from "../Icons/IconTypes";
 import Label from "../Label/Label";
 import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
+import "./Autosuggest.css";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export default {

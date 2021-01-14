@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Input.css";
 import { InputTypes } from "./InputTypes";
 
 export interface InputProps {

@@ -1,10 +1,9 @@
 $break-input-mobile: 400px;
 
 .input {
-  @include space-inset-xs;
-  @include space-stack-xs;
-
   border: 1px solid var(--ui-gray-medium);
+  margin-bottom: var(--space-xs);
+  padding: var(--space-xs);
 
   &[type="text"],
   &[type="number"],

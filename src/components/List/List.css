@@ -1,0 +1,10 @@
+@import "../../styles/base/03-mixins";
+
+.list {
+  /* browser automatically applies margin */
+  margin: unset;
+
+  &--no-list-styling {
+    @include list-reset;
+  }
+}

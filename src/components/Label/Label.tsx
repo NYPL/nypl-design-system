@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Label.css";
 
 export interface LabelOptions {
   labelContent?: JSX.Element;

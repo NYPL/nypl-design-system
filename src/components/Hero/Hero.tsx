@@ -1,6 +1,7 @@
 // OH-30 Header with Image Right
 import * as React from "react";
 import bem from "../../utils/bem";
+import "./Hero.css";
 import { HeroTypes } from "./HeroTypes";
 
 export interface HeroProps {
