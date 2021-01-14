@@ -2,6 +2,7 @@ import * as React from "react";
 import { Meta } from "@storybook/react/types-6-0";
 import Dropdown from "./Dropdown";
 import { withDesign } from "storybook-addon-designs";
+import { ExampleCard } from "../Card/Card.stories";
 
 export default {
   title: "Dropdown",
@@ -12,7 +13,10 @@ export default {
 // Set up the reusable template to create multiple stories for the
 // Dropdown component.
 const DropdownTemplate = ({ ...args }) => (
-  <Dropdown {...args} inputId={`${args.inputId}`} />
+  <>
+    <Dropdown {...args} inputId={`${args.inputId}`} />
+    <ExampleCard />
+  </>
 );
 
 export const ExampleDropdown = DropdownTemplate.bind({});
