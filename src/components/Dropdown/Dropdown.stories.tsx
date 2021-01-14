@@ -30,7 +30,7 @@ ExampleDropdown.args = {
       <fieldset>
         {options.map(option => (
           <div key={`option-${option.name}`}>
-            <input type="checkbox" name={option.name} />
+            <input type="checkbox" id={option.name} />
             <label htmlFor={option.name}>{option.name}</label>
           </div>
         ))}
