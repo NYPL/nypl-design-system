@@ -1,4 +1,4 @@
-@import "../../styles/base/03-mixins";
+@import "../../styles/base/_03-mixins.css";
 
 .pagination {
   align-items: stretch;
@@ -8,12 +8,12 @@
 
   > * {
     &:not(:last-child) {
-      @include space-inline-xs;
+      margin-right: var(--space-xs);
     }
   }
 
   &__list {
-    @include list-reset;
+    @add-mixin list-reset;
 
     display: flex;
   }

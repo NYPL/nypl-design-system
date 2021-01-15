@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column nowrap;
 
-  @include breakpoint($breakpoint-medium) {
+  @media (--medium-break) {
     flex-flow: row nowrap;
   }
 

@@ -1,6 +1,6 @@
-$break-input-mobile: 400px;
+@custom-media --input-break (max-width 400px);
 
-.input {
+@define-mixin input {
   border: 1px solid var(--ui-gray-medium);
   margin-bottom: var(--space-xs);
   padding: var(--space-xs);
@@ -55,13 +55,17 @@ $break-input-mobile: 400px;
   }
 }
 
+.input {
+  @add-mixin input;
+}
+
 .input-group {
-  @include breakpoint($break-input-mobile) {
+  @media (--input-break) {
     display: flex;
     justify-content: space-between;
 
     > *:not(:last-child) {
-      @include space-inline-m;
+      margin-right: var(--space-m);
     }
   }
 }

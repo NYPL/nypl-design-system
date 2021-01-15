@@ -1,6 +1,6 @@
-@import "../Icons/Icons.css";
+@import "../Icons/Icon.css";
 
-@mixin link {
+@define-mixin link {
   color: var(--ui-link-primary);
 
   &--no-underline {
@@ -29,7 +29,7 @@
   }
 }
 
-@mixin more-link {
+@define-mixin more-link {
   align-items: center;
   color: var(--ui-link-primary);
   display: inline-flex;
@@ -42,7 +42,7 @@
   }
 
   &__icon {
-    @include icon;
+    @add-mixin icon;
 
     height: var(--space-s);
     text-decoration: none;
@@ -66,10 +66,10 @@
 .nypl-ds {
   a,
   .link {
-    @include link;
+    @add-mixin link;
   }
 }
 
 .more-link {
-  @include more-link;
+  @add-mixin more-link;
 }

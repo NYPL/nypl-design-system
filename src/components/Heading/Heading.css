@@ -4,7 +4,7 @@
 // All arguments are optional. If not defined, the defaults below will be used
 // */
 
-@mixin heading-xl {
+@define-mixin heading-xl {
   color: inherit;
   font-size: var(--font-size-4);
   font-weight: 300;
@@ -22,7 +22,7 @@
   }
 }
 
-@mixin heading-large {
+@define-mixin heading-large {
   color: inherit;
   font-size: var(--font-size-3);
   font-weight: 500;
@@ -39,7 +39,7 @@
   }
 }
 
-@mixin heading-medium {
+@define-mixin heading-medium {
   color: inherit;
   font-size: var(--font-size-2);
   font-weight: 500;
@@ -56,7 +56,7 @@
   }
 }
 
-@mixin heading-small {
+@define-mixin heading-small {
   color: inherit;
   font-size: var(--font-size-1);
   font-weight: 500;
@@ -73,7 +73,7 @@
   }
 }
 
-@mixin heading-xs {
+@define-mixin heading-xs {
   color: inherit;
   font-size: var(--font-size-1);
   font-weight: 400;
@@ -92,24 +92,24 @@
 
 .nypl-ds {
   h1 {
-    @include heading-xl;
+    @add-mixin heading-xl;
   }
 
   h2 {
-    @include heading-large;
+    @add-mixin heading-large;
   }
 
   h3 {
-    @include heading-medium;
+    @add-mixin heading-medium;
   }
 
   h4 {
-    @include heading-small;
+    @add-mixin heading-small;
   }
 
   h5,
   h6 {
-    @include heading-xs;
+    @add-mixin heading-xs;
   }
 }
 
@@ -124,7 +124,7 @@
 
 .heading-section {
   &__more-link {
-    @include more-link;
+    @add-mixin more-link;
   }
 
   &__heading {

@@ -1,0 +1,50 @@
+/* /////////////////////
+// General Mixins (put specific ones in component files where applicable)
+
+/// Mixin - Clearfix.
+/// Adds clearfix based on http://bourbon.io/docs/#clearfix
+/// use example =   @include cleafix */
+
+@define-mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@define-mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* /// Mixin - Wrapper
+/// Outer container mixin for large screens */
+@define-mixin wrapper {
+  margin: 0 auto;
+  max-width: var(--breakpoint-xl);
+  padding: 0 var(--space);
+  width: 100%;
+}
+
+.container {
+  padding: var(--space-s);
+}
+
+/* /// Use the breakout mixin for elements that should be edge-to-edge
+/// Even when a parent container uses the wrapper mixin */
+@define-mixin breakout {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/* // Use the screenreader-only mixin for elements that you want to be visually hidden, but still want screenreaders to read out */
+@define-mixin screenreader-only() {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal;
+}

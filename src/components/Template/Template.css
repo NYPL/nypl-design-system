@@ -1,25 +1,26 @@
-@import "../../styles/base/03-mixins";
+@import "../../styles/base/_03-mixins.css";
 
 $sidebar-width: 25%;
 $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
 
 .main {
-  @include wrapper;
+  @add-mixin wrapper;
 
-  display: block; // Fix for IE weirdness
+  /* Fix for IE weirdness */
+  display: block;
 
   &--with-sidebar {
     display: flex;
     flex-flow: column nowrap;
 
-    @include breakpoint($breakpoint-medium) {
+    @media (--medium-break) {
       flex-flow: row wrap;
     }
   }
 }
 
 .content-header {
-  @include breakout;
+  @add-mixin breakout;
 
   width: 100vw;
 }
@@ -33,7 +34,7 @@ $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
 
   &--with-sidebar-right,
   &--with-sidebar-left {
-    @include breakpoint($breakpoint-medium) {
+    @media (--medium-break) {
       flex: 1 1 60%;
       min-width: 0;
     }
@@ -44,14 +45,14 @@ $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
     flex-flow: column nowrap;
     order: 1;
 
-    @include breakpoint($breakpoint-medium) {
+    @media (--medium-break) {
       margin-right: 0;
     }
   }
 }
 
 .content-secondary {
-  @include breakpoint($breakpoint-medium) {
+  @media (--medium-break) {
     flex: 0 1 $sidebar-width;
     order: 1;
 

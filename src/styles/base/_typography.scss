@@ -25,7 +25,7 @@
 }
 
 .long-description {
-  @include screenreader-only();
+  @add-mixin screenreader-only();
 }
 
 .text-long {

@@ -1,17 +1,19 @@
+@import "../../styles/base/_03-mixins.css";
+
 .hero {
   background-color: var(--ui-gray-warm-xlight);
 }
 
 .hero--50-50 {
   .hero__content {
-    @include wrapper;
+    @add-mixin wrapper;
 
     align-items: center;
     display: flex;
     flex-flow: column nowrap;
     padding: 0 var(--space) var(--space) var(--space);
 
-    @include breakpoint($breakpoint-large) {
+    @media (--large-break) {
       flex-flow: row nowrap;
       padding: unset;
     }
@@ -20,7 +22,7 @@
   .hero__image {
     margin-bottom: var(--space-s);
 
-    @include breakpoint($breakpoint-large) {
+    @media (--large-break) {
       margin-bottom: unset;
       margin-right: var(--space-s);
       max-width: 50%;
@@ -35,7 +37,7 @@
   justify-content: center;
   min-height: 350px;
 
-  @include breakpoint($breakpoint-medium) {
+  @media (--medium-break) {
     flex-flow: row nowrap;
   }
 
@@ -50,7 +52,7 @@
       display: inline-block;
     }
 
-    @include breakpoint($breakpoint-medium) {
+    @media (--medium-break) {
       flex: 0 0 60%;
       max-width: 960px;
     }
@@ -63,31 +65,30 @@
 
   .hero__heading,
   .hero__body-text {
-    @include space-stack-none;
+    margin-bottom: 0;
   }
 }
 
 .hero--secondary {
-  @include breakout;
+  @add-mixin breakout;
 
   overflow-x: hidden;
 
   .hero__content {
-    @include wrapper;
+    @add-mixin wrapper;
 
     display: flex;
     flex-flow: column nowrap;
 
-    @include breakpoint($breakpoint-medium) {
+    @media (--medium-break) {
       flex-flow: row wrap;
     }
 
     .hero__heading {
-      @include space-stack-none;
-
       background-color: var(--ui-black);
       color: var(--ui-white);
       flex: 1 1 100%;
+      margin-bottom: 0;
       margin-top: 0;
       padding-bottom: var(--space-xxs);
       position: relative;
@@ -103,7 +104,7 @@
         z-index: -1;
       }
 
-      @include breakpoint($breakpoint-medium) {
+      @media (--medium-break) {
         order: 1;
       }
 
@@ -143,10 +144,9 @@
     .hero__body-text {
       margin-top: var(--space-xs);
 
-      @include breakpoint($breakpoint-medium) {
-        @include space-inline-xs;
-
+      @media (--medium-break) {
         flex: 1 1 50%;
+        margin-right: var(--space-xs);
         order: 2;
       }
     }
@@ -154,11 +154,12 @@
     .hero__image {
       flex: 1 1 100%;
       height: 150px;
-      min-width: 0; // https://github.com/philipwalton/flexbugs/issues/41
+      /* https://github.com/philipwalton/flexbugs/issues/41 */
+      min-width: 0;
       object-fit: cover;
       width: 100%;
 
-      @include breakpoint($breakpoint-medium) {
+      @media (--medium-break) {
         flex: 0 0 250px;
         order: 3;
       }

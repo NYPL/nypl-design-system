@@ -1,0 +1,16 @@
+/* /**
+ * Breakpoint Configuration
+ *
+ */
+
+:root {
+  --breakpoint-small: 320px;
+  --breakpoint-medium: 600px;
+  --breakpoint-large: 960px;
+  --breakpoint-xl: 1280px;
+}
+
+@custom-media --small-break (min-width var(--breakpoint-small));
+@custom-media --medium-break (min-width var(--breakpoint-medium));
+@custom-media --large-break (min-width var(--breakpoint-medium));
+@custom-media --xl-break (min-width var(--breakpoint-medium));

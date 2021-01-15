@@ -3,13 +3,12 @@
 @custom-media --card-break (max-width var(--breakpoint-medium));
 
 .card {
-  @include space-stack-s;
-
   align-items: flex-start;
   border: 1px solid var(--ui-gray-light);
   border-radius: 5px;
   display: flex;
   flex-flow: column wrap;
+  margin-bottom: var(--space-s);
   padding: var(--space) var(--space-l);
 
   &__heading,
@@ -33,14 +32,13 @@
   }
 
   &__image {
-    @include space-stack-s;
-
     align-items: center;
     background-color: var(--ui-gray-xlight);
     display: flex;
     flex: 0 0 150px;
     height: 150px;
     justify-content: center;
+    margin-bottom: var(--space-s);
 
     .image {
       max-height: 100%;
@@ -48,21 +46,19 @@
     }
 
     @media (--card-break) {
-      @include space-stack-none;
-      @include space-inline-s;
-
       align-self: center;
+      margin-bottom: 0;
+      margin-right: var(--space-s);
       width: 150px;
     }
   }
 
   &__content {
-    @include space-stack-s;
-
     flex: 1 1;
+    margin-bottom: var(--space-s);
 
     @media (--card-break) {
-      @include space-stack-none;
+      margin-bottom: 0;
     }
   }
 
@@ -71,11 +67,11 @@
   }
 
   &__content + &__ctas {
-    @include space-inline-s;
+    margin-right: var(--space-s);
   }
 }
 
-// Stories-only styles
+/* Stories-only styles */
 .sb-show-main {
   .var-docs {
     padding: 0 0 var(--space) 0;
@@ -84,12 +80,12 @@
   .example-card {
     .card__content {
       > * {
-        @include space-stack-xxs;
+        margin-bottom: var(--space-xxs);
       }
     }
 
     .book__callout {
-      @include heading-xs;
+      @add-mixin heading-xs;
 
       font-style: italic;
       font-weight: 300;
@@ -107,12 +103,12 @@
       }
 
       > * {
-        @include space-stack-xxs;
+        margin-bottom: var(--space-xxs);
       }
     }
 
     .book__filetype {
-      @include space-stack-s;
+      margin-bottom: var(--space-s);
     }
 
     .book__description {

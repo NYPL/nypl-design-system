@@ -1,6 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import "StatusBadge.css";
+import "./StatusBadge.css";
 
 export interface StatusBadgeProps {
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */

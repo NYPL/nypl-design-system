@@ -1,4 +1,4 @@
-@import "../Icons/_Icons.css";
+@import "../Icons/Icon.css";
 
 @mixin button-base {
   border-radius: 2px;
@@ -9,7 +9,7 @@
   text-decoration: none;
 
   .icon {
-    @include icon;
+    @add-mixin icon;
 
     fill: currentColor;
 

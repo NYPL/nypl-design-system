@@ -1,4 +1,6 @@
-// React Autosuggest
+@import "../Input/Input.css";
+
+/* React Autosuggest */
 .react-autosuggest__container {
   display: inline;
   position: relative;
@@ -6,7 +8,7 @@
 }
 
 .react-autosuggest__input {
-  @extend .input;
+  @add-mixin input;
 
   margin-bottom: unset;
 }
@@ -30,7 +32,8 @@
   background-color: var(--ui-white);
   display: block;
   font-weight: 300;
-  margin-top: 2px; // accounts for the focus ring on the input
+  /* accounts for the focus ring on the input */
+  margin-top: 2px;
   outline: 1px solid var(--ui-gray-light);
   position: absolute;
   width: 100%;

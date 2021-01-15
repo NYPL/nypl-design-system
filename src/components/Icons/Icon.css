@@ -1,4 +1,4 @@
-@mixin icon {
+@define-mixin icon {
   display: inline-block;
   fill: currentColor;
   height: 24px;
@@ -50,5 +50,5 @@
 }
 
 .icon {
-  @include icon;
+  @add-mixin icon;
 }
