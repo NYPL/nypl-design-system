@@ -7,33 +7,33 @@
 // $space-xxl: $space*4;   // 64px
 
 @mixin space-inline-none {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 @mixin space-inline-xxs {
-    margin-right: var(--space-xxs);
+  margin-right: var(--space-xxs);
 }
 
 @mixin space-inline-xs {
-    margin-right: var(--space-xs);
+  margin-right: var(--space-xs);
 }
 
 @mixin space-inline-s {
-    margin-right: var(--space-s);
+  margin-right: var(--space-s);
 }
 
 @mixin space-inline-m {
-    margin-right: var(--space-m);
+  margin-right: var(--space-m);
 }
 
 @mixin space-inline-l {
-    margin-right: var(--space-l);
+  margin-right: var(--space-l);
 }
 
 @mixin space-inline-xl {
-    margin-right: var(--space-xl);
+  margin-right: var(--space-xl);
 }
 
 @mixin space-inline-xxl {
-    margin-right: var(--space-xxl);
+  margin-right: var(--space-xxl);
 }

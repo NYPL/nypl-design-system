@@ -1,66 +1,66 @@
 // CSS-only select styling (from https://github.com/filamentgroup/select-css)
 .select {
-    @include space-stack-xs;
+  @include space-stack-xs;
 
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--ui-white);
-    /* Arrow svg */
-    /* More info here: https://css-tricks.com/probably-dont-base64-svg/ */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
-    background-position: right 0.7em top 70%;
-    background-repeat: no-repeat;
-    background-size: var(--space) auto;
-    border: 1px solid var(--ui-gray-medium);
-    border-radius: 2px;
-    display: block;
-    font-size: 1rem;
-    padding: var(--space-xs) var(--space-xl) var(--space-xs) var(--space-s);
-    width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--ui-white);
+  /* Arrow svg */
+  /* More info here: https://css-tricks.com/probably-dont-base64-svg/ */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
+  background-position: right 0.7em top 70%;
+  background-repeat: no-repeat;
+  background-size: var(--space) auto;
+  border: 1px solid var(--ui-gray-medium);
+  border-radius: 2px;
+  display: block;
+  font-size: 1rem;
+  padding: var(--space-xs) var(--space-xl) var(--space-xs) var(--space-s);
+  width: 100%;
 
-    /* Hide arrow icon in IE browsers */
-    &::-ms-expand {
-        display: none;
-    }
+  /* Hide arrow icon in IE browsers */
+  &::-ms-expand {
+    display: none;
+  }
 
-    &:hover {
-        border-color: var(--ui-gray-medium);
-    }
+  &:hover {
+    border-color: var(--ui-gray-medium);
+  }
 
-    &:active,
-    &:focus {
-        border: 1px solid var(--ui-focus);
-        box-shadow: 0;
-        outline: 1px solid var(--ui-focus);
-    }
+  &:active,
+  &:focus {
+    border: 1px solid var(--ui-focus);
+    box-shadow: 0;
+    outline: 1px solid var(--ui-focus);
+  }
 
-    &:disabled {
-        background-color: var(--ui-gray-xxlight);
-        color: var(--ui-gray-xdark);
-    }
+  &:disabled {
+    background-color: var(--ui-gray-xxlight);
+    color: var(--ui-gray-xdark);
+  }
 
-    &--error {
-        border: 1px solid var(--ui-error);
-    }
+  &--error {
+    border: 1px solid var(--ui-error);
+  }
 }
 
 /* Support for rtl text, explicit support for Arabic and Hebrew */
-*[dir="rtl"] .select,
-:root:lang(ar) .select,
-:root:lang(iw) .select {
-    background-position: left 0.7em top 70%;
-    padding: var(--space-xs) var(--space-l) var(--space-xs) var(--space-s);
+*[dir="rtl"] .nypl-ds .select,
+:root:lang(ar) .nypl-ds .select,
+:root:lang(iw) .nypl-ds .select {
+  background-position: left 0.7em top 70%;
+  padding: var(--space-xs) var(--space-l) var(--space-xs) var(--space-s);
 }
 
 /* Disabled styles */
 .select-css:disabled,
 .select-css[aria-disabled="true"] {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
-    color: var(--ui-gray-xdark);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z'/%3E%3C/svg%3E");
+  color: var(--ui-gray-xdark);
 }
 
 .select-css:disabled:hover,
 .select-css[aria-disabled="true"] {
-    border-color: #aaa;
+  border-color: #aaa;
 }

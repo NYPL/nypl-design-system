@@ -1,71 +1,73 @@
 @mixin link {
-    color: var(--ui-link-primary);
+  color: var(--ui-link-primary);
 
-    &--no-underline {
-        text-decoration: none;
-    }
+  &--no-underline {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: var(--ui-link-secondary);
+  }
+
+  // .button links have a blue background
+  &.button:hover {
+    color: var(--ui-white);
+  }
+
+  &[role="button"] {
+    cursor: pointer;
+  }
+
+  &--dark-background {
+    color: var(--ui-white);
 
     &:hover {
-        color: var(--ui-link-secondary);
+      color: var(--ui-gray-light);
     }
-
-    // .button links have a blue background
-    &.button:hover {
-        color: var(--ui-white);
-    }
-
-    &[role="button"] {
-        cursor: pointer;
-    }
-
-    &--dark-background {
-        color: var(--ui-white);
-
-        &:hover {
-            color: var(--ui-gray-light);
-        }
-    }
+  }
 }
 
 @mixin more-link {
-    align-items: center;
-    color: var(--ui-link-primary);
-    display: inline-flex;
-    justify-content: space-between;
+  align-items: center;
+  color: var(--ui-link-primary);
+  display: inline-flex;
+  justify-content: space-between;
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--ui-link-secondary);
     text-decoration: underline;
+  }
 
-    &:hover {
-        color: var(--ui-link-secondary);
-        text-decoration: underline;
+  &__icon {
+    @include icon;
+
+    height: var(--space-s);
+    text-decoration: none;
+    width: var(--space-s);
+
+    &--left {
+      margin-right: var(--space-xs);
     }
 
-    &__icon {
-        @include icon;
-
-        height: var(--space-s);
-        text-decoration: none;
-        width: var(--space-s);
-
-        &--left {
-            margin-right: var(--space-xs);
-        }
-
-        &--right {
-            margin-left: var(--space-xs);
-        }
-
-        svg {
-            height: 100%;
-            width: 100%;
-        }
+    &--right {
+      margin-left: var(--space-xs);
     }
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 
-a,
-.link {
+.nypl-ds {
+  a,
+  .link {
     @include link;
+  }
 }
 
 .more-link {
-    @include more-link;
+  @include more-link;
 }

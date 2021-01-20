@@ -1,108 +1,108 @@
 @mixin button-base {
-    @include space-inset-xs;
+  @include space-inset-xs;
 
-    border-radius: 2px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
 
-    .icon {
-        @include icon;
+  .icon {
+    @include icon;
 
-        fill: currentColor;
+    fill: currentColor;
 
-        &--icon-left {
-            margin-right: var(--space-xs);
-        }
-
-        &--icon-right {
-            margin-left: var(--space-xs);
-        }
+    &--icon-left {
+      margin-right: var(--space-xs);
     }
+
+    &--icon-right {
+      margin-left: var(--space-xs);
+    }
+  }
 }
 
 @mixin button--filled {
-    @include button-base;
+  @include button-base;
 
-    background-color: var(--ui-link-primary);
-    border: none;
+  background-color: var(--ui-link-primary);
+  border: none;
+  color: var(--ui-white);
+
+  &:visited {
     color: var(--ui-white);
+  }
 
-    &:visited {
-        color: var(--ui-white);
-    }
+  &:hover {
+    background-color: var(--ui-link-secondary);
+  }
 
-    &:hover {
-        background-color: var(--ui-link-secondary);
-    }
-
-    &:disabled {
-        background-color: var(--ui-gray-light);
-        color: var(--ui-gray-dark);
-    }
+  &:disabled {
+    background-color: var(--ui-gray-light);
+    color: var(--ui-gray-dark);
+  }
 }
 
 @mixin button--outline {
-    @include button-base;
+  @include button-base;
 
-    background-color: var(--ui-white);
-    border: 1px solid var(--ui-gray-light);
+  background-color: var(--ui-white);
+  border: 1px solid var(--ui-gray-light);
+  color: inherit;
+
+  &:visited {
     color: inherit;
+  }
 
-    &:visited {
-        color: inherit;
-    }
+  &:hover {
+    background-color: var(--ui-gray-xxlight);
+  }
 
-    &:hover {
-        background-color: var(--ui-gray-xxlight);
-    }
-
-    &:disabled {
-        background-color: var(--ui-gray-light);
-        color: var(--ui-gray-dark);
-    }
+  &:disabled {
+    background-color: var(--ui-gray-light);
+    color: var(--ui-gray-dark);
+  }
 }
 
 @mixin button--link {
+  background-color: transparent;
+  color: var(--ui-link-primary);
+  text-decoration: underline;
+
+  &--no-underline {
+    text-decoration: none;
+  }
+
+  &:hover {
     background-color: transparent;
-    color: var(--ui-link-primary);
-    text-decoration: underline;
+    color: var(--ui-link-secondary);
+  }
 
-    &--no-underline {
-        text-decoration: none;
-    }
-
-    &:hover {
-        background-color: transparent;
-        color: var(--ui-link-secondary);
-    }
-
-    &:disabled {
-        background-color: transparent;
-        color: var(--ui-gray-dark);
-    }
+  &:disabled {
+    background-color: transparent;
+    color: var(--ui-gray-dark);
+  }
 }
 
 @mixin button--pill {
-    @include button-base;
-    @include button--outline;
+  @include button-base;
+  @include button--outline;
 
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .button {
-    @include button--filled;
+  @include button--filled;
 
-    &--link {
-        @include button--link;
-    }
+  &--link {
+    @include button--link;
+  }
 
-    &--outline {
-        @include button--outline;
-    }
+  &--outline {
+    @include button--outline;
+  }
 
-    &--pill {
-        @include button--pill;
-    }
+  &--pill {
+    @include button--pill;
+  }
 }
