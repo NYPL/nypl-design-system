@@ -1,4 +1,4 @@
-/* /**
+/* 
  * Breakpoint Configuration
  *
  */
@@ -12,5 +12,11 @@
 
 @custom-media --small-break (min-width var(--breakpoint-small));
 @custom-media --medium-break (min-width var(--breakpoint-medium));
-@custom-media --large-break (min-width var(--breakpoint-medium));
-@custom-media --xl-break (min-width var(--breakpoint-medium));
+@custom-media --large-break (min-width var(--breakpoint-large));
+@custom-media --xl-break (min-width var(--breakpoint-xl));
+
+.nypl-ds {
+  @media (--small-break) {
+    background-color: tomato;
+  }
+}
