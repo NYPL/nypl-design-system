@@ -4,7 +4,9 @@ import { Meta } from "@storybook/react/types-6-0";
 import Dropdown from "./Dropdown";
 import { withDesign } from "storybook-addon-designs";
 import { ExampleCard } from "../Card/Card.stories";
+import Checkbox from "./../Checkbox/Checkbox";
 
+// Set defaults for the Dropdown stories.
 export default {
   title: "Dropdown",
   component: Dropdown,
@@ -34,12 +36,14 @@ ExampleDropdown.args = {
       <fieldset className={bem("fieldset", this.modifiers, "dropdown")}>
         {options.map(option => (
           <div key={`option-${option.name}`}>
-            <input
-              type="checkbox"
-              id={option.name}
-              className={bem("checkbox", this.modifiers, "dropdown")}
+            <Checkbox
+              name={option.name}
+              checkboxId={option.name}
+              labelOptions={{
+                id: "label",
+                labelContent: <>{option.name}</>,
+              }}
             />
-            <label htmlFor={option.name}>{option.name}</label>
           </div>
         ))}
       </fieldset>
