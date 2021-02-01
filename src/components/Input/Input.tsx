@@ -55,7 +55,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
   if (errored) {
     modifiers.push("error");
   }
-
   const transformedInput = (
     <input
       id={id}

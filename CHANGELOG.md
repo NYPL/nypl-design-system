@@ -6,16 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## [ Unreleased ]
+## 0.20.0
 
 ### Changes
 
-- Input: added onChange prop to explicitly allow it to be used as a controlled component
+- `Select`: selectedOption holds the selected value, instead of just the default.
+- `Hero`: `Hero.Secondary` now changes background color based on NYPL site section
+- `Hero`: All props are now optional
+- `Input`: added onChange prop to explicitly allow it to be used as a controlled component
 - Uses stricter linters and more Prettier configs.
 
 ### Breaking Changes
 
 - Removed `SectionTitle`
+- Scopes all element selects to the `.nypl-ds` class
 
 ## 0.19.1
 
