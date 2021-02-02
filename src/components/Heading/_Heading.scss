@@ -89,25 +89,27 @@
   }
 }
 
-h1 {
-  @include heading-xl;
-}
+.nypl-ds {
+  h1 {
+    @include heading-xl;
+  }
 
-h2 {
-  @include heading-large;
-}
+  h2 {
+    @include heading-large;
+  }
 
-h3 {
-  @include heading-medium;
-}
+  h3 {
+    @include heading-medium;
+  }
 
-h4 {
-  @include heading-small;
-}
+  h4 {
+    @include heading-small;
+  }
 
-h5,
-h6 {
-  @include heading-xs;
+  h5,
+  h6 {
+    @include heading-xs;
+  }
 }
 
 .heading__link {

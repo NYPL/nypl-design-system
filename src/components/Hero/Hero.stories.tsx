@@ -1,20 +1,27 @@
 import * as React from "react";
-import { Story } from "@storybook/react/types-6-0";
+import { Meta } from "@storybook/react/types-6-0";
 import { withDesign } from "storybook-addon-designs";
 
+import sections from "../../utils/siteSections";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
-import Hero, { HeroProps } from "./Hero";
+import Hero from "./Hero";
 
 export default {
   title: "Hero",
   component: Hero,
   decorators: [withDesign],
-};
+  argTypes: {
+    section: {
+      type: "select",
+      options: sections,
+    },
+  },
+} as Meta;
 
-const HeroTemplate: Story<HeroProps> = args => (
-  <div className={"nypl-ds"}>
+const HeroTemplate = ({ section, ...args }) => (
+  <div className={"nypl-ds " + section}>
     <Hero {...args} />
   </div>
 );
@@ -34,6 +41,7 @@ heroPrimary.args = {
 
 heroPrimary.argTypes = {
   heroType: { table: { disable: true } },
+  heading: { table: { disable: true } },
   image: { table: { disable: true } },
   foregroundColor: { control: { type: "color" } },
   backgroundColor: { control: { type: "color" } },
@@ -67,17 +75,27 @@ heroSecondary.args = {
       alt={""}
     />
   ),
+  section: sections[0],
 };
 
 heroSecondary.argTypes = {
   heroType: { table: { disable: true } },
+  heading: { table: { disable: true } },
   backgroundImageSrc: { table: { disable: true } },
   subHeaderText: { table: { disable: true } },
   foregroundColor: { table: { disable: true } },
   backgroundColor: { table: { disable: true } },
   image: { table: { disable: true } },
+  blockName: { table: { disable: true } },
+  className: { table: { disable: true } },
   locationDetails: { table: { disable: true } },
   children: { table: { disable: true } },
+  section: {
+    control: {
+      type: "select",
+      options: sections,
+    },
+  },
 };
 
 heroSecondary.parameters = {

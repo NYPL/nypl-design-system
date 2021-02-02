@@ -4,9 +4,11 @@
   margin: #{$margin};
 }
 
-p,
-.paragraph {
-  @include paragraph;
+.nypl-ds {
+  p,
+  .paragraph {
+    @include paragraph;
+  }
 }
 
 .blockquote {
