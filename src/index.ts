@@ -29,3 +29,4 @@ export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export { default as Select } from "./components/Select/Select";
+export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";

@@ -113,25 +113,27 @@ export default class Pagination extends React.Component<PaginationProps> {
       )
     );
 
-    const truncatedList = [
-      // list always starts at and displays the first page item
-      1,
-      // second item will either be item 2 or an ellipse
-      pageStart > 3 ? "ellipse-start" : 2,
-      // Adding + 1 here since lodash range() doesn't include the last item passed to it
-      ...range(pageStart, pageEnd + 1),
-      // next to last item will either be an ellipse or the next to last page number
-      pageEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,
-      // list always ends at and displays the last page number in the pageCount
-      pageCount,
-    ];
-
+    const truncatedList =
+      pageCount < 4
+        ? Array.from({ length: pageCount }, (_, i) => i + 1)
+        : [
+            // list always starts at and displays the first page item
+            1,
+            // second item will either be item 2 or an ellipse
+            pageStart > 3 ? "ellipse-start" : 2,
+            // Adding + 1 here since lodash range() doesn't include the last item passed to it
+            ...range(pageStart, pageEnd + 1),
+            // next to last item will either be an ellipse or the next to last page number
+            pageEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,
+            // list always ends at and displays the last page number in the pageCount
+            pageCount,
+          ];
     const pageItems = truncatedList.map(item => {
       // if it's a number, render that page item, otherwise return the ellipse
       return typeof item === "number" ? (
         this.getPageElement(item)
       ) : (
-        <li key={item}>...</li>
+        <li key={`pagination-${item}`}>...</li>
       );
     });
 
