@@ -1,0 +1,51 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import Accordion from "./Accordion";
+import { withDesign } from "storybook-addon-designs";
+import * as stories from "./Accordion.stories.tsx";
+import { list as ListStory } from "../List/List.stories.tsx";
+
+<Meta
+  title="Accordion"
+  component={Accordion}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
+    },
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+  }}
+/>
+
+# Accordion
+
+<Description of={Accordion} />
+
+<Preview withToolbar>
+  <Story
+    name="Basic"
+    args={{
+      accordionLabel: "Click to expand",
+      children: <ListStory {...ListStory.args} />,
+      inputId: "accordionBtn",
+    }}
+  >
+    {args => <Accordion {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+<Preview withToolbar>
+  <Story story={stories.AccordionAsFAQSet} />
+</Preview>
