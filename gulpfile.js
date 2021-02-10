@@ -8,7 +8,6 @@ gulp.task("default", mergeSass);
 function mergeSass(done) {
   return gulp
     .src("src/resources.scss") // Reads all files in src
-    .pipe(sassGlob())
     .pipe(sass()) // Serves to remove @import statements from the output
     .pipe(gulp.dest("./dist")); // Writes the file to root
 }
