@@ -36,7 +36,7 @@ module.exports = {
     // We still want MDX-related rules. This is not ideal as the order of the
     // rules can change, but we can't easily override custom SVG or Typescript
     // webpack configuration.
-    const customRules = [rules[4], rules[5], ...custom.module.rules];
+    const customRules = [rules[4], ...custom.module.rules];
     return {
       ...config,
       module: {

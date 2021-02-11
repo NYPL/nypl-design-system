@@ -1,0 +1,102 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Button from "./Button";
+import { ButtonTypes } from "./ButtonTypes";
+import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
+import { action } from "@storybook/addon-actions";
+
+<Meta
+  title="Button"
+  component={Button}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
+    },
+  }}
+/>
+
+# Button
+
+<Description of={Button} />
+
+<Preview withToolbar>
+  <Story name="Basic">{args => <Button {...args}>Button Text</Button>}</Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+## With Icons
+
+<p>
+  The `Icon` component collaborates great with the `Button` component. Check out
+  `src/components/Icons/IconTypes` to see the list of icon and logo names that
+  can be rendered or check out the Controls section for this story.
+</p>
+
+<Story
+  name="With Icon"
+  args={{
+    displayLeft: true,
+    iconType: IconNames.search,
+  }}
+  argTypes={{
+    iconType: {
+      control: {
+        type: "select",
+        options: IconNames,
+      },
+    },
+  }}
+>
+  {args => (
+    <Button {...args}>
+      {args.displayLeft && (
+        <Icon
+          name={args.iconType}
+          decorative={true}
+          modifiers={["small", "icon-left"]}
+        />
+      )}
+      Button Text
+      {!args.displayLeft && (
+        <Icon
+          name={args.iconType}
+          decorative={true}
+          modifiers={["small", "icon-right"]}
+        />
+      )}
+    </Button>
+  )}
+</Story>
+
+<br />
+
+## Other Examples
+
+<p>Modifying the `buttonType` prop:</p>
+
+<Canvas>
+  <Button buttonType={ButtonTypes.Primary}>Primary</Button>
+  <Button buttonType={ButtonTypes.Secondary}>Secondary</Button>
+  <Button buttonType={ButtonTypes.Pill}>Pill</Button>
+  <Button buttonType={ButtonTypes.Link}>Link</Button>
+</Canvas>
+
+<p>Modifying the `disabled` prop:</p>
+
+<Canvas>
+  <Button disabled={false}>Enabled</Button>
+  <Button disabled={true}>Disabled</Button>
+</Canvas>

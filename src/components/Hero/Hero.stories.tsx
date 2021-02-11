@@ -112,7 +112,7 @@ export const hero5050 = HeroTemplate.bind({});
 hero5050.args = {
   heroType: HeroTypes.FiftyFifty,
   subHeaderText:
-    "Lorem ipsum with 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.",
+    "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.",
   image: (
     <Image
       src="https://placeimg.com/600/200/arch"
