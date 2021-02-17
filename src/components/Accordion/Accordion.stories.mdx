@@ -29,13 +29,12 @@ import { list as ListStory } from "../List/List.stories.tsx";
 # Accordion
 
 <Description of={Accordion} />
-<p>
-  The Accordion component pushes existing content on the page down. The{" "}
-  implementation is built using basic input/label DOM elements and CSS.{" "}
-  Therefore, make sure to pass the `inputId` prop to associate the label with{" "}
-  the input element. If multiple Accordion components are used on a page, make
-  sure that each `inputId` is unique.
-</p>
+
+The Accordion component pushes existing content on the page down. The
+implementation is built using basic input/label DOM elements and CSS.
+Therefore, make sure to pass the `inputId` prop to associate the label with
+the input element. If multiple Accordion components are used on a page, make
+sure that each `inputId` is unique.
 
 <Preview withToolbar>
   <Story
@@ -54,11 +53,9 @@ import { list as ListStory } from "../List/List.stories.tsx";
 
 ## FAQ example
 
-<p>
-  The Accordion component has an optional `modifiers` prop that has pre-styled
-  designs. For example, when building out FAQ-like pages, pass{" "}
-  `modifiers=["faq"]` into the Accordion component.
-</p>
+The Accordion component has an optional `modifiers` prop that has pre-styled
+designs. For example, when building out FAQ-like pages, pass
+`modifiers=["faq"]` into the Accordion component.
 
 <Preview withToolbar>
   <Story story={stories.AccordionAsFAQSet} />
