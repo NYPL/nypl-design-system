@@ -11,7 +11,7 @@ import { withDesign } from "storybook-addon-designs";
 import Button from "./Button";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";
 
 <Meta
@@ -31,11 +31,52 @@ import { action } from "@storybook/addon-actions";
 
 <Description of={Button} />
 
+Update the `buttonType` in the Controls section to see the types of buttons
+that can be rendered.
+
+- `ButtonTypes.Primary` is used for actions that move the user forward.
+- `ButtonTypes.Secondary` is used for actions taht move the user back, such as cancellations
+- `ButtonTypes.Pill` is used for equally weighted actions within cards and always in a set
+
 <Preview withToolbar>
   <Story name="Basic">{args => <Button {...args}>Button Text</Button>}</Story>
 </Preview>
 
 <ArgsTable story="Basic" />
+
+## Button Groups
+
+Primary and secondary buttons can be used in groups like so:
+
+<Canvas>
+  <Story name="Button Groups">
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        width: "150px",
+      }}
+    >
+      <Button buttonType={ButtonTypes.Secondary}>Button</Button>
+      <Button buttonType={ButtonTypes.Primary}>Submit</Button>
+    </div>
+    <br />
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        width: "250px",
+      }}
+    >
+      <Button buttonType={ButtonTypes.Secondary}>
+        <span style={{ width: "100px" }}>Button</span>
+      </Button>
+      <Button buttonType={ButtonTypes.Primary}>
+        <span style={{ width: "100px" }}>Submit</span>
+      </Button>
+    </div>
+  </Story>
+</Canvas>
 
 ## With Icons
 
@@ -43,43 +84,150 @@ The `Icon` component collaborates great with the `Button` component. Check out
 `src/components/Icons/IconTypes` to see the list of icon and logo names that
 can be rendered or check out the Controls section for this story.
 
-<Story
-  name="With Icon"
-  args={{
-    displayLeft: true,
-    iconType: IconNames.search,
-  }}
-  argTypes={{
-    iconType: {
-      control: {
-        type: "select",
-        options: IconNames,
+<Canvas>
+  <Story
+    name="With Icon"
+    args={{
+      displayLeft: true,
+      buttonText: "Button Text",
+      iconType: IconNames.search,
+    }}
+    argTypes={{
+      iconType: {
+        control: {
+          type: "select",
+          options: IconNames,
+        },
       },
-    },
-  }}
->
-  {args => (
-    <Button {...args}>
-      {args.displayLeft && (
-        <Icon
-          name={args.iconType}
-          decorative={true}
-          modifiers={["small", "icon-left"]}
-        />
-      )}
-      Button Text
-      {!args.displayLeft && (
-        <Icon
-          name={args.iconType}
-          decorative={true}
-          modifiers={["small", "icon-right"]}
-        />
-      )}
-    </Button>
-  )}
-</Story>
+    }}
+  >
+    {args => (
+      <Button {...args}>
+        {args.displayLeft && (
+          <Icon
+            name={args.iconType}
+            decorative={true}
+            modifiers={["small", "icon-left"]}
+          />
+        )}
+        {args.buttonText}
+        {!args.displayLeft && (
+          <Icon
+            name={args.iconType}
+            decorative={true}
+            modifiers={["small", "icon-right"]}
+          />
+        )}
+      </Button>
+    )}
+  </Story>
+</Canvas>
 
-<br />
+The icon can be placed to the left or the right of the button text.
+
+<Canvas>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      width: "200px",
+    }}
+  >
+    <Button buttonType={ButtonTypes.Secondary}>
+      <Icon
+        name={IconNames.arrow}
+        decorative={true}
+        iconRotation={IconRotationTypes.rotate90}
+        modifiers={["small", "icon-left"]}
+      />
+      Previous
+    </Button>
+    <Button buttonType={ButtonTypes.Secondary}>
+      Next
+      <Icon
+        name={IconNames.arrow}
+        decorative={true}
+        iconRotation={IconRotationTypes.rotate270}
+        modifiers={["small", "icon-right"]}
+      />
+    </Button>
+  </div>
+</Canvas>
+
+Text in a button is optional if an icon is rendered, but make sure that there
+is an `aria-label` passed to the `Button` component through the `attributes` prop:
+`attributes={{ "aria-label": "Previous" }}`
+
+<Canvas>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      width: "200px",
+    }}
+  >
+    <Button
+      buttonType={ButtonTypes.Secondary}
+      attributes={{
+        "aria-label": "Previous",
+      }}
+    >
+      <Icon
+        name={IconNames.arrow}
+        decorative={true}
+        iconRotation={IconRotationTypes.rotate90}
+        modifiers={["small"]}
+      />
+    </Button>
+    <Button
+      buttonType={ButtonTypes.Secondary}
+      attributes={{
+        "aria-label": "Next",
+      }}
+    >
+      <Icon
+        name={IconNames.arrow}
+        decorative={true}
+        iconRotation={IconRotationTypes.rotate270}
+        modifiers={["small"]}
+      />
+    </Button>
+    <Button
+      buttonType={ButtonTypes.Secondary}
+      attributes={{
+        "aria-label": "Close",
+      }}
+    >
+      <Icon name={IconNames.close} decorative={true} modifiers={["small"]} />
+    </Button>
+  </div>
+</Canvas>
+
+## Patterns
+
+Buttons are blue by default but should be red when it is intended as a call out.
+The "Back to Top" button should have secondary button styles and an up arrow icon.
+
+<Canvas>
+  <Story name="Patterns">
+    <Button
+      buttonType={ButtonTypes.Primary}
+      attributes={{ style: { backgroundColor: "#d0343a" } }}
+    >
+      Donate to this library
+    </Button>
+    <br />
+    <Button buttonType={ButtonTypes.Secondary}>
+      Back to Top
+      <Icon
+        name={IconNames.arrow}
+        decorative={true}
+        iconRotation={IconRotationTypes.rotate180}
+        modifiers={["small", "icon-right"]}
+      />
+    </Button>
+  </Story>
+</Canvas>
 
 ## Other Examples
 
