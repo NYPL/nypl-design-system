@@ -8,11 +8,6 @@ import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
-export default {
-  title: "Autosuggest",
-  component: Autosuggest,
-};
-
 /**
  * StoryWrapper
  * Wrapper component just to give the Autosuggest examples more space for the
@@ -47,9 +42,6 @@ const LibraryExample = () => {
     { label: "St. George Library Center" },
   ];
   const isRequired = true;
-  /**
-   *
-   */
   const renderInputComponent = (
     inputProps: React.HTMLProps<HTMLInputElement>
   ) => {
@@ -156,16 +148,20 @@ const FishExample = () => {
   ];
   const renderInputComponent = inputProps => {
     return (
-      <Input
-        type={InputTypes.text}
-        id="fish-autosuggest"
-        aria-required={false}
-        aria-labelledby="fish-autosuggest-label"
-        attributes={{
-          name: "favoriteFish",
-          ...inputProps,
-        }}
-      />
+      <>
+        <Label htmlFor="input-fish-autosuggest" id="fish-autosuggest-label">
+          Fish in Animal Crossing
+        </Label>
+        <Input
+          type={InputTypes.text}
+          id="input-fish-autosuggest"
+          aria-required={false}
+          attributes={{
+            name: "favoriteFish",
+            ...inputProps,
+          }}
+        />
+      </>
     );
   };
   const onChange = (event, { newValue }) => setValue(newValue);
@@ -198,16 +194,12 @@ const FishExample = () => {
 
   return (
     <>
-      <Label htmlFor="input-fish-autosuggest" id="fish-autosuggest-label">
-        Fish in Animal Crossing
-      </Label>
       <Autosuggest
-        renderSuggestion={renderSuggestion}
-        getSuggestionValue={getSuggestionValue}
-        getSuggestions={getSuggestions}
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onSuggestionsClearRequested}
+        getSuggestionValue={getSuggestionValue}
+        renderSuggestion={renderSuggestion}
         inputProps={inputProps}
         renderInputComponent={renderInputComponent}
         highlightFirstSuggestion={true}
