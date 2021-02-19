@@ -1,22 +1,12 @@
 import * as React from "react";
-import { Meta } from "@storybook/react/types-6-0";
 import range from "lodash/range";
-import Accordion from "./Accordion";
-import { withDesign } from "storybook-addon-designs";
 
+import Accordion from "./Accordion";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
-import { list as ListStory } from "../List/List.stories";
 import Link from "../Link/Link";
 
-export default {
-  title: "Accordion",
-  component: Accordion,
-  decorators: [withDesign],
-} as Meta;
-
-// Set up the reusable template to create multiple stories for the
-// Accordian component.
+// Set up the reusable template to create a list of Accordion components.
 const AccordionListTemplate = ({ count, children, ...args }) => (
   <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
     {range(count).map(i => (
@@ -28,34 +18,6 @@ const AccordionListTemplate = ({ count, children, ...args }) => (
     ))}
   </List>
 );
-
-// This is one specific story where it will render a list of checkboxes.
-export const AccordionWithList = AccordionListTemplate.bind({});
-
-// The `args` allow these props to be updated in the UI through the
-// "Controls" tab.
-AccordionWithList.args = {
-  accordionLabel: "Click to expand",
-  inputId: "accordionBtn",
-  children: <ListStory {...ListStory.args} />,
-  count: 1,
-};
-
-AccordionWithList.argTypes = {
-  blockName: { table: { disable: true } },
-  className: { table: { disable: true } },
-  id: { table: { disable: true } },
-  modifiers: { table: { disable: true } },
-  children: { table: { disable: true } },
-};
-
-AccordionWithList.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
-  },
-};
 
 const faqContent = (
   <>
@@ -82,19 +44,4 @@ AccordionAsFAQSet.args = {
   inputId: "accordionBtn",
   children: faqContent,
   count: 3,
-};
-
-AccordionAsFAQSet.argTypes = {
-  blockName: { table: { disable: true } },
-  className: { table: { disable: true } },
-  id: { table: { disable: true } },
-  children: { table: { disable: true } },
-};
-
-AccordionAsFAQSet.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
-  },
 };

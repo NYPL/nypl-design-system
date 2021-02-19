@@ -1,0 +1,62 @@
+import {
+  Meta,
+  Story,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import Accordion from "./Accordion";
+import { withDesign } from "storybook-addon-designs";
+import * as stories from "./Accordion.stories.tsx";
+import { list as ListStory } from "../List/List.stories.tsx";
+
+<Meta
+  title="Accordion"
+  component={Accordion}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
+    },
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+  }}
+/>
+
+# Accordion
+
+<Description of={Accordion} />
+
+The Accordion component pushes existing content on the page down. The
+implementation is built using basic input/label DOM elements and CSS.
+Therefore, make sure to pass the `inputId` prop to associate the label with
+the input element. If multiple Accordion components are used on a page, make
+sure that each `inputId` is unique.
+
+<Preview withToolbar>
+  <Story
+    name="Basic"
+    args={{
+      accordionLabel: "Click to expand",
+      children: <ListStory {...ListStory.args} />,
+      inputId: "accordionBtn",
+    }}
+  >
+    {args => <Accordion {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+## FAQ example
+
+The Accordion component has an optional `modifiers` prop that has pre-styled
+designs. For example, when building out FAQ-like pages, pass
+`modifiers=["faq"]` into the Accordion component.
+
+<Preview withToolbar>
+  <Story story={stories.AccordionAsFAQSet} />
+</Preview>

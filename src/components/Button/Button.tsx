@@ -5,7 +5,6 @@ import { ButtonTypes } from "./ButtonTypes";
 interface ButtonProps {
   /** Additional attributes passed to the button */
   attributes?: { [key: string]: any };
-
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
   /** The Kind of button */
@@ -18,13 +17,15 @@ interface ButtonProps {
   id?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
+  /** Trigger the Button's action through the `mouseDown` event handler instead of `onClick`. `false` by default. */
   mouseDown?: boolean;
-  /** The action to perform on the <button>'s onClick function */
+  /** The action to perform on the `<button>`'s onClick function */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** The html button attribute */
   type?: "submit" | "button" | "reset";
 }
 
+/** Renders a simple `button` element with custom classes and modifiers. */
 export default class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
     mouseDown: false,
