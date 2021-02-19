@@ -94,7 +94,7 @@ The NYPL Design System provides accessible stories, but real live data can neces
 
 There should be no need to run the static Storybook instances while actively developing—it's used exclusively for building out `gh-pages` environment. In the event that you do run the static Storybook npm script, make sure to not commit the `storybook/storybook-static` directory.
 
-When active developing components or fixing bugs, make sure that the related stories are created or updated. This means updating the respective `[component-name].stories.tsx` or `[component-name].stories.mdx` files. For more information on writing stories, check out the [Anatomy of a Story](https://github.com/NYPL/nypl-design-system/wiki/Anatomy-of-a-Story) wiki page.
+When actively developing components or fixing bugs, make sure that the related stories are created or updated. This means updating the respective `[component-name].stories.tsx` or `[component-name].stories.mdx` files. For more information on writing stories, check out the [Anatomy of a Story](https://github.com/NYPL/nypl-design-system/wiki/Anatomy-of-a-Story) wiki page.
 
 For stand-alone document pages in Storybook, you need to:
 
