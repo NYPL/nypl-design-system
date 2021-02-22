@@ -10,6 +10,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Add `method` and `action` to `SearchBar` `<form>`
+
+### Bugfixes
+
 - Add the `attributes` property to the `SearchBar` `<form>`
 
 ## 0.20.2

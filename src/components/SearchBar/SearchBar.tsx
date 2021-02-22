@@ -14,11 +14,14 @@ export interface SearchBarProps {
   ariaLabelledBy?: string;
   /** Additional attributes passed to the form */
   attributes?: { [key: string]: any };
-
   /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
   /** ClassName that appears in addition to "search-bar" */
   className?: string;
+  /** Adds 'method' property to the form */
+  method?: string;
+  /** Adds 'action' property to the form */
+  action?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
@@ -40,6 +43,8 @@ export default function SearchBar(
     modifiers = [],
     onSubmit,
     attributes,
+    method,
+    action,
   } = props;
 
   const baseClass = "search-bar";
@@ -52,6 +57,8 @@ export default function SearchBar(
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
       onSubmit={onSubmit}
+      method={method}
+      action={action}
       {...attributes}
     >
       {children}
