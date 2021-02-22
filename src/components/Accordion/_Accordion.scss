@@ -37,6 +37,14 @@
     position: absolute;
     z-index: -1;
 
+    &:focus {
+      + .accordion__label {
+        box-shadow: 0;
+        outline: 2px solid var(--ui-focus);
+        outline-offset: -1px;
+      }
+    }
+
     &:checked {
       + .accordion__label .icon--minus {
         display: inline;
