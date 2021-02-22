@@ -39,6 +39,7 @@ export default function SearchBar(
     id,
     modifiers = [],
     onSubmit,
+    attributes,
   } = props;
 
   const baseClass = "search-bar";
@@ -51,6 +52,7 @@ export default function SearchBar(
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
       onSubmit={onSubmit}
+      {...attributes}
     >
       {children}
     </form>
