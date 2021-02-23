@@ -13,6 +13,7 @@ import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";
+import getCSSVariable from "../../helpers/getCSSVariable";
 
 <Meta
   title="Button"
@@ -206,13 +207,17 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
 ## Patterns
 
 Buttons are blue by default but should be red when it is intended as a call out.
-The "Back to Top" button should have secondary button styles and an up arrow icon.
+The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include an up arrow icon.
 
 <Canvas>
   <Story name="Patterns">
     <Button
       buttonType={ButtonTypes.Primary}
-      attributes={{ style: { backgroundColor: "#d0343a" } }}
+      attributes={{
+        style: {
+          backgroundColor: getCSSVariable("--section-books-and-more-primary"),
+        },
+      }}
     >
       Donate to this library
     </Button>
