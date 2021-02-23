@@ -32,6 +32,18 @@ const itemGroups = [
   "Villagers",
 ];
 
+const definitions = [
+  {
+    term: "Summary",
+    definition:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+  },
+  {
+    term: "term2",
+    definition: "definition2",
+  },
+];
+
 const ListTemplate = ({ items, ...args }) => (
   <List type={ListTypes.Unordered} {...args}>
     {items.map((item, i) => (
@@ -52,6 +64,31 @@ list.parameters = {
     type: "figma",
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
+  },
+};
+
+const DefinitionListTemplate = ({ items, ...args }) => (
+  <List type={ListTypes.Definition} {...args}>
+    {items.map((item, i) => (
+      <React.Fragment key={i}>
+        <dt>{...item.term}</dt>
+        <dd>{...item.definition}</dd>
+      </React.Fragment>
+    ))}
+  </List>
+);
+
+export const definitionList = DefinitionListTemplate.bind({});
+definitionList.args = {
+  items: definitions,
+};
+
+definitionList.storyName = "Definition List";
+definitionList.parameters = {
+  design: {
+    type: "figma",
+    url:
+      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
   },
 };
 
@@ -109,7 +146,7 @@ export const cardList = () => (
       type={select("List Type", ListTypes, ListTypes.Unordered)}
       modifiers={boolean("List Styling", false) ? null : ["no-list-styling"]}
     >
-      {cards}
+      <p>test</p> {cards}
     </List>
   </>
 );

@@ -1,6 +1,39 @@
 .list {
   margin: unset; // browser automatically applies margin
 
+  &__definition-list {
+    border-bottom: 1px solid var(--ui-gray-light);
+    padding-bottom: var(--space-m);
+
+    h3 {
+      border-top: 3px solid var(--section-research-primary);
+      padding-top: var(--space-xs);
+    }
+
+    .grid {
+      display: grid;
+      gap: 0px;
+      grid-template-columns: 10% 90%;
+      grid-template-rows: 1fr;
+
+      dt {
+        border-top: 1px solid var(--ui-gray-light);
+        font-size: var(--font-size-0);
+        font-weight: bold;
+        padding-bottom: var(--space-s);
+        padding-top: var(--space-xs);
+      }
+
+      dd {
+        border-top: 1px solid var(--ui-gray-light);
+        font-size: var(--font-size-0);
+        margin: 0;
+        padding-bottom: var(--space-s);
+        padding-top: var(--space-xs);
+      }
+    }
+  }
+
   &--no-list-styling {
     @include list-reset;
   }
