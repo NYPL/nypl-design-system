@@ -37,6 +37,12 @@
     position: absolute;
     z-index: -1;
 
+    &:focus {
+      + .accordion__label {
+        @include focus-outline;
+      }
+    }
+
     &:checked {
       + .accordion__label .icon--minus {
         display: inline;

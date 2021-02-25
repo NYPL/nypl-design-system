@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Bugfixes
 
 - Add the `attributes` property to the `SearchBar` `<form>`
+- Adds focus outline to the `Accordion` component so it appears when it is tabbed.
 
 ## 0.20.2
 
