@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { Story } from "@storybook/react/types-6-0";
-import StatusBadge, { StatusBadgeProps } from "./StatusBadge";
-import { withDesign } from "storybook-addon-designs";
+import {Story} from "@storybook/react/types-6-0";
+import StatusBadge, {StatusBadgeProps} from "./StatusBadge";
+import {withDesign} from "storybook-addon-designs";
 
 export default {
   title: "Status Badge",
@@ -19,7 +19,7 @@ export const statusBadge = StatusBadgeTemplate.bind({});
 // The `args` allow these props to be updated in the UI through the
 // "Controls" tab.
 statusBadge.args = {
-  statusBadgeText: "Location is temporarily closed",
+  children: "Location is temporarily closed",
 };
 
 statusBadge.storyName = "Status Badge";
