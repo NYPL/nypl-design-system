@@ -39,9 +39,7 @@
 
     &:focus {
       + .accordion__label {
-        box-shadow: 0;
-        outline: 2px solid var(--ui-focus);
-        outline-offset: -1px;
+        @include focus-outline;
       }
     }
 
