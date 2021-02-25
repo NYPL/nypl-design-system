@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import {Story} from "@storybook/react/types-6-0";
-import StatusBadge, {StatusBadgeProps} from "./StatusBadge";
-import {withDesign} from "storybook-addon-designs";
+import { Story } from "@storybook/react/types-6-0";
+import StatusBadge, { StatusBadgeProps } from "./StatusBadge";
+import { withDesign } from "storybook-addon-designs";
 
 export default {
   title: "Status Badge",

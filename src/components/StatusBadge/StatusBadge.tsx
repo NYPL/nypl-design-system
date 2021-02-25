@@ -13,7 +13,7 @@ export interface StatusBadgeProps {
 export default function StatusBadge(
   props: React.PropsWithChildren<StatusBadgeProps>
 ) {
-  const {blockName, className, level} = props;
+  const { blockName, className, level } = props;
 
   const baseClass = "status-badge";
 
