@@ -7,7 +7,7 @@ interface ButtonProps {
   attributes?: { [key: string]: any };
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** The Kind of button */
+  /** The kind of button assigned through the `ButtonTypes` enum  */
   buttonType?: ButtonTypes;
   /** Additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   className?: string;
