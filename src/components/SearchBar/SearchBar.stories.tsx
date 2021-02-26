@@ -130,7 +130,11 @@ export const searchBar = () => (
         type="submit"
         disabled={formErrored || formDisabled ? true : false}
       >
-        <Icon name={IconNames.search} decorative={true} />
+        <Icon
+          name={IconNames.search}
+          decorative={true}
+          modifiers={["small", "icon-left"]}
+        />
         Search
       </Button>
     </SearchBar>
