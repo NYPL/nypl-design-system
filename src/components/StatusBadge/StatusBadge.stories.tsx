@@ -19,7 +19,7 @@ export const statusBadge = StatusBadgeTemplate.bind({});
 // The `args` allow these props to be updated in the UI through the
 // "Controls" tab.
 statusBadge.args = {
-  statusBadgeText: "Location is temporarily closed",
+  children: "Location is temporarily closed",
 };
 
 statusBadge.storyName = "Status Badge";

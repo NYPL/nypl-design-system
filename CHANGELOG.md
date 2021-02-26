@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Removes `statusBadgeText` prop in StatusBadge to allow text to be inside component
 - Add `method` and `action` to `SearchBar` `<form>`
 
 ### Bugfixes
