@@ -19,6 +19,10 @@ export default function StatusBadge(
 
   let statusBadgeModifiers = ["low"];
 
+  if (!props.children) {
+    console.warn("Status Badge has no children")
+  }
+
   if (level) {
     statusBadgeModifiers = [level];
   }
