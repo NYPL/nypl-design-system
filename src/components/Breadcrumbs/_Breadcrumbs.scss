@@ -53,14 +53,11 @@ $break-breadcrumbs-mobile: max-width 599px;
   &__link:visited,
   &__link:focus {
     color: var(--ui-white);
-
-    &:hover {
-      color: var(--ui-gray-light);
-    }
     text-decoration: none;
   }
 
   &__link:hover {
+    color: var(--ui-gray-light);
     text-decoration: underline;
   }
 
