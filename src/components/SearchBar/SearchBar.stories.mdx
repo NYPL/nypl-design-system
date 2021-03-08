@@ -5,6 +5,7 @@ import {
   Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
 import SearchBar from "./SearchBar";
 import Select from "../Select/Select";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
@@ -15,7 +16,6 @@ import { IconNames } from "../Icons/IconTypes";
 import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
 import * as stories from "../Autosuggest/Autosuggest.stories.tsx";
-import { withDesign } from "storybook-addon-designs";
 
 <Meta
   title="SearchBar"
@@ -38,6 +38,13 @@ import { withDesign } from "storybook-addon-designs";
 # SearchBar
 
 <Description of={SearchBar} />
+
+The main wrapper element that is rendered is `<form>` DOM element. All the props
+passed to `SearchBar` will apply to the `<form>` element. If you need to update
+the children, make sure the props are passed to the appropriate components.
+
+_Note: The `HelperErrorText` component should be the next direct sibling of the
+`SearchBar` component if it will be used._
 
 export const optionsGroup = {
   Art: [
@@ -99,47 +106,88 @@ export const optionsGroup = {
 };
 
 <Preview withToolbar>
-  <Story name="Basic">
+  <Story
+    name="Basic"
+    args={{
+      showHelperText: true,
+      isErrorState: false,
+      disabledButton: false,
+    }}
+  >
     {args => (
-      <SearchBar {...args}>
-        <Input
-          ariaLabelledBy={"button helper-error-text"}
-          id="input1"
-          placeholder={"Item Search"}
-          required={true}
-          type={InputTypes.text}
-        ></Input>
-        <Button buttonType={ButtonTypes.Primary} id="button" type="submit">
-          <Icon
-            name={IconNames.search}
-            decorative={true}
-            modifiers={["small", "icon-left"]}
+      <>
+        <SearchBar {...args}>
+          <Input
+            id="inputBasic"
+            ariaLabelledBy="buttonBasic"
+            placeholder="Item Search"
+            required={true}
+            type={InputTypes.text}
+            attributes={{
+              ["aria-describedby"]: "helperTextBasic",
+            }}
+            errored={args.isErrorState}
           />
-          Search
-        </Button>
-      </SearchBar>
+          <Button
+            buttonType={ButtonTypes.Primary}
+            id="buttonBasic"
+            type="submit"
+            disabled={args.disabledButton}
+          >
+            <Icon
+              name={IconNames.search}
+              decorative={true}
+              modifiers={["small", "icon-left"]}
+            />
+            Search
+          </Button>
+        </SearchBar>
+        {args.showHelperText && (
+          <HelperErrorText id="helperTextBasic" isError={args.isErrorState}>
+            Search for items in Animal Crossing New Horizons
+          </HelperErrorText>
+        )}
+      </>
     )}
   </Story>
 </Preview>
 
 <ArgsTable story="Basic" />
 
-## Search Autosuggest
+## Search Autocomplete
+
+While the Design System does not implement an `Autosuggest` or `Autocomplete`
+component, it does show a pattern for using the `react-autosuggest` package.
+In this example, we're using the `react-autosuggest` example found in the
+[Basic Autosuggest story](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/autosuggest--autosuggest-library)
+as the main component inside the `SearchBar` component. See the combination of
+the Autosuggest story along with this story to see how to compose all the
+components together.
 
 <Preview withToolbar>
-  <Story name="Search Autosuggest">
+  <Story name="Search Autocomplete">
     {args => (
-      <SearchBar {...args}>
-        {stories.AutosuggestLibrary()}
-        <Button buttonType={ButtonTypes.Primary} id="button-0" type="submit">
-          <Icon
-            name={IconNames.search}
-            decorative={true}
-            modifiers={["small", "icon-left"]}
-          />
-          Search
-        </Button>
-      </SearchBar>
+      <div style={{ minHeight: "150px" }}>
+        <SearchBar {...args}>
+          {stories.SearchBarExample()}
+          <Button
+            buttonType={ButtonTypes.Primary}
+            id="autosuggest-button"
+            type="submit"
+          >
+            <Icon
+              name={IconNames.search}
+              decorative={true}
+              modifiers={["small", "icon-left"]}
+            />
+            Search
+          </Button>
+        </SearchBar>
+        <HelperErrorText id="autosuggest-helperText" isError={false}>
+          Select your home library. Start by typing the name of the library. Try{" "}
+          {'"'}ba{'"'}.
+        </HelperErrorText>
+      </div>
     )}
   </Story>
 </Preview>
@@ -153,91 +201,127 @@ need more options, link to the advance search page.
 <Preview withToolbar>
   <Story name="Optional Pattern">
     {args => (
-      <SearchBar {...args}>
-        <Select
-          name="nhItemSearch"
-          ariaLabel="Filter Search"
-          helperTextId={"helper-error-text"}
-          id={"select"}
-          isRequired={false}
-          labelId={"label"}
-        >
-          {Object.keys(optionsGroup).map(nhOption => (
-            <option key={nhOption} aria-selected={false}>
-              {nhOption}
-            </option>
-          ))}
-        </Select>
-        <Input
-          ariaLabelledBy={"button helper-error-text"}
-          id="input2"
-          placeholder={"Item Search"}
-          required={true}
-          type={InputTypes.text}
-        ></Input>
-        <Button buttonType={ButtonTypes.Primary} id="button-0" type="submit">
-          <Icon
-            name={IconNames.search}
-            decorative={true}
-            modifiers={["small", "icon-left"]}
+      <>
+        <SearchBar {...args}>
+          <Select
+            name="nhItemSearch"
+            ariaLabel="Filter Search"
+            id="select-searchBar"
+            isRequired={false}
+          >
+            {Object.keys(optionsGroup).map(nhOption => (
+              <option key={nhOption} aria-selected={false}>
+                {nhOption}
+              </option>
+            ))}
+          </Select>
+          <Input
+            ariaLabelledBy="button-optional-pattern"
+            id="input2"
+            placeholder="Item Search"
+            required={true}
+            type={InputTypes.text}
+            attributes={{
+              ["aria-describedby"]: "optional-helperText",
+            }}
           />
-          Search
-        </Button>
-      </SearchBar>
+          <Button
+            buttonType={ButtonTypes.Primary}
+            id="button-optional-pattern"
+            type="submit"
+          >
+            <Icon
+              name={IconNames.search}
+              decorative={true}
+              modifiers={["small", "icon-left"]}
+            />
+            Search
+          </Button>
+        </SearchBar>
+        <HelperErrorText id="optional-helperText" isError={false}>
+          Search for items in Animal Crossing New Horizons
+        </HelperErrorText>
+      </>
     )}
   </Story>
 </Preview>
 
 ## Other Examples
 
+Use the Controls in the `Basic` example to see different states in real time.
+Here are the same possible states of the `SearchBar` component in static examples.
+
 ### Error State
 
-<Canvas>
-  <SearchBar>
-    <Input
-      ariaLabelledBy={"button helper-error-text"}
-      id="input3"
-      placeholder={"Item Search"}
-      required={true}
-      type={InputTypes.text}
-      errored={true}
-    ></Input>
-    <Button buttonType={ButtonTypes.Primary} id="button-2" type="submit">
-      <Icon
-        name={IconNames.search}
-        decorative={true}
-        modifiers={["small", "icon-left"]}
+For the error state, make sure that the `errored` prop is passed to the `Input`
+component and the `isError` prop is passed to the `HelperErrorText` component.
+
+<Preview>
+  <>
+    <SearchBar>
+      <Input
+        ariaLabelledBy="button-error-state"
+        id="input-error"
+        placeholder="Item Search"
+        required={true}
+        type={InputTypes.text}
+        errored={true}
+        attributes={{
+          ["aria-describedby"]: "error-helperText",
+        }}
       />
-      Search
-    </Button>
-  </SearchBar>
-</Canvas>
+      <Button
+        buttonType={ButtonTypes.Primary}
+        id="button-error-state"
+        type="submit"
+      >
+        <Icon
+          name={IconNames.search}
+          decorative={true}
+          modifiers={["small", "icon-left"]}
+        />
+        Search
+      </Button>
+    </SearchBar>
+    <HelperErrorText id="error-helperText" isError={true}>
+      Sorry, we can't find that item!
+    </HelperErrorText>
+  </>
+</Preview>
 
 <br />
 
 ### Disabled State
 
-<Canvas>
-  <SearchBar>
-    <Input
-      ariaLabelledBy={"button helper-error-text"}
-      id="input4"
-      placeholder={"Item Search"}
-      required={true}
-      type={InputTypes.text}
-    ></Input>
-    <Button
-      buttonType={ButtonTypes.Primary}
-      id="button-3"
-      type="submit"
-      disabled={true}
-    >
-      <Icon
-        name={IconNames.search}
-        decorative={true}
-        modifiers={["small", "icon-left"]}
+For the disabled state, make sure to pass the `disabled` prop to the
+`Button` component.
+
+<Preview>
+  <>
+    <SearchBar>
+      <Input
+        ariaLabelledBy="button-disabled"
+        id="input-disabled"
+        placeholder="Item Search"
+        required={true}
+        type={InputTypes.text}
       />
-      Search
-    </Button>
-  </SearchBar>
-</Canvas>
+      <Button
+        buttonType={ButtonTypes.Primary}
+        id="button-disabled"
+        type="submit"
+        disabled={true}
+      >
+        <Icon
+          name={IconNames.search}
+          decorative={true}
+          modifiers={["small", "icon-left"]}
+        />
+        Search
+      </Button>
+    </SearchBar>
+    <HelperErrorText id="error-disabled">
+      Reason for disabled state.
+    </HelperErrorText>
+  </>
+</Preview>
