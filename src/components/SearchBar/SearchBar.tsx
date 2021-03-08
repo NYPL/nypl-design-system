@@ -30,6 +30,7 @@ export interface SearchBarProps {
   onSubmit: (event: React.FormEvent) => void;
 }
 
+/** Renders the pattern for using `Select`, `Input`, and `Button` components together. */
 export default function SearchBar(
   props: React.PropsWithChildren<SearchBarProps>
 ) {

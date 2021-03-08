@@ -1,0 +1,243 @@
+import {
+  Meta,
+  Story,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import SearchBar from "./SearchBar";
+import Select from "../Select/Select";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
+import Input from "../Input/Input";
+import { InputTypes } from "../Input/InputTypes";
+import * as stories from "../Autosuggest/Autosuggest.stories.tsx";
+import { withDesign } from "storybook-addon-designs";
+
+<Meta
+  title="SearchBar"
+  component={SearchBar}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
+    },
+  }}
+  argTypes={{
+    blockName: {
+      table: { disable: true },
+    },
+  }}
+/>
+
+# SearchBar
+
+<Description of={SearchBar} />
+
+export const optionsGroup = {
+  Art: [
+    "Academic Painting",
+    "Amazing Painting",
+    "Ancient Statue",
+    "Basic Painting",
+    "Beautiful Statue",
+  ],
+  Bushes: [
+    "Blue-Hydrangea Bush",
+    "Blue-Hydrangea Start",
+    "Holly Bush",
+    "Orange-Tea-Olive Bush",
+    "Pink Camellia Bush",
+  ],
+  Clothing: ["3D Glasses", "Academy Uniform", "Acid-Washed Jacket"],
+  "DIY Recipes": ["Acorn Pochette", "Acoustic Guitar", "Angled Signpost"],
+  Flowers: [
+    "Black Cosmos",
+    "Blue Pansies",
+    "Gold Roses",
+    "Lily of the Valley",
+    "Orange Hyacinth",
+  ],
+  Fossils: [
+    "Acanthostega",
+    "Amber",
+    "Ammonite",
+    "Ankylo Skull",
+    "Anomalocaris",
+    "Australopith",
+  ],
+  Fruits: ["Apples", "Oranges", "Pears", "Coconuts", "Cherries"],
+  Furniture: [
+    "Abstract Wall",
+    "Accessories Stand",
+    "ACNH Switch",
+    "Air Circulator",
+  ],
+  Materials: [
+    "Acorn",
+    "Aquaris Fragment",
+    "Bamboo Piece",
+    "Boot",
+    "Clump of Weeds",
+  ],
+  NPC: ["Celeste", "Kicks", "Leif", "Redd", "Saharah"],
+  Songs: ["Agent K.K.", "Café K.K.", "Comrade K.K."],
+  Tools: [
+    "Axe",
+    "Bamboo Wand",
+    "Fishing Rod",
+    "Shovel",
+    "Slingshot",
+    "Watering Can",
+  ],
+  Villagers: ["Agnes", "Alfonso", "Anchovy", "Axel", "Aurora"],
+};
+
+<Preview withToolbar>
+  <Story name="Basic">
+    {args => (
+      <SearchBar {...args}>
+        <Input
+          ariaLabelledBy={"button helper-error-text"}
+          id="input1"
+          placeholder={"Item Search"}
+          required={true}
+          type={InputTypes.text}
+        ></Input>
+        <Button buttonType={ButtonTypes.Primary} id="button" type="submit">
+          <Icon
+            name={IconNames.search}
+            decorative={true}
+            modifiers={["small", "icon-left"]}
+          />
+          Search
+        </Button>
+      </SearchBar>
+    )}
+  </Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+## Search Autosuggest
+
+<Preview withToolbar>
+  <Story name="Search Autosuggest">
+    {args => (
+      <SearchBar {...args}>
+        {stories.AutosuggestLibrary()}
+        <Button buttonType={ButtonTypes.Primary} id="button-0" type="submit">
+          <Icon
+            name={IconNames.search}
+            decorative={true}
+            modifiers={["small", "icon-left"]}
+          />
+          Search
+        </Button>
+      </SearchBar>
+    )}
+  </Story>
+</Preview>
+
+## Optional Pattern
+
+The `Select` dropdown narrows the search within a specific category, typically
+title or author. You should only have one `Select` component at a time. If you
+need more options, link to the advance search page.
+
+<Preview withToolbar>
+  <Story name="Optional Pattern">
+    {args => (
+      <SearchBar {...args}>
+        <Select
+          name="nhItemSearch"
+          ariaLabel="Filter Search"
+          helperTextId={"helper-error-text"}
+          id={"select"}
+          isRequired={false}
+          labelId={"label"}
+        >
+          {Object.keys(optionsGroup).map(nhOption => (
+            <option key={nhOption} aria-selected={false}>
+              {nhOption}
+            </option>
+          ))}
+        </Select>
+        <Input
+          ariaLabelledBy={"button helper-error-text"}
+          id="input2"
+          placeholder={"Item Search"}
+          required={true}
+          type={InputTypes.text}
+        ></Input>
+        <Button buttonType={ButtonTypes.Primary} id="button-0" type="submit">
+          <Icon
+            name={IconNames.search}
+            decorative={true}
+            modifiers={["small", "icon-left"]}
+          />
+          Search
+        </Button>
+      </SearchBar>
+    )}
+  </Story>
+</Preview>
+
+## Other Examples
+
+### Error State
+
+<Canvas>
+  <SearchBar>
+    <Input
+      ariaLabelledBy={"button helper-error-text"}
+      id="input3"
+      placeholder={"Item Search"}
+      required={true}
+      type={InputTypes.text}
+      errored={true}
+    ></Input>
+    <Button buttonType={ButtonTypes.Primary} id="button-2" type="submit">
+      <Icon
+        name={IconNames.search}
+        decorative={true}
+        modifiers={["small", "icon-left"]}
+      />
+      Search
+    </Button>
+  </SearchBar>
+</Canvas>
+
+<br />
+
+### Disabled State
+
+<Canvas>
+  <SearchBar>
+    <Input
+      ariaLabelledBy={"button helper-error-text"}
+      id="input4"
+      placeholder={"Item Search"}
+      required={true}
+      type={InputTypes.text}
+    ></Input>
+    <Button
+      buttonType={ButtonTypes.Primary}
+      id="button-3"
+      type="submit"
+      disabled={true}
+    >
+      <Icon
+        name={IconNames.search}
+        decorative={true}
+        modifiers={["small", "icon-left"]}
+      />
+      Search
+    </Button>
+  </SearchBar>
+</Canvas>

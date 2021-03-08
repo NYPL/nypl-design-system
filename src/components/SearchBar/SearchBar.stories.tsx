@@ -12,11 +12,6 @@ import { InputTypes } from "../Input/InputTypes";
 import { action } from "@storybook/addon-actions";
 import { boolean } from "@storybook/addon-knobs";
 
-export default {
-  title: "SearchBar",
-  component: SearchBar,
-};
-
 const optionsGroup = {
   Art: [
     "Academic Painting",
