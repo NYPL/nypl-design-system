@@ -56,7 +56,7 @@ $break-breadcrumbs-mobile: max-width 599px;
     text-decoration: none;
   }
 
-  &__link:hover {
+  &__item a:hover {
     color: var(--ui-gray-light);
     text-decoration: underline;
   }
