@@ -52,11 +52,12 @@ $break-breadcrumbs-mobile: max-width 599px;
   &__link:link,
   &__link:visited,
   &__link:focus {
-    color: inherit;
+    color: var(--ui-white);
     text-decoration: none;
   }
 
-  &__link:hover {
+  &__item a:hover {
+    color: var(--ui-gray-light);
     text-decoration: underline;
   }
 
