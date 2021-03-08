@@ -58,12 +58,17 @@
     flex: 1 1;
 
     @include breakpoint($breakpoint-medium) {
+      @include space-inline-s;
       @include space-stack-none;
     }
   }
 
   &__ctas {
     flex: 0 1 20%;
+
+    @include breakpoint($breakpoint-medium) {
+      @include space-inline-s;
+    }
   }
 
   &__content + &__ctas {
