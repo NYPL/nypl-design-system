@@ -43,6 +43,11 @@ The main wrapper element that is rendered is `<form>` DOM element. All the props
 passed to `SearchBar` will apply to the `<form>` element. If you need to update
 the children, make sure the props are passed to the appropriate components.
 
+The `Select` dropdown narrows the search within a specific category, typically
+title or author. You should only have one `Select` component at a time. If you
+need more options, link to the advance search page. Toggle the `Select` through
+the Controls.
+
 _Note: The `HelperErrorText` component should be the next direct sibling of the
 `SearchBar` component if it will be used._
 
@@ -110,6 +115,7 @@ export const optionsGroup = {
     name="Basic"
     args={{
       showHelperText: true,
+      showSelect: true,
       isErrorState: false,
       disabledButton: false,
     }}
@@ -117,6 +123,20 @@ export const optionsGroup = {
     {args => (
       <>
         <SearchBar {...args}>
+          {args.showSelect && (
+            <Select
+              name="nhItemSearch"
+              ariaLabel="Filter Search"
+              id="select-searchBar"
+              isRequired={false}
+            >
+              {Object.keys(optionsGroup).map(nhOption => (
+                <option key={nhOption} aria-selected={false}>
+                  {nhOption}
+                </option>
+              ))}
+            </Select>
+          )}
           <Input
             id="inputBasic"
             ariaLabelledBy="buttonBasic"
@@ -188,60 +208,6 @@ components together.
           {'"'}ba{'"'}.
         </HelperErrorText>
       </div>
-    )}
-  </Story>
-</Preview>
-
-## Optional Pattern
-
-The `Select` dropdown narrows the search within a specific category, typically
-title or author. You should only have one `Select` component at a time. If you
-need more options, link to the advance search page.
-
-<Preview withToolbar>
-  <Story name="Optional Pattern">
-    {args => (
-      <>
-        <SearchBar {...args}>
-          <Select
-            name="nhItemSearch"
-            ariaLabel="Filter Search"
-            id="select-searchBar"
-            isRequired={false}
-          >
-            {Object.keys(optionsGroup).map(nhOption => (
-              <option key={nhOption} aria-selected={false}>
-                {nhOption}
-              </option>
-            ))}
-          </Select>
-          <Input
-            ariaLabelledBy="button-optional-pattern"
-            id="input2"
-            placeholder="Item Search"
-            required={true}
-            type={InputTypes.text}
-            attributes={{
-              ["aria-describedby"]: "optional-helperText",
-            }}
-          />
-          <Button
-            buttonType={ButtonTypes.Primary}
-            id="button-optional-pattern"
-            type="submit"
-          >
-            <Icon
-              name={IconNames.search}
-              decorative={true}
-              modifiers={["small", "icon-left"]}
-            />
-            Search
-          </Button>
-        </SearchBar>
-        <HelperErrorText id="optional-helperText" isError={false}>
-          Search for items in Animal Crossing New Horizons
-        </HelperErrorText>
-      </>
     )}
   </Story>
 </Preview>
