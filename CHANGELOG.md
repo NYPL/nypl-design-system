@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds margins inside the default columns of `Card`
 
+### BugFixes
+
+- Breadcrumbs now show up in light colours
+
 ## 0.21.0
 
 ### Breaking Changes
