@@ -223,7 +223,7 @@ For the error state, make sure that the `errored` prop is passed to the `Input`
 component and the `isError` prop is passed to the `HelperErrorText` component.
 
 <Preview>
-  <>
+  <div>
     <SearchBar>
       <Input
         ariaLabelledBy="button-error-state"
@@ -252,7 +252,7 @@ component and the `isError` prop is passed to the `HelperErrorText` component.
     <HelperErrorText id="error-helperText" isError={true}>
       Sorry, we can't find that item!
     </HelperErrorText>
-  </>
+  </div>
 </Preview>
 
 <br />
@@ -263,7 +263,7 @@ For the disabled state, make sure to pass the `disabled` prop to the
 `Button` component.
 
 <Preview>
-  <>
+  <div>
     <SearchBar>
       <Input
         ariaLabelledBy="button-disabled"
@@ -289,5 +289,5 @@ For the disabled state, make sure to pass the `disabled` prop to the
     <HelperErrorText id="error-disabled">
       Reason for disabled state.
     </HelperErrorText>
-  </>
+  </div>
 </Preview>
