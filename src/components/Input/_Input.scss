@@ -49,6 +49,7 @@ $break-input-mobile: 400px;
     border: 1px solid var(--ui-focus);
     box-shadow: 0;
     outline: 1px solid var(--ui-focus);
+    z-index: 9999;
   }
 
   &--error {
