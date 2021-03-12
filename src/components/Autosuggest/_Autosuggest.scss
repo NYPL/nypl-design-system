@@ -7,8 +7,6 @@
 
 .react-autosuggest__input {
   @extend .input;
-
-  margin-bottom: unset;
 }
 
 .react-autosuggest__input--focused {
@@ -30,7 +28,7 @@
   background-color: var(--ui-white);
   display: block;
   font-weight: 300;
-  margin-top: 2px; // accounts for the focus ring on the input
+  margin-top: -6px; // accounts for the focus ring on the input
   outline: 1px solid var(--ui-gray-light);
   position: absolute;
   width: 100%;
