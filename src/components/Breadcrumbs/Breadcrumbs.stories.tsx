@@ -7,7 +7,7 @@ import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 
 export default {
-  title: "Breadcrumb",
+  title: "Breadcrumbs",
   component: Breadcrumbs,
   decorators: [withDesign],
 };
