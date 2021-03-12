@@ -8,14 +8,23 @@
 }
 
 .list {
-  list-style: none;
   margin: unset; // browser automatically applies margin
+
+  &--no-list-styling {
+    @include list-reset;
+  }
+}
+
+ul.list {
+  list-style: none;
 
   li:before {
     @include list--bullet;
   }
 
   &--no-list-styling {
-    @include list-reset;
+    li:before {
+      content: unset; // Removes custom list bullet
+    }
   }
 }

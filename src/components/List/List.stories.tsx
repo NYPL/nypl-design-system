@@ -32,27 +32,33 @@ const itemGroups = [
   "Villagers",
 ];
 
-const ListTemplate = ({ items, ...args }) => (
-  <List type={ListTypes.Unordered} {...args}>
+const ListTemplate = ({ listType, items, ...args }) => (
+  <List type={listType} {...args}>
     {items.map((item, i) => (
       <li key={i}>{...item}</li>
     ))}
   </List>
 );
 
-export const list = ListTemplate.bind({});
+export const unorderedList = ListTemplate.bind({});
 
-list.args = {
+unorderedList.args = {
+  listType: ListTypes.Unordered,
   items: itemGroups,
 };
 
-list.storyName = "List";
-list.parameters = {
+unorderedList.parameters = {
   design: {
     type: "figma",
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
   },
+};
+
+export const orderedList = ListTemplate.bind({});
+orderedList.args = {
+  listType: ListTypes.Ordered,
+  items: itemGroups,
 };
 
 const exampleCard = (
