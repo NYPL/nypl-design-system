@@ -2,6 +2,7 @@
 @mixin focus-outline($darkBackground: false) {
   outline: 2px solid var(--ui-focus);
   outline-offset: 2px;
+  z-index: 9999;
 
   @if $darkBackground {
     outline-color: var(--ui-white);

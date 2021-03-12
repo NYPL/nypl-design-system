@@ -11,6 +11,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - `Accordion`: Adds `fixed-height` modifier and `defaultOpen` prop
+- Adds margins inside the default columns of `Card`
+
+### BugFixes
+
+- Breadcrumbs now show up in light colours
 
 ## 0.21.0
 
