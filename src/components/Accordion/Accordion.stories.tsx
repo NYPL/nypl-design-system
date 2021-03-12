@@ -6,8 +6,6 @@ import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import Link from "../Link/Link";
 import { list as ListStory } from "../List/List.stories";
-import { Source } from "@storybook/addon-docs/blocks";
-import dedent from "ts-dedent";
 
 // Set up the reusable template to create a list of Accordion components.
 const AccordionListTemplate = ({ count, children, ...args }) => (
@@ -50,7 +48,7 @@ AccordionAsFAQSet.args = {
 };
 
 // One accordion with scrollable list
-export const AccordionScroll = () => (
+export const AccordionScroll = _props => (
   <>
     <div style={{ maxHeight: "300px", width: "500px" }}>
       <Accordion
