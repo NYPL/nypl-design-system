@@ -28,6 +28,10 @@
       display: none;
     }
 
+    &:focus {
+      position: relative;
+    }
+
     &:hover {
       background-color: var(--ui-gray-light);
     }
@@ -62,7 +66,7 @@
         display: inline-block;
 
         &--fixed-height {
-          overflow-y: scroll;
+          overflow-y: auto;
         }
       }
     }

@@ -9,6 +9,9 @@ import Accordion from "./Accordion";
 import { withDesign } from "storybook-addon-designs";
 import * as stories from "./Accordion.stories.tsx";
 import { list as ListStory } from "../List/List.stories.tsx";
+import { Source } from "@storybook/addon-docs/blocks";
+import dedent from "ts-dedent";
+import ReactDOMServer from "react-dom/server";
 
 <Meta
   title="Accordion"
@@ -63,8 +66,12 @@ designs. For example, when building out FAQ-like pages, pass
 
 ## Scrollable example
 
-Use `modifiers=["fixed-height"]` when the Accordion must conform to the height of its parent.
-Any content underneath the accordion will continue to be pushed down.
+Use modifiers=["fixed-height"] when you'd like the accordion height to match that of its
+parent container. In this example, we wrap the accordion in a container whose height is
+set to 300px. If the contents within the accordion are taller than the height of the parent
+container, a scrollbar will appear.
+
+As in the other examples, any page content underneath the accordion will continue to be pushed down.
 
 <Preview withToolbar>
   <Story story={stories.AccordionScroll} />
