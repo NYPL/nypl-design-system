@@ -30,21 +30,21 @@ const PaginationPageHrefTemplate: Story<PaginationProps> = args => {
   );
 };
 
-export const pagination = PaginationPageHrefTemplate.bind({});
+export const paginationUrlHref = PaginationPageHrefTemplate.bind({});
 
-pagination.args = {
+paginationUrlHref.args = {
   pageCount: 100,
 };
 
-pagination.argTypes = {
+paginationUrlHref.argTypes = {
   blockName: { table: { disable: true } },
   className: { table: { disable: true } },
   modifiers: { table: { disable: true } },
   currentPage: { table: { disable: true } },
 };
 
-pagination.storyName = "Pagination with URL updates";
-pagination.parameters = {
+paginationUrlHref.storyName = "Pagination with URL updates";
+paginationUrlHref.parameters = {
   design: {
     type: "figma",
     url:

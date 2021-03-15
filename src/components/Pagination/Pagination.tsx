@@ -15,9 +15,9 @@ export interface PaginationProps {
   /** The current page selected. */
   currentPage: number;
   /** A method that returns a Link component given the target page */
-  getPageHref?: (pageNumber) => string;
+  getPageHref?: (pageNumber: number) => string;
   /** The method to callback when an item is selected. Passes the selected page to the consuming app as an argument. */
-  onPageChange?: (selected) => void;
+  onPageChange?: (selected: number) => void;
 }
 
 /** Pagination component that provides a list of page items */

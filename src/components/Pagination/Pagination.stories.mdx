@@ -6,6 +6,7 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import * as stories from "./Pagination.stories.tsx";
 
 <Meta
   title="Pagination"
@@ -18,32 +19,26 @@ import { withDesign } from "storybook-addon-designs";
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
     },
   }}
-  argTypes={{
-    blockName: {
-      table: { disable: true },
-    },
-  }}
 />
 
 # Pagination
 
 <Description of={Pagination} />
-
-Pagination navigates between the pages of a multi-page application. It is
-commonly in search results. Use controls in the Basic example to explore this
-component with very many or very few pages.
+Pagination navigates between the pages of a multi-page application. It is commonly
+in search results. Use controls in the Basic example to explore this component with
+very many or very few pages.
 
 Pagination uses anchor tags because it is navigating between pages.
 
-<Preview withToolbar></Preview>
+<Preview withToolbar>
+  <Story story={stories.paginationUrlHref} />
+</Preview>
 
 ## Pagination with onClick
 
 It is preferred to use pagination with `getPageHref` and that the URL is updated whenever a page is changed.
 However, optional `onClick` is available in case URL updating is not desired.
 
-<ArgsTable story="Basic" />
-
-## Pagination with React Router
-
-## Pagination with Next Router
+<Preview withToolbar>
+  <Story story={stories.paginationOnClick} />
+</Preview>
