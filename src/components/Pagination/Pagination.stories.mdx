@@ -16,7 +16,7 @@ import * as stories from "./Pagination.stories.tsx";
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
     },
   }}
 />
@@ -28,9 +28,9 @@ Pagination navigates between the pages of a multi-page application. It is common
 in search results. Use controls in the Basic example to explore this component with
 very many or very few pages.
 
-Pagination uses anchor tags because it is navigating between pages.
+Pagination uses anchor tags because it is navigating between URLs.
 
-<Preview withToolbar>
+<Preview>
   <Story story={stories.paginationUrlHref} />
 </Preview>
 
@@ -39,6 +39,6 @@ Pagination uses anchor tags because it is navigating between pages.
 It is preferred to use pagination with `getPageHref` and that the URL is updated whenever a page is changed.
 However, optional `onClick` is available in case URL updating is not desired.
 
-<Preview withToolbar>
+<Preview>
   <Story story={stories.paginationOnClick} />
 </Preview>

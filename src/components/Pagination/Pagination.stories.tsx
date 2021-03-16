@@ -33,6 +33,7 @@ const PaginationPageHrefTemplate: Story<PaginationProps> = args => {
 export const paginationUrlHref = PaginationPageHrefTemplate.bind({});
 
 paginationUrlHref.args = {
+  currentPage: 4,
   pageCount: 100,
 };
 

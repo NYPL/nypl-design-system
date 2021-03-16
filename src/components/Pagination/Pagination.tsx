@@ -76,7 +76,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const getPageElement = (item: number) => {
     const pageAttributes = {
       "aria-label": null,
-      onClick: !changeUrls ? evt => this.selectPage(evt, item) : undefined,
+      onClick: !changeUrls ? evt => selectPage(evt, item) : undefined,
       role: "button",
       tabIndex: 0,
     };

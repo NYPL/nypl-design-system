@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Adds `getPageHref` to `Pagination`
 - Adds margins inside the default columns of `Card`
 
 ### BugFixes
