@@ -20,7 +20,6 @@ const PaginationPageHrefTemplate: Story<PaginationProps> = args => {
     const currentStoryId = urlParams.get("id");
     return `${location.origin}?path=/story/${currentStoryId}&page=${page}`;
   };
-  console.log("urlParams", urlParams);
   return (
     <Pagination
       pageCount={args.pageCount}
