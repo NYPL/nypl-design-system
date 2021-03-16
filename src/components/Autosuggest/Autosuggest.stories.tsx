@@ -17,13 +17,43 @@ const StoryWrapper = ({ children }) => (
   <div style={{ padding: "5px", minHeight: "400px" }}>{children}</div>
 );
 
+const libraryRenderInputComponent = (
+  inputProps: React.HTMLProps<HTMLInputElement>
+) => {
+  return (
+    <>
+      <Label
+        htmlFor="library-autosuggest"
+        id="library-autosuggest-label"
+        optReqFlag={"Required"}
+      >
+        Home Library
+      </Label>
+      <HelperErrorText id="id-helperText" isError={false}>
+        Select your home library. Start by typing the name of the library. Try{" "}
+        {'"'}ba{'"'}.
+      </HelperErrorText>
+      <Input
+        type={InputTypes.text}
+        id="library-autosuggest"
+        aria-required={true}
+        aria-labelledby="library-autosuggest-label id-helperText"
+        attributes={{
+          name: "homeLibraryName",
+          ...inputProps,
+        }}
+      />
+    </>
+  );
+};
+
 /**
  * LibraryExample
  * An example component that internally uses the `react-autosuggest` library.
  * The list is made up of objects with `label` key. It adds a Label, Input, and
  * HelperErrorText as elements for the autosuggest component to render.
  */
-const LibraryExample = () => {
+const LibraryExample = ({ renderInputComponent }) => {
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const libraryList = [
@@ -41,37 +71,6 @@ const LibraryExample = () => {
     { label: "Soundview Branch" },
     { label: "St. George Library Center" },
   ];
-  const isRequired = true;
-  const renderInputComponent = (
-    inputProps: React.HTMLProps<HTMLInputElement>
-  ) => {
-    return (
-      <>
-        <Label
-          htmlFor="library-autosuggest"
-          id="library-autosuggest-label"
-          optReqFlag={isRequired ? "Required" : ""}
-        >
-          Home Library
-        </Label>
-        <HelperErrorText id="id-helperText" isError={false}>
-          Select your home library. Start by typing the name of the library. Try{" "}
-          {'"'}ba{'"'}.
-        </HelperErrorText>
-        <Input
-          type={InputTypes.text}
-          id="library-autosuggest"
-          aria-required={isRequired}
-          aria-labelledby="library-autosuggest-label id-helperText"
-          attributes={{
-            name: "homeLibraryName",
-            ...inputProps,
-          }}
-        />
-      </>
-    );
-  };
-
   const onChange = (event, { newValue }) => setValue(newValue);
   // Tell autosuggest to suggest by the first letter of the library. This can
   // be manipulated.
@@ -120,7 +119,7 @@ const LibraryExample = () => {
 
 export const AutosuggestLibrary = () => (
   <StoryWrapper>
-    <LibraryExample />
+    <LibraryExample renderInputComponent={libraryRenderInputComponent} />
   </StoryWrapper>
 );
 
@@ -212,4 +211,26 @@ export const AutosuggestFish = () => (
   <StoryWrapper>
     <FishExample />
   </StoryWrapper>
+);
+
+const searchBarRenderInputComponent = (
+  inputProps: React.HTMLProps<HTMLInputElement>
+) => {
+  return (
+    <Input
+      type={InputTypes.text}
+      id="autosuggest-searchBar"
+      aria-required={true}
+      ariaLabelledBy="autosuggest-button"
+      attributes={{
+        name: "homeLibraryName",
+        ["aria-describedby"]: "autosuggest-helperText",
+        ...inputProps,
+      }}
+    />
+  );
+};
+
+export const SearchBarExample = () => (
+  <LibraryExample renderInputComponent={searchBarRenderInputComponent} />
 );
