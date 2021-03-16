@@ -1,7 +1,30 @@
+@mixin list--bullet {
+  color: var(--ui-gray-medium);
+  content: "\2022"; /* \2022 is the CSS Code/unicode for a bullet */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  font-weight: bold;
+  margin-left: -1em;
+  width: 1em;
+}
+
 .list {
   margin: unset; // browser automatically applies margin
 
   &--no-list-styling {
     @include list-reset;
+  }
+}
+
+ul.list {
+  list-style: none;
+
+  li:before {
+    @include list--bullet;
+  }
+
+  &--no-list-styling {
+    li:before {
+      content: unset; // Removes custom list bullet
+    }
   }
 }
