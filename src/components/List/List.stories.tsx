@@ -40,25 +40,19 @@ const ListTemplate = ({ listType, items, ...args }) => (
   </List>
 );
 
-export const unorderedList = ListTemplate.bind({});
+export const list = ListTemplate.bind({});
 
-unorderedList.args = {
-  listType: ListTypes.Unordered,
+list.args = {
+  type: ListTypes.Unordered,
   items: itemGroups,
 };
 
-unorderedList.parameters = {
+list.parameters = {
   design: {
     type: "figma",
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
   },
-};
-
-export const orderedList = ListTemplate.bind({});
-orderedList.args = {
-  listType: ListTypes.Ordered,
-  items: itemGroups,
 };
 
 const exampleCard = (
