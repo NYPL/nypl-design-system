@@ -66,6 +66,8 @@
         display: inline-block;
 
         &--fixed-height {
+          // Adds margin so that content always appears outside the focus ring
+          margin-top: var(--space-xxs);
           overflow-y: auto;
         }
       }
