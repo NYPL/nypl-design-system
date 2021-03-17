@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- `Accordion`: Adds `fixed-height` modifier and `defaultOpen` prop
 - `List` defaults to grey bullets instead of black
 - Adds margins inside the default columns of `Card`
 

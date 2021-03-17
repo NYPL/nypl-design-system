@@ -10,6 +10,8 @@ export interface AccordionProps {
   blockName?: string;
   /** className you can add in addition to 'input' */
   className?: string;
+  /** Whether the accordion is open by default */
+  defaultOpen?: boolean;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** accordionLabel's input ID */
@@ -28,6 +30,7 @@ export default function Accordion(
     id,
     className,
     inputId,
+    defaultOpen = false,
     accordionLabel,
     children,
   } = props;
@@ -41,6 +44,7 @@ export default function Accordion(
         id={`accordion-${inputId}`}
         className={bem("input", modifiers, "accordion")}
         type="checkbox"
+        defaultChecked={defaultOpen}
       />
       <label
         htmlFor={`accordion-${inputId}`}
