@@ -44,8 +44,8 @@ const definitions = [
   },
 ];
 
-const ListTemplate = ({ items, ...args }) => (
-  <List type={ListTypes.Unordered} {...args}>
+const ListTemplate = ({ listType, items, ...args }) => (
+  <List type={listType} {...args}>
     {items.map((item, i) => (
       <li key={i}>{...item}</li>
     ))}
@@ -55,10 +55,10 @@ const ListTemplate = ({ items, ...args }) => (
 export const list = ListTemplate.bind({});
 
 list.args = {
+  type: ListTypes.Unordered,
   items: itemGroups,
 };
 
-list.storyName = "List";
 list.parameters = {
   design: {
     type: "figma",

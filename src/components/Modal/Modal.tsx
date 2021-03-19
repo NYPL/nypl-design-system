@@ -12,8 +12,7 @@ export interface ModalProps {
   modifiers?: string[];
 }
 
-/* Full-screen modal that appears on top of the body */
-
+/** Full-screen modal that appears on top of the body of the page. */
 export default class Modal extends React.Component<ModalProps, any> {
   componentDidMount() {
     document.body.classList.add("no-scroll");

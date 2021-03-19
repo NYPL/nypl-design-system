@@ -40,6 +40,7 @@
   &:disabled {
     background-color: var(--ui-gray-light);
     color: var(--ui-gray-dark);
+    pointer-events: none;
   }
 }
 
@@ -61,6 +62,7 @@
   &:disabled {
     background-color: var(--ui-gray-light);
     color: var(--ui-gray-dark);
+    pointer-events: none;
   }
 }
 
@@ -81,6 +83,7 @@
   &:disabled {
     background-color: transparent;
     color: var(--ui-gray-dark);
+    pointer-events: none;
   }
 }
 

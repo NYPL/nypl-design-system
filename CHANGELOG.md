@@ -6,7 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## 0.20.3
+## Prerelease
+
+### Changes
+
+- `Accordion`: Adds `fixed-height` modifier and `defaultOpen` prop
+- `List` defaults to grey bullets instead of black
+- Adds margins inside the default columns of `Card`
+
+### BugFixes
+
+- Breadcrumbs now show up in light colours
+
+## 0.21.0
+
+### Breaking Changes
+
+- Removes `statusBadgeText` prop in StatusBadge to allow text to be inside component
 
 ### Changes
 
