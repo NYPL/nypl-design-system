@@ -1,0 +1,57 @@
+import { Meta, Description, Preview } from "@storybook/addon-docs/blocks";
+import { FilterOptions, Filters } from "./Filters";
+import { FilterWithResults } from "./FilterWithResults";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+
+<Meta
+  title="Filters"
+  component={Filters}
+  argTypes={{
+    children: { table: { disable: true } },
+  }}
+/>
+
+# Filters
+
+<Description of={Filters} />
+
+The Filters component
+
+<Story name="Basic">
+  <div>
+    <Filter />
+  </div>
+</Story>
+
+The Filters component can come in Applied and Automatic
+
+## Applied Filters
+
+Applied filters are characterized by the presence of an "Apply" button.  
+Search results are not updated until the "Apply" button is pressed.
+
+### Wide
+
+### Narrow
+
+In a narrow view, pressing the "Apply" button updates the search results
+and closes the filters modal
+
+<Story name="Filters Example: Applied">
+  <div>
+    <FilterWithResults isAutomatic={false} />
+  </div>
+</Story>
+
+## Automatic Filters
+
+Automatic filters are characterized by the absence of an "Apply" button.
+When a selection is made, the search is applied automatically.
+
+In the modal view, it is required to have language that informs the user that the search results have been updated.
+
+<Story name="Filters Example: Automatic">
+  <div>
+    <FilterWithResults isAutomatic={true} />
+  </div>
+</Story>

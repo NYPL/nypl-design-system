@@ -1,0 +1,22 @@
+.filters {
+  &--sidebar {
+    display: none;
+    @include breakpoint($breakpoint-large) {
+      display: block;
+    }
+  }
+
+  &--modal {
+    display: block;
+    @include breakpoint($breakpoint-large) {
+      display: none;
+    }
+  }
+
+  &__show-button {
+    display: block;
+    @include breakpoint($breakpoint-large) {
+      display: none;
+    }
+  }
+}
