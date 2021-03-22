@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Villager, villagers } from "./AnimalCrossingVillagers";
 import Heading from "../Heading/Heading";
@@ -8,7 +8,6 @@ import Image from "../Image/Image";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import { ButtonTypes } from "../Button/ButtonTypes";
-import getCSSVariable from "../../helpers/getCSSVariable";
 import { FilterOptions, Filters } from "./Filters";
 
 export const defaultFilters: FilterOptions = {
@@ -24,7 +23,6 @@ const Results: React.FC<{ shownVillagers: Villager[] }> = ({
     return (
       <Card
         id={villager.name}
-        heading={<Heading level={2}>{villager.name}</Heading>}
         image={
           <Image
             src={villager.portrait}
@@ -32,30 +30,33 @@ const Results: React.FC<{ shownVillagers: Villager[] }> = ({
           />
         }
       >
-        <table>
-          <tbody>
-            <tr>
-              <th>Gender:</th>
-              <td>{villager.gender}</td>
-            </tr>
-            <tr>
-              <th>Species:</th>
-              <td>{villager.species}</td>
-            </tr>
-            <tr>
-              <th>Personality:</th>
-              <td>{villager.personality}</td>
-            </tr>
-            <tr>
-              <th>Catchphrase:</th>
-              <td>{villager.catchphrase}</td>
-            </tr>
-            <tr>
-              <th>Favourite Saying:</th>
-              <td>{villager.favoriteSaying}</td>
-            </tr>
-          </tbody>
-        </table>
+        <>
+          <Heading level={3}>{villager.name}</Heading>
+          <table>
+            <tbody>
+              <tr>
+                <th>Gender:</th>
+                <td>{villager.gender}</td>
+              </tr>
+              <tr>
+                <th>Species:</th>
+                <td>{villager.species}</td>
+              </tr>
+              <tr>
+                <th>Personality:</th>
+                <td>{villager.personality}</td>
+              </tr>
+              <tr>
+                <th>Catchphrase:</th>
+                <td>{villager.catchphrase}</td>
+              </tr>
+              <tr>
+                <th>Favourite Saying:</th>
+                <td>{villager.favoriteSaying}</td>
+              </tr>
+            </tbody>
+          </table>
+        </>
       </Card>
     );
   };
@@ -76,25 +77,7 @@ export const FilterWithResults: React.FC<{ isAutomatic: boolean }> = ({
   const [shownVillagers, setShownVillagers] = useState(villagers);
 
   const [filters, setFilters] = useState(defaultFilters);
-  const [showFilters, setShowFilters] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
-
-  console.log("blah?", parseInt(getCSSVariable("--breakpoint-large")));
-  // useEffect(() => {
-  //   function handleResize() {
-  //     if (window.innerWidth < parseInt(getCSSVariable("--breakpoint-large"))) {
-  //       setShowFilters(false);
-  //     } else {
-  //       setShowFilters(true);
-  //       setModalOpen(false);
-  //     }
-  //   }
-  //   window.addEventListener("resize", handleResize);
-
-  //   return function cleanup() {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
 
   const updateVillagers = (filters: FilterOptions) => {
     setShownVillagers(
@@ -122,24 +105,17 @@ export const FilterWithResults: React.FC<{ isAutomatic: boolean }> = ({
 
   return (
     <div className={bem("layout-container nypl-ds")}>
-      <main className={showFilters ? bem("main", ["with-sidebar"]) : "main"}>
-        {showFilters && (
-          <div className={bem("content-secondary", ["with-sidebar-left"])}>
-            <Filters
-              modifiers={["sidebar"]}
-              filters={filters}
-              isAutomatic={isAutomatic}
-              updateVillagers={updateVillagers}
-            />
-          </div>
-        )}
-        <div
-          className={
-            showFilters
-              ? bem("content-primary", ["with-sidebar-left"])
-              : "content-primary"
-          }
-        >
+      <main className={bem("main", ["with-sidebar"])}>
+        <div className={bem("content-secondary", ["with-sidebar-left"])}>
+          <Filters
+            modifiers={["sidebar"]}
+            filters={filters}
+            isAutomatic={isAutomatic}
+            updateVillagers={updateVillagers}
+          />
+        </div>
+
+        <div className={bem("content-primary", ["with-sidebar-left"])}>
           <Heading
             level={2}
           >{`Showing ${shownVillagers.length} Villagers`}</Heading>
@@ -182,31 +158,3 @@ export const FilterWithResults: React.FC<{ isAutomatic: boolean }> = ({
     </div>
   );
 };
-// export default {
-//   title: "Filters with Results",
-//   argTypes: {
-//     filterType: {
-//       control: {
-//         type: "select",
-//         options: ["applied", "automatic"],
-//       },
-//     },
-//   },
-// };
-
-// export const FilterExample = args => {
-//   return (
-//     <FilterWithResults
-//       isAutomatic={args.filterType === "automatic"}
-//     ></FilterWithResults>
-//   );
-// };
-// FilterExample.storyName = "Filters with Results";
-// FilterExample.args = {
-//   filterType: {
-//     control: {
-//       type: "select",
-//       options: ["applied", "automatic"],
-//     },
-//   },
-// };
