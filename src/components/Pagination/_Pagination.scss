@@ -18,12 +18,13 @@
   }
 
   &__item {
+    @include space-inline-xs;
+
     list-style-type: none;
   }
 
   &__link {
     line-height: 1.15;
-    padding: 8px;
     text-decoration: none;
 
     &.selected {

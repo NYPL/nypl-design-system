@@ -86,15 +86,13 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     const pageClass = currentPage === item ? "selected" : null;
 
     return (
-      <li key={item} className={bem("item", modifiers, "pagination")}>
-        <Link
-          attributes={{ ...pageAttributes }}
-          className={bem("link", modifiers, "pagination", [pageClass])}
-          href={changeUrls ? getPageHref(item) : "#"}
-        >
-          {item}
-        </Link>
-      </li>
+      <Link
+        attributes={{ ...pageAttributes }}
+        className={bem("link", modifiers, "pagination", [pageClass])}
+        href={changeUrls ? getPageHref(item) : "#"}
+      >
+        {item}
+      </Link>
     );
   };
 
@@ -138,10 +136,12 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
           ];
     const pageItems = truncatedList.map(item => {
       // if it's a number, render that page item, otherwise return the ellipse
-      return typeof item === "number" ? (
-        getPageElement(item)
-      ) : (
-        <li key={`pagination-${item}`}>...</li>
+      const itemElement =
+        typeof item === "number" ? getPageElement(item) : "...";
+      return (
+        <li key={item} className={bem("item", modifiers, "pagination")}>
+          {itemElement}
+        </li>
       );
     });
 

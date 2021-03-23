@@ -11,16 +11,18 @@ export default {
   decorators: [withDesign, withQuery],
 };
 
+const getPageNumber = (page: number, pageCount: number) => {
+  return page > 0 && page < pageCount ? page : 1;
+};
+
 const PaginationPageHrefTemplate: Story<PaginationProps> = args => {
   const urlParams = new URLSearchParams(document.location.search);
   const pageParam = urlParams.get("page");
   const pageNumber =
     pageParam &&
     Number(pageParam) &&
-    Number(pageParam) > 0 &&
-    Number(pageParam) < args.pageCount
-      ? Number(pageParam)
-      : 1;
+    getPageNumber(Number(pageParam), args.pageCount);
+
   const location = window.location;
 
   console.log("pageNumber", pageNumber);
