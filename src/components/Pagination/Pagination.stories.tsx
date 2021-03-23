@@ -13,9 +13,17 @@ export default {
 
 const PaginationPageHrefTemplate: Story<PaginationProps> = args => {
   const urlParams = new URLSearchParams(document.location.search);
-  const pageNumber = Number(urlParams.get("page"));
+  const pageParam = urlParams.get("page");
+  const pageNumber =
+    pageParam &&
+    Number(pageParam) &&
+    Number(pageParam) > 0 &&
+    Number(pageParam) < args.pageCount
+      ? Number(pageParam)
+      : 1;
   const location = window.location;
 
+  console.log("pageNumber", pageNumber);
   const getPageHref = page => {
     const currentStoryId = urlParams.get("id");
     return `${location.origin}?path=/story/${currentStoryId}&page=${page}`;
@@ -55,7 +63,7 @@ paginationUrlHref.parameters = {
 const PaginationChangeFunctionTemplate: Story<PaginationProps> = args => {
   const [page, setPage] = useState(args.currentPage);
 
-  const pageUpdate = page => {
+  const pageUpdate = (page: number) => {
     setPage(page);
     console.log(`Changed. Current page is ${page}`);
   };

@@ -27,7 +27,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     className,
     modifiers = [],
     pageCount,
-    currentPage,
+    currentPage = 1,
     getPageHref,
     onPageChange,
   } = props;
