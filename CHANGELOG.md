@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### BugFixes
 
 - Breadcrumbs now show up in light colours
+- Template reflow and breakpoints now happen at the same time
 
 ## 0.21.0
 
