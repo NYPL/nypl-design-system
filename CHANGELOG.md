@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## Prerelease
+
+## 0.21.1
+
+### Changes
+
+- `Accordion`: Adds `fixed-height` modifier and `defaultOpen` prop
+- `List` defaults to grey bullets instead of black
+- Adds margins inside the default columns of `Card`
+
+### BugFixes
+
+- Breadcrumbs now show up in light colours
+- Template reflow and breakpoints now happen at the same time
+- Fixes release github action
+
 ## 0.21.0
 
 ### Breaking Changes
