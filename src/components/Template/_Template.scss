@@ -27,8 +27,8 @@ $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
 }
 
 .content-primary {
-  width: 100%;
   flex: 1 1;
+  width: 100%;
 
   &--with-sidebar-right,
   &--with-sidebar-left {
@@ -52,7 +52,6 @@ $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
   flex: 0 0 $sidebar-width;
 
   @include breakpoint($breakpoint-medium) {
-    flex: 0 0 $sidebar-width;
     order: 1;
 
     &--with-sidebar-left {
