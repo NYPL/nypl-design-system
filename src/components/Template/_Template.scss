@@ -1,10 +1,6 @@
 $sidebar-width: 25%;
 $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
 
-// Adding an extra margin to the breakpoints allows
-//the breakpoints to be hit and the elements to be flexed at the same time
-$breakpoint-margin: 35px;
-
 .main {
   @include wrapper;
 
@@ -14,7 +10,7 @@ $breakpoint-margin: 35px;
     display: flex;
     flex-flow: column nowrap;
 
-    @include breakpoint($breakpoint-medium + $breakpoint-margin) {
+    @include breakpoint($breakpoint-medium) {
       flex-flow: row wrap;
     }
   }
@@ -32,11 +28,11 @@ $breakpoint-margin: 35px;
 
 .content-primary {
   width: 100%;
+  flex: 1 1;
 
   &--with-sidebar-right,
   &--with-sidebar-left {
-    @include breakpoint($breakpoint-medium + $breakpoint-margin) {
-      flex: 1 1 60%;
+    @include breakpoint($breakpoint-medium) {
       min-width: 0;
     }
   }
@@ -46,15 +42,17 @@ $breakpoint-margin: 35px;
     flex-flow: column nowrap;
     order: 1;
 
-    @include breakpoint($breakpoint-medium + $breakpoint-margin) {
+    @include breakpoint($breakpoint-medium) {
       @include space-inline-none;
     }
   }
 }
 
 .content-secondary {
-  @include breakpoint($breakpoint-medium + $breakpoint-margin) {
-    flex: 0 1 $sidebar-width;
+  flex: 0 0 $sidebar-width;
+
+  @include breakpoint($breakpoint-medium) {
+    flex: 0 0 $sidebar-width;
     order: 1;
 
     &--with-sidebar-left {
