@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Breadcrumbs now show up in light colours
 - Set up `lint` and `test` to be platform-agnostic
+- Fixes release action
 
 ## 0.21.0
 
