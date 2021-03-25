@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### BugFixes
 
 - Breadcrumbs now show up in light colours
+- Fixes release action
 
 ## 0.21.0
 
