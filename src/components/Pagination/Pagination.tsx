@@ -14,59 +14,69 @@ export interface PaginationProps {
   pageCount: number;
   /** The current page selected. */
   currentPage: number;
+  /** A method that returns a Link component given the target page */
+  getPageHref?: (pageNumber: number) => string;
   /** The method to callback when an item is selected. Passes the selected page to the consuming app as an argument. */
-  onPageChange?: (selected) => void;
+  onPageChange?: (selected: number) => void;
 }
 
 /** Pagination component that provides a list of page items */
-export default class Pagination extends React.Component<PaginationProps> {
-  constructor(props: PaginationProps) {
-    super(props);
+const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
+  const {
+    blockName,
+    className,
+    modifiers = [],
+    pageCount,
+    currentPage = 1,
+    getPageHref,
+    onPageChange,
+  } = props;
+  if (getPageHref && onPageChange) {
+    console.warn(
+      "Both onPageHref and onPageChange are passed. Will default to using onPageHref"
+    );
   }
 
-  previousPage = evt => {
-    const { currentPage } = this.props;
-    evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-    if (currentPage > 1) {
-      this.selectPage(evt, currentPage - 1);
-    }
-  };
+  const changeUrls =
+    typeof getPageHref !== "undefined" && typeof getPageHref === "function";
 
-  nextPage = evt => {
-    const { currentPage } = this.props;
-    const { pageCount } = this.props;
+  const selectPage = (evt: Event, item: number) => {
+    const runCallback = (selectedItem: number) => {
+      evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
 
-    evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-    if (currentPage < pageCount) {
-      this.selectPage(evt, currentPage + 1);
-    }
-  };
-
-  selectPage = (evt, item) => {
-    const { currentPage } = this.props;
+      if (
+        typeof onPageChange !== "undefined" &&
+        typeof onPageChange === "function"
+      ) {
+        onPageChange(selectedItem);
+      }
+    };
 
     evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
     if (currentPage === item) return;
 
     // Run the callback with the new selected item:
-    this.runCallback(item);
+    runCallback(item);
   };
 
-  runCallback = selectedItem => {
-    if (
-      typeof this.props.onPageChange !== "undefined" &&
-      typeof this.props.onPageChange === "function"
-    ) {
-      this.props.onPageChange(selectedItem);
+  const previousPage = (evt: Event) => {
+    evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
+    if (currentPage > 1) {
+      selectPage(evt, currentPage - 1);
     }
   };
 
-  getPageElement(item) {
-    const { currentPage, modifiers } = this.props;
+  const nextPage = (evt: Event) => {
+    evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
+    if (currentPage < pageCount) {
+      selectPage(evt, currentPage + 1);
+    }
+  };
 
+  const getPageElement = (item: number) => {
     const pageAttributes = {
       "aria-label": null,
-      onClick: evt => this.selectPage(evt, item),
+      onClick: !changeUrls ? evt => selectPage(evt, item) : undefined,
       role: "button",
       tabIndex: 0,
     };
@@ -76,21 +86,17 @@ export default class Pagination extends React.Component<PaginationProps> {
     const pageClass = currentPage === item ? "selected" : null;
 
     return (
-      <li key={item} className={bem("item", modifiers, "pagination")}>
-        <Link
-          attributes={{ ...pageAttributes }}
-          className={bem("link", modifiers, "pagination", [pageClass])}
-          href="#"
-        >
-          {item}
-        </Link>
-      </li>
+      <Link
+        attributes={{ ...pageAttributes }}
+        className={bem("link", modifiers, "pagination", [pageClass])}
+        href={changeUrls ? getPageHref(item) : "#"}
+      >
+        {item}
+      </Link>
     );
-  }
+  };
 
-  pagination = selected => {
-    const { pageCount } = this.props;
-
+  const pagination = (selected: number) => {
     // 1, (2 or ...), pageStart - pageEnd, (next to last item or ...), pageCount
     const pageStart = Math.max(
       3, // if near the beginning, inner pages start at 3
@@ -130,82 +136,78 @@ export default class Pagination extends React.Component<PaginationProps> {
           ];
     const pageItems = truncatedList.map(item => {
       // if it's a number, render that page item, otherwise return the ellipse
-      return typeof item === "number" ? (
-        this.getPageElement(item)
-      ) : (
-        <li key={`pagination-${item}`}>...</li>
+      const itemElement =
+        typeof item === "number" ? getPageElement(item) : "...";
+      return (
+        <li key={item} className={bem("item", modifiers, "pagination")}>
+          {itemElement}
+        </li>
       );
     });
 
     return pageItems;
   };
 
-  render() {
-    const { blockName, className, modifiers } = this.props;
+  // When at the beginning, disable Previous. When at the end, disable Next.
+  const prevDisabled = currentPage === 1;
+  const nextDisabled = currentPage === pageCount;
 
-    // Attributes for Previous and Next Buttons
-    const prevAttributes = {
-      "aria-disabled": null,
-      "aria-label": "Previous page",
-      onClick: this.previousPage,
-      role: "button",
-      tabIndex: 0,
-    };
+  // Attributes for Previous and Next Buttons
+  const prevAttributes = {
+    "aria-disabled": prevDisabled ? "true" : null,
+    "aria-label": "Previous page",
+    role: "button",
+    onClick: changeUrls ? undefined : previousPage,
+    tabIndex: prevDisabled ? -1 : 0,
+  };
 
-    const nextAttributes = {
-      "aria-disabled": null,
-      "aria-label": "Next page",
-      onClick: this.nextPage,
-      role: "button",
-      tabIndex: 0,
-    };
+  const nextAttributes = {
+    "aria-disabled": nextDisabled ? "true" : null,
+    "aria-label": "Next page",
+    role: "button",
+    onClick: changeUrls ? undefined : nextPage,
+    tabIndex: nextDisabled ? -1 : null,
+  };
 
-    // When at the beginning, disable Previous. When at the end, disable Next.
-    const { currentPage } = this.props;
-    const { pageCount } = this.props;
-    const prevDisabled = currentPage === 1;
-    const nextDisabled = currentPage === pageCount;
+  const prevClass = prevDisabled ? "disabled" : null;
+  const nextClass = nextDisabled ? "disabled" : null;
 
-    // When disabled, add aria label and remove tabbing
-    prevAttributes["aria-disabled"] = prevDisabled ? "true" : null;
-    prevAttributes["tabIndex"] = prevDisabled ? -1 : 0;
-    nextAttributes["aria-disabled"] = nextDisabled ? "true" : null;
-    nextAttributes["tabIndex"] = nextDisabled ? -1 : null;
+  return (
+    <nav
+      aria-label="Pagination"
+      className={bem("pagination", modifiers, blockName, [className])}
+    >
+      <ul className={bem("list", modifiers, "pagination")}>
+        <li key="previous" className={bem("item", modifiers, "pagination")}>
+          <Link
+            attributes={{ ...prevAttributes }}
+            className={bem("link", modifiers, "pagination", [prevClass])}
+            href={
+              !prevDisabled && changeUrls ? getPageHref(currentPage - 1) : "#"
+            }
+          >
+            Previous
+          </Link>
+        </li>
 
-    const prevClass = prevDisabled ? "disabled" : null;
-    const nextClass = nextDisabled ? "disabled" : null;
+        {pagination(currentPage)}
 
-    return (
-      <nav
-        aria-label="Pagination"
-        className={bem("pagination", modifiers, blockName, [className])}
-      >
-        <ul className={bem("list", modifiers, "pagination")}>
-          <li key="previous" className={bem("item", modifiers, "pagination")}>
-            <Link
-              attributes={{ ...prevAttributes }}
-              className={bem("link", modifiers, "pagination", [prevClass])}
-              href="#"
-            >
-              Previous
-            </Link>
-          </li>
+        <li key="next" className={bem("item", modifiers, "pagination")}>
+          <Link
+            attributes={{
+              ...nextAttributes,
+            }}
+            className={bem("link", modifiers, "pagination", [nextClass])}
+            href={
+              !nextDisabled && changeUrls ? getPageHref(currentPage + 1) : "#"
+            }
+          >
+            Next
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
-          {this.pagination(currentPage)}
-
-          <li key="next" className={bem("item", modifiers, "pagination")}>
-            <Link
-              attributes={{
-                ...nextAttributes,
-              }}
-              className={bem("link", modifiers, "pagination", [nextClass])}
-              href="#"
-            >
-              Next
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    );
-  }
-}
+export default Pagination;
