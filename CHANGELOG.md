@@ -8,11 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## 0.21.1
+## 0.21.2
 
 ### Changes
 
 - Adds `getPageHref` to `Pagination`
+
+## 0.21.1
+
+### Changes
+
 - `Accordion`: Adds `fixed-height` modifier and `defaultOpen` prop
 - `List` defaults to grey bullets instead of black
 - Adds margins inside the default columns of `Card`
