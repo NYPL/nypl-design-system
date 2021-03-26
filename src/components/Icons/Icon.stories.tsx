@@ -16,8 +16,15 @@ const Template: Story<IconProps> = args => <Icon {...args} />;
 export const ControlProps = Template.bind({});
 ControlProps.args = {
   name: "accessibility_full",
+  color: "ui-black",
   decorative: true,
   modifiers: ["xlarge"],
+};
+
+ControlProps.argTypes = {
+  color: {
+    control: "select",
+  },
 };
 
 const iconRow = function (array, icon, modifiers = "") {

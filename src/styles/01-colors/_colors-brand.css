@@ -1,6 +1,10 @@
 /** Brand Colors */
 :root {
   /** What's On is used for Exhibitions & Events. */
+  --brand-primary: #c60917;
+  --brand-secondary: #760000;
+
+  /** What's On is used for Exhibitions & Events. */
   --section-whats-on-primary: #8a1a9c;
   --section-whats-on-secondary: #7c1097;
 
@@ -8,9 +12,9 @@
   --section-books-and-more-primary: #d0343a;
   --section-books-and-more-secondary: #bb1d12;
 
-  /* Research is used for the Research Catalog and SCC. */
-  --section-research-primary: #377f8b;
-  --section-research-secondary: #02626a;
+  /* Research is used for the Research Catalog and SCC. - UPDATED TO MATCH FIGMA */
+  --section-research-primary: #00838a;
+  --section-research-secondary: #006166;
 
   /* Locations is used for Location Finder and all branch pages with the exceptions of some research libraries. */
   --section-locations-primary: #d0343a;

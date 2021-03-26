@@ -14,10 +14,13 @@ export enum IconNames {
   clock = "clock",
   close = "close",
   download = "download",
+  error_filled = "error_filled",
+  error_outline = "error_outline",
   headset = "headset",
   minus = "minus",
   plus = "plus",
   search = "search",
+  speaker_notes = "speaker_notes",
 }
 
 export enum LogoNames {
@@ -25,4 +28,11 @@ export enum LogoNames {
   logo_nypl = "logo_nypl",
   logo_nypl_negative = "logo_nypl_negative",
   logo_queens = "logo_queens",
+}
+
+export enum IconColors {
+  ui_black = "ui-black",
+  ui_white = "ui-white",
+  brand_primary = "brand-primary",
+  section_research_secondary = "section-research-secondary",
 }
