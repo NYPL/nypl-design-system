@@ -27,6 +27,7 @@ module.exports = {
       },
     },
     "@storybook/addon-controls",
+    "@storybook/addon-queryparams",
   ],
   // We want the repo's webpack configuration to be a part of the Storybook
   // configuration for SCSS and SVGs, but we want to keep the existing

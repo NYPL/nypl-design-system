@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.21.0",
+  "version": "0.21.2",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -17,19 +17,20 @@
     "start": "node node_modules/@storybook/react/bin/index -p 9001 -c .storybook",
     "build-storybook": "node node_modules/.bin/build-storybook -c .storybook -o ./storybook-static",
     "test": "npm run lint && npm run test:ci",
-    "test:ci": "npm run build-ts && cp src/styles.scss lib && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/**/*.test.js",
+    "test:ci": "npm run build-ts && cpy src/styles.scss lib && mocha --require lib/__tests__/setupEnzyme.js --recursive lib/**/*.test.js",
     "format": "prettier --write 'src/**/*.{ts, tsx, js,jsx,json}'",
     "pretty-quick": "pretty-quick",
     "prepare": "npm run dist",
     "build-ts": "rimraf lib && tsc",
     "generate-sass-resources": "gulp",
     "dist": "rimraf dist && webpack --mode production --progress --display-modules --config webpack.config.js && npm run generate-sass-resources",
-    "stylelint": "stylelint '**/*.scss'",
+    "stylelint": "stylelint \"**/*.scss\"",
     "lintts:fix": "eslint --fix --ext=jsx,ts,tsx src",
     "lint": "eslint --ext=jsx,ts,tsx src && npm run stylelint",
     "watch-webpack": "webpack --mode development --watch --progress --display-modules --config webpack.config.js"
   },
   "dependencies": {
+    "cpy-cli": "^3.1.1",
     "he": "^1.2.0",
     "react": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -53,6 +54,7 @@
     "@storybook/addon-essentials": "^6.1.20",
     "@storybook/addon-knobs": "^6.1.20",
     "@storybook/addon-links": "^6.1.20",
+    "@storybook/addon-queryparams": "^6.1.21",
     "@storybook/react": "^6.1.17",
     "@types/chai": "^4.2.3",
     "@types/enzyme": "^3.10.3",
