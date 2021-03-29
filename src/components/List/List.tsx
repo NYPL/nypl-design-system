@@ -25,7 +25,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
     errorText = "";
 
   switch (type) {
-    case "ol":
+    case ListTypes.Ordered:
       errorText = "Direct children of `List` (ordered) should be `<li>`s";
       React.Children.map(children, function (child: React.ReactElement) {
         if (child.type !== "li") {
@@ -41,7 +41,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
         </ol>
       );
       break;
-    case "ul":
+    case ListTypes.Unordered:
       errorText = "Direct children of `List` (unordered) should be `<li>`s";
       React.Children.map(children, function (child: React.ReactElement) {
         if (child.type !== "li") {
@@ -57,7 +57,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
         </ul>
       );
       break;
-    case "dl":
+    case ListTypes.Definition:
       errorText =
         "Direct children of `List` (definition) should be `<dt>`s or `<dd>`s";
       React.Children.map(children, function (child: React.ReactElement) {

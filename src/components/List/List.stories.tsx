@@ -69,12 +69,10 @@ list.parameters = {
 
 const DefinitionListTemplate = ({ items, ...args }) => (
   <List type={ListTypes.Definition} {...args}>
-    {items.map((item, i) => (
-      <React.Fragment key={i}>
-        <dt>{...item.term}</dt>
-        <dd>{...item.definition}</dd>
-      </React.Fragment>
-    ))}
+    {items.map((item, i) => [
+      <dt key={`dt_${i}`}>{...item.term}</dt>,
+      <dd key={`dd_${i}`}>{...item.definition}</dd>,
+    ])}
   </List>
 );
 
@@ -146,7 +144,7 @@ export const cardList = () => (
       type={select("List Type", ListTypes, ListTypes.Unordered)}
       modifiers={boolean("List Styling", false) ? null : ["no-list-styling"]}
     >
-      <p>test</p> {cards}
+      {cards}
     </List>
   </>
 );
