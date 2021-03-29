@@ -79,6 +79,7 @@ const DefinitionListTemplate = ({ items, ...args }) => (
 export const definitionList = DefinitionListTemplate.bind({});
 definitionList.args = {
   items: definitions,
+  title: "Details",
 };
 
 definitionList.storyName = "Definition List";

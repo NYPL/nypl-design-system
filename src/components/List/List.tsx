@@ -14,10 +14,20 @@ export interface ListProps {
   modifiers?: any[];
   /** Ordered, Unordered, or Definition */
   type: ListTypes;
+  /** An optional title that will appear over the list (only applies to Definition Lists) */
+  title?: string;
 }
 
 export default function List(props: React.PropsWithChildren<ListProps>) {
-  const { blockName, children, className, id, modifiers = [], type } = props;
+  const {
+    blockName,
+    children,
+    className,
+    id,
+    modifiers = [],
+    type,
+    title,
+  } = props;
 
   const baseClass = "list";
 
@@ -71,9 +81,11 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
       });
       listTag = (
         <dl id={id} className={bem("definition-list", modifiers, baseClass)}>
-          <Heading id="heading1" level={3}>
-            Details
-          </Heading>
+          {title && (
+            <Heading id="heading1" level={3}>
+              {title}
+            </Heading>
+          )}
           <span className="grid">{children}</span>
         </dl>
       );
