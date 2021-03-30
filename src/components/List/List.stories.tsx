@@ -86,6 +86,12 @@ definitionList.args = {
   title: "Details",
 };
 
+definitionList.argTypes = {
+  type: {
+    table: { disable: true },
+  },
+};
+
 definitionList.storyName = "Definition List";
 definitionList.parameters = {
   design: {
