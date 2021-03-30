@@ -22,7 +22,7 @@
     .grid {
       display: grid;
       gap: 0px;
-      grid-template-columns: 10% 90%;
+      grid-template-columns: 25% 75%;
       grid-template-rows: 1fr;
 
       dt {
@@ -30,6 +30,7 @@
         font-size: var(--font-size-0);
         font-weight: bold;
         padding-bottom: var(--space-s);
+        padding-right: var(--space-m);
         padding-top: var(--space-xs);
       }
 
