@@ -44,11 +44,14 @@ const definitions = [
   },
 ];
 
-const ListTemplate = ({ listType, items, ...args }) => (
-  <List type={listType} {...args}>
-    {items.map((item, i) => (
-      <li key={i}>{...item}</li>
-    ))}
+const ListTemplate = ({ type, ...args }) => (
+  <List type={type} {...args}>
+    {type !== ListTypes.Definition
+      ? itemGroups.map((item, i) => <li key={i}>{item}</li>)
+      : definitions.map((item, i) => [
+          <dt key={`dt_${i}`}>{item.term}</dt>,
+          <dd key={`dd_${i}`}>{item.definition}</dd>,
+        ])}
   </List>
 );
 
@@ -56,7 +59,8 @@ export const list = ListTemplate.bind({});
 
 list.args = {
   type: ListTypes.Unordered,
-  items: itemGroups,
+  itemGroups: itemGroups,
+  definitions: definitions,
 };
 
 list.parameters = {
