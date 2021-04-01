@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Add Definition List component.
+
 ## 0.21.2
 
 ### Changes
