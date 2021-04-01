@@ -80,14 +80,17 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
         }
       });
       listTag = (
-        <dl id={id} className={bem("definition-list", modifiers, baseClass)}>
+        <section
+          id={id}
+          className={bem("definition-list", modifiers, baseClass)}
+        >
           {title && (
             <Heading id="heading1" level={3}>
               {title}
             </Heading>
           )}
-          <span className="grid">{children}</span>
-        </dl>
+          <dl>{children}</dl>
+        </section>
       );
       break;
   }

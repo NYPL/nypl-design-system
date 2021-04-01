@@ -12,18 +12,18 @@
 
   &__definition-list {
     border-bottom: 1px solid var(--ui-gray-light);
-    padding-bottom: 0;
 
     h3 {
       border-top: 3px solid var(--section-research-primary);
       padding-top: var(--space-xs);
     }
 
-    .grid {
+    dl {
       display: grid;
       gap: 0px;
       grid-template-columns: 100%;
       grid-template-rows: 1fr;
+      margin-bottom: 0;
 
       dt {
         border-top: 1px solid var(--ui-gray-light);
@@ -52,11 +52,8 @@
 
       @include breakpoint($breakpoint-medium) {
         grid-template-columns: 25% 75%;
+        margin-bottom: var(--space-s);
       }
-    }
-
-    @include breakpoint($breakpoint-medium) {
-      padding-bottom: var(--space-m);
     }
   }
 
