@@ -12,7 +12,7 @@
 
   &__definition-list {
     border-bottom: 1px solid var(--ui-gray-light);
-    padding-bottom: var(--space-m);
+    padding-bottom: 0;
 
     h3 {
       border-top: 3px solid var(--section-research-primary);
@@ -22,25 +22,41 @@
     .grid {
       display: grid;
       gap: 0px;
-      grid-template-columns: 25% 75%;
+      grid-template-columns: 100%;
       grid-template-rows: 1fr;
 
       dt {
         border-top: 1px solid var(--ui-gray-light);
         font-size: var(--font-size-0);
         font-weight: bold;
-        padding-bottom: var(--space-s);
+        padding-bottom: 0;
         padding-right: var(--space-m);
         padding-top: var(--space-xs);
+
+        @include breakpoint($breakpoint-medium) {
+          padding-bottom: var(--space-s);
+        }
       }
 
       dd {
-        border-top: 1px solid var(--ui-gray-light);
+        border-top: none;
         font-size: var(--font-size-0);
         margin: 0;
         padding-bottom: var(--space-s);
         padding-top: var(--space-xs);
+
+        @include breakpoint($breakpoint-medium) {
+          border-top: 1px solid var(--ui-gray-light);
+        }
       }
+
+      @include breakpoint($breakpoint-medium) {
+        grid-template-columns: 25% 75%;
+      }
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      padding-bottom: var(--space-m);
     }
   }
 
