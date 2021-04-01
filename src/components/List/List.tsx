@@ -31,8 +31,8 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
 
   const baseClass = "list";
 
-  let listTag,
-    errorText = "";
+  let listTag;
+  let errorText = "";
 
   switch (type) {
     case ListTypes.Ordered:
