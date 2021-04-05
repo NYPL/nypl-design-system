@@ -13,9 +13,17 @@
   --ui-gray-xxlight: #fafafa;
 
   /** State and link utilities */
-  --ui-success: #077719;
-  --ui-error: #97272c;
   --ui-focus: #4181f1;
   --ui-link-primary: #0576d3;
   --ui-link-secondary: #004b98;
+  --ui-success-primary: #077719;
+  --ui-success-secondary: #095212;
+  --ui-warning-primary: #f0974e;
+  --ui-warning-secondary: #ec7b1f;
+  --ui-status-primary: #f9e08e;
+  --ui-status-secondary: #fbe7e1;
+  --ui-error: #97272c;
+  --ui-disabled-primary: #e0e0e0;
+  --ui-disabled-secondary: #fafafa;
+  --ui-test: #ff6347;
 }

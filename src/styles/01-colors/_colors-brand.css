@@ -1,23 +1,27 @@
 /** Brand Colors */
 :root {
+  /** Brand fills are the NYPL primary and secondary colors */
+  --brand-primary: #c60917;
+  --brand-secondary: #760000;
+
   /** What's On is used for Exhibitions & Events. */
-  --section-whats-on-primary: #8a1a9c;
-  --section-whats-on-secondary: #7c1097;
+  --section-whats-on-primary: #242424;
+  --section-whats-on-secondary: #000000;
 
   /* Books and More is used for the Catalog, Staff Picks, Recommendations, New Arrivals, and E-Book Central. */
-  --section-books-and-more-primary: #d0343a;
-  --section-books-and-more-secondary: #bb1d12;
+  --section-books-and-more-primary: var(--brand-primary);
+  --section-books-and-more-secondary: var(--brand-secondary);
 
-  /* Research is used for the Research Catalog and SCC. */
-  --section-research-primary: #377f8b;
-  --section-research-secondary: #02626a;
+  /* Research is used for the Research Catalog and SCC. - UPDATED TO MATCH FIGMA */
+  --section-research-primary: #00838a;
+  --section-research-secondary: #006166;
 
   /* Locations is used for Location Finder and all branch pages with the exceptions of some research libraries. */
-  --section-locations-primary: #d0343a;
-  --section-locations-secondary: #bb1d12;
+  --section-locations-primary: var(--brand-primary);
+  --section-locations-secondary: var(--brand-secondary);
 
   /* Research libraries with specific brand colors to adhere to. */
-  --section-research-library-lpa: #008375;
-  --section-research-library-schomburg: #c54b38;
-  --section-research-library-schwartzman: #0071ce;
+  --section-research-library-lpa: #005d53;
+  --section-research-library-schomburg: #a03e31;
+  --section-research-library-schwartzman: var(--brand-secondary);
 }
