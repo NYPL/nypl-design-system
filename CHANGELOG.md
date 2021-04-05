@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Changes `Brand` and `Utility` colors to match Figma main file
+
 ## 0.21.2
 
 ### Changes
