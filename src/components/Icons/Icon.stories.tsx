@@ -1,33 +1,57 @@
 import * as React from "react";
 
-import Icon, { IconProps } from "./Icon";
-import { IconNames, LogoNames } from "./IconTypes";
+// import Icon, { IconProps } from "./Icon";
+import Icon from "./Icon";
+import {
+  IconNames,
+  LogoNames,
+  IconColors,
+  IconSizes,
+  IconRotationTypes,
+} from "./IconTypes";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
-import { Story } from "@storybook/react/types-6-0";
+import { Meta } from "@storybook/react/types-6-0";
 
 export default {
   title: "Icon",
   component: Icon,
-};
+} as Meta;
 
-const Template: Story<IconProps> = args => <Icon {...args} />;
+// CONTROL PROPS *****************************
 
-export const ControlProps = Template.bind({});
+const ControlPropsTemplate = args => <Icon {...args} />;
+export const ControlProps = ControlPropsTemplate.bind({});
+ControlProps.storyName = "Properties";
 ControlProps.args = {
-  name: "accessibility_full",
-  color: "ui-black",
+  name: "close",
+  color: IconColors.ui_black,
+  size: IconSizes.xlarge,
+  iconRotation: IconRotationTypes.rotate0,
   decorative: true,
-  modifiers: ["xlarge"],
 };
-
 ControlProps.argTypes = {
+  iconRotation: {
+    control: "select",
+  },
   color: {
     control: "select",
   },
+  size: {
+    control: "select",
+  },
+};
+ControlProps.parameters = {
+  design: {
+    type: "figma",
+    url:
+      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A630",
+  },
 };
 
-const iconRow = function (array, icon, modifiers = "") {
+// ICONS & LOGOS *****************************
+
+const iconRow = function (array, icon, size = IconSizes.large) {
   const styles = {} as any;
   if (icon.indexOf("_negative") !== -1) {
     styles.backgroundColor = "#000";
@@ -41,7 +65,7 @@ const iconRow = function (array, icon, modifiers = "") {
       }}
     >
       <span style={styles}>
-        <Icon name={icon} decorative={true} modifiers={[modifiers]} />
+        <Icon name={icon} decorative={true} size={size} />
       </span>
       <span style={{ marginLeft: "var(--space-s)" }}>{icon}</span>
     </li>
@@ -49,21 +73,21 @@ const iconRow = function (array, icon, modifiers = "") {
 };
 
 const icons = [];
-
 for (const icon in IconNames) {
   iconRow(icons, icon);
 }
 
 const logos = [];
-
 for (const logo in LogoNames) {
-  iconRow(logos, logo, "xlarge");
+  iconRow(logos, logo, IconSizes.xlarge);
 }
 
-export const Icons = () => <List type={ListTypes.Unordered}>{icons}</List>;
-
-Icons.storyName = "Icons";
-Icons.parameters = {
+const UtilityIconsTemplate = () => (
+  <List type={ListTypes.Unordered}>{icons}</List>
+);
+export const UtilityIcons = UtilityIconsTemplate.bind({});
+UtilityIcons.storyName = "Utility Icons";
+UtilityIcons.parameters = {
   design: {
     type: "figma",
     url:
@@ -71,12 +95,12 @@ Icons.parameters = {
   },
 };
 
-export const Logos = () => (
+const LogosTemplate = () => (
   <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
     {logos}
   </List>
 );
-
+export const Logos = LogosTemplate.bind({});
 Logos.storyName = "Logos";
 Logos.parameters = {
   design: {
@@ -86,14 +110,16 @@ Logos.parameters = {
   },
 };
 
-export const customIcon = () => (
-  <>
+// CUSTOM ICONS *****************************
+
+const customIconTemplate = args => (
+  <div>
     <p>
       {
         "If you'd like to pass a custom svg to your application, you can pass it as children to Icon:"
       }
     </p>
-    <Icon decorative={true} modifiers={["xlarge"]}>
+    <Icon {...args}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 750 750"
@@ -104,5 +130,12 @@ export const customIcon = () => (
         </g>
       </svg>
     </Icon>
-  </>
+  </div>
 );
+export const CustomIcon = customIconTemplate.bind({});
+CustomIcon.args = {
+  color: IconColors.ui_black,
+  size: IconSizes.xlarge,
+  iconRotation: IconRotationTypes.rotate0,
+  decorative: true,
+};

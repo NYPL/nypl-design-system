@@ -7,6 +7,7 @@ import {
   IconNames,
   LogoNames,
   IconColors,
+  IconSizes,
 } from "./IconTypes";
 
 import accessibility_full from "../../../icons/svg/accessibility_full.svg";
@@ -55,13 +56,15 @@ export interface IconProps {
   /** className that appears in addition to "icon" */
   className?: string;
   /** Decorative icons are skipped by screenreaders */
-  decorative: boolean;
+  decorative?: boolean;
   /** Desc prop added to the <svg> element */
   desc?: boolean;
   /** Rotates icons in quarters */
   iconRotation?: IconRotationTypes;
   /** Overrides default icon color (black) */
   color?: IconColors;
+  /** Sets the icon size. */
+  size?: IconSizes;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
   /** Name of the icon */
@@ -76,13 +79,16 @@ export interface IconProps {
  * Icon component
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
+  const baseClass = "icon";
+
   const {
     blockName,
-    decorative,
+    decorative = false,
     className,
     desc,
     iconRotation,
-    color = "ui-black",
+    color = IconColors.ui_black,
+    size = IconSizes.large,
     modifiers = [],
     name,
     role,
@@ -90,18 +96,22 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     children,
   } = props;
 
-  const baseClass = "icon";
+  const iconModifiers = modifiers;
 
   if (iconRotation) {
-    modifiers.push(iconRotation);
+    iconModifiers.push(iconRotation);
   }
 
   if (color) {
-    modifiers.push(color);
+    iconModifiers.push(color);
+  }
+
+  if (size) {
+    iconModifiers.push(size);
   }
 
   const iconProps = {
-    className: bem(baseClass, modifiers, blockName, [className]),
+    className: bem(baseClass, iconModifiers, blockName, [className]),
     role: decorative ? "img" : role,
     "aria-hidden": decorative,
     "aria-labelledby": title ? "title-" + name : undefined,

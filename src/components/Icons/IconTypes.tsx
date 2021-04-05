@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 export enum IconRotationTypes {
-  rotate180 = "rotate-180",
-  rotate270 = "rotate-270",
   rotate0 = "rotate-0",
   rotate90 = "rotate-90",
+  rotate180 = "rotate-180",
+  rotate270 = "rotate-270",
 }
 
 export enum IconNames {
@@ -35,4 +35,11 @@ export enum IconColors {
   ui_white = "ui-white",
   brand_primary = "brand-primary",
   section_research_secondary = "section-research-secondary",
+}
+
+export enum IconSizes {
+  small = "small",
+  medium = "medium",
+  large = "large",
+  xlarge = "xlarge",
 }
