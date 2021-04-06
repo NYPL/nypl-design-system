@@ -8,6 +8,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Adds three new icons to `Icon`: Error solid, Error outlined, Speaker Notes
+- Adds ability to change icon color: `black` (default), `white`, `brand-primary` (red), `section-research-secondary` (turquoise)
+
 ## 0.21.1
 
 ### Changes
