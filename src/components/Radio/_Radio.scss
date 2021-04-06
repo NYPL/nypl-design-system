@@ -1,0 +1,69 @@
+$break-input-mobile: 400px;
+
+.input {
+  @include space-inset-xs;
+  @include space-stack-xs;
+
+  border: 1px solid var(--ui-gray-medium);
+
+  &[type="text"],
+  &[type="number"],
+  &[type="password"] {
+    width: 100%;
+  }
+
+  &[type="radio"] {
+    width: unset;
+
+    + .label {
+      display: unset;
+      margin-left: var(--space-s);
+    }
+  }
+
+  &::-webkit-input-placeholder {
+    color: var(--ui-gray-dark);
+  }
+
+  &:-moz-placeholder {
+    color: var(--ui-gray-dark);
+  }
+
+  &:-ms-input-placeholder {
+    color: var(--ui-gray-dark);
+  }
+
+  &:hover {
+    border-color: var(--ui-gray-dark);
+  }
+
+  &:disabled {
+    background-color: var(--ui-gray-xxlight);
+    color: var(--ui-gray-xdark);
+  }
+
+  &:active,
+  &:focus,
+  &:active:hover,
+  &:focus:hover {
+    border: 1px solid var(--ui-focus);
+    box-shadow: 0;
+    outline: 1px solid var(--ui-focus);
+    z-index: 9999;
+  }
+
+  &--error {
+    border: 1px solid var(--ui-error);
+  }
+}
+
+.input-group {
+  @include breakpoint($break-input-mobile) {
+    display: flex;
+    justify-content: space-between;
+
+    > *:not(:last-child) {
+      @include space-inline-m;
+    }
+  }
+}

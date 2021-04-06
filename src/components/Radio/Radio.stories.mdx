@@ -1,0 +1,50 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Radio from "./Radio";
+
+<Meta
+  title="Form Elements/Radio"
+  component={Radio}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A742",
+    },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => <Radio {...args} />;
+
+# Radio
+
+<Description of={Radio} />
+
+Update the `buttonType` in the Controls section to see the types of buttons
+that can be rendered.
+
+- `ButtonTypes.Primary` is used for actions that move the user forward.
+- `ButtonTypes.Secondary` is used for actions taht move the user back, such as cancellations
+- `ButtonTypes.Pill` is used for equally weighted actions within cards and always in a set
+
+<Preview withToolbar>
+  <Story
+    name="Radio"
+    args={{
+      labelText: "Test Label",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+<ArgsTable story="Radio" />
