@@ -60,7 +60,7 @@ const Radio = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
     <>
       <input
         id={id}
-        className={bem("input", modifiers, blockName, [className])}
+        className={bem("radio", modifiers, "input", [className])}
         type="radio"
         value={value}
         aria-label={ariaLabel}
