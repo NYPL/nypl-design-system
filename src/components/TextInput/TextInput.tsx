@@ -65,13 +65,19 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
 
     const modifiers = props.modifiers ? props.modifiers : [];
 
+    if (errored) {
+      modifiers.push("error");
+    }
+    if (type === TextInputTypes.textarea) {
+      modifiers.push("textarea");
+    }
+
     const errorOutput = errorText
       ? errorText
       : "There is an error related to this field.";
 
     let footnote;
     if (errored) {
-      modifiers.push("error");
       footnote = errorOutput;
     } else {
       footnote = helperText;
@@ -92,14 +98,8 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       );
     }
 
-    const optReqFlag = required ? "Required" : "Optional";
-    const transformedInput = (
+    const textField = (
       <>
-        {label && (
-          <Label htmlFor="inputID" optReqFlag={optReqFlag} id={"label"}>
-            {label}
-          </Label>
-        )}
         <input
           id={id}
           className={bem("textinput", modifiers, blockName, [className])}
@@ -116,6 +116,55 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           {...attributes}
         />
+      </>
+    );
+    const textareaField = (
+      <>
+        <textarea
+          id={id}
+          className={bem("textinput", modifiers, blockName, [className])}
+          aria-label={label}
+          aria-labelledby={labelledBy}
+          aria-required={required}
+          aria-hidden={type === TextInputTypes.hidden}
+          disabled={disabled}
+          placeholder={placeholder}
+          // onChange={onChange}
+          // ref={ref}
+          {...attributes}
+        >
+          {value}
+        </textarea>
+      </>
+    );
+    const fieldOutput =
+      type === TextInputTypes.textarea ? textareaField : textField;
+
+    const optReqFlag = required ? "Required" : "Optional";
+    const transformedInput = (
+      <>
+        {label && (
+          <Label htmlFor="inputID" optReqFlag={optReqFlag} id={"label"}>
+            {label}
+          </Label>
+        )}
+        {fieldOutput}
+        {/* <input
+          id={id}
+          className={bem("textinput", modifiers, blockName, [className])}
+          type={type}
+          value={value}
+          aria-label={label}
+          aria-labelledby={labelledBy}
+          aria-required={required}
+          aria-hidden={type === TextInputTypes.hidden}
+          disabled={disabled}
+          placeholder={placeholder}
+          pattern={TextInputPatterns[type]}
+          onChange={onChange}
+          ref={ref}
+          {...attributes}
+        /> */}
         {/* {helperText ||
           (errorText && ( */}
         <HelperErrorText isError={errored} id={"helperText"}>

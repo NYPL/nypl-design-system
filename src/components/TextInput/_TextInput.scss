@@ -15,6 +15,11 @@ $break-input-mobile: 400px;
     width: 100%;
   }
 
+  &--textarea {
+    min-height: var(--space-xxl);
+    width: 100%;
+  }
+
   &::-webkit-input-placeholder {
     color: var(--ui-gray-dark);
   }
