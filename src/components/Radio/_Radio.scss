@@ -1,15 +1,59 @@
 .input {
   &__radio {
+    -webkit-appearance: none;
+    border: 2px solid var(--ui-black);
+    border-radius: 50%;
     display: inline-block;
+    height: 17px; // the size indicated in Figma (21px) minus the widths of the upper and lower borders (2px + 2px)
+    outline: none;
+    vertical-align: middle;
+    width: 17px; // the size indicated in Figma (21px) minus the widths of the upper and lower borders (2px + 2px)
+
+    &:before {
+      border-radius: 100%;
+      content: "";
+      display: block;
+      height: 8px;
+      margin: 20% 20%;
+      width: 8px;
+    }
+
+    &:checked {
+      border-color: var(--ui-focus);
+
+      &:before {
+        background-color: var(--ui-focus);
+      }
+    }
 
     + label {
       display: inline-block;
       font-size: var(--font-size-0);
       font-weight: 300;
+      margin-bottom: 0px;
       margin-left: var(--space-s);
+      vertical-align: middle;
+    }
+
+    &--error {
+      border-color: var(--ui-error);
+
+      + label {
+        color: var(--ui-error);
+      }
+
+      &:checked {
+        border-color: var(--ui-error);
+
+        &:before {
+          background-color: var(--ui-error);
+        }
+      }
     }
 
     &:disabled {
+      border-color: var(--ui-gray-dark);
+
       + label {
         color: var(--ui-gray-dark);
         font-style: italic;
