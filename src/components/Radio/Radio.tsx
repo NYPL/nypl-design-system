@@ -7,12 +7,6 @@ export interface InputProps {
   labelText?: string;
   /** Additional attributes to pass to the <input> tag */
   attributes?: { [key: string]: any };
-  /** Populates the aria-label on the input */
-  ariaLabel?: string;
-  /** Populates the aria-labelledby on the input */
-  ariaLabelledBy?: string;
-  /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
   /** className you can add in addition to 'input' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -23,30 +17,23 @@ export interface InputProps {
   errored?: boolean;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Populates the placeholder of the input */
-  placeholder?: string;
-  /** Will add 'aria-required: true' to input */
-  required?: boolean;
-
   /** Populates the value of the input */
   value?: string | number;
+  /** The name prop indicates into which group of radios this radio belongs.  If none is specified, 'default' will be used */
+  name?: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Radio = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
   const {
-    ariaLabel,
-    ariaLabelledBy,
     attributes,
-    blockName,
     className,
     disabled,
     errored,
     id,
     labelText,
-    placeholder,
-    required,
+    name,
     value,
     onChange,
   } = props;
@@ -63,10 +50,8 @@ const Radio = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
         className={bem("radio", modifiers, "input", [className])}
         type="radio"
         value={value}
-        aria-label={ariaLabel}
-        aria-labelledby={ariaLabelledBy}
         disabled={disabled}
-        placeholder={placeholder}
+        name={name}
         onChange={onChange}
         ref={ref}
         {...attributes}
