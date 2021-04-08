@@ -46,7 +46,6 @@ export interface InputProps {
 const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref?) => {
     const {
-      attributes,
       type = TextInputTypes.text,
       required,
       label,
@@ -59,6 +58,7 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       className,
       disabled,
       errored,
+      attributes,
       id,
       onChange,
     } = props;
@@ -67,9 +67,6 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
 
     if (errored) {
       modifiers.push("error");
-    }
-    if (type === TextInputTypes.textarea) {
-      modifiers.push("textarea");
     }
 
     const errorOutput = errorText
@@ -143,34 +140,17 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
     const optReqFlag = required ? "Required" : "Optional";
     const transformedInput = (
       <>
-        {label && (
+        {label && type !== TextInputTypes.hidden && (
           <Label htmlFor="inputID" optReqFlag={optReqFlag} id={"label"}>
             {label}
           </Label>
         )}
         {fieldOutput}
-        {/* <input
-          id={id}
-          className={bem("textinput", modifiers, blockName, [className])}
-          type={type}
-          value={value}
-          aria-label={label}
-          aria-labelledby={labelledBy}
-          aria-required={required}
-          aria-hidden={type === TextInputTypes.hidden}
-          disabled={disabled}
-          placeholder={placeholder}
-          pattern={TextInputPatterns[type]}
-          onChange={onChange}
-          ref={ref}
-          {...attributes}
-        /> */}
-        {/* {helperText ||
-          (errorText && ( */}
-        <HelperErrorText isError={errored} id={"helperText"}>
-          {footnote}
-        </HelperErrorText>
-        {/* ))} */}
+        {type !== TextInputTypes.hidden && (
+          <HelperErrorText isError={errored} id={"helperText"}>
+            {footnote}
+          </HelperErrorText>
+        )}
       </>
     );
 

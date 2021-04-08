@@ -2,7 +2,6 @@ import React from "react";
 
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
-// import Label from "../Label/Label";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
@@ -22,14 +21,15 @@ export const input = () => (
     <TextInput
       id="inputID"
       type={select("Input Type", TextInputTypes, TextInputTypes.text)}
-      label={text("Label", "Choose your islander name: ")}
+      label={text("Label", "What is your favorite color?")}
       labelledBy={"label"}
-      required={boolean("Required", false)}
-      placeholder={text("Placeholder Text", "CoolPerson99")}
-      helperText={text("Helper Text", "This is the default helper text.")}
-      errorText={text("Error Text", "There is a problem with this field!")}
+      required={boolean("Required", true)}
+      placeholder={text("Placeholder Text", "e.g. blue, green, etc.")}
+      helperText={text("Helper Text", "Choose wisely.")}
+      errorText={text("Error Text", "Whaaaaaaa!")}
       errored={boolean("Errored", false)}
       disabled={boolean("Disabled", false)}
+      onChange={action("onChange")}
     ></TextInput>
   </>
 );
@@ -55,9 +55,6 @@ export const inputGroup = () => (
     </legend>
     <div className="input-group">
       <div style={{ flex: "1" }}>
-        {/* <Label htmlFor="input1" id={"label1"}>
-          From
-        </Label> */}
         <TextInput
           id="input1"
           label="From"
@@ -67,19 +64,14 @@ export const inputGroup = () => (
               : "helperText1 label1"
           }
           helperText={text("Input 1 Helper Text", "E.g., 10am")}
+          errorText={text("Input 1 Error Text", "Sorry!")}
           errored={groupErrored ? true : false}
-          required={false}
+          required={true}
           type={TextInputTypes.text}
         ></TextInput>
-        {/* <HelperErrorText isError={false} id={"helperText1"}>
-          {text("Input 1 Helper Text", "E.g., 10am")}
-        </HelperErrorText> */}
       </div>
 
       <div style={{ flex: "1" }}>
-        {/* <Label htmlFor="input2" id={"label2"}>
-          To
-        </Label> */}
         <TextInput
           id="input2"
           label="To"
@@ -88,23 +80,14 @@ export const inputGroup = () => (
               ? "helperText2 sharedHelperText label2"
               : "helperText2 label2"
           }
+          helperText={text("Input 2 Helper Text", "E.g., 11am")}
+          errorText={text("Input 2 Error Text", "Nope!")}
           errored={groupErrored ? true : false}
           required={true}
           type={TextInputTypes.text}
         ></TextInput>
-        <HelperErrorText isError={false} id={"helperText2"}>
-          {text("Input 2 Helper Text", "E.g., 11am")}
-        </HelperErrorText>
       </div>
     </div>
-    {groupErrored && (
-      <HelperErrorText isError={true} id={"sharedHelperText"}>
-        {text(
-          "Additional Error Text",
-          "Sorry villager! Those times are not available right now."
-        )}
-      </HelperErrorText>
-    )}
     <Button
       onClick={action("clicked")}
       id="button"
@@ -127,9 +110,6 @@ inputGroup.parameters = {
 
 export const inputAttributes = () => (
   <>
-    {/* <Label htmlFor="inputID-attrs" optReqFlag={"Required"} id={"label"}>
-      Choose your islander name:
-    </Label> */}
     <TextInput
       id="inputID-attrs"
       label="Choose your islander name:"
@@ -137,17 +117,19 @@ export const inputAttributes = () => (
       required={false}
       placeholder={"CoolPerson42"}
       type={TextInputTypes.text}
-      // errored={false}
       attributes={{
-        onBlur: action("onBlur"),
+        onFocus: action("focus"),
+        onBlur: action("blur"),
         onChange: action("onChange"),
         maxLength: number("maxLength", 10),
         tabIndex: number("tabIndex", 0),
+        autoFocus: boolean("autoFocus", false),
       }}
     ></TextInput>
     <HelperErrorText isError={false} id="helperText-attrs">
-      {"Change the max length for 'text' input as an example! And note " +
-        "the actions being called for the passed object in the `attributes` props."}
+      {
+        "Use the `attributes` prop to add additional parameters to input fields. Here you can change the maxlength, tabindex and autofocus for a 'text' input as an example! Additionally, note the onFocus, onBlur and onChange actions being called for the passed object in the `attributes` props."
+      }
     </HelperErrorText>
   </>
 );

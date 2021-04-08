@@ -15,7 +15,7 @@ $break-input-mobile: 400px;
     width: 100%;
   }
 
-  &--textarea {
+  @at-root textarea#{&} {
     min-height: var(--space-xxl);
     width: 100%;
   }
