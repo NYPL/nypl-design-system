@@ -78,13 +78,10 @@ describe("Radio Button", () => {
     );
     expect(container.find("input").instance()).to.equal(ref.current);
   });
-});
 
-describe("Renders HTML attributes passed through the `attributes` prop", () => {
-  const onChangeSpy = stub();
-  const onBlurSpy = stub();
-  let container;
-  before(() => {
+  it("Renders HTML attributes passed through the `attributes` prop", () => {
+    const onChangeSpy = stub();
+    const onBlurSpy = stub();
     container = Enzyme.mount(
       <Radio
         id="inputID-attributes"
@@ -96,19 +93,10 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
         }}
       ></Radio>
     );
-  });
-
-  it("Has a tabIndex", () => {
     expect(container.find("input").prop("tabIndex")).to.equal(0);
-  });
-
-  it("Calls the onChange function", () => {
     expect(onChangeSpy.callCount).to.equal(0);
     container.find("input").simulate("change");
     expect(onChangeSpy.callCount).to.equal(1);
-  });
-
-  it("Calls the onBlur function", () => {
     expect(onBlurSpy.callCount).to.equal(0);
     container.find("input").simulate("blur");
     expect(onBlurSpy.callCount).to.equal(1);
