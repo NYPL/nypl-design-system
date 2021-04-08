@@ -23,8 +23,6 @@ import Radio from "./Radio";
   }}
 />
 
-export const Template = (args, { argTypes }) => <Radio {...args} />;
-
 # Radio
 
 <Description of={Radio} />
@@ -43,7 +41,7 @@ that can be rendered.
       labelText: "Test Label",
     }}
   >
-    {Template.bind({})}
+    {args => <Radio {...args} />}
   </Story>
 </Preview>
 
