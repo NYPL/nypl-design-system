@@ -85,7 +85,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           className={bem("definition-list", modifiers, baseClass)}
         >
           {title && (
-            <Heading id="heading1" level={3}>
+            <Heading id={`${id}-heading`} level={3}>
               {title}
             </Heading>
           )}
