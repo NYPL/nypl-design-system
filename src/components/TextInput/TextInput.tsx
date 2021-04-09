@@ -13,8 +13,6 @@ export interface InputProps {
   required?: boolean;
   /** Provides text for a Label component and populates the aria-label on the input */
   label?: string;
-  /** Populates the aria-labelledby on the input */
-  labelledBy?: string;
   /** Populates the HelperErrorText for standard state */
   helperText?: string;
   /** Populates the HelperErrorText for error state */
@@ -45,7 +43,6 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       type = TextInputTypes.text,
       required,
       label,
-      labelledBy,
       helperText,
       errorText,
       placeholder,
@@ -98,8 +95,8 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
           className={bem("textinput", modifiers, blockName, [className])}
           type={type}
           value={value}
-          aria-label={label}
-          aria-labelledby={labelledBy}
+          aria-label={label ? label : "Input Label"}
+          aria-labelledby={id + "-label " + id + "-helperText"}
           aria-required={required}
           aria-hidden={type === TextInputTypes.hidden}
           disabled={disabled}
@@ -117,7 +114,7 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
           id={id}
           className={bem("textinput", modifiers, blockName, [className])}
           aria-label={label}
-          aria-labelledby={labelledBy}
+          aria-labelledby={id + "-label " + id + "-helperText"}
           aria-required={required}
           aria-hidden={type === TextInputTypes.hidden}
           disabled={disabled}
@@ -138,13 +135,13 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
     const transformedInput = (
       <>
         {label && type !== TextInputTypes.hidden && (
-          <Label htmlFor="inputID" optReqFlag={optReqFlag} id={"label"}>
+          <Label htmlFor={id} optReqFlag={optReqFlag} id={id + `-label`}>
             {label}
           </Label>
         )}
         {fieldOutput}
         {type !== TextInputTypes.hidden && (
-          <HelperErrorText isError={errored} id={"helperText"}>
+          <HelperErrorText isError={errored} id={id + `-helperText`}>
             {footnote}
           </HelperErrorText>
         )}

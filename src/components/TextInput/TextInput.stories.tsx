@@ -19,10 +19,9 @@ export default {
 export const input = () => (
   <form>
     <TextInput
-      id="inputID"
+      id="myTextInput"
       type={select("Input Type", TextInputTypes, TextInputTypes.text)}
       label={text("Label", "What is your favorite color?")}
-      labelledBy={"label"}
       required={boolean("Required", true)}
       placeholder={text("Placeholder Text", "e.g. blue, green, etc.")}
       helperText={text("Helper Text", "Choose wisely.")}
@@ -66,11 +65,6 @@ export const inputGroup = () => (
         <TextInput
           id="input1"
           label="From"
-          labelledBy={
-            groupErrored
-              ? "helperText1 sharedHelperText label1"
-              : "helperText1 label1"
-          }
           helperText={text("Input 1 Helper Text", "E.g., 10am")}
           errorText={text("Input 1 Error Text", "Sorry!")}
           errored={groupErrored ? true : false}
@@ -83,11 +77,6 @@ export const inputGroup = () => (
         <TextInput
           id="input2"
           label="To"
-          labelledBy={
-            groupErrored
-              ? "helperText2 sharedHelperText label2"
-              : "helperText2 label2"
-          }
           helperText={text("Input 2 Helper Text", "E.g., 11am")}
           errorText={text("Input 2 Error Text", "Nope!")}
           errored={groupErrored ? true : false}
@@ -121,7 +110,6 @@ export const inputAttributes = () => (
     <TextInput
       id="inputID-attrs"
       label="Choose your islander name:"
-      labelledBy="helperText-attrs"
       required={false}
       placeholder={"CoolPerson42"}
       type={TextInputTypes.text}
