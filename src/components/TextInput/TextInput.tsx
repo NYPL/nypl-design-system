@@ -1,10 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import {
-  TextInputTypes,
-  TextInputFormats,
-  TextInputPatterns,
-} from "./TextInputTypes";
+import { TextInputTypes, TextInputFormats } from "./TextInputTypes";
 import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
@@ -107,8 +103,8 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
           aria-required={required}
           aria-hidden={type === TextInputTypes.hidden}
           disabled={disabled}
+          required={required}
           placeholder={placeholder}
-          pattern={TextInputPatterns[type]}
           onChange={onChange}
           ref={ref}
           {...attributes}
@@ -125,6 +121,7 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
           aria-required={required}
           aria-hidden={type === TextInputTypes.hidden}
           disabled={disabled}
+          required={required}
           placeholder={placeholder}
           // onChange={onChange}
           // ref={ref}

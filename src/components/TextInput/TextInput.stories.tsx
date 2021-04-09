@@ -17,7 +17,7 @@ export default {
 // let showLabel, showHelperText;
 
 export const input = () => (
-  <>
+  <form>
     <TextInput
       id="inputID"
       type={select("Input Type", TextInputTypes, TextInputTypes.text)}
@@ -31,7 +31,15 @@ export const input = () => (
       disabled={boolean("Disabled", false)}
       onChange={action("onChange")}
     ></TextInput>
-  </>
+    <Button
+      onClick={action("clicked")}
+      id="button"
+      buttonType={ButtonTypes.Primary}
+      type="submit"
+    >
+      Submit
+    </Button>
+  </form>
 );
 
 input.storyName = "Input";
@@ -124,11 +132,12 @@ export const inputAttributes = () => (
         maxLength: number("maxLength", 10),
         tabIndex: number("tabIndex", 0),
         autoFocus: boolean("autoFocus", false),
+        pattern: text("pattern", "[a-z0-9]"),
       }}
     ></TextInput>
     <HelperErrorText isError={false} id="helperText-attrs">
       {
-        "Use the `attributes` prop to add additional parameters to input fields. Here you can change the maxlength, tabindex and autofocus for a 'text' input as an example! Additionally, note the onFocus, onBlur and onChange actions being called for the passed object in the `attributes` props."
+        "Use the `attributes` prop to add additional parameters to input fields. Here you can change the maxlength, tabindex, autofocus and pattern for a 'text' input as an example! Additionally, note the onFocus, onBlur and onChange actions being called for the passed object in the `attributes` props."
       }
     </HelperErrorText>
   </>
