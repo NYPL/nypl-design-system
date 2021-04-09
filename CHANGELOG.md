@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Adds `TextInput` component to handle email, hidden, number, password, text, textarea, tel and url input types
+
 ## 0.21.2
 
 ### Changes

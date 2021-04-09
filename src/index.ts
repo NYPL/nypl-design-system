@@ -30,3 +30,4 @@ export { default as SearchBar } from "./components/SearchBar/SearchBar";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
+export { default as TextInput } from "./components/TextInput/TextInput";
