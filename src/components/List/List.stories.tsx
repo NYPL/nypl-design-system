@@ -159,3 +159,52 @@ export const cardList = () => (
     </List>
   </>
 );
+
+export const listOfLinks = () => (
+  <List title="Details" type={ListTypes.Definition}>
+    <dt>Authors</dt>
+    <dd>
+      <a href="#">Chirwa, Ephraim Wadonda, author</a>
+      <br />
+      <a href="#">Dorward, Andrew, author</a>
+    </dd>
+    <dt>Subjects</dt>
+    <dd>
+      <a href="#">Ackerbau</a>
+      <br />
+      <a href="#">Ackerbau.</a>
+      <br />
+      <a href="#">Africa.</a>
+      <br />
+      <a href="#">Afrika.</a>
+      <br />
+      <a href="#">Agrarsubvention</a>
+      <br />
+      <a href="#">Agrarsubvention.</a>
+      <br />
+      <a href="#">Agricultura -- Subvencions -- Malawi.</a>
+      <br />
+      <a href="#">Agricultural economics New.</a>
+      <br />
+      <a href="#">Agricultural subsidies</a>
+      <br />
+      <a href="#">Agricultural subsidies -- Developing countries.</a>
+      <br />
+      <a href="#">Agricultural subsidies -- Malawi.</a>
+      <br />
+      <a href="#">Agricultural subsidies.</a>
+      <br />
+      <a href="#">BUSINESS &amp; ECONOMICS -- Industries</a>
+      <br />
+    </dd>
+  </List>
+);
+
+listOfLinks.storyName = "List of Links";
+listOfLinks.parameters = {
+  docs: {
+    source: {
+      type: "dynamic",
+    },
+  },
+};
