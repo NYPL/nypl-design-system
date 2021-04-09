@@ -159,7 +159,7 @@ export const cardList = () => (
     </List>
   </>
 );
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
 export const listOfLinks = () => (
   <List title="Details" type={ListTypes.Definition}>
     <dt>Authors</dt>
@@ -199,6 +199,7 @@ export const listOfLinks = () => (
     </dd>
   </List>
 );
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 listOfLinks.storyName = "List of Links";
 listOfLinks.parameters = {
