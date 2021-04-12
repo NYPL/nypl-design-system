@@ -27,13 +27,15 @@ import Radio from "./Radio";
 
 <Description of={Radio} />
 
-This component renders a radio button form element. See below for configuration information.
+This component renders a radio button form element. See below for configuration information. Note that the `id` property, while optional, will
+cause an accessibility violation if none is present.
 
 <Preview withToolbar>
   <Story
     name="Radio"
     args={{
       labelText: "Test Label",
+      id: "test_id",
     }}
   >
     {args => <Radio {...args} />}

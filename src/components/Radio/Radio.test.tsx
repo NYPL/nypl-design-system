@@ -45,11 +45,14 @@ describe("Radio Button", () => {
       <>
         <Radio
           //add other props here
+          id="test_id"
           labelText="Hello"
         ></Radio>
       </>
     );
     expect(container.find("label").exists()).to.equal(true);
+    const radioId = container.prop("id");
+    expect(container.find("label").prop("htmlFor")).to.equal(radioId);
   });
 
   it("The 'checked' attribute can set properly", () => {
