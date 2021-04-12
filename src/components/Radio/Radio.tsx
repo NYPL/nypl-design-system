@@ -5,7 +5,7 @@ import Label from "../Label/Label";
 export interface InputProps {
   /** An optional text label for the radio button */
   labelText?: string;
-  /** Additional attributes to pass to the <input> tag */
+  /** Additional attributes to pass to the `<input>` tag */
   attributes?: { [key: string]: any };
   /** className you can add in addition to 'input' */
   className?: string;

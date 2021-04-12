@@ -88,7 +88,6 @@ describe("Radio Button", () => {
         attributes={{
           onChange: onChangeSpy,
           onBlur: onBlurSpy,
-          maxLength: 10,
           tabIndex: 0,
         }}
       ></Radio>
