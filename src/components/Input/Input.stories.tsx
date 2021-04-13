@@ -11,7 +11,7 @@ import { text, boolean, select, number } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
 export default {
-  title: "Input",
+  title: "Form Elements/Input",
   component: Input,
 };
 

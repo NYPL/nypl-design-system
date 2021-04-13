@@ -7,7 +7,7 @@ import { text, boolean, select } from "@storybook/addon-knobs";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export default {
-  title: "Select",
+  title: "Form Elements/Select",
   component: Select,
 };
 

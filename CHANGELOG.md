@@ -8,6 +8,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Adds `Form Elements` heading in Storybook components list
+- Changes `Button`, `Checkbox`, `Input`, `Label`, `SearchBar` and `Select` to sit under the new `Form Elements` heading
+
 ## 0.21.2
 
 ### Changes

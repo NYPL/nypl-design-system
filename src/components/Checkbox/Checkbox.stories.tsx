@@ -5,7 +5,7 @@ import { withDesign } from "storybook-addon-designs";
 
 // Set defaults for the checkbox stories.
 export default {
-  title: "Checkbox",
+  title: "Form Elements/Checkbox",
   component: Checkbox,
   // Remove some props for all checkbox stories.
   argTypes: {
