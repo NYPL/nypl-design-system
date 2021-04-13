@@ -7,6 +7,8 @@ export interface InputProps {
   labelText?: string;
   /** Additional attributes to pass to the `<input>` tag */
   attributes?: { [key: string]: any };
+  /** When using the Radio as a "controlled" form element, you can specify the Radio's checked state using this prop. Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
+  checked?: boolean;
   /** className you can add in addition to 'input' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -29,6 +31,7 @@ const Radio = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
   const {
     attributes,
     className,
+    checked,
     disabled,
     errored,
     id,
@@ -48,6 +51,7 @@ const Radio = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
       <input
         id={id}
         className={bem("radio", modifiers, "input", [className])}
+        checked={checked}
         type="radio"
         value={value}
         disabled={disabled}
