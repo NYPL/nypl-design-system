@@ -9,9 +9,10 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 // eslint-disable-next-line id-blacklist
 import { text, boolean, select, number } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Form Elements/Input",
+  title: getCategory("Input"),
   component: Input,
 };
 

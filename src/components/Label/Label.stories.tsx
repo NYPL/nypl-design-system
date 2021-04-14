@@ -2,9 +2,10 @@ import * as React from "react";
 
 import Label from "../Label/Label";
 import { text, select } from "@storybook/addon-knobs";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Form Elements/Label",
+  title: getCategory("Label"),
   component: Label,
 };
 
