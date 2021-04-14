@@ -26,7 +26,7 @@ export interface RadioProps {
   /** Offers the ability to show the radio's label onscreen or hide it. Refer to the `labelText` property for more information. */
   showLabel: boolean;
   /** Populates the value of the input */
-  value?: string | number;
+  value?: string;
 }
 
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
