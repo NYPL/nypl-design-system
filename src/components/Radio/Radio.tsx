@@ -2,46 +2,51 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import Label from "../Label/Label";
 
-export interface InputProps {
-  /** An optional text label for the radio button */
-  labelText?: string;
+export interface RadioProps {
+  /** The radio button's label.  This will serve as the text content for a `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
+  labelText: string;
   /** Additional attributes to pass to the `<input>` tag */
   attributes?: { [key: string]: any };
   /** When using the Radio as a "controlled" form element, you can specify the Radio's checked state using this prop. Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
   checked?: boolean;
   /** className you can add in addition to 'input' */
   className?: string;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Adds the 'disabled' prop to the input when true */
   disabled?: boolean;
   /** Helper for modifiers array; adds 'errored' styling */
   errored?: boolean;
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Populates the value of the input */
-  value?: string | number;
   /** The name prop indicates into which group of radios this radio belongs.  If none is specified, 'default' will be used */
   name?: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Offers the ability to show the radio's label onscreen or hide it. Refer to the `labelText` property for more information. */
+  showLabel: boolean;
+  /** Populates the value of the input */
+  value?: string | number;
 }
 
-const Radio = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
+const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const {
-    attributes,
-    className,
     checked,
+    className,
     disabled,
     errored,
     id,
     labelText,
     name,
-    value,
     onChange,
+    showLabel,
+    value,
   } = props;
 
+  const attributes = props.attributes || {};
   const modifiers = props.modifiers ? props.modifiers : [];
+
+  if (!showLabel) attributes["aria-label"] = labelText;
 
   if (errored) {
     modifiers.push("error");
@@ -49,18 +54,18 @@ const Radio = React.forwardRef<HTMLInputElement, InputProps>((props, ref?) => {
   return (
     <>
       <input
-        id={id}
-        className={bem("radio", modifiers, "input", [className])}
         checked={checked}
-        type="radio"
-        value={value}
+        className={bem("radio", modifiers, "input", [className])}
         disabled={disabled}
+        id={id}
         name={name || "default"}
         onChange={onChange}
         ref={ref}
+        type="radio"
+        value={value}
         {...attributes}
       />
-      {labelText && <Label htmlFor={id}>{labelText}</Label>}
+      {labelText && showLabel && <Label htmlFor={id}>{labelText}</Label>}
     </>
   );
 });

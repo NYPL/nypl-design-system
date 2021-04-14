@@ -18,8 +18,15 @@ describe("Radio Button", () => {
         id="inputID"
         attributes={{ onClick: clickHander }}
         onChange={changeHandler}
+        labelText="Test Label"
+        showLabel={false}
       ></Radio>
     );
+  });
+
+  it("Renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
+    const labelText = container.prop("labelText");
+    expect(container.find("input").prop("aria-label")).to.equal(labelText);
   });
 
   it("Renders without crashing", () => {
@@ -47,6 +54,7 @@ describe("Radio Button", () => {
           //add other props here
           id="test_id"
           labelText="Hello"
+          showLabel={true}
         ></Radio>
       </>
     );
@@ -60,6 +68,8 @@ describe("Radio Button", () => {
     const container = Enzyme.mount(
       <Radio
         id="inputID-attributes"
+        labelText="Hello"
+        showLabel={false}
         attributes={{
           checked: true,
           "aria-checked": true,
@@ -77,7 +87,12 @@ describe("Radio Button", () => {
   it("Passes the ref to the input element", () => {
     const ref = React.createRef<HTMLInputElement>();
     const container = Enzyme.mount(
-      <Radio id="inputID-attributes" ref={ref}></Radio>
+      <Radio
+        id="inputID-attributes"
+        ref={ref}
+        labelText="Hello"
+        showLabel={false}
+      ></Radio>
     );
     expect(container.find("input").instance()).to.equal(ref.current);
   });
@@ -93,6 +108,8 @@ describe("Radio Button", () => {
           onBlur: onBlurSpy,
           tabIndex: 0,
         }}
+        labelText="Hello"
+        showLabel={true}
       ></Radio>
     );
     expect(container.find("input").prop("tabIndex")).to.equal(0);

@@ -35,6 +35,7 @@ cause an accessibility violation if none is present.
     name="Radio"
     args={{
       labelText: "Test Label",
+      showLabel: true,
       id: "test_id",
     }}
   >
@@ -47,7 +48,7 @@ cause an accessibility violation if none is present.
 ## Checked
 
 <Canvas>
-  <Radio checked labelText="I am checked"></Radio>
+  <Radio checked showLabel={true} labelText="I am checked"></Radio>
 </Canvas>
 
 ## Focused
@@ -56,17 +57,18 @@ cause an accessibility violation if none is present.
   <Radio
     name="testFocus"
     labelText="Click or tab to the Radio to see its focus state"
+    showLabel={true}
   ></Radio>
 </Canvas>
 
 ## Errored
 
 <Canvas>
-  <Radio errored labelText="I am in an error state"></Radio>
+  <Radio errored showLabel={true} labelText="I am in an error state"></Radio>
 </Canvas>
 
 ## Disabled
 
 <Canvas>
-  <Radio disabled labelText="I am disabled"></Radio>
+  <Radio disabled showLabel={true} labelText="I am disabled"></Radio>
 </Canvas>
