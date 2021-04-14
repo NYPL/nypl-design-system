@@ -1,10 +1,16 @@
-/** Brand Colors */
+/**
+ * Brand Colors
+ *
+ * Color Reference in Figma Main File
+ * https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007
+ *
+ */
 :root {
-  /** Brand fills are the NYPL primary and secondary colors */
+  /* Brand fills are the NYPL primary and secondary colors */
   --brand-primary: #c60917;
   --brand-secondary: #760000;
 
-  /** What's On is used for Exhibitions & Events. */
+  /* What's On is used for Exhibitions & Events. */
   --section-whats-on-primary: #242424;
   --section-whats-on-secondary: #000000;
 
@@ -12,7 +18,7 @@
   --section-books-and-more-primary: var(--brand-primary);
   --section-books-and-more-secondary: var(--brand-secondary);
 
-  /* Research is used for the Research Catalog and SCC. - UPDATED TO MATCH FIGMA */
+  /* Research is used for the Research Catalog and SCC. */
   --section-research-primary: #00838a;
   --section-research-secondary: #006166;
 
