@@ -1,6 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Label from "../Label/Label";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface RadioProps {
   /** The radio button's label.  This will serve as the text content for a `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
@@ -45,6 +46,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
 
   const attributes = props.attributes || {};
   const modifiers = props.modifiers ? props.modifiers : [];
+  const radioID = id || generateUUID();
 
   if (!showLabel) attributes["aria-label"] = labelText;
 
@@ -57,7 +59,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
         checked={checked}
         className={bem("radio", modifiers, "input", [className])}
         disabled={disabled}
-        id={id}
+        id={radioID}
         name={name || "default"}
         onChange={onChange}
         ref={ref}
@@ -65,7 +67,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
         value={value}
         {...attributes}
       />
-      {labelText && showLabel && <Label htmlFor={id}>{labelText}</Label>}
+      {labelText && showLabel && <Label htmlFor={radioID}>{labelText}</Label>}
     </>
   );
 });
