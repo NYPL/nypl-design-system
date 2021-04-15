@@ -4,22 +4,22 @@
     border: 2px solid var(--ui-black);
     border-radius: 50%;
     display: inline-block;
-    height: 1rem;
+    height: 1.375rem;
     outline: none;
     position: relative;
     vertical-align: middle;
-    width: 1rem;
+    width: 1.375rem;
 
     &:before {
       border-radius: 100%;
       content: "";
       display: block;
-      height: 8px;
+      height: 0.75rem;
       left: 50%;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 8px;
+      width: 0.75rem;
     }
 
     &:checked {

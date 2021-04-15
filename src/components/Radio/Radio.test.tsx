@@ -49,16 +49,15 @@ describe("Radio Button", () => {
 
   it("Renders with label", () => {
     container = Enzyme.mount(
-      <>
-        <Radio
-          //add other props here
-          id="test_id"
-          labelText="Hello"
-          showLabel={true}
-        ></Radio>
-      </>
+      <Radio
+        //add other props here
+        id="test_id"
+        labelText="Hello"
+        showLabel={true}
+      ></Radio>
     );
     expect(container.find("label").exists()).to.equal(true);
+    expect(container.find("input").props()).not.to.have.property("aria-label");
     const radioId = container.prop("id");
     expect(container.find("label").prop("htmlFor")).to.equal(radioId);
   });
