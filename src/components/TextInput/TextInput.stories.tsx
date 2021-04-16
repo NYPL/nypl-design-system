@@ -21,12 +21,13 @@ export const input = () => (
     <TextInput
       id="myTextInput"
       type={select("Input Type", TextInputTypes, TextInputTypes.text)}
-      label={text("Label", "What is your favorite color?")}
-      required={boolean("Required", true)}
+      labelText={text("Label Text", "What is your favorite color?")}
+      showLabel={boolean("Show Label", true)}
       placeholder={text("Placeholder Text", "e.g. blue, green, etc.")}
       helperText={text("Helper Text", "Choose wisely.")}
       errorText={text("Error Text", "Whaaaaaaa!")}
       errored={boolean("Errored", false)}
+      required={boolean("Required", true)}
       disabled={boolean("Disabled", false)}
       onChange={action("onChange")}
     ></TextInput>
@@ -64,7 +65,7 @@ export const inputGroup = () => (
       <div style={{ flex: "1" }}>
         <TextInput
           id="input1"
-          label="From"
+          labelText="From"
           helperText={text("Input 1 Helper Text", "E.g., 10am")}
           errorText={text("Input 1 Error Text", "Sorry!")}
           errored={groupErrored ? true : false}
@@ -76,7 +77,7 @@ export const inputGroup = () => (
       <div style={{ flex: "1" }}>
         <TextInput
           id="input2"
-          label="To"
+          labelText="To"
           helperText={text("Input 2 Helper Text", "E.g., 11am")}
           errorText={text("Input 2 Error Text", "Nope!")}
           errored={groupErrored ? true : false}
@@ -109,7 +110,7 @@ export const inputAttributes = () => (
   <>
     <TextInput
       id="inputID-attrs"
-      label="Choose your islander name:"
+      labelText="Choose your islander name:"
       required={false}
       placeholder={"CoolPerson42"}
       type={TextInputTypes.text}

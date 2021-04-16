@@ -11,8 +11,10 @@ export interface InputProps {
   type?: TextInputTypes;
   /** Will add 'aria-required: true' to input */
   required?: boolean;
-  /** Provides text for a Label component and populates the aria-label on the input */
-  label?: string;
+  /** Provides text for a `Label` component if `showLabel` is set to true; populates a `aria-label` sttribute if `showLabel` is set to false. */
+  labelText: string;
+  /** Offers the ability to show the label onscreen or hide it. Refer to the `labelText` property for more information. */
+  showLabel?: boolean;
   /** Populates the HelperErrorText for standard state */
   helperText?: string;
   /** Populates the HelperErrorText for error state */
@@ -21,8 +23,6 @@ export interface InputProps {
   placeholder?: string;
   /** Populates the value of the input */
   value?: string | number;
-  /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
   /** className you can add in addition to 'input' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -42,24 +42,30 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
     const {
       type = TextInputTypes.text,
       required,
-      label,
+      labelText,
+      showLabel = true,
       helperText,
       errorText,
       placeholder,
       value,
-      blockName,
       className,
       disabled,
       errored,
-      attributes,
       id,
       onChange,
     } = props;
 
+    const attributes = props.attributes || {};
     const modifiers = props.modifiers ? props.modifiers : [];
+
+    if (!showLabel) attributes["aria-label"] = labelText;
+    if (helperText) attributes["aria-describedby"] = helperText;
 
     if (errored) {
       modifiers.push("error");
+    }
+    if (type === TextInputTypes.textarea) {
+      modifiers.push("textarea");
     }
 
     const errorOutput = errorText
@@ -92,11 +98,9 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       <>
         <input
           id={id}
-          className={bem("textinput", modifiers, blockName, [className])}
+          className={bem("inputfield", modifiers, "", [className])}
           type={type}
           value={value}
-          aria-label={label ? label : "Input Label"}
-          aria-labelledby={id + "-label " + id + "-helperText"}
           aria-required={required}
           aria-hidden={type === TextInputTypes.hidden}
           disabled={disabled}
@@ -112,9 +116,7 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       <>
         <textarea
           id={id}
-          className={bem("textinput", modifiers, blockName, [className])}
-          aria-label={label}
-          aria-labelledby={id + "-label " + id + "-helperText"}
+          className={bem("inputfield", modifiers, "", [className])}
           aria-required={required}
           aria-hidden={type === TextInputTypes.hidden}
           disabled={disabled}
@@ -133,19 +135,19 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
 
     const optReqFlag = required ? "Required" : "Optional";
     const transformedInput = (
-      <>
-        {label && type !== TextInputTypes.hidden && (
+      <div className="textinput">
+        {labelText && showLabel && type !== TextInputTypes.hidden && (
           <Label htmlFor={id} optReqFlag={optReqFlag} id={id + `-label`}>
-            {label}
+            {labelText}
           </Label>
         )}
         {fieldOutput}
-        {type !== TextInputTypes.hidden && (
+        {helperText && type !== TextInputTypes.hidden && (
           <HelperErrorText isError={errored} id={id + `-helperText`}>
             {footnote}
           </HelperErrorText>
         )}
-      </>
+      </div>
     );
 
     return transformedInput;

@@ -1,59 +1,64 @@
 $break-input-mobile: 400px;
 
 .textinput {
-  @include space-inset-xs;
-  @include space-stack-xs;
+  .inputfield {
+    @include space-inset-xs;
+    @include space-stack-xs;
 
-  border: 1px solid var(--ui-gray-medium);
+    border: 1px solid var(--ui-gray-medium);
 
-  &[type="text"],
-  &[type="number"],
-  &[type="password"],
-  &[type="url"],
-  &[type="tel"],
-  &[type="email"] {
-    width: 100%;
+    &[type="text"],
+    &[type="number"],
+    &[type="password"],
+    &[type="url"],
+    &[type="tel"],
+    &[type="email"] {
+      width: 100%;
+    }
+
+    &--textarea {
+      min-height: var(--space-xxl);
+      width: 100%;
+    }
+
+    &::-webkit-input-placeholder {
+      color: var(--ui-gray-dark);
+    }
+
+    &:-moz-placeholder {
+      color: var(--ui-gray-dark);
+    }
+
+    &:-ms-input-placeholder {
+      color: var(--ui-gray-dark);
+    }
+
+    &:hover {
+      border-color: var(--ui-gray-dark);
+    }
+
+    &:disabled {
+      background-color: var(--ui-gray-xxlight);
+      color: var(--ui-gray-xdark);
+      pointer-events: none;
+    }
+
+    &:active,
+    &:focus,
+    &:active:hover,
+    &:focus:hover {
+      border: 1px solid var(--ui-focus);
+      box-shadow: 0;
+      outline: 1px solid var(--ui-focus);
+      z-index: 9999;
+    }
+
+    &--error {
+      border: 1px solid var(--ui-error);
+    }
   }
-
-  @at-root textarea#{&} {
-    min-height: var(--space-xxl);
-    width: 100%;
-  }
-
-  &::-webkit-input-placeholder {
-    color: var(--ui-gray-dark);
-  }
-
-  &:-moz-placeholder {
-    color: var(--ui-gray-dark);
-  }
-
-  &:-ms-input-placeholder {
-    color: var(--ui-gray-dark);
-  }
-
-  &:hover {
-    border-color: var(--ui-gray-dark);
-  }
-
-  &:disabled {
-    background-color: var(--ui-gray-xxlight);
-    color: var(--ui-gray-xdark);
-    pointer-events: none;
-  }
-
-  &:active,
-  &:focus,
-  &:active:hover,
-  &:focus:hover {
-    border: 1px solid var(--ui-focus);
-    box-shadow: 0;
-    outline: 1px solid var(--ui-focus);
-    z-index: 9999;
-  }
-
-  &--error {
-    border: 1px solid var(--ui-error);
+  label {
+    font-weight: 300;
   }
 }
 

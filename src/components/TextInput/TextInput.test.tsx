@@ -18,6 +18,7 @@ describe("Renders TextInput", () => {
     container = Enzyme.mount(
       <TextInput
         id={"myTextInput"}
+        labelText="Text Field Label"
         required={true}
         placeholder={"Input Placeholder"}
         type={TextInputTypes.text}
@@ -68,7 +69,7 @@ describe("TextInput with label and helper text", () => {
       <>
         <TextInput
           id={"myTextInput"}
-          label={"Custom Input Label"}
+          labelText={"Custom Input Label"}
           helperText={"Custom Helper Text"}
           required={true}
           placeholder={"Input Placeholder"}
@@ -114,7 +115,7 @@ describe("TextInput shows error state", () => {
       <>
         <TextInput
           id={"myTextInputError"}
-          label={"Custom Input Label"}
+          labelText={"Custom Input Label"}
           helperText={"Custom Helper Text"}
           errorText={"Custom Error Text"}
           placeholder={"Input Placeholder"}
@@ -164,7 +165,7 @@ describe("TextInput Group", () => {
               id="input1"
               required={true}
               type={TextInputTypes.text}
-              label="For"
+              labelText="For"
               helperText="Input 1 Helper Text"
             ></TextInput>
           </>
@@ -174,7 +175,7 @@ describe("TextInput Group", () => {
               id="input2"
               required={true}
               type={TextInputTypes.text}
-              label="To"
+              labelText="To"
               helperText="Input 2 Helper Text"
             ></TextInput>
           </>
@@ -207,7 +208,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
     container = Enzyme.mount(
       <TextInput
         id="inputID-attributes"
-        label="Input Label"
+        labelText="Input Label"
         placeholder={"Input Placeholder"}
         type={TextInputTypes.text}
         attributes={{
@@ -247,7 +248,7 @@ describe("Forwarding refs", () => {
     const container = Enzyme.mount(
       <TextInput
         id="inputID-attributes"
-        label="Input Label"
+        labelText="Input Label"
         placeholder={"Input Placeholder"}
         type={TextInputTypes.text}
         ref={ref}
@@ -262,7 +263,7 @@ describe("Hidden input", () => {
     const container = Enzyme.mount(
       <TextInput
         id="inputID-hidden"
-        label={"Hidden Input Label"}
+        labelText={"Hidden Input Label"}
         type={TextInputTypes.hidden}
         value="hidden"
       />
