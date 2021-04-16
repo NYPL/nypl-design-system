@@ -55,7 +55,7 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       onChange,
     } = props;
 
-    const attributes = props.attributes || {};
+    const attributes = props.attributes ? props.attributes : {};
     const modifiers = props.modifiers ? props.modifiers : [];
 
     if (!showLabel) attributes["aria-label"] = labelText;

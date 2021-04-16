@@ -7,22 +7,22 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
 
-describe("Renders TextInput", () => {
+describe("Renders TextInput with visible label", () => {
   let container;
   let changeHandler;
-  let clickHander;
+  let focusHandler;
 
   before(() => {
-    clickHander = stub();
+    focusHandler = stub();
     changeHandler = stub();
     container = Enzyme.mount(
       <TextInput
         id={"myTextInput"}
-        labelText="Text Field Label"
+        labelText={"Custom Input Label"}
         required={true}
         placeholder={"Input Placeholder"}
         type={TextInputTypes.text}
-        attributes={{ onClick: clickHander }}
+        attributes={{ onFocus: focusHandler }}
         onChange={changeHandler}
       ></TextInput>
     );
@@ -36,8 +36,16 @@ describe("Renders TextInput", () => {
     expect(container.find("input").prop("type")).to.equal("text");
   });
 
-  it("Renders default aria-label", () => {
-    expect(container.find("input").prop("aria-label")).to.equal("Input Label");
+  it("Renders label with label text", () => {
+    expect(container.find("label").exists()).to.equal(true);
+  });
+
+  it("Renders correct label text", () => {
+    expect(container.find("label").text()).to.contain("Custom Input Label");
+  });
+
+  it("Renders label's `for` attribute pointing at ID from input", () => {
+    expect(container.find("label").prop("htmlFor")).to.equal("myTextInput");
   });
 
   it("Renders placeholder text", () => {
@@ -51,9 +59,15 @@ describe("Renders TextInput", () => {
   });
 
   it("Allows user to pass in additional attributes", () => {
-    container.simulate("click");
-    expect(clickHander.callCount).to.equal(1);
+    container.find("input").simulate("focus");
+    expect(focusHandler.callCount).to.equal(1);
   });
+
+  // it("Calls the onBlur function", () => {
+  //   expect(focusHandler.callCount).to.equal(0);
+  //   container.find("input").simulate("blur");
+  //   expect(focusHandler.callCount).to.equal(1);
+  // });
 
   it("Changing the value calls the onChange handler", () => {
     container.find("input").simulate("change", { target: { value: "Hello" } });
@@ -62,7 +76,7 @@ describe("Renders TextInput", () => {
   });
 });
 
-describe("TextInput with label and helper text", () => {
+describe("Renders TextInput with hidden label and visible helper text", () => {
   let container;
   before(() => {
     container = Enzyme.mount(
@@ -70,6 +84,7 @@ describe("TextInput with label and helper text", () => {
         <TextInput
           id={"myTextInput"}
           labelText={"Custom Input Label"}
+          showLabel={false}
           helperText={"Custom Helper Text"}
           required={true}
           placeholder={"Input Placeholder"}
@@ -83,12 +98,8 @@ describe("TextInput with label and helper text", () => {
     expect(container.find("input").exists()).to.equal(true);
   });
 
-  it("Renders Label component", () => {
-    expect(container.find("label").exists()).to.equal(true);
-  });
-
-  it("Renders HelperErrorText component", () => {
-    expect(container.find(".helper-text").exists()).to.equal(true);
+  it("Does not renders Label component", () => {
+    expect(container.find("label").exists()).to.equal(false);
   });
 
   it("Renders custom aria-label", () => {
@@ -97,13 +108,13 @@ describe("TextInput with label and helper text", () => {
     );
   });
 
-  it("Renders label with `for` pointing at ID from input", () => {
-    expect(container.find("label").prop("htmlFor")).to.equal("myTextInput");
+  it("Renders HelperErrorText component", () => {
+    expect(container.find(".helper-text").exists()).to.equal(true);
   });
 
-  it("Renders aria-labelledby pointing at label and helper text", () => {
-    expect(container.find("input").prop("aria-labelledby")).to.equal(
-      "myTextInput-label myTextInput-helperText"
+  it("Renders aria-describedby with helper text", () => {
+    expect(container.find("input").prop("aria-describedby")).to.equal(
+      "Custom Helper Text"
     );
   });
 });
@@ -139,7 +150,9 @@ describe("TextInput shows error state", () => {
   });
 
   it("Input shows error state", () => {
-    expect(container.find("input").hasClass("textinput--error")).to.equal(true);
+    expect(container.find("input").hasClass("inputfield--error")).to.equal(
+      true
+    );
   });
 
   it("Helper text shows error state", () => {
