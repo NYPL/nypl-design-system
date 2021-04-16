@@ -3,6 +3,7 @@ import bem from "../../utils/bem";
 import { TextInputTypes, TextInputFormats } from "./TextInputTypes";
 import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface InputProps {
   /** Additional attributes to pass to the <input> tag */
@@ -51,12 +52,12 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       className,
       disabled,
       errored,
-      id,
       onChange,
     } = props;
 
-    const attributes = props.attributes ? props.attributes : {};
+    const attributes = props.attributes || {};
     const modifiers = props.modifiers ? props.modifiers : [];
+    const id = props.id || generateUUID();
 
     if (!showLabel) attributes["aria-label"] = labelText;
     if (helperText) attributes["aria-describedby"] = helperText;

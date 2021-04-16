@@ -1,11 +1,12 @@
 import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import { stub } from "sinon";
+import { stub, spy } from "sinon";
 
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
+import generateUUID from "../../helpers/generateUUID";
 
 describe("Renders TextInput with visible label", () => {
   let container;
@@ -63,12 +64,6 @@ describe("Renders TextInput with visible label", () => {
     expect(focusHandler.callCount).to.equal(1);
   });
 
-  // it("Calls the onBlur function", () => {
-  //   expect(focusHandler.callCount).to.equal(0);
-  //   container.find("input").simulate("blur");
-  //   expect(focusHandler.callCount).to.equal(1);
-  // });
-
   it("Changing the value calls the onChange handler", () => {
     container.find("input").simulate("change", { target: { value: "Hello" } });
 
@@ -76,13 +71,15 @@ describe("Renders TextInput with visible label", () => {
   });
 });
 
-describe("Renders TextInput with hidden label and visible helper text", () => {
+describe("Renders TextInput with auto-generated ID, hidden label and visible helper text", () => {
   let container;
+  let generateUUIDSpy;
+
   before(() => {
+    generateUUIDSpy = spy(generateUUID);
     container = Enzyme.mount(
       <>
         <TextInput
-          id={"myTextInput"}
           labelText={"Custom Input Label"}
           showLabel={false}
           helperText={"Custom Helper Text"}
@@ -96,6 +93,11 @@ describe("Renders TextInput with hidden label and visible helper text", () => {
 
   it("Renders Input component", () => {
     expect(container.find("input").exists()).to.equal(true);
+  });
+
+  it("Calls a UUID generation method if no ID is passed as a prop", () => {
+    expect(container.find("input").props()).to.have.property("id");
+    expect(generateUUIDSpy.called);
   });
 
   it("Does not renders Label component", () => {

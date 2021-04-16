@@ -19,7 +19,7 @@ export default {
 export const input = () => (
   <form>
     <TextInput
-      id="myTextInput"
+      id={text("Input ID", "myTextInput")}
       type={select("Input Type", TextInputTypes, TextInputTypes.text)}
       labelText={text("Label Text", "What is your favorite color?")}
       showLabel={boolean("Show Label", true)}
