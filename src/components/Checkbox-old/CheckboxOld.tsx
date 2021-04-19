@@ -26,7 +26,7 @@ export interface CheckboxProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+const CheckboxOld = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref?) => {
     const {
       name,
@@ -68,6 +68,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   }
 );
 
-Checkbox.displayName = "Checkbox";
+CheckboxOld.displayName = "Checkbox";
 
-export default Checkbox;
+export default CheckboxOld;

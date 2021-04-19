@@ -3,14 +3,14 @@ import { stub } from "sinon";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import Checkbox from "./Checkbox";
+import CheckboxOld from "./CheckboxOld";
 
 describe("Checkbox Test", () => {
   it("Renders Checkbox", () => {
     const callback = stub();
 
     const container = Enzyme.mount(
-      <Checkbox
+      <CheckboxOld
         checkboxId="checkbox"
         labelOptions={{
           id: "label",
@@ -26,7 +26,7 @@ describe("Checkbox Test", () => {
     const callback = stub();
 
     const container = Enzyme.mount(
-      <Checkbox
+      <CheckboxOld
         checked={false}
         checkboxId="checkbox"
         labelOptions={{
@@ -47,7 +47,7 @@ describe("Checkbox Test", () => {
     const ref = React.createRef<HTMLInputElement>();
     const callback = stub();
     const container = Enzyme.mount(
-      <Checkbox
+      <CheckboxOld
         checkboxId="CheckboxID-attributes"
         labelOptions={{
           id: "label",
@@ -55,7 +55,7 @@ describe("Checkbox Test", () => {
         }}
         onChange={callback}
         ref={ref}
-      ></Checkbox>
+      ></CheckboxOld>
     );
     expect(container.find("input").instance()).to.equal(ref.current);
   });
