@@ -60,3 +60,7 @@
   width: 1px;
   word-wrap: normal;
 }
+
+@function to-rem($size) {
+  @return $size / 16px * 1rem;
+}
