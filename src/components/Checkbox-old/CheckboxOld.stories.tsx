@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import CheckboxOld, { CheckboxProps } from "./CheckboxOld";
 import { Story } from "@storybook/react/types-6-0";
 import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
 
 // Set defaults for the checkbox stories.
 export default {
-  title: "Checkbox-old",
+  title: getCategory("CheckboxOld"),
   component: CheckboxOld,
+
   // Remove some props for all checkbox stories.
   argTypes: {
     checkboxId: { table: { disable: true } },
