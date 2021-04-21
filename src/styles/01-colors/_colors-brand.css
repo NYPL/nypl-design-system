@@ -5,22 +5,15 @@
  * https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007
  *
  */
+
 :root {
   /* Brand fills are the NYPL primary and secondary colors */
   --brand-primary: #c60917;
   --brand-secondary: #760000;
 
-  /* What's On is used for Exhibitions & Events. */
-  --section-whats-on-primary: #242424;
-  --section-whats-on-secondary: #000000;
-
   /* Books and More is used for the Catalog, Staff Picks, Recommendations, New Arrivals, and E-Book Central. */
   --section-books-and-more-primary: var(--brand-primary);
   --section-books-and-more-secondary: var(--brand-secondary);
-
-  /* Research is used for the Research Catalog and SCC. */
-  --section-research-primary: #00838a;
-  --section-research-secondary: #006166;
 
   /* Locations is used for Location Finder and all branch pages with the exceptions of some research libraries. */
   --section-locations-primary: var(--brand-primary);
@@ -30,4 +23,12 @@
   --section-research-library-lpa: #005d53;
   --section-research-library-schomburg: #a03e31;
   --section-research-library-schwartzman: var(--brand-secondary);
+
+  /* Research is used for the Research Catalog and SCC. */
+  --section-research-primary: #00838a;
+  --section-research-secondary: #006166;
+
+  /* What's On is used for Exhibitions & Events. */
+  --section-whats-on-primary: #242424;
+  --section-whats-on-secondary: #000000;
 }

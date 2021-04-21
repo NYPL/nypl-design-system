@@ -8,7 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-- Changes `Brand` and `Utility` colors to match Figma main file
+### Breaking Changes
+
+- Removes `--ui-success` CSS variable and adds `--ui-success-primary` and `--ui-success-secondary`
+
+### Changes
+
+- Changes `Brand` and `Utility` color values to match Figma main file
 
 ## 0.21.2
 
