@@ -78,16 +78,14 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
   before(() => {
     generateUUIDSpy = spy(generateUUID);
     container = Enzyme.mount(
-      <>
-        <TextInput
-          labelText={"Custom Input Label"}
-          showLabel={false}
-          helperText={"Custom Helper Text"}
-          required={true}
-          placeholder={"Input Placeholder"}
-          type={TextInputTypes.text}
-        ></TextInput>
-      </>
+      <TextInput
+        labelText={"Custom Input Label"}
+        showLabel={false}
+        helperText={"Custom Helper Text"}
+        required={true}
+        placeholder={"Input Placeholder"}
+        type={TextInputTypes.text}
+      ></TextInput>
     );
   });
 
@@ -125,17 +123,15 @@ describe("TextInput shows error state", () => {
   let container;
   before(() => {
     container = Enzyme.mount(
-      <>
-        <TextInput
-          id={"myTextInputError"}
-          labelText={"Custom Input Label"}
-          helperText={"Custom Helper Text"}
-          errorText={"Custom Error Text"}
-          placeholder={"Input Placeholder"}
-          errored={true}
-          type={TextInputTypes.text}
-        ></TextInput>
-      </>
+      <TextInput
+        id={"myTextInputError"}
+        labelText={"Custom Input Label"}
+        helperText={"Custom Helper Text"}
+        errorText={"Custom Error Text"}
+        placeholder={"Input Placeholder"}
+        errored={true}
+        type={TextInputTypes.text}
+      ></TextInput>
     );
   });
 
@@ -174,27 +170,27 @@ describe("TextInput Group", () => {
     container = Enzyme.mount(
       <fieldset>
         <legend>Input Group Label</legend>
-        <>
-          <>
-            <TextInput
-              id="input1"
-              required={true}
-              type={TextInputTypes.text}
-              labelText="For"
-              helperText="Input 1 Helper Text"
-            ></TextInput>
-          </>
 
-          <>
-            <TextInput
-              id="input2"
-              required={true}
-              type={TextInputTypes.text}
-              labelText="To"
-              helperText="Input 2 Helper Text"
-            ></TextInput>
-          </>
+        <>
+          <TextInput
+            id="input1"
+            required={true}
+            type={TextInputTypes.text}
+            labelText="For"
+            helperText="Input 1 Helper Text"
+          ></TextInput>
         </>
+
+        <>
+          <TextInput
+            id="input2"
+            required={true}
+            type={TextInputTypes.text}
+            labelText="To"
+            helperText="Input 2 Helper Text"
+          ></TextInput>
+        </>
+
         <HelperErrorText isError={true} id={"sharedHelperText"}>
           Additional Error Text
         </HelperErrorText>

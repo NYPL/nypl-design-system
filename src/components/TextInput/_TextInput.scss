@@ -1,9 +1,10 @@
 $break-input-mobile: 400px;
 
 .textinput {
+  @include space-stack-xs;
+
   .inputfield {
     @include space-inset-xs;
-    @include space-stack-xs;
 
     border: 1px solid var(--ui-gray-medium);
 
@@ -58,18 +59,12 @@ $break-input-mobile: 400px;
     }
   }
 
-  label {
+  > label {
     font-weight: 300;
   }
-}
 
-.input-group {
-  @include breakpoint($break-input-mobile) {
-    display: flex;
-    justify-content: space-between;
-
-    > *:not(:last-child) {
-      @include space-inline-m;
-    }
+  > .helper-text {
+    margin-bottom: 0;
+    margin-top: var(--space-xs);
   }
 }

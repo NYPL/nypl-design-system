@@ -6,7 +6,7 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface InputProps {
-  /** Additional attributes to pass to the <input> tag */
+  /** Additional attributes to pass to the `<input>` tag */
   attributes?: { [key: string]: any };
   /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
   type?: TextInputTypes;
@@ -23,8 +23,8 @@ export interface InputProps {
   /** Populates the placeholder of the input */
   placeholder?: string;
   /** Populates the value of the input */
-  value?: string | number;
-  /** className you can add in addition to 'input' */
+  value?: string;
+  /** className you can add in addition to 'textinput' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
@@ -37,6 +37,17 @@ export interface InputProps {
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+// const reftype =
+//   props.type === TextInputTypes.textarea
+//     ? HTMLInputElement
+//     : HTMLTextAreaElement;
+
+// const ti = React.forwardRef<HTMLInputElement, InputProps>(
+//   () => {
+//     const textField = {"<input />"};
+//   }
+// );
 
 const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref?) => {
@@ -96,40 +107,36 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
     }
 
     const textField = (
-      <>
-        <input
-          id={id}
-          className={bem("inputfield", modifiers, "", [className])}
-          type={type}
-          value={value}
-          aria-required={required}
-          aria-hidden={type === TextInputTypes.hidden}
-          disabled={disabled}
-          required={required}
-          placeholder={placeholder}
-          onChange={onChange}
-          ref={ref}
-          {...attributes}
-        />
-      </>
+      <input
+        id={id}
+        className={bem("inputfield", modifiers, "", [className])}
+        type={type}
+        value={value}
+        aria-required={required}
+        aria-hidden={type === TextInputTypes.hidden}
+        disabled={disabled}
+        required={required}
+        placeholder={placeholder}
+        onChange={onChange}
+        ref={ref}
+        {...attributes}
+      />
     );
     const textareaField = (
-      <>
-        <textarea
-          id={id}
-          className={bem("inputfield", modifiers, "", [className])}
-          aria-required={required}
-          aria-hidden={type === TextInputTypes.hidden}
-          disabled={disabled}
-          required={required}
-          placeholder={placeholder}
-          // onChange={onChange}
-          // ref={ref}
-          {...attributes}
-        >
-          {value}
-        </textarea>
-      </>
+      <textarea
+        id={id}
+        className={bem("inputfield", modifiers, "", [className])}
+        aria-required={required}
+        aria-hidden={type === TextInputTypes.hidden}
+        disabled={disabled}
+        required={required}
+        placeholder={placeholder}
+        // onChange={onChange}
+        // ref={ref}
+        {...attributes}
+      >
+        {value}
+      </textarea>
     );
     const fieldOutput =
       type === TextInputTypes.textarea ? textareaField : textField;
@@ -143,7 +150,7 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
           </Label>
         )}
         {fieldOutput}
-        {helperText && type !== TextInputTypes.hidden && (
+        {((helperText && type !== TextInputTypes.hidden) || errored) && (
           <HelperErrorText isError={errored} id={id + `-helperText`}>
             {footnote}
           </HelperErrorText>
