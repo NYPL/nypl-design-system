@@ -35,19 +35,12 @@ export interface InputProps {
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
   /** The action to perform on the `<input>`'s onChange function  */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => void;
 }
-
-// const reftype =
-//   props.type === TextInputTypes.textarea
-//     ? HTMLInputElement
-//     : HTMLTextAreaElement;
-
-// const ti = React.forwardRef<HTMLInputElement, InputProps>(
-//   () => {
-//     const textField = {"<input />"};
-//   }
-// );
 
 const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref?) => {
@@ -131,7 +124,7 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
         disabled={disabled}
         required={required}
         placeholder={placeholder}
-        // onChange={onChange}
+        onChange={onChange}
         // ref={ref}
         {...attributes}
       >
