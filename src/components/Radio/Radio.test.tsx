@@ -1,7 +1,8 @@
 import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
-import { stub } from "sinon";
+import { stub, spy } from "sinon";
+import generateUUID from "../../helpers/generateUUID";
 
 import Radio from "./Radio";
 
@@ -9,10 +10,12 @@ describe("Radio Button", () => {
   let container;
   let changeHandler;
   let clickHander;
+  let generateUUIDSpy;
 
   before(() => {
     clickHander = stub();
     changeHandler = stub();
+    generateUUIDSpy = spy(generateUUID);
     container = Enzyme.mount(
       <Radio
         id="inputID"
@@ -35,6 +38,10 @@ describe("Radio Button", () => {
 
   it("The radio element is an input with type='radio'", () => {
     expect(container.find("input").prop("type")).to.equal("radio");
+  });
+
+  it("The radio element's ID is set properly using the value passed to it.", () => {
+    expect(container.find("input").prop("id")).to.equal("inputID");
   });
 
   it("Allows user to pass in additional attributes", () => {
@@ -60,6 +67,15 @@ describe("Radio Button", () => {
     expect(container.find("input").props()).not.to.have.property("aria-label");
     const radioId = container.prop("id");
     expect(container.find("label").prop("htmlFor")).to.equal(radioId);
+  });
+
+  it("Calls a UUID generation method if no ID is passed as a prop", () => {
+    container = Enzyme.mount(
+      <Radio labelText="Hello" showLabel={true}></Radio>
+    );
+    expect(container.find("input").props()).to.have.property("id");
+
+    expect(generateUUIDSpy.called);
   });
 
   it("The 'checked' attribute can set properly", () => {

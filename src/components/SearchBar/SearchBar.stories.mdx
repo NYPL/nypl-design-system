@@ -16,9 +16,10 @@ import { IconNames } from "../Icons/IconTypes";
 import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
 import * as stories from "../Autosuggest/Autosuggest.stories.tsx";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="SearchBar"
+  title={getCategory("SearchBar")}
   component={SearchBar}
   decorators={[withDesign]}
   parameters={{
