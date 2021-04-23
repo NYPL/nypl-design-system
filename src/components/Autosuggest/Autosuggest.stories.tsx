@@ -104,6 +104,18 @@ const LibraryExample = ({ renderInputComponent }) => {
     onChange,
   };
 
+  const renderInputComponentWithLabel = inputProps => {
+    return (
+      <div>
+        <label>
+          Enter an address or landmark to search nearby or type in a Library
+          name.
+        </label>
+        <input name="search" aria-label="Search locations" {...inputProps} />
+      </div>
+    );
+  };
+
   return (
     <Autosuggest
       suggestions={suggestions}
@@ -112,7 +124,7 @@ const LibraryExample = ({ renderInputComponent }) => {
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       inputProps={inputProps}
-      renderInputComponent={renderInputComponent}
+      renderInputComponent={renderInputComponentWithLabel}
     />
   );
 };
