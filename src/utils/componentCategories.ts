@@ -35,7 +35,6 @@ const categories = {
     title: "Form Elements",
     components: [
       "Button",
-      "CheckboxOld",
       "Checkbox",
       "CheckboxGroup",
       "DatePicker",
@@ -66,6 +65,10 @@ const categories = {
   navigation: {
     title: "Navigation",
     components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
+  },
+  deprecated: {
+    title: "Deprecated",
+    components: ["CheckboxOld"],
   },
 };
 
