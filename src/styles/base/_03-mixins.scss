@@ -61,6 +61,12 @@
   word-wrap: normal;
 }
 
+//Convert pixel values to rem
 @function to-rem($size) {
   @return $size / 16px * 1rem;
+}
+
+//Process a color variable so that it can be used in a data URI/URL
+@function url-friendly-colour($colour) {
+  @return "%23" + str-slice("#{$colour}", 2, -1);
 }

@@ -1,11 +1,11 @@
 $checkbox-size: to-rem(22px);
-$checkmark-color: #{var(--ui-black)};
-$checkmark-color-error: #{var(--ui-error)};
+$checkmark-color: $black;
+$checkmark-color-error: $error;
 
 .input {
   &__checkbox {
     -webkit-appearance: none;
-    border: 2px solid var(--ui-gray-dark);
+    border: 2px solid $gray-dark;
     border-radius: 3px;
     display: inline-block;
     height: $checkbox-size;
@@ -27,7 +27,7 @@ $checkmark-color-error: #{var(--ui-error)};
 
     &:checked {
       &:before {
-        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#{$checkmark-color}" d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"/></svg>')
+        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#{url-friendly-colour($checkmark-color)}" d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"/></svg>')
           50% 50% no-repeat;
       }
     }
@@ -42,27 +42,27 @@ $checkmark-color-error: #{var(--ui-error)};
     }
 
     &--error {
-      border-color: var(--ui-error);
+      border-color: $error;
 
       + label {
-        color: var(--ui-error);
+        color: $error;
       }
 
       &:checked {
-        border-color: var(--ui-error);
+        border-color: $error;
 
         &:before {
-          background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#{$checkmark-color-error}" d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"/></svg>')
+          background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#{url-friendly-colour($checkmark-color-error)}" d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"/></svg>')
             50% 50% no-repeat;
         }
       }
     }
 
     &:disabled {
-      border-color: var(--ui-gray-dark);
+      border-color: $gray-dark;
 
       + label {
-        color: var(--ui-gray-dark);
+        color: $gray-dark;
         font-style: italic;
       }
     }
