@@ -20,7 +20,12 @@ export default {
 
 // CONTROL PROPS *****************************
 
-const ControlPropsTemplate = args => <Icon {...args} />;
+const ControlPropsTemplate = args => (
+  <span>
+    <Icon {...args} />
+  </span>
+);
+
 export const ControlProps = ControlPropsTemplate.bind({});
 ControlProps.storyName = "Properties";
 ControlProps.args = {
@@ -56,6 +61,9 @@ const iconRow = function (array, icon, size = IconSizes.large) {
   if (icon.indexOf("_negative") !== -1) {
     styles.backgroundColor = "#000";
     styles.display = "inline-block";
+    styles.padding = "1rem";
+  } else {
+    styles.padding = "1rem";
   }
   array.push(
     <li
@@ -83,7 +91,9 @@ for (const logo in LogoNames) {
 }
 
 const UtilityIconsTemplate = () => (
-  <List type={ListTypes.Unordered}>{icons}</List>
+  <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
+    {icons}
+  </List>
 );
 export const UtilityIcons = UtilityIconsTemplate.bind({});
 UtilityIcons.storyName = "Utility Icons";
@@ -138,4 +148,15 @@ CustomIcon.args = {
   size: IconSizes.xlarge,
   iconRotation: IconRotationTypes.rotate0,
   decorative: true,
+};
+CustomIcon.argTypes = {
+  iconRotation: {
+    control: "select",
+  },
+  color: {
+    control: "select",
+  },
+  size: {
+    control: "select",
+  },
 };
