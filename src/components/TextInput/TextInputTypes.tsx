@@ -22,7 +22,7 @@ export enum TextInputFormats {
   textarea = "",
   url = "https://domain.com",
 }
-
+/*
 export enum TextInputPatterns {
   // eslint-disable-next-line prettier/prettier
   email = "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$",
@@ -36,3 +36,4 @@ export enum TextInputPatterns {
   textarea = "textarea",
   url = "https?://.+",
 }
+*/

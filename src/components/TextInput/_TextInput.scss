@@ -7,19 +7,10 @@ $break-input-mobile: 400px;
     @include space-inset-xs;
 
     border: 1px solid var(--ui-gray-medium);
-
-    &[type="text"],
-    &[type="number"],
-    &[type="password"],
-    &[type="url"],
-    &[type="tel"],
-    &[type="email"] {
-      width: 100%;
-    }
+    width: 100%;
 
     &--textarea {
       min-height: var(--space-xxl);
-      width: 100%;
     }
 
     &::-webkit-input-placeholder {
@@ -56,6 +47,14 @@ $break-input-mobile: 400px;
 
     &--error {
       border: 1px solid var(--ui-error);
+
+      &:hover,
+      &:active,
+      &:focus,
+      &:active:hover,
+      &:focus:hover {
+        border: 1px solid var(--ui-error);
+      }
     }
   }
 

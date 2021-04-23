@@ -69,9 +69,10 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
     if (errored) {
       modifiers.push("error");
     }
-    if (type === TextInputTypes.textarea) {
-      modifiers.push("textarea");
-    }
+    // WILL COME BACK TO OFFERING TEXTAREA AS AN OPTION
+    // if (type === TextInputTypes.textarea) {
+    //   modifiers.push("textarea");
+    // }
 
     const errorOutput = errorText
       ? errorText
@@ -115,24 +116,26 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
         {...attributes}
       />
     );
-    const textareaField = (
-      <textarea
-        id={id}
-        className={bem("inputfield", modifiers, "", [className])}
-        aria-required={required}
-        aria-hidden={type === TextInputTypes.hidden}
-        disabled={disabled}
-        required={required}
-        placeholder={placeholder}
-        onChange={onChange}
-        // ref={ref}
-        {...attributes}
-      >
-        {value}
-      </textarea>
-    );
-    const fieldOutput =
-      type === TextInputTypes.textarea ? textareaField : textField;
+    // const textareaField = (
+    //   <textarea
+    //     id={id}
+    //     className={bem("inputfield", modifiers, "", [className])}
+    //     aria-required={required}
+    //     aria-hidden={type === TextInputTypes.hidden}
+    //     disabled={disabled}
+    //     required={required}
+    //     placeholder={placeholder}
+    //     onChange={onChange}
+    //     // ref={ref}
+    //     {...attributes}
+    //   >
+    //     {value}
+    //   </textarea>
+    // );
+    // WILL COME BACK TO OFFERING TEXTAREA AS AN OPTION
+    // const fieldOutput =
+    //   type === TextInputTypes.textarea ? textareaField : textField;
+    const fieldOutput = textField;
 
     const optReqFlag = required ? "Required" : "Optional";
     const transformedInput = (
