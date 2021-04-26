@@ -1,11 +1,6 @@
 {
   "extends": "stylelint-config-recommended",
-  "plugins": [
-    "stylelint-prettier",
-    "stylelint-scss",
-    "stylelint-order",
-    "stylelint-value-no-unknown-custom-properties"
-  ],
+  "plugins": ["stylelint-prettier", "stylelint-scss", "stylelint-order"],
   "rules": {
     "at-rule-name-space-after": "always",
     "at-rule-no-unknown": null,
