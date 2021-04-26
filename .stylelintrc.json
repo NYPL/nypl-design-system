@@ -17,7 +17,7 @@
       }
     ],
     "csstools/value-no-unknown-custom-properties": [
-      false,
+      true,
       {
         "importFrom": ["dist/styles.css"]
       }

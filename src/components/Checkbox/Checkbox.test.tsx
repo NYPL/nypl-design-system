@@ -36,11 +36,11 @@ describe("Checkbox", () => {
     expect(container.find("input").exists()).to.equal(true);
   });
 
-  it("The radio element is an input with type='radio'", () => {
-    expect(container.find("input").prop("type")).to.equal("radio");
+  it("The checkbox element is an input with type='checkbox'", () => {
+    expect(container.find("input").prop("type")).to.equal("checkbox");
   });
 
-  it("The radio element's ID is set properly using the value passed to it.", () => {
+  it("The checkbox element's ID is set properly using the value passed to it.", () => {
     expect(container.find("input").prop("id")).to.equal("inputID");
   });
 
@@ -65,8 +65,8 @@ describe("Checkbox", () => {
     );
     expect(container.find("label").exists()).to.equal(true);
     expect(container.find("input").props()).not.to.have.property("aria-label");
-    const radioId = container.prop("id");
-    expect(container.find("label").prop("htmlFor")).to.equal(radioId);
+    const checkboxId = container.prop("id");
+    expect(container.find("label").prop("htmlFor")).to.equal(checkboxId);
   });
 
   it("Calls a UUID generation method if no ID is passed as a prop", () => {
