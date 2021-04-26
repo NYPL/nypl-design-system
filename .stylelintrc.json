@@ -16,12 +16,6 @@
         "ignore": ["after-comment"]
       }
     ],
-    "csstools/value-no-unknown-custom-properties": [
-      true,
-      {
-        "importFrom": ["dist/styles.css"]
-      }
-    ],
     "declaration-empty-line-before": [
       "always",
       {
