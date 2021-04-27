@@ -41,15 +41,6 @@ $colors: (
   link-secondary: $link-secondary,
 );
 
-//generates a series of color classes that can be used anywhere
-@mixin color-classes {
-  @each $name, $color in $colors {
-    .cl-#{$name} {
-      color: $color;
-    }
-  }
-}
-
 //generates a collection of CSS vars
 @mixin css-vars {
   @each $name, $color in $colors {
@@ -58,7 +49,7 @@ $colors: (
 }
 
 /* Color Classes*/
-@include color-classes;
+@include color-classes($colors);
 
 /* CSS Variables/Custom Properties */
 :root {

@@ -9,11 +9,12 @@
 // End libs
 
 // Order important
+@import "./styles/03-space/*.*";
+@import "./styles/base/03-mixins";
 @import "./styles/01-colors/_colors-brand";
 @import "./styles/01-colors/_colors-utility";
 @import "./styles/02-typography/_type-scale";
 @import "./styles/02-typography/_typefaces";
-@import "./styles/03-space/_space";
 @import "./styles/**/*.scss";
 @import "./components/Icons/_Icons.scss";
 @import "./components/Button/_Button.scss";
