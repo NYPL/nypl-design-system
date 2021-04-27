@@ -79,11 +79,23 @@ A TextInput can be rendered with or without visible labels.
 </Preview>
 
 <Canvas>
+  <TextInput labelText="What is your favorite color?" showLabel={true} />
+</Canvas>
+
+<Canvas>
   <TextInput
     labelText="What is your favorite color?"
     showLabel={false}
     placeholder="i.e. blue, green, etc."
-  ></TextInput>
+  />
+</Canvas>
+
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={true}
+    placeholder="i.e. blue, green, etc."
+  />
 </Canvas>
 
 <Canvas>
@@ -92,7 +104,16 @@ A TextInput can be rendered with or without visible labels.
     showLabel={false}
     placeholder="i.e. blue, green, etc."
     helperText="Choose wisely!"
-  ></TextInput>
+  />
+</Canvas>
+
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={true}
+    placeholder="i.e. blue, green, etc."
+    helperText="Choose wisely!"
+  />
 </Canvas>
 
 <Canvas>
@@ -102,9 +123,20 @@ A TextInput can be rendered with or without visible labels.
     placeholder="i.e. blue, green, etc."
     errorText="Waaaaaa!"
     errored={true}
-  ></TextInput>
+  />
 </Canvas>
 
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={true}
+    placeholder="i.e. blue, green, etc."
+    errorText="Waaaaaa!"
+    errored={true}
+  />
+</Canvas>
+
+<!-- Include this once textarea is included as an input "type" option.
 ## Textarea
 
 The TextInput component includes a multiline `textarea` form field.
@@ -123,3 +155,4 @@ The TextInput component includes a multiline `textarea` form field.
     {args => <TextInput {...args} />}
   </Story>
 </Preview>
+-->

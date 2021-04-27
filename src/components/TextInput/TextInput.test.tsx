@@ -171,25 +171,21 @@ describe("TextInput Group", () => {
       <fieldset>
         <legend>Input Group Label</legend>
 
-        <>
-          <TextInput
-            id="input1"
-            required={true}
-            type={TextInputTypes.text}
-            labelText="For"
-            helperText="Input 1 Helper Text"
-          ></TextInput>
-        </>
+        <TextInput
+          id="input1"
+          required={true}
+          type={TextInputTypes.text}
+          labelText="For"
+          helperText="Input 1 Helper Text"
+        />
 
-        <>
-          <TextInput
-            id="input2"
-            required={true}
-            type={TextInputTypes.text}
-            labelText="To"
-            helperText="Input 2 Helper Text"
-          ></TextInput>
-        </>
+        <TextInput
+          id="input2"
+          required={true}
+          type={TextInputTypes.text}
+          labelText="To"
+          helperText="Input 2 Helper Text"
+        />
 
         <HelperErrorText isError={true} id={"sharedHelperText"}>
           Additional Error Text

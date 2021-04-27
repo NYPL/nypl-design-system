@@ -8,21 +8,29 @@ $break-input-mobile: 400px;
 
     border: 1px solid var(--ui-gray-medium);
     width: 100%;
-
-    &--textarea {
-      min-height: var(--space-xxl);
-    }
-
+    // Include this once textarea is included as an input "type" option.
+    // &--textarea {
+    //   min-height: var(--space-xxl);
+    // }
     &::-webkit-input-placeholder {
       color: var(--ui-gray-dark);
+      font-style: italic;
     }
 
-    &:-moz-placeholder {
+    &::-moz-placeholder {
       color: var(--ui-gray-dark);
+      font-style: italic;
+      opacity: 1;
     }
 
     &:-ms-input-placeholder {
       color: var(--ui-gray-dark);
+      font-style: italic;
+    }
+
+    &:-moz-placeholder {
+      color: var(--ui-gray-dark);
+      font-style: italic;
     }
 
     &:hover {

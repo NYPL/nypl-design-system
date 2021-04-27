@@ -6,7 +6,7 @@ export enum TextInputTypes {
   number = "number",
   password = "password",
   text = "text",
-  textarea = "textarea",
+  // textarea = "textarea",
   tel = "tel",
   url = "url",
 }
