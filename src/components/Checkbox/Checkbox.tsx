@@ -10,6 +10,8 @@ export interface CheckboxProps {
   attributes?: { [key: string]: any };
   /** When using the Checkbox as a "controlled" form element, you can specify the Checkbox's checked state using this prop. Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
   checked?: boolean;
+  /* For uncontrolled component only. The initial value of an uncontrolled checkbox component. */
+  defaultChecked?: boolean;
   /** className you can add in addition to 'input' */
   className?: string;
   /** Adds the 'disabled' prop to the input when true */
@@ -36,6 +38,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       attributes = {},
       checked,
       className,
+      defaultChecked,
       disabled,
       errored,
       id,
@@ -57,7 +60,13 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     return (
       <>
         <input
-          checked={checked}
+          {...(checked !== undefined
+            ? {
+                checked: checked,
+              }
+            : {
+                defaultChecked: defaultChecked,
+              })}
           className={bem("checkbox", modifiers, "input", [className])}
           disabled={disabled}
           id={checkboxID}
