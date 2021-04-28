@@ -33,7 +33,7 @@ export interface CheckboxProps {
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref?) => {
     const {
-      attributes = [],
+      attributes = {},
       checked,
       className,
       disabled,
