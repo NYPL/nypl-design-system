@@ -41,17 +41,10 @@ $colors: (
   link-secondary: $link-secondary,
 );
 
-//generates a collection of CSS vars
-@mixin css-vars {
-  @each $name, $color in $colors {
-    --ui-#{$name}: #{$color};
-  }
-}
-
 /* Color Classes*/
 @include color-classes($colors);
 
 /* CSS Variables/Custom Properties */
 :root {
-  @include css-vars;
+  @include css-vars($colors, "ui");
 }

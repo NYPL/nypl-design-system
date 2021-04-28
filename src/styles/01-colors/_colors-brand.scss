@@ -38,17 +38,10 @@ $colors: (
   research-library-schwartzman: $research-library-schwartzman,
 );
 
-//generates a collection of CSS vars
-@mixin css-vars {
-  @each $name, $color in $colors {
-    --section-#{$name}: #{$color};
-  }
-}
-
 /* CSS Color Classes*/
 @include color-classes($colors);
 
 /* CSS Variables/Custom Properties */
 :root {
-  @include css-vars;
+  @include css-vars($colors, "section");
 }

@@ -79,3 +79,12 @@
     }
   }
 }
+
+//generates a collection of CSS vars
+@mixin css-vars($map, $prefix) {
+  $prefix: str-insert($prefix, "-", str-length($prefix) + 1);
+
+  @each $name, $color in $map {
+    --#{$prefix}#{$name}: #{$color};
+  }
+}
