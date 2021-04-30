@@ -18,6 +18,7 @@ export enum IconNames {
   minus = "minus",
   plus = "plus",
   search = "search",
+  speaker_notes = "speaker_notes",
 }
 
 export enum LogoNames {

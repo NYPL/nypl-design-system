@@ -19,6 +19,7 @@ import logo_queens from "../../../icons/svg/logo_queenspl.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
 import search from "../../../icons/svg/search.svg";
+import speaker_notes from "../../../icons/svg/speaker_notes.svg";
 
 const allSvgs = {
   accessibility_full,
@@ -36,6 +37,7 @@ const allSvgs = {
   minus,
   plus,
   search,
+  speaker_notes,
 };
 
 export interface IconProps {

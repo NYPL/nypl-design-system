@@ -1,9 +1,22 @@
 .notification {
   @include space-stack-s;
 
+  border-radius: 4px;
+  display: flex;
+  font-size: var(--font-size--1);
   padding: var(--space) var(--space-l);
 
   &--standard {
     background-color: #fae267;
+  }
+
+  &--announcement {
+    background-color: #e6ecf0;
+  }
+
+  .notification-icon {
+    display: block;
+    padding-right: var(--space-m);
+    width: unset;
   }
 }
