@@ -71,7 +71,6 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "breakpoint-sass": "^2.7.1",
     "chai": "^4.2.0",
-    "cypress": "^7.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^7.17.0",
