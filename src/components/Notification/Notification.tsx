@@ -90,9 +90,10 @@ export default function Notification(
       {children}
       {dismissible ? (
         <Icon
-          modifiers={["xlarge"]}
+          modifiers={["small"]}
           decorative={false}
           name={IconNames.close}
+          className="dismissible-icon"
         />
       ) : null}
     </aside>

@@ -19,4 +19,10 @@
     padding-right: var(--space-m);
     width: unset;
   }
+
+  .dismissible-icon {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+  }
 }
