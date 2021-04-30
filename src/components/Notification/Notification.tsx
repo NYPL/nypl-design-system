@@ -40,6 +40,7 @@ export default function Notification(
     id,
     modifiers = [],
     dismissible = false,
+    icon,
   } = props;
   const baseClass = "notification";
 
@@ -52,7 +53,8 @@ export default function Notification(
     notificationModifiers.push(style);
   }
 
-  const icon = () => {
+  const iconElement = () => {
+    if (icon) return icon;
     switch (style) {
       case "announcement":
         return (
@@ -84,7 +86,7 @@ export default function Notification(
       id={id}
       {...styleProps}
     >
-      {icon()}
+      {iconElement()}
       {children}
       {dismissible ? (
         <Icon
