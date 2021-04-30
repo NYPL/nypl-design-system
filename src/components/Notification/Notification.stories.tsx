@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Story } from "@storybook/react";
 
 import Notification, { NotificationProps } from "./Notification";
 
@@ -35,3 +35,14 @@ Announcement.args = {
 };
 
 Announcement.storyName = "Announcement Notification";
+
+export const DismissibleAnnouncement = Template.bind({});
+
+DismissibleAnnouncement.args = {
+  style: "announcement",
+  dismissible: true,
+  children:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+};
+
+DismissibleAnnouncement.storyName = "Dismissable Notification";

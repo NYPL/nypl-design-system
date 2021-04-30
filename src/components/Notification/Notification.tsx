@@ -2,6 +2,7 @@ import * as React from "react";
 
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
 
 export interface NotificationProps {
   /** ClassName that appears in addition to "card" */
@@ -85,6 +86,13 @@ export default function Notification(
     >
       {icon()}
       {children}
+      {dismissible ? (
+        <Icon
+          modifiers={["xlarge"]}
+          decorative={false}
+          name={IconNames.close}
+        />
+      ) : null}
     </aside>
   );
 }
