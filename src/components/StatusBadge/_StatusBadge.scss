@@ -1,5 +1,4 @@
 .status-badge {
-  width: fit-content;
   border-radius: 4px;
   color: var(--ui-black);
   display: block;
@@ -7,6 +6,7 @@
   font-style: italic;
   padding: var(--space-xxs) var(--space-xs);
   text-align: center;
+  width: fit-content;
 
   &--low {
     background-color: var(--ui-gray-light);
