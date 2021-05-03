@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Changed: Separate Radio button into its own component.
 
+### BugFixes
+
+- Fixed layout bug for layouts that include a right sidebar column and DOM structure.
+
 ## 0.21.2
 
 ### Changes
