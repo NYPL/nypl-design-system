@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
     "react-router-dom": "^5.2.0",
     "react-uid": "^2.3.0",
     "system-font-css": "^2.0.2",
-    "typescript": "^3.9.2"
+    "typescript": "^3.9.2",
+    "uuid": "^8.3.2"
   },
   "husky": {
     "hooks": {
@@ -54,6 +55,7 @@
     "@storybook/addon-essentials": "^6.1.20",
     "@storybook/addon-knobs": "^6.1.20",
     "@storybook/addon-links": "^6.1.20",
+    "@storybook/addon-queryparams": "^6.1.21",
     "@storybook/react": "^6.1.17",
     "@types/chai": "^4.2.3",
     "@types/enzyme": "^3.10.3",

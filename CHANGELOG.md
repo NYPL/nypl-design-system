@@ -8,8 +8,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
 - Adds three new icons to `Icon`: Error solid, Error outlined, Speaker Notes
 - Adds ability to change icon color: `black` (default), `white`, `brand-primary` (red), `section-research-secondary` (turquoise)
+- Changed: Separate Radio button into its own component.
+
+## 0.21.2
+
+### Changes
+
+- Adds `getPageHref` to `Pagination`
 
 ## 0.21.1
 
