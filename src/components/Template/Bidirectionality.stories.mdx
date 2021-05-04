@@ -84,7 +84,7 @@ that this attribute is not supported in Internet Explorer.
 
 Another option to change text and UI directionality is through the CSS `direction`
 rule. The default value for all elements is `direction: ltr;`. This rule is
-supported by all majory browsers and can target specific elements through CSS rules:
+supported by all major browsers and can target specific elements through CSS rules:
 
 ```css
 .rightToLeft {
@@ -136,7 +136,7 @@ won't hurt.
       </Button>
     </SearchBar>
     <HelperErrorText id="error-helperText-ex1">
-      Sorry, we can't find that item!
+      Use a keyword or phrase to search!
     </HelperErrorText>
   </div>
 </Canvas>
@@ -151,7 +151,7 @@ block to see its code implementation.
         <Input
           ariaLabelledBy="button-ex2"
           id="input-ex2"
-          placeholder="Item Search"
+          placeholder="البحث عن عنصر"
           required={true}
           type={InputTypes.text}
           attributes={{
@@ -164,11 +164,11 @@ block to see its code implementation.
             decorative={true}
             modifiers={["small", "icon-left"]}
           />
-          Search
+          يبحث
         </Button>
       </SearchBar>
       <HelperErrorText id="error-helperText-ex2">
-        Sorry, we can't find that item!
+        استخدم كلمة رئيسية أو عبارة للبحث!
       </HelperErrorText>
     </div>
   </div>
@@ -184,7 +184,7 @@ block to see its code implementation.
         <Input
           ariaLabelledBy="button-ex3"
           id="input-ex3"
-          placeholder="Item Search"
+          placeholder="البحث عن عنصر"
           required={true}
           type={InputTypes.text}
           attributes={{
@@ -197,11 +197,11 @@ block to see its code implementation.
             decorative={true}
             modifiers={["small", "icon-left"]}
           />
-          Search
+          يبحث
         </Button>
       </SearchBar>
       <HelperErrorText id="error-helperText-ex3">
-        Sorry, we can't find that item!
+        استخدم كلمة رئيسية أو عبارة للبحث!
       </HelperErrorText>
     </div>
   </div>
@@ -210,11 +210,13 @@ block to see its code implementation.
 ## Component Updates
 
 You may have noticed in the above RTL examples that in the `Button` component
-there is no space between the text and the icon. This is because the icon has a
-`margin-right` rule which works well in the default LTR display but does not apply
-well in the RTL display. No audit has been made to see what components need an
-update but in general, specifying an equal margin or padding to both sides of
-an element may help reduce any visual mistakes.
+there is no space between the text and the icon. Although this may be difficult
+to see in the Arabic language example, it's more noticeable in the English examples
+bellow. The lack of space happens because the icon has a `margin-right` rule
+which works well in the default LTR display but does not apply well in the RTL
+display. No audit has been made to see what components need an update but in
+general, specifying an equal margin or padding to both sides of an element may
+help reduce any visual mistakes.
 
 <Canvas>
   <div style={{ display: "flex", "flex-direction": "column" }}>
