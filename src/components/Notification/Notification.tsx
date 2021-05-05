@@ -8,21 +8,21 @@ import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
 
 export interface NotificationProps {
-  /** ClassName that appears in addition to "card" */
+  /** ClassName that appears in addition to "notification" */
   className?: string;
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /**  */
+  /** Controls the positioning of a Notification component */
   placement?: "sticky" | "block";
-  /**  */
+  /** Controls the alignment and coloring of notification text and the visibility of an applicable icon */
   notificationType?: NotificationTypes;
-  /**  */
+  /** Customize icon */
   icon?: React.ReactNode;
-  /**  */
+  /** Heading for notification */
   heading?: React.ReactNode;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /**  */
+  /** Controls whether a Notification can be dismissed (closed) by a user */
   dismissible?: boolean;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
