@@ -4,6 +4,7 @@ import bem from "../../utils/bem";
 import { NotificationTypes } from "./NotificationTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
 
@@ -19,7 +20,7 @@ export interface NotificationProps {
   /** Customize icon */
   icon?: React.ReactNode;
   /** Heading for notification */
-  heading?: React.ReactNode;
+  heading?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Controls whether a Notification can be dismissed (closed) by a user */
@@ -41,6 +42,7 @@ export default function Notification(
     modifiers = [],
     dismissible = false,
     icon,
+    heading,
   } = props;
   const baseClass = "notification";
 
@@ -86,7 +88,10 @@ export default function Notification(
       {...styleProps}
     >
       {iconElement()}
-      {children}
+      <div>
+        {heading ? <Heading level={4}>{heading}</Heading> : null}
+        {children}
+      </div>
       {dismissible ? (
         <Button buttonType={ButtonTypes.Link} className="dismissible-button">
           <Icon

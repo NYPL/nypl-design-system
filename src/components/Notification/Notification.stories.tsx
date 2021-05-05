@@ -12,13 +12,10 @@ export default {
 const Template: Story<NotificationProps> = args => <Notification {...args} />;
 
 export const Default = Template.bind({});
-
 Default.args = {
   children: "Notification content",
 };
-
 Default.storyName = "Default Notification";
-
 Default.parameters = {
   design: {
     type: "figma",
@@ -28,31 +25,27 @@ Default.parameters = {
 };
 
 export const Announcement = Template.bind({});
-
+Announcement.storyName = "Announcement with Heading";
 Announcement.args = {
   notificationType: NotificationTypes.Announcement,
+  heading: "New Announcement",
   children:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
 
 export const Warning = Template.bind({});
 Warning.storyName = "Warning Notification";
-
 Warning.args = {
   notificationType: NotificationTypes.Warning,
   children:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
 
-Announcement.storyName = "Announcement Notification";
-
 export const DismissibleAnnouncement = Template.bind({});
-
+DismissibleAnnouncement.storyName = "Dismissible Notification";
 DismissibleAnnouncement.args = {
   notificationType: "announcement",
   dismissible: true,
   children:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
-
-DismissibleAnnouncement.storyName = "Dismissible Notification";
