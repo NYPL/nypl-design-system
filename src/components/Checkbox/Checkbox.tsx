@@ -35,7 +35,6 @@ export interface CheckboxProps {
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref?) => {
     const {
-      attributes = {},
       checked,
       className,
       defaultChecked,
@@ -49,8 +48,9 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       value,
     } = props;
 
-    const checkboxID = id || generateUUID();
+    const attributes = props.attributes || {};
     const modifiers = props.modifiers ? props.modifiers : [];
+    const checkboxID = id || generateUUID();
 
     if (!showLabel) attributes["aria-label"] = labelText;
 
