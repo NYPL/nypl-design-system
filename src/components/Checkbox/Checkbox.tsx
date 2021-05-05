@@ -37,7 +37,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const {
       checked,
       className,
-      defaultChecked,
       disabled,
       errored,
       id,
@@ -62,10 +61,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         <input
           {...(checked !== undefined
             ? {
-                checked: checked,
+                defaultChecked: checked,
               }
             : {
-                defaultChecked: defaultChecked,
+                checked: checked,
               })}
           className={bem("checkbox", modifiers, "input", [className])}
           disabled={disabled}
