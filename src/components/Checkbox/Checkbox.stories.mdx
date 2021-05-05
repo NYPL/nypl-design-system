@@ -7,11 +7,12 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
 
 import Checkbox from "./Checkbox";
 
 <Meta
-  title="Form Elements/Checkbox"
+  title={getCategory("Checkbox")}
   component={Checkbox}
   decorators={[withDesign]}
   parameters={{
