@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 
 import bem from "../../utils/bem";
 import { NotificationTypes } from "./NotificationTypes";
@@ -44,6 +44,10 @@ export default function Notification(
     icon,
     heading,
   } = props;
+
+  const [isOpen, setIsOpen] = useState(true);
+  const handleClose = () => setIsOpen(false);
+
   const baseClass = "notification";
 
   const styleProps = { style: {} };
@@ -81,6 +85,10 @@ export default function Notification(
     }
   };
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <aside
       className={bem(baseClass, notificationModifiers, blockName, [className])}
@@ -93,7 +101,11 @@ export default function Notification(
         {children}
       </div>
       {dismissible ? (
-        <Button buttonType={ButtonTypes.Link} className="dismissible-button">
+        <Button
+          buttonType={ButtonTypes.Link}
+          className="dismissible-button"
+          onClick={handleClose}
+        >
           <Icon
             modifiers={["small"]}
             decorative={false}
