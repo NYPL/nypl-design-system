@@ -43,7 +43,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       errored,
       id,
       labelText,
-      modifiers,
       name,
       onChange,
       showLabel,
@@ -51,6 +50,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     } = props;
 
     const checkboxID = id || generateUUID();
+    const modifiers = props.modifiers ? props.modifiers : [];
 
     if (!showLabel) attributes["aria-label"] = labelText;
 
