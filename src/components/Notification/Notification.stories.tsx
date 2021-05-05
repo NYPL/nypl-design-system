@@ -2,6 +2,7 @@ import * as React from "react";
 import { Story } from "@storybook/react";
 
 import Notification, { NotificationProps } from "./Notification";
+import { NotificationTypes } from "./NotificationTypes";
 
 export default {
   title: "Notification",
@@ -29,7 +30,16 @@ Default.parameters = {
 export const Announcement = Template.bind({});
 
 Announcement.args = {
-  style: "announcement",
+  notificationType: NotificationTypes.Announcement,
+  children:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+};
+
+export const Warning = Template.bind({});
+Warning.storyName = "Warning Notification";
+
+Warning.args = {
+  notificationType: NotificationTypes.Warning,
   children:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
@@ -39,7 +49,7 @@ Announcement.storyName = "Announcement Notification";
 export const DismissibleAnnouncement = Template.bind({});
 
 DismissibleAnnouncement.args = {
-  style: "announcement",
+  notificationType: "announcement",
   dismissible: true,
   children:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

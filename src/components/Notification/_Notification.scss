@@ -14,13 +14,18 @@
     background-color: #e6ecf0;
   }
 
-  .notification-icon {
-    display: block;
-    padding-right: var(--space-m);
-    width: unset;
+  &--warning {
+    background-color: var(--ui-gray-xxlight);
   }
 
-  .dismissible-icon {
+  .notification-icon {
+    flex-shrink: 0;
+    margin-right: var(--space-s);
+  }
+
+  .dismissible-button {
+    color: var(--ui-black);
+    padding: 0;
     position: absolute;
     right: 12px;
     top: 15px;

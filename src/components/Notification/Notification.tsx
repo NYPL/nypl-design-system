@@ -1,6 +1,9 @@
 import * as React from "react";
 
 import bem from "../../utils/bem";
+import { NotificationTypes } from "./NotificationTypes";
+import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
 
@@ -10,11 +13,9 @@ export interface NotificationProps {
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
   /**  */
-  position?: "sticky" | "block";
+  placement?: "sticky" | "block";
   /**  */
-  width?: string;
-  /**  */
-  style?: "standard" | "announcement" | "warning";
+  notificationType?: NotificationTypes;
   /**  */
   icon?: React.ReactNode;
   /**  */
@@ -34,9 +35,8 @@ export default function Notification(
     blockName,
     children,
     className,
-    position = "sticky",
-    style = "standard",
-    width,
+    placement = "sticky",
+    notificationType = "standard",
     id,
     modifiers = [],
     dismissible = false,
@@ -45,35 +45,34 @@ export default function Notification(
   const baseClass = "notification";
 
   const styleProps = { style: {} };
-  if (position) styleProps.style["position"] = position;
-  if (width) styleProps.style["width"] = width;
+  if (placement) styleProps.style["position"] = placement;
 
   const notificationModifiers = modifiers ? modifiers : [];
-  if (!notificationModifiers.find(modifier => modifier === style)) {
-    notificationModifiers.push(style);
+  if (!notificationModifiers.find(modifier => modifier === notificationType)) {
+    notificationModifiers.push(notificationType);
   }
 
   const iconElement = () => {
     if (icon) return icon;
-    switch (style) {
+    switch (notificationType) {
+      // just using placeholders until the necessary icons are added
       case "announcement":
         return (
-          <Icon decorative={false} className="notification-icon">
-            <svg
-              width="29"
-              height="30"
-              viewBox="0 0 29 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M2.83315 0H25.4983C27.0565 0 28.3315 1.35 28.3315 3V21C28.3315 22.65 27.0565 24 25.4983 24H5.66629L0 30L0.0141657 3C0.0141657 1.35 1.27492 0 2.83315 0ZM4.49094 21H25.4987V3H2.83355V22.755L3.65517 21.885L4.49094 21ZM5.66611 15H8.49926V18H5.66611V15ZM8.49926 10.5H5.66611V13.5H8.49926V10.5ZM5.66611 6H8.49926V9H5.66611V6ZM18.4156 15H11.3327V18H18.4156V15ZM11.3327 10.5H22.6653V13.5H11.3327V10.5ZM22.6653 6H11.3327V9H22.6653V6Z"
-                fill="#377F8B"
-              />
-            </svg>
-          </Icon>
+          <Icon
+            decorative={false}
+            className="notification-icon"
+            name={IconNames.headset}
+            modifiers={["medium"]}
+          />
+        );
+      case "warning":
+        return (
+          <Icon
+            decorative={false}
+            className="notification-icon"
+            name={IconNames.clock}
+            modifiers={["medium"]}
+          />
         );
       default:
         return null;
@@ -89,12 +88,13 @@ export default function Notification(
       {iconElement()}
       {children}
       {dismissible ? (
-        <Icon
-          modifiers={["small"]}
-          decorative={false}
-          name={IconNames.close}
-          className="dismissible-icon"
-        />
+        <Button buttonType={ButtonTypes.Link} className="dismissible-button">
+          <Icon
+            modifiers={["small"]}
+            decorative={false}
+            name={IconNames.close}
+          />
+        </Button>
       ) : null}
     </aside>
   );
