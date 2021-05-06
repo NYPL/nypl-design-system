@@ -32,6 +32,10 @@ export interface CheckboxProps {
   value?: string;
 }
 
+export const onChangeDefault = () => {
+  return;
+};
+
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref?) => {
     const {
@@ -42,7 +46,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       id,
       labelText,
       name,
-      onChange,
       showLabel,
       value,
     } = props;
@@ -50,6 +53,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const attributes = props.attributes || {};
     const modifiers = props.modifiers ? props.modifiers : [];
     const checkboxID = id || generateUUID();
+    const onChange = props.onChange || onChangeDefault;
 
     if (!showLabel) attributes["aria-label"] = labelText;
 

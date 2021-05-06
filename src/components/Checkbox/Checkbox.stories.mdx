@@ -10,10 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 import { getCategory } from "../../utils/componentCategories";
 
 import Checkbox from "./Checkbox";
-
-export const onChange = () => {
-  return;
-};
+import { onChangeDefault } from "./Checkbox";
 
 <Meta
   title={getCategory("Checkbox")}
@@ -60,7 +57,7 @@ cause an accessibility violation if none is present.
   <Checkbox
     checked
     showLabel={true}
-    onChange={onChange}
+    onChange={onChangeDefault}
     labelText="I am checked"
   ></Checkbox>
 </Canvas>
