@@ -11,6 +11,10 @@ import { getCategory } from "../../utils/componentCategories";
 
 import Checkbox from "./Checkbox";
 
+export const onChange = () => {
+  return;
+};
+
 <Meta
   title={getCategory("Checkbox")}
   component={Checkbox}
@@ -53,7 +57,12 @@ cause an accessibility violation if none is present.
 ## Checked
 
 <Canvas>
-  <Checkbox checked showLabel={true} labelText="I am checked"></Checkbox>
+  <Checkbox
+    checked
+    showLabel={true}
+    onChange={onChange}
+    labelText="I am checked"
+  ></Checkbox>
 </Canvas>
 
 ## Focused
