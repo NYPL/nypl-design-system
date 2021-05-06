@@ -51,11 +51,17 @@ Announcement.argTypes = commonArgTypes;
 Announcement.parameters = figmaParameter;
 
 export const Warning = Template.bind({});
-Warning.storyName = "Warning Notification";
+Warning.storyName = "Warning Notification with link";
 Warning.args = {
   notificationType: NotificationTypes.Warning,
-  children:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  children: (
+    <>
+      Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+      ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua.
+    </>
+  ),
 };
 Warning.argTypes = commonArgTypes;
 Warning.parameters = figmaParameter;
