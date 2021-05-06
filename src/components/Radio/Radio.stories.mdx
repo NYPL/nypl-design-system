@@ -7,11 +7,13 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
 
 import Radio from "./Radio";
+import { onChangeDefault } from "./Radio";
 
 <Meta
-  title="Form Elements/Radio"
+  title={getCategory("Radio")}
   component={Radio}
   decorators={[withDesign]}
   parameters={{
@@ -20,6 +22,9 @@ import Radio from "./Radio";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A742",
     },
+  }}
+  argTypes={{
+    onChange: { table: { disable: true } },
   }}
 />
 
@@ -48,7 +53,12 @@ cause an accessibility violation if none is present.
 ## Checked
 
 <Canvas>
-  <Radio checked showLabel={true} labelText="I am checked"></Radio>
+  <Radio
+    checked
+    showLabel={true}
+    onChange={onChangeDefault}
+    labelText="I am checked"
+  ></Radio>
 </Canvas>
 
 ## Focused
