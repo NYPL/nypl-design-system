@@ -46,6 +46,11 @@ export default function Notification(
   } = props;
 
   const [isOpen, setIsOpen] = useState(true);
+
+  if (!isOpen) {
+    return null;
+  }
+
   const handleClose = () => setIsOpen(false);
 
   const baseClass = "notification";
@@ -85,9 +90,7 @@ export default function Notification(
     }
   };
 
-  if (!isOpen) {
-    return null;
-  }
+  if (!icon) modifiers.push("no-icon");
 
   return (
     <aside

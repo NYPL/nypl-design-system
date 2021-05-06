@@ -18,6 +18,10 @@
     background-color: var(--ui-gray-xxlight);
   }
 
+  &--no-icon {
+    justify-content: center;
+  }
+
   .notification-icon {
     flex-shrink: 0;
     margin-right: var(--space-s);
