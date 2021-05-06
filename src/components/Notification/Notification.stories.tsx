@@ -70,3 +70,12 @@ DismissibleAnnouncement.args = {
 };
 DismissibleAnnouncement.parameters = figmaParameter;
 DismissibleAnnouncement.argTypes = commonArgTypes;
+
+export const NotificationInContext = () => (
+  <div style={{ height: "300px" }}>
+    <Notification>Notification Content</Notification>
+    <AccordionAsFAQSet {...AccordionAsFAQSet.args} count={10} />
+  </div>
+);
+
+NotificationInContext.parameters = figmaParameter;

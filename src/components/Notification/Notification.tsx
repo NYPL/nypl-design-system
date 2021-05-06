@@ -56,7 +56,11 @@ export default function Notification(
   const baseClass = "notification";
 
   const styleProps = { style: {} };
-  if (placement) styleProps.style["position"] = placement;
+  if (placement) {
+    styleProps.style["position"] = placement;
+
+    if (placement === "sticky") styleProps.style["top"] = 0;
+  }
 
   const notificationModifiers = modifiers ? modifiers : [];
   if (!notificationModifiers.find(modifier => modifier === notificationType)) {
