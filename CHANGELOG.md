@@ -8,7 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
 - Added: Definition List component.
+- Changed: Separate Radio button into its own component.
 
 ## 0.21.2
 

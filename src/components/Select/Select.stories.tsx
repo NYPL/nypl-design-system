@@ -5,9 +5,10 @@ import Label from "../Label/Label";
 import { action } from "@storybook/addon-actions";
 import { text, boolean, select } from "@storybook/addon-knobs";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Select",
+  title: getCategory("Select"),
   component: Select,
 };
 

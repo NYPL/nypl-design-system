@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Checkbox, { CheckboxProps } from "./Checkbox";
 import { Story } from "@storybook/react/types-6-0";
 import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
 
 // Set defaults for the checkbox stories.
 export default {
-  title: "Checkbox",
+  title: getCategory("Checkbox"),
   component: Checkbox,
   // Remove some props for all checkbox stories.
   argTypes: {
