@@ -50,6 +50,15 @@ describe("Checkbox", () => {
   });
 
   it("Changing the value calls the onChange handler", () => {
+    container = Enzyme.mount(
+      <Checkbox
+        id="onChangeTest"
+        onChange={changeHandler}
+        labelText="onChangeTest Lab"
+        showLabel={true}
+        checked
+      ></Checkbox>
+    );
     container.find("input").simulate("change", { target: { value: "Hello" } });
     expect(changeHandler.callCount).to.equal(1);
   });
