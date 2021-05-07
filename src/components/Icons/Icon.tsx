@@ -26,7 +26,7 @@ import logo_nypl_negative from "../../../icons/svg/logo_nypl_negative.svg";
 import logo_queens from "../../../icons/svg/logo_queenspl.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
-import search from "../../../icons/svg/search.svg";
+import Search from "../../../icons/svg/search.svg";
 import speaker_notes from "../../../icons/svg/speaker_notes.svg";
 
 const allSvgs = {
@@ -46,7 +46,7 @@ const allSvgs = {
   logo_queens,
   minus,
   plus,
-  search,
+  Search,
   speaker_notes,
 };
 
@@ -57,8 +57,12 @@ export interface IconProps {
   className?: string;
   /** Decorative icons are skipped by screenreaders */
   decorative?: boolean;
-  /** Desc prop added to the <svg> element */
+  /** Icon title */
+  title?: boolean;
+  titleText?: string;
+  /** Desc prop added to the `<svg>` element.  When icons are not decorative, screen readers will use this value to give meaning to the `<svg>` (mirroring how alt gives meaning to an `<img>` element). */
   desc?: boolean;
+  descText?: string;
   /** Rotates icons in quarters */
   iconRotation?: IconRotationTypes;
   /** Overrides default icon color (black) */
@@ -71,8 +75,6 @@ export interface IconProps {
   name?: IconNames | LogoNames;
   /** Icon role */
   role?: string;
-  /** Icon title */
-  title?: boolean;
 }
 
 /**
@@ -85,14 +87,16 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     blockName,
     decorative = false,
     className,
+    title,
+    titleText,
     desc,
+    descText,
     iconRotation,
     color = IconColors.ui_black,
     size = IconSizes.large,
     modifiers = [],
     name,
     role,
-    title,
     children,
   } = props;
 
@@ -113,11 +117,19 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const iconProps = {
     className: bem(baseClass, iconModifiers, blockName, [className]),
     role: decorative ? "img" : role,
+    title: titleText ? titleText : undefined,
+    alt: descText ? descText : undefined,
     "aria-hidden": decorative,
     "aria-labelledby": title ? "title-" + name : undefined,
     "aria-describedby": desc ? "desc-" + name : undefined,
-    title: title ? `title-${name}` : undefined,
   };
+
+  // const svgProps = {
+  //   role: decorative ? "img" : role,
+  //   "aria-hidden": decorative,
+  //   title: titleText ? titleText : undefined,
+  //   desc: "It!",
+  // };
 
   let svg;
 
@@ -132,8 +144,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   if (name) {
     svg = allSvgs[name];
     return <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />;
+    // return (
+    //   <span {...iconProps}>
+    //     <Search title={"T"} {...svgProps} />
+    //   </span>
+    // );
   } else {
-    svg = children;
+    // svg = children;
     return <span {...iconProps}>{children}</span>;
   }
 }

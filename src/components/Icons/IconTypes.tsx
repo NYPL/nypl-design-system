@@ -42,4 +42,6 @@ export enum IconSizes {
   medium = "medium",
   large = "large",
   xlarge = "xlarge",
+  xxlarge = "xxlarge",
+  xxxlarge = "xxxlarge",
 }

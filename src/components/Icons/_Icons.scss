@@ -28,24 +28,34 @@
     margin-left: var(--space-xxs);
   }
 
+  &--xxxlarge {
+    height: var(--space-xxxl);
+    width: var(--space-xxxl);
+  }
+
+  &--xxlarge {
+    height: var(--space-xxl);
+    width: var(--space-xxl);
+  }
+
   &--xlarge {
-    height: 68px;
-    width: 68px;
+    height: var(--space-xl);
+    width: var(--space-xl);
   }
 
   &--large {
-    height: 36px;
-    width: 36px;
+    height: var(--space-l);
+    width: var(--space-l);
   }
 
   &--medium {
-    height: 24px;
-    width: 24px;
+    height: var(--space-m);
+    width: var(--space-m);
   }
 
   &--small {
-    height: 18px;
-    width: 18px;
+    height: var(--space-s);
+    width: var(--space-s);
   }
 
   &--ui-black {
