@@ -201,7 +201,7 @@ export const listOfLinks = () => (
 );
 /* eslint-enable jsx-a11y/anchor-is-valid */
 
-listOfLinks.storyName = "List of Links";
+listOfLinks.storyName = "Definition List of Links";
 listOfLinks.parameters = {
   docs: {
     source: {
