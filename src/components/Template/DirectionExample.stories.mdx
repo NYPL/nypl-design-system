@@ -1,0 +1,195 @@
+import {
+  Meta,
+  Story,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { useState } from "react";
+
+import getCSSVariable from "../../helpers/getCSSVariable";
+import bem from "../../utils/bem";
+import Placeholder from "../Placeholder/Placeholder";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import Hero from "../Hero/Hero";
+import { HeroTypes } from "../Hero/HeroTypes";
+import Image from "../Image/Image";
+import SearchBar from "../SearchBar/SearchBar";
+import Input from "../Input/Input";
+import { InputTypes } from "../Input/InputTypes";
+import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
+import { ListTypes } from "../List/ListTypes";
+import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import Radio from "../Radio/Radio";
+import Checkbox from "../Checkbox/Checkbox";
+import StatusBadge from "../StatusBadge/StatusBadge";
+import * as inputStories from "../Input/Input.stories.tsx";
+import * as accordionStories from "../Accordion/Accordion.stories.tsx";
+import * as cardStories from "../Card/Card.stories.tsx";
+import * as listStories from "../List/List.stories.tsx";
+import * as paginationStories from "../Pagination/Pagination.stories.tsx";
+
+<Meta title="Directionality" />
+
+# Directionality example
+
+export const switchWrapperStyles = {
+  position: "fixed",
+  background: "white",
+  zIndex: 9000,
+  padding: "0 10px",
+  border: "1px solid black",
+};
+export const shortItems = [
+  { url: "#", text: "Home" },
+  { url: "#", text: "Locations" },
+  { url: "#", text: "Research" },
+];
+
+<Preview>
+  <Story name="Directionality" args={{ useRTL: false }}>
+    {args => {
+      const [rtl, setRTL] = useState(args.useRTL);
+      const direction = rtl ? "rtl" : "ltr";
+      return (
+        <>
+          <div style={switchWrapperStyles}>
+            <Checkbox
+              checked={rtl}
+              checkboxId="switch"
+              onChange={() => setRTL(!rtl)}
+              labelOptions={{ id: "switch", labelContent: "Use right to left" }}
+            />
+          </div>
+          <div dir={direction} style={{ paddingTop: "40px" }}>
+            <main className="main">
+              <div className="content-header">
+                <Breadcrumbs breadcrumbs={shortItems} />
+                <Hero
+                  heroType={HeroTypes.FiftyFifty}
+                  subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
+                  image={
+                    <Image
+                      src="https://cdn-d8.nypl.org/s3fs-public/styles/2_1_960/public/2020-07/SASB_06_29_2020_Lions_mask-00207%20copy_0.jpeg?h=c8e955ed&itok=n_GLQgoe"
+                      blockName={"hero"}
+                      alt={""}
+                    />
+                  }
+                  backgroundColor={getCSSVariable(
+                    "--section-books-and-more-primary"
+                  )}
+                  foregroundColor={getCSSVariable("--ui-white")}
+                />
+              </div>
+              <div className="content-primary">
+                <br />
+                <Heading level={1} id="heading1">
+                  {rtl ? "Using Right to Left" : "Using Left to Right"}
+                </Heading>
+                <br />
+                <SearchBar>
+                  <Input
+                    ariaLabelledBy="button-ex1"
+                    id="input-ex1"
+                    placeholder="Item Search"
+                    required={true}
+                    type={InputTypes.text}
+                    attributes={{
+                      ["aria-describedby"]: "error-helperText-ex1",
+                    }}
+                  />
+                  <Button
+                    buttonType={ButtonTypes.Primary}
+                    id="button-ex1"
+                    type="submit"
+                  >
+                    <Icon
+                      name={IconNames.search}
+                      decorative={true}
+                      modifiers={["small", "icon-left"]}
+                    />
+                    Search
+                  </Button>
+                </SearchBar>
+                <HelperErrorText id="error-helperText-ex1">
+                  Use a keyword or phrase to search!
+                </HelperErrorText>
+                <br />
+                <StatusBadge>This is just an example page!</StatusBadge>
+                <br />
+                {accordionStories.AccordionScroll()}
+                <br />
+                {inputStories.inputGroup()}
+                <br />
+                <div>
+                  <Checkbox
+                    checkboxId="checkbox1"
+                    labelOptions={{
+                      id: "label1",
+                      labelContent: "Carp",
+                    }}
+                    defaultChecked={false}
+                    name="favFish"
+                  />
+                  <Checkbox
+                    checkboxId="checkbox2"
+                    labelOptions={{
+                      id: "label2",
+                      labelContent: "Ranchu Goldfish",
+                    }}
+                    defaultChecked={true}
+                    name="favFish"
+                  />
+                  <Checkbox
+                    checkboxId="checkbox3"
+                    labelOptions={{
+                      id: "label3",
+                      labelContent: "Mahi mahi",
+                    }}
+                    defaultChecked={false}
+                    name="favFish"
+                  />
+                </div>
+                <br />
+                <Heading level={2} id="heading2">
+                  What's your favorite color?
+                </Heading>
+                <div>
+                  <Radio name="favColor" labelText="Red" showLabel={true} />
+                  <Radio name="favColor" labelText="Green" showLabel={true} />
+                  <Radio name="favColor" labelText="Blue" showLabel={true} />
+                </div>
+                <br />
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "150px",
+                  }}
+                >
+                  <Button buttonType={ButtonTypes.Secondary}>Button</Button>
+                  <Button buttonType={ButtonTypes.Primary}>Submit</Button>
+                </div>
+                <br />
+                {cardStories.ExampleCard()}
+                <br />
+                {listStories.list({
+                  listType: ListTypes.Ordered,
+                  items: listStories.itemGroups,
+                })}
+                <br />
+                {paginationStories.paginationUrlHref({
+                  currentPage: 4,
+                  pageCount: 100,
+                })}
+              </div>
+            </main>
+          </div>
+        </>
+      );
+    }}
+  </Story>
+</Preview>

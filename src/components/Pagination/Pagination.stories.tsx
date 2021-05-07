@@ -25,7 +25,6 @@ const PaginationPageHrefTemplate: Story<PaginationProps> = args => {
 
   const location = window.location;
 
-  console.log("pageNumber", pageNumber);
   const getPageHref = page => {
     const currentStoryId = urlParams.get("id");
     return `${location.origin}?path=/story/${currentStoryId}&page=${page}`;

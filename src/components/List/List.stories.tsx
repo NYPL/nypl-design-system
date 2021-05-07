@@ -16,7 +16,7 @@ export default {
   component: List,
 };
 
-const itemGroups = [
+export const itemGroups = [
   "Art",
   "Bushes",
   "Clothing",
