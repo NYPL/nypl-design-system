@@ -107,6 +107,45 @@ heroSecondary.parameters = {
   layout: "fullscreen",
 };
 
+export const heroTertiary = HeroTemplate.bind({});
+
+heroTertiary.args = {
+  heroType: HeroTypes.Tertiary,
+  heading: (
+    <Heading level={1} id={"1"} text={"Hero Tertiary"} blockName={"hero"} />
+  ),
+  subHeaderText: "Example subtitle",
+};
+
+heroTertiary.argTypes = {
+  heroType: { table: { disable: true } },
+  heading: { table: { disable: true } },
+  backgroundImageSrc: { table: { disable: true } },
+  subHeaderText: { table: { disable: true } },
+  foregroundColor: { table: { disable: true } },
+  backgroundColor: { table: { disable: true } },
+  image: { table: { disable: true } },
+  blockName: { table: { disable: true } },
+  className: { table: { disable: true } },
+  locationDetails: { table: { disable: true } },
+  children: { table: { disable: true } },
+  section: {
+    control: {
+      type: "select",
+      options: sections,
+    },
+  },
+};
+
+heroTertiary.parameters = {
+  design: {
+    type: "figma",
+    url:
+      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A5314",
+  },
+  layout: "fullscreen",
+};
+
 export const hero5050 = HeroTemplate.bind({});
 
 hero5050.args = {

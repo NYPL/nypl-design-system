@@ -165,3 +165,37 @@
     }
   }
 }
+
+.hero--tertiary {
+
+  background-color: var(--ui-gray-xdark);
+
+  .nypl--books-and-more & {
+    background-color: var(--section-books-and-more-primary);
+  }
+
+  .nypl--locations & {
+    background-color: var(--section-locations-primary);
+  }
+
+  .nypl--research & {
+    background-color: var(--section-research-primary);
+  }
+
+  .nypl--whats-on & {
+    background-color: var(--section-whats-on-primary);
+  }
+
+  .hero__content {
+    @include wrapper;
+
+    display: flex;
+    flex-flow: column nowrap;
+    padding: var(--space-m) var(--space);
+    color: var(--ui-white);
+
+    .hero__heading {
+      @include space-stack-none;
+    }
+  }
+}

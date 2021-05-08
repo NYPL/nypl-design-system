@@ -58,6 +58,8 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     heroModifiers = ["primary"];
   } else if (heroType === HeroTypes.Secondary) {
     heroModifiers = ["secondary"];
+  } else if (heroType === HeroTypes.Tertiary) {
+    heroModifiers = ["tertiary"];
   } else if (heroType === HeroTypes.FiftyFifty) {
     heroModifiers = ["50-50"];
   }
@@ -93,7 +95,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         : "backgroundColor";
       throw new Error(
         `Please provide both foregroundColor and backgroundColor to Hero, only got ` +
-          receivedColor
+        receivedColor
       );
     }
   } else {
