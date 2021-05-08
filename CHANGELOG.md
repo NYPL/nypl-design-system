@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Changed: Separate Radio button into its own component.
+- Adds `Tertiary` state to Hero component
 
 ## 0.21.2
 
