@@ -95,7 +95,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         : "backgroundColor";
       throw new Error(
         `Please provide both foregroundColor and backgroundColor to Hero, only got ` +
-        receivedColor
+          receivedColor
       );
     }
   } else {
