@@ -67,6 +67,39 @@
   }
 }
 
+.hero--tertiary {
+  background-color: var(--ui-gray-xdark);
+
+  .nypl--books-and-more & {
+    background-color: var(--section-books-and-more-primary);
+  }
+
+  .nypl--locations & {
+    background-color: var(--section-locations-primary);
+  }
+
+  .nypl--research & {
+    background-color: var(--section-research-primary);
+  }
+
+  .nypl--whats-on & {
+    background-color: var(--section-whats-on-primary);
+  }
+
+  .hero__content {
+    @include wrapper;
+
+    color: var(--ui-white);
+    display: flex;
+    flex-flow: column nowrap;
+    padding: var(--space-m) var(--space);
+
+    .hero__heading {
+      @include space-stack-none;
+    }
+  }
+}
+
 .hero--secondary {
   @include breakout;
 
@@ -162,40 +195,6 @@
         flex: 0 0 250px;
         order: 3;
       }
-    }
-  }
-}
-
-.hero--tertiary {
-
-  background-color: var(--ui-gray-xdark);
-
-  .nypl--books-and-more & {
-    background-color: var(--section-books-and-more-primary);
-  }
-
-  .nypl--locations & {
-    background-color: var(--section-locations-primary);
-  }
-
-  .nypl--research & {
-    background-color: var(--section-research-primary);
-  }
-
-  .nypl--whats-on & {
-    background-color: var(--section-whats-on-primary);
-  }
-
-  .hero__content {
-    @include wrapper;
-
-    display: flex;
-    flex-flow: column nowrap;
-    padding: var(--space-m) var(--space);
-    color: var(--ui-white);
-
-    .hero__heading {
-      @include space-stack-none;
     }
   }
 }
