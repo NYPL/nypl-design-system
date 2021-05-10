@@ -7,6 +7,7 @@
   padding: var(--space-xxs) var(--space-xs);
   text-align: center;
   width: fit-content;
+  width: -moz-fit-content;
 
   &--low {
     background-color: var(--ui-gray-light);
