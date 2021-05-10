@@ -66,6 +66,10 @@ const categories = {
     title: "Navigation",
     components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
   },
+  deprecated: {
+    title: "Deprecated",
+    components: ["CheckboxOld"],
+  },
 };
 
 export const getCategory = component => {

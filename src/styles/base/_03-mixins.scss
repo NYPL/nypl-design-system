@@ -3,7 +3,7 @@
 
 /// Mixin - Clearfix.
 /// Adds clearfix based on http://bourbon.io/docs/#clearfix
-/// use example =   @include cleafix
+/// use example =   @include clearfix
 
 @mixin clearfix {
   &::after {
@@ -59,6 +59,34 @@
   position: absolute !important;
   width: 1px;
   word-wrap: normal;
+}
+
+//Convert pixel values to rem
+@function to-rem($size) {
+  @return $size / 16px * 1rem;
+}
+
+//Process a color variable so that it can be used in a data URI/URL
+@function url-friendly-colour($colour) {
+  @return "%23" + str-slice("#{$colour}", 2, -1);
+}
+
+//generates a series of color classes that can be used anywhere
+@mixin color-classes($map) {
+  @each $name, $color in $map {
+    .cl-#{$name} {
+      color: $color;
+    }
+  }
+}
+
+//generates a collection of CSS vars
+@mixin css-vars($map, $prefix) {
+  $prefix: str-insert($prefix, "-", str-length($prefix) + 1);
+
+  @each $name, $color in $map {
+    --#{$prefix}#{$name}: #{$color};
+  }
 }
 
 @mixin placeholder {
