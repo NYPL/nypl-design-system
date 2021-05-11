@@ -12,7 +12,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds three new icons to `Icon`: Error solid, Error outlined, Speaker Notes
 - Adds ability to change icon color: `black` (default), `white`, `brand-primary` (red), `section-research-secondary` (turquoise)
+- Changed: Separate Checkbox into its own component.
 - Changed: Separate Radio button into its own component.
+- Adds `TextInput` component to handle email, hidden, number, password, text, textarea, tel and url input types
 
 ## 0.21.2
 
