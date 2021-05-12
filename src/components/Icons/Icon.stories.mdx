@@ -102,6 +102,28 @@ If you'd like to pass a custom svg to your application, you can pass it as child
 </Canvas>
 
 <!--
+        {Object.keys(releaseparty).map((key, index) => {
+          return (
+            <img
+              key={index}
+              src={releaseparty[key]}
+              width="75"
+              height="75"
+              alt=""
+            />
+          );
+        })}
+        {allSvgs.map((MyComponent, index) => {
+          return (
+            <>
+              <p>test</p>
+              <MyComponent key={index} {...iconProps} />
+            </>
+          );
+        })}
+        -->
+
+<!--
 ## Icons & Logos
 
 export const iconRow = function (array, icon, size = IconSizes.large) {

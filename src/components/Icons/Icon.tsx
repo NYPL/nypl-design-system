@@ -10,46 +10,45 @@ import {
   IconSizes,
 } from "./IconTypes";
 
-import accessibility_full from "../../../icons/svg/accessibility_full.svg";
-import accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
-import arrow from "../../../icons/svg/arrow.svg";
-import check from "../../../icons/svg/check.svg";
-import clock from "../../../icons/svg/clock.svg";
-import close from "../../../icons/svg/close.svg";
-import download from "../../../icons/svg/download.svg";
-import error_filled from "../../../icons/svg/error_filled.svg";
-import error_outline from "../../../icons/svg/error_outline.svg";
-import headset from "../../../icons/svg/headset.svg";
-import logo_brooklyn from "../../../icons/svg/logo_brooklynpl.svg";
-import logo_nypl from "../../../icons/svg/logo_nypl.svg";
-import logo_nypl_negative from "../../../icons/svg/logo_nypl_negative.svg";
-import logo_queens from "../../../icons/svg/logo_queenspl.svg";
-import minus from "../../../icons/svg/minus.svg";
-import plus from "../../../icons/svg/plus.svg";
+import Accessibility_full from "../../../icons/svg/accessibility_full.svg";
+import Accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
+import Arrow from "../../../icons/svg/arrow.svg";
+import Check from "../../../icons/svg/check.svg";
+import Clock from "../../../icons/svg/clock.svg";
+import Close from "../../../icons/svg/close.svg";
+import Download from "../../../icons/svg/download.svg";
+import Error_filled from "../../../icons/svg/error_filled.svg";
+import Error_outline from "../../../icons/svg/error_outline.svg";
+import Headset from "../../../icons/svg/headset.svg";
+import Logo_brooklyn from "../../../icons/svg/logo_brooklynpl.svg";
+import Logo_nypl from "../../../icons/svg/logo_nypl.svg";
+import Logo_nypl_negative from "../../../icons/svg/logo_nypl_negative.svg";
+import Logo_queens from "../../../icons/svg/logo_queenspl.svg";
+import Minus from "../../../icons/svg/minus.svg";
+import Plus from "../../../icons/svg/plus.svg";
 import Search from "../../../icons/svg/search.svg";
-import speaker_notes from "../../../icons/svg/speaker_notes.svg";
+import Speaker_notes from "../../../icons/svg/speaker_notes.svg";
 
 const allSvgs = {
-  accessibility_full,
-  accessibility_partial,
-  arrow,
-  check,
-  clock,
-  close,
-  download,
-  error_filled,
-  error_outline,
-  headset,
-  logo_brooklyn,
-  logo_nypl,
-  logo_nypl_negative,
-  logo_queens,
-  minus,
-  plus,
-  Search,
-  speaker_notes,
+  accessibility_full: Accessibility_full,
+  accessibility_partial: Accessibility_partial,
+  arrow: Arrow,
+  check: Check,
+  clock: Clock,
+  close: Close,
+  download: Download,
+  error_filled: Error_filled,
+  error_outline: Error_outline,
+  headset: Headset,
+  logo_brooklyn: Logo_brooklyn,
+  logo_nypl: Logo_nypl,
+  logo_nypl_negative: Logo_nypl_negative,
+  logo_queens: Logo_queens,
+  minus: Minus,
+  plus: Plus,
+  search: Search,
+  speaker_notes: Speaker_notes,
 };
-
 export interface IconProps {
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
@@ -124,15 +123,9 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     "aria-describedby": desc ? "desc-" + name : undefined,
   };
 
-  // const svgProps = {
-  //   role: decorative ? "img" : role,
-  //   "aria-hidden": decorative,
-  //   title: titleText ? titleText : undefined,
-  //   desc: "It!",
-  // };
+  const ComponentName = allSvgs[name];
 
-  let svg;
-
+  //Validation
   if (name && children) {
     throw new Error("Icon accepts either a name or children, not both");
   } else if (!name && !children) {
@@ -142,13 +135,27 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   }
 
   if (name) {
-    svg = allSvgs[name];
-    return <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />;
-    // return (
-    //   <span {...iconProps}>
-    //     <Search title={"T"} {...svgProps} />
-    //   </span>
-    // );
+    /*
+    return (
+      <>
+        <p>svg</p>
+        {name}
+        <Icon 
+        {/*<span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />* /}
+      </>
+    );
+    */
+    console.log("name", name);
+    console.log("coponentname", ComponentName);
+    return React.createElement(ComponentName, iconProps, null);
+
+    //return <ComponentName  {...} />;
+    /*
+    const MyComponent: React.FunctionComponent<
+      CompProps & React.HTMLAttributes<HTMLOrSVGElement>
+    > = ({ tag: Wrapper = "div", children, ...rest }) => {
+      return <Wrapper {...rest}>{children}</Wrapper>;
+    };*/
   } else {
     // svg = children;
     return <span {...iconProps}>{children}</span>;
