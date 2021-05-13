@@ -80,8 +80,6 @@ export interface IconProps {
  * Icon component
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
-  const baseClass = "icon";
-
   const {
     blockName,
     decorative = false,
@@ -99,22 +97,20 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     children,
   } = props;
 
-  const iconModifiers = modifiers;
-
   if (iconRotation) {
-    iconModifiers.push(iconRotation);
+    modifiers.push(iconRotation);
   }
 
   if (color) {
-    iconModifiers.push(color);
+    modifiers.push(color);
   }
 
   if (size) {
-    iconModifiers.push(size);
+    modifiers.push(size);
   }
 
   const iconProps = {
-    className: bem(baseClass, iconModifiers, blockName, [className]),
+    className: bem("icon", modifiers, blockName, [className]),
     role: decorative ? "img" : role,
     title: titleText ? titleText : undefined,
     alt: descText ? descText : undefined,
@@ -134,28 +130,14 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     );
   }
 
-  if (name) {
-    /*
-    return (
-      <>
-        <p>svg</p>
-        {name}
-        <Icon 
-        {/*<span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />* /}
-      </>
-    );
-    */
-    console.log("name", name);
-    console.log("coponentname", ComponentName);
-    return React.createElement(ComponentName, iconProps, null);
+  if (typeof children === "object") {
+    React.Children.map(children, (child, i) => {
+      console.log(child.toString);
+    });
+  }
 
-    //return <ComponentName  {...} />;
-    /*
-    const MyComponent: React.FunctionComponent<
-      CompProps & React.HTMLAttributes<HTMLOrSVGElement>
-    > = ({ tag: Wrapper = "div", children, ...rest }) => {
-      return <Wrapper {...rest}>{children}</Wrapper>;
-    };*/
+  if (name) {
+    return React.createElement(ComponentName, iconProps, null);
   } else {
     // svg = children;
     return <span {...iconProps}>{children}</span>;

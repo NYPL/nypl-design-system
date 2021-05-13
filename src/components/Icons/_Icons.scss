@@ -59,27 +59,19 @@
   }
 
   &--ui-black {
-    svg {
-      fill: var(--ui-black);
-    }
+    fill: var(--ui-black);
   }
 
   &--ui-white {
-    svg {
-      fill: var(--ui-white);
-    }
+    fill: var(--ui-white);
   }
 
   &--brand-primary {
-    svg {
-      fill: var(--brand-primary);
-    }
+    fill: var(--brand-primary);
   }
 
   &--section-research-secondary {
-    svg {
-      fill: var(--section-research-secondary);
-    }
+    fill: var(--section-research-secondary);
   }
 }
 
