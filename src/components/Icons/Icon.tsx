@@ -59,7 +59,6 @@ export interface IconProps {
   /** Decorative icons are skipped by screenreaders */
   decorative?: boolean;
   /** Icon title */
-  title?: boolean;
   titleText?: string;
   /** Desc prop added to the `<svg>` element.  When icons are not decorative, screen readers will use this value to give meaning to the `<svg>` (mirroring how alt gives meaning to an `<img>` element). */
   desc?: boolean;
@@ -84,7 +83,6 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     blockName,
     decorative = false,
     className,
-    title,
     titleText,
     desc,
     descText,
@@ -117,8 +115,9 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     className: bem("icon", modifiers, blockName, [className]),
     role: "img",
     alt: descText ? descText : undefined,
-    "aria-labelledby": title ? "title-" + name : undefined,
-    "aria-describedby": desc ? "desc-" + name : undefined,
+    //"aria-labelledby": title ? "title-" + name : undefined,
+    //"aria-describedby": desc ? "desc-" + name : undefined,
+    title: titleText || null,
   };
 
   const ComponentName = allSvgs[name];
@@ -139,8 +138,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   }
 
   if (name) {
-    const Title = React.createElement("title", {}, "test");
-    return React.createElement(ComponentName, iconProps, Title);
+    return React.createElement(ComponentName, iconProps, null);
   } else {
     // svg = children;
     return <span {...iconProps}>{children}</span>;
