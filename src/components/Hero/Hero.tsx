@@ -83,7 +83,11 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     : { backgroundColor: backgroundColor };
 
   let contentBoxStyling = {};
-  if (heroType === HeroTypes.Primary || heroType === HeroTypes.FiftyFifty) {
+  if (
+    heroType === HeroTypes.Primary ||
+    heroType === HeroTypes.Tertiary ||
+    heroType === HeroTypes.FiftyFifty
+  ) {
     if (foregroundColor && backgroundColor) {
       contentBoxStyling = {
         color: foregroundColor,
