@@ -50,6 +50,8 @@ const allSvgs = {
   speaker_notes: Speaker_notes,
 };
 export interface IconProps {
+  /** Additional attributes to pass to the `<input>` tag */
+  attributes?: { [key: string]: any };
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
   /** className that appears in addition to "icon" */
@@ -72,8 +74,6 @@ export interface IconProps {
   modifiers?: string[];
   /** Name of the icon */
   name?: IconNames | LogoNames;
-  /** Icon role */
-  role?: string;
 }
 
 /**
@@ -93,9 +93,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     size = IconSizes.large,
     modifiers = [],
     name,
-    role,
     children,
   } = props;
+
+  const attributes = props.attributes || {};
+
+  //Purely decorative icons should be hidden from screen readers
+  if (decorative) attributes["aria-hidden"] = true;
 
   if (iconRotation) {
     modifiers.push(iconRotation);
@@ -111,10 +115,8 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
 
   const iconProps = {
     className: bem("icon", modifiers, blockName, [className]),
-    role: decorative ? "img" : role,
-    title: titleText ? titleText : undefined,
+    role: "img",
     alt: descText ? descText : undefined,
-    "aria-hidden": decorative,
     "aria-labelledby": title ? "title-" + name : undefined,
     "aria-describedby": desc ? "desc-" + name : undefined,
   };
@@ -137,7 +139,8 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   }
 
   if (name) {
-    return React.createElement(ComponentName, iconProps, null);
+    const Title = React.createElement("title", {}, "test");
+    return React.createElement(ComponentName, iconProps, Title);
   } else {
     // svg = children;
     return <span {...iconProps}>{children}</span>;
