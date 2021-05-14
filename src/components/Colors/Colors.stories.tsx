@@ -50,6 +50,24 @@ const sectionDefault = sections[3];
 
 export const colorsBrand = () => (
   <>
+    <Heading level={1}>Brand</Heading>
+    <p>Brand fills are the NYPL primary and secondary colors.</p>
+    <List
+      type={ListTypes.Unordered}
+      modifiers={["no-list-styling"]}
+      className="card-grid__cards"
+    >
+      <li style={{ textAlign: "center" }}>
+        <UIDocCard backgroundColor={getCSSVariable("--brand-primary")}>
+          --brand-primary: {getCSSVariable("--brand-primary")}
+        </UIDocCard>
+      </li>
+      <li style={{ textAlign: "center" }}>
+        <UIDocCard backgroundColor={getCSSVariable("--brand-secondary")}>
+          --brand-secondary: {getCSSVariable("--brand-secondary")}
+        </UIDocCard>
+      </li>
+    </List>
     <Heading level={1}>Section Colors</Heading>
     <Heading level={2}>{"What's On"}</Heading>
     <p>
