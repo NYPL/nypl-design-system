@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import * as React from "react";
 import bem from "../../utils/bem";
+import generateUUID from "../../helpers/generateUUID";
 
 import {
   IconRotationTypes,
@@ -60,9 +61,6 @@ export interface IconProps {
   decorative?: boolean;
   /** Icon title */
   titleText?: string;
-  /** Desc prop added to the `<svg>` element.  When icons are not decorative, screen readers will use this value to give meaning to the `<svg>` (mirroring how alt gives meaning to an `<img>` element). */
-  desc?: boolean;
-  descText?: string;
   /** Rotates icons in quarters */
   iconRotation?: IconRotationTypes;
   /** Overrides default icon color (black) */
@@ -84,8 +82,6 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     decorative = false,
     className,
     titleText,
-    desc,
-    descText,
     iconRotation,
     color = IconColors.ui_black,
     size = IconSizes.large,
@@ -114,10 +110,8 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const iconProps = {
     className: bem("icon", modifiers, blockName, [className]),
     role: "img",
-    alt: descText ? descText : undefined,
-    //"aria-labelledby": title ? "title-" + name : undefined,
-    //"aria-describedby": desc ? "desc-" + name : undefined,
     title: titleText || null,
+    titleId: titleText ? generateUUID() : null,
   };
 
   const ComponentName = allSvgs[name];
@@ -129,12 +123,6 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     console.warn(
       "Pass a name or any children to Icon to ensure an icon appears"
     );
-  }
-
-  if (typeof children === "object") {
-    React.Children.map(children, (child, i) => {
-      console.log(child.toString);
-    });
   }
 
   if (name) {
