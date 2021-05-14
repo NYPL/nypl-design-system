@@ -114,6 +114,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     titleId: titleText ? generateUUID() : null,
   };
 
+  //Apply icon props to child SVG
+  const renderChildren = () => {
+    return React.Children.map(children, child => {
+      return React.cloneElement(child as JSX.Element, { ...iconProps });
+    });
+  };
+
   const ComponentName = allSvgs[name];
 
   //Validation
@@ -129,6 +136,6 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     return React.createElement(ComponentName, iconProps, null);
   } else {
     // svg = children;
-    return <span {...iconProps}>{children}</span>;
+    return <>{renderChildren()}</>;
   }
 }
