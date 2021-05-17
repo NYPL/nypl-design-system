@@ -8,13 +8,19 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Breaking Changes
+
+- Removes `--ui-success` CSS variable and adds `--ui-success-primary` and `--ui-success-secondary`
+
 ### Changes
 
 - Adds three new icons to `Icon`: Error solid, Error outlined, Speaker Notes
 - Adds ability to change icon color: `black` (default), `white`, `brand-primary` (red), `section-research-secondary` (turquoise)
 - Changed: Separate Checkbox into its own component.
 - Changed: Separate Radio button into its own component.
+- Changes `Brand` and `Utility` color values to match Figma main file
 - Adds `TextInput` component to handle email, hidden, number, password, text, textarea, tel and url input types
+- Adds default width and padding to `StatusBadge` component.
 
 ## 0.21.2
 

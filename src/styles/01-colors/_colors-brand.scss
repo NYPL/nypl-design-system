@@ -2,33 +2,37 @@
 
 // SASS Color Variables
 
-/** Brand fills are the NYPL primary and secondary colors */
+/* Brand fills are the NYPL primary and secondary colors */
 $brand-primary: #c60917;
 $brand-secondary: #760000;
 
 // What's On is used for Exhibitions & Events.
-$whats-on-secondary: #7c1097;
-$whats-on-primary: #8a1a9c;
+$whats-on-primary: #242424;
+$whats-on-secondary: #000000;
 
 // Books and More is used for the Catalog, Staff Picks, Recommendations, New Arrivals, and E-Book Central.
-$books-and-more-primary: #d0343a;
-$books-and-more-secondary: #bb1d12;
+$books-and-more-primary: $brand-primary;
+$books-and-more-secondary: $brand-secondary;
 
 // Research is used for the Research Catalog and SCC.
-$research-primary: #377f8b;
-$research-secondary: #02626a;
+$research-primary: #00838a;
+$research-secondary: #006166;
 
 // Locations is used for Location Finder and all branch pages with the exceptions of some research libraries.
-$locations-primary: #d0343a;
-$locations-secondary: #bb1d12;
+$locations-primary: $brand-primary;
+$locations-secondary: $brand-secondary;
 
 // Research libraries with specific brand colors to adhere to.
-$research-library-lpa: #008375;
-$research-library-schomburg: #c54b38;
-$research-library-schwartzman: #0071ce;
+$research-library-lpa: #005d53;
+$research-library-schomburg: #a03e31;
+$research-library-schwartzman: $brand-secondary;
 
 //Mapping where we associate a name string with each SASS var
-//This is used to generate the CSS Color Classes and CSS Variables/Custom Properties
+$colors_brand: (
+  primary: $brand-primary,
+  secondary: $brand-secondary,
+);
+
 $colors: (
   brand-primary: $brand-primary,
   brand-secondary: $brand-secondary,
@@ -46,9 +50,11 @@ $colors: (
 );
 
 /* CSS Color Classes*/
+@include color-classes($colors_brand);
 @include color-classes($colors);
 
 /* CSS Variables/Custom Properties */
 :root {
+  @include css-vars($colors_brand, "brand");
   @include css-vars($colors, "section");
 }
