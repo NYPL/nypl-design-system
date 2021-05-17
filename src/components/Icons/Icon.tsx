@@ -111,7 +111,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     className: bem("icon", modifiers, blockName, [className]),
     role: "img",
     title: titleText || null,
-    titleId: titleText ? generateUUID() : null,
+    titleid: titleText ? generateUUID() : null,
   };
 
   //Apply icon props to child SVG
