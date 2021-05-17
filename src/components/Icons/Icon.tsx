@@ -57,11 +57,11 @@ export interface IconProps {
   blockName?: string;
   /** className that appears in addition to "icon" */
   className?: string;
-  /** Decorative icons are skipped by screenreaders */
+  /** Icons designated as decorative will be ignored by screenreaders */
   decorative?: boolean;
-  /** Icon title */
+  /** This text will be added as a <title> element inside your SVG's code.  It is recommended to do this for increased accessibility. */
   titleText?: string;
-  /** Rotates icons in quarters */
+  /** Rotates the icons clockwise in increments of 90deg */
   iconRotation?: IconRotationTypes;
   /** Overrides default icon color (black) */
   color?: IconColors;
@@ -69,7 +69,7 @@ export interface IconProps {
   size?: IconSizes;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Name of the icon */
+  /** The name of the icon you want to use */
   name?: IconNames | LogoNames;
 }
 
