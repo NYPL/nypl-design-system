@@ -59,19 +59,19 @@
   }
 
   &--ui-black {
-    fill: var(--ui-black);
+    fill: $black;
   }
 
   &--ui-white {
-    fill: var(--ui-white);
+    fill: $white;
   }
 
   &--brand-primary {
-    fill: var(--brand-primary);
+    fill: $brand-primary;
   }
 
   &--section-research-secondary {
-    fill: var(--section-research-secondary);
+    fill: $research-secondary;
   }
 }
 
