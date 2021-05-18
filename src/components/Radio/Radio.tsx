@@ -68,11 +68,10 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
           : {
               defaultChecked: false,
             })}
-        className={bem("radio", modifiers, "input", [className])}
+        className={bem("radio", modifiers, "", [className])}
         disabled={disabled}
         id={radioID}
         name={name || "default"}
-        onChange={onChange}
         ref={ref}
         type="radio"
         value={value}
