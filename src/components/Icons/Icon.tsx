@@ -11,6 +11,22 @@ import {
   IconSizes,
 } from "./IconTypes";
 
+const importAll = require =>
+  require.keys().reduce((acc, next) => {
+    const str = next.replace("./", "").replace(".svg", "");
+    const str2 = str.charAt(0).toUpperCase() + str.slice(1);
+    console.log(str2);
+    acc[str2] = require(next);
+    return acc;
+  }, {});
+
+const images = importAll(
+  require.context("../../../icons/svg/new/test", true, /\.svg$/)
+);
+
+console.log("images", images);
+
+/*
 import Accessibility_full from "../../../icons/svg/accessibility_full.svg";
 import Accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
 import Arrow from "../../../icons/svg/arrow.svg";
@@ -29,9 +45,10 @@ import Minus from "../../../icons/svg/minus.svg";
 import Plus from "../../../icons/svg/plus.svg";
 import Search from "../../../icons/svg/search.svg";
 import Speaker_notes from "../../../icons/svg/speaker_notes.svg";
-
+*/
+/*
 const allSvgs = {
-  accessibility_full: Accessibility_full,
+  accessibility_full: images("Accessibility_full"),
   accessibility_partial: Accessibility_partial,
   arrow: Arrow,
   check: Check,
@@ -50,6 +67,7 @@ const allSvgs = {
   search: Search,
   speaker_notes: Speaker_notes,
 };
+*/
 export interface IconProps {
   /** Additional attributes to pass to the `<input>` tag */
   attributes?: { [key: string]: any };
@@ -121,7 +139,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     });
   };
 
-  const ComponentName = allSvgs[name];
+  const ComponentName = images[name];
 
   //Validation
   if (name && children) {
@@ -133,7 +151,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   }
 
   if (name) {
-    return React.createElement(ComponentName, iconProps, null);
+    return React.createElement("Brooklyn", iconProps, null);
   } else {
     // svg = children;
     return <>{renderChildren()}</>;
