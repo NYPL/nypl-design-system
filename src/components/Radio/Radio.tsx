@@ -75,6 +75,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
         ref={ref}
         type="radio"
         value={value}
+        onChange={onChange}
         {...attributes}
       />
       {labelText && showLabel && <Label htmlFor={radioID}>{labelText}</Label>}
