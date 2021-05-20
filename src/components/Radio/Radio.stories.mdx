@@ -43,6 +43,7 @@ cause an accessibility violation if none is present.
       labelText: "Test Label",
       showLabel: true,
       id: "test_id",
+      name: "test_name",
     }}
   >
     {args => <Radio {...args} />}
@@ -56,9 +57,10 @@ cause an accessibility violation if none is present.
 <Canvas>
   <Radio
     checked
-    showLabel={true}
-    onChange={onChangeDefault}
     labelText="I am checked"
+    name="testChecked"
+    onChange={onChangeDefault}
+    showLabel={true}
   ></Radio>
 </Canvas>
 
@@ -75,11 +77,21 @@ cause an accessibility violation if none is present.
 ## Errored
 
 <Canvas>
-  <Radio errored showLabel={true} labelText="I am in an error state"></Radio>
+  <Radio
+    name="testErrored"
+    errored
+    showLabel={true}
+    labelText="I am in an error state"
+  ></Radio>
 </Canvas>
 
 ## Disabled
 
 <Canvas>
-  <Radio disabled showLabel={true} labelText="I am disabled"></Radio>
+  <Radio
+    name="testDisabled"
+    disabled
+    showLabel={true}
+    labelText="I am disabled"
+  ></Radio>
 </Canvas>
