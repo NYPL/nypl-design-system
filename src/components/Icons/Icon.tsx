@@ -11,20 +11,27 @@ import {
   IconSizes,
 } from "./IconTypes";
 
-const importAll = require =>
-  require.keys().reduce((acc, next) => {
-    const str = next.replace("./", "").replace(".svg", "");
-    const str2 = str.charAt(0).toUpperCase() + str.slice(1);
-    console.log(str2);
-    acc[str2] = require(next);
-    return acc;
-  }, {});
+// const importAll = (ctx: ReturnType<typeof require.context>) =>
+//   ctx.keys().reduce((acc, next) => {
+//     const str = next.replace("./", "").replace(".svg", "");
+//     const componentName = str.charAt(0).toUpperCase() + str.slice(1);
+//     const requiredValue = require(next);
+//     console.log("CMP", requiredValue);
+//     acc[componentName] = requiredValue;
+//     return acc;
+//   }, {});
 
-const images = importAll(
-  require.context("../../../icons/svg/new/test", true, /\.svg$/)
-);
+// const images = importAll(
+//   require.context("../../../icons/svg/new/test", true, /\.svg$/)
+// );
 
-console.log("images", images);
+// console.log("images", images);
+
+import * as images from "../../../icons/svg/new/test";
+
+// typescript still thinks the imported thing is a string, not a component
+// const images = { Brooklyn: Brooklyn as ReactComponentLike };
+console.log("IMAGES", images);
 
 /*
 import Accessibility_full from "../../../icons/svg/accessibility_full.svg";
@@ -139,7 +146,8 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     });
   };
 
-  const ComponentName = images[name];
+  // REPLACE THIS WITH THE REAL NAME
+  const Component = images["Brooklyn"];
 
   //Validation
   if (name && children) {
@@ -151,7 +159,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   }
 
   if (name) {
-    return React.createElement("Brooklyn", iconProps, null);
+    return React.createElement(Component, iconProps, null);
   } else {
     // svg = children;
     return <>{renderChildren()}</>;
