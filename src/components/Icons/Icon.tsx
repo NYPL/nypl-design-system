@@ -27,7 +27,7 @@ import {
 
 // console.log("images", images);
 
-import * as images from "../../../icons/svg/new/test";
+import * as images from "./Svgs";
 
 // typescript still thinks the imported thing is a string, not a component
 // const images = { Brooklyn: Brooklyn as ReactComponentLike };
@@ -147,7 +147,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   };
 
   // REPLACE THIS WITH THE REAL NAME
-  const Component = images["Brooklyn"];
+  const Component = images[name];
 
   //Validation
   if (name && children) {
