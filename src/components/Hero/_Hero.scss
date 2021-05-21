@@ -176,5 +176,11 @@
     display: flex;
     flex-flow: column nowrap;
     padding: var(--space-l) var(--space);
+
+    /* stylelint-disable */
+    .hero__heading {
+      @include space-stack-s;
+    }
+    /* stylelint-enable */
   }
 }
