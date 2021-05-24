@@ -1,0 +1,159 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import TextInput from "./TextInput";
+import { TextInputTypes } from "./TextInputTypes";
+import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("TextInput")}
+  component={TextInput}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+    },
+  }}
+/>
+
+# TextInput
+
+<Description of={TextInput} />
+
+This component renders a text input form element. See below for configuration information. For optimal accessibility, the `labelText` property is a required prop, regardless of the label visibility. Additionally, while the `id` prop is optional, a unique `id` attribute is necessary for accessibility. If the prop is left blank, a value will be generated for you.
+
+<Preview withToolbar>
+  <Story
+    name="TextInput"
+    args={{
+      id: "myTextInput",
+      type: "text",
+      labelText: "What is your favorite color?",
+      showLabel: true,
+      placeholder: "e.g. blue, green, etc.",
+      helperText: "Choose wisely.",
+      errorText: "Waaaaaaaa!",
+      errored: false,
+      required: true,
+      disabled: false,
+      attributes: {
+        onFocus: action("focus"),
+        onBlur: action("blur"),
+        onChange: action("onChange"),
+        maxLength: 10,
+        tabIndex: 0,
+        autoFocus: true,
+        pattern: "[a-z0-9]",
+      },
+    }}
+  >
+    {args => <TextInput {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="TextInput" />
+
+## Labelling Variations
+
+A TextInput can be rendered with or without visible labels.
+
+<Preview withToolbar>
+  <Story
+    name="Labelling Variations"
+    args={{
+      labelText: "What is your favorite color?",
+      showLabel: false,
+    }}
+  >
+    {args => <TextInput {...args} />}
+  </Story>
+</Preview>
+
+<Canvas>
+  <TextInput labelText="What is your favorite color?" showLabel={true} />
+</Canvas>
+
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={false}
+    placeholder="i.e. blue, green, etc."
+  />
+</Canvas>
+
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={true}
+    placeholder="i.e. blue, green, etc."
+  />
+</Canvas>
+
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={false}
+    placeholder="i.e. blue, green, etc."
+    helperText="Choose wisely!"
+  />
+</Canvas>
+
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={true}
+    placeholder="i.e. blue, green, etc."
+    helperText="Choose wisely!"
+  />
+</Canvas>
+
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={false}
+    placeholder="i.e. blue, green, etc."
+    errorText="Waaaaaa!"
+    errored={true}
+  />
+</Canvas>
+
+<Canvas>
+  <TextInput
+    labelText="What is your favorite color?"
+    showLabel={true}
+    placeholder="i.e. blue, green, etc."
+    errorText="Waaaaaa!"
+    errored={true}
+  />
+</Canvas>
+
+<!-- Include this once textarea is included as an input "type" option.
+## Textarea
+
+The TextInput component includes a multiline `textarea` form field.
+
+<Preview withToolbar>
+  <Story
+    name="Textarea"
+    args={{
+      type: "textarea",
+      labelText: "In less than 500 words, describe your favorite colors?",
+      showLabel: true,
+      placeholder: "Essay question...",
+      helperText: "Let it all out.",
+    }}
+  >
+    {args => <TextInput {...args} />}
+  </Story>
+</Preview>
+-->

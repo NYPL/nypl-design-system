@@ -8,9 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Breaking Changes
+
+- Removes `--ui-success` CSS variable and adds `--ui-success-primary` and `--ui-success-secondary`
+
 ### Changes
 
+- Changed: Separate Checkbox into its own component.
 - Changed: Separate Radio button into its own component.
+- Changes `Brand` and `Utility` color values to match Figma main file
+- Changes `Radio` styles to use SASS vars in place of CSS vars
+- Adds `TextInput` component to handle email, hidden, number, password, text, textarea, tel and url input types
+- Adds default width and padding to `StatusBadge` component.
 
 ### BugFixes
 
