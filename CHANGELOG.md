@@ -21,6 +21,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `TextInput` component to handle email, hidden, number, password, text, textarea, tel and url input types
 - Adds default width and padding to `StatusBadge` component.
 
+### BugFixes
+
+- Fixed layout bug for layouts that include a right sidebar column and DOM structure.
+
 ## 0.21.2
 
 ### Changes
