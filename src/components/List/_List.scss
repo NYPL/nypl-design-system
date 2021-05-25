@@ -13,27 +13,28 @@
   &__definition-list {
     border-bottom: 1px solid var(--ui-gray-light);
 
-    h3 {
+    h2 {
       border-top: 3px solid var(--section-research-primary);
-      padding-top: var(--space-xs);
+      margin: 0;
+      padding: var(--space-xs) 0 0;
     }
 
     dl {
       display: grid;
       grid-template-columns: 100%;
       grid-template-rows: 1fr;
-      margin-bottom: 0;
+      margin: var(--space-xs) 0 0;
 
       dt {
         border-top: 1px solid var(--ui-gray-light);
         font-size: var(--font-size-0);
         font-weight: bold;
         padding-bottom: 0;
-        padding-right: var(--space-m);
-        padding-top: var(--space-xs);
+        padding-top: var(--space-s);
 
         @include breakpoint($breakpoint-medium) {
           padding-bottom: var(--space-s);
+          padding-right: var(--space-m);
         }
       }
 
@@ -42,16 +43,15 @@
         font-size: var(--font-size-0);
         margin: 0;
         padding-bottom: var(--space-s);
-        padding-top: var(--space-xs);
 
         @include breakpoint($breakpoint-medium) {
           border-top: 1px solid var(--ui-gray-light);
+          padding-top: var(--space-s);
         }
       }
 
       @include breakpoint($breakpoint-medium) {
         grid-template-columns: max(225px) 1fr;
-        margin-bottom: var(--space-s);
       }
     }
   }
