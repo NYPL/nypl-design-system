@@ -114,8 +114,14 @@ heroTertiary.args = {
   heading: (
     <Heading level={1} id={"1"} text={"Hero Tertiary"} blockName={"hero"} />
   ),
-  subHeaderText:
-    "Explore our collection of hundreds of online resources and databases.  Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.",
+  subHeaderText: (
+    <p>
+      Explore our collection of hundreds of online resources and databases. Use
+      our free online content to help with your research, whether it's finding a
+      single article, tracing a family tree, learning a new language, or
+      anything in between.
+    </p>
+  ),
   backgroundColor: "#424242",
   foregroundColor: "#FFFFFF",
 };
@@ -125,6 +131,7 @@ heroTertiary.argTypes = {
   heading: { table: { disable: true } },
   backgroundImageSrc: { table: { disable: true } },
   foregroundColor: { table: { disable: true } },
+  subHeaderText: { table: { disable: true } },
   image: { table: { disable: true } },
   blockName: { table: { disable: true } },
   className: { table: { disable: true } },

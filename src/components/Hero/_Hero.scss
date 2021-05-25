@@ -180,7 +180,14 @@
     /* stylelint-disable */
     .hero__heading {
       @include space-stack-s;
+
+      &:last-child {
+        @include space-stack-none;
+      }
     }
     /* stylelint-enable */
+    p {
+      @include space-stack-none;
+    }
   }
 }
