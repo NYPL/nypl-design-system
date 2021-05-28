@@ -34,7 +34,15 @@ export enum IconColors {
   ui_black = "ui-black",
   ui_white = "ui-white",
   brand_primary = "brand-primary",
+  brand_secondary = "brand-secondary",
+  section_whats_on_primary = "section-whats-on-primary",
+  section_books_and_more_primary = "section-books-and-more-primary",
+  section_research_primary = "section-research-primary",
   section_research_secondary = "section-research-secondary",
+  section_locations_primary = "section-locations-primary",
+  section_research_library_lpa = "section-research-library-lpa",
+  section_research_library_schomburg = "section-research-library-schomburg",
+  section_research_library_schwartzman = "section-research-library-schwartzman",
 }
 
 export enum IconSizes {

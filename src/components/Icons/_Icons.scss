@@ -4,6 +4,7 @@
   height: 24px;
   width: 24px;
 
+  // ROTATION
   &--rotate-180 {
     transform: rotate(180deg);
   }
@@ -20,6 +21,7 @@
     transform: rotate(90deg);
   }
 
+  // ALIGNMENT SPACING
   &--left {
     margin-right: var(--space-xxs);
   }
@@ -28,6 +30,7 @@
     margin-left: var(--space-xxs);
   }
 
+  // SIZE
   &--xxxlarge {
     height: var(--space-xxxl);
     width: var(--space-xxxl);
@@ -58,6 +61,7 @@
     width: var(--space-s);
   }
 
+  // FILL COLOR
   &--ui-black {
     fill: $black;
   }
@@ -70,8 +74,40 @@
     fill: $brand-primary;
   }
 
+  &--brand-secondary {
+    fill: $brand-secondary;
+  }
+
+  &--section-whats-on-primary {
+    fill: $whats-on-primary;
+  }
+
+  &--section-books-and-more-primary {
+    fill: $books-and-more-primary;
+  }
+
+  &--section-research-primary {
+    fill: $research-primary;
+  }
+
   &--section-research-secondary {
     fill: $research-secondary;
+  }
+
+  &--section-locations-primary {
+    fill: $locations-primary;
+  }
+
+  &--section-research-library-lpa {
+    fill: $research-library-lpa;
+  }
+
+  &--section-research-library-schomburg {
+    fill: $research-library-schomburg;
+  }
+
+  &--section-research-library-schwartzman {
+    fill: $research-library-schwartzman;
   }
 }
 
