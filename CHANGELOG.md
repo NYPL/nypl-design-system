@@ -8,9 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.22.0
+
 ### Breaking Changes
 
 - Removes `--ui-success` CSS variable and adds `--ui-success-primary` and `--ui-success-secondary`
+- Removes `checkboxId` prop from `Checkbox` component and employs `id` in its place.
+- Removes `defaultChecked` prop from `Checkbox` component.
+- Removed `labelOptions` porp from `Checkbox` component and employs `labelText` in its place.
 
 ### Changes
 
