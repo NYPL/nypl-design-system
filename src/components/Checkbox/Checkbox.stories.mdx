@@ -9,18 +9,18 @@ import {
 import { withDesign } from "storybook-addon-designs";
 import { getCategory } from "../../utils/componentCategories";
 
-import Radio from "./Radio";
-import { onChangeDefault } from "./Radio";
+import Checkbox from "./Checkbox";
+import { onChangeDefault } from "./Checkbox";
 
 <Meta
-  title={getCategory("Radio")}
-  component={Radio}
+  title={getCategory("Checkbox")}
+  component={Checkbox}
   decorators={[withDesign]}
   parameters={{
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A742",
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
     },
   }}
   argTypes={{
@@ -29,69 +29,61 @@ import { onChangeDefault } from "./Radio";
   }}
 />
 
-# Radio
+# Checkbox
 
-<Description of={Radio} />
+<Description of={Checkbox} />
 
-This component renders a radio button form element. See below for configuration information. Note that the `id` property, while optional, will
+This component renders a Checkbox button form element. See below for configuration information. Note that the `id` property, while optional, will
 cause an accessibility violation if none is present.
 
 <Preview withToolbar>
   <Story
-    name="Radio"
+    name="Checkbox"
     args={{
       labelText: "Test Label",
       showLabel: true,
       id: "test_id",
-      name: "test_name",
     }}
   >
-    {args => <Radio {...args} />}
+    {args => <Checkbox {...args} />}
   </Story>
 </Preview>
 
-<ArgsTable story="Radio" />
+<ArgsTable story="Checkbox" />
 
 ## Checked
 
 <Canvas>
-  <Radio
+  <Checkbox
     checked
-    labelText="I am checked"
-    name="testChecked"
-    onChange={onChangeDefault}
     showLabel={true}
-  ></Radio>
+    onChange={onChangeDefault}
+    labelText="I am checked"
+  ></Checkbox>
 </Canvas>
 
 ## Focused
 
 <Canvas>
-  <Radio
+  <Checkbox
     name="testFocus"
     labelText="Click or tab to the Radio to see its focus state"
     showLabel={true}
-  ></Radio>
+  ></Checkbox>
 </Canvas>
 
 ## Errored
 
 <Canvas>
-  <Radio
-    name="testErrored"
+  <Checkbox
     errored
     showLabel={true}
     labelText="I am in an error state"
-  ></Radio>
+  ></Checkbox>
 </Canvas>
 
 ## Disabled
 
 <Canvas>
-  <Radio
-    name="testDisabled"
-    disabled
-    showLabel={true}
-    labelText="I am disabled"
-  ></Radio>
+  <Checkbox disabled showLabel={true} labelText="I am disabled"></Checkbox>
 </Canvas>
