@@ -58,6 +58,8 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     heroModifiers = ["primary"];
   } else if (heroType === HeroTypes.Secondary) {
     heroModifiers = ["secondary"];
+  } else if (heroType === HeroTypes.Tertiary) {
+    heroModifiers = ["tertiary"];
   } else if (heroType === HeroTypes.FiftyFifty) {
     heroModifiers = ["50-50"];
   }
@@ -81,7 +83,11 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     : { backgroundColor: backgroundColor };
 
   let contentBoxStyling = {};
-  if (heroType === HeroTypes.Primary || heroType === HeroTypes.FiftyFifty) {
+  if (
+    heroType === HeroTypes.Primary ||
+    heroType === HeroTypes.Tertiary ||
+    heroType === HeroTypes.FiftyFifty
+  ) {
     if (foregroundColor && backgroundColor) {
       contentBoxStyling = {
         color: foregroundColor,
