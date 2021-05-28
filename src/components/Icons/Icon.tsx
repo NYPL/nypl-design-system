@@ -13,6 +13,10 @@ import {
 
 import * as images from "./IconSvgs";
 
+// typescript still thinks the imported thing is a string, not a component
+// const images = { Brooklyn: Brooklyn as ReactComponentLike };
+console.log("IMAGES", images);
+
 export interface IconProps {
   /** Additional attributes to pass to the `<svg>` tag. */
   attributes?: { [key: string]: any };
@@ -46,8 +50,8 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     className,
     titleText,
     iconRotation,
-    color = IconColors.ui_black,
-    size = IconSizes.large,
+    color,
+    size,
     modifiers = [],
     name,
     children,
