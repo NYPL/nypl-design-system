@@ -4,6 +4,5 @@ export enum InputTypes {
   number = "number",
   password = "password",
   text = "text",
-  radio = "radio",
   hidden = "hidden",
 }

@@ -4,9 +4,9 @@ import * as React from "react";
 import { stub, spy } from "sinon";
 import generateUUID from "../../helpers/generateUUID";
 
-import Checkbox from "./Checkbox";
+import Radio from "./Radio";
 
-describe("Checkbox", () => {
+describe("Radio Button", () => {
   let container;
   let changeHandler;
   let clickHander;
@@ -17,13 +17,13 @@ describe("Checkbox", () => {
     changeHandler = stub();
     generateUUIDSpy = spy(generateUUID);
     container = Enzyme.mount(
-      <Checkbox
+      <Radio
         id="inputID"
         attributes={{ onClick: clickHander }}
         onChange={changeHandler}
         labelText="Test Label"
         showLabel={false}
-      ></Checkbox>
+      ></Radio>
     );
   });
 
@@ -36,11 +36,11 @@ describe("Checkbox", () => {
     expect(container.find("input").exists()).to.equal(true);
   });
 
-  it("The checkbox element is an input with type='checkbox'", () => {
-    expect(container.find("input").prop("type")).to.equal("checkbox");
+  it("The radio element is an input with type='radio'", () => {
+    expect(container.find("input").prop("type")).to.equal("radio");
   });
 
-  it("The checkbox element's ID is set properly using the value passed to it.", () => {
+  it("The radio element's ID is set properly using the value passed to it.", () => {
     expect(container.find("input").prop("id")).to.equal("inputID");
   });
 
@@ -50,37 +50,28 @@ describe("Checkbox", () => {
   });
 
   it("Changing the value calls the onChange handler", () => {
-    container = Enzyme.mount(
-      <Checkbox
-        id="onChangeTest"
-        onChange={changeHandler}
-        labelText="onChangeTest Lab"
-        showLabel={true}
-        checked
-      ></Checkbox>
-    );
     container.find("input").simulate("change", { target: { value: "Hello" } });
     expect(changeHandler.callCount).to.equal(1);
   });
 
   it("Renders with label", () => {
     container = Enzyme.mount(
-      <Checkbox
+      <Radio
         //add other props here
         id="test_id"
         labelText="Hello"
         showLabel={true}
-      ></Checkbox>
+      ></Radio>
     );
     expect(container.find("label").exists()).to.equal(true);
     expect(container.find("input").props()).not.to.have.property("aria-label");
-    const checkboxId = container.prop("id");
-    expect(container.find("label").prop("htmlFor")).to.equal(checkboxId);
+    const radioId = container.prop("id");
+    expect(container.find("label").prop("htmlFor")).to.equal(radioId);
   });
 
   it("Calls a UUID generation method if no ID is passed as a prop", () => {
     container = Enzyme.mount(
-      <Checkbox labelText="Hello" showLabel={true}></Checkbox>
+      <Radio labelText="Hello" showLabel={true}></Radio>
     );
     expect(container.find("input").props()).to.have.property("id");
 
@@ -90,7 +81,7 @@ describe("Checkbox", () => {
   it("The 'checked' attribute can set properly", () => {
     const onChange = stub();
     const container = Enzyme.mount(
-      <Checkbox
+      <Radio
         id="inputID-attributes"
         labelText="Hello"
         showLabel={false}
@@ -99,7 +90,7 @@ describe("Checkbox", () => {
           "aria-checked": true,
           onChange,
         }}
-      ></Checkbox>
+      ></Radio>
     );
 
     const input = container.find("input");
@@ -111,12 +102,12 @@ describe("Checkbox", () => {
   it("Passes the ref to the input element", () => {
     const ref = React.createRef<HTMLInputElement>();
     const container = Enzyme.mount(
-      <Checkbox
+      <Radio
         id="inputID-attributes"
         ref={ref}
         labelText="Hello"
         showLabel={false}
-      ></Checkbox>
+      ></Radio>
     );
     expect(container.find("input").instance()).to.equal(ref.current);
   });
@@ -125,7 +116,7 @@ describe("Checkbox", () => {
     const onChangeSpy = stub();
     const onBlurSpy = stub();
     container = Enzyme.mount(
-      <Checkbox
+      <Radio
         id="inputID-attributes"
         attributes={{
           onChange: onChangeSpy,
@@ -134,7 +125,7 @@ describe("Checkbox", () => {
         }}
         labelText="Hello"
         showLabel={true}
-      ></Checkbox>
+      ></Radio>
     );
     expect(container.find("input").prop("tabIndex")).to.equal(0);
     expect(onChangeSpy.callCount).to.equal(0);

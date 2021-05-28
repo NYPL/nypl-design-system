@@ -14,9 +14,10 @@ import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";
 import getCSSVariable from "../../helpers/getCSSVariable";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Button"
+  title={getCategory("Button")}
   component={Button}
   decorators={[withDesign]}
   parameters={{

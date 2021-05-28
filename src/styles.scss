@@ -9,33 +9,36 @@
 // End libs
 
 // Order important
+@import "./styles/03-space/*.*";
+@import "./styles/base/03-mixins";
 @import "./styles/01-colors/_colors-brand";
 @import "./styles/01-colors/_colors-utility";
 @import "./styles/02-typography/_type-scale";
 @import "./styles/02-typography/_typefaces";
-@import "./styles/03-space/_space";
 @import "./styles/**/*.scss";
 @import "./components/Icons/_Icons.scss";
 @import "./components/Button/_Button.scss";
 @import "./components/Link/_Link.scss";
 @import "./components/Heading/_Heading.scss";
 @import "./components/Input/_Input.scss";
+@import "./components/TextInput/_TextInput.scss";
 @import "./components/Autosuggest/_Autosuggest.scss";
 
 // Order not important
 @import "./components/Accordion/_Accordion.scss";
 @import "./components/Breadcrumbs/_Breadcrumbs.scss";
 @import "./components/Card/_Card.scss";
-@import "./components/Checkbox/_Checkbox.scss";
-@import "./components/Select/_Select.scss";
-@import "./components/Label/_Label.scss";
 @import "./components/HelperErrorText/_HelperErrorText.scss";
 @import "./components/Hero/_Hero.scss";
 @import "./components/Image/_Image.scss";
+@import "./components/Label/_Label.scss";
+@import "./components/List/_List.scss";
 @import "./components/Modal/_Modal.scss";
 @import "./components/Pagination/_Pagination.scss";
+@import "./components/Radio/_Radio.scss";
+@import "./components/Checkbox/_Checkbox.scss";
 @import "./components/SearchBar/_SearchBar.scss";
+@import "./components/Select/_Select.scss";
 @import "./components/SkeletonLoader/_SkeletonLoader.scss";
 @import "./components/StatusBadge/_StatusBadge.scss";
 @import "./components/Template/_Template.scss";
-@import "./components/List/_List.scss";
