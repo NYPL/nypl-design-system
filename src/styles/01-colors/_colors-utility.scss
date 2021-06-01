@@ -30,7 +30,9 @@ $test: #ff6347;
 $warning-primary: #f0974e;
 $warning-secondary: #ec7b1f;
 
-//Mapping where we associate a name string with each SASS var
+// Mapping where we associate a name string with each SASS var.
+// Quotes around "black" and "white" are required to force SASS to treat
+// these as string values and not CSS color values to convert to HEX format.
 $colors: (
   "black": $black,
   "white": $white,
