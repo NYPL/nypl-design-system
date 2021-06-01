@@ -62,5 +62,5 @@ $colors: (
 
 /* CSS Variables/Custom Properties */
 :root {
-  @include css-vars($colors, "ui-");
+  @include css-vars($colors, "ui");
 }
