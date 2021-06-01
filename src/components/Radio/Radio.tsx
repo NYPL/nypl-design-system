@@ -30,6 +30,10 @@ export interface RadioProps {
   value?: string;
 }
 
+export const onChangeDefault = () => {
+  return;
+};
+
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const {
     checked,
@@ -39,7 +43,6 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     id,
     labelText,
     name,
-    onChange,
     showLabel,
     value,
   } = props;
@@ -47,6 +50,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const attributes = props.attributes || {};
   const modifiers = props.modifiers ? props.modifiers : [];
   const radioID = id || generateUUID();
+  const onChange = props.onChange || onChangeDefault;
 
   if (!showLabel) attributes["aria-label"] = labelText;
 
@@ -56,15 +60,22 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   return (
     <>
       <input
-        checked={checked}
-        className={bem("radio", modifiers, "input", [className])}
+        {...(checked !== undefined
+          ? {
+              checked: checked,
+              onChange: onChange,
+            }
+          : {
+              defaultChecked: false,
+            })}
+        className={bem("radio", modifiers, "", [className])}
         disabled={disabled}
         id={radioID}
         name={name || "default"}
-        onChange={onChange}
         ref={ref}
         type="radio"
         value={value}
+        onChange={onChange}
         {...attributes}
       />
       {labelText && showLabel && <Label htmlFor={radioID}>{labelText}</Label>}

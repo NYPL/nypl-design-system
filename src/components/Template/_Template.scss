@@ -30,13 +30,6 @@ $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
   flex: 1 1;
   width: 100%;
 
-  &--with-sidebar-right,
-  &--with-sidebar-left {
-    @include breakpoint($breakpoint-medium) {
-      min-width: 0;
-    }
-  }
-
   &--with-sidebar-left {
     display: flex;
     flex-flow: column nowrap;
@@ -44,6 +37,8 @@ $sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
 
     @include breakpoint($breakpoint-medium) {
       @include space-inline-none;
+
+      min-width: 0;
     }
   }
 }

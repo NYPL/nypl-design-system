@@ -1,0 +1,61 @@
+$break-input-mobile: 400px;
+
+.textinput {
+  @include space-stack-xs;
+
+  .inputfield {
+    @include placeholder {
+      color: var(--ui-gray-dark);
+      font-style: italic;
+      line-height: 21px;
+    }
+
+    border: 1px solid var(--ui-gray-medium);
+    padding: var(--space-xs) var(--space-s);
+    width: 100%;
+    // Include this once textarea is included as an input "type" option.
+    // &--textarea {
+    //   min-height: var(--space-xxl);
+    // }
+    &:hover {
+      border-color: var(--ui-gray-dark);
+    }
+
+    &:disabled {
+      background-color: var(--ui-gray-xxlight);
+      color: var(--ui-gray-xdark);
+      pointer-events: none;
+    }
+
+    &:active,
+    &:focus,
+    &:active:hover,
+    &:focus:hover {
+      border: 1px solid var(--ui-focus);
+      box-shadow: 0;
+      outline: 1px solid var(--ui-focus);
+      z-index: 9999;
+    }
+
+    &--error {
+      border: 1px solid var(--ui-error);
+
+      &:hover,
+      &:active,
+      &:focus,
+      &:active:hover,
+      &:focus:hover {
+        border: 1px solid var(--ui-error);
+      }
+    }
+  }
+
+  > label {
+    font-weight: 300;
+  }
+
+  > .helper-text {
+    margin-bottom: 0;
+    margin-top: var(--space-xs);
+  }
+}
