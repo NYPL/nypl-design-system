@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Added: Definition List component.
 - Changed: Separate Checkbox into its own component.
 - Changed: Separate Radio button into its own component.
 - Adds `Tertiary` state to Hero component
