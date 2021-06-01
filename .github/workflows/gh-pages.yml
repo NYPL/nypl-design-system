@@ -6,7 +6,7 @@ name: Deploy to Github Pages
 # events but only for the master branch
 on:
   push:
-    branches: [development]
+    branches: [release]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
