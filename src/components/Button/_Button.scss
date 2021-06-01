@@ -27,10 +27,10 @@
 
   background-color: var(--ui-link-primary);
   border: none;
-  color: var(--ui-test-white);
+  color: var(--ui-white);
 
   &:visited {
-    color: var(--ui-test-white);
+    color: var(--ui-white);
   }
 
   &:hover {
@@ -47,7 +47,7 @@
 @mixin button--outline {
   @include button-base;
 
-  background-color: var(--ui-test-white);
+  background-color: var(--ui-white);
   border: 1px solid var(--ui-gray-light);
   color: inherit;
 
