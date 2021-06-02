@@ -8,8 +8,12 @@
 @import "~system-font-css/_system-font.scss";
 // End libs
 
-// Order important
-//generates a series of color classes that can be used anywhere
+/*
+ * The `color-classes` and `css-vars` mixins have been included here 
+ * because they are utilized in the colors SCSS files.
+ */
+
+// generates a series of color classes that can be used anywhere
 @mixin color-classes($map) {
   @each $name, $color in $map {
     .cl-#{$name} {
@@ -18,6 +22,7 @@
   }
 }
 
+// generates a collection of CSS vars
 @mixin css-vars($map, $prefix) {
   $prefix: str-insert($prefix, "-", str-length($prefix) + 1);
 
@@ -26,6 +31,7 @@
   }
 }
 
+// Order important
 @import "./styles/01-colors/_colors-brand";
 @import "./styles/01-colors/_colors-utility";
 @import "./styles/02-typography/_type-scale";
