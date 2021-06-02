@@ -9,23 +9,7 @@
 // End libs
 
 // Order important
-//generates a series of color classes that can be used anywhere
-@mixin color-classes($map) {
-  @each $name, $color in $map {
-    .cl-#{$name} {
-      color: $color;
-    }
-  }
-}
-
-@mixin css-vars($map, $prefix) {
-  $prefix: str-insert($prefix, "-", str-length($prefix) + 1);
-
-  @each $name, $color in $map {
-    --#{$prefix}#{$name}: #{$color};
-  }
-}
-
+@import "./styles/base/03-mixins";
 @import "./styles/01-colors/_colors-brand";
 @import "./styles/01-colors/_colors-utility";
 @import "./styles/02-typography/_type-scale";
