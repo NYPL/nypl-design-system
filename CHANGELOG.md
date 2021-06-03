@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `color-classes` and `css-vars` mixins from `_03-mixins.scss`
 - Adds `color-classes` and `css-vars` mixins to `styles.scss`
 - Changes order of CSS `@import` rules on `styles.scss`
+- Changes `Breadcrumbs` story from `.tsx` to `.mdx`
 
 ## 0.22.0
 
