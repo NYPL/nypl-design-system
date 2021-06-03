@@ -8,6 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.22.1
+
+### Changes
+
+- Removes `color-classes` and `css-vars` mixins from `_03-mixins.scss`
+- Adds `color-classes` and `css-vars` mixins to `styles.scss`
+- Changes order of CSS `@import` rules in `styles.scss`
+- Adds quotes around `black` and `white` in `$colors` object in `_colors-utility.scss`
+
 ## 0.22.0
 
 ### Breaking Changes
@@ -19,6 +28,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Added: Definition List component.
 - Changed: Separate Checkbox into its own component.
 - Changed: Separate Radio button into its own component.
 - Adds `Tertiary` state to Hero component
