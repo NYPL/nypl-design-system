@@ -10,10 +10,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Changes `Breadcrumbs` story from `.tsx` to `.mdx`
+
+## 0.22.1
+
+### Changes
+
 - Removes `color-classes` and `css-vars` mixins from `_03-mixins.scss`
 - Adds `color-classes` and `css-vars` mixins to `styles.scss`
-- Changes order of CSS `@import` rules on `styles.scss`
-- Changes `Breadcrumbs` story from `.tsx` to `.mdx`
+- Changes order of CSS `@import` rules in `styles.scss`
+- Adds quotes around `black` and `white` in `$colors` object in `_colors-utility.scss`
 
 ## 0.22.0
 
