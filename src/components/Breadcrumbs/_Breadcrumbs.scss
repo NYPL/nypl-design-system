@@ -1,6 +1,8 @@
 $break-breadcrumbs-mobile: max-width 599px;
 
 .breadcrumbs {
+  @include breakout;
+
   background-color: var(--ui-black);
   padding-bottom: var(--space-xs);
   padding-top: var(--space-xs);
