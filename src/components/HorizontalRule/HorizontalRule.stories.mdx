@@ -1,0 +1,60 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import HorizontalRule from "./HorizontalRule";
+import { action } from "@storybook/addon-actions";
+
+<Meta
+  title="HorizontalRule"
+  component={HorizontalRule}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
+    },
+  }}
+/>
+
+# Horizontal Rule
+
+<Description of={HorizontalRule} />
+
+This component renders a text input form element. See below for configuration information. For optimal accessibility, the `labelText` property is a required prop, regardless of the label visibility. Additionally, while the `id` prop is optional, a unique `id` attribute is necessary for accessibility. If the prop is left blank, a value will be generated for you.
+
+<Preview withToolbar>
+  <Story name="Basic">{args => <HorizontalRule />}</Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+## Various Configurations
+
+<Preview>
+  <Story
+    name="Various Configurations"
+    args={{
+      className: "custom",
+      width: "50%",
+      align: "left",
+    }}
+  >
+    {args => <HorizontalRule {...args} />}
+  </Story>
+</Preview>
+
+<Canvas>
+  <HorizontalRule height=".5rem" width="75%" />
+</Canvas>
+
+<Canvas>
+  <HorizontalRule align="right" height="20px" width="200px" />
+</Canvas>
