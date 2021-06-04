@@ -1,0 +1,169 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import Link from "./Link";
+import { action } from "@storybook/addon-actions";
+import {
+  BrowserRouter as Router,
+  Link as ReactRouterLink,
+} from "react-router-dom";
+import { LinkTypes } from "./LinkTypes";
+import Icon from "../Icons/Icon";
+// import { cloneElement } from "react";
+// import Heading from "../Heading/Heading";
+// import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+// import { withDesign } from "storybook-addon-designs";
+// import { boolean, text, select } from "@storybook/addon-knobs";
+
+<Meta
+  title="Link"
+  component={Link}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A407",
+    },
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    children: { table: { disable: true } },
+    type: {
+      control: {
+        type: "select",
+      },
+    },
+  }}
+/>
+
+# Link
+
+<Description of={Link} />
+
+<Preview withToolbar>
+  <Story
+    name="Basic"
+    args={{
+      id: "nypl-link",
+      type: LinkTypes.Action,
+      href: "http://google.com",
+      className: "custom-class",
+      attributes: {
+        rel: "nofollow",
+        onClick: action("click"),
+      },
+    }}
+  >
+    {args => <Link {...args}>Link</Link>}
+  </Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+## Links With Icons
+
+To pass in an `Icon`, make sure that the `Link` tag wraps the `Icon`. Use `type: "Action"` to apply appropriate styling to links with icons.
+
+<Preview>
+  <Story name="With Icons">
+    <div>
+      <Link type={LinkTypes.Action} href="#passed-in-link">
+        <Icon
+          name={"headset"}
+          modifiers={["left", "small"]}
+          decorative={true}
+        />
+        Headset Link
+      </Link>
+    </div>
+    <div>
+      <Link type={LinkTypes.Action} href="#passed-in-link">
+        <Icon name={"clock"} modifiers={["left", "small"]} decorative={true} />
+        Clock Link
+      </Link>
+    </div>
+    <div>
+      <Link type={LinkTypes.Action} href="#passed-in-link">
+        <Icon name={"check"} modifiers={["left", "small"]} decorative={true} />
+        Check Link
+      </Link>
+    </div>
+  </Story>
+</Preview>
+
+## Tag Structure
+
+`Link` can wrap an existing `<a>` tag or it can use the `href` prop to generate an `<a>` tag.
+
+<Preview>
+  <Story name="Tag Structure">
+    <div>
+      {"This is a "}
+      <Link type={LinkTypes.Action}>
+        <a href="#existing-anchor-tag">link</a>
+      </Link>
+      {" with the <a> tag as a child of the Link component. And this is a "}
+      <Link type={LinkTypes.Action} href="#passed-in-link">
+        link
+      </Link>
+      {
+        " where the Link component uses the `href` prop and has a string-only child."
+      }
+    </div>
+  </Story>
+</Preview>
+
+## Link with Other Routers
+
+### React Router
+
+The Design System's `Link` component should wrap around react-router's own `Link` component.
+
+<Preview>
+  <Story name="Link with Other Routers">
+    <Router>
+      <Link type={LinkTypes.Action}>
+        <ReactRouterLink to="#">
+          <Icon name="download" modifiers={["left", "small"]} decorative={true}></Icon>
+          Download
+        </ReactRouterLink>
+      </Link>
+    </Router>
+  </Story>
+</Preview>
+
+### NextJS Link
+
+NextJS's `Link` component should wrap the Design System's `Link` component with `href` and `passHref` props.
+
+```
+/**
+ * Dummy component as a NextJS `Link` example component. In real life, NextJS's
+ * `Link` component will do something similar but with pass down props and ref
+ * and make it workable. This is just an example wrapper.
+ */
+
+const NextJsLink = (props: any) => (
+  <div>
+    {React.cloneElement(
+      props.children,
+      { ...props },
+      props.children.props.children
+    )}
+  </div>
+);
+
+<Canvas>
+  <NextJsLink href="#" passHref>
+    <Link type={LinkTypes.Action}>Next Page</Link>
+  </NextJsLink>
+</Canvas>
+```
