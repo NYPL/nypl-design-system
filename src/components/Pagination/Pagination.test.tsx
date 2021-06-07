@@ -68,7 +68,7 @@ describe("Pagination with getPageHref", () => {
     expect(wrapper.find("a").at(5).hasClass("selected")).to.equal(true);
   });
 
-  it("When pagination has 1 element, one element is shown with both buttons disabled", () => {
+  it("When pagination has 1 element, pagination is not shown", () => {
     const shallow = Enzyme.shallow(
       <Pagination pageCount={1} currentPage={1} getPageHref={getPageHref} />
     );
