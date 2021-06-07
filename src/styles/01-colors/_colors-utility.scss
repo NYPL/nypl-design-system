@@ -1,0 +1,68 @@
+/** Utility Colors */
+
+// SASS Color Variables
+
+$black: #000000;
+$white: #ffffff;
+
+// Grayscale
+$gray-xdark: #424242;
+$gray-dark: #616161;
+$gray-medium: #bdbdbd;
+$gray-light: #e0e0e0;
+$gray-warm-light: #efedeb;
+$gray-xlight: #f5f5f5;
+$gray-warm-xlight: #f8f8f7;
+$gray-xxlight: #fafafa;
+
+// State and link utilities
+$disabled-primary: #e0e0e0;
+$disabled-secondary: #fafafa;
+$error: #97272c;
+$focus: #4181f1;
+$link-primary: #0576d3;
+$link-secondary: #004b98;
+$status-primary: #f9e08e;
+$status-secondary: #fbe7e1;
+$success-primary: #077719;
+$success-secondary: #095212;
+$test: #ff6347;
+$warning-primary: #f0974e;
+$warning-secondary: #ec7b1f;
+
+// Mapping where we associate a name string with each SASS var.
+// Quotes around "black" and "white" are required to force SASS to treat
+// these as string values and not CSS color values to convert to HEX format.
+$colors: (
+  "black": $black,
+  "white": $white,
+  gray-xdark: $gray-xdark,
+  gray-dark: $gray-dark,
+  gray-medium: $gray-medium,
+  gray-light: $gray-light,
+  gray-warm-light: $gray-warm-light,
+  gray-xlight: $gray-xlight,
+  gray-warm-xlight: $gray-warm-xlight,
+  gray-xxlight: $gray-xxlight,
+  disabled-primary: $disabled-primary,
+  disabled-secondary: $disabled-secondary,
+  error: $error,
+  focus: $focus,
+  link-primary: $link-primary,
+  link-secondary: $link-secondary,
+  status-primary: $status-primary,
+  status-secondary: $status-secondary,
+  success-primary: $success-primary,
+  success-secondary: $success-secondary,
+  test: $test,
+  warning-primary: $warning-primary,
+  warning-secondary: $warning-secondary,
+);
+
+/* Color Classes*/
+@include color-classes($colors);
+
+/* CSS Variables/Custom Properties */
+:root {
+  @include css-vars($colors, "ui");
+}
