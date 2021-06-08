@@ -8,14 +8,30 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Breaking Changes
-
-- Removes `--ui-success` CSS variable and adds `--ui-success-primary` and `--ui-success-secondary`
+## 0.22.1
 
 ### Changes
 
+- Removes `color-classes` and `css-vars` mixins from `_03-mixins.scss`
+- Adds `color-classes` and `css-vars` mixins to `styles.scss`
+- Changes order of CSS `@import` rules in `styles.scss`
+- Adds quotes around `black` and `white` in `$colors` object in `_colors-utility.scss`
+
+## 0.22.0
+
+### Breaking Changes
+
+- Removes `--ui-success` CSS variable and adds `--ui-success-primary` and `--ui-success-secondary`
+- Removes `checkboxId` prop from `Checkbox` component and employs `id` in its place.
+- Removes `defaultChecked` prop from `Checkbox` component.
+- Removed `labelOptions` porp from `Checkbox` component and employs `labelText` in its place.
+
+### Changes
+
+- Added: Definition List component.
 - Changed: Separate Checkbox into its own component.
 - Changed: Separate Radio button into its own component.
+- Adds `Tertiary` state to Hero component
 - Changes `Brand` and `Utility` color values to match Figma main file
 - Changes `Radio` styles to use SASS vars in place of CSS vars
 - Adds `TextInput` component to handle email, hidden, number, password, text, textarea, tel and url input types
