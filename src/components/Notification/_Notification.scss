@@ -1,21 +1,47 @@
 .notification {
-  @include space-stack-s;
-
   border-radius: 4px;
   display: flex;
   font-size: var(--font-size--1);
+  margin: var(--space-s);
   padding: var(--space) var(--space-l);
+  width: 100%;
+
+  &__container {
+    margin: auto;
+    max-width: 1280px;
+  }
+
+  &--fill-space {
+    border-radius: 0;
+    margin: 0;
+    // left: 0;
+    // position: absolute;
+    // top: 0;
+  }
 
   &--standard {
-    background-color: #fae267;
+    background-color: var(--ui-status-primary);
+    text-align: center;
   }
 
   &--announcement {
-    background-color: #e6ecf0;
+    background-color: var(--ui-gray-light);
+
+    .heading {
+      color: var(--section-research-secondary);
+    }
   }
 
   &--warning {
     background-color: var(--ui-gray-xxlight);
+
+    .heading {
+      color: var(--brand-primary);
+    }
+
+    .content {
+      color: var(--brand-primary);
+    }
   }
 
   &--no-icon {

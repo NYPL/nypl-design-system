@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
-- Add `Notification` component
+- Adds `Notification` component
 
 ## 0.22.1
 

@@ -4,7 +4,6 @@ import bem from "../../utils/bem";
 import { NotificationTypes } from "./NotificationTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
-import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
 
@@ -13,18 +12,16 @@ export interface NotificationProps {
   className?: string;
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** Controls the positioning of a Notification component */
-  placement?: "sticky" | "block";
-  /** Controls the alignment and coloring of notification text and the visibility of an applicable icon */
-  notificationType?: NotificationTypes;
-  /** Customize icon */
-  icon?: React.ReactNode;
-  /** Heading for notification */
-  heading?: string;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Controls whether a Notification can be dismissed (closed) by a user */
   dismissible?: boolean;
+  /** Customize icon */
+  icon?: React.ReactNode;
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
+  /** Controls the positioning of a Notification component */
+  fillSpace?: boolean;
+  /** Controls the alignment and coloring of notification text and the visibility of an applicable icon */
+  notificationType?: NotificationTypes;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
 }
@@ -36,13 +33,12 @@ export default function Notification(
     blockName,
     children,
     className,
-    placement = "sticky",
-    notificationType = "standard",
+    dismissible = false,
+    fillSpace = false,
+    icon,
     id,
     modifiers = [],
-    dismissible = false,
-    icon,
-    heading,
+    notificationType = "standard",
   } = props;
 
   const [isOpen, setIsOpen] = useState(true);
@@ -56,16 +52,17 @@ export default function Notification(
   const baseClass = "notification";
 
   const styleProps = { style: {} };
-  if (placement) {
-    styleProps.style["position"] = placement;
+  // if (placement) {
+  //   styleProps.style["position"] = placement;
 
-    if (placement === "sticky") styleProps.style["top"] = 0;
-  }
+  //   if (placement === "global") styleProps.style["top"] = 0;
+  // }
 
   const notificationModifiers = modifiers ? modifiers : [];
-  if (!notificationModifiers.find(modifier => modifier === notificationType)) {
-    notificationModifiers.push(notificationType);
-  }
+
+  notificationModifiers.push(notificationType);
+
+  if (fillSpace) notificationModifiers.push("fill-space");
 
   const iconElement = () => {
     if (icon) return icon;
@@ -102,9 +99,8 @@ export default function Notification(
       id={id}
       {...styleProps}
     >
-      {iconElement()}
-      <div>
-        {heading ? <Heading level={4}>{heading}</Heading> : null}
+      <div className={bem("container", [], baseClass)}>
+        {iconElement()}
         {children}
       </div>
       {dismissible ? (
