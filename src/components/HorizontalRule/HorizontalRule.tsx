@@ -3,8 +3,8 @@ import * as React from "react";
 import bem from "../../utils/bem";
 
 export interface HorizontalRuleProps {
-  /** Optional alignment value to align the horizontal rule to one side or the other when the width is less than 100%. Possible options are `left` and `right`. If omitted, the horizobntal rule will have a default center alignment. */
-  align?: string;
+  /** Optional alignment value to align the horizontal rule to one side or the other when the width is less than 100%. If omitted, the horizobntal rule will have a default center alignment. */
+  align?: "left" | "right";
   /** Additional attributes passed to the horizontal rule */
   attributes?: { [key: string]: any };
   /** ClassName you can add in addition to `horizontal-rule` */
