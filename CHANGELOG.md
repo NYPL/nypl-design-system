@@ -8,8 +8,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-- Enables hiding stories from sidebar using the `_hidden` prefix
-
 ### Changes
 
 - Changes `Breadcrumbs` story from `.tsx` to `.mdx`
