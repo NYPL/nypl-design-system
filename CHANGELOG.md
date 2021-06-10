@@ -8,6 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.22.2
+
+### Changes
+
+- Adds documentation on layout bidirectionality
+- Changes `Pagination` to hide pagination UI when there are 0 or 1 pages.
+
 ## 0.22.1
 
 ### Changes
