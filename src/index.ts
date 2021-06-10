@@ -25,6 +25,11 @@ export { LinkTypes } from "./components/Link/LinkTypes";
 export { default as List } from "./components/List/List";
 export { ListTypes } from "./components/List/ListTypes";
 export { default as Modal } from "./components/Modal/Modal";
+// export {
+//   Notification,
+//   NotificationHeading,
+//   NotificationContent,
+// } from "./components/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as Radio } from "./components/Radio/Radio";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
