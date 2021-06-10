@@ -68,21 +68,19 @@ describe("Pagination with getPageHref", () => {
     expect(wrapper.find("a").at(5).hasClass("selected")).to.equal(true);
   });
 
-  it("When pagination has 1 element, one element is shown with both buttons disabled", () => {
-    wrapper = Enzyme.mount(
+  it("When pagination has 1 element, pagination is not shown", () => {
+    const shallow = Enzyme.shallow(
       <Pagination pageCount={1} currentPage={1} getPageHref={getPageHref} />
     );
+    expect(shallow.isEmptyRender()).to.equal(true);
+  });
 
-    // Previous/Next buttons + list = 3 total items
-    expect(wrapper.find("li")).to.have.lengthOf(3);
-    expect(wrapper.find("a").first().hasClass("disabled")).to.equal(true);
-    expect(
-      wrapper.find("a").first().find("[aria-disabled='true']")
-    ).to.have.lengthOf(1);
-    expect(wrapper.find("a").last().hasClass("disabled")).to.equal(true);
-    expect(
-      wrapper.find("a").last().find("[aria-disabled='true']")
-    ).to.have.lengthOf(1);
+  it("When pagination has 0 elements, pagination is not shown", () => {
+    const shallow = Enzyme.shallow(
+      <Pagination pageCount={0} currentPage={1} getPageHref={getPageHref} />
+    );
+
+    expect(shallow.isEmptyRender()).to.equal(true);
   });
 });
 
@@ -159,20 +157,19 @@ describe("Pagination with changeCallback", () => {
     expect(changeCallback.callCount).to.equal(1);
   });
 
-  it("When pagination has 1 element, one element is shown with both buttons disabled", () => {
-    wrapper = Enzyme.mount(
+  it("When pagination has 1 element, pagination is not shown", () => {
+    const shallow = Enzyme.shallow(
       <Pagination pageCount={1} currentPage={1} onPageChange={changeCallback} />
     );
 
-    // Previous/Next buttons + list = 3 total items
-    expect(wrapper.find("li")).to.have.lengthOf(3);
-    expect(wrapper.find("a").first().hasClass("disabled")).to.equal(true);
-    expect(
-      wrapper.find("a").first().find("[aria-disabled='true']")
-    ).to.have.lengthOf(1);
-    expect(wrapper.find("a").last().hasClass("disabled")).to.equal(true);
-    expect(
-      wrapper.find("a").last().find("[aria-disabled='true']")
-    ).to.have.lengthOf(1);
+    expect(shallow.isEmptyRender()).to.equal(true);
+  });
+
+  it("When pagination has 0 elements, pagination is not shown", () => {
+    const shallow = Enzyme.shallow(
+      <Pagination pageCount={0} currentPage={1} onPageChange={changeCallback} />
+    );
+
+    expect(shallow.isEmptyRender()).to.equal(true);
   });
 });
