@@ -20,9 +20,14 @@ export interface HorizontalRuleProps {
 export default function HorizontalRule(
   props: React.ComponentProps<"hr"> & HorizontalRuleProps
 ) {
-  const { align, className, width = "auto", height = "2px" } = props;
-  const attributes = props.attributes || {};
-  const modifiers = props.modifiers || [];
+  const {
+    align,
+    attributes = {},
+    className,
+    width = "auto",
+    height = "2px",
+    modifiers = [],
+  } = props;
 
   attributes["style"] = {
     width: width,
