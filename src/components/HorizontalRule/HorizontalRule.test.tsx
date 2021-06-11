@@ -14,6 +14,21 @@ describe("HorizontalRule: check for basic element", () => {
   });
 });
 
+describe("HorizontalRule: check for custom class", () => {
+  let container;
+  before(() => {
+    container = Enzyme.mount(<HorizontalRule className={"custom-hr"} />);
+  });
+
+  it("Renders HorizontalRule component", () => {
+    expect(container.find("hr").exists()).to.equal(true);
+  });
+
+  it("Renders with proper custom class", () => {
+    expect(container.find("hr").hasClass("custom-hr")).to.equal(true);
+  });
+});
+
 describe("HorizontalRule: check for custom dimensions", () => {
   let container;
   before(() => {
