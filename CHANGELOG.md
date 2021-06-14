@@ -11,6 +11,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Adds `HorizontalRule` component
+- Changes `Breadcrumbs` story from `.tsx` to `.mdx`
+
+## 0.22.2
+
+### Changes
+
+- Adds documentation on layout bidirectionality
+- Changes `Pagination` to hide pagination UI when there are 0 or 1 pages.
 
 ## 0.22.1
 
@@ -40,6 +48,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Changes `Radio` styles to use SASS vars in place of CSS vars
 - Adds `TextInput` component to handle email, hidden, number, password, text, textarea, tel and url input types
 - Adds default width and padding to `StatusBadge` component.
+- Hides pagination when there are 0 or 1 pages.
 
 ### BugFixes
 
