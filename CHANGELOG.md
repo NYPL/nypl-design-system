@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Changes `Breadcrumbs` story from `.tsx` to `.mdx`
+
 ## 0.22.2
 
 ### Changes

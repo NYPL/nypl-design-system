@@ -30,6 +30,7 @@ $break-breadcrumbs-mobile: max-width 599px;
 
     &:last-child {
       @include breakpoint($break-breadcrumbs-mobile) {
+        display: block;
         padding-left: var(--space-m);
       }
     }
