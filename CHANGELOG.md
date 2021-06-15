@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Breaking Changes
 
-- Removes `breakout` CSS from `Hero Secondary`
+- Removes `breakout` CSS from `Hero Secondary`. To retain previous behavior, `Hero` component should be a child of a `.content-header` element.
 
 ### Changes
 
