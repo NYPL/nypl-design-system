@@ -164,29 +164,4 @@ describe("Hero Test", () => {
       "Please provide both foregroundColor and backgroundColor to Hero, only got foregroundColor"
     );
   });
-
-  it("Generates a Hero that breaks out of parent width", () => {
-    const wrapper = Enzyme.shallow(
-      <Hero
-        heroType={HeroTypes.Secondary}
-        heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero Secondary"}
-            blockName={"hero"}
-          />
-        }
-        image={
-          <Image
-            src="https://placeimg.com/800/400/arch"
-            blockName={"hero"}
-            alt={""}
-          />
-        }
-        breakout={true}
-      ></Hero>
-    );
-    expect(wrapper.find(".hero").hasClass("hero--breakout")).to.equal(true);
-  });
 });

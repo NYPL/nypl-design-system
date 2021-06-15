@@ -1,9 +1,5 @@
 .hero {
   background-color: var(--ui-gray-warm-xlight);
-
-  &--breakout {
-    @include breakout;
-  }
 }
 
 .hero--50-50 {
