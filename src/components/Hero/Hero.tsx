@@ -14,6 +14,8 @@ export interface HeroProps {
   backgroundImageSrc?: string;
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
+  /** Used to breakout of the width of a parent element. */
+  breakout?: boolean;
   /** ClassName that appears in addition to "hero" */
   className?: string;
   /** Content creators can modify the foreground color
@@ -43,6 +45,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     backgroundColor,
     backgroundImageSrc,
     blockName,
+    breakout,
     className,
     foregroundColor,
     heading,
@@ -52,7 +55,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     subHeaderText,
   } = props;
 
-  let heroModifiers;
+  let heroModifiers = [];
 
   if (heroType === HeroTypes.Primary) {
     heroModifiers = ["primary"];
@@ -62,6 +65,10 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     heroModifiers = ["tertiary"];
   } else if (heroType === HeroTypes.FiftyFifty) {
     heroModifiers = ["50-50"];
+  }
+
+  if (breakout) {
+    heroModifiers.push("breakout");
   }
 
   if (heroType === HeroTypes.Primary && !backgroundImageSrc) {
