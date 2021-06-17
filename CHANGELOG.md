@@ -13,9 +13,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `breakout` CSS from `Breadcrumbs`. To retain previous behavior, `Breadcrumbs` component should be a child of a `.content-header` element.
 - Removes `breakout` CSS from `Hero Secondary`. To retain previous behavior, `Hero` component should be a child of a `.content-header` element.
 
-### Changes
+### Adds
 
 - Adds `HorizontalRule` component
+
+### Changes
+
 - Changes `Breadcrumbs` story from `.tsx` to `.mdx`
 
 ## 0.22.2
