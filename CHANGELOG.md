@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Changes `Heading` story from `.tsx` to `.mdx`
 - Changes `Breadcrumbs` story from `.tsx` to `.mdx`
 
 ## 0.22.2
