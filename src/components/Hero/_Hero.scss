@@ -68,8 +68,6 @@
 }
 
 .hero--secondary {
-  @include breakout;
-
   overflow-x: hidden;
 
   .hero__content {
