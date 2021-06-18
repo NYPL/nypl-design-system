@@ -1,0 +1,94 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Heading from "./Heading";
+
+<Meta
+  title="Heading"
+  component={Heading}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+    },
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+  }}
+/>
+
+# Heading
+
+<Description of={Heading} />
+
+A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's text can be passed in through a `text` prop or as a child.
+
+<Preview withToolbar>
+  <Story
+    name="Basic"
+    args={{
+      id: "heading1",
+      level: 1,
+      text: "Heading  1",
+    }}
+  >
+    {args => <Heading {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+## All Heading Sizes
+
+<Preview>
+  <div>
+    <Heading id="heading1" level={1} text="Heading 1" />
+    <Heading id="heading2" level={2} text="Heading 2" />
+    <Heading id="heading3" level={3} text="Heading 3" />
+    <Heading id="heading4" level={4} text="Heading 4" />
+    <Heading id="heading5" level={5} text="Heading 5" />
+    <Heading id="heading6" level={6} text="Heading 6" />
+  </div>
+</Preview>
+
+## Heading with Bold
+
+<Preview>
+  <Story name="Heading with Bold">
+    <Heading id="headingWithBold" level={2}>
+      <>
+        Heading with a <b>Bold</b> Word
+      </>
+    </Heading>
+  </Story>
+</Preview>
+
+## Headings with Links
+
+<Preview>
+  <Story name="Headings with Links">
+    <Heading
+      id="headingWithLink"
+      level={2}
+      text="Heading with URL Props"
+      url="http://apple.com"
+      urlClass="special-link"
+    />
+    <Heading id="headingWithLink" level={2}>
+      <>
+        Heading with a Word <a href="hello">Link</a>
+      </>
+    </Heading>
+  </Story>
+</Preview>
