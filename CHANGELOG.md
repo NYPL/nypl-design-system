@@ -16,11 +16,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `HorizontalRule` component
+- Adds new `short` class for `Placeholder`
 
 ### Changes
 
-- Changes `Heading` story from `.tsx` to `.mdx`
 - Changes `Breadcrumbs` story from `.tsx` to `.mdx`
+- Changes `Heading` story from `.tsx` to `.mdx`
+- Changes suggested DOM structure in `Template` Story
 
 ## 0.22.2
 
