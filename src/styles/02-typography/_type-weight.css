@@ -1,4 +1,4 @@
-/** Type scale information to keep our font-sizes consistent across the system */
+/** Type weight information to keep font-weight values consistent across the system */
 :root {
   --font-weight-light: 300;
   --font-weight-regular: 400;
