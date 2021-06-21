@@ -1,0 +1,59 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Text from "./Text";
+import { action } from "@storybook/addon-actions";
+
+<Meta
+  title="Text"
+  component={Text}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10733%3A56919",
+    },
+  }}
+  argTypes={{
+    attributes: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+  }}
+/>
+
+# Text
+
+<Description of={Text} />
+
+The `Text` component renders a basic `<p>` element. Set the `textType` prop to set the specific styles for the `Text` component.
+
+<Preview withToolbar>
+  <Story
+    name="Text"
+    args={{
+      textType: "default",
+    }}
+  >
+    {args => (
+      <>
+        <Text {...args}>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+          vestibulum.
+        </Text>
+        <Text {...args}>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+          vestibulum.
+        </Text>
+      </>
+    )}
+  </Story>
+</Preview>
+
+<ArgsTable story="Text" />
