@@ -1,0 +1,22 @@
+.form {
+  @include space-stack-s;
+}
+
+.form-field {
+  @include space-stack-l;
+}
+
+.form-row {
+  @include space-stack-l;
+
+  display: flex;
+
+  .form-field {
+    flex-grow: 1;
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      @include space-inline-l;
+    }
+  }
+}
