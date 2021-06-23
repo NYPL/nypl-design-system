@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `HorizontalRule` component
 - Adds new `short` class for `Placeholder`
+- Adds `displaySize` prop to `Heading`
 
 ### Changes
 
