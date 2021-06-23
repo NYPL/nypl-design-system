@@ -32,7 +32,7 @@ import Heading from "./Heading";
 
 <Description of={Heading} />
 
-A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's text can be passed in through a `text` prop or as a child.
+A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's text can be passed in through a `text` prop or as a child. Default styles for semantic elements can be overwriten using the `displaySize` prop.
 
 <Preview withToolbar>
   <Story
@@ -49,16 +49,16 @@ A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's
 
 <ArgsTable story="Basic" />
 
-## All Heading Sizes
+## Default Heading Styles
 
 <Preview>
   <div>
-    <Heading id="heading1" level={1} text="Heading 1" />
-    <Heading id="heading2" level={2} text="Heading 2" />
-    <Heading id="heading3" level={3} text="Heading 3" />
-    <Heading id="heading4" level={4} text="Heading 4" />
-    <Heading id="heading5" level={5} text="Heading 5" />
-    <Heading id="heading6" level={6} text="Heading 6" />
+    <Heading id="heading1" level={1} text="<h1> Heading 1" />
+    <Heading id="heading2" level={2} text="<h2> Heading 2" />
+    <Heading id="heading3" level={3} text="<h3> Heading 3" />
+    <Heading id="heading4" level={4} text="<h4> Heading 4" />
+    <Heading id="heading5" level={5} text="<h5> Heading 5" />
+    <Heading id="heading6" level={6} text="<h6> Heading 6" />
   </div>
 </Preview>
 
