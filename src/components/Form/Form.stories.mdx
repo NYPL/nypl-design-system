@@ -15,6 +15,8 @@ import Radio from "../Radio/Radio";
 import Checkbox from "../Checkbox/Checkbox";
 import Label from "../Label/Label";
 import Button from "../Button/Button";
+import Select from "../Select/Select";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import { action } from "@storybook/addon-actions";
 
 <Meta
@@ -28,20 +30,23 @@ import { action } from "@storybook/addon-actions";
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
   }}
-  argTypes={{
-    attributes: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
-  }}
 />
 
 # Form
 
 <Description of={Form} />
 
-The `Form` component renders a standard `<form>` element.
+The `Form` component renders a standard `<form>` element. Use the `FormRow` and `FormField` sub-components to format your form fields accordingly.
+
+Multiple `FormField` components can be placed in a parent `FormRow` component. However, a `FormField` component does not have to placed within a `FormRow` component. `FormField` components can stand alone within `Form`.
 
 <Preview withToolbar>
-  <Story name="Form">
+  <Story
+    name="Form"
+    args={{
+      id: "custom-form-id",
+    }}
+  >
     {args => (
       <Form {...args}>
         <FormField>
@@ -103,19 +108,20 @@ The `Form` component renders a standard `<form>` element.
             <Radio labelText="Radio 4" showLabel />
           </FormField>
           <FormField>
-            <Label>Radio Group</Label>
-            <Radio labelText="Radio 1" showLabel />
-            <br />
-            <Radio labelText="Radio 2" showLabel />
-            <br />
-            <Radio labelText="Radio 3" showLabel />
-            <br />
-            <Radio labelText="Radio 4" showLabel />
+            <Label>Select</Label>
+            <Select>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </Select>
+            <HelperErrorText>The select helper text.</HelperErrorText>
           </FormField>
         </FormRow>
-        <FormField>
-          <Button>Submit</Button>
-        </FormField>
+        <FormRow>
+          <FormField>
+            <Button>Submit</Button>
+          </FormField>
+        </FormRow>
       </Form>
     )}
   </Story>
