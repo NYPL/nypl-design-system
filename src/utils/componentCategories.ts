@@ -22,7 +22,7 @@ const categories = {
   },
   deprecated: {
     title: "Deprecated",
-    components: ["CheckboxOld"],
+    components: [],
   },
   feedback: {
     title: "Feedback",
