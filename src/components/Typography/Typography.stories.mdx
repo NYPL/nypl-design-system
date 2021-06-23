@@ -1,0 +1,160 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta title={getCategory("Typography")} />
+
+# Typography
+
+<Story name="Font Family" />
+
+## Font Family
+
+With website accessibility in mind, font choices were made with an eye toward clarity and readability.
+
+The headings and body content use the following font family assignment:
+
+```
+--typeface-heading: system-ui, sans-serif;
+--typeface-body: system-ui, sans-serif;
+```
+
+> **Recommendations**  
+> When making font selections for project based components outside the DS, sans serif fonts display better on computers and mobile devices. Avoid decorative or overly stylized fonts, as they are often difficult to read even for users without visual impairments or reading disabilities.
+
+<Story name="Font Weight" />
+
+## Font Weight
+
+The DS uses four font weights to render text. The default font-weight is 300.
+
+<p
+  style={{
+    fontSize: "1rem",
+    fontWeight: 300,
+    fontFamily: "system-ui, sans-serif",
+  }}
+>
+  Light / 300
+</p>
+<p
+  style={{
+    fontSize: "1rem",
+    fontWeight: 400,
+    fontFamily: "system-ui, sans-serif",
+  }}
+>
+  Regular / 400
+</p>
+<p
+  style={{
+    fontSize: "1rem",
+    fontWeight: 500,
+    fontFamily: "system-ui, sans-serif",
+  }}
+>
+  Medium / 500
+</p>
+<p
+  style={{
+    fontSize: "1rem",
+    fontWeight: 700,
+    fontFamily: "system-ui, sans-serif",
+  }}
+>
+  Bold / 700
+</p>
+
+The following CSS variables are available through the DS.
+
+```
+--font-weight-light: 300; /* default */
+--font-weight-regular: 400;
+--font-weight-medium: 500;
+--font-weight-bold: 700;
+```
+
+<Story name="Font Sizing" />
+
+## Font Sizing
+
+Font sizing is based on a root font size of 16px (1rem = 16px).
+
+The following CSS variables are available through the DS.
+
+```
+--font-size--3: 0.625rem;
+--font-size--2: 0.75rem;
+--font-size--1: 0.875rem;
+--font-size-0: 1rem; /* default */
+--font-size-1: 1.125rem;
+--font-size-2: 1.375rem;
+--font-size-3: 1.75rem;
+--font-size-4: 2.25rem;
+```
+
+<Story name="Font Colors" />
+
+## Font Colors
+
+All text within a project, unless specifically noted in mockups, should be black (CSS var: --ui-black) on a white (CSS var: --ui-white) background.
+
+<Story name="Font Styles" />
+
+## Font Scale
+
+### Display Sizes
+
+Used for Headings on pages and callouts. These are separate from semantic elements — an `h1` has the `Primary` style applied out of the box, for example, but the `Primary` style can be applied to any `Heading` element.
+
+`1rem` in the Design System is equal to 16px.
+
+<p className="heading--primary">Primary</p>{" "}
+
+- --font-size-4 (2.25rem)
+- --font-weight-light
+
+<p className="heading--secondary">Secondary</p>{" "}
+
+- --font-size-3 (1.75rem)
+- --font-weight-medium
+
+<p className="heading--tertiary">Tertiary</p>{" "}
+
+- --font-size-2 (1.375rem)
+- --font-weight-medium
+
+<p className="heading--callout">Callout</p>{" "}
+
+- --font-size-1 (1.25rem)
+- --font-weight-regular
+
+### Body Sizes
+
+Used for body copy, captions, and secondary captions.
+
+`1rem` in the Design System is equal to 16px.
+
+<p className="text">Body</p>{" "}
+
+- --font-size-0 (1rem)
+
+<p className="text--caption">Caption</p>{" "}
+
+- --font-size--1 (0.875rem)
+
+<p className="text--tag">Tag</p>{" "}
+
+- --font-size--2 (0.75rem)
+
+<p className="text--mini">Mini</p>{" "}
+
+- --font-size--3 (0.625rem)

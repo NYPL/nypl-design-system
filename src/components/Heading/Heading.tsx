@@ -1,23 +1,26 @@
 // MT-82, MT 225, etc
 import * as React from "react";
 import bem from "../../utils/bem";
+import { DisplaySizes } from "./HeadingDisplaySizes";
 
 export interface HeadingProps {
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** ClassName that appears in addition to "heading" */
+  /** Optional className that appears in addition to `heading` */
   className?: string;
-  /** ID that other components can cross reference for accessibility purposes */
+  /** Optional size used to override the default styles of the semantic HTML `<h>` elements */
+  displaySize?: DisplaySizes;
+  /** Optional ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Number 1-6, creating the <h*> tag */
+  /** Number 1-6; used to create the `<h*>` tag */
   level: number;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Inner text of the <h*> element */
+  /** Inner text of the `<h*>` element */
   text?: string;
-  /** URL that header points to */
+  /** Optional URL that header points to */
   url?: string;
-  /** className for the URL when the url prop is passed */
+  /** Optional className for the URL when the `url` prop is passed */
   urlClass?: string;
 }
 
@@ -25,6 +28,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
   const {
     blockName,
     className,
+    displaySize,
     id,
     level,
     modifiers = [],
@@ -34,6 +38,10 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
   } = props;
 
   const baseClass = "heading";
+
+  if (displaySize) {
+    modifiers.push(displaySize);
+  }
 
   if (level < 1 || level > 6) {
     throw new Error("Heading only supports levels 1-6");

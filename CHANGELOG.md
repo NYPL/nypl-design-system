@@ -17,7 +17,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `HorizontalRule` component
 - Adds new `short` class for `Placeholder`
-- Adds `Style Guide` category to Storybook sidebar
+  <<<<<<< HEAD
+- # Adds `Style Guide` category to Storybook sidebar
+- Adds `displaySize` prop to `Heading`
+  > > > > > > > DSD-326-heading-display-sizes
 
 ### Changes
 
