@@ -15,12 +15,14 @@ export interface FormProps {
 }
 
 // FormRow child-component
-export function FormRow({ className, children }) {
+export function FormRow({ ...props }) {
+  const { children, className } = props;
   return <div className={bem("form-row", [], "", [className])}>{children}</div>;
 }
 
 // FormField child-component
-export function FormField({ className, children }) {
+export function FormField({ ...props }) {
+  const { children, className } = props;
   return (
     <div className={bem("form-field", [], "", [className])}>{children}</div>
   );
