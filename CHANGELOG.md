@@ -8,6 +8,25 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.23.0
+
+### Breaking Changes
+
+- Removes `breakout` CSS from `Breadcrumbs`. To retain previous behavior, `Breadcrumbs` component should be a child of a `.content-header` element.
+- Removes `breakout` CSS from `Hero Secondary`. To retain previous behavior, `Hero` component should be a child of a `.content-header` element.
+
+### Adds
+
+- Adds `HorizontalRule` component
+- Adds new `short` class for `Placeholder`
+- Adds `Style Guide` category to Storybook sidebar
+
+### Changes
+
+- Changes `Breadcrumbs` story from `.tsx` to `.mdx`
+- Changes `Heading` story from `.tsx` to `.mdx`
+- Changes suggested DOM structure in `Template` Story
+
 ## 0.22.2
 
 ### Changes
