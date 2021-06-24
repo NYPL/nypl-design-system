@@ -13,12 +13,15 @@ export const Template = ({ showSidebar, sidebarSide }) => (
   <>
     <div className={bem("layout-container nypl-ds")}>
       <header className={bem("header")}>
-        <Placeholder>Header</Placeholder>
+        <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>
+
+        <div className="content-header">
+          {<Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>}
+          {<Placeholder modifiers={["short"]}>Hero</Placeholder>}
+        </div>
       </header>
 
       <main className={showSidebar ? bem("main", ["with-sidebar"]) : "main"}>
-        <div className="content-header">{<Placeholder>Hero</Placeholder>}</div>
-
         <div className="content-top">
           {<Placeholder>Content Top</Placeholder>}
         </div>
