@@ -42,29 +42,33 @@ The display sizes are separate from semantic elements and may be used to overrid
 >   Primary
 > </p>
 >
-> - --font-size-4 (2.25rem)
-> - --font-weight-light
+> - font-size: 2.25rem `--font-size-4`
+> - font-weight: 300 `--font-weight-light`
+> - line-height: 1.1
 
 > <p className="heading--secondary" style={{ color: "black" }}>
 >   Secondary
 > </p>
 >
-> - --font-size-3 (1.75rem)
-> - --font-weight-medium
+> - font-size: 1.75rem `--font-size-3`
+> - font-weight: 500 `--font-weight-medium`
+> - line-height: 1.25
 
 > <p className="heading--tertiary" style={{ color: "black" }}>
 >   Tertiary
 > </p>
 >
-> - --font-size-2 (1.375rem)
-> - --font-weight-medium
+> - font-size: 1.375rem `--font-size-2`
+> - font-weight: 500 `--font-weight-medium`
+> - line-height: 1.25
 
 > <p className="heading--callout" style={{ color: "black" }}>
 >   Callout
 > </p>
 >
-> - --font-size-1 (1.25rem)
-> - --font-weight-regular
+> - font-size: 1.25rem `--font-size-1`
+> - font-weight: 400 `--font-weight-regular`
+> - line-height: 1.25
 
 ### Body Text
 
@@ -79,25 +83,36 @@ Use the NYPL Design System `Text` component to render a standard HTML `<p>` tag.
 >   Body
 > </p>
 >
-> - --font-size-0 (1rem)
+> - font-size: 1rem `--font-size-0`
+> - font-weight: 300 `--font-weight-light`
+> - line-height: 1.5
 
 > <p className="text--caption" style={{ color: "black" }}>
 >   Caption
 > </p>
 >
-> - --font-size--1 (0.875rem)
+> - font-size: 0.875rem `--font-size--1`
+> - font-weight: 300 `--font-weight-light`
+> - line-height: 1.25
 
 > <p className="text--tag" style={{ color: "black" }}>
 >   Tag
 > </p>
 >
-> - --font-size--2 (0.75rem)
+> - font-size: 0.75rem `--font-size--2`
+> - font-weight: 400 `--font-weight-regular`
+> - line-height: 1.5
 
 > <p className="text--mini" style={{ color: "black" }}>
 >   Mini
 > </p>
 >
-> - --font-size--3 (0.625rem)
+> - font-size: 0.625rem `--font-size--3`
+> - font-weight: 400 `--font-weight-regular`
+> - line-height: 1.5
+
+> **DISCLAIMER**  
+> The `Text` component is still under development and not available to consuming applications.
 
 <Story name="Font Family" />
 
@@ -112,7 +127,7 @@ The following CSS variables are available through the DS.
 --typeface-body: system-ui, sans-serif;
 ```
 
-> **Recommendations**  
+> **RECOMMENDATIONS**  
 > When making font selections for project based components outside the DS, sans serif fonts display better on computers and mobile devices. Avoid decorative or overly stylized fonts, as they are often difficult to read even for users without visual impairments or reading Standard Text Components
 
 <Story name="Font Colors" />
