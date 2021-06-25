@@ -10,9 +10,10 @@ import Heading from "../Heading/Heading";
 import { ListTypes } from "../List/ListTypes";
 import { CSSVariablesInterface } from "../../interfaces";
 import sections from "../../utils/siteSections";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Colors",
+  title: getCategory("Colors"),
 };
 
 const uiVariables: CSSVariablesInterface = {};
