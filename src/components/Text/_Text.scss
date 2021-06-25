@@ -1,35 +1,6 @@
 .text {
-  &--bold {
-    font-weight: 700;
-  }
-
-  &--italic {
-    font-style: italic;
-  }
-
-  &--bolditalic {
-    font-style: italic;
-    font-weight: 700;
-  }
-
   &--caption {
     font-size: var(--font-size--1);
-  }
-
-  &--captionbold {
-    font-size: var(--font-size--1);
-    font-weight: 700;
-  }
-
-  &--captionitalic {
-    font-size: var(--font-size--1);
-    font-style: italic;
-  }
-
-  &--captionbolditalic {
-    font-size: var(--font-size--1);
-    font-style: italic;
-    font-weight: 700;
   }
 
   &--tag {
@@ -37,43 +8,17 @@
     font-weight: 400;
   }
 
-  &--tagbold {
-    font-size: var(--font-size--2);
-    font-weight: 700;
-  }
-
-  &--tagitalic {
-    font-size: var(--font-size--2);
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  &--tagbolditalic {
-    font-size: var(--font-size--2);
-    font-style: italic;
-    font-weight: 700;
-  }
-
   &--mini {
     font-size: var(--font-size--3);
     font-weight: 400;
   }
 
-  &--minibold {
-    font-size: var(--font-size--3);
+  &--bold {
     font-weight: 700;
   }
 
-  &--miniitalic {
-    font-size: var(--font-size--3);
+  &--italic {
     font-style: italic;
-    font-weight: 400;
-  }
-
-  &--minibolditalic {
-    font-size: var(--font-size--3);
-    font-style: italic;
-    font-weight: 700;
   }
 
   &--nospace {
