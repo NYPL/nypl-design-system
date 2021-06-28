@@ -165,41 +165,41 @@ describe("CardEdition", () => {
 
   it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
     const card = Enzyme.mount(regularCard);
-    expect(card.find(".card__heading")).to.have.lengthOf(1);
-    expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
-    expect(card.find(".card__ctas")).to.have.lengthOf(1);
-    expect(card.find(".card__footer")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__footer")).to.have.lengthOf(1);
   });
 
   it("Generates a Card with variable data", () => {
     const card = Enzyme.mount(cardWithExtendedStyles);
     expect(card.find("h2")).to.have.lengthOf(1);
-    expect(card.find(".card__content").find("div")).to.have.lengthOf(4);
-    expect(card.find(".card__ctas").find("a")).to.have.lengthOf(2);
+    expect(card.find(".card-edition__content").find("div")).to.have.lengthOf(4);
+    expect(card.find(".card-edition__ctas").find("a")).to.have.lengthOf(2);
   });
 
   it("Generates a card without a CTA block if one isn't provided", () => {
     const card = Enzyme.mount(cardWithNoCTAs);
-    expect(card.find(".card__heading")).to.have.lengthOf(1);
-    expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
-    expect(card.find(".card__ctas")).to.have.lengthOf(0);
+    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__ctas")).to.have.lengthOf(0);
   });
 
   it("Generates a card without a content block if one isn't provided", () => {
     const card = Enzyme.mount(cardWithNoContent);
-    expect(card.find(".card__heading")).to.have.lengthOf(1);
-    expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(0);
-    expect(card.find(".card__ctas")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__content")).to.have.lengthOf(0);
+    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
   });
 
   it("Generates a card without an image block if no image is provided", () => {
     const card = Enzyme.mount(cardWithNoImage);
-    expect(card.find(".card__heading")).to.have.lengthOf(1);
-    expect(card.find(".card__image")).to.have.lengthOf(0);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
-    expect(card.find(".card__ctas")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__image")).to.have.lengthOf(0);
+    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
   });
 });

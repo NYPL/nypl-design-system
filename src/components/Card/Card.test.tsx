@@ -166,14 +166,14 @@ describe("Card", () => {
     const card = Enzyme.mount(regularCard);
     expect(card.find(".card__heading")).to.have.lengthOf(1);
     expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
+    expect(card.find(".card__text")).to.have.lengthOf(1);
     expect(card.find(".card__ctas")).to.have.lengthOf(1);
   });
 
   it("Generates a Card with variable data", () => {
     const card = Enzyme.mount(cardWithExtendedStyles);
     expect(card.find("h2")).to.have.lengthOf(1);
-    expect(card.find(".card__content").find("div")).to.have.lengthOf(4);
+    expect(card.find(".card__text").find("div")).to.have.lengthOf(4);
     expect(card.find(".card__ctas").find("a")).to.have.lengthOf(2);
   });
 
@@ -181,7 +181,7 @@ describe("Card", () => {
     const card = Enzyme.mount(cardWithNoCTAs);
     expect(card.find(".card__heading")).to.have.lengthOf(1);
     expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
+    expect(card.find(".card__text")).to.have.lengthOf(1);
     expect(card.find(".card__ctas")).to.have.lengthOf(0);
   });
 
@@ -189,7 +189,7 @@ describe("Card", () => {
     const card = Enzyme.mount(cardWithNoContent);
     expect(card.find(".card__heading")).to.have.lengthOf(1);
     expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(0);
+    expect(card.find(".card__text")).to.have.lengthOf(0);
     expect(card.find(".card__ctas")).to.have.lengthOf(1);
   });
 
@@ -197,7 +197,7 @@ describe("Card", () => {
     const card = Enzyme.mount(cardWithNoImage);
     expect(card.find(".card__heading")).to.have.lengthOf(1);
     expect(card.find(".card__image")).to.have.lengthOf(0);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
+    expect(card.find(".card__text")).to.have.lengthOf(1);
     expect(card.find(".card__ctas")).to.have.lengthOf(1);
   });
 });
