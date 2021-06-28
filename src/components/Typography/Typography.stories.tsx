@@ -4,9 +4,10 @@ import cssVariables from "../../helpers/CSSVariablesHelper";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import Heading from "../Heading/Heading";
 import { CSSVariablesInterface } from "../../interfaces";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Typography",
+  title: getCategory("Typography"),
 };
 
 const fontSizeVariables: CSSVariablesInterface = {};

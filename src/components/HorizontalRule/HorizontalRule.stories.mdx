@@ -1,0 +1,41 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import HorizontalRule from "./HorizontalRule";
+import { action } from "@storybook/addon-actions";
+
+<Meta
+  title="HorizontalRule"
+  component={HorizontalRule}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
+    },
+  }}
+  argTypes={{
+    attributes: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+  }}
+/>
+
+# Horizontal Rule
+
+<Description of={HorizontalRule} />
+
+The `HorizontalRule` component renders a basic `<hr>` element. The `height`, `width` and `alignment` can be customized.
+
+<Preview withToolbar>
+  <Story name="HorizontalRule">{args => <HorizontalRule {...args} />}</Story>
+</Preview>
+
+<ArgsTable story="HorizontalRule" />
