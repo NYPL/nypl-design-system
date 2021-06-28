@@ -68,8 +68,6 @@
 }
 
 .hero--secondary {
-  @include breakout;
-
   overflow-x: hidden;
 
   .hero__content {
@@ -162,6 +160,32 @@
         flex: 0 0 250px;
         order: 3;
       }
+    }
+  }
+}
+
+.hero--tertiary {
+  background-color: var(--ui-gray-xdark);
+
+  .hero__content {
+    @include wrapper;
+
+    color: var(--ui-white);
+    display: flex;
+    flex-flow: column nowrap;
+    padding: var(--space-l) var(--space);
+
+    /* stylelint-disable */
+    .hero__heading {
+      @include space-stack-s;
+
+      &:last-child {
+        @include space-stack-none;
+      }
+    }
+    /* stylelint-enable */
+    p {
+      @include space-stack-none;
     }
   }
 }

@@ -20,6 +20,10 @@ const categories = {
       "Promo",
     ],
   },
+  deprecated: {
+    title: "Deprecated",
+    components: [],
+  },
   feedback: {
     title: "Feedback",
     components: [
@@ -66,9 +70,15 @@ const categories = {
     title: "Navigation",
     components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
   },
-  deprecated: {
-    title: "Deprecated",
-    components: ["CheckboxOld"],
+  styleguide: {
+    title: "Style Guide",
+    components: [
+      "Breakpoints",
+      "Colors",
+      "Spacing",
+      "Template Bidirectionality",
+      "Typography",
+    ],
   },
 };
 

@@ -8,13 +8,35 @@
 @import "~system-font-css/_system-font.scss";
 // End libs
 
+/*
+ * The `color-classes` and `css-vars` mixins have been included here 
+ * because they are utilized in the colors SCSS files.
+ */
+
+// generates a series of color classes that can be used anywhere
+@mixin color-classes($map) {
+  @each $name, $color in $map {
+    .cl-#{$name} {
+      color: $color;
+    }
+  }
+}
+
+// generates a collection of CSS vars
+@mixin css-vars($map, $prefix) {
+  $prefix: str-insert($prefix, "-", str-length($prefix) + 1);
+
+  @each $name, $color in $map {
+    --#{$prefix}#{$name}: #{$color};
+  }
+}
+
 // Order important
-@import "./styles/03-space/*.*";
-@import "./styles/base/03-mixins";
 @import "./styles/01-colors/_colors-brand";
 @import "./styles/01-colors/_colors-utility";
 @import "./styles/02-typography/_type-scale";
 @import "./styles/02-typography/_typefaces";
+@import "./styles/03-space/_space";
 @import "./styles/**/*.scss";
 @import "./components/Icons/_Icons.scss";
 @import "./components/Button/_Button.scss";
@@ -30,6 +52,7 @@
 @import "./components/Card/_Card.scss";
 @import "./components/HelperErrorText/_HelperErrorText.scss";
 @import "./components/Hero/_Hero.scss";
+@import "./components/HorizontalRule/_HorizontalRule.scss";
 @import "./components/Image/_Image.scss";
 @import "./components/Label/_Label.scss";
 @import "./components/List/_List.scss";
