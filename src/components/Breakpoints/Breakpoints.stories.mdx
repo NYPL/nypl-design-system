@@ -1,0 +1,48 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import cssVariables from "../../helpers/CSSVariablesHelper";
+import getCSSVariable from "../../helpers/getCSSVariable";
+import Heading from "../Heading/Heading";
+import { CSSVariablesInterface } from "../../interfaces";
+import { getCategory } from "../../utils/componentCategories";
+import * as stories from "./Breakpoints.stories.tsx";
+
+<Meta
+  title={getCategory("Breakpoints")}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+    },
+  }}
+/>
+
+# Breakpoints
+
+The DS adheres to four global breakpoints for responsive layouts and typography.
+
+- Desktop: 1280px
+- Tablet Landscape: 960px
+- Tablet Portrait: 600px
+- Mobile: 320px
+
+The following CSS variables are available through the DS.
+
+```
+--breakpoint-xl: 1280px;
+--breakpoint-large: 960px;
+--breakpoint-medium: 600px;
+--breakpoint-small: 320px;
+```
+
+<!-- <Story story={stories.breakpoints} /> -->
