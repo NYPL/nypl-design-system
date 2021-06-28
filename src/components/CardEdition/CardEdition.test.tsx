@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import Card from "./Card";
+import CardEdition from "./CardEdition";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Heading from "../Heading/Heading";
@@ -12,9 +12,9 @@ import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
-describe("Card", () => {
+describe("CardEdition", () => {
   const regularCard = (
-    <Card
+    <CardEdition
       id="cardID"
       heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
       image={<Image src="https://placeimg.com/400/200/arch" alt={""} />}
@@ -30,13 +30,14 @@ describe("Card", () => {
           Example CTA
         </Button>
       }
+      footer={<>Optional footer</>}
     >
       middle column content
-    </Card>
+    </CardEdition>
   );
 
   const cardWithExtendedStyles = (
-    <Card
+    <CardEdition
       id="card#1"
       className="edition-card"
       heading={
@@ -71,11 +72,11 @@ describe("Card", () => {
           International
         </div>
       </>
-    </Card>
+    </CardEdition>
   );
 
   const cardWithNoCTAs = (
-    <Card
+    <CardEdition
       id="card#1"
       image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
       className="edition-card"
@@ -88,11 +89,11 @@ describe("Card", () => {
         <div>Written in English</div>
         <div>Under Creative Commons License</div>
       </>
-    </Card>
+    </CardEdition>
   );
 
   const cardWithNoContent = (
-    <Card
+    <CardEdition
       id="card#1"
       className="edition-card"
       image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
@@ -123,11 +124,11 @@ describe("Card", () => {
           </div>
         </div>
       }
-    ></Card>
+    ></CardEdition>
   );
 
   const cardWithNoImage = (
-    <Card
+    <CardEdition
       id="card#1"
       className="edition-card"
       heading={
@@ -159,15 +160,16 @@ describe("Card", () => {
       }
     >
       middle column content
-    </Card>
+    </CardEdition>
   );
 
-  it("Generates a Card with a header, image, middle content, and CTAs", () => {
+  it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
     const card = Enzyme.mount(regularCard);
     expect(card.find(".card__heading")).to.have.lengthOf(1);
     expect(card.find(".card__image")).to.have.lengthOf(1);
     expect(card.find(".card__content")).to.have.lengthOf(1);
     expect(card.find(".card__ctas")).to.have.lengthOf(1);
+    expect(card.find(".card__footer")).to.have.lengthOf(1);
   });
 
   it("Generates a Card with variable data", () => {
