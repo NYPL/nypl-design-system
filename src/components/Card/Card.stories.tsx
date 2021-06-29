@@ -45,6 +45,7 @@ export const card = () => (
       id="cardID"
       layout={select("Layout Orientation", layoutOptions, layoutOptions[0])}
       border={showBorder}
+      padding={text("Padding", "")}
       heading={
         showHeader ? (
           <Heading
