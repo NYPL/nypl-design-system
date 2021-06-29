@@ -13,19 +13,8 @@ import getCSSVariable from "../../helpers/getCSSVariable";
 import Heading from "../Heading/Heading";
 import { CSSVariablesInterface } from "../../interfaces";
 import { getCategory } from "../../utils/componentCategories";
-import * as stories from "./Breakpoints.stories.tsx";
 
-<Meta
-  title={getCategory("Breakpoints")}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
-    },
-  }}
-/>
+<Meta title={getCategory("Breakpoints")} />
 
 # Breakpoints
 
@@ -44,5 +33,3 @@ The following CSS variables are available through the DS.
 --breakpoint-medium: 600px;
 --breakpoint-small: 320px;
 ```
-
-<!-- <Story story={stories.breakpoints} /> -->
