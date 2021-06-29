@@ -104,7 +104,7 @@ links with icons. Icons can be rendered to the left or right of the link text.
 an `<a>` tag.
 
 <Preview>
-  <Story name="Tag Structure">
+  <Story name="Anchor Element Rendering">
     <>
       This is a{" "}
       <Link type={LinkTypes.Action}>
@@ -121,6 +121,23 @@ an `<a>` tag.
 
 ## Link with Routers
 
+<Preview>
+  <Story name="Link with Routers">
+    <div>With React Router</div>
+    <Router>
+      <Link type={LinkTypes.Action}>
+        <ReactRouterLink to="#">Next Page</ReactRouterLink>
+      </Link>
+    </Router>
+    <br />
+    <br />
+    <div>With NextJS</div>
+    <NextJsLink href="#" passHref>
+      <Link type={LinkTypes.Action}>Next Page</Link>
+    </NextJsLink>
+  </Story>
+</Preview>
+
 ### React Router
 
 The Design System's `Link` component should wrap around `react-router`'s own
@@ -135,10 +152,7 @@ import {
 import { Link, LinkTypes } from "@nypl/design-system-react-components";
 
 <Link type={LinkTypes.Action}>
-  <ReactRouterLink to="#">
-    <Icon name="download" modifiers={["left", "small"]} decorative={true}></Icon>
-    Download
-  </ReactRouterLink>
+  <ReactRouterLink to="#">Next Page</ReactRouterLink>
 </Link>;
 
 // or
@@ -150,10 +164,7 @@ import {
 } from "@nypl/design-system-react-components";
 
 <DSLink type={LinkTypes.Action}>
-  <Link to="#">
-    <Icon name="download" modifiers={["left", "small"]} decorative={true}></Icon>
-    Download
-  </Link>
+  <Link to="#">Next Page</Link>
 </DSLink>;
 
 // or
@@ -162,24 +173,16 @@ import { BrowserRouter, Link } from "react-router-dom";
 import DS from "@nypl/design-system-react-components";
 
 <DS.Link type={DS.LinkTypes.Action}>
-  <Link to="#">
-    <Icon name="download" modifiers={["left", "small"]} decorative={true}></Icon>
-    Download
-  </Link>
+  <Link to="#">Next Page</Link>
 </DS.Link>;
 ```
 
 <Preview>
-  <Story name="Link with Other Routers">
-    <Router>
-      <Link type={LinkTypes.Action}>
-        <ReactRouterLink to="#">
-          <Icon name="download" modifiers={["left", "small"]} decorative={true}></Icon>
-          Download
-        </ReactRouterLink>
-      </Link>
-    </Router>
-  </Story>
+  <Router>
+    <Link type={LinkTypes.Action}>
+      <ReactRouterLink to="#">Next Page</ReactRouterLink>
+    </Link>
+  </Router>
 </Preview>
 
 ### NextJS
