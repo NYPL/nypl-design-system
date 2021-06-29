@@ -11,11 +11,7 @@ import {
   IconSizes,
 } from "./IconTypes";
 
-import * as images from "./IconSvgs";
-
-// typescript still thinks the imported thing is a string, not a component
-// const images = { Brooklyn: Brooklyn as ReactComponentLike };
-console.log("IMAGES", images);
+import iconSvgs from "./IconSvgs";
 
 export interface IconProps {
   /** Additional attributes to pass to the `<svg>` tag. */
@@ -55,9 +51,8 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     modifiers = [],
     name,
     children,
+    attributes = [],
   } = props;
-
-  const attributes = props.attributes || {};
 
   if (iconRotation) {
     modifiers.push(iconRotation);
@@ -81,16 +76,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     ...attributes,
   };
 
-  // Apply icon props to child SVG
-  const renderChildren = () => {
-    return React.Children.map(children, child => {
-      return React.cloneElement(child as JSX.Element, { ...iconProps });
-    });
-  };
+  // Apply icon props to SVG that was passed as a child.
+  const renderChildren = () =>
+    React.Children.map(children, child =>
+      React.cloneElement(child as JSX.Element, { ...iconProps })
+    );
 
-  const svgComponent = images[name];
-
-  // Validation
+  // Component prop validation
   if (name && children) {
     throw new Error("Icon accepts either a name or children, not both");
   } else if (!name && !children) {
@@ -99,9 +91,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     );
   }
 
+  // The user wants to render an existing icon. Load the icon and render it
+  // as a component. Otherwise, we're just going to render the children that
+  // were passed to this component.
   if (name) {
-    return React.createElement(svgComponent, iconProps, null);
-  } else {
-    return <>{renderChildren()}</>;
+    const SvgComponent = iconSvgs[name];
+    return <SvgComponent {...iconProps} />;
   }
+
+  return <>{renderChildren()}</>;
 }

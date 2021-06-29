@@ -44,18 +44,12 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: "@svgr/webpack",
-            options: {
-              titleProp: true,
-            },
-          },
-        ],
+        use: ["@svgr/webpack"],
       },
       {
         test: /\.scss?$/ || /\.css?$/,
         use: [
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
