@@ -52,11 +52,15 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   if (padding) {
     cardStyle = {
       padding: padding,
-    }
+    };
   }
 
   return (
-    <div className={bem(baseClass, modifiers, blockName, [className])} id={id} style={cardStyle}>
+    <div
+      className={bem(baseClass, modifiers, blockName, [className])}
+      id={id}
+      style={cardStyle}
+    >
       {image && <div className={bem("image", [], baseClass)}>{image}</div>}
       <div className={bem("content", [], baseClass)}>
         <div className={bem("details", [], baseClass)}>
