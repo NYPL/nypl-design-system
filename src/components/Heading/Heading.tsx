@@ -18,7 +18,7 @@ export interface HeadingProps {
   modifiers?: string[];
   /** Inner text of the `<h*>` element */
   text?: string;
-  /** Optional URL that header points to */
+  /** Optional URL that header points to; when `url` prop is passed to `Heading`, a child `<a>` element is created and the heading text becomes an active link */
   url?: string;
   /** Optional className for the URL when the `url` prop is passed */
   urlClass?: string;
