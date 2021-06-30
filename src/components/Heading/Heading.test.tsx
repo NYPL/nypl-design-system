@@ -3,6 +3,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import Heading from "./Heading";
+import { DisplaySizes } from "./HeadingDisplaySizes";
 
 describe("Section Headings", () => {
   let wrapper: Enzyme.ShallowWrapper<any, any>;
@@ -85,5 +86,17 @@ describe("Section Headings", () => {
         </Heading>
       )
     ).to.throw("Please only pass one child into Heading, got span, span");
+  });
+  it("Uses custom display size", () => {
+    wrapper = Enzyme.shallow(
+      <Heading
+        id="h1"
+        level={1}
+        text={"Heading with Secondary displaySize"}
+        displaySize={DisplaySizes.Secondary}
+      />
+    );
+    expect(wrapper.find("h1")).to.have.lengthOf(1);
+    expect(wrapper.find("h1").hasClass("heading--secondary")).to.equal(true);
   });
 });

@@ -11,6 +11,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `Form` component
+- Adds `displaySize` prop to `Heading`
+
+### Changes
+
+- Updates content in Style Guide `Breakpoints`
+
+## 0.23.0
 
 ### Breaking Changes
 
@@ -20,8 +27,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `HorizontalRule` component
-- Adds `Form` component
 - Adds new `short` class for `Placeholder`
+- Adds `Style Guide` category to Storybook sidebar
 
 ### Changes
 
