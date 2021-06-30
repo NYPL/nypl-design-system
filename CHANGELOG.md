@@ -8,9 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `displaySize` prop to `Heading`.
+
 ### Changes
 
-- Changes `Link` story from `.tsx` to `.mdx`
+- Updates content in Style Guide `Breakpoints`.
+- Changes `Link` story from `.tsx` to `.mdx`.
 
 ## 0.23.0
 
