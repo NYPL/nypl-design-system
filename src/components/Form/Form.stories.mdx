@@ -36,15 +36,27 @@ import { action } from "@storybook/addon-actions";
 
 <Description of={Form} />
 
-The `Form` component renders a standard `<form>` element and should be used to handle spacing for child input fields. Use the `FormRow` and `FormField` child-components to arrange your input fields accordingly.
+The `Form` component renders a standard `<form>` element and should be used to handle layout and spacing for child input fields. `FormRow` and `FormField` components should be used to build the `<form>` struture and to arrange input fields as needed.
 
-Multiple `FormField` components can be placed in a parent `FormRow` component. However, a `FormField` component does not have to placed within a `FormRow` component. `FormField` components can stand alone within `Form`.
+`FormField` should be used as a parent for all input components from the DS (`Button`, `Select`, `TextInput`, etc.).
+
+`FormRow` should be used as a parent of multiple `FormField` components when you need to render multiple input components in a horizontal row.
 
 <Preview withToolbar>
   <Story
     name="Form"
     args={{
+      action: "/end/point",
       id: "custom-form-id",
+      method: "get",
+    }}
+    argTypes={{
+      method: {
+        control: {
+          type: "radio",
+          options: ["get", "post"],
+        },
+      },
     }}
   >
     {args => (
@@ -117,14 +129,62 @@ Multiple `FormField` components can be placed in a parent `FormRow` component. H
             <HelperErrorText>The select helper text.</HelperErrorText>
           </FormField>
         </FormRow>
-        <FormRow>
-          <FormField>
-            <Button>Submit</Button>
-          </FormField>
-        </FormRow>
+        <FormField>
+          <Button>Submit</Button>
+        </FormField>
       </Form>
     )}
   </Story>
 </Preview>
 
 <ArgsTable story="Form" />
+
+### Example Code
+
+```
+<Form
+  action="/end/point"
+  method="get"
+>
+  <FormField>
+    <TextInput
+      labelText="Username"
+      helperText="Make sure to complete this field."
+      required
+    />
+  </FormField>
+  <FormField>
+    <TextInput
+      labelText="Password"
+      helperText="Make sure to complete this field."
+      required
+    />
+  </FormField>
+  <FormRow>
+    <FormField>
+      <TextInput
+        labelText="Phone Field"
+        helperText="This one is up to you."
+        type="tel"
+      />
+    </FormField>
+    <FormField>
+      <TextInput
+        labelText="URL Field"
+        helperText="This one is up to you."
+        type="url"
+      />
+    </FormField>
+    <FormField>
+      <TextInput
+        labelText="Age"
+        helperText="This one is up to you."
+        type="number"
+      />
+    </FormField>
+  </FormRow>
+  <FormField>
+    <Button>Submit</Button>
+  </FormField>
+</Form>
+```
