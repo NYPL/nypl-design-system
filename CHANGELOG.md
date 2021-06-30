@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `displaySize` prop to `Heading`
+
 ## 0.23.0
 
 ### Breaking Changes
