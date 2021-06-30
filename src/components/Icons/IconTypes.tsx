@@ -24,10 +24,27 @@ export enum IconNames {
 }
 
 export enum LogoNames {
+  brooklyn = "brooklyn",
   logo_brooklyn = "logo_brooklyn",
   logo_nypl = "logo_nypl",
   logo_nypl_negative = "logo_nypl_negative",
   logo_queens = "logo_queens",
+  lpa_negative = "lpa_negative",
+  lpa_positive = "lpa_positive",
+  nypl_circle_negative = "nypl_circle_negative",
+  nypl_circle_positive = "nypl_circle_positive",
+  nypl_full_lock_up_negative = "nypl_full_lock_up_negative",
+  nypl_full_lock_up = "nypl_full_lock_up",
+  nypl_no_lion_negative = "nypl_no_lion_negative",
+  nypl_no_lion_positive = "nypl_no_lion_positive",
+  queens_long = "queens_long",
+  queens_stacked = "queens_stacked",
+  schomburg_circle = "schomburg_circle",
+  schomburg_positive = "schomburg_positive",
+  simplye_black = "simplye_black",
+  simplye_color = "simplye_color",
+  snfl_negative = "snfl_negative",
+  snfl_positive = "snfl_positive",
 }
 
 export enum IconColors {

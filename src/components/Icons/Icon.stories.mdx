@@ -16,6 +16,7 @@ import {
   IconSizes,
   IconRotationTypes,
 } from "./IconTypes";
+import iconSvgs from "./IconSvgs";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 
@@ -34,11 +35,13 @@ import { ListTypes } from "../List/ListTypes";
 
 # Icon
 
+<Description of={Icon} />
+
 <Preview withToolbar style={{ backgroundColor: "#fafafa" }}>
   <Story
-    name="Icon Props"
+    name="Icon Props Control"
     args={{
-      name: "close",
+      name: "check",
       color: IconColors.ui_black,
       size: IconSizes.xlarge,
       iconRotation: IconRotationTypes.rotate0,
@@ -80,13 +83,173 @@ import { ListTypes } from "../List/ListTypes";
   </Story>
 </Preview>
 
-<ArgsTable story="Icon Props" />
+<ArgsTable story="Icon Props Control" />
+
+export const iconRow = (icon, opts = {}) => {
+  // We'll use this setup function to render all the icons in a list item.
+  // Some icons display better with a dark background.
+  const styles = { padding: "1rem" };
+  const {
+    size = IconSizes.large,
+    iconRotation = IconRotationTypes.rotate0,
+    color = IconColors.ui_black,
+    displayValue = icon,
+  } = opts;
+  let key = icon;
+  if (icon.indexOf("_negative") !== -1) {
+    styles.backgroundColor = "#000";
+    styles.display = "inline-block";
+  }
+  // The following is just to fix duplicate React key issues.
+  if (iconRotation !== IconRotationTypes.rotate0) {
+    key += `-${iconRotation}`;
+  }
+  if (color !== IconColors.ui_black) {
+    key += `-${color}`;
+  }
+  if (size !== IconSizes.large) {
+    key += `-${size}`;
+  }
+  return (
+    <li key={key} style={{ marginBottom: "var(--space-s)" }}>
+      <span style={styles}>
+        <Icon
+          name={icon}
+          decorative={true}
+          size={size}
+          iconRotation={iconRotation}
+          color={color}
+        />
+      </span>
+      {displayValue}
+    </li>
+  );
+};
+export const icons = [];
+export const logos = [];
+export const rotations = [];
+export const colors = [];
+export const sizes = [];
+for (const icon in IconNames) {
+  icons.push(iconRow(icon));
+}
+for (const logo in LogoNames) {
+  logos.push(iconRow(logo, { iconSize: IconSizes.xlarge }));
+}
+for (const iconRotation in IconRotationTypes) {
+  rotations.push(
+    iconRow(IconNames.arrow, {
+      size: IconSizes.large,
+      iconRotation: IconRotationTypes[iconRotation],
+      displayValue: IconRotationTypes[iconRotation],
+    })
+  );
+}
+for (const iconColor in IconColors) {
+  colors.push(
+    iconRow(IconNames.download, {
+      color: IconColors[iconColor],
+      displayValue: IconColors[iconColor],
+    })
+  );
+}
+for (const iconSize in IconSizes) {
+  sizes.push(
+    iconRow(IconNames.arrow, {
+      size: IconSizes[iconSize],
+      displayValue: IconSizes[iconSize],
+    })
+  );
+}
+
+export const allIconsType = list => (
+  <ul style={{ listStyle: "none" }}>{list}</ul>
+);
+
+## Rotation Types
+
+Passing an `iconRotation` prop with a value from `IconRotationTypes` allows
+the icon to be rotated when it is rendered. The `IconRotationTypes` enum
+can be found in `src/components/Icons/IconTypes.tsx`.
+
+```js
+// Example
+<Icon
+  name={IconNames.arrow}
+  decorative={true}
+  iconRotation={IconRotationTypes.rotate180}
+/>
+```
+
+<Preview>
+  <Story name="Rotation Types">{allIconsType(rotations)}</Story>
+</Preview>
+
+## IconColors Types
+
+Update an SVG icon by passing a `color` prop with a value from `IconColors`.
+The `IconColors` enum can be found in`src/components/Icons/IconTypes.tsx`.
+
+```js
+// Example
+<Icon
+  name={IconNames.speaker_notes}
+  decorative={true}
+  color={IconColors.brand_primary}
+/>
+```
+
+<Preview>
+  <Story name="Color Types">{allIconsType(colors)}</Story>
+</Preview>
+
+## IconSizes Types
+
+Update an SVG icon by passing a `size` prop with a value from `IconSizes`.
+The `IconSizes` enum can be found in`src/components/Icons/IconTypes.tsx`.
+
+```js
+// Example
+<Icon name={IconNames.clock} decorative={true} size={IconSizes.xxlarge} />
+```
+
+<Preview>
+  <Story name="Sizes Types">{allIconsType(sizes)}</Story>
+</Preview>
+
+## All Display Icons
+
+The following icons are for generic purposes. All the available logo names can
+be found in the `IconNames` enum in `src/components/Icons/IconTypes.tsx`.
+
+<Preview withToolbar>
+  <Story name="All Display Icons">{allIconsType(icons)}</Story>
+</Preview>
+
+## All Logo Icons
+
+_Note: this is a work in progress_
+
+The following icons are meant to be used for logos for different libraries
+and products. All the available logo names can
+be found in the `LogoNames` enum in `src/components/Icons/IconTypes.tsx`.
+
+<Preview withToolbar>
+  <Story name="All Logo Icons">{allIconsType(logos)}</Story>
+</Preview>
 
 ## Custom Icons
 
-If you'd like to pass a custom svg to your application, you can pass it as children to `Icon`.
+If you'd like to pass a custom svg to your application, you can pass it a
+child to the `Icon` component.
 
-<Canvas>
+```js
+<Icon {...args}>
+  <svg ...><!-- the direct svg here --></svg>
+</Icon>
+```
+
+<Preview>
   <Story
     name="Custom Icons"
     args={{
@@ -110,119 +273,4 @@ If you'd like to pass a custom svg to your application, you can pass it as child
       </Icon>
     )}
   </Story>
-</Canvas>
-
-<!--
-        {Object.keys(releaseparty).map((key, index) => {
-          return (
-            <img
-              key={index}
-              src={releaseparty[key]}
-              width="75"
-              height="75"
-              alt=""
-            />
-          );
-        })}
-        {allSvgs.map((MyComponent, index) => {
-          return (
-            <>
-              <p>test</p>
-              <MyComponent key={index} {...iconProps} />
-            </>
-          );
-        })}
-        -->
-
-<!--
-## Icons & Logos
-
-export const iconRow = function (array, icon, size = IconSizes.large) {
-  const styles = {} as any;
-  if (icon.indexOf("_negative") !== -1) {
-    styles.backgroundColor = "#000";
-    styles.display = "inline-block";
-    styles.padding = "1rem";
-  } else {
-    styles.padding = "1rem";
-  }
-  array.push(
-    <li
-      key={icon}
-      style={{
-        marginBottom: "var(--space-s)",
-      }}
-    >
-      <span style={styles}>
-        <Icon name={icon} decorative={true} size={size} />
-      </span>
-      <span style={{ marginLeft: "var(--space-s)" }}>{icon}</span>
-    </li>
-  );
-};
-
-export const iconRow = function (array, icon, size = IconSizes.large) {
-  const styles = {} as any;
-  if (icon.indexOf("_negative") !== -1) {
-    styles.backgroundColor = "#000";
-    styles.display = "inline-block";
-    styles.padding = "1rem";
-  } else {
-    styles.padding = "1rem";
-  }
-  array.push(
-    <li
-      key={icon}
-      style={{
-        marginBottom: "var(--space-s)",
-      }}
-    >
-      <span style={styles}>
-        <Icon name={icon} decorative={true} size={size} />
-      </span>
-      <span style={{ marginLeft: "var(--space-s)" }}>{icon}</span>
-    </li>
-  );
-};
-
-export const icons = [];
-for (const icon in IconNames) {
-  iconRow(icons, icon);
-}
-
-export const logos = [];
-for (const logo in LogoNames) {
-  iconRow(logos, logo, IconSizes.xlarge);
-}
-
-export const UtilityIconsTemplate = () => (
-  <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
-    {icons}
-  </List>
-);
- 
-export const UtilityIcons = UtilityIconsTemplate.bind({});
-UtilityIcons.storyName = "Utility Icons";
-UtilityIcons.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A630",
-  },
-};
-
-const LogosTemplate = () => (
-  <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
-    {logos}
-  </List>
-);
-export const Logos = LogosTemplate.bind({});
-Logos.storyName = "Logos";
-Logos.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10968%3A2377",
-  },
-}; -->
-
+</Preview>

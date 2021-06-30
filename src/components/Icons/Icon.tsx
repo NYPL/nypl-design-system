@@ -37,7 +37,7 @@ export interface IconProps {
 }
 
 /**
- * Icon component
+ * Renders SVG-based icons.
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
