@@ -1,6 +1,6 @@
 # NYPL Design System
 
-This design system is NYPL’s open-source extensible tool for products and experiences with the accessibility as its foundation. You can learn more about the project and its goals [here](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System).
+This design system is NYPL’s open-source extensible React library for products and experiences with the accessibility as its foundation. It ships functional, stateless components with consistent NYPL styling. You can learn more about the project and its goals [here](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System).
 
 | Table of Contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
@@ -28,11 +28,16 @@ Information about active maintainers, how we run reviews, and more can be found 
 
 To develop with a local version of the design system:
 
-1. Run `npm link`
+1. Run `npm link` in the Design System repo
 2. Go to the consuming application and run `npm link @nypl/design-system-react-components`
 3. Go back to the Design System repo and run `npm run watch-webpack`
 
 Changes in the local Design System will now be rebuilt and exported automatically.
+
+To unlink:
+
+1. Run `npm unlink` in the Design System repo
+2. Run `npm unlink --no-save @nypl/design-system-react-components` in the consuming application
 
 ## Using the Design System in Your Product
 
@@ -88,3 +93,10 @@ The NYPL Design System provides accessible stories, but real live data can neces
 ## Storybook and `npm run static`
 
 There should be no need to run the static Storybook instances while actively developing—it's used exclusively for building out `gh-pages` environment. In the event that you do run the static Storybook npm script, make sure to not commit the `storybook/storybook-static` directory.
+
+When actively developing components or fixing bugs, make sure that the related stories are created or updated. This means updating the respective `[component-name].stories.tsx` or `[component-name].stories.mdx` files. For more information on writing stories, check out the [Anatomy of a Story](https://github.com/NYPL/nypl-design-system/wiki/Anatomy-of-a-Story) wiki page.
+
+For stand-alone document pages in Storybook, you need to:
+
+1. create the `[page-name].stories.mdx` file in `src/docs/`
+2. add the file reference to the `.storybook/main.js` file in the `stories` array

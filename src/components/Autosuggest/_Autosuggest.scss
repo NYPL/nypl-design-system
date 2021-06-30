@@ -1,57 +1,55 @@
 // React Autosuggest
 .react-autosuggest__container {
-    display: inline;
-    position: relative;
-    width: 100%;
+  display: inline;
+  position: relative;
+  width: 100%;
 }
 
 .react-autosuggest__input {
-    @extend .input;
-
-    margin-bottom: unset;
+  @extend .input;
 }
 
 .react-autosuggest__input--focused {
-    outline: none;
+  outline: none;
 }
 
 .react-autosuggest__input--open {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    width: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 100%;
 }
 
 .react-autosuggest__suggestions-container {
-    display: none;
-    width: 100%;
+  display: none;
+  width: 100%;
 }
 
 .react-autosuggest__suggestions-container--open {
-    background-color: var(--ui-white);
-    display: block;
-    font-weight: 300;
-    margin-top: 2px; // accounts for the focus ring on the input
-    outline: 1px solid var(--ui-gray-light);
-    position: absolute;
-    width: 100%;
-    z-index: 2;
+  background-color: var(--ui-white);
+  display: block;
+  font-weight: 300;
+  margin-top: -6px; // accounts for the focus ring on the input
+  outline: 1px solid var(--ui-gray-light);
+  position: absolute;
+  width: 100%;
+  z-index: 2;
 }
 
 .react-autosuggest__suggestions-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .react-autosuggest__suggestion {
-    cursor: pointer;
-    padding: var(--space-xs);
+  cursor: pointer;
+  padding: var(--space-xs);
 }
 
 .react-autosuggest__suggestion--highlighted {
-    background-color: var(--ui-gray-light);
+  background-color: var(--ui-gray-light);
 }
 
 .auto-suggest-bottom {
-    padding: var(--space-xs);
+  padding: var(--space-xs);
 }

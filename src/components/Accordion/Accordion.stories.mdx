@@ -1,0 +1,80 @@
+import {
+  Meta,
+  Story,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import Accordion from "./Accordion";
+import { withDesign } from "storybook-addon-designs";
+import * as stories from "./Accordion.stories.tsx";
+import { list as ListStory } from "../List/List.stories.tsx";
+import { Source } from "@storybook/addon-docs/blocks";
+import dedent from "ts-dedent";
+import ReactDOMServer from "react-dom/server";
+
+<Meta
+  title="Accordion"
+  component={Accordion}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
+    },
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+  }}
+/>
+
+# Accordion
+
+<Description of={Accordion} />
+
+The Accordion component pushes existing content on the page down. The
+implementation is built using basic input/label DOM elements and CSS.
+Therefore, make sure to pass the `inputId` prop to associate the label with
+the input element. If multiple Accordion components are used on a page, make
+sure that each `inputId` is unique.
+
+<Preview withToolbar>
+  <Story
+    name="Basic"
+    args={{
+      accordionLabel: "Click to expand",
+      children: <ListStory {...ListStory.args} />,
+      inputId: "accordionBtn",
+    }}
+  >
+    {args => <Accordion {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+## FAQ example
+
+The Accordion component has an optional `modifiers` prop that has pre-styled
+designs. For example, when building out FAQ-like pages, pass
+`modifiers=["faq"]` into the Accordion component.
+
+<Preview withToolbar>
+  <Story story={stories.AccordionAsFAQSet} />
+</Preview>
+
+## Scrollable example
+
+Use modifiers=["fixed-height"] when you'd like the accordion height to match that of its
+parent container. In this example, we wrap the accordion in a container whose height is
+set to 300px. If the contents within the accordion are taller than the height of the parent
+container, a scrollbar will appear.
+
+As in the other examples, any page content underneath the accordion will continue to be pushed down.
+
+<Preview withToolbar>
+  <Story story={stories.AccordionScroll} />
+</Preview>
+
+<Source code={ReactDOMServer.renderToString(stories.AccordionScroll)} />

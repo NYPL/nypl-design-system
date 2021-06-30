@@ -1,62 +1,91 @@
 import * as React from "react";
 import bem from "../../utils/bem";
-import Label, { LabelOptions } from "../Label/Label";
+import Label from "../Label/Label";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface CheckboxProps {
-    /** Additional attributes passed to the checkbox */
-    attributes?: {};
-    /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-    blockName?: string;
-    /** Unique ID used by checkbox */
-    checkboxId?: string;
-    /** ClassName that appears in addition to "checkbox" */
-    className?: string;
-    /* The current selected state of the checkbox */
-    isSelected?: boolean;
-    /* The Label that the checkbox is using. */
-    labelOptions: LabelOptions;
-    /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-    modifiers?: string[];
-    /** name of the checkbox */
-    name?: string;
-    /** The action to perform on the `<input>`'s onChange function  */
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** The checkbox's label.  This will serve as the text content for a `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
+  labelText: string;
+  /** Additional attributes to pass to the `<input>` tag */
+  attributes?: { [key: string]: any };
+  /** When using the Checkbox as a "controlled" form element, you can specify the Checkbox's checked state using this prop. Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
+  checked?: boolean;
+  /** className you can add in addition to 'input' */
+  className?: string;
+  /** Adds the 'disabled' prop to the input when true */
+  disabled?: boolean;
+  /** Helper for modifiers array; adds 'errored' styling */
+  errored?: boolean;
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
+  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+  modifiers?: string[];
+  /** The name prop indicates into which group of checkboxes this checkbox belongs.  If none is specified, 'default' will be used */
+  name?: string;
+  /** The action to perform on the `<input>`'s onChange function  */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Offers the ability to show the checkbox's label onscreen or hide it. Refer to the `labelText` property for more information. */
+  showLabel: boolean;
+  /** Populates the value of the input */
+  value?: string;
 }
 
-let Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-    (props, ref?) => {
-        const {
-            name,
-            attributes,
-            modifiers = [],
-            className,
-            blockName = "",
-            checkboxId,
-            labelOptions,
-            isSelected = false,
-            onChange,
-        } = props;
+export const onChangeDefault = () => {
+  return;
+};
 
-        const baseClass = "checkbox";
-        return (
-            <div className={bem(baseClass, modifiers, blockName, [className])}>
-                <input
-                    id={checkboxId}
-                    name={name}
-                    className={bem("input", [], baseClass)}
-                    onChange={onChange}
-                    type="checkbox"
-                    aria-checked={isSelected}
-                    defaultChecked={isSelected}
-                    ref={ref}
-                    {...attributes}
-                ></input>
-                <Label htmlFor={checkboxId} id={labelOptions.id}>
-                    {labelOptions.labelContent}
-                </Label>
-            </div>
-        );
+const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+  (props, ref?) => {
+    const {
+      checked,
+      className,
+      disabled,
+      errored,
+      id,
+      labelText,
+      name,
+      showLabel,
+      value,
+    } = props;
+
+    const attributes = props.attributes || {};
+    const modifiers = props.modifiers ? props.modifiers : [];
+    const checkboxID = id || generateUUID();
+    const onChange = props.onChange || onChangeDefault;
+
+    if (!showLabel) attributes["aria-label"] = labelText;
+
+    if (errored) {
+      modifiers.push("error");
     }
+    return (
+      <>
+        <input
+          {...(checked !== undefined
+            ? {
+                checked: checked,
+                onChange: onChange,
+              }
+            : {
+                defaultChecked: false,
+              })}
+          className={bem("checkbox", modifiers, "input", [className])}
+          disabled={disabled}
+          id={checkboxID}
+          name={name || "default"}
+          ref={ref}
+          type="checkbox"
+          value={value}
+          {...attributes}
+        />
+        {labelText && showLabel && (
+          <Label htmlFor={checkboxID}>{labelText}</Label>
+        )}
+      </>
+    );
+  }
 );
+
+Checkbox.displayName = "Checkbox";
 
 export default Checkbox;

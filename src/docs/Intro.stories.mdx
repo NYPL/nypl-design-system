@@ -1,0 +1,43 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import Hero from "../components/Hero/Hero.tsx";
+import { HeroTypes } from "../components/Hero/HeroTypes.tsx";
+import Heading from "../components/Heading/Heading.tsx";
+import Image from "../components/Image/Image.tsx";
+import getCSSVariable from "../helpers/getCSSVariable";
+
+<Meta title="Introduction" />
+
+# NYPL Design System
+
+## @nypl/design-system-react-components
+
+Welcome to the New York Public Library's Design System React component library.
+This design system is NYPL’s open-source extensible React library for products
+and experiences with accessibility as its foundation. It ships functional,
+stateless components with consistent NYPL styling. You can learn more about the
+project and its goals [here](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System).
+
+The best way to get started is through the [Design System's Wiki](https://github.com/NYPL/nypl-design-system/wiki)
+to learn how about design and implementation at NYPL. The following Hero is just
+one example of how we use the NYPL Design System on NYPL.org.
+
+<Hero
+  heroType={HeroTypes.FiftyFifty}
+  subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
+  image={
+    <Image
+      src="https://cdn-d8.nypl.org/s3fs-public/styles/2_1_960/public/2020-07/SASB_06_29_2020_Lions_mask-00207%20copy_0.jpeg?h=c8e955ed&itok=n_GLQgoe"
+      blockName={"hero"}
+      alt={""}
+    />
+  }
+  backgroundColor={getCSSVariable("--section-books-and-more-primary")}
+  foregroundColor={getCSSVariable("--ui-white")}
+/>
+
+<br />
+
+### For Developers
+
+If you're looking to contribute, checkout the [nypl-design-system](https://github.com/NYPL/nypl-design-system)
+repo on Github for more information.

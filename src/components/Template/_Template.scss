@@ -1,67 +1,63 @@
 $sidebar-width: 25%;
-$sidebar-width-s: calc(25% - calc(4 * #{var(--space-s)}));
+$sidebar-width-s: calc(25% - calc(4 * var(--space-s)));
 
 .main {
-    @include wrapper;
+  @include wrapper;
 
-    display: block; // Fix for IE weirdness
+  display: block; // Fix for IE weirdness
 
-    &--with-sidebar {
-        display: flex;
-        flex-flow: column nowrap;
+  &--with-sidebar {
+    display: flex;
+    flex-flow: column nowrap;
 
-        @include breakpoint($breakpoint-medium) {
-            flex-flow: row wrap;
-        }
+    @include breakpoint($breakpoint-medium) {
+      flex-flow: row wrap;
     }
+  }
 }
 
 .content-header {
-    @include breakout;
+  @include breakout;
 
-    width: 100vw;
+  width: 100vw;
 }
 
 .content-top {
-    flex: 1 0 100%;
+  flex: 1 0 100%;
 }
 
 .content-primary {
-    width: 100%;
+  flex: 1 1;
+  width: 100%;
 
-    &--with-sidebar-right,
-    &--with-sidebar-left {
-        @include breakpoint($breakpoint-medium) {
-            flex: 1 1 60%;
-            min-width: 0;
-        }
+  &--with-sidebar-left {
+    display: flex;
+    flex-flow: column nowrap;
+    order: 1;
+
+    @include breakpoint($breakpoint-medium) {
+      @include space-inline-none;
+
+      min-width: 0;
     }
-
-    &--with-sidebar-left {
-        display: flex;
-        flex-flow: column nowrap;
-        order: 1;
-
-        @include breakpoint($breakpoint-medium) {
-            @include space-inline-none;
-        }
-    }
+  }
 }
 
 .content-secondary {
-    @include breakpoint($breakpoint-medium) {
-        flex: 0 1 $sidebar-width;
-        order: 1;
+  flex: 0 0 $sidebar-width;
 
-        &--with-sidebar-left {
-            @include space-inline-l;
+  @include breakpoint($breakpoint-medium) {
+    order: 1;
 
-            flex-basis: $sidebar-width-s;
-        }
+    &--with-sidebar-left {
+      @include space-inline-l;
 
-        &--with-sidebar-right {
-            flex-basis: $sidebar-width-s;
-            margin-left: var(--space-l);
-        }
+      flex-basis: $sidebar-width-s;
     }
+
+    &--with-sidebar-right {
+      flex-basis: $sidebar-width-s;
+      margin-left: var(--space-l);
+    }
+  }
 }

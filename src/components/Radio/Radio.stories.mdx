@@ -1,0 +1,97 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
+
+import Radio from "./Radio";
+import { onChangeDefault } from "./Radio";
+
+<Meta
+  title={getCategory("Radio")}
+  component={Radio}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A742",
+    },
+  }}
+  argTypes={{
+    onChange: { table: { disable: true } },
+    checked: { table: { disable: true } },
+  }}
+/>
+
+# Radio
+
+<Description of={Radio} />
+
+This component renders a radio button form element. See below for configuration information. Note that the `id` property, while optional, will
+cause an accessibility violation if none is present.
+
+<Preview withToolbar>
+  <Story
+    name="Radio"
+    args={{
+      labelText: "Test Label",
+      showLabel: true,
+      id: "test_id",
+      name: "test_name",
+    }}
+  >
+    {args => <Radio {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="Radio" />
+
+## Checked
+
+<Canvas>
+  <Radio
+    checked
+    labelText="I am checked"
+    name="testChecked"
+    onChange={onChangeDefault}
+    showLabel={true}
+  ></Radio>
+</Canvas>
+
+## Focused
+
+<Canvas>
+  <Radio
+    name="testFocus"
+    labelText="Click or tab to the Radio to see its focus state"
+    showLabel={true}
+  ></Radio>
+</Canvas>
+
+## Errored
+
+<Canvas>
+  <Radio
+    name="testErrored"
+    errored
+    showLabel={true}
+    labelText="I am in an error state"
+  ></Radio>
+</Canvas>
+
+## Disabled
+
+<Canvas>
+  <Radio
+    name="testDisabled"
+    disabled
+    showLabel={true}
+    labelText="I am disabled"
+  ></Radio>
+</Canvas>

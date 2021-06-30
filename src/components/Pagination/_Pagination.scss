@@ -1,23 +1,40 @@
 .pagination {
-    @include space-stack-l;
+  @include space-stack-l;
 
-    align-items: stretch;
+  align-items: stretch;
+  display: flex;
+  width: 100%;
+
+  > * {
+    &:not(:last-child) {
+      @include space-inline-xs;
+    }
+  }
+
+  &__list {
+    @include list-reset;
+
     display: flex;
-    width: 100%;
+  }
 
-    > * {
-        &:not(:last-child) {
-            @include space-inline-xs;
-        }
+  &__item {
+    @include space-inline-xs;
+
+    list-style-type: none;
+  }
+
+  &__link {
+    line-height: 1.15;
+    text-decoration: none;
+
+    &.selected {
+      color: var(--ui-black);
+      pointer-events: none;
     }
 
-    .label {
-        @include space-stack-none;
-
-        align-self: center;
+    &.disabled {
+      color: var(--ui-gray-dark);
+      pointer-events: none;
     }
-
-    .select {
-        @include space-stack-none;
-    }
+  }
 }

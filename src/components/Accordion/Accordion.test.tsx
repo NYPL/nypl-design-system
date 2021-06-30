@@ -4,57 +4,24 @@ import * as React from "react";
 
 import Accordion from "./Accordion";
 
-describe("Renders Input (closed state)", () => {
-    let container: Enzyme.ReactWrapper<
-        any,
-        Readonly<{}>,
-        React.Component<{}, {}, any>
-    >;
-    before(() => {
-        container = Enzyme.mount(
-            <Accordion
-                id="accordion"
-                labelId="accordionBtn"
-                accordionLabel="Click to expand"
-            >
-                {" "}
-                <div className="accordion-content">content content</div>{" "}
-            </Accordion>
-        );
-    });
+describe("Accordion", () => {
+  let container;
+  before(() => {
+    container = Enzyme.mount(
+      <Accordion
+        id="accordion"
+        inputId="accordionBtn"
+        accordionLabel="Click to expand"
+      >
+        <p className="accordion-content">this is the accordion content</p>
+      </Accordion>
+    );
+  });
 
-    it("Renders a button", () => {
-        expect(container.find("Button").exists()).to.equal(true);
-    });
-    it("does not render content", () => {
-        expect(container.find(".accordion-content").exists()).to.equal(false);
-    });
-});
-
-describe("Renders Input (open state)", () => {
-    let container: Enzyme.ReactWrapper<
-        any,
-        Readonly<{}>,
-        React.Component<{}, {}, any>
-    >;
-    before(() => {
-        container = Enzyme.mount(
-            <Accordion
-                id="accordion"
-                labelId="accordionBtn2"
-                accordionLabel="Click to expand"
-            >
-                {" "}
-                <div className="accordion-content">content content</div>{" "}
-            </Accordion>
-        );
-        container.find("button").simulate("click");
-    });
-
-    it("Renders a button", () => {
-        expect(container.find("Button").exists()).to.equal(true);
-    });
-    it("Renders content", () => {
-        expect(container.find(".accordion-content").exists()).to.equal(true);
-    });
+  it("Renders an input checkbox and label", () => {
+    expect(container.find("input").exists()).to.equal(true);
+    expect(container.find(".accordion__label").text()).to.contain(
+      "Click to expand"
+    );
+  });
 });

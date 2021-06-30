@@ -1,129 +1,135 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import * as React from "react";
 
 export interface TabsProps {
-    items: {
-        [key: string]: JSX.Element;
-    };
-    id: string;
+  items: {
+    [key: string]: JSX.Element;
+  };
+  id: string;
 }
 
 export interface TabsState {
-    // Which tab is the user currently viewing?
-    tab: number;
+  // Which tab is the user currently viewing?
+  tab: number;
 }
 
 export default class Tabs extends React.Component<TabsProps, TabsState> {
-    private buttonRef = React.createRef<HTMLButtonElement>();
+  private buttonRef = React.createRef<HTMLButtonElement>();
 
-    constructor(props: TabsProps) {
-        super(props);
-        this.select = this.select.bind(this);
-        this.makeTabs = this.makeTabs.bind(this);
-        this.state = { tab: 0 };
+  constructor(props: TabsProps) {
+    super(props);
+    this.select = this.select.bind(this);
+    this.makeTabs = this.makeTabs.bind(this);
+    this.state = { tab: 0 };
+  }
+
+  componentDidUpdate() {
+    this.buttonRef.current.focus();
+  }
+
+  select(
+    e: React.KeyboardEvent<HTMLButtonElement> &
+      React.MouseEvent<HTMLButtonElement>
+  ) {
+    // The element's ID is in the form `button-{idx}-{id}`
+    const idx = parseInt(
+      (e.currentTarget as HTMLElement).id.split("button-")[1],
+      10
+    );
+    if (e.keyCode) {
+      // Keyboard navigation with arrow keys
+      // idx is the index of the tab you're already on, that you're
+      // trying to navigate away from; newIdx will be the index of
+      // the tab you're trying to go to.
+      let newIdx: number;
+      const tabs = Object.keys(this.props.items);
+      if (e.keyCode === 39) {
+        // Right arrow key: go to the next tab, or go back to the
+        // beginning if you were already on the last tab
+        newIdx = idx < tabs.length - 1 ? idx + 1 : 0;
+      } else if (e.keyCode === 37) {
+        // Left arrow key: go to the previous tab, or go to the end
+        // if you were already on the first tab
+        newIdx = idx === 0 ? tabs.length - 1 : idx - 1;
+      } else {
+        // If the user pressed something other than a right/left arrow key,
+        // ignore it. Note: this does not interfere with the tab key's
+        // intended functionality.
+        return;
+      }
+      this.setState({ tab: newIdx });
+      // componentDidUpdate will move the focus to the new tab.
+    } else {
+      // Click
+      // idx is the index of the tab you're trying to go to.
+      this.setState({ tab: idx });
     }
+  }
 
-    componentDidUpdate() {
-        this.buttonRef.current.focus();
-    }
+  makeTabs(): Array<Array<JSX.Element>> {
+    const navs = [] as Array<JSX.Element>;
+    const content = [] as Array<JSX.Element>;
+    const items = Object.entries(this.props.items);
 
-    select(
-        e: React.KeyboardEvent<HTMLButtonElement> &
-            React.MouseEvent<HTMLButtonElement>
-    ) {
-        // The element's ID is in the form `button-{idx}-{id}`
-        let idx = parseInt(
-            (e.currentTarget as HTMLElement).id.split("button-")[1],
-            10
-        );
-        if (e.keyCode) {
-            // Keyboard navigation with arrow keys
-            // idx is the index of the tab you're already on, that you're trying to navigate away from;
-            // newIdx will be the index of the tab you're trying to go to.
-            let newIdx: number;
-            let tabs = Object.keys(this.props.items);
-            if (e.keyCode === 39) {
-                // Right arrow key: go to the next tab, or go back to the beginning if you were already on the last tab
-                newIdx = idx < tabs.length - 1 ? idx + 1 : 0;
-            } else if (e.keyCode === 37) {
-                // Left arrow key: go to the previous tab, or go to the end if you were already on the first tab
-                newIdx = idx === 0 ? tabs.length - 1 : idx - 1;
-            } else {
-                // If the user pressed something other than a right/left arrow key, ignore it.
-                // Note: this does not interfere with the tab key's intended functionality.
-                return;
-            }
-            this.setState({ tab: newIdx });
-            // componentDidUpdate will move the focus to the new tab.
-        } else {
-            // Click
-            // idx is the index of the tab you're trying to go to.
-            this.setState({ tab: idx });
-        }
-    }
+    items.map((item, idx) => {
+      const [name, data] = item;
+      const current = idx === this.state.tab;
+      const idString = `${idx.toString()}-${this.props.id
+        .split(" ")
+        .join("-")}`;
 
-    makeTabs(): Array<Array<JSX.Element>> {
-        let navs = [] as Array<JSX.Element>;
-        let content = [] as Array<JSX.Element>;
-        let items = Object.entries(this.props.items);
+      const navItem = (
+        <li
+          key={name}
+          role="presentation"
+          className={`tab-nav ${current ? "current" : ""}`}
+        >
+          <button
+            aria-controls={`content-${idString}`}
+            aria-selected={current}
+            className=".button"
+            id={`button-${idString}`}
+            onClick={this.select}
+            onKeyDown={this.select}
+            role="tab"
+            tabIndex={current ? 0 : -1}
+            ref={current ? this.buttonRef : null}
+          >
+            {name}
+          </button>
+        </li>
+      );
 
-        items.map((item, idx) => {
-            let [name, data] = item;
-            let current = idx === this.state.tab;
-            let idString = `${idx.toString()}-${this.props.id
-                .split(" ")
-                .join("-")}`;
+      navs.push(navItem);
 
-            let navItem = (
-                <li
-                    key={name}
-                    role="presentation"
-                    className={`tab-nav ${current ? "current" : ""}`}
-                >
-                    <button
-                        aria-controls={`content-${idString}`}
-                        aria-selected={current}
-                        className=".button"
-                        id={`button-${idString}`}
-                        onClick={this.select}
-                        onKeyDown={this.select}
-                        role="tab"
-                        tabIndex={current ? 0 : -1}
-                        ref={current ? this.buttonRef : null}
-                    >
-                        {name}
-                    </button>
-                </li>
-            );
+      const contentItem: JSX.Element = (
+        <section
+          aria-labelledby={`button-${idString}`}
+          className={`tab-content ${current ? "" : "hidden"}`}
+          id={`content-${idString}`}
+          key={name}
+          role="tabpanel"
+          tabIndex={0}
+        >
+          {data}
+        </section>
+      );
 
-            navs.push(navItem);
+      content.push(contentItem);
+    });
+    return [navs, content];
+  }
 
-            let contentItem: JSX.Element = (
-                <section
-                    aria-labelledby={`button-${idString}`}
-                    className={`tab-content ${current ? "" : "hidden"}`}
-                    id={`content-${idString}`}
-                    key={name}
-                    role="tabpanel"
-                    tabIndex={0}
-                >
-                    {data}
-                </section>
-            );
-
-            content.push(contentItem);
-        });
-        return [navs, content];
-    }
-
-    render(): JSX.Element {
-        let [navs, content] = this.makeTabs();
-        return (
-            <section className="reusable-tabs">
-                <ul role="tablist" className="tab-navs">
-                    {navs}
-                </ul>
-                {content}
-            </section>
-        );
-    }
+  render(): JSX.Element {
+    const [navs, content] = this.makeTabs();
+    return (
+      <section className="reusable-tabs">
+        <ul role="tablist" className="tab-navs">
+          {navs}
+        </ul>
+        {content}
+      </section>
+    );
+  }
 }

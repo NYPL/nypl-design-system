@@ -8,6 +8,29 @@
 @import "~system-font-css/_system-font.scss";
 // End libs
 
+/*
+ * The `color-classes` and `css-vars` mixins have been included here 
+ * because they are utilized in the colors SCSS files.
+ */
+
+// generates a series of color classes that can be used anywhere
+@mixin color-classes($map) {
+  @each $name, $color in $map {
+    .cl-#{$name} {
+      color: $color;
+    }
+  }
+}
+
+// generates a collection of CSS vars
+@mixin css-vars($map, $prefix) {
+  $prefix: str-insert($prefix, "-", str-length($prefix) + 1);
+
+  @each $name, $color in $map {
+    --#{$prefix}#{$name}: #{$color};
+  }
+}
+
 // Order important
 @import "./styles/01-colors/_colors-brand";
 @import "./styles/01-colors/_colors-utility";
@@ -20,23 +43,26 @@
 @import "./components/Link/_Link.scss";
 @import "./components/Heading/_Heading.scss";
 @import "./components/Input/_Input.scss";
+@import "./components/TextInput/_TextInput.scss";
 @import "./components/Autosuggest/_Autosuggest.scss";
 
 // Order not important
 @import "./components/Accordion/_Accordion.scss";
 @import "./components/Breadcrumbs/_Breadcrumbs.scss";
 @import "./components/Card/_Card.scss";
-@import "./components/Checkbox/_Checkbox.scss";
-@import "./components/Select/_Select.scss";
-@import "./components/Label/_Label.scss";
 @import "./components/HelperErrorText/_HelperErrorText.scss";
 @import "./components/Hero/_Hero.scss";
+@import "./components/HorizontalRule/_HorizontalRule.scss";
 @import "./components/Image/_Image.scss";
+@import "./components/Label/_Label.scss";
+@import "./components/List/_List.scss";
 @import "./components/Modal/_Modal.scss";
 @import "./components/Pagination/_Pagination.scss";
+@import "./components/Radio/_Radio.scss";
+@import "./components/Checkbox/_Checkbox.scss";
 @import "./components/SearchBar/_SearchBar.scss";
+@import "./components/Select/_Select.scss";
 @import "./components/SkeletonLoader/_SkeletonLoader.scss";
 @import "./components/StatusBadge/_StatusBadge.scss";
 @import "./components/Tabs/_Tabs.scss";
 @import "./components/Template/_Template.scss";
-@import "./components/List/_List.scss";

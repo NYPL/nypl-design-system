@@ -1,94 +1,94 @@
 $break-breadcrumbs-mobile: max-width 599px;
 
 .breadcrumbs {
-    @include breakout;
+  background-color: var(--ui-black);
+  padding-bottom: var(--space-xs);
+  padding-top: var(--space-xs);
 
-    background-color: var(--ui-black);
-    padding-bottom: var(--space-xs);
-    padding-top: var(--space-xs);
+  &__item {
+    @include space-inline-xxs;
 
-    &__item {
-        @include space-inline-xxs;
+    align-items: center;
+    display: inline;
+    font-size: var(--font-size--1);
+    line-height: 1.5;
+    position: relative;
+    word-break: break-word;
 
-        align-items: center;
-        display: inline;
-        font-size: var(--font-size--1);
-        line-height: 1.5;
-        position: relative;
-        word-break: break-word;
+    &:not(:last-child) {
+      &::after {
+        content: "/";
+        padding-left: var(--space-xxs);
+      }
 
-        &:not(:last-child) {
-            &::after {
-                content: "/";
-                padding-left: var(--space-xxs);
-            }
-
-            @include breakpoint($break-breadcrumbs-mobile) {
-                display: none;
-            }
-        }
-
-        &:last-child {
-            @include breakpoint($break-breadcrumbs-mobile) {
-                padding-left: var(--space-m);
-            }
-        }
+      @include breakpoint($break-breadcrumbs-mobile) {
+        display: none;
+      }
     }
 
-    &__icon {
-        @include icon;
-
-        left: 0;
-        position: absolute;
-        top: 50%;
-        transform: rotate(90deg) translateX(-50%);
-
-        @include breakpoint($breakpoint-medium) {
-            display: none;
-        }
+    &:last-child {
+      @include breakpoint($break-breadcrumbs-mobile) {
+        display: block;
+        padding-left: var(--space-m);
+      }
     }
+  }
 
-    &__link,
-    &__link:link,
-    &__link:visited,
-    &__link:focus {
-        color: inherit;
-        text-decoration: none;
+  &__icon {
+    @include icon;
+
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: rotate(90deg) translateX(-50%);
+
+    @include breakpoint($breakpoint-medium) {
+      display: none;
     }
+  }
 
-    &__link:hover {
-        text-decoration: underline;
-    }
+  &__link,
+  &__link:link,
+  &__link:visited,
+  &__link:focus {
+    color: var(--ui-white);
+    text-decoration: none;
+  }
 
-    &__list {
-        @include list-reset;
-        @include wrapper;
+  &__item a:hover {
+    color: var(--ui-gray-light);
+    text-decoration: underline;
+  }
 
-        color: var(--ui-white);
-    }
+  &__list {
+    @include list-reset;
+    @include wrapper;
 
-    .nypl--books-and-more & {
-        background-color: var(--section-books-and-more-secondary);
-    }
+    color: var(--ui-white);
+  }
 
-    .nypl--locations & {
-        background-color: var(--section-locations-secondary);
-    }
+  .nypl--books-and-more & {
+    background-color: var(--section-books-and-more-secondary);
+  }
 
-    .nypl--research & {
-        background-color: var(--section-research-secondary);
-    }
+  .nypl--locations & {
+    background-color: var(--section-locations-secondary);
+  }
 
-    .nypl--whats-on & {
-        background-color: var(--section-whats-on-secondary);
-    }
+  .nypl--research & {
+    background-color: var(--section-research-secondary);
+  }
+
+  .nypl--whats-on & {
+    background-color: var(--section-whats-on-secondary);
+  }
 }
 
 .storybook-breadcrumbsExample {
-    .breadcrumbs {
-        flex: 1 1 50%;
-        margin-left: unset;
-        margin-right: var(--space-l);
-        max-height: 42px;
-    }
+  .breadcrumbs {
+    flex: 1 1 50%;
+    margin-left: unset;
+    margin-right: var(--space-l);
+    max-height: 42px;
+  }
 }
