@@ -1,0 +1,7 @@
+/** Type weight information to keep font-weight values consistent across the system */
+:root {
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
