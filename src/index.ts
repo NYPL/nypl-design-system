@@ -10,6 +10,7 @@ export { default as Heading } from "./components/Heading/Heading";
 export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";
 export { default as Hero } from "./components/Hero/Hero";
 export { HeroTypes } from "./components/Hero/HeroTypes";
+export { default as HorizontalRule } from "./components/HorizontalRule/HorizontalRule";
 export { default as Icon } from "./components/Icons/Icon";
 export {
   IconRotationTypes,
@@ -26,7 +27,9 @@ export { default as List } from "./components/List/List";
 export { ListTypes } from "./components/List/ListTypes";
 export { default as Modal } from "./components/Modal/Modal";
 export { default as Pagination } from "./components/Pagination/Pagination";
+export { default as Radio } from "./components/Radio/Radio";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
+export { default as TextInput } from "./components/TextInput/TextInput";

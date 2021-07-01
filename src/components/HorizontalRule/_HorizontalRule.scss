@@ -1,0 +1,15 @@
+.horizontal-rule {
+  background-color: $gray-light;
+  border: 0;
+  height: 2px;
+  margin-bottom: var(--space-s);
+  margin-top: var(--space-s);
+
+  &--left {
+    margin-left: 0;
+  }
+
+  &--right {
+    margin-right: 0;
+  }
+}

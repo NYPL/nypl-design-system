@@ -10,9 +10,10 @@ import List from "../List/List";
 import Heading from "../Heading/Heading";
 import { ListTypes } from "../List/ListTypes";
 import { CSSVariablesInterface } from "../../interfaces";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Spacing",
+  title: getCategory("Spacing"),
   decorators: [withDesign],
 } as Meta;
 

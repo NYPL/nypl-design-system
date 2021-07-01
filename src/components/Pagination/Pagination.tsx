@@ -31,6 +31,12 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     getPageHref,
     onPageChange,
   } = props;
+
+  //If there are 0 or 1 pages, the pagination should not show
+  if (pageCount <= 1) {
+    return null;
+  }
+
   if (getPageHref && onPageChange) {
     console.warn(
       "Both onPageHref and onPageChange are passed. Will default to using onPageHref"

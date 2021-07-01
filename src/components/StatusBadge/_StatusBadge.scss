@@ -1,11 +1,13 @@
 .status-badge {
-  border-radius: 4px;
+  border-radius: var(--space-xxs);
   color: var(--ui-black);
   display: block;
   font-size: var(--font-size--1);
   font-style: italic;
-  padding: var(--space-xxs);
+  padding: var(--space-xxs) var(--space-xs);
   text-align: center;
+  width: fit-content;
+  width: -moz-fit-content;
 
   &--low {
     background-color: var(--ui-gray-light);

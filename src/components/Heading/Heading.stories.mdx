@@ -1,0 +1,132 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Heading from "./Heading";
+import { DisplaySizes } from "./HeadingDisplaySizes";
+
+<Meta
+  title="Heading"
+  component={Heading}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+    },
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+  }}
+/>
+
+# Heading
+
+<Description of={Heading} />
+
+A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's text can be passed in through a `text` prop or as a child. Default styles for semantic elements can be overwritten using the `displaySize` prop.
+
+<Preview withToolbar>
+  <Story
+    name="Heading Props"
+    args={{
+      id: "heading1",
+      level: 1,
+      text: "Heading  1",
+    }}
+  >
+    {args => <Heading {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="Heading Props" />
+
+## Default Heading Styles
+
+<Preview>
+  <Story name="Default Heading Styles">
+    <div>
+      <Heading id="heading1" level={1} text="<h1> Heading 1" />
+      <Heading id="heading2" level={2} text="<h2> Heading 2" />
+      <Heading id="heading3" level={3} text="<h3> Heading 3" />
+      <Heading id="heading4" level={4} text="<h4> Heading 4" />
+      <Heading id="heading5" level={5} text="<h5> Heading 5" />
+      <Heading id="heading6" level={6} text="<h6> Heading 6" />
+    </div>
+  </Story>
+</Preview>
+
+## DisplaySize Styles
+
+<Preview>
+  <Story name="DisplaySize Styles">
+    <div>
+      <Heading
+        id="heading1"
+        level={1}
+        displaySize={DisplaySizes.Primary}
+        text="<h1> DisplaySizes.Primary"
+      />
+      <Heading
+        id="heading1"
+        level={1}
+        displaySize={DisplaySizes.Secondary}
+        text="<h1> DisplaySizes.Secondary"
+      />
+      <Heading
+        id="heading1"
+        level={1}
+        displaySize={DisplaySizes.Tertiary}
+        text="<h1> DisplaySizes.Tertiary"
+      />
+      <Heading
+        id="heading1"
+        level={1}
+        displaySize={DisplaySizes.Callout}
+        text="<h1> DisplaySizes.Callout"
+      />
+    </div>
+  </Story>
+</Preview>
+
+## Heading with Bold
+
+<Preview>
+  <Story name="Heading with Bold">
+    <Heading id="headingWithBold" level={2}>
+      <>
+        Heading with a <b>Bold</b> Word
+      </>
+    </Heading>
+  </Story>
+</Preview>
+
+## Headings with Links
+
+When the `url` prop is passed to `Heading`, a child `<a>` element is created and the heading text becomes an active link.
+
+<Preview>
+  <Story name="Headings with Links">
+    <Heading
+      id="headingWithLink"
+      level={2}
+      text="Heading with URL Props"
+      url="http://apple.com"
+      urlClass="special-link"
+    />
+    <Heading id="headingWithLink" level={2}>
+      <>
+        Heading with a Word <a href="hello">Link</a>
+      </>
+    </Heading>
+  </Story>
+</Preview>
