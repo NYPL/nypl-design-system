@@ -8,6 +8,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds CSS vars for `font-weight`
+- Adds `displaySize` prop to `Heading`
+
+### Changes
+
+- Updates content in Style Guide `Breakpoints`
+
+## 0.23.0
+
 ### Breaking Changes
 
 - Removes `breakout` CSS from `Breadcrumbs`. To retain previous behavior, `Breadcrumbs` component should be a child of a `.content-header` element.
@@ -17,7 +28,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `HorizontalRule` component
 - Adds new `short` class for `Placeholder`
-- Adds new CSS vars for `font-weight`
+- Adds `Style Guide` category to Storybook sidebar
 
 ### Changes
 
