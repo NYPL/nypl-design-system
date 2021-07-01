@@ -1,0 +1,85 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import { getCategory } from "../../utils/componentCategories";
+import Icon from "../Icons/Icon";
+
+<Meta
+  title={getCategory("Iconography")}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+    },
+  }}
+/>
+
+# Iconography
+
+Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) component to render and control icons and select NYPL logos as `<svg>` elements within consuming apps.
+
+<Preview>
+  <Story name="Icon Examples">
+    <Icon decorative modifiers={["xlarge"]} name="check" />
+    <Icon decorative modifiers={["xlarge"]} name="close" />
+    <Icon decorative modifiers={["xlarge"]} name="logo_nypl" />
+  </Story>
+</Preview>
+
+The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
+
+### Size
+
+Icons in NYPL projects can be rendered at the following sizes.
+
+<Preview>
+  <Story name="Size">
+    <>
+      <Icon decorative modifiers={["xlarge"]} name="check" />
+      <Icon decorative modifiers={["xlarge"]} name="close" />
+      <Icon decorative modifiers={["xlarge"]} name="logo_nypl" />
+    </>
+  </Story>
+</Preview>
+
+| Icon Size  | CSS Value | CSS Variable   |
+| ---------- | --------- | -------------- |
+| `small`    | `1rem`    | `--space-s`    |
+| `medium`   | `1.5rem`  | `--space-m`    |
+| `large`    | `2rem`    | `--space-l`    |
+| `xlarge`   | `3rem`    | `--space-xl`   |
+| `xxlarge`  | `4rem`    | `--space-xxl`  |
+| `xxxlarge` | `6rem`    | `--space-xxxl` |
+
+### Color
+
+Icons in NYPL projects should be rendered with one color. Color options are built into the Icon component.
+
+<Preview>
+  <Story name="Color">
+    <>
+      <Icon decorative modifiers={["xlarge"]} name="check" />
+      <Icon decorative modifiers={["xlarge"]} name="close" />
+      <Icon decorative modifiers={["xlarge"]} name="logo_nypl" />
+    </>
+  </Story>
+</Preview>
+
+### Development Note
+
+Icons have been added to the Icon component as they have been needed within NYPL development project, so not all of the [NYPL icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945) and [NYPL Brand](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007) and [NYPL UI](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=14989%3A37) colors are currently available through the DS Icon component. If your project requires an icon or color that is not currently available in the Icon component, please inform your project manager or reach out directly to the NYPL Design System team.
+
+### Design System Figma Reference
+
+- [NYPL Icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945)
+- [NYPL Brand Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
+- [NYPL UI Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=14989%3A37)
