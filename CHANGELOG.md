@@ -15,7 +15,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
-- Updates content in Style Guide `Breakpoints`.
+- Updates content in Style Guide `Typography`
+- Updates content in Style Guide `Breakpoints`
 - Changes `Link` story from `.tsx` to `.mdx`.
 
 ## 0.23.0
