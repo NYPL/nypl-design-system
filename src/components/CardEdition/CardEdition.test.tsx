@@ -163,6 +163,73 @@ describe("CardEdition", () => {
     </CardEdition>
   );
 
+  const cardWithNoHeader = (
+    <CardEdition
+      id="card#1"
+      className="edition-card"
+      image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
+      ctas={
+        <div className="edition-card__ctas">
+          <Link type={LinkTypes.Button} href="blah">
+            Read Online
+          </Link>
+          <div className="edition-card__download">
+            <Link href="#url" type={LinkTypes.Action}>
+              <Icon
+                name={IconNames.download}
+                blockName="more-link"
+                decorative={true}
+                modifiers={["left"]}
+                iconRotation={IconRotationTypes.rotate0}
+              ></Icon>
+              Download
+            </Link>
+          </div>
+        </div>
+      }
+      footer={<>Optional footer</>}
+    >
+      middle column content
+    </CardEdition>
+  );
+
+  const cardWithNoFooter = (
+    <CardEdition
+      id="card#1"
+      className="edition-card"
+      heading={
+        <Heading
+          level={2}
+          id="editioncardheading1"
+          url="#edition-link"
+          text={"2004 Edition"}
+        />
+      }
+      image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
+      ctas={
+        <div className="edition-card__ctas">
+          <Link type={LinkTypes.Button} href="blah">
+            Read Online
+          </Link>
+          <div className="edition-card__download">
+            <Link href="#url" type={LinkTypes.Action}>
+              <Icon
+                name={IconNames.download}
+                blockName="more-link"
+                decorative={true}
+                modifiers={["left"]}
+                iconRotation={IconRotationTypes.rotate0}
+              ></Icon>
+              Download
+            </Link>
+          </div>
+        </div>
+      }
+    >
+      middle column content
+    </CardEdition>
+  );
+
   it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
     const card = Enzyme.mount(regularCard);
     expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
@@ -201,5 +268,23 @@ describe("CardEdition", () => {
     expect(card.find(".card-edition__image")).to.have.lengthOf(0);
     expect(card.find(".card-edition__content")).to.have.lengthOf(1);
     expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
+  });
+
+  it("Generates a card without a header block if one isn't provided", () => {
+    const card = Enzyme.mount(cardWithNoHeader);
+    expect(card.find(".card-edition__heading")).to.have.lengthOf(0);
+    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__footer")).to.have.lengthOf(1);
+  });
+
+  it("Generates a card without a footer block if one isn't provided", () => {
+    const card = Enzyme.mount(cardWithNoFooter);
+    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
+    expect(card.find(".card-edition__footer")).to.have.lengthOf(0);
   });
 });

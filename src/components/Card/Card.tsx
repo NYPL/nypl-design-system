@@ -24,6 +24,29 @@ interface CardProps {
   padding?: string;
 }
 
+// CardImage child-component
+/*export function CardImage({ ...props }) {
+  const { children, className } = props;
+  return (
+    <div className={bem("notification-content", [], "", [className])}>
+      {children}
+    </div>
+  );
+}*/
+
+// CardHeading child-component
+/*export function CardHeading({ ...props }) {
+  const { children, className } = props;
+  return (
+    <Heading
+      level={4}
+      className={bem("heading", [], "", [className])}
+    >
+      {children}
+    </Heading>
+  );
+}*/
+
 export default function Card(props: React.PropsWithChildren<CardProps>) {
   const {
     blockName,
