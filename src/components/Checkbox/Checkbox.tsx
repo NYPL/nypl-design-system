@@ -96,7 +96,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         {labelText && showLabel && (
           <Label htmlFor={checkboxID}>{labelText}</Label>
         )}
-        {(helperText || (errored && errorText)) && showLabel && (
+        {footnote && showLabel && (
           <HelperErrorText isError={errored} id={id + `-helperText`}>
             {footnote}
           </HelperErrorText>
