@@ -32,33 +32,33 @@
 
   // SIZE
   &--xxxlarge {
-    height: var(--space-xxxl);
-    width: var(--space-xxxl);
-  }
-
-  &--xxlarge {
     height: var(--space-xxl);
     width: var(--space-xxl);
   }
 
-  &--xlarge {
+  &--xxlarge {
     height: var(--space-xl);
     width: var(--space-xl);
   }
 
-  &--large {
+  &--xlarge {
     height: var(--space-l);
     width: var(--space-l);
   }
 
-  &--medium {
+  &--large {
     height: var(--space-m);
     width: var(--space-m);
   }
 
+  &--medium {
+    height: 1.125rem;
+    width: 1.125rem;
+  }
+
   &--small {
-    height: var(--space-s);
-    width: var(--space-s);
+    height: 0.875rem;
+    width: 0.875rem;
   }
 
   // FILL COLOR
