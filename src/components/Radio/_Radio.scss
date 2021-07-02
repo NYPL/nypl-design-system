@@ -36,6 +36,12 @@
     margin-bottom: 0px;
     margin-left: var(--space-xs);
     vertical-align: middle;
+
+    + .helper-text {
+      margin-bottom: 0;
+      margin-left: calc(22px + var(--space-xs));
+      margin-top: var(--space-xs);
+    }
   }
 
   &--error {
@@ -43,6 +49,10 @@
 
     + label {
       color: $error;
+
+      + .helper-text {
+        color: $error;
+      }
     }
 
     &:checked {
@@ -64,6 +74,17 @@
     + label {
       color: $gray-dark;
       font-style: italic;
+
+      + .helper-text {
+        color: $gray-dark;
+        font-style: italic;
+      }
     }
   }
 }
+
+// .radio-helper-text {
+//   margin-bottom: 0;
+//   margin-left: calc(22px + var(--space-xs));
+//   margin-top: var(--space-xs);
+// }
