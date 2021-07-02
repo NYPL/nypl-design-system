@@ -21,7 +21,6 @@ describe("Select", () => {
     wrapper = Enzyme.mount(
       <Select
         labelText="Select Label"
-        isRequired={false}
         onChange={changeCallback}
         onBlur={blurCallback}
         name="test"
@@ -37,10 +36,8 @@ describe("Select", () => {
     wrapper = Enzyme.mount(
       <Select
         labelText="Select Label"
-        isRequired={false}
         onChange={changeCallback}
         onBlur={blurCallback}
-        ariaLabel="arialabel"
         name="test2"
       >
         <option aria-selected={true}>test1</option>
@@ -54,28 +51,29 @@ describe("Select", () => {
     wrapper = Enzyme.mount(
       <Select
         labelText="Select Label"
-        isRequired={false}
         onChange={changeCallback}
         onBlur={blurCallback}
-        ariaLabel="arialabel"
+        showLabel={false}
         name="test3"
       >
         <option aria-selected={true}>test1</option>
         <option aria-selected={false}>test2</option>
       </Select>
     );
-    expect(wrapper.find("select").props()["aria-label"]).to.equal("arialabel");
+    expect(wrapper.find("select").props()["aria-label"]).to.equal(
+      "Select Label"
+    );
   });
 
-  it("Renders aria-labelledby for labelId and helperTextId", () => {
+  it("Renders aria-describedby", () => {
     wrapper = Enzyme.mount(
       <Select
+        id="custom-select-id"
+        showLabel={false}
         labelText="Select Label"
-        isRequired={false}
         onChange={changeCallback}
         onBlur={blurCallback}
-        labelId="labelId"
-        helperTextId="helperTextId"
+        helperText="example helper text"
         name="test4"
       >
         <option aria-selected={true}>test1</option>
@@ -83,9 +81,28 @@ describe("Select", () => {
       </Select>
     );
 
-    expect(wrapper.find("select").prop("aria-labelledby")).to.equal(
-      "labelId helperTextId"
+    expect(wrapper.find("select").prop("aria-describedby")).to.equal(
+      "custom-select-id-helperText"
     );
+  });
+
+  it("Renders required and aria-required attributes", () => {
+    wrapper = Enzyme.mount(
+      <Select
+        id="custom-select-id"
+        labelText="Select Label"
+        onChange={changeCallback}
+        onBlur={blurCallback}
+        name="test4"
+        required
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
+    );
+
+    expect(wrapper.find("select").prop("aria-required")).to.equal(true);
+    // expect(wrapper.find("select").prop("required")).to.equal(true);
   });
 
   it("Calls the onChange callback", () => {

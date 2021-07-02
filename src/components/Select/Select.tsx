@@ -27,7 +27,7 @@ export interface SelectProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** DEPRECATED - Attribute indicating that an option with a non-empty string value must be selected */
-  isRequired: boolean;
+  isRequired?: boolean;
   /** DEPRECATED - ID of associated label */
   labelId?: string;
   /** Provides text for a `Label` component if `showLabel` is set to true; populates a `aria-label` sttribute if `showLabel` is set to false. */
@@ -77,7 +77,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     let ariaLabelledBy = null;
 
     if (!showLabel) attributes["aria-label"] = labelText;
-    if (helperText) attributes["aria-describedby"] = helperText;
+
+    if (helperText && showLabel)
+      attributes["aria-describedby"] = `${id}-helperText`;
 
     const optReqFlag = required ? "Required" : "Optional";
 
