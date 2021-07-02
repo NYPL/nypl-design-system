@@ -20,6 +20,7 @@ describe("Select", () => {
   it("Renders a select DOM element", () => {
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         isRequired={false}
         onChange={changeCallback}
         onBlur={blurCallback}
@@ -35,6 +36,7 @@ describe("Select", () => {
   it("Renders a name attribute to use in forms", () => {
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         isRequired={false}
         onChange={changeCallback}
         onBlur={blurCallback}
@@ -51,6 +53,7 @@ describe("Select", () => {
   it("Renders an aria-label", () => {
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         isRequired={false}
         onChange={changeCallback}
         onBlur={blurCallback}
@@ -67,6 +70,7 @@ describe("Select", () => {
   it("Renders aria-labelledby for labelId and helperTextId", () => {
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         isRequired={false}
         onChange={changeCallback}
         onBlur={blurCallback}
@@ -87,6 +91,7 @@ describe("Select", () => {
   it("Calls the onChange callback", () => {
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         labelId="label"
         isRequired={false}
         id="hi"
@@ -111,6 +116,7 @@ describe("Select", () => {
     };
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         labelId="label"
         isRequired={false}
         id="update-value"
@@ -137,6 +143,7 @@ describe("Select", () => {
   it("Calls the onBlur callback", () => {
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         id="hi"
         labelId="label"
         isRequired={false}
@@ -160,6 +167,7 @@ describe("Select", () => {
     };
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         labelId="label"
         isRequired={false}
         id="update-value"
@@ -186,6 +194,7 @@ describe("Select", () => {
   it("Displays the selected option onLoad when passed selectedOption", () => {
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         labelId="label"
         isRequired={false}
         id="hi"
@@ -204,6 +213,7 @@ describe("Select", () => {
   it("Calls the correct handlers when a new value is selected", () => {
     wrapper = Enzyme.mount(
       <Select
+        labelText="Select Label"
         labelId="label"
         isRequired={false}
         id="state-change"
@@ -230,6 +240,7 @@ describe("Select", () => {
     const ref = React.createRef<HTMLSelectElement>();
     const container = Enzyme.mount(
       <Select
+        labelText="Select Label"
         labelId="label"
         isRequired={false}
         id="ref-test"
@@ -245,7 +256,13 @@ describe("Select", () => {
 
   it("should throw warning when fewer than 2 options", () => {
     wrapper = Enzyme.mount(
-      <Select labelId="label" isRequired={false} id="ref-test" name="test1">
+      <Select
+        labelText="Select Label"
+        labelId="label"
+        isRequired={false}
+        id="ref-test"
+        name="test1"
+      >
         <option aria-selected={false}>test1</option>
       </Select>
     );
@@ -259,7 +276,13 @@ describe("Select", () => {
 
   it("should throw warning when there are more than 7 options", () => {
     wrapper = Enzyme.mount(
-      <Select labelId="label" isRequired={false} id="ref-test" name="test1">
+      <Select
+        labelText="Select Label"
+        labelId="label"
+        isRequired={false}
+        id="ref-test"
+        name="test1"
+      >
         <option aria-selected={false}>test1</option>
         <option aria-selected={false}>test2</option>
         <option aria-selected={false}>test3</option>

@@ -1,8 +1,11 @@
 import React from "react";
 import bem from "../../utils/bem";
+import Label from "../Label/Label";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface SelectProps {
-  /** When passed, will populate the aria-label on the select */
+  /** DEPRECATED - When passed, will populate the aria-label on the select */
   ariaLabel?: string;
   /** Additional attributes passed to the <select> tag */
   attributes?: { [key: string]: any };
@@ -13,14 +16,22 @@ export interface SelectProps {
   children?: React.ReactNode;
   /** When true, disables the select */
   disabled?: boolean;
-  /** ID of associated HelperText */
+  /** Helper for modifiers array; adds 'errored' styling */
+  errored?: boolean;
+  /** Populates the HelperErrorText for error state */
+  errorText?: string;
+  /** DEPRECATED - ID of associated HelperText */
   helperTextId?: string;
+  /** Populates the HelperErrorText for standard state */
+  helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Attribute indicating that an option with a non-empty string value must be selected */
+  /** DEPRECATED - Attribute indicating that an option with a non-empty string value must be selected */
   isRequired: boolean;
-  /** ID of associated label */
+  /** DEPRECATED - ID of associated label */
   labelId?: string;
+  /** Provides text for a `Label` component if `showLabel` is set to true; populates a `aria-label` sttribute if `showLabel` is set to false. */
+  labelText: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
   /** The name of the select element to use in form submission */
@@ -29,15 +40,14 @@ export interface SelectProps {
   onBlur?: (event: React.FormEvent) => void;
   /** Passes selects' current value to the React state handler */
   onChange?: (event: React.FormEvent) => void;
+  /** Will add 'aria-required: true' to input */
+  required?: boolean;
   /** The selected value */
   selectedOption?: string;
+  /** Offers the ability to show the label onscreen or hide it. Refer to the `labelText` property for more information. */
+  showLabel?: boolean;
 }
 
-/**
- * Select
- * A component that renders a `select` DOM element along with its `option`
- * children.
- */
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (props, ref?) => {
     const {
@@ -45,19 +55,37 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       blockName,
       children,
       className,
+      errored,
+      errorText,
+      helperText,
       helperTextId,
-      id,
       isRequired,
       labelId,
+      labelText,
       onBlur,
       onChange,
       name,
-      attributes,
+      required,
+      attributes = {},
       disabled = false,
       selectedOption,
+      showLabel,
     } = props;
+
     const modifiers = props.modifiers ? props.modifiers : [];
+    const id = props.id || generateUUID();
     let ariaLabelledBy = null;
+
+    if (!showLabel) attributes["aria-label"] = labelText;
+    if (helperText) attributes["aria-describedby"] = helperText;
+
+    const optReqFlag = required ? "Required" : "Optional";
+
+    const errorOutput = errorText
+      ? errorText
+      : "There is an error related to this field.";
+
+    const footnote = errored ? errorOutput : helperText;
 
     if (labelId && !helperTextId) {
       ariaLabelledBy = labelId;
@@ -80,28 +108,41 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     }
 
     return (
-      <select
-        name={name}
-        id={id}
-        className={bem("select", modifiers, blockName, [className])}
-        aria-required={isRequired}
-        disabled={disabled}
-        aria-label={ariaLabel}
-        aria-labelledby={ariaLabelledBy}
-        value={selectedOption}
-        ref={ref}
-        onBlur={onBlur}
-        onChange={onChange}
-        {...attributes}
-      >
-        {React.Children.map(children, (child, key) => {
-          return React.cloneElement(child as React.ReactElement<any>, {
-            "aria-selected": children[key]
-              ? children[key].props.children === selectedOption
-              : false,
-          });
-        })}
-      </select>
+      <div className="select">
+        {labelText && showLabel && (
+          <Label htmlFor={id} optReqFlag={optReqFlag} id={id + `-label`}>
+            {labelText}
+          </Label>
+        )}
+        <select
+          name={name}
+          id={id}
+          className={bem("selectfield", modifiers, blockName, [className])}
+          aria-required={isRequired}
+          required={isRequired}
+          disabled={disabled}
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledBy}
+          value={selectedOption}
+          ref={ref}
+          onBlur={onBlur}
+          onChange={onChange}
+          {...attributes}
+        >
+          {React.Children.map(children, (child, key) => {
+            return React.cloneElement(child as React.ReactElement<any>, {
+              "aria-selected": children[key]
+                ? children[key].props.children === selectedOption
+                : false,
+            });
+          })}
+        </select>
+        {(helperText || errored) && (
+          <HelperErrorText isError={errored} id={id + `-helperText`}>
+            {footnote}
+          </HelperErrorText>
+        )}
+      </div>
     );
   }
 );
