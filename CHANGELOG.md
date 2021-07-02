@@ -13,11 +13,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds CSS vars for `font-weight`
 - Adds `displaySize` prop to `Heading`
 - Adds `helperText` and `errorText` props to `Checkbox`
+- Adds `helperText` and `errorText` props to `Radio`
 
 ### Changes
 
 - Updates content in Style Guide `Typography`
 - Updates content in Style Guide `Breakpoints`
+- Changes `Link` story from `.tsx` to `.mdx`.
 
 ## 0.23.0
 
