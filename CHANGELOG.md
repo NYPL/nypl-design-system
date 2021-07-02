@@ -11,10 +11,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `Form` component
+- Adds CSS vars for `font-weight`
 - Adds `displaySize` prop to `Heading`
 
 ### Changes
 
+- Updates content in Style Guide `Typography`
 - Updates content in Style Guide `Breakpoints`
 
 ## 0.23.0
