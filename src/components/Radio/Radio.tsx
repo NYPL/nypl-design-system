@@ -94,7 +94,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
         {...attributes}
       />
       {labelText && showLabel && <Label htmlFor={radioID}>{labelText}</Label>}
-      {(helperText || (errored && errorText)) && showLabel && (
+      {footnote && showLabel && (
         <HelperErrorText isError={errored} id={id + `-helperText`}>
           {footnote}
         </HelperErrorText>
