@@ -35,6 +35,7 @@
 @import "./styles/01-colors/_colors-brand";
 @import "./styles/01-colors/_colors-utility";
 @import "./styles/02-typography/_type-scale";
+@import "./styles/02-typography/_type-weight";
 @import "./styles/02-typography/_typefaces";
 @import "./styles/03-space/_space";
 @import "./styles/**/*.scss";
@@ -52,6 +53,7 @@
 @import "./components/Card/_Card.scss";
 @import "./components/HelperErrorText/_HelperErrorText.scss";
 @import "./components/Hero/_Hero.scss";
+@import "./components/HorizontalRule/_HorizontalRule.scss";
 @import "./components/Image/_Image.scss";
 @import "./components/Label/_Label.scss";
 @import "./components/List/_List.scss";

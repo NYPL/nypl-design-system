@@ -8,9 +8,47 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds CSS vars for `font-weight`
+- Adds `displaySize` prop to `Heading`
+- Adds new SVGs to be used with the `Icon` component. Among the new SVGs are: Error solid, Error outlined, Speaker Notes.
+- Adds ability to change the color of an SVG icon with classes such as: `ui-black` (default), `ui-white`, `brand-primary` (red), `section-research-secondary` (turquoise).
+- Adds `helperText` and `errorText` props to `Checkbox`
+- Adds `helperText` and `errorText` props to `Radio`
+- Adds `Notification` component
+
 ### Changes
 
-- Adds `Notification` component
+- Updates content in Style Guide `Typography`
+- Updates content in Style Guide `Breakpoints`
+- Changes `Link` story from `.tsx` to `.mdx`.
+
+## 0.23.0
+
+### Breaking Changes
+
+- Removes `breakout` CSS from `Breadcrumbs`. To retain previous behavior, `Breadcrumbs` component should be a child of a `.content-header` element.
+- Removes `breakout` CSS from `Hero Secondary`. To retain previous behavior, `Hero` component should be a child of a `.content-header` element.
+
+### Adds
+
+- Adds `HorizontalRule` component
+- Adds new `short` class for `Placeholder`
+- Adds `Style Guide` category to Storybook sidebar
+
+### Changes
+
+- Changes `Breadcrumbs` story from `.tsx` to `.mdx`
+- Changes `Heading` story from `.tsx` to `.mdx`
+- Changes suggested DOM structure in `Template` Story
+
+## 0.22.2
+
+### Changes
+
+- Adds documentation on layout bidirectionality
+- Changes `Pagination` to hide pagination UI when there are 0 or 1 pages.
 
 ## 0.22.1
 
@@ -40,6 +78,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Changes `Radio` styles to use SASS vars in place of CSS vars
 - Adds `TextInput` component to handle email, hidden, number, password, text, textarea, tel and url input types
 - Adds default width and padding to `StatusBadge` component.
+- Hides pagination when there are 0 or 1 pages.
 
 ### BugFixes
 

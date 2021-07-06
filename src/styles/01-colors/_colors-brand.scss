@@ -32,7 +32,10 @@ $colors_brand: (
   primary: $brand-primary,
   secondary: $brand-secondary,
 );
+
 $colors: (
+  brand-primary: $brand-primary,
+  brand-secondary: $brand-secondary,
   whats-on-primary: $whats-on-primary,
   whats-on-secondary: $whats-on-secondary,
   books-and-more-primary: $books-and-more-primary,
