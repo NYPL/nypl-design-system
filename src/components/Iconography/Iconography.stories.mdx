@@ -10,6 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import { getCategory } from "../../utils/componentCategories";
 import Icon from "../Icons/Icon";
+import { IconColors, IconSizes } from "../Icons/IconTypes";
 
 <Meta
   title={getCategory("Iconography")}
@@ -25,13 +26,53 @@ import Icon from "../Icons/Icon";
 
 # Iconography
 
-Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) component to render and control icons and select NYPL logos as `<svg>` elements within consuming apps.
+Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) component to render and control icons and select NYPL logos as `<svg>` elements within consuming apps. Below are a few example icons.
 
 <Preview>
   <Story name="Icon Examples">
-    <Icon decorative modifiers={["xlarge"]} name="check" />
-    <Icon decorative modifiers={["xlarge"]} name="close" />
-    <Icon decorative modifiers={["xlarge"]} name="logo_nypl" />
+    <span style={{ marginRight: "1rem" }}>
+      <Icon
+        decorative
+        size={IconSizes.xxxlarge}
+        name="check"
+        style={{ marginRight: "1rem" }}
+      />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon
+        decorative
+        size={IconSizes.xxxlarge}
+        name="close"
+        style={{ marginRight: "1rem" }}
+      />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon
+        decorative
+        size={IconSizes.xxxlarge}
+        name="error_filled"
+        style={{ marginRight: "1rem" }}
+      />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon
+        decorative
+        size={IconSizes.xxxlarge}
+        name="speaker_notes"
+        style={{ marginRight: "1rem" }}
+      />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon
+        decorative
+        size={IconSizes.xxxlarge}
+        name="logo_nypl"
+        style={{ marginRight: "1rem" }}
+      />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon decorative size={IconSizes.xxxlarge} name="logo_brooklyn" />
+    </span>
   </Story>
 </Preview>
 
@@ -43,9 +84,26 @@ Icons in NYPL projects can be rendered at the following sizes.
 
 <Preview>
   <Story name="Size">
-    <Icon decorative modifiers={["xlarge"]} name="check" />
-    <Icon decorative modifiers={["xlarge"]} name="close" />
-    <Icon decorative modifiers={["xlarge"]} name="logo_nypl" />
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <span style={{ marginRight: "1rem" }}>
+        <Icon decorative size={IconSizes.small} name="check" />
+      </span>
+      <span style={{ marginRight: "1rem" }}>
+        <Icon decorative size={IconSizes.medium} name="check" />
+      </span>
+      <span style={{ marginRight: "1rem" }}>
+        <Icon decorative size={IconSizes.large} name="check" />
+      </span>
+      <span style={{ marginRight: "1rem" }}>
+        <Icon decorative size={IconSizes.xlarge} name="check" />
+      </span>
+      <span style={{ marginRight: "1rem" }}>
+        <Icon decorative size={IconSizes.xxlarge} name="check" />
+      </span>
+      <span style={{ marginRight: "1rem" }}>
+        <Icon decorative size={IconSizes.xxxlarge} name="check" />
+      </span>
+    </div>
   </Story>
 </Preview>
 
@@ -64,11 +122,48 @@ Icons in NYPL projects should be rendered with one color. Color options are buil
 
 <Preview>
   <Story name="Color">
-    <Icon decorative modifiers={["xlarge"]} name="check" />
-    <Icon decorative modifiers={["xlarge"]} name="close" />
-    <Icon decorative modifiers={["xlarge"]} name="logo_nypl" />
+    <Icon decorative size={IconSizes.xxxlarge} name="check" />
+    <Icon
+      decorative
+      size={IconSizes.xxxlarge}
+      color={IconColors.brand_primary}
+      name="check"
+    />
+    <Icon
+      decorative
+      size={IconSizes.xxxlarge}
+      color={IconColors.section_research_primary}
+      name="check"
+    />
+    <Icon
+      decorative
+      size={IconSizes.xxxlarge}
+      color={IconColors.section_research_library_schwartzman}
+      name="check"
+    />
+    <Icon
+      decorative
+      size={IconSizes.xxxlarge}
+      color={IconColors.section_research_library_schomburg}
+      name="check"
+    />
   </Story>
 </Preview>
+
+| Icon Color                             | CSS Variable                             |
+| -------------------------------------- | ---------------------------------------- |
+| `ui_black`                             | `--ui-black`                             |
+| `ui_white`                             | `--ui-white`                             |
+| `brand_primary`                        | `--brand-primary`                        |
+| `brand_secondary`                      | `--brand-secondary`                      |
+| `section_whats_on_primary`             | `--section-whats-on-primary`             |
+| `section_books_and_more_primary`       | `--section-books-and-more-primary`       |
+| `section_research_primary`             | `--section-research-primary`             |
+| `section_research_secondary`           | `--section-research-secondary`           |
+| `section_locations_primary`            | `--section-locations-primary`            |
+| `section_research_library_lpa`         | `--section-research-library-lpa`         |
+| `section_research_library_schomburg`   | `--section-research-library-schomburg`   |
+| `section_research_library_schwartzman` | `--section-research-library-schwartzman` |
 
 ### Development Note
 
