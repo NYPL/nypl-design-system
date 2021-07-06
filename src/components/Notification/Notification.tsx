@@ -21,8 +21,8 @@ export interface NotificationProps {
   icon?: React.ReactNode;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Optional prop to control the padding around the `Notification` component */
-  fillSpace?: boolean;
+  /** Optional prop to control the margin around the `Notification` component */
+  noMargin?: boolean;
   /** Optional prop to control the coloring of notification text and the visibility of an applicable icon */
   notificationType?: NotificationTypes;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
@@ -61,7 +61,7 @@ export default function Notification(
     children,
     className,
     dismissible = false,
-    fillSpace = false,
+    noMargin = false,
     icon,
     id,
     modifiers = [],
@@ -84,7 +84,7 @@ export default function Notification(
 
   if (centered) notificationModifiers.push("centered");
 
-  if (fillSpace) notificationModifiers.push("fill-space");
+  if (noMargin) notificationModifiers.push("no-margin");
 
   const iconElement = () => {
     if (icon) return icon;
@@ -120,13 +120,21 @@ export default function Notification(
     headingCount = 0,
     contentCount = 0;
 
-  React.Children.map(children, function (child: React.ReactElement) {
-    if (child.type === NotificationHeading) {
+  React.Children.map(children, (child: React.ReactElement, i) => {
+    if (
+      child.type === NotificationHeading ||
+      child.props.mdxType === "NotificationHeading"
+    ) {
       childHeading = child;
       headingCount++;
     }
 
-    if (child.type === NotificationContent) {
+    console.log("headingCount == " + headingCount);
+
+    if (
+      child.type === NotificationContent ||
+      child.props.mdxType === "NotificationContent"
+    ) {
       childContent = child;
       contentCount++;
     }
