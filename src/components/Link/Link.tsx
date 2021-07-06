@@ -5,9 +5,8 @@ import Icon, { IconProps } from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 export interface LinkProps {
-  /** Additional attributes, such as rel=nofollow, to pass to the <a> tag */
+  /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
   attributes?: { [key: string]: any };
-
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
   /** className that appears in addition to "link" */
@@ -24,6 +23,10 @@ export interface LinkProps {
   children: React.ReactNode;
 }
 
+/**
+ * A component that uses an `href` prop or a child anchor element, to create an
+ * anchor element with added styling and conventions.
+ */
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   const {
     attributes,
