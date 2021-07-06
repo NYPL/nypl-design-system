@@ -120,7 +120,7 @@ export default function Notification(
     headingCount = 0,
     contentCount = 0;
 
-  React.Children.map(children, (child: React.ReactElement, i) => {
+  React.Children.map(children, (child: React.ReactElement) => {
     if (
       child.type === NotificationHeading ||
       child.props.mdxType === "NotificationHeading"
@@ -128,8 +128,6 @@ export default function Notification(
       childHeading = child;
       headingCount++;
     }
-
-    console.log("headingCount == " + headingCount);
 
     if (
       child.type === NotificationContent ||
