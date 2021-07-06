@@ -4,6 +4,7 @@
   height: 24px;
   width: 24px;
 
+  // ROTATION
   &--rotate-180 {
     transform: rotate(180deg);
   }
@@ -20,6 +21,7 @@
     transform: rotate(90deg);
   }
 
+  // ALIGNMENT SPACING
   &--left {
     margin-right: var(--space-xxs);
   }
@@ -28,24 +30,84 @@
     margin-left: var(--space-xxs);
   }
 
+  // SIZE
+  &--xxxlarge {
+    height: var(--space-xxl);
+    width: var(--space-xxl);
+  }
+
+  &--xxlarge {
+    height: var(--space-xl);
+    width: var(--space-xl);
+  }
+
   &--xlarge {
-    height: 68px;
-    width: 68px;
+    height: var(--space-l);
+    width: var(--space-l);
   }
 
   &--large {
-    height: 36px;
-    width: 36px;
+    height: var(--space-m);
+    width: var(--space-m);
   }
 
   &--medium {
-    height: 24px;
-    width: 24px;
+    height: 1.125rem;
+    width: 1.125rem;
   }
 
   &--small {
-    height: 18px;
-    width: 18px;
+    height: 0.875rem;
+    width: 0.875rem;
+  }
+
+  // FILL COLOR
+  &--ui-black {
+    fill: $black;
+  }
+
+  &--ui-white {
+    fill: $white;
+  }
+
+  &--brand-primary {
+    fill: $brand-primary;
+  }
+
+  &--brand-secondary {
+    fill: $brand-secondary;
+  }
+
+  &--section-whats-on-primary {
+    fill: $whats-on-primary;
+  }
+
+  &--section-books-and-more-primary {
+    fill: $books-and-more-primary;
+  }
+
+  &--section-research-primary {
+    fill: $research-primary;
+  }
+
+  &--section-research-secondary {
+    fill: $research-secondary;
+  }
+
+  &--section-locations-primary {
+    fill: $locations-primary;
+  }
+
+  &--section-research-library-lpa {
+    fill: $research-library-lpa;
+  }
+
+  &--section-research-library-schomburg {
+    fill: $research-library-schomburg;
+  }
+
+  &--section-research-library-schwartzman {
+    fill: $research-library-schwartzman;
   }
 }
 
