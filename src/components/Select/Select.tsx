@@ -81,7 +81,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     if (helperText && showLabel)
       attributes["aria-describedby"] = `${id}-helperText`;
 
-    const optReqFlag = required ? "Required" : "Optional";
+    if (errored) modifiers.push("error");
+
+    const optReqFlag = isRequired || required ? "Required" : "Optional";
 
     const errorOutput = errorText
       ? errorText
@@ -89,6 +91,10 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
     const footnote = errored ? errorOutput : helperText;
 
+    // Support for deprecated prop
+    if (ariaLabel) attributes["aria-label"] = ariaLabel;
+
+    // Support for deprecated props
     if (labelId && !helperTextId) {
       ariaLabelledBy = labelId;
     } else if (helperTextId && !labelId) {
@@ -120,8 +126,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           name={name}
           id={id}
           className={bem("selectfield", modifiers, blockName, [className])}
-          aria-required={isRequired}
-          required={isRequired}
+          aria-required={isRequired || required}
+          required={isRequired || required}
           disabled={disabled}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}

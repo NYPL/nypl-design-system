@@ -60,16 +60,31 @@ describe("Select", () => {
         <option aria-selected={false}>test2</option>
       </Select>
     );
-    expect(wrapper.find("select").props()["aria-label"]).to.equal(
-      "Select Label"
+    expect(wrapper.find("select").prop("aria-label")).to.equal("Select Label");
+  });
+
+  it("Renders an aria-label based on deprecated prop", () => {
+    wrapper = Enzyme.mount(
+      <Select
+        labelText="Select Label"
+        ariaLabel="Aria Label"
+        onChange={changeCallback}
+        onBlur={blurCallback}
+        showLabel={false}
+        name="test3"
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
     );
+    expect(wrapper.find("select").prop("aria-label")).to.equal("Aria Label");
   });
 
   it("Renders aria-describedby", () => {
     wrapper = Enzyme.mount(
       <Select
         id="custom-select-id"
-        showLabel={false}
+        showLabel={true}
         labelText="Select Label"
         onChange={changeCallback}
         onBlur={blurCallback}
@@ -102,7 +117,79 @@ describe("Select", () => {
     );
 
     expect(wrapper.find("select").prop("aria-required")).to.equal(true);
-    // expect(wrapper.find("select").prop("required")).to.equal(true);
+    expect(wrapper.find("select").prop("required")).to.equal(true);
+  });
+
+  it("Renders required and aria-required attributes using deprecated prop", () => {
+    wrapper = Enzyme.mount(
+      <Select
+        id="custom-select-id"
+        labelText="Select Label"
+        onChange={changeCallback}
+        onBlur={blurCallback}
+        name="test4"
+        isRequired
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
+    );
+
+    expect(wrapper.find("select").prop("aria-required")).to.equal(true);
+    expect(wrapper.find("select").prop("required")).to.equal(true);
+  });
+
+  it("Renders helper text when helperText prop is passed", () => {
+    wrapper = Enzyme.mount(
+      <Select
+        id="custom-select-id"
+        labelText="Select Label"
+        helperText="The helper text."
+        name="test4"
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
+    );
+
+    expect(wrapper.find(".helper-text").text()).to.equal("The helper text.");
+  });
+
+  it("Renders default error text when 'errorText' prop is not passed and 'errored' prop is set to true", () => {
+    wrapper = Enzyme.mount(
+      <Select
+        id="custom-select-id"
+        labelText="Select Label"
+        name="test4"
+        errored
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
+    );
+
+    expect(wrapper.find(".helper-text--error").text()).to.equal(
+      "There is an error related to this field."
+    );
+  });
+
+  it("Renders custom error text when 'errorText' prop is passed and 'errored' prop is set to true", () => {
+    wrapper = Enzyme.mount(
+      <Select
+        id="custom-select-id"
+        labelText="Select Label"
+        errorText="Custom error text!"
+        name="test4"
+        errored
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
+    );
+
+    expect(wrapper.find(".helper-text--error").text()).to.equal(
+      "Custom error text!"
+    );
   });
 
   it("Calls the onChange callback", () => {

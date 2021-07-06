@@ -44,7 +44,7 @@ The `Select` component renders a `select` element along with its `option` childr
     name="Select"
     args={{
       id: "mySelect",
-      labelText: "Fruit on your island:",
+      labelText: "What is your favorite color?",
       showLabel: true,
       helperText: "Choose wisely.",
       errorText: "Waaaaaaaa!",
@@ -61,11 +61,12 @@ The `Select` component renders a `select` element along with its `option` childr
   >
     {args => (
       <Select {...args}>
-        <option>Option One</option>
-        <option>Option Two</option>
-        <option>Option Three</option>
-        <option>Option Four</option>
-        <option>Option Five</option>
+        <option aria-selected={true}></option>
+        <option aria-selected={false}>Red</option>
+        <option aria-selected={false}>Green</option>
+        <option aria-selected={false}>Blue</option>
+        <option aria-selected={false}>Black</option>
+        <option aria-selected={false}>White</option>
       </Select>
     )}
   </Story>
@@ -87,11 +88,12 @@ A Select can be rendered with or without visible labels.
   >
     {args => (
       <Select {...args}>
-        <option aria-selected={true}>Option One</option>
-        <option aria-selected={false}>Option Two</option>
-        <option aria-selected={false}>Option Three</option>
-        <option aria-selected={false}>Option Four</option>
-        <option aria-selected={false}>Option Five</option>
+        <option aria-selected={true}></option>
+        <option aria-selected={false}>Red</option>
+        <option aria-selected={false}>Green</option>
+        <option aria-selected={false}>Blue</option>
+        <option aria-selected={false}>Black</option>
+        <option aria-selected={false}>White</option>
       </Select>
     )}
   </Story>
@@ -99,11 +101,12 @@ A Select can be rendered with or without visible labels.
 
 <Canvas>
   <Select labelText="What is your favorite color?" showLabel={true}>
-    <option aria-selected={true}>Option One</option>
-    <option aria-selected={false}>Option Two</option>
-    <option aria-selected={false}>Option Three</option>
-    <option aria-selected={false}>Option Four</option>
-    <option aria-selected={false}>Option Five</option>
+    <option aria-selected={true}></option>
+    <option aria-selected={false}>Red</option>
+    <option aria-selected={false}>Green</option>
+    <option aria-selected={false}>Blue</option>
+    <option aria-selected={false}>Black</option>
+    <option aria-selected={false}>White</option>
   </Select>
 </Canvas>
 
@@ -111,13 +114,14 @@ A Select can be rendered with or without visible labels.
   <Select
     labelText="What is your favorite color?"
     showLabel={false}
-    placeholder="i.e. blue, green, etc."
+    helperText="Choose wisely!"
   >
-    <option aria-selected={true}>Option One</option>
-    <option aria-selected={false}>Option Two</option>
-    <option aria-selected={false}>Option Three</option>
-    <option aria-selected={false}>Option Four</option>
-    <option aria-selected={false}>Option Five</option>
+    <option aria-selected={true}></option>
+    <option aria-selected={false}>Red</option>
+    <option aria-selected={false}>Green</option>
+    <option aria-selected={false}>Blue</option>
+    <option aria-selected={false}>Black</option>
+    <option aria-selected={false}>White</option>
   </Select>
 </Canvas>
 
@@ -125,13 +129,14 @@ A Select can be rendered with or without visible labels.
   <Select
     labelText="What is your favorite color?"
     showLabel={true}
-    placeholder="i.e. blue, green, etc."
+    helperText="Choose wisely!"
   >
-    <option aria-selected={true}>Option One</option>
-    <option aria-selected={false}>Option Two</option>
-    <option aria-selected={false}>Option Three</option>
-    <option aria-selected={false}>Option Four</option>
-    <option aria-selected={false}>Option Five</option>
+    <option aria-selected={true}></option>
+    <option aria-selected={false}>Red</option>
+    <option aria-selected={false}>Green</option>
+    <option aria-selected={false}>Blue</option>
+    <option aria-selected={false}>Black</option>
+    <option aria-selected={false}>White</option>
   </Select>
 </Canvas>
 
@@ -139,45 +144,16 @@ A Select can be rendered with or without visible labels.
   <Select
     labelText="What is your favorite color?"
     showLabel={false}
-    placeholder="i.e. blue, green, etc."
     helperText="Choose wisely!"
-  >
-    <option aria-selected={true}>Option One</option>
-    <option aria-selected={false}>Option Two</option>
-    <option aria-selected={false}>Option Three</option>
-    <option aria-selected={false}>Option Four</option>
-    <option aria-selected={false}>Option Five</option>
-  </Select>
-</Canvas>
-
-<Canvas>
-  <Select
-    labelText="What is your favorite color?"
-    showLabel={true}
-    placeholder="i.e. blue, green, etc."
-    helperText="Choose wisely!"
-  >
-    <option aria-selected={true}>Option One</option>
-    <option aria-selected={false}>Option Two</option>
-    <option aria-selected={false}>Option Three</option>
-    <option aria-selected={false}>Option Four</option>
-    <option aria-selected={false}>Option Five</option>
-  </Select>
-</Canvas>
-
-<Canvas>
-  <Select
-    labelText="What is your favorite color?"
-    showLabel={false}
-    placeholder="i.e. blue, green, etc."
     errorText="Waaaaaa!"
     errored={true}
   >
-    <option aria-selected={true}>Option One</option>
-    <option aria-selected={false}>Option Two</option>
-    <option aria-selected={false}>Option Three</option>
-    <option aria-selected={false}>Option Four</option>
-    <option aria-selected={false}>Option Five</option>
+    <option aria-selected={true}></option>
+    <option aria-selected={false}>Red</option>
+    <option aria-selected={false}>Green</option>
+    <option aria-selected={false}>Blue</option>
+    <option aria-selected={false}>Black</option>
+    <option aria-selected={false}>White</option>
   </Select>
 </Canvas>
 
@@ -185,15 +161,16 @@ A Select can be rendered with or without visible labels.
   <Select
     labelText="What is your favorite color?"
     showLabel={true}
-    placeholder="i.e. blue, green, etc."
+    helperText="Choose wisely!"
     errorText="Waaaaaa!"
     errored={true}
   >
-    <option aria-selected={true}>Option One</option>
-    <option aria-selected={false}>Option Two</option>
-    <option aria-selected={false}>Option Three</option>
-    <option aria-selected={false}>Option Four</option>
-    <option aria-selected={false}>Option Five</option>
+    <option aria-selected={true}></option>
+    <option aria-selected={false}>Red</option>
+    <option aria-selected={false}>Green</option>
+    <option aria-selected={false}>Blue</option>
+    <option aria-selected={false}>Black</option>
+    <option aria-selected={false}>White</option>
   </Select>
 </Canvas>
 
