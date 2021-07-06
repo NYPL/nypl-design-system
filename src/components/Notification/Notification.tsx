@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconColors, IconNames } from "../Icons/IconTypes";
 import { NotificationTypes } from "./NotificationTypes";
 
 export interface NotificationProps {
@@ -95,8 +95,9 @@ export default function Notification(
           <Icon
             decorative={false}
             className="notification-icon"
-            name={IconNames.headset}
-            modifiers={["medium"]}
+            name={IconNames.speaker_notes}
+            color={IconColors.section_research_secondary}
+            modifiers={["large"]}
           />
         );
       case "warning":
@@ -104,8 +105,9 @@ export default function Notification(
           <Icon
             decorative={false}
             className="notification-icon"
-            name={IconNames.clock}
-            modifiers={["medium"]}
+            name={IconNames.error_filled}
+            color={IconColors.brand_primary}
+            modifiers={["large"]}
           />
         );
       default:
