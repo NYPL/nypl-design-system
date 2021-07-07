@@ -10,7 +10,12 @@ import { withDesign } from "storybook-addon-designs";
 
 import { getCategory } from "../../utils/componentCategories";
 import Icon from "../Icons/Icon";
-import { IconColors, IconSizes } from "../Icons/IconTypes";
+import {
+  IconColors,
+  IconSizes,
+  IconNames,
+  LogoNames,
+} from "../Icons/IconTypes";
 
 <Meta
   title={getCategory("Iconography")}
@@ -26,7 +31,24 @@ import { IconColors, IconSizes } from "../Icons/IconTypes";
 
 # Iconography
 
-Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) component to render and control icons and select NYPL logos as `<svg>` elements within consuming apps. Below are a few example icons.
+Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) component to render and control icons and NYPL logos as `<svg>` elements within consuming apps.
+
+The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
+
+```jsx
+import {
+  Icon,
+  IconNames,
+  LogoNames,
+  IconColors,
+  IconSizes,
+  IconRotationTypes,
+} from "@nypl/design-system-react-components";
+```
+
+### Icon Examples
+
+The graphic of the `Icon` component is handled through the `IconNames` and `LogoNames` enums. To see all graphic options for `Icon`, please refer to the [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) Storybook page.
 
 <Preview>
   <Story name="Icon Examples">
@@ -34,7 +56,7 @@ Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/stor
       <Icon
         decorative
         size={IconSizes.xxxlarge}
-        name="check"
+        name={IconNames.check}
         style={{ marginRight: "1rem" }}
       />
     </span>
@@ -42,7 +64,7 @@ Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/stor
       <Icon
         decorative
         size={IconSizes.xxxlarge}
-        name="close"
+        name={IconNames.close}
         style={{ marginRight: "1rem" }}
       />
     </span>
@@ -50,7 +72,7 @@ Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/stor
       <Icon
         decorative
         size={IconSizes.xxxlarge}
-        name="error_filled"
+        name={IconNames.error_outline}
         style={{ marginRight: "1rem" }}
       />
     </span>
@@ -58,7 +80,7 @@ Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/stor
       <Icon
         decorative
         size={IconSizes.xxxlarge}
-        name="speaker_notes"
+        name={IconNames.speaker_notes}
         style={{ marginRight: "1rem" }}
       />
     </span>
@@ -66,21 +88,32 @@ Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/stor
       <Icon
         decorative
         size={IconSizes.xxxlarge}
-        name="logo_nypl"
+        name={LogoNames.logo_nypl}
         style={{ marginRight: "1rem" }}
       />
     </span>
     <span style={{ marginRight: "1rem" }}>
-      <Icon decorative size={IconSizes.xxxlarge} name="logo_brooklyn" />
+      <Icon
+        decorative
+        size={IconSizes.xxxlarge}
+        name={LogoNames.logo_brooklyn}
+      />
     </span>
   </Story>
 </Preview>
 
-The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
+| Enum Values for Examples Above |
+| ------------------------------ |
+| `IconNames.check`              |
+| `IconNames.close`              |
+| `IconNames.error_outline`      |
+| `IconNames.speaker_notes`      |
+| `LogoNames.logo_nypl`          |
+| `LogoNames.logo_brooklyn`      |
 
 ### Size
 
-Icons in NYPL projects can be rendered at the following sizes.
+The size of the `Icon` component is handled through the `IconSizes` enum.
 
 <Preview>
   <Story name="Size">
@@ -107,18 +140,18 @@ Icons in NYPL projects can be rendered at the following sizes.
   </Story>
 </Preview>
 
-| Icon Size  | CSS Value         | CSS Variable  |
-| ---------- | ----------------- | ------------- |
-| `small`    | `0.875rem` (14px) | n/a           |
-| `medium`   | `1.125rem` (18px) | n/a           |
-| `large`    | `1.5rem` (24px)   | `--space-m`   |
-| `xlarge`   | `2rem` (32px)     | `--space-l`   |
-| `xxlarge`  | `3rem` (48px)     | `--space-xl`  |
-| `xxxlarge` | `4rem` (64px)     | `--space-xxl` |
+| IconSizes Enum Value | CSS Value         | CSS Variable  |
+| -------------------- | ----------------- | ------------- |
+| `IconSizes.small`    | `0.875rem` (14px) | n/a           |
+| `IconSizes.medium`   | `1.125rem` (18px) | n/a           |
+| `IconSizes.large`    | `1.5rem` (24px)   | `--space-m`   |
+| `IconSizes.xlarge`   | `2rem` (32px)     | `--space-l`   |
+| `IconSizes.xxlarge`  | `3rem` (48px)     | `--space-xl`  |
+| `IconSizes.xxxlarge` | `4rem` (64px)     | `--space-xxl` |
 
 ### Color
 
-Icons in NYPL projects should be rendered with one color. Color options are built into the Icon component.
+The color of the `Icon` component is handled through the `IconColors` enum. Icons in NYPL projects should always be rendered with one color.
 
 <Preview>
   <Story name="Color">
@@ -150,20 +183,20 @@ Icons in NYPL projects should be rendered with one color. Color options are buil
   </Story>
 </Preview>
 
-| Icon Color                             | CSS Variable                             |
-| -------------------------------------- | ---------------------------------------- |
-| `ui_black`                             | `--ui-black`                             |
-| `ui_white`                             | `--ui-white`                             |
-| `brand_primary`                        | `--brand-primary`                        |
-| `brand_secondary`                      | `--brand-secondary`                      |
-| `section_whats_on_primary`             | `--section-whats-on-primary`             |
-| `section_books_and_more_primary`       | `--section-books-and-more-primary`       |
-| `section_research_primary`             | `--section-research-primary`             |
-| `section_research_secondary`           | `--section-research-secondary`           |
-| `section_locations_primary`            | `--section-locations-primary`            |
-| `section_research_library_lpa`         | `--section-research-library-lpa`         |
-| `section_research_library_schomburg`   | `--section-research-library-schomburg`   |
-| `section_research_library_schwartzman` | `--section-research-library-schwartzman` |
+| IconColors Enum Value                             | CSS Variable                             |
+| ------------------------------------------------- | ---------------------------------------- |
+| `IconColors.ui_black`                             | `--ui-black`                             |
+| `IconColors.ui_white`                             | `--ui-white`                             |
+| `IconColors.brand_primary`                        | `--brand-primary`                        |
+| `IconColors.brand_secondary`                      | `--brand-secondary`                      |
+| `IconColors.section_whats_on_primary`             | `--section-whats-on-primary`             |
+| `IconColors.section_books_and_more_primary`       | `--section-books-and-more-primary`       |
+| `IconColors.section_research_primary`             | `--section-research-primary`             |
+| `IconColors.section_research_secondary`           | `--section-research-secondary`           |
+| `IconColors.section_locations_primary`            | `--section-locations-primary`            |
+| `IconColors.section_research_library_lpa`         | `--section-research-library-lpa`         |
+| `IconColors.section_research_library_schomburg`   | `--section-research-library-schomburg`   |
+| `IconColors.section_research_library_schwartzman` | `--section-research-library-schwartzman` |
 
 ### Development Note
 
