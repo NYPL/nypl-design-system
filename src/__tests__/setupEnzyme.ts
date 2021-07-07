@@ -23,7 +23,9 @@ global.navigator = {
 const noop = () => {};
 
 // Ignore SVG
-require.extensions[".svg"] = noop;
+require.extensions[".svg"] = obj => {
+  obj.exports = () => "noop";
+};
 
 // Ignore imported stylesheets.
 require.extensions[".scss"] = noop;
