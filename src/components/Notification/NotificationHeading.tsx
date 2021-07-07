@@ -8,10 +8,5 @@ export default function NotificationHeading(
 ) {
   const { children } = props;
 
-  // const notificationModifiers = modifiers ? modifiers : [];
-  // if (!notificationModifiers.find(modifier => modifier === notificationType)) {
-  //   notificationModifiers.push(notificationType);
-  // }
-
   return <Heading level={4}>{children}</Heading>;
 }

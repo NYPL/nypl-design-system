@@ -72,7 +72,7 @@
     }
   }
 
-  .notification-icon {
+  .icon {
     flex-shrink: 0;
     margin-right: var(--space-s);
   }
@@ -83,5 +83,9 @@
     position: absolute;
     right: var(--space-xs);
     top: var(--space-xs);
+
+    .icon {
+      margin-right: 0;
+    }
   }
 }
