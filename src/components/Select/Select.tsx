@@ -30,19 +30,19 @@ export interface SelectProps {
   isRequired?: boolean;
   /** DEPRECATED - ID of associated label */
   labelId?: string;
-  /** Provides text for a `Label` component if `showLabel` is set to true; populates a `aria-label` sttribute if `showLabel` is set to false. */
+  /** Provides text for a `Label` component if `showLabel` is set to `true`; populates a `aria-label` attribute on the select input if `showLabel` is set to `false`. */
   labelText: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
   /** The name of the select element to use in form submission */
   name: string;
-  /** Passes selects' current value to the React state handler */
+  /** Passes select's current value to the React state handler */
   onBlur?: (event: React.FormEvent) => void;
   /** Passes selects' current value to the React state handler */
   onChange?: (event: React.FormEvent) => void;
-  /** Will add 'aria-required: true' to input */
+  /** Will add `aria-required: true` and native HTML `required` attribute to the select input */
   required?: boolean;
-  /** The selected value */
+  /** The value of the selected option */
   selectedOption?: string;
   /** Offers the ability to show the label onscreen or hide it. Refer to the `labelText` property for more information. */
   showLabel?: boolean;
@@ -83,7 +83,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
     if (errored) modifiers.push("error");
 
-    const optReqFlag = isRequired || required ? "Required" : "Optional";
+    const req = isRequired || required;
+    const optReqFlag = req ? "Required" : "Optional";
 
     const errorOutput = errorText
       ? errorText
@@ -115,6 +116,30 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       );
     }
 
+    if (ariaLabel) {
+      console.warn(
+        "The ariaLabel prop has been deprecated in the Select component and will be removed in a future release. Check the documentation for updated props."
+      );
+    }
+
+    if (helperTextId) {
+      console.warn(
+        "The helperTextId prop has been deprecated in the Select component and will be removed in a future release. Check the documentation for updated props."
+      );
+    }
+
+    if (isRequired === true || isRequired === false) {
+      console.warn(
+        "The isRequired prop has been deprecated in the Select component and will be removed in a future release. Check the documentation for updated props."
+      );
+    }
+
+    if (labelId) {
+      console.warn(
+        "The labelId prop has been deprecated in the Select component and will be removed in a future release. Check the documentation for updated props."
+      );
+    }
+
     return (
       <div className="select">
         {labelText && showLabel && (
@@ -126,8 +151,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           name={name}
           id={id}
           className={bem("selectfield", modifiers, blockName, [className])}
-          aria-required={isRequired || required}
-          required={isRequired || required}
+          aria-required={req}
+          required={req}
           disabled={disabled}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}

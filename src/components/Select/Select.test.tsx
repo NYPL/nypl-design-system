@@ -80,7 +80,7 @@ describe("Select", () => {
     expect(wrapper.find("select").prop("aria-label")).to.equal("Aria Label");
   });
 
-  it("Renders aria-describedby", () => {
+  it("Renders aria-describedby when helperText prop is passed", () => {
     wrapper = Enzyme.mount(
       <Select
         id="custom-select-id"

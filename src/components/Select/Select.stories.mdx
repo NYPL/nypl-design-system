@@ -51,12 +51,18 @@ The `Select` component renders a `select` element along with its `option` childr
       errored: false,
       required: true,
       disabled: false,
-      selectedOption: "Option Two",
+      selectedOption: "Green",
       attributes: {
         onFocus: action("focus"),
         onBlur: action("blur"),
         onChange: action("onChange"),
       },
+    }}
+    argTypes={{
+      ariaLabel: { table: { disable: true } },
+      helperTextId: { table: { disable: true } },
+      isRequired: { table: { disable: true } },
+      labelId: { table: { disable: true } },
     }}
   >
     {args => (
@@ -74,11 +80,15 @@ The `Select` component renders a `select` element along with its `option` childr
 
 <ArgsTable story="Select" />
 
+### Deprecated Props
+
+The following props have been deprecated: `ariaLabel`, `helperTextId`, `isRequired` and `labelId`. They are still available to use, but they will be removed in a future release.
+
 ## Labelling Variations
 
-A Select can be rendered with or without visible labels.
+A Select can be rendered with or without visible labels. When `showLabel` is set to `false`, an `aria-label` attribute is added to the select input to maintain accessibility.
 
-<Preview withToolbar>
+<Preview>
   <Story
     name="Labelling Variations"
     args={{
@@ -87,14 +97,16 @@ A Select can be rendered with or without visible labels.
     }}
   >
     {args => (
-      <Select {...args}>
-        <option aria-selected={true}></option>
-        <option aria-selected={false}>Red</option>
-        <option aria-selected={false}>Green</option>
-        <option aria-selected={false}>Blue</option>
-        <option aria-selected={false}>Black</option>
-        <option aria-selected={false}>White</option>
-      </Select>
+      <>
+        <Select {...args}>
+          <option aria-selected={true}></option>
+          <option aria-selected={false}>Red</option>
+          <option aria-selected={false}>Green</option>
+          <option aria-selected={false}>Blue</option>
+          <option aria-selected={false}>Black</option>
+          <option aria-selected={false}>White</option>
+        </Select>
+      </>
     )}
   </Story>
 </Preview>
@@ -175,6 +187,8 @@ A Select can be rendered with or without visible labels.
 </Canvas>
 
 ## Deprecated Implementation
+
+The `ariaLabel`, `helperTextId`, `isRequired` and `labelId` have been deprecated, but they are still available to use until they are removed in a future release. The code below uses all four deprecated props in conjunction with the `Label` and `HelperErrorText` components to render a fully functional and accessible select input.
 
 <Preview withToolbar>
   <Story

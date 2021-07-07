@@ -27,7 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Deprecates
 
-- Deprecates `ariaLabel`, `helperTextId`, `isRequired` and `labelId` in `Select`
+- Deprecates `ariaLabel`, `helperTextId`, `isRequired` and `labelId` props in `Select`
 
 ## 0.23.0
 
