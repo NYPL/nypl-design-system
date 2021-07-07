@@ -30,7 +30,7 @@ export interface NotificationProps {
 }
 
 // NotificationHeading child-component
-export function NotificationHeading({ ...props }) {
+export function NotificationHeading(props) {
   const { children, className } = props;
   return (
     <Heading
@@ -43,7 +43,7 @@ export function NotificationHeading({ ...props }) {
 }
 
 // NotificationHeading child-component
-export function NotificationContent({ ...props }) {
+export function NotificationContent(props) {
   const { children, className } = props;
   return (
     <div className={bem("notification-content", [], "", [className])}>
@@ -115,10 +115,10 @@ export default function Notification(
     }
   };
 
-  let childHeading,
-    childContent,
-    headingCount = 0,
-    contentCount = 0;
+  let childHeading;
+  let childContent;
+  let headingCount = 0;
+  let contentCount = 0;
 
   React.Children.map(children, (child: React.ReactElement) => {
     if (
@@ -160,8 +160,9 @@ export default function Notification(
       ((notificationType === NotificationTypes.Announcement ||
         notificationType === NotificationTypes.Warning) &&
         !centered))
-  )
-    modifiers.push("align-text");
+  ) {
+    notificationModifiers.push("align-text");
+  }
 
   return (
     <aside
