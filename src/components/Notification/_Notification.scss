@@ -78,14 +78,25 @@
   }
 
   .dismissible-button {
+    align-items: center;
     color: var(--ui-black);
+    display: flex;
+    height: var(--space-l);
     padding: 0;
     position: absolute;
     right: var(--space-xs);
     top: var(--space-xs);
+    width: var(--space-l);
+
+    @include breakpoint($breakpoint-large) {
+      height: var(--space-m);
+      width: var(--space-m);
+    }
 
     .icon {
+      height: var(--space-m);
       margin-right: 0;
+      width: var(--space-m);
     }
   }
 }

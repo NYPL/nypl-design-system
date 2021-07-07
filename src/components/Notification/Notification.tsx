@@ -189,9 +189,10 @@ export default function Notification(
           onClick={handleClose}
         >
           <Icon
-            modifiers={["small"]}
+            modifiers={["medium"]}
             decorative={false}
             name={IconNames.close}
+            titleText={"Close notification"}
           />
         </Button>
       ) : null}
