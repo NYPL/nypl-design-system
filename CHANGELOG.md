@@ -12,10 +12,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds CSS vars for `font-weight`
 - Adds `displaySize` prop to `Heading`
+- Adds Style Guide `Iconography`
 - Adds new SVGs to be used with the `Icon` component. Among the new SVGs are: Error solid, Error outlined, Speaker Notes.
 - Adds ability to change the color of an SVG icon with classes such as: `ui-black` (default), `ui-white`, `brand-primary` (red), `section-research-secondary` (turquoise).
 - Adds `helperText` and `errorText` props to `Checkbox`
 - Adds `helperText` and `errorText` props to `Radio`
+- Adds `errorText`, `helperText`, `labelText`, `required` and `showLabel` props to `Select`
 - Adds `Notification` component
 
 ### Changes
@@ -23,6 +25,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates content in Style Guide `Typography`
 - Updates content in Style Guide `Breakpoints`
 - Changes `Link` story from `.tsx` to `.mdx`.
+
+### Deprecates
+
+- Deprecates `ariaLabel`, `helperTextId`, `isRequired` and `labelId` props in `Select`
 
 ## 0.23.0
 

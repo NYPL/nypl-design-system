@@ -75,6 +75,7 @@ const categories = {
     components: [
       "Breakpoints",
       "Colors",
+      "Iconography",
       "Spacing",
       "Template Bidirectionality",
       "Typography",
