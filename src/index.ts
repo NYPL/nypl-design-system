@@ -13,9 +13,11 @@ export { HeroTypes } from "./components/Hero/HeroTypes";
 export { default as HorizontalRule } from "./components/HorizontalRule/HorizontalRule";
 export { default as Icon } from "./components/Icons/Icon";
 export {
-  IconRotationTypes,
   IconNames,
   LogoNames,
+  IconRotationTypes,
+  IconColors,
+  IconSizes,
 } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
 export { default as Input } from "./components/Input/Input";

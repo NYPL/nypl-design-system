@@ -87,3 +87,26 @@ cause an accessibility violation if none is present.
 <Canvas>
   <Checkbox disabled showLabel={true} labelText="I am disabled"></Checkbox>
 </Canvas>
+
+## Helper Text
+
+<Canvas>
+  <Checkbox
+    name="testHelperText"
+    showLabel={true}
+    labelText="I have helper text"
+    helperText="I am the helper text for this Radio"
+  ></Checkbox>
+</Canvas>
+
+## Error Text
+
+<Canvas>
+  <Checkbox
+    name="testErrorText"
+    showLabel={true}
+    errored
+    labelText="I have error text"
+    errorText="I am the error text for this Radio"
+  ></Checkbox>
+</Canvas>
