@@ -1,5 +1,6 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import generateUUID from "../../helpers/generateUUID";
 
@@ -16,6 +17,10 @@ export interface RadioProps {
   disabled?: boolean;
   /** Helper for modifiers array; adds 'errored' styling */
   errored?: boolean;
+  /** Optional string to populate the HelperErrorText for error state */
+  errorText?: string;
+  /** Optional string to populate the HelperErrorText for standard state */
+  helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
@@ -40,6 +45,8 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     className,
     disabled,
     errored,
+    errorText,
+    helperText,
     id,
     labelText,
     name,
@@ -52,11 +59,19 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const radioID = id || generateUUID();
   const onChange = props.onChange || onChangeDefault;
 
-  if (!showLabel) attributes["aria-label"] = labelText;
+  const footnote = errored ? errorText : helperText;
+
+  if (!showLabel) {
+    attributes["aria-label"] =
+      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+  } else {
+    if (footnote) attributes["aria-describedby"] = `${radioID}-helperText`;
+  }
 
   if (errored) {
     modifiers.push("error");
   }
+
   return (
     <>
       <input
@@ -79,6 +94,11 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
         {...attributes}
       />
       {labelText && showLabel && <Label htmlFor={radioID}>{labelText}</Label>}
+      {footnote && showLabel && (
+        <HelperErrorText isError={errored} id={id + `-helperText`}>
+          {footnote}
+        </HelperErrorText>
+      )}
     </>
   );
 });

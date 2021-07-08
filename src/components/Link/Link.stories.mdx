@@ -1,0 +1,232 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import Link from "./Link";
+import {
+  BrowserRouter as Router,
+  Link as ReactRouterLink,
+} from "react-router-dom";
+import { LinkTypes } from "./LinkTypes";
+import Icon from "../Icons/Icon";
+
+<Meta
+  title="Link"
+  component={Link}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A407",
+    },
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    children: { table: { disable: true } },
+    type: {
+      control: {
+        type: "select",
+      },
+    },
+  }}
+/>
+
+# Link
+
+<Description of={Link} />
+
+<Preview withToolbar>
+  <Story
+    name="Basic"
+    args={{
+      id: "nypl-link",
+      type: LinkTypes.Action,
+      href: "https://nypl.org",
+      className: "custom-class",
+      attributes: {
+        rel: "nofollow",
+        onClick: e => e.preventDefault(),
+      },
+    }}
+  >
+    {args => <Link {...args}>Link</Link>}
+  </Story>
+</Preview>
+
+<ArgsTable story="Basic" />
+
+## Links With Icons
+
+To render an `Icon` as part of the link, make sure that the `Link` component
+wraps the `Icon`. Use `type={LinkTypes.Action}` to apply appropriate styling to
+links with icons. Icons can be rendered to the left or right of the link text.
+
+<Preview>
+  <Story name="With Icons">
+    <>
+      <Link type={LinkTypes.Action} href="#passed-in-link">
+        <Icon
+          name={"headset"}
+          modifiers={["left", "small"]}
+          decorative={true}
+        />
+        Headset Link
+      </Link>
+      <br />
+      <Link type={LinkTypes.Action} href="#passed-in-link">
+        <Icon name={"clock"} modifiers={["left", "small"]} decorative={true} />
+        Clock Link
+      </Link>
+      <br />
+      <Link type={LinkTypes.Action} href="#passed-in-link">
+        <Icon name={"check"} modifiers={["left", "small"]} decorative={true} />
+        Check Link
+      </Link>
+      <br />
+      <Link type={LinkTypes.Action} href="#passed-in-link-right">
+        Check Link Right
+        <Icon name={"check"} modifiers={["right", "small"]} decorative={true} />
+      </Link>
+    </>
+  </Story>
+</Preview>
+
+## Anchor Element Rendering
+
+`Link` can wrap an existing `<a>` tag or it can use the `href` prop to generate
+an `<a>` tag.
+
+<Preview>
+  <Story name="Anchor Element Rendering">
+    <>
+      This is a{" "}
+      <Link type={LinkTypes.Action}>
+        <a href="#existing-anchor-tag">link</a>
+      </Link>{" "}
+      with the &lt;a&gt; tag as a child of the Link component. And this is a{" "}
+      <Link type={LinkTypes.Action} href="#passed-in-link">
+        link
+      </Link>{" "}
+      where the Link component uses the `href` prop and has a string-only child.
+    </>
+  </Story>
+</Preview>
+
+## Link with Routers
+
+<Preview>
+  <Story name="Link with Routers">
+    <div>With React Router</div>
+    <Router>
+      <Link type={LinkTypes.Action}>
+        <ReactRouterLink to="#">Next Page</ReactRouterLink>
+      </Link>
+    </Router>
+    <br />
+    <br />
+    <div>With NextJS</div>
+    <NextJsLink href="#" passHref>
+      <Link type={LinkTypes.Action}>Next Page</Link>
+    </NextJsLink>
+  </Story>
+</Preview>
+
+### React Router
+
+The Design System's `Link` component should wrap around `react-router`'s own
+`Link` component. To avoid name conflicts, rename either the Design System's
+or `react-router`'s `Link` component.
+
+```js
+import {
+  BrowserRouter as Router,
+  Link as ReactRouterLink,
+} from "react-router-dom";
+import { Link, LinkTypes } from "@nypl/design-system-react-components";
+
+<Link type={LinkTypes.Action}>
+  <ReactRouterLink to="#">Next Page</ReactRouterLink>
+</Link>;
+
+// or
+
+import { BrowserRouter, Link } from "react-router-dom";
+import {
+  Link as DSLink,
+  LinkTypes,
+} from "@nypl/design-system-react-components";
+
+<DSLink type={LinkTypes.Action}>
+  <Link to="#">Next Page</Link>
+</DSLink>;
+
+// or
+
+import { BrowserRouter, Link } from "react-router-dom";
+import DS from "@nypl/design-system-react-components";
+
+<DS.Link type={DS.LinkTypes.Action}>
+  <Link to="#">Next Page</Link>
+</DS.Link>;
+```
+
+<Preview>
+  <Router>
+    <Link type={LinkTypes.Action}>
+      <ReactRouterLink to="#">Next Page</ReactRouterLink>
+    </Link>
+  </Router>
+</Preview>
+
+### NextJS
+
+NextJS's `Link` component should wrap the Design System's `Link` component.
+The `href` and `passHref` props MUST be passed into NextJS' `Link` component.
+These props, along with an implicit `ref` from NextJS and the Design System's
+`Link` component `forwardRef` implementation, handle correctly routing between
+pages in a NextJS app.
+
+```js
+import { Link, LinkTypes } from "@nypl/design-system-react-components";
+
+/* This is just an example wrapper that works similarly to NextJS' `Link`
+ * component. In real life, NextJS's `Link` component will pass down the
+ * `href` and `passHref` props and a `ref` to make routing functional.
+ */
+export const NextJsLink = (props: HTMLAnchorElement) => (
+  <div>
+    {React.cloneElement(
+      props.children,
+      { ...props },
+      props.children.props.children
+    )}
+  </div>
+);
+
+<NextJsLink href="#" passHref>
+  <Link type={LinkTypes.Action}>Next Page</Link>
+</NextJsLink>;
+```
+
+export const NextJsLink = props => (
+  <div>
+    {React.cloneElement(
+      props.children,
+      { ...props },
+      props.children.props.children
+    )}
+  </div>
+);
+
+<Preview>
+  <NextJsLink href="#" passHref>
+    <Link type={LinkTypes.Action}>Next Page</Link>
+  </NextJsLink>
+</Preview>

@@ -110,6 +110,24 @@
   h6 {
     @include heading-xs;
   }
+
+  .heading {
+    &--primary {
+      @include heading-xl;
+    }
+
+    &--secondary {
+      @include heading-large;
+    }
+
+    &--tertiary {
+      @include heading-medium;
+    }
+
+    &--callout {
+      @include heading-xs;
+    }
+  }
 }
 
 .heading__link {

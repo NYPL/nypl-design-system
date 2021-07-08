@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -57,6 +57,7 @@
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-queryparams": "^6.2.9",
     "@storybook/react": "^6.2.9",
+    "@svgr/webpack": "^5.5.0",
     "@types/chai": "^4.2.3",
     "@types/enzyme": "^3.10.3",
     "@types/jsdom": "^12.2.4",
