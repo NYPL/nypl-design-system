@@ -10,7 +10,21 @@ module.exports = {
     app: ["./src/index.ts"],
   },
   target: "node",
-  externals: [nodeExternals()],
+  // externals: [nodeExternals()],
+  externals: {
+    react: {
+      root: "React",
+      commonjs2: "react",
+      commonjs: "react",
+      amd: "react",
+    },
+    "react-dom": {
+      root: "ReactDOM",
+      commonjs2: "react-dom",
+      commonjs: "react-dom",
+      amd: "react-dom",
+    },
+  },
   output: {
     path: path.resolve(__dirname, "./dist"),
     publicPath: "/",
