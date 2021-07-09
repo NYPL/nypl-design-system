@@ -124,7 +124,6 @@
     "twig-loader": "^0.5.1",
     "twigjs-loader": "^1.0.0",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^2.5.2"
+    "webpack-cli": "^3.3.12"
   }
 }

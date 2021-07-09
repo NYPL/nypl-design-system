@@ -1,5 +1,4 @@
 const path = require("path");
-const nodeExternals = require("webpack-node-externals");
 const globImporter = require("node-sass-glob-importer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -10,7 +9,6 @@ module.exports = {
     app: ["./src/index.ts"],
   },
   target: "node",
-  // externals: [nodeExternals()],
   externals: {
     react: {
       root: "React",
