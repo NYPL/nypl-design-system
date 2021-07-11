@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import Card from "./Card";
+import Card, { CardImage, CardHeading, CardContent } from "./Card";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Heading from "../Heading/Heading";
@@ -31,7 +31,8 @@ describe("Card", () => {
         </Button>
       }
     >
-      middle column content
+      <CardHeading level={3}>Optional Header</CardHeading>
+      <CardContent>middle column content</CardContent>
     </Card>
   );
 
@@ -75,19 +76,16 @@ describe("Card", () => {
   );
 
   const cardWithNoCTAs = (
-    <Card
-      id="card#1"
-      image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
-      className="edition-card"
-      heading={
-        <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
-      }
-    >
-      <>
+    <Card id="card#1" className="edition-card">
+      <CardImage src="https://placeimg.com/300/400/arch" alt={""} />
+      <CardHeading level={2} id="editioncardheading1">
+        2004 Edition
+      </CardHeading>
+      <CardContent>
         <div>Published in New York by Random House</div>
         <div>Written in English</div>
         <div>Under Creative Commons License</div>
-      </>
+      </CardContent>
     </Card>
   );
 

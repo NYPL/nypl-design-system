@@ -1,5 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import Heading from "../Heading/Heading";
+import Image from "../Image/Image";
 
 interface CardProps {
   /** ClassName that appears in addition to "card" */
@@ -25,27 +27,52 @@ interface CardProps {
 }
 
 // CardImage child-component
-/*export function CardImage({ ...props }) {
-  const { children, className } = props;
-  return (
-    <div className={bem("notification-content", [], "", [className])}>
-      {children}
-    </div>
-  );
-}*/
+export function CardImage(props) {
+  const { src, alt, className } = props;
+  // let imageAltText = "";
+  // if (imageAlt) {
+  //   imageAltText = imageAlt;
+  // }
+  if (src) {
+    return (
+      <Image src={src} alt={alt} />
+    );
+  } else {
+    return null;
+  }
+}
 
 // CardHeading child-component
-/*export function CardHeading({ ...props }) {
-  const { children, className } = props;
+export function CardHeading(props) {
+  const { children, id, level } = props;
   return (
     <Heading
-      level={4}
-      className={bem("heading", [], "", [className])}
+      level={level} id={id}
     >
       {children}
     </Heading>
   );
-}*/
+}
+
+// CardContent child-component
+export function CardContent(props) {
+  const { children, className } = props;
+  return (
+    <div className={bem("text", [], "", [className])}>
+      {children}
+    </div>
+  );
+}
+
+// CardActions child-component
+export function CardActions(props) {
+  const { children, className } = props;
+  return (
+    <div className={bem("ctas", [], "", [className])}>
+      {children}
+    </div>
+  );
+}
 
 export default function Card(props: React.PropsWithChildren<CardProps>) {
   const {
@@ -53,15 +80,23 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     children,
     className,
     ctas,
-    heading,
     id,
-    image,
     layout,
     border,
     padding,
     modifiers = [],
   } = props;
   const baseClass = "card";
+
+  let cardStyle;
+  let childHeading;
+  let childContent;
+  let childImage;
+  let childActions;
+  let headingCount = 0;
+  let contentCount = 0;
+  let imageCount = 0;
+  let actionCount = 0;
 
   if (layout) {
     modifiers.push(layout);
@@ -71,12 +106,34 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     modifiers.push("with-border");
   }
 
-  let cardStyle;
   if (padding) {
     cardStyle = {
       padding: padding,
     };
   }
+
+  React.Children.map(children, (child: React.ReactElement) => {
+    if (
+      child.type === CardHeading) {
+      childHeading = child;
+      headingCount++;
+    }
+
+    if (child.type === CardContent) {
+      childContent = child;
+      contentCount++;
+    }
+
+    if (child.type === CardImage) {
+      childImage = child;
+      imageCount++;
+    }
+
+    if (child.type === CardActions) {
+      childActions = child;
+      actionCount++;
+    }
+  });
 
   return (
     <div
@@ -84,20 +141,30 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       id={id}
       style={cardStyle}
     >
-      {image && <div className={bem("image", [], baseClass)}>{image}</div>}
+      {/* {image && <div className={bem("image", [], baseClass)}>{image}</div>} */}
+      {imageCount ? (
+        <div className={bem("image", [], baseClass)}>{childImage}</div>
+      ) : null}
       <div className={bem("content", [], baseClass)}>
         <div className={bem("details", [], baseClass)}>
-          {heading && (
-            <div className={bem("heading", [], baseClass)}>{heading}</div>
-          )}
-          {children && (
-            <div className={bem("text", [], baseClass)}>
-              <p>{children}</p>
+          {headingCount ? (
+            <div className={bem("heading", [], baseClass)}>
+              {childHeading}
             </div>
-          )}
-          {ctas && <div className={bem("ctas", [], baseClass)}>{ctas}</div>}
+          ) : null}
+
+          {contentCount ? (
+            <div className={bem("text", [], baseClass)}>
+              <p>{childContent}</p>
+            </div>
+          ) : null}
+
         </div>
       </div>
+      {ctas && <div className={bem("ctas", [], baseClass)}>{ctas}</div>}
+      {/* {actionCount ? (
+        {childActions}
+      ) : null } */}
     </div>
   );
 }

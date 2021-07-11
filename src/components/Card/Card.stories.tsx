@@ -2,8 +2,7 @@ import * as React from "react";
 import { action } from "@storybook/addon-actions";
 import { text, boolean, select } from "@storybook/addon-knobs";
 
-import Card from "./Card";
-import Heading from "../Heading/Heading";
+import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
 import Image from "../Image/Image";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
@@ -17,7 +16,7 @@ export default {
   component: Card,
 };
 
-let showCTAs, showImage, showHeader, showBorder;
+let showCTAs, showImage, showBorder;
 
 const headerLevels = [1, 2, 3, 4, 5, 6];
 
@@ -37,7 +36,6 @@ const imageRatios = {
 
 export const card = () => (
   <>
-    {boolean("Show Header", true) ? (showHeader = true) : (showHeader = false)}
     {boolean("Show Image", true) ? (showImage = true) : (showImage = false)}
     {boolean("Show CTAs", true) ? (showCTAs = true) : (showCTAs = false)}
     {boolean("Show Border", true) ? (showBorder = true) : (showBorder = false)}
@@ -46,17 +44,6 @@ export const card = () => (
       layout={select("Layout Orientation", layoutOptions, layoutOptions[0])}
       border={showBorder}
       padding={text("Padding", "")}
-      heading={
-        showHeader ? (
-          <Heading
-            level={select("Header Level", headerLevels, headerLevels[2])}
-            id="heading1"
-            text={text("Header Content", "Optional Header")}
-          />
-        ) : (
-          false
-        )
-      }
       image={
         showImage ? (
           <Image
@@ -78,7 +65,28 @@ export const card = () => (
         ) : null
       }
     >
-      {text("Card Content: ", "Middle column content")}
+      <CardImage
+        src={select("Image Ratio", imageRatios, imageRatios[2])}
+        alt="Alt text"
+      />
+      <CardHeading
+        level={select("Header Level", headerLevels, headerLevels[2])}
+        id="heading1"
+      >
+        Optional Header
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
+      {/* {showCTAs ? (<CardActions>
+        <Button
+          onClick={action("clicked")}
+          id="button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          {text("CTA Button Text: ", "Example CTA")}
+        </Button>
+      </CardActions>
+      ) : null} */}
     </Card>
   </>
 );
@@ -111,8 +119,11 @@ export const ExampleCard = () => (
       </>
     }
   >
-    <>
-      <Heading level={2} id="heading1" text={"The Year of Magical Thinking"} />
+    <CardImage src={"https://placeimg.com/300/400/arch"} alt={""} />
+    <CardHeading level={2} id="heading1">
+      The Year of Magical Thinking
+    </CardHeading>
+    <CardContent>
       <div className="book__callout">A portrait of loss and grief</div>
       <div>
         By <Link href="#joan-didion">Joan Didion</Link>,{" "}
@@ -133,7 +144,7 @@ export const ExampleCard = () => (
         allowing us to watch her mind as it becomes clouded...{" "}
         <Link href="#">Read More</Link>
       </div>
-    </>
+    </CardContent>
   </Card>
 );
 
@@ -149,7 +160,7 @@ ExampleCard.parameters = {
 
 export const HorizontalCard = () => (
   <Card
-    className="horizontal-card"
+    className="example-card"
     layout="horizontal"
     border={true}
     image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
@@ -167,8 +178,11 @@ export const HorizontalCard = () => (
       </>
     }
   >
-    <>
-      <Heading level={2} id="heading1" text={"The Year of Magical Thinking"} />
+    <CardImage src={imageRatios["4x3"]} alt="Alt text" />
+    <CardHeading headingLevel={2} id="heading1">
+      The Year of Magical Thinking
+    </CardHeading>
+    <CardContent>
       <div className="book__callout">A portrait of loss and grief</div>
       <div>
         By <Link href="#joan-didion">Joan Didion</Link>,{" "}
@@ -189,7 +203,7 @@ export const HorizontalCard = () => (
         allowing us to watch her mind as it becomes clouded...{" "}
         <Link href="#">Read More</Link>
       </div>
-    </>
+    </CardContent>
   </Card>
 );
 
