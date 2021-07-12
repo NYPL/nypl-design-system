@@ -57,21 +57,46 @@ import { Button, ButtonTypes } from "@nypl/design-system-react-components";
 - Buttons by default are blue. However, Donation buttons are red.
 - Buttons used for Back to Top actions have a Secondary button style with an arrow icon pointing up.
 
+## Spacing
+
+Buttons should use `--space-xs` (0.5rem) for spacing in situations where multiple buttons are aligned in horizontal or vertical layouts. Buttons should use `--space-l` (2rem) for all other spacing situations.
+
 <Preview>
   <Story name="Guidelines">
     <div
       style={{
         display: "flex",
-        justifyContent: "space-between",
-        width: "540px",
       }}
     >
-      <Button buttonType={ButtonTypes.Primary}>Button Text</Button>
-      <Button buttonType={ButtonTypes.Primary}>
-        <Icon decorative modifiers={["small", "icon-left"]} name="search" />
+      <Button
+        buttonType={ButtonTypes.Primary}
+        attributes={{
+          style: {
+            marginRight: getCSSVariable("--space-xs"),
+          },
+        }}
+      >
         Button Text
       </Button>
-      <Button buttonType={ButtonTypes.Primary}>
+      <Button
+        buttonType={ButtonTypes.Primary}
+        attributes={{
+          style: {
+            marginRight: getCSSVariable("--space-xs"),
+          },
+        }}
+      >
+        <Icon decorative modifiers={["small", "icon-left"]} name="search" />
+        Button Text!!!
+      </Button>
+      <Button
+        buttonType={ButtonTypes.Primary}
+        attributes={{
+          style: {
+            marginRight: getCSSVariable("--space-xs"),
+          },
+        }}
+      >
         <Icon
           name={IconNames.close}
           decorative={true}
@@ -84,6 +109,7 @@ import { Button, ButtonTypes } from "@nypl/design-system-react-components";
         attributes={{
           style: {
             backgroundColor: getCSSVariable("--section-books-and-more-primary"),
+            marginRight: getCSSVariable("--space-xs"),
           },
         }}
       >
@@ -111,8 +137,7 @@ The `buttonType` prop should be used to render various forms of the button compo
     <div
       style={{
         display: "flex",
-        justifyContent: "space-between",
-        width: "500px",
+        justifyContent: "space-around",
       }}
     >
       <Button buttonType={ButtonTypes.Primary}>Primary Button</Button>
@@ -147,5 +172,7 @@ The `buttonType` prop should be used to render various forms of the button compo
 - Visual Treatment: text link with underline
 
 ## Design System Figma Reference
+
+For more styling information, please refer to the Figma Main file.
 
 https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298
