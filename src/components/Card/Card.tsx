@@ -28,15 +28,9 @@ interface CardProps {
 
 // CardImage child-component
 export function CardImage(props) {
-  const { src, alt, className } = props;
-  // let imageAltText = "";
-  // if (imageAlt) {
-  //   imageAltText = imageAlt;
-  // }
+  const { src, alt } = props;
   if (src) {
-    return (
-      <Image src={src} alt={alt} />
-    );
+    return <Image src={src} alt={alt} />;
   } else {
     return null;
   }
@@ -44,11 +38,9 @@ export function CardImage(props) {
 
 // CardHeading child-component
 export function CardHeading(props) {
-  const { children, id, level } = props;
+  const { children, id, level, url } = props;
   return (
-    <Heading
-      level={level} id={id}
-    >
+    <Heading level={level} id={id} url={url}>
       {children}
     </Heading>
   );
@@ -56,22 +48,14 @@ export function CardHeading(props) {
 
 // CardContent child-component
 export function CardContent(props) {
-  const { children, className } = props;
-  return (
-    <div className={bem("text", [], "", [className])}>
-      {children}
-    </div>
-  );
+  const { children } = props;
+  return children;
 }
 
 // CardActions child-component
 export function CardActions(props) {
-  const { children, className } = props;
-  return (
-    <div className={bem("ctas", [], "", [className])}>
-      {children}
-    </div>
-  );
+  const { children } = props;
+  return children;
 }
 
 export default function Card(props: React.PropsWithChildren<CardProps>) {
@@ -113,8 +97,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   }
 
   React.Children.map(children, (child: React.ReactElement) => {
-    if (
-      child.type === CardHeading) {
+    if (child.type === CardHeading) {
       childHeading = child;
       headingCount++;
     }
@@ -141,30 +124,24 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       id={id}
       style={cardStyle}
     >
-      {/* {image && <div className={bem("image", [], baseClass)}>{image}</div>} */}
       {imageCount ? (
         <div className={bem("image", [], baseClass)}>{childImage}</div>
       ) : null}
       <div className={bem("content", [], baseClass)}>
         <div className={bem("details", [], baseClass)}>
           {headingCount ? (
-            <div className={bem("heading", [], baseClass)}>
-              {childHeading}
-            </div>
+            <div className={bem("heading", [], baseClass)}>{childHeading}</div>
           ) : null}
 
           {contentCount ? (
-            <div className={bem("text", [], baseClass)}>
-              <p>{childContent}</p>
-            </div>
+            <div className={bem("text", [], baseClass)}>{childContent}</div>
           ) : null}
-
         </div>
       </div>
       {ctas && <div className={bem("ctas", [], baseClass)}>{ctas}</div>}
-      {/* {actionCount ? (
-        {childActions}
-      ) : null } */}
+      {actionCount ? (
+        <div className={bem("ctas", [], baseClass)}>{childActions}</div>
+      ) : null}
     </div>
   );
 }

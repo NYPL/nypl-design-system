@@ -102,24 +102,46 @@ card.parameters = {
 };
 
 export const ExampleCard = () => (
-  <Card
-    className="example-card"
-    image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
-    ctas={
-      <>
-        <Link type={LinkTypes.Button} href="blah">
-          Reserve
-        </Link>
-        <div className="italicized ui-gray-dark">
-          0 of 11 copies available. 3 patrons in the queue.
-        </div>
-        <Link href="#url" type={LinkTypes.Forwards}>
-          View Book Details
-        </Link>
-      </>
-    }
-  >
+  <Card className="example-card">
     <CardImage src={"https://placeimg.com/300/400/arch"} alt={""} />
+    <CardHeading level={2} id="heading1">
+      The Year of Magical Thinking
+    </CardHeading>
+    <CardContent>
+      <div>Published in New York by Random House</div>
+      <div>Written in English</div>
+      <div>
+        License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+        International
+      </div>
+    </CardContent>
+    <CardActions>
+      <Link type={LinkTypes.Button} href="blah">
+        Reserve
+      </Link>
+      <div className="italicized ui-gray-dark">
+        0 of 11 copies available. 3 patrons in the queue.
+      </div>
+      <Link href="#url" type={LinkTypes.Forwards}>
+        View Book Details
+      </Link>
+    </CardActions>
+  </Card>
+);
+
+ExampleCard.storyName = "Example Card";
+
+ExampleCard.parameters = {
+  design: {
+    type: "figma",
+    url:
+      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+  },
+};
+
+export const HorizontalCard = () => (
+  <Card className="example-card" layout="horizontal" border={true}>
+    <CardImage src={imageRatios["4x3"]} alt="Alt text" />
     <CardHeading level={2} id="heading1">
       The Year of Magical Thinking
     </CardHeading>
@@ -145,65 +167,17 @@ export const ExampleCard = () => (
         <Link href="#">Read More</Link>
       </div>
     </CardContent>
-  </Card>
-);
-
-ExampleCard.storyName = "Example Card";
-
-ExampleCard.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
-  },
-};
-
-export const HorizontalCard = () => (
-  <Card
-    className="example-card"
-    layout="horizontal"
-    border={true}
-    image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
-    ctas={
-      <>
-        <Link type={LinkTypes.Button} href="blah">
-          Reserve
-        </Link>
-        <div className="italicized ui-gray-dark">
-          0 of 11 copies available. 3 patrons in the queue.
-        </div>
-        <Link href="#url" type={LinkTypes.Forwards}>
-          View Book Details
-        </Link>
-      </>
-    }
-  >
-    <CardImage src={imageRatios["4x3"]} alt="Alt text" />
-    <CardHeading headingLevel={2} id="heading1">
-      The Year of Magical Thinking
-    </CardHeading>
-    <CardContent>
-      <div className="book__callout">A portrait of loss and grief</div>
-      <div>
-        By <Link href="#joan-didion">Joan Didion</Link>,{" "}
-        <Link href="#another-author">Another Author</Link>,{" "}
-        <Link href="#third-author">Third Author</Link>
+    <CardActions>
+      <Link type={LinkTypes.Button} href="blah">
+        Reserve
+      </Link>
+      <div className="italicized ui-gray-dark">
+        0 of 11 copies available. 3 patrons in the queue.
       </div>
-      <div className="book__filetype">
-        <Icon
-          name={IconNames.headset}
-          decorative={true}
-          modifiers={["left", "small"]}
-          iconRotation={IconRotationTypes.rotate0}
-        ></Icon>
-        Audiobook
-      </div>
-      <div className="book__description">
-        An act of consummate literary bravery, a writer known for her clarity
-        allowing us to watch her mind as it becomes clouded...{" "}
-        <Link href="#">Read More</Link>
-      </div>
-    </CardContent>
+      <Link href="#url" type={LinkTypes.Forwards}>
+        View Book Details
+      </Link>
+    </CardActions>
   </Card>
 );
 

@@ -2,11 +2,9 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import Card, { CardImage, CardHeading, CardContent } from "./Card";
+import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
-import Heading from "../Heading/Heading";
-import Image from "../Image/Image";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
@@ -14,11 +12,13 @@ import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 describe("Card", () => {
   const regularCard = (
-    <Card
-      id="cardID"
-      heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
-      image={<Image src="https://placeimg.com/400/200/arch" alt={""} />}
-      ctas={
+    <Card id="cardID">
+      <CardImage src="https://placeimg.com/400/200/arch" alt="" />
+      <CardHeading level={3} id="heading1">
+        Optional Header
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
+      <CardActions>
         <Button
           onClick={function () {
             console.log(this);
@@ -29,22 +29,25 @@ describe("Card", () => {
         >
           Example CTA
         </Button>
-      }
-    >
-      <CardHeading level={3}>Optional Header</CardHeading>
-      <CardContent>middle column content</CardContent>
+      </CardActions>
     </Card>
   );
 
   const cardWithExtendedStyles = (
-    <Card
-      id="card#1"
-      className="edition-card"
-      heading={
-        <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
-      }
-      image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
-      ctas={
+    <Card id="card#1" className="edition-card">
+      <CardImage src="https://placeimg.com/300/400/arch" alt="Alt text" />
+      <CardHeading level={2} id="editioncardheading1">
+        Optional Header
+      </CardHeading>
+      <CardContent>
+        <div>Published in New York by Random House</div>
+        <div>Written in English</div>
+        <div>
+          License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+          International
+        </div>
+      </CardContent>
+      <CardActions>
         <div className="edition-card__ctas">
           <Link type={LinkTypes.Button} href="blah">
             Read Online
@@ -62,16 +65,7 @@ describe("Card", () => {
             </Link>
           </div>
         </div>
-      }
-    >
-      <>
-        <div>Published in New York by Random House</div>
-        <div>Written in English</div>
-        <div>
-          License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
-          International
-        </div>
-      </>
+      </CardActions>
     </Card>
   );
 
@@ -90,19 +84,12 @@ describe("Card", () => {
   );
 
   const cardWithNoContent = (
-    <Card
-      id="card#1"
-      className="edition-card"
-      image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
-      heading={
-        <Heading
-          level={2}
-          id="editioncardheading1"
-          url="#edition-link"
-          text={"2004 Edition"}
-        />
-      }
-      ctas={
+    <Card id="card#1" className="edition-card">
+      <CardImage src="https://placeimg.com/300/400/arch" alt={""} />
+      <CardHeading level={2} id="editioncardheading1" url="#edition-link">
+        2004 Edition
+      </CardHeading>
+      <CardActions>
         <div className="edition-card__ctas">
           <Link type={LinkTypes.Button} href="blah">
             Read Online
@@ -120,23 +107,17 @@ describe("Card", () => {
             </Link>
           </div>
         </div>
-      }
-    ></Card>
+      </CardActions>
+    </Card>
   );
 
   const cardWithNoImage = (
-    <Card
-      id="card#1"
-      className="edition-card"
-      heading={
-        <Heading
-          level={2}
-          id="editioncardheading1"
-          url="#edition-link"
-          text={"2004 Edition"}
-        />
-      }
-      ctas={
+    <Card id="card#1" className="edition-card">
+      <CardHeading level={2} id="editioncardheading1" url="#edition-link">
+        2004 Edition
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
+      <CardActions>
         <div className="edition-card__ctas">
           <Link type={LinkTypes.Button} href="blah">
             Read Online
@@ -154,9 +135,7 @@ describe("Card", () => {
             </Link>
           </div>
         </div>
-      }
-    >
-      middle column content
+      </CardActions>
     </Card>
   );
 
