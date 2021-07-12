@@ -1,0 +1,168 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import Card from "../Card/Card";
+import Heading from "../Heading/Heading";
+import Icon from "../Icons/Icon";
+import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
+import List from "./List";
+import { ListTypes } from "./ListTypes";
+import { listRenderer, cardsList } from "./List.stories.tsx";
+
+<Meta
+  title="List"
+  component={List}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
+    },
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    children: { table: { disable: true } },
+    definitions: { table: { disable: true } },
+    itemGroups: { table: { disable: true } },
+    type: {
+      control: {
+        type: "radio",
+      },
+    },
+  }}
+/>
+
+# List
+
+<Description of={List} />
+
+<Preview withToolbar>
+  <Story
+    name="List"
+    args={{
+      id: "nypl-list",
+      type: ListTypes.Unordered,
+      title: "",
+    }}
+  >
+    {args => listRenderer(args)}}
+  </Story>
+</Preview>
+
+<ArgsTable story="List" />
+
+## Definition List
+
+<Preview withToolbar>
+  <Story
+    name="Definition List"
+    args={{
+      id: "nypl-list2",
+      type: ListTypes.Definition,
+      title: "Middle-Earth Peoples",
+    }}
+    argTypes={{
+      type: { table: { disable: true } },
+    }}
+    parameters={{
+      design: {
+        type: "figma",
+        url:
+          "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
+      },
+    }}
+  >
+    {args => listRenderer(args)}}
+  </Story>
+</Preview>
+
+## Ordered Card List
+
+<Preview withToolbar>
+  <Story
+    name="Ordered Card List"
+    args={{
+      id: "nypl-list3",
+    }}
+    argTypes={{
+      type: { table: { disable: true } },
+      title: { table: { disable: true } },
+    }}
+  >
+    {args => <List type={ListTypes.Ordered}>{cardsList}</List>}
+  </Story>
+</Preview>
+
+## Definition List of Links
+
+<Preview withToolbar>
+  <Story
+    name="Definition List of Links"
+    args={{
+      type: ListTypes.Definition,
+      title: "Details",
+    }}
+    argTypes={{
+      type: { table: { disable: true } },
+      title: { table: { disable: true } },
+    }}
+    parameters={{
+      design: {
+        type: "figma",
+        url:
+          "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
+      },
+    }}
+  >
+    {args => (
+      <List title="Details" type={ListTypes.Definition}>
+        <dt>Authors</dt>
+        <dd>
+          <a href="#">Chirwa, Ephraim Wadonda, author</a>
+          <br />
+          <a href="#">Dorward, Andrew, author</a>
+        </dd>
+        <dt>Subjects</dt>
+        <dd>
+          <a href="#">Ackerbau</a>
+          <br />
+          <a href="#">Ackerbau.</a>
+          <br />
+          <a href="#">Africa.</a>
+          <br />
+          <a href="#">Afrika.</a>
+          <br />
+          <a href="#">Agrarsubvention</a>
+          <br />
+          <a href="#">Agrarsubvention.</a>
+          <br />
+          <a href="#">Agricultura -- Subvencions -- Malawi.</a>
+          <br />
+          <a href="#">Agricultural economics New.</a>
+          <br />
+          <a href="#">Agricultural subsidies</a>
+          <br />
+          <a href="#">Agricultural subsidies -- Developing countries.</a>
+          <br />
+          <a href="#">Agricultural subsidies -- Malawi.</a>
+          <br />
+          <a href="#">Agricultural subsidies.</a>
+          <br />
+          <a href="#">BUSINESS &amp; ECONOMICS -- Industries</a>
+          <br />
+        </dd>
+      </List>
+    )}
+  </Story>
+</Preview>
