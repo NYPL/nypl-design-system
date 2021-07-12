@@ -7,6 +7,7 @@ export { ButtonTypes } from "./components/Button/ButtonTypes";
 export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as Heading } from "./components/Heading/Heading";
+export { HeadingDisplaySizes } from "./components/Heading/HeadingDisplaySizes";
 export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";
 export { default as Hero } from "./components/Hero/Hero";
 export { HeroTypes } from "./components/Hero/HeroTypes";

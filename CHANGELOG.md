@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates stories for `List` component to use MDX format.
+- Changes `DisplaySizes` to `HeadingDisplaySizes`
 
 ## 0.23.1
 
