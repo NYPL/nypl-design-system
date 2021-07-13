@@ -1,20 +1,14 @@
 import * as React from "react";
-import { boolean, select } from "@storybook/addon-knobs";
 
 import Card from "../Card/Card";
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import { IconNames } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import List from "./List";
 import { ListTypes } from "./ListTypes";
-
-export default {
-  title: "List",
-  component: List,
-};
 
 const itemGroups = [
   "Art",
@@ -60,9 +54,9 @@ const definitions = [
   },
 ];
 
-const ListTemplate = ({ type, ...args }) => (
-  <List type={type} {...args}>
-    {type !== ListTypes.Definition
+export const listRenderer = args => (
+  <List {...args}>
+    {args.type !== ListTypes.Definition
       ? itemGroups.map((item, i) => <li key={i}>{item}</li>)
       : definitions.map((item, i) => [
           <dt key={`dt_${i}`}>{item.term}</dt>,
@@ -70,52 +64,6 @@ const ListTemplate = ({ type, ...args }) => (
         ])}
   </List>
 );
-
-export const list = ListTemplate.bind({});
-
-list.args = {
-  type: ListTypes.Unordered,
-  itemGroups: itemGroups,
-  definitions: definitions,
-};
-
-list.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
-  },
-};
-
-const DefinitionListTemplate = ({ items, ...args }) => (
-  <List type={ListTypes.Definition} {...args}>
-    {items.map((item, i) => [
-      <dt key={`dt_${i}`}>{...item.term}</dt>,
-      <dd key={`dd_${i}`}>{...item.definition}</dd>,
-    ])}
-  </List>
-);
-
-export const definitionList = DefinitionListTemplate.bind({});
-definitionList.args = {
-  items: definitions,
-  title: "Middle-Earth Peoples",
-};
-
-definitionList.argTypes = {
-  type: {
-    table: { disable: true },
-  },
-};
-
-definitionList.storyName = "Definition List";
-definitionList.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
-  },
-};
 
 const exampleCard = (
   <Card
@@ -146,7 +94,6 @@ const exampleCard = (
           name={IconNames.headset}
           decorative={true}
           modifiers={["left", "small"]}
-          iconRotation={IconRotationTypes.rotate0}
         ></Icon>
         Audiobook
       </div>
@@ -159,69 +106,7 @@ const exampleCard = (
   </Card>
 );
 
-const cards = [];
-
+export const cardsList = [];
 for (let i = 0; i < 3; i++) {
-  cards.push(<li key={i}>{exampleCard}</li>);
+  cardsList.push(<li key={i}>{exampleCard}</li>);
 }
-
-export const cardList = () => (
-  <>
-    <List
-      type={select("List Type", ListTypes, ListTypes.Unordered)}
-      modifiers={boolean("List Styling", false) ? null : ["no-list-styling"]}
-    >
-      {cards}
-    </List>
-  </>
-);
-/* eslint-disable jsx-a11y/anchor-is-valid */
-export const listOfLinks = () => (
-  <List title="Details" type={ListTypes.Definition}>
-    <dt>Authors</dt>
-    <dd>
-      <a href="#">Chirwa, Ephraim Wadonda, author</a>
-      <br />
-      <a href="#">Dorward, Andrew, author</a>
-    </dd>
-    <dt>Subjects</dt>
-    <dd>
-      <a href="#">Ackerbau</a>
-      <br />
-      <a href="#">Ackerbau.</a>
-      <br />
-      <a href="#">Africa.</a>
-      <br />
-      <a href="#">Afrika.</a>
-      <br />
-      <a href="#">Agrarsubvention</a>
-      <br />
-      <a href="#">Agrarsubvention.</a>
-      <br />
-      <a href="#">Agricultura -- Subvencions -- Malawi.</a>
-      <br />
-      <a href="#">Agricultural economics New.</a>
-      <br />
-      <a href="#">Agricultural subsidies</a>
-      <br />
-      <a href="#">Agricultural subsidies -- Developing countries.</a>
-      <br />
-      <a href="#">Agricultural subsidies -- Malawi.</a>
-      <br />
-      <a href="#">Agricultural subsidies.</a>
-      <br />
-      <a href="#">BUSINESS &amp; ECONOMICS -- Industries</a>
-      <br />
-    </dd>
-  </List>
-);
-/* eslint-enable jsx-a11y/anchor-is-valid */
-
-listOfLinks.storyName = "Definition List of Links";
-listOfLinks.parameters = {
-  docs: {
-    source: {
-      type: "dynamic",
-    },
-  },
-};
