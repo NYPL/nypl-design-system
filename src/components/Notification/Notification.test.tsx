@@ -132,7 +132,7 @@ describe("Notification: check for validation", () => {
     );
   });
   it("Shows error when two NotificationContent children are passed to Notification", () => {
-    expect(container.find("div.content").text()).to.equal(
+    expect(container.find("div.content__container").text()).to.equal(
       "Error: Only one NotificationContent child component may be passed to Notification."
     );
   });
