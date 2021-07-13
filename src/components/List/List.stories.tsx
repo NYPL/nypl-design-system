@@ -3,7 +3,7 @@ import * as React from "react";
 import Card from "../Card/Card";
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import { IconNames } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
@@ -94,7 +94,6 @@ const exampleCard = (
           name={IconNames.headset}
           decorative={true}
           modifiers={["left", "small"]}
-          iconRotation={IconRotationTypes.rotate0}
         ></Icon>
         Audiobook
       </div>
