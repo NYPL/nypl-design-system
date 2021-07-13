@@ -33,7 +33,7 @@ export interface ListProps {
 }
 
 /** A component that renders list item `li` elements or definition item `dt`
- * and `dd` elements based on the `listType` prop. */
+ * and `dd` elements based on the `type` prop. */
 export default function List(props: React.PropsWithChildren<ListProps>) {
   const {
     blockName,
@@ -46,47 +46,74 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
     listItems,
   } = props;
 
+  // Either li/dt/dd children elements must be passed or the `listItems`
+  // prop must be used.
+  if (children && (listItems || listItems?.length > 0)) {
+    throw new Error(
+      "Pass in either `<li>` children or use the `listItems` data prop, don't use both."
+    );
+  }
+
   const baseClass = "list";
   let listTag;
   let errorText = "";
-  let childrenToRender;
+  /**
+   * This returns either the `children` elements passed to the `List` component
+   * first, and if that is not passed, it will check and render the data passed
+   * into `listItems` based on the `ListType` type of list. If it is of type
+   * Unordered or Ordered, it will return `li` elements. Otherwise, it will
+   * return a combination of `dt` and `dd` elements for the Definition type.
+   */
+  const listChildrenElms = listType => {
+    if (children) {
+      return children;
+    }
+    if (!listItems || listItems?.length === 0) {
+      throw new Error(
+        "Either `<li>` children or the `listItems` prop must be used."
+      );
+    }
+    if (listType === ListTypes.Ordered || listType === ListTypes.Unordered) {
+      return listItems.map((item, i) => <li key={i}>{item}</li>);
+    } else if (listType === ListTypes.Definition) {
+      return (listItems as DefinitionProps[]).map((item, i) => [
+        <dt key={`${i}-term`}>{item.term}</dt>,
+        <dd key={`${i}-def`}>{item.definition}</dd>,
+      ]);
+    }
+  };
+  /**
+   * Checks for `li` element type and throws an error if it is a different type.
+   */
+  const checkLiChildrenError = listType => {
+    errorText = `Direct children of \`List\` (${listType}) should be \`<li>\`s`;
+    React.Children.map(children, function (child: React.ReactElement) {
+      if (child.type !== "li" && child.props.mdxType !== "li") {
+        throw new Error(errorText);
+      }
+    });
+  };
 
   switch (type) {
     case ListTypes.Ordered:
-      errorText = "Direct children of `List` (ordered) should be `<li>`s";
-      React.Children.map(children, function (child: React.ReactElement) {
-        if (child.type !== "li" && child.props.mdxType !== "li") {
-          throw new Error(errorText);
-        }
-      });
-      if (!children) {
-        childrenToRender = listItems.map((item, i) => <li key={i}>{item}</li>);
-      }
+      checkLiChildrenError("ordered");
       listTag = (
         <ol
           id={id}
           className={bem(baseClass, modifiers, blockName, [className])}
         >
-          {childrenToRender || children}
+          {listChildrenElms(type)}
         </ol>
       );
       break;
     case ListTypes.Unordered:
-      errorText = "Direct children of `List` (unordered) should be `<li>`s";
-      React.Children.map(children, function (child: React.ReactElement) {
-        if (child.type !== "li" && child.props.mdxType !== "li") {
-          throw new Error(errorText);
-        }
-      });
-      if (!children) {
-        childrenToRender = listItems.map((item, i) => <li key={i}>{item}</li>);
-      }
+      checkLiChildrenError("unordered");
       listTag = (
         <ul
           id={id}
           className={bem(baseClass, modifiers, blockName, [className])}
         >
-          {childrenToRender || children}
+          {listChildrenElms(type)}
         </ul>
       );
       break;
@@ -105,12 +132,6 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           throw new Error(errorText);
         }
       });
-      if (!children) {
-        childrenToRender = (listItems as DefinitionProps[]).map((item, i) => [
-          <dt key={`${i}-term`}>{item.term}</dt>,
-          <dd key={`${i}-def`}>{item.definition}</dd>,
-        ]);
-      }
       listTag = (
         <section
           id={id}
@@ -121,7 +142,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
               {title}
             </Heading>
           )}
-          <dl>{childrenToRender || children}</dl>
+          <dl>{listChildrenElms(type)}</dl>
         </section>
       );
       break;
