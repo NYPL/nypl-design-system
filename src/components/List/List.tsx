@@ -3,19 +3,33 @@ import bem from "../../utils/bem";
 import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
 
+interface DefinitionProps {
+  term: string;
+  definition: string;
+}
 export interface ListProps {
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+  /** BlockName for use with BEM. See how to work with blockNames and
+   * BEM here: http://getbem.com/introduction/ */
   blockName?: string;
   /** ClassName you can add in addition to 'list' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+  /** Modifiers array for use with BEM. See how to work with modifiers and
+   * BEM here: http://getbem.com/introduction/ */
   modifiers?: any[];
-  /** An optional title that will appear over the list (only applies to Definition Lists) */
+  /** An optional title that will appear over the list. This prop only applies
+   * to Definition Lists. */
   title?: string;
   /** Ordered, Unordered, or Definition */
   type: ListTypes;
+  /** Data to render if children are not passed. For `ListTypes.Ordered` and
+   * `ListTypes.Unordered` `List` types, the data structure is an array of
+   * strings to renders as `li` items. For `ListTypes.Definition` `List` types,
+   * the data structure is an array of objects with `term` and `definition`
+   * properties to render `dt` and `dd` elements, respectively.
+   */
+  listItems?: (string | DefinitionProps)[];
 }
 
 /** A component that renders list item `li` elements or definition item `dt`
@@ -29,12 +43,13 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
     modifiers = [],
     type,
     title,
+    listItems,
   } = props;
 
   const baseClass = "list";
-
   let listTag;
   let errorText = "";
+  let childrenToRender;
 
   switch (type) {
     case ListTypes.Ordered:
@@ -44,12 +59,15 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           throw new Error(errorText);
         }
       });
+      if (!children) {
+        childrenToRender = listItems.map((item, i) => <li key={i}>{item}</li>);
+      }
       listTag = (
         <ol
           id={id}
           className={bem(baseClass, modifiers, blockName, [className])}
         >
-          {children}
+          {childrenToRender || children}
         </ol>
       );
       break;
@@ -60,12 +78,15 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           throw new Error(errorText);
         }
       });
+      if (!children) {
+        childrenToRender = listItems.map((item, i) => <li key={i}>{item}</li>);
+      }
       listTag = (
         <ul
           id={id}
           className={bem(baseClass, modifiers, blockName, [className])}
         >
-          {children}
+          {childrenToRender || children}
         </ul>
       );
       break;
@@ -84,6 +105,12 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           throw new Error(errorText);
         }
       });
+      if (!children) {
+        childrenToRender = (listItems as DefinitionProps[]).map((item, i) => [
+          <dt key={`${i}-term`}>{item.term}</dt>,
+          <dd key={`${i}-def`}>{item.definition}</dd>,
+        ]);
+      }
       listTag = (
         <section
           id={id}
@@ -94,7 +121,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
               {title}
             </Heading>
           )}
-          <dl>{children}</dl>
+          <dl>{childrenToRender || children}</dl>
         </section>
       );
       break;
