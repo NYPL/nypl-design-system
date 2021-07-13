@@ -8,12 +8,19 @@
 
   &__container {
     margin: auto;
-    max-width: 1280px;
+    max-width: var(--breakpoint-large);
+    width: 100%;
   }
 
   .content {
-    display: flex;
-    justify-content: center;
+    &__container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .notification-content {
+    width: 100%;
   }
 
   &--centered {

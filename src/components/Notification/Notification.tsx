@@ -177,7 +177,7 @@ export default function Notification(
           </header>
         ) : null}
         {contentCount ? (
-          <div className="content">
+          <div className="content__container">
             {!headingCount ? iconElement() : null}
             {childContent}
           </div>
