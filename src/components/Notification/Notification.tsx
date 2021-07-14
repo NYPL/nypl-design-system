@@ -89,7 +89,6 @@ export default function Notification(
   const iconElement = () => {
     if (icon) return icon;
     switch (notificationType) {
-      // just using placeholders until the necessary icons are added
       case "announcement":
         return (
           <Icon
