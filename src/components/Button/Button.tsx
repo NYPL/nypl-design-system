@@ -1,6 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import { ButtonTypes } from "./ButtonTypes";
+import Icon from "../Icons/Icon";
 
 interface ButtonProps {
   /** Additional attributes passed to the button */
@@ -60,6 +61,26 @@ export default class Button extends React.Component<ButtonProps, any> {
     const btnCallback = mouseDown
       ? { onMouseDown: onClick }
       : { onClick: onClick };
+
+    console.log(`BUTTON`);
+    let childCount = 0;
+    let hasIcon = false;
+
+    React.Children.map(children, (child: React.ReactElement) => {
+      childCount++;
+      if (child !== undefined && child !== null) {
+        if (
+          child.type === Icon ||
+          (child.props && child.props.mdxType === "Icon")
+        ) {
+          hasIcon = true;
+        }
+      }
+    });
+
+    if (childCount === 1 && hasIcon) {
+      buttonModifiers.push("icon-only");
+    }
 
     return (
       <button
