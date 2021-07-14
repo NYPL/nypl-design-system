@@ -8,7 +8,8 @@ import {
 import Accordion from "./Accordion";
 import { withDesign } from "storybook-addon-designs";
 import * as stories from "./Accordion.stories.tsx";
-import { list as ListStory } from "../List/List.stories.tsx";
+import { listRenderer as ListStory } from "../List/List.stories.tsx";
+import { ListTypes } from "../List/ListTypes";
 import { Source } from "@storybook/addon-docs/blocks";
 import dedent from "ts-dedent";
 import ReactDOMServer from "react-dom/server";
@@ -44,7 +45,7 @@ sure that each `inputId` is unique.
     name="Basic"
     args={{
       accordionLabel: "Click to expand",
-      children: <ListStory {...ListStory.args} />,
+      children: <ListStory type={ListTypes.Unordered} />,
       inputId: "accordionBtn",
     }}
   >

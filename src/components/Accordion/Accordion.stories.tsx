@@ -5,7 +5,7 @@ import Accordion from "./Accordion";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import Link from "../Link/Link";
-import { list as ListStory } from "../List/List.stories";
+import { listRenderer as ListStory } from "../List/List.stories";
 
 // Set up the reusable template to create a list of Accordion components.
 const AccordionListTemplate = ({ count, children, ...args }) => (
@@ -56,7 +56,7 @@ export const AccordionScroll = _props => (
         modifiers={["fixed-height"]}
         defaultOpen={true}
       >
-        <ListStory {...ListStory.args}></ListStory>
+        <ListStory type={ListTypes.Unordered} />
       </Accordion>
     </div>
     <div>Example content underneath</div>

@@ -12,12 +12,14 @@ export interface ListProps {
   id?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: any[];
-  /** Ordered, Unordered, or Definition */
-  type: ListTypes;
   /** An optional title that will appear over the list (only applies to Definition Lists) */
   title?: string;
+  /** Ordered, Unordered, or Definition */
+  type: ListTypes;
 }
 
+/** A component that renders list item `li` elements or definition item `dt`
+ * and `dd` elements based on the `listType` prop. */
 export default function List(props: React.PropsWithChildren<ListProps>) {
   const {
     blockName,
@@ -38,7 +40,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
     case ListTypes.Ordered:
       errorText = "Direct children of `List` (ordered) should be `<li>`s";
       React.Children.map(children, function (child: React.ReactElement) {
-        if (child.type !== "li") {
+        if (child.type !== "li" && child.props.mdxType !== "li") {
           throw new Error(errorText);
         }
       });
@@ -54,7 +56,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
     case ListTypes.Unordered:
       errorText = "Direct children of `List` (unordered) should be `<li>`s";
       React.Children.map(children, function (child: React.ReactElement) {
-        if (child.type !== "li") {
+        if (child.type !== "li" && child.props.mdxType !== "li") {
           throw new Error(errorText);
         }
       });
@@ -74,7 +76,10 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
         if (
           child.type !== "dt" &&
           child.type !== "dd" &&
-          child.type !== React.Fragment
+          child.type !== React.Fragment &&
+          child.props.mdxType !== "dt" &&
+          child.props.mdxType !== "dd" &&
+          child.props.mdxType !== React.Fragment
         ) {
           throw new Error(errorText);
         }

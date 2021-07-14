@@ -10,6 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
+import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
 import List from "../List/List";
 
 <Meta
@@ -49,9 +50,9 @@ Use the NYPL Design System [Heading](https://nypl.github.io/nypl-design-system/s
 
 Each heading level has a default style and size, but those styles can be overridden using the `displaySize` prop. The display sizes are separate from semantic elements and may be used to override the default size and styling of the semantic HTML heading elements. For example, the `h1` element has the `Primary` style applied by default, but a new style can be applied through the `displaySize` prop. Any `displaySize` style can be applied to any `Heading` element.
 
-> <p className="heading--primary" style={{ color: "black" }}>
->   Primary
-> </p>
+<Heading level={1} displaySize={HeadingDisplaySizes.Primary}>
+  Primary Heading
+</Heading>
 
 | CSS Attribute | Value     | CSS Variable          |
 | ------------- | --------- | --------------------- |
@@ -59,9 +60,9 @@ Each heading level has a default style and size, but those styles can be overrid
 | `font-weight` | `300`     | `--font-weight-light` |
 | `line-height` | `1.1`     | n/a                   |
 
-> <p className="heading--secondary" style={{ color: "black" }}>
->   Secondary
-> </p>
+<Heading level={1} displaySize={HeadingDisplaySizes.Secondary}>
+  Secondary Heading
+</Heading>
 
 | CSS Attribute | Value     | CSS Variable           |
 | ------------- | --------- | ---------------------- |
@@ -69,9 +70,9 @@ Each heading level has a default style and size, but those styles can be overrid
 | `font-weight` | `500`     | `--font-weight-medium` |
 | `line-height` | `1.25`    | n/a                    |
 
-> <p className="heading--tertiary" style={{ color: "black" }}>
->   Tertiary
-> </p>
+<Heading level={1} displaySize={HeadingDisplaySizes.Tertiary}>
+  Tertiary Heading
+</Heading>
 
 | CSS Attribute | Value      | CSS Variable           |
 | ------------- | ---------- | ---------------------- |
@@ -79,9 +80,9 @@ Each heading level has a default style and size, but those styles can be overrid
 | `font-weight` | `500`      | `--font-weight-medium` |
 | `line-height` | `1.25`     | n/a                    |
 
-> <p className="heading--callout" style={{ color: "black" }}>
->   Callout
-> </p>
+<Heading level={1} displaySize={HeadingDisplaySizes.Callout}>
+  Callout Heading
+</Heading>
 
 | CSS Attribute | Value     | CSS Variable            |
 | ------------- | --------- | ----------------------- |

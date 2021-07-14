@@ -10,6 +10,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `Notification` component
+
+### Changes
+
+- Updates stories for `List` component to use MDX format.
+- Changes `DisplaySizes` to `HeadingDisplaySizes`
+
+## 0.23.1
+
+### Adds
+
 - Adds CSS vars for `font-weight`
 - Adds `displaySize` prop to `Heading`
 - Adds Style Guide `Iconography`
@@ -18,7 +29,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `helperText` and `errorText` props to `Checkbox`
 - Adds `helperText` and `errorText` props to `Radio`
 - Adds `errorText`, `helperText`, `labelText`, `required` and `showLabel` props to `Select`
-- Adds `Notification` component
 
 ### Changes
 
