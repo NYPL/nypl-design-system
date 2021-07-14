@@ -62,7 +62,6 @@ export default class Button extends React.Component<ButtonProps, any> {
       ? { onMouseDown: onClick }
       : { onClick: onClick };
 
-    console.log(`BUTTON`);
     let childCount = 0;
     let hasIcon = false;
 
