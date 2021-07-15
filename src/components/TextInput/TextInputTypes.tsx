@@ -6,7 +6,7 @@ export enum TextInputTypes {
   number = "number",
   password = "password",
   text = "text",
-  // textarea = "textarea",
+  textarea = "textarea",
   tel = "tel",
   url = "url",
 }
@@ -22,6 +22,7 @@ export enum TextInputFormats {
   textarea = "",
   url = "https://domain.com",
 }
+
 /*
 export enum TextInputPatterns {
   // eslint-disable-next-line prettier/prettier

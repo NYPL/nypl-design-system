@@ -10,12 +10,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds `Notification` component
+- Adds `Notification` component.
+- Adds the ability to render a `textarea` element from the `TextInput` component.
 
 ### Changes
 
 - Updates stories for `List` component to use MDX format.
-- Changes `DisplaySizes` to `HeadingDisplaySizes`
+- Changes `DisplaySizes` to `HeadingDisplaySizes`.
 
 ## 0.23.1
 

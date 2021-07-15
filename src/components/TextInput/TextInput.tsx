@@ -42,9 +42,19 @@ export interface InputProps {
   ) => void;
 }
 
-const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
-  (props, ref?) => {
+/** The type used for `ref`s. We want to extend both `input` and `textarea`
+ * since both are available to create through `TextInput`.
+ */
+export type TextInputRefType = HTMLInputElement & HTMLTextAreaElement;
+
+/** Renders either an `input` element with a specified type or a `textarea`
+ * element. All types will render an accessible Label component and an optional
+ * HelperErrorText component.
+ */
+const TextInput = React.forwardRef<TextInputRefType, InputProps>(
+  (props, ref: React.Ref<TextInputRefType>) => {
     const {
+      attributes = {},
       type = TextInputTypes.text,
       required,
       labelText,
@@ -57,11 +67,18 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       disabled,
       errored,
       onChange,
+      modifiers = [],
+      id = generateUUID(),
     } = props;
 
-    const attributes = props.attributes || {};
-    const modifiers = props.modifiers ? props.modifiers : [];
-    const id = props.id || generateUUID();
+    const isTextArea = type === TextInputTypes.textarea;
+    const isHidden = type === TextInputTypes.hidden;
+    const optReqFlag = required ? "Required" : "Optional";
+    const errorOutput = errorText
+      ? errorText
+      : "There is an error related to this field.";
+    let footnote;
+    let options;
 
     if (!showLabel) attributes["aria-label"] = labelText;
     if (helperText) attributes["aria-describedby"] = helperText;
@@ -69,16 +86,10 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
     if (errored) {
       modifiers.push("error");
     }
-    // WILL COME BACK TO OFFERING TEXTAREA AS AN OPTION
-    // if (type === TextInputTypes.textarea) {
-    //   modifiers.push("textarea");
-    // }
+    if (isTextArea) {
+      modifiers.push("textarea");
+    }
 
-    const errorOutput = errorText
-      ? errorText
-      : "There is an error related to this field.";
-
-    let footnote;
     if (errored) {
       footnote = errorOutput;
     } else {
@@ -100,53 +111,39 @@ const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
       );
     }
 
-    const textField = (
-      <input
-        id={id}
-        className={bem("inputfield", modifiers, "", [className])}
-        type={type}
-        value={value}
-        aria-required={required}
-        aria-hidden={type === TextInputTypes.hidden}
-        disabled={disabled}
-        required={required}
-        placeholder={placeholder}
-        onChange={onChange}
-        ref={ref}
-        {...attributes}
-      />
-    );
-    // const textareaField = (
-    //   <textarea
-    //     id={id}
-    //     className={bem("inputfield", modifiers, "", [className])}
-    //     aria-required={required}
-    //     aria-hidden={type === TextInputTypes.hidden}
-    //     disabled={disabled}
-    //     required={required}
-    //     placeholder={placeholder}
-    //     onChange={onChange}
-    //     // ref={ref}
-    //     {...attributes}
-    //   >
-    //     {value}
-    //   </textarea>
-    // );
-    // WILL COME BACK TO OFFERING TEXTAREA AS AN OPTION
-    // const fieldOutput =
-    //   type === TextInputTypes.textarea ? textareaField : textField;
-    const fieldOutput = textField;
+    options = {
+      id,
+      className: bem("inputfield", modifiers, "", [className]),
+      "aria-required": required,
+      "aria-hidden": isHidden,
+      disabled,
+      required,
+      placeholder,
+      onChange,
+      ref,
+      ...attributes,
+    };
+    // For `input` and `textarea`, all attributes are the same but `input`
+    // also needs `type` and `value` to render correctly.
+    if (!isTextArea) {
+      options = { type, value, ...options } as any;
+    }
 
-    const optReqFlag = required ? "Required" : "Optional";
+    const fieldOutput = React.createElement(
+      isTextArea ? "textarea" : "input",
+      options,
+      isTextArea ? value : null
+    );
+
     const transformedInput = (
       <div className="textinput">
-        {labelText && showLabel && type !== TextInputTypes.hidden && (
+        {labelText && showLabel && !isHidden && (
           <Label htmlFor={id} optReqFlag={optReqFlag} id={id + `-label`}>
             {labelText}
           </Label>
         )}
         {fieldOutput}
-        {((helperText && type !== TextInputTypes.hidden) || errored) && (
+        {((helperText && !isHidden) || errored) && (
           <HelperErrorText isError={errored} id={id + `-helperText`}>
             {footnote}
           </HelperErrorText>
