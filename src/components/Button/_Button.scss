@@ -5,6 +5,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+  padding: var(--space-xs) var(--space-s);
   text-decoration: none;
 
   .icon {
@@ -92,6 +93,7 @@
   @include button--outline;
 
   border-radius: 20px;
+  padding: var(--space-xs) var(--space-m);
 }
 
 .button {
@@ -107,5 +109,9 @@
 
   &--pill {
     @include button--pill;
+  }
+
+  &--icon-only {
+    padding: var(--space-xs);
   }
 }

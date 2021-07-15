@@ -4,6 +4,8 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import Button from "./Button";
+import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
 
 describe("Button", () => {
   let wrapper: Enzyme.ShallowWrapper<any, any>;
@@ -71,6 +73,23 @@ describe("Button", () => {
         </Button>
       );
       expect(wrapper.find("button").prop("type")).to.equal("button");
+    });
+  });
+
+  describe("padding for icon only button", () => {
+    it("button has proper padding for icon only button", () => {
+      const wrapper = Enzyme.mount(
+        <Button id="button" onClick={onClick} type="button">
+          <Icon
+            name={IconNames.check}
+            decorative={true}
+            modifiers={["small", "icon-left"]}
+          />
+        </Button>
+      );
+      expect(wrapper.find("button").hasClass("button--icon-only")).to.equal(
+        true
+      );
     });
   });
 });
