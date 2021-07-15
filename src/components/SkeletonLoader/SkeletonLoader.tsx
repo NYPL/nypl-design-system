@@ -4,6 +4,8 @@ import bem from "../../utils/bem";
 export interface SkeletonLoaderProps {
   /** Additional attributes passed to the horizontal rule */
   attributes?: { [key: string]: any };
+  /** Optional boolean value to control visibility of border around skeleton loader */
+  border?: boolean;
   /** ClassName you can add in addition to `skeleton-loader` */
   className?: string;
   /** Optional numeric value to control the number of lines for content placeholder; default value is `3` */
@@ -31,6 +33,7 @@ export default function SkeletonLoader(
 ) {
   const {
     attributes = {},
+    border,
     className,
     contentSize = 3,
     headingSize = 1,
@@ -51,6 +54,9 @@ export default function SkeletonLoader(
 
   imageModifiers.push(imageAspectRatio);
   modifiers.push(layout);
+  {
+    border && modifiers.push("border");
+  }
 
   const headingItems = [];
   for (let i = 0; i < headingSize; i++) {

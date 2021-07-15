@@ -24,7 +24,11 @@ import { action } from "@storybook/addon-actions";
   }}
   argTypes={{
     attributes: { table: { disable: true } },
+    className: { table: { disable: true } },
     modifiers: { table: { disable: true } },
+    layout: {
+      table: { defaultValue: { summary: "vertical" } },
+    },
     showImage: {
       table: { defaultValue: { summary: "true" } },
     },
@@ -34,6 +38,15 @@ import { action } from "@storybook/addon-actions";
     showContent: {
       table: { defaultValue: { summary: "true" } },
     },
+    headingSize: {
+      table: { defaultValue: { summary: "1" } },
+    },
+    contentSize: {
+      table: { defaultValue: { summary: "3" } },
+    },
+    imageAspectRatio: {
+      table: { defaultValue: { summary: "square" } },
+    },
   }}
 />
 
@@ -41,7 +54,7 @@ import { action } from "@storybook/addon-actions";
 
 <Description of={SkeletonLoader} />
 
-The `SkeletonLoader` component renders a basic `<hr>` element. The `height`, `width` and `alignment` can be customized.
+The `SkeletonLoader` component renders a placeholder to be used while dynamic content is loading. The `height`, `width` and `alignment` can be customized.
 
 <Preview withToolbar>
   <Story name="SkeletonLoader">{args => <SkeletonLoader {...args} />}</Story>

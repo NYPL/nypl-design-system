@@ -77,11 +77,16 @@
   .skeleton-loader-content {
     @include skeleton-highlight;
 
-    height: 16px;
+    height: 20px;
 
     &:last-child {
       width: 30%;
     }
+  }
+
+  &--border {
+    border: 1px solid var(--ui-gray-light);
+    padding: var(--space-s);
   }
 
   &--horizontal {
