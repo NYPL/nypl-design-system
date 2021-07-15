@@ -38,6 +38,9 @@ import { action } from "@storybook/addon-actions";
     showContent: {
       table: { defaultValue: { summary: "true" } },
     },
+    showButton: {
+      table: { defaultValue: { summary: "false" } },
+    },
     headingSize: {
       table: { defaultValue: { summary: "1" } },
     },
@@ -57,7 +60,7 @@ import { action } from "@storybook/addon-actions";
 The `SkeletonLoader` component renders a placeholder to be used while dynamic content is loading. The `height`, `width` and `alignment` can be customized.
 
 <Preview withToolbar>
-  <Story name="SkeletonLoader">{args => <SkeletonLoader {...args} />}</Story>
+  <Story name="Skeleton Loader">{args => <SkeletonLoader {...args} />}</Story>
 </Preview>
 
-<ArgsTable story="SkeletonLoader" />
+<ArgsTable story="Skeleton Loader" />

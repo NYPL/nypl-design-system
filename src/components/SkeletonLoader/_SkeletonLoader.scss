@@ -84,6 +84,16 @@
     }
   }
 
+  .skeleton-loader-button {
+    @include skeleton-highlight;
+
+    border-radius: 16px;
+    height: 32px;
+    margin: auto;
+    max-width: 160px;
+    width: 100%;
+  }
+
   &--border {
     border: 1px solid var(--ui-gray-light);
     padding: var(--space-s);
@@ -119,6 +129,10 @@
       &--landscape {
         height: 110px;
       }
+    }
+
+    .skeleton-loader-button {
+      margin: 0;
     }
   }
 }

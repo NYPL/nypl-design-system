@@ -18,6 +18,8 @@ export interface SkeletonLoaderProps {
   layout?: "horizontal" | "vertical";
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
+  /** Optional boolean value to control visibility of button placeholder */
+  showButton?: boolean;
   /** Optional boolean value to control visibility of content placeholder */
   showContent?: boolean;
   /** Optional boolean value to control visibility of image placeholder */
@@ -39,6 +41,7 @@ export default function SkeletonLoader(
     headingSize = 1,
     imageAspectRatio = "square",
     layout = "vertical",
+    showButton = false,
     showContent = true,
     showImage = true,
     showHeading = true,
@@ -99,6 +102,15 @@ export default function SkeletonLoader(
       <div style={{ width: "100%" }}>
         {showHeading && <div className="skeleton-section">{headingItems}</div>}
         {showContent && <div className="skeleton-section">{contentItems}</div>}
+        {showButton && (
+          <div className="skeleton-section">
+            <div
+              className={bem("skeleton-loader-button", imageModifiers, "", [
+                "skeleton-element",
+              ])}
+            ></div>
+          </div>
+        )}
       </div>
     </div>
   );
