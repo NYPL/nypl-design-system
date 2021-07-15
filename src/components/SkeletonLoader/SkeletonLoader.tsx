@@ -1,5 +1,9 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+import {
+  SkeletonLoaderImageRatios,
+  SkeletonLoaderLayouts,
+} from "./SkeletonLoaderTypes";
 
 export interface SkeletonLoaderProps {
   /** Additional attributes passed to the horizontal rule */
@@ -13,9 +17,9 @@ export interface SkeletonLoaderProps {
   /** Optional numeric value to control the number of lines for heading placeholder; default value is `1` */
   headingSize?: number;
   /** Optional value to control the aspect ratio of the image placeholder; default value is `square` */
-  imageAspectRatio?: "square" | "portrait" | "landscape";
+  imageAspectRatio?: SkeletonLoaderImageRatios;
   /** Optional value to control the position of the image placeholder; default value is `vertical` */
-  layout?: "horizontal" | "vertical";
+  layout?: SkeletonLoaderLayouts;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
   /** Optional boolean value to control visibility of button placeholder */
@@ -39,8 +43,8 @@ export default function SkeletonLoader(
     className,
     contentSize = 3,
     headingSize = 1,
-    imageAspectRatio = "square",
-    layout = "vertical",
+    imageAspectRatio = SkeletonLoaderImageRatios.Square,
+    layout = SkeletonLoaderLayouts.Vertical,
     showButton = false,
     showContent = true,
     showImage = true,
@@ -63,7 +67,6 @@ export default function SkeletonLoader(
 
   const headingItems = [];
   for (let i = 0; i < headingSize; i++) {
-    console.log("headingItems");
     headingItems.push(
       <div
         className={bem("skeleton-loader-heading", imageModifiers, "", [
@@ -75,7 +78,6 @@ export default function SkeletonLoader(
 
   const contentItems = [];
   for (let i = 0; i < contentSize; i++) {
-    console.log("contentItems");
     contentItems.push(
       <div
         className={bem("skeleton-loader-content", imageModifiers, "", [
