@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `Notification` component
+
 ### Changes
 
 - Updates stories for `List` component to use MDX format.
