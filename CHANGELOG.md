@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates stories for `List` component to use MDX format.
 - Changes `DisplaySizes` to `HeadingDisplaySizes`
+- Changes `Button` to use `16px` for left/right padding for buttons with text; icon only buttons still use `8px` left/right padding
 
 ## 0.23.1
 
