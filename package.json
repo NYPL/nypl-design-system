@@ -22,7 +22,7 @@
     "pretty-quick": "pretty-quick",
     "prepare": "npm run dist",
     "build-ts": "rimraf lib && tsc",
-    "generate-sass-resources": "./node_modules/.bin/gulp",
+    "generate-sass-resources": "gulp",
     "dist": "rimraf dist && webpack --mode production --progress --display-modules --config webpack.config.js && npm run generate-sass-resources",
     "stylelint": "stylelint \"**/*.scss\"",
     "lintts:fix": "eslint --fix --ext=jsx,ts,tsx src",
