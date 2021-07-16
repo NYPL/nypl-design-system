@@ -42,13 +42,17 @@ import { Button, ButtonTypes } from "@nypl/design-system-react-components";
 <Button buttonType={ButtonTypes.Primary}>Button Text</Button>;
 ```
 
-<Preview>
-  <Story name="Basic Button Component">
-    <Button buttonType={ButtonTypes.Primary}>Button Text</Button>
-  </Story>
-</Preview>
+## Style Guide Topics
 
-## Guidelines
+For information about using the `Button` component, please see below.
+
+- [Guidelines](#general-guidelines)
+- [Spacing](#spacing)
+- [Button Types](#button-types)
+- [Patterns](#patterns)
+- [Figma Reference](#figma-reference)
+
+## General Guidelines
 
 - Button text is optional.
 - Button text should be title case.
@@ -62,70 +66,68 @@ import { Button, ButtonTypes } from "@nypl/design-system-react-components";
 Buttons should use `--space-xs` (0.5rem) for spacing in situations where multiple buttons are aligned in horizontal or vertical layouts. Buttons should use `--space-l` (2rem) for all other spacing situations.
 
 <Preview>
-  <Story name="Guidelines">
-    <div
-      style={{
-        display: "flex",
+  <div
+    style={{
+      display: "flex",
+    }}
+  >
+    <Button
+      buttonType={ButtonTypes.Primary}
+      attributes={{
+        style: {
+          marginRight: getCSSVariable("--space-xs"),
+        },
       }}
     >
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
-        Button Text
-      </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
-        <Icon decorative modifiers={["small", "icon-left"]} name="search" />
-        Button Text
-      </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
-        <Icon
-          name={IconNames.close}
-          decorative={true}
-          size={IconSizes.medium}
-          color={IconColors.ui_white}
-        />
-      </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            backgroundColor: getCSSVariable("--section-books-and-more-primary"),
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
-        Button Text
-      </Button>
-      <Button buttonType={ButtonTypes.Secondary}>
-        Back to Top
-        <Icon
-          name={IconNames.arrow}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate180}
-          modifiers={["small", "icon-right"]}
-        />
-      </Button>
-    </div>
-  </Story>
+      Button Text
+    </Button>
+    <Button
+      buttonType={ButtonTypes.Primary}
+      attributes={{
+        style: {
+          marginRight: getCSSVariable("--space-xs"),
+        },
+      }}
+    >
+      <Icon decorative modifiers={["small", "icon-left"]} name="search" />
+      Button Text
+    </Button>
+    <Button
+      buttonType={ButtonTypes.Primary}
+      attributes={{
+        style: {
+          marginRight: getCSSVariable("--space-xs"),
+        },
+      }}
+    >
+      <Icon
+        name={IconNames.close}
+        decorative={true}
+        size={IconSizes.medium}
+        color={IconColors.ui_white}
+      />
+    </Button>
+    <Button
+      buttonType={ButtonTypes.Primary}
+      attributes={{
+        style: {
+          backgroundColor: getCSSVariable("--section-books-and-more-primary"),
+          marginRight: getCSSVariable("--space-xs"),
+        },
+      }}
+    >
+      Button Text
+    </Button>
+    <Button buttonType={ButtonTypes.Secondary}>
+      Back to Top
+      <Icon
+        name={IconNames.arrow}
+        decorative={true}
+        iconRotation={IconRotationTypes.rotate180}
+        modifiers={["small", "icon-right"]}
+      />
+    </Button>
+  </div>
 </Preview>
 
 ## Button Types
@@ -133,19 +135,17 @@ Buttons should use `--space-xs` (0.5rem) for spacing in situations where multipl
 The `buttonType` prop should be used to render various forms of the button component.
 
 <Preview>
-  <Story name="Button Types">
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-      }}
-    >
-      <Button buttonType={ButtonTypes.Primary}>Primary Button</Button>
-      <Button buttonType={ButtonTypes.Secondary}>Secondary Button</Button>
-      <Button buttonType={ButtonTypes.Pill}>Pill Button</Button>
-      <Button buttonType={ButtonTypes.Link}>Link Button</Button>
-    </div>
-  </Story>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-around",
+    }}
+  >
+    <Button buttonType={ButtonTypes.Primary}>Primary Button</Button>
+    <Button buttonType={ButtonTypes.Secondary}>Secondary Button</Button>
+    <Button buttonType={ButtonTypes.Pill}>Pill Button</Button>
+    <Button buttonType={ButtonTypes.Link}>Link Button</Button>
+  </div>
 </Preview>
 
 ### ButtonTypes.Primary
@@ -168,10 +168,37 @@ The `buttonType` prop should be used to render various forms of the button compo
 ### ButtonTypes.Link
 
 - used for equally weighted actions
-- should only be used for buttons that are displayed in a set (i.e. never use for a singleton button)
 - Visual Treatment: text link with underline
 
-## Design System Figma Reference
+## Patterns
+
+Buttons are blue by default but should be red when it is intended as a call out.
+The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include an up arrow icon.
+
+<Canvas>
+  <Button
+    buttonType={ButtonTypes.Primary}
+    attributes={{
+      style: {
+        backgroundColor: getCSSVariable("--section-books-and-more-primary"),
+      },
+    }}
+  >
+    Donate to this library
+  </Button>
+  <br />
+  <Button buttonType={ButtonTypes.Secondary}>
+    Back to Top
+    <Icon
+      name={IconNames.arrow}
+      decorative={true}
+      iconRotation={IconRotationTypes.rotate180}
+      modifiers={["small", "icon-right"]}
+    />
+  </Button>
+</Canvas>
+
+## Figma Reference
 
 For more styling information, please refer to the Figma Main file.
 
