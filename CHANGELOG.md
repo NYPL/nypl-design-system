@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds Style Guide `Buttons`
 - Adds `Notification` component
 
 ### Changes
