@@ -6,8 +6,6 @@ import {
 } from "./SkeletonLoaderTypes";
 
 export interface SkeletonLoaderProps {
-  /** Additional attributes passed to the horizontal rule */
-  attributes?: { [key: string]: any };
   /** Optional boolean value to control visibility of border around skeleton loader */
   border?: boolean;
   /** ClassName you can add in addition to `skeleton-loader` */
@@ -30,7 +28,7 @@ export interface SkeletonLoaderProps {
   showImage?: boolean;
   /** Optional boolean value to control visibility of heading placeholder */
   showHeading?: boolean;
-  /** Optional width value.  This value should be entered with the same formatting as a CSS width attribute (ex. `50%`, `640px`, `20rem`).  If omitted, the horizobntal rule will have a default width of 100%. */
+  /** Optional width value.  This value should be entered with the same formatting as a CSS width attribute (ex. `50%`, `640px`, `20rem`).  If omitted, the skeleton loader will have a default width of 100%. */
   width?: string;
 }
 
@@ -38,7 +36,6 @@ export default function SkeletonLoader(
   props: React.PropsWithChildren<SkeletonLoaderProps>
 ) {
   const {
-    attributes = {},
     border,
     className,
     contentSize = 3,
@@ -53,17 +50,12 @@ export default function SkeletonLoader(
     modifiers = [],
   } = props;
 
-  const imageModifiers = [];
-
-  attributes["style"] = {
-    width: width,
-  };
-
-  imageModifiers.push(imageAspectRatio);
   modifiers.push(layout);
   {
     border && modifiers.push("border");
   }
+
+  const imageModifiers = [imageAspectRatio];
 
   const headingItems = [];
   for (let i = 0; i < headingSize; i++) {
@@ -90,7 +82,7 @@ export default function SkeletonLoader(
   return (
     <div
       className={bem("skeleton-loader", modifiers, "", [className])}
-      {...attributes}
+      style={{ width: width }}
     >
       {showImage && (
         <div className="skeleton-section">
