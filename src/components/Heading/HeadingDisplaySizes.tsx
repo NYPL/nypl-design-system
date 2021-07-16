@@ -1,4 +1,4 @@
-export enum DisplaySizes {
+export enum HeadingDisplaySizes {
   Primary = "primary",
   Secondary = "secondary",
   Tertiary = "tertiary",

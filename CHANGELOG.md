@@ -11,6 +11,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds Style Guide `Buttons`
+- Adds `Notification` component
+
+### Changes
+
+- Updates stories for `List` component to use MDX format.
+- Changes `DisplaySizes` to `HeadingDisplaySizes`
+- Changes `Button` to use `16px` for left/right padding for buttons with text; icon only buttons still use `8px` left/right padding
 
 ## 0.23.1
 
