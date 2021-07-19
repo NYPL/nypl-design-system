@@ -63,6 +63,24 @@ describe("Checkbox", () => {
     expect(changeHandler.callCount).to.equal(1);
   });
 
+  it("Renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false and 'helperText' has been passed", () => {
+    container = Enzyme.mount(
+      <Checkbox
+        id="onChangeTest"
+        onChange={changeHandler}
+        labelText="onChangeTest Lab"
+        showLabel={false}
+        helperText="The helper text."
+        checked
+      ></Checkbox>
+    );
+    const labelText = container.prop("labelText");
+    const helperText = container.prop("helperText");
+    expect(container.find("input").prop("aria-label")).to.equal(
+      `${labelText} - ${helperText}`
+    );
+  });
+
   it("Renders with label", () => {
     container = Enzyme.mount(
       <Checkbox
@@ -76,6 +94,36 @@ describe("Checkbox", () => {
     expect(container.find("input").props()).not.to.have.property("aria-label");
     const checkboxId = container.prop("id");
     expect(container.find("label").prop("htmlFor")).to.equal(checkboxId);
+  });
+
+  it("Renders with visible helper text", () => {
+    container = Enzyme.mount(
+      <Checkbox
+        //add other props here
+        id="test_id"
+        labelText="Hello"
+        showLabel={true}
+        helperText="The helper text."
+        errorText="The error text."
+        errored={false}
+      ></Checkbox>
+    );
+    expect(container.find(".helper-text").text()).to.equal("The helper text.");
+  });
+
+  it("Renders with visible error text", () => {
+    container = Enzyme.mount(
+      <Checkbox
+        //add other props here
+        id="test_id"
+        labelText="Hello"
+        showLabel={true}
+        helperText="The helper text."
+        errorText="The error text."
+        errored={true}
+      ></Checkbox>
+    );
+    expect(container.find(".helper-text").text()).to.equal("The error text.");
   });
 
   it("Calls a UUID generation method if no ID is passed as a prop", () => {

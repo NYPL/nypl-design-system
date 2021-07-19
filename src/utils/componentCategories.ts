@@ -74,7 +74,9 @@ const categories = {
     title: "Style Guide",
     components: [
       "Breakpoints",
+      "Buttons",
       "Colors",
+      "Iconography",
       "Spacing",
       "Template Bidirectionality",
       "Typography",

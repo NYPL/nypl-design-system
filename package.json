@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -32,12 +32,15 @@
   "dependencies": {
     "cpy-cli": "^3.1.1",
     "he": "^1.2.0",
-    "react": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-uid": "^2.3.0",
     "system-font-css": "^2.0.2",
     "typescript": "^3.9.2",
     "uuid": "^8.3.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.13.0",
+    "react-dom": ">=16.13.0"
   },
   "husky": {
     "hooks": {
@@ -57,6 +60,7 @@
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-queryparams": "^6.2.9",
     "@storybook/react": "^6.2.9",
+    "@svgr/webpack": "^5.5.0",
     "@types/chai": "^4.2.3",
     "@types/enzyme": "^3.10.3",
     "@types/jsdom": "^12.2.4",
@@ -94,9 +98,10 @@
     "prettier": "2.1.1",
     "pretty-quick": "^2.0.1",
     "prop-types": "^15.7.2",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-autosuggest": "^10.0.2",
     "react-docgen-typescript-loader": "^3.1.0",
-    "react-dom": "^16.14.0",
     "react-is": "^16.13.1",
     "rimraf": "^3.0.2",
     "sass-loader": "^8.0.2",
@@ -115,7 +120,6 @@
     "twig-loader": "^0.5.1",
     "twigjs-loader": "^1.0.0",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^2.5.2"
+    "webpack-cli": "^3.3.12"
   }
 }

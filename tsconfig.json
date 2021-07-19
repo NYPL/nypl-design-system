@@ -11,6 +11,6 @@
     "jsx": "react",
     "types": ["mocha", "node", "webpack-env"]
   },
-  "include": ["src", "tsd.d.ts", "icons", "tsconfig.json", "dist"],
+  "include": ["tsd.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["node_modules", "lib"]
 }

@@ -1,5 +1,4 @@
 const path = require("path");
-const nodeExternals = require("webpack-node-externals");
 const globImporter = require("node-sass-glob-importer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -10,7 +9,20 @@ module.exports = {
     app: ["./src/index.ts"],
   },
   target: "node",
-  externals: [nodeExternals()],
+  externals: {
+    react: {
+      root: "React",
+      commonjs2: "react",
+      commonjs: "react",
+      amd: "react",
+    },
+    "react-dom": {
+      root: "ReactDOM",
+      commonjs2: "react-dom",
+      commonjs: "react-dom",
+      amd: "react-dom",
+    },
+  },
   output: {
     path: path.resolve(__dirname, "./dist"),
     publicPath: "/",
@@ -44,11 +56,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: "svg-inline-loader",
-          },
-        ],
+        use: ["@svgr/webpack"],
       },
       {
         test: /\.scss?$/ || /\.css?$/,
