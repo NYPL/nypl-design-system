@@ -13,10 +13,12 @@ $break-input-mobile: 400px;
     border: 1px solid var(--ui-gray-medium);
     padding: var(--space-xs) var(--space-s);
     width: 100%;
-    // Include this once textarea is included as an input "type" option.
-    // &--textarea {
-    //   min-height: var(--space-xxl);
-    // }
+
+    &--textarea {
+      line-height: 1.5;
+      min-height: var(--space-xxl);
+    }
+
     &:hover {
       border-color: var(--ui-gray-dark);
     }
