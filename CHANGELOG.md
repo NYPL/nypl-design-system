@@ -10,16 +10,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `Form` component.
 - Adds `Notification` component.
 - Adds the ability to render a `textarea` element from the `TextInput` component.
-- Adds Style Guide `Buttons`
+- Adds Style Guide `Buttons`.
 
 ### Changes
 
 - Updates stories for `List` component to use MDX format.
 - Updates how children are rendered in the `List` component. Direct children `li`, `dt`, and `dd` elements can still be passed, but specific data structures can be passed to the `listItems` prop to render the appropriate children element.
-- Changes `DisplaySizes` to `HeadingDisplaySizes`
-- Changes `Button` to use `16px` for left/right padding for buttons with text; icon only buttons still use `8px` left/right padding
+- Changes `DisplaySizes` to `HeadingDisplaySizes`.
+- Changes `Button` to use `16px` for left/right padding for buttons with text; icon only buttons still use `8px` left/right padding.
 
 ## 0.23.1
 
