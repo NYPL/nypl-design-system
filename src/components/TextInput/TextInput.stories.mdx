@@ -24,6 +24,9 @@ import { getCategory } from "../../utils/componentCategories";
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
   }}
+  argTypes={{
+    attributes: { table: { disable: true } },
+  }}
 />
 
 # TextInput
@@ -37,7 +40,7 @@ This component renders a text input form element. See below for configuration in
     name="TextInput"
     args={{
       id: "myTextInput",
-      type: "text",
+      type: TextInputTypes.text,
       labelText: "What is your favorite color?",
       showLabel: true,
       placeholder: "e.g. blue, green, etc.",
@@ -137,17 +140,17 @@ A TextInput can be rendered with or without visible labels.
   />
 </Canvas>
 
-<!-- Include this once textarea is included as an input "type" option.
 ## Textarea
 
-The TextInput component includes a multiline `textarea` form field.
+The TextInput component includes a multiline `textarea` form field. To render a
+`textarea` element, pass `TextInputTypes.textarea` for the `type` prop.
 
 <Preview withToolbar>
   <Story
     name="Textarea"
     args={{
-      type: "textarea",
-      labelText: "In less than 500 words, describe your favorite colors?",
+      type: TextInputTypes.textarea,
+      labelText: "In less than 500 words, describe your favorite color?",
       showLabel: true,
       placeholder: "Essay question...",
       helperText: "Let it all out.",
@@ -156,4 +159,3 @@ The TextInput component includes a multiline `textarea` form field.
     {args => <TextInput {...args} />}
   </Story>
 </Preview>
--->
