@@ -30,8 +30,8 @@ export default function VideoPlayer(
   } = props;
 
   let embedCode;
-  let videoSrc;
   let iframeTitle;
+  let videoSrc;
 
   {
     aspectRatio && modifiers.push(aspectRatio);
@@ -39,7 +39,7 @@ export default function VideoPlayer(
 
   switch (videoType) {
     case VideoPlayerTypes.Vimeo:
-      videoSrc = `https://player.vimeo.com/video/${videoId}?color=ffffff&title=0&byline=0`;
+      videoSrc = `https://player.vimeo.com/video/${videoId}`;
       iframeTitle = "Vimeo video player";
       break;
     case VideoPlayerTypes.YouTube:

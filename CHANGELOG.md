@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds Style Guide `Buttons`
 - Adds `Notification` component
+- Adds `VideoPlayer` component
 
 ### Changes
 
