@@ -1,0 +1,67 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import VideoPlayer from "./VideoPlayer";
+import { VideoPlayerTypes } from "./VideoPlayerTypes";
+import { action } from "@storybook/addon-actions";
+
+<Meta
+  title="VideoPlayer"
+  component={VideoPlayer}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A3680",
+    },
+  }}
+  argTypes={{
+    attributes: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+  }}
+/>
+
+# Video Player
+
+<Description of={VideoPlayer} />
+
+The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires both the `videoType` and `videoId` props. You can extract the videoId from the video's URL.
+
+<Preview withToolbar>
+  <Story
+    name="VideoPlayer"
+    args={{
+      videoId: "D9lakVO7bN0",
+      videoType: VideoPlayerTypes.YouTube,
+    }}
+  >
+    {args => <VideoPlayer {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="VideoPlayer" />
+
+## Extracting Video IDs
+
+### Vimeo
+
+```
+https://vimeo.com/[VIDEO_ID]
+https://vimeo.com/409259848
+```
+
+### YouTube
+
+```
+https://www.youtube.com/watch?v=[VIDEO_ID]
+https://www.youtube.com/watch?v=D9lakVO7bN0
+```

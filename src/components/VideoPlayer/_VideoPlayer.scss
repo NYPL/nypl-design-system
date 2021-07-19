@@ -1,0 +1,25 @@
+.video-player {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+
+  &--four-by-three {
+    padding-bottom: 75%;
+  }
+
+  &--square {
+    padding-bottom: 100%;
+  }
+
+  iframe,
+  object,
+  embed {
+    height: 100%;
+    left: 0;
+    margin: atuo;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
