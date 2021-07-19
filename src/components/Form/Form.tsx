@@ -18,13 +18,13 @@ export interface FormProps {
 }
 
 // FormRow child-component
-export function FormRow({ ...props }) {
+export function FormRow(props) {
   const { children, className } = props;
   return <div className={bem("form-row", [], "", [className])}>{children}</div>;
 }
 
 // FormField child-component
-export function FormField({ ...props }) {
+export function FormField(props) {
   const { children, className } = props;
   return (
     <div className={bem("form-field", [], "", [className])}>{children}</div>
@@ -37,12 +37,10 @@ export default function Form(props: React.ComponentProps<"form"> & FormProps) {
     attributes = {},
     children,
     className,
-    id,
+    id = generateUUID(),
     method,
     modifiers = [],
   } = props;
-
-  const formID = id || generateUUID();
 
   action && (attributes["action"] = action);
 
@@ -53,7 +51,7 @@ export default function Form(props: React.ComponentProps<"form"> & FormProps) {
   return (
     <form
       className={bem("form", modifiers, "", [className])}
-      id={formID}
+      id={id}
       {...attributes}
     >
       {children}

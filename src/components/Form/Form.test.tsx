@@ -6,7 +6,6 @@ import Form, { FormRow, FormField } from "./Form";
 import TextInput from "../TextInput/TextInput";
 
 describe("Form", () => {
-  //   let wrapper: Enzyme.ShallowWrapper<any, any>;
   it("Renders a <form> element", () => {
     const wrapper = Enzyme.shallow(<Form></Form>);
     expect(wrapper.find("form")).to.have.lengthOf(1);
