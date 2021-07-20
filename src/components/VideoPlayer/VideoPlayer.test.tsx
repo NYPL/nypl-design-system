@@ -50,6 +50,28 @@ describe("VideoPlayer", () => {
     });
   });
 
+  describe("custom iframe title", () => {
+    before(() => {
+      container = Enzyme.mount(
+        <VideoPlayer
+          videoType={VideoPlayerTypes.Vimeo}
+          videoId="474719268"
+          iframeTitle="My custom iframe title."
+        />
+      );
+    });
+
+    it("Renders VideoPlayer container", () => {
+      expect(container.find(".video-player").exists()).to.equal(true);
+    });
+
+    it("Uses iframeTitle prop to add custom title attribute to iframe", () => {
+      expect(container.find("iframe").prop("title")).to.equal(
+        "My custom iframe title."
+      );
+    });
+  });
+
   describe("aspect ratio", () => {
     it("Renders with 4:3 aspect ratio", () => {
       container = Enzyme.mount(
