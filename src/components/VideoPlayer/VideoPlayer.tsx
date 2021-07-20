@@ -39,11 +39,11 @@ export default function VideoPlayer(
 
   switch (videoType) {
     case VideoPlayerTypes.Vimeo:
-      videoSrc = `https://player.vimeo.com/video/${videoId}`;
+      videoSrc = `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`;
       iframeTitle = "Vimeo video player";
       break;
     case VideoPlayerTypes.YouTube:
-      videoSrc = `https://www.youtube.com/embed/${videoId}`;
+      videoSrc = `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
       iframeTitle = "YouTube video player";
       break;
   }
