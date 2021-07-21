@@ -20,7 +20,7 @@ export interface PaginationProps {
   onPageChange?: (selected: number) => void;
 }
 
-/** Pagination component that provides a list of page items */
+/** A component that provides a navigational list of page items. */
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const {
     blockName,
@@ -32,14 +32,14 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     onPageChange,
   } = props;
 
-  //If there are 0 or 1 pages, the pagination should not show
+  // If there are 0 or 1 pages, the pagination should not show.
   if (pageCount <= 1) {
     return null;
   }
 
   if (getPageHref && onPageChange) {
     console.warn(
-      "Both onPageHref and onPageChange are passed. Will default to using onPageHref"
+      "Both onPageHref and onPageChange are passed. Will default to using `onPageHref`."
     );
   }
 
@@ -61,7 +61,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
     if (currentPage === item) return;
 
-    // Run the callback with the new selected item:
+    // Invoke the callback with the new selected item.
     runCallback(item);
   };
 
