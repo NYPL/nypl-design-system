@@ -157,6 +157,8 @@ You can check out a working Codepen with unpkg [here](https://codepen.io/edwingu
 
 The NYPL Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
 
+NYPL's Metronome instance is currently password protected. For access to Metronome, please contact NYPL's UX team or Design System team.
+
 ## Storybook
 
 The NYPL Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page).

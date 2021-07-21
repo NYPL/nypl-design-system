@@ -12,7 +12,7 @@ There are specific guidelines we MUST follow when creating components in order t
 
 ### Components
 
-When creating a new React component or updating an existing one, you MUST follow the [Anatomy of a Component](https://github.com/NYPL/nypl-design-system/wiki/Anatomy-of-a-Component) wiki page documentation. This explains the all the files that make up a React component though it's possible to create or update a component without needing to create or edit a file mentioned. For example, if there is a styling error in the `Checkbox` component, it's possible you do not need to update its relevant test file.
+When creating a new React component or updating an existing one, you MUST follow the [Anatomy of a Component](https://github.com/NYPL/nypl-design-system/wiki/Anatomy-of-a-Component) wiki page documentation. This explains all the files that make up a React component though it's possible to create or update a component without needing to create or edit a file mentioned. For example, if there is a styling error in the `Checkbox` component, it's possible you do not need to update its relevant test file.
 
 ### Documentation
 
