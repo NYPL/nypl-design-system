@@ -10,9 +10,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `Form` component.
 - Adds `Notification` component.
 - Adds the ability to render a `textarea` element from the `TextInput` component.
-- Adds Style Guide `Buttons`
+- Adds Style Guide `Buttons`.
 
 ### Changes
 

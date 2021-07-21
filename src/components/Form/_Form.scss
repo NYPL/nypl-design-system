@@ -1,0 +1,28 @@
+.form {
+  @include space-stack-s;
+}
+
+.form-field {
+  @include space-stack-l;
+}
+
+.form-row {
+  @include space-stack-l;
+
+  display: block;
+
+  @include breakpoint($breakpoint-medium) {
+    display: flex;
+  }
+
+  .form-field {
+    @include breakpoint($breakpoint-medium) {
+      flex: 1 0;
+      margin-bottom: 0;
+
+      &:not(:last-child) {
+        @include space-inline-l;
+      }
+    }
+  }
+}
