@@ -32,6 +32,10 @@ import { action } from "@storybook/addon-actions";
 
 # Video Player
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.2`   |
+
 <Description of={VideoPlayer} />
 
 The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires both the `videoType` and `videoId` props. You can extract the videoId from the video's URL.
@@ -40,15 +44,22 @@ The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player
   <Story
     name="VideoPlayer"
     args={{
-      videoId: "474719268",
       videoType: VideoPlayerTypes.Vimeo,
     }}
   >
-    {args => <VideoPlayer {...args} />}
+    {args => (
+      <VideoPlayer
+        {...args}
+        videoId={args.videoType === "vimeo" ? "474719268" : "nm-dD2tx6bk"}
+      />
+    )}
   </Story>
 </Preview>
 
 <ArgsTable story="VideoPlayer" />
+
+**Example Vimeo IDs:** `474719268`, `491405018`, `493795778` (square)<br />
+**Example YouTube IDs:** `PfqgDG1qrKg`, `roi5V8ppi7Y`, `nm-dD2tx6bk`
 
 ## Extracting Video IDs
 

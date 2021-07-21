@@ -87,6 +87,22 @@ describe("VideoPlayer", () => {
       ).to.equal(true);
     });
 
+    it("Renders with 16:9 aspect ratio", () => {
+      container = Enzyme.mount(
+        <VideoPlayer
+          videoType={VideoPlayerTypes.Vimeo}
+          videoId="474719268"
+          aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
+        />
+      );
+
+      expect(
+        container
+          .find(".video-player")
+          .hasClass("video-player--sixteen-by-nine")
+      ).to.equal(true);
+    });
+
     it("Renders with 1:1 aspect ratio", () => {
       container = Enzyme.mount(
         <VideoPlayer

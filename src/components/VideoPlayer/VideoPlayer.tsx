@@ -42,6 +42,9 @@ export default function VideoPlayer(
       ? `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`
       : `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
 
+  const errorMessage =
+    "<strong>Error:</strong> This video player has not been configured properly. Please contact the site administrator.";
+
   {
     aspectRatio && modifiers.push(aspectRatio);
   }
@@ -57,26 +60,25 @@ export default function VideoPlayer(
     ></iframe>
   );
 
-  let errorMessage;
   if (!videoType && !videoId) {
     console.warn("VideoPlayer requires the `videoType` and `videoId` props");
-    errorMessage =
-      "Error: VideoPlayer requires the `videoType` and `videoId` props";
   } else if (!videoType) {
     console.warn("VideoPlayer requires the `videoType` prop");
-    errorMessage = "Error: VideoPlayer requires the `videoType` prop";
   } else if (!videoId) {
     console.warn("VideoPlayer requires the `videoId` prop");
-    errorMessage = "Error: VideoPlayer requires the `videoId` prop";
   }
 
   {
-    errorMessage && modifiers.push("auto-height");
+    (!videoType || !videoId) && modifiers.push("auto-height");
   }
 
   return (
     <div className={bem("video-player", modifiers, "", [className])}>
-      {errorMessage ? errorMessage : embedCode}
+      {!videoType || !videoId ? (
+        <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
+      ) : (
+        embedCode
+      )}
     </div>
   );
 }
