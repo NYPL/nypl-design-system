@@ -32,26 +32,21 @@ export default function VideoPlayer(
     videoType,
   } = props;
 
-  let embedCode;
-  let iframeTitleFinal;
-  let videoSrc;
+  const iframeTitleFinal =
+    videoType === VideoPlayerTypes.Vimeo
+      ? iframeTitle || "Vimeo video player"
+      : iframeTitle || "YouTube video player";
+
+  const videoSrc =
+    videoType === VideoPlayerTypes.Vimeo
+      ? `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`
+      : `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
 
   {
     aspectRatio && modifiers.push(aspectRatio);
   }
 
-  switch (videoType) {
-    case VideoPlayerTypes.Vimeo:
-      videoSrc = `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`;
-      iframeTitleFinal = iframeTitle || "Vimeo video player";
-      break;
-    case VideoPlayerTypes.YouTube:
-      videoSrc = `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
-      iframeTitleFinal = iframeTitle || "YouTube video player";
-      break;
-  }
-
-  embedCode = (
+  const embedCode = (
     <iframe
       src={videoSrc}
       title={iframeTitleFinal}
@@ -62,20 +57,26 @@ export default function VideoPlayer(
     ></iframe>
   );
 
+  let errorMessage;
   if (!videoType && !videoId) {
-    console.warn("VideoPlayer requires props for videoType and videoId");
-    embedCode = "Error: VideoPlayer requires props for videoType and videoId";
+    console.warn("VideoPlayer requires the `videoType` and `videoId` props");
+    errorMessage =
+      "Error: VideoPlayer requires the `videoType` and `videoId` props";
   } else if (!videoType) {
-    console.warn("VideoPlayer requires a prop video-player");
-    embedCode = "Error: VideoPlayer requires a prop for videoType";
+    console.warn("VideoPlayer requires the `videoType` prop");
+    errorMessage = "Error: VideoPlayer requires the `videoType` prop";
   } else if (!videoId) {
-    console.warn("VideoPlayer requires a prop for videoId");
-    embedCode = "Error: VideoPlayer requires a prop for videoId";
+    console.warn("VideoPlayer requires the `videoId` prop");
+    errorMessage = "Error: VideoPlayer requires the `videoId` prop";
+  }
+
+  {
+    errorMessage && modifiers.push("auto-height");
   }
 
   return (
     <div className={bem("video-player", modifiers, "", [className])}>
-      {embedCode}
+      {errorMessage ? errorMessage : embedCode}
     </div>
   );
 }

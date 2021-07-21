@@ -12,6 +12,12 @@
     padding-bottom: 100%;
   }
 
+  &--auto-height {
+    background-color: var(--ui-gray-warm-light);
+    height: auto;
+    padding: var(--space-s);
+  }
+
   iframe,
   object,
   embed {
