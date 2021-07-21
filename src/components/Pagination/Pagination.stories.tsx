@@ -4,11 +4,7 @@ import { Story } from "@storybook/react/types-6-0";
 import Pagination, { PaginationProps } from "./Pagination";
 
 /**
- * PaginationGetPageHref will refresh the browser as a new page is selected. In
- * this scenario, the `getPageHref` function we pass to the `Pagination`
- * component will compute a new URL that has `&page=` as a URL query. In your
- * own application this query parameter can be named anything but you have to
- * pick up the value.
+ * PaginationGetPageHref will refresh the browser as a new page is selected.
  */
 export const PaginationGetPageHref: Story<PaginationProps> = args => {
   // This uses the `addon-queryparams` Storybook addon.
@@ -40,9 +36,7 @@ export const PaginationGetPageHref: Story<PaginationProps> = args => {
 
 /**
  * PaginationOnPageChange will update the current page to the value that is
- * selected but will not change the URL or refresh the page. In this specific
- * scenario, the `onPageChange` function is passed to the `Pagination` component
- * to keep track of the current page in the component's parent wrapper.
+ * selected but will not change the URL or refresh the page.
  */
 export const PaginationOnPageChange: Story<PaginationProps> = args => {
   const [computedCurrentPage, setComputedCurrentPage] = useState(

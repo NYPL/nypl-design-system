@@ -45,6 +45,10 @@ declare and pass a `getPageHref` function to the `Pagination` component. This
 function should return a string with the desired URL that the pagination links
 should go to. Note that this will refresh the browser on every click.
 
+In the following example, the `getPageHref` function will compute a new URL that
+has `&page=` as a URL query. In your own application this query parameter can be
+named anything but you have to pick up the value in the wrapper component.
+
 ```jsx
 // Example in a search results page.
 const getPageHref = page => {
@@ -73,6 +77,13 @@ function passed as a prop and that the URL is updated whenever a page is
 changed. However, the optional `onPageChange` prop is available in case URL
 updating is not desired. The parent component must now keep track of the state
 of the current page value.
+
+the `getPageHref` function will compute a new URL that
+has `&page=` as a URL query. In your own application this query parameter can be
+named anything but you have to pick up the value in the wrapper component.
+
+In the following example, the `onPageChange` function is keeping track of the
+current page through the use of React's `useState` feature.
 
 ```jsx
 // Example in a search results page.
