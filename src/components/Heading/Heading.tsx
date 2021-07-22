@@ -1,7 +1,7 @@
 // MT-82, MT 225, etc
 import * as React from "react";
 import bem from "../../utils/bem";
-import { DisplaySizes } from "./HeadingDisplaySizes";
+import { HeadingDisplaySizes } from "./HeadingDisplaySizes";
 
 export interface HeadingProps {
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
@@ -9,7 +9,7 @@ export interface HeadingProps {
   /** Optional className that appears in addition to `heading` */
   className?: string;
   /** Optional size used to override the default styles of the semantic HTML `<h>` elements */
-  displaySize?: DisplaySizes;
+  displaySize?: HeadingDisplaySizes;
   /** Optional ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Number 1-6; used to create the `<h*>` tag */

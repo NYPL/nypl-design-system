@@ -73,7 +73,9 @@ const categories = {
   styleguide: {
     title: "Style Guide",
     components: [
+      "Bidirectionality",
       "Breakpoints",
+      "Buttons",
       "Colors",
       "Iconography",
       "Spacing",
