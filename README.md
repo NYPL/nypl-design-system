@@ -180,4 +180,4 @@ There should be no need to run the static Storybook instance while actively deve
 $ npm run build-storybook
 ```
 
-You can then view `/storybook-static/index.html` in your browser.
+You can then view `/storybook-static/index.html` in your browser. _Make sure not to commit this directory_.
