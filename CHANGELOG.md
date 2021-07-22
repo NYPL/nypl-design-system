@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.23.2
+
 ### Adds
 
 - Adds `Form` component.
