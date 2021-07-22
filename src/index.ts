@@ -43,3 +43,5 @@ export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonL
 export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export { default as TextInput } from "./components/TextInput/TextInput";
+export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
+export { VideoPlayerTypes } from "./components/VideoPlayer/VideoPlayerTypes";
