@@ -3,7 +3,7 @@ import * as Enzyme from "enzyme";
 import * as React from "react";
 
 import Heading from "./Heading";
-import { DisplaySizes } from "./HeadingDisplaySizes";
+import { HeadingDisplaySizes } from "./HeadingDisplaySizes";
 
 describe("Section Headings", () => {
   let wrapper: Enzyme.ShallowWrapper<any, any>;
@@ -93,7 +93,7 @@ describe("Section Headings", () => {
         id="h1"
         level={1}
         text={"Heading with Secondary displaySize"}
-        displaySize={DisplaySizes.Secondary}
+        displaySize={HeadingDisplaySizes.Secondary}
       />
     );
     expect(wrapper.find("h1")).to.have.lengthOf(1);
