@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.23.3
+
+### Fixes
+
+- Removes the `storybook-static` directory from `.gitignore` so that the Github Actions deploy job can work properly.
+
 ## 0.23.2
 
 ### Adds
