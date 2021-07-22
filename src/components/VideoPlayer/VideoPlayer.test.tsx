@@ -117,4 +117,20 @@ describe("VideoPlayer", () => {
       ).to.equal(true);
     });
   });
+
+  describe("prop validation", () => {
+    it("Throws error if videoId not formatted properly", () => {
+      container = Enzyme.mount(
+        <VideoPlayer
+          videoType={VideoPlayerTypes.Vimeo}
+          videoId="http://vimeo.com/474719268"
+          aspectRatio={VideoPlayerAspectRatios.FourByThree}
+        />
+      );
+
+      expect(
+        container.find(".video-player").hasClass("video-player--errored")
+      ).to.equal(true);
+    });
+  });
 });

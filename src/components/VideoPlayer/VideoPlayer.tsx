@@ -60,21 +60,36 @@ export default function VideoPlayer(
     ></iframe>
   );
 
+  let errored = false;
   if (!videoType && !videoId) {
     console.warn("VideoPlayer requires the `videoType` and `videoId` props");
+    errored = true;
   } else if (!videoType) {
     console.warn("VideoPlayer requires the `videoType` prop");
+    errored = true;
   } else if (!videoId) {
     console.warn("VideoPlayer requires the `videoId` prop");
+    errored = true;
+  }
+
+  if (
+    videoId.includes("://") ||
+    videoId.includes("http") ||
+    videoId.includes(".") ||
+    videoId.includes("youtube") ||
+    videoId.includes("vimeo")
+  ) {
+    console.warn("VideoPlayer `videoId` prop is not configured properly");
+    errored = true;
   }
 
   {
-    (!videoType || !videoId) && modifiers.push("auto-height");
+    errored && modifiers.push("errored");
   }
 
   return (
     <div className={bem("video-player", modifiers, "", [className])}>
-      {!videoType || !videoId ? (
+      {errored ? (
         <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
       ) : (
         embedCode
