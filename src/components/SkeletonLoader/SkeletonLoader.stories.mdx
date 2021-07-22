@@ -9,6 +9,10 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import SkeletonLoader from "./SkeletonLoader";
+import {
+  SkeletonLoaderLayouts,
+  SkeletonLoaderImageRatios,
+} from "./SkeletonLoaderTypes";
 import { action } from "@storybook/addon-actions";
 
 <Meta
@@ -55,6 +59,11 @@ import { action } from "@storybook/addon-actions";
 
 # Skeleton Loader
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.17.3`   |
+| Latest            | `0.23.2`   |
+
 <Description of={SkeletonLoader} />
 
 The `SkeletonLoader` component renders a placeholder to be used while dynamic content is loading. The `layout`, `width` and placeholder elements within the `SkeletonLoader` can be customized.
@@ -73,3 +82,77 @@ Please note that the initial rendering below has the `width` prop set to `300px`
 </Preview>
 
 <ArgsTable story="Skeleton Loader" />
+
+# Card Placeholders in a Grid
+
+<Preview>
+  <Story name="Placeholders in a Grid">
+    <div
+      style={{
+        display: "grid",
+        gap: "2rem",
+        "grid-template-columns": "repeat(3, 1fr)",
+      }}
+    >
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+    </div>
+  </Story>
+</Preview>
+
+# Text Placeholders in a List
+
+<Preview>
+  <Story name="Placeholders in a List">
+    <div
+      style={{
+        display: "grid",
+        gap: "2rem",
+        "grid-template-columns": "repeat(1, 1fr)",
+      }}
+    >
+      <SkeletonLoader
+        layout={SkeletonLoaderLayouts.Horizontal}
+        showImage={false}
+      />
+      <SkeletonLoader
+        layout={SkeletonLoaderLayouts.Horizontal}
+        showImage={false}
+      />
+      <SkeletonLoader
+        layout={SkeletonLoaderLayouts.Horizontal}
+        showImage={false}
+      />
+      <SkeletonLoader
+        layout={SkeletonLoaderLayouts.Horizontal}
+        showImage={false}
+      />
+      <SkeletonLoader
+        layout={SkeletonLoaderLayouts.Horizontal}
+        showImage={false}
+      />
+    </div>
+  </Story>
+</Preview>

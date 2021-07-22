@@ -46,7 +46,7 @@ export default function SkeletonLoader(
     showContent = true,
     showImage = true,
     showHeading = true,
-    width = "auto",
+    width,
     modifiers = [],
   } = props;
 
