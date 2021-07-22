@@ -4,11 +4,11 @@ import * as React from "react";
 import { stub, spy } from "sinon";
 
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import TextInput from "./TextInput";
+import TextInput, { TextInputRefType } from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
 import generateUUID from "../../helpers/generateUUID";
 
-describe("Renders TextInput with visible label", () => {
+describe("Renders TextInput", () => {
   let container;
   let changeHandler;
   let focusHandler;
@@ -29,7 +29,7 @@ describe("Renders TextInput with visible label", () => {
     );
   });
 
-  it("Renders Input", () => {
+  it("Renders an input element", () => {
     expect(container.find("input").exists()).to.equal(true);
   });
 
@@ -251,7 +251,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
 
 describe("Forwarding refs", () => {
   it("Passes the ref to the input element", () => {
-    const ref = React.createRef<HTMLInputElement>();
+    const ref = React.createRef<TextInputRefType>();
     const container = Enzyme.mount(
       <TextInput
         id="inputID-attributes"
@@ -262,6 +262,20 @@ describe("Forwarding refs", () => {
       ></TextInput>
     );
     expect(container.find("input").instance()).to.equal(ref.current);
+  });
+
+  it("Passes the ref to the textarea element", () => {
+    const ref = React.createRef<TextInputRefType>();
+    const container = Enzyme.mount(
+      <TextInput
+        id="inputID-attributes"
+        labelText="Input Label"
+        placeholder={"Input Placeholder"}
+        type={TextInputTypes.textarea}
+        ref={ref}
+      ></TextInput>
+    );
+    expect(container.find("textarea").instance()).to.equal(ref.current);
   });
 });
 
@@ -280,5 +294,29 @@ describe("Hidden input", () => {
 
     expect(input.prop("aria-hidden")).to.equal(true);
     expect(input.prop("value")).to.equal("hidden");
+  });
+});
+
+describe("Textarea element type", () => {
+  let container;
+
+  before(() => {
+    container = Enzyme.mount(
+      <TextInput
+        id={"myTextarea"}
+        labelText={"Custom textarea Label"}
+        placeholder={"Textarea Placeholder"}
+        type={TextInputTypes.textarea}
+      ></TextInput>
+    );
+  });
+
+  it("Renders a textarea element", () => {
+    expect(container.find("textarea").exists()).to.equal(true);
+  });
+
+  it("Renders label with label text", () => {
+    expect(container.find("label").exists()).to.equal(true);
+    expect(container.find("label").text()).to.contain("Custom textarea Label");
   });
 });
