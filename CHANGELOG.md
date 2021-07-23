@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
+
 ### Adds
 
 - Typescript documentation for `enum` variales in the README.
