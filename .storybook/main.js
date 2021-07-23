@@ -4,6 +4,7 @@ module.exports = {
   // Where are the stories?
   stories: [
     "../src/docs/Intro.stories.mdx",
+    "../src/components/StyleGuide/*.stories.@(tsx|mdx)",
     "../src/components/**/*.stories.@(tsx|mdx)",
   ],
   // Each addon is added here by either it's name in a string or an object

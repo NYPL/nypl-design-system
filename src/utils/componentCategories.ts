@@ -1,42 +1,38 @@
 // NYPL Design System Component Categories
 
 const categories = {
-  content: {
-    title: "Content Display",
+  basicContent: {
+    title: "Components/Basic Elements",
+    components: ["Card", "Hero", "Promo", "Sponsor", "Table"],
+  },
+  contentDisplay: {
+    title: "Components/Content Display",
     components: [
       "AccessibilityDisplayHelper",
-      "Accordion",
       "AddressDisplayHelper",
-      "Card",
-      "ContentSwitcher",
       "DateDisplayHelper",
-      "DefinitionList",
-      "Heading",
-      "Hero",
+      "HelperErrorText",
       "HoursDisplayHelper",
-      "List",
-      "Modal",
       "OverflowMenu",
-      "Promo",
     ],
   },
   deprecated: {
-    title: "Deprecated",
+    title: "Components/Deprecated",
     components: [],
   },
   feedback: {
-    title: "Feedback",
+    title: "Components/Feedback",
     components: [
       "Alert",
       "InlineLoading",
       "Notification",
       "ProgressIndicator",
       "SkeletonLoader",
-      "Tooltip",
+      "StatusBadge",
     ],
   },
   forms: {
-    title: "Form Elements",
+    title: "Components/Form Elements",
     components: [
       "Button",
       "Checkbox",
@@ -59,19 +55,48 @@ const categories = {
     ],
   },
   layout: {
-    title: "Page Layout",
-    components: ["BasicPageSection", "Footer", "Grid", "Header", "Template"],
+    title: "Components/Page Layout",
+    components: [
+      "Accordion",
+      "BasicPageSection",
+      "ContentSwitcher",
+      "Footer",
+      "Grid",
+      "Header",
+      "HorizontalRule",
+      "Tabs",
+      "Template",
+    ],
+  },
+  overlayContentSwitcher: {
+    title: "Components/Overlay",
+    components: ["Modal", "Tooltip"],
   },
   media: {
-    title: "Media",
-    components: ["AudioPlayer", "Icon", "Image", "Logo", "Slideshow", "Video"],
+    title: "Components/Media & Icons",
+    components: [
+      "AudioPlayer",
+      "Icon",
+      "Image",
+      "Logo",
+      "Slideshow",
+      "VideoPlayer",
+    ],
   },
   navigation: {
-    title: "Navigation",
+    title: "Components/Navigation",
     components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
   },
+  typography: {
+    title: "Components/Typography & Styles",
+    components: ["Heading", "List"],
+  },
+  devguide: {
+    title: "Documentation/Development Guide",
+    components: ["Autosuggest"],
+  },
   styleguide: {
-    title: "Style Guide",
+    title: "Documentation/Style Guide",
     components: [
       "Bidirectionality",
       "Breakpoints",

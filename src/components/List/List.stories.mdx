@@ -21,9 +21,10 @@ import {
   cardsList,
   listRenderer,
 } from "./List.stories.tsx";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="List"
+  title={getCategory("List")}
   component={List}
   decorators={[withDesign]}
   parameters={{
@@ -49,6 +50,11 @@ import {
 />
 
 # List
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.7.0`    |
+| Latest            | `0.23.2`   |
 
 <Description of={List} />
 

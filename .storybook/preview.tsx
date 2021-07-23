@@ -11,6 +11,12 @@ addParameters({
     container: DocsContainer,
     page: DocsPage,
   },
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order: ["Documentation", "Components"],
+    },
+  },
 });
 
 export const decorators = [

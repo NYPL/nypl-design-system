@@ -7,9 +7,10 @@ import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
 import Hero from "./Hero";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Hero",
+  title: getCategory("Hero"),
   component: Hero,
   decorators: [withDesign],
   argTypes: {

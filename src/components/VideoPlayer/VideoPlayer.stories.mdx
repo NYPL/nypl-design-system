@@ -11,9 +11,10 @@ import { withDesign } from "storybook-addon-designs";
 import VideoPlayer from "./VideoPlayer";
 import { VideoPlayerTypes } from "./VideoPlayerTypes";
 import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="VideoPlayer"
+  title={getCategory("VideoPlayer")}
   component={VideoPlayer}
   decorators={[withDesign]}
   parameters={{

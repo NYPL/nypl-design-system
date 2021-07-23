@@ -3,9 +3,10 @@ import bem from "../../utils/bem";
 import Placeholder from "../Placeholder/Placeholder";
 import { withDesign } from "storybook-addon-designs";
 import { Meta } from "@storybook/react/types-6-0";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Template",
+  title: getCategory("Template"),
   decorators: [withDesign],
 } as Meta;
 

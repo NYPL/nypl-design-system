@@ -13,9 +13,10 @@ import { ListTypes } from "../List/ListTypes";
 import { Source } from "@storybook/addon-docs/blocks";
 import dedent from "ts-dedent";
 import ReactDOMServer from "react-dom/server";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Accordion"
+  title={getCategory("Accordion")}
   component={Accordion}
   decorators={[withDesign]}
   parameters={{
@@ -31,6 +32,11 @@ import ReactDOMServer from "react-dom/server";
 />
 
 # Accordion
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.1.0`    |
+| Latest            | `0.21.1`   |
 
 <Description of={Accordion} />
 

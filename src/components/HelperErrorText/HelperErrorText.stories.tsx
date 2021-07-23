@@ -2,9 +2,10 @@ import * as React from "react";
 
 import HelperErrorText from "./HelperErrorText";
 import { boolean } from "@storybook/addon-knobs";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "HelperErrorText",
+  title: getCategory("HelperErrorText"),
   component: HelperErrorText,
 };
 
