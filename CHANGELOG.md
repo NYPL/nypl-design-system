@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Typescript documentation for `enum` variales in the README.
+
 ## 0.23.3
 
 ### Fixes
