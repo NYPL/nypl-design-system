@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
+
+### Adds
+
+- Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports
+
 ## 0.23.3
 
 ### Fixes
