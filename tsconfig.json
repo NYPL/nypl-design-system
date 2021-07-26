@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "outDir": "lib",
     "jsx": "react",
-    "types": ["mocha", "node", "webpack-env"]
+    "types": ["node", "webpack-env", "jest", "@testing-library/jest-dom"]
   },
   "include": ["tsd.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["node_modules", "lib"]
