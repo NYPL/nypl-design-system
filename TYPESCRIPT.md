@@ -4,7 +4,7 @@ Using Typescript allows for us to create components with modern best practices w
 
 Typescript is a superset of Javascript. This means that any Javascript you write is valid Typescript. Typescript transpiles to Javascript and this adds an extra step when this codebase goes through a production build.
 
-Using Typescript can, at times, mean writing a lot of boilerplate for what appears to be a simple function or React component. Taking the time, however, to declare object shapes and variable types help us write maintainable and well-documented code. Not only does this help easily compose components, but it also helps correctly implement components with the appropriate prop values.
+Using Typescript can, at times, mean writing a lot of boilerplate for what appears to be a simple function or React component. Taking the time, however, to declare object shapes and variable types helps us write maintainable and well-documented code. Not only does this help easily compose components, but it also helps correctly implement components with the appropriate prop values.
 
 Using interfaces and types declare the expected type value of an argument or prop. This helps find and fix bugs _before_ we commit any changes and leads to fewer bugs when the components are built and distributed for applications to consume. Note that type correctness does not mean program correctness; Typescript helps us fix easy to miss bugs, but we MUST still write unit tests.
 
