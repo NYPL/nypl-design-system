@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Snapshot testing through `react-test-renderer` and Jest.
 - Typescript documentation file to be use as a development guide.
 - Typescript documentation for `enum` variables in the TYPESCRIPT file.
 - Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports.

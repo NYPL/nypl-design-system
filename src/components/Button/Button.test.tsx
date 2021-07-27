@@ -2,6 +2,7 @@ import * as React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import renderer from "react-test-renderer";
 
 import Button from "./Button";
 import Icon from "../Icons/Icon";
@@ -99,5 +100,18 @@ describe("padding for icon only button", () => {
       </Button>
     );
     expect(container.querySelector(".button--icon-only")).toBeInTheDocument();
+  });
+});
+
+describe("Button Snapshot", () => {
+  it("Renders the UI snapshot correctly", () => {
+    const tree = renderer
+      .create(
+        <Button id="button" onClick={jest.fn()}>
+          Submit
+        </Button>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

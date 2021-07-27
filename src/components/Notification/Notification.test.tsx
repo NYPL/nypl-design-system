@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Notification, {
   NotificationContent,
@@ -36,16 +37,33 @@ describe("Notification: check for basic DOM structure", () => {
   it("Renders Notification component wrapper", () => {
     expect(utils.container.querySelector(".notification")).toBeInTheDocument();
   });
+
   it("Renders Notification heading child component", () => {
     expect(screen.getByText("Notification Heading")).toBeInTheDocument();
   });
+
   it("Renders Notification content child component", () => {
     expect(screen.getByText("Notification content.")).toBeInTheDocument();
   });
+
   it("Renders without Icon", () => {
     expect(
       utils.container.querySelector(".notification-icon")
     ).not.toBeInTheDocument();
+  });
+});
+
+describe("Notification Snapshot", () => {
+  it("Renders the UI snapshot correctly", () => {
+    const tree = renderer
+      .create(
+        <Notification id="notificationID">
+          <NotificationHeading>Notification Heading</NotificationHeading>
+          <NotificationContent>Notification content.</NotificationContent>
+        </Notification>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
 
