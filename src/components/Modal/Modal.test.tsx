@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 
 import Modal from "./Modal";
@@ -11,10 +11,10 @@ describe("Modal Accessibility", () => {
   });
 });
 
-// describe("Modal", () => {
-//   it("modal applies 'no-scroll' class to body", () => {
-//     const wrapper = render(<Modal />, { attachTo: document.body });
-//     expect(wrapper.find("Modal").exists()).toEqual(true);
-//     expect(document.body.classList[0]).toEqual("no-scroll");
-//   });
-// });
+describe("Modal", () => {
+  it("modal applies 'no-scroll' class to body", () => {
+    const utils = render(<Modal />);
+    expect(utils.container.querySelector(".modal")).toBeInTheDocument();
+    expect(document.body.classList[0]).toEqual("no-scroll");
+  });
+});

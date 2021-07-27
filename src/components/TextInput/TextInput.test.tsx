@@ -1,20 +1,21 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import userEvent from "@testing-library/user-event";
 
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import TextInput, { TextInputRefType } from "./TextInput";
+import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
-import generateUUID from "../../helpers/generateUUID";
+import * as generateUUID from "../../helpers/generateUUID";
 
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <TextInput
-        id={"myTextInput"}
-        labelText={"Custom Input Label"}
+        id="myTextInput"
+        labelText="Custom Input Label"
         required={true}
-        placeholder={"Input Placeholder"}
+        placeholder="Input Placeholder"
         type={TextInputTypes.text}
         attributes={{ onFocus: jest.fn() }}
         onChange={jest.fn()}
@@ -24,247 +25,238 @@ describe("TextInput Accessibility", () => {
   });
 });
 
-// describe.skip("Renders TextInput", () => {
-//   let container;
-//   let changeHandler;
-//   let focusHandler;
+describe("TextInput", () => {
+  let changeHandler;
+  let focusHandler;
 
-//   beforeEach(() => {
-//     focusHandler = jest.fn();
-//     changeHandler = jest.fn();
-//     container = render(
-//       <TextInput
-//         id={"myTextInput"}
-//         labelText={"Custom Input Label"}
-//         required={true}
-//         placeholder={"Input Placeholder"}
-//         type={TextInputTypes.text}
-//         attributes={{ onFocus: focusHandler }}
-//         onChange={changeHandler}
-//       ></TextInput>
-//     );
-//   });
+  beforeEach(() => {
+    focusHandler = jest.fn();
+    changeHandler = jest.fn();
+    render(
+      <TextInput
+        id="myTextInput"
+        labelText="Custom Input Label"
+        required={true}
+        placeholder="Input Placeholder"
+        type={TextInputTypes.text}
+        attributes={{ onFocus: focusHandler }}
+        onChange={changeHandler}
+      />
+    );
+  });
 
-//   it("Renders an input element", () => {
-//     expect(container.find("input").exists()).toEqual(true);
-//   });
+  it("Renders an input element", () => {
+    expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
+  });
 
-//   it("Renders as type `text`", () => {
-//     expect(container.find("input").prop("type")).toEqual("text");
-//   });
+  it("Renders label with label text", () => {
+    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+  });
 
-//   it("Renders label with label text", () => {
-//     expect(container.find("label").exists()).toEqual(true);
-//   });
+  it("Renders label's `for` attribute pointing at ID from input", () => {
+    expect(screen.getByText(/Custom Input Label/i)).toHaveAttribute(
+      "for",
+      "myTextInput"
+    );
+  });
 
-//   it("Renders correct label text", () => {
-//     expect(container.find("label").text()).to.contain("Custom Input Label");
-//   });
+  it("Renders placeholder text", () => {
+    expect(
+      screen.getByPlaceholderText("Input Placeholder")
+    ).toBeInTheDocument();
+  });
 
-//   it("Renders label's `for` attribute pointing at ID from input", () => {
-//     expect(container.find("label").prop("htmlFor")).toEqual("myTextInput");
-//   });
+  it("Adds aria-required prop if input is required", () => {
+    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
+      "aria-required"
+    );
+  });
 
-//   it("Renders placeholder text", () => {
-//     expect(container.find("input").props().placeholder).toEqual(
-//       "Input Placeholder"
-//     );
-//   });
+  it("Allows user to pass in additional attributes", () => {
+    expect(focusHandler).toHaveBeenCalledTimes(0);
+    fireEvent.focus(screen.getByLabelText(/Custom Input Label/i));
+    expect(focusHandler).toHaveBeenCalledTimes(1);
+  });
 
-//   it("Adds aria-required prop if input is required", () => {
-//     expect(container.find("input").prop("aria-required")).toEqual(true);
-//   });
+  it("Changing the value calls the onChange handler", () => {
+    expect(changeHandler).toHaveBeenCalledTimes(0);
+    userEvent.type(screen.getByLabelText(/Custom Input Label/i), "Hello");
+    // Called 5 times because "Hello" has length of 5.
+    expect(changeHandler).toHaveBeenCalledTimes(5);
+  });
+});
 
-//   it("Allows user to pass in additional attributes", () => {
-//     container.find("input").simulate("focus");
-//     expect(focusHandler.callCount).toEqual(1);
-//   });
+describe("Renders TextInput with auto-generated ID, hidden label and visible helper text", () => {
+  let generateUUIDSpy;
 
-//   it("Changing the value calls the onChange handler", () => {
-//     container.find("input").simulate("change", { target: { value: "Hello" } });
+  beforeEach(() => {
+    generateUUIDSpy = jest.spyOn(generateUUID, "default");
+    render(
+      <TextInput
+        labelText="Custom Input Label"
+        showLabel={false}
+        helperText="Custom Helper Text"
+        required={true}
+        placeholder="Input Placeholder"
+        type={TextInputTypes.text}
+      />
+    );
+  });
 
-//     expect(changeHandler.callCount).toEqual(1);
-//   });
-// });
+  it("Renders Input component", () => {
+    expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
+  });
 
-// describe("Renders TextInput with auto-generated ID, hidden label and visible helper text", () => {
-//   let container;
-//   let generateUUIDSpy;
+  it("Calls a UUID generation method if no ID is passed as a prop", () => {
+    // Called twice for the `TextInput` and the SVG icon components.
+    expect(generateUUIDSpy).toHaveBeenCalledTimes(2);
+  });
 
-//   beforeEach(() => {
-//     generateUUIDSpy = spy(generateUUID);
-//     container = render(
-//       <TextInput
-//         labelText={"Custom Input Label"}
-//         showLabel={false}
-//         helperText={"Custom Helper Text"}
-//         required={true}
-//         placeholder={"Input Placeholder"}
-//         type={TextInputTypes.text}
-//       ></TextInput>
-//     );
-//   });
+  it("Does not renders Label component", () => {
+    expect(screen.queryByText(/Custom Input Label/i)).not.toBeInTheDocument();
+  });
 
-//   it("Renders Input component", () => {
-//     expect(container.find("input").exists()).toEqual(true);
-//   });
+  it("Renders custom aria-label", () => {
+    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
+      "aria-label",
+      "Custom Input Label"
+    );
+  });
 
-//   it("Calls a UUID generation method if no ID is passed as a prop", () => {
-//     expect(container.find("input").props()).to.have.property("id");
-//     expect(generateUUIDSpy.called);
-//   });
+  it("Renders HelperErrorText component", () => {
+    expect(screen.getByText("Custom Helper Text")).toBeInTheDocument();
+  });
 
-//   it("Does not renders Label component", () => {
-//     expect(container.find("label").exists()).toEqual(false);
-//   });
+  it("Renders aria-describedby with helper text", () => {
+    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
+      "aria-describedby",
+      "Custom Helper Text"
+    );
+  });
+});
 
-//   it("Renders custom aria-label", () => {
-//     expect(container.find("input").prop("aria-label")).toEqual(
-//       "Custom Input Label"
-//     );
-//   });
+describe("TextInput shows error state", () => {
+  beforeEach(() => {
+    render(
+      <TextInput
+        id="myTextInputError"
+        labelText="Custom Input Label"
+        helperText="Custom Helper Text"
+        errorText="Custom Error Text"
+        placeholder="Input Placeholder"
+        errored={true}
+        type={TextInputTypes.text}
+      />
+    );
+  });
 
-//   it("Renders HelperErrorText component", () => {
-//     expect(container.find(".helper-text").exists()).toEqual(true);
-//   });
+  it("Renders Input component", () => {
+    expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
+  });
 
-//   it("Renders aria-describedby with helper text", () => {
-//     expect(container.find("input").prop("aria-describedby")).toEqual(
-//       "Custom Helper Text"
-//     );
-//   });
-// });
+  it("Renders Label component", () => {
+    expect(screen.getByText(/Custom Input Label/i)).toBeInTheDocument();
+  });
 
-// describe("TextInput shows error state", () => {
-//   let container;
-//   beforeEach(() => {
-//     container = render(
-//       <TextInput
-//         id={"myTextInputError"}
-//         labelText={"Custom Input Label"}
-//         helperText={"Custom Helper Text"}
-//         errorText={"Custom Error Text"}
-//         placeholder={"Input Placeholder"}
-//         errored={true}
-//         type={TextInputTypes.text}
-//       ></TextInput>
-//     );
-//   });
+  it("Renders HelperErrorText component", () => {
+    expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
+    expect(screen.getByText("Custom Error Text")).toBeInTheDocument();
+  });
 
-//   it("Renders Input component", () => {
-//     expect(container.find("input").exists()).toEqual(true);
-//   });
+  it("Input shows error state", () => {
+    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
+      "class",
+      "inputfield inputfield--error "
+    );
+  });
+});
 
-//   it("Renders Label component", () => {
-//     expect(container.find("label").exists()).toEqual(true);
-//   });
+describe("TextInput Group", () => {
+  beforeEach(() => {
+    render(
+      <fieldset>
+        <legend>Input Group Label Legend</legend>
 
-//   it("Renders HelperErrorText component", () => {
-//     expect(container.find(".helper-text").exists()).toEqual(true);
-//   });
+        <TextInput
+          id="input1"
+          required={true}
+          type={TextInputTypes.text}
+          labelText="For"
+          helperText="Input 1 Helper Text"
+        />
 
-//   it("Input shows error state", () => {
-//     expect(container.find("input").hasClass("inputfield--error")).toEqual(
-//       true
-//     );
-//   });
+        <TextInput
+          id="input2"
+          required={true}
+          type={TextInputTypes.text}
+          labelText="To"
+          helperText="Input 2 Helper Text"
+        />
 
-//   it("Helper text shows error state", () => {
-//     expect(
-//       container.find(".helper-text").hasClass("helper-text--error")
-//     ).toEqual(true);
-//   });
+        <HelperErrorText isError={true} id={"sharedHelperText"}>
+          Additional Error Text
+        </HelperErrorText>
+      </fieldset>
+    );
+  });
 
-//   it("Helper text shows error text", () => {
-//     expect(container.find(".helper-text").text()).toEqual("Custom Error Text");
-//   });
-// });
+  it("Renders legend", () => {
+    expect(screen.getByText("Input Group Label Legend")).toBeInTheDocument();
+  });
 
-// describe("TextInput Group", () => {
-//   let container;
-//   beforeEach(() => {
-//     container = render(
-//       <fieldset>
-//         <legend>Input Group Label</legend>
+  it("Renders two inputs", () => {
+    expect(screen.getAllByRole("textbox")).toHaveLength(2);
+  });
+});
 
-//         <TextInput
-//           id="input1"
-//           required={true}
-//           type={TextInputTypes.text}
-//           labelText="For"
-//           helperText="Input 1 Helper Text"
-//         />
+describe("Renders HTML attributes passed through the `attributes` prop", () => {
+  const onChangeSpy = jest.fn();
+  const onBlurSpy = jest.fn();
+  beforeEach(() => {
+    render(
+      <TextInput
+        id="inputID-attributes"
+        labelText="Input Label"
+        placeholder="Input Placeholder"
+        type={TextInputTypes.text}
+        attributes={{
+          onChange: onChangeSpy,
+          onBlur: onBlurSpy,
+          maxLength: 10,
+          tabIndex: 0,
+        }}
+      />
+    );
+  });
 
-//         <TextInput
-//           id="input2"
-//           required={true}
-//           type={TextInputTypes.text}
-//           labelText="To"
-//           helperText="Input 2 Helper Text"
-//         />
+  it("Has a maxlength for the input element", () => {
+    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
+      "maxLength",
+      "10"
+    );
+  });
 
-//         <HelperErrorText isError={true} id={"sharedHelperText"}>
-//           Additional Error Text
-//         </HelperErrorText>
-//       </fieldset>
-//     );
-//   });
+  it("Has a tabIndex", () => {
+    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
+      "tabIndex",
+      "0"
+    );
+  });
 
-//   it("Renders fieldset", () => {
-//     expect(container.find("fieldset").exists()).toEqual(true);
-//   });
+  it("Calls the onChange function", () => {
+    expect(onChangeSpy).toHaveBeenCalledTimes(0);
+    userEvent.type(screen.getByLabelText(/Input Label/i), "Hello");
+    expect(onChangeSpy).toHaveBeenCalledTimes(5);
+  });
 
-//   it("Renders legend", () => {
-//     expect(container.find("legend").exists()).toEqual(true);
-//   });
+  it("Calls the onBlur function", () => {
+    expect(onBlurSpy).toHaveBeenCalledTimes(0);
+    fireEvent.blur(screen.getByLabelText(/Input Label/i));
+    expect(onBlurSpy).toHaveBeenCalledTimes(1);
+  });
+});
 
-//   it("Renders two inputs", () => {
-//     expect(container.find("input")).to.have.length(2);
-//   });
-// });
-
-// describe("Renders HTML attributes passed through the `attributes` prop", () => {
-//   const onChangeSpy = jest.fn();
-//   const onBlurSpy = jest.fn();
-//   let container;
-//   beforeEach(() => {
-//     container = render(
-//       <TextInput
-//         id="inputID-attributes"
-//         labelText="Input Label"
-//         placeholder={"Input Placeholder"}
-//         type={TextInputTypes.text}
-//         attributes={{
-//           onChange: onChangeSpy,
-//           onBlur: onBlurSpy,
-//           maxLength: 10,
-//           tabIndex: 0,
-//         }}
-//       ></TextInput>
-//     );
-//   });
-
-//   it("Has a maxlength for the input element", () => {
-//     expect(container.find("input").prop("maxLength")).toEqual(10);
-//   });
-
-//   it("Has a tabIndex", () => {
-//     expect(container.find("input").prop("tabIndex")).toEqual(0);
-//   });
-
-//   it("Calls the onChange function", () => {
-//     expect(onChangeSpy.callCount).toEqual(0);
-//     container.find("input").simulate("change");
-//     expect(onChangeSpy.callCount).toEqual(1);
-//   });
-
-//   it("Calls the onBlur function", () => {
-//     expect(onBlurSpy.callCount).toEqual(0);
-//     container.find("input").simulate("blur");
-//     expect(onBlurSpy.callCount).toEqual(1);
-//   });
-// });
-
+// TODO:
 // describe("Forwarding refs", () => {
 //   it("Passes the ref to the input element", () => {
 //     const ref = React.createRef<TextInputRefType>();
@@ -275,7 +267,7 @@ describe("TextInput Accessibility", () => {
 //         placeholder={"Input Placeholder"}
 //         type={TextInputTypes.text}
 //         ref={ref}
-//       ></TextInput>
+//       />
 //     );
 //     expect(container.find("input").instance()).toEqual(ref.current);
 //   });
@@ -289,50 +281,50 @@ describe("TextInput Accessibility", () => {
 //         placeholder={"Input Placeholder"}
 //         type={TextInputTypes.textarea}
 //         ref={ref}
-//       ></TextInput>
+//       />
 //     );
 //     expect(container.find("textarea").instance()).toEqual(ref.current);
 //   });
 // });
 
-// describe("Hidden input", () => {
-//   it("Renders a hidden type input", () => {
-//     const container = render(
-//       <TextInput
-//         id="inputID-hidden"
-//         labelText={"Hidden Input Label"}
-//         type={TextInputTypes.hidden}
-//         value="hidden"
-//       />
-//     );
+describe("Hidden input", () => {
+  it("Renders a hidden type input", () => {
+    const utils = render(
+      <TextInput
+        id="inputID-hidden"
+        labelText="Hidden Input Label"
+        type={TextInputTypes.hidden}
+        value="hidden"
+      />
+    );
 
-//     const input = container.find("input");
+    expect(utils.container.querySelector("#inputID-hidden")).toHaveAttribute(
+      "aria-hidden"
+    );
+    expect(utils.container.querySelector("#inputID-hidden")).toHaveAttribute(
+      "value",
+      "hidden"
+    );
+  });
+});
 
-//     expect(input.prop("aria-hidden")).toEqual(true);
-//     expect(input.prop("value")).toEqual("hidden");
-//   });
-// });
+describe("Textarea element type", () => {
+  beforeEach(() => {
+    render(
+      <TextInput
+        id="myTextarea"
+        labelText="Custom textarea Label"
+        placeholder="Textarea Placeholder"
+        type={TextInputTypes.textarea}
+      />
+    );
+  });
 
-// describe("Textarea element type", () => {
-//   let container;
+  it("Renders a textarea element", () => {
+    expect(screen.getByRole("textbox")).toBeInTheDocument();
+  });
 
-//   beforeEach(() => {
-//     container = render(
-//       <TextInput
-//         id={"myTextarea"}
-//         labelText={"Custom textarea Label"}
-//         placeholder={"Textarea Placeholder"}
-//         type={TextInputTypes.textarea}
-//       ></TextInput>
-//     );
-//   });
-
-//   it("Renders a textarea element", () => {
-//     expect(container.find("textarea").exists()).toEqual(true);
-//   });
-
-//   it("Renders label with label text", () => {
-//     expect(container.find("label").exists()).toEqual(true);
-//     expect(container.find("label").text()).to.contain("Custom textarea Label");
-//   });
-// });
+  it("Renders label with label text", () => {
+    expect(screen.getByLabelText(/Custom textarea Label/i)).toBeInTheDocument();
+  });
+});

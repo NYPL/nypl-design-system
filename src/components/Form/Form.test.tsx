@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 
 import Form, { FormRow, FormField } from "./Form";
@@ -12,56 +12,66 @@ describe("Form Accessibility", () => {
   });
 });
 
-// describe("Form", () => {
-//   it("Renders a <form> element", () => {
-//     const wrapper = render(<Form></Form>);
-//     expect(wrapper.find("form")).to.have.lengthOf(1);
-//   });
+describe("Form", () => {
+  let container;
+  it("Renders a <form> element", () => {
+    const utils = render(<Form />);
+    container = utils.container;
 
-//   it("Renders a <form> element with child .form-row element", () => {
-//     const wrapper = render(
-//       <Form>
-//         <FormRow></FormRow>
-//       </Form>
-//     );
-//     expect(wrapper.find(".form")).to.have.lengthOf(1);
-//     expect(wrapper.find(".form .form-row")).to.have.lengthOf(1);
-//   });
+    expect(container.querySelector(".form")).toBeInTheDocument();
+  });
 
-//   it("Renders a <form> element with child .form-field element", () => {
-//     const wrapper = render(
-//       <Form>
-//         <FormField></FormField>
-//       </Form>
-//     );
-//     expect(wrapper.find(".form")).to.have.lengthOf(1);
-//     expect(wrapper.find(".form .form-field")).to.have.lengthOf(1);
-//   });
+  it("Renders a <form> element with child .form-row element", () => {
+    const utils = render(
+      <Form>
+        <FormRow />
+      </Form>
+    );
+    container = utils.container;
 
-//   it("Renders a <form> element with .form-row, .form-field and input elements properly nested", () => {
-//     const wrapper = render(
-//       <Form>
-//         <FormRow>
-//           <FormField>
-//             <TextInput labelText="Input Field" />
-//           </FormField>
-//         </FormRow>
-//       </Form>
-//     );
-//     expect(wrapper.find(".form")).to.have.lengthOf(1);
-//     expect(wrapper.find(".form .form-row")).to.have.lengthOf(1);
-//     expect(wrapper.find(".form .form-row .form-field")).to.have.lengthOf(1);
-//     expect(
-//       wrapper.find(".form .form-row .form-field .textinput")
-//     ).to.have.lengthOf(1);
-//   });
+    expect(container.querySelector(".form")).toBeInTheDocument();
+    expect(container.querySelector(".form-row")).toBeInTheDocument();
+  });
 
-//   it("Renders a <form> element with .form-row and .form-field elements properly nested", () => {
-//     const wrapper = render(
-//       <Form action="/end/point" method="get"></Form>
-//     );
-//     expect(wrapper.find("form")).to.have.lengthOf(1);
-//     expect(wrapper.find("form").prop("action")).toEqual("/end/point");
-//     expect(wrapper.find("form").prop("method")).toEqual("get");
-//   });
-// });
+  it("Renders a <form> element with child .form-field element", () => {
+    const utils = render(
+      <Form>
+        <FormField />
+      </Form>
+    );
+    container = utils.container;
+
+    expect(container.querySelector(".form")).toBeInTheDocument();
+    expect(container.querySelector(".form-field")).toBeInTheDocument();
+  });
+
+  it("Renders a <form> element with .form-row, .form-field and input elements properly nested", () => {
+    const utils = render(
+      <Form>
+        <FormRow>
+          <FormField>
+            <TextInput labelText="Input Field" />
+          </FormField>
+        </FormRow>
+      </Form>
+    );
+    container = utils.container;
+
+    expect(container.querySelector(".form")).toBeInTheDocument();
+    expect(container.querySelector(".form-row")).toBeInTheDocument();
+    expect(container.querySelector(".form-field")).toBeInTheDocument();
+    expect(container.querySelector(".textinput")).toBeInTheDocument();
+  });
+
+  it("Renders a <form> element with .form-row and .form-field elements properly nested", () => {
+    const utils = render(<Form action="/end/point" method="get" />);
+    container = utils.container;
+
+    expect(container.querySelector(".form")).toBeInTheDocument();
+    expect(container.querySelector(".form")).toHaveAttribute(
+      "action",
+      "/end/point"
+    );
+    expect(container.querySelector(".form")).toHaveAttribute("method", "get");
+  });
+});

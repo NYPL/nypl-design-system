@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import userEvent from "@testing-library/user-event";
 
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -15,34 +16,36 @@ describe("SearchBar Accessibility", () => {
   });
 });
 
-// describe("SearchBar", () => {
-//   let searchBarSubmit, buttonCallback;
-//   beforeEach(() => {
-//     searchBarSubmit = jest.fn();
-//   });
+describe("SearchBar", () => {
+  const searchBarSubmit = jest.fn();
+  const buttonCallback = jest.fn();
 
-//   it("Renders SearchBar", () => {
-//     const wrapper = render(
-//       <SearchBar id="id" ariaLabel="searchbar" onSubmit={searchBarSubmit} />
-//     );
-//     expect(wrapper.find(".searchbar")).to.have.lengthOf(1);
-//     expect(wrapper.find(".searchbar").prop("aria-label")).toEqual("searchbar");
-//   });
+  it("Renders SearchBar", () => {
+    render(
+      <SearchBar id="id" ariaLabel="searchbar" onSubmit={searchBarSubmit} />
+    );
+    expect(screen.getByRole("search")).toBeInTheDocument();
+    expect(screen.getByRole("search")).toHaveAttribute(
+      "aria-label",
+      "searchbar"
+    );
+  });
 
-//   it("Search Bar calls call back on Submit ", () => {
-//     const mounted = render(
-//       <SearchBar ariaLabel="searchBar" id="id" onSubmit={searchBarSubmit}>
-//         <Button
-//           buttonType={ButtonTypes.Primary}
-//           id="button"
-//           onClick={buttonCallback}
-//           type="submit"
-//         >
-//           Search
-//         </Button>
-//       </SearchBar>
-//     );
-//     mounted.find("Button").simulate("click");
-//     expect(searchBarSubmit.callCount).toEqual(1);
-//   });
-// });
+  it("Search Bar calls call back on Submit ", () => {
+    render(
+      <SearchBar ariaLabel="searchBar" id="id" onSubmit={searchBarSubmit}>
+        <Button
+          buttonType={ButtonTypes.Primary}
+          id="button"
+          onClick={buttonCallback}
+          type="submit"
+        >
+          Search
+        </Button>
+      </SearchBar>
+    );
+    expect(searchBarSubmit).toHaveBeenCalledTimes(0);
+    userEvent.click(screen.getByRole("button"));
+    expect(searchBarSubmit).toHaveBeenCalledTimes(1);
+  });
+});

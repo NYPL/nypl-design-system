@@ -7,6 +7,7 @@ module.exports = {
   setupFilesAfterEnv: ["<rootDir>/src/__tests__/setup.ts"],
   testPathIgnorePatterns: [
     "/node_modules/",
+    "/lib",
     "<rootDir>/src/__tests__/setup.ts",
     "<rootDir>/src/__tests__/fileMock.ts",
   ],

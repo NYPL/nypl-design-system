@@ -20,21 +20,8 @@ Object.keys(document.defaultView).forEach(property => {
     global[property] = document.defaultView[property];
   }
 });
-// global.navigator = {
-//   userAgent: "node.js",
-// };
-
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = () => {};
-
-// Ignore SVG
-require.extensions[".svg"] = obj => {
-  obj.exports = () => "noop";
-};
-
-// Ignore imported stylesheets.
-require.extensions[".scss"] = noop;
 
 // We expect an error to be thrown and we do catch, but it still gets
 // logged and we don't want to see expected errors while we test.
 jest.spyOn(global.console, "error").mockImplementation(() => jest.fn());
+jest.spyOn(global.console, "warn").mockImplementation(() => jest.fn());

@@ -36,9 +36,9 @@ describe("Button", () => {
   });
 
   it("calls the onClick", () => {
-    expect(onClick.mock.calls.length).toEqual(0);
+    expect(onClick).toHaveBeenCalledTimes(0);
     userEvent.click(screen.getByText("Submit"));
-    expect(onClick.mock.calls.length).toEqual(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it("optionally renders a component", () => {
@@ -50,17 +50,17 @@ describe("Button", () => {
   });
 
   it("optionally calls the onClick on mouseDown instead of on click", () => {
-    expect(onClick.mock.calls.length).toEqual(0);
+    expect(onClick).toHaveBeenCalledTimes(0);
     rerender(
       <Button id="button5" mouseDown={true}>
         Submit
       </Button>
     );
     userEvent.click(screen.getByText("Submit"));
-    expect(onClick.mock.calls.length).toEqual(0);
+    expect(onClick).toHaveBeenCalledTimes(0);
     fireEvent.mouseDown(screen.getByText("Submit"));
     // TODO:
-    // expect(onClick.mock.calls.length).toEqual(1);
+    // expect(onClick).toHaveBeenCalledTimes(1);
   });
 });
 

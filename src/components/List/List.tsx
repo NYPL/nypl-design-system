@@ -1,8 +1,8 @@
 import * as React from "react";
+
 import bem from "../../utils/bem";
 import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
-
 interface DefinitionProps {
   term: string;
   definition: string;

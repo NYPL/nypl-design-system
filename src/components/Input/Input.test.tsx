@@ -1,6 +1,7 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
+import userEvent from "@testing-library/user-event";
 
 import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
@@ -25,196 +26,207 @@ describe("Input Accessibility", () => {
   });
 });
 
-// describe("Renders Input", () => {
-//   let container;
-//   let changeHandler;
-//   let clickHander;
+describe("Input", () => {
+  let changeHandler;
+  let clickHander;
 
-//   beforeEach(() => {
-//     clickHander = jest.fn();
-//     changeHandler = jest.fn();
-//     container = render(
-//       <Input
-//         id="inputID"
-//         ariaLabel="Input Label"
-//         ariaLabelledBy={"helperText"}
-//         required={true}
-//         placeholder={"Input Placeholder"}
-//         type={InputTypes.text}
-//         attributes={{ onClick: clickHander }}
-//         onChange={changeHandler}
-//       ></Input>
-//     );
-//   });
+  beforeEach(() => {
+    clickHander = jest.fn();
+    changeHandler = jest.fn();
+    render(
+      <Input
+        id="inputID"
+        ariaLabel="Input Label"
+        ariaLabelledBy="helperText"
+        required={true}
+        placeholder="Input Placeholder"
+        type={InputTypes.text}
+        attributes={{ onClick: clickHander }}
+        onChange={changeHandler}
+      ></Input>
+    );
+  });
 
-//   it("Renders Input", () => {
-//     expect(container.find("input").exists()).toEqual(true);
-//   });
+  it("Renders Input", () => {
+    expect(screen.getByLabelText("Input Label")).toBeInTheDocument();
+  });
 
-//   it("Renders aria-label", () => {
-//     expect(container.find("input").prop("aria-label")).toEqual("Input Label");
-//   });
+  it("Renders aria-label", () => {
+    expect(screen.getByLabelText("Input Label")).toHaveAttribute(
+      "aria-label",
+      "Input Label"
+    );
+  });
 
-//   it("Renders placeholder text", () => {
-//     expect(container.find("input").props().placeholder).toEqual(
-//       "Input Placeholder"
-//     );
-//   });
+  it("Renders placeholder text", () => {
+    expect(
+      screen.getByPlaceholderText("Input Placeholder")
+    ).toBeInTheDocument();
+  });
 
-//   it("Adds aria-required prop if input is required", () => {
-//     expect(container.find("input").prop("aria-required")).toEqual(true);
-//   });
+  it("Adds aria-required prop if input is required", () => {
+    expect(screen.getByLabelText("Input Label")).toHaveAttribute("aria-label");
+  });
 
-//   it("Allows user to pass in additional attributes", () => {
-//     container.simulate("click");
-//     expect(clickHander.callCount).toEqual(1);
-//   });
+  it("Allows user to pass in additional attributes", () => {
+    expect(clickHander).toHaveBeenCalledTimes(0);
+    userEvent.click(screen.getByLabelText("Input Label"));
+    expect(clickHander).toHaveBeenCalledTimes(1);
+  });
 
-//   it("Changing the value calls the onChange handler", () => {
-//     container.find("input").simulate("change", { target: { value: "Hello" } });
+  it("Changing the value calls the onChange handler", () => {
+    expect(changeHandler).toHaveBeenCalledTimes(0);
+    fireEvent.change(screen.getByLabelText("Input Label"), {
+      target: { value: "Hello" },
+    });
+    expect(changeHandler).toHaveBeenCalledTimes(1);
+  });
+});
 
-//     expect(changeHandler.callCount).toEqual(1);
-//   });
-// });
+describe("Input with Label", () => {
+  beforeEach(() => {
+    render(
+      <>
+        <Label htmlFor="inputID" id="label">
+          Input Label
+        </Label>
+        <Input
+          id="inputID"
+          ariaLabelledBy="label helperText"
+          ariaLabel="Input Label"
+          required={true}
+          placeholder="Input Placeholder"
+          type={InputTypes.text}
+        />
+        <HelperErrorText isError={false} id="helperText">
+          Helper Text Content
+        </HelperErrorText>
+      </>
+    );
+  });
 
-// describe("Input with Label", () => {
-//   let container;
-//   beforeEach(() => {
-//     container = render(
-//       <>
-//         <Label htmlFor="inputID" id={"label"}>
-//           Input Label
-//         </Label>
-//         <Input
-//           id="inputID"
-//           ariaLabelledBy="label helperText"
-//           ariaLabel="Input Label"
-//           required={true}
-//           placeholder={"Input Placeholder"}
-//           type={InputTypes.text}
-//         ></Input>
-//         <HelperErrorText isError={false} id={"helperText"}>
-//           Helper Text Content
-//         </HelperErrorText>
-//       </>
-//     );
-//   });
+  it("Renders Input", () => {
+    expect(screen.getByText("Input Label")).toBeInTheDocument();
+  });
 
-//   it("Renders Input", () => {
-//     expect(container.find("input").exists()).toEqual(true);
-//   });
+  it("Renders aria-label", () => {
+    expect(screen.getByLabelText("Input Label")).toHaveAttribute(
+      "aria-label",
+      "Input Label"
+    );
+  });
 
-//   it("Renders aria-label", () => {
-//     expect(container.find("input").prop("aria-label")).toEqual("Input Label");
-//   });
+  it("Renders aria-labelledby for inputId and ariaLabelledBy", () => {
+    expect(screen.getByLabelText("Input Label")).toHaveAttribute(
+      "aria-labelledby",
+      "label helperText"
+    );
+  });
+});
 
-//   it("Renders aria-labelledby for inputId and ariaLabelledBy", () => {
-//     expect(container.find("input").prop("aria-labelledby")).toEqual(
-//       "label helperText"
-//     );
-//   });
-// });
+describe("Input Group", () => {
+  beforeEach(() => {
+    render(
+      <fieldset>
+        <legend>Input Group Label Legend</legend>
+        <>
+          <>
+            <Label htmlFor="input1" id={"label1"}>
+              From
+            </Label>
+            <Input
+              id="input1"
+              ariaLabelledBy="label1 helperText1 sharedHelperText"
+              required={true}
+              type={InputTypes.text}
+            ></Input>
+            <HelperErrorText isError={false} id={"helperText1"}>
+              Input 1 Helper Text
+            </HelperErrorText>
+          </>
 
-// describe("Input Group", () => {
-//   let container;
-//   beforeEach(() => {
-//     container = render(
-//       <fieldset>
-//         <legend>Input Group Label</legend>
-//         <>
-//           <>
-//             <Label htmlFor="input1" id={"label1"}>
-//               From
-//             </Label>
-//             <Input
-//               id="input1"
-//               ariaLabelledBy="label1 helperText1 sharedHelperText"
-//               required={true}
-//               type={InputTypes.text}
-//             ></Input>
-//             <HelperErrorText isError={false} id={"helperText1"}>
-//               Input 1 Helper Text
-//             </HelperErrorText>
-//           </>
+          <>
+            <Label htmlFor="input2" id={"label2"}>
+              To
+            </Label>
+            <Input
+              id="input2"
+              ariaLabelledBy={"label2 helperText2 sharedHelperText"}
+              required={true}
+              type={InputTypes.text}
+            ></Input>
+            <HelperErrorText isError={false} id={"helperText2"}>
+              Input 2 Helper Text
+            </HelperErrorText>
+          </>
+        </>
+        <HelperErrorText isError={true} id={"sharedHelperText"}>
+          Additional Error Text
+        </HelperErrorText>
+      </fieldset>
+    );
+  });
+  it("Renders legend", () => {
+    expect(screen.getByText("Input Group Label Legend")).toBeInTheDocument();
+  });
 
-//           <>
-//             <Label htmlFor="input2" id={"label2"}>
-//               To
-//             </Label>
-//             <Input
-//               id="input2"
-//               ariaLabelledBy={"label2 helperText2 sharedHelperText"}
-//               required={true}
-//               type={InputTypes.text}
-//             ></Input>
-//             <HelperErrorText isError={false} id={"helperText2"}>
-//               Input 2 Helper Text
-//             </HelperErrorText>
-//           </>
-//         </>
-//         <HelperErrorText isError={true} id={"sharedHelperText"}>
-//           Additional Error Text
-//         </HelperErrorText>
-//       </fieldset>
-//     );
-//   });
+  it("Renders two inputs", () => {
+    expect(screen.getByText("From")).toBeInTheDocument();
+    expect(screen.getByText("To")).toBeInTheDocument();
+  });
+});
 
-//   it("Renders fieldset", () => {
-//     expect(container.find("fieldset").exists()).toEqual(true);
-//   });
+describe("Renders HTML attributes passed through the `attributes` prop", () => {
+  const onChangeSpy = jest.fn();
+  const onBlurSpy = jest.fn();
+  beforeEach(() => {
+    render(
+      <Input
+        id="inputID-attributes"
+        ariaLabel="Input Label"
+        ariaLabelledBy="helperText-attributes"
+        placeholder="Input Placeholder"
+        type={InputTypes.text}
+        attributes={{
+          onChange: onChangeSpy,
+          onBlur: onBlurSpy,
+          maxLength: 10,
+          tabIndex: 0,
+        }}
+      />
+    );
+  });
 
-//   it("Renders legend", () => {
-//     expect(container.find("legend").exists()).toEqual(true);
-//   });
+  it("Has a maxlength for the input element", () => {
+    expect(screen.getByLabelText("Input Label")).toHaveAttribute(
+      "maxLength",
+      "10"
+    );
+  });
 
-//   it("Renders two inputs", () => {
-//     expect(container.find("input")).to.have.length(2);
-//   });
-// });
+  it("Has a tabIndex", () => {
+    expect(screen.getByLabelText("Input Label")).toHaveAttribute(
+      "tabIndex",
+      "0"
+    );
+  });
 
-// describe("Renders HTML attributes passed through the `attributes` prop", () => {
-//   const onChangeSpy = jest.fn();
-//   const onBlurSpy = jest.fn();
-//   let container;
-//   beforeEach(() => {
-//     container = render(
-//       <Input
-//         id="inputID-attributes"
-//         ariaLabel="Input Label"
-//         ariaLabelledBy={"helperText-attributes"}
-//         placeholder={"Input Placeholder"}
-//         type={InputTypes.text}
-//         attributes={{
-//           onChange: onChangeSpy,
-//           onBlur: onBlurSpy,
-//           maxLength: 10,
-//           tabIndex: 0,
-//         }}
-//       ></Input>
-//     );
-//   });
+  it("Calls the onChange function", () => {
+    expect(onChangeSpy).toHaveBeenCalledTimes(0);
+    fireEvent.change(screen.getByLabelText("Input Label"), {
+      target: { value: "Hello" },
+    });
+    expect(onChangeSpy).toHaveBeenCalledTimes(1);
+  });
 
-//   it("Has a maxlength for the input element", () => {
-//     expect(container.find("input").prop("maxLength")).toEqual(10);
-//   });
+  it("Calls the onBlur function", () => {
+    expect(onBlurSpy).toHaveBeenCalledTimes(0);
+    fireEvent.blur(screen.getByLabelText("Input Label"));
+    expect(onBlurSpy).toHaveBeenCalledTimes(1);
+  });
+});
 
-//   it("Has a tabIndex", () => {
-//     expect(container.find("input").prop("tabIndex")).toEqual(0);
-//   });
-
-//   it("Calls the onChange function", () => {
-//     expect(onChangeSpy.callCount).toEqual(0);
-//     container.find("input").simulate("change");
-//     expect(onChangeSpy.callCount).toEqual(1);
-//   });
-
-//   it("Calls the onBlur function", () => {
-//     expect(onBlurSpy.callCount).toEqual(0);
-//     container.find("input").simulate("blur");
-//     expect(onBlurSpy.callCount).toEqual(1);
-//   });
-// });
-
+// TODO:
 // describe("Forwarding refs", () => {
 //   it("Passes the ref to the input element", () => {
 //     const ref = React.createRef<HTMLInputElement>();
@@ -232,20 +244,23 @@ describe("Input Accessibility", () => {
 //   });
 // });
 
-// describe("Hidden input", () => {
-//   it("Renders a hidden type input", () => {
-//     const container = render(
-//       <Input
-//         id="inputID-hidden"
-//         ariaLabel="Hidden Input Label"
-//         type={InputTypes.hidden}
-//         value="hidden"
-//       />
-//     );
+describe("Hidden input", () => {
+  it("Renders a hidden type input", () => {
+    render(
+      <Input
+        id="inputID-hidden"
+        ariaLabel="Hidden Input Label"
+        type={InputTypes.hidden}
+        value="hidden"
+      />
+    );
 
-//     const input = container.find("input");
-
-//     expect(input.prop("aria-hidden")).toEqual(true);
-//     expect(input.prop("value")).toEqual("hidden");
-//   });
-// });
+    expect(screen.getByLabelText("Hidden Input Label")).toHaveAttribute(
+      "aria-hidden"
+    );
+    expect(screen.getByLabelText("Hidden Input Label")).toHaveAttribute(
+      "value",
+      "hidden"
+    );
+  });
+});

@@ -8,55 +8,53 @@ describe("Label Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <Label id="label" htmlFor="so-lonely">
-        Cupcake's
+        Cupcakes
       </Label>
     );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-// describe("Label Test", () => {
-//   let wrapper;
-//   it("Renders a <label> when passed text as children", () => {
-//     wrapper = render(
-//       <Label id="label" htmlFor="so-lonely">
-//         {"Cupcake's"}
-//       </Label>
-//     );
-//     expect(wrapper.find("label")).to.have.lengthOf(1);
-//   });
+describe("Label", () => {
+  it("Renders a <label> when passed text as children", () => {
+    render(
+      <Label id="label" htmlFor="so-lonely">
+        Cupcakes
+      </Label>
+    );
+    expect(screen.getByText("Cupcakes")).toBeInTheDocument();
+  });
 
-//   it("Renders a <label> when passed element as children", () => {
-//     wrapper = render(
-//       <Label id="label" htmlFor="so-lonely">
-//         <span>Cupcakes</span>
-//       </Label>
-//     );
-//     expect(wrapper.find("label")).to.have.lengthOf(1);
-//   });
+  it("Renders a <label> when passed element as children", () => {
+    render(
+      <Label id="label" htmlFor="so-lonely">
+        <span>Cupcakes</span>
+      </Label>
+    );
+    expect(screen.getByText("Cupcakes")).toBeInTheDocument();
+  });
 
-//   it("Renders the optional or required helper text", () => {
-//     wrapper = render(
-//       <Label id="label" htmlFor="so-lonely">
-//         <span>Cupcakes</span>
-//       </Label>
-//     );
-//     expect(wrapper.find("div")).to.have.lengthOf(0);
+  it("Renders the optional or required helper text", () => {
+    const utils = render(
+      <Label id="label" htmlFor="so-lonely">
+        <span>Cupcakes</span>
+      </Label>
+    );
+    expect(screen.queryByText("Optional")).not.toBeInTheDocument();
 
-//     wrapper = render(
-//       <Label id="label" htmlFor="so-lonely" optReqFlag="Optional">
-//         <span>Cupcakes</span>
-//       </Label>
-//     );
-//     expect(wrapper.find("div")).to.have.lengthOf(1);
-//     expect(wrapper.find("div").text()).toEqual("Optional");
+    utils.rerender(
+      <Label id="label" htmlFor="so-lonely" optReqFlag="Optional">
+        <span>Cupcakes</span>
+      </Label>
+    );
+    expect(screen.getByText("Optional")).toBeInTheDocument();
 
-//     wrapper = render(
-//       <Label id="label" htmlFor="so-lonely" optReqFlag="Required">
-//         <span>Cupcakes</span>
-//       </Label>
-//     );
-//     expect(wrapper.find("div")).to.have.lengthOf(1);
-//     expect(wrapper.find("div").text()).toEqual("Required");
-//   });
-// });
+    utils.rerender(
+      <Label id="label" htmlFor="so-lonely" optReqFlag="Required">
+        <span>Cupcakes</span>
+      </Label>
+    );
+    expect(screen.queryByText("Optional")).not.toBeInTheDocument();
+    expect(screen.getByText("Required")).toBeInTheDocument();
+  });
+});

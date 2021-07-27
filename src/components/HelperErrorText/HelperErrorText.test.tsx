@@ -15,57 +15,63 @@ describe("HelperErrorText Accessibility", () => {
   });
 });
 
-// describe("HelperErrorText Test", () => {
-//   it("Renders HelperErrorText", () => {
-//     const container = render(
-//       <HelperErrorText id="helperTextWithLink" isError={false}>
-//         Text
-//       </HelperErrorText>
-//     );
-//     expect(container.exists("#helperTextWithLink")).toEqual(true);
-//   });
+describe("HelperErrorText", () => {
+  it("Renders HelperErrorText", () => {
+    render(
+      <HelperErrorText id="helperTextWithLink" isError={false}>
+        Text
+      </HelperErrorText>
+    );
+    expect(screen.getByText("Text")).toBeInTheDocument();
+    expect(screen.getByText("Text")).toHaveAttribute("class", "helper-text");
+  });
 
-//   it("Has 'error' modifier if error is passed", () => {
-//     const container = render(
-//       <HelperErrorText id="helperTextWithLink" isError={true}>
-//         Text
-//       </HelperErrorText>
-//     );
-//     expect(container.exists("#helperTextWithLink")).toEqual(true);
-//   });
+  it("Has 'error' modifier if error is passed", () => {
+    render(
+      <HelperErrorText id="helperTextWithLink" isError={true}>
+        Text
+      </HelperErrorText>
+    );
+    expect(screen.getByText("Text")).toHaveAttribute(
+      "class",
+      "helper-text helper-text--error"
+    );
+  });
 
-//   it("Has aria-live and aria-atomic properties when errored", () => {
-//     const container = render(
-//       <HelperErrorText id="helperTextWithLink" isError={true}>
-//         Text
-//       </HelperErrorText>
-//     );
-//     expect(container.find("div").props()["aria-live"]).toEqual("polite");
-//     expect(container.find("div").props()["aria-atomic"]).toEqual(true);
-//   });
+  it("Has aria-live and aria-atomic properties when errored", () => {
+    render(
+      <HelperErrorText id="helperTextWithLink" isError={true}>
+        Text
+      </HelperErrorText>
+    );
+    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
+    expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
+  });
 
-//   it("Accepts an aria-atomic value of false", () => {
-//     let container = render(
-//       <HelperErrorText id="helperTextWithLink" isError={true}>
-//         Text
-//       </HelperErrorText>
-//     );
-//     // The default is "true".
-//     expect(container.find("div").props()["aria-atomic"]).toEqual(true);
+  it("Accepts an aria-atomic value of false", () => {
+    const utils = render(
+      <HelperErrorText id="helperTextWithLink" isError={true}>
+        Text
+      </HelperErrorText>
+    );
+    // The default is "true".
+    expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
 
-//     container = render(
-//       <HelperErrorText
-//         id="helperTextWithLink"
-//         isError={true}
-//         ariaAtomic={false}
-//       >
-//         <p>
-//           This is static <span>but this part changes often!</span>
-//         </p>
-//       </HelperErrorText>
-//     );
-//     // But the prop accepts false in case only part of the helper text
-//     // should only be read instead of the whole region.
-//     expect(container.find("div").props()["aria-atomic"]).toEqual(false);
-//   });
-// });
+    utils.rerender(
+      <HelperErrorText
+        id="helperTextWithLink"
+        isError={true}
+        ariaAtomic={false}
+      >
+        <p>
+          This is static <span>but this part changes often!</span>
+        </p>
+      </HelperErrorText>
+    );
+    // But the prop accepts false in case only part of the helper text
+    // should only be read instead of the whole region.
+    expect(
+      utils.container.querySelector("#helperTextWithLink")
+    ).toHaveAttribute("aria-atomic", "false");
+  });
+});

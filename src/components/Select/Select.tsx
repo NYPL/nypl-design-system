@@ -112,7 +112,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 
     if (React.Children.count(children) < 2) {
       console.warn(
-        "NYPL DS recomments <select> not be used with 1 or fewer options"
+        "NYPL DS recommends <select> not be used with 1 or fewer options"
       );
     }
 

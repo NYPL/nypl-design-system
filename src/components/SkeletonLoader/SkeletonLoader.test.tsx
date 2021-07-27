@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 
 import SkeletonLoader from "./SkeletonLoader";
@@ -59,120 +59,146 @@ describe("SkeletonLoader", () => {
     });
   });
 
-  // describe("UI elements", () => {
-  //   it("renders default elements", () => {
-  //     container = render(<SkeletonLoader />);
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-image").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-heading").exists()).toEqual(
-  //       true
-  //     );
-  //     expect(container.find(".skeleton-loader-content").exists()).toEqual(
-  //       true
-  //     );
-  //     expect(container.find(".skeleton-loader-button").exists()).toEqual(
-  //       false
-  //     );
-  //   });
+  describe("UI elements", () => {
+    it("renders default elements", () => {
+      const utils = render(<SkeletonLoader />);
+      container = utils.container;
 
-  //   it("renders without image", () => {
-  //     container = render(<SkeletonLoader showImage={false} />);
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-image").exists()).toEqual(false);
-  //     expect(container.find(".skeleton-loader-heading").exists()).toEqual(
-  //       true
-  //     );
-  //     expect(container.find(".skeleton-loader-content").exists()).toEqual(
-  //       true
-  //     );
-  //     expect(container.find(".skeleton-loader-button").exists()).toEqual(
-  //       false
-  //     );
-  //   });
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-image")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-heading")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-content")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-button")
+      ).not.toBeInTheDocument();
+    });
 
-  //   it("renders without heading", () => {
-  //     container = render(<SkeletonLoader showHeading={false} />);
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-image").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-heading").exists()).toEqual(
-  //       false
-  //     );
-  //     expect(container.find(".skeleton-loader-content").exists()).toEqual(
-  //       true
-  //     );
-  //     expect(container.find(".skeleton-loader-button").exists()).toEqual(
-  //       false
-  //     );
-  //   });
+    it("renders without image", () => {
+      const utils = render(<SkeletonLoader showImage={false} />);
+      container = utils.container;
 
-  //   it("renders without content", () => {
-  //     container = render(<SkeletonLoader showContent={false} />);
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-image").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-heading").exists()).toEqual(
-  //       true
-  //     );
-  //     expect(container.find(".skeleton-loader-content").exists()).toEqual(
-  //       false
-  //     );
-  //     expect(container.find(".skeleton-loader-button").exists()).toEqual(
-  //       false
-  //     );
-  //   });
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-image")
+      ).not.toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-heading")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-content")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-button")
+      ).not.toBeInTheDocument();
+    });
 
-  //   it("renders with button", () => {
-  //     container = render(<SkeletonLoader showButton={true} />);
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-image").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader-heading").exists()).toEqual(
-  //       true
-  //     );
-  //     expect(container.find(".skeleton-loader-content").exists()).toEqual(
-  //       true
-  //     );
-  //     expect(container.find(".skeleton-loader-button").exists()).toEqual(true);
-  //   });
+    it("renders without heading", () => {
+      const utils = render(<SkeletonLoader showHeading={false} />);
+      container = utils.container;
 
-  //   it("renders with border", () => {
-  //     container = render(<SkeletonLoader border />);
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(container.find(".skeleton-loader--border").exists()).toEqual(
-  //       true
-  //     );
-  //   });
-  // });
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-image")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-heading")
+      ).not.toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-content")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-button")
+      ).not.toBeInTheDocument();
+    });
 
-  // describe("image aspect ratio", () => {
-  //   it("renders square image", () => {
-  //     container = render(
-  //       <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Square} />
-  //     );
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(
-  //       container.find(".skeleton-loader-image--square").exists()
-  //     ).toEqual(true);
-  //   });
+    it("renders without content", () => {
+      const utils = render(<SkeletonLoader showContent={false} />);
+      container = utils.container;
 
-  //   it("renders portrait image", () => {
-  //     container = render(
-  //       <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Portrait} />
-  //     );
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(
-  //       container.find(".skeleton-loader-image--portrait").exists()
-  //     ).toEqual(true);
-  //   });
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-image")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-heading")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-content")
+      ).not.toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-button")
+      ).not.toBeInTheDocument();
+    });
 
-  //   it("renders landscape image", () => {
-  //     container = render(
-  //       <SkeletonLoader
-  //         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-  //       />
-  //     );
-  //     expect(container.find(".skeleton-loader").exists()).toEqual(true);
-  //     expect(
-  //       container.find(".skeleton-loader-image--landscape").exists()
-  //     ).toEqual(true);
-  //   });
-  // });
+    it("renders with button", () => {
+      const utils = render(<SkeletonLoader showButton={true} />);
+      container = utils.container;
+
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-image")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-heading")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-content")
+      ).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-button")
+      ).toBeInTheDocument();
+    });
+
+    it("renders with border", () => {
+      const utils = render(<SkeletonLoader border />);
+      container = utils.container;
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader--border")
+      ).toBeInTheDocument();
+    });
+  });
+
+  describe("image aspect ratio", () => {
+    it("renders square image", () => {
+      const utils = render(
+        <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Square} />
+      );
+      container = utils.container;
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-image--square")
+      ).toBeInTheDocument();
+    });
+
+    it("renders portrait image", () => {
+      const utils = render(
+        <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Portrait} />
+      );
+      container = utils.container;
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-image--portrait")
+      ).toBeInTheDocument();
+    });
+
+    it("renders landscape image", () => {
+      const utils = render(
+        <SkeletonLoader
+          imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        />
+      );
+      container = utils.container;
+      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
+      expect(
+        container.querySelector(".skeleton-loader-image--landscape")
+      ).toBeInTheDocument();
+    });
+  });
 });
