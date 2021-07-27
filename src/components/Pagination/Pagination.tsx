@@ -82,7 +82,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const getPageElement = (item: number) => {
     const pageAttributes = {
       "aria-label": null,
-      onClick: !changeUrls ? evt => selectPage(evt, item) : undefined,
+      onClick: !changeUrls ? (evt) => selectPage(evt, item) : undefined,
       role: "button",
       tabIndex: 0,
     };
@@ -140,7 +140,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
             // list always ends at and displays the last page number in the pageCount
             pageCount,
           ];
-    const pageItems = truncatedList.map(item => {
+    const pageItems = truncatedList.map((item) => {
       // if it's a number, render that page item, otherwise return the ellipse
       const itemElement =
         typeof item === "number" ? getPageElement(item) : "...";

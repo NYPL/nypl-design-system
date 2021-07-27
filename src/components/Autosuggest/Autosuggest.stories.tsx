@@ -224,7 +224,7 @@ const searchBarRenderInputComponent = (
       ariaLabelledBy="autosuggest-button"
       attributes={{
         name: "homeLibraryName",
-        ["aria-describedby"]: "autosuggest-helperText",
+        "aria-describedby": "autosuggest-helperText",
         ...inputProps,
       }}
     />

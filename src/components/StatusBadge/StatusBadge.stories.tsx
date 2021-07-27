@@ -10,7 +10,7 @@ export default {
   decorators: [withDesign],
 };
 
-const StatusBadgeTemplate: Story<StatusBadgeProps> = args => (
+const StatusBadgeTemplate: Story<StatusBadgeProps> = (args) => (
   <StatusBadge {...args} />
 );
 
