@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Replaces webpack with rollup through TSDX.
 - Updates npm scripts to use TSDX for internal commands.
 - Replaces lodash with own functions.
+- Minor updates to Github Actions.
 
 ### Adds
 
