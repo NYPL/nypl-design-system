@@ -12,9 +12,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
 - Replaces Mocha, Chai, Sinon, and Enzyme for Jest and React Testing Library for unit testing.
+- Replaces webpack with rollup through TSDX.
+- Updates npm scripts to use TSDX for internal commands.
+- Replaces lodash with own functions.
 
 ### Adds
 
+- Adds TSDX as the bootstrapping tool to add opinionated configurations.
+- Adds an `/example/` directory through TSDX with an small playground app.
 - Snapshot testing through `react-test-renderer` and Jest.
 - Typescript documentation file to be use as a development guide.
 - Typescript documentation for `enum` variables in the TYPESCRIPT file.
