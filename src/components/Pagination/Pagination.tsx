@@ -1,8 +1,8 @@
 import * as React from "react";
-import range from "lodash/range";
 
 import Link from "../Link/Link";
 import bem from "../../utils/bem";
+import { range } from "../../utils/utils";
 
 export interface PaginationProps {
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
@@ -133,7 +133,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
             1,
             // second item will either be item 2 or an ellipse
             pageStart > 3 ? "ellipse-start" : 2,
-            // Adding + 1 here since lodash range() doesn't include the last item passed to it
+            // Adding + 1 here since range() doesn't include the last item passed to it
             ...range(pageStart, pageEnd + 1),
             // next to last item will either be an ellipse or the next to last page number
             pageEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,

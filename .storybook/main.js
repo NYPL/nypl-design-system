@@ -28,14 +28,15 @@ module.exports = {
     "@storybook/addon-queryparams",
   ],
   typescript: {
-    check: true, // type-check stories during Storybook build
+    // Type-check stories during Storybook build.
+    check: true,
   },
   webpackFinal: async (config, { configType }) => {
     const assetRule = config.module.rules.find(({ test }) => test.test(".svg"));
-    // exclude svg from the default storybook file-loader
+    // Exclude svg from the default storybook file-loader.
     assetRule.exclude = /\.svg$/;
 
-    // add svgr loader to handle svgs
+    // Add svgr loader to handle svgs.
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
