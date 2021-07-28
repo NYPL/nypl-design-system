@@ -100,6 +100,7 @@
     "css-loader": "^5.2.7",
     "eslint": "^7.31.0",
     "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.8.2",
     "gulp": "^4.0.2",
     "gulp-scss-combine": "^1.0.0",
     "husky": "^4.2.5",
