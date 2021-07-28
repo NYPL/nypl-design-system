@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
 - Replaces Mocha, Chai, Sinon, and Enzyme for Jest and React Testing Library for unit testing.
+- Minor updates to Github Actions.
 
 ### Adds
 
