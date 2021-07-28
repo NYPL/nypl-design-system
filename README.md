@@ -38,7 +38,7 @@ $ git clone https://github.com/NYPL/nypl-design-system.git
 $ npm install
 ```
 
-3. Run the Storybook instance and view it at `http://localhost:9001`
+3. Run the Storybook instance and view it at `http://localhost:6006`
 
 ```sh
 $ npm run storybook
