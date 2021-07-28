@@ -109,13 +109,15 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     backgroundImageStyle = backgroundImageSrc
       ? { backgroundImage: "url(" + backgroundImageSrc + ")" }
       : null;
-  } else if (
-    heroType !== HeroTypes.Secondary &&
-    heroType !== HeroTypes.FiftyFifty
-  ) {
+  } else if (heroType === HeroTypes.Campaign) {
     backgroundImageStyle = backgroundImageSrc
       ? { backgroundImage: "url(" + backgroundImageSrc + ")" }
       : { backgroundColor: backgroundColor };
+  } else if (
+    heroType === HeroTypes.Tertiary ||
+    heroType === HeroTypes.FiftyFifty
+  ) {
+    backgroundImageStyle = { backgroundColor: backgroundColor };
   }
 
   let contentBoxStyling = {};

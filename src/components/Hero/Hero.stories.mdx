@@ -126,8 +126,6 @@ The `Hero` component is used to display a full width banner at the top of a page
               alt={""}
             />
           }
-          backgroundColor="#d0343a"
-          foregroundColor="#fff"
         />
       )) ||
       (args.heroType === HeroTypes.Campaign && (
@@ -160,7 +158,7 @@ The `Hero` component is used to display a full width banner at the top of a page
 
 ## Color Variations for Secondary Hero
 
-The background color for the title bar in HeroTypes.Secondary is determined by the placement of the `Hero` component. Below are the four color variations available based on the consuming React app.
+The background color for the title bar in `HeroTypes.Secondary` is determined by the placement of the `Hero` component within a comsuming app. The CSS for `Hero` is constructued to use classes of the `Hero` component's parent elements as a determinant for the title bar background color. Below are the four color variations available based on the consuming React app.
 
 <Canvas>
   <Story name="Color Variations for Secondary Hero">
