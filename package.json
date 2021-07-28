@@ -98,6 +98,7 @@
     "babel-loader": "^8.2.2",
     "breakpoint-sass": "^2.7.1",
     "css-loader": "^5.2.7",
+    "eslint": "^7.31.0",
     "eslint-config-react-app": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-scss-combine": "^1.0.0",
