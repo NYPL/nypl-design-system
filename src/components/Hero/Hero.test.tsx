@@ -2,14 +2,14 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-import Placeholder from "../Placeholder/Placeholder";
+// import Placeholder from "../Placeholder/Placeholder";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
 import Hero from "./Hero";
 
-describe("Hero Test", () => {
-  it("Generates a Hero with a background image", () => {
+describe("Hero Component", () => {
+  describe("Primary Hero", () => {
     const wrapper = Enzyme.shallow(
       <Hero
         heroType={HeroTypes.Primary}
@@ -24,12 +24,17 @@ describe("Hero Test", () => {
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
       ></Hero>
     );
-    expect(wrapper.prop("style")).to.deep.equal({
-      backgroundImage: "url(https://placeimg.com/1600/800/arch)",
+    it("Renders Primary Hero", () => {
+      expect(wrapper.hasClass("hero--primary")).to.equal(true);
+    });
+    it("Renders background image", () => {
+      expect(wrapper.prop("style")).to.deep.equal({
+        backgroundImage: "url(https://placeimg.com/1600/800/arch)",
+      });
     });
   });
 
-  it("Generates a Hero with a foreground image", () => {
+  describe("Secondary Hero", () => {
     const wrapper = Enzyme.shallow(
       <Hero
         heroType={HeroTypes.Secondary}
@@ -50,118 +55,160 @@ describe("Hero Test", () => {
         }
       ></Hero>
     );
+    it("Renders Secondary Hero", () => {
+      expect(wrapper.hasClass("hero--secondary")).to.equal(true);
+    });
+    it("Renders foreground image", () => {
+      expect(wrapper.find("Image").dive().find("img")).to.have.lengthOf(1);
+    });
+  });
+
+  describe("Tertiary Hero", () => {
+    const wrapper = Enzyme.shallow(
+      <Hero
+        heroType={HeroTypes.Tertiary}
+        heading={
+          <Heading
+            level={1}
+            id={"1"}
+            text={"Hero Tertiary"}
+            blockName={"hero"}
+          />
+        }
+      ></Hero>
+    );
+    it("Renders Tertiary Hero", () => {
+      expect(wrapper.hasClass("hero--tertiary")).to.equal(true);
+    });
+  });
+
+  describe("FiftyFifty Hero", () => {
+    const wrapper = Enzyme.shallow(
+      <Hero
+        heroType={HeroTypes.FiftyFifty}
+        heading={
+          <Heading
+            level={1}
+            id={"1"}
+            text={"Hero FiftyFifty"}
+            blockName={"hero"}
+          />
+        }
+      ></Hero>
+    );
+    it("Renders FiftyFifty Hero", () => {
+      expect(wrapper.hasClass("hero--50-50")).to.equal(true);
+    });
+  });
+
+  describe("Campaign Hero", () => {
+    const wrapper = Enzyme.shallow(
+      <Hero
+        heroType={HeroTypes.Campaign}
+        heading={
+          <Heading
+            level={1}
+            id={"1"}
+            text={"Hero Campaign"}
+            blockName={"hero"}
+          />
+        }
+        image={
+          <Image
+            src="https://placeimg.com/800/400/arch"
+            blockName={"hero"}
+            alt={""}
+          />
+        }
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+      ></Hero>
+    );
+    it("Renders Campaign Hero", () => {
+      expect(wrapper.hasClass("hero--campaign")).to.equal(true);
+    });
+    it("Renders foreground image", () => {
+      expect(wrapper.find("Image").dive().find("img")).to.have.lengthOf(1);
+    });
+    it("Renders background image", () => {
+      expect(wrapper.prop("style")).to.deep.equal({
+        backgroundImage: "url(https://placeimg.com/1600/800/arch)",
+      });
+    });
+  });
+
+  describe("Custom Colors", () => {
+    const wrapper = Enzyme.mount(
+      <Hero
+        heroType={HeroTypes.Primary}
+        heading={
+          <Heading
+            level={1}
+            id={"1"}
+            text={"Hero Campaign"}
+            blockName={"hero"}
+          />
+        }
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        foregroundColor="#123456"
+        backgroundColor="#654321"
+      ></Hero>
+    );
+    it("Renders custom foreground color", () => {
+      expect(
+        wrapper.find(".hero__content").get(0).props.style
+      ).to.have.property("color", "#123456");
+    });
+    it("Renders custom background color", () => {
+      expect(
+        wrapper.find(".hero__content").get(0).props.style
+      ).to.have.property("backgroundColor", "#654321");
+    });
+  });
+
+  describe("Warnings", () => {
+    const wrapper = Enzyme.shallow(
+      <Hero
+        heroType={HeroTypes.Primary}
+        heading={
+          <Heading
+            level={1}
+            id={"1"}
+            text={"Hero Campaign"}
+            blockName={"hero"}
+          />
+        }
+      ></Hero>
+    );
+    it("Generates warning in browser console", () => {
+      expect(wrapper.hasClass("hero--warning")).to.equal(true);
+    });
+  });
+
+  it("Generates a Campaign Hero with foreground and background images", () => {
+    const wrapper = Enzyme.shallow(
+      <Hero
+        heroType={HeroTypes.Campaign}
+        heading={
+          <Heading
+            level={1}
+            id={"1"}
+            text={"Hero Campaign"}
+            blockName={"hero"}
+          />
+        }
+        image={
+          <Image
+            src="https://placeimg.com/800/400/arch"
+            blockName={"hero"}
+            alt={""}
+          />
+        }
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+      ></Hero>
+    );
+    expect(wrapper.prop("style")).to.deep.equal({
+      backgroundImage: "url(https://placeimg.com/1600/800/arch)",
+    });
     expect(wrapper.find("Image").dive().find("img")).to.have.lengthOf(1);
-  });
-
-  it("On primary hero, background image is required", () => {
-    expect(() =>
-      Enzyme.mount(
-        <Hero
-          heroType={HeroTypes.Primary}
-          heading={
-            <Heading
-              level={1}
-              id={"1"}
-              text={"Hero Primary"}
-              blockName={"hero"}
-            />
-          }
-          image={
-            <Image
-              src="https://placeimg.com/800/400/arch"
-              blockName={"hero"}
-              alt={""}
-            />
-          }
-        ></Hero>
-      )
-    ).to.throw("backgroundImageSrc required on PRIMARY heroTypes");
-  });
-
-  it("Throws error if both backgroundImage and foregroundImage are passed", () => {
-    expect(() =>
-      Enzyme.mount(
-        <Hero
-          heroType={HeroTypes.Secondary}
-          heading={
-            <Heading
-              level={1}
-              id={"1"}
-              text={"Hero Secondary"}
-              blockName={"hero"}
-            />
-          }
-          image={
-            <Image
-              src="https://placeimg.com/800/400/arch"
-              blockName={"hero"}
-              alt={""}
-            />
-          }
-          backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        ></Hero>
-      )
-    ).to.throw(
-      "Please only either backgroundImageSrc or image into Hero, got both"
-    );
-  });
-
-  it("Throws error if locationDetails are based to non-primary hero types", () => {
-    expect(() =>
-      Enzyme.mount(
-        <Hero
-          heroType={HeroTypes.Secondary}
-          heading={
-            <Heading
-              level={1}
-              id={"1"}
-              text={"Hero Secondary"}
-              blockName={"hero"}
-            />
-          }
-          image={
-            <Image
-              src="https://placeimg.com/800/400/arch"
-              blockName={"hero"}
-              alt={""}
-            />
-          }
-          locationDetails={
-            <Placeholder>
-              {"Placeholder for locationDetails, which doesn't exist yet"}
-            </Placeholder>
-          }
-        ></Hero>
-      )
-    ).to.throw("Please provide locationDetails only to PRIMARY heroTypes");
-  });
-
-  it("Throws error if only one var is passed between foregroundColor and backgroundColor", () => {
-    expect(() =>
-      Enzyme.mount(
-        <Hero
-          heroType={HeroTypes.Primary}
-          heading={
-            <Heading
-              level={1}
-              id={"1"}
-              text={
-                "Syncretic Vibrations: Exploring the Mosaic of Blackness through the Melville J. and Frances S.Herskovits Collection"
-              }
-              blockName={"hero"}
-            />
-          }
-          locationDetails={
-            <Placeholder>
-              {"Placeholder for locationDetails, which doesn't exist yet"}
-            </Placeholder>
-          }
-          foregroundColor="#ffffff"
-          backgroundImageSrc="https://p24.f4.n0.cdn.getcloudapp.com/items/NQuDO4xO/index.jpeg?v=d49888fbe420dd2fd163adc2ad0cdac6"
-        />
-      )
-    ).to.throw(
-      "Please provide both foregroundColor and backgroundColor to Hero, only got foregroundColor"
-    );
   });
 });

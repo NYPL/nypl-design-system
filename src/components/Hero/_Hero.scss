@@ -189,3 +189,70 @@
     }
   }
 }
+
+.hero--campaign {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-xxl);
+  min-height: 300px;
+  overflow: visible;
+  position: relative;
+
+  @include breakpoint($breakpoint-medium) {
+    // flex-flow: row nowrap;
+  }
+
+  .hero__content {
+    align-items: center;
+    background-color: var(--ui-black);
+    color: var(--ui-white);
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 320px;
+
+    .interior {
+      flex: 0 0 100%;
+      padding: var(--space-l);
+
+      @include breakpoint($breakpoint-medium) {
+        flex: 0 0 50%;
+        max-width: 960px;
+      }
+    }
+
+    // .hero__heading_ {
+    //   flex: 1 0 40%;
+    // }
+    a {
+      color: inherit;
+      display: inline-block;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      flex: 0 0 90%;
+      flex-flow: row nowrap;
+      max-width: var(--breakpoint-xl);
+      position: relative;
+      top: var(--space-xxl);
+    }
+
+    + .placeholder {
+      flex: 0 1 200px;
+      margin-left: var(--space-xl);
+    }
+  }
+
+  /* stylelint-disable */
+  .hero__image {
+    flex: 1 1 100%;
+    height: 320px;
+    min-width: 0; // https://github.com/philipwalton/flexbugs/issues/41
+    object-fit: cover;
+    width: 100%;
+
+    @include breakpoint($breakpoint-medium) {
+      flex: 0 0 50%;
+    }
+  }
+}
