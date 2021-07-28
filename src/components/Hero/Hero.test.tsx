@@ -2,7 +2,6 @@ import { expect } from "chai";
 import * as Enzyme from "enzyme";
 import * as React from "react";
 
-// import Placeholder from "../Placeholder/Placeholder";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeroTypes } from "./HeroTypes";
@@ -14,12 +13,7 @@ describe("Hero Component", () => {
       <Hero
         heroType={HeroTypes.Primary}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero Primary"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text="Hero Primary" blockName="hero" />
         }
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
       ></Hero>
@@ -39,18 +33,13 @@ describe("Hero Component", () => {
       <Hero
         heroType={HeroTypes.Secondary}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero Secondary"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text="Hero Secondary" blockName="hero" />
         }
         image={
           <Image
             src="https://placeimg.com/800/400/arch"
-            blockName={"hero"}
-            alt={""}
+            blockName="hero"
+            alt="Image alt text."
           />
         }
       ></Hero>
@@ -68,12 +57,7 @@ describe("Hero Component", () => {
       <Hero
         heroType={HeroTypes.Tertiary}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero Tertiary"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text="Hero Tertiary" blockName="hero" />
         }
       ></Hero>
     );
@@ -87,12 +71,7 @@ describe("Hero Component", () => {
       <Hero
         heroType={HeroTypes.FiftyFifty}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero FiftyFifty"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text="Hero FiftyFifty" blockName="hero" />
         }
       ></Hero>
     );
@@ -106,18 +85,13 @@ describe("Hero Component", () => {
       <Hero
         heroType={HeroTypes.Campaign}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero Campaign"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text="Hero Campaign" blockName="hero" />
         }
         image={
           <Image
             src="https://placeimg.com/800/400/arch"
-            blockName={"hero"}
-            alt={""}
+            blockName="hero"
+            alt="Image alt text."
           />
         }
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
@@ -141,12 +115,7 @@ describe("Hero Component", () => {
       <Hero
         heroType={HeroTypes.Primary}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero Campaign"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text="Hero Campaign" blockName="hero" />
         }
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
         foregroundColor="#123456"
@@ -170,12 +139,7 @@ describe("Hero Component", () => {
       <Hero
         heroType={HeroTypes.Primary}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero Campaign"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text="Hero Campaign" blockName="hero" />
         }
       ></Hero>
     );
@@ -189,18 +153,13 @@ describe("Hero Component", () => {
       <Hero
         heroType={HeroTypes.Campaign}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Hero Campaign"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text="Hero Campaign" blockName="hero" />
         }
         image={
           <Image
             src="https://placeimg.com/800/400/arch"
-            blockName={"hero"}
-            alt={""}
+            blockName="hero"
+            alt={"Image alt text."}
           />
         }
         backgroundImageSrc="https://placeimg.com/1600/800/arch"

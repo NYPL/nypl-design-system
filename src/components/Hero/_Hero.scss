@@ -199,10 +199,6 @@
   overflow: visible;
   position: relative;
 
-  @include breakpoint($breakpoint-medium) {
-    // flex-flow: row nowrap;
-  }
-
   .hero__content {
     align-items: center;
     background-color: var(--ui-black);
@@ -221,9 +217,6 @@
       }
     }
 
-    // .hero__heading_ {
-    //   flex: 1 0 40%;
-    // }
     a {
       color: inherit;
       display: inline-block;

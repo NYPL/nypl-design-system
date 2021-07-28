@@ -37,6 +37,24 @@ import { action } from "@storybook/addon-actions";
   }}
 />
 
+export const secondarySubHeaderText = (
+  <div className="hero__body-text">
+    Explore our collection of hundreds of online resources and databases. Use
+    our free online content to help with your research, whether it's finding a
+    single article, tracing a family tree, learning a new language, or anything
+    in between.
+  </div>
+);
+export const otherSubHeaderText =
+  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+export const secondaryImage = (
+  <Image
+    src="https://placeimg.com/800/400/animals"
+    blockName="hero"
+    alt="Image example"
+  />
+);
+
 # Hero
 
 | Component Version | DS Version |
@@ -60,12 +78,7 @@ The `Hero` component is used to display a full width banner at the top of a page
         <Hero
           {...args}
           heading={
-            <Heading
-              level={1}
-              id={"1"}
-              text={"Hero Primary"}
-              blockName={"hero"}
-            />
+            <Heading level={1} id="1" text="Hero Primary" blockName="hero" />
           }
           subHeaderText="Example Subtitle"
           backgroundImageSrc="https://placeimg.com/2400/800/nature"
@@ -78,24 +91,17 @@ The `Hero` component is used to display a full width banner at the top of a page
             heading={
               <Heading
                 level={1}
-                id={"1"}
-                text={"Hero Secondary"}
-                blockName={"hero"}
+                id="1"
+                text="Hero Secondary"
+                blockName="hero"
               />
             }
-            subHeaderText={
-              <div className="hero__body-text">
-                Explore our collection of hundreds of online resources and
-                databases. Use our free online content to help with your
-                research, whether it's finding a single article, tracing a
-                family tree, learning a new language, or anything in between.
-              </div>
-            }
+            subHeaderText={secondarySubHeaderText}
             image={
               <Image
                 src="https://placeimg.com/800/400/animals"
-                blockName={"hero"}
-                alt={""}
+                blockName="hero"
+                alt="Image example"
               />
             }
           />
@@ -105,25 +111,20 @@ The `Hero` component is used to display a full width banner at the top of a page
         <Hero
           {...args}
           heading={
-            <Heading
-              level={1}
-              id={"1"}
-              text={"Hero Tertiary"}
-              blockName={"hero"}
-            />
+            <Heading level={1} id="1" text="Hero Tertiary" blockName="hero" />
           }
-          subHeaderText="Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between."
+          subHeaderText={otherSubHeaderText}
         />
       )) ||
       (args.heroType === HeroTypes.FiftyFifty && (
         <Hero
           {...args}
-          subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
+          subHeaderText={otherSubHeaderText}
           image={
             <Image
               src="https://placeimg.com/600/200/animals"
-              blockName={"hero"}
-              alt={""}
+              blockName="hero"
+              alt="Image example"
             />
           }
         />
@@ -132,20 +133,15 @@ The `Hero` component is used to display a full width banner at the top of a page
         <Hero
           {...args}
           heading={
-            <Heading
-              level={1}
-              id={"1"}
-              text={"Hero Campaign"}
-              blockName={"hero"}
-            />
+            <Heading level={1} id="1" text="Hero Campaign" blockName="hero" />
           }
-          subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
+          subHeaderText={otherSubHeaderText}
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
           image={
             <Image
               src="https://placeimg.com/800/800/animals"
-              blockName={"hero"}
-              alt={""}
+              blockName="hero"
+              alt="Image example"
             />
           }
         />
@@ -166,28 +162,10 @@ The background color for the title bar in `HeroTypes.Secondary` is determined by
       <Hero
         heroType={HeroTypes.Secondary}
         heading={
-          <Heading
-            level={1}
-            id={"1"}
-            text={"Books and More"}
-            blockName={"hero"}
-          />
+          <Heading level={1} id="1" text={"Books and More"} blockName="hero" />
         }
-        subHeaderText={
-          <div className="hero__body-text">
-            Explore our collection of hundreds of online resources and
-            databases. Use our free online content to help with your research,
-            whether it's finding a single article, tracing a family tree,
-            learning a new language, or anything in between.
-          </div>
-        }
-        image={
-          <Image
-            src="https://placeimg.com/800/400/animals"
-            blockName={"hero"}
-            alt={""}
-          />
-        }
+        subHeaderText={secondarySubHeaderText}
+        image={secondaryImage}
       />
     </div>
   </Story>
@@ -197,24 +175,9 @@ The background color for the title bar in `HeroTypes.Secondary` is determined by
   <div className={"nypl-ds nypl--locations"}>
     <Hero
       heroType={HeroTypes.Secondary}
-      heading={
-        <Heading level={1} id={"1"} text={"Locations"} blockName={"hero"} />
-      }
-      subHeaderText={
-        <div className="hero__body-text">
-          Explore our collection of hundreds of online resources and databases.
-          Use our free online content to help with your research, whether it's
-          finding a single article, tracing a family tree, learning a new
-          language, or anything in between.
-        </div>
-      }
-      image={
-        <Image
-          src="https://placeimg.com/800/400/animals"
-          blockName={"hero"}
-          alt={""}
-        />
-      }
+      heading={<Heading level={1} id="1" text={"Locations"} blockName="hero" />}
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
     />
   </div>
 </Canvas>
@@ -223,24 +186,9 @@ The background color for the title bar in `HeroTypes.Secondary` is determined by
   <div className={"nypl-ds nypl--research"}>
     <Hero
       heroType={HeroTypes.Secondary}
-      heading={
-        <Heading level={1} id={"1"} text={"Research"} blockName={"hero"} />
-      }
-      subHeaderText={
-        <div className="hero__body-text">
-          Explore our collection of hundreds of online resources and databases.
-          Use our free online content to help with your research, whether it's
-          finding a single article, tracing a family tree, learning a new
-          language, or anything in between.
-        </div>
-      }
-      image={
-        <Image
-          src="https://placeimg.com/800/400/animals"
-          blockName={"hero"}
-          alt={""}
-        />
-      }
+      heading={<Heading level={1} id="1" text={"Research"} blockName="hero" />}
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
     />
   </div>
 </Canvas>
@@ -249,24 +197,9 @@ The background color for the title bar in `HeroTypes.Secondary` is determined by
   <div className={"nypl-ds nypl--whats-on"}>
     <Hero
       heroType={HeroTypes.Secondary}
-      heading={
-        <Heading level={1} id={"1"} text={"What's On"} blockName={"hero"} />
-      }
-      subHeaderText={
-        <div className="hero__body-text">
-          Explore our collection of hundreds of online resources and databases.
-          Use our free online content to help with your research, whether it's
-          finding a single article, tracing a family tree, learning a new
-          language, or anything in between.
-        </div>
-      }
-      image={
-        <Image
-          src="https://placeimg.com/800/400/animals"
-          blockName={"hero"}
-          alt={""}
-        />
-      }
+      heading={<Heading level={1} id="1" text={"What's On"} blockName="hero" />}
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
     />
   </div>
 </Canvas>

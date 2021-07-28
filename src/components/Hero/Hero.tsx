@@ -107,17 +107,17 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   let backgroundImageStyle = {};
   if (heroType === HeroTypes.Primary) {
     backgroundImageStyle = backgroundImageSrc
-      ? { backgroundImage: "url(" + backgroundImageSrc + ")" }
+      ? { backgroundImage: `url(${backgroundImageSrc})` }
       : null;
   } else if (heroType === HeroTypes.Campaign) {
     backgroundImageStyle = backgroundImageSrc
-      ? { backgroundImage: "url(" + backgroundImageSrc + ")" }
-      : { backgroundColor: backgroundColor };
+      ? { backgroundImage: `url(${backgroundImageSrc})` }
+      : { backgroundColor };
   } else if (
     heroType === HeroTypes.Tertiary ||
     heroType === HeroTypes.FiftyFifty
   ) {
-    backgroundImageStyle = { backgroundColor: backgroundColor };
+    backgroundImageStyle = { backgroundColor };
   }
 
   let contentBoxStyling = {};
@@ -129,7 +129,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   ) {
     contentBoxStyling = {
       color: foregroundColor,
-      backgroundColor: backgroundColor,
+      backgroundColor,
     };
   } else {
     if (foregroundColor || backgroundColor) {
@@ -140,39 +140,41 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     }
   }
 
+  const childrenToRender =
+    heroType === HeroTypes.Campaign ? (
+      <>
+        {image}
+        <div className="interior">
+          {heading}
+          {subHeaderText}
+        </div>
+      </>
+    ) : (
+      <>
+        {heroType !== HeroTypes.Primary &&
+          heroType !== HeroTypes.Tertiary &&
+          image}
+        {heading}
+        {heroType === HeroTypes.Tertiary ? (
+          <p>{subHeaderText}</p>
+        ) : (
+          subHeaderText
+        )}
+      </>
+    );
+
   return (
     <div
       className={bem(heroBaseClass, modifiers, blockName, [className])}
       data-responsive-background-image
       style={backgroundImageStyle}
     >
-      {heroType === HeroTypes.Campaign ? (
-        <div
-          className={bem("content", [], heroBaseClass)}
-          style={contentBoxStyling}
-        >
-          {image}
-          <div className="interior">
-            {heading}
-            {subHeaderText}
-          </div>
-        </div>
-      ) : (
-        <div
-          className={bem("content", [], heroBaseClass)}
-          style={contentBoxStyling}
-        >
-          {heroType !== HeroTypes.Primary &&
-            heroType !== HeroTypes.Tertiary &&
-            image}
-          {heading}
-          {heroType === HeroTypes.Tertiary ? (
-            <p>{subHeaderText}</p>
-          ) : (
-            subHeaderText
-          )}
-        </div>
-      )}
+      <div
+        className={bem("content", [], heroBaseClass)}
+        style={contentBoxStyling}
+      >
+        {childrenToRender}
+      </div>
 
       {locationDetails}
     </div>
