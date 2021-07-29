@@ -198,6 +198,13 @@ For stand-alone document pages in Storybook, you need to:
 1. create the `[page-name].stories.mdx` file in `src/docs/`
 2. add the file reference to the `.storybook/main.js` file in the `stories` array
 
+### React Component Versions
+
+To help consuming application developers understand which version of the DS is required for a specific component, each component story page includes the following
+
+- when a component was added to the DS
+- minimum version of the DS required for the latest version of a component
+
 ### Static Build
 
 There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). In the event that you do run the static Storybook npm script, run:
