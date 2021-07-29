@@ -197,7 +197,12 @@
   margin-bottom: var(--space-xxl);
   min-height: 300px;
   overflow: visible;
+  padding: var(--space-l);
   position: relative;
+
+  @include breakpoint($breakpoint-medium) {
+    padding: 0;
+  }
 
   .hero__content {
     align-items: center;
@@ -239,13 +244,13 @@
   /* stylelint-disable */
   .hero__image {
     flex: 1 1 100%;
-    height: 320px;
     min-width: 0; // https://github.com/philipwalton/flexbugs/issues/41
     object-fit: cover;
     width: 100%;
 
     @include breakpoint($breakpoint-medium) {
       flex: 0 0 50%;
+      height: 320px;
     }
   }
 }
