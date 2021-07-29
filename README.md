@@ -19,6 +19,7 @@ Storybook documentation
 | 4.                | [CDN](#cdn)                                                                         |
 | 5.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
 | 6.                | [Storybook](#storybook)                                                             |
+| 7.                | [Typescript Usage](#typescript-usage)                                               |
 
 ## Contributing Quickstart
 
@@ -206,3 +207,7 @@ $ npm run build-storybook
 ```
 
 You can then view `/storybook-static/index.html` in your browser. _Make sure not to commit this directory_.
+
+## Typescript Usage
+
+The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/typescript.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.

@@ -1,5 +1,3 @@
-$break-breadcrumbs-mobile: max-width 599px;
-
 .breadcrumbs {
   background-color: var(--ui-black);
   padding-bottom: var(--space-xs);
@@ -21,15 +19,20 @@ $break-breadcrumbs-mobile: max-width 599px;
         padding-left: var(--space-xxs);
       }
 
-      @include breakpoint($break-breadcrumbs-mobile) {
-        display: none;
+      display: none;
+
+      @include breakpoint($breakpoint-medium) {
+        display: inline;
       }
     }
 
     &:last-child {
-      @include breakpoint($break-breadcrumbs-mobile) {
-        display: block;
-        padding-left: var(--space-m);
+      display: block;
+      padding-left: var(--space-m);
+
+      @include breakpoint($breakpoint-medium) {
+        display: inline;
+        padding-left: 0;
       }
     }
   }
