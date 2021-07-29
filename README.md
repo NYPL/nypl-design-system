@@ -200,7 +200,7 @@ For stand-alone document pages in Storybook, you need to:
 
 ### React Component Versions
 
-To help consuming application developers understand which version of the DS is required for a specific component, each component story page includes the following
+To help consuming application developers understand which version of the DS is required for a specific component, each component story page includes the following:
 
 - when a component was added to the DS
 - minimum version of the DS required for the latest version of a component
