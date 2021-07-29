@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates npm scripts to use TSDX for internal commands.
 - Replaces lodash with own functions.
 - Minor updates to Github Actions.
+- Adds PostCSS/autoprefixer to Rollup workflow instead of the default scss minifier.
 
 ### Adds
 
