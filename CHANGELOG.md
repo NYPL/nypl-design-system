@@ -10,6 +10,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Typescript documentation file to be use as a development guide.
+- Typescript documentation for `enum` variables in the TYPESCRIPT file.
 - Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports.
 
 ### Changes
@@ -18,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Hero` to include `Campaign` variant.
 - Updates stories for `Hero` to use MDX format.
 - Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
+- Removes a custom SCSS breakpoint in `_Breadcrumbs.scss` in favor of mobile-first style rules.
 
 ## 0.23.3
 
