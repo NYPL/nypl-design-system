@@ -358,7 +358,7 @@ describe("Select", () => {
     expect(container.find("select").instance()).to.equal(ref.current);
   });
 
-  it("should throw warning when fewer than 2 options", () => {
+  it("should throw warning when fewer than 4 options", () => {
     wrapper = Enzyme.mount(
       <Select
         labelText="Select Label"
@@ -373,12 +373,12 @@ describe("Select", () => {
     expect(wrapper.find("select").prop("name")).to.equal("test1");
     expect(
       warn.calledWith(
-        "NYPL DS recommends <select> not be used for 1 or fewer options"
+        "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
       )
     );
   });
 
-  it("should throw warning when there are more than 7 options", () => {
+  it("should throw warning when there are more than 10 options", () => {
     wrapper = Enzyme.mount(
       <Select
         labelText="Select Label"
@@ -400,7 +400,7 @@ describe("Select", () => {
     expect(wrapper.find("select").prop("name")).to.equal("test1");
     expect(
       warn.calledWith(
-        "NYPL DS recommends that your <select>s have fewer than 8 options"
+        "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
       )
     );
   });
