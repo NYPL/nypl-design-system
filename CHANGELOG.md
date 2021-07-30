@@ -20,6 +20,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Typescript documentation for `enum` variables in the TYPESCRIPT file.
 - Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports.
 
+### Fixes
+
+- Fixes the `bem` utility function so that it doesn't crash Storybook whenever the `modifiers` Controls prop option is empty.
+
 ### Changes
 
 - Updates Style Guide `Spacing`
