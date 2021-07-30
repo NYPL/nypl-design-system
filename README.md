@@ -175,17 +175,17 @@ The NYPL Design System leverages Storybook to document all the React components 
 
 There are currently two main instances of the NYPL Design System Storybook documentation. There are also "preview" sites that are used to quickly and easily view pull request changes.
 
-Production
+**Production**
 
 The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). This is the main instance we use to share the latest stable release of the NYPL Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
 
 As of July, 2021, the Github Pages production site gets deployed every two weeks on the same schedule as npm releases.
 
-Development
+**Development**
 
 The development Storybook documentation is deployed to [Netlify](https://nypl-design-system-dev.netlify.app/?path=/story/introduction--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
 
-Preview sites
+**Preview Sites**
 
 Preview Storybook documentation sites are deployed to Netlify for every pull request. They follow a pattern such as `deploy-preview-[pr-number]--nypl-design-system-dev.netlify.app` where `[pr-number]` is the number of the pull request it is deploying. For example, for pull request #101, Netlify will deploy a "preview" site to `deploy-preview-101--nypl-design-system-dev.netlify.app`. Since these "preview" sites are brought up only for pull requests, this means that the URL varies and that those instances are eventually shut off. They are not meant to be used as long-term sites but rather for reviewing working changes within the team.
 
@@ -204,6 +204,13 @@ To help consuming application developers understand which version of the DS is r
 
 - when a component was added to the DS
 - minimum version of the DS required for the latest version of a component
+
+**Example Component Version Table**
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.20.1`   |
+| Latest            | `0.23.2`   |
 
 ### Static Build
 
