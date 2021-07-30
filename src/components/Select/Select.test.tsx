@@ -393,7 +393,8 @@ describe("Select", () => {
   // });
 
   it("should throw warning when fewer than 4 options", () => {
-    wrapper = Enzyme.mount(
+    const warn = jest.spyOn(console, "warn");
+    render(
       <Select
         labelText="Select Label"
         labelId="label"
@@ -404,16 +405,14 @@ describe("Select", () => {
         <option aria-selected={false}>test1</option>
       </Select>
     );
-    expect(wrapper.find("select").prop("name")).to.equal("test1");
-    expect(
-      warn.calledWith(
-        "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
-      )
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
     );
   });
 
   it("should throw warning when there are more than 10 options", () => {
-    wrapper = Enzyme.mount(
+    const warn = jest.spyOn(console, "warn");
+    render(
       <Select
         labelText="Select Label"
         labelId="label"
@@ -429,13 +428,14 @@ describe("Select", () => {
         <option aria-selected={false}>test6</option>
         <option aria-selected={false}>test7</option>
         <option aria-selected={false}>test8</option>
+        <option aria-selected={false}>test9</option>
+        <option aria-selected={false}>test10</option>
+        <option aria-selected={false}>test11</option>
       </Select>
     );
 
-    expect(
-      warn.calledWith(
-        "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
-      )
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
     );
   });
 });
