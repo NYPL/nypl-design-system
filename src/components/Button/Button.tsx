@@ -52,7 +52,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     } = this.props;
 
     const buttonModifiers = modifiers ? modifiers : [];
-    if (!buttonModifiers.find(modifier => modifier === buttonType)) {
+    if (!buttonModifiers.find((modifier) => modifier === buttonType)) {
       buttonModifiers.push(buttonType);
     }
 

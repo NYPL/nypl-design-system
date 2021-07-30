@@ -38,10 +38,10 @@ $ git clone https://github.com/NYPL/nypl-design-system.git
 $ npm install
 ```
 
-3. Run the Storybook instance and view it at `http://localhost:9001`
+3. Run the Storybook instance and view it at `http://localhost:6006`
 
 ```sh
-$ npm start
+$ npm run storybook
 ```
 
 You can now edit styles or templates in the `src` directory, and they will automatically re-build and update in the Storybook instance. Adding new stories or changing story names will require a page refresh.
@@ -69,8 +69,20 @@ $ npm link @nypl/design-system-react-components
 3. Go back to the Design System directory and run the following command. It allos the local Design System to be rebuilt and exported automatically:
 
 ```sh
-$ npm run watch-webpack
+$ npm start
 ```
+
+### Error Troubleshooting
+
+It's possible when running `npm link` that you'll get an `Invalid Hook` issue. If this occurs, it's most likely caused by having two versions of React when trying to run the application while the NYPL DS package is linked. This [Duplicate React](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) issue is covered by the React team.
+
+To be more specific, you should run the following in your local DS directory, where `[../path/to/application]` is the local directory of the consuming application.
+
+```sh
+$ npm link [../path/to/application]/node_modules/react
+```
+
+Now you should be able to run `npm start` in the DS directory and `npm run dev` (or whatever your application uses) in the application directory and not get an `Invalid Hook` error.
 
 ### npm Unlink
 
@@ -216,6 +228,30 @@ The NYPL Design System is built with Typescript. Check out the Design System's [
 ## Unit Testing
 
 The NYPL Design System runs unit tests with Jest and React Testing Library.
+
+To run all tests once:
+
+```sh
+$ npm test
+```
+
+If you're actively writing or updating tests, you can run the tests in watch mode. This will wait for any changes and run when a file is saved:
+
+```sh
+$ npm run test:watch
+```
+
+If you want to run tests on only one specific file, run:
+
+```sh
+$ npm test -- src/[path/to/file]
+```
+
+For example, to test the `Link` component, run:
+
+```sh
+$ npm test -- src/components/Link/Link.test.tsx
+```
 
 ### Snapshot Testing
 

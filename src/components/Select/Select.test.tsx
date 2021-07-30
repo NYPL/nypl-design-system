@@ -234,7 +234,7 @@ describe("Select", () => {
 
   it("Calls the callback onChange function with the updated value", () => {
     let currentValue = "";
-    const onChange = event => {
+    const onChange = (event) => {
       currentValue = event?.target?.value;
     };
     render(
@@ -290,7 +290,7 @@ describe("Select", () => {
 
   it("Calls the callback onBlur function with the updated value", () => {
     let currentValue = "";
-    const onBlur = event => {
+    const onBlur = (event) => {
       currentValue = event?.target?.value;
     };
     render(
