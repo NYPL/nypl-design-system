@@ -6,6 +6,7 @@ export { default as Button } from "./components/Button/Button";
 export { ButtonTypes } from "./components/Button/ButtonTypes";
 export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
+export { default as DatePicker } from "./components/DatePicker/DatePicker";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";
 export { HeadingDisplaySizes } from "./components/Heading/HeadingDisplaySizes";

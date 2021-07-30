@@ -1,0 +1,28 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
+
+import DatePicker from "./DatePicker";
+
+<Meta
+  title={getCategory("DatePicker")}
+  component={DatePicker}
+  decorators={[withDesign]}
+/>
+
+# DatePicker
+
+<Description of={DatePicker} />
+
+<Preview withToolbar>
+  <Story name="DatePicker">{args => <DatePicker {...args} />}</Story>
+</Preview>
+
+<ArgsTable story="DatePicker" />

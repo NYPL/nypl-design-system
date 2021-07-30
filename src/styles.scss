@@ -6,6 +6,9 @@
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import "~breakpoint-sass/stylesheets/breakpoint";
 @import "~system-font-css/_system-font.scss";
+
+// For the React DatePicker package.
+@import "~react-datepicker/dist/react-datepicker.css";
 // End libs
 
 /*
