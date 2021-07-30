@@ -252,3 +252,50 @@ For example, to test the `Link` component, run:
 ```sh
 $ npm test -- src/components/Link/Link.test.tsx
 ```
+
+### Snapshot Testing
+
+The NYPL DS implements snapshot testing with `react-test-renderer` and `jest`. Using React Testing Library to test our components works well to make sure that what the user sees is what the component should be rendering. There are also some behavioral tests that test user interactions. If, however, a component's DOM or SCSS styling was unintentionally updated, we can catch those bugs through snapshot testing.
+
+The `react-test-renderer` package, will create a directory and a file to hold `.snap` files after a unit test is created. Using the `Notification` component as an example, this is the basic layout for a snapshot test:
+
+```jsx
+import renderer from "react-test-renderer";
+
+// ...
+
+it("Renders the UI snapshot correctly", () => {
+  const tree = renderer
+    .create(
+      <Notification id="notificationID">
+        <NotificationHeading>Notification Heading</NotificationHeading>
+        <NotificationContent>Notification content.</NotificationContent>
+      </Notification>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+```
+
+If this is a new test and we run `npm test`, a [`/__snapshots__/Notification.test.tsx.snap`](/src/components/Notification/__snapshots__/Notification.test.tsx.snap) file is created. This holds the DOM structure as well as any inline CSS that was added.
+
+```jsx
+exports[`Notification Snapshot Renders the UI snapshot correctly 1`] = `
+<aside
+  className="notification notification--standard "
+  id="notificationID"
+>
+  // Removed for brevity...
+</aside>
+`;
+```
+
+Now, if we unintentionally update the `Notification.tsx` component to render a `div` instead of an `aside` element, this test will fail.
+
+If you want to update any existing snapshots, re-run the test script as:
+
+```sh
+$ npm test -- updateSnapshot
+```
+
+Each snapshot file also includes a link to its [Jest Snapshot documentation](https://jestjs.io/docs/snapshot-testing) which is recommended to read!
