@@ -2,7 +2,7 @@ import { CSSVariablesInterface } from "../interfaces";
 
 const cssVariables: CSSVariablesInterface = {};
 
-const buildCSSObject = function (prev, cssRule) {
+const buildCSSObject = function (_: any, cssRule) {
   // All of our global variables are applied to :root
   if (cssRule.selectorText === ":root") {
     let css = cssRule.cssText.split("{");

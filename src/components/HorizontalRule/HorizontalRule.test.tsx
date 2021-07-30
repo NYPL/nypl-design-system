@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import HorizontalRule from "./HorizontalRule";
 
@@ -12,6 +13,11 @@ describe("HorizontalRule Accessibility", () => {
 });
 
 describe("HorizontalRule", () => {
+  it("Renders the UI snapshot correctly", () => {
+    const tree = renderer.create(<HorizontalRule />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("Renders HorizontalRule component", () => {
     render(<HorizontalRule />);
     expect(screen.getByRole("separator")).toBeInTheDocument();

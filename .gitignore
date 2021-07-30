@@ -1,6 +1,10 @@
+*.log
+.DS_Store
+.cache
 node_modules
 dependencyGraph.json
 public
 .DS_Store
 lib
 dist
+.vscode

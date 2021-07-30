@@ -54,7 +54,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
   if (React.Children.count(props.children) > 1) {
     const children = React.Children.map(
       props.children,
-      child => (child as JSX.Element).type
+      (child) => (child as JSX.Element).type
     );
     // Catching the error because React's error isn't as helpful.
     throw new Error(
