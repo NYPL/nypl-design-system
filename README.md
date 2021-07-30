@@ -20,6 +20,7 @@ Storybook documentation
 | 5.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
 | 6.                | [Storybook](#storybook)                                                             |
 | 7.                | [Typescript Usage](#typescript-usage)                                               |
+| 8.                | [Unit Testing](#unit-testing)                                                       |
 
 ## Contributing Quickstart
 
@@ -37,10 +38,10 @@ $ git clone https://github.com/NYPL/nypl-design-system.git
 $ npm install
 ```
 
-3. Run the Storybook instance and view it at `http://localhost:9001`
+3. Run the Storybook instance and view it at `http://localhost:6006`
 
 ```sh
-$ npm start
+$ npm run storybook
 ```
 
 You can now edit styles or templates in the `src` directory, and they will automatically re-build and update in the Storybook instance. Adding new stories or changing story names will require a page refresh.
@@ -68,8 +69,20 @@ $ npm link @nypl/design-system-react-components
 3. Go back to the Design System directory and run the following command. It allos the local Design System to be rebuilt and exported automatically:
 
 ```sh
-$ npm run watch-webpack
+$ npm start
 ```
+
+### Error Troubleshooting
+
+It's possible when running `npm link` that you'll get an `Invalid Hook` issue. If this occurs, it's most likely caused by having two versions of React when trying to run the application while the NYPL DS package is linked. This [Duplicate React](https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react) issue is covered by the React team.
+
+To be more specific, you should run the following in your local DS directory, where `[../path/to/application]` is the local directory of the consuming application.
+
+```sh
+$ npm link [../path/to/application]/node_modules/react
+```
+
+Now you should be able to run `npm start` in the DS directory and `npm run dev` (or whatever your application uses) in the application directory and not get an `Invalid Hook` error.
 
 ### npm Unlink
 
@@ -225,3 +238,78 @@ You can then view `/storybook-static/index.html` in your browser. _Make sure not
 ## Typescript Usage
 
 The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/typescript.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
+
+## Unit Testing
+
+The NYPL Design System runs unit tests with Jest and React Testing Library.
+
+To run all tests once:
+
+```sh
+$ npm test
+```
+
+If you're actively writing or updating tests, you can run the tests in watch mode. This will wait for any changes and run when a file is saved:
+
+```sh
+$ npm run test:watch
+```
+
+If you want to run tests on only one specific file, run:
+
+```sh
+$ npm test -- src/[path/to/file]
+```
+
+For example, to test the `Link` component, run:
+
+```sh
+$ npm test -- src/components/Link/Link.test.tsx
+```
+
+### Snapshot Testing
+
+The NYPL DS implements snapshot testing with `react-test-renderer` and `jest`. Using React Testing Library to test our components works well to make sure that what the user sees is what the component should be rendering. There are also some behavioral tests that test user interactions. If, however, a component's DOM or SCSS styling was unintentionally updated, we can catch those bugs through snapshot testing.
+
+The `react-test-renderer` package, will create a directory and a file to hold `.snap` files after a unit test is created. Using the `Notification` component as an example, this is the basic layout for a snapshot test:
+
+```jsx
+import renderer from "react-test-renderer";
+
+// ...
+
+it("Renders the UI snapshot correctly", () => {
+  const tree = renderer
+    .create(
+      <Notification id="notificationID">
+        <NotificationHeading>Notification Heading</NotificationHeading>
+        <NotificationContent>Notification content.</NotificationContent>
+      </Notification>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+```
+
+If this is a new test and we run `npm test`, a [`/__snapshots__/Notification.test.tsx.snap`](/src/components/Notification/__snapshots__/Notification.test.tsx.snap) file is created. This holds the DOM structure as well as any inline CSS that was added.
+
+```jsx
+exports[`Notification Snapshot Renders the UI snapshot correctly 1`] = `
+<aside
+  className="notification notification--standard "
+  id="notificationID"
+>
+  // Removed for brevity...
+</aside>
+`;
+```
+
+Now, if we unintentionally update the `Notification.tsx` component to render a `div` instead of an `aside` element, this test will fail.
+
+If you want to update any existing snapshots, re-run the test script as:
+
+```sh
+$ npm test -- updateSnapshot
+```
+
+Each snapshot file also includes a link to its [Jest Snapshot documentation](https://jestjs.io/docs/snapshot-testing) which is recommended to read!

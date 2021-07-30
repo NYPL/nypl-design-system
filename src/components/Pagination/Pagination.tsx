@@ -1,7 +1,8 @@
 import * as React from "react";
-import range from "lodash/range";
+
 import Link from "../Link/Link";
 import bem from "../../utils/bem";
+import { range } from "../../utils/utils";
 
 export interface PaginationProps {
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
@@ -82,7 +83,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const getPageElement = (item: number) => {
     const pageAttributes = {
       "aria-label": null,
-      onClick: !changeUrls ? evt => selectPage(evt, item) : undefined,
+      onClick: !changeUrls ? (evt) => selectPage(evt, item) : undefined,
       role: "button",
       tabIndex: 0,
     };
@@ -124,7 +125,6 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
         7
       )
     );
-
     const truncatedList =
       pageCount < 4
         ? Array.from({ length: pageCount }, (_, i) => i + 1)
@@ -133,14 +133,14 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
             1,
             // second item will either be item 2 or an ellipse
             pageStart > 3 ? "ellipse-start" : 2,
-            // Adding + 1 here since lodash range() doesn't include the last item passed to it
+            // Adding + 1 here since range() doesn't include the last item passed to it
             ...range(pageStart, pageEnd + 1),
             // next to last item will either be an ellipse or the next to last page number
             pageEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,
             // list always ends at and displays the last page number in the pageCount
             pageCount,
           ];
-    const pageItems = truncatedList.map(item => {
+    const pageItems = truncatedList.map((item) => {
       // if it's a number, render that page item, otherwise return the ellipse
       const itemElement =
         typeof item === "number" ? getPageElement(item) : "...";

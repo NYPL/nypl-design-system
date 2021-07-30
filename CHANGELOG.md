@@ -11,11 +11,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
+  <<<<<<< HEAD
+- Replaces Mocha, Chai, Sinon, and Enzyme for Jest and React Testing Library for unit testing.
+- Replaces webpack with rollup through TSDX.
+- Updates npm scripts to use TSDX for internal commands.
+- Replaces lodash with own functions.
+- # Minor updates to Github Actions.
 - Removes a custom SCSS breakpoint in `_Breadcrumbs.scss` in favor of mobile-first style rules.
 - Updated warnings for too few or too many option children for the `Select` component.
+  > > > > > > > development
 
 ### Adds
 
+- Adds TSDX as the bootstrapping tool to add opinionated configurations.
+- Adds an `/example/` directory through TSDX with an small playground app.
+- Snapshot testing through `react-test-renderer` and Jest.
 - Typescript documentation file to be use as a development guide.
 - Typescript documentation for `enum` variables in the TYPESCRIPT file.
 - Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports.
