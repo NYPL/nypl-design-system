@@ -313,3 +313,9 @@ $ npm test -- updateSnapshot
 ```
 
 Each snapshot file also includes a link to its [Jest Snapshot documentation](https://jestjs.io/docs/snapshot-testing) which is recommended to read!
+
+### Storybook Jest Addon
+
+Through the [`@storybook/addon-jest`](https://www.npmjs.com/package/@storybook/addon-jest) plugin, we can see a component's suite of unit tests right Storybook. In the "Addons" panel, a "Test" tab will display all the tests for the current component and whether they pass or fail.
+
+After writing new tests, run `npm run test:generate-output` to create a new JSON file that is used by Storybook. This JSON file contains all the test suites for all the components and Storybook picks this up and automatically combines a component with its relevant unit tests. Make sure to commit this file although new builds on Github Pages will recreate this file for the production Storybook instance.
