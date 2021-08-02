@@ -32,8 +32,10 @@
     "analyze": "size-limit --why",
     "generate-sass-resources": "gulp",
     "storybook": "start-storybook -p 6006",
+    "prebuild:storybook": "npm run test:generate-output",
     "build-storybook": "build-storybook -c .storybook -o ./storybook-static",
-    "stylelint": "stylelint \"**/*.scss\""
+    "stylelint": "stylelint \"**/*.scss\"",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json  || true"
   },
   "dependencies": {
     "cpy-cli": "^3.1.1",
@@ -76,6 +78,7 @@
     "@storybook/addon-docs": "^6.2.9",
     "@storybook/addon-essentials": "^6.3.2",
     "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-jest": "^6.3.6",
     "@storybook/addon-knobs": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-queryparams": "^6.2.9",

@@ -3,8 +3,11 @@
 import "!style-loader!css-loader!sass-loader!../src/styles.scss";
 import React from "react";
 // We also want to add MDX-style documentation here:
-import { addParameters } from "@storybook/react";
+import { addParameters, addDecorator } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
+import { withTests } from "@storybook/addon-jest";
+
+import results from "../.jest-test-results.json";
 
 addParameters({
   docs: {
@@ -12,6 +15,12 @@ addParameters({
     page: DocsPage,
   },
 });
+
+addDecorator(
+  withTests({
+    results,
+  })
+);
 
 export const decorators = [
   (Story) => (
