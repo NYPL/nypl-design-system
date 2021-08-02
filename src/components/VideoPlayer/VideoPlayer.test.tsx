@@ -1,110 +1,120 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
+
 import VideoPlayer from "./VideoPlayer";
 import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
 
+describe("VideoPlayer Accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
+      <VideoPlayer videoType={VideoPlayerTypes.YouTube} videoId="nm-dD2tx6bk" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
 describe("VideoPlayer", () => {
-  let container;
+  const videoId = "nm-dD2tx6bk";
+  let utils;
 
   describe("YouTube player", () => {
-    before(() => {
-      container = Enzyme.mount(
-        <VideoPlayer
-          videoType={VideoPlayerTypes.YouTube}
-          videoId="nm-dD2tx6bk"
-        />
+    beforeEach(() => {
+      utils = render(
+        <VideoPlayer videoType={VideoPlayerTypes.YouTube} videoId={videoId} />
       );
     });
 
     it("Renders VideoPlayer container", () => {
-      expect(container.find(".video-player").exists()).to.equal(true);
+      expect(
+        utils.container.querySelector(".video-player")
+      ).toBeInTheDocument();
     });
 
     it("Renders VideoPlayer iframe", () => {
-      expect(container.find("iframe").exists()).to.equal(true);
+      expect(screen.getByTitle("YouTube video player")).toBeInTheDocument();
     });
 
     it("Renders YouTube video", () => {
-      expect(container.find("iframe").prop("src")).to.contain("youtube.com");
+      expect(screen.getByTitle("YouTube video player")).toHaveAttribute(
+        "src",
+        `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`
+      );
     });
   });
 
   describe("Vimeo player", () => {
-    before(() => {
-      container = Enzyme.mount(
-        <VideoPlayer videoType={VideoPlayerTypes.Vimeo} videoId="474719268" />
+    const videoId = "474719268";
+    let utils;
+
+    beforeEach(() => {
+      utils = render(
+        <VideoPlayer videoType={VideoPlayerTypes.Vimeo} videoId={videoId} />
       );
     });
 
     it("Renders VideoPlayer container", () => {
-      expect(container.find(".video-player").exists()).to.equal(true);
+      expect(
+        utils.container.querySelector(".video-player")
+      ).toBeInTheDocument();
     });
 
     it("Renders VideoPlayer iframe", () => {
-      expect(container.find("iframe").exists()).to.equal(true);
+      expect(screen.getByTitle("Vimeo video player")).toBeInTheDocument();
     });
 
     it("Renders Vimeo video", () => {
-      expect(container.find("iframe").prop("src")).to.contain("vimeo.com");
+      expect(screen.getByTitle("Vimeo video player")).toHaveAttribute(
+        "src",
+        `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`
+      );
     });
   });
 
   describe("custom iframe title", () => {
-    before(() => {
-      container = Enzyme.mount(
+    it("Uses iframeTitle prop to add custom title attribute to iframe", () => {
+      render(
         <VideoPlayer
           videoType={VideoPlayerTypes.Vimeo}
           videoId="474719268"
           iframeTitle="My custom iframe title."
         />
       );
-    });
-
-    it("Renders VideoPlayer container", () => {
-      expect(container.find(".video-player").exists()).to.equal(true);
-    });
-
-    it("Uses iframeTitle prop to add custom title attribute to iframe", () => {
-      expect(container.find("iframe").prop("title")).to.equal(
-        "My custom iframe title."
-      );
+      expect(screen.getByTitle("My custom iframe title.")).toBeInTheDocument();
     });
   });
 
   describe("aspect ratio", () => {
     it("Renders with 4:3 aspect ratio", () => {
-      container = Enzyme.mount(
+      const utils = render(
         <VideoPlayer
           videoType={VideoPlayerTypes.Vimeo}
           videoId="474719268"
           aspectRatio={VideoPlayerAspectRatios.FourByThree}
         />
       );
-
-      expect(
-        container.find(".video-player").hasClass("video-player--four-by-three")
-      ).to.equal(true);
+      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
+        "class",
+        "video-player video-player--four-by-three "
+      );
     });
 
     it("Renders with 16:9 aspect ratio", () => {
-      container = Enzyme.mount(
+      const utils = render(
         <VideoPlayer
           videoType={VideoPlayerTypes.Vimeo}
           videoId="474719268"
           aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
         />
       );
-
-      expect(
-        container
-          .find(".video-player")
-          .hasClass("video-player--sixteen-by-nine")
-      ).to.equal(true);
+      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
+        "class",
+        "video-player video-player--sixteen-by-nine "
+      );
     });
 
     it("Renders with 1:1 aspect ratio", () => {
-      container = Enzyme.mount(
+      const utils = render(
         <VideoPlayer
           videoType={VideoPlayerTypes.Vimeo}
           videoId="474719268"
@@ -112,25 +122,26 @@ describe("VideoPlayer", () => {
         />
       );
 
-      expect(
-        container.find(".video-player").hasClass("video-player--square")
-      ).to.equal(true);
+      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
+        "class",
+        "video-player video-player--square "
+      );
     });
   });
 
   describe("prop validation", () => {
     it("Throws error if videoId not formatted properly", () => {
-      container = Enzyme.mount(
+      const utils = render(
         <VideoPlayer
           videoType={VideoPlayerTypes.Vimeo}
           videoId="http://vimeo.com/474719268"
           aspectRatio={VideoPlayerAspectRatios.FourByThree}
         />
       );
-
-      expect(
-        container.find(".video-player").hasClass("video-player--errored")
-      ).to.equal(true);
+      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
+        "class",
+        "video-player video-player--four-by-three video-player--errored "
+      );
     });
   });
 });

@@ -76,7 +76,7 @@ export const animalCrossingDefinitions = [
   },
 ];
 
-export const listRenderer = args => (
+export const listRenderer = (args) => (
   <List {...args}>
     {args.type !== ListTypes.Definition
       ? itemGroups.map((item, i) => <li key={i}>{item}</li>)

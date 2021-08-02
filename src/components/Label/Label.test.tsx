@@ -1,51 +1,60 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import Label from "./Label";
 
-describe("Label Test", () => {
-  let wrapper: Enzyme.ShallowWrapper<any, any>;
-  it("Renders a <label> when passed text as children", () => {
-    wrapper = Enzyme.shallow(
+describe("Label Accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
       <Label id="label" htmlFor="so-lonely">
-        {"Cupcake's"}
+        Cupcakes
       </Label>
     );
-    expect(wrapper.find("label")).to.have.lengthOf(1);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("Label", () => {
+  it("Renders a <label> when passed text as children", () => {
+    render(
+      <Label id="label" htmlFor="so-lonely">
+        Cupcakes
+      </Label>
+    );
+    expect(screen.getByText("Cupcakes")).toBeInTheDocument();
   });
 
   it("Renders a <label> when passed element as children", () => {
-    wrapper = Enzyme.shallow(
+    render(
       <Label id="label" htmlFor="so-lonely">
         <span>Cupcakes</span>
       </Label>
     );
-    expect(wrapper.find("label")).to.have.lengthOf(1);
+    expect(screen.getByText("Cupcakes")).toBeInTheDocument();
   });
 
   it("Renders the optional or required helper text", () => {
-    wrapper = Enzyme.shallow(
+    const utils = render(
       <Label id="label" htmlFor="so-lonely">
         <span>Cupcakes</span>
       </Label>
     );
-    expect(wrapper.find("div")).to.have.lengthOf(0);
+    expect(screen.queryByText("Optional")).not.toBeInTheDocument();
 
-    wrapper = Enzyme.shallow(
+    utils.rerender(
       <Label id="label" htmlFor="so-lonely" optReqFlag="Optional">
         <span>Cupcakes</span>
       </Label>
     );
-    expect(wrapper.find("div")).to.have.lengthOf(1);
-    expect(wrapper.find("div").text()).to.equal("Optional");
+    expect(screen.getByText("Optional")).toBeInTheDocument();
 
-    wrapper = Enzyme.shallow(
+    utils.rerender(
       <Label id="label" htmlFor="so-lonely" optReqFlag="Required">
         <span>Cupcakes</span>
       </Label>
     );
-    expect(wrapper.find("div")).to.have.lengthOf(1);
-    expect(wrapper.find("div").text()).to.equal("Required");
+    expect(screen.queryByText("Optional")).not.toBeInTheDocument();
+    expect(screen.getByText("Required")).toBeInTheDocument();
   });
 });

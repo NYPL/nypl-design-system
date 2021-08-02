@@ -1,5 +1,4 @@
 import * as React from "react";
-import range from "lodash/range";
 
 import Accordion from "./Accordion";
 import List from "../List/List";
@@ -10,7 +9,7 @@ import { listRenderer as ListStory } from "../List/List.stories";
 // Set up the reusable template to create a list of Accordion components.
 const AccordionListTemplate = ({ count, children, ...args }) => (
   <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
-    {range(count).map(i => (
+    {new Array(count).map((i) => (
       <li key={i}>
         <Accordion {...args} inputId={`${args.inputId}-${i}`}>
           {children}
@@ -48,7 +47,7 @@ AccordionAsFAQSet.args = {
 };
 
 // One accordion with scrollable list
-export const AccordionScroll = _props => (
+export const AccordionScroll = (_props) => (
   <>
     <div style={{ maxHeight: "300px", width: "500px" }}>
       <Accordion

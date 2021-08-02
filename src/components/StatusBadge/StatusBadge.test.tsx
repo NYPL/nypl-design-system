@@ -1,22 +1,25 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import StatusBadge from "./StatusBadge";
 
-describe("StatusBadge Test", () => {
-  let wrapper: Enzyme.ShallowWrapper<any, any>;
-
-  it("Shows status badge", () => {
-    wrapper = Enzyme.shallow(
+describe("StatusBadge Accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
       <StatusBadge level={"low"}>Registration Required</StatusBadge>
     );
-    expect(wrapper.find("div")).to.have.lengthOf(1);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("StatusBadge Test", () => {
+  it("Shows status badge", () => {
+    render(<StatusBadge level={"low"}>Registration Required</StatusBadge>);
+    expect(screen.getByText("Registration Required")).toBeInTheDocument();
   });
   it("Can pass status badge content as child", () => {
-    wrapper = Enzyme.shallow(
-      <StatusBadge level={"medium"}>Cancelled</StatusBadge>
-    );
-    expect(wrapper.find("div")).to.have.lengthOf(1);
+    render(<StatusBadge level={"medium"}>Cancelled</StatusBadge>);
+    expect(screen.getByText("Cancelled")).toBeInTheDocument();
   });
 });
