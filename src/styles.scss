@@ -41,7 +41,16 @@
 @import "./styles/02-typography/_type-weight";
 @import "./styles/02-typography/_typefaces";
 @import "./styles/03-space/_space";
-@import "./styles/**/*.scss";
+@import "./styles/03-space/_space-inline";
+@import "./styles/03-space/_space-inset";
+@import "./styles/03-space/_space-stack";
+@import "./styles/base/_02-breakpoints";
+@import "./styles/base/_03-mixins";
+@import "./styles/base/_04-base";
+@import "./styles/base/_05-focus";
+@import "./styles/base/_card-grid";
+@import "./styles/base/_place-holder";
+@import "./styles/base/_typography";
 @import "./components/Icons/_Icons.scss";
 @import "./components/Button/_Button.scss";
 @import "./components/Link/_Link.scss";

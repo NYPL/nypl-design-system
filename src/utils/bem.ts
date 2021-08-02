@@ -12,8 +12,8 @@ export default function bem(
     classes.push(blockName.concat("__").concat(baseClass));
 
     // Set blockname--modifier classes for each modifier.
-    if (modifiers) {
-      modifiers.forEach(modifier => {
+    if (modifiers?.length > 0) {
+      modifiers.forEach((modifier) => {
         classes.push(
           blockName.concat("__").concat(baseClass).concat("--").concat(modifier)
         );
@@ -25,16 +25,16 @@ export default function bem(
     // Set base class.
     classes.push(baseClass);
 
-    if (modifiers) {
-      modifiers.forEach(modifier => {
+    if (modifiers?.length > 0) {
+      modifiers.forEach((modifier) => {
         classes.push(baseClass.concat("--").concat(modifier));
       });
     }
   }
 
   // If extra non-BEM classes are added.
-  if (extra) {
-    extra.forEach(extraClass => {
+  if (extra?.length > 0) {
+    extra.forEach((extraClass) => {
       classes.push(extraClass);
     });
   }

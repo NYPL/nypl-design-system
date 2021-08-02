@@ -104,15 +104,15 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       ariaLabelledBy = labelId + " " + helperTextId;
     }
 
-    if (React.Children.count(children) > 7) {
+    if (React.Children.count(children) > 10) {
       console.warn(
-        "NYPL DS recommends that your <select>s have fewer than 8 options"
+        "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
       );
     }
 
-    if (React.Children.count(children) < 2) {
+    if (React.Children.count(children) < 4) {
       console.warn(
-        "NYPL DS recomments <select> not be used with 1 or fewer options"
+        "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
       );
     }
 
