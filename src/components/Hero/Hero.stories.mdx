@@ -73,7 +73,7 @@ The `Hero` component is used to display a full width banner at the top of a page
       heroType: HeroTypes.Primary,
     }}
   >
-    {args =>
+    {(args) =>
       (args.heroType === HeroTypes.Primary && (
         <Hero
           {...args}
