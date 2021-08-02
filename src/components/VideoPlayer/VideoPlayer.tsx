@@ -1,6 +1,9 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
+import Heading from "../Heading/Heading";
+// import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export interface VideoPlayerProps {
   /** Optional aspect ratio prop to control the sizing of the video player; if omitted, the video player defaults to `sixteen-by-nine` */
@@ -9,10 +12,16 @@ export interface VideoPlayerProps {
   attributes?: { [key: string]: any };
   /** Optional className you can add in addition to `video-player` */
   className?: string;
+  /** Optional string to set the text for a video description */
+  descriptionText?: string;
+  /** Optional string to set the text for a `HelperErrorText` component */
+  helperText?: string;
   /** Optional title to be added to the `<iframe>` element for improved accessibility; this title should describe in a few words the content of the video; if omitted, a generic title will be added */
   iframeTitle?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
+  /** Optional string to set the text for a `Heading` component */
+  headingText?: string;
   /** Required YouTube or Vimeo video ID. This value can be pulled from a video's YouTube or Vimeo URL. */
   videoId: string;
   /** Required. Used to specify which video service is being used. */
@@ -26,8 +35,11 @@ export default function VideoPlayer(
     aspectRatio,
     attributes = {},
     className,
+    descriptionText,
+    helperText,
     iframeTitle,
     modifiers = [],
+    headingText,
     videoId,
     videoType,
   } = props;
@@ -50,14 +62,16 @@ export default function VideoPlayer(
   }
 
   const embedCode = (
-    <iframe
-      src={videoSrc}
-      title={iframeTitleFinal}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-      allowFullScreen
-      {...attributes}
-    ></iframe>
+    <div className="video-player__inside">
+      <iframe
+        src={videoSrc}
+        title={iframeTitleFinal}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+        allowFullScreen
+        {...attributes}
+      ></iframe>
+    </div>
   );
 
   let errored = false;
@@ -92,7 +106,14 @@ export default function VideoPlayer(
       {errored ? (
         <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
       ) : (
-        embedCode
+        <>
+          {headingText && <Heading level={2} text={headingText} />}
+          <p>{descriptionText}</p>
+          {embedCode}
+          {helperText && (
+            <HelperErrorText isError={false}>{helperText}</HelperErrorText>
+          )}
+        </>
       )}
     </div>
   );
