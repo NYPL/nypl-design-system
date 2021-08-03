@@ -16,7 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Typescript documentation file to be use as a development guide.
 - Typescript documentation for `enum` variables in the TYPESCRIPT file.
 - Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports.
-- Adds heading, description and helper text to `VideoPlayer` component
+- Adds heading, description and helper text to `VideoPlayer` component.
 
 ### Changes
 

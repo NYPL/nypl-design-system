@@ -62,16 +62,14 @@ export default function VideoPlayer(
   }
 
   const embedCode = (
-    <div className="video-player__inside">
-      <iframe
-        src={videoSrc}
-        title={iframeTitleFinal}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-        allowFullScreen
-        {...attributes}
-      ></iframe>
-    </div>
+    <iframe
+      src={videoSrc}
+      title={iframeTitleFinal}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+      allowFullScreen
+      {...attributes}
+    />
   );
 
   let errored = false;
@@ -109,7 +107,9 @@ export default function VideoPlayer(
         <>
           {headingText && <Heading level={2} text={headingText} />}
           <p>{descriptionText}</p>
-          {embedCode}
+          <div className={bem("video-player__inside", modifiers, "", [])}>
+            {embedCode}
+          </div>
           {helperText && (
             <HelperErrorText isError={false}>{helperText}</HelperErrorText>
           )}
