@@ -106,7 +106,7 @@ export default function VideoPlayer(
       ) : (
         <>
           {headingText && <Heading level={2} text={headingText} />}
-          <p>{descriptionText}</p>
+          {descriptionText && <p>{descriptionText}</p>}
           <div className={bem("video-player__inside", modifiers, "", [])}>
             {embedCode}
           </div>
