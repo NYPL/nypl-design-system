@@ -1,6 +1,6 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import Card from "./Card";
 import Link from "../Link/Link";
@@ -12,12 +12,40 @@ import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
+describe("Card Accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
+      <Card
+        id="cardID"
+        heading={<Heading level={3} id="heading1" text="Optional Header" />}
+        image={<Image src="https://placeimg.com/400/200/arch" alt="" />}
+        ctas={
+          <Button
+            onClick={function () {
+              console.log(this);
+            }}
+            id="button1"
+            buttonType={ButtonTypes.Primary}
+            type="submit"
+          >
+            Example CTA
+          </Button>
+        }
+        footer={<>Optional footer</>}
+      >
+        middle column content
+      </Card>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
 describe("Card", () => {
   const regularCard = (
     <Card
       id="cardID"
-      heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
-      image={<Image src="https://placeimg.com/400/200/arch" alt={""} />}
+      heading={<Heading level={3} id="heading1" text="Optional Header" />}
+      image={<Image src="https://placeimg.com/400/200/arch" alt="" />}
       ctas={
         <Button
           onClick={function () {
@@ -35,15 +63,14 @@ describe("Card", () => {
       middle column content
     </Card>
   );
-
   const cardWithExtendedStyles = (
     <Card
       id="card#1"
       className="edition-card"
       heading={
-        <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
+        <Heading level={2} id="editioncardheading1" text="2004 Edition" />
       }
-      image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
+      image={<Image src="https://placeimg.com/300/400/arch" alt="" />}
       ctas={
         <div className="edition-card__ctas">
           <Link type={LinkTypes.Button} href="blah">
@@ -74,14 +101,13 @@ describe("Card", () => {
       </>
     </Card>
   );
-
   const cardWithNoCTAs = (
     <Card
       id="card#1"
-      image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
+      image={<Image src="https://placeimg.com/300/400/arch" alt="" />}
       className="edition-card"
       heading={
-        <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
+        <Heading level={2} id="editioncardheading1" text="2004 Edition" />
       }
     >
       <>
@@ -91,18 +117,17 @@ describe("Card", () => {
       </>
     </Card>
   );
-
   const cardWithNoContent = (
     <Card
       id="card#1"
       className="edition-card"
-      image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
+      image={<Image src="https://placeimg.com/300/400/arch" alt="" />}
       heading={
         <Heading
           level={2}
           id="editioncardheading1"
           url="#edition-link"
-          text={"2004 Edition"}
+          text="2004 Edition"
         />
       }
       ctas={
@@ -126,7 +151,6 @@ describe("Card", () => {
       }
     ></Card>
   );
-
   const cardWithNoImage = (
     <Card
       id="card#1"
@@ -136,7 +160,7 @@ describe("Card", () => {
           level={2}
           id="editioncardheading1"
           url="#edition-link"
-          text={"2004 Edition"}
+          text="2004 Edition"
         />
       }
       ctas={
@@ -162,44 +186,54 @@ describe("Card", () => {
       middle column content
     </Card>
   );
+  let container;
 
   it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
-    const card = Enzyme.mount(regularCard);
-    expect(card.find(".card__heading")).to.have.lengthOf(1);
-    expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
-    expect(card.find(".card__ctas")).to.have.lengthOf(1);
-    expect(card.find(".card__footer")).to.have.lengthOf(1);
+    const utils = render(regularCard);
+    container = utils.container;
+    expect(container.querySelector(".card__heading")).toBeInTheDocument();
+    expect(container.querySelector(".card__image")).toBeInTheDocument();
+    expect(container.querySelector(".card__content")).toBeInTheDocument();
+    expect(container.querySelector(".card__ctas")).toBeInTheDocument();
+    expect(container.querySelector(".card__footer")).toBeInTheDocument();
   });
 
   it("Generates a Card with variable data", () => {
-    const card = Enzyme.mount(cardWithExtendedStyles);
-    expect(card.find("h2")).to.have.lengthOf(1);
-    expect(card.find(".card__content").find("div")).to.have.lengthOf(4);
-    expect(card.find(".card__ctas").find("a")).to.have.lengthOf(2);
+    const utils = render(cardWithExtendedStyles);
+    container = utils.container;
+
+    expect(container.querySelector("h2")).toBeInTheDocument();
+    expect(container.querySelector(".card__content")).toBeInTheDocument();
+    expect(screen.getAllByRole("link")).toHaveLength(2);
   });
 
   it("Generates a card without a CTA block if one isn't provided", () => {
-    const card = Enzyme.mount(cardWithNoCTAs);
-    expect(card.find(".card__heading")).to.have.lengthOf(1);
-    expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
-    expect(card.find(".card__ctas")).to.have.lengthOf(0);
+    const utils = render(cardWithNoCTAs);
+    container = utils.container;
+
+    expect(container.querySelector(".card__heading")).toBeInTheDocument();
+    expect(container.querySelector(".card__image")).toBeInTheDocument();
+    expect(container.querySelector(".card__content")).toBeInTheDocument();
+    expect(container.querySelector(".card__ctas")).not.toBeInTheDocument();
   });
 
   it("Generates a card without a content block if one isn't provided", () => {
-    const card = Enzyme.mount(cardWithNoContent);
-    expect(card.find(".card__heading")).to.have.lengthOf(1);
-    expect(card.find(".card__image")).to.have.lengthOf(1);
-    expect(card.find(".card__content")).to.have.lengthOf(0);
-    expect(card.find(".card__ctas")).to.have.lengthOf(1);
+    const utils = render(cardWithNoContent);
+    container = utils.container;
+
+    expect(container.querySelector(".card__heading")).toBeInTheDocument();
+    expect(container.querySelector(".card__image")).toBeInTheDocument();
+    expect(container.querySelector(".card__content")).not.toBeInTheDocument();
+    expect(container.querySelector(".card__ctas")).toBeInTheDocument();
   });
 
   it("Generates a card without an image block if no image is provided", () => {
-    const card = Enzyme.mount(cardWithNoImage);
-    expect(card.find(".card__heading")).to.have.lengthOf(1);
-    expect(card.find(".card__image")).to.have.lengthOf(0);
-    expect(card.find(".card__content")).to.have.lengthOf(1);
-    expect(card.find(".card__ctas")).to.have.lengthOf(1);
+    const utils = render(cardWithNoImage);
+    container = utils.container;
+
+    expect(container.querySelector(".card__heading")).toBeInTheDocument();
+    expect(container.querySelector(".card__image")).not.toBeInTheDocument();
+    expect(container.querySelector(".card__content")).toBeInTheDocument();
+    expect(container.querySelector(".card__ctas")).toBeInTheDocument();
   });
 });

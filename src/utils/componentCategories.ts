@@ -110,9 +110,9 @@ const categories = {
   },
 };
 
-export const getCategory = component => {
+export const getCategory = (component) => {
   let catPath = component;
-  Object.keys(categories).forEach(key => {
+  Object.keys(categories).forEach((key) => {
     const t = categories[key].title;
     const c = categories[key].components;
     if (c.includes(component)) {

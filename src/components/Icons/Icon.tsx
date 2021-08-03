@@ -78,7 +78,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
 
   // Apply icon props to SVG that was passed as a child.
   const renderChildren = () =>
-    React.Children.map(children, child =>
+    React.Children.map(children, (child) =>
       React.cloneElement(child as JSX.Element, { ...iconProps })
     );
 
