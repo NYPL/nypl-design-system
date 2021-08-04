@@ -35,6 +35,7 @@ import { action } from "@storybook/addon-actions";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
+| Latest            | `0.23.4`   |
 
 <Description of={VideoPlayer} />
 
@@ -48,10 +49,16 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
     args={{
       videoType: VideoPlayerTypes.Vimeo,
       videoId: "",
+      headingText: "NYPL Video",
+      descriptionText:
+        "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+      helperText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
     }}
   >
-    {args => (
+    {(args) => (
       <VideoPlayer
+        {...args}
         videoType={args.videoType}
         videoId={
           args.videoType === "vimeo"

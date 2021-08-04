@@ -1,31 +1,38 @@
 .video-player {
-  height: 0;
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
+  &__inside {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
 
-  &--four-by-three {
-    padding-bottom: 75%;
+    &--four-by-three {
+      padding-bottom: 75%;
+    }
+
+    &--square {
+      padding-bottom: 100%;
+    }
+
+    &--errored {
+      background-color: var(--ui-gray-warm-light);
+      height: auto;
+      padding: var(--space-s);
+    }
+
+    iframe,
+    object,
+    embed {
+      height: 100%;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
   }
 
-  &--square {
-    padding-bottom: 100%;
-  }
-
-  &--errored {
-    background-color: var(--ui-gray-warm-light);
-    height: auto;
-    padding: var(--space-s);
-  }
-
-  iframe,
-  object,
-  embed {
-    height: 100%;
-    left: 0;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  > .helper-text {
+    margin-bottom: 0;
+    margin-top: var(--space-xs);
   }
 }

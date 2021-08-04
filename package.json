@@ -36,6 +36,7 @@
     "stylelint": "stylelint \"**/*.scss\""
   },
   "dependencies": {
+    "@mdx-js/react": "^1.6.22",
     "cpy-cli": "^3.1.1",
     "he": "^1.2.0",
     "react-uid": "^2.3.0",
