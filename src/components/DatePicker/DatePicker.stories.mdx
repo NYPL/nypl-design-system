@@ -10,6 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 import { getCategory } from "../../utils/componentCategories";
 
 import DatePicker from "./DatePicker";
+import { DatePickerTypes } from "./DatePickerTypes";
 
 <Meta
   title={getCategory("DatePicker")}
@@ -21,8 +22,26 @@ import DatePicker from "./DatePicker";
 
 <Description of={DatePicker} />
 
-<Preview withToolbar>
-  <Story name="DatePicker">{args => <DatePicker {...args} />}</Story>
-</Preview>
+<Canvas withToolbar>
+  <Story name="DatePicker">
+    {(args) => (
+      <DatePicker
+        id="visit-dates"
+        dateType={DatePickerTypes.Full}
+        dateFormat="yyyy-MM-dd"
+        dateRange={true}
+        name="visit-dates"
+        labelText="Select the date range you want to visit NYPL"
+        helperText="Note that the Library may be closed on Sundays."
+        helperTextTo="Some other message"
+        errorText="Please select a valid date range"
+        showLabel={true}
+        errored={false}
+        disabled={false}
+        required={true}
+      />
+    )}
+  </Story>
+</Canvas>
 
 <ArgsTable story="DatePicker" />
