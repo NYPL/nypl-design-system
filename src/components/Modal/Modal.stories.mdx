@@ -16,13 +16,16 @@ import { ExampleCard } from "../Card/Card.stories";
   argTypes={{
     children: { table: { disable: true } },
   }}
+  parameters={{
+    jest: ["Modal.test.tsx"],
+  }}
 />
 
 # Modal
 
 <Description of={Modal} />
 
-export const ModalStory = args => {
+export const ModalStory = (args) => {
   const [isModalOpen, setIsModalOpen] = React.useState(args.open);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -113,7 +116,7 @@ export const ModalStory = args => {
 
 <Preview withToolbar>
   <Story name="Basic" args={{ open: false }}>
-    {args => <ModalStory {...args} />}
+    {(args) => <ModalStory {...args} />}
   </Story>
 </Preview>
 

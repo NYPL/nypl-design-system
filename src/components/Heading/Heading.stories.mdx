@@ -21,6 +21,7 @@ import { HeadingDisplaySizes } from "./HeadingDisplaySizes";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
+    jest: ["Heading.test.tsx"],
   }}
   argTypes={{
     blockName: { table: { disable: true } },
@@ -44,7 +45,7 @@ A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's
       text: "Heading  1",
     }}
   >
-    {args => <Heading {...args} />}
+    {(args) => <Heading {...args} />}
   </Story>
 </Preview>
 

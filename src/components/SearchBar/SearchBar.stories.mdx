@@ -28,6 +28,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
     },
+    jest: ["SearchBar.test.tsx"],
   }}
   argTypes={{
     blockName: {
@@ -121,7 +122,7 @@ export const optionsGroup = {
       disabledButton: false,
     }}
   >
-    {args => (
+    {(args) => (
       <div>
         <SearchBar {...args}>
           {args.showSelect && (
@@ -131,7 +132,7 @@ export const optionsGroup = {
               id="select-searchBar"
               isRequired={false}
             >
-              {Object.keys(optionsGroup).map(nhOption => (
+              {Object.keys(optionsGroup).map((nhOption) => (
                 <option key={nhOption} aria-selected={false}>
                   {nhOption}
                 </option>
@@ -187,7 +188,7 @@ components together.
 
 <Preview withToolbar>
   <Story name="Search Autocomplete">
-    {args => (
+    {(args) => (
       <div style={{ minHeight: "150px" }}>
         <SearchBar {...args}>
           {stories.SearchBarExample()}

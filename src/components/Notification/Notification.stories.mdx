@@ -26,6 +26,7 @@ import Icon from "../Icons/Icon";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A812",
     },
+    jest: ["Notification.test.tsx"],
   }}
 />
 
@@ -49,7 +50,7 @@ In the preview below, the border around the `Notification` is not part of the co
       modifiers: { table: { disable: true } },
     }}
   >
-    {args => (
+    {(args) => (
       <div style={{ border: "1px solid #ccc" }}>
         <Notification {...args}>
           <NotificationHeading>Notification Heading</NotificationHeading>
@@ -156,7 +157,7 @@ The default icon can be overridden by using the `icon` prop to pass a custom `Ic
 
 <Preview>
   <Story name="Custom Icons">
-    {args => (
+    {(args) => (
       <Notification
         icon={
           <Icon name="check" size="large" color="section-research-secondary" />
@@ -180,7 +181,7 @@ The `Notification` component will only accept one `NotificationHeading` child an
 
 <Preview>
   <Story name="Development Errors">
-    {args => (
+    {(args) => (
       <Notification>
         <NotificationHeading>Heading One</NotificationHeading>
         <NotificationHeading>Heading Two</NotificationHeading>

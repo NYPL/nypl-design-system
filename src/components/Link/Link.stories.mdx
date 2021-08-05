@@ -25,6 +25,7 @@ import Icon from "../Icons/Icon";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A407",
     },
+    jest: ["Link.test.tsx"],
   }}
   argTypes={{
     blockName: { table: { disable: true } },
@@ -52,11 +53,11 @@ import Icon from "../Icons/Icon";
       className: "custom-class",
       attributes: {
         rel: "nofollow",
-        onClick: e => e.preventDefault(),
+        onClick: (e) => e.preventDefault(),
       },
     }}
   >
-    {args => <Link {...args}>Link</Link>}
+    {(args) => <Link {...args}>Link</Link>}
   </Story>
 </Preview>
 
@@ -215,7 +216,7 @@ export const NextJsLink = (props: HTMLAnchorElement) => (
 </NextJsLink>;
 ```
 
-export const NextJsLink = props => (
+export const NextJsLink = (props) => (
   <div>
     {React.cloneElement(
       props.children,
