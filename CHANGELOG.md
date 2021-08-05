@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.23.4
+
 ### Adds
 
 - Adds TSDX as the bootstrapping tool to add opinionated configurations.
