@@ -14,6 +14,7 @@ const categories = {
       "HelperErrorText",
       "HoursDisplayHelper",
       "OverflowMenu",
+      "StatusBadge",
     ],
   },
   deprecated: {
@@ -28,7 +29,6 @@ const categories = {
       "Notification",
       "ProgressIndicator",
       "SkeletonLoader",
-      "StatusBadge",
     ],
   },
   forms: {
@@ -57,20 +57,19 @@ const categories = {
   layout: {
     title: "Components/Page Layout",
     components: [
-      "Accordion",
       "BasicPageSection",
       "ContentSwitcher",
       "Footer",
       "Grid",
       "Header",
       "HorizontalRule",
-      "Tabs",
+      "Section",
       "Template",
     ],
   },
   overlayContentSwitcher: {
     title: "Components/Overlay",
-    components: ["Modal", "Tooltip"],
+    components: ["Accordion", "Modal", "Tabs", "Tooltip"],
   },
   media: {
     title: "Components/Media & Icons",
