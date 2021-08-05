@@ -25,6 +25,7 @@ import { action } from "@storybook/addon-actions";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17219%3A7",
     },
+    jest: ["SkeletonLoader.test.tsx"],
   }}
   argTypes={{
     attributes: { table: { disable: true } },
@@ -62,7 +63,7 @@ import { action } from "@storybook/addon-actions";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.17.3`   |
-| Latest            | `0.23.2`   |
+| Latest            | `0.23.4`   |
 
 <Description of={SkeletonLoader} />
 
@@ -77,7 +78,7 @@ Please note that the initial rendering below has the `width` prop set to `300px`
       width: "300px",
     }}
   >
-    {args => <SkeletonLoader {...args} />}
+    {(args) => <SkeletonLoader {...args} />}
   </Story>
 </Preview>
 

@@ -24,6 +24,7 @@ import ReactDOMServer from "react-dom/server";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
     },
+    jest: ["Accordion.test.tsx"],
   }}
   argTypes={{
     children: { table: { disable: true } },
@@ -49,7 +50,7 @@ sure that each `inputId` is unique.
       inputId: "accordionBtn",
     }}
   >
-    {args => <Accordion {...args} />}
+    {(args) => <Accordion {...args} />}
   </Story>
 </Preview>
 

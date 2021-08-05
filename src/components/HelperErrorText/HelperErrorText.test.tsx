@@ -1,48 +1,63 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import HelperErrorText from "./HelperErrorText";
 
-describe("HelperErrorText Test", () => {
-  it("Renders HelperErrorText", () => {
-    const container = Enzyme.mount(
+describe("HelperErrorText Accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
       <HelperErrorText id="helperTextWithLink" isError={false}>
         Text
       </HelperErrorText>
     );
-    expect(container.exists("#helperTextWithLink")).to.equal(true);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("HelperErrorText", () => {
+  it("Renders HelperErrorText", () => {
+    render(
+      <HelperErrorText id="helperTextWithLink" isError={false}>
+        Text
+      </HelperErrorText>
+    );
+    expect(screen.getByText("Text")).toBeInTheDocument();
+    expect(screen.getByText("Text")).toHaveAttribute("class", "helper-text");
   });
 
   it("Has 'error' modifier if error is passed", () => {
-    const container = Enzyme.mount(
+    render(
       <HelperErrorText id="helperTextWithLink" isError={true}>
         Text
       </HelperErrorText>
     );
-    expect(container.exists("#helperTextWithLink")).to.equal(true);
+    expect(screen.getByText("Text")).toHaveAttribute(
+      "class",
+      "helper-text helper-text--error"
+    );
   });
 
   it("Has aria-live and aria-atomic properties when errored", () => {
-    const container = Enzyme.mount(
+    render(
       <HelperErrorText id="helperTextWithLink" isError={true}>
         Text
       </HelperErrorText>
     );
-    expect(container.find("div").props()["aria-live"]).to.equal("polite");
-    expect(container.find("div").props()["aria-atomic"]).to.equal(true);
+    expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
+    expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
   });
 
   it("Accepts an aria-atomic value of false", () => {
-    let container = Enzyme.mount(
+    const utils = render(
       <HelperErrorText id="helperTextWithLink" isError={true}>
         Text
       </HelperErrorText>
     );
     // The default is "true".
-    expect(container.find("div").props()["aria-atomic"]).to.equal(true);
+    expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
 
-    container = Enzyme.mount(
+    utils.rerender(
       <HelperErrorText
         id="helperTextWithLink"
         isError={true}
@@ -55,6 +70,8 @@ describe("HelperErrorText Test", () => {
     );
     // But the prop accepts false in case only part of the helper text
     // should only be read instead of the whole region.
-    expect(container.find("div").props()["aria-atomic"]).to.equal(false);
+    expect(
+      utils.container.querySelector("#helperTextWithLink")
+    ).toHaveAttribute("aria-atomic", "false");
   });
 });

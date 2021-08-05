@@ -1,14 +1,23 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import Icon from "./Icon";
 import { IconNames } from "./IconTypes";
 
+describe("Icon Accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
+      <Icon name={IconNames.download} decorative={true} />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
 describe("Icon", () => {
   it("throws an error if both name and children are passed to Icon", () => {
     expect(() =>
-      Enzyme.mount(
+      render(
         <Icon name={IconNames.download} decorative={true}>
           <svg viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -19,18 +28,16 @@ describe("Icon", () => {
           </svg>
         </Icon>
       )
-    ).to.throw("Icon accepts either a name or children, not both");
+    ).toThrowError("Icon accepts either a name or children, not both");
   });
 
   it("renders an icon based on the icon `name` prop", () => {
-    const icon = Enzyme.mount(
-      <Icon name={IconNames.download} decorative={true} />
-    );
-    expect(icon.children()).to.have.lengthOf(1);
+    const utils = render(<Icon name={IconNames.download} decorative={true} />);
+    expect(utils.container.querySelector(".icon")).toBeInTheDocument();
   });
 
   it("renders an icon based on the child", () => {
-    const icon = Enzyme.mount(
+    const utils = render(
       <Icon decorative={true}>
         <svg viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -41,6 +48,6 @@ describe("Icon", () => {
         </svg>
       </Icon>
     );
-    expect(icon.children()).to.have.lengthOf(1);
+    expect(utils.container.querySelector(".icon")).toBeInTheDocument();
   });
 });

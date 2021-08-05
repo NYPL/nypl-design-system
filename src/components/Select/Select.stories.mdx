@@ -24,6 +24,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
     },
+    jest: ["Select.test.tsx"],
   }}
   argTypes={{
     blockName: { table: { disable: true } },
@@ -65,7 +66,7 @@ The `Select` component renders a `select` element along with its `option` childr
       labelId: { table: { disable: true } },
     }}
   >
-    {args => (
+    {(args) => (
       <Select {...args}>
         <option aria-selected={true}></option>
         <option aria-selected={false}>Red</option>
@@ -96,7 +97,7 @@ A Select can be rendered with or without visible labels. When `showLabel` is set
       showLabel: false,
     }}
   >
-    {args => (
+    {(args) => (
       <>
         <Select {...args}>
           <option aria-selected={true}></option>
@@ -198,7 +199,7 @@ The `ariaLabel`, `helperTextId`, `isRequired` and `labelId` have been deprecated
       showLabel: false,
     }}
   >
-    {args => (
+    {(args) => (
       <>
         <Label htmlFor="select" optReqFlag="Required" id={"label"}>
           Fruit on your island

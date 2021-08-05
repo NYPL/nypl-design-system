@@ -6,7 +6,7 @@ import Pagination, { PaginationProps } from "./Pagination";
 /**
  * PaginationGetPageHref will refresh the browser as a new page is selected.
  */
-export const PaginationGetPageHref: Story<PaginationProps> = args => {
+export const PaginationGetPageHref: Story<PaginationProps> = (args) => {
   // This uses the `addon-queryparams` Storybook addon.
   const urlParams = new URLSearchParams(document.location.search);
   const pageParam = urlParams.get("page");
@@ -20,7 +20,7 @@ export const PaginationGetPageHref: Story<PaginationProps> = args => {
   const location = window.location;
   // Passing this function into `Pagination` makes the URL to change
   // and refreshes the page.
-  const getPageHref = page => {
+  const getPageHref = (page) => {
     const currentStoryId = urlParams.get("id");
     return `${location.origin}?path=/story/${currentStoryId}&page=${page}`;
   };
@@ -38,7 +38,7 @@ export const PaginationGetPageHref: Story<PaginationProps> = args => {
  * PaginationOnPageChange will update the current page to the value that is
  * selected but will not change the URL or refresh the page.
  */
-export const PaginationOnPageChange: Story<PaginationProps> = args => {
+export const PaginationOnPageChange: Story<PaginationProps> = (args) => {
   const [computedCurrentPage, setComputedCurrentPage] = useState(
     args.currentPage
   );

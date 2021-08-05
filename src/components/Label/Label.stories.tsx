@@ -24,3 +24,7 @@ export const label = () => (
     </Label>
   </div>
 );
+
+label.parameters = {
+  jest: ["Label.test.tsx"],
+};

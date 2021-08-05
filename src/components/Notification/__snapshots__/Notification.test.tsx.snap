@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification Snapshot Renders the UI snapshot correctly 1`] = `
+<aside
+  className="notification notification--standard "
+  id="notificationID"
+>
+  <div
+    className="notification__container"
+  >
+    <header>
+      <h4
+        className="heading notification-heading "
+      >
+        Notification Heading
+      </h4>
+    </header>
+    <div
+      className="content__container"
+    >
+      <div
+        className="notification-content "
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+</aside>
+`;
