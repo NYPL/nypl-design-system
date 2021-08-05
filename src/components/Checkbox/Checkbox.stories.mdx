@@ -22,6 +22,7 @@ import { onChangeDefault } from "./Checkbox";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
     },
+    jest: ["Checkbox.test.tsx"],
   }}
   argTypes={{
     onChange: { table: { disable: true } },
@@ -45,7 +46,7 @@ cause an accessibility violation if none is present.
       id: "test_id",
     }}
   >
-    {args => <Checkbox {...args} />}
+    {(args) => <Checkbox {...args} />}
   </Story>
 </Preview>
 

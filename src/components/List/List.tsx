@@ -1,8 +1,8 @@
 import * as React from "react";
+
 import bem from "../../utils/bem";
 import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
-
 interface DefinitionProps {
   term: string;
   definition: string;
@@ -64,7 +64,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
    * Unordered or Ordered, it will return `li` elements. Otherwise, it will
    * return a combination of `dt` and `dd` elements for the Definition type.
    */
-  const listChildrenElms = listType => {
+  const listChildrenElms = (listType) => {
     if (children) {
       return children;
     }
@@ -81,11 +81,12 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
         <dd key={`${i}-def`}>{item.definition}</dd>,
       ]);
     }
+    return null;
   };
   /**
    * Checks for `li` element type and throws an error if it is a different type.
    */
-  const checkLiChildrenError = listType => {
+  const checkLiChildrenError = (listType) => {
     errorText = `Direct children of \`List\` (${listType}) should be \`<li>\`s`;
     React.Children.map(children, function (child: React.ReactElement) {
       if (child.type !== "li" && child.props.mdxType !== "li") {

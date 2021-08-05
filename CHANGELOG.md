@@ -8,6 +8,38 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.23.4
+
+### Adds
+
+- Adds TSDX as the bootstrapping tool to add opinionated configurations.
+- Adds an `/example/` directory through TSDX with an small playground app.
+- Snapshot testing through `react-test-renderer` and Jest.
+- Typescript documentation file to be use as a development guide.
+- Typescript documentation for `enum` variables in the TYPESCRIPT file.
+- Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports.
+- Adds heading, description and helper text to `VideoPlayer` component.
+- Adds `@storybook/addons-jest` plugin to display Jest/React Testing Library unit tests in a Storybook tab.
+
+### Changes
+
+- Updates Style Guide `Spacing`.
+- Updates `Hero` component to include `Campaign` variant.
+- Updates `Hero` stories to use MDX format.
+- Updated warnings for too few or too many option children for the `Select` component.
+- Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
+- Removes a custom SCSS breakpoint in `_Breadcrumbs.scss` in favor of mobile-first style rules.
+- Replaces Mocha, Chai, Sinon, and Enzyme for Jest and React Testing Library for unit testing.
+- Replaces webpack with rollup through TSDX.
+- Updates npm scripts to use TSDX for internal commands.
+- Replaces lodash with own functions.
+- Minor updates to Github Actions.
+- Adds PostCSS/autoprefixer to Rollup workflow instead of the default scss minifier.
+
+### Fixes
+
+- Fixes the `bem` utility function so that it doesn't crash Storybook whenever the `modifiers` Controls prop option is empty.
+
 ## 0.23.3
 
 ### Fixes

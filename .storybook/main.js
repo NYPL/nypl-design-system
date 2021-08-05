@@ -1,5 +1,3 @@
-const custom = require("../webpack.config.js");
-
 module.exports = {
   // Where are the stories?
   stories: [
@@ -28,25 +26,23 @@ module.exports = {
     },
     "@storybook/addon-controls",
     "@storybook/addon-queryparams",
+    "@storybook/addon-jest",
   ],
-  // We want the repo's webpack configuration to be a part of the Storybook
-  // configuration for SCSS and SVGs, but we want to keep the existing
-  // configuration loaders to use MDX when the project builds.
-  webpackFinal: config => {
-    const { rules } = config.module;
-    // We still want MDX-related configuration rules from Storybook's webpack
-    // which come from `rules[4]`. This is not ideal as the order of the
-    // rules can change and this will break if this rule is removed.
-    // The custome webpack rules added here are from `webpack.config.js` and
-    // they are loaders to handle SVG loading, Typescript compilation, and
-    // CSS generation from SCSS.
-    const customRules = [rules[4], ...custom.module.rules];
-    return {
-      ...config,
-      module: {
-        ...config.module,
-        rules: customRules,
-      },
-    };
+  typescript: {
+    // Type-check stories during Storybook build.
+    check: true,
+  },
+  webpackFinal: async (config, { configType }) => {
+    const assetRule = config.module.rules.find(({ test }) => test.test(".svg"));
+    // Exclude svg from the default storybook file-loader.
+    assetRule.exclude = /\.svg$/;
+
+    // Add svgr loader to handle svgs.
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
   },
 };

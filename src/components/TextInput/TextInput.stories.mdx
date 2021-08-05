@@ -23,6 +23,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
+    jest: ["TextInput.test.tsx"],
   }}
   argTypes={{
     attributes: { table: { disable: true } },
@@ -65,7 +66,7 @@ This component renders a text input form element. See below for configuration in
       },
     }}
   >
-    {args => <TextInput {...args} />}
+    {(args) => <TextInput {...args} />}
   </Story>
 </Preview>
 
@@ -83,7 +84,7 @@ A TextInput can be rendered with or without visible labels.
       showLabel: false,
     }}
   >
-    {args => <TextInput {...args} />}
+    {(args) => <TextInput {...args} />}
   </Story>
 </Preview>
 
@@ -161,6 +162,6 @@ The TextInput component includes a multiline `textarea` form field. To render a
       helperText: "Let it all out.",
     }}
   >
-    {args => <TextInput {...args} />}
+    {(args) => <TextInput {...args} />}
   </Story>
 </Preview>

@@ -1,32 +1,37 @@
-import { expect } from "chai";
 import bem from "../../utils/bem";
 
-describe("given a baseclass", () => {
+describe("bem", () => {
   it("returns baseclass", () => {
-    expect(bem("unorder-list")).to.equal("unorder-list");
+    expect(bem("unorder-list")).toEqual("unorder-list");
   });
-});
 
-describe("given a baseclass with modifier and blockName", () => {
-  it("returns properly formatted baseclass, modifier and blockname", () => {
-    expect(bem("list-item", ["scroll"], "unordered-list")).to.equal(
+  it("returns properly formatted classes from a baseclass and modifier", () => {
+    const modifiers = ["scroll"];
+    expect(bem("list-item", modifiers)).toEqual("list-item list-item--scroll");
+  });
+
+  it("returns properly formatted classes from a baseclass, modifier, and blockname", () => {
+    const modifiers = ["scroll"];
+    const blockName = "unordered-list";
+    expect(bem("list-item", modifiers, blockName)).toEqual(
       "unordered-list__list-item unordered-list__list-item--scroll"
     );
   });
-});
 
-describe("given a baseclass with modifier and no blockName", () => {
-  it("returns properly formatted baseclass and modifier", () => {
-    expect(bem("list-item", ["scroll"])).to.equal(
-      "list-item list-item--scroll"
+  it("returns properly formatted classes from a baseclass and blockName", () => {
+    const blockName = "unordered-list";
+    expect(bem("list-item", [], blockName)).toEqual(
+      "unordered-list__list-item"
     );
   });
-});
 
-describe("given a baseclass with no modifier and  blockName", () => {
-  it("returns properly formatted baseclass and blockName", () => {
-    expect(bem("list-item", [], "unordered-list")).to.equal(
-      "unordered-list__list-item"
+  it("returns additional extra classes", () => {
+    const modifier = ["modifier"];
+    const blockName = "unordered-list";
+    const extra = ["extraClass"];
+
+    expect(bem("list-item", modifier, blockName, extra)).toEqual(
+      "unordered-list__list-item unordered-list__list-item--modifier extraClass"
     );
   });
 });
