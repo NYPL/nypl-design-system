@@ -49,4 +49,5 @@ ImageWithOptionalCaptionandCredit.parameters = {
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11896%3A45379",
   },
+  jest: ["Image.test.tsx"],
 };

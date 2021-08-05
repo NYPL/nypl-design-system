@@ -67,6 +67,7 @@ input.parameters = {
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
   },
+  jest: ["Input.test.tsx"],
 };
 
 let groupErrored;
@@ -146,6 +147,7 @@ inputGroup.parameters = {
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
   },
+  jest: ["Input.test.tsx"],
 };
 
 export const inputAttributes = () => (

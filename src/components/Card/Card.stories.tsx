@@ -140,4 +140,5 @@ ExampleCard.parameters = {
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
   },
+  jest: ["Card.test.tsx"],
 };

@@ -29,6 +29,7 @@ import { action } from "@storybook/addon-actions";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
+    jest: ["Form.test.tsx"],
   }}
 />
 
@@ -59,7 +60,7 @@ The `Form` component renders a standard `<form>` element and should be used to h
       },
     }}
   >
-    {args => (
+    {(args) => (
       <Form {...args}>
         <FormField>
           <TextInput

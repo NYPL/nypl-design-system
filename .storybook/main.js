@@ -26,6 +26,7 @@ module.exports = {
     },
     "@storybook/addon-controls",
     "@storybook/addon-queryparams",
+    "@storybook/addon-jest",
   ],
   typescript: {
     // Type-check stories during Storybook build.

@@ -26,6 +26,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
     },
+    jest: ["Button.test.tsx"],
   }}
 />
 
@@ -42,7 +43,7 @@ that can be rendered.
 - `ButtonTypes.Link` is used for equally weighted actions in a text based list
 
 <Preview withToolbar>
-  <Story name="Basic">{args => <Button {...args}>Button Text</Button>}</Story>
+  <Story name="Basic">{(args) => <Button {...args}>Button Text</Button>}</Story>
 </Preview>
 
 <ArgsTable story="Basic" />
@@ -104,7 +105,7 @@ can be rendered or check out the Controls section for this story.
       },
     }}
   >
-    {args => (
+    {(args) => (
       <Button {...args}>
         {args.displayLeft && (
           <Icon
