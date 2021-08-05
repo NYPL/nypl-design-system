@@ -71,6 +71,34 @@ describe("VideoPlayer", () => {
     });
   });
 
+  describe("text elements", () => {
+    beforeEach(() => {
+      utils = render(
+        <VideoPlayer
+          videoType={VideoPlayerTypes.YouTube}
+          videoId={videoId}
+          headingText="Video Player Heading"
+          descriptionText="Video Player description text."
+          helperText="Video Player helper text."
+        />
+      );
+    });
+
+    it("Renders Heading component", () => {
+      expect(screen.getByText("Video Player Heading")).toBeInTheDocument();
+    });
+
+    it("Renders description text", () => {
+      expect(
+        screen.getByText("Video Player description text.")
+      ).toBeInTheDocument();
+    });
+
+    it("Renders HelperErrorText component", () => {
+      expect(screen.getByText("Video Player helper text.")).toBeInTheDocument();
+    });
+  });
+
   describe("custom iframe title", () => {
     it("Uses iframeTitle prop to add custom title attribute to iframe", () => {
       render(
