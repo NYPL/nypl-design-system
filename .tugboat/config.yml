@@ -1,10 +1,11 @@
 services:
   node:
     image: tugboatqa/node:12
-    export: 6006
+    export: 8080
     commands:
       build:
         - npm install
-        # - npm run prebuild:storybook && npm run build-storybook
+        - npm install http-server
+        - npm run prebuild:storybook && npm run build-storybook
       start:
-        - npm run storybook
+        - npx http-server ./storybook-static
