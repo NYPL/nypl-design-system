@@ -1,0 +1,8 @@
+services:
+  node:
+    image: tugboatqa/node:12
+    export: 300
+    commands:
+      build:
+        - npm install
+        - npm run prebuild:storybook && npm run build-storybook
