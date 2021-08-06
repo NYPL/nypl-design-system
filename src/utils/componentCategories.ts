@@ -68,7 +68,7 @@ const categories = {
     ],
   },
   overlayContentSwitcher: {
-    title: "Components/Overlay",
+    title: "Components/Overlays & Switchers",
     components: ["Accordion", "Modal", "Tabs", "Tooltip"],
   },
   media: {
