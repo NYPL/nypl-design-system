@@ -8,4 +8,4 @@ services:
         - npm install http-server
         - npm run prebuild:storybook && npm run build-storybook
       start:
-        - npx http-server ./storybook-static &
+        - npx http-server "${TUGBOAT_ROOT}/storybook-static" &
