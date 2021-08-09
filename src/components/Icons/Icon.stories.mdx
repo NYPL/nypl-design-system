@@ -19,9 +19,10 @@ import {
 import iconSvgs from "./IconSvgs";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Icon"
+  title={getCategory("Icon")}
   component={Icon}
   decorators={[withDesign]}
   parameters={{
@@ -35,6 +36,11 @@ import { ListTypes } from "../List/ListTypes";
 />
 
 # Icon
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.4`    |
+| Latest            | `0.23.1`   |
 
 <Description of={Icon} />
 

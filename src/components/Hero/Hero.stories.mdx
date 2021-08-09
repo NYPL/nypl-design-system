@@ -14,9 +14,10 @@ import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import sections from "../../utils/siteSections";
 import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Hero"
+  title={getCategory("Hero")}
   component={Hero}
   decorators={[withDesign]}
   parameters={{

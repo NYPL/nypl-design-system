@@ -11,9 +11,10 @@ import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import { LinkTypes } from "../Link/LinkTypes";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Card",
+  title: getCategory("Card"),
   component: Card,
 };
 

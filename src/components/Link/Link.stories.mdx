@@ -14,9 +14,10 @@ import {
 } from "react-router-dom";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Link"
+  title={getCategory("Link")}
   component={Link}
   decorators={[withDesign]}
   parameters={{
@@ -40,6 +41,11 @@ import Icon from "../Icons/Icon";
 />
 
 # Link
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.4`    |
+| Latest            | `0.20.2`   |
 
 <Description of={Link} />
 

@@ -14,6 +14,12 @@ addParameters({
     container: DocsContainer,
     page: DocsPage,
   },
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order: ["Introduction", "Components", "Documentation"],
+    },
+  },
 });
 
 addDecorator(

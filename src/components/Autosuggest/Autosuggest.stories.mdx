@@ -1,8 +1,9 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
 import Autosuggest from "react-autosuggest";
 import * as stories from "./Autosuggest.stories.tsx";
+import { getCategory } from "../../utils/componentCategories";
 
-<Meta title="Autosuggest" component={Autosuggest} />
+<Meta title={getCategory("Autosuggest")} component={Autosuggest} />
 
 # Autosuggest
 

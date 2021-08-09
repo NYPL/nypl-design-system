@@ -182,7 +182,7 @@ NYPL's Metronome instance is currently password protected. For access to Metrono
 
 ## Storybook
 
-The NYPL Design System leverages Storybook to document all the React components and style guidelines.
+The NYPL Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). For your convenience, the NYPL Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
 
 ### Documentation Instances
 
