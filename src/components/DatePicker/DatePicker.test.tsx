@@ -48,7 +48,7 @@ describe("DatePicker", () => {
   const getTodaysValues = () => {
     const year = todaysDate.getFullYear();
     const month = str_pad(todaysDate.getMonth() + 1);
-    const day = str_pad(todaysDate.getDay() + 1);
+    const day = str_pad(todaysDate.getDate());
     return [year, month, day];
   };
   /** Returns today's date in string format based on the DatePicker type. */
@@ -68,6 +68,7 @@ describe("DatePicker", () => {
         <DatePicker labelText="Select the full date you want to visit NYPL" />
       );
       const [year, month, day] = getTodaysValues();
+      console.log(year, month, day);
       const date = getTodaysDateDisplay();
       const input = screen.getByLabelText(
         /Select the full date you want to visit NYPL/i
@@ -319,13 +320,14 @@ describe("DatePicker", () => {
 
       // Let's select a new day.
       userEvent.click(fromInput);
-      // The popup displays.
-      userEvent.click(screen.getByText("9"));
+      // The popup displays. Select two days from today
+      const newDateToSelect = str_pad(todaysDate.getDate() + 2);
+      userEvent.click(screen.getByText(newDateToSelect));
 
       // We selected a new day but kept everything else the same. So we just
       // need to remove the older day with the new "2" selected date.
       // Example: 2021-08-01 -> 2 is selected -> 2021-08-02
-      const newFromValue = `${date.slice(0, -2)}09`;
+      const newFromValue = `${date.slice(0, -2)}${newDateToSelect}`;
       expect(screen.getByDisplayValue(newFromValue)).toBeInTheDocument();
       // The "To" input should only have the older value now.
       expect(screen.getAllByDisplayValue(date)).toHaveLength(1);
