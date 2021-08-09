@@ -1,8 +1,9 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
 import Autosuggest from "react-autosuggest";
 import * as stories from "./Autosuggest.stories.tsx";
+import { getCategory } from "../../utils/componentCategories";
 
-<Meta title="Autosuggest" component={Autosuggest} />
+<Meta title={getCategory("Autosuggest")} component={Autosuggest} />
 
 # Autosuggest
 
@@ -30,7 +31,7 @@ component is added to render a checkmark after each suggestion. View it by
 typing "c" or "tr" in the following input.
 
 ```jsx
-const renderSuggestion = suggestion => (
+const renderSuggestion = (suggestion) => (
   <span>
     {suggestion}
     <Icon name={IconNames["check"]} decorative={true}></Icon>

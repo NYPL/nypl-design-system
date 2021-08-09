@@ -7,6 +7,7 @@ export { ButtonTypes } from "./components/Button/ButtonTypes";
 export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as DatePicker } from "./components/DatePicker/DatePicker";
+export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";
 export { HeadingDisplaySizes } from "./components/Heading/HeadingDisplaySizes";
@@ -49,4 +50,7 @@ export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export { default as TextInput } from "./components/TextInput/TextInput";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
-export { VideoPlayerTypes } from "./components/VideoPlayer/VideoPlayerTypes";
+export {
+  VideoPlayerAspectRatios,
+  VideoPlayerTypes,
+} from "./components/VideoPlayer/VideoPlayerTypes";
