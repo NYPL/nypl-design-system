@@ -26,6 +26,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17219%3A7",
     },
+    jest: ["SkeletonLoader.test.tsx"],
   }}
   argTypes={{
     attributes: { table: { disable: true } },
@@ -78,7 +79,7 @@ Please note that the initial rendering below has the `width` prop set to `300px`
       width: "300px",
     }}
   >
-    {args => <SkeletonLoader {...args} />}
+    {(args) => <SkeletonLoader {...args} />}
   </Story>
 </Preview>
 

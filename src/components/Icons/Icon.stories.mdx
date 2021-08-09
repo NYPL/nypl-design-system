@@ -31,6 +31,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A3945",
     },
+    jest: ["Icon.test.tsx"],
   }}
 />
 
@@ -85,7 +86,7 @@ import { getCategory } from "../../utils/componentCategories";
       },
     }}
   >
-    {args => <Icon {...args} />}
+    {(args) => <Icon {...args} />}
   </Story>
 </Preview>
 
@@ -168,7 +169,7 @@ for (const iconSize in IconSizes) {
   );
 }
 
-export const allIconsType = list => (
+export const allIconsType = (list) => (
   <ul style={{ listStyle: "none" }}>{list}</ul>
 );
 
@@ -265,7 +266,7 @@ child to the `Icon` component.
       decorative: true,
     }}
   >
-    {args => (
+    {(args) => (
       <Icon {...args}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

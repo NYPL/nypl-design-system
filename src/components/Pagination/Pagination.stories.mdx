@@ -26,6 +26,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
     },
+    jest: ["Pagination.test.tsx"],
   }}
 />
 
@@ -57,7 +58,7 @@ named anything but you have to pick up the value in the wrapper component.
 
 ```jsx
 // Example in a search results page.
-const getPageHref = page => {
+const getPageHref = (page) => {
   return `${location.origin}?q=celeste&page=${page}`;
 };
 ```
@@ -70,7 +71,7 @@ const getPageHref = page => {
       pageCount: 100,
     }}
   >
-    {args => stories.PaginationGetPageHref(args)}
+    {(args) => stories.PaginationGetPageHref(args)}
   </Story>
 </Canvas>
 
@@ -107,6 +108,6 @@ const onPageChange = (page: number) => setComputedCurrentPage(page);
       pageCount: 100,
     }}
   >
-    {args => stories.PaginationOnPageChange(args)}
+    {(args) => stories.PaginationOnPageChange(args)}
   </Story>
 </Canvas>

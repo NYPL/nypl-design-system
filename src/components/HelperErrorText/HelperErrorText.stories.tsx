@@ -15,6 +15,9 @@ export const helperTextWithLink = () => (
     <a href="#sizing-chart">Sizing Chart</a>
   </HelperErrorText>
 );
+helperTextWithLink.parameters = {
+  jest: ["HelperErrorText.test.tsx"],
+};
 
 export const errorText = () => (
   <HelperErrorText id="helpertextWithError" isError={true}>

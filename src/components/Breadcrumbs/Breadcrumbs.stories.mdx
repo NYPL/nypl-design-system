@@ -24,6 +24,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
+    jest: ["Breadcrumbs.test.tsx"],
   }}
   argTypes={{
     blockName: { table: { disable: true } },
@@ -54,7 +55,7 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
       ],
     }}
   >
-    {args => <Breadcrumbs {...args} />}
+    {(args) => <Breadcrumbs {...args} />}
   </Story>
 </Preview>
 
@@ -98,7 +99,7 @@ The `Breadcrumbs` component background color will match the secondary section co
       ],
     }}
   >
-    {args => (
+    {(args) => (
       <div className="nypl--books-and-more">
         <Heading level={3}>Books and More</Heading>
         <Breadcrumbs

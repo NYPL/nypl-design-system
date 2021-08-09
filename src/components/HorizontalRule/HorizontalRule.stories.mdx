@@ -22,6 +22,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
     },
+    jest: ["HorizontalRule.test.tsx"],
   }}
   argTypes={{
     attributes: { table: { disable: true } },
@@ -40,7 +41,7 @@ import { getCategory } from "../../utils/componentCategories";
 The `HorizontalRule` component renders a basic `<hr>` element. The `height`, `width` and `alignment` can be customized.
 
 <Preview withToolbar>
-  <Story name="HorizontalRule">{args => <HorizontalRule {...args} />}</Story>
+  <Story name="HorizontalRule">{(args) => <HorizontalRule {...args} />}</Story>
 </Preview>
 
 <ArgsTable story="HorizontalRule" />

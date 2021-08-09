@@ -30,4 +30,5 @@ statusBadge.parameters = {
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11256%3A0",
   },
+  jest: ["StatusBadge.test.tsx"],
 };

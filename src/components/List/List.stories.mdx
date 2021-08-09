@@ -33,6 +33,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
     },
+    jest: ["List.test.tsx"],
   }}
   argTypes={{
     blockName: { table: { disable: true } },
@@ -67,7 +68,7 @@ import { getCategory } from "../../utils/componentCategories";
       title: "",
     }}
   >
-    {args => listRenderer(args)}}
+    {(args) => listRenderer(args)}}
   </Story>
 </Preview>
 
@@ -94,7 +95,7 @@ import { getCategory } from "../../utils/componentCategories";
       },
     }}
   >
-    {args => listRenderer(args)}}
+    {(args) => listRenderer(args)}}
   </Story>
 </Preview>
 
@@ -111,7 +112,7 @@ import { getCategory } from "../../utils/componentCategories";
       title: { table: { disable: true } },
     }}
   >
-    {args => <List type={ListTypes.Ordered}>{cardsList}</List>}
+    {(args) => <List type={ListTypes.Ordered}>{cardsList}</List>}
   </Story>
 </Preview>
 
@@ -136,7 +137,7 @@ import { getCategory } from "../../utils/componentCategories";
       },
     }}
   >
-    {args => (
+    {(args) => (
       <List title="Details" type={ListTypes.Definition}>
         <dt>Authors</dt>
         <dd>
@@ -259,6 +260,6 @@ const fishDefinitions = [
       type: { table: { disable: true } },
     }}
   >
-    {args => <List {...args} />}
+    {(args) => <List {...args} />}
   </Story>
 </Preview>
