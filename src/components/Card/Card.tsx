@@ -1,36 +1,33 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Heading from "../Heading/Heading";
+// import HeadingDisplaySizes from "../Heading/HeadingDisplaySizes";
 import Image from "../Image/Image";
 
-interface CardProps {
+export interface CardProps {
   /** ClassName that appears in addition to "card" */
   className?: string;
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** Calls to Action for the card, such as "download" on a card for a book */
-  ctas?: React.ReactNode;
-  /** Heading that appears within the card but above the three columns within it */
-  heading?: React.ReactNode;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** First column within the card */
-  image?: React.ReactNode;
+  /** Optional size used to override the default styles of the semantic HTML `<h>` elements */
+  // displaySize?: HeadingDisplaySizes;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
   /** Layout **/
   layout?: "vertical" | "horizontal";
   /** Border */
-  border?: false | true;
+  border?: boolean;
   /** Padding */
   padding?: string;
 }
 
 // CardImage child-component
 export function CardImage(props) {
-  const { src, alt } = props;
+  const { src, alt, className } = props;
   if (src) {
-    return <Image src={src} alt={alt} />;
+    return <Image className={className} src={src} alt={alt} />;
   } else {
     return null;
   }
@@ -40,7 +37,7 @@ export function CardImage(props) {
 export function CardHeading(props) {
   const { children, id, level, url } = props;
   return (
-    <Heading level={level} id={id} url={url}>
+    <Heading className="card-heading" level={level} id={id} url={url}>
       {children}
     </Heading>
   );
@@ -48,14 +45,26 @@ export function CardHeading(props) {
 
 // CardContent child-component
 export function CardContent(props) {
-  const { children } = props;
-  return children;
+  const { children, className } = props;
+  if (children) {
+    return (
+      <div className={bem("card-content", [], "", [className])}>{children}</div>
+    );
+  } else {
+    return null;
+  }
 }
 
 // CardActions child-component
 export function CardActions(props) {
-  const { children } = props;
-  return children;
+  const { children, className } = props;
+  if (children) {
+    return (
+      <div className={bem("card-actions", [], "", [className])}>{children}</div>
+    );
+  } else {
+    return null;
+  }
 }
 
 export default function Card(props: React.PropsWithChildren<CardProps>) {
@@ -63,7 +72,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     blockName,
     children,
     className,
-    ctas,
     id,
     layout,
     border,
@@ -74,13 +82,10 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
 
   let cardStyle;
   let childHeading;
-  let childContent;
   let childImage;
-  let childActions;
   let headingCount = 0;
-  let contentCount = 0;
   let imageCount = 0;
-  let actionCount = 0;
+  const cardContents = [];
 
   if (layout) {
     modifiers.push(layout);
@@ -103,8 +108,9 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     }
 
     if (child.type === CardContent) {
-      childContent = child;
-      contentCount++;
+      cardContents.push(
+        <div className={bem("text", [], baseClass)}>{child}</div>
+      );
     }
 
     if (child.type === CardImage) {
@@ -113,10 +119,19 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     }
 
     if (child.type === CardActions) {
-      childActions = child;
-      actionCount++;
+      cardContents.push(
+        <div className={bem("ctas", [], baseClass)}>{child}</div>
+      );
     }
   });
+
+  if (headingCount > 1) {
+    console.error(
+      `Only one CardHeading child component may be passed to Card.`
+    );
+    childHeading =
+      "Error: Only one CardHeading child component may be passed to Card.";
+  }
 
   return (
     <div
@@ -128,20 +143,12 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
         <div className={bem("image", [], baseClass)}>{childImage}</div>
       ) : null}
       <div className={bem("content", [], baseClass)}>
-        <div className={bem("details", [], baseClass)}>
-          {headingCount ? (
-            <div className={bem("heading", [], baseClass)}>{childHeading}</div>
-          ) : null}
+        {headingCount ? (
+          <div className={bem("heading", [], baseClass)}>{childHeading}</div>
+        ) : null}
 
-          {contentCount ? (
-            <div className={bem("text", [], baseClass)}>{childContent}</div>
-          ) : null}
-        </div>
+        {cardContents}
       </div>
-      {ctas && <div className={bem("ctas", [], baseClass)}>{ctas}</div>}
-      {actionCount ? (
-        <div className={bem("ctas", [], baseClass)}>{childActions}</div>
-      ) : null}
     </div>
   );
 }

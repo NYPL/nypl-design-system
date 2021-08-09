@@ -31,8 +31,12 @@
     justify-content: center;
   }
 
+  &__text {
+    @include space-stack-xs;
+  }
+
   &__ctas {
-    flex: 0 1 20%;
+    // flex: 0 1 20%;
 
     @include breakpoint($breakpoint-medium) {
       @include space-inline-s;
@@ -77,8 +81,8 @@
 
     .card__content {
       @include breakpoint($breakpoint-medium) {
-        display: flex;
-        flex: 1 1 50%;
+        display: block;
+        // flex: 1 1 50%;
         flex-flow: row nowrap;
       }
     }
@@ -109,8 +113,6 @@
       align-items: flex-end;
       display: flex;
       flex-flow: row wrap;
-      justify-content: center;
-      text-align: center;
 
       .button {
         width: 100%;

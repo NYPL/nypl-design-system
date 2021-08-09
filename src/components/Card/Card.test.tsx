@@ -150,7 +150,7 @@ describe("Card", () => {
   it("Generates a Card with variable data", () => {
     const card = Enzyme.mount(cardWithExtendedStyles);
     expect(card.find("h2")).to.have.lengthOf(1);
-    expect(card.find(".card__text").find("div")).to.have.lengthOf(4);
+    expect(card.find(".card__text").find("div")).to.have.lengthOf(5);
     expect(card.find(".card__ctas").find("a")).to.have.lengthOf(2);
   });
 

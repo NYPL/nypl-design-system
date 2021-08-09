@@ -90,7 +90,7 @@ cardEdition.parameters = {
 
 export const ExampleCardEdition = () => (
   <CardEdition
-    className="example-card"
+    className="example-card-edition"
     image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
     ctas={
       <>

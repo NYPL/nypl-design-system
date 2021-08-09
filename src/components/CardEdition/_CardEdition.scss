@@ -82,7 +82,7 @@
     padding: 0 0 var(--space) 0;
   }
 
-  .example-card {
+  .example-card-edition {
     .card__content {
       > * {
         @include space-stack-xxs;

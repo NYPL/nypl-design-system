@@ -1,0 +1,166 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { action } from "@storybook/addon-actions";
+import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
+import Icon from "../Icons/Icon";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+
+import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
+
+<Meta
+  title="Card"
+  component={Card}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+    },
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+  }}
+/>
+
+# Card
+
+<Description of={Card} />
+
+Cards are contained units of information that can stand independently from other elements for context.  While a Card is a self-contained unit, Cards are often grouped together and displayed in some type of grid layout.
+
+<Preview withToolbar>
+  <Story
+    name="Card"
+    args={{
+      id: "cardID",
+      layout: "horizontal",
+    }}
+  >
+    {args => (
+      <Card{...args}>
+        <CardImage
+          src="https://placeimg.com/200/100/animals"
+          alt="Alt text"
+        />
+        <CardHeading
+          level={3}
+          id="heading1"
+        >
+          Optional Header
+        </CardHeading>
+        <CardContent>middle column content</CardContent>
+        <CardActions>
+          <Button
+            onClick={action("clicked")}
+            id="button1"
+            buttonType={ButtonTypes.Primary}
+            type="submit"
+          >
+            {"Example CTA"}
+          </Button>
+        </CardActions>
+      </Card>
+    )}
+  </Story>
+</Preview>
+
+## Example Card
+
+<Preview>
+  <Story name="Example Card">
+    {args => (
+      <Card className="example-card">
+        <CardImage src={"https://placeimg.com/300/400/arch"} alt={""} />
+        <CardHeading level={2} id="heading1">
+          The Year of Magical Thinking
+        </CardHeading>
+        <CardContent>
+          <div>Published in New York by Random House</div>
+          <div>Written in English</div>
+          <div>
+            License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+            International
+          </div>
+        </CardContent>
+        <CardActions>
+          <Link type={LinkTypes.Button} href="blah">
+            Reserve
+          </Link>
+          <div className="italicized ui-gray-dark">
+            0 of 11 copies available. 3 patrons in the queue.
+          </div>
+          <Link href="#url" type={LinkTypes.Forwards}>
+            View Book Details
+          </Link>
+        </CardActions>
+      </Card>
+    )}
+  </Story>
+</Preview>
+
+## Horizontal Card example
+
+Horizontal Card example
+
+<Preview withToolbar>
+  <Story name="Horizontal Card">
+    {args => (
+      <Card className="horizontal-card" layout="horizontal" border={true}>
+        <CardImage src={"https://placeimg.com/200/150/animals"} alt="Alt text" />
+        <CardHeading level={2} id="heading1">
+          The Year of Magical Thinking
+        </CardHeading>
+        <CardContent>
+          Secondary content
+        </CardContent>
+        <CardContent>
+          <div className="book__callout">A portrait of loss and grief</div>
+          <div>
+            By <Link href="#joan-didion">Joan Didion</Link>,{" "}
+            <Link href="#another-author">Another Author</Link>,{" "}
+            <Link href="#third-author">Third Author</Link>
+          </div>
+          <div className="book__filetype">
+            <Icon
+              name={IconNames.headset}
+              decorative={true}
+              modifiers={["left", "small"]}
+              iconRotation={IconRotationTypes.rotate0}
+            ></Icon>
+            Audiobook
+          </div>
+          <div className="book__description">
+            An act of consummate literary bravery, a writer known for her clarity
+            allowing us to watch her mind as it becomes clouded...{" "}
+            <Link href="#">Read More</Link>
+          </div>
+        </CardContent>
+        <CardActions>
+          <Link type={LinkTypes.Button} href="blah">
+            Reserve
+          </Link>
+          <div className="italicized ui-gray-dark">
+            0 of 11 copies available. 3 patrons in the queue.
+          </div>
+          <Link href="#url" type={LinkTypes.Forwards}>
+            View Book Details
+          </Link>
+        </CardActions>
+      </Card>
+    )}
+  </Story>
+</Preview>
+
