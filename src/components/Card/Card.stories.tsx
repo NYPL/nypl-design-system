@@ -4,7 +4,6 @@ import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
 
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import { getCategory } from "../../utils/componentCategories";
 
 export default {
