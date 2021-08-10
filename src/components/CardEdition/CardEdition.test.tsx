@@ -1,6 +1,6 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import CardEdition from "./CardEdition";
 import Link from "../Link/Link";
@@ -11,6 +11,36 @@ import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+
+describe("CardEdition Accessibility", () => {
+  const regularCard = (
+    <CardEdition
+      id="cardID"
+      heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
+      image={<Image src="https://placeimg.com/400/200/arch" alt={""} />}
+      ctas={
+        <Button
+          onClick={function () {
+            console.log(this);
+          }}
+          id="button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Example CTA
+        </Button>
+      }
+      footer={<>Optional footer</>}
+    >
+      middle column content
+    </CardEdition>
+  );
+
+  it("passes axe accessibility test", async () => {
+    const { container } = render(regularCard);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
 
 describe("CardEdition", () => {
   const regularCard = (
@@ -231,60 +261,122 @@ describe("CardEdition", () => {
   );
 
   it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
-    const card = Enzyme.mount(regularCard);
-    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__footer")).to.have.lengthOf(1);
+    const card = render(regularCard);
+    expect(
+      card.container.querySelector(".card-edition__heading")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__image")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__content")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__ctas")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__footer")
+    ).toBeInTheDocument();
   });
 
   it("Generates a Card with variable data", () => {
-    const card = Enzyme.mount(cardWithExtendedStyles);
-    expect(card.find("h2")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__content").find("div")).to.have.lengthOf(4);
-    expect(card.find(".card-edition__ctas").find("a")).to.have.lengthOf(2);
+    const card = render(cardWithExtendedStyles);
+    expect(card.container.querySelector("h2")).toBeInTheDocument();
+    expect(
+      screen.getByText("Published in New York by Random House")
+    ).toBeInTheDocument();
+    expect(screen.getByText("Written in English")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International"
+      )
+    ).toBeInTheDocument();
+    // expect(screen.findAllByRole("link")).toHaveLength(2);
   });
 
   it("Generates a card without a CTA block if one isn't provided", () => {
-    const card = Enzyme.mount(cardWithNoCTAs);
-    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__ctas")).to.have.lengthOf(0);
+    const card = render(cardWithNoCTAs);
+    expect(
+      card.container.querySelector(".card-edition__heading")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__image")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__content")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__ctas")
+    ).not.toBeInTheDocument();
   });
 
   it("Generates a card without a content block if one isn't provided", () => {
-    const card = Enzyme.mount(cardWithNoContent);
-    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__content")).to.have.lengthOf(0);
-    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
+    const card = render(cardWithNoContent);
+    expect(
+      card.container.querySelector(".card-edition__heading")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__image")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__content")
+    ).not.toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__ctas")
+    ).toBeInTheDocument();
   });
 
   it("Generates a card without an image block if no image is provided", () => {
-    const card = Enzyme.mount(cardWithNoImage);
-    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__image")).to.have.lengthOf(0);
-    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
+    const card = render(cardWithNoImage);
+    expect(
+      card.container.querySelector(".card-edition__heading")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__image")
+    ).not.toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__content")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__ctas")
+    ).toBeInTheDocument();
   });
 
   it("Generates a card without a header block if one isn't provided", () => {
-    const card = Enzyme.mount(cardWithNoHeader);
-    expect(card.find(".card-edition__heading")).to.have.lengthOf(0);
-    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__footer")).to.have.lengthOf(1);
+    const card = render(cardWithNoHeader);
+    expect(
+      card.container.querySelector(".card-edition__heading")
+    ).not.toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__image")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__content")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__ctas")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__footer")
+    ).toBeInTheDocument();
   });
 
   it("Generates a card without a footer block if one isn't provided", () => {
-    const card = Enzyme.mount(cardWithNoFooter);
-    expect(card.find(".card-edition__heading")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__image")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__content")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__ctas")).to.have.lengthOf(1);
-    expect(card.find(".card-edition__footer")).to.have.lengthOf(0);
+    const card = render(cardWithNoFooter);
+    expect(
+      card.container.querySelector(".card-edition__heading")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__image")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__content")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__ctas")
+    ).toBeInTheDocument();
+    expect(
+      card.container.querySelector(".card-edition__footer")
+    ).not.toBeInTheDocument();
   });
 });

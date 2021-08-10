@@ -3,7 +3,7 @@
 const categories = {
   basicContent: {
     title: "Components/Basic Elements",
-    components: ["Card", "Hero", "Promo", "Sponsor", "Table"],
+    components: ["Card", "CardEdition", "Hero", "Promo", "Sponsor", "Table"],
   },
   contentDisplay: {
     title: "Components/Content Display",

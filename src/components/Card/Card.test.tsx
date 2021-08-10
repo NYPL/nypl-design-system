@@ -163,14 +163,13 @@ describe("Card", () => {
   );
   let container;
 
-  it("Generates a Card with a header, footer, image, middle content, and CTAs", () => {
+  it("Generates a Card with a header, image, content, and CTAs", () => {
     const utils = render(regularCard);
     container = utils.container;
     expect(container.querySelector(".card__heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).toBeInTheDocument();
     expect(container.querySelector(".card__content")).toBeInTheDocument();
     expect(container.querySelector(".card__ctas")).toBeInTheDocument();
-    expect(container.querySelector(".card__footer")).toBeInTheDocument();
   });
 
   it("Generates a Card with variable data", () => {
@@ -198,8 +197,8 @@ describe("Card", () => {
 
     expect(container.querySelector(".card__heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).toBeInTheDocument();
-    expect(container.querySelector(".card__content")).not.toBeInTheDocument();
-    expect(container.querySelector(".card__ctas")).toBeInTheDocument();
+    expect(container.querySelector(".card-content")).not.toBeInTheDocument();
+    expect(container.querySelector(".card-actions")).toBeInTheDocument();
   });
 
   it("Generates a card without an image block if no image is provided", () => {

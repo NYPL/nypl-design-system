@@ -14,11 +14,11 @@ import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
-
 import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Card"
+  title={getCategory("Card")}
   component={Card}
   decorators={[withDesign]}
   parameters={{
@@ -39,7 +39,7 @@ import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
 
 <Description of={Card} />
 
-Cards are contained units of information that can stand independently from other elements for context.  While a Card is a self-contained unit, Cards are often grouped together and displayed in some type of grid layout.
+Cards are contained units of information that can stand independently from other elements for context. While a Card is a self-contained unit, Cards are often grouped together and displayed in some type of grid layout.
 
 <Preview withToolbar>
   <Story
@@ -49,16 +49,10 @@ Cards are contained units of information that can stand independently from other
       layout: "horizontal",
     }}
   >
-    {args => (
-      <Card{...args}>
-        <CardImage
-          src="https://placeimg.com/200/100/animals"
-          alt="Alt text"
-        />
-        <CardHeading
-          level={3}
-          id="heading1"
-        >
+    {(args) => (
+      <Card {...args}>
+        <CardImage src="https://placeimg.com/200/100/animals" alt="Alt text" />
+        <CardHeading level={3} id="heading1">
           Optional Header
         </CardHeading>
         <CardContent>middle column content</CardContent>
@@ -81,7 +75,7 @@ Cards are contained units of information that can stand independently from other
 
 <Preview>
   <Story name="Example Card">
-    {args => (
+    {(args) => (
       <Card className="example-card">
         <CardImage src={"https://placeimg.com/300/400/arch"} alt={""} />
         <CardHeading level={2} id="heading1">
@@ -91,8 +85,8 @@ Cards are contained units of information that can stand independently from other
           <div>Published in New York by Random House</div>
           <div>Written in English</div>
           <div>
-            License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
-            International
+            License: Creative Commons Attribution-NonCommercial-NoDerivatives
+            4.0 International
           </div>
         </CardContent>
         <CardActions>
@@ -117,15 +111,16 @@ Horizontal Card example
 
 <Preview withToolbar>
   <Story name="Horizontal Card">
-    {args => (
+    {(args) => (
       <Card className="horizontal-card" layout="horizontal" border={true}>
-        <CardImage src={"https://placeimg.com/200/150/animals"} alt="Alt text" />
+        <CardImage
+          src={"https://placeimg.com/200/150/animals"}
+          alt="Alt text"
+        />
         <CardHeading level={2} id="heading1">
           The Year of Magical Thinking
         </CardHeading>
-        <CardContent>
-          Secondary content
-        </CardContent>
+        <CardContent>Secondary content</CardContent>
         <CardContent>
           <div className="book__callout">A portrait of loss and grief</div>
           <div>
@@ -143,8 +138,8 @@ Horizontal Card example
             Audiobook
           </div>
           <div className="book__description">
-            An act of consummate literary bravery, a writer known for her clarity
-            allowing us to watch her mind as it becomes clouded...{" "}
+            An act of consummate literary bravery, a writer known for her
+            clarity allowing us to watch her mind as it becomes clouded...{" "}
             <Link href="#">Read More</Link>
           </div>
         </CardContent>
@@ -163,4 +158,3 @@ Horizontal Card example
     )}
   </Story>
 </Preview>
-
