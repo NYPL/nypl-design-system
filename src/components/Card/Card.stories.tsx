@@ -4,9 +4,11 @@ import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
 
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Card",
+  title: getCategory("Card"),
   component: Card,
 };
 
@@ -37,3 +39,14 @@ export const ExampleCard = () => (
     </CardActions>
   </Card>
 );
+
+ExampleCard.storyName = "Example Card";
+
+ExampleCard.parameters = {
+  design: {
+    type: "figma",
+    url:
+      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+  },
+  jest: ["Card.test.tsx"],
+};

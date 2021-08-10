@@ -12,9 +12,10 @@ import Breadcrumbs from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import sections from "../../utils/siteSections";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Breadcrumbs"
+  title={getCategory("Breadcrumbs")}
   component={Breadcrumbs}
   decorators={[withDesign]}
   parameters={{
@@ -23,6 +24,7 @@ import sections from "../../utils/siteSections";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
+    jest: ["Breadcrumbs.test.tsx"],
   }}
   argTypes={{
     blockName: { table: { disable: true } },
@@ -32,6 +34,11 @@ import sections from "../../utils/siteSections";
 />
 
 # Breadcrumbs
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.3`    |
+| Latest            | `0.23.0`   |
 
 <Description of={Breadcrumbs} />
 
@@ -48,7 +55,7 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
       ],
     }}
   >
-    {args => <Breadcrumbs {...args} />}
+    {(args) => <Breadcrumbs {...args} />}
   </Story>
 </Preview>
 
@@ -92,7 +99,7 @@ The `Breadcrumbs` component background color will match the secondary section co
       ],
     }}
   >
-    {args => (
+    {(args) => (
       <div className="nypl--books-and-more">
         <Heading level={3}>Books and More</Heading>
         <Breadcrumbs

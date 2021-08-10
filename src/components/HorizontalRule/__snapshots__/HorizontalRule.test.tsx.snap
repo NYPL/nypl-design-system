@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HorizontalRule Renders the UI snapshot correctly 1`] = `
+<hr
+  className="horizontal-rule "
+  style={
+    Object {
+      "height": "2px",
+      "width": "auto",
+    }
+  }
+/>
+`;

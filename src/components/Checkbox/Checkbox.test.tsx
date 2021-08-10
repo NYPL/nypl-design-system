@@ -1,95 +1,164 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
-import { stub, spy } from "sinon";
-import generateUUID from "../../helpers/generateUUID";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
+import userEvent from "@testing-library/user-event";
 
+import * as generateUUID from "../../helpers/generateUUID";
 import Checkbox from "./Checkbox";
 
+describe("Checkbox Accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
+      <Checkbox
+        id="inputID"
+        attributes={{ onClick: jest.fn() }}
+        onChange={jest.fn()}
+        labelText="Test Label"
+        showLabel={false}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
 describe("Checkbox", () => {
-  let container;
+  let utils;
   let changeHandler;
   let clickHander;
   let generateUUIDSpy;
 
-  before(() => {
-    clickHander = stub();
-    changeHandler = stub();
-    generateUUIDSpy = spy(generateUUID);
-    container = Enzyme.mount(
+  beforeEach(() => {
+    clickHander = jest.fn();
+    changeHandler = jest.fn();
+    generateUUIDSpy = jest.spyOn(generateUUID, "default");
+    utils = render(
       <Checkbox
         id="inputID"
         attributes={{ onClick: clickHander }}
         onChange={changeHandler}
         labelText="Test Label"
         showLabel={false}
-      ></Checkbox>
+      />
     );
   });
 
   it("Renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
-    const labelText = container.prop("labelText");
-    expect(container.find("input").prop("aria-label")).to.equal(labelText);
+    const container = utils.container;
+    expect(container.querySelector(".input__checkbox")).toHaveAttribute(
+      "aria-label",
+      "Test Label"
+    );
   });
 
   it("Renders without crashing", () => {
-    expect(container.find("input").exists()).to.equal(true);
+    expect(screen.getByLabelText("Test Label")).toBeInTheDocument();
   });
 
   it("The checkbox element is an input with type='checkbox'", () => {
-    expect(container.find("input").prop("type")).to.equal("checkbox");
-  });
-
-  it("The checkbox element's ID is set properly using the value passed to it.", () => {
-    expect(container.find("input").prop("id")).to.equal("inputID");
+    const container = utils.container;
+    expect(container.querySelector(".input__checkbox")).toHaveAttribute(
+      "type",
+      "checkbox"
+    );
   });
 
   it("Allows user to pass in additional attributes", () => {
-    container.simulate("click");
-    expect(clickHander.callCount).to.equal(1);
+    expect(clickHander.mock.calls.length).toEqual(0);
+    userEvent.click(screen.getByLabelText("Test Label"));
+    expect(clickHander.mock.calls.length).toEqual(1);
   });
 
   it("Changing the value calls the onChange handler", () => {
-    container = Enzyme.mount(
+    const utils = render(
       <Checkbox
         id="onChangeTest"
         onChange={changeHandler}
         labelText="onChangeTest Lab"
         showLabel={true}
         checked
-      ></Checkbox>
+      />
     );
-    container.find("input").simulate("change", { target: { value: "Hello" } });
-    expect(changeHandler.callCount).to.equal(1);
+
+    expect(changeHandler).toHaveBeenCalledTimes(0);
+    userEvent.type(utils.getByText("onChangeTest Lab"), "Hello");
+    expect(changeHandler).toHaveBeenCalledTimes(1);
+  });
+
+  it("Renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false and 'helperText' has been passed", () => {
+    const utils = render(
+      <Checkbox
+        id="onChangeTest"
+        onChange={changeHandler}
+        labelText="onChangeTest Lab"
+        showLabel={false}
+        helperText="The helper text."
+        checked
+      />
+    );
+    const container = utils.container;
+
+    expect(container.querySelector(".input__checkbox")).toHaveAttribute(
+      "aria-label",
+      "onChangeTest Lab - The helper text."
+    );
   });
 
   it("Renders with label", () => {
-    container = Enzyme.mount(
+    const utils = render(
       <Checkbox
         //add other props here
         id="test_id"
         labelText="Hello"
         showLabel={true}
-      ></Checkbox>
+      />
     );
-    expect(container.find("label").exists()).to.equal(true);
-    expect(container.find("input").props()).not.to.have.property("aria-label");
-    const checkboxId = container.prop("id");
-    expect(container.find("label").prop("htmlFor")).to.equal(checkboxId);
+    const container = utils.container;
+    expect(utils.getByLabelText("Hello")).toBeInTheDocument();
+    expect(container.querySelector(".input__checkbox")).not.toHaveAttribute(
+      "aria-label"
+    );
+    expect(utils.getByText("Hello")).toHaveAttribute("for", "test_id");
+  });
+
+  it("Renders with visible helper text", () => {
+    const utils = render(
+      <Checkbox
+        //add other props here
+        id="test_id"
+        labelText="Hello"
+        showLabel={true}
+        helperText="The helper text."
+        errorText="The error text."
+        errored={false}
+      />
+    );
+    expect(utils.getByText("The helper text.")).toBeInTheDocument();
+  });
+
+  it("Renders with visible error text", () => {
+    const utils = render(
+      <Checkbox
+        //add other props here
+        id="test_id"
+        labelText="Hello"
+        showLabel={true}
+        helperText="The helper text."
+        errorText="The error text."
+        errored={true}
+      />
+    );
+    expect(utils.getByText("The error text.")).toBeInTheDocument();
   });
 
   it("Calls a UUID generation method if no ID is passed as a prop", () => {
-    container = Enzyme.mount(
-      <Checkbox labelText="Hello" showLabel={true}></Checkbox>
-    );
-    expect(container.find("input").props()).to.have.property("id");
+    render(<Checkbox labelText="Hello" showLabel={true}></Checkbox>);
 
-    expect(generateUUIDSpy.called);
+    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
   });
 
-  it("The 'checked' attribute can set properly", () => {
-    const onChange = stub();
-    const container = Enzyme.mount(
+  it("The 'checked' attribute can be set properly", () => {
+    const onChange = jest.fn();
+    const utils = render(
       <Checkbox
         id="inputID-attributes"
         labelText="Hello"
@@ -99,32 +168,35 @@ describe("Checkbox", () => {
           "aria-checked": true,
           onChange,
         }}
-      ></Checkbox>
+      />
     );
 
-    const input = container.find("input");
-
-    expect(input.prop("checked")).to.equal(true);
-    expect(input.prop("aria-checked")).to.equal(true);
-  });
-
-  it("Passes the ref to the input element", () => {
-    const ref = React.createRef<HTMLInputElement>();
-    const container = Enzyme.mount(
-      <Checkbox
-        id="inputID-attributes"
-        ref={ref}
-        labelText="Hello"
-        showLabel={false}
-      ></Checkbox>
+    const container = utils.container;
+    expect(container.querySelector(".input__checkbox")).toHaveAttribute(
+      "checked"
     );
-    expect(container.find("input").instance()).to.equal(ref.current);
+    expect(container.querySelector(".input__checkbox")).toHaveAttribute(
+      "aria-checked"
+    );
   });
+
+  // TODO:
+  // it("Passes the ref to the input element", () => {
+  //   const ref = React.createRef<HTMLInputElement>();
+  //   const container = render(
+  //     <Checkbox
+  //       id="inputID-attributes"
+  //       ref={ref}
+  //       labelText="Hello"
+  //       showLabel={false}
+  //     />
+  //   );
+  // });
 
   it("Renders HTML attributes passed through the `attributes` prop", () => {
-    const onChangeSpy = stub();
-    const onBlurSpy = stub();
-    container = Enzyme.mount(
+    const onChangeSpy = jest.fn();
+    const onBlurSpy = jest.fn();
+    const utils = render(
       <Checkbox
         id="inputID-attributes"
         attributes={{
@@ -136,12 +208,18 @@ describe("Checkbox", () => {
         showLabel={true}
       ></Checkbox>
     );
-    expect(container.find("input").prop("tabIndex")).to.equal(0);
-    expect(onChangeSpy.callCount).to.equal(0);
-    container.find("input").simulate("change");
-    expect(onChangeSpy.callCount).to.equal(1);
-    expect(onBlurSpy.callCount).to.equal(0);
-    container.find("input").simulate("blur");
-    expect(onBlurSpy.callCount).to.equal(1);
+    const container = utils.container;
+
+    expect(container.querySelector(".input__checkbox")).toHaveAttribute(
+      "tabIndex",
+      "0"
+    );
+
+    expect(onChangeSpy).toHaveBeenCalledTimes(0);
+    userEvent.type(utils.getByText("Hello"), "Hello");
+    expect(onChangeSpy).toHaveBeenCalledTimes(1);
+    expect(onBlurSpy).toHaveBeenCalledTimes(0);
+    fireEvent.blur(utils.getByLabelText("Hello"));
+    expect(onBlurSpy).toHaveBeenCalledTimes(1);
   });
 });

@@ -1,0 +1,95 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import VideoPlayer from "./VideoPlayer";
+import { VideoPlayerTypes } from "./VideoPlayerTypes";
+import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("VideoPlayer")}
+  component={VideoPlayer}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A3680",
+    },
+    jest: ["VideoPlayer.test.tsx"],
+  }}
+  argTypes={{
+    attributes: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+  }}
+/>
+
+# Video Player
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.2`   |
+| Latest            | `0.23.4`   |
+
+<Description of={VideoPlayer} />
+
+The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires both the `videoType` and `videoId` props. You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to enter the full video URL as the `videoId` value.
+
+The `aspectRatio` prop is used to control the sizing of the space allotted for the video rendering. Ultimately, the `aspectRatio` prop should be set to match the aspect ratio of the video that is being rendered. The default aspect ratio is `16:9`.
+
+<Preview withToolbar>
+  <Story
+    name="VideoPlayer"
+    args={{
+      videoType: VideoPlayerTypes.Vimeo,
+      videoId: "",
+      headingText: "NYPL Video",
+      descriptionText:
+        "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+      helperText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+    }}
+  >
+    {(args) => (
+      <VideoPlayer
+        {...args}
+        videoType={args.videoType}
+        videoId={
+          args.videoType === "vimeo"
+            ? args.videoId || "474719268"
+            : args.videoId || "nm-dD2tx6bk"
+        }
+        aspectRatio={args.aspectRatio}
+      />
+    )}
+  </Story>
+</Preview>
+
+<ArgsTable story="VideoPlayer" />
+
+**Example Vimeo IDs:** `474719268`, `491405018`, `493795778` (square)<br />
+**Example YouTube IDs:** `PfqgDG1qrKg`, `roi5V8ppi7Y`, `nm-dD2tx6bk`
+
+## Extracting Video IDs
+
+### Vimeo
+
+```
+https://vimeo.com/[VIDEO_ID]
+https://vimeo.com/474719268
+```
+
+### YouTube
+
+```
+https://www.youtube.com/watch?v=[VIDEO_ID]
+https://www.youtube.com/watch?v=nm-dD2tx6bk
+```

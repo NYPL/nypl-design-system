@@ -1,0 +1,193 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
+
+import Form, { FormRow, FormField } from "./Form";
+import TextInput from "../TextInput/TextInput";
+import Radio from "../Radio/Radio";
+import Checkbox from "../Checkbox/Checkbox";
+import Label from "../Label/Label";
+import Button from "../Button/Button";
+import Select from "../Select/Select";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import { action } from "@storybook/addon-actions";
+
+<Meta
+  title={getCategory("Form")}
+  component={Form}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+    },
+    jest: ["Form.test.tsx"],
+  }}
+/>
+
+# Form
+
+<Description of={Form} />
+
+The `Form` component renders a standard `<form>` element and should be used to handle layout and spacing for child input fields. `FormRow` and `FormField` components should be used to build the `<form>` struture and to arrange input fields as needed.
+
+`FormField` should be used as a parent for all input components from the DS (`Button`, `Select`, `TextInput`, etc.).
+
+`FormRow` should be used as a parent of multiple `FormField` components when you need to render multiple input components in a horizontal row.
+
+<Preview withToolbar>
+  <Story
+    name="Form"
+    args={{
+      action: "/end/point",
+      id: "custom-form-id",
+      method: "get",
+    }}
+    argTypes={{
+      method: {
+        control: {
+          type: "radio",
+          options: ["get", "post"],
+        },
+      },
+    }}
+  >
+    {(args) => (
+      <Form {...args}>
+        <FormField>
+          <TextInput
+            labelText="Username"
+            helperText="Make sure to complete this field."
+            required
+          />
+        </FormField>
+        <FormField>
+          <TextInput
+            labelText="Password"
+            helperText="Make sure to complete this field."
+            required
+          />
+        </FormField>
+        <FormRow>
+          <FormField>
+            <TextInput
+              labelText="Phone Field"
+              helperText="This one is up to you."
+              type="tel"
+            />
+          </FormField>
+          <FormField>
+            <TextInput
+              labelText="URL Field"
+              helperText="This one is up to you."
+              type="url"
+            />
+          </FormField>
+          <FormField>
+            <TextInput
+              labelText="Age"
+              helperText="This one is up to you."
+              type="number"
+            />
+          </FormField>
+        </FormRow>
+        <FormRow>
+          <FormField>
+            <Label>Checkbox Group</Label>
+            <Checkbox labelText="Checkbox 1" showLabel />
+            <br />
+            <Checkbox labelText="Checkbox 1" showLabel />
+            <br />
+            <Checkbox labelText="Checkbox 1" showLabel />
+            <br />
+            <Checkbox labelText="Checkbox 1" showLabel />
+          </FormField>
+          <FormField>
+            <Label>Radio Group</Label>
+            <Radio labelText="Radio 1" showLabel />
+            <br />
+            <Radio labelText="Radio 2" showLabel />
+            <br />
+            <Radio labelText="Radio 3" showLabel />
+            <br />
+            <Radio labelText="Radio 4" showLabel />
+          </FormField>
+          <FormField>
+            <Select
+              labelText="Select Field"
+              showLabel={true}
+              helperText="The select field helper text."
+            >
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </Select>
+          </FormField>
+        </FormRow>
+        <FormField>
+          <Button>Submit</Button>
+        </FormField>
+      </Form>
+    )}
+  </Story>
+</Preview>
+
+<ArgsTable story="Form" />
+
+### Example Code
+
+```
+<Form
+  action="/end/point"
+  method="get"
+>
+  <FormField>
+    <TextInput
+      labelText="Username"
+      helperText="Make sure to complete this field."
+      required
+    />
+  </FormField>
+  <FormField>
+    <TextInput
+      labelText="Password"
+      helperText="Make sure to complete this field."
+      required
+    />
+  </FormField>
+  <FormRow>
+    <FormField>
+      <TextInput
+        labelText="Phone Field"
+        helperText="This one is up to you."
+        type="tel"
+      />
+    </FormField>
+    <FormField>
+      <TextInput
+        labelText="URL Field"
+        helperText="This one is up to you."
+        type="url"
+      />
+    </FormField>
+    <FormField>
+      <TextInput
+        labelText="Age"
+        helperText="This one is up to you."
+        type="number"
+      />
+    </FormField>
+  </FormRow>
+  <FormField>
+    <Button>Submit</Button>
+  </FormField>
+</Form>
+```

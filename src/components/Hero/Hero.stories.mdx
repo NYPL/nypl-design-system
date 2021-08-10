@@ -1,0 +1,207 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Hero from "./Hero";
+import { HeroTypes } from "./HeroTypes";
+import Image from "../Image/Image";
+import Heading from "../Heading/Heading";
+import sections from "../../utils/siteSections";
+import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("Hero")}
+  component={Hero}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A5314",
+    },
+    jest: ["Hero.test.tsx"],
+  }}
+  argTypes={{
+    attributes: { table: { disable: true } },
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    heading: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    subHeaderText: { table: { disable: true } },
+    image: { table: { disable: true } },
+  }}
+/>
+
+export const secondarySubHeaderText = (
+  <div className="hero__body-text">
+    Explore our collection of hundreds of online resources and databases. Use
+    our free online content to help with your research, whether it's finding a
+    single article, tracing a family tree, learning a new language, or anything
+    in between.
+  </div>
+);
+export const otherSubHeaderText =
+  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+export const secondaryImage = (
+  <Image
+    src="https://placeimg.com/800/400/animals"
+    blockName="hero"
+    alt="Image example"
+  />
+);
+
+# Hero
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.2.0`    |
+| Latest            | `0.23.4`   |
+
+<Description of={Hero} />
+
+The `Hero` component is used to display a full width banner at the top of a page. The `Hero` will contain a required `h1` page title and may also include optional descriptive text and images.
+
+<Preview withToolbar>
+  <Story
+    name="Hero Props"
+    args={{
+      heroType: HeroTypes.Primary,
+    }}
+  >
+    {(args) =>
+      (args.heroType === HeroTypes.Primary && (
+        <Hero
+          {...args}
+          heading={
+            <Heading level={1} id="1" text="Hero Primary" blockName="hero" />
+          }
+          subHeaderText="Example Subtitle"
+          backgroundImageSrc="https://placeimg.com/2400/800/nature"
+        />
+      )) ||
+      (args.heroType === HeroTypes.Secondary && (
+        <div className={"nypl-ds nypl--books-and-more"}>
+          <Hero
+            {...args}
+            heading={
+              <Heading
+                level={1}
+                id="1"
+                text="Hero Secondary"
+                blockName="hero"
+              />
+            }
+            subHeaderText={secondarySubHeaderText}
+            image={
+              <Image
+                src="https://placeimg.com/800/400/animals"
+                blockName="hero"
+                alt="Image example"
+              />
+            }
+          />
+        </div>
+      )) ||
+      (args.heroType === HeroTypes.Tertiary && (
+        <Hero
+          {...args}
+          heading={
+            <Heading level={1} id="1" text="Hero Tertiary" blockName="hero" />
+          }
+          subHeaderText={otherSubHeaderText}
+        />
+      )) ||
+      (args.heroType === HeroTypes.FiftyFifty && (
+        <Hero
+          {...args}
+          subHeaderText={otherSubHeaderText}
+          image={
+            <Image
+              src="https://placeimg.com/600/200/animals"
+              blockName="hero"
+              alt="Image example"
+            />
+          }
+        />
+      )) ||
+      (args.heroType === HeroTypes.Campaign && (
+        <Hero
+          {...args}
+          heading={
+            <Heading level={1} id="1" text="Hero Campaign" blockName="hero" />
+          }
+          subHeaderText={otherSubHeaderText}
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+          image={
+            <Image
+              src="https://placeimg.com/800/400/animals"
+              blockName="hero"
+              alt="Image example"
+            />
+          }
+        />
+      ))
+    }
+  </Story>
+</Preview>
+
+<ArgsTable story="Hero Props" />
+
+## Color Variations for Secondary Hero
+
+The background color for the title bar in `HeroTypes.Secondary` is determined by the placement of the `Hero` component within a comsuming app. The CSS for `Hero` is constructued to use classes of the `Hero` component's parent elements as a determinant for the title bar background color. Below are the four color variations available based on the consuming React app.
+
+<Canvas>
+  <Story name="Color Variations for Secondary Hero">
+    <div className={"nypl-ds nypl--books-and-more"}>
+      <Hero
+        heroType={HeroTypes.Secondary}
+        heading={
+          <Heading level={1} id="1" text={"Books and More"} blockName="hero" />
+        }
+        subHeaderText={secondarySubHeaderText}
+        image={secondaryImage}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <div className={"nypl-ds nypl--locations"}>
+    <Hero
+      heroType={HeroTypes.Secondary}
+      heading={<Heading level={1} id="1" text={"Locations"} blockName="hero" />}
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
+    />
+  </div>
+</Canvas>
+
+<Canvas>
+  <div className={"nypl-ds nypl--research"}>
+    <Hero
+      heroType={HeroTypes.Secondary}
+      heading={<Heading level={1} id="1" text={"Research"} blockName="hero" />}
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
+    />
+  </div>
+</Canvas>
+
+<Canvas>
+  <div className={"nypl-ds nypl--whats-on"}>
+    <Hero
+      heroType={HeroTypes.Secondary}
+      heading={<Heading level={1} id="1" text={"What's On"} blockName="hero" />}
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
+    />
+  </div>
+</Canvas>

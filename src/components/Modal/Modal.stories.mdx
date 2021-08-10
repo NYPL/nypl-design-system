@@ -9,20 +9,29 @@ import {
 import Modal from "./Modal";
 import Button from "../Button/Button";
 import { ExampleCard } from "../Card/Card.stories";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Modal"
+  title={getCategory("Modal")}
   component={Modal}
   argTypes={{
     children: { table: { disable: true } },
+  }}
+  parameters={{
+    jest: ["Modal.test.tsx"],
   }}
 />
 
 # Modal
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.1.0`    |
+| Latest            | `0.3.5`    |
+
 <Description of={Modal} />
 
-export const ModalStory = args => {
+export const ModalStory = (args) => {
   const [isModalOpen, setIsModalOpen] = React.useState(args.open);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -113,7 +122,7 @@ export const ModalStory = args => {
 
 <Preview withToolbar>
   <Story name="Basic" args={{ open: false }}>
-    {args => <ModalStory {...args} />}
+    {(args) => <ModalStory {...args} />}
   </Story>
 </Preview>
 

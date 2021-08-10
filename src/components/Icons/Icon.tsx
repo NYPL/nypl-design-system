@@ -1,98 +1,88 @@
 /* eslint-disable camelcase */
 import * as React from "react";
 import bem from "../../utils/bem";
+import generateUUID from "../../helpers/generateUUID";
 
-import { IconRotationTypes, IconNames, LogoNames } from "./IconTypes";
+import {
+  IconRotationTypes,
+  IconNames,
+  LogoNames,
+  IconColors,
+  IconSizes,
+} from "./IconTypes";
 
-import accessibility_full from "../../../icons/svg/accessibility_full.svg";
-import accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
-import arrow from "../../../icons/svg/arrow.svg";
-import check from "../../../icons/svg/check.svg";
-import clock from "../../../icons/svg/clock.svg";
-import close from "../../../icons/svg/close.svg";
-import download from "../../../icons/svg/download.svg";
-import headset from "../../../icons/svg/headset.svg";
-import logo_brooklyn from "../../../icons/svg/logo_brooklynpl.svg";
-import logo_nypl from "../../../icons/svg/logo_nypl.svg";
-import logo_nypl_negative from "../../../icons/svg/logo_nypl_negative.svg";
-import logo_queens from "../../../icons/svg/logo_queenspl.svg";
-import minus from "../../../icons/svg/minus.svg";
-import plus from "../../../icons/svg/plus.svg";
-import search from "../../../icons/svg/search.svg";
-
-const allSvgs = {
-  accessibility_full,
-  accessibility_partial,
-  arrow,
-  check,
-  clock,
-  close,
-  download,
-  headset,
-  logo_brooklyn,
-  logo_nypl,
-  logo_nypl_negative,
-  logo_queens,
-  minus,
-  plus,
-  search,
-};
+import iconSvgs from "./IconSvgs";
 
 export interface IconProps {
+  /** Additional attributes to pass to the `<svg>` tag. */
+  attributes?: { [key: string]: any };
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** className that appears in addition to "icon" */
-  className?: string;
-  /** Decorative icons are skipped by screenreaders */
-  decorative: boolean;
-  /** Desc prop added to the <svg> element */
-  desc?: boolean;
-  /** Rotates icons in quarters */
-  iconRotation?: IconRotationTypes;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Name of the icon */
+  /** className that appears in addition to "icon" */
+  className?: string;
+  /** Icons designated as decorative will be ignored by screenreaders */
+  decorative?: boolean;
+  /** This text will be added as a child `<title>` element inside the `<svg>` tag.  It is recommended to do this for increased accessibility. */
+  titleText?: string;
+  /** Rotates the icon clockwise in increments of 90deg */
+  iconRotation?: IconRotationTypes;
+  /** Overrides default icon color (black). */
+  color?: IconColors;
+  /** Sets the icon size. */
+  size?: IconSizes;
+  /** The name of the icon you want to use. */
   name?: IconNames | LogoNames;
-  /** Icon role */
-  role?: string;
-  /** Icon title */
-  title?: boolean;
 }
 
 /**
- * Icon component
+ * Renders SVG-based icons.
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
     blockName,
-    decorative,
+    decorative = false,
     className,
-    desc,
+    titleText,
     iconRotation,
+    color,
+    size,
     modifiers = [],
     name,
-    role,
-    title,
     children,
+    attributes = [],
   } = props;
-
-  const baseClass = "icon";
 
   if (iconRotation) {
     modifiers.push(iconRotation);
   }
 
+  if (color) {
+    modifiers.push(color);
+  }
+
+  if (size) {
+    modifiers.push(size);
+  }
+
+  const iconID = generateUUID();
   const iconProps = {
-    className: bem(baseClass, modifiers, blockName, [className]),
-    role: decorative ? "img" : role,
+    className: bem("icon", modifiers, blockName, [className]),
+    id: iconID,
+    role: "img",
+    title: titleText || null,
     "aria-hidden": decorative,
-    "aria-labelledby": title ? "title-" + name : undefined,
-    "aria-describedby": desc ? "desc-" + name : undefined,
-    title: title ? `title-${name}` : undefined,
+    ...attributes,
   };
 
-  let svg;
+  // Apply icon props to SVG that was passed as a child.
+  const renderChildren = () =>
+    React.Children.map(children, (child) =>
+      React.cloneElement(child as JSX.Element, { ...iconProps })
+    );
 
+  // Component prop validation
   if (name && children) {
     throw new Error("Icon accepts either a name or children, not both");
   } else if (!name && !children) {
@@ -101,11 +91,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     );
   }
 
+  // The user wants to render an existing icon. Load the icon and render it
+  // as a component. Otherwise, we're just going to render the children that
+  // were passed to this component.
   if (name) {
-    svg = allSvgs[name];
-    return <span {...iconProps} dangerouslySetInnerHTML={{ __html: svg }} />;
-  } else {
-    svg = children;
-    return <span {...iconProps}>{children}</span>;
+    const SvgComponent = iconSvgs[name];
+    return <SvgComponent {...iconProps} />;
   }
+
+  return <>{renderChildren()}</>;
 }

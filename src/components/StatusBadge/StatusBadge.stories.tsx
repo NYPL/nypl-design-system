@@ -3,14 +3,15 @@ import * as React from "react";
 import { Story } from "@storybook/react/types-6-0";
 import StatusBadge, { StatusBadgeProps } from "./StatusBadge";
 import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Status Badge",
+  title: getCategory("StatusBadge"),
   component: StatusBadge,
   decorators: [withDesign],
 };
 
-const StatusBadgeTemplate: Story<StatusBadgeProps> = args => (
+const StatusBadgeTemplate: Story<StatusBadgeProps> = (args) => (
   <StatusBadge {...args} />
 );
 
@@ -22,11 +23,12 @@ statusBadge.args = {
   children: "Location is temporarily closed",
 };
 
-statusBadge.storyName = "Status Badge";
+statusBadge.storyName = "StatusBadge";
 statusBadge.parameters = {
   design: {
     type: "figma",
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11256%3A0",
   },
+  jest: ["StatusBadge.test.tsx"],
 };

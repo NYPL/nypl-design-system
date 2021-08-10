@@ -1,0 +1,265 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import Card from "../Card/Card";
+import Heading from "../Heading/Heading";
+import Icon from "../Icons/Icon";
+import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
+import List from "./List";
+import { ListTypes } from "./ListTypes";
+import {
+  animalCrossingDefinitions,
+  cardsList,
+  listRenderer,
+} from "./List.stories.tsx";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("List")}
+  component={List}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
+    },
+    jest: ["List.test.tsx"],
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    children: { table: { disable: true } },
+    definitions: { table: { disable: true } },
+    itemGroups: { table: { disable: true } },
+    listItems: { table: { disable: true } },
+    type: {
+      control: {
+        type: "radio",
+      },
+    },
+  }}
+/>
+
+# List
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.7.0`    |
+| Latest            | `0.23.2`   |
+
+<Description of={List} />
+
+<Preview withToolbar>
+  <Story
+    name="List"
+    args={{
+      id: "nypl-list",
+      type: ListTypes.Unordered,
+      title: "",
+    }}
+  >
+    {(args) => listRenderer(args)}}
+  </Story>
+</Preview>
+
+<ArgsTable story="List" />
+
+## Definition List
+
+<Preview withToolbar>
+  <Story
+    name="Definition List"
+    args={{
+      id: "nypl-list2",
+      type: ListTypes.Definition,
+      title: "Middle-Earth Peoples",
+    }}
+    argTypes={{
+      type: { table: { disable: true } },
+    }}
+    parameters={{
+      design: {
+        type: "figma",
+        url:
+          "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
+      },
+    }}
+  >
+    {(args) => listRenderer(args)}}
+  </Story>
+</Preview>
+
+## Ordered Card List
+
+<Preview withToolbar>
+  <Story
+    name="Ordered Card List"
+    args={{
+      id: "nypl-list3",
+    }}
+    argTypes={{
+      type: { table: { disable: true } },
+      title: { table: { disable: true } },
+    }}
+  >
+    {(args) => <List type={ListTypes.Ordered}>{cardsList}</List>}
+  </Story>
+</Preview>
+
+## Definition List of Links
+
+<Preview withToolbar>
+  <Story
+    name="Definition List of Links"
+    args={{
+      type: ListTypes.Definition,
+      title: "Details",
+    }}
+    argTypes={{
+      type: { table: { disable: true } },
+      title: { table: { disable: true } },
+    }}
+    parameters={{
+      design: {
+        type: "figma",
+        url:
+          "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
+      },
+    }}
+  >
+    {(args) => (
+      <List title="Details" type={ListTypes.Definition}>
+        <dt>Authors</dt>
+        <dd>
+          <a href="#">Chirwa, Ephraim Wadonda, author</a>
+          <br />
+          <a href="#">Dorward, Andrew, author</a>
+        </dd>
+        <dt>Subjects</dt>
+        <dd>
+          <a href="#">Ackerbau</a>
+          <br />
+          <a href="#">Ackerbau.</a>
+          <br />
+          <a href="#">Africa.</a>
+          <br />
+          <a href="#">Afrika.</a>
+          <br />
+          <a href="#">Agrarsubvention</a>
+          <br />
+          <a href="#">Agrarsubvention.</a>
+          <br />
+          <a href="#">Agricultura -- Subvencions -- Malawi.</a>
+          <br />
+          <a href="#">Agricultural economics New.</a>
+          <br />
+          <a href="#">Agricultural subsidies</a>
+          <br />
+          <a href="#">Agricultural subsidies -- Developing countries.</a>
+          <br />
+          <a href="#">Agricultural subsidies -- Malawi.</a>
+          <br />
+          <a href="#">Agricultural subsidies.</a>
+          <br />
+          <a href="#">BUSINESS &amp; ECONOMICS -- Industries</a>
+          <br />
+        </dd>
+      </List>
+    )}
+  </Story>
+</Preview>
+
+## Lists with Data Props
+
+If `li` or `dt`/`dd` elements cannot be passed as children to the `List` element,
+an array with data can be passed into the `listItems` prop. Note: either
+children elements or the `listItems` prop should be passed but not both.
+
+For lists of type `ListTypes.Unordered` (ul) or `ListTypes.Ordered` (ol), `li`
+list item elements can be passed as children. If that's not possible but the
+data to render is stored as an array of strings, then that data array can be
+passed into `listItems`.
+
+```jsx
+<!-- With `li` elements -->
+<List type={ListTypes.Unordered}>
+  <li>Mahi-mahi</li>
+  <li>Golden trout</li>
+  <li>Rainbowfish</li>
+  <li>Suckerfish</li>
+</List>
+
+<!-- With `itemList` data prop -->
+const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
+<List type={ListTypes.Unordered} listItems={fishArray} />
+```
+
+For lists of type `ListTypes.Definition` (dl), `dt` and `dd` elements can be
+passed as children. If that's not possible but the data to render is stored as
+an array of objects, then that data array can be passed into `listItems`. The
+object must have two keys, `term` and `definition`.
+
+```jsx
+// With `dt`/`dd` elements
+<List type={ListTypes.Definition} title="Animal Corssing Fish">
+  <dt>Mahi-mahi</dt>
+  <dd>The mahi-mahi is an ocean fish known...</dd>
+  <dt>Golden trout</dt>
+  <dd>The golden trout is a beautifully colored fish...</dd>
+  <dt>Rainbowfish</dt>
+  <dd>The rainbowfish is a tropical fish known...</dd>
+  <dt>Suckerfish</dt>
+  <dd>The suckerfish is a curious fish that...</dd>
+</List>
+
+// With `itemList` data prop
+const fishDefinitions = [
+  {
+    term: "Mahi-mahi",
+    definition: "The mahi-mahi is an ocean fish known..."
+  },
+  {
+    term: "Golden trout",
+    definition: "The golden trout is a beautifully colored fish..."
+  },
+  {
+    term: "Rainbowfish",
+    definition: "The rainbowfish is a tropical fish known..."
+  },
+  {
+    term: "Suckerfish"
+    definition: "he suckerfish is a curious fish that..."
+  }
+];
+<List
+  type={ListTypes.Definition}
+  title="Animal Crossing Fish"
+  listItems={fishDefinitions}
+/>
+```
+
+<Preview>
+  <Story
+    name="List with Data Props"
+    args={{
+      type: ListTypes.Definition,
+      title: "Animal Crossing Fish",
+      listItems: animalCrossingDefinitions,
+    }}
+    argTypes={{
+      type: { table: { disable: true } },
+    }}
+  >
+    {(args) => <List {...args} />}
+  </Story>
+</Preview>

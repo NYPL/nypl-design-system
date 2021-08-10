@@ -9,9 +9,11 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "./Heading";
+import { HeadingDisplaySizes } from "./HeadingDisplaySizes";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Heading"
+  title={getCategory("Heading")}
   component={Heading}
   decorators={[withDesign]}
   parameters={{
@@ -20,6 +22,7 @@ import Heading from "./Heading";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
+    jest: ["Heading.test.tsx"],
   }}
   argTypes={{
     blockName: { table: { disable: true } },
@@ -30,36 +33,76 @@ import Heading from "./Heading";
 
 # Heading
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.4`    |
+| Latest            | `0.23.2`   |
+
 <Description of={Heading} />
 
-A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's text can be passed in through a `text` prop or as a child.
+A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's text can be passed in through a `text` prop or as a child. Default styles for semantic elements can be overwritten using the `displaySize` prop.
 
 <Preview withToolbar>
   <Story
-    name="Basic"
+    name="Heading Props"
     args={{
       id: "heading1",
       level: 1,
       text: "Heading  1",
     }}
   >
-    {args => <Heading {...args} />}
+    {(args) => <Heading {...args} />}
   </Story>
 </Preview>
 
-<ArgsTable story="Basic" />
+<ArgsTable story="Heading Props" />
 
-## All Heading Sizes
+## Default Heading Styles
 
 <Preview>
-  <div>
-    <Heading id="heading1" level={1} text="Heading 1" />
-    <Heading id="heading2" level={2} text="Heading 2" />
-    <Heading id="heading3" level={3} text="Heading 3" />
-    <Heading id="heading4" level={4} text="Heading 4" />
-    <Heading id="heading5" level={5} text="Heading 5" />
-    <Heading id="heading6" level={6} text="Heading 6" />
-  </div>
+  <Story name="Default Heading Styles">
+    <div>
+      <Heading id="heading1" level={1} text="<h1> Heading 1" />
+      <Heading id="heading2" level={2} text="<h2> Heading 2" />
+      <Heading id="heading3" level={3} text="<h3> Heading 3" />
+      <Heading id="heading4" level={4} text="<h4> Heading 4" />
+      <Heading id="heading5" level={5} text="<h5> Heading 5" />
+      <Heading id="heading6" level={6} text="<h6> Heading 6" />
+    </div>
+  </Story>
+</Preview>
+
+## DisplaySize Styles
+
+<Preview>
+  <Story name="DisplaySize Styles">
+    <div>
+      <Heading
+        id="heading1"
+        level={1}
+        displaySize={HeadingDisplaySizes.Primary}
+        text="<h1> HeadingDisplaySizes.Primary"
+      />
+      <Heading
+        id="heading1"
+        level={1}
+        displaySize={HeadingDisplaySizes.Secondary}
+        text="<h1> HeadingDisplaySizes.Secondary"
+      />
+      <Heading
+        id="heading1"
+        level={1}
+        displaySize={HeadingDisplaySizes.Tertiary}
+        text="<h1> HeadingDisplaySizes.Tertiary"
+      />
+      <Heading
+        id="heading1"
+        level={1}
+        displaySize={HeadingDisplaySizes.Callout}
+        text="<h1> HeadingDisplaySizes.Callout"
+      />
+    </div>
+  </Story>
 </Preview>
 
 ## Heading with Bold
@@ -75,6 +118,8 @@ A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's
 </Preview>
 
 ## Headings with Links
+
+When the `url` prop is passed to `Heading`, a child `<a>` element is created and the heading text becomes an active link.
 
 <Preview>
   <Story name="Headings with Links">

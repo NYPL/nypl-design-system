@@ -26,6 +26,7 @@ import { getCategory } from "../../utils/componentCategories";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
     },
+    jest: ["Button.test.tsx"],
   }}
 />
 
@@ -39,9 +40,10 @@ that can be rendered.
 - `ButtonTypes.Primary` is used for actions that move the user forward.
 - `ButtonTypes.Secondary` is used for actions taht move the user back, such as cancellations
 - `ButtonTypes.Pill` is used for equally weighted actions within cards and always in a set
+- `ButtonTypes.Link` is used for equally weighted actions in a text based list
 
 <Preview withToolbar>
-  <Story name="Basic">{args => <Button {...args}>Button Text</Button>}</Story>
+  <Story name="Basic">{(args) => <Button {...args}>Button Text</Button>}</Story>
 </Preview>
 
 <ArgsTable story="Basic" />
@@ -56,7 +58,7 @@ Primary and secondary buttons can be used in groups like so:
       style={{
         display: "flex",
         justifyContent: "space-between",
-        width: "150px",
+        width: "180px",
       }}
     >
       <Button buttonType={ButtonTypes.Secondary}>Button</Button>
@@ -67,7 +69,7 @@ Primary and secondary buttons can be used in groups like so:
       style={{
         display: "flex",
         justifyContent: "space-between",
-        width: "250px",
+        width: "280px",
       }}
     >
       <Button buttonType={ButtonTypes.Secondary}>
@@ -103,7 +105,7 @@ can be rendered or check out the Controls section for this story.
       },
     }}
   >
-    {args => (
+    {(args) => (
       <Button {...args}>
         {args.displayLeft && (
           <Icon
@@ -132,7 +134,7 @@ The icon can be placed to the left or the right of the button text.
     style={{
       display: "flex",
       justifyContent: "space-between",
-      width: "200px",
+      width: "220px",
     }}
   >
     <Button buttonType={ButtonTypes.Secondary}>

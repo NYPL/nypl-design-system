@@ -8,6 +8,94 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Exports `VideoPlayerAspectRatios`
+
+## 0.23.4
+
+### Adds
+
+- Adds TSDX as the bootstrapping tool to add opinionated configurations.
+- Adds an `/example/` directory through TSDX with an small playground app.
+- Snapshot testing through `react-test-renderer` and Jest.
+- Typescript documentation file to be use as a development guide.
+- Typescript documentation for `enum` variables in the TYPESCRIPT file.
+- Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports.
+- Adds heading, description and helper text to `VideoPlayer` component.
+- Adds `@storybook/addons-jest` plugin to display Jest/React Testing Library unit tests in a Storybook tab.
+
+### Changes
+
+- Updates Style Guide `Spacing`.
+- Updates `Hero` component to include `Campaign` variant.
+- Updates `Hero` stories to use MDX format.
+- Updated warnings for too few or too many option children for the `Select` component.
+- Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
+- Removes a custom SCSS breakpoint in `_Breadcrumbs.scss` in favor of mobile-first style rules.
+- Replaces Mocha, Chai, Sinon, and Enzyme for Jest and React Testing Library for unit testing.
+- Replaces webpack with rollup through TSDX.
+- Updates npm scripts to use TSDX for internal commands.
+- Replaces lodash with own functions.
+- Minor updates to Github Actions.
+- Adds PostCSS/autoprefixer to Rollup workflow instead of the default scss minifier.
+
+### Fixes
+
+- Fixes the `bem` utility function so that it doesn't crash Storybook whenever the `modifiers` Controls prop option is empty.
+
+## 0.23.3
+
+### Fixes
+
+- Removes the `storybook-static` directory from `.gitignore` so that the Github Actions deploy job can work properly.
+
+## 0.23.2
+
+### Adds
+
+- Adds `Form` component.
+- Adds `Notification` component.
+- Adds Style Guide `Buttons`.
+- Adds `VideoPlayer` component.
+- Adds the ability to render a `textarea` element from the `TextInput` component.
+
+### Changes
+
+- Updates stories for the `List` component to use MDX format.
+- Updates stories for the `Pagination` component to use MDX format.
+- Updates how children are rendered in the `List` component. Direct children `li`, `dt`, and `dd` elements can still be passed, but specific data structures can be passed to the `listItems` prop to render the appropriate children element.
+- Updates to the contributing documentation, pull request template, and the README.
+- Changes `DisplaySizes` to `HeadingDisplaySizes`.
+- Changes `Skeleton Loader` to be configurable via props.
+- Changes `Button` to use `16px` for left/right padding for buttons with text; icon only buttons still use `8px` left/right padding.
+- Changes `TextInput` label text to `font-weight: 500`.
+
+## 0.23.1
+
+### Adds
+
+- Adds CSS vars for `font-weight`
+- Adds `displaySize` prop to `Heading`
+- Adds Style Guide `Iconography`
+- Adds new SVGs to be used with the `Icon` component. Among the new SVGs are: Error solid, Error outlined, Speaker Notes.
+- Adds ability to change the color of an SVG icon with classes such as: `ui-black` (default), `ui-white`, `brand-primary` (red), `section-research-secondary` (turquoise).
+- Adds `helperText` and `errorText` props to `Checkbox`
+- Adds `helperText` and `errorText` props to `Radio`
+- Adds `errorText`, `helperText`, `labelText`, `required` and `showLabel` props to `Select`
+
+### Changes
+
+- Updates content in Style Guide `Typography`
+- Updates content in Style Guide `Breakpoints`
+- Changes `Link` story from `.tsx` to `.mdx`.
+
+### Deprecates
+
+- Deprecates `ariaLabel`, `helperTextId`, `isRequired` and `labelId` props in `Select`
+
+## 0.23.0
+
 ### Breaking Changes
 
 - Removes `breakout` CSS from `Breadcrumbs`. To retain previous behavior, `Breadcrumbs` component should be a child of a `.content-header` element.
@@ -17,6 +105,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `HorizontalRule` component
 - Adds new `short` class for `Placeholder`
+- Adds `Style Guide` category to Storybook sidebar
 
 ### Changes
 

@@ -8,13 +8,15 @@ import {
 import Accordion from "./Accordion";
 import { withDesign } from "storybook-addon-designs";
 import * as stories from "./Accordion.stories.tsx";
-import { list as ListStory } from "../List/List.stories.tsx";
+import { listRenderer as ListStory } from "../List/List.stories.tsx";
+import { ListTypes } from "../List/ListTypes";
 import { Source } from "@storybook/addon-docs/blocks";
 import dedent from "ts-dedent";
 import ReactDOMServer from "react-dom/server";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Accordion"
+  title={getCategory("Accordion")}
   component={Accordion}
   decorators={[withDesign]}
   parameters={{
@@ -23,6 +25,7 @@ import ReactDOMServer from "react-dom/server";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
     },
+    jest: ["Accordion.test.tsx"],
   }}
   argTypes={{
     children: { table: { disable: true } },
@@ -30,6 +33,11 @@ import ReactDOMServer from "react-dom/server";
 />
 
 # Accordion
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.1.0`    |
+| Latest            | `0.21.1`   |
 
 <Description of={Accordion} />
 
@@ -44,11 +52,11 @@ sure that each `inputId` is unique.
     name="Basic"
     args={{
       accordionLabel: "Click to expand",
-      children: <ListStory {...ListStory.args} />,
+      children: <ListStory type={ListTypes.Unordered} />,
       inputId: "accordionBtn",
     }}
   >
-    {args => <Accordion {...args} />}
+    {(args) => <Accordion {...args} />}
   </Story>
 </Preview>
 
