@@ -68,7 +68,6 @@ describe("DatePicker", () => {
         <DatePicker labelText="Select the full date you want to visit NYPL" />
       );
       const [year, month, day] = getTodaysValues();
-      console.log(year, month, day);
       const date = getTodaysDateDisplay();
       const input = screen.getByLabelText(
         /Select the full date you want to visit NYPL/i
