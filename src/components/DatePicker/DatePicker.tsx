@@ -124,7 +124,7 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
 }) =>
   dateRange ? (
     <fieldset id={`dateRange-${id}`} className={className}>
-      <legend className={showLabel ? "sr-only" : ""}>{labelText}</legend>
+      <legend className={showLabel ? "" : "sr-only"}>{labelText}</legend>
       {children}
     </fieldset>
   ) : (
@@ -178,7 +178,8 @@ function DatePicker(props: React.PropsWithChildren<DatePickerProps>) {
   // Both TextInput components share some props.
   let baseCustomTextInputAttrs = {
     dsRequired: required,
-    // Always display the labels when it's a `dateRange` type.
+    // Always display the labels or the input fields when
+    // the DatePicker component is a `dateRange` type.
     showLabel: dateRange ? true : showLabel,
     disabled,
     errored,
