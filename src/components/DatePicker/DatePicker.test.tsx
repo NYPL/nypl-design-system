@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 import DatePicker from "./DatePicker";
 import { DatePickerTypes } from "./DatePickerTypes";
+import { TextInputRefType } from "../TextInput/TextInput";
 
 /** This adds a "0" padding for date values under "10". */
 const str_pad = (n) => String("0" + n).slice(-2);
@@ -216,6 +217,72 @@ describe("DatePicker", () => {
       );
 
       expect(screen.getByText(/required/i)).toBeInTheDocument();
+    });
+
+    it("should pass the value to the `onChange` function", () => {
+      let dateObject: any = {};
+      const onChange = (data) => {
+        dateObject = data;
+      };
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          helperText="Note that the Library may be closed on Sundays."
+          required={true}
+          onChange={onChange}
+        />
+      );
+
+      const input = screen.getByLabelText(
+        /Select the date you want to visit NYPL/i
+      );
+      const date = getTodaysDateDisplay();
+      const midMonthDay = "15";
+
+      // Let's select a new day.
+      userEvent.click(input);
+      // The popup displays.
+      userEvent.click(screen.getByText(midMonthDay));
+
+      const newDayValue = date.slice(0, -2) + midMonthDay;
+      expect(screen.getByDisplayValue(newDayValue)).toBeInTheDocument();
+
+      const { startDate } = dateObject;
+      const valueFromOnChange = `${startDate.getFullYear()}-${str_pad(
+        startDate.getMonth() + 1
+      )}-${str_pad(startDate.getDate())}`;
+      expect(newDayValue).toEqual(valueFromOnChange);
+    });
+
+    it("should throw a warning when refs are used but not `name` props", () => {
+      const warn = jest.spyOn(console, "warn");
+      const ref = React.createRef<TextInputRefType>();
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          ref={ref}
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
+      );
+    });
+
+    it("should throw a warning when `onChange` is passed as well as a `ref` prop.", () => {
+      const warn = jest.spyOn(console, "warn");
+      const ref = React.createRef<TextInputRefType>();
+      const onChange = (_data) => {};
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          ref={ref}
+          nameFrom="start-date"
+          onChange={onChange}
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
+      );
     });
   });
 
