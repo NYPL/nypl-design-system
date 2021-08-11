@@ -88,7 +88,7 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   /** The action to perform on the `input`'s onChange function for both fields.
    * This will return the data in an object with `startDate` and `endDate` keys.
    */
-  onChange?: ({}: FullDateType) => void;
+  onChange?: (data: FullDateType) => void;
 }
 
 /**
