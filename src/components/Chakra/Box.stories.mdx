@@ -1,0 +1,96 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Box } from "@chakra-ui/react";
+
+import { getCategory } from "../../utils/componentCategories";
+import Card from "../Card/Card";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
+import Heading from "../Heading/Heading";
+import Icon from "../Icons/Icon";
+import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+
+<Meta title={getCategory("Box")} component={Box} />
+
+# Box
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+
+This component is directly exported from Chakra UI. The `Box` is a simple and
+composable component that can be used for many situations. By default it renders
+a `div` but can render another element using the `as` prop.
+
+All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
+guide on the Chakra UI site.
+
+<Canvas>
+  <Story
+    name="Box"
+    args={{
+      p: "5",
+      bg: "tomato",
+      color: "white",
+    }}
+  >
+    {(args) => (
+      <Box {...args}>
+        So when I look up at the stars, I just wonder...what will they all
+        become someday?
+      </Box>
+    )}
+  </Story>
+</Canvas>
+
+## With Card Example
+
+<Canvas>
+  <Box borderWidth="2px" padding="6" borderRadius="lg" overflow="hidden">
+    <Card
+      className="example-card"
+      image={<Image src="https://placeimg.com/300/400/arch" alt="" />}
+      ctas={
+        <>
+          <Link type={LinkTypes.Button} href="blah">
+            Reserve
+          </Link>
+          <Box className="italicized ui-gray-dark">
+            0 of 11 copies available. 3 patrons in the queue.
+          </Box>
+          <Link href="#url" type={LinkTypes.Forwards}>
+            View Book Details
+          </Link>
+        </>
+      }
+    >
+      <>
+        <Heading
+          level={2}
+          id="heading1"
+          text={"The Year of Magical Thinking"}
+        />
+        <Box className="book__callout">A portrait of loss and grief</Box>
+        <Box>
+          By <Link href="#joan-didion">Joan Didion</Link>,{" "}
+          <Link href="#another-author">Another Author</Link>,{" "}
+          <Link href="#third-author">Third Author</Link>
+        </Box>
+        <Box className="book__filetype">
+          <Icon
+            name={IconNames.headset}
+            decorative={true}
+            modifiers={["left", "small"]}
+            iconRotation={IconRotationTypes.rotate0}
+          ></Icon>
+          Audiobook
+        </Box>
+        <Box className="book__description">
+          An act of consummate literary bravery, a writer known for her clarity
+          allowing us to watch her mind as it becomes clouded...{" "}
+          <Link href="#">Read More</Link>
+        </Box>
+      </>
+    </Card>
+  </Box>
+</Canvas>
