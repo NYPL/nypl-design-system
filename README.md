@@ -145,7 +145,7 @@ Some CSS rules in the Design System, such as the universal focus styling and the
 
 4. Import the `DSProvider` for Chakra-based components
 
-As we start to integrate and compose DS components from Chakra components, we need to get the styles for those components. In order to do so, we need to wrap all the DS components that internally use with Chakra with a simple provider component.
+As we start to integrate and compose DS components from Chakra components, we need to get the styles for those components. In order to do so, we need to wrap all the DS components that internally use Chakra with a simple provider component.
 
 For now, only a few components will need this provider but as we migrate more components to use a similar pattern of styling, the provider will prove to be useful.
 
