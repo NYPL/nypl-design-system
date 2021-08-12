@@ -1,3 +1,6 @@
+const path = require("path");
+const toPath = (_path) => path.join(process.cwd(), _path);
+
 module.exports = {
   // Where are the stories?
   stories: [
@@ -33,7 +36,7 @@ module.exports = {
     // Type-check stories during Storybook build.
     check: true,
   },
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config) => {
     const assetRule = config.module.rules.find(({ test }) => test.test(".svg"));
     // Exclude svg from the default storybook file-loader.
     assetRule.exclude = /\.svg$/;
@@ -44,6 +47,17 @@ module.exports = {
       use: ["@svgr/webpack"],
     });
 
-    return config;
+    return {
+      ...config,
+      // The following allows Chakra styles to propagate through to Storybook.
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          "@emotion/core": toPath("node_modules/@emotion/react"),
+          "emotion-theming": toPath("node_modules/@emotion/react"),
+        },
+      },
+    };
   },
 };

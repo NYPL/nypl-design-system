@@ -142,6 +142,35 @@ Some CSS rules in the Design System, such as the universal focus styling and the
 </div>
 ```
 
+4. Import the `DSProvider` for Chakra-based components
+
+As we start to integrate and compose DS components from Chakra components, we need to get the styles for those components. In order to do so, we need to wrap all the DS components that internally use with Chakra with a simple provider component.
+
+For now, only a few components will need this provider but as we migrate more components to use a similar pattern of styling, the provider will prove to be useful.
+
+You will want to import the `DSProvider` at the root of your application so that:
+
+- it is only imported once
+- provides the theme for all DS components
+
+```jsx
+// your main application file
+import { DSProvider } from "@nypl/design-system-react-components";
+
+// ...
+const ApplicationContainer = (props) => {
+  // ...
+  return (
+    <div className="my-app nypl-ds">
+      <DSProvider>
+        // ...
+        {children}
+      </DSProvider>
+    </div>
+  );
+};
+```
+
 ### NYPL DS, NYPL Header, and NYPL Footer
 
 Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds` wrapper class.

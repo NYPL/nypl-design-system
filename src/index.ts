@@ -52,3 +52,4 @@ export {
   VideoPlayerAspectRatios,
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayerTypes";
+export { default as DSProvider } from "./theme/provider";
