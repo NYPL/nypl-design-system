@@ -1,7 +1,9 @@
 import * as React from "react";
 import bem from "../../utils/bem";
+
+import { CardImageRatios, CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
-// import HeadingDisplaySizes from "../Heading/HeadingDisplaySizes";
+// import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
 import Image from "../Image/Image";
 
 export interface CardProps {
@@ -11,23 +13,31 @@ export interface CardProps {
   blockName?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Optional size used to override the default styles of the semantic HTML `<h>` elements */
-  // displaySize?: HeadingDisplaySizes;
+  /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
+  imageAspectRatio?: CardImageRatios;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Layout **/
-  layout?: "vertical" | "horizontal";
-  /** Border */
+  /** Optional value to control the position of the image placeholder; default value is `vertical` */
+  layout?: CardLayouts;
+  /** Optional boolean value to control visibility of border around skeleton loader */
   border?: boolean;
-  /** Padding */
+  /** Optional padding value.  This value should be entered with the same formatting as a CSS padding attribute (ex. `10%`, `640px`, `20rem`).  If omitted, the Card will use the default padding. */
   padding?: string;
 }
 
 // CardImage child-component
 export function CardImage(props) {
-  const { src, alt, className } = props;
+  const { src, alt, className, imageAspectRatio } = props;
   if (src) {
-    return <Image className={className} src={src} alt={alt} />;
+    // const cn = `${className} ${imageAspectRatio}`;
+    // return <Image className={cn} src={src} alt={alt} />;
+    return (
+      <div className={bem("image", [imageAspectRatio], "card", [])}>
+        <div className="image-crop">
+          <Image className={className} src={src} alt={alt} />
+        </div>
+      </div>
+    );
   } else {
     return null;
   }
@@ -35,9 +45,15 @@ export function CardImage(props) {
 
 // CardHeading child-component
 export function CardHeading(props) {
-  const { children, id, level, url } = props;
+  const { children, className, displaySize, id, level, url } = props;
   return (
-    <Heading className="card-heading" level={level} id={id} url={url}>
+    <Heading
+      className={className}
+      level={level}
+      displaySize={displaySize}
+      id={id}
+      url={url}
+    >
       {children}
     </Heading>
   );
@@ -81,9 +97,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   const baseClass = "card";
 
   let cardStyle;
-  let childHeading;
   let childImage;
-  let headingCount = 0;
   let imageCount = 0;
   const cardContents = [];
 
@@ -102,53 +116,33 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   }
 
   React.Children.map(children, (child: React.ReactElement) => {
-    if (child.type === CardHeading) {
-      childHeading = child;
-      headingCount++;
-    }
-
-    if (child.type === CardContent) {
-      cardContents.push(
-        <div className={bem("text", [], baseClass)}>{child}</div>
-      );
-    }
-
     if (child.type === CardImage) {
       childImage = child;
       imageCount++;
-    }
-
-    if (child.type === CardActions) {
-      cardContents.push(
-        <div className={bem("ctas", [], baseClass)}>{child}</div>
-      );
+    } else {
+      cardContents.push(child);
     }
   });
 
-  if (headingCount > 1) {
-    console.error(
-      `Only one CardHeading child component may be passed to Card.`
+  if (imageCount > 1) {
+    console.error(`Only one CardIimage child component may be passed to Card.`);
+    cardContents.length = 0;
+    cardContents.push(
+      "Error: Only one CardImage child component may be passed to Card."
     );
-    childHeading =
-      "Error: Only one CardHeading child component may be passed to Card.";
   }
-
   return (
     <div
       className={bem(baseClass, modifiers, blockName, [className])}
       id={id}
       style={cardStyle}
     >
-      {imageCount ? (
-        <div className={bem("image", [], baseClass)}>{childImage}</div>
+      {imageCount === 1 ? (
+        <div className={bem("image", [], baseClass)}>
+          <div className="image-crop">{childImage}</div>
+        </div>
       ) : null}
-      <div className={bem("content", [], baseClass)}>
-        {headingCount ? (
-          <div className={bem("heading", [], baseClass)}>{childHeading}</div>
-        ) : null}
-
-        {cardContents}
-      </div>
+      <div className={bem("body", [], baseClass)}>{cardContents}</div>
     </div>
   );
 }

@@ -10,11 +10,13 @@ import { withDesign } from "storybook-addon-designs";
 import { action } from "@storybook/addon-actions";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
+import { CardImageRatios, CardLayouts } from "./CardTypes";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
+import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
-import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -37,6 +39,10 @@ import { getCategory } from "../../utils/componentCategories";
 
 # Card
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+
 <Description of={Card} />
 
 Cards are contained units of information that can stand independently from other elements for context. While a Card is a self-contained unit, Cards are often grouped together and displayed in some type of grid layout.
@@ -45,13 +51,16 @@ Cards are contained units of information that can stand independently from other
   <Story
     name="Card"
     args={{
-      id: "cardID",
-      layout: "horizontal",
+      id: "custom-card",
     }}
   >
     {(args) => (
       <Card {...args}>
-        <CardImage src="https://placeimg.com/200/100/animals" alt="Alt text" />
+        <CardImage
+          src="https://placeimg.com/200/100/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.SixteenByNine}
+        />
         <CardHeading level={3} id="heading1">
           Optional Header
         </CardHeading>
@@ -63,13 +72,23 @@ Cards are contained units of information that can stand independently from other
             buttonType={ButtonTypes.Primary}
             type="submit"
           >
-            {"Example CTA"}
+            {"Primary"}
+          </Button>
+          <Button
+            onClick={action("clicked")}
+            id="button1"
+            buttonType={ButtonTypes.Secondary}
+            type="submit"
+          >
+            {"Secondary"}
           </Button>
         </CardActions>
       </Card>
     )}
   </Story>
 </Preview>
+
+<ArgsTable story="Card" />
 
 ## Example Card
 
@@ -112,7 +131,7 @@ Horizontal Card example
 <Preview withToolbar>
   <Story name="Horizontal Card">
     {(args) => (
-      <Card className="horizontal-card" layout="horizontal" border={true}>
+      <Card layout="horizontal" border>
         <CardImage
           src={"https://placeimg.com/200/150/animals"}
           alt="Alt text"

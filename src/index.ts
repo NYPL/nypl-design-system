@@ -5,6 +5,7 @@ export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button } from "./components/Button/Button";
 export { ButtonTypes } from "./components/Button/ButtonTypes";
 export { default as Card } from "./components/Card/Card";
+export { CardImageRatios, CardLayouts } from "./components/Card/CardTypes";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";

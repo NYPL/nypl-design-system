@@ -4,47 +4,78 @@
   align-items: flex-start;
   display: flex;
   flex-flow: column wrap;
+  gap: var(--space-l);
+
+  max-width: 300px;
 
   &--with-border {
     border: 1px solid var(--ui-gray-medium);
     padding: var(--space-s);
   }
 
-  &__columns {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
+  .card__image {
+    // background-color: var(--ui-gray-xlight);
+    // flex-basis: 100%;
+    border: 1px solid var(--color-border);
+    box-sizing: border-box;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding-bottom: 100%;
+    position: relative;
     width: 100%;
 
     @include breakpoint($breakpoint-medium) {
-      flex-flow: row wrap;
+      // @include space-stack-none;
+      // @include space-inline-s;
+      // flex-basis: 225px;
+    }
+
+    &--sixteen-by-nine {
+      padding-bottom: 56.25%;
+    }
+
+    .image-crop {
+      box-sizing: border-box;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    .image {
+      // max-height: 100%;
+      // max-width: 100%;
+      box-sizing: border-box;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      width: 100%;
     }
   }
 
-  &__columns + &__footer {
-    margin-top: var(--space-xs);
-  }
-
-  &__image {
-    @include space-stack-xs;
-
-    justify-content: center;
-  }
-
-  &__text {
-    @include space-stack-xs;
-  }
-
-  &__ctas {
-    // flex: 0 1 20%;
-
+  .card__body {
     @include breakpoint($breakpoint-medium) {
-      @include space-inline-s;
+      display: block;
+      // flex: 1 1 50%;
+      flex-flow: row nowrap;
     }
-  }
 
-  &__content + &__ctas {
-    @include space-inline-s;
+    .heading {
+    }
+
+    .card-content {
+      @include space-stack-s;
+    }
+
+    .card-actions {
+      @include space-stack-s;
+
+      display: flex;
+      gap: var(--space-xxs);
+    }
   }
 
   &.card--horizontal {
@@ -55,37 +86,6 @@
     align-items: flex-start;
     display: flex;
     flex-flow: column nowrap;
-
-    .card__image {
-      @include space-stack-xs;
-
-      align-items: center;
-      background-color: var(--ui-gray-xlight);
-      display: flex;
-      flex: 0 1 150px;
-      height: 150px;
-      justify-content: center;
-
-      .image {
-        max-height: 100%;
-        max-width: 100%;
-      }
-
-      @include breakpoint($breakpoint-medium) {
-        @include space-stack-none;
-        @include space-inline-s;
-
-        width: 150px;
-      }
-    }
-
-    .card__content {
-      @include breakpoint($breakpoint-medium) {
-        display: block;
-        // flex: 1 1 50%;
-        flex-flow: row nowrap;
-      }
-    }
   }
 }
 
