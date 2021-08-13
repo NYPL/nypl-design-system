@@ -4,25 +4,25 @@
   align-items: flex-start;
   display: flex;
   flex-flow: column wrap;
-  gap: var(--space-l);
-
-  max-width: 300px;
 
   &--with-border {
     border: 1px solid var(--ui-gray-medium);
     padding: var(--space-s);
+
+    /* stylelint-disable */
+    .card__image {
+      @include breakpoint($breakpoint-medium) {
+        margin: -16px;
+      }
+    }
+    /* stylelint-enable */
   }
 
   .card__image {
     // background-color: var(--ui-gray-xlight);
     // flex-basis: 100%;
-    border: 1px solid var(--color-border);
-    box-sizing: border-box;
-    height: 0;
-    margin: 0;
-    overflow: hidden;
-    padding-bottom: 100%;
-    position: relative;
+    // border: 1px solid var(--ui-gray-medium);
+    margin-bottom: var(--space-s);
     width: 100%;
 
     @include breakpoint($breakpoint-medium) {
@@ -31,8 +31,41 @@
       // flex-basis: 225px;
     }
 
-    &--sixteen-by-nine {
-      padding-bottom: 56.25%;
+    .image-wrap {
+      box-sizing: border-box;
+      height: 0;
+      overflow: hidden;
+      padding-bottom: 100%;
+      position: relative;
+      width: 100%;
+
+      &--sixteen-by-nine {
+        padding-bottom: 56.25%;
+      }
+
+      &--three-by-two {
+        padding-bottom: 66.66%;
+      }
+
+      &--two-by-one {
+        padding-bottom: 50%;
+      }
+
+      &--four-by-three {
+        padding-bottom: 75%;
+      }
+
+      &--square {
+        padding-bottom: 100%;
+      }
+
+      &--three-by-four {
+        padding-bottom: 133.33%;
+      }
+
+      &--one-by-two {
+        padding-bottom: 200%;
+      }
     }
 
     .image-crop {
@@ -45,14 +78,27 @@
     }
 
     .image {
-      // max-height: 100%;
-      // max-width: 100%;
       box-sizing: border-box;
       display: block;
       height: 100%;
       object-fit: cover;
       position: relative;
       width: 100%;
+    }
+
+    &--original {
+      height: auto;
+      overflow: hidden;
+      padding-bottom: 0;
+
+      .image-crop {
+        height: auto;
+        position: relative;
+      }
+
+      .image {
+        object-fit: none;
+      }
     }
   }
 
@@ -63,9 +109,7 @@
       flex-flow: row nowrap;
     }
 
-    .heading {
-    }
-
+    // .heading {}
     .card-content {
       @include space-stack-s;
     }
@@ -79,13 +123,22 @@
   }
 
   &.card--horizontal {
+    // align-items: flex-start;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 100%;
+
     @include breakpoint($breakpoint-medium) {
       flex-flow: row;
     }
 
-    align-items: flex-start;
-    display: flex;
-    flex-flow: column nowrap;
+    .card__image {
+      @include breakpoint($breakpoint-medium) {
+        flex: 0 0 225px;
+        margin: 0 var(--space-l) 0 0;
+        width: 225px;
+      }
+    }
   }
 }
 

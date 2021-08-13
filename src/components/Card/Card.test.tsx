@@ -16,7 +16,7 @@ describe("Card Accessibility", () => {
       <Card id="cardID">
         <CardImage src="https://placeimg.com/400/200/arch" alt="" />
         <CardHeading level={3} id="heading1">
-          Optional Header
+          The Card Heading
         </CardHeading>
         <CardContent>middle column content</CardContent>
         <CardActions>
@@ -42,7 +42,7 @@ describe("Card", () => {
     <Card id="cardID">
       <CardImage src="https://placeimg.com/400/200/arch" alt="" />
       <CardHeading level={3} id="heading1">
-        Optional Header
+        The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
@@ -63,7 +63,7 @@ describe("Card", () => {
     <Card id="card#1" className="edition-card">
       <CardImage src="https://placeimg.com/300/400/arch" alt="Alt text" />
       <CardHeading level={2} id="editioncardheading1">
-        Optional Header
+        The Card Heading
       </CardHeading>
       <CardContent>
         <div>Published in New York by Random House</div>
@@ -74,7 +74,7 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <div className="edition-card__ctas">
+        <div className="edition-card-actions">
           <Link type={LinkTypes.Button} href="blah">
             Read Online
           </Link>
@@ -98,7 +98,7 @@ describe("Card", () => {
     <Card id="card#1" className="edition-card">
       <CardImage src="https://placeimg.com/300/400/arch" alt={""} />
       <CardHeading level={2} id="editioncardheading1">
-        2004 Edition
+        The Card Heading
       </CardHeading>
       <CardContent>
         <div>Published in New York by Random House</div>
@@ -111,10 +111,10 @@ describe("Card", () => {
     <Card id="card#1" className="edition-card">
       <CardImage src="https://placeimg.com/300/400/arch" alt={""} />
       <CardHeading level={2} id="editioncardheading1" url="#edition-link">
-        2004 Edition
+        The Card Heading
       </CardHeading>
       <CardActions>
-        <div className="edition-card__ctas">
+        <div className="edition-card-actions">
           <Link type={LinkTypes.Button} href="blah">
             Read Online
           </Link>
@@ -137,11 +137,11 @@ describe("Card", () => {
   const cardWithNoImage = (
     <Card id="card#1" className="edition-card">
       <CardHeading level={2} id="editioncardheading1" url="#edition-link">
-        2004 Edition
+        The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <div className="edition-card__ctas">
+        <div className="edition-card-actions">
           <Link type={LinkTypes.Button} href="blah">
             Read Online
           </Link>
@@ -166,10 +166,10 @@ describe("Card", () => {
   it("Generates a Card with a header, image, content, and CTAs", () => {
     const utils = render(regularCard);
     container = utils.container;
-    expect(container.querySelector(".card__heading")).toBeInTheDocument();
+    expect(container.querySelector(".heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).toBeInTheDocument();
-    expect(container.querySelector(".card__content")).toBeInTheDocument();
-    expect(container.querySelector(".card__ctas")).toBeInTheDocument();
+    expect(container.querySelector(".card-content")).toBeInTheDocument();
+    expect(container.querySelector(".card-actions")).toBeInTheDocument();
   });
 
   it("Generates a Card with variable data", () => {
@@ -177,7 +177,7 @@ describe("Card", () => {
     container = utils.container;
 
     expect(container.querySelector("h2")).toBeInTheDocument();
-    expect(container.querySelector(".card__content")).toBeInTheDocument();
+    expect(container.querySelector(".card-content")).toBeInTheDocument();
     expect(screen.getAllByRole("link")).toHaveLength(2);
   });
 
@@ -185,17 +185,17 @@ describe("Card", () => {
     const utils = render(cardWithNoCTAs);
     container = utils.container;
 
-    expect(container.querySelector(".card__heading")).toBeInTheDocument();
+    expect(container.querySelector(".heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).toBeInTheDocument();
-    expect(container.querySelector(".card__content")).toBeInTheDocument();
-    expect(container.querySelector(".card__ctas")).not.toBeInTheDocument();
+    expect(container.querySelector(".card-content")).toBeInTheDocument();
+    expect(container.querySelector(".card-actions")).not.toBeInTheDocument();
   });
 
   it("Generates a card without a content block if one isn't provided", () => {
     const utils = render(cardWithNoContent);
     container = utils.container;
 
-    expect(container.querySelector(".card__heading")).toBeInTheDocument();
+    expect(container.querySelector(".heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).toBeInTheDocument();
     expect(container.querySelector(".card-content")).not.toBeInTheDocument();
     expect(container.querySelector(".card-actions")).toBeInTheDocument();
@@ -205,9 +205,9 @@ describe("Card", () => {
     const utils = render(cardWithNoImage);
     container = utils.container;
 
-    expect(container.querySelector(".card__heading")).toBeInTheDocument();
+    expect(container.querySelector(".heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).not.toBeInTheDocument();
-    expect(container.querySelector(".card__content")).toBeInTheDocument();
-    expect(container.querySelector(".card__ctas")).toBeInTheDocument();
+    expect(container.querySelector(".card-content")).toBeInTheDocument();
+    expect(container.querySelector(".card-actions")).toBeInTheDocument();
   });
 });

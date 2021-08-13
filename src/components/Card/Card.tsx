@@ -3,7 +3,6 @@ import bem from "../../utils/bem";
 
 import { CardImageRatios, CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
-// import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
 import Image from "../Image/Image";
 
 export interface CardProps {
@@ -27,14 +26,19 @@ export interface CardProps {
 
 // CardImage child-component
 export function CardImage(props) {
-  const { src, alt, className, imageAspectRatio } = props;
-  if (src) {
-    // const cn = `${className} ${imageAspectRatio}`;
-    // return <Image className={cn} src={src} alt={alt} />;
+  const { src, alt, className, imageAspectRatio, component } = props;
+  if (src || component) {
+    const imageWrapClass = `image-wrap image-wrap--${imageAspectRatio}`;
     return (
-      <div className={bem("image", [imageAspectRatio], "card", [])}>
-        <div className="image-crop">
-          <Image className={className} src={src} alt={alt} />
+      <div className={bem("image", [], "card", [])}>
+        <div className={imageWrapClass}>
+          <div className="image-crop">
+            {component ? (
+              component
+            ) : (
+              <Image className={className} src={src} alt={alt} />
+            )}
+          </div>
         </div>
       </div>
     );
@@ -137,11 +141,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       id={id}
       style={cardStyle}
     >
-      {imageCount === 1 ? (
-        <div className={bem("image", [], baseClass)}>
-          <div className="image-crop">{childImage}</div>
-        </div>
-      ) : null}
+      {imageCount === 1 ? childImage : null}
       <div className={bem("body", [], baseClass)}>{cardContents}</div>
     </div>
   );

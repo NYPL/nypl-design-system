@@ -17,6 +17,7 @@ import { LinkTypes } from "../Link/LinkTypes";
 import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import Image from "../Image/Image";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -57,14 +58,18 @@ Cards are contained units of information that can stand independently from other
     {(args) => (
       <Card {...args}>
         <CardImage
-          src="https://placeimg.com/200/100/animals"
+          src="https://placeimg.com/400/300/animals"
           alt="Alt text"
-          imageAspectRatio={CardImageRatios.SixteenByNine}
+          imageAspectRatio={args.imageAspectRatio}
         />
         <CardHeading level={3} id="heading1">
           Optional Header
         </CardHeading>
-        <CardContent>middle column content</CardContent>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nullam quis risus eget urna mollis ornare
+          vel eu leo. Nulla vitae elit libero, a pharetra augue.
+        </CardContent>
         <CardActions>
           <Button
             onClick={action("clicked")}
@@ -76,7 +81,7 @@ Cards are contained units of information that can stand independently from other
           </Button>
           <Button
             onClick={action("clicked")}
-            id="button1"
+            id="button2"
             buttonType={ButtonTypes.Secondary}
             type="submit"
           >
@@ -169,6 +174,47 @@ Horizontal Card example
           <div className="italicized ui-gray-dark">
             0 of 11 copies available. 3 patrons in the queue.
           </div>
+          <Link href="#url" type={LinkTypes.Forwards}>
+            View Book Details
+          </Link>
+        </CardActions>
+      </Card>
+    )}
+  </Story>
+</Preview>
+
+## Custom Image Cpomnent
+
+Using a custom image component.
+
+<Preview withToolbar>
+  <Story name="Custom Image Cpomnent">
+    {(args) => (
+      <Card>
+        <CardImage
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.SixteenByNine}
+          component={
+            <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
+          }
+        />
+        <CardHeading level={2} id="heading1">
+          Custom Component
+        </CardHeading>
+        <CardHeading level={4} id="heading2">
+          Secondary Heading
+        </CardHeading>
+        <CardContent>
+          Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Aenean lacinia bibendum nulla sed
+          consectetur. Vestibulum id ligula porta felis euismod semper. Cras
+          justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
+          consectetur est at lobortis.
+        </CardContent>
+        <CardActions>
+          <Link type={LinkTypes.Button} href="blah">
+            Reserve
+          </Link>
           <Link href="#url" type={LinkTypes.Forwards}>
             View Book Details
           </Link>
