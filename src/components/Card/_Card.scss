@@ -5,19 +5,6 @@
   display: flex;
   flex-flow: column wrap;
 
-  &--with-border {
-    border: 1px solid var(--ui-gray-medium);
-    padding: var(--space-s);
-
-    /* stylelint-disable */
-    .card__image {
-      @include breakpoint($breakpoint-medium) {
-        margin: -16px;
-      }
-    }
-    /* stylelint-enable */
-  }
-
   .card__image {
     // background-color: var(--ui-gray-xlight);
     // flex-basis: 100%;
@@ -112,6 +99,10 @@
     // .heading {}
     .card-content {
       @include space-stack-s;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     .card-actions {
@@ -119,11 +110,24 @@
 
       display: flex;
       gap: var(--space-xxs);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--with-border {
+    border: 1px solid var(--ui-gray-medium);
+
+    .card__body {
+      padding: 0 var(--space-s) var(--space-s);
     }
   }
 
   &.card--horizontal {
     // align-items: flex-start;
+    align-items: center;
     display: flex;
     flex-flow: column nowrap;
     max-width: 100%;
@@ -135,8 +139,18 @@
     .card__image {
       @include breakpoint($breakpoint-medium) {
         flex: 0 0 225px;
-        margin: 0 var(--space-l) 0 0;
+        margin: 0 var(--space-m) 0 0;
         width: 225px;
+      }
+    }
+
+    &.card--with-border {
+      .card__body {
+        padding: 0 var(--space-s) var(--space-s);
+
+        @include breakpoint($breakpoint-medium) {
+          padding: var(--space-s) var(--space-s) var(--space-s) 0;
+        }
       }
     }
   }
