@@ -3,18 +3,18 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
-import Button from "./Button";
+import Button, { ButtonGroup } from "./Button";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import { action } from "@storybook/addon-actions";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Button")}
@@ -42,43 +42,23 @@ that can be rendered.
 - `ButtonTypes.Pill` is used for equally weighted actions within cards and always in a set
 - `ButtonTypes.Link` is used for equally weighted actions in a text based list
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="Basic">{(args) => <Button {...args}>Button Text</Button>}</Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Basic" />
 
 ## Button Groups
 
-Primary and secondary buttons can be used in groups like so:
+Primary and secondary buttons can be used in groups like in the following example.
+The `ButtonGroup` component is directly exported from Chakra UI.
 
 <Canvas>
   <Story name="Button Groups">
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        width: "180px",
-      }}
-    >
+    <ButtonGroup>
       <Button buttonType={ButtonTypes.Secondary}>Button</Button>
       <Button buttonType={ButtonTypes.Primary}>Submit</Button>
-    </div>
-    <br />
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        width: "280px",
-      }}
-    >
-      <Button buttonType={ButtonTypes.Secondary}>
-        <span style={{ width: "100px" }}>Button</span>
-      </Button>
-      <Button buttonType={ButtonTypes.Primary}>
-        <span style={{ width: "100px" }}>Submit</span>
-      </Button>
-    </div>
+    </ButtonGroup>
   </Story>
 </Canvas>
 
@@ -100,8 +80,8 @@ can be rendered or check out the Controls section for this story.
       iconType: {
         control: {
           type: "select",
-          options: IconNames,
         },
+        options: Object.values(IconNames).map((value) => value),
       },
     }}
   >
@@ -130,32 +110,28 @@ can be rendered or check out the Controls section for this story.
 The icon can be placed to the left or the right of the button text.
 
 <Canvas>
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      width: "220px",
-    }}
-  >
-    <Button buttonType={ButtonTypes.Secondary}>
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate90}
-        modifiers={["small", "icon-left"]}
-      />
-      Previous
-    </Button>
-    <Button buttonType={ButtonTypes.Secondary}>
-      Next
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate270}
-        modifiers={["small", "icon-right"]}
-      />
-    </Button>
-  </div>
+  <DSProvider>
+    <ButtonGroup>
+      <Button buttonType={ButtonTypes.Secondary}>
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate90}
+          modifiers={["small", "icon-left"]}
+        />
+        Previous
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary}>
+        Next
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate270}
+          modifiers={["small", "icon-right"]}
+        />
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
 </Canvas>
 
 Text in a button is optional if an icon is rendered, but make sure that there
@@ -163,48 +139,44 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
 `attributes={{ "aria-label": "Previous" }}`
 
 <Canvas>
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      width: "200px",
-    }}
-  >
-    <Button
-      buttonType={ButtonTypes.Secondary}
-      attributes={{
-        "aria-label": "Previous",
-      }}
-    >
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate90}
-        modifiers={["small"]}
-      />
-    </Button>
-    <Button
-      buttonType={ButtonTypes.Secondary}
-      attributes={{
-        "aria-label": "Next",
-      }}
-    >
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate270}
-        modifiers={["small"]}
-      />
-    </Button>
-    <Button
-      buttonType={ButtonTypes.Secondary}
-      attributes={{
-        "aria-label": "Close",
-      }}
-    >
-      <Icon name={IconNames.close} decorative={true} modifiers={["small"]} />
-    </Button>
-  </div>
+  <DSProvider>
+    <ButtonGroup>
+      <Button
+        buttonType={ButtonTypes.Secondary}
+        attributes={{
+          "aria-label": "Previous",
+        }}
+      >
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate90}
+          modifiers={["small"]}
+        />
+      </Button>
+      <Button
+        buttonType={ButtonTypes.Secondary}
+        attributes={{
+          "aria-label": "Next",
+        }}
+      >
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate270}
+          modifiers={["small"]}
+        />
+      </Button>
+      <Button
+        buttonType={ButtonTypes.Secondary}
+        attributes={{
+          "aria-label": "Close",
+        }}
+      >
+        <Icon name={IconNames.close} decorative={true} modifiers={["small"]} />
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
 </Canvas>
 
 ## Patterns
@@ -225,6 +197,7 @@ The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include a
       Donate to this library
     </Button>
     <br />
+    <br />
     <Button buttonType={ButtonTypes.Secondary}>
       Back to Top
       <Icon
@@ -242,15 +215,23 @@ The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include a
 Modifying the `buttonType` prop:
 
 <Canvas>
-  <Button buttonType={ButtonTypes.Primary}>Primary</Button>
-  <Button buttonType={ButtonTypes.Secondary}>Secondary</Button>
-  <Button buttonType={ButtonTypes.Pill}>Pill</Button>
-  <Button buttonType={ButtonTypes.Link}>Link</Button>
+  <DSProvider>
+    <ButtonGroup>
+      <Button buttonType={ButtonTypes.Primary}>Primary</Button>
+      <Button buttonType={ButtonTypes.Secondary}>Secondary</Button>
+      <Button buttonType={ButtonTypes.Pill}>Pill</Button>
+      <Button buttonType={ButtonTypes.Link}>Link</Button>
+    </ButtonGroup>
+  </DSProvider>
 </Canvas>
 
 Modifying the `disabled` prop:
 
 <Canvas>
-  <Button disabled={false}>Enabled</Button>
-  <Button disabled={true}>Disabled</Button>
+  <DSProvider>
+    <ButtonGroup>
+      <Button disabled={false}>Enabled</Button>
+      <Button disabled={true}>Disabled</Button>
+    </ButtonGroup>
+  </DSProvider>
 </Canvas>

@@ -1,4 +1,10 @@
 import * as React from "react";
+import {
+  Button as ChakraButton,
+  ButtonGroup,
+  useStyleConfig,
+} from "@chakra-ui/react";
+
 import bem from "../../utils/bem";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
@@ -27,73 +33,87 @@ interface ButtonProps {
 }
 
 /** Renders a simple `button` element with custom classes and modifiers. */
-export default class Button extends React.Component<ButtonProps, any> {
-  static defaultProps = {
-    mouseDown: false,
-  };
+// const Button = (props: React.PropsWithChildren<ButtonProps>) => {
+function Button(props: React.PropsWithChildren<ButtonProps>) {
+  const {
+    attributes,
+    blockName,
+    buttonType,
+    children,
+    className = "",
+    disabled,
+    id,
+    modifiers = [],
+    mouseDown = false,
+    onClick,
+    type = "submit",
+  } = props;
 
-  constructor(props: ButtonProps) {
-    super(props);
+  const buttonModifiers = modifiers ? modifiers : [];
+  if (
+    buttonType &&
+    !buttonModifiers.find((modifier) => modifier === buttonType)
+  ) {
+    buttonModifiers.push(buttonType);
   }
+  const baseClass = "button";
+  const btnCallback = mouseDown
+    ? { onMouseDown: onClick }
+    : { onClick: onClick };
 
-  render(): JSX.Element {
-    const {
-      attributes,
-      blockName,
-      buttonType,
-      children,
-      className,
-      disabled,
-      id,
-      modifiers = [],
-      mouseDown,
-      onClick,
-      type = "submit",
-    } = this.props;
+  let childCount = 0;
+  let hasIcon = false;
+  let variant;
 
-    const buttonModifiers = modifiers ? modifiers : [];
-    if (!buttonModifiers.find((modifier) => modifier === buttonType)) {
-      buttonModifiers.push(buttonType);
-    }
-
-    const baseClass = "button";
-
-    const btnCallback = mouseDown
-      ? { onMouseDown: onClick }
-      : { onClick: onClick };
-
-    let childCount = 0;
-    let hasIcon = false;
-
-    React.Children.map(children, (child: React.ReactElement) => {
-      childCount++;
-      if (child !== undefined && child !== null) {
-        if (
-          child.type === Icon ||
-          (child.props && child.props.mdxType === "Icon")
-        ) {
-          hasIcon = true;
-        }
+  React.Children.map(children, (child: React.ReactElement) => {
+    childCount++;
+    if (child !== undefined && child !== null) {
+      if (
+        child.type === Icon ||
+        (child.props && child.props.mdxType === "Icon")
+      ) {
+        hasIcon = true;
       }
-    });
-
-    if (childCount === 1 && hasIcon) {
-      buttonModifiers.push("icon-only");
     }
+  });
 
-    return (
-      <button
-        id={id}
-        className={`${baseClass} ${bem(baseClass, buttonModifiers, blockName, [
-          className,
-        ])}`}
-        type={type}
-        disabled={disabled}
-        {...attributes}
-        {...btnCallback}
-      >
-        {children}
-      </button>
-    );
+  if (childCount === 1 && hasIcon) {
+    buttonModifiers.push("icon-only");
+    variant = "icon-only";
+  } else {
+    switch (buttonType) {
+      case ButtonTypes.Link:
+        variant = "link";
+        break;
+      case ButtonTypes.Pill:
+        variant = "pill";
+        break;
+      case ButtonTypes.Secondary:
+        variant = "secondary";
+        break;
+      case ButtonTypes.Primary:
+      default:
+        variant = "primary";
+        break;
+    }
   }
+
+  const styles = useStyleConfig("Button", { variant });
+
+  return (
+    <ChakraButton
+      id={id}
+      className={bem(baseClass, buttonModifiers, blockName, [className])}
+      type={type}
+      disabled={disabled}
+      __css={styles}
+      {...attributes}
+      {...btnCallback}
+    >
+      {children}
+    </ChakraButton>
+  );
 }
+
+export { ButtonGroup };
+export default Button;

@@ -47,6 +47,7 @@ const colors: Colors = {
   brand: {
     primary: "#C60917",
     secondary: "#760000",
+    "books-and-more-primary": "#C60917",
   },
 
   /**

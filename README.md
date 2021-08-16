@@ -338,7 +338,7 @@ Now, if we unintentionally update the `Notification.tsx` component to render a `
 If you want to update any existing snapshots, re-run the test script as:
 
 ```sh
-$ npm test -- updateSnapshot
+$ npm test -- --updateSnapshot
 ```
 
 Each snapshot file also includes a link to its [Jest Snapshot documentation](https://jestjs.io/docs/snapshot-testing) which is recommended to read!

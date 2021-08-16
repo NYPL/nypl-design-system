@@ -1,6 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 import colors from "./foundations/colors";
 import global from "./foundations/global";
+import Button from "./components/button";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -13,7 +14,9 @@ const theme = extendTheme({
    * Chakra documentation on component styles:
    * https://chakra-ui.com/docs/theming/component-style
    */
-  // components: {},
+  components: {
+    Button,
+  },
 });
 
 export default theme;

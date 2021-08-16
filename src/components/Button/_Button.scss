@@ -1,13 +1,90 @@
-@mixin button-base {
-  @include space-inset-xs;
+// @mixin button-base {
+//   border-radius: 2px !important;
+//   cursor: pointer;
+//   display: flex;
+//   justify-content: center;
+//   padding: var(--space-xs) var(--space-s) !important;
+//   text-decoration: none;
+// }
 
-  border-radius: 2px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  padding: var(--space-xs) var(--space-s);
-  text-decoration: none;
+// @mixin button--filled {
+//   @include button-base;
 
+//   background-color: var(--ui-link-primary);
+//   border: none;
+//   color: var(--ui-white);
+
+//   &:visited {
+//     color: var(--ui-white);
+//   }
+
+//   &:hover {
+//     background-color: var(--ui-link-secondary);
+//   }
+
+//   &:disabled {
+//     background-color: var(--ui-gray-light);
+//     color: var(--ui-gray-dark);
+//     pointer-events: none;
+//   }
+// }
+
+// @mixin button--outline {
+//   @include button-base;
+
+//   background-color: var(--ui-white);
+//   border: 1px solid var(--ui-gray-light);
+//   color: inherit;
+
+//   &:visited {
+//     color: inherit;
+//   }
+
+//   &:hover {
+//     background-color: var(--ui-gray-xxlight);
+//   }
+
+//   &:disabled {
+//     background-color: var(--ui-gray-light);
+//     color: var(--ui-gray-dark);
+//     pointer-events: none;
+//   }
+// }
+
+// @mixin button--link {
+//   background-color: transparent;
+//   color: var(--ui-link-primary) !important;
+//   text-decoration: underline;
+
+//   &--no-underline {
+//     text-decoration: none;
+//   }
+
+//   &:hover {
+//     background-color: transparent;
+//     color: var(--ui-link-secondary) !important;
+//   }
+
+//   &:disabled {
+//     background-color: transparent;
+//     color: var(--ui-gray-dark);
+//     pointer-events: none;
+//   }
+// }
+
+// @mixin button--pill {
+//   @include button-base;
+//   @include button--outline;
+
+//   border-radius: 20px !important;
+//   padding: var(--space-xs) var(--space-m) !important;
+// }
+
+.button {
+  //   height: auto !important;
+  //   &:disabled {
+  //     opacity: 1 !important;
+  //   }
   .icon {
     @include icon;
 
@@ -21,97 +98,21 @@
       margin-left: var(--space-xs);
     }
   }
-}
+  //   @include button--filled;
 
-@mixin button--filled {
-  @include button-base;
+  //   &--link {
+  //     @include button--link;
+  //   }
 
-  background-color: var(--ui-link-primary);
-  border: none;
-  color: var(--ui-white);
+  //   &--outline {
+  //     @include button--outline;
+  //   }
 
-  &:visited {
-    color: var(--ui-white);
-  }
+  //   &--pill {
+  //     @include button--pill;
+  //   }
 
-  &:hover {
-    background-color: var(--ui-link-secondary);
-  }
-
-  &:disabled {
-    background-color: var(--ui-gray-light);
-    color: var(--ui-gray-dark);
-    pointer-events: none;
-  }
-}
-
-@mixin button--outline {
-  @include button-base;
-
-  background-color: var(--ui-white);
-  border: 1px solid var(--ui-gray-light);
-  color: inherit;
-
-  &:visited {
-    color: inherit;
-  }
-
-  &:hover {
-    background-color: var(--ui-gray-xxlight);
-  }
-
-  &:disabled {
-    background-color: var(--ui-gray-light);
-    color: var(--ui-gray-dark);
-    pointer-events: none;
-  }
-}
-
-@mixin button--link {
-  background-color: transparent;
-  color: var(--ui-link-primary);
-  text-decoration: underline;
-
-  &--no-underline {
-    text-decoration: none;
-  }
-
-  &:hover {
-    background-color: transparent;
-    color: var(--ui-link-secondary);
-  }
-
-  &:disabled {
-    background-color: transparent;
-    color: var(--ui-gray-dark);
-    pointer-events: none;
-  }
-}
-
-@mixin button--pill {
-  @include button-base;
-  @include button--outline;
-
-  border-radius: 20px;
-  padding: var(--space-xs) var(--space-m);
-}
-
-.button {
-  @include button--filled;
-
-  &--link {
-    @include button--link;
-  }
-
-  &--outline {
-    @include button--outline;
-  }
-
-  &--pill {
-    @include button--pill;
-  }
-
-  &--icon-only {
-    padding: var(--space-xs);
-  }
+  //   &--icon-only {
+  //     padding: var(--space-xs) !important;
+  //   }
 }
