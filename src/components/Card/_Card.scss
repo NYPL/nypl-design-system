@@ -92,11 +92,9 @@
   .card__body {
     @include breakpoint($breakpoint-medium) {
       display: block;
-      // flex: 1 1 50%;
       flex-flow: row nowrap;
     }
 
-    // .heading {}
     .card-content {
       @include space-stack-s;
 
@@ -127,6 +125,16 @@
     }
   }
 
+  &--center {
+    text-align: center;
+
+    /* stylelint-disable */
+    .card-actions {
+      justify-content: center;
+    }
+    /* stylelint-enable */
+  }
+
   &--with-border {
     border: 1px solid var(--ui-gray-medium);
 
@@ -135,12 +143,28 @@
     }
   }
 
+  &--image-flip {
+    .card__image {
+      margin-bottom: 0;
+      margin-top: var(--space-s);
+      order: 2;
+    }
+  }
+
   &.card--horizontal {
-    // align-items: flex-start;
-    align-items: center;
     display: flex;
     flex-flow: column nowrap;
     max-width: 100%;
+    text-align: left;
+
+    /* stylelint-disable */
+    .card-actions {
+      justify-content: left;
+    }
+    /* stylelint-enable */
+    &.card--center {
+      align-items: center;
+    }
 
     @include breakpoint($breakpoint-medium) {
       flex-flow: row;
@@ -151,6 +175,12 @@
         flex: 0 0 225px;
         margin: 0 var(--space-m) 0 0;
         width: 225px;
+      }
+    }
+
+    &.card--image-flip {
+      .card__image {
+        margin: 0 0 0 var(--space-m);
       }
     }
 
