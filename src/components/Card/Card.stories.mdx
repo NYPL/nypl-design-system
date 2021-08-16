@@ -35,6 +35,14 @@ import { getCategory } from "../../utils/componentCategories";
     blockName: { table: { disable: true } },
     className: { table: { disable: true } },
     modifiers: { table: { disable: true } },
+    id: { table: { disable: true } },
+    layout: { table: { disable: false } },
+    imageAspectRatio: { table: { disable: false } },
+    imageOffset: { table: { disable: false } },
+    border: { table: { disable: false } },
+    padding: { table: { disable: false } },
+    backgroundColor: { control: { type: "color" } },
+    foregroundColor: { control: { type: "color" } },
   }}
 />
 
@@ -62,15 +70,18 @@ Cards are contained units of information that can stand independently from other
           alt="Alt text"
           imageAspectRatio={args.imageAspectRatio}
         />
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={2} id="heading1">
           Optional Header
+        </CardHeading>
+        <CardHeading level={4} id="heading2">
+          Sollicitudin Lorem Tortor Purus Ornare
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue. Nullam quis risus eget urna mollis ornare
           vel eu leo. Nulla vitae elit libero, a pharetra augue.
         </CardContent>
-        <CardActions>
+        <CardActions topBorder bottomBorder>
           <Button
             onClick={action("clicked")}
             id="button1"
@@ -87,6 +98,19 @@ Cards are contained units of information that can stand independently from other
           >
             {"Secondary"}
           </Button>
+        </CardActions>
+        <CardActions>
+          <Link onClick={action("clicked")} href="blah">
+            {"#hash1"}
+          </Link>
+          ,
+          <Link onClick={action("clicked")} href="blah">
+            {"#hash2"}
+          </Link>
+          ,
+          <Link onClick={action("clicked")} href="blah">
+            {"#hash3"}
+          </Link>
         </CardActions>
       </Card>
     )}

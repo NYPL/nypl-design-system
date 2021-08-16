@@ -15,6 +15,8 @@ interface CardImageProps {
   className?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
   imageAspectRatio?: CardImageRatios;
+  /** Optional value to control the offset of the image within the card UI.  This value should be entered with the same formatting as a CSS margin attribute (ex. `5%`, `20px`, `-2rem`).  Negative values can be used. */
+  imageOffset?: string;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src: string;
 }
@@ -38,23 +40,33 @@ interface CardContentProps {
 }
 
 interface CardActionsProps {
+  /** Optional boolean value to control visibility of border on the bottom edge of the card actions element */
+  bottomBorder?: boolean;
   /** Optional className that would be applied to the `card-actions` element */
   className?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
+  /** Optional boolean value to control visibility of border on the top edge of the card actions element */
+  topBorder?: boolean;
 }
 
 export interface CardProps {
+  /** Optional hex color value used to set the card background color */
+  backgroundColor?: string;
   /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   blockName?: string;
-  /** Optional boolean value to control visibility of border around skeleton loader */
+  /** Optional boolean value to control the visibility of a border around the card */
   border?: boolean;
   /** ClassName that appears in addition to "card" */
   className?: string;
+  /** Optional hex color value used to override the default text color */
+  foregroundColor?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
   imageAspectRatio?: CardImageRatios;
+  /** Optional value to control the offset of the image within the card UI.  This value should be entered with the same formatting as a CSS margin attribute (ex. `5%`, `20px`, `-2rem`).  Negative values can be used. */
+  imageOffset?: string;
   /** Optional value to control the position of the image placeholder; default value is `vertical` */
   layout?: CardLayouts;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
@@ -65,10 +77,22 @@ export interface CardProps {
 
 // CardImage child-component
 export function CardImage(props: React.PropsWithChildren<CardImageProps>) {
-  const { src, alt, className, imageAspectRatio, component } = props;
+  const {
+    src,
+    alt,
+    className,
+    imageAspectRatio,
+    // imageOffset = "-4rem",
+    imageOffset,
+    component,
+  } = props;
+  const styles = {};
+  if (imageOffset) {
+    styles["marginTop"] = imageOffset;
+  }
   return (
     (src || component) && (
-      <div className={bem("image", [], "card", [])}>
+      <div className={bem("image", [], "card", [])} style={styles}>
         <div className={`image-wrap image-wrap--${imageAspectRatio}`}>
           <div className="image-crop">
             {component ? (
@@ -113,7 +137,17 @@ export function CardContent(props: React.PropsWithChildren<CardContentProps>) {
 
 // CardActions child-component
 export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
-  const { children, className, modifiers = [] } = props;
+  const {
+    bottomBorder,
+    children,
+    className,
+    modifiers = [],
+    topBorder,
+  } = props;
+
+  bottomBorder && modifiers.push("bottom-border");
+  topBorder && modifiers.push("top-border");
+
   return (
     children && (
       <div className={bem("card-actions", modifiers, "", [className])}>
@@ -125,10 +159,13 @@ export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
 
 export default function Card(props: React.PropsWithChildren<CardProps>) {
   const {
+    backgroundColor,
     blockName,
     children,
     className,
+    foregroundColor,
     id,
+    imageOffset,
     layout,
     border,
     padding,
@@ -136,7 +173,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   } = props;
   const baseClass = "card";
 
-  let cardStyle;
+  const styles = {};
   let childImage;
   let imageCount = 0;
   const cardContents = [];
@@ -150,9 +187,19 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   }
 
   if (padding) {
-    cardStyle = {
-      padding: padding,
-    };
+    styles["padding"] = padding;
+  }
+
+  if (backgroundColor) {
+    styles["backgroundColor"] = backgroundColor;
+  }
+
+  if (foregroundColor) {
+    styles["color"] = foregroundColor;
+  }
+
+  if (imageOffset) {
+    styles["marginTop"] = imageOffset;
   }
 
   React.Children.map(children, (child: React.ReactElement) => {
@@ -175,7 +222,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     <div
       className={bem(baseClass, modifiers, blockName, [className])}
       id={id}
-      style={cardStyle}
+      style={styles}
     >
       {imageCount === 1 ? childImage : null}
       <div className={bem("body", [], baseClass)}>{cardContents}</div>
