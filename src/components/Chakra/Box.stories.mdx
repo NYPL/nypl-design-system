@@ -2,13 +2,11 @@ import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
 import { Box } from "@chakra-ui/react";
 
 import { getCategory } from "../../utils/componentCategories";
-import Card from "../Card/Card";
-import Image from "../Image/Image";
-import Link from "../Link/Link";
-import { LinkTypes } from "../Link/LinkTypes";
-import Heading from "../Heading/Heading";
-import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import {
+  VideoPlayerTypes,
+  VideoPlayerAspectRatios,
+} from "../VideoPlayer/VideoPlayerTypes";
 
 <Meta title={getCategory("Box")} component={Box} />
 
@@ -18,7 +16,8 @@ import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
 
-Note: This needs the use of the `DSProvider` component. See the README for more information.
+Note: This needs the use of the `DSProvider` component. See the [README](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)
+for more information.
 
 This component is directly exported from Chakra UI. The `Box` is a simple and
 composable component that can be used for many situations. By default it renders
@@ -32,7 +31,7 @@ guide on the Chakra UI site.
     name="Box"
     args={{
       p: "5",
-      bg: "tomato",
+      bg: "var(--brand-primary)",
       color: "white",
     }}
   >
@@ -45,54 +44,14 @@ guide on the Chakra UI site.
   </Story>
 </Canvas>
 
-## With Card Example
+## With VideoPlayer Component Example
 
 <Canvas>
-  <Box borderWidth="2px" padding="6" borderRadius="lg" overflow="hidden">
-    <Card
-      className="example-card"
-      image={<Image src="https://placeimg.com/300/400/arch" alt="" />}
-      ctas={
-        <>
-          <Link type={LinkTypes.Button} href="blah">
-            Reserve
-          </Link>
-          <Box className="italicized ui-gray-dark">
-            0 of 11 copies available. 3 patrons in the queue.
-          </Box>
-          <Link href="#url" type={LinkTypes.Forwards}>
-            View Book Details
-          </Link>
-        </>
-      }
-    >
-      <>
-        <Heading
-          level={2}
-          id="heading1"
-          text={"The Year of Magical Thinking"}
-        />
-        <Box className="book__callout">A portrait of loss and grief</Box>
-        <Box>
-          By <Link href="#joan-didion">Joan Didion</Link>,{" "}
-          <Link href="#another-author">Another Author</Link>,{" "}
-          <Link href="#third-author">Third Author</Link>
-        </Box>
-        <Box className="book__filetype">
-          <Icon
-            name={IconNames.headset}
-            decorative={true}
-            modifiers={["left", "small"]}
-            iconRotation={IconRotationTypes.rotate0}
-          ></Icon>
-          Audiobook
-        </Box>
-        <Box className="book__description">
-          An act of consummate literary bravery, a writer known for her clarity
-          allowing us to watch her mind as it becomes clouded...{" "}
-          <Link href="#">Read More</Link>
-        </Box>
-      </>
-    </Card>
+  <Box borderWidth="3px" padding="6" borderRadius="lg" overflow="hidden">
+    <VideoPlayer
+      videoId="nm-dD2tx6bk"
+      videoType={VideoPlayerTypes.YouTube}
+      aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
+    />
   </Box>
 </Canvas>
