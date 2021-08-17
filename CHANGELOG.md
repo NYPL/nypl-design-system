@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Exports `VideoPlayerAspectRatios`
+- Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
 
 ## 0.23.4
 
