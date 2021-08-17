@@ -16,11 +16,12 @@ Storybook documentation
 | 1.                | [Contributing Quickstart](#contributing-quickstart)                                 |
 | 2.                | [Developing with NPM Link](#developing-with-npm-link)                               |
 | 3.                | [Using the Design System in Your Product](#using-the-design-system-in-your-product) |
-| 4.                | [CDN](#cdn)                                                                         |
-| 5.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
-| 6.                | [Storybook](#storybook)                                                             |
-| 7.                | [Typescript Usage](#typescript-usage)                                               |
-| 8.                | [Unit Testing](#unit-testing)                                                       |
+| 4.                | [Using Chakra UI Components](#using-chakra-ui-components)                           |
+| 5.                | [CDN](#cdn)                                                                         |
+| 6.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
+| 7.                | [Storybook](#storybook)                                                             |
+| 8.                | [Typescript Usage](#typescript-usage)                                               |
+| 9.                | [Unit Testing](#unit-testing)                                                       |
 
 ## Contributing Quickstart
 
@@ -182,6 +183,16 @@ Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds
 </body>
 ```
 
+## Using Chakra UI Components
+
+The Chakra UI component library is integrated into the NYPL Design System and is currently a work-in-progress. We
+are in the middle of the process of using Chakra components and patterns to build
+DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra,
+the DS package itself will export _some_ Chakra components.
+
+The list of re-exported Chakra components can be found in the main
+[index.ts](/index.ts) file.
+
 ## CDN
 
 You can also use the Design System styles in your project through the `unpkg` CDN:
@@ -261,7 +272,7 @@ You can then view `/storybook-static/index.html` in your browser. _Make sure not
 
 ## Typescript Usage
 
-The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/typescript.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
+The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/TYPESCRIPT.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
 
 ## Unit Testing
 

@@ -1,0 +1,82 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Box, Center, Square, Circle } from "@chakra-ui/react";
+
+import { getCategory } from "../../utils/componentCategories";
+import Image from "../Image/Image";
+import Icon from "../Icons/Icon";
+import { IconNames, IconColors } from "../Icons/IconTypes";
+
+<Meta title={getCategory("Center, Circle, Square")} component={Center} />
+
+# Center, Circle, Square
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+
+Note: This needs the use of the `DSProvider` component. See the [README](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)
+for more information.
+
+These components are directly exported from Chakra UI. The `Center`, `Circle`,
+and `Square` are layout component that center their child.
+
+All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
+guide on the Chakra UI site.
+
+## Center
+
+<Canvas>
+  <Story
+    name="Center, Circle, Square"
+    args={{
+      p: "5",
+      bg: "var(--brand-primary)",
+      color: "var(--ui-white)",
+    }}
+  >
+    {(args) => (
+      <Box>
+        Some text at the beginning.
+        <Center {...args}>
+          So when I look up at the stars, I just wonder...what will they all
+          become someday?
+        </Center>
+        Some text at the end.
+      </Box>
+    )}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Center>
+      <Image src="https://placeimg.com/300/400/arch" alt="Centered Image" />
+    </Center>
+  </DSProvider>
+</Canvas>
+
+## Circle
+
+Similar to `Center` but is always a circle!
+
+<Canvas>
+  <Circle size="50px" bg="var(--ui-test)">
+    <Icon name={IconNames.download} />
+  </Circle>
+  <Circle size="50px" bg="var(--ui-link-primary)">
+    <Icon name={IconNames.check} color={IconColors.ui_white} />
+  </Circle>
+</Canvas>
+
+## Square
+
+Similar to `Center` but always has equal height and width.
+
+<Canvas>
+  <Square size="50px" bg="var(--ui-test)">
+    <Icon name={IconNames.download} />
+  </Square>
+  <Square size="50px" bg="var(--ui-link-primary)">
+    <Icon name={IconNames.check} color={IconColors.ui_white} />
+  </Square>
+</Canvas>

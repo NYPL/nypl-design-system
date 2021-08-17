@@ -1,5 +1,16 @@
 import "./styles.scss";
 
+// Note that the NYPL Design System directly re-exports the following
+// components for usage in consuming applications.
+export {
+  Box,
+  Center,
+  Circle,
+  Square,
+  Stack,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button } from "./components/Button/Button";
