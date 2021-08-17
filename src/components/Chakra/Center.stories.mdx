@@ -30,8 +30,8 @@ guide on the Chakra UI site.
     name="Center, Circle, Square"
     args={{
       p: "5",
-      bg: "brand.primary",
-      color: "white",
+      bg: "var(--brand-primary)",
+      color: "var(--ui-white)",
     }}
   >
     {(args) => (
@@ -48,9 +48,11 @@ guide on the Chakra UI site.
 </Canvas>
 
 <Canvas>
-  <Center>
-    <Image src="https://placeimg.com/300/400/arch" alt="Centered Image" />
-  </Center>
+  <DSProvider>
+    <Center>
+      <Image src="https://placeimg.com/300/400/arch" alt="Centered Image" />
+    </Center>
+  </DSProvider>
 </Canvas>
 
 ## Circle
@@ -58,10 +60,10 @@ guide on the Chakra UI site.
 Similar to `Center` but is always a circle!
 
 <Canvas>
-  <Circle size="50px" bg="tomato">
+  <Circle size="50px" bg="var(--ui-test)">
     <Icon name={IconNames.download} />
   </Circle>
-  <Circle size="50px" bg="blue">
+  <Circle size="50px" bg="var(--ui-link-primary)">
     <Icon name={IconNames.check} color={IconColors.ui_white} />
   </Circle>
 </Canvas>
@@ -71,10 +73,10 @@ Similar to `Center` but is always a circle!
 Similar to `Center` but always has equal height and width.
 
 <Canvas>
-  <Square size="50px" bg="tomato">
+  <Square size="50px" bg="var(--ui-test)">
     <Icon name={IconNames.download} />
   </Square>
-  <Square size="50px" bg="blue">
+  <Square size="50px" bg="var(--ui-link-primary)">
     <Icon name={IconNames.check} color={IconColors.ui_white} />
   </Square>
 </Canvas>
