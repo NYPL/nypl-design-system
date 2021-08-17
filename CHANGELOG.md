@@ -10,7 +10,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
-- Exports `VideoPlayerAspectRatios`
+- Exports `VideoPlayerAspectRatios`.
+- Adds additional props for the DatePicker component based on its TAD Addendum section.
 
 ## 0.23.4
 

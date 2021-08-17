@@ -5,12 +5,20 @@ fieldset {
 
   &.datePicker {
     @include fieldset-reset;
+    margin-bottom: var(--space-m);
   }
 }
 
 .datePicker {
+  margin-bottom: var(--space-m);
+
   .sr-only {
     @include screenreader-only();
+  }
+
+  .form-row,
+  .form-field {
+    margin-bottom: var(--space-xxs);
   }
 
   .datepicker-calendar {

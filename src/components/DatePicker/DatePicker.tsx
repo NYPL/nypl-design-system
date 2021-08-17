@@ -7,6 +7,7 @@ import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 import bem from "../../utils/bem";
 
@@ -61,10 +62,26 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   dateType?: DatePickerTypes;
   /** The date format to display. Defaults to "yyyy-MM-dd". */
   dateFormat?: string;
-  /** Populates the `HelperErrorText` component in the "From" `TextInput` component. */
+  /** Populates the `HelperErrorText` component in this component. */
   helperText?: string;
+  /** Populates the `HelperErrorText` component in the "From" `TextInput` component. */
+  helperTextFrom?: string;
   /** Populates the `HelperErrorText` component in the "To" `TextInput` component. */
   helperTextTo?: string;
+  /** The initial date value. This must be in the mm/dd/yyyy format. */
+  initialDate?: string;
+  /** The initialTo date value used for date ranges.
+   * This must be in the mm/dd/yyyy format.
+   */
+  initialDateTo?: string;
+  /** The minimum date value that applies to both input fields.
+   * This must be in the mm/dd/yyyy format.
+   */
+  minDate?: string;
+  /** The maximum date value that applies to both input fields.
+   * This must be in the mm/dd/yyyy format.
+   */
+  maxDate?: string;
   /** Populates the `HelperErrorText` error state for both "From" and "To" input components. */
   errorText?: string;
   /** Helper for modifiers array; adds 'errored' styling. */
@@ -188,6 +205,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       labelText = "From",
       showLabel = true,
       helperText,
+      helperTextFrom,
       helperTextTo,
       errorText,
       errored,
@@ -200,11 +218,17 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       className,
       refTo,
       onChange,
+      initialDate,
+      initialDateTo,
+      minDate,
+      maxDate,
     } = props;
-    let initFullDate: FullDateType = { startDate: new Date() };
+    const initStartDate = initialDate ? new Date(initialDate) : new Date();
+    const initEndDate = initialDateTo ? new Date(initialDateTo) : new Date();
+    let initFullDate: FullDateType = { startDate: initStartDate };
     // Only include the `endDate` key for date ranges.
     if (dateRange) {
-      initFullDate = { ...initFullDate, endDate: new Date() };
+      initFullDate = { ...initFullDate, endDate: initEndDate };
     }
     const [fullDate, setFullDate] = useState<FullDateType>(initFullDate);
     // This updates the internal state for the start and end date values,
@@ -220,6 +244,8 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     let baseDatePickerAttrs = {
       popperClassName: "datepicker-calendar",
       popperPlacement: "bottom",
+      minDate: minDate ? new Date(minDate) : null,
+      maxDate: maxDate ? new Date(maxDate) : null,
       dateFormat,
       disabled,
     };
@@ -231,7 +257,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       showLabel: dateRange ? true : showLabel,
       disabled,
       errored,
-      helperText,
+      helperText: helperTextFrom,
       errorText,
     };
     let startDatePickerAttrs = {};
@@ -336,6 +362,9 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
             <FormField>{endDatePickerElement}</FormField>
           )}
         </DateRangeRow>
+        {helperText && (
+          <HelperErrorText isError={false}>{helperText}</HelperErrorText>
+        )}
       </DatePickerWrapper>
     );
   }
