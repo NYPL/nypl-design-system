@@ -31,7 +31,7 @@ component is added to render a checkmark after each suggestion. View it by
 typing "c" or "tr" in the following input.
 
 ```jsx
-const renderSuggestion = suggestion => (
+const renderSuggestion = (suggestion) => (
   <span>
     {suggestion}
     <Icon name={IconNames["check"]} decorative={true}></Icon>
