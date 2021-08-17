@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { CardImageRatios, CardLayouts } from "./CardTypes";
+import { CardImageRatios, CardImageSizes, CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
 import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
 import Image from "../Image/Image";
@@ -15,6 +15,8 @@ interface CardImageProps {
   className?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
   imageAspectRatio?: CardImageRatios;
+  /** Optional value to control how the image is sized image */
+  imageSize?: CardImageSizes;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src: string;
 }
@@ -64,7 +66,9 @@ export interface CardProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
-  imageAspectRatio?: CardImageRatios;
+  // imageAspectRatio?: CardImageRatios;
+  /** Optional value to control how the image is sized image */
+  // imageSize?: CardImageSizes;
   /** Optional boolean value to control the position of the image within the card */
   imageFlip?: boolean;
   /** Optional value to control the position of the image placeholder; default value is `vertical` */
@@ -77,20 +81,26 @@ export interface CardProps {
 
 // CardImage child-component
 export function CardImage(props: React.PropsWithChildren<CardImageProps>) {
-  const { src, alt, className, imageAspectRatio, component } = props;
+  const { src, alt, className, imageAspectRatio, imageSize, component } = props;
+  const classNames = ["image-wrap"];
+  imageAspectRatio && classNames.push(`image-wrap--` + imageAspectRatio);
+  // imageSize && classNames.push(`image-wrap--$(imageAspectRatio)`);
+  // <div className={`image-wrap image-wrap--${imageAspectRatio}`}></div>
   return (
     (src || component) && (
-      <div className={bem("image", [], "card", [])}>
-        <div className={`image-wrap image-wrap--${imageAspectRatio}`}>
-          <div className="image-crop">
-            {component ? (
-              component
-            ) : (
-              <Image className={className} src={src} alt={alt} />
-            )}
+      <>
+        <div className={bem("image", [imageSize], "card", [])}>
+          <div className={classNames.join(" ")}>
+            <div className="image-crop">
+              {component ? (
+                component
+              ) : (
+                <Image className={className} src={src} alt={alt} />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </>
     )
   );
 }

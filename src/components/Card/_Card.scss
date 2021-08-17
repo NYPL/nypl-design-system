@@ -1,21 +1,30 @@
 .card {
-  @include space-stack-s;
-
   align-items: flex-start;
   display: flex;
   flex-flow: column wrap;
 
   .card__image {
-    // background-color: var(--ui-gray-xlight);
-    // flex-basis: 100%;
-    // border: 1px solid var(--ui-gray-medium);
     margin-bottom: var(--space-s);
     width: 100%;
 
     @include breakpoint($breakpoint-medium) {
-      // @include space-stack-none;
-      // @include space-inline-s;
-      // flex-basis: 225px;
+      &--small {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 165px;
+      }
+
+      &--medium {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 225px;
+      }
+
+      &--large {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 360px;
+      }
     }
 
     .image-wrap {
@@ -133,6 +142,9 @@
       justify-content: center;
     }
     /* stylelint-enable */
+    .card__body {
+      margin: auto;
+    }
   }
 
   &--with-border {
@@ -175,12 +187,24 @@
         flex: 0 0 225px;
         margin: 0 var(--space-m) 0 0;
         width: 225px;
+
+        &--small {
+          flex: 0 0 165px;
+        }
+
+        &--large {
+          flex: 0 0 360px;
+        }
       }
     }
 
     &.card--image-flip {
       .card__image {
-        margin: 0 0 0 var(--space-m);
+        margin: var(--space-m) 0 0;
+
+        @include breakpoint($breakpoint-medium) {
+          margin: 0 0 0 var(--space-m);
+        }
       }
     }
 

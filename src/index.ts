@@ -11,7 +11,11 @@ export {
   CardHeading,
   CardImage,
 } from "./components/Card/Card";
-export { CardImageRatios, CardLayouts } from "./components/Card/CardTypes";
+export {
+  CardImageRatios,
+  CardImageSizes,
+  CardLayouts,
+} from "./components/Card/CardTypes";
 export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";

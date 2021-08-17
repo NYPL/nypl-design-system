@@ -11,7 +11,7 @@ import { action } from "@storybook/addon-actions";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
-import { CardImageRatios, CardLayouts } from "./CardTypes";
+import { CardImageRatios, CardImageSizes, CardLayouts } from "./CardTypes";
 import Link from "../Link/Link";
 import Heading from "../Heading/Heading";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
@@ -196,6 +196,128 @@ Cards are contained units of information that can stand independently from other
       />
       <CardHeading level={4} id="heading2">
         Image on Right
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+  </div>
+</Preview>
+
+## Image Size
+
+### Vertical Cards
+
+<Preview>
+  <Story name="Card Image Size">
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "4rem",
+        "grid-template-columns": "repeat(1, 1fr)",
+      }}
+    >
+      <Card center>
+        <CardImage
+          src="https://placeimg.com/400/200/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageSize={CardImageSizes.Small}
+        />
+        <CardHeading level={3} id="heading1">
+          Small Image
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card center>
+        <CardImage
+          src="https://placeimg.com/400/200/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageSize={CardImageSizes.Medium}
+        />
+        <CardHeading level={3} id="heading1">
+          Medium Image
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card center>
+        <CardImage
+          src="https://placeimg.com/410/210/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageSize={CardImageSizes.Large}
+        />
+        <CardHeading level={3} id="heading1">
+          Large Image
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+    </div>
+  </Story>
+</Preview>
+
+### Horizontal Cards
+
+<Preview>
+  <div
+    style={{
+      display: "grid",
+      gap: "2rem",
+      "grid-template-columns": "repeat(1, 1fr)",
+    }}
+  >
+    <Card layout={CardLayouts.Horizontal} center>
+      <CardImage
+        src="https://placeimg.com/400/200/animals"
+        alt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageSize={CardImageSizes.Small}
+      />
+      <CardHeading level={4} id="heading1">
+        Small Image (165px)
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+    <Card layout={CardLayouts.Horizontal} center>
+      <CardImage
+        src="https://placeimg.com/410/210/animals"
+        alt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      />
+      <CardHeading level={4} id="heading2">
+        Medium Image (225px - default)
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+    <Card layout={CardLayouts.Horizontal} center>
+      <CardImage
+        src="https://placeimg.com/400/200/animals"
+        alt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageSize={CardImageSizes.Large}
+      />
+      <CardHeading level={4} id="heading1">
+        Large Image (360px)
       </CardHeading>
       <CardContent>
         Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed

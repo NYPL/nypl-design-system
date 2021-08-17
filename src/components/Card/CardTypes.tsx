@@ -8,8 +8,14 @@ export enum CardImageRatios {
   OneByTwo = "one-by-two",
   Original = "original",
   SixteenByNine = "sixteen-by-nine",
+  Square = "square",
   ThreeByFour = "three-by-four",
   ThreeByTwo = "three-by-two",
   TwoByOne = "two-by-one",
-  Square = "square",
+}
+
+export enum CardImageSizes {
+  Large = "large",
+  Medium = "medium",
+  Small = "small",
 }
