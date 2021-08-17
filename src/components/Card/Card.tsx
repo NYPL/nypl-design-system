@@ -177,7 +177,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   foregroundColor && (styles["color"] = foregroundColor);
 
   React.Children.map(children, (child: React.ReactElement) => {
-    if (child.type === CardImage) {
+    if (child.type === CardImage || child.props.mdxType === "CardImage") {
       childImage = child;
       imageCount++;
     } else {

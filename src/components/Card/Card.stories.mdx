@@ -13,6 +13,8 @@ import { ButtonTypes } from "../Button/ButtonTypes";
 import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
 import { CardImageRatios, CardLayouts } from "./CardTypes";
 import Link from "../Link/Link";
+import Heading from "../Heading/Heading";
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import { LinkTypes } from "../Link/LinkTypes";
 import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
 import Icon from "../Icons/Icon";
@@ -58,7 +60,7 @@ Cards are contained units of information that can stand independently from other
 
 <Preview withToolbar>
   <Story
-    name="Card"
+    name="Card Props"
     args={{
       id: "custom-card",
     }}
@@ -103,12 +105,9 @@ Cards are contained units of information that can stand independently from other
           <Link onClick={action("clicked")} href="blah">
             {"#hash1"}
           </Link>
-          ,
-          <Link onClick={action("clicked")} href="blah">
+          ,<Link onClick={action("clicked")} href="blah">
             {"#hash2"}
-          </Link>
-          ,
-          <Link onClick={action("clicked")} href="blah">
+          </Link>,<Link onClick={action("clicked")} href="blah">
             {"#hash3"}
           </Link>
         </CardActions>
@@ -117,102 +116,261 @@ Cards are contained units of information that can stand independently from other
   </Story>
 </Preview>
 
-<ArgsTable story="Card" />
+<ArgsTable story="Card Props" />
 
-## Example Card
+## Image Position
+
+### Vertical Cards
 
 <Preview>
-  <Story name="Example Card">
-    {(args) => (
-      <Card className="example-card">
-        <CardImage src={"https://placeimg.com/300/400/arch"} alt={""} />
-        <CardHeading level={2} id="heading1">
-          The Year of Magical Thinking
-        </CardHeading>
-        <CardContent>
-          <div>Published in New York by Random House</div>
-          <div>Written in English</div>
-          <div>
-            License: Creative Commons Attribution-NonCommercial-NoDerivatives
-            4.0 International
-          </div>
-        </CardContent>
-        <CardActions>
-          <Link type={LinkTypes.Button} href="blah">
-            Reserve
-          </Link>
-          <div className="italicized ui-gray-dark">
-            0 of 11 copies available. 3 patrons in the queue.
-          </div>
-          <Link href="#url" type={LinkTypes.Forwards}>
-            View Book Details
-          </Link>
-        </CardActions>
-      </Card>
-    )}
-  </Story>
-</Preview>
-
-## Horizontal Card example
-
-Horizontal Card example
-
-<Preview withToolbar>
-  <Story name="Horizontal Card">
-    {(args) => (
-      <Card layout="horizontal" border>
+  <Story name="Card Image Position">
+    <div
+      style={{
+        display: "grid",
+        gap: "2rem",
+        "grid-template-columns": "repeat(2, 1fr)",
+      }}
+    >
+      <Card>
         <CardImage
-          src={"https://placeimg.com/200/150/animals"}
+          src="https://placeimg.com/400/200/animals"
           alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
         />
-        <CardHeading level={2} id="heading1">
-          The Year of Magical Thinking
+        <CardHeading level={3} id="heading1">
+          Image on Top default)
         </CardHeading>
-        <CardContent>Secondary content</CardContent>
         <CardContent>
-          <div className="book__callout">A portrait of loss and grief</div>
-          <div>
-            By <Link href="#joan-didion">Joan Didion</Link>,{" "}
-            <Link href="#another-author">Another Author</Link>,{" "}
-            <Link href="#third-author">Third Author</Link>
-          </div>
-          <div className="book__filetype">
-            <Icon
-              name={IconNames.headset}
-              decorative={true}
-              modifiers={["left", "small"]}
-              iconRotation={IconRotationTypes.rotate0}
-            ></Icon>
-            Audiobook
-          </div>
-          <div className="book__description">
-            An act of consummate literary bravery, a writer known for her
-            clarity allowing us to watch her mind as it becomes clouded...{" "}
-            <Link href="#">Read More</Link>
-          </div>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
         </CardContent>
-        <CardActions>
-          <Link type={LinkTypes.Button} href="blah">
-            Reserve
-          </Link>
-          <div className="italicized ui-gray-dark">
-            0 of 11 copies available. 3 patrons in the queue.
-          </div>
-          <Link href="#url" type={LinkTypes.Forwards}>
-            View Book Details
-          </Link>
-        </CardActions>
       </Card>
-    )}
+      <Card imageFlip>
+        <CardImage
+          src="https://placeimg.com/410/210/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={3} id="heading1">
+          Image on Bottom
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+    </div>
   </Story>
 </Preview>
 
-## Custom Image Cpomnent
+### Horizontal Cards
 
-Using a custom image component.
+<Preview>
+  <div
+    style={{
+      display: "grid",
+      gap: "2rem",
+      "grid-template-columns": "repeat(1, 1fr)",
+    }}
+  >
+    <Card layout={CardLayouts.Horizontal} center>
+      <CardImage
+        src="https://placeimg.com/400/200/animals"
+        alt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      />
+      <CardHeading level={4} id="heading1">
+        Image on Left (default)
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+    <Card layout={CardLayouts.Horizontal} center imageFlip>
+      <CardImage
+        src="https://placeimg.com/410/210/animals"
+        alt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      />
+      <CardHeading level={4} id="heading2">
+        Image on Right
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+  </div>
+</Preview>
+
+## Cards in a Grid
+
+<Preview>
+  <Story name="Cards in a Grid">
+    <div
+      style={{
+        display: "grid",
+        gap: "2rem",
+        "grid-template-columns": "repeat(3, 1fr)",
+      }}
+    >
+      <Card>
+        <CardImage
+          src="https://placeimg.com/400/200/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card>
+        <CardImage
+          src="https://placeimg.com/410/210/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card>
+        <CardImage
+          src="https://placeimg.com/420/220/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card>
+        <CardImage
+          src="https://placeimg.com/430/230/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card>
+        <CardImage
+          src="https://placeimg.com/440/240/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card>
+        <CardImage
+          src="https://placeimg.com/450/250/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+    </div>
+  </Story>
+</Preview>
+
+## Cards in a List
+
+<Preview>
+  <Story name="Cards in a List">
+    <div
+      style={{
+        display: "grid",
+        gap: "2rem",
+        "grid-template-columns": "repeat(1, 1fr)",
+      }}
+    >
+      <Card layout={CardLayouts.Horizontal} center>
+        <CardImage
+          src="https://placeimg.com/400/200/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={4} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card layout={CardLayouts.Horizontal} center>
+        <CardImage
+          src="https://placeimg.com/410/210/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={4} id="heading2">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card layout={CardLayouts.Horizontal} center>
+        <CardImage
+          src="https://placeimg.com/420/220/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        />
+        <CardHeading level={4} id="heading3">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+    </div>
+  </Story>
+</Preview>
+
+## Custom Image Component
+
+Instead of passing a path for the `src` prop, you can pass a custom image component in using the `component` prop.
 
 <Preview withToolbar>
-  <Story name="Custom Image Cpomnent">
+  <Story name="Custom Image Component">
     {(args) => (
       <Card>
         <CardImage
