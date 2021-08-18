@@ -1,5 +1,3 @@
-export type Dict<T = any> = Record<string, T>;
-
 const Button = {
   // style object for base or default style
   baseStyle: {

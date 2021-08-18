@@ -1,90 +1,39 @@
-// @mixin button-base {
-//   border-radius: 2px !important;
-//   cursor: pointer;
-//   display: flex;
-//   justify-content: center;
-//   padding: var(--space-xs) var(--space-s) !important;
-//   text-decoration: none;
-// }
+// Keeping `button-base` and `button--outline` for the
+// Accordion component until that component is updated.
+@mixin button-base {
+  border-radius: 2px !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xs) var(--space-s) !important;
+  text-decoration: none;
+}
 
-// @mixin button--filled {
-//   @include button-base;
+@mixin button--outline {
+  @include button-base;
 
-//   background-color: var(--ui-link-primary);
-//   border: none;
-//   color: var(--ui-white);
+  background-color: var(--ui-white);
+  border: 1px solid var(--ui-gray-light);
+  color: inherit;
 
-//   &:visited {
-//     color: var(--ui-white);
-//   }
+  &:visited {
+    color: inherit;
+  }
 
-//   &:hover {
-//     background-color: var(--ui-link-secondary);
-//   }
+  &:hover {
+    background-color: var(--ui-gray-xxlight);
+  }
 
-//   &:disabled {
-//     background-color: var(--ui-gray-light);
-//     color: var(--ui-gray-dark);
-//     pointer-events: none;
-//   }
-// }
-
-// @mixin button--outline {
-//   @include button-base;
-
-//   background-color: var(--ui-white);
-//   border: 1px solid var(--ui-gray-light);
-//   color: inherit;
-
-//   &:visited {
-//     color: inherit;
-//   }
-
-//   &:hover {
-//     background-color: var(--ui-gray-xxlight);
-//   }
-
-//   &:disabled {
-//     background-color: var(--ui-gray-light);
-//     color: var(--ui-gray-dark);
-//     pointer-events: none;
-//   }
-// }
-
-// @mixin button--link {
-//   background-color: transparent;
-//   color: var(--ui-link-primary) !important;
-//   text-decoration: underline;
-
-//   &--no-underline {
-//     text-decoration: none;
-//   }
-
-//   &:hover {
-//     background-color: transparent;
-//     color: var(--ui-link-secondary) !important;
-//   }
-
-//   &:disabled {
-//     background-color: transparent;
-//     color: var(--ui-gray-dark);
-//     pointer-events: none;
-//   }
-// }
-
-// @mixin button--pill {
-//   @include button-base;
-//   @include button--outline;
-
-//   border-radius: 20px !important;
-//   padding: var(--space-xs) var(--space-m) !important;
-// }
+  &:disabled {
+    background-color: var(--ui-gray-light);
+    color: var(--ui-gray-dark);
+    pointer-events: none;
+  }
+}
 
 .button {
-  //   height: auto !important;
-  //   &:disabled {
-  //     opacity: 1 !important;
-  //   }
+  // These `icon` rules are a better fit for the Icon
+  // component but we'll keep them here for now.
   .icon {
     @include icon;
 
@@ -98,21 +47,4 @@
       margin-left: var(--space-xs);
     }
   }
-  //   @include button--filled;
-
-  //   &--link {
-  //     @include button--link;
-  //   }
-
-  //   &--outline {
-  //     @include button--outline;
-  //   }
-
-  //   &--pill {
-  //     @include button--pill;
-  //   }
-
-  //   &--icon-only {
-  //     padding: var(--space-xs) !important;
-  //   }
 }

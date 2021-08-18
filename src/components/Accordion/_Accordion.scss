@@ -16,7 +16,7 @@
   }
 
   &__label {
-    // @include button--outline;
+    @include button--outline;
 
     align-items: center;
     border: none;

@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Integrates Chakra-UI into the codebase.
+- Composes the DS `Button` component from Chakra's `Button` component.
 
 ### Changes
 
