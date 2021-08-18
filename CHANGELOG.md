@@ -8,10 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `DatePicker` component.
+
 ### Changes
 
 - Exports `VideoPlayerAspectRatios`.
-- Adds additional props for the DatePicker component based on its TAD Addendum section.
+- Adds additional props for the `DatePicker` component based on its TAD Addendum section.
+- Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
 
 ## 0.23.4
 
