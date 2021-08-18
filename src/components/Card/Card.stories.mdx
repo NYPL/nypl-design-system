@@ -127,7 +127,7 @@ Cards are contained units of information that can stand independently from other
     <div
       style={{
         display: "grid",
-        gap: "2rem",
+        "grid-gap": "2rem",
         "grid-template-columns": "repeat(2, 1fr)",
       }}
     >
@@ -169,7 +169,7 @@ Cards are contained units of information that can stand independently from other
   <div
     style={{
       display: "grid",
-      gap: "2rem",
+      "grid-gap": "2rem",
       "grid-template-columns": "repeat(1, 1fr)",
     }}
   >
@@ -223,7 +223,7 @@ Cards are contained units of information that can stand independently from other
         <CardImage
           src="https://placeimg.com/400/200/animals"
           alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={CardImageRatios.Square}
           imageSize={CardImageSizes.Small}
         />
         <CardHeading level={3} id="heading1">
@@ -238,7 +238,7 @@ Cards are contained units of information that can stand independently from other
         <CardImage
           src="https://placeimg.com/400/200/animals"
           alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={CardImageRatios.Square}
           imageSize={CardImageSizes.Medium}
         />
         <CardHeading level={3} id="heading1">
@@ -253,11 +253,25 @@ Cards are contained units of information that can stand independently from other
         <CardImage
           src="https://placeimg.com/410/210/animals"
           alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={CardImageRatios.Square}
           imageSize={CardImageSizes.Large}
         />
         <CardHeading level={3} id="heading1">
           Large Image
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card center>
+        <CardImage
+          src="https://placeimg.com/410/210/animals"
+          alt="Alt text"
+          imageAspectRatio={CardImageRatios.Square}
+        />
+        <CardHeading level={3} id="heading1">
+          Default Image
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -274,7 +288,7 @@ Cards are contained units of information that can stand independently from other
   <div
     style={{
       display: "grid",
-      gap: "2rem",
+      "grid-gap": "2rem",
       "grid-template-columns": "repeat(1, 1fr)",
     }}
   >
@@ -299,9 +313,10 @@ Cards are contained units of information that can stand independently from other
         src="https://placeimg.com/410/210/animals"
         alt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
+        imageSize={CardImageSizes.Medium}
       />
       <CardHeading level={4} id="heading2">
-        Medium Image (225px - default)
+        Medium Image (225px)
       </CardHeading>
       <CardContent>
         Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
@@ -325,6 +340,21 @@ Cards are contained units of information that can stand independently from other
         facilisis in, egestas eget quam.
       </CardContent>
     </Card>
+    <Card layout={CardLayouts.Horizontal} center>
+      <CardImage
+        src="https://placeimg.com/410/210/animals"
+        alt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      />
+      <CardHeading level={4} id="heading2">
+        Default Image
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
   </div>
 </Preview>
 
@@ -335,7 +365,7 @@ Cards are contained units of information that can stand independently from other
     <div
       style={{
         display: "grid",
-        gap: "2rem",
+        "grid-gap": "2rem",
         "grid-template-columns": "repeat(3, 1fr)",
       }}
     >
@@ -434,7 +464,7 @@ Cards are contained units of information that can stand independently from other
     <div
       style={{
         display: "grid",
-        gap: "2rem",
+        "grid-gap": "2rem",
         "grid-template-columns": "repeat(1, 1fr)",
       }}
     >
