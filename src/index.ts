@@ -1,11 +1,24 @@
 import "./styles.scss";
 
+// Note that the NYPL Design System directly re-exports the following
+// components for usage in consuming applications.
+export {
+  Box,
+  Center,
+  Circle,
+  Square,
+  Stack,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button, ButtonGroup } from "./components/Button/Button";
 export { ButtonTypes } from "./components/Button/ButtonTypes";
 export { default as Card } from "./components/Card/Card";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
+export { default as DatePicker } from "./components/DatePicker/DatePicker";
+export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";
 export { HeadingDisplaySizes } from "./components/Heading/HeadingDisplaySizes";

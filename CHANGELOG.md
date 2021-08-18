@@ -11,11 +11,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Integrates Chakra-UI into the codebase.
+- Exports Chakra's `Box`, `Center`, `Circle`, `Square`, `Stack`, `HStack`, and `VStack` components.
 - Composes the DS `Button` component from Chakra's `Button` component.
 
 ### Changes
 
 - Exports `VideoPlayerAspectRatios`
+- Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
 
 ## 0.23.4
 

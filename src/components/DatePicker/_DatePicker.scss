@@ -1,0 +1,5 @@
+.datePicker {
+  .sr-only {
+    @include screenreader-only();
+  }
+}

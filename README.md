@@ -16,11 +16,12 @@ Storybook documentation
 | 1.                | [Contributing Quickstart](#contributing-quickstart)                                 |
 | 2.                | [Developing with NPM Link](#developing-with-npm-link)                               |
 | 3.                | [Using the Design System in Your Product](#using-the-design-system-in-your-product) |
-| 4.                | [CDN](#cdn)                                                                         |
-| 5.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
-| 6.                | [Storybook](#storybook)                                                             |
-| 7.                | [Typescript Usage](#typescript-usage)                                               |
-| 8.                | [Unit Testing](#unit-testing)                                                       |
+| 4.                | [Using Chakra UI Components](#using-chakra-ui-components)                           |
+| 5.                | [CDN](#cdn)                                                                         |
+| 6.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
+| 7.                | [Storybook](#storybook)                                                             |
+| 8.                | [Typescript Usage](#typescript-usage)                                               |
+| 9.                | [Unit Testing](#unit-testing)                                                       |
 
 ## Contributing Quickstart
 
@@ -142,16 +143,11 @@ Some CSS rules in the Design System, such as the universal focus styling and the
 </div>
 ```
 
-4. Import the `DSProvider` for Chakra-based components
+4. Import the `DSProvider` component
 
-As we start to integrate and compose DS components from Chakra components, we need to get the styles for those components. In order to do so, we need to wrap all the DS components that internally use Chakra with a simple provider component.
+While the Chakra UI integration into the DS is a work-in-progress, there is one necessary step consuming applications need to take for component styles to properly render. In order render styles properly, consuming applications need to wrap all the DS components with a simple provider component. Fortunately, this only needs to be done once at the top level of the consuming application.
 
-For now, only a few components will need this provider but as we migrate more components to use a similar pattern of styling, the provider will prove to be useful.
-
-You will want to import the `DSProvider` at the root of your application so that:
-
-- it is only imported once
-- provides the theme for all DS components
+Once the following is completed, DS components that internally use Chakra UI will render styles properly.
 
 ```jsx
 // your main application file
@@ -186,6 +182,16 @@ Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds
   <NYPLFooter />
 </body>
 ```
+
+## Using Chakra UI Components
+
+The Chakra UI component library is integrated into the NYPL Design System and is currently a work-in-progress. We
+are in the middle of the process of using Chakra components and patterns to build
+DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra,
+the DS package itself will export _some_ Chakra components.
+
+The list of re-exported Chakra components can be found in the main
+[index.ts](/index.ts) file.
 
 ## CDN
 
@@ -266,7 +272,7 @@ You can then view `/storybook-static/index.html` in your browser. _Make sure not
 
 ## Typescript Usage
 
-The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/typescript.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
+The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/TYPESCRIPT.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
 
 ## Unit Testing
 
