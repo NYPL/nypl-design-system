@@ -47,9 +47,13 @@ import { DatePickerTypes } from "./DatePickerTypes";
       dateType: DatePickerTypes.Full,
       dateFormat: "yyyy-MM-dd",
       dateRange: false,
+      initialDate: "1/1/2021",
+      minDate: "1/1/2021",
+      maxDate: "1/1/2022",
       nameFrom: "visit-dates",
       labelText: "Select the date you want to visit NYPL",
       helperText: "Note that the Library may be closed on Sundays.",
+      helperTextFrom: "Select start date.",
       helperTextTo: "Select end date.",
       errorText: "Please select a valid date.",
       showLabel: true,
@@ -73,6 +77,10 @@ elements will share the props and styling. Note that for date range types, a
 `fieldset` is used as the parent wrapper and the `labelText` is used for the
 `legend` element text.
 
+Note: In the following example, the minimum date is "1/1/2021" and the max date
+is "1/1/22". This means only values within this range are selectable from the
+popup calendar.
+
 <Canvas withToolbar>
   <Story name="Date Range">
     <DatePicker
@@ -80,10 +88,13 @@ elements will share the props and styling. Note that for date range types, a
       dateType={DatePickerTypes.Full}
       dateFormat="yyyy-MM-dd"
       dateRange={true}
+      minDate="1/1/2021"
+      maxDate="1/1/2022"
       labelText="Select the date range you want to visit NYPL"
       nameFrom="visit-dates"
-      helperText="From this date."
+      helperTextFrom="From this date."
       helperTextTo="To this date."
+      helperText="Select a valid date range."
       errorText="Please select a valid date range."
     />
   </Story>

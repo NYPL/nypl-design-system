@@ -81,6 +81,18 @@ describe("DatePicker", () => {
       expect(screen.getByDisplayValue(date)).toBeInTheDocument();
     });
 
+    it("should render with an initial date", () => {
+      render(
+        <DatePicker
+          labelText="Select the full date you want to visit NYPL"
+          initialDate="1/2/1988"
+        />
+      );
+      const date = screen.getByDisplayValue("1988-01-02");
+
+      expect(date).toBeInTheDocument();
+    });
+
     it("should render the 'month' DatePicker type", () => {
       render(
         <DatePicker
@@ -185,9 +197,10 @@ describe("DatePicker", () => {
           errored={true}
         />
       );
+      // We expect both the error message and helper text to appear.
       expect(
         screen.queryByText("Note that the Library may be closed on Sundays.")
-      ).not.toBeInTheDocument();
+      ).toBeInTheDocument();
       expect(
         screen.getByText("Please select a valid date.")
       ).toBeInTheDocument();
@@ -306,12 +319,29 @@ describe("DatePicker", () => {
       expect(screen.getAllByDisplayValue(date)).toHaveLength(2);
     });
 
-    it("should render two input labels and two separate helper text", () => {
+    it("should render the initial dates", () => {
+      render(
+        <DatePicker
+          labelText="Select the full date you want to visit NYPL"
+          dateRange={true}
+          initialDate="1/2/1988"
+          initialDateTo="3/4/1990"
+        />
+      );
+      const dateFrom = screen.getByDisplayValue("1988-01-02");
+      const dateTo = screen.getByDisplayValue("1990-03-04");
+
+      expect(dateFrom).toBeInTheDocument();
+      expect(dateTo).toBeInTheDocument();
+    });
+
+    it("should render two input labels and three separate helper text", () => {
       render(
         <DatePicker
           dateRange={true}
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
+          helperTextFrom="Note for the 'from' field."
           helperTextTo="Note for the 'to' field."
           errorText="Please select a valid date range."
         />
@@ -319,9 +349,13 @@ describe("DatePicker", () => {
       // There are two labels for each input.
       expect(screen.getByText("From")).toBeInTheDocument();
       expect(screen.getByText("To")).toBeInTheDocument();
-      // Helper text for the "From" input
+      // Helper text for the component
       expect(
         screen.getByText(/Note that the Library may be closed on Sundays./i)
+      ).toBeInTheDocument();
+      // Helper text for the "From" input
+      expect(
+        screen.getByText(/Note for the 'from' field./i)
       ).toBeInTheDocument();
       // Helper text for the "To" input
       expect(screen.getByText(/Note for the 'to' field./i)).toBeInTheDocument();
