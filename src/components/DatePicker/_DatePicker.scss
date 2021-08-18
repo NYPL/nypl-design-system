@@ -1,5 +1,50 @@
+fieldset {
+  legend {
+    @include space-stack-xs;
+  }
+
+  &.datePicker {
+    @include fieldset-reset;
+  }
+}
+
 .datePicker {
   .sr-only {
     @include screenreader-only();
+  }
+
+  .datepicker-calendar {
+    // Make sure the width is enough to fit 12 selectable years
+    .react-datepicker__year-wrapper {
+      max-width: 220px;
+    }
+
+    // Moving away from React DatePickers default blue color theme:
+    .react-datepicker__year,
+    .react-datepicker__month,
+    .react-datepicker__day {
+      // For currently selected ranges
+      &--in-range.react-datepicker__day--in-range {
+        opacity: 0.5;
+      }
+
+      // For ranges about to be selected
+      &-text--keyboard-selected,
+      &--keyboard-selected,
+      &--in-range,
+      &--in-selecting-range {
+        color: $white;
+        background-color: $black;
+        opacity: 0.3;
+      }
+
+      // Selected states
+      &-text--selected,
+      &--selected {
+        color: $white;
+        background-color: $black;
+        opacity: 1;
+      }
+    }
   }
 }

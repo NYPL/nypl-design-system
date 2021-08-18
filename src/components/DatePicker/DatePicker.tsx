@@ -1,6 +1,7 @@
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
+import { FormRow, FormField } from "../Form/Form";
 import { DatePickerTypes } from "./DatePickerTypes";
 import TextInput, {
   InputProps,
@@ -9,12 +10,15 @@ import TextInput, {
 import generateUUID from "../../helpers/generateUUID";
 import bem from "../../utils/bem";
 
-// Interface used by the `div` or `fieldset` parent wrapper element.
-interface DatePickerWrapperProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+interface DateRangeRowProps {
   /** Whether to render a single date input or two for a range of two dates. */
   dateRange?: boolean;
+}
+
+// Interface used by the `div` or `fieldset` parent wrapper element.
+interface DatePickerWrapperProps extends DateRangeRowProps {
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Passed to the `TextInput` component to render a label associated with an input field. */
   labelText: string;
   /** Offers the ability to show the label onscreen or hide it. */
@@ -136,6 +140,15 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
   );
 
 /**
+ * This is the wrapper component that conditionally renders the input fields
+ * in a `FormRow` only for date range options. This is used for a better visual
+ * layout for the two side-by-side date input fields.
+ * @note This is only used internally for this file.
+ */
+const DateRangeRow: React.FC<DateRangeRowProps> = ({ dateRange, children }) =>
+  dateRange ? <FormRow>{children}</FormRow> : <>{children}</>;
+
+/**
  * Returns a single date input field or two date input fields for a date range.
  */
 function DatePicker(props: React.PropsWithChildren<DatePickerProps>) {
@@ -164,6 +177,8 @@ function DatePicker(props: React.PropsWithChildren<DatePickerProps>) {
   const yearsToDisplay = 12;
   // Both ReactDatePicker components share some props.
   let baseDatePickerAttrs = {
+    popperClassName: "datepicker-calendar",
+    popperPlacement: "bottom",
     dateFormat,
     disabled,
   };
@@ -217,8 +232,9 @@ function DatePicker(props: React.PropsWithChildren<DatePickerProps>) {
     endDatePickerAttrs = {
       ...baseDatePickerAttrs,
       selectsEnd: true,
-      startDate: endDate,
       minDate: startDate,
+      startDate,
+      endDate,
     };
     startLabelText = "From";
     endDatePickerElement = (
@@ -260,8 +276,11 @@ function DatePicker(props: React.PropsWithChildren<DatePickerProps>) {
       labelText={labelText}
       className={bem("datePicker", modifiers, blockName, [className])}
     >
-      {startDatePickerElement}
-      {endDatePickerElement}
+      <DateRangeRow dateRange={dateRange}>
+        <FormField>{startDatePickerElement}</FormField>
+
+        {endDatePickerElement && <FormField>{endDatePickerElement}</FormField>}
+      </DateRangeRow>
     </DatePickerWrapper>
   );
 }
