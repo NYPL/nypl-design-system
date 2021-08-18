@@ -3,25 +3,22 @@ fieldset {
     @include space-stack-xs;
   }
 
-  &.datePicker {
+  &.date-picker {
     @include fieldset-reset;
-    margin-bottom: var(--space-m);
   }
 }
 
-.datePicker {
-  margin-bottom: var(--space-m);
-
+.date-picker {
   .sr-only {
     @include screenreader-only();
   }
 
   .form-row,
   .form-field {
-    margin-bottom: var(--space-xxs);
+    margin-bottom: 0;
   }
 
-  .datepicker-calendar {
+  .date-picker-calendar {
     // Make sure the width is enough to fit 12 selectable years
     .react-datepicker__year-wrapper {
       max-width: 220px;

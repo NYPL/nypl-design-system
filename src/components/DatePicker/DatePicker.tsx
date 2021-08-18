@@ -173,12 +173,12 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
   children,
 }) =>
   dateRange ? (
-    <fieldset id={`dateRange-${id}`} className={className}>
+    <fieldset id={`date-range-${id}`} className={className}>
       <legend className={showLabel ? "" : "sr-only"}>{labelText}</legend>
       {children}
     </fieldset>
   ) : (
-    <div id={`dateRange-${id}`} className={className}>
+    <div id={`date-range-${id}`} className={className}>
       {children}
     </div>
   );
@@ -242,7 +242,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     const yearsToDisplay = 12;
     // Both ReactDatePicker components share some props.
     let baseDatePickerAttrs = {
-      popperClassName: "datepicker-calendar",
+      popperClassName: "date-picker-calendar",
       popperPlacement: "bottom",
       minDate: minDate ? new Date(minDate) : null,
       maxDate: maxDate ? new Date(maxDate) : null,
@@ -353,7 +353,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
         dateRange={dateRange}
         showLabel={showLabel}
         labelText={labelText}
-        className={bem("datePicker", modifiers, blockName, [className])}
+        className={bem("date-picker", modifiers, blockName, [className])}
       >
         <DateRangeRow dateRange={dateRange}>
           <FormField>{startDatePickerElement}</FormField>
