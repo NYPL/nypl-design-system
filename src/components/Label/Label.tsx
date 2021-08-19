@@ -32,8 +32,8 @@ export default function Label(props: React.PropsWithChildren<LabelProps>) {
     className,
     htmlFor,
     id,
-    optReqFlag,
     modifiers = [],
+    optReqFlag,
   } = props;
   const baseClass = "label";
   const labelAttributes = {
