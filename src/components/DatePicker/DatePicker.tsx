@@ -214,7 +214,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       nameFrom,
       nameTo,
       blockName,
-      modifiers,
+      modifiers = [],
       className,
       refTo,
       onChange,
@@ -243,7 +243,15 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     // Both ReactDatePicker components share some props.
     let baseDatePickerAttrs = {
       popperClassName: "date-picker-calendar",
-      popperPlacement: "bottom",
+      popperPlacement: "bottom-start",
+      popperModifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, -8],
+          },
+        },
+      ],
       minDate: minDate ? new Date(minDate) : null,
       maxDate: maxDate ? new Date(maxDate) : null,
       dateFormat,
@@ -257,7 +265,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       showLabel: dateRange ? true : showLabel,
       disabled,
       errored,
-      helperText: helperTextFrom,
+      helperText: dateRange ? helperTextFrom : helperText,
       errorText,
     };
     let startDatePickerAttrs = {};
@@ -294,6 +302,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     // A date range is selected. We must now update the props for the start/"from"
     // input component and render an end/"To" input component.
     if (dateRange) {
+      modifiers.push("date-range");
       const endCustomTextInputAttrs = {
         ...baseCustomTextInputAttrs,
         helperText: helperTextTo,
@@ -362,7 +371,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
             <FormField>{endDatePickerElement}</FormField>
           )}
         </DateRangeRow>
-        {helperText && (
+        {helperText && dateRange && (
           <HelperErrorText isError={false}>{helperText}</HelperErrorText>
         )}
       </DatePickerWrapper>

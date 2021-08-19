@@ -1,10 +1,19 @@
 fieldset {
   legend {
     @include space-stack-xs;
+
+    font-weight: var(--font-weight-medium);
   }
 
   &.date-picker {
     @include fieldset-reset;
+  }
+
+  .label,
+  .label__required-helper {
+    font-size: var(--font-size--2);
+    font-weight: var(--font-weight-regular);
+    margin-bottom: 0;
   }
 }
 
@@ -16,6 +25,10 @@ fieldset {
   .form-row,
   .form-field {
     margin-bottom: 0;
+  }
+
+  .react-datepicker-wrapper {
+    width: 100%;
   }
 
   .date-picker-calendar {
@@ -38,18 +51,25 @@ fieldset {
       &--keyboard-selected,
       &--in-range,
       &--in-selecting-range {
-        color: $white;
         background-color: $black;
+        border-radius: 0;
+        color: $white;
         opacity: 0.3;
       }
 
       // Selected states
       &-text--selected,
       &--selected {
-        color: $white;
         background-color: $black;
+        border-radius: 0;
+        color: $white;
         opacity: 1;
       }
+    }
+
+    // Shift the traingle to the left
+    .react-datepicker__triangle {
+      transform: translate(32px, 0px) !important;
     }
   }
 }
