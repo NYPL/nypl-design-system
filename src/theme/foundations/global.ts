@@ -1,17 +1,10 @@
-/**
- * These rules affect all the global elements on the `body` element of the
- * page when the `DSProvider` component is used. This means that even if the
- * `nypl-ds` CSS class name is not used in a consuming application, these
- * rules will still take effect.
- */
 const global = {
-  // styles for the `body` element
+  // styles for the `body`
   body: {
-    bg: "ui.white",
-    color: "ui.black",
-    fontFamily: "body",
+    bg: "white",
+    color: "black",
   },
-  // styles for the `a` element
+  // styles for the `a`
   a: {
     color: "ui.link.primary",
   },

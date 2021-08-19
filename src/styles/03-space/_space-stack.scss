@@ -1,13 +1,11 @@
-/**
- * --space-xxs: calc(--space / 4);   //  4px
- * --space-xs: calc(--space / 2);    //  8px
- * --space-s: calc(--space * 1);     // 16px
- * --space-m: calc(--space * 1.5);   // 24px
- * --space-l: calc(--space * 2);     // 32px
- * --space-xl: calc(--space * 3);    // 48px
- * --space-xxl: calc(--space * 4);   // 64px
- * --space-xxxl: -calc(-space * 6);  // 96px
- */
+// --space-xxs: calc(--space/4);   //  4px
+// --space-xs: calc(--space/2);    //  8px
+// --space-s: calc(--space*1);     // 16px
+// --space-m: calc(--space*1.5);   // 24px
+// --space-l: calc(--space*2);     // 32px
+// --space-xl: calc(--space*3);    // 48px
+// --space-xxl: calc(--space*4);   // 64px
+// --space-xxxl: -calc(-space*6);  // 96px
 
 @mixin space-stack-none {
   margin-bottom: 0;

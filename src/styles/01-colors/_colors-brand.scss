@@ -49,6 +49,10 @@ $colors: (
   research-library-schwartzman: $research-library-schwartzman,
 );
 
+/* CSS Color Classes*/
+@include color-classes($colors_brand);
+@include color-classes($colors);
+
 /* CSS Variables/Custom Properties */
 :root {
   @include css-vars($colors_brand, "brand");

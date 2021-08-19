@@ -59,6 +59,9 @@ $colors: (
   warning-secondary: $warning-secondary,
 );
 
+/* Color Classes*/
+@include color-classes($colors);
+
 /* CSS Variables/Custom Properties */
 :root {
   @include css-vars($colors, "ui");
