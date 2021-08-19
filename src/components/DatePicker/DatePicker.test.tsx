@@ -179,6 +179,7 @@ describe("DatePicker", () => {
         />
       );
 
+      // When not errored, we expect only the helper text to appear.
       expect(
         screen.getByLabelText(/Select the date you want to visit NYPL/i)
       ).toBeInTheDocument();
@@ -197,10 +198,10 @@ describe("DatePicker", () => {
           errored={true}
         />
       );
-      // We expect both the error message and helper text to appear.
+      // When errored, we expect only the error text to appear.
       expect(
         screen.queryByText("Note that the Library may be closed on Sundays.")
-      ).toBeInTheDocument();
+      ).not.toBeInTheDocument();
       expect(
         screen.getByText("Please select a valid date.")
       ).toBeInTheDocument();
