@@ -173,7 +173,7 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
   children,
 }) =>
   dateRange ? (
-    <fieldset id={`date-range-${id}`} className={className}>
+    <fieldset id={`date-range-${id}`} className={`${className} date-range`}>
       <legend className={showLabel ? "" : "sr-only"}>{labelText}</legend>
       {children}
     </fieldset>
@@ -243,7 +243,15 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     // Both ReactDatePicker components share some props.
     let baseDatePickerAttrs = {
       popperClassName: "date-picker-calendar",
-      popperPlacement: "bottom",
+      popperPlacement: "bottom-start",
+      popperModifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, -8],
+          },
+        },
+      ],
       minDate: minDate ? new Date(minDate) : null,
       maxDate: maxDate ? new Date(maxDate) : null,
       dateFormat,
@@ -257,7 +265,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       showLabel: dateRange ? true : showLabel,
       disabled,
       errored,
-      helperText: helperTextFrom,
+      helperText: dateRange ? helperTextFrom : helperText,
       errorText,
     };
     let startDatePickerAttrs = {};
@@ -362,7 +370,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
             <FormField>{endDatePickerElement}</FormField>
           )}
         </DateRangeRow>
-        {helperText && (
+        {helperText && dateRange && (
           <HelperErrorText isError={false}>{helperText}</HelperErrorText>
         )}
       </DatePickerWrapper>
