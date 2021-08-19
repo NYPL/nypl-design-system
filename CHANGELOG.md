@@ -14,10 +14,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports Chakra's `Box`, `Center`, `Circle`, `Square`, `Stack`, `HStack`, and `VStack` components.
 - Composes the DS `Button` component from Chakra's `Button` component.
 
+### Removes
+
+- Removes the `color-classes` SCSS mixin.
+
 ### Changes
 
 - Exports `VideoPlayerAspectRatios`
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
+- Moved SCSS and CSS variable styles into a custom NYPL theme to extend Chakra's base theme.
 
 ## 0.23.4
 
