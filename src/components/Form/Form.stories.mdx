@@ -35,6 +35,11 @@ import { action } from "@storybook/addon-actions";
 
 # Form
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.2`   |
+| Latest            | `0.24.0`   |
+
 <Description of={Form} />
 
 The `Form` component renders a standard `<form>` element and should be used to handle layout and spacing for child input fields. `FormRow` and `FormField` components should be used to build the `<form>` struture and to arrange input fields as needed.
@@ -144,11 +149,8 @@ The `Form` component renders a standard `<form>` element and should be used to h
 
 ### Example Code
 
-```
-<Form
-  action="/end/point"
-  method="get"
->
+```jsx
+<Form action="/end/point" method="get">
   <FormField>
     <TextInput
       labelText="Username"
