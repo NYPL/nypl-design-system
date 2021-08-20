@@ -154,7 +154,7 @@ The `Form` component renders a standard `<form>` element and should be used to h
 export const formRow = (size) => {
   const labelText = `Size: ${size}`;
   return (
-    <>
+    <li>
       <Heading level={3}>{labelText}</Heading>
       <Form spacing={size}>
         <FormRow>
@@ -194,7 +194,7 @@ export const formRow = (size) => {
         </FormRow>
       </Form>
       <HorizontalRule />
-    </>
+    </li>
   );
 };
 export const sizes = [];
