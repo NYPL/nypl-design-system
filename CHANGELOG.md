@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports `VideoPlayerAspectRatios`.
 - Adds additional props for the `DatePicker` component based on its TAD Addendum section.
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
+- Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
 
 ## 0.23.4
 
@@ -142,7 +143,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `--ui-success` CSS variable and adds `--ui-success-primary` and `--ui-success-secondary`
 - Removes `checkboxId` prop from `Checkbox` component and employs `id` in its place.
 - Removes `defaultChecked` prop from `Checkbox` component.
-- Removed `labelOptions` porp from `Checkbox` component and employs `labelText` in its place.
+- Removed `labelOptions` prop from `Checkbox` component and employs `labelText` in its place.
 
 ### Changes
 

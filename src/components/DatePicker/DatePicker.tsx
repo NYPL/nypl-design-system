@@ -54,6 +54,8 @@ interface CustomTextInputProps extends InputProps {
   /** The ReactDatePicker plugin manipulates the ref value so we declare our
    * own for some cases. */
   dsRef?: React.Ref<TextInputRefType>;
+  /** Whether or not to display the "Required"/"Optional" text in the label text. */
+  showOptReqLabel?: boolean;
 }
 
 // Main interface for the exported DS DatePicker component.
@@ -88,6 +90,8 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   errored?: boolean;
   /** Adds the 'required' property to the input element(s). */
   required?: boolean;
+  /** Whether or not to display the "Required"/"Optional" text in the label text. */
+  showOptReqLabel?: boolean;
   /** Adds the 'disabled' property to the input element(s). */
   disabled?: boolean;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM
@@ -128,6 +132,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       labelText,
       disabled,
       dsRequired,
+      showOptReqLabel,
       errored,
       helperText,
       errorText,
@@ -146,6 +151,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       labelText={labelText}
       disabled={disabled}
       required={dsRequired}
+      showOptReqLabel={showOptReqLabel}
       errored={errored}
       helperText={helperText}
       errorText={errorText}
@@ -210,6 +216,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       errorText,
       errored,
       required,
+      showOptReqLabel = true,
       disabled,
       nameFrom,
       nameTo,
@@ -260,6 +267,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     // Both TextInput components share some props.
     let baseCustomTextInputAttrs = {
       dsRequired: required,
+      showOptReqLabel,
       // Always display the labels or the input fields when
       // the DatePicker component is a `dateRange` type.
       showLabel: dateRange ? true : showLabel,

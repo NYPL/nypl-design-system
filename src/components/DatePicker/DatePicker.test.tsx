@@ -298,6 +298,19 @@ describe("DatePicker", () => {
         "React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
       );
     });
+
+    it("should not render a required label if the 'showOptReqLabel' flag is false", () => {
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          helperText="Note that the Library may be closed on Sundays."
+          required={true}
+          showOptReqLabel={false}
+        />
+      );
+
+      expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
+    });
   });
 
   describe("Date Range", () => {
@@ -436,9 +449,9 @@ describe("DatePicker", () => {
       // Now select the "To" date.
       userEvent.click(toInput);
       // The popup displays.
-      userEvent.click(screen.getByText("25"));
+      userEvent.click(screen.getByText("27"));
 
-      const newToValue = `${date.slice(0, -2)}25`;
+      const newToValue = `${date.slice(0, -2)}27`;
       expect(screen.getByDisplayValue(newToValue)).toBeInTheDocument();
       // The original date value is no longer in display.
       expect(screen.queryAllByDisplayValue(date)).toHaveLength(0);

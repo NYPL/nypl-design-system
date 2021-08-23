@@ -65,6 +65,7 @@ import { DatePickerTypes } from "./DatePickerTypes";
       errored: false,
       disabled: false,
       required: false,
+      showOptReqLabel: true,
     }}
   >
     {(args) => <DatePicker id="visit-dates" {...args} />}
@@ -101,6 +102,7 @@ popup calendar.
       helperTextTo="To this date."
       helperText="Select a valid date range."
       errorText="Please select a valid date range."
+      showOptReqLabel={false}
     />
   </Story>
 </Canvas>
@@ -138,6 +140,7 @@ calendar; the four previous years, the current year, and the next seven years.
       dateRange={false}
       labelText="Select the year you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
+      showOptReqLabel={false}
     />
   </Story>
 </Canvas>
@@ -154,6 +157,7 @@ calendar; the four previous years, the current year, and the next seven years.
   helperText="Note that the Library may be closed on Sundays."
   errorText="Please select a valid year."
   errored={true}
+  showOptReqLabel={false}
 />
 <br />
 
@@ -165,6 +169,7 @@ calendar; the four previous years, the current year, and the next seven years.
   dateRange={true}
   labelText="Select the year you want to visit NYPL"
   disabled={true}
+  showOptReqLabel={false}
 />
 
 ## Getting Date Data Values
