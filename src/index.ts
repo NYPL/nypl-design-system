@@ -59,6 +59,13 @@ export {
 } from "./components/SkeletonLoader/SkeletonLoaderTypes";
 export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
+export {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from "./components/Tabs/Tabs";
 export { default as TextInput } from "./components/TextInput/TextInput";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {
