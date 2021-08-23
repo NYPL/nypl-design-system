@@ -1,0 +1,160 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { getCategory } from "../../utils/componentCategories";
+
+import DatePicker from "./DatePicker";
+import { DatePickerTypes } from "./DatePickerTypes";
+
+<Meta
+  title={getCategory("DatePicker")}
+  component={DatePicker}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11689%3A0",
+    },
+    jest: ["DatePicker.test.tsx"],
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    id: { table: { disable: true } },
+    name: { table: { disable: true } },
+    value: { table: { disable: true } },
+  }}
+/>
+
+# DatePicker
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+| Latest            | `0.24.0`   |
+
+<Description of={DatePicker} />
+
+<Canvas withToolbar>
+  <Story
+    name="DatePicker"
+    args={{
+      dateType: DatePickerTypes.Full,
+      dateFormat: "yyyy-MM-dd",
+      dateRange: false,
+      name: "visit-dates",
+      labelText: "Select the date you want to visit NYPL",
+      helperText: "Note that the Library may be closed on Sundays.",
+      helperTextTo: "Select end date.",
+      errorText: "Please select a valid date.",
+      showLabel: true,
+      errored: false,
+      disabled: false,
+      required: false,
+      showOptReqLabel: true,
+    }}
+  >
+    {(args) => <DatePicker id="visit-dates" {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="DatePicker" />
+
+## Date Range
+
+A date range can be rendered by setting the `dateRange` prop to `true`. This
+will render two input fields with labels "From" and "To". If the component has
+an error, or if this is a required field, or if it is disabled, then both input
+elements will share the props and styling. Note that for date range types, a
+`fieldset` is used as the parent wrapper and the `labelText` is used for the
+`legend` element text.
+
+<Canvas withToolbar>
+  <Story name="Date Range">
+    <DatePicker
+      id="date-range"
+      dateType={DatePickerTypes.Full}
+      dateFormat="yyyy-MM-dd"
+      dateRange={true}
+      labelText="Select the date range you want to visit NYPL"
+      name="visit-dates"
+      helperText="From this date."
+      helperTextTo="To this date."
+      errorText="Please select a valid date range."
+      showOptReqLabel={false}
+    />
+  </Story>
+</Canvas>
+
+## Month Date Input
+
+It's possible to select dates by skipping the day value and only selecting
+the month and the year when `dateType` is set to `DatePickerTypes.Month`. Note
+that all 12 months will appear in the popup calendar with their abbreviated names.
+
+<Canvas withToolbar>
+  <Story name="Month Date Input">
+    <DatePicker
+      id="month-date"
+      dateType={DatePickerTypes.Month}
+      dateRange={false}
+      labelText="Select the month you want to visit NYPL"
+      helperText="Note that the Library may be closed on Sundays."
+      errorText="Please select a valid month."
+    />
+  </Story>
+</Canvas>
+
+## Year Date Input
+
+It's possible to select dates by only the year when `dateType` is set to
+`DatePickerTypes.Year`. Note that only 12 values will appear in the popup
+calendar; the four previous years, the current year, and the next seven years.
+
+<Canvas withToolbar>
+  <Story name="Year Date Input">
+    <DatePicker
+      id="month-date"
+      dateType={DatePickerTypes.Year}
+      dateRange={false}
+      labelText="Select the year you want to visit NYPL"
+      helperText="Note that the Library may be closed on Sundays."
+      showOptReqLabel={false}
+    />
+  </Story>
+</Canvas>
+
+## Other States
+
+### Errored State
+
+<DatePicker
+  id="month-date"
+  dateType={DatePickerTypes.Full}
+  dateRange={true}
+  labelText="Select the year you want to visit NYPL"
+  helperText="Note that the Library may be closed on Sundays."
+  errorText="Please select a valid year."
+  errored={true}
+  showOptReqLabel={false}
+/>
+<br />
+
+### Disabled State
+
+<DatePicker
+  id="month-date"
+  dateType={DatePickerTypes.Full}
+  dateRange={true}
+  labelText="Select the year you want to visit NYPL"
+  disabled={true}
+  showOptReqLabel={false}
+/>

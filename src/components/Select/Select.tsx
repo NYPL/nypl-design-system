@@ -46,6 +46,8 @@ export interface SelectProps {
   selectedOption?: string;
   /** Offers the ability to show the label onscreen or hide it. Refer to the `labelText` property for more information. */
   showLabel?: boolean;
+  /** Whether or not to display the "Required"/"Optional" text in the label text. */
+  showOptReqLabel?: boolean;
 }
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
@@ -70,6 +72,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       disabled = false,
       selectedOption,
       showLabel,
+      showOptReqLabel = true,
     } = props;
 
     const modifiers = props.modifiers ? props.modifiers : [];
@@ -143,7 +146,11 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="select">
         {labelText && showLabel && (
-          <Label htmlFor={id} optReqFlag={optReqFlag} id={id + `-label`}>
+          <Label
+            htmlFor={id}
+            optReqFlag={showOptReqLabel && optReqFlag}
+            id={id + `-label`}
+          >
             {labelText}
           </Label>
         )}
