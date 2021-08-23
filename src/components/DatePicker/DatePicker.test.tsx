@@ -347,9 +347,9 @@ describe("DatePicker", () => {
       // Now select the "To" date.
       userEvent.click(toInput);
       // The popup displays.
-      userEvent.click(screen.getByText("25"));
+      userEvent.click(screen.getByText("27"));
 
-      const newToValue = `${date.slice(0, -2)}25`;
+      const newToValue = `${date.slice(0, -2)}27`;
       expect(screen.getByDisplayValue(newToValue)).toBeInTheDocument();
       // The original date value is no longer in display.
       expect(screen.queryAllByDisplayValue(date)).toHaveLength(0);
