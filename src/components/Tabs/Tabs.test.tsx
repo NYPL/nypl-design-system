@@ -2,7 +2,6 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
-import renderer from "react-test-renderer";
 
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 
@@ -247,19 +246,5 @@ describe("Tabs", () => {
     expect(warn).toHaveBeenCalledWith(
       "Only pass children or data in the `data` props but not both."
     );
-  });
-
-  it("Renders the UI snapshot correctly", () => {
-    const basic = renderer.create(<Tabs data={animalCrossing} />).toJSON();
-    const isFitted = renderer
-      .create(<Tabs data={animalCrossing} isFitted />)
-      .toJSON();
-    const alignCenter = renderer
-      .create(<Tabs data={animalCrossing} align="center" />)
-      .toJSON();
-
-    expect(basic).toMatchSnapshot();
-    expect(isFitted).toMatchSnapshot();
-    expect(alignCenter).toMatchSnapshot();
   });
 });
