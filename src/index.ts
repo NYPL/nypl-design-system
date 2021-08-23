@@ -9,7 +9,6 @@ export {
   CardActions,
   CardContent,
   CardHeading,
-  CardImage,
 } from "./components/Card/Card";
 export {
   CardImageRatios,

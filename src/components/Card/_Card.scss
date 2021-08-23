@@ -149,11 +149,17 @@
     border: 1px solid var(--ui-gray-medium);
 
     .card__body {
-      padding: 0 var(--space-s) var(--space-s);
+      padding: var(--space-s);
+    }
+
+    &.card--has-image {
+      .card__body {
+        padding: 0 var(--space-s) var(--space-s);
+      }
     }
   }
 
-  &--image-flip {
+  &--at-end {
     .card__image {
       margin-bottom: 0;
       margin-top: var(--space-s);
@@ -174,6 +180,10 @@
     /* stylelint-enable */
     &.card--center {
       align-items: center;
+
+      .card__body {
+        margin: 0;
+      }
     }
 
     @include breakpoint($breakpoint-medium) {
@@ -200,7 +210,7 @@
       }
     }
 
-    &.card--image-flip {
+    &.card--at-end {
       .card__image {
         margin: var(--space-m) 0 0;
 
@@ -212,10 +222,16 @@
 
     &.card--with-border {
       .card__body {
-        padding: 0 var(--space-s) var(--space-s);
+        padding: var(--space-s);
+      }
 
-        @include breakpoint($breakpoint-medium) {
-          padding: var(--space-s) var(--space-s) var(--space-s) 0;
+      &.card--has-image {
+        .card__body {
+          padding: 0 var(--space-s) var(--space-s);
+
+          @include breakpoint($breakpoint-medium) {
+            padding: var(--space-s) var(--space-s) var(--space-s) 0;
+          }
         }
       }
     }

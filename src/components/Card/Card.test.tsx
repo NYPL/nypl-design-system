@@ -2,7 +2,7 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 
-import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
+import Card, { CardHeading, CardContent, CardActions } from "./Card";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Button from "../Button/Button";
@@ -13,8 +13,11 @@ import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
-      <Card id="cardID">
-        <CardImage src="https://placeimg.com/400/200/arch" alt="" />
+      <Card
+        id="cardID"
+        imageSrc="https://placeimg.com/400/200/arch"
+        imageAlt="Alt text"
+      >
         <CardHeading level={3} id="heading1">
           The Card Heading
         </CardHeading>
@@ -39,8 +42,11 @@ describe("Card Accessibility", () => {
 
 describe("Card", () => {
   const regularCard = (
-    <Card id="cardID">
-      <CardImage src="https://placeimg.com/400/200/arch" alt="" />
+    <Card
+      id="cardID"
+      imageSrc="https://placeimg.com/400/200/arch"
+      imageAlt="Alt text"
+    >
       <CardHeading level={3} id="heading1">
         The Card Heading
       </CardHeading>
@@ -60,8 +66,12 @@ describe("Card", () => {
     </Card>
   );
   const cardWithExtendedStyles = (
-    <Card id="card#1" className="edition-card">
-      <CardImage src="https://placeimg.com/300/400/arch" alt="Alt text" />
+    <Card
+      id="card#1"
+      className="edition-card"
+      imageSrc="https://placeimg.com/300/400/arch"
+      imageAlt="Alt text"
+    >
       <CardHeading level={2} id="editioncardheading1">
         The Card Heading
       </CardHeading>
@@ -95,8 +105,12 @@ describe("Card", () => {
     </Card>
   );
   const cardWithNoCTAs = (
-    <Card id="card#1" className="edition-card">
-      <CardImage src="https://placeimg.com/300/400/arch" alt={""} />
+    <Card
+      id="card#1"
+      className="edition-card"
+      imageSrc="https://placeimg.com/300/400/arch"
+      imageAlt="Alt text"
+    >
       <CardHeading level={2} id="editioncardheading1">
         The Card Heading
       </CardHeading>
@@ -108,8 +122,12 @@ describe("Card", () => {
     </Card>
   );
   const cardWithNoContent = (
-    <Card id="card#1" className="edition-card">
-      <CardImage src="https://placeimg.com/300/400/arch" alt={""} />
+    <Card
+      id="card#1"
+      className="edition-card"
+      imageSrc="https://placeimg.com/300/400/arch"
+      imageAlt="Alt text"
+    >
       <CardHeading level={2} id="editioncardheading1" url="#edition-link">
         The Card Heading
       </CardHeading>

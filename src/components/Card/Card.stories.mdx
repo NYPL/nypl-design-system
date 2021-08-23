@@ -8,6 +8,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 import { action } from "@storybook/addon-actions";
+
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
@@ -38,9 +39,13 @@ import { getCategory } from "../../utils/componentCategories";
     className: { table: { disable: true } },
     modifiers: { table: { disable: true } },
     id: { table: { disable: true } },
+    imageComponent: { table: { disable: true } },
     layout: { table: { disable: false } },
+    imageSrc: { table: { disable: false } },
+    imageAlt: { table: { disable: false } },
+    imageSize: { table: { disable: false } },
     imageAspectRatio: { table: { disable: false } },
-    imageFlip: { table: { disable: false } },
+    imageAtEnd: { table: { disable: false } },
     border: { table: { disable: false } },
     padding: { table: { disable: false } },
     backgroundColor: { control: { type: "color" } },
@@ -53,25 +58,39 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
+| Latest            | `0.24.0`   |
 
 <Description of={Card} />
 
-Cards are contained units of information that can stand independently from other elements for context. While a Card is a self-contained unit, Cards are often grouped together and displayed in some type of grid layout.
+To quote Material Design: "_A card is identifiable as a single, contained unit. A card can stand alone, without relying on surrounding elements for content._" Additionally, while a `Card` is a self-contained unit, `Card` components are often grouped together and displayed in some type of grid layout.
+
+The DS `Card` component is a highly configurable, composable component. It can be shown with or without an image and the content area is composable with Card-specific child components: `CardHeading`, `CardActions` and `CardContent`. These child components can be arranged in any order and each child component may be used multiple times within the content area.
+
+#### CardHeading
+
+The `CardHeading` component mirrors the standard DS `Heading` component and accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/heading--heading-props).
+
+#### CardActions
+
+The `CardActions` component is used to display CTAs for the card. `Button` and `Link` components should be passed as children into the `CardActions` component.
+
+#### CardContent
+
+The `CardContent` component should be used to display all content other than headings and CTAs.
 
 <Preview withToolbar>
   <Story
     name="Card Props"
     args={{
       id: "custom-card",
+      layout: CardLayouts.Horizontal,
+      imageSrc: "https://placeimg.com/400/300/animals",
+      imageAspectRatio: CardImageRatios.ThreeByFour,
+      imageAlt: "Alt text",
     }}
   >
     {(args) => (
       <Card {...args}>
-        <CardImage
-          src="https://placeimg.com/400/300/animals"
-          alt="Alt text"
-          imageAspectRatio={args.imageAspectRatio}
-        />
         <CardHeading level={2} id="heading1">
           Optional Header
         </CardHeading>
@@ -90,7 +109,7 @@ Cards are contained units of information that can stand independently from other
             buttonType={ButtonTypes.Primary}
             type="submit"
           >
-            {"Primary"}
+            Primary
           </Button>
           <Button
             onClick={action("clicked")}
@@ -98,18 +117,13 @@ Cards are contained units of information that can stand independently from other
             buttonType={ButtonTypes.Secondary}
             type="submit"
           >
-            {"Secondary"}
+            Secondary
           </Button>
         </CardActions>
         <CardActions>
-          <Link onClick={action("clicked")} href="blah">
-            {"#hash1"}
-          </Link>
-          ,<Link onClick={action("clicked")} href="blah">
-            {"#hash2"}
-          </Link>,<Link onClick={action("clicked")} href="blah">
-            {"#hash3"}
-          </Link>
+          <Link href="javascript:void(0);">#hash1</Link>,
+          <Link href="javascript:void(0);">#hash2</Link>,
+          <Link href="javascript:void(0);">#hash3</Link>
         </CardActions>
       </Card>
     )}
@@ -119,6 +133,8 @@ Cards are contained units of information that can stand independently from other
 <ArgsTable story="Card Props" />
 
 ## Image Position
+
+By default, the image is always the first element within a `Card`. This means the image is at the top of a vertical `Card` and on the left size of a horizontal `Card`. However, you can use the `imageAtEnd` prop to override the default placement and move the image to the last element within a `Card`.
 
 ### Vertical Cards
 
@@ -131,26 +147,25 @@ Cards are contained units of information that can stand independently from other
         "grid-template-columns": "repeat(2, 1fr)",
       }}
     >
-      <Card>
-        <CardImage
-          src="https://placeimg.com/400/200/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={3} id="heading1">
-          Image on Top default)
+          Image on Top (default)
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
         </CardContent>
       </Card>
-      <Card imageFlip>
-        <CardImage
-          src="https://placeimg.com/410/210/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAtEnd
+      >
         <CardHeading level={3} id="heading1">
           Image on Bottom
         </CardHeading>
@@ -173,12 +188,13 @@ Cards are contained units of information that can stand independently from other
       "grid-template-columns": "repeat(1, 1fr)",
     }}
   >
-    <Card layout={CardLayouts.Horizontal} center>
-      <CardImage
-        src="https://placeimg.com/400/200/animals"
-        alt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
-      />
+    <Card
+      layout={CardLayouts.Horizontal}
+      center
+      imageSrc="https://placeimg.com/400/200/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+    >
       <CardHeading level={4} id="heading1">
         Image on Left (default)
       </CardHeading>
@@ -188,12 +204,14 @@ Cards are contained units of information that can stand independently from other
         facilisis in, egestas eget quam.
       </CardContent>
     </Card>
-    <Card layout={CardLayouts.Horizontal} center imageFlip>
-      <CardImage
-        src="https://placeimg.com/410/210/animals"
-        alt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
-      />
+    <Card
+      layout={CardLayouts.Horizontal}
+      center
+      imageSrc="https://placeimg.com/410/210/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageAtEnd
+    >
       <CardHeading level={4} id="heading2">
         Image on Right
       </CardHeading>
@@ -208,6 +226,8 @@ Cards are contained units of information that can stand independently from other
 
 ## Image Size
 
+By default, the image width is `100%` for a vertical `Card` and `225px` for a horizontal `Card`. However, you can use the `imageSize` prop to override the default width.
+
 ### Vertical Cards
 
 <Preview>
@@ -219,59 +239,72 @@ Cards are contained units of information that can stand independently from other
         "grid-template-columns": "repeat(1, 1fr)",
       }}
     >
-      <Card center>
-        <CardImage
-          src="https://placeimg.com/400/200/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.Square}
-          imageSize={CardImageSizes.Small}
-        />
+      <Card
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.Square}
+        imageSize={CardImageSizes.Small}
+      >
         <CardHeading level={3} id="heading1">
           Small Image
         </CardHeading>
+        <CardHeading level={5} id="heading2">
+          Max-Width: 165px
+        </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
         </CardContent>
       </Card>
-      <Card center>
-        <CardImage
-          src="https://placeimg.com/400/200/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.Square}
-          imageSize={CardImageSizes.Medium}
-        />
+      <HorizontalRule />
+      <Card
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.Square}
+        imageSize={CardImageSizes.Medium}
+      >
         <CardHeading level={3} id="heading1">
           Medium Image
         </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
-        </CardContent>
-      </Card>
-      <Card center>
-        <CardImage
-          src="https://placeimg.com/410/210/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.Square}
-          imageSize={CardImageSizes.Large}
-        />
-        <CardHeading level={3} id="heading1">
-          Large Image
+        <CardHeading level={5} id="heading2">
+          Max-Width: 225px
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
           libero, a pharetra augue.
         </CardContent>
       </Card>
-      <Card center>
-        <CardImage
-          src="https://placeimg.com/410/210/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.Square}
-        />
+      <Card
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.Square}
+        imageSize={CardImageSizes.Large}
+      >
+        <CardHeading level={3} id="heading1">
+          Large Image
+        </CardHeading>
+        <CardHeading level={5} id="heading2">
+          Max-Width: 360px
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.Square}
+      >
         <CardHeading level={3} id="heading1">
           Default Image
+        </CardHeading>
+        <CardHeading level={5} id="heading2">
+          Width: 100%
         </CardHeading>
         <CardContent>
           Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
@@ -292,15 +325,56 @@ Cards are contained units of information that can stand independently from other
       "grid-template-columns": "repeat(1, 1fr)",
     }}
   >
-    <Card layout={CardLayouts.Horizontal} center>
-      <CardImage
-        src="https://placeimg.com/400/200/animals"
-        alt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
-        imageSize={CardImageSizes.Small}
-      />
-      <CardHeading level={4} id="heading1">
-        Small Image (165px)
+    <Card
+      layout={CardLayouts.Horizontal}
+      center
+      imageSrc="https://placeimg.com/400/200/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageSize={CardImageSizes.Small}
+    >
+      <CardHeading level={3} id="heading1">
+        Small Image
+      </CardHeading>
+      <CardHeading level={5} id="heading2">
+        Max-Width: 165px
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+      </CardContent>
+    </Card>
+    <Card
+      layout={CardLayouts.Horizontal}
+      center
+      imageSrc="https://placeimg.com/410/210/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageSize={CardImageSizes.Medium}
+    >
+      <CardHeading level={3} id="heading2">
+        Medium Image
+      </CardHeading>
+      <CardHeading level={5} id="heading2">
+        Max-Width: 225px
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis.
+      </CardContent>
+    </Card>
+    <Card
+      layout={CardLayouts.Horizontal}
+      center
+      imageSrc="https://placeimg.com/400/250/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageSize={CardImageSizes.Large}
+    >
+      <CardHeading level={3} id="heading1">
+        Large Image
+      </CardHeading>
+      <CardHeading level={5} id="heading2">
+        Max-Width: 360px
       </CardHeading>
       <CardContent>
         Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
@@ -308,46 +382,18 @@ Cards are contained units of information that can stand independently from other
         facilisis in, egestas eget quam.
       </CardContent>
     </Card>
-    <Card layout={CardLayouts.Horizontal} center>
-      <CardImage
-        src="https://placeimg.com/410/210/animals"
-        alt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
-        imageSize={CardImageSizes.Medium}
-      />
-      <CardHeading level={4} id="heading2">
-        Medium Image (225px)
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-    <Card layout={CardLayouts.Horizontal} center>
-      <CardImage
-        src="https://placeimg.com/400/200/animals"
-        alt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
-        imageSize={CardImageSizes.Large}
-      />
-      <CardHeading level={4} id="heading1">
-        Large Image (360px)
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-    <Card layout={CardLayouts.Horizontal} center>
-      <CardImage
-        src="https://placeimg.com/410/210/animals"
-        alt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
-      />
-      <CardHeading level={4} id="heading2">
+    <Card
+      layout={CardLayouts.Horizontal}
+      center
+      imageSrc="https://placeimg.com/450/250/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+    >
+      <CardHeading level={3} id="heading2">
         Default Image
+      </CardHeading>
+      <CardHeading level={5} id="heading2">
+        Max-Width: 225px
       </CardHeading>
       <CardContent>
         Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
@@ -369,12 +415,11 @@ Cards are contained units of information that can stand independently from other
         "grid-template-columns": "repeat(3, 1fr)",
       }}
     >
-      <Card>
-        <CardImage
-          src="https://placeimg.com/400/200/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={3} id="heading1">
           Card Heading
         </CardHeading>
@@ -383,12 +428,11 @@ Cards are contained units of information that can stand independently from other
           libero, a pharetra augue.
         </CardContent>
       </Card>
-      <Card>
-        <CardImage
-          src="https://placeimg.com/410/210/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={3} id="heading1">
           Card Heading
         </CardHeading>
@@ -397,12 +441,11 @@ Cards are contained units of information that can stand independently from other
           libero, a pharetra augue.
         </CardContent>
       </Card>
-      <Card>
-        <CardImage
-          src="https://placeimg.com/420/220/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        imageSrc="https://placeimg.com/420/220/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={3} id="heading1">
           Card Heading
         </CardHeading>
@@ -411,12 +454,11 @@ Cards are contained units of information that can stand independently from other
           libero, a pharetra augue.
         </CardContent>
       </Card>
-      <Card>
-        <CardImage
-          src="https://placeimg.com/430/230/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        imageSrc="https://placeimg.com/430/230/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={3} id="heading1">
           Card Heading
         </CardHeading>
@@ -425,12 +467,11 @@ Cards are contained units of information that can stand independently from other
           libero, a pharetra augue.
         </CardContent>
       </Card>
-      <Card>
-        <CardImage
-          src="https://placeimg.com/440/240/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        imageSrc="https://placeimg.com/440/240/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={3} id="heading1">
           Card Heading
         </CardHeading>
@@ -439,12 +480,11 @@ Cards are contained units of information that can stand independently from other
           libero, a pharetra augue.
         </CardContent>
       </Card>
-      <Card>
-        <CardImage
-          src="https://placeimg.com/450/250/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        imageSrc="https://placeimg.com/450/250/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={3} id="heading1">
           Card Heading
         </CardHeading>
@@ -457,10 +497,10 @@ Cards are contained units of information that can stand independently from other
   </Story>
 </Preview>
 
-## Cards in a List
+## Cards in a Stack
 
 <Preview>
-  <Story name="Cards in a List">
+  <Story name="Cards in a Stack">
     <div
       style={{
         display: "grid",
@@ -468,12 +508,13 @@ Cards are contained units of information that can stand independently from other
         "grid-template-columns": "repeat(1, 1fr)",
       }}
     >
-      <Card layout={CardLayouts.Horizontal} center>
-        <CardImage
-          src="https://placeimg.com/400/200/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={4} id="heading1">
           Card Heading
         </CardHeading>
@@ -483,12 +524,13 @@ Cards are contained units of information that can stand independently from other
           facilisis in, egestas eget quam.
         </CardContent>
       </Card>
-      <Card layout={CardLayouts.Horizontal} center>
-        <CardImage
-          src="https://placeimg.com/410/210/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={4} id="heading2">
           Card Heading
         </CardHeading>
@@ -498,12 +540,13 @@ Cards are contained units of information that can stand independently from other
           facilisis in, egestas eget quam.
         </CardContent>
       </Card>
-      <Card layout={CardLayouts.Horizontal} center>
-        <CardImage
-          src="https://placeimg.com/420/220/animals"
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
-        />
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://placeimg.com/420/220/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
         <CardHeading level={4} id="heading3">
           Card Heading
         </CardHeading>
@@ -519,41 +562,131 @@ Cards are contained units of information that can stand independently from other
 
 ## Custom Image Component
 
-Instead of passing a path for the `src` prop, you can pass a custom image component in using the `component` prop.
+Instead of passing a path for the `imageSrc` prop, you can pass a custom image component in using the `imageComponent` prop.
 
 <Preview withToolbar>
   <Story name="Custom Image Component">
-    {(args) => (
-      <Card>
-        <CardImage
-          alt="Alt text"
-          imageAspectRatio={CardImageRatios.SixteenByNine}
-          component={
-            <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
-          }
-        />
-        <CardHeading level={2} id="heading1">
-          Card Component with Custom Image Component
-        </CardHeading>
-        <CardHeading level={4} id="heading2">
-          Secondary Heading
+    <Card
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.SixteenByNine}
+      imageComponent={
+        <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
+      }
+    >
+      <CardHeading level={2} id="heading1">
+        Card Component with Custom Image Component
+      </CardHeading>
+      <CardHeading level={4} id="heading2">
+        Secondary Heading
+      </CardHeading>
+      <CardContent>
+        Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean lacinia bibendum nulla sed
+        consectetur. Vestibulum id ligula porta felis euismod semper. Cras justo
+        odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
+        consectetur est at lobortis.
+      </CardContent>
+      <CardActions>
+        <Link type={LinkTypes.Button} href="blah">
+          Reserve
+        </Link>
+        <Link href="#url" type={LinkTypes.Forwards}>
+          View Book Details
+        </Link>
+      </CardActions>
+    </Card>
+  </Story>
+</Preview>
+
+## Cards Without Images
+
+<Preview>
+  <Story name="Cards Without Images">
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "2rem",
+        "grid-template-columns": "repeat(3, 1fr)",
+        "margin-bottom": "2rem",
+      }}
+    >
+      <Card border>
+        <CardHeading level={3} id="heading1">
+          Card Heading
         </CardHeading>
         <CardContent>
-          Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Aenean lacinia bibendum nulla sed
-          consectetur. Vestibulum id ligula porta felis euismod semper. Cras
-          justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
-          consectetur est at lobortis.
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
         </CardContent>
-        <CardActions>
-          <Link type={LinkTypes.Button} href="blah">
-            Reserve
-          </Link>
-          <Link href="#url" type={LinkTypes.Forwards}>
-            View Book Details
-          </Link>
-        </CardActions>
       </Card>
-    )}
+      <Card border>
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
+        </CardContent>
+      </Card>
+      <Card border>
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
+        </CardContent>
+      </Card>
+    </div>
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "2rem",
+        "grid-template-columns": "repeat(1, 1fr)",
+      }}
+    >
+      <Card layout={CardLayouts.Horizontal} border>
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+      <Card layout={CardLayouts.Horizontal} border>
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+      <Card layout={CardLayouts.Horizontal} border>
+        <CardHeading level={3} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+    </div>
   </Story>
 </Preview>
