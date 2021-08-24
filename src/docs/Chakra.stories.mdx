@@ -1,0 +1,119 @@
+# Chakra UI
+
+| Table of Contents |                                  |
+| ----------------- | -------------------------------- |
+| 1.                | [Why Chakra UI?](#why-chakra-ui) |
+| 2.                | [DSProvider](#dsprovider)        |
+| 3.                | [Components](#components)        |
+| 4.                | [Styling](#styling)              |
+| 5.                | [Testing](#testing)              |
+
+DSprovider
+use in storybook documentation for Canvas children that dont use Story
+
+Components composed with Chakra
+
+don't allow all styled props
+
+rename component form Chakra
+
+``
+import { Tabs as ChakraTabs, ... } from "@chakra-ui/react";
+
+and extend it with NYPL DS requirements
+
+function Tabs(props....) {
+return (
+<ChakraTabs
+id={id}
+className={bem(baseClass, [], "", [className])}
+variant="enclosed"
+\_\_css={styles}
+//... other props >
+//...
+</ChakraTabs>
+}
+
+Patterns
+-> use prop types to get variants
+-> rather than use the `variants` prop
+-> current DS pattern
+
+// get variant from the `...Type` prop and map it to the correct variant key name
+styles = useStyleConfig("Button", { variant });
+
+return (
+
+  <ChakraButton
+    id={id}
+    className={bem(baseClass, [], "", [className])}
+    type={type}
+    disabled={disabled}
+    __css={styles}
+    {...attributes}
+
+
+Components re-exported from Chakra
+
+harder to snapshot test these components because some of its components autogenerate
+new IDs/classnames internally. we can't override them so snapshot tests fail
+
+re-export
+
+Styling
+we see less of a need for `bem` function to generate class names if the
+\_\_css prop will be used to generate the right variant style
+
+Anatomy of a component stlying object
+
+https://chakra-ui.com/docs/theming/component-style
+const Button = {
+baseStyle: {},
+sizes: {},
+variants: {},
+defaultProps: {},
+};
+
+Breakpoints
+// TODO
+
+colors
+all set in `src/theme/foundations/colors.ts`
+chakra autogenerates the objects into css variables. We will rely on these rather than creating our own.
+
+while each color has number range values from 50 to 900 (such as `red.400`, `blue.600`, etc) and each one is based on the color coming from DS' Figma documentation, we recommend not to use them. We extend these values and chakra provides it but still, dont use
+
+spacing
+src/theme/foundations/spacing.ts
+while chakra provides many values, only use the 8 DS defined values
+
+- Chakra Value | DS Variable
+- ***
+-     1        |  --space-xxs
+-     2        |  --space-xs
+-     4        |  --space-s
+-     6        |  --space-m
+-     8        |  --space-l
+-     12       |  --space-xl
+-     16       |  --space-xxl
+-     24       |  --space-xxl
+
+typography
+src/theme/foundations/typography.ts
+
+src/theme/index.ts
+const theme = extendTheme({
+styles: { global },
+breakpoints,
+colors,
+...typography,
+space: spacing,
+components: {
+Button,
+},
+});
+
+Testing
+don't re-test chakra components. they are already tested
+for components composed from chakra, test functionality and styling extensions
+but no need to test basic functionality from chakra

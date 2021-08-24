@@ -5,6 +5,7 @@ module.exports = {
   // Where are the stories?
   stories: [
     "../src/docs/Intro.stories.mdx",
+    "../src/docs/Chakra.stories.mdx",
     "../src/components/StyleGuide/*.stories.@(tsx|mdx)",
     "../src/components/**/*.stories.@(tsx|mdx)",
   ],

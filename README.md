@@ -186,12 +186,12 @@ Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds
 ## Using Chakra UI Components
 
 The Chakra UI component library is integrated into the NYPL Design System and is currently a work-in-progress. We
-are in the middle of the process of using Chakra components and patterns to build
-DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra,
-the DS package itself will export _some_ Chakra components.
+are in the middle of the process of using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
 
 The list of re-exported Chakra components can be found in the main
 [index.ts](/index.ts) file.
+
+Find more information about the Design System's use of [Chakra](/src/docs/Chakra.stories.mdx).
 
 ## CDN
 
