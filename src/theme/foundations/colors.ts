@@ -13,7 +13,7 @@ const grayLight = "#E0E0E0";
 const grayxxlight = "#FAFAFA";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
-const brandPrimarySecondaryObj = {
+const brandObj = {
   primary: brandPrimary,
   secondary: brandSecondary,
 };
@@ -63,7 +63,7 @@ const colors: Colors = {
   },
 
   /** Brand fills are the NYPL primary and secondary colors. */
-  brand: brandPrimarySecondaryObj,
+  brand: brandObj,
 
   /** Brand fills for sections on NYPL pages. */
   section: {
@@ -75,7 +75,7 @@ const colors: Colors = {
 
     /** Books and More is used for the Catalog, Staff Picks, Recommendations,
      * New Arrivals, and E-Book Central. */
-    "books-and-more": brandPrimarySecondaryObj,
+    "books-and-more": brandObj,
 
     /** Research is used for the Research Catalog and SCC. */
     research: {
@@ -85,7 +85,7 @@ const colors: Colors = {
 
     /** Locations is used for Location Finder and all branch pages with
      * the exceptions of some research libraries. */
-    locations: brandPrimarySecondaryObj,
+    locations: brandObj,
 
     /** Research libraries with specific brand colors to adhere to. */
     "research-library": {
