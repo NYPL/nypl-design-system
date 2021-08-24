@@ -62,9 +62,7 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={Card} />
 
-To quote Material Design: "_A card is identifiable as a single, contained unit. A card can stand alone, without relying on surrounding elements for content._" Additionally, while a `Card` is a self-contained unit, `Card` components are often grouped together and displayed in some type of grid layout.
-
-The DS `Card` component is a highly configurable, composable component. It can be shown with or without an image and the content area is composable with Card-specific child components: `CardHeading`, `CardActions` and `CardContent`. These child components can be arranged in any order and each child component may be used multiple times within the content area.
+The `Card` component is viewed as a contained, stand-alone element. It is highly configurable and composable. It can be shown with or without an image and the content area is composed using Card-specific child components: `CardHeading`, `CardActions` and `CardContent`. These child components can be arranged in any order and each child component may be used multiple times within the content area. Although a `Card` is a self-contained unit, `Card` components are often grouped together and displayed in some type of grid layout.
 
 #### CardHeading
 
@@ -72,7 +70,7 @@ The `CardHeading` component mirrors the standard DS `Heading` component and acce
 
 #### CardActions
 
-The `CardActions` component is used to display CTAs for the card. `Button` and `Link` components should be passed as children into the `CardActions` component.
+The `CardActions` component is used to display "call to action" (CTA) buttons and links for the card. The DS `Button` and `Link` components should be passed as children into the `CardActions` component.
 
 #### CardContent
 
