@@ -27,3 +27,29 @@
 @mixin space-inset-xl {
   padding: var(--space-xl);
 }
+
+@mixin get-space-inset($id) {
+  @if $id == "none" {
+    @include space-inset-none;
+  }
+
+  @if $id == "xs" {
+    @include space-inset-xs;
+  }
+
+  @if $id == "s" {
+    @include space-inset-s;
+  }
+
+  @if $id == "m" {
+    @include space-inset-m;
+  }
+
+  @if $id == "l" {
+    @include space-inset-l;
+  }
+
+  @if $id == "xl" {
+    @include space-inset-xl;
+  }
+}

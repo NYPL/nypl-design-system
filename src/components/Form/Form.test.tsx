@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 
 import Form, { FormRow, FormField } from "./Form";
+import { FormSpacing } from "./FormTypes";
 import TextInput from "../TextInput/TextInput";
 
 describe("Form Accessibility", () => {
@@ -63,7 +64,7 @@ describe("Form", () => {
     expect(container.querySelector(".textinput")).toBeInTheDocument();
   });
 
-  it("Renders a <form> element with .form-row and .form-field elements properly nested", () => {
+  it("Renders a <form> element with custom `action` and `method` attributes", () => {
     const utils = render(<Form action="/end/point" method="get" />);
     container = utils.container;
 
@@ -73,5 +74,15 @@ describe("Form", () => {
       "/end/point"
     );
     expect(container.querySelector(".form")).toHaveAttribute("method", "get");
+  });
+
+  it("Renders a <form> element with spacing variant applied", () => {
+    const utils = render(<Form spacing={FormSpacing.ExtraSmall} />);
+    container = utils.container;
+
+    expect(container.querySelector(".form")).toBeInTheDocument();
+    expect(
+      container.querySelector(".form--spacing-extra-small")
+    ).toBeInTheDocument();
   });
 });
