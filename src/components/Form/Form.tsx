@@ -1,6 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import generateUUID from "../../helpers/generateUUID";
+import { FormSpacing } from "./FormTypes";
 
 export interface FormProps {
   /** Optional form `action` attribute */
@@ -15,6 +16,8 @@ export interface FormProps {
   method?: "get" | "post";
   /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
+  /** Optional spacing size; if omitted, the default `large` (2rem / 32px) spacing will be used; ```IMPORTANT: for general form layout, this prop should not be used``` */
+  spacing?: FormSpacing;
 }
 
 // FormRow child-component
@@ -40,6 +43,7 @@ export default function Form(props: React.ComponentProps<"form"> & FormProps) {
     id = generateUUID(),
     method,
     modifiers = [],
+    spacing,
   } = props;
 
   action && (attributes["action"] = action);
@@ -47,6 +51,8 @@ export default function Form(props: React.ComponentProps<"form"> & FormProps) {
   method &&
     (method === "get" || method === "post") &&
     (attributes["method"] = method);
+
+  spacing && modifiers.push(`spacing-${spacing}`);
 
   return (
     <form

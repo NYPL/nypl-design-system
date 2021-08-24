@@ -217,6 +217,19 @@ describe("DatePicker", () => {
 
       expect(screen.getByText(/required/i)).toBeInTheDocument();
     });
+
+    it("should not render a required label if the 'showOptReqLabel' flag is false", () => {
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          helperText="Note that the Library may be closed on Sundays."
+          required={true}
+          showOptReqLabel={false}
+        />
+      );
+
+      expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
+    });
   });
 
   describe("Date Range", () => {
