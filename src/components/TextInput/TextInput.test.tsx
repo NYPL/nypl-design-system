@@ -26,13 +26,14 @@ describe("TextInput Accessibility", () => {
 });
 
 describe("TextInput", () => {
+  let utils;
   let changeHandler;
   let focusHandler;
 
   beforeEach(() => {
     focusHandler = jest.fn();
     changeHandler = jest.fn();
-    render(
+    utils = render(
       <TextInput
         id="myTextInput"
         labelText="Custom Input Label"
@@ -51,6 +52,46 @@ describe("TextInput", () => {
 
   it("Renders label with label text", () => {
     expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+  });
+
+  it("Renders 'Required' along with the label text", () => {
+    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+    expect(screen.getByText(/Required/i)).toBeInTheDocument();
+  });
+
+  it("Renders 'Optional' along with the label text", () => {
+    utils.rerender(
+      <TextInput
+        id="myTextInput"
+        labelText="Custom Input Label"
+        required={false}
+        placeholder="Input Placeholder"
+        type={TextInputTypes.text}
+        attributes={{ onFocus: focusHandler }}
+        onChange={changeHandler}
+      />
+    );
+
+    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
+  });
+
+  it("Does not render 'Required' along with the label text", () => {
+    utils.rerender(
+      <TextInput
+        id="myTextInput"
+        labelText="Custom Input Label"
+        required={true}
+        showOptReqLabel={false}
+        placeholder="Input Placeholder"
+        type={TextInputTypes.text}
+        attributes={{ onFocus: focusHandler }}
+        onChange={changeHandler}
+      />
+    );
+
+    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
+    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
   });
 
   it("Renders label's `for` attribute pointing at ID from input", () => {

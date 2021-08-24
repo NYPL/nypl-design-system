@@ -74,3 +74,41 @@
     }
   }
 }
+
+@mixin get-space-stack($id) {
+  @if $id == "none" {
+    @include space-stack-none;
+  }
+
+  @if $id == "xxs" {
+    @include space-stack-xxs;
+  }
+
+  @if $id == "xs" {
+    @include space-stack-xs;
+  }
+
+  @if $id == "s" {
+    @include space-stack-s;
+  }
+
+  @if $id == "m" {
+    @include space-stack-m;
+  }
+
+  @if $id == "l" {
+    @include space-stack-l;
+  }
+
+  @if $id == "xl" {
+    @include space-stack-xl;
+  }
+
+  @if $id == "xxl" {
+    @include space-stack-xxl;
+  }
+
+  @if $id == "xxxl" {
+    @include space-stack-xxxl;
+  }
+}
