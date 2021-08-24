@@ -12,10 +12,15 @@ export interface InputProps {
   type?: TextInputTypes;
   /** Will add 'aria-required: true' to input */
   required?: boolean;
-  /** Provides text for a `Label` component if `showLabel` is set to true; populates a `aria-label` sttribute if `showLabel` is set to false. */
+  /** Provides text for a `Label` component if `showLabel` is set to true;
+   * populates a `aria-label` sttribute if `showLabel` is set to false. */
   labelText: string;
-  /** Offers the ability to show the label onscreen or hide it. Refer to the `labelText` property for more information. */
+  /** Offers the ability to show the label onscreen or hide it. Refer to the
+   * `labelText` property for more information. */
   showLabel?: boolean;
+  /** Offers the ability to show the "Required"/"Optional" label onscreen or
+   * hide it. True by default. */
+  showOptReqLabel?: boolean;
   /** Populates the HelperErrorText for standard state */
   helperText?: string;
   /** Populates the HelperErrorText for error state */
@@ -32,7 +37,8 @@ export interface InputProps {
   errored?: boolean;
   /** Adds the 'disabled' prop to the input when true */
   disabled?: boolean;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
+  /** Modifiers array for use with BEM. See how to work with modifiers and BEM
+   * here: http://getbem.com/introduction/ */
   modifiers?: string[];
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (
@@ -59,6 +65,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       required,
       labelText,
       showLabel = true,
+      showOptReqLabel = true,
       helperText,
       errorText,
       placeholder,
@@ -138,7 +145,11 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     const transformedInput = (
       <div className="textinput">
         {labelText && showLabel && !isHidden && (
-          <Label htmlFor={id} optReqFlag={optReqFlag} id={id + `-label`}>
+          <Label
+            htmlFor={id}
+            optReqFlag={showOptReqLabel && optReqFlag}
+            id={id + `-label`}
+          >
             {labelText}
           </Label>
         )}

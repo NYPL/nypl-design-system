@@ -119,11 +119,12 @@ describe("Select", () => {
     );
   });
 
-  it("Renders required and aria-required attributes", () => {
-    render(
+  it("Renders required or optional text in the label", () => {
+    const utils = render(
       <Select
         id="custom-select-id"
         labelText="Select Label"
+        showLabel={true}
         onChange={changeCallback}
         onBlur={blurCallback}
         name="test4"
@@ -133,10 +134,69 @@ describe("Select", () => {
         <option aria-selected={false}>test2</option>
       </Select>
     );
+    expect(screen.getByLabelText(/Select Label/i)).toBeInTheDocument();
+    expect(screen.getByText(/Required/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
+
+    utils.rerender(
+      <Select
+        id="custom-select-id"
+        labelText="Select Label"
+        showLabel={true}
+        onChange={changeCallback}
+        onBlur={blurCallback}
+        name="test4"
+        required={false}
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
+    );
+
+    expect(screen.getByLabelText(/Select Label/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
+  });
+
+  it("Renders required and aria-required attributes when 'showLabel' is false", () => {
+    render(
+      <Select
+        id="custom-select-id"
+        labelText="Select Label"
+        showLabel={false}
+        onChange={changeCallback}
+        onBlur={blurCallback}
+        name="test4"
+        required
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
+    );
+    expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
     expect(screen.getByLabelText("Select Label")).toHaveAttribute(
       "aria-required"
     );
     expect(screen.getByLabelText("Select Label")).toHaveAttribute("required");
+  });
+
+  it("Should not render a required label if 'showOptReqLabel' flag is false, but still render the label", () => {
+    render(
+      <Select
+        id="custom-select-id"
+        labelText="Select Label"
+        onChange={changeCallback}
+        onBlur={blurCallback}
+        name="test4"
+        required
+        showOptReqLabel={false}
+      >
+        <option aria-selected={true}>test1</option>
+        <option aria-selected={false}>test2</option>
+      </Select>
+    );
+    expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
+    expect(screen.getByLabelText("Select Label")).toBeInTheDocument();
   });
 
   it("Renders required and aria-required attributes using deprecated prop", () => {
