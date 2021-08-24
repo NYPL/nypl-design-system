@@ -5,11 +5,12 @@ import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import Link from "../Link/Link";
 import { listRenderer as ListStory } from "../List/List.stories";
+import { range } from "../../utils/utils";
 
 // Set up the reusable template to create a list of Accordion components.
 const AccordionListTemplate = ({ count, children, ...args }) => (
   <List type={ListTypes.Unordered} modifiers={["no-list-styling"]}>
-    {new Array(count).map((i) => (
+    {range(1, count + 1).map((i) => (
       <li key={i}>
         <Accordion {...args} inputId={`${args.inputId}-${i}`}>
           {children}

@@ -19,6 +19,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
 - Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
 
+### Fixes
+
+- Fixes Accordion FAQ Storybook example rendering bug.
+
 ## 0.23.4
 
 ### Adds
