@@ -12,7 +12,7 @@
 // End libs
 
 /*
- * The `color-classes` and `css-vars` mixins have been included here 
+ * The `color-classes` and `css-vars` mixins have been included here
  * because they are utilized in the colors SCSS files.
  */
 
@@ -63,6 +63,7 @@
 @import "./components/Accordion/_Accordion.scss";
 @import "./components/Breadcrumbs/_Breadcrumbs.scss";
 @import "./components/Card/_Card.scss";
+@import "./components/CardEdition/_CardEdition.scss";
 @import "./components/DatePicker/_DatePicker.scss";
 @import "./components/Form/_Form.scss";
 @import "./components/HelperErrorText/_HelperErrorText.scss";
