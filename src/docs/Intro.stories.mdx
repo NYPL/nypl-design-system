@@ -9,13 +9,28 @@ import getCSSVariable from "../helpers/getCSSVariable";
 
 # NYPL Design System
 
-## @nypl/design-system-react-components
+<Hero
+  heroType={HeroTypes.FiftyFifty}
+  subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
+  image={
+    <Image
+      src="https://cdn-d8.nypl.org/s3fs-public/styles/2_1_960/public/2020-07/SASB_06_29_2020_Lions_mask-00207%20copy_0.jpeg?h=c8e955ed&itok=n_GLQgoe"
+      blockName="hero"
+      alt=""
+    />
+  }
+  backgroundColor={getCSSVariable("--section-books-and-more-primary")}
+  foregroundColor={getCSSVariable("--ui-white")}
+/>
+
+<br />
 
 Welcome to the New York Public Library's Design System React component library.
 This design system is NYPL's open-source extensible React library for products
-and experiences, with accessibility as its foundation. It ships functional,
-stateless components with consistent NYPL styling. You can learn more about the
-project and its goals [here](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System).
+and experiences, with accessibility as its foundation. It ships functional components
+with consistent NYPL styling. You can learn more about the project and its goals
+[on our Confluence page](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System)
+(needs a log in).
 
 The best way to get started is through the [Design System's Wiki](https://github.com/NYPL/nypl-design-system/wiki)
 to learn about design and implementation at NYPL. The following Hero is just
@@ -25,23 +40,9 @@ For your convenience, the DS components have been organized into logical categor
 based on both form and function. Please refer to the **COMPONENTS** section in the
 Storybook sidebar.
 
-<Hero
-  heroType={HeroTypes.FiftyFifty}
-  subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
-  image={
-    <Image
-      src="https://cdn-d8.nypl.org/s3fs-public/styles/2_1_960/public/2020-07/SASB_06_29_2020_Lions_mask-00207%20copy_0.jpeg?h=c8e955ed&itok=n_GLQgoe"
-      blockName={"hero"}
-      alt={""}
-    />
-  }
-  backgroundColor={getCSSVariable("--section-books-and-more-primary")}
-  foregroundColor={getCSSVariable("--ui-white")}
-/>
+## @nypl/design-system-react-components
 
-<br />
-
-### For Developers
-
-If you're looking to contribute, checkout the [nypl-design-system](https://github.com/NYPL/nypl-design-system)
-repo on Github for more information.
+This React design system library is currently published on [npm](https://www.npmjs.com/package/@nypl/design-system-react-components).
+If you're looking to contribute to this project, checkout the
+[nypl-design-system](https://github.com/NYPL/nypl-design-system) repo on Github
+for more information.
