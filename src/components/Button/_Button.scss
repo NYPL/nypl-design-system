@@ -39,6 +39,12 @@
 
     fill: currentColor;
 
+    &--small,
+    &--icon-left,
+    &--icon-right {
+      margin-top: var(--space-xxs);
+    }
+
     &--icon-left {
       margin-right: var(--space-xs);
     }

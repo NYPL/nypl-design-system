@@ -2,11 +2,14 @@ const Button = {
   // style object for base or default style
   baseStyle: {
     borderRadius: "2px",
+    lineHeight: "1.5",
+    display: "flex",
     cursor: "pointer",
     color: "ui.white",
     justifyContent: "center",
     padding: "var(--space-xs) var(--space-s)",
     textDecoration: "none",
+    wordWrap: "normal",
     _hover: {
       bg: "ui.link.secondary",
     },
@@ -31,6 +34,8 @@ const Button = {
   variants: {
     primary: {
       bg: "ui.link.primary",
+      minWidth: "none",
+      height: "none",
       hoverBg: "blue.600",
       activeBg: "blue.700",
     },
@@ -44,7 +49,7 @@ const Button = {
       },
     },
     link: {
-      bg: "transparent",
+      lineHeight: "2.5",
       color: "ui.link.primary",
       textDecoration: "underline",
       _disabled: {
