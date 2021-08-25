@@ -434,8 +434,12 @@ describe("DatePicker", () => {
 
       // Let's select a new day.
       userEvent.click(fromInput);
-      // The popup displays. Select two days from today
-      const newDateToSelect = str_pad(todaysDate.getDate() + 2);
+      // The popup displays. Select a new day.
+      const newDateFrom =
+        todaysDate.getDate() > 28 ? 1 : todaysDate.getDate() + 1;
+      const newDateTo =
+        todaysDate.getDate() > 28 ? 18 : todaysDate.getDate() + 5;
+      const newDateToSelect = str_pad(newDateFrom);
       userEvent.click(screen.getByText(newDateToSelect));
 
       // We selected a new day but kept everything else the same. So we just
@@ -449,9 +453,9 @@ describe("DatePicker", () => {
       // Now select the "To" date.
       userEvent.click(toInput);
       // The popup displays.
-      userEvent.click(screen.getByText("27"));
+      userEvent.click(screen.getByText(newDateTo));
 
-      const newToValue = `${date.slice(0, -2)}27`;
+      const newToValue = `${date.slice(0, -2)}${newDateTo}`;
       expect(screen.getByDisplayValue(newToValue)).toBeInTheDocument();
       // The original date value is no longer in display.
       expect(screen.queryAllByDisplayValue(date)).toHaveLength(0);
