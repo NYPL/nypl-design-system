@@ -1,8 +1,7 @@
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
-import Form, { FormRow, FormField } from "../Form/Form";
-import { FormSpacing } from "../Form/FormTypes";
+import { FormRow, FormField } from "../Form/Form";
 import { DatePickerTypes } from "./DatePickerTypes";
 import TextInput, {
   InputProps,
@@ -198,9 +197,9 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
  */
 const DateRangeRow: React.FC<DateRangeRowProps> = ({ dateRange, children }) =>
   dateRange ? (
-    <Form spacing={FormSpacing.ExtraSmall}>
+    <div className="form--spacing-extra-small">
       <FormRow>{children}</FormRow>
-    </Form>
+    </div>
   ) : (
     <>{children}</>
   );
