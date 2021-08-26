@@ -1,8 +1,10 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import Label from "../Label/Label";
+//import Label from "../Label/Label";
 import generateUUID from "../../helpers/generateUUID";
+
+import { Checkbox as ChakraCheckbox, Icon } from "@chakra-ui/react";
 
 export interface CheckboxProps {
   /** The checkbox's label.  This will serve as the text content for a `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
@@ -38,6 +40,25 @@ export interface CheckboxProps {
 export const onChangeDefault = () => {
   return;
 };
+
+function CheckboxIcon(props) {
+  const { isIndeterminate, isChecked, ...rest } = props;
+
+  const d = isIndeterminate
+    ? "M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,19a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,19Zm1.6-6.08a1,1,0,0,0-.6.917,1,1,0,1,1-2,0,3,3,0,0,1,1.8-2.75A2,2,0,1,0,10,9.255a1,1,0,1,1-2,0,4,4,0,1,1,5.6,3.666Z"
+    : "M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z";
+
+  /*
+    boxSize - controls the size of the "checked" icon.
+    color - does absolutely nothing?
+    path:fill - can only control color with hardcoded value?
+  */
+  return (
+    <Icon viewBox="0 0 24 24" boxSize={6} color="ui.focus" {...rest}>
+      <path fill="#4181f1" d={d} />
+    </Icon>
+  );
+}
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref?) => {
@@ -75,27 +96,31 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
     return (
       <>
-        <input
+        <ChakraCheckbox
+          id={checkboxID}
+          className={bem("checkbox", modifiers, "input", [className])}
+          name={name || "default"}
+          {...(disabled && {
+            isDisabled: true,
+          })}
+          ref={ref}
+          value={value}
           {...(checked !== undefined
             ? {
-                checked: checked,
+                isChecked: checked,
                 onChange: onChange,
               }
             : {
-                defaultChecked: false,
+                defaultIsChecked: false,
               })}
-          className={bem("checkbox", modifiers, "input", [className])}
-          disabled={disabled}
-          id={checkboxID}
-          name={name || "default"}
-          ref={ref}
-          type="checkbox"
-          value={value}
-          {...attributes}
-        />
-        {labelText && showLabel && (
-          <Label htmlFor={checkboxID}>{labelText}</Label>
-        )}
+          size="lg"
+          // @TODO why not just set these in the checkbox theme?
+          colorScheme="white"
+          borderColor="ui.black"
+          icon={<CheckboxIcon />}
+        >
+          {labelText && showLabel && labelText}
+        </ChakraCheckbox>
         {footnote && showLabel && (
           <HelperErrorText isError={errored} id={id + `-helperText`}>
             {footnote}

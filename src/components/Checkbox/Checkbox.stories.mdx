@@ -12,6 +12,8 @@ import { getCategory } from "../../utils/componentCategories";
 import Checkbox from "./Checkbox";
 import { onChangeDefault } from "./Checkbox";
 
+import DSProvider from "../../theme/provider";
+
 <Meta
   title={getCategory("Checkbox")}
   component={Checkbox}
@@ -41,7 +43,7 @@ cause an accessibility violation if none is present.
   <Story
     name="Checkbox"
     args={{
-      labelText: "Test Label",
+      labelText: "Checkbox",
       showLabel: true,
       id: "test_id",
     }}
@@ -55,59 +57,71 @@ cause an accessibility violation if none is present.
 ## Checked
 
 <Canvas>
-  <Checkbox
-    checked
-    showLabel={true}
-    onChange={onChangeDefault}
-    labelText="I am checked"
-  ></Checkbox>
+  <DSProvider>
+    <Checkbox
+      checked
+      showLabel={true}
+      onChange={onChangeDefault}
+      labelText="I am checked"
+    ></Checkbox>
+  </DSProvider>
 </Canvas>
 
 ## Focused
 
 <Canvas>
-  <Checkbox
-    name="testFocus"
-    labelText="Click or tab to the Radio to see its focus state"
-    showLabel={true}
-  ></Checkbox>
+  <DSProvider>
+    <Checkbox
+      name="testFocus"
+      labelText="Click or tab to the Radio to see its focus state"
+      showLabel={true}
+    ></Checkbox>
+  </DSProvider>
 </Canvas>
 
 ## Errored
 
 <Canvas>
-  <Checkbox
-    errored
-    showLabel={true}
-    labelText="I am in an error state"
-  ></Checkbox>
+  <DSProvider>
+    <Checkbox
+      errored
+      showLabel={true}
+      labelText="I am in an error state"
+    ></Checkbox>
+  </DSProvider>
 </Canvas>
 
 ## Disabled
 
 <Canvas>
-  <Checkbox disabled showLabel={true} labelText="I am disabled"></Checkbox>
+  <DSProvider>
+    <Checkbox disabled showLabel={true} labelText="I am disabled"></Checkbox>
+  </DSProvider>
 </Canvas>
 
 ## Helper Text
 
 <Canvas>
-  <Checkbox
-    name="testHelperText"
-    showLabel={true}
-    labelText="I have helper text"
-    helperText="I am the helper text for this Radio"
-  ></Checkbox>
+  <DSProvider>
+    <Checkbox
+      name="testHelperText"
+      showLabel={true}
+      labelText="I have helper text"
+      helperText="I am the helper text for this Radio"
+    ></Checkbox>
+  </DSProvider>
 </Canvas>
 
 ## Error Text
 
 <Canvas>
-  <Checkbox
-    name="testErrorText"
-    showLabel={true}
-    errored
-    labelText="I have error text"
-    errorText="I am the error text for this Radio"
-  ></Checkbox>
+  <DSProvider>
+    <Checkbox
+      name="testErrorText"
+      showLabel={true}
+      errored
+      labelText="I have error text"
+      errorText="I am the error text for this Radio"
+    ></Checkbox>
+  </DSProvider>
 </Canvas>
