@@ -10,13 +10,15 @@ import { withDesign } from "storybook-addon-designs";
 import { getCategory } from "../../utils/componentCategories";
 
 import Form, { FormRow, FormField } from "./Form";
+import { FormSpacing } from "./FormTypes";
 import TextInput from "../TextInput/TextInput";
 import Radio from "../Radio/Radio";
 import Checkbox from "../Checkbox/Checkbox";
 import Label from "../Label/Label";
 import Button from "../Button/Button";
 import Select from "../Select/Select";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import Heading from "../Heading/Heading";
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import { action } from "@storybook/addon-actions";
 
 <Meta
@@ -34,6 +36,11 @@ import { action } from "@storybook/addon-actions";
 />
 
 # Form
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.2`   |
+| Latest            | `0.24.0`   |
 
 <Description of={Form} />
 
@@ -142,13 +149,83 @@ The `Form` component renders a standard `<form>` element and should be used to h
 
 <ArgsTable story="Form" />
 
-### Example Code
+## Spacing Variants
 
-```
-<Form
-  action="/end/point"
-  method="get"
->
+export const formRow = (size) => {
+  const labelText = `Size: ${size}`;
+  return (
+    <li>
+      <Heading level={3}>{labelText}</Heading>
+      <Form spacing={size}>
+        <FormRow>
+          <FormField>
+            <Select
+              labelText="Select Field"
+              showLabel={true}
+              helperText="The select field helper text."
+            >
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </Select>
+          </FormField>
+          <FormField>
+            <Select
+              labelText="Select Field"
+              showLabel={true}
+              helperText="The select field helper text."
+            >
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </Select>
+          </FormField>
+          <FormField>
+            <Select
+              labelText="Select Field"
+              showLabel={true}
+              helperText="The select field helper text."
+            >
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </Select>
+          </FormField>
+        </FormRow>
+      </Form>
+      <HorizontalRule />
+    </li>
+  );
+};
+export const sizes = [];
+for (const formSpacing in FormSpacing) {
+  sizes.push(formRow(FormSpacing[formSpacing]));
+}
+export const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
+
+By default, the `Form` component will handle the NYPL spacing around form input elements. The default spacing value is `large`, which corresponds to the CSS variable `--space-l` (2rem / 32px).
+
+**IMPORTANT:** The default spacing should not be overwritten without a very good reason.
+
+Below are the spacing variants available with the `FormSpacing` enum.
+
+<Preview>
+  <Story
+    name="Spacing Variants"
+    args={{
+      id: "spacing-form-id",
+    }}
+  >
+    {getForms(sizes)}
+  </Story>
+</Preview>
+
+## Example Code
+
+<Story name="Example Code" />
+
+```jsx
+<Form action="/end/point" method="get">
   <FormField>
     <TextInput
       labelText="Username"
