@@ -196,7 +196,13 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
  * @note This is only used internally for this file.
  */
 const DateRangeRow: React.FC<DateRangeRowProps> = ({ dateRange, children }) =>
-  dateRange ? <FormRow>{children}</FormRow> : <>{children}</>;
+  dateRange ? (
+    <div className="form--spacing-extra-small">
+      <FormRow>{children}</FormRow>
+    </div>
+  ) : (
+    <>{children}</>
+  );
 
 /**
  * Returns a single date input field or two date input fields for a date range.
