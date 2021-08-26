@@ -36,6 +36,9 @@ module.exports = {
     // Type-check stories during Storybook build.
     check: true,
   },
+  refs: {
+    "@chakra-ui/react": { disable: true },
+  },
   webpackFinal: async (config) => {
     const assetRule = config.module.rules.find(({ test }) => test.test(".svg"));
     // Exclude svg from the default storybook file-loader.
