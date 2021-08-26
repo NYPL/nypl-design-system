@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `DatePicker` component.
 - Adds new `Card` component.
 - Adds `spacing` prop to `Form` component to allow for spacing variations.
 - Integrates Chakra-UI into the codebase.
@@ -22,7 +23,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
-- Exports `VideoPlayerAspectRatios`
+- Exports `VideoPlayerAspectRatios`.
+- Adds additional props for the `DatePicker` component based on its TAD Addendum section.
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
 - Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
 
