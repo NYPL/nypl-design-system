@@ -22,7 +22,7 @@ fieldset {
     @include screenreader-only();
   }
 
-  .form-row,
+  .form .form-row,
   .form-field {
     margin-bottom: 0;
   }
