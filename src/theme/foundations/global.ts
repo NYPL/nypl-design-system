@@ -8,6 +8,9 @@ const global = {
   a: {
     color: "ui.link.primary",
   },
+  svg: {
+    display: "inline",
+  },
 };
 
 export default global;
