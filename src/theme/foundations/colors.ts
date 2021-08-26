@@ -6,6 +6,11 @@ import { Colors } from "@chakra-ui/react";
  *   https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/style-guide-colors--colors-utility
  * All Brand colors can be found in Storybook:
  *   https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/style-guide-colors--colors-brand
+ *
+ * At the end of this file, there are objects that extend Chakra's default
+ * color shade palette for individual colors. WE DO NOT RECOMMEND to use them
+ * and only recommend to use the colors defined by the Design System such as the
+ * following "ui", "brand", and "section" colors below.
  */
 
 // Reusable variables:
@@ -13,7 +18,7 @@ const grayLight = "#E0E0E0";
 const grayxxlight = "#FAFAFA";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
-const brandPrimarySecondaryObj = {
+const brandObj = {
   primary: brandPrimary,
   secondary: brandSecondary,
 };
@@ -63,7 +68,7 @@ const colors: Colors = {
   },
 
   /** Brand fills are the NYPL primary and secondary colors. */
-  brand: brandPrimarySecondaryObj,
+  brand: brandObj,
 
   /** Brand fills for sections on NYPL pages. */
   section: {
@@ -75,7 +80,7 @@ const colors: Colors = {
 
     /** Books and More is used for the Catalog, Staff Picks, Recommendations,
      * New Arrivals, and E-Book Central. */
-    "books-and-more": brandPrimarySecondaryObj,
+    "books-and-more": brandObj,
 
     /** Research is used for the Research Catalog and SCC. */
     research: {
@@ -85,7 +90,7 @@ const colors: Colors = {
 
     /** Locations is used for Location Finder and all branch pages with
      * the exceptions of some research libraries. */
-    locations: brandPrimarySecondaryObj,
+    locations: brandObj,
 
     /** Research libraries with specific brand colors to adhere to. */
     "research-library": {
@@ -99,8 +104,8 @@ const colors: Colors = {
    * The following color scales are useful for color edge cases where a
    * distinct named ui or brand color doesn't quite work. These are used by
    * Chakra and have been generated through https://themera.vercel.app/.
-   * While these colors are available, we don't recommend to use them but
-   * rather to stick with the utility colors declared above.
+   * While these colors are available, WE DO NOT RECOMMEND using them. Stick
+   * with the utility colors declared above.
    * @Note If you do need to use a color variant, please contant the DS team.
    */
 

@@ -15,7 +15,18 @@ export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button, ButtonGroup } from "./components/Button/Button";
 export { ButtonTypes } from "./components/Button/ButtonTypes";
-export { default as Card } from "./components/Card/Card";
+export {
+  default as Card,
+  CardActions,
+  CardContent,
+  CardHeading,
+} from "./components/Card/Card";
+export {
+  CardImageRatios,
+  CardImageSizes,
+  CardLayouts,
+} from "./components/Card/CardTypes";
+export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as DatePicker } from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
@@ -66,7 +77,11 @@ export {
   TabPanels,
   TabPanel,
 } from "./components/Tabs/Tabs";
-export { default as TextInput } from "./components/TextInput/TextInput";
+export {
+  default as TextInput,
+  TextInputRefType,
+} from "./components/TextInput/TextInput";
+export { TextInputTypes } from "./components/TextInput/TextInputTypes";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {
   VideoPlayerAspectRatios,

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Card from "../Card/Card";
+import CardEdition from "../CardEdition/CardEdition";
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
@@ -88,7 +88,7 @@ export const listRenderer = (args) => (
 );
 
 const exampleCard = (
-  <Card
+  <CardEdition
     className="example-card"
     image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
     ctas={
@@ -125,7 +125,7 @@ const exampleCard = (
         <Link href="#">Read More</Link>
       </div>
     </>
-  </Card>
+  </CardEdition>
 );
 
 export const cardsList = [];

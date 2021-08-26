@@ -6,6 +6,7 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+
 import SearchBar from "./SearchBar";
 import Select from "../Select/Select";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
@@ -17,6 +18,7 @@ import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
 import * as stories from "../Autosuggest/Autosuggest.stories.tsx";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("SearchBar")}
@@ -225,7 +227,7 @@ For the error state, make sure that the `errored` prop is passed to the `Input`
 component and the `isError` prop is passed to the `HelperErrorText` component.
 
 <Preview>
-  <div>
+  <DSProvider>
     <SearchBar>
       <Input
         ariaLabelledBy="button-error-state"
@@ -254,7 +256,7 @@ component and the `isError` prop is passed to the `HelperErrorText` component.
     <HelperErrorText id="error-helperText" isError={true}>
       Sorry, we can't find that item!
     </HelperErrorText>
-  </div>
+  </DSProvider>
 </Preview>
 
 <br />
@@ -265,7 +267,7 @@ For the disabled state, make sure to pass the `disabled` prop to the
 `Button` component.
 
 <Preview>
-  <div>
+  <DSProvider>
     <SearchBar>
       <Input
         ariaLabelledBy="button-disabled"
@@ -291,5 +293,5 @@ For the disabled state, make sure to pass the `disabled` prop to the
     <HelperErrorText id="error-disabled">
       Reason for disabled state.
     </HelperErrorText>
-  </div>
+  </DSProvider>
 </Preview>

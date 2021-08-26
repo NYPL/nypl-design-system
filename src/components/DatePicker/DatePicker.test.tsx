@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 import DatePicker from "./DatePicker";
 import { DatePickerTypes } from "./DatePickerTypes";
+import { TextInputRefType } from "../TextInput/TextInput";
 
 /** This adds a "0" padding for date values under "10". */
 const str_pad = (n) => String("0" + n).slice(-2);
@@ -78,6 +79,18 @@ describe("DatePicker", () => {
       // Date format based on component specification yyyy-mm-dd.
       expect(date).toEqual(`${year}-${month}-${day}`);
       expect(screen.getByDisplayValue(date)).toBeInTheDocument();
+    });
+
+    it("should render with an initial date", () => {
+      render(
+        <DatePicker
+          labelText="Select the full date you want to visit NYPL"
+          initialDate="1/2/1988"
+        />
+      );
+      const date = screen.getByDisplayValue("1988-01-02");
+
+      expect(date).toBeInTheDocument();
     });
 
     it("should render the 'month' DatePicker type", () => {
@@ -166,6 +179,7 @@ describe("DatePicker", () => {
         />
       );
 
+      // When not errored, we expect only the helper text to appear.
       expect(
         screen.getByLabelText(/Select the date you want to visit NYPL/i)
       ).toBeInTheDocument();
@@ -184,6 +198,7 @@ describe("DatePicker", () => {
           errored={true}
         />
       );
+      // When errored, we expect only the error text to appear.
       expect(
         screen.queryByText("Note that the Library may be closed on Sundays.")
       ).not.toBeInTheDocument();
@@ -217,6 +232,85 @@ describe("DatePicker", () => {
 
       expect(screen.getByText(/required/i)).toBeInTheDocument();
     });
+
+    it("should pass the value to the `onChange` function", () => {
+      let dateObject: any = {};
+      const onChange = (data) => {
+        dateObject = data;
+      };
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          helperText="Note that the Library may be closed on Sundays."
+          required={true}
+          onChange={onChange}
+        />
+      );
+
+      const input = screen.getByLabelText(
+        /Select the date you want to visit NYPL/i
+      );
+      const date = getTodaysDateDisplay();
+      const midMonthDay = "15";
+
+      // Let's select a new day.
+      userEvent.click(input);
+      // The popup displays.
+      userEvent.click(screen.getByText(midMonthDay));
+
+      const newDayValue = date.slice(0, -2) + midMonthDay;
+      expect(screen.getByDisplayValue(newDayValue)).toBeInTheDocument();
+
+      const { startDate } = dateObject;
+      const valueFromOnChange = `${startDate.getFullYear()}-${str_pad(
+        startDate.getMonth() + 1
+      )}-${str_pad(startDate.getDate())}`;
+      expect(newDayValue).toEqual(valueFromOnChange);
+    });
+
+    it("should throw a warning when refs are used but not `name` props", () => {
+      const warn = jest.spyOn(console, "warn");
+      const ref = React.createRef<TextInputRefType>();
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          ref={ref}
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
+      );
+    });
+
+    it("should throw a warning when `onChange` is passed as well as a `ref` prop.", () => {
+      const warn = jest.spyOn(console, "warn");
+      const ref = React.createRef<TextInputRefType>();
+      const onChange = (_data) => {};
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          ref={ref}
+          nameFrom="start-date"
+          onChange={onChange}
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
+      );
+    });
+
+    it("should not render a required label if the 'showOptReqLabel' flag is false", () => {
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          helperText="Note that the Library may be closed on Sundays."
+          required={true}
+          showOptReqLabel={false}
+        />
+      );
+
+      expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
+    });
   });
 
   describe("Date Range", () => {
@@ -239,12 +333,29 @@ describe("DatePicker", () => {
       expect(screen.getAllByDisplayValue(date)).toHaveLength(2);
     });
 
-    it("should render two input labels and two separate helper text", () => {
+    it("should render the initial dates", () => {
+      render(
+        <DatePicker
+          labelText="Select the full date you want to visit NYPL"
+          dateRange={true}
+          initialDate="1/2/1988"
+          initialDateTo="3/4/1990"
+        />
+      );
+      const dateFrom = screen.getByDisplayValue("1988-01-02");
+      const dateTo = screen.getByDisplayValue("1990-03-04");
+
+      expect(dateFrom).toBeInTheDocument();
+      expect(dateTo).toBeInTheDocument();
+    });
+
+    it("should render two input labels and three separate helper text", () => {
       render(
         <DatePicker
           dateRange={true}
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
+          helperTextFrom="Note for the 'from' field."
           helperTextTo="Note for the 'to' field."
           errorText="Please select a valid date range."
         />
@@ -252,9 +363,13 @@ describe("DatePicker", () => {
       // There are two labels for each input.
       expect(screen.getByText("From")).toBeInTheDocument();
       expect(screen.getByText("To")).toBeInTheDocument();
-      // Helper text for the "From" input
+      // Helper text for the component
       expect(
         screen.getByText(/Note that the Library may be closed on Sundays./i)
+      ).toBeInTheDocument();
+      // Helper text for the "From" input
+      expect(
+        screen.getByText(/Note for the 'from' field./i)
       ).toBeInTheDocument();
       // Helper text for the "To" input
       expect(screen.getByText(/Note for the 'to' field./i)).toBeInTheDocument();
@@ -319,8 +434,12 @@ describe("DatePicker", () => {
 
       // Let's select a new day.
       userEvent.click(fromInput);
-      // The popup displays. Select two days from today
-      const newDateToSelect = str_pad(todaysDate.getDate() + 2);
+      // The popup displays. Select a new day.
+      const newDateFrom =
+        todaysDate.getDate() > 28 ? 1 : todaysDate.getDate() + 1;
+      const newDateTo =
+        todaysDate.getDate() > 28 ? 18 : todaysDate.getDate() + 5;
+      const newDateToSelect = str_pad(newDateFrom);
       userEvent.click(screen.getByText(newDateToSelect));
 
       // We selected a new day but kept everything else the same. So we just
@@ -334,9 +453,9 @@ describe("DatePicker", () => {
       // Now select the "To" date.
       userEvent.click(toInput);
       // The popup displays.
-      userEvent.click(screen.getByText("29"));
+      userEvent.click(screen.getByText(newDateTo));
 
-      const newToValue = `${date.slice(0, -2)}29`;
+      const newToValue = `${date.slice(0, -2)}${newDateTo}`;
       expect(screen.getByDisplayValue(newToValue)).toBeInTheDocument();
       // The original date value is no longer in display.
       expect(screen.queryAllByDisplayValue(date)).toHaveLength(0);
