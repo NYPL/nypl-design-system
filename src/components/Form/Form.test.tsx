@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Form, { FormRow, FormField } from "./Form";
 import { FormSpacing } from "./FormTypes";
@@ -10,6 +11,23 @@ describe("Form Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<Form />);
     expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("Form Snapshot", () => {
+  it("Renders the UI snapshot correctly", () => {
+    const tree = renderer
+      .create(
+        <Form>
+          <FormRow>
+            <FormField>Form Field 1</FormField>
+            <FormField>Form Field 2</FormField>
+            <FormField>Form Field 3</FormField>
+          </FormRow>
+        </Form>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
 

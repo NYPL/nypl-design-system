@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Snapshot Renders the UI snapshot correctly 1`] = `
+<form
+  className="form "
+  id="3b9ac012-43f5-49d5-8787-a8d7d7610aaf"
+>
+  <div
+    className="form-row "
+  >
+    <div
+      className="form-field "
+    >
+      Form Field 1
+    </div>
+    <div
+      className="form-field "
+    >
+      Form Field 2
+    </div>
+    <div
+      className="form-field "
+    >
+      Form Field 3
+    </div>
+  </div>
+</form>
+`;
