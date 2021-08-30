@@ -17,51 +17,57 @@
  *   --space-xxxl = 96px or 6rem
  *
  * @note Even though all the following values are available through Chakra,
- * we recommend to use the spacing values that map to the DS values
+ * we recommend to only use the spacing values that map to the DS values
  * declared above.
  *
- * Chakra Value | DS Variable
- * ----------------------------
- *     1        |  --space-xxs
- *     2        |  --space-xs
- *     4        |  --space-s
- *     6        |  --space-m
- *     8        |  --space-l
- *     12       |  --space-xl
- *     16       |  --space-xxl
- *     24       |  --space-xxl
+ * Chakra Number Value | Chakra Name value | DS Variable
+ * ------------------- | ----------------- | -----------------
+ *        1            |         xxs       |   --space-xxs
+ *        2            |         xs        |   --space-xs
+ *        4            |         s         |   --space-s
+ *        6            |         m         |   --space-m
+ *        8            |         l         |   --space-l
+ *        12           |         xl        |   --space-xl
+ *        16           |         xxl       |   --space-xxl
+ *        24           |         xxxl      |   --space-xxxl
  */
 export const spacing = {
   px: "1px",
   0: "0",
   0.5: "0.125rem",
   // --space-xxs = 4px
-  // xxs: "0.25rem",
-  // The above creates --chakra-space-xxs
+  xxs: "0.25rem",
   1: "0.25rem",
   1.5: "0.375rem",
   // --space-xs = 8px
+  xs: "0.5rem",
   2: "0.5rem",
   2.5: "0.625rem",
   3: "0.75rem",
   3.5: "0.875rem",
   // --space-s = 16px
+  s: "1rem",
   4: "1rem",
   5: "1.25rem",
   // --space-m = 24px
+  m: "1.5rem",
   6: "1.5rem",
   7: "1.75rem",
   // --space-l = 32px
+  l: "2rem",
   8: "2rem",
   9: "2.25rem",
   10: "2.5rem",
   // --space-xl = 48px
+  xl: "3rem",
   12: "3rem",
   14: "3.5rem",
   // --space-xxl = 64px
+  xxl: "4rem",
   16: "4rem",
   20: "5rem",
   // --space-xxxl = 96px
+  xxxl: "6rem",
   24: "6rem",
   28: "7rem",
   32: "8rem",
