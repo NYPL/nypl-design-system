@@ -35,23 +35,20 @@ Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/stor
 
 The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
 
-```jsx
-import {
-  Icon,
-  IconNames,
-  LogoNames,
-  IconColors,
-  IconSizes,
-  IconRotationTypes,
-} from "@nypl/design-system-react-components";
-```
+## Style Guide Topics
 
-### Icon Examples
+- [Icon Examples](#icon-examples)
+- [Icon Sizes](#icon-sizes)
+- [Icon Colors](#icon-colors)
+- [Development Notes](#development-notes)
+- [Figma Reference](#figma-reference)
+
+## Icon Examples
 
 The graphic of the `Icon` component is handled through the `IconNames` and `LogoNames` enums. To see all graphic options for `Icon`, please refer to the [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) Storybook page.
 
 <Preview>
-  <Story name="Icon Examples">
+  <>
     <span style={{ marginRight: "1rem" }}>
       <Icon
         decorative
@@ -99,7 +96,7 @@ The graphic of the `Icon` component is handled through the `IconNames` and `Logo
         name={LogoNames.logo_brooklyn}
       />
     </span>
-  </Story>
+  </>
 </Preview>
 
 | Enum Values for Examples Above |
@@ -111,33 +108,31 @@ The graphic of the `Icon` component is handled through the `IconNames` and `Logo
 | `LogoNames.logo_nypl`          |
 | `LogoNames.logo_brooklyn`      |
 
-### Size
+## Icon Sizes
 
 The size of the `Icon` component is handled through the `IconSizes` enum.
 
 <Preview>
-  <Story name="Size">
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon decorative size={IconSizes.small} name="check" />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon decorative size={IconSizes.medium} name="check" />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon decorative size={IconSizes.large} name="check" />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon decorative size={IconSizes.xlarge} name="check" />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon decorative size={IconSizes.xxlarge} name="check" />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon decorative size={IconSizes.xxxlarge} name="check" />
-      </span>
-    </div>
-  </Story>
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon decorative size={IconSizes.small} name="check" />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon decorative size={IconSizes.medium} name="check" />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon decorative size={IconSizes.large} name="check" />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon decorative size={IconSizes.xlarge} name="check" />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon decorative size={IconSizes.xxlarge} name="check" />
+    </span>
+    <span style={{ marginRight: "1rem" }}>
+      <Icon decorative size={IconSizes.xxxlarge} name="check" />
+    </span>
+  </div>
 </Preview>
 
 | IconSizes Enum Value | CSS Value         | CSS Variable  |
@@ -149,12 +144,12 @@ The size of the `Icon` component is handled through the `IconSizes` enum.
 | `IconSizes.xxlarge`  | `3rem` (48px)     | `--space-xl`  |
 | `IconSizes.xxxlarge` | `4rem` (64px)     | `--space-xxl` |
 
-### Color
+## Icon Colors
 
 The color of the `Icon` component is handled through the `IconColors` enum. Icons in NYPL projects should always be rendered with one color.
 
 <Preview>
-  <Story name="Color">
+  <>
     <Icon decorative size={IconSizes.xxxlarge} name="check" />
     <Icon
       decorative
@@ -180,7 +175,7 @@ The color of the `Icon` component is handled through the `IconColors` enum. Icon
       color={IconColors.section_research_library_schomburg}
       name="check"
     />
-  </Story>
+  </>
 </Preview>
 
 | IconColors Enum Value                             | CSS Variable                             |
@@ -198,11 +193,11 @@ The color of the `Icon` component is handled through the `IconColors` enum. Icon
 | `IconColors.section_research_library_schomburg`   | `--section-research-library-schomburg`   |
 | `IconColors.section_research_library_schwartzman` | `--section-research-library-schwartzman` |
 
-### Development Note
+## Development Notes
 
 Icons have been added to the Icon component as they have been needed within NYPL development project, so not all of the [NYPL icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945) and [NYPL Brand](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007) and [NYPL UI](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=14989%3A37) colors are currently available through the DS Icon component. If your project requires an icon or color that is not currently available in the Icon component, please inform your project manager or reach out directly to the NYPL Design System team.
 
-### Design System Figma Reference
+## Figma Reference
 
 - [NYPL Icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945)
 - [NYPL Brand Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
