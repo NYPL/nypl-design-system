@@ -18,7 +18,7 @@ describe("Form Snapshot", () => {
   it("Renders the UI snapshot correctly", () => {
     const tree = renderer
       .create(
-        <Form>
+        <Form id="snapshot-form">
           <FormRow>
             <FormField>Form Field 1</FormField>
             <FormField>Form Field 2</FormField>
