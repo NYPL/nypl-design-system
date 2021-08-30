@@ -72,7 +72,7 @@ const Application = (props) => {
 ### Chakra Components in Storybook
 
 Storybook is configured to use the `DSProvider` so that components can render
-appropriately. Unfortunately, this only effect within the `Story` component.
+appropriately. Unfortunately, this only works within the `Story` component.
 When rendering components in documentation examples within a `Canvas` component,
 wrap the elements in the `DSProvider` component.
 
@@ -102,8 +102,12 @@ the DS `Hero` component will internally use `Chakra` components.
 
 While we can directly use Chakra components that align with DS components, we
 want to compose DS components using the Chakra component as a base instead. This
-patterns allows the Design System to have control over props and standard styles.
-This means that not all styled props are available for these types of components.
+pattern allows the Design System to have control over props and standard styles.
+
+These components composed from Chakra, therefore, do not have all styled props
+available. For example, whereas `m` (`margin`), `mr` (`marginright`), and similar
+props can be used in Chakra components, those props are not available for DS
+components that internally are composed with Chakra components.
 
 Components built from Chakra rename the component with the `Chakra` name prefix.
 
@@ -290,7 +294,7 @@ variables provided by Chakra for ease of use.
 
 Note: while each Chakra color has number range values from 50 to 900 (such as
 `red.400`, `blue.600`, etc) and each one is based on the color coming from
-DS' Figma documentation, we recommend not to use them.
+DS' Figma documentation, we recommend NOT to use them.
 
 ### Spacing
 
