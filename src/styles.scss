@@ -50,6 +50,12 @@
 @import "./components/TextInput/_TextInput.scss";
 @import "./components/Autosuggest/_Autosuggest.scss";
 
+fieldset {
+  .sr-only {
+    @include screenreader-only();
+  }
+}
+
 // Order not important
 @import "./components/Accordion/_Accordion.scss";
 @import "./components/Breadcrumbs/_Breadcrumbs.scss";

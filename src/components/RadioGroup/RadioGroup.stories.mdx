@@ -1,0 +1,66 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import Radio from "../Radio/Radio";
+
+import { getCategory } from "../../utils/componentCategories";
+import RadioGroup, { RadioGroupLayouts } from "./RadioGroup";
+import { onChangeDefault } from "./RadioGroup";
+
+<Meta
+  title={getCategory("RadioGroup")}
+  component={RadioGroup}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A742",
+    },
+    jest: ["RadioGroup.test.tsx"],
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+    id: { table: { disable: true } },
+  }}
+/>
+
+# RadioGroup
+
+<Description of={RadioGroup} />
+
+<Preview withToolbar>
+  <Story
+    name="RadioGroup"
+    args={{
+      name: "radio-story",
+      defaultValue: "4",
+      layout: RadioGroupLayouts.Vertical,
+      labelText: "radio group label",
+      helperText: "this is the helper text",
+      errorText: "error!",
+      showLabel: true,
+      errored: false,
+      required: false,
+      disabled: false,
+    }}
+  >
+    {(args) => (
+      <RadioGroup {...args}>
+        <Radio value="2" labelText="Radio 2" showLabel />
+        <Radio value="3" labelText="Radio 3" showLabel />
+        <Radio value="4" labelText="Radio 4" showLabel />
+        <Radio value="5" labelText="Radio 5" showLabel />
+      </RadioGroup>
+    )}
+  </Story>
+</Preview>
+
+<ArgsTable story="RadioGroup" />
