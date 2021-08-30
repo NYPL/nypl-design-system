@@ -440,7 +440,7 @@ describe("DatePicker", () => {
       const newDateTo =
         todaysDate.getDate() > 28 ? 18 : todaysDate.getDate() + 5;
       const newDateToSelect = str_pad(newDateFrom);
-      userEvent.click(screen.getByText(newDateToSelect));
+      userEvent.click(screen.getAllByText(newDateFrom)[0]);
 
       // We selected a new day but kept everything else the same. So we just
       // need to remove the older day with the new "2" selected date.

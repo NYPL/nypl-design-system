@@ -26,7 +26,7 @@ type tabsAlign = "start" | "center" | "end";
 // The general shape of the data object for each Tab.
 export interface TabsData {
   label: string;
-  content: React.ReactNode;
+  content: string | React.ReactNode;
 }
 
 export interface TabsProps {
@@ -43,8 +43,8 @@ export interface TabsProps {
   index?: number;
   /** Render the tabs to span the container's full width, provided by Chakra. */
   isFitted?: boolean;
-  /** The callback function invoked on every tab click/press event. */
-  tabsOnClick?: (index: number) => any;
+  /** The callback function invoked on every tab change event. */
+  onChange?: (index: number) => any;
   /** The kind of Tab assigned through the `TabsType` enum.  */
   // tabsType?: TabsType;
   /** Render a hash in the url for each tab. Only available when data is
@@ -98,6 +98,7 @@ const getElementsFromData = (data, useHash) => {
   }
 
   data.map((tab, index) => {
+    let tempPanel;
     // For URL hash enabled tabs, we want to use the custom anchor component.
     const tempTab = useHash ? (
       <CustomAnchorTab key={index} hashKey={index}>
@@ -106,7 +107,16 @@ const getElementsFromData = (data, useHash) => {
     ) : (
       <Tab key={index}>{tab.label}</Tab>
     );
-    const tempPanel = <TabPanel key={index}>{tab.content}</TabPanel>;
+    if (typeof tab.content === "string") {
+      tempPanel = (
+        <TabPanel
+          key={index}
+          dangerouslySetInnerHTML={{ __html: tab.content }}
+        />
+      );
+    } else {
+      tempPanel = <TabPanel key={index}>{tab.content}</TabPanel>;
+    }
 
     tabs.push(tempTab);
     panels.push(tempPanel);
@@ -127,7 +137,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
     id = generateUUID(),
     isFitted = false,
     useHash = false,
-    tabsOnClick,
+    onChange,
     index = 0,
     align = "start",
   } = props;
@@ -153,7 +163,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
       isFitted={isFitted}
       // The following lazy loads each panel whenever it is needed.
       isLazy
-      onChange={tabsOnClick}
+      onChange={onChange}
       defaultIndex={index}
       variant="enclosed"
       // __css={styles}
