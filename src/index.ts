@@ -59,7 +59,11 @@ export {
 } from "./components/SkeletonLoader/SkeletonLoaderTypes";
 export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
-export { default as TextInput } from "./components/TextInput/TextInput";
+export {
+  default as TextInput,
+  TextInputRefType,
+} from "./components/TextInput/TextInput";
+export { TextInputTypes } from "./components/TextInput/TextInputTypes";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {
   VideoPlayerAspectRatios,
