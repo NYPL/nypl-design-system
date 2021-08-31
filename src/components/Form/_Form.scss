@@ -30,12 +30,16 @@ $sizes: (
 );
 
 .form {
-  .form-field {
-    @include space-stack-l;
+  > .form-field {
+    &:not(:last-child) {
+      @include space-stack-l;
+    }
   }
 
-  .form-row {
-    @include space-stack-l;
+  > .form-row {
+    &:not(:last-child) {
+      @include space-stack-l;
+    }
 
     display: block;
 
@@ -44,12 +48,16 @@ $sizes: (
     }
 
     .form-field {
+      &:not(:last-child) {
+        @include space-stack-l;
+      }
+
       @include breakpoint($breakpoint-medium) {
         flex: 1 0;
-        margin-bottom: 0;
 
         &:not(:last-child) {
           @include space-inline-l;
+          @include space-stack-none;
         }
       }
     }
