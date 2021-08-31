@@ -5,12 +5,15 @@ import userEvent from "@testing-library/user-event";
 
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 
-const animalCrossing = [
+export const animalCrossing = [
   {
     label: "Tom Nook",
-    content:
-      "Tom Nook, known in Japan as Tanukichi, is a fictional character" +
-      " in the Animal Crossing series who operates the village store.",
+    content: (
+      <p>
+        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
+        in the Animal Crossing series who operates the village store.
+      </p>
+    ),
   },
   {
     label: "Isabelle",
@@ -18,15 +21,15 @@ const animalCrossing = [
       "Isabelle, known as Shizue in Japan, is a fictional character " +
       "from the Animal Crossing series of video games. She is a kindly Shih " +
       "Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where " +
-      "sheserves as the secretary to the player character.",
+      "she serves as the secretary to the player character.",
   },
   {
     label: "K.K. Slider",
     content:
-      "Totakeke, more commonly known as K.K. Slider or K.K., is a " +
+      "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a " +
       "fictional character within the Animal Crossing franchise. One of the " +
       "franchise's most popular characters, he debuted in the title Animal " +
-      "Crossing, and has appeared in every installment since.",
+      "Crossing, and has appeared in every installment since.</p>",
   },
 ];
 
@@ -116,23 +119,20 @@ describe("Tabs", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("renders all tabs but only one panel at a time with data prop", () => {
+  it("renders all tabs but only one visible panel at a time with data prop", () => {
     render(<Tabs data={animalCrossing} />);
-
     expect(getTabByName("Tom Nook")).toBeInTheDocument();
     expect(getTabByName("Isabelle")).toBeInTheDocument();
     expect(getTabByName("K.K. Slider")).toBeInTheDocument();
     expect(
-      screen.getByText(/Tom Nook, known in Japan as Tanukichi/i)
+      screen.getByText(/known in Japan as Tanukichi/i)
     ).toBeInTheDocument();
     expect(
       screen.queryByText(/Isabelle, known as Shizue in Japan,/i)
-    ).not.toBeInTheDocument();
+    ).not.toBeVisible();
     expect(
-      screen.queryByText(
-        /Totakeke, more commonly known as K.K. Slider or K.K./i
-      )
-    ).not.toBeInTheDocument();
+      screen.queryByText(/Totakeke, more commonly known as/i)
+    ).not.toBeVisible();
   });
 
   it("switches between tabs", () => {
@@ -141,45 +141,39 @@ describe("Tabs", () => {
     const kkSliderTab = getTabByName("K.K. Slider");
 
     expect(
-      screen.getByText(/Tom Nook, known in Japan as Tanukichi/i)
+      screen.getByText(/known in Japan as Tanukichi/i)
     ).toBeInTheDocument();
     expect(
       screen.queryByText(/Isabelle, known as Shizue in Japan,/i)
-    ).not.toBeInTheDocument();
+    ).not.toBeVisible();
     expect(
-      screen.queryByText(
-        /Totakeke, more commonly known as K.K. Slider or K.K./i
-      )
-    ).not.toBeInTheDocument();
+      screen.queryByText(/Totakeke, more commonly known as/i)
+    ).not.toBeVisible();
 
     userEvent.click(isabelleTab);
     expect(isabelleTab).toHaveAttribute("aria-selected", "true");
 
     expect(
-      screen.queryByText(/Tom Nook, known in Japan as Tanukichi/i)
+      screen.queryByText(/known in Japan as Tanukichi/i)
     ).not.toBeInTheDocument();
     expect(
       screen.queryByText(/Isabelle, known as Shizue in Japan,/i)
     ).toBeInTheDocument();
     expect(
-      screen.queryByText(
-        /Totakeke, more commonly known as K.K. Slider or K.K./i
-      )
-    ).not.toBeInTheDocument();
+      screen.queryByText(/Totakeke, more commonly known/i)
+    ).not.toBeVisible();
 
     userEvent.click(kkSliderTab);
     expect(kkSliderTab).toHaveAttribute("aria-selected", "true");
 
     expect(
-      screen.queryByText(/Tom Nook, known in Japan as Tanukichi/i)
+      screen.queryByText(/known in Japan as Tanukichi/i)
     ).not.toBeInTheDocument();
     expect(
       screen.queryByText(/Isabelle, known as Shizue in Japan,/i)
-    ).not.toBeInTheDocument();
+    ).not.toBeVisible();
     expect(
-      screen.queryByText(
-        /Totakeke, more commonly known as K.K. Slider or K.K./i
-      )
+      screen.queryByText(/Totakeke, more commonly known/i)
     ).toBeInTheDocument();
   });
 
@@ -196,9 +190,9 @@ describe("Tabs", () => {
 
   it("invokes the callback function", () => {
     let selectedIndex = 0;
-    const tabsOnClick = (index) => (selectedIndex = index);
+    const onChange = (index) => (selectedIndex = index);
 
-    render(<Tabs data={animalCrossing} tabsOnClick={tabsOnClick} />);
+    render(<Tabs data={animalCrossing} onChange={onChange} />);
 
     const tomTab = getTabByName("Tom Nook");
     const isabelleTab = getTabByName("Isabelle");
@@ -214,7 +208,7 @@ describe("Tabs", () => {
     expect(selectedIndex).toEqual(1);
   });
 
-  it("should throw warning when fewer than 4 options", () => {
+  it("should throw warning when both the 'data' probp and children are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Tabs data={animalCrossing}>

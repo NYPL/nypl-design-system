@@ -28,7 +28,7 @@ import DSProvider from "../../theme/provider";
     id: { table: { disable: true } },
     className: { table: { disable: true } },
     data: { table: { disable: true } },
-    tabsOnClick: { table: { disable: true } },
+    onChange: { table: { disable: true } },
   }}
 />
 
@@ -44,9 +44,12 @@ import DSProvider from "../../theme/provider";
 export const animalCrossing = [
   {
     label: "Tom Nook",
-    content:
-      "Tom Nook, known in Japan as Tanukichi, is a fictional character" +
-      " in the Animal Crossing series who operates the village store.",
+    content: (
+      <p>
+        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
+        in the Animal Crossing series who operates the village store.
+      </p>
+    ),
   },
   {
     label: "Isabelle",
@@ -54,15 +57,15 @@ export const animalCrossing = [
       "Isabelle, known as Shizue in Japan, is a fictional character " +
       "from the Animal Crossing series of video games. She is a kindly Shih " +
       "Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where " +
-      "sheserves as the secretary to the player character.",
+      "she serves as the secretary to the player character.",
   },
   {
     label: "K.K. Slider",
     content:
-      "Totakeke, more commonly known as K.K. Slider or K.K., is a " +
+      "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a " +
       "fictional character within the Animal Crossing franchise. One of the " +
       "franchise's most popular characters, he debuted in the title Animal " +
-      "Crossing, and has appeared in every installment since.",
+      "Crossing, and has appeared in every installment since.</p>",
   },
 ];
 
@@ -92,21 +95,24 @@ prop. This allows the consumer to pass in well-formed data and always generate
 the correct DOM. Internally in the DS `Tabs` component, we map through the data
 array and generate the appropriate components needed for the layout.
 
+Note that HTML is allowed in the `content` property in each object as part of the
+string or as straight HTML.
+
 ```jsx
 import { Tabs } from "@nypl/design-system-react-components";
 
 const animalCrossing = [
   {
     label: "Tom Nook",
-    content: "Tom Nook, known in Japan as Tanukichi, is a fictional ...",
-  },
+    content: <p>Tom Nook, <b>known in Japan as Tanukichi</b>, is a ...,
   {
     label: "Isabelle",
     content: "Isabelle, known as Shizue in Japan, is a fictional ...",
   },
   {
     label: "K.K. Slider",
-    content: "Totakeke, more commonly known as K.K. Slider or K.K., is a ...",
+    content:
+      "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is ...",
   },
 ];
 
@@ -117,25 +123,25 @@ const animalCrossing = [
 ## With Callback Event Function
 
 If you need to keep track of the index of current tab that was selected, pass
-an `onClick` event handler to the `tabsOnClick` prop. This will return the index
+an `onChange` event handler to the `onChange` prop. This will return the index
 (0-based) of the tab selected.
 
 ```jsx
-export const tabsOnClick = (value) => {
+export const onChange = (value) => {
   window.alert(`Tab index selected was ${value}`);
 };
 
 // ...
-<Tabs data={animalCrossing} tabsOnClick={tabsOnClick} />;
+<Tabs data={animalCrossing} onChange={onChange} />;
 ```
 
-export const tabsOnClick = (value) => {
+export const onChange = (value) => {
   window.alert(`Tab index selected was ${value}`);
 };
 
 <Canvas>
   <Story name="With Callback Event Function">
-    <Tabs data={animalCrossing} tabsOnClick={tabsOnClick} />
+    <Tabs data={animalCrossing} onChange={onChange} />
   </Story>
 </Canvas>
 
