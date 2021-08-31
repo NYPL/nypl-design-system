@@ -1,10 +1,11 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Box, Stack, HStack, VStack, Circle } from "@chakra-ui/react";
 
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes, IconColors } from "../Icons/IconTypes";
-import Radio, { onChangeDefault } from "../Radio/Radio";
+import Radio from "../Radio/Radio";
 
 <Meta title={getCategory("Stack, HStack, VStack")} component={Stack} />
 
@@ -66,33 +67,14 @@ both horizontally and vertically through the `direction` prop.
 Stacks components horizontally.
 
 <Canvas>
-  <HStack>
-    <Radio
-      checked
-      labelText="Tom Nook"
-      name="testChecked"
-      onChange={onChangeDefault}
-      showLabel={true}
-    />
-    <Radio
-      labelText="Timmy"
-      name="testChecked"
-      onChange={onChangeDefault}
-      showLabel={true}
-    />
-    <Radio
-      labelText="Tommy"
-      name="testChecked"
-      onChange={onChangeDefault}
-      showLabel={true}
-    />
-    <Radio
-      labelText="Celeste"
-      name="testChecked"
-      onChange={onChangeDefault}
-      showLabel={true}
-    />
-  </HStack>
+  <DSProvider>
+    <HStack>
+      <Radio checked labelText="Tom Nook" name="testChecked" />
+      <Radio labelText="Timmy" name="testChecked" />
+      <Radio labelText="Tommy" name="testChecked" />
+      <Radio labelText="Celeste" name="testChecked" />
+    </HStack>
+  </DSProvider>
 </Canvas>
 
 ## VStack
@@ -100,31 +82,12 @@ Stacks components horizontally.
 Stacks components vertically.
 
 <Canvas>
-  <VStack>
-    <Radio
-      checked
-      labelText="Tom Nook"
-      name="testChecked"
-      onChange={onChangeDefault}
-      showLabel={true}
-    />
-    <Radio
-      labelText="Timmy"
-      name="testChecked"
-      onChange={onChangeDefault}
-      showLabel={true}
-    />
-    <Radio
-      labelText="Tommy"
-      name="testChecked"
-      onChange={onChangeDefault}
-      showLabel={true}
-    />
-    <Radio
-      labelText="Celeste"
-      name="testChecked"
-      onChange={onChangeDefault}
-      showLabel={true}
-    />
-  </VStack>
+  <DSProvider>
+    <VStack>
+      <Radio isChecked labelText="Tom Nook" name="testChecked" />
+      <Radio labelText="Timmy" name="testChecked" />
+      <Radio labelText="Tommy" name="testChecked" />
+      <Radio labelText="Celeste" name="testChecked" />
+    </VStack>
+  </DSProvider>
 </Canvas>
