@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import * as generateUUID from "../../helpers/generateUUID";
 import Radio from "./Radio";
@@ -85,5 +86,29 @@ describe("Radio Button", () => {
       />
     );
     expect(screen.getByRole("radio")).toHaveAttribute("aria-invalid");
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const primary = renderer
+      .create(<Radio id="inputID" labelText="Test Label" />)
+      .toJSON();
+    const isChecked = renderer
+      .create(<Radio id="radio-checked" labelText="Test Label" isChecked />)
+      .toJSON();
+    const isRequired = renderer
+      .create(<Radio id="radio-required" labelText="Test Label" isRequired />)
+      .toJSON();
+    const isInvalid = renderer
+      .create(<Radio id="radio-invalid" labelText="Test Label" isInvalid />)
+      .toJSON();
+    const isDisabled = renderer
+      .create(<Radio id="radio-disabled" labelText="Test Label" isDisabled />)
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
+    expect(isChecked).toMatchSnapshot();
+    expect(isRequired).toMatchSnapshot();
+    expect(isInvalid).toMatchSnapshot();
+    expect(isDisabled).toMatchSnapshot();
   });
 });

@@ -36,8 +36,8 @@ const baseStyleControl = {
     _before: {
       content: `""`,
       display: "block",
-      w: "0.75rem",
-      h: "0.75rem",
+      w: 3,
+      h: 3,
       borderRadius: "100%",
       bg: "ui.focus",
     },
