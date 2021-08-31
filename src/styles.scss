@@ -12,18 +12,9 @@
 // End libs
 
 /*
- * The `color-classes` and `css-vars` mixins have been included here
+ * The `css-vars` mixins have been included here 
  * because they are utilized in the colors SCSS files.
  */
-
-// generates a series of color classes that can be used anywhere
-@mixin color-classes($map) {
-  @each $name, $color in $map {
-    .cl-#{$name} {
-      color: $color;
-    }
-  }
-}
 
 // generates a collection of CSS vars
 @mixin css-vars($map, $prefix) {

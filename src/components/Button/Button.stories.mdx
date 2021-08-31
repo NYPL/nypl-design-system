@@ -3,18 +3,17 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
-import Button from "./Button";
+import Button, { ButtonGroup } from "./Button";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
-import { action } from "@storybook/addon-actions";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Button")}
@@ -38,55 +37,40 @@ Update the `buttonType` in the Controls section to see the types of buttons
 that can be rendered.
 
 - `ButtonTypes.Primary` is used for actions that move the user forward.
-- `ButtonTypes.Secondary` is used for actions taht move the user back, such as cancellations
-- `ButtonTypes.Pill` is used for equally weighted actions within cards and always in a set
-- `ButtonTypes.Link` is used for equally weighted actions in a text based list
+- `ButtonTypes.Secondary` is used for actions that move the user back, such as cancellations.
+- `ButtonTypes.Pill` is used for equally weighted actions within cards and always in a set.
+- `ButtonTypes.Link` is used for equally weighted actions in a text based list.
 
-<Preview withToolbar>
+When one and only one `Icon` component is passed inside a `Button` component,
+it will automatically be configured to use the `"icon-only"` type.
+
+<Canvas withToolbar>
   <Story name="Basic">{(args) => <Button {...args}>Button Text</Button>}</Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Basic" />
 
 ## Button Groups
 
-Primary and secondary buttons can be used in groups like so:
+Primary and secondary buttons should be grouped like in the following example.
+The `ButtonGroup` component, which is directly exported from Chakra UI, should
+be used to wrap the `Button` cmoponent.
 
 <Canvas>
   <Story name="Button Groups">
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        width: "180px",
-      }}
-    >
+    <ButtonGroup>
       <Button buttonType={ButtonTypes.Secondary}>Button</Button>
       <Button buttonType={ButtonTypes.Primary}>Submit</Button>
-    </div>
-    <br />
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        width: "280px",
-      }}
-    >
-      <Button buttonType={ButtonTypes.Secondary}>
-        <span style={{ width: "100px" }}>Button</span>
-      </Button>
-      <Button buttonType={ButtonTypes.Primary}>
-        <span style={{ width: "100px" }}>Submit</span>
-      </Button>
-    </div>
+    </ButtonGroup>
   </Story>
 </Canvas>
 
 ## With Icons
 
 The `Icon` component collaborates great with the `Button` component. Check out
-`src/components/Icons/IconTypes` to see the list of icon and logo names that
-can be rendered or check out the Controls section for this story.
+[`src/components/Icons/IconTypes`](https://github.com/NYPL/nypl-design-system/blob/development/src/components/Icons/IconTypes.tsx)
+to see the full list of icon and logo names that can be rendered. Use the
+Controls for this Story section to preview a `Button` with the selected icon.
 
 <Canvas>
   <Story
@@ -100,8 +84,8 @@ can be rendered or check out the Controls section for this story.
       iconType: {
         control: {
           type: "select",
-          options: IconNames,
         },
+        options: Object.values(IconNames).map((value) => value),
       },
     }}
   >
@@ -130,32 +114,28 @@ can be rendered or check out the Controls section for this story.
 The icon can be placed to the left or the right of the button text.
 
 <Canvas>
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      width: "220px",
-    }}
-  >
-    <Button buttonType={ButtonTypes.Secondary}>
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate90}
-        modifiers={["small", "icon-left"]}
-      />
-      Previous
-    </Button>
-    <Button buttonType={ButtonTypes.Secondary}>
-      Next
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate270}
-        modifiers={["small", "icon-right"]}
-      />
-    </Button>
-  </div>
+  <DSProvider>
+    <ButtonGroup>
+      <Button buttonType={ButtonTypes.Secondary}>
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate90}
+          modifiers={["small", "icon-left"]}
+        />
+        Previous
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary}>
+        Next
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate270}
+          modifiers={["small", "icon-right"]}
+        />
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
 </Canvas>
 
 Text in a button is optional if an icon is rendered, but make sure that there
@@ -163,94 +143,100 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
 `attributes={{ "aria-label": "Previous" }}`
 
 <Canvas>
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      width: "200px",
-    }}
-  >
-    <Button
-      buttonType={ButtonTypes.Secondary}
-      attributes={{
-        "aria-label": "Previous",
-      }}
-    >
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate90}
-        modifiers={["small"]}
-      />
-    </Button>
-    <Button
-      buttonType={ButtonTypes.Secondary}
-      attributes={{
-        "aria-label": "Next",
-      }}
-    >
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate270}
-        modifiers={["small"]}
-      />
-    </Button>
-    <Button
-      buttonType={ButtonTypes.Secondary}
-      attributes={{
-        "aria-label": "Close",
-      }}
-    >
-      <Icon name={IconNames.close} decorative={true} modifiers={["small"]} />
-    </Button>
-  </div>
+  <DSProvider>
+    <ButtonGroup>
+      <Button
+        buttonType={ButtonTypes.Secondary}
+        attributes={{
+          "aria-label": "Previous",
+        }}
+      >
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate90}
+          modifiers={["small"]}
+        />
+      </Button>
+      <Button
+        buttonType={ButtonTypes.Secondary}
+        attributes={{
+          "aria-label": "Next",
+        }}
+      >
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate270}
+          modifiers={["small"]}
+        />
+      </Button>
+      <Button
+        buttonType={ButtonTypes.Secondary}
+        attributes={{
+          "aria-label": "Close",
+        }}
+      >
+        <Icon name={IconNames.close} decorative={true} modifiers={["small"]} />
+      </Button>
+    </ButtonGroup>
+  </DSProvider>
 </Canvas>
 
 ## Patterns
 
-Buttons are blue by default but should be red when it is intended as a call out.
-The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include an up arrow icon.
+Buttons are blue by default but should be red when it is intended to be used as
+a call out. The "Back to Top" button must be of `ButtonTypes` `Secondary` and
+must include an up arrow icon on the right side.
 
 <Canvas>
   <Story name="Patterns">
-    <Button
-      buttonType={ButtonTypes.Primary}
-      attributes={{
-        style: {
-          backgroundColor: getCSSVariable("--section-books-and-more-primary"),
-        },
-      }}
-    >
-      Donate to this library
-    </Button>
-    <br />
-    <Button buttonType={ButtonTypes.Secondary}>
-      Back to Top
-      <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate180}
-        modifiers={["small", "icon-right"]}
-      />
-    </Button>
+    <ButtonGroup>
+      <Button
+        buttonType={ButtonTypes.Primary}
+        attributes={{
+          style: {
+            backgroundColor: getCSSVariable("--section-books-and-more-primary"),
+          },
+        }}
+      >
+        Donate to this library
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary}>
+        Back to Top
+        <Icon
+          name={IconNames.arrow}
+          decorative={true}
+          iconRotation={IconRotationTypes.rotate180}
+          modifiers={["small", "icon-right"]}
+        />
+      </Button>
+    </ButtonGroup>
   </Story>
 </Canvas>
 
 ## Other Examples
 
-Modifying the `buttonType` prop:
+The different `ButtonTypes` modified by the `buttonType` prop:
 
 <Canvas>
-  <Button buttonType={ButtonTypes.Primary}>Primary</Button>
-  <Button buttonType={ButtonTypes.Secondary}>Secondary</Button>
-  <Button buttonType={ButtonTypes.Pill}>Pill</Button>
-  <Button buttonType={ButtonTypes.Link}>Link</Button>
+  <DSProvider>
+    <ButtonGroup>
+      <Button buttonType={ButtonTypes.Primary}>Primary</Button>
+      <Button buttonType={ButtonTypes.Secondary}>Secondary</Button>
+      <Button buttonType={ButtonTypes.Pill}>Pill</Button>
+      <Button buttonType={ButtonTypes.Link}>Link</Button>
+    </ButtonGroup>
+  </DSProvider>
 </Canvas>
 
 Modifying the `disabled` prop:
 
 <Canvas>
-  <Button disabled={false}>Enabled</Button>
-  <Button disabled={true}>Disabled</Button>
+  <DSProvider>
+    <ButtonGroup>
+      <Button disabled={false}>Enabled</Button>
+      <Button disabled={true}>Disabled</Button>
+    </ButtonGroup>
+  </DSProvider>
 </Canvas>
