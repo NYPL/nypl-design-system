@@ -71,6 +71,13 @@ export {
 export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from "./components/Tabs/Tabs";
+export {
   default as TextInput,
   TextInputRefType,
 } from "./components/TextInput/TextInput";
