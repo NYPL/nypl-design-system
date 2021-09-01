@@ -19,7 +19,8 @@ export interface RadioProps {
   isChecked?: boolean;
   /** Adds the 'disabled' attribute to the input when true. */
   isDisabled?: boolean;
-  /** Adds the 'aria-invalid' attribute to the input when true. */
+  /** Adds the 'aria-invalid' attribute to the input and
+   * sets the error state when true. */
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
