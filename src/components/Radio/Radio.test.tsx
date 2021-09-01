@@ -28,6 +28,49 @@ describe("Radio Button", () => {
     );
   });
 
+  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false and 'helperText' has been passed", () => {
+    render(
+      <Radio
+        id="inputID"
+        labelText="Test Label"
+        showLabel={false}
+        helperText="This is the helper text."
+      />
+    );
+    expect(
+      screen.getByLabelText("Test Label - This is the helper text.")
+    ).toBeInTheDocument();
+  });
+
+  it("renders visible helper or error text", () => {
+    const { rerender } = render(
+      <Radio
+        id="inputID"
+        labelText="Test Label"
+        helperText="This is the helper text."
+        errorText="This is the error text :("
+      />
+    );
+    expect(screen.getByText("This is the helper text.")).toBeVisible();
+    expect(
+      screen.queryByText("This is the error text :(")
+    ).not.toBeInTheDocument();
+
+    rerender(
+      <Radio
+        id="inputID"
+        labelText="Test Label"
+        isInvalid
+        helperText="This is the helper text."
+        errorText="This is the error text :("
+      />
+    );
+    expect(screen.getByText("This is the error text :(")).toBeVisible();
+    expect(
+      screen.queryByText("This is the helper text.")
+    ).not.toBeInTheDocument();
+  });
+
   it("sets the radio's ID", () => {
     render(<Radio id="inputID" labelText="Test Label" />);
     expect(screen.getByRole("radio")).toHaveAttribute("id", "inputID");

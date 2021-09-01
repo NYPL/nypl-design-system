@@ -2,10 +2,15 @@ import * as React from "react";
 import { Radio as ChakraRadio, useStyleConfig } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export interface RadioProps {
   /** Additional class name. */
   className?: string;
+  /** Optional string to populate the HelperErrorText for error state */
+  errorText?: string;
+  /** Optional string to populate the HelperErrorText for standard state */
+  helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** When using the Radio as a "controlled" form element, you can specify the
@@ -36,6 +41,8 @@ export interface RadioProps {
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const {
     className,
+    errorText,
+    helperText,
     id = generateUUID(),
     isChecked,
     isDisabled = false,
@@ -48,29 +55,42 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     value,
   } = props;
   const styles = useStyleConfig("Radio");
+  const footnote = isInvalid ? errorText : helperText;
   const attributes = {};
 
   if (!showLabel) {
-    attributes["aria-label"] = labelText || null;
+    attributes["aria-label"] =
+      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+  } else {
+    if (footnote) {
+      attributes["aria-describedby"] = `${id}-helperText`;
+    }
   }
 
   return (
-    <ChakraRadio
-      className={className}
-      id={id}
-      isChecked={isChecked}
-      isDisabled={isDisabled}
-      isInvalid={isInvalid}
-      isRequired={isRequired}
-      name={name}
-      onChange={onChange}
-      value={value}
-      ref={ref}
-      __css={styles}
-      {...attributes}
-    >
-      {showLabel && labelText}
-    </ChakraRadio>
+    <>
+      <ChakraRadio
+        className={className}
+        id={id}
+        isChecked={isChecked}
+        isDisabled={isDisabled}
+        isInvalid={isInvalid}
+        isRequired={isRequired}
+        name={name}
+        onChange={onChange}
+        value={value}
+        ref={ref}
+        __css={styles}
+        {...attributes}
+      >
+        {showLabel && labelText}
+      </ChakraRadio>
+      {footnote && showLabel && (
+        <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+          {footnote}
+        </HelperErrorText>
+      )}
+    </>
   );
 });
 
