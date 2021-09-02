@@ -80,14 +80,25 @@ const baseStyleLabel = {
 };
 
 const baseStyle = {
+  // Chakra-inserted elements in the Chakra Radio component
   control: baseStyleControl,
   label: baseStyleLabel,
+  // Custom element in the DS Radio component.
+  helper: {
+    marginTop: 2, // var(--space-xs)
+    marginBottom: 0,
+    marginLeft: "30px", // calc(22px + var(--space-xs))
+    _disabled: {
+      fontStyle: "italic",
+    },
+  },
 };
 
 // Sticking to "md" for the default size.
 const sizes = {
   md: {
     control: {
+      // Custom values not in the spacing theme.
       h: "1.375rem",
       w: "1.375rem",
     },

@@ -1,5 +1,9 @@
 import * as React from "react";
-import { Radio as ChakraRadio, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  Radio as ChakraRadio,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
@@ -7,9 +11,11 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 export interface RadioProps {
   /** Additional class name. */
   className?: string;
-  /** Optional string to populate the HelperErrorText for error state */
+  /** Optional string to populate the HelperErrorText for the error state
+   * when `isInvalid` is true.
+   */
   errorText?: string;
-  /** Optional string to populate the HelperErrorText for standard state */
+  /** Optional string to populate the HelperErrorText for the standard state. */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
@@ -17,9 +23,13 @@ export interface RadioProps {
    * `Radio`'s checked state using this prop. You must also pass an onChange prop.
    * Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
   isChecked?: boolean;
-  /** Adds the 'disabled' attribute to the input when true. */
+  /** Adds the 'disabled' and `aria-disabled` attributes to the input when true.
+   * This also makes the text italic and color scheme gray.
+   */
   isDisabled?: boolean;
-  /** Adds the 'aria-invalid' attribute to the input when true. */
+  /** Adds the 'aria-invalid' attribute to the input when true. This also makes
+   * the color theme "NYPL error" red for the button and text.
+   */
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
@@ -54,7 +64,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     showLabel = true,
     value,
   } = props;
-  const styles = useStyleConfig("Radio");
+  const styles = useMultiStyleConfig("Radio", {});
   const footnote = isInvalid ? errorText : helperText;
   const attributes = {};
 
@@ -86,9 +96,11 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
         {showLabel && labelText}
       </ChakraRadio>
       {footnote && showLabel && (
-        <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
-          {footnote}
-        </HelperErrorText>
+        <Box __css={styles.helper} aria-disabled={isDisabled}>
+          <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+            {footnote}
+          </HelperErrorText>
+        </Box>
       )}
     </>
   );
