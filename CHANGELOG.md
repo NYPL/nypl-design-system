@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `DatePicker` component.
 - Adds new `Card` component.
 - Adds `spacing` prop to `Form` component to allow for spacing variations.
+- Adds Style Guide `Forms`
 
 ### Changes
 

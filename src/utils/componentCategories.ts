@@ -101,6 +101,7 @@ const categories = {
       "Breakpoints",
       "Buttons",
       "Colors",
+      "Forms",
       "Iconography",
       "Spacing",
       "Template Bidirectionality",
