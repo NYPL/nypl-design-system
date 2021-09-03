@@ -197,7 +197,7 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
  */
 const DateRangeRow: React.FC<DateRangeRowProps> = ({ dateRange, children }) =>
   dateRange ? (
-    <div className="form--spacing-extra-small">
+    <div className="form form--spacing-extra-small">
       <FormRow>{children}</FormRow>
     </div>
   ) : (
