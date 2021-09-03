@@ -2,7 +2,7 @@ import * as React from "react";
 import { action } from "@storybook/addon-actions";
 import { text, boolean, select } from "@storybook/addon-knobs";
 
-import Card from "./Card";
+import CardEdition from "./CardEdition";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Button from "../Button/Button";
@@ -11,10 +11,11 @@ import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import { LinkTypes } from "../Link/LinkTypes";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Card",
-  component: Card,
+  title: getCategory("CardEdition"),
+  component: CardEdition,
 };
 
 let showCTAs, showImage, showHeader, showFooter;
@@ -30,13 +31,13 @@ const imageRatios = {
   "16x9": "https://placeimg.com/400/225/animals",
 };
 
-export const card = () => (
+export const cardEdition = () => (
   <>
     {boolean("Show Header", true) ? (showHeader = true) : (showHeader = false)}
     {boolean("Show Image", true) ? (showImage = true) : (showImage = false)}
     {boolean("Show CTAs", true) ? (showCTAs = true) : (showCTAs = false)}
     {boolean("Show Footer", true) ? (showFooter = true) : (showFooter = false)}
-    <Card
+    <CardEdition
       id="cardID"
       heading={
         showHeader ? (
@@ -74,13 +75,13 @@ export const card = () => (
       }
     >
       {text("Card Content: ", "Middle column content")}
-    </Card>
+    </CardEdition>
   </>
 );
 
-card.storyName = "Card";
+cardEdition.storyName = "CardEdition";
 
-card.parameters = {
+cardEdition.parameters = {
   design: {
     type: "figma",
     url:
@@ -88,9 +89,9 @@ card.parameters = {
   },
 };
 
-export const ExampleCard = () => (
-  <Card
-    className="example-card"
+export const ExampleCardEdition = () => (
+  <CardEdition
+    className="example-card-edition"
     image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
     ctas={
       <>
@@ -129,16 +130,15 @@ export const ExampleCard = () => (
         <Link href="#">Read More</Link>
       </div>
     </>
-  </Card>
+  </CardEdition>
 );
 
-ExampleCard.storyName = "Example Card";
+ExampleCardEdition.storyName = "Example Card Edition";
 
-ExampleCard.parameters = {
+ExampleCardEdition.parameters = {
   design: {
     type: "figma",
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
   },
-  jest: ["Card.test.tsx"],
 };

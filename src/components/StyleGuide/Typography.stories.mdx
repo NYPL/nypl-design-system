@@ -31,6 +31,16 @@ Consuming applications should utilize the DS standard text components as much as
 
 The sizing of all text elements in the Design System is based on `1rem` being equal to `16px`.
 
+## Style Guide Topics
+
+- [Standard Text Component](#standard-text-components)
+- [Font Family](#font-family)
+- [Font Color](#font-color)
+- [Font Weight](#font-weight)
+- [Font Sizes](#font-sizes)
+- [Text Case](#text-case)
+- [Character Count](#character-count)
+
 ## Standard Text Components
 
 ### Headings
@@ -38,12 +48,12 @@ The sizing of all text elements in the Design System is based on `1rem` being eq
 Use the NYPL Design System [Heading](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/heading--basic) component to render a standard HTML `<h>` tag. The `level` prop can be used to set the specific `<h>` tag that you require.
 
 <Preview>
-  <Story name="Standard Text Components">
+  <>
     <Heading level={1}>Heading Level 1</Heading>
     <Heading level={2}>Heading Level 2</Heading>
     <Heading level={3}>Heading Level 3</Heading>
     <Heading level={4}>Heading Level 4</Heading>
-  </Story>
+  </>
 </Preview>
 
 #### Heading Display Sizes
@@ -158,17 +168,15 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 With website accessibility in mind, font choices for the DS were made with an eye toward clarity and readability. Headings and body content use the following font family assignment:
 
 <Preview>
-  <Story name="Font Family">
-    <p
-      style={{
-        fontSize: "var(--font-size--0)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
-      }}
-    >
-      system-ui, sans-serif
-    </p>
-  </Story>
+  <p
+    style={{
+      fontSize: "var(--font-size--0)",
+      fontWeight: "var(--font-weight-light)",
+      fontFamily: "var(--typeface-body)",
+    }}
+  >
+    system-ui, sans-serif
+  </p>
 </Preview>
 
 The following CSS variables are available through the DS.
@@ -181,23 +189,21 @@ The following CSS variables are available through the DS.
 > **RECOMMENDATIONS**  
 > When making font selections for project based components outside the DS, sans serif fonts display better on computers and mobile devices. Avoid decorative or overly stylized fonts, as they are often difficult to read even for users without visual impairments or reading Standard Text Default
 
-## Font Colors
+## Font Color
 
 All text within a project, unless specifically noted in mockups, should be black on a white background.
 
 <Preview>
-  <Story name="Font Colors">
-    <>
-      <Heading level={3}>Default Heading Color</Heading>
-      <p>
-        This paragraph shows the default body text color. Curabitur blandit
-        tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl
-        consectetur et. Integer posuere erat a ante venenatis dapibus posuere
-        velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor
-        ligula, eget lacinia odio sem nec elit.
-      </p>
-    </>
-  </Story>
+  <>
+    <Heading level={3}>Default Heading Color</Heading>
+    <p>
+      This paragraph shows the default body text color. Curabitur blandit tempus
+      porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+      et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+      lacinia odio sem nec elit.
+    </p>
+  </>
 </Preview>
 
 In cases where specific colors must be applied to text elements, the DS provides CSS variables for the full NYPL color palette. Refer to the [Colors](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/style-guide-colors--colors-brand) section of the Style Guide for details.
@@ -207,46 +213,44 @@ In cases where specific colors must be applied to text elements, the DS provides
 The DS uses four font weights to render text. The default font-weight is 300.
 
 <Preview>
-  <Story name="Font Weight">
-    <>
-      <p
-        style={{
-          fontSize: "1rem",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "system-ui, sans-serif",
-        }}
-      >
-        Light / 300
-      </p>
-      <p
-        style={{
-          fontSize: "1rem",
-          fontWeight: "var(--font-weight-regular)",
-          fontFamily: "system-ui, sans-serif",
-        }}
-      >
-        Regular / 400
-      </p>
-      <p
-        style={{
-          fontSize: "1rem",
-          fontWeight: "var(--font-weight-medium)",
-          fontFamily: "system-ui, sans-serif",
-        }}
-      >
-        Medium / 500
-      </p>
-      <p
-        style={{
-          fontSize: "1rem",
-          fontWeight: "var(--font-weight-bold)",
-          fontFamily: "system-ui, sans-serif",
-        }}
-      >
-        Bold / 700
-      </p>
-    </>
-  </Story>
+  <>
+    <p
+      style={{
+        fontSize: "1rem",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "system-ui, sans-serif",
+      }}
+    >
+      Light / 300
+    </p>
+    <p
+      style={{
+        fontSize: "1rem",
+        fontWeight: "var(--font-weight-regular)",
+        fontFamily: "system-ui, sans-serif",
+      }}
+    >
+      Regular / 400
+    </p>
+    <p
+      style={{
+        fontSize: "1rem",
+        fontWeight: "var(--font-weight-medium)",
+        fontFamily: "system-ui, sans-serif",
+      }}
+    >
+      Medium / 500
+    </p>
+    <p
+      style={{
+        fontSize: "1rem",
+        fontWeight: "var(--font-weight-bold)",
+        fontFamily: "system-ui, sans-serif",
+      }}
+    >
+      Bold / 700
+    </p>
+  </>
 </Preview>
 
 The following CSS variables are available through the DS.
@@ -258,87 +262,85 @@ The following CSS variables are available through the DS.
 --font-weight-bold: 700;
 ```
 
-## Font Sizing
+## Font Sizes
 
 Font sizing is based on a root font size of 16px (1rem = 16px).
 
 <Preview>
-  <Story name="Font Sizing">
-    <>
-      <p
-        style={{
-          fontSize: "var(--font-size--3)",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "var(--typeface-body)",
-        }}
-      >
-        Font size -3
-      </p>
-      <p
-        style={{
-          fontSize: "var(--font-size--2)",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "var(--typeface-body)",
-        }}
-      >
-        Font size -2
-      </p>
-      <p
-        style={{
-          fontSize: "var(--font-size--1)",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "var(--typeface-body)",
-        }}
-      >
-        Font size -1
-      </p>
-      <p
-        style={{
-          fontSize: "var(--font-size--0)",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "var(--typeface-body)",
-        }}
-      >
-        Font size 0
-      </p>
-      <p
-        style={{
-          fontSize: "var(--font-size-1)",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "var(--typeface-body)",
-        }}
-      >
-        Font size 1
-      </p>
-      <p
-        style={{
-          fontSize: "var(--font-size-2)",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "var(--typeface-body)",
-        }}
-      >
-        Font size 2
-      </p>
-      <p
-        style={{
-          fontSize: "var(--font-size-3)",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "var(--typeface-body)",
-        }}
-      >
-        Font size 3
-      </p>
-      <p
-        style={{
-          fontSize: "var(--font-size-4)",
-          fontWeight: "var(--font-weight-light)",
-          fontFamily: "var(--typeface-body)",
-        }}
-      >
-        Font size 4
-      </p>
-    </>
-  </Story>
+  <>
+    <p
+      style={{
+        fontSize: "var(--font-size--3)",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "var(--typeface-body)",
+      }}
+    >
+      Font size -3
+    </p>
+    <p
+      style={{
+        fontSize: "var(--font-size--2)",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "var(--typeface-body)",
+      }}
+    >
+      Font size -2
+    </p>
+    <p
+      style={{
+        fontSize: "var(--font-size--1)",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "var(--typeface-body)",
+      }}
+    >
+      Font size -1
+    </p>
+    <p
+      style={{
+        fontSize: "var(--font-size--0)",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "var(--typeface-body)",
+      }}
+    >
+      Font size 0
+    </p>
+    <p
+      style={{
+        fontSize: "var(--font-size-1)",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "var(--typeface-body)",
+      }}
+    >
+      Font size 1
+    </p>
+    <p
+      style={{
+        fontSize: "var(--font-size-2)",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "var(--typeface-body)",
+      }}
+    >
+      Font size 2
+    </p>
+    <p
+      style={{
+        fontSize: "var(--font-size-3)",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "var(--typeface-body)",
+      }}
+    >
+      Font size 3
+    </p>
+    <p
+      style={{
+        fontSize: "var(--font-size-4)",
+        fontWeight: "var(--font-weight-light)",
+        fontFamily: "var(--typeface-body)",
+      }}
+    >
+      Font size 4
+    </p>
+  </>
 </Preview>
 
 The following CSS variables are available through the DS.
@@ -359,15 +361,13 @@ The following CSS variables are available through the DS.
 In general, the New York Public Library uses Title Case for titles. This means only using capital letters for the principal words. Articles, conjunctions, and prepositions do not get capital letters unless they start the title. For example:
 
 <Preview>
-  <Story name="Text Case">
-    <ul>
-      <li>Snow White and the Seven Dwarfs</li>
-      <li>The Last of the Mohicans</li>
-      <li>Spooky Books for Kids: The Ultimate Creepy Guide</li>
-      <li>The Future Teen Stars of America Live on TikTok</li>
-      <li>How Jacqueline Woodson Captures Every Side of Brooklyn</li>
-    </ul>
-  </Story>
+  <ul>
+    <li>Snow White and the Seven Dwarfs</li>
+    <li>The Last of the Mohicans</li>
+    <li>Spooky Books for Kids: The Ultimate Creepy Guide</li>
+    <li>The Future Teen Stars of America Live on TikTok</li>
+    <li>How Jacqueline Woodson Captures Every Side of Brooklyn</li>
+  </ul>
 </Preview>
 
 ## Character Count
@@ -377,11 +377,9 @@ In general, the New York Public Library uses Title Case for titles. This means o
 80 characters max, 60 characters recommended
 
 <Preview>
-  <Story name="Character Count">
-    <Heading level={4}>
-      This is a Long Title to Show What 58 Characters Looks Like
-    </Heading>
-  </Story>
+  <Heading level={4}>
+    This is a Long Title to Show What 58 Characters Looks Like
+  </Heading>
 </Preview>
 
 ### Summaries

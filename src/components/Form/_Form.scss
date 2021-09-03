@@ -1,28 +1,67 @@
-.form {
-  @include space-stack-s;
-}
+@mixin form-space-classes($map) {
+  @each $name, $id in $map {
+    &--spacing-#{$name} {
+      .form-field {
+        @include get-space-stack($id);
+      }
 
-.form-field {
-  @include space-stack-l;
-}
+      .form-row {
+        @include get-space-stack($id);
 
-.form-row {
-  @include space-stack-l;
-
-  display: block;
-
-  @include breakpoint($breakpoint-medium) {
-    display: flex;
-  }
-
-  .form-field {
-    @include breakpoint($breakpoint-medium) {
-      flex: 1 0;
-      margin-bottom: 0;
-
-      &:not(:last-child) {
-        @include space-inline-l;
+        .form-field {
+          @include breakpoint($breakpoint-medium) {
+            &:not(:last-child) {
+              @include get-space-inline($id);
+            }
+          }
+        }
       }
     }
   }
+}
+
+$sizes: (
+  "extra-extra-small": "xxs",
+  "extra-small": "xs",
+  "small": "s",
+  "medium": "m",
+  "large": "l",
+  "extra-large": "xl",
+);
+
+.form {
+  > .form-field {
+    &:not(:last-child) {
+      @include space-stack-l;
+    }
+  }
+
+  > .form-row {
+    &:not(:last-child) {
+      @include space-stack-l;
+    }
+
+    display: block;
+
+    @include breakpoint($breakpoint-medium) {
+      display: flex;
+    }
+
+    .form-field {
+      &:not(:last-child) {
+        @include space-stack-l;
+      }
+
+      @include breakpoint($breakpoint-medium) {
+        flex: 1 0;
+
+        &:not(:last-child) {
+          @include space-inline-l;
+          @include space-stack-none;
+        }
+      }
+    }
+  }
+
+  @include form-space-classes($sizes);
 }

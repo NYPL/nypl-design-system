@@ -2,9 +2,10 @@ import * as React from "react";
 
 import Image from "./Image";
 import { text, boolean, select } from "@storybook/addon-knobs";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Image",
+  title: getCategory("Image"),
   component: Image,
 };
 

@@ -1,14 +1,33 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Form, { FormRow, FormField } from "./Form";
+import { FormSpacing } from "./FormTypes";
 import TextInput from "../TextInput/TextInput";
 
 describe("Form Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<Form />);
     expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("Form Snapshot", () => {
+  it("Renders the UI snapshot correctly", () => {
+    const tree = renderer
+      .create(
+        <Form id="snapshot-form">
+          <FormRow>
+            <FormField>Form Field 1</FormField>
+            <FormField>Form Field 2</FormField>
+            <FormField>Form Field 3</FormField>
+          </FormRow>
+        </Form>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
 
@@ -63,7 +82,7 @@ describe("Form", () => {
     expect(container.querySelector(".textinput")).toBeInTheDocument();
   });
 
-  it("Renders a <form> element with .form-row and .form-field elements properly nested", () => {
+  it("Renders a <form> element with custom `action` and `method` attributes", () => {
     const utils = render(<Form action="/end/point" method="get" />);
     container = utils.container;
 
@@ -73,5 +92,15 @@ describe("Form", () => {
       "/end/point"
     );
     expect(container.querySelector(".form")).toHaveAttribute("method", "get");
+  });
+
+  it("Renders a <form> element with spacing variant applied", () => {
+    const utils = render(<Form spacing={FormSpacing.ExtraSmall} />);
+    container = utils.container;
+
+    expect(container.querySelector(".form")).toBeInTheDocument();
+    expect(
+      container.querySelector(".form--spacing-extra-small")
+    ).toBeInTheDocument();
   });
 });

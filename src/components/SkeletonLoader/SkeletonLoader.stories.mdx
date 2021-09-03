@@ -14,9 +14,10 @@ import {
   SkeletonLoaderImageRatios,
 } from "./SkeletonLoaderTypes";
 import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Skeleton Loader"
+  title={getCategory("SkeletonLoader")}
   component={SkeletonLoader}
   decorators={[withDesign]}
   parameters={{
@@ -58,7 +59,7 @@ import { action } from "@storybook/addon-actions";
   }}
 />
 
-# Skeleton Loader
+# SkeletonLoader
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
@@ -73,7 +74,7 @@ Please note that the initial rendering below has the `width` prop set to `300px`
 
 <Preview withToolbar>
   <Story
-    name="Skeleton Loader"
+    name="SkeletonLoader"
     args={{
       width: "300px",
     }}
@@ -82,7 +83,7 @@ Please note that the initial rendering below has the `width` prop set to `300px`
   </Story>
 </Preview>
 
-<ArgsTable story="Skeleton Loader" />
+<ArgsTable story="SkeletonLoader" />
 
 # Card Placeholders in a Grid
 
