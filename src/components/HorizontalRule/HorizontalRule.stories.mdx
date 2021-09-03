@@ -10,9 +10,10 @@ import { withDesign } from "storybook-addon-designs";
 
 import HorizontalRule from "./HorizontalRule";
 import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="HorizontalRule"
+  title={getCategory("HorizontalRule")}
   component={HorizontalRule}
   decorators={[withDesign]}
   parameters={{
@@ -30,6 +31,10 @@ import { action } from "@storybook/addon-actions";
 />
 
 # Horizontal Rule
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.0`   |
 
 <Description of={HorizontalRule} />
 

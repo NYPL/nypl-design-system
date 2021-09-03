@@ -9,9 +9,10 @@ import { withDesign } from "storybook-addon-designs";
 import { withQuery } from "@storybook/addon-queryparams";
 import Pagination from "./Pagination";
 import * as stories from "./Pagination.stories.tsx";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Pagination"
+  title={getCategory("Pagination")}
   component={Pagination}
   decorators={[withDesign, withQuery]}
   argTypes={{
@@ -30,6 +31,11 @@ import * as stories from "./Pagination.stories.tsx";
 />
 
 # Pagination
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.10`   |
+| Latest            | `0.22.2`   |
 
 <Description of={Pagination} />
 

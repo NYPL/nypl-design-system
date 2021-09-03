@@ -12,9 +12,10 @@ import Breadcrumbs from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import sections from "../../utils/siteSections";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Breadcrumbs"
+  title={getCategory("Breadcrumbs")}
   component={Breadcrumbs}
   decorators={[withDesign]}
   parameters={{
@@ -33,6 +34,11 @@ import sections from "../../utils/siteSections";
 />
 
 # Breadcrumbs
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.3`    |
+| Latest            | `0.23.0`   |
 
 <Description of={Breadcrumbs} />
 
