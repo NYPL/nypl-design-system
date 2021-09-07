@@ -139,7 +139,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
   </legend>
   <div
     aria-label={null}
-    className="chakra-stack css-dpw0d4"
+    className="chakra-stack css-1objuxj"
     role="radiogroup"
   >
     <label

@@ -10,6 +10,7 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
 import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import Radio from "../Radio/Radio";
 export interface RadioGroupProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
@@ -70,7 +71,8 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       showLabel = true,
     } = props;
     const footnote = isInvalid ? errorText : helperText;
-    const direction = layout;
+    const spacingProp =
+      layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
     const newChildren = [];
 
     // Use Chakra's RadioGroup hook to set and get the proper props
@@ -84,6 +86,13 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
 
     // Go through the Radio children and update them as needed.
     React.Children.map(children, (child: React.ReactElement, i) => {
+      if (child.type !== Radio) {
+        if (child.props.mdxType && child.props.mdxType === "Radio") return;
+        console.warn(
+          "Only `Radio` components are allowed inside the `RadioGroup` component."
+        );
+      }
+
       const chakraRadioProps = getRadioProps({
         value: child.props.value,
       } as any);
@@ -127,8 +136,8 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
           )}
         </legend>
         <Stack
-          direction={[direction]}
-          spacing={spacing.s}
+          direction={[layout]}
+          spacing={spacingProp}
           ref={ref}
           aria-label={!showLabel ? labelText : null}
           {...radioGroupProps}

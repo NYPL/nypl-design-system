@@ -312,4 +312,16 @@ describe("Radio Button", () => {
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
   });
+
+  it("should throw warning when a non-Radio component is used as a child", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <RadioGroup labelText="wrong child!" name="wrong" id="wrong-child">
+        <p>This is wrong!</p>
+      </RadioGroup>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "Only `Radio` components are allowed inside the `RadioGroup` component."
+    );
+  });
 });
