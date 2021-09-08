@@ -2,6 +2,7 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import renderer from "react-test-renderer";
 
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 
@@ -35,7 +36,7 @@ export const animalCrossing = [
 
 describe("Tabs Accessibility", () => {
   it("passes axe accessibility test with the data prop", async () => {
-    const { container } = render(<Tabs data={animalCrossing} />);
+    const { container } = render(<Tabs contentData={animalCrossing} />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -120,7 +121,7 @@ describe("Tabs", () => {
   });
 
   it("renders all tabs but only one visible panel at a time with data prop", () => {
-    render(<Tabs data={animalCrossing} />);
+    render(<Tabs contentData={animalCrossing} />);
     expect(getTabByName("Tom Nook")).toBeInTheDocument();
     expect(getTabByName("Isabelle")).toBeInTheDocument();
     expect(getTabByName("K.K. Slider")).toBeInTheDocument();
@@ -136,7 +137,7 @@ describe("Tabs", () => {
   });
 
   it("switches between tabs", () => {
-    render(<Tabs data={animalCrossing} />);
+    render(<Tabs contentData={animalCrossing} />);
     const isabelleTab = getTabByName("Isabelle");
     const kkSliderTab = getTabByName("K.K. Slider");
 
@@ -178,7 +179,7 @@ describe("Tabs", () => {
   });
 
   it("renders the specified initial index value", () => {
-    render(<Tabs data={animalCrossing} index={2} />);
+    render(<Tabs contentData={animalCrossing} defaultIndex={2} />);
     let tomTab = getTabByName("Tom Nook");
     let isabelleTab = getTabByName("Isabelle");
     let kkSliderTab = getTabByName("K.K. Slider");
@@ -192,7 +193,7 @@ describe("Tabs", () => {
     let selectedIndex = 0;
     const onChange = (index) => (selectedIndex = index);
 
-    render(<Tabs data={animalCrossing} onChange={onChange} />);
+    render(<Tabs contentData={animalCrossing} onChange={onChange} />);
 
     const tomTab = getTabByName("Tom Nook");
     const isabelleTab = getTabByName("Isabelle");
@@ -211,7 +212,7 @@ describe("Tabs", () => {
   it("should throw warning when both the 'data' probp and children are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Tabs data={animalCrossing}>
+      <Tabs contentData={animalCrossing}>
         <TabList>
           <Tab>Tom Nook</Tab>
           <Tab>Isabelle</Tab>
@@ -240,5 +241,33 @@ describe("Tabs", () => {
     expect(warn).toHaveBeenCalledWith(
       "Only pass children or data in the `data` props but not both."
     );
+  });
+
+  it("should throw warning when more than six object tabs are passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Tabs
+        contentData={[
+          ...animalCrossing,
+          ...[
+            { label: "Another character 1", content: "Text" },
+            { label: "Another character 2", content: "Text" },
+            { label: "Another character 3", content: "Text" },
+            { label: "Another character 4", content: "Text" },
+          ],
+        ]}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "We recommend to use no more than six tabs. If more than six tabs are needed, consider other navigational patterns."
+    );
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const primary = renderer
+      .create(<Tabs contentData={animalCrossing} />)
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
   });
 });
