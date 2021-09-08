@@ -2,7 +2,6 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
-import renderer from "react-test-renderer";
 
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 
@@ -261,13 +260,5 @@ describe("Tabs", () => {
     expect(warn).toHaveBeenCalledWith(
       "We recommend to use no more than six tabs. If more than six tabs are needed, consider other navigational patterns."
     );
-  });
-
-  it("Renders the UI snapshot correctly", () => {
-    const primary = renderer
-      .create(<Tabs contentData={animalCrossing} />)
-      .toJSON();
-
-    expect(primary).toMatchSnapshot();
   });
 });
