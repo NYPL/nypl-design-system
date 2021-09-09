@@ -5,6 +5,7 @@ import typography from "./foundations/typography";
 import { spacing } from "./foundations/spacing";
 import breakpoints from "./foundations/breakpoints";
 import Button from "./components/button";
+import Heading from "./components/heading";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -36,6 +37,7 @@ const theme = extendTheme({
    */
   components: {
     Button,
+    Heading,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
   // can be updated to be anything we want. This can be "nypl" to have the

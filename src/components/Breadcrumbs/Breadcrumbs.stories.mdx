@@ -10,6 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Link from "../Link/Link";
 import sections from "../../utils/siteSections";
 import { getCategory } from "../../utils/componentCategories";
@@ -101,7 +102,7 @@ The `Breadcrumbs` component background color will match the secondary section co
   >
     {(args) => (
       <div className="nypl--books-and-more">
-        <Heading level={3}>Books and More</Heading>
+        <Heading level={HeadingLevels.Three}>Books and More</Heading>
         <Breadcrumbs
           breadcrumbs={[
             { url: "#", text: "Parent" },
@@ -119,7 +120,7 @@ The `Breadcrumbs` component background color will match the secondary section co
 
 <Canvas>
   <div className="nypl--locations">
-    <Heading level={3}>Locations</Heading>
+    <Heading level={HeadingLevels.Three}>Locations</Heading>
     <Breadcrumbs
       breadcrumbs={[
         { url: "#", text: "Parent" },
@@ -135,7 +136,7 @@ The `Breadcrumbs` component background color will match the secondary section co
 
 <Canvas>
   <div className="nypl--research">
-    <Heading level={3}>Research</Heading>
+    <Heading level={HeadingLevels.Three}>Research</Heading>
     <Breadcrumbs
       breadcrumbs={[
         { url: "#", text: "Parent" },
@@ -151,7 +152,7 @@ The `Breadcrumbs` component background color will match the secondary section co
 
 <Canvas>
   <div className="nypl--whats-on">
-    <Heading level={3}>What's On</Heading>
+    <Heading level={HeadingLevels.Three}>What's On</Heading>
     <Breadcrumbs
       breadcrumbs={[
         { url: "#", text: "Parent" },

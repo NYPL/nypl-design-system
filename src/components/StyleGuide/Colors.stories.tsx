@@ -7,6 +7,7 @@ import UIDocCard from "./UIDocCard";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import List from "../List/List";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import { ListTypes } from "../List/ListTypes";
 import { CSSVariablesInterface } from "../../interfaces";
 import sections from "../../utils/siteSections";
@@ -51,7 +52,7 @@ const sectionDefault = sections[3];
 
 export const colorsBrand = () => (
   <>
-    <Heading level={1}>Brand</Heading>
+    <Heading level={HeadingLevels.One}>Brand</Heading>
     <p>Brand fills are the NYPL primary and secondary colors.</p>
     <List
       type={ListTypes.Unordered}
@@ -69,8 +70,8 @@ export const colorsBrand = () => (
         </UIDocCard>
       </li>
     </List>
-    <Heading level={1}>Section Colors</Heading>
-    <Heading level={2}>{"What's On"}</Heading>
+    <Heading level={HeadingLevels.One}>Section Colors</Heading>
+    <Heading level={HeadingLevels.Two}>{"What's On"}</Heading>
     <p>
       Section colors are branding colors only in use at NYPL. Certain
       components, such as Breadcrumbs below, change color based on the modifier
@@ -131,7 +132,7 @@ export const colorsBrand = () => (
         </UIDocCard>
       </li>
     </List>
-    <Heading level={2}>Books and More</Heading>
+    <Heading level={HeadingLevels.Two}>Books and More</Heading>
     <p>
       Books and More is used for the Catalog, Staff Picks, Recommendations, New
       Arrivals, and E-Book Central.
@@ -158,7 +159,7 @@ export const colorsBrand = () => (
         </UIDocCard>
       </li>
     </List>
-    <Heading level={2}>Research</Heading>
+    <Heading level={HeadingLevels.Two}>Research</Heading>
     <p>Research is used for the Research Catalog and SCC.</p>
     <List
       type={ListTypes.Unordered}
@@ -182,7 +183,7 @@ export const colorsBrand = () => (
         </UIDocCard>
       </li>
     </List>
-    <Heading level={2}>Locations</Heading>
+    <Heading level={HeadingLevels.Two}>Locations</Heading>
     <p>
       Locations is used for Location Finder and all branch pages with the
       exceptions of some research libraries.
@@ -209,7 +210,7 @@ export const colorsBrand = () => (
         </UIDocCard>
       </li>
     </List>
-    <Heading level={2}>Research Libraries</Heading>
+    <Heading level={HeadingLevels.Two}>Research Libraries</Heading>
     <p>Research libraries with specific brand colors to adhere to.</p>
     <List
       type={ListTypes.Unordered}
@@ -259,7 +260,7 @@ colorsBrand.parameters = {
 
 export const colorsUtility = () => (
   <>
-    <Heading level={1}>Utility Colors</Heading>
+    <Heading level={HeadingLevels.One}>Utility Colors</Heading>
     <List
       type={ListTypes.Unordered}
       modifiers={["no-list-styling"]}
@@ -267,7 +268,7 @@ export const colorsUtility = () => (
     >
       {uiVariableDocs}
     </List>
-    <Heading level={1}>Grayscale</Heading>
+    <Heading level={HeadingLevels.One}>Grayscale</Heading>
     <List
       type={ListTypes.Unordered}
       modifiers={["no-list-styling"]}

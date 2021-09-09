@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 - Renames original `Card` components to be `CardEdition`.
+- Renames `HeadingDisplaySizes.tsx` to `HeadingTypes.tsx`.
 
 ### Adds
 
@@ -20,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Integrates Chakra-UI into the codebase.
 - Exports Chakra's `Box`, `Center`, `Circle`, `Square`, `Stack`, `HStack`, and `VStack` components.
 - Composes the DS `Button` component from Chakra's `Button` component.
+- Composes the DS `Heading` component from Chakra's `Heading` component.
 - Composes the DS `Tabs` component from Chakra's `Tabs`, `TabList`, `Tab`, `TabPanels`, and `TabPanel` components.
 
 ### Removes

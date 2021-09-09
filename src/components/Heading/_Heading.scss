@@ -89,7 +89,8 @@
   }
 }
 
-.nypl-ds {
+// .nypl-ds {
+/*
   h1 {
     @include heading-xl;
   }
@@ -110,7 +111,9 @@
   h6 {
     @include heading-xs;
   }
+  */
 
+/*
   .heading {
     &--primary {
       @include heading-xl;
@@ -128,8 +131,8 @@
       @include heading-xs;
     }
   }
-}
-
+  */
+// }
 .heading__link {
   color: inherit;
   text-decoration: none;

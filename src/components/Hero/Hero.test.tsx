@@ -4,6 +4,7 @@ import { axe } from "jest-axe";
 
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import { HeroTypes } from "./HeroTypes";
 import Hero from "./Hero";
 
@@ -14,7 +15,7 @@ describe("Hero Component", () => {
         heroType={HeroTypes.Primary}
         heading={
           <Heading
-            level={1}
+            level={HeadingLevels.One}
             id="a11y-hero"
             text="Hero Primary"
             blockName="hero"
@@ -32,7 +33,7 @@ describe("Hero Component", () => {
         heroType={HeroTypes.Primary}
         heading={
           <Heading
-            level={1}
+            level={HeadingLevels.One}
             id="primary-hero"
             text="Hero Primary"
             blockName="hero"
@@ -54,7 +55,7 @@ describe("Hero Component", () => {
         heroType={HeroTypes.Secondary}
         heading={
           <Heading
-            level={1}
+            level={HeadingLevels.One}
             id="secondary-hero"
             text="Hero Secondary"
             blockName="hero"
@@ -84,7 +85,7 @@ describe("Hero Component", () => {
         heroType={HeroTypes.Tertiary}
         heading={
           <Heading
-            level={1}
+            level={HeadingLevels.One}
             id="tertiary-hero"
             text="Hero Tertiary"
             blockName="hero"
@@ -109,7 +110,7 @@ describe("Hero Component", () => {
         heroType={HeroTypes.FiftyFifty}
         heading={
           <Heading
-            level={1}
+            level={HeadingLevels.One}
             id="fifty-fifty-hero"
             text="Hero Fifty-Fifty"
             blockName="hero"
@@ -137,7 +138,7 @@ describe("Hero Component", () => {
         heroType={HeroTypes.Campaign}
         heading={
           <Heading
-            level={1}
+            level={HeadingLevels.One}
             id="campaign-hero"
             text="Hero campaign"
             blockName="hero"
@@ -172,7 +173,7 @@ describe("Hero Component", () => {
         heroType={HeroTypes.Primary}
         heading={
           <Heading
-            level={1}
+            level={HeadingLevels.One}
             id="custom-colors-hero"
             text="Hero with Cusotm Colors"
             blockName="hero"
@@ -195,7 +196,7 @@ describe("Hero Component", () => {
         heroType={HeroTypes.Primary}
         heading={
           <Heading
-            level={1}
+            level={HeadingLevels.One}
             id="hero-errors"
             text="Hero with Error Warnings"
             blockName="hero"
