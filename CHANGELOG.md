@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `FormSpacing` enum to DS exports.
+- Adds `utility_account_filled`, `utility_account_unfilled`, `utility_hamburger` and `utility_search` icons to `Icon` component.
 
 ## 0.24.0
 
