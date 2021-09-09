@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `FormSpacing` enum to DS exports.
 
+### Fixes
+
+- Fixes left padding on `Card` when `imageAtEnd` and `border` are both `true`.
+
 ## 0.24.0
 
 ### Breaking Changes

@@ -233,6 +233,16 @@
             padding: var(--space-s) var(--space-s) var(--space-s) 0;
           }
         }
+
+        &.card--at-end {
+          .card__body {
+            padding: var(--space-s) var(--space-s) 0;
+
+            @include breakpoint($breakpoint-medium) {
+              padding: var(--space-s) 0 var(--space-s) var(--space-s);
+            }
+          }
+        }
       }
     }
   }
