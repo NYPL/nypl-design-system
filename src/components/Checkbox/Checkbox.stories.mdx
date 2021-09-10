@@ -3,16 +3,15 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
-import { getCategory } from "../../utils/componentCategories";
+import { HStack } from "@chakra-ui/react";
 
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 import Checkbox from "./Checkbox";
 import { onChangeDefault } from "./Checkbox";
-
-import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Checkbox")}
@@ -27,8 +26,10 @@ import DSProvider from "../../theme/provider";
     jest: ["Checkbox.test.tsx"],
   }}
   argTypes={{
+    className: { table: { disable: true } },
+    id: { table: { disable: true } },
+    isChecked: { table: { disable: true } },
     onChange: { table: { disable: true } },
-    checked: { table: { disable: true } },
   }}
 />
 
@@ -39,18 +40,25 @@ import DSProvider from "../../theme/provider";
 This component renders a Checkbox button form element. See below for configuration information. Note that the `id` property, while optional, will
 cause an accessibility violation if none is present.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="Checkbox"
     args={{
-      labelText: "Checkbox",
+      labelText: "Test Label",
       showLabel: true,
       id: "test_id",
+      name: "test_name",
+      value: "1",
+      isDisabled: false,
+      isRequired: false,
+      isInvalid: false,
+      helperText: "This is the helper text!",
+      errorText: "This is the error text :(",
     }}
   >
     {(args) => <Checkbox {...args} />}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Checkbox" />
 
@@ -58,12 +66,7 @@ cause an accessibility violation if none is present.
 
 <Canvas>
   <DSProvider>
-    <Checkbox
-      checked
-      showLabel={true}
-      onChange={onChangeDefault}
-      labelText="I am checked"
-    ></Checkbox>
+    <Checkbox labelText="I am checked" isChecked value="1" />
   </DSProvider>
 </Canvas>
 
@@ -71,11 +74,7 @@ cause an accessibility violation if none is present.
 
 <Canvas>
   <DSProvider>
-    <Checkbox
-      name="testFocus"
-      labelText="Click or tab to the Radio to see its focus state"
-      showLabel={true}
-    ></Checkbox>
+    <Checkbox labelText="Click or tab to the Checkbox to see its focus state" />
   </DSProvider>
 </Canvas>
 
@@ -83,11 +82,14 @@ cause an accessibility violation if none is present.
 
 <Canvas>
   <DSProvider>
-    <Checkbox
-      errored
-      showLabel={true}
-      labelText="I am in an error state"
-    ></Checkbox>
+    <HStack>
+      <Checkbox isInvalid labelText="I am in an error state" />
+      <Checkbox
+        isInvalid
+        isChecked
+        labelText="I am checked in an error state"
+      />
+    </HStack>
   </DSProvider>
 </Canvas>
 
@@ -95,7 +97,10 @@ cause an accessibility violation if none is present.
 
 <Canvas>
   <DSProvider>
-    <Checkbox disabled showLabel={true} labelText="I am disabled"></Checkbox>
+    <HStack>
+      <Checkbox isDisabled labelText="I am disabled" />
+      <Checkbox isDisabled isChecked labelText="I am checked and disabled" />
+    </HStack>
   </DSProvider>
 </Canvas>
 
@@ -105,10 +110,9 @@ cause an accessibility violation if none is present.
   <DSProvider>
     <Checkbox
       name="testHelperText"
-      showLabel={true}
       labelText="I have helper text"
-      helperText="I am the helper text for this Radio"
-    ></Checkbox>
+      helperText="I am the helper text for this Checkbox"
+    />
   </DSProvider>
 </Canvas>
 
@@ -118,10 +122,9 @@ cause an accessibility violation if none is present.
   <DSProvider>
     <Checkbox
       name="testErrorText"
-      showLabel={true}
-      errored
       labelText="I have error text"
-      errorText="I am the error text for this Radio"
-    ></Checkbox>
+      errorText="I am the error text for this Checkbox"
+      isInvalid
+    />
   </DSProvider>
 </Canvas>
