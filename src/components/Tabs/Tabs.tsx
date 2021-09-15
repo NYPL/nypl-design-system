@@ -1,71 +1,42 @@
 import * as React from "react";
 import {
+  chakra,
+  Box,
   Tabs as ChakraTabs,
   TabList,
   Tab,
   TabPanels,
   TabPanel,
-  // useStyleConfig,
-  chakra,
+  useMultiStyleConfig,
   useStyles,
   useTab,
 } from "@chakra-ui/react";
 
-import bem from "../../utils/bem";
 import generateUUID from "../../helpers/generateUUID";
-
-// TODO: later when styling
-// enum TabsType {
-//   Primary = "primary",
-//   Secondary = "secondary",
-// };
-
-// Type for tab alignment, values available through Chakra.
-type tabsAlign = "start" | "center" | "end";
+import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import Icon from "../Icons/Icon";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Button from "../Button/Button";
 
 // The general shape of the data object for each Tab.
-export interface TabsData {
+export interface TabsContentDataProps {
   label: string;
   content: string | React.ReactNode;
 }
 
 export interface TabsProps {
-  /** How to align the tabs provided by Chakra. */
-  align?: tabsAlign;
-  /** Additional className for use with BEM. See how to work with blockNames
-   * and BEM here: http://getbem.com/introduction/ */
-  className?: string;
   /** Array of data to display */
-  data?: TabsData[];
+  contentData?: TabsContentDataProps[];
+  /** The index of the tab to display for controlled situations. */
+  defaultIndex?: number;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** The index of the tab to display for controlled situations. */
-  index?: number;
-  /** Render the tabs to span the container's full width, provided by Chakra. */
-  isFitted?: boolean;
   /** The callback function invoked on every tab change event. */
   onChange?: (index: number) => any;
-  /** The kind of Tab assigned through the `TabsType` enum.  */
-  // tabsType?: TabsType;
   /** Render a hash in the url for each tab. Only available when data is
-   * passed through the `data` props.
-   */
+   * passed through the `data` props. */
   useHash?: boolean;
 }
-
-// TODO: later when styling
-// Used to map between TabsType enum values and Chakra variant options.
-// const variantMap = {};
-// for (const type in TabsType) {
-//   variantMap[TabsType[type]] = TabsType[type];
-// }
-/**
- * Map the TabsType to the Tabs Chakra theme variant object. If a wrong
- * value is passed (typically in non-Typescript scenarios), then the default
- * is the "primary" variant.
- */
-// const getVariant = (tabsType) =>
-//  variantMap[tabsType] || TabsType.Primary;
 
 /** Internal anchor element that uses styled props. */
 const StyledAnchorTab = chakra("a");
@@ -89,12 +60,19 @@ const CustomAnchorTab = React.forwardRef((props: any, _ref) => {
  * This returns an object with `Tab` and `TabPanel` components to render in
  * `TabList` and `TabPanels` components respectively.
  */
-const getElementsFromData = (data, useHash) => {
+const getElementsFromContentData = (data, useHash) => {
   const tabs = [];
   const panels = [];
 
   if (!data?.length) {
     return {};
+  }
+
+  if (data?.length > 6) {
+    console.warn(
+      "We recommend to use no more than six tabs. If more than six tabs are " +
+        "needed, consider other navigational patterns."
+    );
   }
 
   data.map((tab, index) => {
@@ -132,45 +110,63 @@ const getElementsFromData = (data, useHash) => {
 function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const {
     children,
-    className = "",
-    data,
+    contentData,
+    defaultIndex = 0,
     id = generateUUID(),
-    isFitted = false,
-    useHash = false,
     onChange,
-    index = 0,
-    align = "start",
+    useHash = false,
   } = props;
-  const baseClass = "tabs";
-  // TODO: later when styling
-  // const variant = getVariant(tabsType);
-  // const styles = useStyleConfig("Tabs", { variant });
-  // line,enclosed, enclosed-colored, soft-rounded, solid-rounded, unstyled
+  const styles = useMultiStyleConfig("Tabs", {});
+  const { tabs, panels } = getElementsFromContentData(contentData, useHash);
 
-  if (children && data?.length) {
+  if (children && contentData?.length) {
     console.warn(
       "Only pass children or data in the `data` props but not both."
     );
   }
 
-  const { tabs, panels } = getElementsFromData(data, useHash);
-
   return (
     <ChakraTabs
       id={id}
-      align={align}
-      className={bem(baseClass, [], "", [className])}
-      isFitted={isFitted}
       // The following lazy loads each panel whenever it is needed.
       isLazy
       onChange={onChange}
-      defaultIndex={index}
+      defaultIndex={defaultIndex}
       variant="enclosed"
-      // __css={styles}
     >
-      {data ? (
+      {contentData ? (
         <>
-          <TabList>{tabs}</TabList>
+          <Box __css={styles.tablistWrapper}>
+            <Button
+              buttonType={ButtonTypes.Primary}
+              attributes={{
+                "aria-label": "Previous",
+                ...styles.buttonArrows,
+              }}
+            >
+              <Icon
+                name={IconNames.arrow}
+                decorative={true}
+                iconRotation={IconRotationTypes.rotate90}
+                modifiers={["small"]}
+              />
+            </Button>
+            <TabList>{tabs}</TabList>
+            <Button
+              buttonType={ButtonTypes.Primary}
+              attributes={{
+                "aria-label": "Next",
+                ...styles.buttonArrows,
+              }}
+            >
+              <Icon
+                name={IconNames.arrow}
+                decorative={true}
+                iconRotation={IconRotationTypes.rotate270}
+                modifiers={["small"]}
+              />
+            </Button>
+          </Box>
           <TabPanels>{panels}</TabPanels>
         </>
       ) : (

@@ -7,6 +7,7 @@ import breakpoints from "./foundations/breakpoints";
 import Button from "./components/button";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
+import Tabs from "./components/tabs";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -40,6 +41,7 @@ const theme = extendTheme({
     Button,
     Radio,
     CustomRadioGroup,
+    Tabs,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
   // can be updated to be anything we want. This can be "nypl" to have the
