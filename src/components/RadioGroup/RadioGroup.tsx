@@ -1,114 +1,157 @@
 import * as React from "react";
-import { RadioGroup as ChakraRadioGroup, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Stack,
+  useMultiStyleConfig,
+  useRadioGroup,
+} from "@chakra-ui/react";
 
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
-
-export enum RadioGroupLayouts {
-  Vertical = "vertical",
-  Horizontal = "horizontal",
-}
-
-type DirectionMap = { [key: string]: "column" | "row" };
-
+import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import Radio from "../Radio/Radio";
 export interface RadioGroupProps {
-  /** The radio group label. */
-  labelText: string;
-  /** className you can add in addition to 'input' */
+  /** Any child node passed to the component. */
+  children: React.ReactNode;
+  /** Additional class name. */
   className?: string;
-  /** Adds the 'disabled' prop to the input when true */
-  disabled?: boolean;
-  /** Helper for modifiers array; adds 'errored' styling */
-  errored?: boolean;
-  required?: boolean;
-  optReqFlag?: boolean;
+  /** Populates the initial value of the input */
+  defaultValue?: string;
   /** Optional string to populate the HelperErrorText for error state */
   errorText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** The name prop indicates into which group of radios this radio belongs.  If none is specified, 'default' will be used */
-  name?: string;
+  /** Adds the 'disabled' prop to the input when true. */
+  isDisabled?: boolean;
+  /** Adds the 'aria-invalid' attribute to the input and
+   * sets the error state when true. */
+  isInvalid?: boolean;
+  /** Adds the 'required' attribute to the input when true. */
+  isRequired?: boolean;
+  /** The radio group label displayed in a `legend` element if `showlabel` is
+   * true, or an "aria-label" if `showLabel` is false. */
+  labelText: string;
+  /** Renders the Radio buttons in a row or column (default). */
+  layout?: RadioGroupLayoutTypes;
+  /** The `name` prop indicates the form group for all the Radio children. */
+  name: string;
   /** The action to perform on the `<input>`'s onChange function  */
-  onChange?: (value: string) => string;
-  /** Offers the ability to show the radio's label onscreen or hide it. Refer to the `labelText` property for more information. */
-  showLabel: boolean;
-  /** Populates the value of the input */
-  defaultValue?: string;
-  layout?: RadioGroupLayouts;
+  onChange?: (value: string) => void;
+  /** Whether or not to display "Required"/"Optional" in the label text. */
+  optReqFlag?: boolean;
+  /** Offers the ability to show the group's legend onscreen or hide it. Refer
+   * to the `labelText` property for more information. */
+  showLabel?: boolean;
 }
 
 export const onChangeDefault = () => {
   return;
 };
 
-const directionMap: DirectionMap = {
-  [RadioGroupLayouts.Vertical]: "column",
-  [RadioGroupLayouts.Horizontal]: "row",
-};
+const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
+  (props, ref?) => {
+    const {
+      children,
+      className = "",
+      defaultValue,
+      errorText,
+      helperText,
+      id = generateUUID(),
+      isDisabled = false,
+      isInvalid = false,
+      isRequired = false,
+      labelText,
+      layout = RadioGroupLayoutTypes.Column,
+      name,
+      onChange = onChangeDefault,
+      optReqFlag = true,
+      showLabel = true,
+    } = props;
+    const footnote = isInvalid ? errorText : helperText;
+    const spacingProp =
+      layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
+    const newChildren = [];
 
-function RadioGroup(props: React.PropsWithChildren<RadioGroupProps>) {
-  const {
-    className,
-    id = generateUUID(),
-    children,
-    name,
-    defaultValue,
-    onChange = onChangeDefault,
-    layout = RadioGroupLayouts.Vertical,
-    labelText,
-    helperText,
-    errorText,
-    showLabel,
-    errored = false,
-    required,
-    disabled,
-  } = props;
-  const baseName = "RadioGroup";
-  const footnote = errored ? errorText : helperText;
-  const direction = directionMap[layout];
-  const newChildren = [];
+    // Use Chakra's RadioGroup hook to set and get the proper props
+    // or the custom components.
+    const { getRootProps, getRadioProps } = useRadioGroup({
+      name,
+      defaultValue,
+      onChange,
+    });
+    const radioGroupProps = getRootProps();
 
-  React.Children.map(children, (child: React.ReactElement, i) => {
-    const attributes = { key: i };
-    if (child !== undefined && child !== null) {
-      attributes["name"] = name;
-      if (disabled) {
-        attributes["disabled"] = true;
-        attributes["aria-disabled"] = true;
+    // Go through the Radio children and update them as needed.
+    React.Children.map(children, (child: React.ReactElement, i) => {
+      if (child.type !== Radio) {
+        if (child.props.mdxType && child.props.mdxType === "Radio") return;
+        console.warn(
+          "Only `Radio` components are allowed inside the `RadioGroup` component."
+        );
       }
-      if (errored) {
-        attributes["errored"] = true;
-      }
-      if (child.props.value === defaultValue) {
-        attributes["checked"] = true;
-      }
-      newChildren.push(React.cloneElement(child, { ...attributes }));
-    }
-  });
 
-  return (
-    <fieldset id={`radio-group-${id}`} className={`${baseName} ${className}`}>
-      <legend className={showLabel ? "" : "sr-only"}>
-        <span>{labelText}</span>
-        <span>{required ? "required" : "optional"}</span>
-      </legend>
-      <ChakraRadioGroup
-        name={name}
-        defaultValue={defaultValue}
-        onChange={onChange}
+      const chakraRadioProps = getRadioProps({
+        value: child.props.value,
+      } as any);
+      const newProps = { key: i };
+
+      if (child !== undefined && child !== null) {
+        if (isDisabled) {
+          newProps["isDisabled"] = true;
+        }
+        if (isInvalid) {
+          newProps["isInvalid"] = true;
+        }
+        if (isRequired) {
+          newProps["isRequired"] = true;
+        }
+        if (child.props.value === defaultValue) {
+          newProps["checked"] = true;
+        }
+        newChildren.push(
+          React.cloneElement(child, { ...newProps, ...chakraRadioProps })
+        );
+      }
+    });
+
+    // Get the Chakra-based styles for all the custom elements in this component.
+    const styles = useMultiStyleConfig("CustomRadioGroup", {});
+
+    return (
+      <Box
+        as="fieldset"
+        id={`radio-group-${id}`}
+        className={className}
+        __css={styles}
       >
-        <Stack direction={[direction]} spacing={spacing.s}>
+        <legend className={showLabel ? "" : "sr-only"}>
+          <span>{labelText}</span>
+          {optReqFlag && (
+            <Box as="span" __css={styles.required}>
+              {isRequired ? "Required" : "Optional"}
+            </Box>
+          )}
+        </legend>
+        <Stack
+          direction={[layout]}
+          spacing={spacingProp}
+          ref={ref}
+          aria-label={!showLabel ? labelText : null}
+          {...radioGroupProps}
+        >
           {newChildren}
         </Stack>
-      </ChakraRadioGroup>
-      {footnote && (
-        <HelperErrorText isError={errored}>{footnote}</HelperErrorText>
-      )}
-    </fieldset>
-  );
-}
+        {footnote && (
+          <Box __css={styles.helper}>
+            <HelperErrorText isError={isInvalid}>{footnote}</HelperErrorText>
+          </Box>
+        )}
+      </Box>
+    );
+  }
+);
 
 export default RadioGroup;
