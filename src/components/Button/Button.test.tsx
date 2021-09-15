@@ -83,7 +83,7 @@ describe("rendering content from its children prop", () => {
         <em>I'm an em element</em>
       </Button>
     );
-    expect(screen.getByText(/a em element/i)).toBeInTheDocument();
+    expect(screen.getByText(/an em element/i)).toBeInTheDocument();
     expect(container.querySelector("em")).toBeInTheDocument();
   });
 });
