@@ -1,0 +1,242 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import RadioGroup, { onChangeDefault } from "./RadioGroup";
+import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import Radio from "../Radio/Radio";
+
+<Meta
+  title={getCategory("RadioGroup")}
+  component={RadioGroup}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A742",
+    },
+    jest: ["RadioGroup.test.tsx"],
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+    className: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+    id: { table: { disable: true } },
+  }}
+/>
+
+# RadioGroup
+
+<Description of={RadioGroup} />
+
+<Preview withToolbar>
+  <Story
+    name="RadioGroup"
+    args={{
+      defaultValue: "4",
+      errorText: "error!",
+      helperText: "This is the helper text for the full group.",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: false,
+      labelText: "Standar Radio Group",
+      layout: RadioGroupLayoutTypes.Column,
+      name: "radio-story",
+      optReqFlag: true,
+      showLabel: true,
+    }}
+  >
+    {(args) => (
+      <RadioGroup {...args}>
+        <Radio value="2" labelText="Radio 2" />
+        <Radio value="3" labelText="Radio 3" />
+        <Radio value="4" labelText="Radio 4" />
+        <Radio value="5" labelText="Radio 5" />
+      </RadioGroup>
+    )}
+  </Story>
+</Preview>
+
+<ArgsTable story="RadioGroup" />
+
+## Layout Patterns
+
+Use the `layout` prop to set the `Radio` buttons to display in a column or in
+a row.
+
+<Canvas>
+  <DSProvider>
+    <RadioGroup
+      labelText="Column (default)"
+      name="column-example"
+      optReqFlag={false}
+    >
+      <Radio value="2" labelText="Radio 2" />
+      <Radio value="3" labelText="Radio 3" />
+      <Radio value="4" labelText="Radio 4" />
+      <Radio value="5" labelText="Radio 5" />
+    </RadioGroup>
+    <br />
+    <RadioGroup
+      labelText="Row"
+      name="row-example"
+      layout={RadioGroupLayoutTypes.Row}
+      optReqFlag={false}
+    >
+      <Radio value="2" labelText="Radio 2" />
+      <Radio value="3" labelText="Radio 3" />
+      <Radio value="4" labelText="Radio 4" />
+      <Radio value="5" labelText="Radio 5" />
+    </RadioGroup>
+  </DSProvider>
+</Canvas>
+
+## Errored
+
+<Canvas>
+  <DSProvider>
+    <RadioGroup
+      labelText="Errored Radio Group"
+      name="errored-example"
+      optReqFlag={false}
+      errorText="Error message for the full group."
+      isInvalid
+    >
+      <Radio value="2" labelText="Radio 2" />
+      <Radio value="3" labelText="Radio 3" />
+      <Radio value="4" labelText="Radio 4" />
+      <Radio value="5" labelText="Radio 5" />
+    </RadioGroup>
+  </DSProvider>
+</Canvas>
+
+## Disabled
+
+<Canvas>
+  <DSProvider>
+    <RadioGroup
+      labelText="Disabled Radio Group"
+      name="disabled-example"
+      optReqFlag={false}
+      helperText="The reason for being disabled."
+      isDisabled
+    >
+      <Radio value="2" labelText="Radio 2" />
+      <Radio value="3" labelText="Radio 3" />
+      <Radio value="4" labelText="Radio 4" />
+      <Radio value="5" labelText="Radio 5" />
+    </RadioGroup>
+  </DSProvider>
+</Canvas>
+
+## Getting Radio Data Values
+
+### Controlled Component using `name` and `onChange` props
+
+If your application uses controlled React components and the DS RadioGroup must
+be controlled, you can extract the data through the `name` and `onChange` props.
+This will be called every time a new `Radio` value is selected.
+
+```jsx
+const onChange = (data) => {
+  // This will return the value selected as a string.
+  console.log(data);
+};
+// ...
+
+// Example of the DS RadioGroup instance with the function above:
+<RadioGroup
+  id="controlled-example"
+  labelText="Radio Group"
+  name="radioExample"
+  defaultValue="3"
+  onChange={onChange}
+>
+  <Radio value="2" labelText="Radio 2" />
+  <Radio value="3" labelText="Radio 3" />
+  <Radio value="4" labelText="Radio 4" />
+</RadioGroup>;
+```
+
+### Uncontrolled Component using `ref`s
+
+If your application uses uncontrolled components, you can pass React `ref` props
+to the DS RadioGroup component to get the selected value from the DOM.
+
+The following example is using the `register` React `ref` from the
+`react-hook-form` package.
+
+```jsx
+import { useFormContext, Controller } from "react-hook-form";
+// ...
+const { register, handleSubmit, control } = useFormContext();
+// ...
+const submitForm = (formData) => {
+  // This will return an object with all the DOM element values that were
+  // registered with a `name` attribute.
+  // {
+  //   radioExample: "3"
+  // }
+  console.log(formData);
+  // ...
+};
+
+<form
+  onSubmit={handleSubmit(submitForm)}
+  method="post"
+  action="/some/api/endpoint"
+>
+  <Controller
+    as={
+      <RadioGroup
+        id="uncontrolled-example"
+        labelText="Radio Group"
+        name="radioExample"
+        defaultValue="3"
+        ref={register()}
+      >
+        <Radio value="2" labelText="Radio 2" />
+        <Radio value="3" labelText="Radio 3" />
+        <Radio value="4" labelText="Radio 4" />
+      </RadioGroup>
+    }
+    name="radioExample"
+    control={control}
+  />
+</form>;
+```
+
+The above is specific to `react-hook-form` but a similar pattern can be used
+with normal React `ref` values.
+
+```jsx
+const radioGroupRef = React.createRef<HTMLInputElement>();
+// ...
+<RadioGroup
+  id="uncontrolled-example"
+  labelText="Radio Group"
+  name="radioExample"
+  defaultValue="3"
+  ref={radioGroupRef}
+>
+  <Radio value="2" labelText="Radio 2" />
+  <Radio value="3" labelText="Radio 3" />
+  <Radio value="4" labelText="Radio 4" />
+</RadioGroup>
+
+// ...
+// Get the value through:
+const onSubmit = () => {
+  // ...
+  const radioGroupValue = radioGroupRef.current.value;
+};
+```
