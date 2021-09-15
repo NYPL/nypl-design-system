@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `FormSpacing` enum to DS exports.
 
+### Changes
+
+- Updates `General Guidelines` for `Buttons Style Guide`.
+
 ### Fixes
 
 - Fixes left padding on `Card` when `imageAtEnd` and `border` are both `true`.
