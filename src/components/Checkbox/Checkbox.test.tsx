@@ -128,7 +128,7 @@ describe("Checkbox", () => {
         labelText="Hello"
         showLabel={true}
         helperText="The helper text."
-        errorText="The error text."
+        invalidText="The error text."
         errored={false}
       />
     );
@@ -143,7 +143,7 @@ describe("Checkbox", () => {
         labelText="Hello"
         showLabel={true}
         helperText="The helper text."
-        errorText="The error text."
+        invalidText="The error text."
         errored={true}
       />
     );

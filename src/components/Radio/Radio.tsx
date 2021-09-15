@@ -14,7 +14,7 @@ export interface RadioProps {
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true.
    */
-  errorText?: string;
+  invalidText?: string;
   /** Optional string to populate the HelperErrorText for the standard state. */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -51,7 +51,7 @@ export interface RadioProps {
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const {
     className,
-    errorText,
+    invalidText,
     helperText,
     id = generateUUID(),
     isChecked,
@@ -65,7 +65,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     value,
   } = props;
   const styles = useMultiStyleConfig("Radio", {});
-  const footnote = isInvalid ? errorText : helperText;
+  const footnote = isInvalid ? invalidText : helperText;
   const attributes = {};
 
   if (!showLabel) {

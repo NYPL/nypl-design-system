@@ -18,7 +18,7 @@ export interface CheckboxProps {
   /** Helper for modifiers array; adds 'errored' styling */
   errored?: boolean;
   /** Optional string to populate the HelperErrorText for error state */
-  errorText?: string;
+  invalidText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -46,7 +46,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       className,
       disabled,
       errored,
-      errorText,
+      invalidText,
       helperText,
       id,
       labelText,
@@ -60,7 +60,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const checkboxID = id || generateUUID();
     const onChange = props.onChange || onChangeDefault;
 
-    const footnote = errored ? errorText : helperText;
+    const footnote = errored ? invalidText : helperText;
 
     if (!showLabel) {
       attributes["aria-label"] =
