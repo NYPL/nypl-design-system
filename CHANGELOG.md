@@ -13,6 +13,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `FormSpacing` enum to DS exports.
 - Adds `utility_account_filled`, `utility_account_unfilled`, `utility_hamburger` and `utility_search` icons to `Icon` component.
 
+### Changes
+
+- Updates `General Guidelines` for `Buttons Style Guide`.
+
+### Fixes
+
+- Fixes left padding on `Card` when `imageAtEnd` and `border` are both `true`.
+
 ## 0.24.0
 
 ### Breaking Changes
