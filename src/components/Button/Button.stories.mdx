@@ -192,16 +192,7 @@ must include an up arrow icon on the right side.
 <Canvas>
   <Story name="Patterns">
     <ButtonGroup>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            backgroundColor: getCSSVariable("--section-books-and-more-primary"),
-          },
-        }}
-      >
-        Donate to this library
-      </Button>
+      <Button buttonType={ButtonTypes.Callout}>Donate to this library</Button>
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
@@ -224,6 +215,7 @@ The different `ButtonTypes` modified by the `buttonType` prop:
     <ButtonGroup>
       <Button buttonType={ButtonTypes.Primary}>Primary</Button>
       <Button buttonType={ButtonTypes.Secondary}>Secondary</Button>
+      <Button buttonType={ButtonTypes.Callout}>Callout</Button>
       <Button buttonType={ButtonTypes.Pill}>Pill</Button>
       <Button buttonType={ButtonTypes.Link}>Link</Button>
     </ButtonGroup>

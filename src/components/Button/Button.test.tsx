@@ -80,7 +80,7 @@ describe("rendering content from its children prop", () => {
   it("should render element children", () => {
     const { container } = render(
       <Button id="button3" onClick={onClick}>
-        <em>I'm a em element</em>
+        <em>I'm an em element</em>
       </Button>
     );
     expect(screen.getByText(/a em element/i)).toBeInTheDocument();
@@ -124,6 +124,17 @@ describe("Button Snapshot", () => {
         </Button>
       )
       .toJSON();
+    const callout = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          buttonType={ButtonTypes.Callout}
+        >
+          Callout
+        </Button>
+      )
+      .toJSON();
     const pill = renderer
       .create(
         <Button id="button" onClick={jest.fn()} buttonType={ButtonTypes.Pill}>
@@ -141,6 +152,7 @@ describe("Button Snapshot", () => {
 
     expect(primary).toMatchSnapshot();
     expect(secondary).toMatchSnapshot();
+    expect(callout).toMatchSnapshot();
     expect(pill).toMatchSnapshot();
     expect(link).toMatchSnapshot();
   });
