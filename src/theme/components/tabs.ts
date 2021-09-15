@@ -2,6 +2,7 @@ const CustomTabs = {
   baseStyle: {
     tablist: {
       borderColor: "ui.black",
+      borderTopRadius: 2,
       maxWidth: {
         base: "70%",
         lg: "100%",
@@ -13,20 +14,28 @@ const CustomTabs = {
       paddingLeft: 4,
       border: "none",
       borderColor: "ui.black",
+      marginRight: "1px",
       paddingRight: {
         base: 4,
         md: 12,
       },
       _hover: {
-        fontWeight: "bold",
+        bg: "ui.gray.warm-xlight",
+        borderTopRadius: 2,
+        borderBottom: "1px solid",
+        borderBottomColor: "ui.black",
       },
       _selected: {
         fontWeight: "bold",
         bg: "ui.gray.warm-light",
         border: "none",
         borderTopRadius: 2,
-        borderBottom: "2px solid",
+        borderBottom: "3px solid",
         borderBottomColor: "ui.black",
+        paddingBottom: "5px",
+      },
+      _focus: {
+        boxShadow: 0,
       },
     },
     // Only display the previous/next arrow buttons on mobile.
