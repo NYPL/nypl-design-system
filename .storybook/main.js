@@ -5,6 +5,7 @@ module.exports = {
   // Where are the stories?
   stories: [
     "../src/docs/Intro.stories.mdx",
+    "../src/docs/Chakra.stories.mdx",
     "../src/components/StyleGuide/*.stories.@(tsx|mdx)",
     "../src/components/**/*.stories.@(tsx|mdx)",
   ],
@@ -35,6 +36,9 @@ module.exports = {
   typescript: {
     // Type-check stories during Storybook build.
     check: true,
+  },
+  refs: {
+    "@chakra-ui/react": { disable: true },
   },
   webpackFinal: async (config) => {
     const assetRule = config.module.rules.find(({ test }) => test.test(".svg"));

@@ -12,18 +12,9 @@
 // End libs
 
 /*
- * The `color-classes` and `css-vars` mixins have been included here
+ * The `css-vars` mixins have been included here 
  * because they are utilized in the colors SCSS files.
  */
-
-// generates a series of color classes that can be used anywhere
-@mixin color-classes($map) {
-  @each $name, $color in $map {
-    .cl-#{$name} {
-      color: $color;
-    }
-  }
-}
 
 // generates a collection of CSS vars
 @mixin css-vars($map, $prefix) {
@@ -59,6 +50,12 @@
 @import "./components/TextInput/_TextInput.scss";
 @import "./components/Autosuggest/_Autosuggest.scss";
 
+fieldset {
+  .sr-only {
+    @include screenreader-only();
+  }
+}
+
 // Order not important
 @import "./components/Accordion/_Accordion.scss";
 @import "./components/Breadcrumbs/_Breadcrumbs.scss";
@@ -75,7 +72,6 @@
 @import "./components/Modal/_Modal.scss";
 @import "./components/Notification/_Notification.scss";
 @import "./components/Pagination/_Pagination.scss";
-@import "./components/Radio/_Radio.scss";
 //@import "./components/Checkbox/_Checkbox.scss";
 @import "./components/SearchBar/_SearchBar.scss";
 @import "./components/Select/_Select.scss";

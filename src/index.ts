@@ -62,6 +62,8 @@ export {
 export { NotificationTypes } from "./components/Notification/NotificationTypes";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as Radio } from "./components/Radio/Radio";
+export { default as RadioGroup } from "./components/RadioGroup/RadioGroup";
+export { RadioGroupLayoutTypes } from "./components/RadioGroup/RadioGroupLayoutTypes";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export {
@@ -70,7 +72,18 @@ export {
 } from "./components/SkeletonLoader/SkeletonLoaderTypes";
 export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
-export { default as TextInput } from "./components/TextInput/TextInput";
+export {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from "./components/Tabs/Tabs";
+export {
+  default as TextInput,
+  TextInputRefType,
+} from "./components/TextInput/TextInput";
+export { TextInputTypes } from "./components/TextInput/TextInputTypes";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {
   VideoPlayerAspectRatios,
