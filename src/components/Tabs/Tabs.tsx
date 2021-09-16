@@ -83,7 +83,9 @@ const getElementsFromContentData = (data, useHash) => {
         {tab.label}
       </CustomAnchorTab>
     ) : (
-      <Tab key={index}>{tab.label}</Tab>
+      <Tab fontSize={["0", null, "1"]} key={index}>
+        {tab.label}
+      </Tab>
     );
     if (typeof tab.content === "string") {
       tempPanel = (
