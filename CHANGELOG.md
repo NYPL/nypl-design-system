@@ -14,6 +14,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports Chakra's `Box`, `Center`, `Circle`, `Square`, `Stack`, `HStack`, and `VStack` components.
 - Composes the DS `Button` component from Chakra's `Button` component.
 - Composes the DS `Tabs` component from Chakra's `Tabs`, `TabList`, `Tab`, `TabPanels`, and `TabPanel` components.
+- Moved SCSS and CSS variable styles into a custom NYPL theme to extend Chakra's base theme.
+- Updates the `errorText` prop name to `invalidText`.
 
 ### Removes
 
@@ -52,9 +54,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports `VideoPlayerAspectRatios`.
 - Adds additional props for the `DatePicker` component based on its TAD Addendum section.
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
-- Moved SCSS and CSS variable styles into a custom NYPL theme to extend Chakra's base theme.
 - Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
-- Updates the `errorText` prop name to `invalidText`.
 
 ### Fixes
 
