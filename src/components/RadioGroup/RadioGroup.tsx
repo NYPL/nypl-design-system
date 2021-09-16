@@ -19,7 +19,7 @@ export interface RadioGroupProps {
   /** Populates the initial value of the input */
   defaultValue?: string;
   /** Optional string to populate the HelperErrorText for error state */
-  errorText?: string;
+  invalidText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -57,7 +57,7 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       children,
       className = "",
       defaultValue,
-      errorText,
+      invalidText,
       helperText,
       id = generateUUID(),
       isDisabled = false,
@@ -70,7 +70,7 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       optReqFlag = true,
       showLabel = true,
     } = props;
-    const footnote = isInvalid ? errorText : helperText;
+    const footnote = isInvalid ? invalidText : helperText;
     const spacingProp =
       layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
     const newChildren = [];

@@ -54,7 +54,7 @@ component will handle all the states and data management.
       isRequired: false,
       isInvalid: false,
       helperText: "This is the helper text!",
-      errorText: "This is the error text :(",
+      invalidText: "This is the error text :(",
     }}
   >
     {(args) => <Radio {...args} />}
@@ -120,7 +120,7 @@ component will handle all the states and data management.
     <Radio
       name="testErrorText"
       labelText="I have error text"
-      errorText="I am the error text for this Radio"
+      invalidText="I am the error text for this Radio"
       isInvalid
     />
   </DSProvider>
