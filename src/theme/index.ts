@@ -4,6 +4,7 @@ import global from "./foundations/global";
 import typography from "./foundations/typography";
 import { spacing } from "./foundations/spacing";
 import breakpoints from "./foundations/breakpoints";
+import Accordion from "./components/accordion";
 import Button from "./components/button";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
@@ -38,9 +39,10 @@ const theme = extendTheme({
    * https://chakra-ui.com/docs/theming/component-style
    */
   components: {
+    Accordion,
     Button,
-    Radio,
     CustomRadioGroup,
+    Radio,
     Tabs,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this

@@ -1,69 +1,121 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import {
+  Box,
+  Accordion as ChakraAccordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+} from "@chakra-ui/react";
+
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
+import generateUUID from "../../helpers/generateUUID";
+
+export interface AccordionContentDataProps {
+  label: string;
+  panel: string | React.ReactNode;
+}
 
 export interface AccordionProps {
-  /** Inner label on the button that opens the accordion */
-  accordionLabel?: React.ReactNode;
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** className you can add in addition to 'input' */
-  className?: string;
-  /** Whether the accordion is open by default */
-  defaultOpen?: boolean;
+  /** Array of data to display */
+  contentData: AccordionContentDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** accordionLabel's input ID */
-  inputId?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
+  /** Whether the accordion is open by default only on its initial rendering */
+  isDefaultOpen?: boolean;
+  /** Whether the accordion should display with a fixed height and have
+   * the panel scrollable. */
+  isScrollable?: boolean;
 }
 
-/** Accordion component that shows content on toggle */
-export default function Accordion(
-  props: React.PropsWithChildren<AccordionProps>
-) {
+/**
+ * Get the minus or plus icon depending on whether the accordion
+ * is open or closed.
+ */
+const getIcon = (isExpanded = false) => {
+  const iconName = isExpanded ? IconNames.minus : IconNames.plus;
+  return <Icon decorative={true} name={iconName} modifiers={["small"]} />;
+};
+
+/**
+ * Returns `AccordionItems` for every accordion object in the data
+ * array. This automatically creates the `AccordionButton` and `AccordionPanel`
+ * combination that is required for the Chakra `Accordion` component.
+ */
+const getElementsFromContentData = (data = [], scroll) => {
+  // For FAQ-style multiple accordions, the button should be bigger.
+  // Otherwise, use the default.
+  const multiplePadding = data?.length > 1 ? 4 : null;
+  const panelScrollStyle = scroll
+    ? ({
+        maxHeight: "inherit",
+        overflowY: "auto",
+      } as any)
+    : {};
+
+  return data.map((content, index) => {
+    // This is done to support both string and DOM element input.
+    const panel =
+      typeof content.panel === "string" ? (
+        <AccordionPanel
+          key={index}
+          dangerouslySetInnerHTML={{ __html: content.panel }}
+        />
+      ) : (
+        <AccordionPanel key={index}>{content.panel}</AccordionPanel>
+      );
+
+    return (
+      <AccordionItem key={index} maxHeight={scroll}>
+        {/* Get the current state to render the correct icon. */}
+        {({ isExpanded }) => (
+          <>
+            <AccordionButton padding={multiplePadding}>
+              <Box flex="1" textAlign="left">
+                {content.label}
+              </Box>
+              {getIcon(isExpanded)}
+            </AccordionButton>
+            <Box
+              {...{
+                ...panelScrollStyle,
+                maxHeight: isExpanded && scroll ? "200px" : undefined,
+              }}
+            >
+              {panel}
+            </Box>
+          </>
+        )}
+      </AccordionItem>
+    );
+  });
+};
+
+/**
+ * Accordion component that shows content on toggle. Can be used to display
+ * multiple accordion items together.
+ */
+function Accordion(props: React.PropsWithChildren<AccordionProps>) {
   const {
-    modifiers = [],
-    blockName,
-    id,
-    className,
-    inputId,
-    defaultOpen = false,
-    accordionLabel,
-    children,
+    contentData,
+    id = generateUUID(),
+    isDefaultOpen = false,
+    isScrollable = false,
   } = props;
+  const scroll = isScrollable ? "inherit" : undefined;
 
+  // Pass `0` to open the first accordion in the 0-index based array.
+  const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
-    <div
+    <ChakraAccordion
       id={id}
-      className={bem("accordion", modifiers, blockName, [className])}
+      defaultIndex={[openFirstAccordion]}
+      allowMultiple
+      maxHeight={scroll}
     >
-      <input
-        id={`accordion-${inputId}`}
-        className={bem("input", modifiers, "accordion")}
-        type="checkbox"
-        defaultChecked={defaultOpen}
-      />
-      <label
-        htmlFor={`accordion-${inputId}`}
-        className={bem("label", modifiers, "accordion")}
-      >
-        {accordionLabel}
-        <Icon
-          decorative={true}
-          name={IconNames.minus}
-          modifiers={["small", `${IconNames.minus}`]}
-        />
-        <Icon
-          decorative={true}
-          name={IconNames.plus}
-          modifiers={["small", `${IconNames.plus}`]}
-        />
-      </label>
-
-      <div className={bem("content", modifiers, "accordion")}>{children}</div>
-    </div>
+      {getElementsFromContentData(contentData, scroll)}
+    </ChakraAccordion>
   );
 }
+
+export default Accordion;
