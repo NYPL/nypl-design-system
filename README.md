@@ -9,7 +9,7 @@ The NYPL Design System (DS) is NYPL’s open-source extensible React library for
 Storybook documentation
 
 - [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page)
-- [Development - deployed to Netlify](https://nypl-design-system-dev.netlify.app/?path=/story/introduction--page)
+- [Development - deployed to Tugboat QA](https://development-6y1v6na1ceqnmojvc5akrm5ewys3cshs.tugboat.qa/?path=/story/introduction--page)
 
 | Table of Contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
@@ -196,11 +196,11 @@ As of July, 2021, the Github Pages production site gets deployed every two weeks
 
 **Development**
 
-The development Storybook documentation is deployed to [Netlify](https://nypl-design-system-dev.netlify.app/?path=/story/introduction--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
+The development Storybook documentation is deployed to [Tugboat QA](https://development-6y1v6na1ceqnmojvc5akrm5ewys3cshs.tugboat.qa/?path=/story/introduction--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
 
 **Preview Sites**
 
-Preview Storybook documentation sites are deployed to Netlify for every pull request. They follow a pattern such as `deploy-preview-[pr-number]--nypl-design-system-dev.netlify.app` where `[pr-number]` is the number of the pull request it is deploying. For example, for pull request #101, Netlify will deploy a "preview" site to `deploy-preview-101--nypl-design-system-dev.netlify.app`. Since these "preview" sites are brought up only for pull requests, this means that the URL varies and that those instances are eventually shut off. They are not meant to be used as long-term sites but rather for reviewing working changes within the team.
+Preview Storybook documentation sites are deployed to Tugboat QA for every pull request. They follow a pattern such as `pr[number]-[hash].tugboat.qa` where `[number]` is the number of the pull request it is deploying. For example, for pull request #101, Tugboat will deploy a "preview" site to `pr101-wldudndlk24kas42.tugboat.qa`. Since these "preview" sites are brought up only for pull requests, this means that the URL varies and that those instances are eventually shut off. They are not meant to be used as long-term sites but rather for reviewing working changes within the team.
 
 ### React Component Documentation
 
@@ -309,7 +309,7 @@ Now, if we unintentionally update the `Notification.tsx` component to render a `
 If you want to update any existing snapshots, re-run the test script as:
 
 ```sh
-$ npm test -- updateSnapshot
+$ npm test -- --updateSnapshot
 ```
 
 Each snapshot file also includes a link to its [Jest Snapshot documentation](https://jestjs.io/docs/snapshot-testing) which is recommended to read!

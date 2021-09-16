@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the development preview URL from the Netlify link to the Tugboat QA link.
+
 ## 0.24.1
 
 ### Adds
