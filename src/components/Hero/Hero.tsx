@@ -155,7 +155,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
           heroType !== HeroTypes.Tertiary &&
           image}
         {heading}
-        {heroType === HeroTypes.Tertiary ? (
+        {heroType === HeroTypes.Tertiary && subHeaderText ? (
           <p>{subHeaderText}</p>
         ) : (
           subHeaderText

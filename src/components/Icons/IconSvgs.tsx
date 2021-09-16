@@ -34,6 +34,10 @@ import simplye_color from "../../../icons/svg/simplye_color.svg";
 import snfl_negative from "../../../icons/svg/snfl_negative.svg";
 import snfl_positive from "../../../icons/svg/snfl_positive.svg";
 import speaker_notes from "../../../icons/svg/speaker_notes.svg";
+import utility_account_filled from "../../../icons/svg/utility_account_filled.svg";
+import utility_account_unfilled from "../../../icons/svg/utility_account_unfilled.svg";
+import utility_hamburger from "../../../icons/svg/utility_hamburger.svg";
+import utility_search from "../../../icons/svg/search.svg";
 
 export default {
   accessibility_full,
@@ -71,4 +75,8 @@ export default {
   snfl_negative,
   snfl_positive,
   speaker_notes,
+  utility_account_filled,
+  utility_account_unfilled,
+  utility_hamburger,
+  utility_search,
 };
