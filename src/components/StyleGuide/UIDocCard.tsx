@@ -1,5 +1,5 @@
 import * as React from "react";
-import Card from "../Card/Card";
+import CardEdition from "../CardEdition/CardEdition";
 
 interface UIDocCardProps {
   /** backgroundColor of the doc card */
@@ -16,7 +16,7 @@ export default function UIDocCard(
   const { backgroundColor, children } = props;
 
   return (
-    <Card className="var-docs">
+    <CardEdition className="var-docs">
       <div
         style={{
           alignItems: "center",
@@ -31,6 +31,6 @@ export default function UIDocCard(
         }}
       ></div>
       {children}
-    </Card>
+    </CardEdition>
   );
 }
