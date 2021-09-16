@@ -48,7 +48,7 @@ describe("Radio Button", () => {
         id="inputID"
         labelText="Test Label"
         helperText="This is the helper text."
-        errorText="This is the error text :("
+        invalidText="This is the error text :("
       />
     );
     expect(screen.getByText("This is the helper text.")).toBeVisible();
@@ -62,7 +62,7 @@ describe("Radio Button", () => {
         labelText="Test Label"
         isInvalid
         helperText="This is the helper text."
-        errorText="This is the error text :("
+        invalidText="This is the error text :("
       />
     );
     expect(screen.getByText("This is the error text :(")).toBeVisible();

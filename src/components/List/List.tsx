@@ -56,7 +56,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
 
   const baseClass = "list";
   let listTag;
-  let errorText = "";
+  let invalidText = "";
   /**
    * This returns either the `children` elements passed to the `List` component
    * first, and if that is not passed, it will check and render the data passed
@@ -87,10 +87,10 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
    * Checks for `li` element type and throws an error if it is a different type.
    */
   const checkLiChildrenError = (listType) => {
-    errorText = `Direct children of \`List\` (${listType}) should be \`<li>\`s`;
+    invalidText = `Direct children of \`List\` (${listType}) should be \`<li>\`s`;
     React.Children.map(children, function (child: React.ReactElement) {
       if (child?.type !== "li" && child?.props?.mdxType !== "li") {
-        throw new Error(errorText);
+        throw new Error(invalidText);
       }
     });
   };
@@ -119,7 +119,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
       );
       break;
     case ListTypes.Definition:
-      errorText =
+      invalidText =
         "Direct children of `List` (definition) should be `<dt>`s or `<dd>`s";
       React.Children.map(children, function (child: React.ReactElement) {
         if (
@@ -130,7 +130,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           child.props.mdxType !== "dd" &&
           child.props.mdxType !== React.Fragment
         ) {
-          throw new Error(errorText);
+          throw new Error(invalidText);
         }
       });
       listTag = (

@@ -59,7 +59,7 @@ describe("Radio Button", () => {
         labelText="Test Label"
         name="test3"
         helperText="This is the helper text for the full group."
-        errorText="This is the error text :("
+        invalidText="This is the error text :("
       >
         <Radio value="2" labelText="Radio 2" />
         <Radio value="3" labelText="Radio 3" />
@@ -78,7 +78,7 @@ describe("Radio Button", () => {
         labelText="Test Label"
         name="test4"
         helperText="This is the helper text for the full group."
-        errorText="This is the error text :("
+        invalidText="This is the error text :("
         isInvalid
       >
         <Radio value="2" labelText="Radio 2" />
@@ -241,13 +241,13 @@ describe("Radio Button", () => {
         </RadioGroup>
       )
       .toJSON();
-    const errorText = renderer
+    const invalidText = renderer
       .create(
         <RadioGroup
-          labelText="errorText"
-          name="errorText"
-          id="errorText"
-          errorText="error text"
+          labelText="invalidText"
+          name="invalidText"
+          id="invalidText"
+          invalidText="error text"
         >
           <Radio value="2" labelText="Radio 2" id="radio-2" />
           <Radio value="3" labelText="Radio 3" id="radio-3" />
@@ -306,7 +306,7 @@ describe("Radio Button", () => {
     expect(row).toMatchSnapshot();
     expect(noLabel).toMatchSnapshot();
     expect(helperText).toMatchSnapshot();
-    expect(errorText).toMatchSnapshot();
+    expect(invalidText).toMatchSnapshot();
     expect(noOptReqLabel).toMatchSnapshot();
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();

@@ -85,7 +85,7 @@ export interface DatePickerProps extends DatePickerWrapperProps {
    */
   maxDate?: string;
   /** Populates the `HelperErrorText` error state for both "From" and "To" input components. */
-  errorText?: string;
+  invalidText?: string;
   /** Helper for modifiers array; adds 'errored' styling. */
   errored?: boolean;
   /** Adds the 'required' property to the input element(s). */
@@ -135,7 +135,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       showOptReqLabel,
       errored,
       helperText,
-      errorText,
+      invalidText,
       onClick,
       dsId,
       dsRef,
@@ -154,7 +154,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       showOptReqLabel={showOptReqLabel}
       errored={errored}
       helperText={helperText}
-      errorText={errorText}
+      invalidText={invalidText}
       // Use either the specific prop-based or the forwardRef value.
       // react-datepicker manipulates the `ref` value so sometimes we want a
       // specific ref through the `dsRef` prop.
@@ -197,7 +197,7 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
  */
 const DateRangeRow: React.FC<DateRangeRowProps> = ({ dateRange, children }) =>
   dateRange ? (
-    <div className="form--spacing-extra-small">
+    <div className="form form--spacing-extra-small">
       <FormRow>{children}</FormRow>
     </div>
   ) : (
@@ -219,7 +219,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       helperText,
       helperTextFrom,
       helperTextTo,
-      errorText,
+      invalidText,
       errored,
       required,
       showOptReqLabel = true,
@@ -280,7 +280,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       disabled,
       errored,
       helperText: dateRange ? helperTextFrom : helperText,
-      errorText,
+      invalidText,
     };
     let startDatePickerAttrs = {};
     let endDatePickerAttrs = {};
