@@ -8,6 +8,7 @@ import Button from "./components/button";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
 import Tabs from "./components/tabs";
+import CustomSelect from "./components/select";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -41,6 +42,7 @@ const theme = extendTheme({
     Button,
     Radio,
     CustomRadioGroup,
+    CustomSelect,
     Tabs,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
