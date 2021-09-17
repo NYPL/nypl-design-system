@@ -1,13 +1,3 @@
-// Style object for the Heading's "control" or visual icon.
-const baseStyle = {
-  // color: "ui.black",
-};
-
-// Sticking to "md" for the default size.
-const sizes = {
-  md: {},
-};
-
 // Heading Styles
 const headings = {
   h1: {
@@ -61,39 +51,9 @@ const variants = {
   secondary: headings.h2,
   tertiary: headings.h3,
   callout: headings.h4,
-  // fontSize: "4", // var(--font-size-4);
-  // fontWeight: "light",
-  // letterSpacing: "0",
-  // lineHeight: "1.1",
-  // margin: "0 0 0.5em",
-  // width: "auto",
-  //   },
-  //   secondary: {
-  //     fontSize: "3", // var(--font-size-3);
-  //     fontWeight: "medium",
-  //     lineHeight: "1.25",
-  //     margin: "0 0 0.5em",
-  //     width: "auto",
-  //   },
-  //   tertiary: {
-  //     fontSize: "2", // var(--font-size-2);
-  //     fontWeight: "medium",
-  //     lineHeight: "1.25",
-  //     margin: "0 0 0.5em",
-  //     width: "auto",
-  //   },
-  //   callout: {
-  //     fontSize: "1", // var(--font-size-1);
-  //     fontWeight: "medium",
-  //     lineHeight: "1.15",
-  //     margin: "0 0 0.5em",
-  //     width: "auto",
-  //   },
 };
 
 const Heading = {
-  baseStyle,
-  sizes,
   // Available variants:
   //   primary, secondary, tertiary, callout
   variants,

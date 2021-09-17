@@ -1,13 +1,13 @@
 // MT-82, MT 225, etc
 import * as React from "react";
 import {
+  As,
   Box,
   Heading as ChakraHeading,
   Link as ChakraLink,
   useStyleConfig,
 } from "@chakra-ui/react";
 
-// import bem from "../../utils/bem";
 import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
 
 export interface HeadingProps {
@@ -40,7 +40,7 @@ for (const type in HeadingDisplaySizes) {
 /**
  * Map the HeadingDisplaySizes to the Heading Chakra theme variant object. If a wrong
  * value is passed (typically in non-Typescript scenarios), then the default
- * is the "primary" variant.
+ * is "null" and displaySize is not envoked.
  */
 const getVariant = (displaySize) => variantMap[displaySize] || null;
 
@@ -57,7 +57,7 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
 
   const variant = displaySize ? getVariant(displaySize) : `h${level}`;
   const styles = useStyleConfig("Heading", { variant });
-  const asHeading: any = `h${level}`;
+  const asHeading: As = `h${level}`;
 
   if (level < 1 || level > 6) {
     throw new Error("Heading only supports levels 1-6");
@@ -78,24 +78,14 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
     );
   }
 
-  let content: string | React.ReactNode;
-  if (props.children) {
-    content = url ? (
-      <Box as={ChakraLink} href={url} className={urlClass}>
-        {props.children}
-      </Box>
-    ) : (
-      props.children
-    );
-  } else {
-    content = url ? (
-      <Box as={ChakraLink} href={url} className={urlClass}>
-        {text}
-      </Box>
-    ) : (
-      text
-    );
-  }
+  const contentToRender = props.children ? props.children : text;
+  const content = url ? (
+    <Box as={ChakraLink} href={url} className={urlClass}>
+      {contentToRender}
+    </Box>
+  ) : (
+    contentToRender
+  );
 
   return (
     <ChakraHeading id={id} as={asHeading} sx={styles} className={className}>

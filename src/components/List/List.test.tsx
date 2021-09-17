@@ -31,8 +31,7 @@ describe("List", () => {
   ];
 
   it("renders unordered list", () => {
-    let utils;
-    utils = render(
+    const utils = render(
       <List type={ListTypes.Unordered}>
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
@@ -45,8 +44,9 @@ describe("List", () => {
   });
 
   it("renders unordered list with the `listItems` prop", () => {
-    let utils;
-    utils = render(<List type={ListTypes.Unordered} listItems={fishArray} />);
+    const utils = render(
+      <List type={ListTypes.Unordered} listItems={fishArray} />
+    );
     expect(utils.container.querySelector(".list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
@@ -56,8 +56,7 @@ describe("List", () => {
   });
 
   it("renders ordered list", () => {
-    let utils;
-    utils = render(
+    const utils = render(
       <List type={ListTypes.Ordered}>
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
@@ -70,8 +69,9 @@ describe("List", () => {
   });
 
   it("renders ordered list with the `listItems` prop", () => {
-    let utils;
-    utils = render(<List type={ListTypes.Ordered} listItems={fishArray} />);
+    const utils = render(
+      <List type={ListTypes.Ordered} listItems={fishArray} />
+    );
     expect(utils.container.querySelector(".list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
