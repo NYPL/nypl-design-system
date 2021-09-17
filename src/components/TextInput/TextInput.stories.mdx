@@ -1,17 +1,17 @@
 import {
   Meta,
   Story,
-  Canvas,
   ArgsTable,
-  Preview,
+  Canvas,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { VStack } from "@chakra-ui/react";
 
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
-import { action } from "@storybook/addon-actions";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("TextInput")}
@@ -27,6 +27,9 @@ import { getCategory } from "../../utils/componentCategories";
   }}
   argTypes={{
     attributes: { table: { disable: true } },
+    id: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+    value: { table: { disable: true } },
   }}
 />
 
@@ -35,134 +38,130 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `0.24.0`   |
+| Latest            | `0.24.2`   |
 
 <Description of={TextInput} />
 
-This component renders a text input form element. See below for configuration information. For optimal accessibility, the `labelText` property is a required prop, regardless of the label visibility. Additionally, while the `id` prop is optional, a unique `id` attribute is necessary for accessibility. If the prop is left blank, a value will be generated for you.
+This component renders a text input form element. See below for configuration
+information. For optimal accessibility, the `labelText` property is a required
+prop, regardless of the label visibility. Additionally, while the `id` prop is
+optional, a unique `id` attribute is necessary for accessibility. If the prop
+is left blank, a value will be generated for you.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="TextInput"
     args={{
-      id: "myTextInput",
-      type: TextInputTypes.text,
-      labelText: "What is your favorite color?",
-      showLabel: true,
-      placeholder: "e.g. blue, green, etc.",
       helperText: "Choose wisely.",
-      invalidText: "Waaaaaaaa!",
-      errored: false,
-      required: true,
+      id: "myTextInput",
+      invalidText: "This is error text :(",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: true,
+      labelText: "What is your favorite color?",
+      placeholder: "e.g. blue, green, etc.",
+      showLabel: true,
       showOptReqLabel: true,
-      disabled: false,
-      attributes: {
-        onFocus: action("focus"),
-        onBlur: action("blur"),
-        onChange: action("onChange"),
-        maxLength: 10,
-        tabIndex: 0,
-        autoFocus: true,
-        pattern: "[a-z0-9]",
-      },
+      type: TextInputTypes.text,
     }}
   >
     {(args) => <TextInput {...args} />}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="TextInput" />
 
 ## Labelling Variations
 
-A TextInput can be rendered with or without visible labels.
+A TextInput can be rendered with or without visible labels. When `showLabel` is
+set to `false`, an `aria-label` attribute is added to the input/textarea element
+to maintain accessibility. If the component needs to be required, the
+`showOptReqLabel` prop can be used to show or hide the "Required"/"Optional"
+text within the `label` element.
 
-<Preview withToolbar>
-  <Story
-    name="Labelling Variations"
-    args={{
-      labelText: "What is your favorite color?",
-      showLabel: false,
-    }}
-  >
-    {(args) => <TextInput {...args} />}
+<Canvas withToolbar>
+  <Story name="Labelling Variations">
+    <VStack align="stretch" spacing={12}>
+      <TextInput
+        labelText="What is your favorite color?"
+        placeholder="i.e. blue, green, etc."
+        helperText="Choose wisely!"
+      />
+      <TextInput
+        labelText="What is your favorite color?"
+        placeholder="i.e. blue, green, etc."
+        showLabel={false}
+      />
+      <TextInput
+        labelText="What is your favorite color?"
+        placeholder="i.e. blue, green, etc."
+        isRequired
+      />
+      <TextInput
+        labelText="What is your favorite color?"
+        placeholder="i.e. blue, green, etc."
+        showOptReqLabel={false}
+        isRequired
+      />
+      <TextInput
+        labelText="What is your favorite color?"
+        showLabel={false}
+        placeholder="i.e. blue, green, etc."
+        helperText="Choose wisely!"
+      />
+    </VStack>
   </Story>
-</Preview>
-
-<Canvas>
-  <TextInput labelText="What is your favorite color?" showLabel={true} />
 </Canvas>
 
-<Canvas>
-  <TextInput
-    labelText="What is your favorite color?"
-    showLabel={false}
-    placeholder="i.e. blue, green, etc."
-  />
-</Canvas>
+### Errored
 
 <Canvas>
-  <TextInput
-    labelText="What is your favorite color?"
-    showLabel={true}
-    placeholder="i.e. blue, green, etc."
-  />
+  <DSProvider>
+    <TextInput
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
+      helperText="Choose wisely!"
+      invalidText="This is error text :("
+      isInvalid
+    />
+  </DSProvider>
 </Canvas>
 
-<Canvas>
-  <TextInput
-    labelText="What is your favorite color?"
-    showLabel={false}
-    placeholder="i.e. blue, green, etc."
-    helperText="Choose wisely!"
-  />
-</Canvas>
+### Disabled
 
 <Canvas>
-  <TextInput
-    labelText="What is your favorite color?"
-    showLabel={true}
-    placeholder="i.e. blue, green, etc."
-    helperText="Choose wisely!"
-  />
-</Canvas>
-
-<Canvas>
-  <TextInput
-    labelText="What is your favorite color?"
-    showLabel={false}
-    placeholder="i.e. blue, green, etc."
-    invalidText="Waaaaaa!"
-    errored={true}
-  />
-</Canvas>
-
-<Canvas>
-  <TextInput
-    labelText="What is your favorite color?"
-    showLabel={true}
-    placeholder="i.e. blue, green, etc."
-    invalidText="Waaaaaa!"
-    errored={true}
-  />
+  <DSProvider>
+    <TextInput
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
+      helperText="Choose wisely!"
+      isDisabled
+    />
+  </DSProvider>
 </Canvas>
 
 ## Textarea
 
 The TextInput component includes a multiline `textarea` form field. To render a
-`textarea` element, pass `TextInputTypes.textarea` for the `type` prop.
+`textarea` element, pass `TextInputTypes.textarea` for the `type` prop. All the
+variations described above are available for the `textarea` option.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="Textarea"
     args={{
-      type: TextInputTypes.textarea,
-      labelText: "In less than 500 words, describe your favorite color?",
-      showLabel: true,
-      placeholder: "Essay question...",
       helperText: "Let it all out.",
+      invalidText: "This is error text :(",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: true,
+      labelText: "In less than 500 words, describe your favorite color?",
+      placeholder: "Essay question...",
+      showLabel: true,
+      showOptReqLabel: true,
+      type: TextInputTypes.textarea,
     }}
   >
     {(args) => <TextInput {...args} />}
   </Story>
-</Preview>
+</Canvas>
