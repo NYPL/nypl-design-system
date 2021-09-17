@@ -17,7 +17,7 @@ import Link from "../Link/Link";
 import Heading from "../Heading/Heading";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import { LinkTypes } from "../Link/LinkTypes";
-import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
+import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Image from "../Image/Image";
@@ -89,10 +89,10 @@ The `CardContent` component should be used to display all content other than hea
   >
     {(args) => (
       <Card {...args}>
-        <CardHeading level={2} id="heading1">
+        <CardHeading level={HeadingLevels.Two} id="heading1">
           Optional Header
         </CardHeading>
-        <CardHeading level={4} id="heading2">
+        <CardHeading level={HeadingLevels.Four} id="heading2">
           Sollicitudin Lorem Tortor Purus Ornare
         </CardHeading>
         <CardContent>
@@ -150,7 +150,7 @@ By default, the image is always the first element within a `Card`. This means th
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Image on Top (default)
         </CardHeading>
         <CardContent>
@@ -164,7 +164,7 @@ By default, the image is always the first element within a `Card`. This means th
         imageAspectRatio={CardImageRatios.TwoByOne}
         imageAtEnd
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Image on Bottom
         </CardHeading>
         <CardContent>
@@ -193,7 +193,7 @@ By default, the image is always the first element within a `Card`. This means th
       imageAlt="Alt text"
       imageAspectRatio={CardImageRatios.TwoByOne}
     >
-      <CardHeading level={4} id="heading1">
+      <CardHeading level={HeadingLevels.Four} id="heading1">
         Image on Left (default)
       </CardHeading>
       <CardContent>
@@ -210,7 +210,7 @@ By default, the image is always the first element within a `Card`. This means th
       imageAspectRatio={CardImageRatios.TwoByOne}
       imageAtEnd
     >
-      <CardHeading level={4} id="heading2">
+      <CardHeading level={HeadingLevels.Four} id="heading2">
         Image on Right
       </CardHeading>
       <CardContent>
@@ -244,10 +244,10 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAspectRatio={CardImageRatios.Square}
         imageSize={CardImageSizes.Small}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={5} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -263,10 +263,10 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAspectRatio={CardImageRatios.Square}
         imageSize={CardImageSizes.Medium}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Medium Image
         </CardHeading>
-        <CardHeading level={5} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -281,10 +281,10 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAspectRatio={CardImageRatios.Square}
         imageSize={CardImageSizes.Large}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={5} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -298,10 +298,10 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.Square}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Default Image
         </CardHeading>
-        <CardHeading level={5} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="heading2">
           Width: 100%
         </CardHeading>
         <CardContent>
@@ -331,10 +331,10 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       imageAspectRatio={CardImageRatios.TwoByOne}
       imageSize={CardImageSizes.Small}
     >
-      <CardHeading level={3} id="heading1">
+      <CardHeading level={HeadingLevels.Three} id="heading1">
         Small Image
       </CardHeading>
-      <CardHeading level={5} id="heading2">
+      <CardHeading level={HeadingLevels.Five} id="heading2">
         Max-Width: 165px
       </CardHeading>
       <CardContent>
@@ -349,10 +349,10 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       imageAspectRatio={CardImageRatios.TwoByOne}
       imageSize={CardImageSizes.Medium}
     >
-      <CardHeading level={3} id="heading2">
+      <CardHeading level={HeadingLevels.Three} id="heading2">
         Medium Image
       </CardHeading>
-      <CardHeading level={5} id="heading2">
+      <CardHeading level={HeadingLevels.Five} id="heading2">
         Max-Width: 225px
       </CardHeading>
       <CardContent>
@@ -368,10 +368,10 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       imageAspectRatio={CardImageRatios.TwoByOne}
       imageSize={CardImageSizes.Large}
     >
-      <CardHeading level={3} id="heading1">
+      <CardHeading level={HeadingLevels.Three} id="heading1">
         Large Image
       </CardHeading>
-      <CardHeading level={5} id="heading2">
+      <CardHeading level={HeadingLevels.Five} id="heading2">
         Max-Width: 360px
       </CardHeading>
       <CardContent>
@@ -387,10 +387,10 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       imageAlt="Alt text"
       imageAspectRatio={CardImageRatios.TwoByOne}
     >
-      <CardHeading level={3} id="heading2">
+      <CardHeading level={HeadingLevels.Three} id="heading2">
         Default Image
       </CardHeading>
-      <CardHeading level={5} id="heading2">
+      <CardHeading level={HeadingLevels.Five} id="heading2">
         Max-Width: 225px
       </CardHeading>
       <CardContent>
@@ -418,7 +418,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -431,7 +431,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -444,7 +444,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -457,7 +457,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -470,7 +470,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -483,7 +483,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -513,7 +513,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={4} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -529,7 +529,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={4} id="heading2">
+        <CardHeading level={HeadingLevels.Four} id="heading2">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -545,7 +545,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         imageAlt="Alt text"
         imageAspectRatio={CardImageRatios.TwoByOne}
       >
-        <CardHeading level={4} id="heading3">
+        <CardHeading level={HeadingLevels.Four} id="heading3">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -571,10 +571,10 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
       }
     >
-      <CardHeading level={2} id="heading1">
+      <CardHeading level={HeadingLevels.Two} id="heading1">
         Card Component with Custom Image Component
       </CardHeading>
-      <CardHeading level={4} id="heading2">
+      <CardHeading level={HeadingLevels.Four} id="heading2">
         Secondary Heading
       </CardHeading>
       <CardContent>
@@ -609,7 +609,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
       }}
     >
       <Card border>
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -619,7 +619,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
       <Card border>
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -629,7 +629,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
       <Card border>
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -647,7 +647,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
       }}
     >
       <Card layout={CardLayouts.Horizontal} border>
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -660,7 +660,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
       <Card layout={CardLayouts.Horizontal} border>
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -673,7 +673,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
       <Card layout={CardLayouts.Horizontal} border>
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
         <CardContent>

@@ -7,6 +7,7 @@ import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
@@ -18,7 +19,7 @@ describe("Card Accessibility", () => {
         imageSrc="https://placeimg.com/400/200/arch"
         imageAlt="Alt text"
       >
-        <CardHeading level={3} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="heading1">
           The Card Heading
         </CardHeading>
         <CardContent>middle column content</CardContent>
@@ -47,7 +48,7 @@ describe("Card", () => {
       imageSrc="https://placeimg.com/400/200/arch"
       imageAlt="Alt text"
     >
-      <CardHeading level={3} id="heading1">
+      <CardHeading level={HeadingLevels.Three} id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
@@ -72,7 +73,7 @@ describe("Card", () => {
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
     >
-      <CardHeading level={2} id="editioncardheading1">
+      <CardHeading level={HeadingLevels.Two} id="editioncardheading1">
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -111,7 +112,7 @@ describe("Card", () => {
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
     >
-      <CardHeading level={2} id="editioncardheading1">
+      <CardHeading level={HeadingLevels.Two} id="editioncardheading1">
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -128,7 +129,11 @@ describe("Card", () => {
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
     >
-      <CardHeading level={2} id="editioncardheading1" url="#edition-link">
+      <CardHeading
+        level={HeadingLevels.Two}
+        id="editioncardheading1"
+        url="#edition-link"
+      >
         The Card Heading
       </CardHeading>
       <CardActions>
@@ -154,7 +159,11 @@ describe("Card", () => {
   );
   const cardWithNoImage = (
     <Card id="card#1" className="edition-card">
-      <CardHeading level={2} id="editioncardheading1" url="#edition-link">
+      <CardHeading
+        level={HeadingLevels.Two}
+        id="editioncardheading1"
+        url="#edition-link"
+      >
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
@@ -184,7 +193,7 @@ describe("Card", () => {
   it("Generates a Card with a header, image, content, and CTAs", () => {
     const utils = render(regularCard);
     container = utils.container;
-    expect(container.querySelector(".heading")).toBeInTheDocument();
+    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).toBeInTheDocument();
     expect(container.querySelector(".card-content")).toBeInTheDocument();
     expect(container.querySelector(".card-actions")).toBeInTheDocument();
@@ -203,7 +212,7 @@ describe("Card", () => {
     const utils = render(cardWithNoCTAs);
     container = utils.container;
 
-    expect(container.querySelector(".heading")).toBeInTheDocument();
+    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).toBeInTheDocument();
     expect(container.querySelector(".card-content")).toBeInTheDocument();
     expect(container.querySelector(".card-actions")).not.toBeInTheDocument();
@@ -213,7 +222,7 @@ describe("Card", () => {
     const utils = render(cardWithNoContent);
     container = utils.container;
 
-    expect(container.querySelector(".heading")).toBeInTheDocument();
+    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).toBeInTheDocument();
     expect(container.querySelector(".card-content")).not.toBeInTheDocument();
     expect(container.querySelector(".card-actions")).toBeInTheDocument();
@@ -223,7 +232,7 @@ describe("Card", () => {
     const utils = render(cardWithNoImage);
     container = utils.container;
 
-    expect(container.querySelector(".heading")).toBeInTheDocument();
+    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
     expect(container.querySelector(".card__image")).not.toBeInTheDocument();
     expect(container.querySelector(".card-content")).toBeInTheDocument();
     expect(container.querySelector(".card-actions")).toBeInTheDocument();

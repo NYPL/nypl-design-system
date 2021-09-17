@@ -10,7 +10,7 @@ exports[`Notification Snapshot Renders the UI snapshot correctly 1`] = `
   >
     <header>
       <h4
-        className="heading notification-heading "
+        className="chakra-heading notification-heading  css-0"
       >
         Notification Heading
       </h4>

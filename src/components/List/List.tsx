@@ -3,6 +3,8 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+
 interface DefinitionProps {
   term: string;
   definition: string;
@@ -139,7 +141,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           className={bem("definition-list", modifiers, baseClass)}
         >
           {title && (
-            <Heading id={`${id}-heading`} level={2}>
+            <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
               {title}
             </Heading>
           )}

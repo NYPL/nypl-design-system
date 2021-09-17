@@ -62,7 +62,7 @@ Component usage in a consuming application that uses Typescript:
 // No errors:
 <Heading
   id="h1"
-  level={1}
+  level={HeadingLevels.One}
   text={"Heading with Secondary displaySize"}
   displaySize={HeadingDisplaySizes.Secondary}
 />
@@ -72,7 +72,7 @@ Component usage in a consuming application that uses Typescript:
 // `HeadingDisplaySizes` enum to be used while developing.
 <Heading
   id="h1"
-  level={1}
+  level={HeadingLevels.One}
   text={"Heading with Secondary displaySize"}
   displaySize="secondary"
 />
