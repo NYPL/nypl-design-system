@@ -35,8 +35,6 @@ export interface SelectProps {
   /** The callback function to get the selected value.
    * Should be passed along with `value` for controlled components. */
   onChange?: (event: React.FormEvent) => void;
-  /** Offers the ability to show the select's helper/error text or hide it. */
-  showHelperText?: boolean;
   /** Offers the ability to show the select's label onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
@@ -66,7 +64,6 @@ const Select = React.forwardRef<
     labelText,
     name,
     onChange,
-    showHelperText = true,
     showLabel = true,
     showOptReqLabel = true,
     value,
@@ -133,7 +130,7 @@ const Select = React.forwardRef<
       >
         {children}
       </ChakraSelect>
-      {footnote && showHelperText && (
+      {footnote && (
         <Box __css={styles.helper} aria-disabled={isDisabled}>
           <HelperErrorText isError={isInvalid} id={id + `-helperText`}>
             {footnote}
