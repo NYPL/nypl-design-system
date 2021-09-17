@@ -19,7 +19,7 @@ export interface SelectProps {
   /** Helper for modifiers array; adds 'errored' styling */
   errored?: boolean;
   /** Populates the HelperErrorText for error state */
-  errorText?: string;
+  invalidText?: string;
   /** DEPRECATED - ID of associated HelperText */
   helperTextId?: string;
   /** Populates the HelperErrorText for standard state */
@@ -58,7 +58,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       children,
       className,
       errored,
-      errorText,
+      invalidText,
       helperText,
       helperTextId,
       isRequired,
@@ -89,8 +89,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     const req = isRequired || required;
     const optReqFlag = req ? "Required" : "Optional";
 
-    const errorOutput = errorText
-      ? errorText
+    const errorOutput = invalidText
+      ? invalidText
       : "There is an error related to this field.";
 
     const footnote = errored ? errorOutput : helperText;

@@ -21,6 +21,10 @@ export enum IconNames {
   plus = "plus",
   search = "search",
   speaker_notes = "speaker_notes",
+  utility_account_filled = "utility_account_filled",
+  utility_account_unfilled = "utility_account_unfilled",
+  utility_hamburger = "utility_hamburger",
+  utility_search = "utility_search",
 }
 
 export enum LogoNames {

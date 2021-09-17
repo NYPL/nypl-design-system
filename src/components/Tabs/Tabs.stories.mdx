@@ -19,7 +19,7 @@ import DSProvider from "../../theme/provider";
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26464",
     },
     jest: ["Tabs.test.tsx"],
   }}
@@ -37,7 +37,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.24.0`   |
+| Latest            | `0.24.1`   |
 
 <Description of={Tabs} />
 
@@ -73,11 +73,9 @@ export const animalCrossing = [
   <Story
     name="Basic with props"
     args={{
-      align: "start",
-      index: 0,
-      isFitted: false,
+      defaultIndex: 0,
       useHash: false,
-      data: animalCrossing,
+      contentData: animalCrossing,
     }}
   >
     {(args) => <Tabs {...args} />}
@@ -117,7 +115,7 @@ const animalCrossing = [
 ];
 
 // ...
-<Tabs data={animalCrossing} />;
+<Tabs contentData={animalCrossing} />;
 ```
 
 ## With Callback Event Function
@@ -132,7 +130,7 @@ export const onChange = (value) => {
 };
 
 // ...
-<Tabs data={animalCrossing} onChange={onChange} />;
+<Tabs contentData={animalCrossing} onChange={onChange} />;
 ```
 
 export const onChange = (value) => {
@@ -141,7 +139,7 @@ export const onChange = (value) => {
 
 <Canvas>
   <Story name="With Callback Event Function">
-    <Tabs data={animalCrossing} onChange={onChange} />
+    <Tabs contentData={animalCrossing} onChange={onChange} />
   </Story>
 </Canvas>
 
@@ -152,7 +150,7 @@ To enable this, set the `useHash` prop to true.
 
 <Canvas>
   <Story name="With URL Hash Option">
-    <Tabs data={animalCrossing} useHash={true} />
+    <Tabs contentData={animalCrossing} useHash={true} />
   </Story>
 </Canvas>
 

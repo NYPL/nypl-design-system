@@ -10,30 +10,55 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Breaking Changes
 
-- Renames original `Card` components to be `CardEdition`.
 - Renames `HeadingDisplaySizes.tsx` to `HeadingTypes.tsx`.
+
+### Adds
+
+- Integrates Chakra-UI into the codebase.
+- Exports Chakra's `Box`, `Center`, `Circle`, `Square`, `Stack`, `HStack`, and `VStack` components.
+- Composes the DS `Button` component from Chakra's `Button` component.
+- Composes the DS `Heading` component from Chakra's `Heading` component.
+- Composes the DS `Tabs` component from Chakra's `Tabs`, `TabList`, `Tab`, `TabPanels`, and `TabPanel` components.
+- Moved SCSS and CSS variable styles into a custom NYPL theme to extend Chakra's base theme.
+- Updates the `errorText` prop name to `invalidText`.
+
+### Removes
+
+- Removes the `color-classes` SCSS mixin.
+
+## 0.24.1
+
+### Adds
+
+- Adds `FormSpacing` enum to DS exports.
+- Adds `utility_account_filled`, `utility_account_unfilled`, `utility_hamburger` and `utility_search` icons to `Icon` component.
+
+### Changes
+
+- Updates `General Guidelines` for `Buttons Style Guide`.
+
+### Fixes
+
+- Fixes left padding on `Card` when `imageAtEnd` and `border` are both `true`.
+
+## 0.24.0
+
+### Breaking Changes
+
+- Renames original `Card` components to be `CardEdition`.
 
 ### Adds
 
 - Adds the `DatePicker` component.
 - Adds new `Card` component.
 - Adds `spacing` prop to `Form` component to allow for spacing variations.
-- Integrates Chakra-UI into the codebase.
-- Exports Chakra's `Box`, `Center`, `Circle`, `Square`, `Stack`, `HStack`, and `VStack` components.
-- Composes the DS `Button` component from Chakra's `Button` component.
-- Composes the DS `Heading` component from Chakra's `Heading` component.
-- Composes the DS `Tabs` component from Chakra's `Tabs`, `TabList`, `Tab`, `TabPanels`, and `TabPanel` components.
-
-### Removes
-
-- Removes the `color-classes` SCSS mixin.
+- Adds Style Guide `Forms`
 
 ### Changes
 
 - Exports `VideoPlayerAspectRatios`.
 - Adds additional props for the `DatePicker` component based on its TAD Addendum section.
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
-- Moved SCSS and CSS variable styles into a custom NYPL theme to extend Chakra's base theme.
 - Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
 
 ### Fixes

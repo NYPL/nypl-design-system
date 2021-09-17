@@ -1,7 +1,6 @@
 // MT-82, MT 225, etc
 import * as React from "react";
 import {
-  As,
   Box,
   Heading as ChakraHeading,
   Link as ChakraLink,
@@ -57,7 +56,7 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
 
   const variant = displaySize ? getVariant(displaySize) : `h${level}`;
   const styles = useStyleConfig("Heading", { variant });
-  const asHeading: As = `h${level}`;
+  const asHeading: any = `h${level}`;
 
   if (level < 1 || level > 6) {
     throw new Error("Heading only supports levels 1-6");
