@@ -1,32 +1,16 @@
 const CustomTabs = {
   baseStyle: {
     tablist: {
-      borderBottom: "10px !important",
-      borderColor: "ui.black",
-      maxWidth: {
-        base: "100%",
-        lg: "100%",
-      },
-      paddingBottom: { base: "4px", md: "0" },
-      paddingLeft: { base: "4px", md: "0" },
-      paddingRight: { base: "4px", md: "0" },
-      paddingTop: { base: "4px", md: "0" },
-      overflowX: { base: "scroll", md: "visible" },
-      // "overflow-y": "visible",
-      // "-ms-overflow-style": "none",
-      // "scrollbar-width": "none",
-      // _webkitScrollbar: {
-      //   display: "none",
-      // },
+      // no custom styles
     },
     tab: {
       color: "black !important",
       paddingInlineStart: 4,
       paddingLeft: 4,
-      border: "none",
+      background: "transparent",
+      border: "0",
       borderBottom: "1px solid",
-      borderColor: "ui.black",
-      fontSize: "20px !important",
+      borderColor: "red",
       marginRight: {
         base: "0",
         md: "1px",
@@ -45,7 +29,7 @@ const CustomTabs = {
       _selected: {
         fontWeight: "bold",
         bg: "ui.gray.warm-light",
-        border: "none",
+        border: "0",
         borderTopRadius: 2,
         borderBottom: "3px solid",
         borderBottomColor: "ui.black",
@@ -57,9 +41,9 @@ const CustomTabs = {
     },
     // Only display the previous/next arrow buttons on mobile.
     buttonArrows: {
-      border: "none",
+      border: "0",
       display: {
-        base: "inline-block",
+        base: "none", // "inline-block"
         // After 38em/600px, don't display the arrow button anymore.
         md: "none",
       },
@@ -74,6 +58,15 @@ const CustomTabs = {
         base: "0",
         md: "1px solid black",
       },
+      margin: {
+        base: "-4px",
+        md: "0",
+      },
+      overflowX: { base: "auto", md: "visible" },
+      paddingBottom: { base: "5px", md: "0" },
+      paddingLeft: { base: "4px", md: "0" },
+      paddingRight: { base: "4px", md: "0" },
+      paddingTop: { base: "4px", md: "0" },
     },
   },
   defaultProps: {},

@@ -138,7 +138,14 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
     >
       {contentData ? (
         <>
-          <Box __css={styles.tablistWrapper}>
+          <Box
+            __css={styles.tablistWrapper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+          >
             <Button
               buttonType={ButtonTypes.Primary}
               attributes={{
