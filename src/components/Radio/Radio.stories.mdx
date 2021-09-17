@@ -3,14 +3,14 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { getCategory } from "../../utils/componentCategories";
+import { HStack } from "@chakra-ui/react";
 
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 import Radio from "./Radio";
-import { onChangeDefault } from "./Radio";
 
 <Meta
   title={getCategory("Radio")}
@@ -25,8 +25,10 @@ import { onChangeDefault } from "./Radio";
     jest: ["Radio.test.tsx"],
   }}
   argTypes={{
+    className: { table: { disable: true } },
+    id: { table: { disable: true } },
+    isChecked: { table: { disable: true } },
     onChange: { table: { disable: true } },
-    checked: { table: { disable: true } },
   }}
 />
 
@@ -34,10 +36,12 @@ import { onChangeDefault } from "./Radio";
 
 <Description of={Radio} />
 
-This component renders a radio button form element. See below for configuration information. Note that the `id` property, while optional, will
-cause an accessibility violation if none is present.
+This component renders a radio button form element. Note that all these examples
+show the `Radio` button in isolation. We recommend to always use the `Radio`
+component inside the Design System `RadioGroup` component. The `RadioGroup`
+component will handle all the states and data management.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="Radio"
     args={{
@@ -45,77 +49,79 @@ cause an accessibility violation if none is present.
       showLabel: true,
       id: "test_id",
       name: "test_name",
+      value: "1",
+      isDisabled: false,
+      isRequired: false,
+      isInvalid: false,
+      helperText: "This is the helper text!",
+      invalidText: "This is the error text :(",
     }}
   >
     {(args) => <Radio {...args} />}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Radio" />
 
 ## Checked
 
 <Canvas>
-  <Radio
-    checked
-    labelText="I am checked"
-    name="testChecked"
-    onChange={onChangeDefault}
-    showLabel={true}
-  ></Radio>
+  <DSProvider>
+    <Radio labelText="I am checked" isChecked value="1" />
+  </DSProvider>
 </Canvas>
 
 ## Focused
 
 <Canvas>
-  <Radio
-    name="testFocus"
-    labelText="Click or tab to the Radio to see its focus state"
-    showLabel={true}
-  ></Radio>
+  <DSProvider>
+    <Radio labelText="Click or tab to the Radio to see its focus state" />
+  </DSProvider>
 </Canvas>
 
 ## Errored
 
 <Canvas>
-  <Radio
-    name="testErrored"
-    errored
-    showLabel={true}
-    labelText="I am in an error state"
-  ></Radio>
+  <DSProvider>
+    <HStack>
+      <Radio isInvalid labelText="I am in an error state" />
+      <Radio isInvalid isChecked labelText="I am checked in an error state" />
+    </HStack>
+  </DSProvider>
 </Canvas>
 
 ## Disabled
 
 <Canvas>
-  <Radio
-    name="testDisabled"
-    disabled
-    showLabel={true}
-    labelText="I am disabled"
-  ></Radio>
+  <DSProvider>
+    <HStack>
+      <Radio isDisabled labelText="I am disabled" />
+      <Radio isDisabled isChecked labelText="I am checked and disabled" />
+    </HStack>
+  </DSProvider>
 </Canvas>
 
 ## Helper Text
 
 <Canvas>
-  <Radio
-    name="testHelperText"
-    showLabel={true}
-    labelText="I have helper text"
-    helperText="I am the helper text for this Radio"
-  ></Radio>
+  <DSProvider>
+    <Radio
+      name="testHelperText"
+      labelText="I have helper text"
+      helperText="I am the helper text for this Radio"
+    />
+  </DSProvider>
 </Canvas>
 
 ## Error Text
 
 <Canvas>
-  <Radio
-    name="testErrorText"
-    showLabel={true}
-    errored
-    labelText="I have error text"
-    errorText="I am the error text for this Radio"
-  ></Radio>
+  <DSProvider>
+    <Radio
+      name="testErrorText"
+      labelText="I have error text"
+      invalidText="I am the error text for this Radio"
+      isInvalid
+    />
+  </DSProvider>
 </Canvas>

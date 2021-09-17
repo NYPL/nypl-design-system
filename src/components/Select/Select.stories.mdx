@@ -54,7 +54,7 @@ The `Select` component renders a `select` element along with its `option` childr
       showLabel: true,
       showOptReqLabel: true,
       helperText: "Choose wisely.",
-      errorText: "Waaaaaaaa!",
+      invalidText: "Waaaaaaaa!",
       errored: false,
       required: true,
       disabled: false,
@@ -165,7 +165,7 @@ A Select can be rendered with or without visible labels. When `showLabel` is set
     labelText="What is your favorite color?"
     showLabel={false}
     helperText="Choose wisely!"
-    errorText="Waaaaaa!"
+    invalidText="Waaaaaa!"
     errored={true}
   >
     <option aria-selected={true}></option>
@@ -182,7 +182,7 @@ A Select can be rendered with or without visible labels. When `showLabel` is set
     labelText="What is your favorite color?"
     showLabel={true}
     helperText="Choose wisely!"
-    errorText="Waaaaaa!"
+    invalidText="Waaaaaa!"
     errored={true}
   >
     <option aria-selected={true}></option>

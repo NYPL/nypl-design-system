@@ -45,10 +45,15 @@
 @import "./components/Icons/_Icons.scss";
 @import "./components/Button/_Button.scss";
 @import "./components/Link/_Link.scss";
-@import "./components/Heading/_Heading.scss";
 @import "./components/Input/_Input.scss";
 @import "./components/TextInput/_TextInput.scss";
 @import "./components/Autosuggest/_Autosuggest.scss";
+
+fieldset {
+  .sr-only {
+    @include screenreader-only();
+  }
+}
 
 // Order not important
 @import "./components/Accordion/_Accordion.scss";
@@ -66,7 +71,6 @@
 @import "./components/Modal/_Modal.scss";
 @import "./components/Notification/_Notification.scss";
 @import "./components/Pagination/_Pagination.scss";
-@import "./components/Radio/_Radio.scss";
 @import "./components/Checkbox/_Checkbox.scss";
 @import "./components/SearchBar/_SearchBar.scss";
 @import "./components/Select/_Select.scss";
