@@ -57,11 +57,6 @@ function CheckboxIcon(props) {
     ? "M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,19a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,19Zm1.6-6.08a1,1,0,0,0-.6.917,1,1,0,1,1-2,0,3,3,0,0,1,1.8-2.75A2,2,0,1,0,10,9.255a1,1,0,1,1-2,0,4,4,0,1,1,5.6,3.666Z"
     : "M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z";
 
-  /*
-    boxSize - controls the size of the "checked" icon.
-    color - does absolutely nothing?
-    path:fill - can only control color with hardcoded value?
-  */
   return (
     <Icon viewBox="0 0 24 24" {...rest}>
       <path fill="currentColor" d={d} />
