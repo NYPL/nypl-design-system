@@ -5,11 +5,13 @@
 const baseStyleIcon = {
   transitionProperty: "transform",
   transitionDuration: "normal",
+  color: "ui.focus",
+  width: "22px",
+  height: "22px",
 };
 
 // Style object for the Checkbox's "control."
 const baseStyleControl = {
-  //w: "100%",
   border: "2px solid",
   borderRadius: "sm",
   borderColor: "ui.black",
@@ -46,7 +48,8 @@ const baseStyleControl = {
 
   _focus: {
     borderColor: "ui.focus",
-    boxShadow: "outline",
+    boxShadow: "none",
+    outlineColor: "ui.focus",
   },
 
   _invalid: {
@@ -96,7 +99,7 @@ const baseStyle = {
 const sizes = {
   lg: {
     // Controls the width/height of the checkbox itself.
-    control: { w: 6, h: 6 },
+    control: { w: "1.375rem", h: "1.375rem", borderRadius: "3px" },
     // Controls the font-size of the label only.
     label: { fontSize: "md" },
   },
