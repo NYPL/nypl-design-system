@@ -494,13 +494,13 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
 exports[`Radio Button renders the UI snapshot correctly 5`] = `
 <fieldset
   className=" css-0"
-  id="radio-group-errorText"
+  id="radio-group-invalidText"
 >
   <legend
     className=""
   >
     <span>
-      errorText
+      invalidText
     </span>
     <span
       className="css-0"
@@ -521,7 +521,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
         className="chakra-radio__input"
         disabled={false}
         id="radio-2"
-        name="errorText"
+        name="invalidText"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -568,7 +568,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
         className="chakra-radio__input"
         disabled={false}
         id="radio-3"
-        name="errorText"
+        name="invalidText"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}

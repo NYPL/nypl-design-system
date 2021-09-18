@@ -2,6 +2,7 @@ import * as React from "react";
 
 import CardEdition from "../CardEdition/CardEdition";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
 import Image from "../Image/Image";
@@ -104,7 +105,11 @@ const exampleCard = (
     }
   >
     <>
-      <Heading level={2} id="heading1" text={"The Year of Magical Thinking"} />
+      <Heading
+        level={HeadingLevels.Two}
+        id="heading1"
+        text={"The Year of Magical Thinking"}
+      />
       <div className="book__callout">A portrait of loss and grief</div>
       <div>
         By <Link href="#joan-didion">Joan Didion</Link>,{" "}

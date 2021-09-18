@@ -235,7 +235,7 @@ describe("Select", () => {
     expect(screen.getByText("The helper text.")).toBeInTheDocument();
   });
 
-  it("Renders default error text when 'errorText' prop is not passed and 'errored' prop is set to true", () => {
+  it("Renders default error text when 'invalidText' prop is not passed and 'errored' prop is set to true", () => {
     render(
       <Select
         id="custom-select-id"
@@ -253,12 +253,12 @@ describe("Select", () => {
     ).toBeInTheDocument();
   });
 
-  it("Renders custom error text when 'errorText' prop is passed and 'errored' prop is set to true", () => {
+  it("Renders custom error text when 'invalidText' prop is passed and 'errored' prop is set to true", () => {
     render(
       <Select
         id="custom-select-id"
         labelText="Select Label"
-        errorText="Custom error text!"
+        invalidText="Custom error text!"
         name="test4"
         errored
       >

@@ -6,6 +6,7 @@ import CardEdition from "./CardEdition";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Image from "../Image/Image";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -16,7 +17,13 @@ describe("CardEdition Accessibility", () => {
   const regularCard = (
     <CardEdition
       id="cardID"
-      heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
+      heading={
+        <Heading
+          level={HeadingLevels.Three}
+          id="heading1"
+          text={"Optional Header"}
+        />
+      }
       image={<Image src="https://placeimg.com/400/200/arch" alt={""} />}
       ctas={
         <Button
@@ -46,7 +53,13 @@ describe("CardEdition", () => {
   const regularCard = (
     <CardEdition
       id="cardID"
-      heading={<Heading level={3} id="heading1" text={"Optional Header"} />}
+      heading={
+        <Heading
+          level={HeadingLevels.Three}
+          id="heading1"
+          text={"Optional Header"}
+        />
+      }
       image={<Image src="https://placeimg.com/400/200/arch" alt={""} />}
       ctas={
         <Button
@@ -71,7 +84,11 @@ describe("CardEdition", () => {
       id="card#1"
       className="edition-card"
       heading={
-        <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
+        <Heading
+          level={HeadingLevels.Two}
+          id="editioncardheading1"
+          text={"2004 Edition"}
+        />
       }
       image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
       ctas={
@@ -111,7 +128,11 @@ describe("CardEdition", () => {
       image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
       className="edition-card"
       heading={
-        <Heading level={2} id="editioncardheading1" text={"2004 Edition"} />
+        <Heading
+          level={HeadingLevels.Two}
+          id="editioncardheading1"
+          text={"2004 Edition"}
+        />
       }
     >
       <>
@@ -129,7 +150,7 @@ describe("CardEdition", () => {
       image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
       heading={
         <Heading
-          level={2}
+          level={HeadingLevels.Two}
           id="editioncardheading1"
           url="#edition-link"
           text={"2004 Edition"}
@@ -163,7 +184,7 @@ describe("CardEdition", () => {
       className="edition-card"
       heading={
         <Heading
-          level={2}
+          level={HeadingLevels.Two}
           id="editioncardheading1"
           url="#edition-link"
           text={"2004 Edition"}
@@ -229,7 +250,7 @@ describe("CardEdition", () => {
       className="edition-card"
       heading={
         <Heading
-          level={2}
+          level={HeadingLevels.Two}
           id="editioncardheading1"
           url="#edition-link"
           text={"2004 Edition"}

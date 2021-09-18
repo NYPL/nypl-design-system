@@ -36,8 +36,6 @@ const variants = {
     bg: "ui.link.primary",
     minWidth: "none",
     height: "none",
-    hoverBg: "blue.600",
-    activeBg: "blue.700",
   },
   secondary: {
     bg: "ui.white",
@@ -84,6 +82,15 @@ const variants = {
     },
     paddingInlineStart: 1, // var(--space-xs)
     paddingInlineEnd: 1, //var(--space-xs)
+  },
+  callout: {
+    bg: "brand.primary",
+    _hover: {
+      bg: "brand.secondary",
+    },
+    _active: {
+      bg: "brand.secondary",
+    },
   },
 };
 
