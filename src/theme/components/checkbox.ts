@@ -5,7 +5,6 @@
 const baseStyleIcon = {
   transitionProperty: "transform",
   transitionDuration: "normal",
-  color: "ui.focus",
   width: "22px",
   height: "22px",
 };
@@ -15,7 +14,7 @@ const baseStyleControl = {
   border: "2px solid",
   borderRadius: "sm",
   borderColor: "ui.black",
-  color: "ui.white",
+  color: "ui.black",
   outline: "none",
   transitionProperty: "box-shadow",
   transitionDuration: "normal",
@@ -23,7 +22,7 @@ const baseStyleControl = {
   _checked: {
     bg: "ui.white",
     borderColor: "ui.focus",
-    color: "ui.white",
+    color: "ui.focus",
 
     _hover: {
       bg: "ui.white",
@@ -54,6 +53,7 @@ const baseStyleControl = {
 
   _invalid: {
     borderColor: "ui.error",
+    color: "ui.error",
   },
 };
 
