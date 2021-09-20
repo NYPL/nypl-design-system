@@ -33,7 +33,10 @@ export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { FormSpacing } from "./components/Form/FormTypes";
 export { default as Heading } from "./components/Heading/Heading";
-export { HeadingDisplaySizes } from "./components/Heading/HeadingDisplaySizes";
+export {
+  HeadingDisplaySizes,
+  HeadingLevels,
+} from "./components/Heading/HeadingTypes";
 export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";
 export { default as Hero } from "./components/Hero/Hero";
 export { HeroTypes } from "./components/Hero/HeroTypes";

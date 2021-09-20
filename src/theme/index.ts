@@ -5,6 +5,7 @@ import typography from "./foundations/typography";
 import { spacing } from "./foundations/spacing";
 import breakpoints from "./foundations/breakpoints";
 import Button from "./components/button";
+import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
 import Tabs from "./components/tabs";
@@ -40,6 +41,7 @@ const theme = extendTheme({
    */
   components: {
     Button,
+    Checkbox,
     Radio,
     CustomRadioGroup,
     CustomSelect,

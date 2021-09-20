@@ -9,7 +9,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "./Heading";
-import { HeadingDisplaySizes } from "./HeadingDisplaySizes";
+import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -36,104 +36,127 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.23.2`   |
+| Latest            | `0.25.0`   |
 
 <Description of={Heading} />
 
 A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's text can be passed in through a `text` prop or as a child. Default styles for semantic elements can be overwritten using the `displaySize` prop.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="Heading Props"
     args={{
-      id: "heading1",
-      level: 1,
-      text: "Heading  1",
+      id: "default-heading",
+      text: "Default Heading",
     }}
   >
     {(args) => <Heading {...args} />}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Heading Props" />
 
 ## Default Heading Styles
 
-<Preview>
+<Canvas>
   <Story name="Default Heading Styles">
     <div>
-      <Heading id="heading1" level={1} text="<h1> Heading 1" />
-      <Heading id="heading2" level={2} text="<h2> Heading 2" />
-      <Heading id="heading3" level={3} text="<h3> Heading 3" />
-      <Heading id="heading4" level={4} text="<h4> Heading 4" />
-      <Heading id="heading5" level={5} text="<h5> Heading 5" />
-      <Heading id="heading6" level={6} text="<h6> Heading 6" />
+      <Heading
+        id="heading-one"
+        level={HeadingLevels.One}
+        text="<h1> Heading 1"
+      />
+      <Heading
+        id="heading-two"
+        level={HeadingLevels.Two}
+        text="<h2> Heading 2"
+      />
+      <Heading
+        id="heading-three"
+        level={HeadingLevels.Three}
+        text="<h3> Heading 3"
+      />
+      <Heading
+        id="heading-four"
+        level={HeadingLevels.Four}
+        text="<h4> Heading 4"
+      />
+      <Heading
+        id="heading-five"
+        level={HeadingLevels.Five}
+        text="<h5> Heading 5"
+      />
+      <Heading
+        id="heading-six"
+        level={HeadingLevels.Six}
+        text="<h6> Heading 6"
+      />
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## DisplaySize Styles
 
-<Preview>
+<Canvas>
   <Story name="DisplaySize Styles">
     <div>
       <Heading
-        id="heading1"
-        level={1}
+        id="heading-primary"
+        level={HeadingLevels.One}
         displaySize={HeadingDisplaySizes.Primary}
         text="<h1> HeadingDisplaySizes.Primary"
       />
       <Heading
-        id="heading1"
-        level={1}
+        id="heading-secondary"
+        level={HeadingLevels.One}
         displaySize={HeadingDisplaySizes.Secondary}
         text="<h1> HeadingDisplaySizes.Secondary"
       />
       <Heading
-        id="heading1"
-        level={1}
+        id="heading-tertiary"
+        level={HeadingLevels.One}
         displaySize={HeadingDisplaySizes.Tertiary}
         text="<h1> HeadingDisplaySizes.Tertiary"
       />
       <Heading
-        id="heading1"
-        level={1}
+        id="heading-callout"
+        level={HeadingLevels.One}
         displaySize={HeadingDisplaySizes.Callout}
         text="<h1> HeadingDisplaySizes.Callout"
       />
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Heading with Bold
 
-<Preview>
+<Canvas>
   <Story name="Heading with Bold">
-    <Heading id="headingWithBold" level={2}>
+    <Heading id="headingWithBold" level={HeadingLevels.One}>
       <>
         Heading with a <b>Bold</b> Word
       </>
     </Heading>
   </Story>
-</Preview>
+</Canvas>
 
 ## Headings with Links
 
 When the `url` prop is passed to `Heading`, a child `<a>` element is created and the heading text becomes an active link.
 
-<Preview>
+<Canvas>
   <Story name="Headings with Links">
     <Heading
-      id="headingWithLink"
-      level={2}
+      id="heading-with-link-url"
+      level={HeadingLevels.Two}
       text="Heading with URL Props"
       url="http://apple.com"
       urlClass="special-link"
     />
-    <Heading id="headingWithLink" level={2}>
+    <Heading id="heading-with-link-child" level={HeadingLevels.Two}>
       <>
         Heading with a Word <a href="hello">Link</a>
       </>
     </Heading>
   </Story>
-</Preview>
+</Canvas>

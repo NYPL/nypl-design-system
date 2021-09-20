@@ -31,21 +31,23 @@ describe("List", () => {
   ];
 
   it("renders unordered list", () => {
-    render(
+    const utils = render(
       <List type={ListTypes.Unordered}>
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
     );
-    expect(screen.getByRole("list")).toBeInTheDocument();
+    expect(utils.container.querySelector(".list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(2);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
     expect(screen.getByText("Golden trout")).toBeInTheDocument();
   });
 
   it("renders unordered list with the `listItems` prop", () => {
-    render(<List type={ListTypes.Unordered} listItems={fishArray} />);
-    expect(screen.getByRole("list")).toBeInTheDocument();
+    const utils = render(
+      <List type={ListTypes.Unordered} listItems={fishArray} />
+    );
+    expect(utils.container.querySelector(".list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
     expect(screen.getByText("Golden trout")).toBeInTheDocument();
@@ -54,21 +56,23 @@ describe("List", () => {
   });
 
   it("renders ordered list", () => {
-    render(
+    const utils = render(
       <List type={ListTypes.Ordered}>
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
     );
-    expect(screen.getByRole("list")).toBeInTheDocument();
+    expect(utils.container.querySelector(".list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(2);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
     expect(screen.getByText("Golden trout")).toBeInTheDocument();
   });
 
   it("renders ordered list with the `listItems` prop", () => {
-    render(<List type={ListTypes.Ordered} listItems={fishArray} />);
-    expect(screen.getByRole("list")).toBeInTheDocument();
+    const utils = render(
+      <List type={ListTypes.Ordered} listItems={fishArray} />
+    );
+    expect(utils.container.querySelector(".list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
     expect(screen.getByText("Golden trout")).toBeInTheDocument();
