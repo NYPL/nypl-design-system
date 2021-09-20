@@ -43,7 +43,7 @@ const CustomTabs = {
     buttonArrows: {
       border: "0",
       display: {
-        base: "none", // "inline-block"
+        base: "none", // "inline-block" - hiding until the full "arrow" functionality is built out
         // After 38em/600px, don't display the arrow button anymore.
         md: "none",
       },

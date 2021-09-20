@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  chakra,
   Box,
   Tabs as ChakraTabs,
   TabList,
@@ -8,8 +7,6 @@ import {
   TabPanels,
   TabPanel,
   useMultiStyleConfig,
-  useStyles,
-  useTab,
 } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
@@ -38,23 +35,13 @@ export interface TabsProps {
   useHash?: boolean;
 }
 
-/** Internal anchor element that uses styled props. */
-const StyledAnchorTab = chakra("a");
 /**
- * Internal anchor element used in as a `Tab` component. This allows
- * hashes to appear in the URL on every tab click/press event.
+ * An internal function used to update the hash in the URL.
+ * This function is only used when `useHash` is `true`.
  */
-const CustomAnchorTab = React.forwardRef((props: any, _ref) => {
-  const tabProps = useTab(props);
-  const { hashKey, ...rest } = tabProps as any;
-  const href = `#tab${hashKey + 1}`;
-  const styles = useStyles();
-  return (
-    <StyledAnchorTab __css={styles.tab} {...rest} href={href}>
-      {tabProps.children}
-    </StyledAnchorTab>
-  );
-});
+const onClickHash = (tabHash) => {
+  top.location.hash = tabHash;
+};
 
 /**
  * This returns an object with `Tab` and `TabPanel` components to render in
@@ -77,11 +64,15 @@ const getElementsFromContentData = (data, useHash) => {
 
   data.map((tab, index) => {
     let tempPanel;
-    // For URL hash enabled tabs, we want to use the custom anchor component.
+    // For URL hash enabled tabs, we need to add a custom `onClick` to handle the URL hash.
     const tempTab = useHash ? (
-      <CustomAnchorTab key={index} hashKey={index}>
+      <Tab
+        fontSize={["0", null, "1"]}
+        key={index}
+        onClick={() => onClickHash(`tab${index + 1}`)}
+      >
         {tab.label}
-      </CustomAnchorTab>
+      </Tab>
     ) : (
       <Tab fontSize={["0", null, "1"]} key={index}>
         {tab.label}
@@ -106,6 +97,39 @@ const getElementsFromContentData = (data, useHash) => {
 };
 
 /**
+ * This returns an object with `TabList` and `TabPanels` components to help format
+ * the DOM when building up the `Tabs` component using child component.
+ */
+const getElementsFromChildren = (children) => {
+  const tabs = [];
+  const panels = [];
+
+  if (!children?.length) {
+    return {};
+  }
+
+  children.map((child) => {
+    if (child.type === TabList || child.props.mdxType === "TabList") {
+      tabs.push(child);
+
+      const childTabs = React.Children.count(child.props.children);
+      if (childTabs > 6) {
+        console.warn(
+          "We recommend to use no more than six tabs. If more than six tabs are " +
+            "needed, consider other navigational patterns."
+        );
+      }
+    }
+
+    if (child.type === TabPanels || child.props.mdxType === "TabPanels") {
+      panels.push(child);
+    }
+  });
+
+  return { tabs, panels };
+};
+
+/**
  * Renders Chakra's `Tab` component with specific variants, props,
  * and controlled styling.
  */
@@ -119,7 +143,9 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
     useHash = false,
   } = props;
   const styles = useMultiStyleConfig("Tabs", {});
-  const { tabs, panels } = getElementsFromContentData(contentData, useHash);
+  const { tabs, panels } = contentData
+    ? getElementsFromContentData(contentData, useHash)
+    : getElementsFromChildren(children);
 
   if (children && contentData?.length) {
     console.warn(
@@ -179,7 +205,19 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
           <TabPanels>{panels}</TabPanels>
         </>
       ) : (
-        children
+        <>
+          <Box
+            __css={styles.tablistWrapper}
+            sx={{
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+          >
+            {tabs}
+          </Box>
+          {panels}
+        </>
       )}
     </ChakraTabs>
   );
