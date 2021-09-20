@@ -1,7 +1,7 @@
 export enum HeroTypes {
-  Campaign = "CAMPAIGN",
-  FiftyFifty = "FIFTYFIFTY",
-  Primary = "PRIMARY",
-  Secondary = "SECONDARY",
-  Tertiary = "TERTIARY",
+  Primary = "primary",
+  Secondary = "secondary",
+  Tertiary = "tertiary",
+  Campaign = "campaign",
+  FiftyFifty = "fiftyfifty",
 }
