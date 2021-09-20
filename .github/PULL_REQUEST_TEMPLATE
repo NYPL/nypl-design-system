@@ -18,7 +18,7 @@ Fixes JIRA ticket xxx
 ### Front End Review:
 
 <!--- This step is done AFTER creating a PR. -->
-<!--- Netlify creates a static Storybook preview URL once the PR is created. -->
+<!--- Tugboat creates a static Storybook preview URL once the PR is created. -->
 <!--- Copy the URL to the relevant Storybook page here. -->
 
 - [ ] View [the example in Storybook]()
