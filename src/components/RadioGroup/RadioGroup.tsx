@@ -87,10 +87,14 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
     // Go through the Radio children and update them as needed.
     React.Children.map(children, (child: React.ReactElement, i) => {
       if (child.type !== Radio) {
-        if (child.props.mdxType && child.props.mdxType === "Radio") return;
-        console.warn(
-          "Only `Radio` components are allowed inside the `RadioGroup` component."
-        );
+        // Special case for Storybook MDX documentation.
+        if (child.props.mdxType && child.props.mdxType === "Radio") {
+          () => {};
+        } else {
+          console.warn(
+            "Only `Radio` components are allowed inside the `RadioGroup` component."
+          );
+        }
       }
 
       const chakraRadioProps = getRadioProps({
