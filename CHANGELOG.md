@@ -15,16 +15,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Integrates Chakra-UI into the codebase.
+- Moved SCSS and CSS variable styles into a custom NYPL theme to extend Chakra's base theme.
+- Adds `DSProvider` component to use the NYPL theme in consuming applications.
 - Exports Chakra's `Box`, `Center`, `Circle`, `Square`, `Stack`, `HStack`, and `VStack` components.
 - Composes the DS `Button` component from Chakra's `Button` component.
 - Composes the DS `Heading` component from Chakra's `Heading` component.
 - Composes the DS `Tabs` component from Chakra's `Tabs`, `TabList`, `Tab`, `TabPanels`, and `TabPanel` components.
-- Moved SCSS and CSS variable styles into a custom NYPL theme to extend Chakra's base theme.
+- Composes the DS `Radio` component from Chakra's `Radio` component.
+- Composes the DS `RadioGroup` component from Chakra's `RadioGroup` component.
+- Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
 - Updates the `errorText` prop name to `invalidText`.
 
 ### Removes
 
 - Removes the `color-classes` SCSS mixin.
+
+### Changes
+
+- Updates the development preview URL from the Netlify link to the Tugboat QA link.
 
 ## 0.24.1
 

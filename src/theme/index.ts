@@ -6,7 +6,7 @@ import { spacing } from "./foundations/spacing";
 import breakpoints from "./foundations/breakpoints";
 import Accordion from "./components/accordion";
 import Button from "./components/button";
-import Heading from "./components/heading";
+import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
 import Tabs from "./components/tabs";
@@ -42,7 +42,7 @@ const theme = extendTheme({
   components: {
     Accordion,
     Button,
-    Heading,
+    Checkbox,
     Radio,
     CustomRadioGroup,
     Tabs,
