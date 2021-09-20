@@ -65,16 +65,12 @@ const getElementsFromContentData = (data, useHash) => {
   data.map((tab, index) => {
     let tempPanel;
     // For URL hash enabled tabs, we need to add a custom `onClick` to handle the URL hash.
-    const tempTab = useHash ? (
+    const tempTab = (
       <Tab
         fontSize={["0", null, "1"]}
         key={index}
-        onClick={() => onClickHash(`tab${index + 1}`)}
+        onClick={useHash ? () => onClickHash(`tab${index + 1}`) : null}
       >
-        {tab.label}
-      </Tab>
-    ) : (
-      <Tab fontSize={["0", null, "1"]} key={index}>
         {tab.label}
       </Tab>
     );

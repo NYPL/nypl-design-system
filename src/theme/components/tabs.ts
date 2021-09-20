@@ -17,7 +17,8 @@ const CustomTabs = {
       },
       paddingRight: {
         base: 4,
-        md: 12,
+        md: 8,
+        lg: 12,
       },
       whiteSpace: "nowrap",
       _hover: {
