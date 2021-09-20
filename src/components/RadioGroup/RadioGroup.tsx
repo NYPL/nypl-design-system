@@ -47,6 +47,7 @@ export interface RadioGroupProps {
   showLabel?: boolean;
 }
 
+const noop = () => {};
 export const onChangeDefault = () => {
   return;
 };
@@ -89,7 +90,7 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       if (child.type !== Radio) {
         // Special case for Storybook MDX documentation.
         if (child.props.mdxType && child.props.mdxType === "Radio") {
-          () => {};
+          noop();
         } else {
           console.warn(
             "Only `Radio` components are allowed inside the `RadioGroup` component."
