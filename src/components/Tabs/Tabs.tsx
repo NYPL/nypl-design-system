@@ -40,7 +40,7 @@ export interface TabsProps {
  * This function is only used when `useHash` is `true`.
  */
 const onClickHash = (tabHash) => {
-  top.location.hash = tabHash;
+  window.location.hash = tabHash;
 };
 
 /**
