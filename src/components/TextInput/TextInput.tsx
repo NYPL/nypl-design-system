@@ -24,7 +24,7 @@ export interface InputProps {
   /** Populates the HelperErrorText for standard state */
   helperText?: string;
   /** Populates the HelperErrorText for error state */
-  errorText?: string;
+  invalidText?: string;
   /** Populates the placeholder of the input */
   placeholder?: string;
   /** Populates the value of the input */
@@ -67,7 +67,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       showLabel = true,
       showOptReqLabel = true,
       helperText,
-      errorText,
+      invalidText,
       placeholder,
       value,
       className,
@@ -81,8 +81,8 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     const isTextArea = type === TextInputTypes.textarea;
     const isHidden = type === TextInputTypes.hidden;
     const optReqFlag = required ? "Required" : "Optional";
-    const errorOutput = errorText
-      ? errorText
+    const errorOutput = invalidText
+      ? invalidText
       : "There is an error related to this field.";
     let footnote;
     let options;

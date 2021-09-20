@@ -1,8 +1,10 @@
-// $space-xs: $space/2;    //  8px
-// $space-s: $space*1;     // 16px
-// $space-m: $space*1.5;   // 24px
-// $space-l: $space*2;     // 32px
-// $space-xl: $space*3;    // 48px
+/**
+ * $space-xs: $space / 2;    //  8px
+ * $space-s: $space * 1;     // 16px
+ * $space-m: $space * 1.5;   // 24px
+ * $space-l: $space * 2;     // 32px
+ * $space-xl: $space * 3;    // 48px
+ */
 
 @mixin space-inset-none {
   padding: 0;

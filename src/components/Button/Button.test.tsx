@@ -7,6 +7,7 @@ import renderer from "react-test-renderer";
 import Button from "./Button";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
+import { ButtonTypes } from "./ButtonTypes";
 
 describe("Button Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -79,16 +80,16 @@ describe("rendering content from its children prop", () => {
   it("should render element children", () => {
     const { container } = render(
       <Button id="button3" onClick={onClick}>
-        <em>I'm a em element</em>
+        <em>I'm an em element</em>
       </Button>
     );
-    expect(screen.getByText(/a em element/i)).toBeInTheDocument();
+    expect(screen.getByText(/an em element/i)).toBeInTheDocument();
     expect(container.querySelector("em")).toBeInTheDocument();
   });
 });
 
 describe("padding for icon only button", () => {
-  it("button has proper padding for icon only button", () => {
+  it("button has proper child svg for the icon only button", () => {
     const onClick = jest.fn();
     const { container } = render(
       <Button id="button" onClick={onClick} type="button">
@@ -99,19 +100,60 @@ describe("padding for icon only button", () => {
         />
       </Button>
     );
-    expect(container.querySelector(".button--icon-only")).toBeInTheDocument();
+    expect(container.querySelector(".button .icon")).toBeInTheDocument();
   });
 });
 
 describe("Button Snapshot", () => {
   it("Renders the UI snapshot correctly", () => {
-    const tree = renderer
+    const primary = renderer
       .create(
         <Button id="button" onClick={jest.fn()}>
-          Submit
+          Primary
         </Button>
       )
       .toJSON();
-    expect(tree).toMatchSnapshot();
+    const secondary = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          buttonType={ButtonTypes.Secondary}
+        >
+          Seconday
+        </Button>
+      )
+      .toJSON();
+    const callout = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          buttonType={ButtonTypes.Callout}
+        >
+          Callout
+        </Button>
+      )
+      .toJSON();
+    const pill = renderer
+      .create(
+        <Button id="button" onClick={jest.fn()} buttonType={ButtonTypes.Pill}>
+          Pill
+        </Button>
+      )
+      .toJSON();
+    const link = renderer
+      .create(
+        <Button id="button" onClick={jest.fn()} buttonType={ButtonTypes.Link}>
+          Link
+        </Button>
+      )
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
+    expect(secondary).toMatchSnapshot();
+    expect(callout).toMatchSnapshot();
+    expect(pill).toMatchSnapshot();
+    expect(link).toMatchSnapshot();
   });
 });

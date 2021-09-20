@@ -12,6 +12,7 @@ import Hero from "./Hero";
 import { HeroTypes } from "./HeroTypes";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import sections from "../../utils/siteSections";
 import { action } from "@storybook/addon-actions";
 import { getCategory } from "../../utils/componentCategories";
@@ -80,7 +81,12 @@ The `Hero` component is used to display a full width banner at the top of a page
         <Hero
           {...args}
           heading={
-            <Heading level={1} id="1" text="Hero Primary" blockName="hero" />
+            <Heading
+              level={HeadingLevels.One}
+              id="1"
+              text="Hero Primary"
+              blockName="hero"
+            />
           }
           subHeaderText="Example Subtitle"
           backgroundImageSrc="https://placeimg.com/2400/800/nature"
@@ -92,7 +98,7 @@ The `Hero` component is used to display a full width banner at the top of a page
             {...args}
             heading={
               <Heading
-                level={1}
+                level={HeadingLevels.One}
                 id="1"
                 text="Hero Secondary"
                 blockName="hero"
@@ -113,7 +119,12 @@ The `Hero` component is used to display a full width banner at the top of a page
         <Hero
           {...args}
           heading={
-            <Heading level={1} id="1" text="Hero Tertiary" blockName="hero" />
+            <Heading
+              level={HeadingLevels.One}
+              id="1"
+              text="Hero Tertiary"
+              blockName="hero"
+            />
           }
           subHeaderText={otherSubHeaderText}
         />
@@ -135,7 +146,12 @@ The `Hero` component is used to display a full width banner at the top of a page
         <Hero
           {...args}
           heading={
-            <Heading level={1} id="1" text="Hero Campaign" blockName="hero" />
+            <Heading
+              level={HeadingLevels.One}
+              id="1"
+              text="Hero Campaign"
+              blockName="hero"
+            />
           }
           subHeaderText={otherSubHeaderText}
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
@@ -164,7 +180,12 @@ The background color for the title bar in `HeroTypes.Secondary` is determined by
       <Hero
         heroType={HeroTypes.Secondary}
         heading={
-          <Heading level={1} id="1" text={"Books and More"} blockName="hero" />
+          <Heading
+            level={HeadingLevels.One}
+            id="1"
+            text={"Books and More"}
+            blockName="hero"
+          />
         }
         subHeaderText={secondarySubHeaderText}
         image={secondaryImage}
@@ -177,7 +198,14 @@ The background color for the title bar in `HeroTypes.Secondary` is determined by
   <div className={"nypl-ds nypl--locations"}>
     <Hero
       heroType={HeroTypes.Secondary}
-      heading={<Heading level={1} id="1" text={"Locations"} blockName="hero" />}
+      heading={
+        <Heading
+          level={HeadingLevels.One}
+          id="1"
+          text={"Locations"}
+          blockName="hero"
+        />
+      }
       subHeaderText={secondarySubHeaderText}
       image={secondaryImage}
     />
@@ -188,7 +216,14 @@ The background color for the title bar in `HeroTypes.Secondary` is determined by
   <div className={"nypl-ds nypl--research"}>
     <Hero
       heroType={HeroTypes.Secondary}
-      heading={<Heading level={1} id="1" text={"Research"} blockName="hero" />}
+      heading={
+        <Heading
+          level={HeadingLevels.One}
+          id="1"
+          text={"Research"}
+          blockName="hero"
+        />
+      }
       subHeaderText={secondarySubHeaderText}
       image={secondaryImage}
     />
@@ -199,7 +234,14 @@ The background color for the title bar in `HeroTypes.Secondary` is determined by
   <div className={"nypl-ds nypl--whats-on"}>
     <Hero
       heroType={HeroTypes.Secondary}
-      heading={<Heading level={1} id="1" text={"What's On"} blockName="hero" />}
+      heading={
+        <Heading
+          level={HeadingLevels.One}
+          id="1"
+          text={"What's On"}
+          blockName="hero"
+        />
+      }
       subHeaderText={secondarySubHeaderText}
       image={secondaryImage}
     />

@@ -2,7 +2,7 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
 import Heading from "../Heading/Heading";
-// import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export interface VideoPlayerProps {
@@ -105,7 +105,9 @@ export default function VideoPlayer(
         <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
       ) : (
         <>
-          {headingText && <Heading level={2} text={headingText} />}
+          {headingText && (
+            <Heading level={HeadingLevels.Two} text={headingText} />
+          )}
           {descriptionText && <p>{descriptionText}</p>}
           <div className={bem("video-player__inside", modifiers, "", [])}>
             {embedCode}
