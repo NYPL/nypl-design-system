@@ -25,6 +25,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `RadioGroup` component from Chakra's `RadioGroup` component.
 - Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
 - Updates the `errorText` prop name to `invalidText`.
+- Composes the DS "Template" components (`Template`, `TemplateHeader`, `TemplateContentBreakout`, `TemplateContent`, `TemplateContentPrimary`, `TemplateContentSidebar`, `TemplateFooter`) from Chakra's `Box` component for page layouts through children components.
+- Composes the DS `TemplateAppContainer` component from Chakra's `Box` component for page layouts through props.
 
 ### Removes
 
