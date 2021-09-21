@@ -84,6 +84,17 @@ export {
   TabPanel,
 } from "./components/Tabs/Tabs";
 export {
+  Template,
+  TemplateHeader,
+  TemplateContentBreakout,
+  TemplateContent,
+  TemplateContentTop,
+  TemplateContentPrimary,
+  TemplateContentSidebar,
+  TemplateFooter,
+  TemplateAppContainer,
+} from "./components/Template/Template";
+export {
   default as TextInput,
   TextInputRefType,
 } from "./components/TextInput/TextInput";
