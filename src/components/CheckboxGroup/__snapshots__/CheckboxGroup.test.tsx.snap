@@ -1,0 +1,1360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox renders the UI snapshot correctly 1`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-column"
+>
+  <legend
+    className=""
+  >
+    <span>
+      column
+    </span>
+    <span
+      className="css-0"
+    >
+      Optional
+    </span>
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    data-testid="checkbox-group"
+    id="column"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="column-0"
+        name="column"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="column-1"
+        name="column"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders the UI snapshot correctly 2`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-row"
+>
+  <legend
+    className=""
+  >
+    <span>
+      row
+    </span>
+    <span
+      className="css-0"
+    >
+      Optional
+    </span>
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1objuxj"
+    data-testid="checkbox-group"
+    id="row"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="row-0"
+        name="row"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="row-1"
+        name="row"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders the UI snapshot correctly 3`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-noLabel"
+>
+  <legend
+    className="sr-only"
+  >
+    <span>
+      no label
+    </span>
+    <span
+      className="css-0"
+    >
+      Optional
+    </span>
+  </legend>
+  <div
+    aria-label="no label"
+    className="chakra-stack css-1wdv1uh"
+    data-testid="checkbox-group"
+    id="noLabel"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="noLabel-0"
+        name="noLabel"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="noLabel-1"
+        name="noLabel"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders the UI snapshot correctly 4`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-helperText"
+>
+  <legend
+    className=""
+  >
+    <span>
+      helperText
+    </span>
+    <span
+      className="css-0"
+    >
+      Optional
+    </span>
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    data-testid="checkbox-group"
+    id="helperText"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="helperText-0"
+        name="helperText"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="helperText-1"
+        name="helperText"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className="helper-text"
+    >
+      helper text
+    </div>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders the UI snapshot correctly 5`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-invalidText"
+>
+  <legend
+    className=""
+  >
+    <span>
+      invalidText
+    </span>
+    <span
+      className="css-0"
+    >
+      Optional
+    </span>
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    data-testid="checkbox-group"
+    id="invalidText"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="invalidText-0"
+        name="invalidText"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="invalidText-1"
+        name="invalidText"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders the UI snapshot correctly 6`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-optReq"
+>
+  <legend
+    className=""
+  >
+    <span>
+      no optional or required label
+    </span>
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    data-testid="checkbox-group"
+    id="optReq"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="optReq-0"
+        name="optReq"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="optReq-1"
+        name="optReq"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders the UI snapshot correctly 7`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-required"
+>
+  <legend
+    className=""
+  >
+    <span>
+      required
+    </span>
+    <span
+      className="css-0"
+    >
+      Required
+    </span>
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    data-testid="checkbox-group"
+    id="required"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="required-0"
+        name="required"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={true}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="required-1"
+        name="required"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={true}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders the UI snapshot correctly 8`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-invalid"
+>
+  <legend
+    className=""
+  >
+    <span>
+      invalid
+    </span>
+    <span
+      className="css-0"
+    >
+      Optional
+    </span>
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    data-testid="checkbox-group"
+    id="invalid"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      data-invalid=""
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={true}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="invalid-0"
+        name="invalid"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        data-invalid=""
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        data-invalid=""
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      data-invalid=""
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={false}
+        aria-invalid={true}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={false}
+        id="invalid-1"
+        name="invalid"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        data-invalid=""
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        data-invalid=""
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders the UI snapshot correctly 9`] = `
+<fieldset
+  className="css-0"
+  id="checkbox-group-disabled"
+>
+  <legend
+    className=""
+  >
+    <span>
+      disabled
+    </span>
+    <span
+      className="css-0"
+    >
+      Optional
+    </span>
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    data-testid="checkbox-group"
+    id="disabled"
+  >
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      data-disabled=""
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={true}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={true}
+        id="disabled-0"
+        name="disabled"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        data-disabled=""
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        data-disabled=""
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 2
+      </span>
+    </label>
+    <label
+      className="chakra-checkbox css-1uiwwan"
+      data-disabled=""
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={true}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-checkbox__input"
+        disabled={true}
+        id="disabled-1"
+        name="disabled"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-checkbox__control css-dnty2r"
+        data-disabled=""
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <svg
+          className="chakra-icon css-1vfv7ic"
+          focusable={false}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        className="chakra-checkbox__label css-1oeb2oe"
+        data-disabled=""
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Checkbox 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;

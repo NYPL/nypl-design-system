@@ -9,7 +9,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import CheckboxGroup, { onChangeDefault } from "./CheckboxGroup";
+import CheckboxGroup from "./CheckboxGroup";
 import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
 import Checkbox from "../Checkbox/Checkbox";
 
@@ -43,7 +43,7 @@ import Checkbox from "../Checkbox/Checkbox";
     name="CheckboxGroup"
     args={{
       defaultValue: ["4"],
-      invalidText: "error!",
+      invalidText: "This is the error text :(",
       helperText: "This is the helper text for the full group.",
       isDisabled: false,
       isInvalid: false,
@@ -78,6 +78,18 @@ a row.
     <CheckboxGroup
       labelText="Column (default)"
       name="column-example"
+      optReqFlag={false}
+    >
+      <Checkbox value="2" labelText="Checkbox 2" />
+      <Checkbox value="3" labelText="Checkbox 3" />
+      <Checkbox value="4" labelText="Checkbox 4" />
+      <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+    <br />
+    <CheckboxGroup
+      labelText="Row"
+      name="row-example"
+      layout={CheckboxGroupLayoutTypes.Row}
       optReqFlag={false}
     >
       <Checkbox value="2" labelText="Checkbox 2" />
@@ -128,15 +140,17 @@ a row.
 
 ## Getting Checkbox Data Values
 
-### Controlled Component using `name` and `onChange` props
+### Controlled Component using `name`, `defaultValue`, and `onChange` props
 
-If your application uses controlled React components and the DS CheckboxGroup must
-be controlled, you can extract the data through the `name` and `onChange` props.
-This will be called every time a new `Checkbox` value is selected.
+If your application uses controlled React components and the DS CheckboxGroup
+must be controlled, you can extract the data through the `name`, `defaultValue`,
+and `onChange` props. The `onChange` function will be called every time a new
+`Checkbox` value is checked or unchecked.
 
 ```jsx
-const onChange = (data) => {
-  // This will return the value selected as a string.
+const onChange = (data: string[]) => {
+  // This will return the values selected as an array of strings.
+  // Ex: ["2", "4"]
   console.log(data);
 };
 // ...
@@ -146,7 +160,7 @@ const onChange = (data) => {
   id="controlled-example"
   labelText="Checkbox Group"
   name="CheckboxExample"
-  defaultValue={["3"]}
+  defaultValue={["2"]}
   onChange={onChange}
 >
   <Checkbox value="2" labelText="Checkbox 2" />
@@ -172,7 +186,7 @@ const submitForm = (formData) => {
   // This will return an object with all the DOM element values that were
   // registered with a `name` attribute.
   // {
-  //   checkboxExample: "3"
+  //   checkboxExample: ["3"]
   // }
   console.log(formData);
   // ...

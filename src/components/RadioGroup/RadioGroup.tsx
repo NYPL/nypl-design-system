@@ -102,18 +102,9 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       const chakraRadioProps = getRadioProps({
         value: child.props.value,
       } as any);
-      const newProps = { key: i };
 
       if (child !== undefined && child !== null) {
-        if (isDisabled) {
-          newProps["isDisabled"] = true;
-        }
-        if (isInvalid) {
-          newProps["isInvalid"] = true;
-        }
-        if (isRequired) {
-          newProps["isRequired"] = true;
-        }
+        const newProps = { key: i, isDisabled, isInvalid, isRequired };
         if (child.props.value === defaultValue) {
           newProps["checked"] = true;
         }

@@ -30,12 +30,12 @@ export interface CheckboxGroupProps {
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
-  /** The radio group label displayed in a `legend` element if `showlabel` is
+  /** The checkbox group label displayed in a `legend` element if `showlabel` is
    * true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
-  /** Renders the Radio buttons in a row or column (default). */
+  /** Renders the checkbox buttons in a row or column (default). */
   layout?: CheckboxGroupLayoutTypes;
-  /** The `name` prop indicates the form group for all the Radio children. */
+  /** The `name` prop indicates the form group for all the `Checkbox` children. */
   name: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (value: string[]) => void;
@@ -47,12 +47,10 @@ export interface CheckboxGroupProps {
 }
 
 const noop = () => {};
-export const onChangeDefault = () => {
-  return;
-};
 
 /**
- *
+ * Wrapper component to wrap `Checkbox` components. Can be displayed in a
+ * column or in a row.
  */
 const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
   (props, ref?) => {
@@ -68,7 +66,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       labelText,
       layout = CheckboxGroupLayoutTypes.Column,
       name,
-      onChange = onChangeDefault,
+      onChange,
       optReqFlag = true,
       showLabel = true,
     } = props;
@@ -76,8 +74,15 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     const spacingProp =
       layout === CheckboxGroupLayoutTypes.Column ? spacing.s : spacing.l;
     const newChildren = [];
+    const checkboxProps =
+      defaultValue && onChange
+        ? {
+            defaultValue,
+            onChange,
+          }
+        : {};
 
-    // Go through the Radio children and update them as needed.
+    // Go through the Checkbox children and update them as needed.
     React.Children.map(children, (child: React.ReactElement, i) => {
       if (child.type !== Checkbox) {
         // Special case for Storybook MDX documentation.
@@ -90,19 +95,16 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
         }
       }
 
-      const newProps = { key: i, name };
-
       if (child !== undefined && child !== null) {
-        if (isDisabled) {
-          newProps["isDisabled"] = true;
-        }
-        if (isInvalid) {
-          newProps["isInvalid"] = true;
-        }
-        if (isRequired) {
-          newProps["isRequired"] = true;
-        }
-        newChildren.push(React.cloneElement(child, { ...newProps }));
+        const newProps = {
+          key: i,
+          id: `${id}-${i}`,
+          name,
+          isDisabled,
+          isInvalid,
+          isRequired,
+        };
+        newChildren.push(React.cloneElement(child, newProps));
       }
     });
 
@@ -110,7 +112,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     const styles = useMultiStyleConfig("CustomCheckboxGroup", {});
 
     return (
-      <Box as="fieldset" id={`radio-group-${id}`} __css={styles}>
+      <Box as="fieldset" id={`checkbox-group-${id}`} __css={styles}>
         <legend className={showLabel ? "" : "sr-only"}>
           <span>{labelText}</span>
           {optReqFlag && (
@@ -119,8 +121,10 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
             </Box>
           )}
         </legend>
-        <ChakraCheckboxGroup defaultValue={defaultValue} onChange={onChange}>
+        <ChakraCheckboxGroup {...checkboxProps}>
           <Stack
+            id={id}
+            data-testid="checkbox-group"
             direction={[layout]}
             spacing={spacingProp}
             ref={ref}
