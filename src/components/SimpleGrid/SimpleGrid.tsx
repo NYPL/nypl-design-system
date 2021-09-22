@@ -1,14 +1,14 @@
 import * as React from "react";
 import { SimpleGrid as ChakraSimpleGrid } from "@chakra-ui/react";
-import { GridGaps } from "./GridTypes";
+import { GridGaps } from "./SimpleGridTypes";
 
 import generateUUID from "../../helpers/generateUUID";
 
-export interface GridProps {
+export interface SimpleGridProps {
   /** Additional class name. */
   className?: string;
   /** Optional numeric value to override the default column count; the default column count is 3 */
-  columnCount?: number;
+  columns?: number;
   /** Optional gap size; if omitted, the default `large` (2rem / 32px) spacing will be used; ```IMPORTANT: for general grid layout, this prop should not be used``` */
   gap?: GridGaps;
   /** ID that other components can cross reference for accessibility purposes */
@@ -27,14 +27,8 @@ export interface GridProps {
 //   return variantMap[variant] || collection.Default;
 // };
 
-function Grid(props: React.PropsWithChildren<GridProps>) {
-  const {
-    children,
-    columnCount = 3,
-    className,
-    gap = GridGaps.Large,
-    id = generateUUID(),
-  } = props;
+function SimpleGrid(props: React.PropsWithChildren<SimpleGridProps>) {
+  const { children, columns = 3, className, gap = GridGaps.Large, id } = props;
 
   // const variant = gap ? getVariant(gap, GridGaps) : null;
   // const styles = useStyleConfig("Grid", { variant });
@@ -44,14 +38,15 @@ function Grid(props: React.PropsWithChildren<GridProps>) {
 
   return (
     <ChakraSimpleGrid
-      columns={{ base: 1, md: columnCount }}
+      columns={{ base: 1, md: columns }}
       gap={gap}
-      id={id}
+      id={id || generateUUID()}
       className={className}
+      {...props}
     >
       {children}
     </ChakraSimpleGrid>
   );
 }
 
-export default Grid;
+export default SimpleGrid;

@@ -7,7 +7,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
-import Grid from "./Grid";
+import SimpleGrid from "./SimpleGrid";
 import Card, {
   CardImage,
   CardHeading,
@@ -28,8 +28,8 @@ import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 <Meta
-  title={getCategory("Grid")}
-  component={Grid}
+  title={getCategory("SimpleGrid")}
+  component={SimpleGrid}
   decorators={[withDesign]}
   parameters={{
     design: {
@@ -37,7 +37,7 @@ import DSProvider from "../../theme/provider";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
-    jest: ["Grid.test.tsx"],
+    jest: ["SimpleGrid.test.tsx"],
   }}
   argTypes={{
     className: { table: { disable: true } },
@@ -45,21 +45,21 @@ import DSProvider from "../../theme/provider";
   }}
 />
 
-# Grid
+# SimpleGrid
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
 | Latest            | `0.25.1`   |
 
-<Description of={Grid} />
+<Description of={SimpleGrid} />
 
 Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper.
 
 <Canvas withToolbar>
-  <Story name="Basic Grid">
+  <Story name="Basic SimpleGrid">
     {(args) => (
-      <Grid {...args}>
+      <SimpleGrid {...args}>
         <Card
           imageSrc="https://placeimg.com/500/200/animals"
           imageAlt="Alt text"
@@ -126,18 +126,18 @@ Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, co
             libero, a pharetra augue.
           </CardContent>
         </Card>
-      </Grid>
+      </SimpleGrid>
     )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic Grid" />
+<ArgsTable story="Basic SimpleGrid" />
 
 ## Other Grid Examples
 
 <Canvas>
-  <Story name="Other Grid Examples">
-    <Grid columnCount={5}>
+  <Story name="Other SimpleGrid Examples">
+    <SimpleGrid columns={5}>
       <Icon
         decorative
         name={IconNames.check}
@@ -258,13 +258,13 @@ Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, co
         size={IconSizes.xxxlarge}
         titleText="An example icon"
       />
-    </Grid>
+    </SimpleGrid>
   </Story>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Grid columnCount={6}>
+    <SimpleGrid columns={6}>
       <Image src="https://placeimg.com/300/300/animals?x=1" />
       <Image src="https://placeimg.com/300/300/animals?x=2" />
       <Image src="https://placeimg.com/300/300/animals?x=3" />
@@ -283,13 +283,13 @@ Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, co
       <Image src="https://placeimg.com/300/300/animals?x=16" />
       <Image src="https://placeimg.com/300/300/animals?x=17" />
       <Image src="https://placeimg.com/300/300/animals?x=18" />
-    </Grid>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Grid columnCount={1}>
+    <SimpleGrid columns={1}>
       <Card
         layout={CardLayouts.Horizontal}
         border
@@ -341,6 +341,6 @@ Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, co
           facilisis in, egestas eget quam.
         </CardContent>
       </Card>
-    </Grid>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
