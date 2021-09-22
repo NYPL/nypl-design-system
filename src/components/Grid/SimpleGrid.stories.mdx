@@ -57,7 +57,7 @@ import DSProvider from "../../theme/provider";
 The `SimpleGrid` component is used to render UI elements in a uniform grid layout, with the column widths and grid spacing fixed throughout the entire grid.
 
 <Canvas withToolbar>
-  <Story name="Basic SimpleGrid">
+  <Story name="SimpleGrid Props">
     {(args) => (
       <SimpleGrid {...args}>
         <Card
@@ -65,7 +65,7 @@ The `SimpleGrid` component is used to render UI elements in a uniform grid layou
           imageAlt="Alt text"
           imageAspectRatio={CardImageRatios.TwoByOne}
         >
-          <CardHeading level={HeadingLevels.Two}>Card Heading</CardHeading>
+          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
