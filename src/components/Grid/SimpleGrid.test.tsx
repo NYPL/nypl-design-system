@@ -63,20 +63,4 @@ describe("SimpleGrid", () => {
       utils.container.querySelector("#test-grid-render")
     ).toBeInTheDocument();
   });
-
-  // it("Renders SimpleGrid component with custom column count", () => {
-  //   const { container } = render(
-  //     <SimpleGrid id="test-grid-cols" columnCount={5}>
-  //       <div>Marty</div>
-  //       <div>Brutvan</div>
-  //       <div>Marty</div>
-  //       <div>Brutvan</div>
-  //       <div>Marty</div>
-  //     </SimpleGrid>
-  //   );
-  //   expect(container.querySelector("#test-grid-cols")).toBeInTheDocument();
-  //   expect(container.firstChild).toHaveStyle(
-  //     "grid-template-columns: repeat(5, minmax(0, 1fr))"
-  //   );
-  // });
 });
