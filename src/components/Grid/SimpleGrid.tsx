@@ -16,11 +16,15 @@ export interface SimpleGridProps {
 }
 
 function SimpleGrid(props: React.PropsWithChildren<SimpleGridProps>) {
-  const { children, columns = 3, className, gap = GridGaps.Large, id } = props;
+  const { children, columns, className, gap = GridGaps.Large, id } = props;
+
+  const responsiveCols = columns
+    ? { base: 1, md: columns }
+    : { base: 1, md: 2, lg: 3 };
 
   return (
     <ChakraSimpleGrid
-      columns={{ base: 1, md: columns }}
+      columns={responsiveCols}
       gap={gap}
       id={id || generateUUID()}
       className={className}

@@ -51,7 +51,6 @@ import DSProvider from "../../theme/provider";
         type: "number",
         min: 2,
       },
-      defaultValue: 3,
       table: {
         defaultValue: {
           summary: 3,
@@ -81,7 +80,7 @@ import DSProvider from "../../theme/provider";
 
 The `SimpleGrid` component is used to render UI elements in a uniform grid layout, with the column widths and grid spacing fixed throughout the grid.
 
-The NYPL standard column count is `3`, so the `SimpleGrid` component is set to use 3 columns by default and the `columns` props is optional.
+The NYPL standards for the items per row in a grid is `3` for desktop, `2` for tablet and `1` for mobile. By default, the `SimpleGrid` component uses these standards and the `columns` prop is optional. If the `columns` prop is used, the tablet breakpoint will be dropped and only the mobile breakpoint (1 item per row) will be triggered.
 
 <Canvas withToolbar>
   <Story name="SimpleGrid Props">
