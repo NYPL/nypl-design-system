@@ -21,7 +21,13 @@ import {
 } from "../Card/CardTypes";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
+import {
+  IconNames,
+  LogoNames,
+  IconColors,
+  IconSizes,
+  IconRotationTypes,
+} from "../Icons/IconTypes";
 import Image from "../Image/Image";
 
 import { getCategory } from "../../utils/componentCategories";
@@ -40,6 +46,25 @@ import DSProvider from "../../theme/provider";
     jest: ["SimpleGrid.test.tsx"],
   }}
   argTypes={{
+    columns: {
+      control: {
+        type: "number",
+        min: 2,
+      },
+      defaultValue: 3,
+      table: {
+        defaultValue: {
+          summary: 3,
+        },
+      },
+    },
+    gap: {
+      table: {
+        defaultValue: {
+          summary: "l",
+        },
+      },
+    },
     className: { table: { disable: true } },
     id: { table: { disable: true } },
   }}
@@ -54,7 +79,9 @@ import DSProvider from "../../theme/provider";
 
 <Description of={SimpleGrid} />
 
-The `SimpleGrid` component is used to render UI elements in a uniform grid layout, with the column widths and grid spacing fixed throughout the entire grid.
+The `SimpleGrid` component is used to render UI elements in a uniform grid layout, with the column widths and grid spacing fixed throughout the grid.
+
+The NYPL standard column count is `3`, so the `SimpleGrid` component is set to use 3 columns by default and the `columns` props is optional.
 
 <Canvas withToolbar>
   <Story name="SimpleGrid Props">
@@ -131,136 +158,32 @@ The `SimpleGrid` component is used to render UI elements in a uniform grid layou
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic SimpleGrid" />
+<ArgsTable story="SimpleGrid Props" />
 
 ## Other SimpleGrid Examples
 
+### Icons
+
+This example is rendering `Icon` components with the `columns` prop set to `5`.
+
+export const icons = [];
+for (const icon in IconNames) {
+  const iname = `Example icon: ${IconNames[icon]}`;
+  const iconRender = (
+    <Icon decorative name={icon} size={IconSizes.xxxlarge} titleText={iname} />
+  );
+  icons.push(iconRender);
+}
+
 <Canvas>
   <Story name="Other SimpleGrid Examples">
-    <SimpleGrid columns={5}>
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.check}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-      <Icon
-        decorative
-        name={IconNames.close}
-        size={IconSizes.xxxlarge}
-        titleText="An example icon"
-      />
-    </SimpleGrid>
+    <SimpleGrid columns={5}>{icons}</SimpleGrid>
   </Story>
 </Canvas>
+
+### Images
+
+This example is rendering square `Image` components with the `columns` prop set to `6`.
 
 <Canvas>
   <DSProvider>
@@ -286,6 +209,10 @@ The `SimpleGrid` component is used to render UI elements in a uniform grid layou
     </SimpleGrid>
   </DSProvider>
 </Canvas>
+
+### Horizontal Cards
+
+This example is rendering horizontal `Card` components with the `columns` prop set to `1`.
 
 <Canvas>
   <DSProvider>
