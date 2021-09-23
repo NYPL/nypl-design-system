@@ -17,7 +17,7 @@ const baseStyle = {
     color: "ui.white",
   },
   _disabled: {
-    bg: "ui.gray.light",
+    bg: "ui.gray.light-cool",
     color: "ui.gray.dark",
     pointerEvents: "none",
     opacity: "1",
@@ -40,10 +40,10 @@ const variants = {
   secondary: {
     bg: "ui.white",
     border: "1px solid",
-    borderColor: "ui.gray.light",
+    borderColor: "ui.gray.light-cool",
     color: "inherit",
     _hover: {
-      bg: "ui.gray.xxlight",
+      bg: "ui.gray.xx-light-cool",
     },
   },
   link: {
@@ -62,23 +62,23 @@ const variants = {
   pill: {
     bg: "ui.white",
     border: "1px solid",
-    borderColor: "ui.gray.light",
+    borderColor: "ui.gray.light-cool",
     color: "inherit",
     borderRadius: "20px",
     py: 2, // var(--space-xs)
     paddingInlineStart: 6, // var(--space-m)
     paddingInlineEnd: 6, // var(--space-m)
     _hover: {
-      bg: "ui.gray.xxlight",
+      bg: "ui.gray.xx-light-cool",
     },
   },
   "icon-only": {
     bg: "ui.white",
     border: "1px solid",
-    borderColor: "ui.gray.light",
+    borderColor: "ui.gray.light-cool",
     color: "inherit",
     _hover: {
-      bg: "ui.gray.xxlight",
+      bg: "ui.gray.xx-light-cool",
     },
     paddingInlineStart: 1, // var(--space-xs)
     paddingInlineEnd: 1, //var(--space-xs)

@@ -13,7 +13,7 @@
   @include button-base;
 
   background-color: var(--ui-white);
-  border: 1px solid var(--ui-gray-light);
+  border: 1px solid var(--ui-gray-light-cool);
   color: inherit;
 
   &:visited {
@@ -21,11 +21,11 @@
   }
 
   &:hover {
-    background-color: var(--ui-gray-xxlight);
+    background-color: var(--ui-gray-xx-light-cool);
   }
 
   &:disabled {
-    background-color: var(--ui-gray-light);
+    background-color: var(--ui-gray-light-cool);
     color: var(--ui-gray-dark);
     pointer-events: none;
   }
