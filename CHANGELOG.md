@@ -26,6 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
 - Updates the `errorText` prop name to `invalidText`.
 - Composes the DS `CheckboxGroup` component from Chakra's `CheckboxGroup` component.
+- Composes the DS `Select` component from Chakra's `Select` component.
 
 ### Removes
 
@@ -69,6 +70,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds additional props for the `DatePicker` component based on its TAD Addendum section.
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
 - Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
+- Updates the `Accordion` component to internally use Chakra components.
 
 ### Fixes
 

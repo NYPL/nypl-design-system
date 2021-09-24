@@ -3,16 +3,14 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
+import { VStack } from "@chakra-ui/react";
 import Select from "./Select";
-import Label from "../Label/Label";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import { action } from "@storybook/addon-actions";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Select")}
@@ -27,10 +25,11 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Select.test.tsx"],
   }}
   argTypes={{
-    blockName: { table: { disable: true } },
-    className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
-    attributes: { table: { disable: true } },
+    children: { table: { disable: true } },
+    id: { table: { disable: true } },
+    name: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+    value: { table: { disable: true } },
   }}
 />
 
@@ -39,198 +38,217 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.7.0`    |
-| Latest            | `0.24.0`   |
+| Latest            | `0.25.1`   |
 
 <Description of={Select} />
 
-The `Select` component renders a `select` element along with its `option` children. For optimal accessibility, the `labelText` property is a required prop, regardless of the label visibility. Additionally, while the `id` prop is optional, a unique `id` attribute is necessary for accessibility. If the prop is left blank, a value will be generated for you.
+The `Select` component renders a `select` element along with its `option`
+children. For optimal accessibility, the `labelText` property is a required
+prop, regardless of the label visibility. Additionally, while the `id` prop is
+optional, a unique `id` attribute is necessary for accessibility. If the prop
+is left blank, a value will be generated for you.
 
-<Preview withToolbar>
+The `Select` component renders all the necessary wrapping and associated text
+elements, but the select options _need_ to be child `<option>` HTML elements.
+
+```jsx
+<Select labelText="What is your favorite color?" name="color">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="black">Black</option>
+  <option value="white">White</option>
+</Select>
+```
+
+<Canvas withToolbar>
   <Story
     name="Select"
     args={{
-      id: "mySelect",
+      helperText: "This is the helper text.",
+      invalidText: "This is the error text :(",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: false,
       labelText: "What is your favorite color?",
+      name: "color",
       showLabel: true,
       showOptReqLabel: true,
-      helperText: "Choose wisely.",
-      invalidText: "Waaaaaaaa!",
-      errored: false,
-      required: true,
-      disabled: false,
-      selectedOption: "Green",
-      attributes: {
-        onFocus: action("focus"),
-        onBlur: action("blur"),
-        onChange: action("onChange"),
-      },
-    }}
-    argTypes={{
-      ariaLabel: { table: { disable: true } },
-      helperTextId: { table: { disable: true } },
-      isRequired: { table: { disable: true } },
-      labelId: { table: { disable: true } },
     }}
   >
     {(args) => (
       <Select {...args}>
-        <option aria-selected={true}></option>
-        <option aria-selected={false}>Red</option>
-        <option aria-selected={false}>Green</option>
-        <option aria-selected={false}>Blue</option>
-        <option aria-selected={false}>Black</option>
-        <option aria-selected={false}>White</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
       </Select>
     )}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Select" />
 
-### Deprecated Props
-
-The following props have been deprecated: `ariaLabel`, `helperTextId`, `isRequired` and `labelId`. They are still available to use, but they will be removed in a future release.
-
 ## Labelling Variations
 
-A Select can be rendered with or without visible labels. When `showLabel` is set to `false`, an `aria-label` attribute is added to the select input to maintain accessibility.
+A Select can be rendered with or without a visible label. When `showLabel` is
+set to `false`, an `aria-label` attribute is added to the select input to
+maintain accessibility. If the component needs to be required, the
+`showOptReqLabel` prop can be used to show or hide the "Required"/"Optional"
+text within the `label` element.
 
-<Preview>
-  <Story
-    name="Labelling Variations"
-    args={{
-      labelText: "What is your favorite color?",
-      showLabel: false,
-      showOptReqLabel: false,
-    }}
-  >
-    {(args) => (
-      <>
-        <Select {...args}>
-          <option aria-selected={true}></option>
-          <option aria-selected={false}>Red</option>
-          <option aria-selected={false}>Green</option>
-          <option aria-selected={false}>Blue</option>
-          <option aria-selected={false}>Black</option>
-          <option aria-selected={false}>White</option>
-        </Select>
-      </>
-    )}
+<Canvas>
+  <Story name="Labelling Variations">
+    <VStack align="stretch" spacing={8}>
+      <Select
+        labelText="What is your favorite color?"
+        helperText="Display the label"
+        name="color"
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Select
+        labelText="What is your favorite color?"
+        helperText="Do not display the label"
+        name="color"
+        showLabel={false}
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Select
+        labelText="What is your favorite color?"
+        helperText="Display the Required/Optional text"
+        name="color"
+        isRequired
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Select
+        labelText="What is your favorite color?"
+        helperText="Do not display the Required/Optional text"
+        name="color"
+        showOptReqLabel={false}
+        isRequired
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+    </VStack>
   </Story>
-</Preview>
-
-<Canvas>
-  <Select labelText="What is your favorite color?" showLabel={true}>
-    <option aria-selected={true}></option>
-    <option aria-selected={false}>Red</option>
-    <option aria-selected={false}>Green</option>
-    <option aria-selected={false}>Blue</option>
-    <option aria-selected={false}>Black</option>
-    <option aria-selected={false}>White</option>
-  </Select>
 </Canvas>
 
-<Canvas>
-  <Select
-    labelText="What is your favorite color?"
-    showLabel={false}
-    helperText="Choose wisely!"
-  >
-    <option aria-selected={true}></option>
-    <option aria-selected={false}>Red</option>
-    <option aria-selected={false}>Green</option>
-    <option aria-selected={false}>Blue</option>
-    <option aria-selected={false}>Black</option>
-    <option aria-selected={false}>White</option>
-  </Select>
-</Canvas>
+## Errored
 
 <Canvas>
-  <Select
-    labelText="What is your favorite color?"
-    showLabel={true}
-    helperText="Choose wisely!"
-  >
-    <option aria-selected={true}></option>
-    <option aria-selected={false}>Red</option>
-    <option aria-selected={false}>Green</option>
-    <option aria-selected={false}>Blue</option>
-    <option aria-selected={false}>Black</option>
-    <option aria-selected={false}>White</option>
-  </Select>
+  <DSProvider>
+    <Select
+      labelText="What is your favorite color?"
+      helperText="This is the helper text."
+      invalidText="This is the error text :("
+      name="color"
+      isInvalid
+    >
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+    </Select>
+  </DSProvider>
 </Canvas>
+
+## Disabled
 
 <Canvas>
-  <Select
-    labelText="What is your favorite color?"
-    showLabel={false}
-    helperText="Choose wisely!"
-    invalidText="Waaaaaa!"
-    errored={true}
-  >
-    <option aria-selected={true}></option>
-    <option aria-selected={false}>Red</option>
-    <option aria-selected={false}>Green</option>
-    <option aria-selected={false}>Blue</option>
-    <option aria-selected={false}>Black</option>
-    <option aria-selected={false}>White</option>
-  </Select>
+  <DSProvider>
+    <Select
+      labelText="What is your favorite color?"
+      helperText="This is the helper text."
+      invalidText="This is the error text :("
+      name="color"
+      isDisabled
+    >
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+    </Select>
+  </DSProvider>
 </Canvas>
 
-<Canvas>
-  <Select
-    labelText="What is your favorite color?"
-    showLabel={true}
-    helperText="Choose wisely!"
-    invalidText="Waaaaaa!"
-    errored={true}
-  >
-    <option aria-selected={true}></option>
-    <option aria-selected={false}>Red</option>
-    <option aria-selected={false}>Green</option>
-    <option aria-selected={false}>Blue</option>
-    <option aria-selected={false}>Black</option>
-    <option aria-selected={false}>White</option>
-  </Select>
-</Canvas>
+## Getting Select Data Value
 
-## Deprecated Implementation
+### Controlled Component using `value` and `onChange` props
 
-The `ariaLabel`, `helperTextId`, `isRequired` and `labelId` have been deprecated, but they are still available to use until they are removed in a future release. The code below uses all four deprecated props in conjunction with the `Label` and `HelperErrorText` components to render a fully functional and accessible select input.
+If your application uses controlled React components and the DS `Select`
+component must be controlled, you can control and extract the data through the
+`value` and `onChange` props. This will be called every time a new `option`
+value is selected.
 
-<Preview withToolbar>
-  <Story
-    name="Deprecated Implementation"
-    args={{
-      labelText: "What is your favorite color?",
-      showLabel: false,
-    }}
-  >
-    {(args) => (
-      <>
-        <Label htmlFor="select" optReqFlag="Required" id={"label"}>
-          Fruit on your island
-        </Label>
-        <Select
-          name="optionalLabelSelect"
-          id={"select"}
-          isRequired={false}
-          ariaLabel="Select Label"
-          labelId={"label"}
-          helperTextId={"helperText"}
-          selectedOption="Option Three"
-        >
-          <option aria-selected={true}>Option One</option>
-          <option aria-selected={false}>Option Two</option>
-          <option aria-selected={false}>Option Three</option>
-          <option aria-selected={false}>Option Four</option>
-          <option aria-selected={false}>Option Five</option>
-        </Select>
-        <HelperErrorText isError={false} id={"helperText"}>
-          Once you pick a fruit for your island it cannot be changed, so choose
-          wisely!
-        </HelperErrorText>
-      </>
-    )}
-  </Story>
-</Preview>
+```jsx
+const value = "red";
+const onChange = (e) => {
+  // This will return the value selected through the event object.
+  console.log(e.target.value);
+};
+// ...
+
+<Select
+  labelText="What is your favorite color?"
+  helperText="This is the helper text."
+  name="color"
+  value={value}
+  onChange={onChange}
+>
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="black">Black</option>
+  <option value="white">White</option>
+</Select>;
+```
+
+### Uncontrolled Component using `ref`s
+
+If your application uses uncontrolled components, you can pass a React `ref`
+prop to the DS Select component to get the selected value from the DOM.
+
+```jsx
+const selectRef = React.createRef<HTMLSelectElement>();
+// ...
+<Select
+  labelText="What is your favorite color?"
+  helperText="This is the helper text."
+  name="color"
+>
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="black">Black</option>
+  <option value="white">White</option>
+</Select>
+
+// ...
+// Get the value through:
+const onSubmit = () => {
+  // ...
+  const selectValue = selectRef.current.value;
+};
+```
