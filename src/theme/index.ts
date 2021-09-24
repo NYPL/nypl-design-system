@@ -4,6 +4,7 @@ import global from "./foundations/global";
 import typography from "./foundations/typography";
 import { spacing } from "./foundations/spacing";
 import breakpoints from "./foundations/breakpoints";
+import Accordion from "./components/accordion";
 import Button from "./components/button";
 import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
@@ -40,6 +41,7 @@ const theme = extendTheme({
    * https://chakra-ui.com/docs/theming/component-style
    */
   components: {
+    Accordion,
     Button,
     Checkbox,
     Heading,
