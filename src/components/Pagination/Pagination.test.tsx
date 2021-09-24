@@ -19,12 +19,12 @@ describe("Pagination with getPageHref", () => {
   const getPageHref = (page: number) => `page=${page}`;
 
   it("Renders a nav element with items and links", () => {
-    render(
+    const { container } = render(
       <Pagination pageCount={20} currentPage={6} getPageHref={getPageHref} />
     );
 
     expect(screen.getByRole("navigation")).toBeInTheDocument();
-    expect(screen.getByRole("list")).toBeInTheDocument();
+    expect(container.querySelector(".pagination__list")).toBeInTheDocument();
     // Previous/Next buttons + truncated item list = 11 total items
     expect(screen.getAllByRole("listitem")).toHaveLength(11);
     // Each element links to anotherpage.
@@ -53,7 +53,8 @@ describe("Pagination with getPageHref", () => {
     );
     const links = screen.getAllByRole("button");
     expect(links[0]).toHaveAttribute("aria-disabled");
-    expect(links[0]).toHaveAttribute("class", "link pagination__link disabled");
+    const linkClass = links[0].getAttribute("class");
+    expect(linkClass).toContain("pagination__link disabled");
   });
 
   it("Next link is disabled when on the last page item", () => {
@@ -62,7 +63,8 @@ describe("Pagination with getPageHref", () => {
     );
     const links = screen.getAllByRole("button");
     expect(links[9]).toHaveAttribute("aria-disabled");
-    expect(links[9]).toHaveAttribute("class", "link pagination__link disabled");
+    const linkClass = links[9].getAttribute("class");
+    expect(linkClass).toContain("pagination__link disabled");
   });
 
   it("Current page item has active class", () => {
@@ -70,7 +72,8 @@ describe("Pagination with getPageHref", () => {
       <Pagination pageCount={11} currentPage={5} getPageHref={getPageHref} />
     );
     const links = screen.getAllByRole("button");
-    expect(links[5]).toHaveAttribute("class", "link pagination__link selected");
+    const linkClass = links[5].getAttribute("class");
+    expect(linkClass).toContain("pagination__link selected");
   });
 
   it("When pagination has 1 element, pagination is not shown", () => {
@@ -92,7 +95,7 @@ describe("Pagination with changeCallback", () => {
   const changeCallback = jest.fn();
 
   it("Renders a nav element with an unordered list of items", () => {
-    render(
+    const { container } = render(
       <Pagination
         pageCount={11}
         currentPage={6}
@@ -100,7 +103,7 @@ describe("Pagination with changeCallback", () => {
       />
     );
     expect(screen.getByRole("navigation")).toBeInTheDocument();
-    expect(screen.getByRole("list")).toBeInTheDocument();
+    expect(container.querySelector(".pagination__list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(11);
   });
 
@@ -114,7 +117,8 @@ describe("Pagination with changeCallback", () => {
     );
     const links = screen.getAllByRole("button");
     expect(links[0]).toHaveAttribute("aria-disabled");
-    expect(links[0]).toHaveAttribute("class", "link pagination__link disabled");
+    const linkClass = links[0].getAttribute("class");
+    expect(linkClass).toContain("pagination__link disabled");
   });
 
   it("Next link is disabled when on the last page item", () => {
@@ -127,7 +131,8 @@ describe("Pagination with changeCallback", () => {
     );
     const links = screen.getAllByRole("button");
     expect(links[9]).toHaveAttribute("aria-disabled");
-    expect(links[9]).toHaveAttribute("class", "link pagination__link disabled");
+    const linkClass = links[9].getAttribute("class");
+    expect(linkClass).toContain("pagination__link disabled");
   });
 
   it("Current page item has active class", () => {
@@ -139,7 +144,8 @@ describe("Pagination with changeCallback", () => {
       />
     );
     const links = screen.getAllByRole("button");
-    expect(links[5]).toHaveAttribute("class", "link pagination__link selected");
+    const linkClass = links[5].getAttribute("class");
+    expect(linkClass).toContain("pagination__link selected");
   });
 
   it("When page item is selected, runs the onPageChange callback", () => {

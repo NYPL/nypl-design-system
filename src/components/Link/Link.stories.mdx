@@ -3,18 +3,20 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
-import Link from "./Link";
 import {
   BrowserRouter as Router,
   Link as ReactRouterLink,
 } from "react-router-dom";
+import { VStack } from "@chakra-ui/react";
+
+import Link from "./Link";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Link")}
@@ -29,13 +31,13 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Link.test.tsx"],
   }}
   argTypes={{
-    blockName: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
+    attributes: { table: { disable: true } },
     children: { table: { disable: true } },
     type: {
       control: {
         type: "select",
       },
+      options: LinkTypes,
     },
   }}
 />
@@ -45,11 +47,11 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.20.2`   |
+| Latest            | `0.25.1`   |
 
 <Description of={Link} />
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="Basic"
     args={{
@@ -65,7 +67,7 @@ import { getCategory } from "../../utils/componentCategories";
   >
     {(args) => <Link {...args}>Link</Link>}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Basic" />
 
@@ -75,9 +77,9 @@ To render an `Icon` as part of the link, make sure that the `Link` component
 wraps the `Icon`. Use `type={LinkTypes.Action}` to apply appropriate styling to
 links with icons. Icons can be rendered to the left or right of the link text.
 
-<Preview>
+<Canvas>
   <Story name="With Icons">
-    <>
+    <VStack spacing={2} align="flex-start">
       <Link type={LinkTypes.Action} href="#passed-in-link">
         <Icon
           name={"headset"}
@@ -86,31 +88,28 @@ links with icons. Icons can be rendered to the left or right of the link text.
         />
         Headset Link
       </Link>
-      <br />
       <Link type={LinkTypes.Action} href="#passed-in-link">
         <Icon name={"clock"} modifiers={["left", "small"]} decorative={true} />
         Clock Link
       </Link>
-      <br />
       <Link type={LinkTypes.Action} href="#passed-in-link">
         <Icon name={"check"} modifiers={["left", "small"]} decorative={true} />
         Check Link
       </Link>
-      <br />
       <Link type={LinkTypes.Action} href="#passed-in-link-right">
         Check Link Right
         <Icon name={"check"} modifiers={["right", "small"]} decorative={true} />
       </Link>
-    </>
+    </VStack>
   </Story>
-</Preview>
+</Canvas>
 
 ## Anchor Element Rendering
 
 `Link` can wrap an existing `<a>` tag or it can use the `href` prop to generate
 an `<a>` tag.
 
-<Preview>
+<Canvas>
   <Story name="Anchor Element Rendering">
     <>
       This is a{" "}
@@ -124,11 +123,11 @@ an `<a>` tag.
       where the Link component uses the `href` prop and has a string-only child.
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ## Link with Routers
 
-<Preview>
+<Canvas>
   <Story name="Link with Routers">
     <div>With React Router</div>
     <Router>
@@ -143,7 +142,7 @@ an `<a>` tag.
       <Link type={LinkTypes.Action}>Next Page</Link>
     </NextJsLink>
   </Story>
-</Preview>
+</Canvas>
 
 ### React Router
 
@@ -151,7 +150,7 @@ The Design System's `Link` component should wrap around `react-router`'s own
 `Link` component. To avoid name conflicts, rename either the Design System's
 or `react-router`'s `Link` component.
 
-```js
+```jsx
 import {
   BrowserRouter as Router,
   Link as ReactRouterLink,
@@ -184,13 +183,15 @@ import DS from "@nypl/design-system-react-components";
 </DS.Link>;
 ```
 
-<Preview>
-  <Router>
-    <Link type={LinkTypes.Action}>
-      <ReactRouterLink to="#">Next Page</ReactRouterLink>
-    </Link>
-  </Router>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <Router>
+      <Link type={LinkTypes.Action}>
+        <ReactRouterLink to="#">Next Page</ReactRouterLink>
+      </Link>
+    </Router>
+  </DSProvider>
+</Canvas>
 
 ### NextJS
 
@@ -200,7 +201,7 @@ These props, along with an implicit `ref` from NextJS and the Design System's
 `Link` component `forwardRef` implementation, handle correctly routing between
 pages in a NextJS app.
 
-```js
+```jsx
 import { Link, LinkTypes } from "@nypl/design-system-react-components";
 
 /* This is just an example wrapper that works similarly to NextJS' `Link`
@@ -232,8 +233,10 @@ export const NextJsLink = (props) => (
   </div>
 );
 
-<Preview>
-  <NextJsLink href="#" passHref>
-    <Link type={LinkTypes.Action}>Next Page</Link>
-  </NextJsLink>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <NextJsLink href="#" passHref>
+      <Link type={LinkTypes.Action}>Next Page</Link>
+    </NextJsLink>
+  </DSProvider>
+</Canvas>

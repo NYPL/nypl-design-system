@@ -10,6 +10,7 @@ import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
 import Tabs from "./components/tabs";
 import Heading from "./components/heading";
+import Link from "./components/link";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -43,6 +44,7 @@ const theme = extendTheme({
     Button,
     Checkbox,
     Heading,
+    Link,
     Radio,
     CustomRadioGroup,
     Tabs,
