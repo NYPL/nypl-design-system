@@ -22,10 +22,6 @@ const Template = {
   baseStyle: {
     boxSizing: "border-box",
     color: "ui.black",
-    fontFamily: "body",
-    fontSize: "16px",
-    fontWeight: "300",
-    lineHeight: "1.5",
     // Users with non-overlay scrollbars have a small horizontal scrollbar from
     // our breakout mixin. Fix identified here: https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#one-big-dumb-caveat
     overflowX: "hidden",
@@ -87,19 +83,22 @@ const TemplateContentPrimary = {
 };
 const TemplateContentSidebar = {
   baseStyle: {
-    flex: "0 0 25%",
+    flex: "0 0 255px",
     order: { md: "1" },
-    width: "225px",
     marginBottom: 8, // --space-l
   },
   variants: {
     left: {
-      marginRight: 12, // --space-xl
-      flexBasis: { md: "calc(25% - calc(4 * 16px))" },
+      marginRight: {
+        base: 0,
+        md: 12, // --space-xl
+      },
     },
     right: {
-      marginLeft: 12, // --space-xl
-      flexBasis: { md: "calc(25% - calc(4 * 16px))" },
+      marginLeft: {
+        base: 0,
+        md: 12, // --space-xl
+      },
     },
   },
 };

@@ -62,7 +62,7 @@ const TemplateContentBreakout = (
 };
 
 /**
- * This is most useful component to render content on the page. This renders an
+ * This component is most useful to render content on the page. This renders an
  * HTML `<main>` element. This takes a `sidebar` prop with optional "left" or
  * "right" values. This will pass down the correct Chakra styling for the
  * `TemplateContentPrimary` and `TemplateContentSidebar` components. Note that
@@ -153,7 +153,8 @@ const TemplateContentSidebar = (
 
 /**
  * This optional component should be the last child of the `Template`
- * component. This is rendered as an HTML `<footer>` element.
+ * component. This is rendered as an HTML `<footer>` element and spans the full
+ * width of the page.
  */
 const TemplateFooter = (props: React.PropsWithChildren<TemplateProps>) => {
   return <Box as="footer">{props.children}</Box>;
