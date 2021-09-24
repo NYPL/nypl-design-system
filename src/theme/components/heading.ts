@@ -2,7 +2,7 @@ const margins = {
   marginTop: 0,
   marginLeft: 0,
   marginRight: 0,
-  marginBottom: 2, // var(--space-xs)
+  marginBottom: 4, // var(--space-s)
 };
 
 // Heading Styles
