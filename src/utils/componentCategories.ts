@@ -64,6 +64,7 @@ const categories = {
       "Header",
       "HorizontalRule",
       "Section",
+      "SimpleGrid",
       "Template",
     ],
   },
