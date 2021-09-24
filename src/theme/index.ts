@@ -4,12 +4,14 @@ import global from "./foundations/global";
 import typography from "./foundations/typography";
 import { spacing } from "./foundations/spacing";
 import breakpoints from "./foundations/breakpoints";
+import Accordion from "./components/accordion";
 import Button from "./components/button";
 import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
 import Tabs from "./components/tabs";
 import TextInput from "./components/textInput";
+import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 
 /**
@@ -41,11 +43,13 @@ const theme = extendTheme({
    * https://chakra-ui.com/docs/theming/component-style
    */
   components: {
+    Accordion,
     Button,
     Checkbox,
     Heading,
     Radio,
     CustomRadioGroup,
+    CustomSelect,
     Tabs,
     TextInput,
   },
