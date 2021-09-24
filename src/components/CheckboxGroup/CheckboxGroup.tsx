@@ -50,7 +50,9 @@ const noop = () => {};
 
 /**
  * Wrapper component to wrap `Checkbox` components. Can be displayed in a
- * column or in a row.
+ * column or in a row. The `CheckboxGroup` component renders all the necessary
+ * wrapping and associated text elements, but the checkbox input elements
+ * _need_ to be child `Checkbox` components from the NYPL Design System.
  */
 const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
   (props, ref?) => {
