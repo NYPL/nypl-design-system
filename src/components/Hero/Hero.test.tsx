@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
@@ -484,5 +485,155 @@ describe("Hero", () => {
     expect(warn).toHaveBeenCalledWith(
       `Warning: the "backgroundImageSrc" prop has been passed, but FIFTYFIFTY hero will not use it.`
     );
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const primary = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.Primary}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="primary-hero"
+              text="Hero Primary"
+            />
+          }
+          subHeaderText="Example Subtitle"
+          backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        />
+      )
+      .toJSON();
+    const secondary = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.Secondary}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="secondary-hero"
+              text="Hero Secondary"
+            />
+          }
+          subHeaderText={subHeaderText}
+          image={image}
+        />
+      )
+      .toJSON();
+    const secondaryBooksAndMore = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.SecondaryBooksAndMore}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="secondary-hero"
+              text="Hero Secondary Books and More"
+            />
+          }
+          subHeaderText={subHeaderText}
+          image={image}
+        />
+      )
+      .toJSON();
+    const secondaryLocations = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.SecondaryLocations}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="secondary-hero"
+              text="Hero Secondary Locations"
+            />
+          }
+          subHeaderText={subHeaderText}
+          image={image}
+        />
+      )
+      .toJSON();
+    const secondaryResearch = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.SecondaryResearch}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="secondary-hero"
+              text="Hero Secondary"
+            />
+          }
+          subHeaderText={subHeaderText}
+          image={image}
+        />
+      )
+      .toJSON();
+    const secondaryWhatsOn = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.SecondaryWhatsOn}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="secondary-hero"
+              text="Hero Secondary What's On"
+            />
+          }
+          subHeaderText={subHeaderText}
+          image={image}
+        />
+      )
+      .toJSON();
+    const campaign = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.Campaign}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="campaign-hero"
+              text="Hero Campaign"
+            />
+          }
+          subHeaderText={otherSubHeaderText}
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+          image={image}
+        />
+      )
+      .toJSON();
+    const tertiary = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.Tertiary}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="tertiary-hero"
+              text="Hero Tertiary"
+            />
+          }
+          subHeaderText={otherSubHeaderText}
+        />
+      )
+      .toJSON();
+    const fiftyFifty = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.FiftyFifty}
+          subHeaderText={otherSubHeaderText}
+          image={image}
+        />
+      )
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
+    expect(secondary).toMatchSnapshot();
+    expect(secondaryBooksAndMore).toMatchSnapshot();
+    expect(secondaryLocations).toMatchSnapshot();
+    expect(secondaryResearch).toMatchSnapshot();
+    expect(secondaryWhatsOn).toMatchSnapshot();
+    expect(tertiary).toMatchSnapshot();
+    expect(campaign).toMatchSnapshot();
+    expect(fiftyFifty).toMatchSnapshot();
   });
 });

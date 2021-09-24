@@ -9,7 +9,7 @@ import { withDesign } from "storybook-addon-designs";
 import { Box, VStack } from "@chakra-ui/react";
 
 import Hero from "./Hero";
-import { HeroTypes } from "./HeroTypes";
+import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
@@ -83,7 +83,7 @@ descriptive text and images.
           backgroundImageSrc="https://placeimg.com/2400/800/nature"
         />
       )) ||
-      (args.heroType === HeroTypes.Secondary && (
+      (HeroSecondaryTypes.includes(args.heroType) && (
         <div className="nypl--books-and-more">
           <Hero
             {...args}
@@ -140,16 +140,19 @@ descriptive text and images.
 
 ## Color Variations for Secondary Hero
 
-The background color for the title bar in `HeroTypes.Secondary` is determined
-by the placement of the `Hero` component within a comsuming app. The styling for
-`Hero` is constructued to use classes of the `Hero` component's parent elements
-as a determinant for the title bar background color. Below are the four color
-variations available based on the consuming React app.
+The background color for the title bar in "Secondary" types changes based on
+variants for the `Secondary` main variant. Before, components relied on the
+parent wrapper's CSS class name for background color updates. Now, the proper
+`HeroType` must be passed in.
 
 ```jsx
+// Before
 <div className="nypl--books-and-more">
   <Hero {...props} />
 </div>
+
+// Now
+<Hero heroType={HeroTypes.SecondaryBooksAndMore} {...props} />
 ```
 
 <Canvas>
@@ -157,80 +160,72 @@ variations available based on the consuming React app.
     <VStack spacing={10} align="stretch">
       <Heading
         level={HeadingLevels.Two}
-        text="nypl--books-and-more"
+        text="HeroTypes.SecondaryBooksAndMore"
         id="books-heading"
       />
-      <div className="nypl--books-and-more">
-        <Hero
-          heroType={HeroTypes.Secondary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="books-hero"
-              text="Books and More"
-            />
-          }
-          subHeaderText={secondarySubHeaderText}
-          image={image}
-        />
-      </div>
+      <Hero
+        heroType={HeroTypes.SecondaryBooksAndMore}
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="books-hero"
+            text="Books and More"
+          />
+        }
+        subHeaderText={secondarySubHeaderText}
+        image={image}
+      />
       <Heading
         level={HeadingLevels.Two}
-        text="nypl--locations"
+        text="HeroTypes.SecondaryLocations"
         id="location-heading"
       />
-      <div className="nypl--locations">
-        <Hero
-          heroType={HeroTypes.Secondary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="locations-hero"
-              text="Locations"
-            />
-          }
-          subHeaderText={secondarySubHeaderText}
-          image={image}
-        />
-      </div>
+      <Hero
+        heroType={HeroTypes.SecondaryLocations}
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="locations-hero"
+            text="Locations"
+          />
+        }
+        subHeaderText={secondarySubHeaderText}
+        image={image}
+      />
       <Heading
         level={HeadingLevels.Two}
-        text="nypl--research"
+        text="HeroTypes.SecondaryResearch"
         id="research-heading"
       />
-      <div className="nypl--research">
-        <Hero
-          heroType={HeroTypes.Secondary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="research-hero"
-              text="Research"
-            />
-          }
-          subHeaderText={secondarySubHeaderText}
-          image={image}
-        />
-      </div>
+      <Hero
+        heroType={HeroTypes.SecondaryResearch}
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="research-hero"
+            text="Research"
+          />
+        }
+        subHeaderText={secondarySubHeaderText}
+        image={image}
+      />
       <Heading
         level={HeadingLevels.Two}
-        text="nypl--whats-on"
+        text="HeroTypes.SecondaryWhatsOn"
         id="whats-on-heading"
       />
-      <div className="nypl--whats-on">
-        <Hero
-          heroType={HeroTypes.Secondary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="whats-on-hero"
-              text="What's On"
-            />
-          }
-          subHeaderText={secondarySubHeaderText}
-          image={image}
-        />
-      </div>
+      <Hero
+        heroType={HeroTypes.SecondaryWhatsOn}
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="whats-on-hero"
+            text="What's On"
+          />
+        }
+        subHeaderText={secondarySubHeaderText}
+        image={image}
+      />
     </VStack>
   </Story>
 </Canvas>

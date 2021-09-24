@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
-import { HeroTypes } from "./HeroTypes";
+import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
 
 export interface HeroProps {
   /** Optional hex color value used to override the default background
@@ -81,7 +81,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       `Warning: Please provide "locationDetails" only to PRIMARY hero.`
     );
   }
-  if (heroType === HeroTypes.Secondary && backgroundImageSrc) {
+  if (HeroSecondaryTypes.includes(heroType) && backgroundImageSrc) {
     console.warn(
       `Warning: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
     );
@@ -115,7 +115,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     backgroundImageStyle = { backgroundColor };
   }
 
-  if (heroType !== HeroTypes.Secondary) {
+  if (!HeroSecondaryTypes.includes(heroType)) {
     contentBoxStyling = {
       color: foregroundColor,
       backgroundColor,
