@@ -9,8 +9,10 @@ import Accordion from "./Accordion";
 import { withDesign } from "storybook-addon-designs";
 import { listRenderer as ListStory } from "../List/List.stories.tsx";
 import { ListTypes } from "../List/ListTypes";
+import Card, { CardHeading, CardContent } from "../Card/Card";
+import { CardImageRatios, CardLayouts } from "../Card/CardTypes";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import { Source } from "@storybook/addon-docs/blocks";
-import dedent from "ts-dedent";
 import ReactDOMServer from "react-dom/server";
 import { getCategory } from "../../utils/componentCategories";
 
@@ -37,16 +39,18 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.24.2`   |
+| Latest            | `0.25.1`   |
 
 <Description of={Accordion} />
 
-The Accordion component pushes existing content on the page down. Each accordion
-item is self contained but when multiple are rendered together, they render in a
-"FAQ" style. When multiple accordions are rendered together, they can each open
-and close independent of each other.
+The `Accordion` component displays a list of high-level options that can
+expand/collapse to reveal associated sections of content. This component pushes
+existing content on the page down. Each accordion item is self contained but
+when multiple are rendered together, they render in a "FAQ" style. When multiple
+accordions are rendered together, they can each open and close independent of
+each other.
 
-The only way to render an Accordion component is to pass in an array of objects
+The only way to render an `Accordion` component is to pass in an array of objects
 with `label` and `panel` properties for each accordion item. Note that you can
 pass in a string or DOM elements into the `panel` property in each object. This
 approach is needed because, internally, we deal with the logic to render the
@@ -57,7 +61,6 @@ necessary icon, Chakra components, and styles.
     name="Basic"
     args={{
       isDefaultOpen: false,
-      isScrollable: false,
     }}
   >
     {(args) => (
@@ -67,11 +70,22 @@ necessary icon, Chakra components, and styles.
           {
             label: "Tom Nook",
             panel: (
-              <p>
-                Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
-                character in the Animal Crossing series who operates the village
-                store.
-              </p>
+              <Card
+                layout={CardLayouts.Horizontal}
+                center
+                imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+                imageAlt="Alt text"
+                imageAspectRatio={CardImageRatios.TwoByOne}
+              >
+                <CardHeading level={HeadingLevels.Four} id="heading1">
+                  Tom Nook
+                </CardHeading>
+                <CardContent>
+                  Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
+                  character in the Animal Crossing series who operates the
+                  village store.
+                </CardContent>
+              </Card>
             ),
           },
         ]}
@@ -80,15 +94,27 @@ necessary icon, Chakra components, and styles.
   </Story>
 </Canvas>
 
-```js
+```jsx
 const contentData = [
   {
     label: "Tom Nook",
     panel: (
-      <p>
-        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
-        in the Animal Crossing series who operates the village store.
-      </p>
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Tom Nook
+        </CardHeading>
+        <CardContent>
+          Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
+          character in the Animal Crossing series who operates the
+          village store.
+        </CardContent>
+      </Card>
     ),
   },
 ];
@@ -106,27 +132,68 @@ export const faqContent = [
   {
     label: "Tom Nook",
     panel: (
-      <p>
-        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
-        in the Animal Crossing series who operates the village store.
-      </p>
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Tom Nook
+        </CardHeading>
+        <CardContent>
+          Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
+          in the Animal Crossing series who operates the village store.
+        </CardContent>
+      </Card>
     ),
   },
   {
     label: "Isabelle",
-    panel:
-      "Isabelle, known as Shizue in Japan, is a fictional character " +
-      "from the Animal Crossing series of video games. She is a kindly Shih " +
-      "Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where " +
-      "she serves as the secretary to the player character.",
+    panel: (
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Isabelle
+        </CardHeading>
+        <CardContent>
+          Isabelle, known as Shizue in Japan, is a fictional character from the
+          Animal Crossing series of video games. She is a kindly Shih Tzu that
+          debuted in the 2012 release Animal Crossing: New Leaf, where she
+          serves as the secretary to the player character.
+        </CardContent>
+      </Card>
+    ),
   },
   {
     label: "K.K. Slider",
-    panel:
-      "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a " +
-      "fictional character within the Animal Crossing franchise. One of the " +
-      "franchise's most popular characters, he debuted in the title Animal " +
-      "Crossing, and has appeared in every installment since.</p>",
+    panel: (
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          K.K. Slider
+        </CardHeading>
+        <CardContent>
+          <p>
+            Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a
+            fictional character within the Animal Crossing franchise. One of the
+            franchise's most popular characters, he debuted in the title Animal
+            Crossing, and has appeared in every installment since.
+          </p>
+        </CardContent>
+      </Card>
+    ),
   },
 ];
 
@@ -139,32 +206,73 @@ one object in the array passed into the `contentData` prop.
   </Story>
 </Canvas>
 
-```js
+```jsx
 export const faqContent = [
   {
     label: "Tom Nook",
     panel: (
-      <p>
-        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
-        in the Animal Crossing series who operates the village store.
-      </p>
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Tom Nook
+        </CardHeading>
+        <CardContent>
+          Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
+          in the Animal Crossing series who operates the village store.
+        </CardContent>
+      </Card>
     ),
   },
   {
     label: "Isabelle",
-    panel:
-      "Isabelle, known as Shizue in Japan, is a fictional character " +
-      "from the Animal Crossing series of video games. She is a kindly Shih " +
-      "Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where " +
-      "she serves as the secretary to the player character.",
+    panel: (
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Isabelle
+        </CardHeading>
+        <CardContent>
+          Isabelle, known as Shizue in Japan, is a fictional character from the
+          Animal Crossing series of video games. She is a kindly Shih Tzu that
+          debuted in the 2012 release Animal Crossing: New Leaf, where she
+          serves as the secretary to the player character.
+        </CardContent>
+      </Card>
+    ),
   },
   {
     label: "K.K. Slider",
-    panel:
-      "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a " +
-      "fictional character within the Animal Crossing franchise. One of the " +
-      "franchise's most popular characters, he debuted in the title Animal " +
-      "Crossing, and has appeared in every installment since.</p>",
+    panel: (
+      <Card
+        layout={CardLayouts.Horizontal}
+        center
+        imageSrc="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          K.K. Slider
+        </CardHeading>
+        <CardContent>
+          <p>
+            Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a
+            fictional character within the Animal Crossing franchise. One of the
+            franchise's most popular characters, he debuted in the title Animal
+            Crossing, and has appeared in every installment since.
+          </p>
+        </CardContent>
+      </Card>
+    ),
   },
 ];
 
@@ -172,35 +280,3 @@ export const faqContent = [
 
 <Accordion contentData={faqContent} />
 ```
-
-## Scrollable example
-
-Use prop `isScrollable={true}` when you'd like the accordion height to match
-that of its parent container. In this example, we wrap the accordion in a
-container whose height is set to 300px. If the contents within the accordion
-are taller than the height of the parent container, a scrollbar will appear.
-
-As in the other examples, any page content underneath the accordion
-will continue to be pushed down.
-
-<Canvas withToolbar>
-  <Story name="Scrollable">
-    <div style={{ maxHeight: "300px", width: "500px" }}>
-      <Accordion
-        isScrollable={true}
-        contentData={[
-          {
-            label: "Tom Nook",
-            panel: (
-              <>
-                <p>Items that belong to Tom Nook</p>
-                <ListStory type={ListTypes.Unordered} />
-              </>
-            ),
-          },
-        ]}
-      />
-    </div>
-    <div>Example content underneath</div>
-  </Story>
-</Canvas>

@@ -23,9 +23,6 @@ export interface AccordionProps {
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
   isDefaultOpen?: boolean;
-  /** Whether the accordion should display with a fixed height and have
-   * the panel scrollable. */
-  isScrollable?: boolean;
 }
 
 /**
@@ -42,16 +39,10 @@ const getIcon = (isExpanded = false) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromContentData = (data = [], scroll) => {
+const getElementsFromContentData = (data = []) => {
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const multiplePadding = data?.length > 1 ? 4 : null;
-  const panelScrollStyle = scroll
-    ? ({
-        maxHeight: "inherit",
-        overflowY: "auto",
-      } as any)
-    : {};
 
   return data.map((content, index) => {
     // This is done to support both string and DOM element input.
@@ -66,7 +57,7 @@ const getElementsFromContentData = (data = [], scroll) => {
       );
 
     return (
-      <AccordionItem key={index} maxHeight={scroll}>
+      <AccordionItem key={index}>
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => (
           <>
@@ -76,14 +67,7 @@ const getElementsFromContentData = (data = [], scroll) => {
               </Box>
               {getIcon(isExpanded)}
             </AccordionButton>
-            <Box
-              {...{
-                ...panelScrollStyle,
-                maxHeight: isExpanded && scroll ? "200px" : undefined,
-              }}
-            >
-              {panel}
-            </Box>
+            {panel}
           </>
         )}
       </AccordionItem>
@@ -96,24 +80,13 @@ const getElementsFromContentData = (data = [], scroll) => {
  * multiple accordion items together.
  */
 function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const {
-    contentData,
-    id = generateUUID(),
-    isDefaultOpen = false,
-    isScrollable = false,
-  } = props;
-  const scroll = isScrollable ? "inherit" : undefined;
+  const { contentData, id = generateUUID(), isDefaultOpen = false } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
-    <ChakraAccordion
-      id={id}
-      defaultIndex={[openFirstAccordion]}
-      allowMultiple
-      maxHeight={scroll}
-    >
-      {getElementsFromContentData(contentData, scroll)}
+    <ChakraAccordion id={id} defaultIndex={[openFirstAccordion]} allowMultiple>
+      {getElementsFromContentData(contentData)}
     </ChakraAccordion>
   );
 }
