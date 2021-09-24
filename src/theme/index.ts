@@ -10,6 +10,7 @@ import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
 import Tabs from "./components/tabs";
+import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 
 /**
@@ -47,6 +48,7 @@ const theme = extendTheme({
     Heading,
     Radio,
     CustomRadioGroup,
+    CustomSelect,
     Tabs,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
