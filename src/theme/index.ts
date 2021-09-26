@@ -10,6 +10,8 @@ import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
 import Tabs from "./components/tabs";
 import Heading from "./components/heading";
+import FilterBar from "./components/filterBar";
+import MultiSelect from "./components/multiSelect";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -46,6 +48,8 @@ const theme = extendTheme({
     Radio,
     CustomRadioGroup,
     Tabs,
+    FilterBar,
+    MultiSelect,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
   // can be updated to be anything we want. This can be "nypl" to have the

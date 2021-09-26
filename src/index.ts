@@ -30,6 +30,7 @@ export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as DatePicker } from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
+export { default as FilterBar } from "./components/FilterBar/FilterBar";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { FormSpacing } from "./components/Form/FormTypes";
 export { default as Heading } from "./components/Heading/Heading";

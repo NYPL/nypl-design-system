@@ -1,0 +1,110 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { HStack } from "@chakra-ui/react";
+
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import FilterBar from "./FilterBar";
+import MultiSelect from "./../MultiSelect/MultiSelect";
+
+<Meta
+  title={getCategory("FilterBar")}
+  component={FilterBar}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
+    },
+    //jest: ["Checkbox.test.tsx"],
+  }}
+  argTypes={{
+    id: { table: { disable: true } },
+  }}
+/>
+
+# FilterBar
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.1.0`    |
+| Latest            | `0.25.0`   |
+
+<Description of={FilterBar} />
+
+This component renders a FilterBar.
+
+<Canvas withToolbar>
+  <Story
+    name="FilterBar Props"
+    args={{
+      id: "test-1234",
+      label: "Filter By:",
+      isModalOpen: false,
+      isMobile: false,
+      selectedItems: [],
+    }}
+  >
+    {(args) => <FilterBar {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="FilterBar Props" />
+
+## FilterBar
+
+<Canvas>
+  <Story name="FilterBar With MultiSelect">
+    <FilterBar id="filter-bar-multiselect" label="Filter By:">
+      <MultiSelect
+        id="group1"
+        label="Languages"
+        items={[
+          {
+            id: "php",
+            name: "PHP",
+          },
+          {
+            id: "ruby",
+            name: "Ruby",
+          },
+          {
+            id: "javascript",
+            name: "Javascript",
+          },
+        ]}
+        selectedItems={{}}
+        showCtaButtons={true}
+      />
+      <MultiSelect
+        id="group2"
+        label="Languages 2"
+        items={[
+          {
+            id: "php",
+            name: "PHP",
+          },
+          {
+            id: "ruby",
+            name: "Ruby",
+          },
+          {
+            id: "javascript",
+            name: "Javascript",
+          },
+        ]}
+        selectedItems={{}}
+        showCtaButtons={true}
+      />
+    </FilterBar>
+  </Story>
+</Canvas>
+
+<ArgsTable story="FilterBar With MultiSelect" />
