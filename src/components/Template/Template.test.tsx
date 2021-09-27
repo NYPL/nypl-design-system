@@ -5,7 +5,7 @@ import { axe } from "jest-axe";
 import {
   Template,
   TemplateHeader,
-  TemplateContentBreakout,
+  TemplateBreakout,
   TemplateContent,
   TemplateContentTop,
   TemplateContentPrimary,
@@ -16,7 +16,7 @@ import {
 import Placeholder from "../Placeholder/Placeholder";
 
 const header = <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>;
-const contentBreakout = (
+const breakout = (
   <>
     <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
     <Placeholder modifiers={["short"]}>Hero</Placeholder>
@@ -33,32 +33,12 @@ const contentPrimary = (
 );
 const footer = <Placeholder modifiers={["short"]}>Footer</Placeholder>;
 
-describe("Template components accessibility", () => {
-  it("passes axe accessibility test", async () => {
-    const { container } = render(
-      <Template>
-        <TemplateHeader>
-          {header}
-          <TemplateContentBreakout>{contentBreakout}</TemplateContentBreakout>
-        </TemplateHeader>
-        <TemplateContent sidebar={sidebar}>
-          <TemplateContentTop>{contentTop}</TemplateContentTop>
-          <TemplateContentSidebar>{contentSidebar}</TemplateContentSidebar>
-          <TemplateContentPrimary>{contentPrimary}</TemplateContentPrimary>
-        </TemplateContent>
-        <TemplateFooter>{footer}</TemplateFooter>
-      </Template>
-    );
-    expect(await axe(container)).toHaveNoViolations();
-  });
-});
-
 describe("TemplateAppContainer accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <TemplateAppContainer
         header={header}
-        contentBreakout={contentBreakout}
+        breakout={breakout}
         sidebar={sidebar}
         contentTop={contentTop}
         contentSidebar={contentSidebar}
@@ -70,13 +50,13 @@ describe("TemplateAppContainer accessibility", () => {
   });
 });
 
-describe("Template components", () => {
-  it("renders each section", () => {
-    render(
+describe("Template components accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
       <Template>
         <TemplateHeader>
           {header}
-          <TemplateContentBreakout>{contentBreakout}</TemplateContentBreakout>
+          <TemplateBreakout>{breakout}</TemplateBreakout>
         </TemplateHeader>
         <TemplateContent sidebar={sidebar}>
           <TemplateContentTop>{contentTop}</TemplateContentTop>
@@ -85,6 +65,23 @@ describe("Template components", () => {
         </TemplateContent>
         <TemplateFooter>{footer}</TemplateFooter>
       </Template>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("TemplateAppContainer component", () => {
+  it("renders each section", () => {
+    render(
+      <TemplateAppContainer
+        header={header}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={footer}
+      />
     );
 
     expect(screen.getByText("NYPL Header")).toBeInTheDocument();
@@ -98,18 +95,21 @@ describe("Template components", () => {
   });
 });
 
-describe("TemplateAppContainer component", () => {
+describe("Template components", () => {
   it("renders each section", () => {
     render(
-      <TemplateAppContainer
-        header={header}
-        contentBreakout={contentBreakout}
-        sidebar={sidebar}
-        contentTop={contentTop}
-        contentSidebar={contentSidebar}
-        contentPrimary={contentPrimary}
-        footer={footer}
-      />
+      <Template>
+        <TemplateHeader>
+          {header}
+          <TemplateBreakout>{breakout}</TemplateBreakout>
+        </TemplateHeader>
+        <TemplateContent sidebar={sidebar}>
+          <TemplateContentTop>{contentTop}</TemplateContentTop>
+          <TemplateContentSidebar>{contentSidebar}</TemplateContentSidebar>
+          <TemplateContentPrimary>{contentPrimary}</TemplateContentPrimary>
+        </TemplateContent>
+        <TemplateFooter>{footer}</TemplateFooter>
+      </Template>
     );
 
     expect(screen.getByText("NYPL Header")).toBeInTheDocument();

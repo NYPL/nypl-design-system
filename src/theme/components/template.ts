@@ -37,7 +37,7 @@ const TemplateHeader = {
     marginBottom: 8, // --space-l
   },
 };
-const TemplateContentBreakout = {
+const TemplateBreakout = {
   baseStyle: {
     ...breakout,
     width: "100vw",
@@ -106,7 +106,7 @@ const TemplateContentSidebar = {
 export default {
   Template,
   TemplateHeader,
-  TemplateContentBreakout,
+  TemplateBreakout,
   TemplateContent,
   TemplateContentTop,
   TemplateContentPrimary,

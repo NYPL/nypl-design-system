@@ -10,7 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 import {
   Template,
   TemplateHeader,
-  TemplateContentBreakout,
+  TemplateBreakout,
   TemplateContent,
   TemplateContentTop,
   TemplateContentPrimary,
@@ -51,7 +51,7 @@ Basic component structure:
 import {
   Template,
   TemplateHeader,
-  TemplateContentBreakout,
+  TemplateBreakout,
   TemplateContent,
   TemplateContentTop,
   TemplateContentPrimary,
@@ -63,9 +63,9 @@ import {
 <Template>
   <TemplateHeader>
     // ...
-    <TemplateContentBreakout>
+    <TemplateBreakout>
       // ...
-    </TemplateContentBreakout>
+    </TemplateBreakout>
   </TemplateHeader>
 
   <TemplateContent>
@@ -91,7 +91,7 @@ import {
       sidebar: "left",
     }}
     argTypes={{
-      contentBreakout: { table: { disable: true } },
+      breakout: { table: { disable: true } },
       contentPrimary: { table: { disable: true } },
       contentSidebar: { table: { disable: true } },
       contentTop: { table: { disable: true } },
@@ -103,10 +103,10 @@ import {
       <Template>
         <TemplateHeader>
           <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>
-          <TemplateContentBreakout>
+          <TemplateBreakout>
             <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
             <Placeholder modifiers={["short"]}>Hero</Placeholder>
-          </TemplateContentBreakout>
+          </TemplateBreakout>
         </TemplateHeader>
         <TemplateContent sidebar={args.sidebar}>
           <TemplateContentTop>
@@ -180,10 +180,10 @@ In order to render a sidebar, two steps must be taken.
     <Template>
       <TemplateHeader>
         <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>
-        <TemplateContentBreakout>
+        <TemplateBreakout>
           <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
           <Placeholder modifiers={["short"]}>Hero</Placeholder>
-        </TemplateContentBreakout>
+        </TemplateBreakout>
       </TemplateHeader>
       <TemplateContent sidebar="right">
         <TemplateContentTop>
@@ -210,7 +210,7 @@ The components consist of:
 
 - `Template`
 - `TemplateHeader`
-- `TemplateContentBreakout`
+- `TemplateBreakout`
 - `TemplateContent`
 - `TemplateContentTop`
 - `TemplateContentPrimary`
@@ -239,19 +239,19 @@ The components consist of:
 
 <Description of={TemplateHeader} />
 
-### TemplateContentBreakout
+### TemplateBreakout
 
 ```
 <Template>
   <TemplateHeader>
-    <TemplateContentBreakout>
+    <TemplateBreakout>
       // ...
-    </TemplateContentBreakout>
+    </TemplateBreakout>
   </TemplateHeader>
 <Template>
 ```
 
-<Description of={TemplateContentBreakout} />
+<Description of={TemplateBreakout} />
 
 ### TemplateContent
 
@@ -353,7 +353,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
 
 <TemplateAppContainer
   header={<Placeholder modifiers={["short"]}>NYPL Header</Placeholder>}
-  contentBreakout={
+  breakout={
     <>
       <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
       <Placeholder modifiers={["short"]}>Hero</Placeholder>
@@ -377,7 +377,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
     name="TemplateAppContainer Component"
     args={{
       header: <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>,
-      contentBreakout: (
+      breakout: (
         <>
           <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
           <Placeholder modifiers={["short"]}>Hero</Placeholder>
@@ -396,7 +396,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
     }}
     argTypes={{
       header: { control: false },
-      contentBreakout: { control: false },
+      breakout: { control: false },
       contentTop: { control: false },
       contentSidebar: { control: false },
       contentPrimary: { control: false },

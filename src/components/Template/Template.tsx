@@ -9,8 +9,8 @@ export interface TemplateSidebarProps {
 }
 export interface TemplateContentProps extends TemplateSidebarProps {}
 export interface TemplateAppContainerProps extends TemplateSidebarProps {
-  /** DOM that will be rendered in the `TemplateContentBreakout` component section. */
-  contentBreakout?: React.ReactElement;
+  /** DOM that will be rendered in the `TemplateBreakout` component section. */
+  breakout?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
   contentPrimary?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentSidebar` component section. */
@@ -54,20 +54,18 @@ const TemplateHeader = (props: React.PropsWithChildren<TemplateProps>) => {
  * This is meant to render its children from edge to edge and is most useful
  * for the `Breadcrumbs` and `Hero` components, and other banner-like components.
  */
-const TemplateContentBreakout = (
-  props: React.PropsWithChildren<TemplateProps>
-) => {
-  const styles = useStyleConfig("TemplateContentBreakout", {});
+const TemplateBreakout = (props: React.PropsWithChildren<TemplateProps>) => {
+  const styles = useStyleConfig("TemplateBreakout", {});
   return <Box __css={styles}>{props.children}</Box>;
 };
 
 /**
  * This component is most useful to render content on the page. This renders an
- * HTML `<main>` element. This takes a `sidebar` prop with optional "left" or
- * "right" values. This will pass down the correct Chakra styling for the
+ * HTML `<main>` element and takes a `sidebar` prop with optional "left" or
+ * "right" values. This will set the correct styling needed for the
  * `TemplateContentPrimary` and `TemplateContentSidebar` components. Note that
  * `TemplateContentPrimary` and `TemplateContentSidebar` must be ordered
- * correctly for the appropriate styles to take effect.
+ * correctly as children elements for the appropriate styles to take effect.
  */
 const TemplateContent = (
   props: React.PropsWithChildren<TemplateContentProps>
@@ -163,15 +161,15 @@ const TemplateFooter = (props: React.PropsWithChildren<TemplateProps>) => {
 /**
  * This single component can be used instead of all the individual template
  * components. Instead of rendering each component, each section is passed as
- * a prop to the section where it should be rendered to. If you want to render
- * content in the `TemplateContentPrimary` section, then pass it as a prop to
- * `contentPrimary`.
+ * a prop to the section where it should be rendered. For example, if you want
+ * to render content in the `TemplateContentPrimary` section, then pass it as
+ * a prop to `contentPrimary`.
  */
 const TemplateAppContainer = (
   props: React.PropsWithChildren<TemplateAppContainerProps>
 ) => {
   const {
-    contentBreakout,
+    breakout,
     contentPrimary,
     contentSidebar,
     contentTop,
@@ -179,8 +177,8 @@ const TemplateAppContainer = (
     header,
     sidebar = "none",
   } = props;
-  const contentBreakoutElem = contentBreakout && (
-    <TemplateContentBreakout>{contentBreakout}</TemplateContentBreakout>
+  const breakoutElem = breakout && (
+    <TemplateBreakout>{breakout}</TemplateBreakout>
   );
   const contentTopElem = contentTop && (
     <TemplateContentTop>{contentTop}</TemplateContentTop>
@@ -193,12 +191,14 @@ const TemplateAppContainer = (
   );
   return (
     <Template>
-      {header && (
+      {(header || breakoutElem) && (
         <TemplateHeader>
           {header}
-          {contentBreakoutElem}
+          {breakoutElem}
         </TemplateHeader>
       )}
+      {/* Note that setting `sidebar` as a prop here affects the
+       TemplateContentSidebar and TemplateContentPrimary components. */}
       <TemplateContent sidebar={sidebar}>
         {contentTopElem}
 
@@ -217,7 +217,7 @@ export {
   TemplateAppContainer,
   Template,
   TemplateHeader,
-  TemplateContentBreakout,
+  TemplateBreakout,
   TemplateContent,
   TemplateContentTop,
   TemplateContentPrimary,
