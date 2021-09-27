@@ -3,18 +3,19 @@ import {
   Story,
   Canvas,
   ArgsTable,
+  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
-import { Box, VStack } from "@chakra-ui/react";
 
 import Hero from "./Hero";
-import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
+import { HeroTypes } from "./HeroTypes";
 import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
+import sections from "../../utils/siteSections";
+import { action } from "@storybook/addon-actions";
 import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Hero")}
@@ -29,27 +30,32 @@ import DSProvider from "../../theme/provider";
     jest: ["Hero.test.tsx"],
   }}
   argTypes={{
-    backgroundColor: { table: { disable: true } },
-    foregroundColor: { table: { disable: true } },
+    attributes: { table: { disable: true } },
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
     heading: { table: { disable: true } },
-    image: { table: { disable: true } },
-    locationDetails: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
     subHeaderText: { table: { disable: true } },
+    image: { table: { disable: true } },
   }}
 />
 
 export const secondarySubHeaderText = (
-  <>
+  <div className="hero__body-text">
     Explore our collection of hundreds of online resources and databases. Use
     our free online content to help with your research, whether it's finding a
     single article, tracing a family tree, learning a new language, or anything
     in between.
-  </>
+  </div>
 );
 export const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
-export const image = (
-  <Image src="https://placeimg.com/800/400/animals" alt="Image example" />
+export const secondaryImage = (
+  <Image
+    src="https://placeimg.com/800/400/animals"
+    blockName="hero"
+    alt="Image example"
+  />
 );
 
 # Hero
@@ -57,19 +63,17 @@ export const image = (
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.2.0`    |
-| Latest            | `0.25.1`   |
+| Latest            | `0.23.4`   |
 
 <Description of={Hero} />
 
-The `Hero` component is used to display a full width banner at the top of a page.
-The `Hero` will contain a required `h1` page title and may also include optional
-descriptive text and images.
+The `Hero` component is used to display a full width banner at the top of a page. The `Hero` will contain a required `h1` page title and may also include optional descriptive text and images.
 
-<Canvas withToolbar>
+<Preview withToolbar>
   <Story
     name="Hero Props"
     args={{
-      heroType: HeroTypes.Campaign,
+      heroType: HeroTypes.Primary,
     }}
   >
     {(args) =>
@@ -77,21 +81,37 @@ descriptive text and images.
         <Hero
           {...args}
           heading={
-            <Heading level={HeadingLevels.One} id="1" text="Hero Primary" />
+            <Heading
+              level={HeadingLevels.One}
+              id="1"
+              text="Hero Primary"
+              blockName="hero"
+            />
           }
           subHeaderText="Example Subtitle"
           backgroundImageSrc="https://placeimg.com/2400/800/nature"
         />
       )) ||
-      (HeroSecondaryTypes.includes(args.heroType) && (
-        <div className="nypl--books-and-more">
+      (args.heroType === HeroTypes.Secondary && (
+        <div className={"nypl-ds nypl--books-and-more"}>
           <Hero
             {...args}
             heading={
-              <Heading level={HeadingLevels.One} id="1" text="Hero Secondary" />
+              <Heading
+                level={HeadingLevels.One}
+                id="1"
+                text="Hero Secondary"
+                blockName="hero"
+              />
             }
             subHeaderText={secondarySubHeaderText}
-            image={image}
+            image={
+              <Image
+                src="https://placeimg.com/800/400/animals"
+                blockName="hero"
+                alt="Image example"
+              />
+            }
           />
         </div>
       )) ||
@@ -99,25 +119,14 @@ descriptive text and images.
         <Hero
           {...args}
           heading={
-            <Heading level={HeadingLevels.One} id="1" text="Hero Tertiary" />
-          }
-          subHeaderText={otherSubHeaderText}
-        />
-      )) ||
-      (args.heroType === HeroTypes.Campaign && (
-        <Hero
-          {...args}
-          heading={
-            <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
-          }
-          subHeaderText={otherSubHeaderText}
-          backgroundImageSrc="https://placeimg.com/2400/800/nature"
-          image={
-            <Image
-              src="https://placeimg.com/800/400/animals"
-              alt="Image example"
+            <Heading
+              level={HeadingLevels.One}
+              id="1"
+              text="Hero Tertiary"
+              blockName="hero"
             />
           }
+          subHeaderText={otherSubHeaderText}
         />
       )) ||
       (args.heroType === HeroTypes.FiftyFifty && (
@@ -127,6 +136,29 @@ descriptive text and images.
           image={
             <Image
               src="https://placeimg.com/600/200/animals"
+              blockName="hero"
+              alt="Image example"
+            />
+          }
+        />
+      )) ||
+      (args.heroType === HeroTypes.Campaign && (
+        <Hero
+          {...args}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="1"
+              text="Hero Campaign"
+              blockName="hero"
+            />
+          }
+          subHeaderText={otherSubHeaderText}
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+          image={
+            <Image
+              src="https://placeimg.com/800/400/animals"
+              blockName="hero"
               alt="Image example"
             />
           }
@@ -134,183 +166,84 @@ descriptive text and images.
       ))
     }
   </Story>
-</Canvas>
+</Preview>
 
 <ArgsTable story="Hero Props" />
 
 ## Color Variations for Secondary Hero
 
-The background color for the title bar in "Secondary" types changes based on
-variants for the `Secondary` main variant. Before, components relied on the
-parent wrapper's CSS class name for background color updates. Now, the proper
-`HeroType` must be passed in.
-
-```jsx
-// Before
-<div className="nypl--books-and-more">
-  <Hero {...props} />
-</div>
-
-// Now
-<Hero heroType={HeroTypes.SecondaryBooksAndMore} {...props} />
-```
+The background color for the title bar in `HeroTypes.Secondary` is determined by the placement of the `Hero` component within a comsuming app. The CSS for `Hero` is constructued to use classes of the `Hero` component's parent elements as a determinant for the title bar background color. Below are the four color variations available based on the consuming React app.
 
 <Canvas>
   <Story name="Color Variations for Secondary Hero">
-    <VStack spacing={10} align="stretch">
-      <Heading
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryBooksAndMore"
-        id="books-heading"
-      />
+    <div className={"nypl-ds nypl--books-and-more"}>
       <Hero
-        heroType={HeroTypes.SecondaryBooksAndMore}
+        heroType={HeroTypes.Secondary}
         heading={
           <Heading
             level={HeadingLevels.One}
-            id="books-hero"
-            text="Books and More"
+            id="1"
+            text={"Books and More"}
+            blockName="hero"
           />
         }
         subHeaderText={secondarySubHeaderText}
-        image={image}
+        image={secondaryImage}
       />
-      <Heading
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryLocations"
-        id="location-heading"
-      />
-      <Hero
-        heroType={HeroTypes.SecondaryLocations}
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="locations-hero"
-            text="Locations"
-          />
-        }
-        subHeaderText={secondarySubHeaderText}
-        image={image}
-      />
-      <Heading
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryResearch"
-        id="research-heading"
-      />
-      <Hero
-        heroType={HeroTypes.SecondaryResearch}
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="research-hero"
-            text="Research"
-          />
-        }
-        subHeaderText={secondarySubHeaderText}
-        image={image}
-      />
-      <Heading
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryWhatsOn"
-        id="whats-on-heading"
-      />
-      <Hero
-        heroType={HeroTypes.SecondaryWhatsOn}
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="whats-on-hero"
-            text="What's On"
-          />
-        }
-        subHeaderText={secondarySubHeaderText}
-        image={image}
-      />
-    </VStack>
+    </div>
   </Story>
 </Canvas>
 
-## All Variations
+<Canvas>
+  <div className={"nypl-ds nypl--locations"}>
+    <Hero
+      heroType={HeroTypes.Secondary}
+      heading={
+        <Heading
+          level={HeadingLevels.One}
+          id="1"
+          text={"Locations"}
+          blockName="hero"
+        />
+      }
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
+    />
+  </div>
+</Canvas>
 
 <Canvas>
-  <DSProvider>
-    <VStack spacing={10} align="stretch">
-      <Heading level={HeadingLevels.Two} text="Primary" id="primary-heading" />
-      <Hero
-        heroType={HeroTypes.Primary}
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="primary-hero"
-            text="Hero Primary"
-          />
-        }
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
-      />
-      <Heading
-        level={HeadingLevels.Two}
-        text="Secondary"
-        id="secondary-heading"
-      />
-      <div className="nypl--locations">
-        <Hero
-          heroType={HeroTypes.Secondary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="secondary-hero"
-              text="Hero Secondary"
-            />
-          }
-          subHeaderText={secondarySubHeaderText}
-          image={image}
+  <div className={"nypl-ds nypl--research"}>
+    <Hero
+      heroType={HeroTypes.Secondary}
+      heading={
+        <Heading
+          level={HeadingLevels.One}
+          id="1"
+          text={"Research"}
+          blockName="hero"
         />
-      </div>
-      <Heading
-        level={HeadingLevels.Two}
-        text="Tertiary"
-        id="tertiary-heading"
-      />
-      <Hero
-        heroType={HeroTypes.Tertiary}
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="tertiary-hero"
-            text="Hero Tertiary"
-          />
-        }
-        subHeaderText={otherSubHeaderText}
-      />
-      <Heading
-        level={HeadingLevels.Two}
-        text="Campaign"
-        id="campaign-heading"
-      />
-      <Hero
-        heroType={HeroTypes.Campaign}
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="campaign-hero"
-            text="Hero Campaign"
-          />
-        }
-        subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        image={image}
-      />
-      <Box marginTop="30px" />
-      <Heading
-        level={HeadingLevels.Two}
-        text="FiftyFifty"
-        id="fiftyfifty-heading"
-      />
-      <Hero
-        heroType={HeroTypes.FiftyFifty}
-        subHeaderText={otherSubHeaderText}
-        image={image}
-      />
-    </VStack>
-  </DSProvider>
+      }
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
+    />
+  </div>
+</Canvas>
+
+<Canvas>
+  <div className={"nypl-ds nypl--whats-on"}>
+    <Hero
+      heroType={HeroTypes.Secondary}
+      heading={
+        <Heading
+          level={HeadingLevels.One}
+          id="1"
+          text={"What's On"}
+          blockName="hero"
+        />
+      }
+      subHeaderText={secondarySubHeaderText}
+      image={secondaryImage}
+    />
+  </div>
 </Canvas>
