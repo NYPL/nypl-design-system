@@ -10,8 +10,6 @@ import {
 import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
 
 export interface HeadingProps {
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
   /** Optional className that appears in addition to `heading` */
   className?: string;
   /** Optional size used to override the default styles of the semantic HTML `<h>` elements */
@@ -20,8 +18,8 @@ export interface HeadingProps {
   id?: string;
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed, `Heading` will default to `<h2>` */
   level?: HeadingLevels;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
+  /** Optionally pass in additional Chakra-based styles. */
+  sx?: { [key: string]: any };
   /** Inner text of the `<h*>` element */
   text?: string;
   /** Optional URL that header points to; when `url` prop is passed to `Heading`, a child `<a>` element is created and the heading text becomes an active link */
@@ -49,13 +47,16 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
     displaySize,
     id,
     level = HeadingLevels.Two,
+    sx = {},
     text,
     url,
     urlClass,
   } = props;
-
   const variant = displaySize ? getVariant(displaySize) : `h${level}`;
   const styles = useStyleConfig("Heading", { variant });
+  // Combine native base styles with any additional styles.
+  // This is used only in the `Hero` component, for now.
+  const finalStyles = { ...styles, ...sx };
   const asHeading: any = `h${level}`;
 
   if (level < 1 || level > 6) {
@@ -87,7 +88,12 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
   );
 
   return (
-    <ChakraHeading id={id} as={asHeading} sx={styles} className={className}>
+    <ChakraHeading
+      id={id}
+      as={asHeading}
+      sx={finalStyles}
+      className={className}
+    >
       {content}
     </ChakraHeading>
   );

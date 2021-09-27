@@ -22,14 +22,14 @@ const CustomTabs = {
       },
       whiteSpace: "nowrap",
       _hover: {
-        bg: "ui.gray.warm-xlight",
+        bg: "ui.gray.x-light-warm",
         borderTopRadius: 2,
         borderBottom: "1px solid",
         borderBottomColor: "ui.black",
       },
       _selected: {
         fontWeight: "bold",
-        bg: "ui.gray.warm-light",
+        bg: "ui.gray.light-warm",
         border: "0",
         borderTopRadius: 2,
         borderBottom: "3px solid",

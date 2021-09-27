@@ -4,11 +4,16 @@ import global from "./foundations/global";
 import typography from "./foundations/typography";
 import { spacing } from "./foundations/spacing";
 import breakpoints from "./foundations/breakpoints";
+import Accordion from "./components/accordion";
 import Button from "./components/button";
 import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
+import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import Tabs from "./components/tabs";
+import Hero from "./components/hero";
+import TextInput from "./components/textInput";
+import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 
 /**
@@ -40,12 +45,17 @@ const theme = extendTheme({
    * https://chakra-ui.com/docs/theming/component-style
    */
   components: {
+    Accordion,
     Button,
     Checkbox,
+    CustomCheckboxGroup,
     Heading,
     Radio,
     CustomRadioGroup,
+    CustomSelect,
     Tabs,
+    Hero,
+    TextInput,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
   // can be updated to be anything we want. This can be "nypl" to have the
