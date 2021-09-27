@@ -25,6 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `RadioGroup` component from Chakra's `RadioGroup` component.
 - Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
 - Updates the `errorText` prop name to `invalidText`.
+- Adds DS `SimpleGrid` component composed from Chakra's `Simplegrid` component.
 - Update the NYPL Colors with updated color names and values.
 - Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
 - Composes the DS `Select` component from Chakra's `Select` component.
