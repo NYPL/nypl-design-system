@@ -231,7 +231,7 @@ const variants = {
 };
 const Hero = {
   baseStyle: {
-    bg: "ui.gray.warm-xlight",
+    bg: "ui.gray.x-light-warm",
   },
   // Available variants:
   // primary, secondary, secondaryBooksAndMore, secondaryLocations,

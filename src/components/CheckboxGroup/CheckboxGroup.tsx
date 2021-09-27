@@ -2,23 +2,21 @@ import * as React from "react";
 import {
   Box,
   Stack,
+  CheckboxGroup as ChakraCheckboxGroup,
   useMultiStyleConfig,
-  useRadioGroup,
 } from "@chakra-ui/react";
 
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
-import Radio from "../Radio/Radio";
+import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
+import Checkbox from "../Checkbox/Checkbox";
 
-export interface RadioGroupProps {
+export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
-  /** Additional class name. */
-  className?: string;
   /** Populates the initial value of the input */
-  defaultValue?: string;
+  defaultValue?: string[];
   /** Optional string to populate the HelperErrorText for error state */
   invalidText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
@@ -27,20 +25,20 @@ export interface RadioGroupProps {
   id?: string;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
-  /** Adds the 'aria-invalid' attribute to the input and
+  /** A`dds the 'aria-invalid' attribute to the input and
    * sets the error state when true. */
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
-  /** The radio group label displayed in a `legend` element if `showlabel` is
+  /** The checkbox group label displayed in a `legend` element if `showlabel` is
    * true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
-  /** Renders the Radio buttons in a row or column (default). */
-  layout?: RadioGroupLayoutTypes;
-  /** The `name` prop indicates the form group for all the Radio children. */
+  /** Renders the checkbox buttons in a row or column (default). */
+  layout?: CheckboxGroupLayoutTypes;
+  /** The `name` prop indicates the form group for all the `Checkbox` children. */
   name: string;
   /** The action to perform on the `<input>`'s onChange function  */
-  onChange?: (value: string) => void;
+  onChange?: (value: string[]) => void;
   /** Whether or not to display "Required"/"Optional" in the label text. */
   optReqFlag?: boolean;
   /** Offers the ability to show the group's legend onscreen or hide it. Refer
@@ -49,16 +47,18 @@ export interface RadioGroupProps {
 }
 
 const noop = () => {};
-export const onChangeDefault = () => {
-  return;
-};
 
-const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
+/**
+ * Wrapper component to wrap `Checkbox` components. Can be displayed in a
+ * column or in a row. The `CheckboxGroup` component renders all the necessary
+ * wrapping and associated text elements, but the checkbox input elements
+ * _need_ to be child `Checkbox` components from the NYPL Design System.
+ */
+const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
   (props, ref?) => {
     const {
       children,
-      className = "",
-      defaultValue,
+      defaultValue = [],
       invalidText,
       helperText,
       id = generateUUID(),
@@ -66,64 +66,55 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       isInvalid = false,
       isRequired = false,
       labelText,
-      layout = RadioGroupLayoutTypes.Column,
+      layout = CheckboxGroupLayoutTypes.Column,
       name,
-      onChange = onChangeDefault,
+      onChange,
       optReqFlag = true,
       showLabel = true,
     } = props;
     const footnote = isInvalid ? invalidText : helperText;
     const spacingProp =
-      layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
+      layout === CheckboxGroupLayoutTypes.Column ? spacing.s : spacing.l;
     const newChildren = [];
+    const checkboxProps =
+      defaultValue && onChange
+        ? {
+            defaultValue,
+            onChange,
+          }
+        : {};
 
-    // Use Chakra's RadioGroup hook to set and get the proper props
-    // or the custom components.
-    const { getRootProps, getRadioProps } = useRadioGroup({
-      name,
-      defaultValue,
-      onChange,
-    });
-    const radioGroupProps = getRootProps();
-
-    // Go through the Radio children and update them as needed.
+    // Go through the Checkbox children and update them as needed.
     React.Children.map(children, (child: React.ReactElement, i) => {
-      if (child.type !== Radio) {
+      if (child.type !== Checkbox) {
         // Special case for Storybook MDX documentation.
-        if (child.props.mdxType && child.props.mdxType === "Radio") {
+        if (child.props.mdxType && child.props.mdxType === "Checkbox") {
           noop();
         } else {
           console.warn(
-            "Only `Radio` components are allowed inside the `RadioGroup` component."
+            "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
           );
         }
       }
 
-      const chakraRadioProps = getRadioProps({
-        value: child.props.value,
-      } as any);
-
       if (child !== undefined && child !== null) {
-        const newProps = { key: i, isDisabled, isInvalid, isRequired };
-        if (child.props.value === defaultValue) {
-          newProps["checked"] = true;
-        }
-        newChildren.push(
-          React.cloneElement(child, { ...newProps, ...chakraRadioProps })
-        );
+        const newProps = {
+          key: i,
+          id: `${id}-${i}`,
+          name,
+          isDisabled,
+          isInvalid,
+          isRequired,
+        };
+        newChildren.push(React.cloneElement(child, newProps));
       }
     });
 
     // Get the Chakra-based styles for all the custom elements in this component.
-    const styles = useMultiStyleConfig("CustomRadioGroup", {});
+    const styles = useMultiStyleConfig("CustomCheckboxGroup", {});
 
     return (
-      <Box
-        as="fieldset"
-        id={`radio-group-${id}`}
-        className={className}
-        __css={styles}
-      >
+      <Box as="fieldset" id={`checkbox-group-${id}`} __css={styles}>
         <legend className={showLabel ? "" : "sr-only"}>
           <span>{labelText}</span>
           {optReqFlag && (
@@ -132,15 +123,18 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
             </Box>
           )}
         </legend>
-        <Stack
-          direction={[layout]}
-          spacing={spacingProp}
-          ref={ref}
-          aria-label={!showLabel ? labelText : null}
-          {...radioGroupProps}
-        >
-          {newChildren}
-        </Stack>
+        <ChakraCheckboxGroup {...checkboxProps}>
+          <Stack
+            id={id}
+            data-testid="checkbox-group"
+            direction={[layout]}
+            spacing={spacingProp}
+            ref={ref}
+            aria-label={!showLabel ? labelText : null}
+          >
+            {newChildren}
+          </Stack>
+        </ChakraCheckboxGroup>
         {footnote && (
           <Box __css={styles.helper}>
             <HelperErrorText isError={isInvalid}>{footnote}</HelperErrorText>
@@ -151,4 +145,4 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
   }
 );
 
-export default RadioGroup;
+export default CheckboxGroup;

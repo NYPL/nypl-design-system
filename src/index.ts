@@ -28,6 +28,8 @@ export {
 } from "./components/Card/CardTypes";
 export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
+export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
+export { CheckboxGroupLayoutTypes } from "./components/CheckboxGroup/CheckboxGroupLayoutTypes";
 export { default as DatePicker } from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";

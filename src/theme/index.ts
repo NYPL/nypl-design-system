@@ -9,6 +9,7 @@ import Button from "./components/button";
 import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
+import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import Tabs from "./components/tabs";
 import Hero from "./components/hero";
 import TextInput from "./components/textInput";
@@ -47,6 +48,7 @@ const theme = extendTheme({
     Accordion,
     Button,
     Checkbox,
+    CustomCheckboxGroup,
     Heading,
     Radio,
     CustomRadioGroup,
