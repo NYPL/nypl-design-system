@@ -26,6 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
 - Updates the `errorText` prop name to `invalidText`.
 - Composes the DS `CheckboxGroup` component from Chakra's `CheckboxGroup` component.
+- Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
 - Composes the DS `Select` component from Chakra's `Select` component.
 
 ### Removes
@@ -35,6 +36,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates the development preview URL from the Netlify link to the Tugboat QA link.
+- Updating spacing values to use NYPL spacing rather than "em"s.
 
 ## 0.24.1
 
