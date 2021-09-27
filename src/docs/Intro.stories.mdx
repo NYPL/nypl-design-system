@@ -4,24 +4,26 @@ import { HeroTypes } from "../components/Hero/HeroTypes.tsx";
 import Heading from "../components/Heading/Heading.tsx";
 import Image from "../components/Image/Image.tsx";
 import getCSSVariable from "../helpers/getCSSVariable";
+import DSProvider from "../theme/provider";
 
 <Meta title="Introduction" />
 
 # NYPL Design System
 
-<Hero
-  heroType={HeroTypes.FiftyFifty}
-  subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
-  image={
-    <Image
-      src="https://cdn-d8.nypl.org/s3fs-public/styles/2_1_960/public/2020-07/SASB_06_29_2020_Lions_mask-00207%20copy_0.jpeg?h=c8e955ed&itok=n_GLQgoe"
-      blockName="hero"
-      alt=""
-    />
-  }
-  backgroundColor={getCSSVariable("--section-books-and-more-primary")}
-  foregroundColor={getCSSVariable("--ui-white")}
-/>
+<DSProvider>
+  <Hero
+    heroType={HeroTypes.FiftyFifty}
+    subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
+    image={
+      <Image
+        src="https://cdn-d8.nypl.org/s3fs-public/styles/2_1_960/public/2020-07/SASB_06_29_2020_Lions_mask-00207%20copy_0.jpeg?h=c8e955ed&itok=n_GLQgoe"
+        alt=""
+      />
+    }
+    backgroundColor={getCSSVariable("--section-books-and-more-primary")}
+    foregroundColor={getCSSVariable("--ui-white")}
+  />
+</DSProvider>
 
 <br />
 
