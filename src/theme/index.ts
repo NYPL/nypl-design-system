@@ -10,6 +10,7 @@ import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
 import Tabs from "./components/tabs";
+import TextInput from "./components/textInput";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 
@@ -50,6 +51,7 @@ const theme = extendTheme({
     CustomRadioGroup,
     CustomSelect,
     Tabs,
+    TextInput,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
   // can be updated to be anything we want. This can be "nypl" to have the

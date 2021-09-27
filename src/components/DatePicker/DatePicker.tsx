@@ -86,14 +86,14 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   maxDate?: string;
   /** Populates the `HelperErrorText` error state for both "From" and "To" input components. */
   invalidText?: string;
-  /** Helper for modifiers array; adds 'errored' styling. */
-  errored?: boolean;
+  /** Helper for modifiers array; adds 'isInvalid' styling. */
+  isInvalid?: boolean;
   /** Adds the 'required' property to the input element(s). */
   required?: boolean;
   /** Whether or not to display the "Required"/"Optional" text in the label text. */
   showOptReqLabel?: boolean;
   /** Adds the 'disabled' property to the input element(s). */
-  disabled?: boolean;
+  isDisabled?: boolean;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM
    * here: http://getbem.com/introduction/ */
   modifiers?: string[];
@@ -130,10 +130,10 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       onChange,
       value,
       labelText,
-      disabled,
+      isDisabled,
       dsRequired,
       showOptReqLabel,
-      errored,
+      isInvalid,
       helperText,
       invalidText,
       onClick,
@@ -149,10 +149,10 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       onChange={onChange}
       value={value}
       labelText={labelText}
-      disabled={disabled}
-      required={dsRequired}
+      isDisabled={isDisabled}
+      isRequired={dsRequired}
       showOptReqLabel={showOptReqLabel}
-      errored={errored}
+      isInvalid={isInvalid}
       helperText={helperText}
       invalidText={invalidText}
       // Use either the specific prop-based or the forwardRef value.
@@ -220,10 +220,10 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       helperTextFrom,
       helperTextTo,
       invalidText,
-      errored,
+      isInvalid,
       required,
       showOptReqLabel = true,
-      disabled,
+      isDisabled,
       nameFrom,
       nameTo,
       blockName,
@@ -268,7 +268,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       minDate: minDate ? new Date(minDate) : null,
       maxDate: maxDate ? new Date(maxDate) : null,
       dateFormat,
-      disabled,
+      isDisabled,
     };
     // Both TextInput components share some props.
     let baseCustomTextInputAttrs = {
@@ -277,8 +277,8 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       // Always display the labels or the input fields when
       // the DatePicker component is a `dateRange` type.
       showLabel: dateRange ? true : showLabel,
-      disabled,
-      errored,
+      isDisabled,
+      isInvalid,
       helperText: dateRange ? helperTextFrom : helperText,
       invalidText,
     };
