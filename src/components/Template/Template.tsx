@@ -160,10 +160,10 @@ const TemplateFooter = (props: React.PropsWithChildren<TemplateProps>) => {
 
 /**
  * This single component can be used instead of all the individual template
- * components. Instead of rendering each component, each section is passed as
- * a prop to the section where it should be rendered. For example, if you want
- * to render content in the `TemplateContentPrimary` section, then pass it as
- * a prop to `contentPrimary`.
+ * components. Instead of importing and rendering the needed "template"
+ * components, each section is passed as a prop to the section where it should
+ * be rendered. For example, if you want to render content in the
+ * `TemplateContentPrimary` section, then pass it as a prop to `contentPrimary`.
  */
 const TemplateAppContainer = (
   props: React.PropsWithChildren<TemplateAppContainerProps>
