@@ -1,250 +1,146 @@
 import * as React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 
 import Select from "./Select";
 
+const baseProps = {
+  labelText: "What is your favorite color?",
+  helperText: "This is the helper text.",
+  name: "color",
+};
+const baseOptions = (
+  <>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+    <option value="black">Black</option>
+    <option value="white">White</option>
+  </>
+);
+
 describe("Select Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(
-      <Select
-        labelText="Select Label"
-        onChange={jest.fn()}
-        onBlur={jest.fn()}
-        name="test"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
+    const { container } = render(<Select {...baseProps}>{baseOptions}</Select>);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
 describe("Select", () => {
-  let utils;
-  const changeCallback = jest.fn();
-  const blurCallback = jest.fn();
+  it("renders a label, select, option, and helper text DOM elements", () => {
+    render(<Select {...baseProps}>{baseOptions}</Select>);
 
-  it("Renders a select DOM element", () => {
-    utils = render(
-      <Select
-        labelText="Select Label"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(utils.container.querySelector(".select")).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toBeInTheDocument();
+    expect(screen.getByRole("combobox")).toBeInTheDocument();
+    expect(screen.getAllByRole("option")).toHaveLength(5);
+    expect(screen.getByText(/This is the helper text/i)).toBeInTheDocument();
   });
 
-  it("Renders a name attribute to use in forms", () => {
-    utils = render(
-      <Select
-        labelText="Select Label"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test2"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(screen.getByLabelText("Select Label")).toHaveAttribute(
-      "name",
-      "test2"
-    );
+  it("renders a name attribute to use in forms", () => {
+    render(<Select {...baseProps}>{baseOptions}</Select>);
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute("name", "color");
   });
 
-  it("Renders an aria-label", () => {
-    utils = render(
-      <Select
-        labelText="Select Label"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        showLabel={false}
-        name="test3"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+  it("renders an aria-label attribute when `showLabel` is false", () => {
+    const { rerender } = render(<Select {...baseProps}>{baseOptions}</Select>);
+
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).not.toHaveAttribute("aria-label");
+
+    rerender(
+      <Select {...baseProps} showLabel={false}>
+        {baseOptions}
       </Select>
     );
-    expect(screen.getByLabelText("Select Label")).toHaveAttribute(
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute(
       "aria-label",
-      "Select Label"
+      "What is your favorite color? - This is the helper text."
     );
   });
 
-  it("Renders an aria-label based on deprecated prop", () => {
-    utils = render(
-      <Select
-        labelText="Select Label"
-        ariaLabel="Aria Label"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        showLabel={false}
-        name="test3"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+  it("renders aria-describedby when helperText prop is passed", () => {
+    const id = "test-describe";
+    render(
+      <Select {...baseProps} id={id}>
+        {baseOptions}
       </Select>
     );
-    expect(screen.getByLabelText("Aria Label")).toHaveAttribute(
-      "aria-label",
-      "Aria Label"
-    );
+
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute("aria-describedby", `${id}-helperText`);
   });
 
-  it("Renders aria-describedby when helperText prop is passed", () => {
-    utils = render(
-      <Select
-        id="custom-select-id"
-        showLabel={true}
-        labelText="Select Label"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        helperText="example helper text"
-        name="test4"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(screen.getByLabelText(/Select Label/i)).toHaveAttribute(
-      "aria-describedby",
-      "custom-select-id-helperText"
-    );
-  });
+  it("renders required or optional text in the label", () => {
+    const { rerender } = render(<Select {...baseProps}>{baseOptions}</Select>);
+    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
 
-  it("Renders required or optional text in the label", () => {
-    const utils = render(
-      <Select
-        id="custom-select-id"
-        labelText="Select Label"
-        showLabel={true}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test4"
-        required
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+    rerender(
+      <Select {...baseProps} isRequired>
+        {baseOptions}
       </Select>
     );
-    expect(screen.getByLabelText(/Select Label/i)).toBeInTheDocument();
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
+
+    rerender(
+      <Select {...baseProps} showOptReqLabel={false}>
+        {baseOptions}
+      </Select>
+    );
     expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
 
-    utils.rerender(
-      <Select
-        id="custom-select-id"
-        labelText="Select Label"
-        showLabel={true}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test4"
-        required={false}
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+    rerender(
+      <Select {...baseProps} isRequired showOptReqLabel={false}>
+        {baseOptions}
       </Select>
     );
-
-    expect(screen.getByLabelText(/Select Label/i)).toBeInTheDocument();
     expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
-    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
   });
 
-  it("Renders required and aria-required attributes when 'showLabel' is false", () => {
+  it("renders required and aria-required attributes when 'showLabel' is false", () => {
     render(
-      <Select
-        id="custom-select-id"
-        labelText="Select Label"
-        showLabel={false}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test4"
-        required
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+      <Select {...baseProps} isRequired showLabel={false}>
+        {baseOptions}
       </Select>
     );
-    expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
-    expect(screen.getByLabelText("Select Label")).toHaveAttribute(
-      "aria-required"
-    );
-    expect(screen.getByLabelText("Select Label")).toHaveAttribute("required");
+    expect(screen.queryByText(/equired/i)).not.toBeInTheDocument();
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute("aria-required");
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute("required");
   });
 
-  it("Should not render a required label if 'showOptReqLabel' flag is false, but still render the label", () => {
+  it("should not render a required label if 'showOptReqLabel' flag is false, but still render the label", () => {
     render(
-      <Select
-        id="custom-select-id"
-        labelText="Select Label"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test4"
-        required
-        showOptReqLabel={false}
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+      <Select {...baseProps} isRequired showOptReqLabel={false}>
+        {baseOptions}
       </Select>
     );
-    expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
-    expect(screen.getByLabelText("Select Label")).toBeInTheDocument();
+    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toBeInTheDocument();
   });
 
-  it("Renders required and aria-required attributes using deprecated prop", () => {
-    render(
-      <Select
-        id="custom-select-id"
-        labelText="Select Label"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test4"
-        isRequired
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(screen.getByLabelText("Select Label")).toHaveAttribute(
-      "aria-required"
-    );
-    expect(screen.getByLabelText("Select Label")).toHaveAttribute("required");
+  it("renders helper text when helperText prop is passed", () => {
+    render(<Select {...baseProps}>{baseOptions}</Select>);
+
+    expect(screen.getByText("This is the helper text.")).toBeInTheDocument();
   });
 
-  it("Renders helper text when helperText prop is passed", () => {
+  it("renders default error text when 'invalidText' prop is not passed and 'isInvalid' prop is set to true", () => {
     render(
-      <Select
-        id="custom-select-id"
-        labelText="Select Label"
-        helperText="The helper text."
-        name="test4"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-
-    expect(screen.getByText("The helper text.")).toBeInTheDocument();
-  });
-
-  it("Renders default error text when 'invalidText' prop is not passed and 'errored' prop is set to true", () => {
-    render(
-      <Select
-        id="custom-select-id"
-        labelText="Select Label"
-        name="test4"
-        errored
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+      <Select {...baseProps} isInvalid>
+        {baseOptions}
       </Select>
     );
 
@@ -253,216 +149,71 @@ describe("Select", () => {
     ).toBeInTheDocument();
   });
 
-  it("Renders custom error text when 'invalidText' prop is passed and 'errored' prop is set to true", () => {
+  it("renders custom error text when 'invalidText' prop is passed and 'isInvalid' prop is set to true", () => {
     render(
       <Select
-        id="custom-select-id"
-        labelText="Select Label"
-        invalidText="Custom error text!"
-        name="test4"
-        errored
+        {...baseProps}
+        invalidText="This is a custom error text!"
+        isInvalid
       >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+        {baseOptions}
       </Select>
     );
-    expect(screen.getByText("Custom error text!")).toBeInTheDocument();
+    expect(
+      screen.getByText("This is a custom error text!")
+    ).toBeInTheDocument();
   });
 
-  it("Calls the onChange callback", () => {
+  it("updates the value through a ref", () => {
+    const selectRef = React.createRef<HTMLSelectElement>();
     render(
-      <Select
-        labelText="Select Label"
-        labelId="label"
-        isRequired={false}
-        id="hi"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test5"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
+      <Select {...baseProps} ref={selectRef}>
+        {baseOptions}
       </Select>
     );
 
-    expect(changeCallback).toHaveBeenCalledTimes(0);
-    fireEvent.change(screen.getByLabelText("Select Label"), {
-      target: { value: "test2" },
+    expect(selectRef.current.value).toEqual("red");
+
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "blue" },
     });
-    expect(changeCallback).toHaveBeenCalledTimes(1);
+    expect(selectRef.current.value).toEqual("blue");
+
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "white" },
+    });
+    expect(selectRef.current.value).toEqual("white");
   });
 
-  it("Calls the callback onChange function with the updated value", () => {
-    let currentValue = "";
-    const onChange = (event) => {
-      currentValue = event?.target?.value;
+  it("calls the onChange callback function", () => {
+    let value = "red";
+    const changeCallback = (e) => {
+      value = e.target.value;
     };
     render(
-      <Select
-        labelText="Select Label"
-        labelId="label"
-        isRequired={false}
-        id="update-value"
-        onChange={onChange}
-        onBlur={blurCallback}
-        name="test6"
-      >
-        <option aria-selected={false}>value1</option>
-        <option aria-selected={false}>value2</option>
-        <option aria-selected={false}>value3</option>
-      </Select>
-    );
-    fireEvent.change(screen.getByLabelText("Select Label"), {
-      target: { value: "value2" },
-    });
-    expect(currentValue).toEqual("value2");
-
-    fireEvent.change(screen.getByLabelText("Select Label"), {
-      target: { value: "value3" },
-    });
-    expect(currentValue).toEqual("value3");
-
-    fireEvent.change(screen.getByLabelText("Select Label"), {
-      target: { value: "value1" },
-    });
-    expect(currentValue).toEqual("value1");
-  });
-
-  it("Calls the onBlur callback", () => {
-    render(
-      <Select
-        labelText="Select Label"
-        id="hi"
-        labelId="label"
-        isRequired={false}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test7"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(blurCallback).toHaveBeenCalledTimes(0);
-    fireEvent.blur(screen.getByLabelText("Select Label"));
-    expect(blurCallback).toHaveBeenCalledTimes(1);
-  });
-
-  it("Calls the callback onBlur function with the updated value", () => {
-    let currentValue = "";
-    const onBlur = (event) => {
-      currentValue = event?.target?.value;
-    };
-    render(
-      <Select
-        labelText="Select Label"
-        labelId="label"
-        isRequired={false}
-        id="update-value"
-        onChange={changeCallback}
-        onBlur={onBlur}
-        name="test8"
-      >
-        <option aria-selected={false}>value1</option>
-        <option aria-selected={false}>value2</option>
-        <option aria-selected={false}>value3</option>
+      <Select {...baseProps} onChange={changeCallback} value={value}>
+        {baseOptions}
       </Select>
     );
 
-    fireEvent.blur(screen.getByLabelText("Select Label"), {
-      target: { value: "value2" },
-    });
-    expect(currentValue).toEqual("value2");
+    expect(value).toEqual("red");
 
-    fireEvent.blur(screen.getByLabelText("Select Label"), {
-      target: { value: "value3" },
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "blue" },
     });
-    expect(currentValue).toEqual("value3");
+    expect(value).toEqual("blue");
 
-    fireEvent.blur(screen.getByLabelText("Select Label"), {
-      target: { value: "value1" },
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "white" },
     });
-    expect(currentValue).toEqual("value1");
+    expect(value).toEqual("white");
   });
-
-  it("Displays the selected option onLoad when passed selectedOption", () => {
-    render(
-      <Select
-        labelText="Select Label"
-        labelId="label"
-        isRequired={false}
-        id="hi"
-        selectedOption="test2"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test9"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(screen.getByText("test2")).toBeInTheDocument();
-  });
-
-  it("Calls the correct handlers when a new value is selected", () => {
-    render(
-      <Select
-        labelText="Select Label"
-        labelId="label"
-        isRequired={false}
-        id="state-change"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        selectedOption="value1"
-        name="test10"
-      >
-        <option aria-selected={false}>value1</option>
-        <option aria-selected={false}>value2</option>
-        <option aria-selected={false}>value3</option>
-      </Select>
-    );
-
-    fireEvent.change(screen.getByLabelText("Select Label"), {
-      target: { value: "value2" },
-    });
-    expect(changeCallback).toHaveBeenCalled();
-
-    fireEvent.blur(screen.getByLabelText("Select Label"), {
-      target: { value: "value3" },
-    });
-    expect(blurCallback).toHaveBeenCalled();
-  });
-
-  // TODO:
-  // it("Passes the ref to the select element", () => {
-  //   const ref = React.createRef<HTMLSelectElement>();
-  //   const container = render(
-  //     <Select
-  //       labelText="Select Label"
-  //       labelId="label"
-  //       isRequired={false}
-  //       id="ref-test"
-  //       name="test11"
-  //       ref={ref}
-  //     >
-  //       <option aria-selected={false}>test1</option>
-  //       <option aria-selected={false}>test2</option>
-  //     </Select>
-  //   );
-  //   expect(container.find("select").instance()).toEqual(ref.current);
-  // });
 
   it("should throw warning when fewer than 4 options", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Select
-        labelText="Select Label"
-        labelId="label"
-        isRequired={false}
-        id="ref-test"
-        name="test1"
-      >
-        <option aria-selected={false}>test1</option>
+      <Select {...baseProps}>
+        <option value="red">Red</option>
       </Select>
     );
     expect(warn).toHaveBeenCalledWith(
@@ -473,13 +224,7 @@ describe("Select", () => {
   it("should throw warning when there are more than 10 options", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Select
-        labelText="Select Label"
-        labelId="label"
-        isRequired={false}
-        id="ref-test"
-        name="test1"
-      >
+      <Select {...baseProps}>
         <option aria-selected={false}>test1</option>
         <option aria-selected={false}>test2</option>
         <option aria-selected={false}>test3</option>

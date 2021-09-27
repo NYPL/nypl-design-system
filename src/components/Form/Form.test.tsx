@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
@@ -79,7 +79,7 @@ describe("Form", () => {
     expect(container.querySelector(".form")).toBeInTheDocument();
     expect(container.querySelector(".form-row")).toBeInTheDocument();
     expect(container.querySelector(".form-field")).toBeInTheDocument();
-    expect(container.querySelector(".textinput")).toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toBeInTheDocument();
   });
 
   it("Renders a <form> element with custom `action` and `method` attributes", () => {

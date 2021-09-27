@@ -25,6 +25,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `RadioGroup` component from Chakra's `RadioGroup` component.
 - Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
 - Updates the `errorText` prop name to `invalidText`.
+- Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
+- Composes the DS `Select` component from Chakra's `Select` component.
 - Composes the DS "Template" components (`Template`, `TemplateHeader`, `TemplateContentBreakout`, `TemplateContent`, `TemplateContentPrimary`, `TemplateContentSidebar`, `TemplateFooter`) from Chakra's `Box` component for page layouts through children components.
 - Composes the DS `TemplateAppContainer` component from Chakra's `Box` component for page layouts through props.
 
@@ -35,6 +37,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates the development preview URL from the Netlify link to the Tugboat QA link.
+- Updating spacing values to use NYPL spacing rather than "em"s.
 
 ## 0.24.1
 
@@ -70,6 +73,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds additional props for the `DatePicker` component based on its TAD Addendum section.
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
 - Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
+- Updates the `Accordion` component to internally use Chakra components.
 
 ### Fixes
 

@@ -195,7 +195,7 @@ describe("DatePicker", () => {
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
-          errored={true}
+          isInvalid={true}
         />
       );
       // When errored, we expect only the error text to appear.
@@ -212,7 +212,7 @@ describe("DatePicker", () => {
         <DatePicker
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
-          disabled={true}
+          isDisabled={true}
         />
       );
 
@@ -383,7 +383,7 @@ describe("DatePicker", () => {
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
-          errored={true}
+          isInvalid={true}
         />
       );
 
@@ -398,7 +398,7 @@ describe("DatePicker", () => {
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
-          disabled={true}
+          isDisabled={true}
         />
       );
 
