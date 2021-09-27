@@ -1,0 +1,272 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import SimpleGrid from "./SimpleGrid";
+import Card, {
+  CardImage,
+  CardHeading,
+  CardContent,
+  CardActions,
+} from "../Card/Card";
+import {
+  CardImageRatios,
+  CardImageSizes,
+  CardLayouts,
+} from "../Card/CardTypes";
+import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
+import Icon from "../Icons/Icon";
+import {
+  IconNames,
+  LogoNames,
+  IconColors,
+  IconSizes,
+  IconRotationTypes,
+} from "../Icons/IconTypes";
+import Image from "../Image/Image";
+
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("SimpleGrid")}
+  component={SimpleGrid}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26613",
+    },
+    jest: ["SimpleGrid.test.tsx"],
+  }}
+  argTypes={{
+    columns: {
+      control: {
+        type: "number",
+        min: 2,
+      },
+      table: {
+        defaultValue: {
+          summary: 3,
+        },
+      },
+    },
+    gap: {
+      table: {
+        defaultValue: {
+          summary: "l",
+        },
+      },
+    },
+    className: { table: { disable: true } },
+    id: { table: { disable: true } },
+  }}
+/>
+
+# SimpleGrid
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.1`   |
+| Latest            | `0.25.1`   |
+
+<Description of={SimpleGrid} />
+
+The `SimpleGrid` component is used to render UI elements in a uniform grid layout, with the column widths and grid spacing fixed throughout the grid.
+
+The NYPL standards for the items per row in a grid is `3` for desktop, `2` for tablet and `1` for mobile. By default, the `SimpleGrid` component uses these standards and the `columns` prop is optional. If the `columns` prop is used, the tablet breakpoint will be dropped and only the mobile breakpoint (1 item per row) will be triggered.
+
+<Canvas withToolbar>
+  <Story name="SimpleGrid Props">
+    {(args) => (
+      <SimpleGrid {...args}>
+        <Card
+          imageSrc="https://placeimg.com/500/200/animals"
+          imageAlt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        >
+          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue.
+          </CardContent>
+        </Card>
+        <Card
+          imageSrc="https://placeimg.com/400/220/animals"
+          imageAlt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        >
+          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue.
+          </CardContent>
+        </Card>
+        <Card
+          imageSrc="https://placeimg.com/400/240/animals"
+          imageAlt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        >
+          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue.
+          </CardContent>
+        </Card>
+        <Card
+          imageSrc="https://placeimg.com/400/260/animals"
+          imageAlt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        >
+          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue.
+          </CardContent>
+        </Card>
+        <Card
+          imageSrc="https://placeimg.com/400/320/animals"
+          imageAlt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        >
+          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue.
+          </CardContent>
+        </Card>
+        <Card
+          imageSrc="https://placeimg.com/400/300/animals"
+          imageAlt="Alt text"
+          imageAspectRatio={CardImageRatios.TwoByOne}
+        >
+          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardContent>
+            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+            libero, a pharetra augue.
+          </CardContent>
+        </Card>
+      </SimpleGrid>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="SimpleGrid Props" />
+
+## Other SimpleGrid Examples
+
+### Icons
+
+This example is rendering `Icon` components with the `columns` prop set to `5`.
+
+export const icons = [];
+for (const icon in IconNames) {
+  const iname = `Example icon: ${IconNames[icon]}`;
+  const iconRender = (
+    <Icon decorative name={icon} size={IconSizes.xxxlarge} titleText={iname} />
+  );
+  icons.push(iconRender);
+}
+
+<Canvas>
+  <Story name="Other SimpleGrid Examples">
+    <SimpleGrid columns={5}>{icons}</SimpleGrid>
+  </Story>
+</Canvas>
+
+### Images
+
+This example is rendering square `Image` components with the `columns` prop set to `6`.
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={6}>
+      <Image src="https://placeimg.com/300/300/animals?x=1" />
+      <Image src="https://placeimg.com/300/300/animals?x=2" />
+      <Image src="https://placeimg.com/300/300/animals?x=3" />
+      <Image src="https://placeimg.com/300/300/animals?x=4" />
+      <Image src="https://placeimg.com/300/300/animals?x=5" />
+      <Image src="https://placeimg.com/300/300/animals?x=6" />
+      <Image src="https://placeimg.com/300/300/animals?x=7" />
+      <Image src="https://placeimg.com/300/300/animals?x=8" />
+      <Image src="https://placeimg.com/300/300/animals?x=9" />
+      <Image src="https://placeimg.com/300/300/animals?x=10" />
+      <Image src="https://placeimg.com/300/300/animals?x=11" />
+      <Image src="https://placeimg.com/300/300/animals?x=12" />
+      <Image src="https://placeimg.com/300/300/animals?x=13" />
+      <Image src="https://placeimg.com/300/300/animals?x=14" />
+      <Image src="https://placeimg.com/300/300/animals?x=15" />
+      <Image src="https://placeimg.com/300/300/animals?x=16" />
+      <Image src="https://placeimg.com/300/300/animals?x=17" />
+      <Image src="https://placeimg.com/300/300/animals?x=18" />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+### Horizontal Cards
+
+This example is rendering horizontal `Card` components with the `columns` prop set to `1`.
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1}>
+      <Card
+        layout={CardLayouts.Horizontal}
+        border
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.FourByThree}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Horizontal}
+        border
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.FourByThree}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading2">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Horizontal}
+        border
+        center
+        imageSrc="https://placeimg.com/320/320/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.FourByThree}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading3">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>

@@ -45,7 +45,6 @@ exports[`Checkbox Renders the UI snapshot correctly 1`] = `
     <svg
       className="chakra-icon css-1vfv7ic"
       focusable={false}
-      isChecked={false}
       viewBox="0 0 24 24"
     >
       <path
@@ -110,7 +109,6 @@ exports[`Checkbox Renders the UI snapshot correctly 2`] = `
     <svg
       className="chakra-icon css-oi1lnb"
       focusable={false}
-      isChecked={true}
       viewBox="0 0 24 24"
     >
       <path
@@ -175,7 +173,6 @@ exports[`Checkbox Renders the UI snapshot correctly 3`] = `
     <svg
       className="chakra-icon css-1vfv7ic"
       focusable={false}
-      isChecked={false}
       viewBox="0 0 24 24"
     >
       <path
@@ -240,7 +237,6 @@ exports[`Checkbox Renders the UI snapshot correctly 4`] = `
     <svg
       className="chakra-icon css-1vfv7ic"
       focusable={false}
-      isChecked={false}
       viewBox="0 0 24 24"
     >
       <path
@@ -307,7 +303,6 @@ exports[`Checkbox Renders the UI snapshot correctly 5`] = `
     <svg
       className="chakra-icon css-1vfv7ic"
       focusable={false}
-      isChecked={false}
       viewBox="0 0 24 24"
     >
       <path

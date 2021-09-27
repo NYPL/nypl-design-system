@@ -16,8 +16,8 @@ const variants = {
     cursor: "pointer",
     color: "ui.white",
     justifyContent: "center",
-    py: 2, // var(--space-xs)
-    px: 4, // var(--space-s)
+    py: "xs",
+    px: "xs",
     textDecoration: "none",
     fontWeight: 500,
     bg: "ui.link.primary",

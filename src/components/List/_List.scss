@@ -11,7 +11,7 @@
   margin: unset; // browser automatically applies margin
 
   &__definition-list {
-    border-bottom: 1px solid var(--ui-gray-light);
+    border-bottom: 1px solid var(--ui-gray-light-cool);
 
     h2 {
       border-top: 3px solid var(--section-research-primary);
@@ -26,7 +26,7 @@
       margin: var(--space-xs) 0 0;
 
       dt {
-        border-top: 1px solid var(--ui-gray-light);
+        border-top: 1px solid var(--ui-gray-light-cool);
         font-size: var(--font-size-0);
         font-weight: bold;
         padding-bottom: 0;
@@ -45,7 +45,7 @@
         padding-bottom: var(--space-s);
 
         @include breakpoint($breakpoint-medium) {
-          border-top: 1px solid var(--ui-gray-light);
+          border-top: 1px solid var(--ui-gray-light-cool);
           padding-top: var(--space-s);
         }
       }

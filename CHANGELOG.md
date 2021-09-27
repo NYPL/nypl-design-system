@@ -25,6 +25,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `RadioGroup` component from Chakra's `RadioGroup` component.
 - Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
 - Updates the `errorText` prop name to `invalidText`.
+- Update the NYPL Colors with updated color names and values.
+- Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
+- Composes the DS `Select` component from Chakra's `Select` component.
+- Composes the DS `CheckboxGroup` component from Chakra's `CheckboxGroup` component.
 - Composes the DS `Link` component with Chakra component and fixes the `Button` type.
 
 ### Removes
@@ -34,6 +38,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates the development preview URL from the Netlify link to the Tugboat QA link.
+- Updating spacing values to use NYPL spacing rather than "em"s.
 
 ## 0.24.1
 
@@ -69,6 +74,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds additional props for the `DatePicker` component based on its TAD Addendum section.
 - Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
 - Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
+- Updates the `Accordion` component to internally use Chakra components.
 
 ### Fixes
 
