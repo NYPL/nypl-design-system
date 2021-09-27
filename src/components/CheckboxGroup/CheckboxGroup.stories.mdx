@@ -1,0 +1,249 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import CheckboxGroup from "./CheckboxGroup";
+import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
+import Checkbox from "../Checkbox/Checkbox";
+
+<Meta
+  title={getCategory("CheckboxGroup")}
+  component={CheckboxGroup}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
+    },
+    jest: ["CheckboxGroup.test.tsx"],
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+    defaultValue: { table: { disable: true } },
+    id: { table: { disable: true } },
+    name: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+  }}
+/>
+
+# CheckboxGroup
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.1`   |
+| Latest            | `0.25.1`   |
+
+<Description of={CheckboxGroup} />
+
+<Canvas withToolbar>
+  <Story
+    name="CheckboxGroup"
+    args={{
+      defaultValue: ["4"],
+      invalidText: "This is the error text :(",
+      helperText: "This is the helper text for the full group.",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: false,
+      labelText: "Standard Checkbox Group",
+      layout: CheckboxGroupLayoutTypes.Column,
+      name: "checkbox-story",
+      optReqFlag: true,
+      showLabel: true,
+    }}
+  >
+    {(args) => (
+      <CheckboxGroup {...args}>
+        <Checkbox value="2" labelText="Checkbox 2" />
+        <Checkbox value="3" labelText="Checkbox 3" />
+        <Checkbox value="4" labelText="Checkbox 4" />
+        <Checkbox value="5" labelText="Checkbox 5" />
+      </CheckboxGroup>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="CheckboxGroup" />
+
+## Layout Patterns
+
+Use the `layout` prop to set the `Checkbox` buttons to display in a column or in
+a row.
+
+<Canvas>
+  <DSProvider>
+    <CheckboxGroup
+      labelText="Column (default)"
+      name="column-example"
+      optReqFlag={false}
+    >
+      <Checkbox value="2" labelText="Checkbox 2" />
+      <Checkbox value="3" labelText="Checkbox 3" />
+      <Checkbox value="4" labelText="Checkbox 4" />
+      <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+    <br />
+    <CheckboxGroup
+      labelText="Row"
+      name="row-example"
+      layout={CheckboxGroupLayoutTypes.Row}
+      optReqFlag={false}
+    >
+      <Checkbox value="2" labelText="Checkbox 2" />
+      <Checkbox value="3" labelText="Checkbox 3" />
+      <Checkbox value="4" labelText="Checkbox 4" />
+      <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+  </DSProvider>
+</Canvas>
+
+## Errored
+
+<Canvas>
+  <DSProvider>
+    <CheckboxGroup
+      labelText="Errored Checkbox Group"
+      name="errored-example"
+      optReqFlag={false}
+      invalidText="Error message for the full group."
+      isInvalid
+    >
+      <Checkbox value="2" labelText="Checkbox 2" />
+      <Checkbox value="3" labelText="Checkbox 3" />
+      <Checkbox value="4" labelText="Checkbox 4" />
+      <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+  </DSProvider>
+</Canvas>
+
+## Disabled
+
+<Canvas>
+  <DSProvider>
+    <CheckboxGroup
+      labelText="Disabled Checkbox Group"
+      name="disabled-example"
+      optReqFlag={false}
+      helperText="The reason for being disabled."
+      isDisabled
+    >
+      <Checkbox value="2" labelText="Checkbox 2" />
+      <Checkbox value="3" labelText="Checkbox 3" />
+      <Checkbox value="4" labelText="Checkbox 4" />
+      <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+  </DSProvider>
+</Canvas>
+
+## Getting Checkbox Data Values
+
+### Controlled Component using `name`, `defaultValue`, and `onChange` props
+
+If your application uses controlled React components and the DS CheckboxGroup
+must be controlled, you can extract the data through the `name`, `defaultValue`,
+and `onChange` props. The `onChange` function will be called every time a new
+`Checkbox` value is checked or unchecked.
+
+```jsx
+const onChange = (data: string[]) => {
+  // This will return the values selected as an array of strings.
+  // Ex: ["2", "4"]
+  console.log(data);
+};
+// ...
+
+// Example of the DS CheckboxGroup instance with the function above:
+<CheckboxGroup
+  id="controlled-example"
+  labelText="Checkbox Group"
+  name="CheckboxExample"
+  defaultValue={["2"]}
+  onChange={onChange}
+>
+  <Checkbox value="2" labelText="Checkbox 2" />
+  <Checkbox value="3" labelText="Checkbox 3" />
+  <Checkbox value="4" labelText="Checkbox 4" />
+</CheckboxGroup>;
+```
+
+### Uncontrolled Component using `ref`s
+
+If your application uses uncontrolled components, you can pass React `ref` props
+to the DS CheckboxGroup component to get the selected value from the DOM.
+
+The following example is using the `register` React `ref` from the
+`react-hook-form` package.
+
+```jsx
+import { useFormContext, Controller } from "react-hook-form";
+// ...
+const { register, handleSubmit, control } = useFormContext();
+// ...
+const submitForm = (formData) => {
+  // This will return an object with all the DOM element values that were
+  // registered with a `name` attribute.
+  // {
+  //   checkboxExample: ["3"]
+  // }
+  console.log(formData);
+  // ...
+};
+
+<form
+  onSubmit={handleSubmit(submitForm)}
+  method="post"
+  action="/some/api/endpoint"
+>
+  <Controller
+    as={
+      <CheckboxGroup
+        id="uncontrolled-example"
+        labelText="Checkbox Group"
+        name="checkboxExample"
+        defaultValue={["3"]}
+        ref={register()}
+      >
+        <Checkbox value="2" labelText="Checkbox 2" />
+        <Checkbox value="3" labelText="Checkbox 3" />
+        <Checkbox value="4" labelText="Checkbox 4" />
+      </CheckboxGroup>
+    }
+    name="checkboxExample"
+    control={control}
+  />
+</form>;
+```
+
+The above is specific to `react-hook-form` but a similar pattern can be used
+with normal React `ref` values.
+
+```jsx
+const CheckboxGroupRef = React.createRef<HTMLInputElement>();
+// ...
+<CheckboxGroup
+  id="uncontrolled-example"
+  labelText="Checkbox Group"
+  name="checkboxExample"
+  defaultValue={["3"]}
+  ref={CheckboxGroupRef}
+>
+  <Checkbox value="2" labelText="Checkbox 2" />
+  <Checkbox value="3" labelText="Checkbox 3" />
+  <Checkbox value="4" labelText="Checkbox 4" />
+</CheckboxGroup>
+
+// ...
+// Get the value through:
+const onSubmit = () => {
+  // ...
+  const CheckboxGroupValue = CheckboxGroupRef.current.value;
+};
+```
