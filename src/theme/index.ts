@@ -9,11 +9,13 @@ import Button from "./components/button";
 import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
 import CustomRadioGroup from "./components/customRadioGroup";
+import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import Tabs from "./components/tabs";
-import TemplateStyles from "./components/template";
+import Hero from "./components/hero";
 import TextInput from "./components/textInput";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
+import TemplateStyles from "./components/template";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -47,13 +49,15 @@ const theme = extendTheme({
     Accordion,
     Button,
     Checkbox,
+    CustomCheckboxGroup,
     Heading,
     Radio,
     CustomRadioGroup,
     CustomSelect,
     Tabs,
-    ...TemplateStyles,
+    Hero,
     TextInput,
+    ...TemplateStyles,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
   // can be updated to be anything we want. This can be "nypl" to have the
