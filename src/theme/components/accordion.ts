@@ -8,7 +8,7 @@ const buttonStyles = {
   border: "none",
   fontWeight: 500,
   _hover: {
-    bg: "ui.gray.light",
+    bg: "ui.gray.light-cool",
   },
 };
 const panelStyles = {

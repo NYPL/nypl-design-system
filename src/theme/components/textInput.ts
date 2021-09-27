@@ -16,7 +16,7 @@ const input = {
     borderColor: "ui.gray.dark",
   },
   _disabled: {
-    bgColor: "ui.gray.xxlight",
+    bgColor: "ui.gray.xx-light-cool",
     color: "ui.gray.xdark",
     opacity: "1",
   },
