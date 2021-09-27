@@ -1,8 +1,8 @@
 const margins = {
-  marginTop: 0,
-  marginLeft: 0,
-  marginRight: 0,
-  marginBottom: 4, // var(--space-s)
+  marginTop: "0",
+  marginLeft: "0",
+  marginRight: "0",
+  marginBottom: "s",
 };
 
 // Heading Styles
@@ -45,8 +45,7 @@ const headings = {
   },
 };
 
-// styles for different visual variants:
-// primary, secondary, tertiary, callout
+// Styles for different visual variants
 const variants = {
   h1: headings.h1,
   h2: headings.h2,
@@ -62,7 +61,8 @@ const variants = {
 
 const Heading = {
   // Available variants:
-  //   primary, secondary, tertiary, callout
+  // h1, h2, h3, h4, h5, h6,
+  // primary, secondary, tertiary, callout
   variants,
   defaultProps: {
     variant: "secondary",
