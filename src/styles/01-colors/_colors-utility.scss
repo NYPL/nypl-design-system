@@ -9,16 +9,17 @@ $white: #ffffff;
 $gray-xdark: #424242;
 $gray-dark: #616161;
 $gray-medium: #bdbdbd;
-$gray-light: #e0e0e0;
-$gray-warm-light: #efedeb;
-$gray-xlight: #f5f5f5;
-$gray-warm-xlight: #f8f8f7;
-$gray-xxlight: #fafafa;
+$gray-light-cool: #e0e0e0;
+$gray-light-warm: #efedeb;
+$gray-x-light-cool: #f5f5f5;
+$gray-x-light-warm: #f8f8f7;
+$gray-xx-light-cool: #fafafa;
 
 // State and link utilities
 $disabled-primary: #e0e0e0;
 $disabled-secondary: #fafafa;
-$error: #97272c;
+$error-primary: #97272c;
+$error-secondary: #6f0106;
 $focus: #4181f1;
 $link-primary: #0576d3;
 $link-secondary: #004b98;
@@ -39,14 +40,15 @@ $colors: (
   gray-xdark: $gray-xdark,
   gray-dark: $gray-dark,
   gray-medium: $gray-medium,
-  gray-light: $gray-light,
-  gray-warm-light: $gray-warm-light,
-  gray-xlight: $gray-xlight,
-  gray-warm-xlight: $gray-warm-xlight,
-  gray-xxlight: $gray-xxlight,
+  gray-light-cool: $gray-light-cool,
+  gray-light-warm: $gray-light-warm,
+  gray-x-light-cool: $gray-x-light-cool,
+  gray-x-light-warm: $gray-x-light-warm,
+  gray-xx-light-cool: $gray-xx-light-cool,
   disabled-primary: $disabled-primary,
   disabled-secondary: $disabled-secondary,
-  error: $error,
+  error-primary: $error-primary,
+  error-secondary: $error-secondary,
   focus: $focus,
   link-primary: $link-primary,
   link-secondary: $link-secondary,

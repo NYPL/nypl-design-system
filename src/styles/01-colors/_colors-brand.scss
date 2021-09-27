@@ -22,6 +22,10 @@ $research-secondary: #006166;
 $locations-primary: $brand-primary;
 $locations-secondary: $brand-secondary;
 
+// Blogs is used for Blog pages.
+$blogs-primary: #e0e0e0;
+$blogs-secondary: #bdbdbd;
+
 // Research libraries with specific brand colors to adhere to.
 $research-library-lpa: #005d53;
 $research-library-schomburg: #a03e31;
@@ -44,6 +48,8 @@ $colors: (
   research-secondary: $research-secondary,
   locations-primary: $locations-primary,
   locations-secondary: $locations-secondary,
+  blogs-primary: $blogs-primary,
+  blogs-secondary: $blogs-secondary,
   research-library-lpa: $research-library-lpa,
   research-library-schomburg: $research-library-schomburg,
   research-library-schwartzman: $research-library-schwartzman,

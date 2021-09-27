@@ -211,11 +211,11 @@ the `variants` object as in the following example.
   @include button-base;
 
   background-color: var(--ui-white);
-  border: 1px solid var(--ui-gray-light);
+  border: 1px solid var(--ui-gray-light-cool);
   color: inherit;
 
   &:hover {
-    background-color: var(--ui-gray-xxlight);
+    background-color: var(--ui-gray-xx-light-cool);
   }
 }
 
@@ -227,10 +227,10 @@ const Button = {
     secondary: {
       bg: "ui.white",
       border: "1px solid",
-      borderColor: "ui.gray.light",
+      borderColor: "ui.gray.light-cool",
       color: "inherit",
       _hover: {
-        bg: "ui.gray.xxlight",
+        bg: "ui.gray.xx-light-cool",
       },
     },
     // ... other variants,

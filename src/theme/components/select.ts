@@ -23,12 +23,12 @@ const Select = {
       _focus: activeFocus,
       _disabled: {
         color: "ui.gray.xdark",
-        bg: "ui.gray.xxlight",
+        bg: "ui.gray.xx-light-cool",
         opacity: "1",
       },
       _invalid: {
         border: "1px solid",
-        borderColor: "ui.error",
+        borderColor: "ui.error.primary",
         boxShadow: "none",
       },
     },
