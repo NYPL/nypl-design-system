@@ -6,6 +6,8 @@ export {
   Box,
   Center,
   Circle,
+  Grid,
+  GridItem,
   Square,
   Stack,
   HStack,
