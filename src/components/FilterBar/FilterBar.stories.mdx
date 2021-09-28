@@ -12,6 +12,7 @@ import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import FilterBar from "./FilterBar";
 import MultiSelect from "./../MultiSelect/MultiSelect";
+import FilterBarStory from "./FilterBarStory";
 
 <Meta
   title={getCategory("FilterBar")}
@@ -43,9 +44,9 @@ This component renders a FilterBar.
 
 <Canvas withToolbar>
   <Story
-    name="FilterBar Props"
+    name="FilterBar"
     args={{
-      id: "test-1234",
+      id: "filter-bar-basic",
       label: "Filter By:",
       isModalOpen: false,
       isMobile: false,
@@ -56,54 +57,28 @@ This component renders a FilterBar.
   </Story>
 </Canvas>
 
-<ArgsTable story="FilterBar Props" />
+<ArgsTable story="FilterBar" />
 
 ## FilterBar
 
 <Canvas>
-  <Story name="FilterBar With MultiSelect">
-    <FilterBar id="filter-bar-multiselect" label="Filter By:">
-      <MultiSelect
-        id="group1"
-        label="Languages"
-        items={[
-          {
-            id: "php",
-            name: "PHP",
-          },
-          {
-            id: "ruby",
-            name: "Ruby",
-          },
-          {
-            id: "javascript",
-            name: "Javascript",
-          },
-        ]}
-        selectedItems={{}}
-        showCtaButtons={true}
+  <Story
+    name="FilterBar With MultiSelects"
+    args={{
+      id: "filter-bar-with-multiselects",
+      label: "Filter By:",
+      isModalOpen: false,
+      isMobile: false,
+      //selectedItems: {},
+    }}
+  >
+    {(args) => (
+      <FilterBarStory
+        {...args}
+        id="filter-bar-multiselect"
+        label="Filter By:"
       />
-      <MultiSelect
-        id="group2"
-        label="Languages 2"
-        items={[
-          {
-            id: "php",
-            name: "PHP",
-          },
-          {
-            id: "ruby",
-            name: "Ruby",
-          },
-          {
-            id: "javascript",
-            name: "Javascript",
-          },
-        ]}
-        selectedItems={{}}
-        showCtaButtons={true}
-      />
-    </FilterBar>
+    )}
   </Story>
 </Canvas>
 

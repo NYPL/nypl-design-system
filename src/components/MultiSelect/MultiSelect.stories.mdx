@@ -13,6 +13,7 @@ import { HStack } from "@chakra-ui/react";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import MultiSelect from "./MultiSelect";
+import MultiSelectStory from "./MultiSelectStory";
 
 <Meta
   title={getCategory("MultiSelect")}
@@ -42,112 +43,17 @@ import MultiSelect from "./MultiSelect";
 
 This component renders a MultiSelect.
 
-export const MultiSelectControlledStory = (args) => {
-  const [selectedItems, setSelectedItems] = React.useState({});
-  /*const onSelectedItemChange = (itemId, groupId) => {
-    let itemIds;
-    // Check if the tid already exists in the state
-    if (
-      selectedItems[groupId] !== undefined &&
-    ) {
-      let itemIdExists = selectedItems[groupId].items.indexOf(itemId) > -1;
-      // Make a copy of the existing array.
-      itemIds = selectedItems[groupId].items.slice();
-      // If termId exists, remove it from the array.
-      if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id != itemId);
-      } else {
-        // Add it to the array, but modify the copy, not the original.
-        itemIds.push(itemId);
-      }
-    } else {
-      itemIds = [];
-      itemIds.push(itemId);
-    }
-    setSelectedItems({
-      ...selectedItems,
-      [groupId]: {
-        items: itemIds,
-      },
-    });
-  };
-  */
-  return (
-    <MultiSelect
-      id="group1"
-      label="Languages 2"
-      items={items}
-      selectedItems={selectedItems}
-      handleOnSelectedItemChange={(e) => {
-        const groupId = "group1";
-        const itemId = e.target.id;
-        let itemIds;
-        // Check if the id already exists in the state
-        if (selectedItems[groupId] !== undefined) {
-          let itemIdExists = selectedItems[groupId].items.indexOf(itemId) > -1;
-          // Make a copy of the existing array.
-          itemIds = selectedItems[groupId].items.slice();
-          // If termId exists, remove it from the array.
-          if (itemIdExists) {
-            itemIds = itemIds.filter((id) => id != itemId);
-          } else {
-            // Add it to the array, but modify the copy, not the original.
-            itemIds.push(itemId);
-          }
-        } else {
-          itemIds = [];
-          itemIds.push(itemId);
-        }
-        setSelectedItems({
-          ...selectedItems,
-          [groupId]: {
-            items: itemIds,
-          },
-        });
-      }}
-      showCtaButtons={true}
-    />
-  );
-};
-
-export const items = [
-  {
-    id: "php",
-    name: "PHP",
-  },
-  {
-    id: "ruby",
-    name: "Ruby",
-  },
-  {
-    id: "javascript",
-    name: "Javascript",
-  },
-];
-
 <Canvas withToolbar>
   <Story
-    name="MultiSelect Props"
+    name="MultiSelect"
     args={{
       id: "group1",
-      label: "Languages",
-      items: items,
-      selectedItems: {},
+      label: "Subject Specialities",
       showCtaButtons: true,
     }}
   >
-    {(args) => <MultiSelect {...args} />}
+    {(args) => <MultiSelectStory {...args} />}
   </Story>
 </Canvas>
 
-<ArgsTable story="MultiSelect Props" />
-
-## MultiSelect (Controlled State)
-
-<Canvas withToolbar>
-  <Story name="MultiSelect Controlled">
-    {(args) => <MultiSelectControlledStory {...args} />}
-  </Story>
-</Canvas>
-
-<ArgsTable story="MultiSelect Controlled" />
+<ArgsTable story="MultiSelect" />

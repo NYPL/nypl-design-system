@@ -45,7 +45,11 @@ const getVariant = (buttonType) =>
   variantMap[buttonType] || ButtonTypes.Primary;
 
 /** Renders a simple `button` element with custom classes and modifiers. */
-function Button(props: React.PropsWithChildren<ButtonProps>) {
+// @TODO had to add this to allow refs for Button.
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  React.PropsWithChildren<ButtonProps>
+>((props, ref?) => {
   const {
     attributes,
     buttonType,
@@ -86,6 +90,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
 
   return (
     <ChakraButton
+      ref={ref}
       id={id}
       className={bem(baseClass, [], "", [className])}
       type={type}
@@ -97,7 +102,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
       {children}
     </ChakraButton>
   );
-}
+});
 
 export { ButtonGroup };
 export default Button;
