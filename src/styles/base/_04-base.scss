@@ -8,7 +8,8 @@
   font-weight: 300;
   line-height: 1.5;
 
-  // Users with non-overlay scrollbars have a small horiznotal scrollbar from our breakout mixin. Fix identified here: https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#one-big-dumb-caveat
+  // Users with non-overlay scrollbars have a small horizontal scrollbar from
+  // our breakout mixin. Fix identified here: https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#one-big-dumb-caveat
   overflow-x: hidden;
 
   *,

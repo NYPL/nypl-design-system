@@ -1,15 +1,9 @@
+import { checkboxRadioGroupLayout } from "./global";
+
 const CustomCheckboxGroup = {
-  parts: ["required", "helper"],
+  parts: ["legend", "required", "helper"],
   baseStyle: {
-    legend: {
-      marginBottom: 4,
-    },
-    required: {
-      marginLeft: 6,
-    },
-    helper: {
-      marginTop: 4,
-    },
+    ...checkboxRadioGroupLayout,
   },
   sizes: {},
   defaultProps: {},

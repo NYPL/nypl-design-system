@@ -12,10 +12,10 @@ const buttonStyles = {
   },
 };
 const panelStyles = {
-  paddingTop: 2, // --space-xs
-  paddingRight: 24, // --space-xxxl
-  paddingLeft: 4, // --space-s
-  paddingBottom: 2, // --space-xs
+  paddingTop: "xs",
+  paddingRight: "xxxl",
+  paddingLeft: "s",
+  paddingBottom: "xs",
 };
 
 const Accordion = {

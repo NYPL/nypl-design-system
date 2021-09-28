@@ -1,17 +1,11 @@
-const activeFocus = {
-  border: "1px solid",
-  borderColor: "ui.focus",
-  zIndex: "9999",
-  outline: "1px solid",
-  outlineColor: "ui.focus",
-};
+import { activeFocus, helperTextMargin } from "./global";
+
 const input = {
   border: "1px solid",
   borderColor: "ui.gray.medium",
   borderRadius: "2px",
-  py: 2, // --space-xs
-  px: 4, // --space-s
-
+  py: "xs",
+  px: "s",
   _hover: {
     borderColor: "ui.gray.dark",
   },
@@ -29,23 +23,22 @@ const input = {
   },
   _invalid: {
     border: "1px solid",
-    borderColor: "ui.error",
+    borderColor: "ui.error.primary",
     boxShadow: "none",
   },
 };
 
 const TextInput = {
-  parts: ["helper", "input", "text"],
+  parts: ["helper", "input", "textarea"],
   baseStyle: {
+    helper: {
+      ...helperTextMargin,
+    },
     input,
     textarea: {
       ...input,
-      lineheight: 1.5,
-      minHeight: 16, // --space-xxl
-    },
-    helper: {
-      marginTop: 2, // --space-xs
-      marginBottom: 0,
+      lineheight: "1.5",
+      minHeight: "xxl",
     },
   },
 };

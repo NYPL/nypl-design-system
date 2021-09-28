@@ -25,10 +25,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `RadioGroup` component from Chakra's `RadioGroup` component.
 - Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
 - Updates the `errorText` prop name to `invalidText`.
+- Adds DS `SimpleGrid` component composed from Chakra's `Simplegrid` component.
 - Update the NYPL Colors with updated color names and values.
 - Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
 - Composes the DS `Select` component from Chakra's `Select` component.
 - Composes the DS `CheckboxGroup` component from Chakra's `CheckboxGroup` component.
+- Composes the DS "Template" components (`Template`, `TemplateHeader`, `TemplateBreakout`, `TemplateContent`, `TemplateContentPrimary`, `TemplateContentSidebar`, `TemplateFooter`) from Chakra's `Box` component for page layouts through children components.
+- Composes the DS `TemplateAppContainer` component from Chakra's `Box` component for page layouts through props.
 - Composes the DS `Link` component with Chakra component and fixes the `Button` type.
 
 ### Removes
