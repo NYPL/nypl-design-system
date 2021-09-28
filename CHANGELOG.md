@@ -32,6 +32,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `CheckboxGroup` component from Chakra's `CheckboxGroup` component.
 - Composes the DS "Template" components (`Template`, `TemplateHeader`, `TemplateBreakout`, `TemplateContent`, `TemplateContentPrimary`, `TemplateContentSidebar`, `TemplateFooter`) from Chakra's `Box` component for page layouts through children components.
 - Composes the DS `TemplateAppContainer` component from Chakra's `Box` component for page layouts through props.
+- Exports Chakra's `Grid` component.
 
 ### Removes
 
