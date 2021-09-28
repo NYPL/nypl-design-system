@@ -82,8 +82,8 @@ const multiSelects = [
 ];
 
 function FilterBarStory(args: any) {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>();
+  //const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  //const [isMobile, setIsMobile] = useState<boolean>();
   const [selectedItems, setSelectedItems] = useState({});
 
   function onSelectedItemChange(itemId: string, multiSelectId: string) {
@@ -127,8 +127,8 @@ function FilterBarStory(args: any) {
       id={args.id}
       //label={label}
       isModalOpen={args.isModalOpen}
-      onClickMobileFiltersButton={() => setIsModalOpen(true)}
-      onClickGoBack={() => setIsModalOpen(false)}
+      //onClickMobileFiltersButton={() => setIsModalOpen(true)}
+      //onClickGoBack={() => setIsModalOpen(false)}
       isMobile={args.isMobile /*? isMobile : false*/}
       selectedItems={selectedItems}
       onClearSelectedItems={null}
@@ -150,7 +150,7 @@ function FilterBarStory(args: any) {
             //onSaveMultiSelect={onSaveMultiSelect}
             //onMenuClick={() => onMenuClick(group.id)}
             //selectedmultiSelectIds={selectedmultiSelectIds}
-            showCtaButtons={isMobile ? false : true}
+            showCtaButtons={true}
           />
         );
       })}

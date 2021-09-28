@@ -4,7 +4,7 @@ import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
 import Icon from "./../Icons/Icon";
 import { IconNames } from "./../Icons/IconTypes";
-import { useSelect } from "downshift";
+import { useSelect /*, UseSelectProps */ } from "downshift";
 import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
 
 import {
@@ -47,7 +47,7 @@ function MultiSelect({
     getToggleButtonProps,
     //getLabelProps,
     getMenuProps,
-    //highlightedIndex,
+    highlightedIndex,
     getItemProps,
     //selectItem,
   } = useSelect({
@@ -148,6 +148,11 @@ function MultiSelect({
                   item,
                   index,
                 })}
+                style={
+                  highlightedIndex === index
+                    ? { backgroundColor: "#bde4ff" }
+                    : {}
+                }
               >
                 <Checkbox
                   id={item.id}
