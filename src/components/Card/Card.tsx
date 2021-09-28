@@ -9,7 +9,7 @@ interface CardImageProps {
   /** Text description of the image */
   alt: string;
   /** Custom image component used in place of DS `Image` component */
-  component?: React.ReactNode;
+  component?: JSX.Element | null;
   /** ClassName you can add in addition to 'image' */
   className?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
@@ -58,7 +58,7 @@ export interface CardProps {
   /** Optional boolean value to control the position of the card image */
   imageAtEnd?: boolean;
   /** Custom image component used in place of DS `Image` component */
-  imageComponent?: React.ReactNode;
+  imageComponent?: JSX.Element;
   /** Optional value to control the size of the card image */
   imageSize?: CardImageSizes;
   /** The path to the image displayed with the card */
@@ -72,27 +72,26 @@ export interface CardProps {
 }
 
 // CardImage component
-export function CardImage(props: React.PropsWithChildren<CardImageProps>) {
+export function CardImage(props: CardImageProps) {
   const { src, alt, className, imageAspectRatio, imageSize, component } = props;
   const classNames = ["image-wrap"];
-  imageAspectRatio && classNames.push(`image-wrap--` + imageAspectRatio);
+  imageAspectRatio && classNames.push(`image-wrap--${imageAspectRatio}`);
   const imageModifiers = [];
   imageSize && imageModifiers.push(imageSize);
   return (
     (src || component) && (
-      <>
-        <div className={bem("image", imageModifiers, "card", [])}>
-          <div className={classNames.join(" ")}>
-            <div className="image-crop">
-              {component ? (
-                component
-              ) : (
-                <Image className={className} src={src} alt={alt} />
-              )}
-            </div>
+      <div className={bem("image", imageModifiers, "card", [])}>
+        <div className={classNames.join(" ")}>
+          <div className="image-crop">
+            <Image
+              className={className}
+              src={src}
+              alt={alt}
+              component={component}
+            />
           </div>
         </div>
-      </>
+      </div>
     )
   );
 }
