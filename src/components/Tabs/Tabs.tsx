@@ -14,7 +14,7 @@ import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Button from "../Button/Button";
-import useCarousel from "../../hooks/useCarousel";
+import useCarouselStyles from "../../hooks/useCarouselStyles";
 
 // The general shape of the data object for each Tab.
 export interface TabsContentDataProps {
@@ -45,7 +45,7 @@ const onClickHash = (tabHash) => {
 };
 
 /**
- * This returns an object with `Tab` and `TabPanel` components to render in
+ * This returns an object with `Tab` and `TabPanel` components to rendered in
  * `TabList` and `TabPanels` components respectively.
  */
 const getElementsFromContentData = (data, useHash) => {
@@ -90,7 +90,10 @@ const getElementsFromContentData = (data, useHash) => {
     panels.push(tempPanel);
   });
 
-  return { tabs, panels };
+  return {
+    tabs: <TabList>{tabs}</TabList>,
+    panels: <TabPanels>{panels}</TabPanels>,
+  };
 };
 
 /**
@@ -143,20 +146,58 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const { tabs, panels } = contentData
     ? getElementsFromContentData(contentData, useHash)
     : getElementsFromChildren(children);
-  const { prevSlide, nextSlide, carouselStyle } = useCarousel(tabs?.length);
+  // `tabs` is an array for the children component approach but an object for
+  // the `contentData` prop approach. We need to get the right props key value
+  // to set the carousel's length.
+  const tabProps = tabs[0] ? tabs[0]?.props : (tabs as any).props;
+  // Just an estimate of the tab width for the mobile carousel.
+  const tabWidth = 40;
+  const { prevSlide, nextSlide, carouselStyle } = useCarouselStyles(
+    tabProps?.children?.length,
+    tabWidth
+  );
+  const previousButton = (
+    <Button
+      buttonType={ButtonTypes.Primary}
+      attributes={{
+        "aria-label": "Previous",
+        ...styles.buttonArrows,
+        left: "0",
+      }}
+      onClick={prevSlide}
+    >
+      <Icon
+        name={IconNames.arrow}
+        decorative={true}
+        iconRotation={IconRotationTypes.rotate90}
+        modifiers={["small"]}
+      />
+    </Button>
+  );
+  const nextButton = (
+    <Button
+      buttonType={ButtonTypes.Primary}
+      attributes={{
+        "aria-label": "Next",
+        ...styles.buttonArrows,
+        right: "0",
+      }}
+      onClick={nextSlide}
+    >
+      <Icon
+        name={IconNames.arrow}
+        decorative={true}
+        iconRotation={IconRotationTypes.rotate270}
+        modifiers={["small"]}
+      />
+    </Button>
+  );
 
   if (children && contentData?.length) {
     console.warn(
       "Only pass children or data in the `data` props but not both."
     );
   }
-  const arrow = {
-    pos: "absolute",
-    top: "50%",
-    marginTop: "-22px",
-    transition: "0.6s ease",
-    zIndex: "9999",
-  };
 
   return (
     <ChakraTabs
@@ -167,73 +208,23 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
       defaultIndex={defaultIndex}
       variant="enclosed"
     >
-      {contentData ? (
-        <>
-          <Box
-            __css={styles.tablistWrapper}
-            sx={{
-              "&::-webkit-scrollbar": {
-                display: "none",
-              },
-            }}
-            overflow="hidden"
-            pos="relative"
-          >
-            <Button
-              buttonType={ButtonTypes.Primary}
-              attributes={{
-                "aria-label": "Previous",
-                ...styles.buttonArrows,
-                ...arrow,
-                left: "0",
-              }}
-              onClick={prevSlide}
-            >
-              <Icon
-                name={IconNames.arrow}
-                decorative={true}
-                iconRotation={IconRotationTypes.rotate90}
-                modifiers={["small"]}
-              />
-            </Button>
-            <Box {...carouselStyle}>
-              <TabList>{tabs}</TabList>
-            </Box>
-            <Button
-              buttonType={ButtonTypes.Primary}
-              attributes={{
-                "aria-label": "Next",
-                ...styles.buttonArrows,
-                ...arrow,
-                right: "0",
-              }}
-              onClick={nextSlide}
-            >
-              <Icon
-                name={IconNames.arrow}
-                decorative={true}
-                iconRotation={IconRotationTypes.rotate270}
-                modifiers={["small"]}
-              />
-            </Button>
-          </Box>
-          <TabPanels>{panels}</TabPanels>
-        </>
-      ) : (
-        <>
-          <Box
-            __css={styles.tablistWrapper}
-            sx={{
-              "&::-webkit-scrollbar": {
-                display: "none",
-              },
-            }}
-          >
+      <>
+        <Box
+          __css={styles.tablistWrapper}
+          sx={{
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+        >
+          {previousButton}
+          <Box __css={styles.carouselWrapper} {...carouselStyle}>
             {tabs}
           </Box>
-          {panels}
-        </>
-      )}
+          {nextButton}
+        </Box>
+        {panels}
+      </>
     </ChakraTabs>
   );
 }
