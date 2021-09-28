@@ -132,9 +132,12 @@ The `CardContent` component should be used to display all content other than hea
 
 ## Image Position
 
-By default, the image is always the first element within a `Card`. This means the image is at the top of a vertical `Card` and on the left size of a horizontal `Card`. However, you can use the `imageAtEnd` prop to override the default placement and move the image to the last element within a `Card`.
+By default, the image is always the first element within a `Card`. This means
+the image is at the top of a `Card` with a column layout and on the left side of
+a `Card` with a row layout. However, you can use the `imageAtEnd` prop to override
+the default placement and move the image to the last element within a `Card`.
 
-### Vertical Cards
+### Column Cards
 
 <Preview>
   <Story name="Card Image Position">
@@ -176,7 +179,7 @@ By default, the image is always the first element within a `Card`. This means th
   </Story>
 </Preview>
 
-### Horizontal Cards
+### Row Cards
 
 <Preview>
   <div
@@ -224,9 +227,11 @@ By default, the image is always the first element within a `Card`. This means th
 
 ## Image Size
 
-By default, the image width is `100%` for a vertical `Card` and `225px` for a horizontal `Card`. However, you can use the `imageSize` prop to override the default width.
+By default, the image width is `100%` for a `Card` with a column layout and
+`225px` for a `Card` with a row layout. However, you can use the `imageSize`
+prop to override the default width.
 
-### Vertical Cards
+### Column Cards
 
 <Preview>
   <Story name="Card Image Size">
@@ -313,7 +318,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
   </Story>
 </Preview>
 
-### Horizontal Cards
+### Row Cards
 
 <Preview>
   <div
