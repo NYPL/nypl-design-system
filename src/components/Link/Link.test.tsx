@@ -12,12 +12,17 @@ import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 
 describe("Link Accessibility", () => {
-  it("passes axe accessibility test", async () => {
+  it("passes axe accessibility test for children component", async () => {
     const { container } = render(
       <Link>
         <a href="#test">Test</a>
       </Link>
     );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test for href prop", async () => {
+    const { container } = render(<Link href="#test">Test</Link>);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -147,7 +152,7 @@ describe("Link", () => {
           <a href="#test">Test</a>
         </Link>
       )
-    ).toThrowError("Please pass only one child into Link");
+    ).toThrowError("Please pass only one child into `Link`.");
   });
 
   // TODO:
