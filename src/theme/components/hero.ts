@@ -1,16 +1,5 @@
-// From the `wrapper` SCSS mixin.
-// TODO: Eventually we may be able to put shared JS style objects
-// into a utils file for other mixins that are shared.
-const wrapperStyles = {
-  marginY: 0,
-  marginX: "auto",
-  maxWidth: "1280px",
-  paddingTop: 0,
-  paddingBottom: 0,
-  paddingRight: 0,
-  paddingLeft: 0,
-  width: "100%",
-};
+import { wrapperStyles } from "./global";
+
 // Used for all "secondary" variants.
 const secondaryBase = {
   overflowX: "hidden",
@@ -44,14 +33,14 @@ const secondaryBase = {
 };
 // Used for all "secondary" variants' heading component.
 const secondaryHeadingBase = {
-  marginBottom: 0,
+  marginBottom: "0",
   bg: "ui.black",
   color: "ui.white",
   flex: "1 1 100%",
-  marginTop: 0,
+  marginTop: "0",
   paddingBottom: "xxs",
   position: "relative",
-  zIndex: 0,
+  zIndex: "0",
   order: { md: "1" },
   _before: {
     bg: "ui.black",
@@ -76,156 +65,156 @@ const getSecondaryVariantStyles = (bgColor: string) => ({
     },
   },
 });
-
-const variants = {
-  primary: {
+// Variant styling
+const primary = {
+  alignItems: "center",
+  display: "flex",
+  flexFlow: {
+    base: "column nowrap",
+    md: "row nowrap",
+  },
+  justifyContent: "center",
+  minHeight: "350px",
+  content: {
+    bg: "ui.black",
+    color: "ui.white",
+    flex: {
+      base: "0 0 100%",
+      md: "0 0 60%",
+    },
+    maxWidth: { md: "960px" },
+    paddingTop: "xxl",
+    paddingBottom: "xxl",
+    paddingRight: "l",
+    paddingLeft: "l",
+    a: {
+      color: "inherit",
+      display: "inline-block",
+    },
+    heading: {
+      marginBottom: "0",
+    },
+    bodyText: {
+      marginBottom: "0",
+    },
+  },
+};
+const secondary = {
+  ...secondaryBase,
+  heading: {
+    ...secondaryHeadingBase,
+  },
+};
+const secondaryBooksAndMore = getSecondaryVariantStyles(
+  "section.books-and-more.primary"
+);
+const secondaryLocations = getSecondaryVariantStyles(
+  "section.locations.primary"
+);
+const secondaryResearch = getSecondaryVariantStyles("section.research.primary");
+const secondaryWhatsOn = getSecondaryVariantStyles("section.whats-on.primary");
+const tertiary = {
+  bg: "ui.gray.xdark",
+  content: {
+    ...wrapperStyles,
+    color: "ui.white",
+    display: "flex",
+    flexFlow: "column nowrap",
+    paddingTop: "l",
+    paddingBottom: "l",
+    paddingRight: "s",
+    paddingLeft: "s",
+    p: {
+      marginBottom: "0",
+    },
+  },
+  heading: {
+    marginBottom: "s",
+    _lastChild: {
+      marginBottom: "0",
+    },
+  },
+  p: {
+    marginBottom: "0",
+  },
+};
+const campaign = {
+  alignItems: "center",
+  display: "flex",
+  justifyContent: "center",
+  marginBottom: "xxl",
+  minHeight: "300px",
+  overflow: "visible",
+  padding: {
+    base: "l",
+    md: "0",
+  },
+  position: "relative",
+  content: {
     alignItems: "center",
+    bg: "ui.black",
+    color: "ui.white",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
       md: "row nowrap",
     },
-    justifyContent: "center",
-    minHeight: "350px",
-    content: {
-      bg: "ui.black",
-      color: "ui.white",
-      flex: {
-        base: "0 0 100%",
-        md: "0 0 60%",
-      },
-      maxWidth: { md: "960px" },
-      paddingTop: "xxl",
-      paddingBottom: "xxl",
-      paddingRight: "l",
-      paddingLeft: "l",
-      a: {
-        color: "inherit",
-        display: "inline-block",
-      },
-      heading: {
-        marginBottom: 0,
-      },
-      bodyText: {
-        marginBottom: 0,
-      },
-    },
+    minHeight: "320px",
+    flex: { md: "0 0 90%" },
+    maxWidth: { md: "1280px" },
+    position: { md: "relative" },
+    top: { md: "xxl" },
   },
-  secondary: {
-    ...secondaryBase,
-    heading: {
-      ...secondaryHeadingBase,
-    },
+  a: {
+    color: "inherit",
+    display: "inline-block",
   },
-  secondaryBooksAndMore: getSecondaryVariantStyles(
-    "section.books-and-more.primary"
-  ),
-  secondaryLocations: getSecondaryVariantStyles("section.locations.primary"),
-  secondaryResearch: getSecondaryVariantStyles("section.research.primary"),
-  secondaryWhatsOn: getSecondaryVariantStyles("section.whats-on.primary"),
-  tertiary: {
-    bg: "ui.gray.xdark",
-    content: {
-      ...wrapperStyles,
-      color: "ui.white",
-      display: "flex",
-      flexFlow: "column nowrap",
-      paddingTop: "l",
-      paddingBottom: "l",
-      paddingRight: "s",
-      paddingLeft: "s",
-      p: {
-        marginBottom: "0",
-      },
+  img: {
+    flex: {
+      base: "1 1 100%",
+      md: "0 0 50%",
     },
-    heading: {
-      marginBottom: "s",
-      _lastChild: {
-        marginBottom: "0",
-      },
-    },
-    p: {
-      marginBottom: "0",
-    },
+    minWidth: "0", // https://github.com/philipwalton/flexbugs/issues/41
+    objectFit: "cover",
+    width: "100%",
+    height: { md: "320px" },
   },
-  campaign: {
+  interior: {
+    flex: {
+      base: "0 0 100%",
+      md: "0 0 50%",
+    },
+    padding: "l",
+    maxWidth: { md: "960px" },
+  },
+};
+const fiftyfifty = {
+  content: {
+    ...wrapperStyles,
     alignItems: "center",
     display: "flex",
-    justifyContent: "center",
-    marginBottom: "xxl",
-    minHeight: "300px",
-    overflow: "visible",
+    flexFlow: {
+      base: "column nowrap",
+      lg: "row nowrap",
+    },
+    paddingBottom: "s",
+    paddingRight: "s",
+    paddingLeft: "s",
     padding: {
-      base: "l",
-      md: 0,
-    },
-    position: "relative",
-    content: {
-      alignItems: "center",
-      bg: "ui.black",
-      color: "ui.white",
-      display: "flex",
-      flexFlow: {
-        base: "column nowrap",
-        md: "row nowrap",
-      },
-      minHeight: "320px",
-      flex: { md: "0 0 90%" },
-      maxWidth: { md: "1280px" },
-      position: { md: "relative" },
-      top: { md: "xxl" },
-    },
-    a: {
-      color: "inherit",
-      display: "inline-block",
-    },
-    img: {
-      flex: {
-        base: "1 1 100%",
-        md: "0 0 50%",
-      },
-      minWidth: "0", // https://github.com/philipwalton/flexbugs/issues/41
-      objectFit: "cover",
-      width: "100%",
-      height: { md: "320px" },
-    },
-    interior: {
-      flex: {
-        base: "0 0 100%",
-        md: "0 0 50%",
-      },
-      padding: "l",
-      maxWidth: { md: "960px" },
+      lg: "unset",
     },
   },
-  fiftyfifty: {
-    content: {
-      ...wrapperStyles,
-      alignItems: "center",
-      display: "flex",
-      flexFlow: {
-        base: "column nowrap",
-        lg: "row nowrap",
-      },
-      paddingBottom: "s",
-      paddingRight: "s",
-      paddingLeft: "s",
-      padding: {
-        lg: "unset",
-      },
+  img: {
+    marginBottom: {
+      base: "s",
+      lg: "unset",
     },
-    img: {
-      marginBottom: {
-        base: "s",
-        lg: "unset",
-      },
-      marginRight: {
-        lg: "s",
-      },
-      maxWidth: {
-        base: "fit-content",
-        lg: "50%",
-      },
+    marginRight: {
+      lg: "s",
+    },
+    maxWidth: {
+      base: "fit-content",
+      lg: "50%",
     },
   },
 };
@@ -234,9 +223,17 @@ const Hero = {
     bg: "ui.gray.x-light-warm",
   },
   // Available variants:
-  // primary, secondary, secondaryBooksAndMore, secondaryLocations,
-  // secondaryResearch, secondaryWhatsOn, tertiary, campaign, fiftyfifty
-  variants,
+  variants: {
+    primary,
+    secondary,
+    secondaryBooksAndMore,
+    secondaryLocations,
+    secondaryResearch,
+    secondaryWhatsOn,
+    tertiary,
+    campaign,
+    fiftyfifty,
+  },
 };
 
 export default Hero;

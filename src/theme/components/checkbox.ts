@@ -1,5 +1,11 @@
 // @see https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/components/checkbox.ts
-// For avail theme override options.
+// for available theme override options.
+
+import {
+  checkboxRadioLabelStyles,
+  checkboxRadioControlSize,
+  checkboxRadioHelperStyle,
+} from "./global";
 
 // Style object for the Checkbox's visual icon.
 const baseStyleIcon = {
@@ -52,40 +58,19 @@ const baseStyleControl = {
   },
 
   _invalid: {
-    borderColor: "ui.error",
-    color: "ui.error",
+    borderColor: "ui.error.primary",
+    color: "ui.error.primary",
   },
 };
 
 // Style object for the Checkbox's label
 const baseStyleLabel = {
-  userSelect: "none",
-  fontSize: 0,
-  fontWeight: "light",
-  marginBottom: 0,
-  marginLeft: 2,
-  verticalAlign: "middle",
-
-  _disabled: {
-    color: "ui.gray.dark",
-    opacity: 1,
-    fontStyle: "italic",
-  },
-
-  _invalid: {
-    color: "ui.error",
-  },
+  ...checkboxRadioLabelStyles,
 };
 
 // Style object for the Checkbox's helper text
 const baseStyleHelper = {
-  marginTop: 2, // var(--space-xs)
-  marginBottom: 0,
-  marginLeft: "30px", // calc(22px + var(--space-xs))
-
-  _disabled: {
-    fontStyle: "italic",
-  },
+  ...checkboxRadioHelperStyle,
 };
 
 const baseStyle = {
@@ -99,7 +84,10 @@ const baseStyle = {
 const sizes = {
   lg: {
     // Controls the width/height of the checkbox itself.
-    control: { w: "1.375rem", h: "1.375rem", borderRadius: "3px" },
+    control: {
+      ...checkboxRadioControlSize,
+      borderRadius: "3px",
+    },
     // Controls the font-size of the label only.
     label: { fontSize: "md" },
   },
