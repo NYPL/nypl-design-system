@@ -3,6 +3,7 @@ import { extendTheme } from "@chakra-ui/react";
 import global from "./foundations/global";
 import breakpoints from "./foundations/breakpoints";
 import colors from "./foundations/colors";
+import shadows from "./foundations/shadows";
 import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
 /** Component styles */
@@ -42,6 +43,7 @@ const theme = extendTheme({
   styles: { global },
   breakpoints,
   colors,
+  shadows,
   space: spacing,
   ...typography,
   /**

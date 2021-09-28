@@ -3,7 +3,6 @@ const variants = {
   moreLink: {
     alignItems: "center",
     display: "inline-flex",
-    justifyContent: "space-between",
     _hover: {
       textDecoration: "underline",
     },
