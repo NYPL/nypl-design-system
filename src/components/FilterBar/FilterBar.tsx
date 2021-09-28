@@ -1,13 +1,12 @@
 import React from "react";
-
 import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Heading from "./../Heading/Heading";
 import Icon from "./../Icons/Icon";
 import { IconRotationTypes } from "./../Icons/IconTypes";
 import Modal from "./../Modal/Modal";
-
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { SelectedItems } from "./../MultiSelect/MultiSelectTypes";
 
 export interface FilterBarProps {
   id: string;
@@ -20,10 +19,6 @@ export interface FilterBarProps {
   onClearSelectedItems: () => void;
   onSaveSelectedItems: () => void;
   children: React.ReactNode;
-}
-
-export interface SelectedItems {
-  [name: string]: { items: string[] };
 }
 
 function FilterBar({
@@ -132,43 +127,3 @@ function FilterBar({
 }
 
 export default FilterBar;
-/*
-XXXX.desktopContainer {
-  padding: var(--space-m) 0 0 0;
-}
-
-XXXX.multiSelectsContainerDesktop {
-  display: flex;
-  flex-direction: row;
-  padding: var(--space-xs) 0;
-}
-
-.multiSelectsContainerMobile {
-  padding: 1.5rem 0 .5rem;
-}
-
-.mobileContainer {
-  padding: var(--space-m) 0 0 0;
-}
-
-.ctaButtonsContainerMobile {
-  display: flex;
-  justify-content: space-between;
-}
-
-.filterBarButtonMobile {
-  min-width: 140px;
-}
-
-.ctaClearButtonMobile {
-  margin-left: -10px;
-}
-
-.clearAllFiltersButton {
-  margin: 0 auto;
-}
-
-.filterBarHeading {
-  font-size: var(--font-size-2) !important;
-}
-*/

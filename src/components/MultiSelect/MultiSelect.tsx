@@ -3,11 +3,9 @@ import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
 import Icon from "./../Icons/Icon";
-import { IconNames /*, IconRotationTypes */ } from "./../Icons/IconTypes";
-//import List from "./../List/List";
-//import { ListTypes } from "./../List/ListTypes";
-
+import { IconNames } from "./../Icons/IconTypes";
 import { useSelect } from "downshift";
+import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
 
 import {
   Box,
@@ -17,29 +15,18 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-interface MultiSelectProps {
+export interface MultiSelectProps {
   id: string;
   label: string;
-  items: any;
+  items: MultiSelectItem[];
   /** Handler for onChange of checkbox, for controlled MultiSelect. */
   handleOnSelectedItemChange: any;
-  selectedItems: any;
+  selectedItems: SelectedItems;
   onSaveMultiSelect?: () => void;
   onClearMultiSelect?: () => void;
   onMenuClick?: () => void;
   //selectedGroupIds: string[];
   showCtaButtons: boolean;
-}
-
-interface MsItem {
-  id: string;
-  name: string;
-  children: [
-    {
-      id: string;
-      name: string;
-    }
-  ];
 }
 
 function MultiSelect({
@@ -65,6 +52,7 @@ function MultiSelect({
     //selectItem,
   } = useSelect({
     items,
+    // Downshift's internal state for handling keyboard and mouse events.
     stateReducer: (state, actionAndChanges) => {
       const { changes, type } = actionAndChanges;
       switch (type) {
@@ -80,13 +68,13 @@ function MultiSelect({
           return changes;
       }
     },
+    // @ts-ignore
     selectedItem: selectedItems,
     /*...(handleOnSelectedItemChange && {
       onSelectedItemChange: ({ selectedItem }) =>
         handleOnSelectedItemChange(selectedItem, id),
     }),
     */
-
     onSelectedItemChange: ({ selectedItem }) => {
       handleOnSelectedItemChange(selectedItem, id);
     },
@@ -110,11 +98,11 @@ function MultiSelect({
   }
 
   function setFilterCheckedProp(groupdId: string, itemId: string) {
-    //console.log(itemId);
-
     let checked = false;
     if (selectedItems[groupdId] !== undefined) {
+      // @ts-ignore
       checked = selectedItems[groupdId].items.find(
+        // @ts-ignore
         (filter: string) => filter === itemId
       );
     }
@@ -152,7 +140,7 @@ function MultiSelect({
           __css={styles.menuInner}
         >
           {isOpen &&
-            items.map((item: MsItem, index: number) => (
+            items.map((item: MultiSelectItem, index: number) => (
               <ListItem
                 py={1}
                 {...getItemProps({
@@ -206,15 +194,3 @@ function MultiSelect({
 }
 
 export default MultiSelect;
-
-/*
-non chakra button
-<button type="button" {...getToggleButtonProps()}>
-  <span>{getButtonLabel(id)}</span>
-  <Icon
-    name={IconNames[iconType]}
-    decorative={true}
-    modifiers={["small", IconNames[iconType]]}
-  />
-</button>
-*/
