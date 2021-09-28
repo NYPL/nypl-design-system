@@ -15,6 +15,7 @@ import Hero from "./components/hero";
 import TextInput from "./components/textInput";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
+import TemplateStyles from "./components/template";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -56,6 +57,7 @@ const theme = extendTheme({
     Tabs,
     Hero,
     TextInput,
+    ...TemplateStyles,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
   // can be updated to be anything we want. This can be "nypl" to have the
