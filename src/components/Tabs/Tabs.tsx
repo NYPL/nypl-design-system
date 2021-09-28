@@ -14,6 +14,7 @@ import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Button from "../Button/Button";
+import useCarousel from "../../hooks/useCarousel";
 
 // The general shape of the data object for each Tab.
 export interface TabsContentDataProps {
@@ -142,12 +143,20 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const { tabs, panels } = contentData
     ? getElementsFromContentData(contentData, useHash)
     : getElementsFromChildren(children);
+  const { prevSlide, nextSlide, carouselStyle } = useCarousel(tabs?.length);
 
   if (children && contentData?.length) {
     console.warn(
       "Only pass children or data in the `data` props but not both."
     );
   }
+  const arrow = {
+    pos: "absolute",
+    top: "50%",
+    marginTop: "-22px",
+    transition: "0.6s ease",
+    zIndex: "9999",
+  };
 
   return (
     <ChakraTabs
@@ -167,13 +176,18 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
                 display: "none",
               },
             }}
+            overflow="hidden"
+            pos="relative"
           >
             <Button
               buttonType={ButtonTypes.Primary}
               attributes={{
                 "aria-label": "Previous",
                 ...styles.buttonArrows,
+                ...arrow,
+                left: "0",
               }}
+              onClick={prevSlide}
             >
               <Icon
                 name={IconNames.arrow}
@@ -182,13 +196,18 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
                 modifiers={["small"]}
               />
             </Button>
-            <TabList>{tabs}</TabList>
+            <Box {...carouselStyle}>
+              <TabList>{tabs}</TabList>
+            </Box>
             <Button
               buttonType={ButtonTypes.Primary}
               attributes={{
                 "aria-label": "Next",
                 ...styles.buttonArrows,
+                ...arrow,
+                right: "0",
               }}
+              onClick={nextSlide}
             >
               <Icon
                 name={IconNames.arrow}
