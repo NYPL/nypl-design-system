@@ -3,8 +3,8 @@ const tablist = {
 };
 const tab = {
   color: "black !important",
-  paddingInlineStart: 4,
-  paddingLeft: 4,
+  paddingInlineStart: "s",
+  paddingLeft: "s",
   background: "transparent",
   border: "0",
   borderBottom: "1px solid",
@@ -14,14 +14,14 @@ const tab = {
     md: "1px",
   },
   paddingRight: {
-    base: 4,
-    md: 8,
-    lg: 12,
+    base: "s",
+    md: "l",
+    lg: "xl",
   },
   whiteSpace: "nowrap",
   _hover: {
     bg: "ui.gray.x-light-warm",
-    borderTopRadius: 2,
+    borderTopRadius: "xs",
     borderBottom: "1px solid",
     borderBottomColor: "ui.black",
   },
@@ -29,19 +29,20 @@ const tab = {
     fontWeight: "bold",
     bg: "ui.gray.light-warm",
     border: "0",
-    borderTopRadius: 2,
+    borderTopRadius: "xs",
     borderBottom: "3px solid",
     borderBottomColor: "ui.black",
     paddingBottom: "5px",
   },
   _focus: {
-    boxShadow: 0,
+    boxShadow: "0",
   },
 };
+// Only display the previous/next arrow buttons on mobile.
 const buttonArrows = {
   border: "0",
   display: {
-    // After 38em/600px, don't display the arrow buttons anymore.
+    // After 38em/600px, don't display the arrow button anymore.
     md: "none",
   },
   height: "44px",

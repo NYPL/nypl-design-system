@@ -1074,6 +1074,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
   >
     <label
       className="chakra-checkbox css-1uiwwan"
+      data-invalid=""
       onClick={[Function]}
     >
       <input
@@ -1137,6 +1138,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     </label>
     <label
       className="chakra-checkbox css-1uiwwan"
+      data-invalid=""
       onClick={[Function]}
     >
       <input

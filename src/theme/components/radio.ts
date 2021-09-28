@@ -1,3 +1,9 @@
+import {
+  checkboxRadioLabelStyles,
+  checkboxRadioControlSize,
+  checkboxRadioHelperStyle,
+} from "./global";
+
 // Style object for the Radio's "control" or visual icon.
 const baseStyleControl = {
   verticalAlign: "middle",
@@ -23,11 +29,11 @@ const baseStyleControl = {
     },
     _invalid: {
       _hover: {
-        borderColor: "ui.error",
+        borderColor: "ui.error.primary",
       },
       _before: {
-        borderColor: "ui.error",
-        bg: "ui.error",
+        borderColor: "ui.error.primary",
+        bg: "ui.error.primary",
       },
     },
     _hover: {
@@ -36,8 +42,8 @@ const baseStyleControl = {
     _before: {
       content: `""`,
       display: "block",
-      w: 3,
-      h: 3,
+      w: "3",
+      h: "3",
       borderRadius: "100%",
       bg: "ui.focus",
     },
@@ -51,7 +57,7 @@ const baseStyleControl = {
     borderColor: "ui.focus",
   },
   _invalid: {
-    borderColor: "ui.error",
+    borderColor: "ui.error.primary",
   },
   // TODO:
   // _indeterminate: {
@@ -62,21 +68,12 @@ const baseStyleControl = {
 
 // Style object for the Radio's label
 const baseStyleLabel = {
-  userSelect: "none",
-  fontSize: 0,
-  fontWeight: "light",
-  marginBottom: 0,
-  marginLeft: 2,
-  verticalAlign: "middle",
+  ...checkboxRadioLabelStyles,
+};
 
-  _disabled: {
-    color: "ui.gray.dark",
-    opacity: 1,
-    fontStyle: "italic",
-  },
-  _invalid: {
-    color: "ui.error",
-  },
+// Style object for the Radio's helper text
+const baseStyleHelper = {
+  ...checkboxRadioHelperStyle,
 };
 
 const baseStyle = {
@@ -84,28 +81,20 @@ const baseStyle = {
   control: baseStyleControl,
   label: baseStyleLabel,
   // Custom element in the DS Radio component.
-  helper: {
-    marginTop: 2, // var(--space-xs)
-    marginBottom: 0,
-    marginLeft: "30px", // calc(22px + var(--space-xs))
-    _disabled: {
-      fontStyle: "italic",
-    },
-  },
+  helper: baseStyleHelper,
 };
 
 // Sticking to "md" for the default size.
 const sizes = {
   md: {
     control: {
-      // Custom values not in the spacing theme.
-      h: "1.375rem",
-      w: "1.375rem",
+      ...checkboxRadioControlSize,
     },
   },
 };
 
 const Radio = {
+  parts: ["control", "label", "helper"],
   baseStyle,
   sizes,
   // Default values
