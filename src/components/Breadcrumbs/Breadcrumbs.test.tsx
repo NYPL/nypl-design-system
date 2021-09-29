@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import { axe } from "jest-axe";
 
-import { Breadcrumbs } from "./Breadcrumbs";
+import Breadcrumbs from "./Breadcrumbs";
 
 describe("Breadcrumbs Accessibility", () => {
   const breadcrumbString = [

@@ -98,4 +98,4 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
   );
 }
 
-export { Breadcrumbs, BreadcrumbItem, BreadcrumbLink };
+export default Breadcrumbs;
