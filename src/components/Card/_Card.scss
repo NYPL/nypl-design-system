@@ -3,99 +3,6 @@
   display: flex;
   flex-flow: column wrap;
 
-  .card__image {
-    margin-bottom: var(--space-s);
-    width: 100%;
-
-    &--small {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 165px;
-    }
-
-    &--medium {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 225px;
-    }
-
-    &--large {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 360px;
-    }
-
-    .image-wrap {
-      box-sizing: border-box;
-      height: 0;
-      overflow: hidden;
-      padding-bottom: 100%;
-      position: relative;
-      width: 100%;
-
-      &--sixteen-by-nine {
-        padding-bottom: 56.25%;
-      }
-
-      &--three-by-two {
-        padding-bottom: 66.66%;
-      }
-
-      &--two-by-one {
-        padding-bottom: 50%;
-      }
-
-      &--four-by-three {
-        padding-bottom: 75%;
-      }
-
-      &--square {
-        padding-bottom: 100%;
-      }
-
-      &--three-by-four {
-        padding-bottom: 133.33%;
-      }
-
-      &--one-by-two {
-        padding-bottom: 200%;
-      }
-    }
-
-    .image-crop {
-      box-sizing: border-box;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-
-    .image {
-      box-sizing: border-box;
-      display: block;
-      height: 100%;
-      object-fit: cover;
-      position: relative;
-      width: 100%;
-    }
-
-    &--original {
-      height: auto;
-      overflow: hidden;
-      padding-bottom: 0;
-
-      .image-crop {
-        height: auto;
-        position: relative;
-      }
-
-      .image {
-        object-fit: none;
-      }
-    }
-  }
-
   .card__body {
     @include breakpoint($breakpoint-medium) {
       display: block;
@@ -196,15 +103,15 @@
         margin: 0 var(--space-m) 0 0;
         max-width: 50%;
 
-        &--small {
+        &.small {
           flex: 0 0 165px;
         }
 
-        &--medium {
+        &.medium {
           flex: 0 0 225px;
         }
 
-        &--large {
+        &.large {
           flex: 0 0 360px;
         }
       }

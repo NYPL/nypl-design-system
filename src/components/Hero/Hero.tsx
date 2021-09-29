@@ -62,6 +62,8 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   // We want to add `Hero`-specific styling to the `Heading` component.
   const finalHeading =
     heading && React.cloneElement(heading, { sx: headingStyles });
+  const finalImage =
+    image && React.cloneElement(image, { useImageWrapper: false });
   let backgroundImageStyle = {};
   let contentBoxStyling = {};
 
@@ -71,7 +73,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         `Warning: it is recommended to use the "backgroundImageSrc" prop for PRIMARY hero.`
       );
     }
-    if (image) {
+    if (finalImage) {
       console.warn(
         `Warning: the "image" prop has been passed, but PRIMARY hero will not use it.`
       );
@@ -86,10 +88,10 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       `Warning: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
     );
   }
-  if (heroType === HeroTypes.Tertiary && (backgroundImageSrc || image)) {
+  if (heroType === HeroTypes.Tertiary && (backgroundImageSrc || finalImage)) {
     console.warn(`Warning: TERTIARY hero will not use any of the image props.`);
   }
-  if (heroType === HeroTypes.Campaign && (!backgroundImageSrc || !image)) {
+  if (heroType === HeroTypes.Campaign && (!backgroundImageSrc || !finalImage)) {
     console.warn(
       `Warning: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
     );
@@ -129,7 +131,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   const childrenToRender =
     heroType === HeroTypes.Campaign ? (
       <>
-        {image}
+        {finalImage}
         <Box __css={styles.interior}>
           {finalHeading}
           {subHeaderText}
@@ -139,7 +141,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       <>
         {heroType !== HeroTypes.Primary &&
           heroType !== HeroTypes.Tertiary &&
-          image}
+          finalImage}
         {finalHeading}
         {heroType === HeroTypes.Tertiary && subHeaderText ? (
           <p>{subHeaderText}</p>

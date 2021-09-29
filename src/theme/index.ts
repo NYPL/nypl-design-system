@@ -20,6 +20,11 @@ import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 import TemplateStyles from "./components/template";
 import Link from "./components/link";
+import {
+  CustomImage,
+  ImageSizesWrapper,
+  ImageAspectRatioWrapper,
+} from "./components/image";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -55,10 +60,13 @@ const theme = extendTheme({
     Button,
     Checkbox,
     CustomCheckboxGroup,
+    CustomImage,
     CustomRadioGroup,
     CustomSelect,
     Heading,
     Hero,
+    ImageAspectRatioWrapper,
+    ImageSizesWrapper,
     Link,
     Radio,
     Tabs,

@@ -1,0 +1,226 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { VStack } from "@chakra-ui/react";
+
+import Image from "./Image";
+import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
+import Heading from "../Heading/Heading";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("Image")}
+  component={Image}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11896%3A45379",
+    },
+    jest: ["Image.test.tsx"],
+  }}
+  argTypes={{
+    alt: { table: { disable: true } },
+    className: { table: { disable: true } },
+    component: { table: { disable: true } },
+    useImageWrapper: { table: { disable: true } },
+  }}
+/>
+
+# Image
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.6`    |
+| Latest            | `0.25.1`   |
+
+<Description of={Image} />
+
+<p>
+  If you want a simple HTML `img` element then set the `useImageWrapper` prop to
+  `false`. This will not wrap the `img` element with styling `div` wrappers.
+</p>
+
+<Canvas>
+  <Story
+    name="Image Props"
+    args={{
+      alt: "Alt text",
+      imageAspectRatio: ImageRatios.ThreeByFour,
+      imageCaption: "Image caption",
+      imageCredit: "Image credit",
+      imageSize: ImageSizes.Medium,
+      imageType: ImageTypes.Default,
+      src: "https://placeimg.com/400/300/animals",
+    }}
+  >
+    {(args) => <Image {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Image Props" />
+
+## Image Figure
+
+By passing in `imageCredit` or `imageCaption`, the `Image` component will
+render an HTML `figure` element and render an `img` element inside with the
+proper props. If no `imageCredit` or `imageCaption` prop values are passed,
+then an `img` element will be rendered with or without wrapper style divs.
+
+<Canvas>
+  <Story
+    name="Figure and figcaption"
+    args={{
+      alt: "Alt text",
+      imageAspectRatio: ImageRatios.ThreeByTwo,
+      imageCaption: "Image caption",
+      imageCredit: "Image credit",
+      imageSize: ImageSizes.Small,
+      imageType: ImageTypes.Default,
+      src: "https://placeimg.com/400/300/animals",
+    }}
+    argTypes={{
+      imageAspectRatio: { table: { disable: true } },
+      imageCaption: { table: { disable: true } },
+      imageCredit: { table: { disable: true } },
+      imageSize: { table: { disable: true } },
+      imageType: { table: { disable: true } },
+      src: { table: { disable: true } },
+    }}
+  >
+    {(args) => <Image {...args} />}
+  </Story>
+</Canvas>
+
+## Image Sizes
+
+Use the `ImageSizes` prop to set the desired size.
+
+<Canvas>
+  <Story name="Image Sizes">
+    <VStack spacing="xs">
+      <Heading id="Small" text="ImageSizes.Small" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="Medium" text="ImageSizes.Medium" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Medium}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="Large" text="ImageSizes.Large" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Large}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="Default" text="ImageSizes.Default" />
+      <Image alt="Alt text" src="https://placeimg.com/400/300/animals" />
+    </VStack>
+  </Story>
+</Canvas>
+
+## Image Aspect Ratios
+
+Use the `imageAspectRatio` prop to set the desired aspect ratio. Note: the
+following example has `imageSize` set to `ImageSizes.Small`.
+
+<Canvas>
+  <Story name="Image Aspect Ratios">
+    <VStack spacing="xs">
+      <Heading id="fourbythree" text="ImageRatios.FourByThree" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        imageAspectRatio={ImageRatios.FourByThree}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="onebytwo" text="ImageRatios.OneByTwo" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        imageAspectRatio={ImageRatios.OneByTwo}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="original" text="ImageRatios.Original" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        imageAspectRatio={ImageRatios.Original}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="sixteenbynine" text="ImageRatios.SixteenByNine" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        imageAspectRatio={ImageRatios.SixteenByNine}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="square" text="ImageRatios.Square" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        imageAspectRatio={ImageRatios.Square}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="threebyfour" text="ImageRatios.ThreeByFour" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        imageAspectRatio={ImageRatios.ThreeByFour}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="threebytwo" text="ImageRatios.ThreeByTwo" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        imageAspectRatio={ImageRatios.ThreeByTwo}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="twobyone" text="ImageRatios.TwoByOne" />
+      <Image
+        alt="Alt text"
+        imageSize={ImageSizes.Small}
+        imageAspectRatio={ImageRatios.TwoByOne}
+        src="https://placeimg.com/400/300/animals"
+      />
+    </VStack>
+  </Story>
+</Canvas>
+
+## Image Types
+
+Use the `imageType` prop to get an image variant. Note that to get a perfect circle, the `imageAspectRatio` prop _must_ be set
+to `ImageRatios.Square`.
+
+<Canvas>
+  <Story name="Image Types">
+    <VStack spacing="xs">
+      <Heading id="default" text="ImageTypes.Default" />
+      <Image
+        alt="Alt text"
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.Small}
+        imageType={ImageTypes.Default}
+        src="https://placeimg.com/400/300/animals"
+      />
+      <Heading id="circle" text="ImageTypes.Circle" />
+      <Image
+        alt="Alt text"
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.Small}
+        imageType={ImageTypes.Circle}
+        src="https://placeimg.com/400/300/animals"
+      />
+    </VStack>
+  </Story>
+</Canvas>

@@ -12,7 +12,7 @@ import { action } from "@storybook/addon-actions";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
-import { CardImageRatios, CardImageSizes, CardLayouts } from "./CardTypes";
+import { CardLayouts } from "./CardTypes";
 import Link from "../Link/Link";
 import Heading from "../Heading/Heading";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
@@ -21,6 +21,7 @@ import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Image from "../Image/Image";
+import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -40,14 +41,7 @@ import { getCategory } from "../../utils/componentCategories";
     modifiers: { table: { disable: true } },
     id: { table: { disable: true } },
     imageComponent: { table: { disable: true } },
-    layout: { table: { disable: false } },
-    imageSrc: { table: { disable: false } },
-    imageAlt: { table: { disable: false } },
-    imageSize: { table: { disable: false } },
-    imageAspectRatio: { table: { disable: false } },
-    imageAtEnd: { table: { disable: false } },
-    border: { table: { disable: false } },
-    padding: { table: { disable: false } },
+    padding: { table: { disable: true } },
     backgroundColor: { control: { type: "color" } },
     foregroundColor: { control: { type: "color" } },
   }}
@@ -83,8 +77,12 @@ The `CardContent` component should be used to display all content other than hea
       id: "custom-card",
       layout: CardLayouts.Horizontal,
       imageSrc: "https://placeimg.com/400/300/animals",
-      imageAspectRatio: CardImageRatios.ThreeByFour,
+      imageAspectRatio: ImageRatios.ThreeByFour,
+      imageSize: ImageSizes.Default,
       imageAlt: "Alt text",
+      imageAtEnd: false,
+      border: false,
+      center: false,
     }}
   >
     {(args) => (
@@ -141,14 +139,14 @@ By default, the image is always the first element within a `Card`. This means th
     <div
       style={{
         display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(2, 1fr)",
+        gridGap: "2rem",
+        gridTemplateColumns: "repeat(2, 1fr)",
       }}
     >
       <Card
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Image on Top (default)
@@ -161,7 +159,7 @@ By default, the image is always the first element within a `Card`. This means th
       <Card
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
         imageAtEnd
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
@@ -182,8 +180,8 @@ By default, the image is always the first element within a `Card`. This means th
   <div
     style={{
       display: "grid",
-      "grid-gap": "2rem",
-      "grid-template-columns": "repeat(1, 1fr)",
+      gridGap: "2rem",
+      gridTemplateColumns: "repeat(1, 1fr)",
     }}
   >
     <Card
@@ -191,7 +189,7 @@ By default, the image is always the first element within a `Card`. This means th
       center
       imageSrc="https://placeimg.com/400/200/animals"
       imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageAspectRatio={ImageRatios.TwoByOne}
     >
       <CardHeading level={HeadingLevels.Four} id="heading1">
         Image on Left (default)
@@ -207,7 +205,7 @@ By default, the image is always the first element within a `Card`. This means th
       center
       imageSrc="https://placeimg.com/410/210/animals"
       imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageAspectRatio={ImageRatios.TwoByOne}
       imageAtEnd
     >
       <CardHeading level={HeadingLevels.Four} id="heading2">
@@ -233,16 +231,16 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
     <div
       style={{
         display: "grid",
-        "grid-gap": "4rem",
-        "grid-template-columns": "repeat(1, 1fr)",
+        gridGap: "4rem",
+        gridTemplateColumns: "repeat(1, 1fr)",
       }}
     >
       <Card
         center
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.Square}
-        imageSize={CardImageSizes.Small}
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.Small}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Small Image
@@ -260,8 +258,8 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         center
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.Square}
-        imageSize={CardImageSizes.Medium}
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.Medium}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Medium Image
@@ -278,8 +276,8 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.Square}
-        imageSize={CardImageSizes.Large}
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.Large}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Large Image
@@ -296,7 +294,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.Square}
+        imageAspectRatio={ImageRatios.Square}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Default Image
@@ -319,8 +317,8 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
   <div
     style={{
       display: "grid",
-      "grid-gap": "2rem",
-      "grid-template-columns": "repeat(1, 1fr)",
+      gridGap: "2rem",
+      gridTemplateColumns: "repeat(1, 1fr)",
     }}
   >
     <Card
@@ -328,8 +326,8 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       center
       imageSrc="https://placeimg.com/400/200/animals"
       imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-      imageSize={CardImageSizes.Small}
+      imageAspectRatio={ImageRatios.TwoByOne}
+      imageSize={ImageSizes.Small}
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
         Small Image
@@ -346,8 +344,8 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       center
       imageSrc="https://placeimg.com/410/210/animals"
       imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-      imageSize={CardImageSizes.Medium}
+      imageAspectRatio={ImageRatios.TwoByOne}
+      imageSize={ImageSizes.Medium}
     >
       <CardHeading level={HeadingLevels.Three} id="heading2">
         Medium Image
@@ -365,8 +363,8 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       center
       imageSrc="https://placeimg.com/400/250/animals"
       imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-      imageSize={CardImageSizes.Large}
+      imageAspectRatio={ImageRatios.TwoByOne}
+      imageSize={ImageSizes.Large}
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
         Large Image
@@ -385,7 +383,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       center
       imageSrc="https://placeimg.com/450/250/animals"
       imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageAspectRatio={ImageRatios.TwoByOne}
     >
       <CardHeading level={HeadingLevels.Three} id="heading2">
         Default Image
@@ -409,14 +407,14 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
     <div
       style={{
         display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(3, 1fr)",
+        gridGap: "2rem",
+        gridTemplateColumns: "repeat(3, 1fr)",
       }}
     >
       <Card
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -429,7 +427,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       <Card
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -442,7 +440,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       <Card
         imageSrc="https://placeimg.com/420/220/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -455,7 +453,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       <Card
         imageSrc="https://placeimg.com/430/230/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -468,7 +466,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       <Card
         imageSrc="https://placeimg.com/440/240/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -481,7 +479,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       <Card
         imageSrc="https://placeimg.com/450/250/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -502,8 +500,8 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
     <div
       style={{
         display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(1, 1fr)",
+        gridGap: "2rem",
+        gridTemplateColumns: "repeat(1, 1fr)",
       }}
     >
       <Card
@@ -511,7 +509,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         center
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Card Heading
@@ -527,7 +525,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading2">
           Card Heading
@@ -543,7 +541,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         center
         imageSrc="https://placeimg.com/420/220/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading3">
           Card Heading
@@ -566,7 +564,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
   <Story name="Custom Image Component">
     <Card
       imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.SixteenByNine}
+      imageAspectRatio={ImageRatios.SixteenByNine}
       imageComponent={
         <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
       }
@@ -603,9 +601,9 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
     <div
       style={{
         display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(3, 1fr)",
-        "margin-bottom": "2rem",
+        gridGap: "2rem",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        marginBottom: "2rem",
       }}
     >
       <Card border>
@@ -642,8 +640,8 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
     <div
       style={{
         display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(1, 1fr)",
+        gridGap: "2rem",
+        gridTemplateColumns: "repeat(1, 1fr)",
       }}
     >
       <Card layout={CardLayouts.Horizontal} border>

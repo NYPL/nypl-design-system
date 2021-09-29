@@ -21,11 +21,7 @@ export {
   CardContent,
   CardHeading,
 } from "./components/Card/Card";
-export {
-  CardImageRatios,
-  CardImageSizes,
-  CardLayouts,
-} from "./components/Card/CardTypes";
+export { CardLayouts } from "./components/Card/CardTypes";
 export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";

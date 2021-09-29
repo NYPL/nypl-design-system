@@ -10,7 +10,13 @@ export enum ImageRatios {
 }
 
 export enum ImageSizes {
+  Default = "default",
   Large = "large",
   Medium = "medium",
   Small = "small",
+}
+
+export enum ImageTypes {
+  Default = "default",
+  Circle = "circle",
 }

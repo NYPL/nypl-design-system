@@ -1,24 +1,10 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 
-import { CardImageRatios, CardImageSizes, CardLayouts } from "./CardTypes";
+import { CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
-
-interface CardImageProps {
-  /** Text description of the image */
-  alt: string;
-  /** Custom image component used in place of DS `Image` component */
-  component?: JSX.Element | null;
-  /** ClassName you can add in addition to 'image' */
-  className?: string;
-  /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
-  imageAspectRatio?: CardImageRatios;
-  /** Optional value to control the size of the card image */
-  imageSize?: CardImageSizes;
-  /** The src attribute is required, and contains the path to the image you want to embed. */
-  src: string;
-}
+import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 
 interface CardContentProps {
   /** Optional className that would be applied to the `card-content` element */
@@ -54,13 +40,13 @@ export interface CardProps {
   /** Text description of the image; to follow best practices for accessibility, this prop should not be left blank if `imageSrc` is passed */
   imageAlt?: string;
   /** Optional value to control the aspect ratio of the card image; default value is `square` */
-  imageAspectRatio?: CardImageRatios;
+  imageAspectRatio?: ImageRatios;
   /** Optional boolean value to control the position of the card image */
   imageAtEnd?: boolean;
   /** Custom image component used in place of DS `Image` component */
   imageComponent?: JSX.Element;
   /** Optional value to control the size of the card image */
-  imageSize?: CardImageSizes;
+  imageSize?: ImageSizes;
   /** The path to the image displayed with the card */
   imageSrc?: string;
   /** Optional value to control the position of the image placeholder; default value is `vertical` */
@@ -71,30 +57,8 @@ export interface CardProps {
   padding?: string;
 }
 
-// CardImage component
-export function CardImage(props: CardImageProps) {
-  const { src, alt, className, imageAspectRatio, imageSize, component } = props;
-  const classNames = ["image-wrap"];
-  imageAspectRatio && classNames.push(`image-wrap--${imageAspectRatio}`);
-  const imageModifiers = [];
-  imageSize && imageModifiers.push(imageSize);
-  return (
-    (src || component) && (
-      <div className={bem("image", imageModifiers, "card", [])}>
-        <div className={classNames.join(" ")}>
-          <div className="image-crop">
-            <Image
-              className={className}
-              src={src}
-              alt={alt}
-              component={component}
-            />
-          </div>
-        </div>
-      </div>
-    )
-  );
-}
+// Not being used in any examples but available for use.
+export const CardImage = Image;
 
 // CardHeading child-component
 export const CardHeading = (props) => <Heading {...props} />;
@@ -147,20 +111,19 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     modifiers = [],
     imageAlt,
     imageComponent,
-    imageAspectRatio,
-    imageSize,
+    imageAspectRatio = ImageRatios.Original,
+    imageSize = ImageSizes.Default,
     imageSrc,
   } = props;
   const baseClass = "card";
-
+  const hasImage = imageSrc || imageComponent;
   const styles = {};
-  let imageCount = 0;
   const cardContents = [];
 
   layout && modifiers.push(layout);
   border && modifiers.push("with-border");
   center && modifiers.push("center");
-  (imageSrc || imageComponent) && modifiers.push("has-image");
+  hasImage && modifiers.push("has-image");
   imageAtEnd && modifiers.push("at-end");
 
   padding && (styles["padding"] = padding);
@@ -180,26 +143,20 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     }
   });
 
-  if (imageCount > 1) {
-    console.error(`Only one CardIimage child component may be passed to Card.`);
-    cardContents.length = 0;
-    cardContents.push(
-      "Error: Only one CardImage child component may be passed to Card."
-    );
-  }
   return (
     <div
       className={bem(baseClass, modifiers, blockName, [className])}
       id={id}
       style={styles}
     >
-      {(imageSrc || imageComponent) && (
+      {hasImage && (
         <CardImage
+          className={`card__image ${imageSize}`}
           src={imageSrc ? imageSrc : null}
-          component={imageComponent ? imageComponent : null}
+          component={imageComponent}
           alt={imageAlt ? imageAlt : null}
-          imageSize={imageSize ? imageSize : null}
-          imageAspectRatio={imageAspectRatio ? imageAspectRatio : null}
+          imageSize={imageSize}
+          imageAspectRatio={imageAspectRatio}
         />
       )}
       <div className={bem("body", [], baseClass)}>{cardContents}</div>
