@@ -63,7 +63,7 @@ export interface CardProps {
   imageSize?: CardImageSizes;
   /** The path to the image displayed with the card */
   imageSrc?: string;
-  /** Optional value to control the position of the image placeholder; default value is `vertical` */
+  /** Optional value to control the position of the image placeholder; default value is `column` */
   layout?: CardLayouts;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
