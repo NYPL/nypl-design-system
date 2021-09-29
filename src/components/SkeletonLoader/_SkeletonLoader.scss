@@ -83,7 +83,7 @@
     padding: var(--space-s);
   }
 
-  &--horizontal {
+  &--row {
     @include breakpoint($breakpoint-medium) {
       display: flex;
 
