@@ -43,6 +43,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the development preview URL from the Netlify link to the Tugboat QA link.
 - Updating spacing values to use NYPL spacing rather than "em"s.
+- Updates the `SkeletonLoaderLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
 
 ## 0.24.1
 
