@@ -1,37 +1,30 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useStyleConfig } from "@chakra-ui/react";
+
+import generateUUID from "../../helpers/generateUUID";
 
 export interface StatusBadgeProps {
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** ClassName that appears in addition to "status-badge" */
+  /** Additional class for the component */
   className?: string;
-  /** Level of badge **/
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
+  /** Level of the status badge */
   level?: "low" | "medium" | "high";
 }
 
-export default function StatusBadge(
-  props: React.PropsWithChildren<StatusBadgeProps>
-) {
-  const { blockName, className, level } = props;
+function StatusBadge(props: React.PropsWithChildren<StatusBadgeProps>) {
+  const { children, className, id = generateUUID(), level = "low" } = props;
+  const styles = useStyleConfig("StatusBadge", { variant: level });
 
-  const baseClass = "status-badge";
-
-  let statusBadgeModifiers = ["low"];
-
-  if (!props.children) {
-    console.warn("Status Badge has no children");
-  }
-
-  if (level) {
-    statusBadgeModifiers = [level];
+  if (!children) {
+    console.warn("Status Badge has no children.");
   }
 
   return (
-    <div
-      className={bem(baseClass, statusBadgeModifiers, blockName, [className])}
-    >
-      {props.children}
-    </div>
+    <Box id={id} className={className} __css={styles}>
+      {children}
+    </Box>
   );
 }
+
+export default StatusBadge;

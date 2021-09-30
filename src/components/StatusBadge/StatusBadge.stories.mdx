@@ -1,0 +1,88 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { VStack } from "@chakra-ui/react";
+
+import StatusBadge from "./StatusBadge";
+import getCSSVariable from "../../helpers/getCSSVariable";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("StatusBadge")}
+  component={StatusBadge}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11256%3A0",
+    },
+    jest: ["StatusBadge.test.tsx"],
+  }}
+  argTypes={{
+    className: { table: { disable: true } },
+    id: { table: { disable: true } },
+    level: {
+      control: {
+        type: "select",
+      },
+      options: ["low", "medium", "high"],
+    },
+  }}
+/>
+
+# StatusBadge
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.18.7`   |
+| Latest            | `0.25.1`   |
+
+<Description of={StatusBadge} />
+
+<Canvas withToolbar>
+  <Story
+    name="Basic with props"
+    args={{ level: "low", text: "Registration Required" }}
+  >
+    {(args) => <StatusBadge {...args}>{args.text}</StatusBadge>}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic with props" />
+
+## Patterns
+
+### Higher Barrier
+
+Used in instances where the associated message is the highest barrier. Use
+`"high"` and `"medium"` for these levels.
+
+<Canvas>
+  <DSProvider>
+    <VStack spacing="s" align="stretch">
+      <StatusBadge level="high">On-Site Access Only</StatusBadge>
+      <StatusBadge level="medium">Cancelled</StatusBadge>
+    </VStack>
+  </DSProvider>
+</Canvas>
+
+### Lower Barrier
+
+Used in instances where the associated message is the lower barrier. Use
+`"low"` for this level which is the default.
+
+<Canvas>
+  <DSProvider>
+    <VStack spacing="s" align="stretch">
+      <StatusBadge>Library Card Required</StatusBadge>
+      <StatusBadge>Registration Required</StatusBadge>
+    </VStack>
+  </DSProvider>
+</Canvas>

@@ -20,6 +20,7 @@ import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 import TemplateStyles from "./components/template";
 import Link from "./components/link";
+import StatusBadge from "./components/statusBadge";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -61,6 +62,7 @@ const theme = extendTheme({
     Hero,
     Link,
     Radio,
+    StatusBadge,
     Tabs,
     ...TemplateStyles,
     TextInput,
