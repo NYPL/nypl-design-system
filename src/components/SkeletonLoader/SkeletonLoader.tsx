@@ -16,7 +16,7 @@ export interface SkeletonLoaderProps {
   headingSize?: number;
   /** Optional value to control the aspect ratio of the image placeholder; default value is `square` */
   imageAspectRatio?: SkeletonLoaderImageRatios;
-  /** Optional value to control the position of the image placeholder; default value is `vertical` */
+  /** Optional value to control the position of the image placeholder; default value is `column` */
   layout?: SkeletonLoaderLayouts;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
@@ -41,7 +41,7 @@ export default function SkeletonLoader(
     contentSize = 3,
     headingSize = 1,
     imageAspectRatio = SkeletonLoaderImageRatios.Square,
-    layout = SkeletonLoaderLayouts.Vertical,
+    layout = SkeletonLoaderLayouts.Column,
     showButton = false,
     showContent = true,
     showImage = true,
@@ -61,6 +61,7 @@ export default function SkeletonLoader(
   for (let i = 0; i < headingSize; i++) {
     headingItems.push(
       <div
+        key={`heading-${i}`}
         className={bem("skeleton-loader-heading", imageModifiers, "", [
           "skeleton-element",
         ])}
@@ -72,6 +73,7 @@ export default function SkeletonLoader(
   for (let i = 0; i < contentSize; i++) {
     contentItems.push(
       <div
+        key={`content-${i}`}
         className={bem("skeleton-loader-content", imageModifiers, "", [
           "skeleton-element",
         ])}
