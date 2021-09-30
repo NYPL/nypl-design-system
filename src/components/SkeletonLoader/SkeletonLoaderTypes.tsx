@@ -1,6 +1,6 @@
 export enum SkeletonLoaderLayouts {
-  Horizontal = "horizontal",
-  Vertical = "vertical",
+  Row = "row",
+  Column = "column",
 }
 
 export enum SkeletonLoaderImageRatios {

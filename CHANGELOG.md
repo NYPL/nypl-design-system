@@ -8,6 +8,26 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Updates the `Accordion` component to internally use Chakra components.
+- Adds DS `SimpleGrid` component composed from Chakra's `Simplegrid` component.
+- Update the NYPL Colors with updated color names and values.
+- Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
+- Composes the DS `Select` component from Chakra's `Select` component.
+- Composes the DS `Hero` component from Chakra's component.
+- Composes the DS `CheckboxGroup` component from Chakra's `CheckboxGroup` component.
+- Composes the DS "Template" components (`Template`, `TemplateHeader`, `TemplateBreakout`, `TemplateContent`, `TemplateContentPrimary`, `TemplateContentSidebar`, `TemplateFooter`) from Chakra's `Box` component for page layouts through children components.
+- Composes the DS `TemplateAppContainer` component from Chakra's `Box` component for page layouts through props.
+- Composes the DS `Link` component with Chakra component and fixes the `Button` type.
+- Exports Chakra's `Grid` and `GridItem` components.
+
+### Changes
+
+- Updating spacing values to use NYPL spacing rather than "em"s.
+- Updates the `SkeletonLoaderLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
+- Updates the `CardLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
+
 ## 0.25.0
 
 ### Breaking Changes

@@ -2,7 +2,7 @@
   @include space-stack-s;
 
   align-items: flex-start;
-  border: 1px solid var(--ui-gray-light);
+  border: 1px solid var(--ui-gray-light-cool);
   border-radius: 5px;
   display: flex;
   flex-flow: column wrap;
@@ -32,7 +32,7 @@
     @include space-stack-s;
 
     align-items: center;
-    background-color: var(--ui-gray-xlight);
+    background-color: var(--ui-gray-x-light-cool);
     display: flex;
     flex: 0 0 150px;
     height: 150px;
