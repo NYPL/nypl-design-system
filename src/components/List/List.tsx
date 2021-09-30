@@ -3,6 +3,8 @@ import * as React from "react";
 import bem from "../../utils/bem";
 import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+
 interface DefinitionProps {
   term: string;
   definition: string;
@@ -56,7 +58,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
 
   const baseClass = "list";
   let listTag;
-  let errorText = "";
+  let invalidText = "";
   /**
    * This returns either the `children` elements passed to the `List` component
    * first, and if that is not passed, it will check and render the data passed
@@ -87,10 +89,10 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
    * Checks for `li` element type and throws an error if it is a different type.
    */
   const checkLiChildrenError = (listType) => {
-    errorText = `Direct children of \`List\` (${listType}) should be \`<li>\`s`;
+    invalidText = `Direct children of \`List\` (${listType}) should be \`<li>\`s`;
     React.Children.map(children, function (child: React.ReactElement) {
       if (child?.type !== "li" && child?.props?.mdxType !== "li") {
-        throw new Error(errorText);
+        throw new Error(invalidText);
       }
     });
   };
@@ -119,7 +121,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
       );
       break;
     case ListTypes.Definition:
-      errorText =
+      invalidText =
         "Direct children of `List` (definition) should be `<dt>`s or `<dd>`s";
       React.Children.map(children, function (child: React.ReactElement) {
         if (
@@ -130,7 +132,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           child.props.mdxType !== "dd" &&
           child.props.mdxType !== React.Fragment
         ) {
-          throw new Error(errorText);
+          throw new Error(invalidText);
         }
       });
       listTag = (
@@ -139,7 +141,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
           className={bem("definition-list", modifiers, baseClass)}
         >
           {title && (
-            <Heading id={`${id}-heading`} level={2}>
+            <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
               {title}
             </Heading>
           )}

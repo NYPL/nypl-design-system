@@ -18,6 +18,7 @@ import Label from "../Label/Label";
 import Button from "../Button/Button";
 import Select from "../Select/Select";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import { action } from "@storybook/addon-actions";
 
@@ -155,7 +156,7 @@ export const formRow = (size) => {
   const labelText = `Size: ${size}`;
   return (
     <li>
-      <Heading level={3}>{labelText}</Heading>
+      <Heading level={HeadingLevels.Three}>{labelText}</Heading>
       <Form spacing={size}>
         <FormRow>
           <FormField>

@@ -60,7 +60,7 @@ import { DatePickerTypes } from "./DatePickerTypes";
       helperText: "Note that the Library may be closed on Sundays.",
       helperTextFrom: "Select start date.",
       helperTextTo: "Select end date.",
-      errorText: "Please select a valid date.",
+      invalidText: "Please select a valid date.",
       showLabel: true,
       errored: false,
       disabled: false,
@@ -101,7 +101,7 @@ popup calendar.
       helperTextFrom="From this date."
       helperTextTo="To this date."
       helperText="Select a valid date range."
-      errorText="Please select a valid date range."
+      invalidText="Please select a valid date range."
       showOptReqLabel={false}
     />
   </Story>
@@ -121,7 +121,7 @@ that all 12 months will appear in the popup calendar with their abbreviated name
       dateRange={false}
       labelText="Select the month you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
-      errorText="Please select a valid month."
+      invalidText="Please select a valid month."
     />
   </Story>
 </Canvas>
@@ -155,7 +155,7 @@ calendar; the four previous years, the current year, and the next seven years.
   dateRange={true}
   labelText="Select the year you want to visit NYPL"
   helperText="Note that the Library may be closed on Sundays."
-  errorText="Please select a valid year."
+  invalidText="Please select a valid year."
   errored={true}
   showOptReqLabel={false}
 />
@@ -202,7 +202,7 @@ const onChange = (data) => {
   dateType={DatePickerTypes.Full}
   dateRange={true}
   labelText="Select the date range you want to visit NYPL"
-  errorText="Please select a valid date range."
+  invalidText="Please select a valid date range."
   onChange={onChange}
 />;
 ```
@@ -248,7 +248,7 @@ const submitForm = (formData) => {
     labelText="Select the date range you want to visit NYPL"
     nameFrom="visitDateFrom"
     nameTo="visitDateTo"
-    errorText="Please select a valid date range."
+    invalidText="Please select a valid date range."
     ref={register()}
     refTo={register()}
   />
@@ -269,7 +269,7 @@ const refEnd = React.createRef<TextInputRefType>();
   labelText="Select the date range you want to visit NYPL"
   nameFrom="visitDateFrom"
   nameTo="visitDateTo"
-  errorText="Please select a valid date range."
+  invalidText="Please select a valid date range."
   ref={refStart}
   refTo={refEnd}
 />

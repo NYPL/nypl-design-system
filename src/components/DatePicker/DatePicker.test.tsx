@@ -175,7 +175,7 @@ describe("DatePicker", () => {
         <DatePicker
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
-          errorText="Please select a valid date."
+          invalidText="Please select a valid date."
         />
       );
 
@@ -194,7 +194,7 @@ describe("DatePicker", () => {
         <DatePicker
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
-          errorText="Please select a valid date."
+          invalidText="Please select a valid date."
           errored={true}
         />
       );
@@ -357,7 +357,7 @@ describe("DatePicker", () => {
           helperText="Note that the Library may be closed on Sundays."
           helperTextFrom="Note for the 'from' field."
           helperTextTo="Note for the 'to' field."
-          errorText="Please select a valid date range."
+          invalidText="Please select a valid date range."
         />
       );
       // There are two labels for each input.
@@ -382,7 +382,7 @@ describe("DatePicker", () => {
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
-          errorText="Please select a valid date range."
+          invalidText="Please select a valid date range."
           errored={true}
         />
       );
@@ -397,7 +397,7 @@ describe("DatePicker", () => {
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
-          errorText="Please select a valid date range."
+          invalidText="Please select a valid date range."
           disabled={true}
         />
       );
@@ -411,7 +411,7 @@ describe("DatePicker", () => {
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
-          errorText="Please select a valid date range."
+          invalidText="Please select a valid date range."
           required={true}
         />
       );
@@ -441,7 +441,7 @@ describe("DatePicker", () => {
       const newDateTo =
         todaysDate.getDate() > 28 ? 18 : todaysDate.getDate() + 5;
       const newDateToSelect = str_pad(newDateFrom);
-      userEvent.click(screen.getByText(newDateToSelect));
+      userEvent.click(screen.getAllByText(newDateFrom)[0]);
 
       // We selected a new day but kept everything else the same. So we just
       // need to remove the older day with the new "2" selected date.

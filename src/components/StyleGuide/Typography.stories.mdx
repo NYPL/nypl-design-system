@@ -10,7 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
-import { HeadingDisplaySizes } from "../Heading/HeadingDisplaySizes";
+import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
 
 <Meta
@@ -49,10 +49,10 @@ Use the NYPL Design System [Heading](https://nypl.github.io/nypl-design-system/s
 
 <Preview>
   <>
-    <Heading level={1}>Heading Level 1</Heading>
-    <Heading level={2}>Heading Level 2</Heading>
-    <Heading level={3}>Heading Level 3</Heading>
-    <Heading level={4}>Heading Level 4</Heading>
+    <Heading level={HeadingLevels.One}>Heading Level 1</Heading>
+    <Heading level={HeadingLevels.Two}>Heading Level 2</Heading>
+    <Heading level={HeadingLevels.Three}>Heading Level 3</Heading>
+    <Heading level={HeadingLevels.Four}>Heading Level 4</Heading>
   </>
 </Preview>
 
@@ -60,7 +60,7 @@ Use the NYPL Design System [Heading](https://nypl.github.io/nypl-design-system/s
 
 Each heading level has a default style and size, but those styles can be overridden using the `displaySize` prop. The display sizes are separate from semantic elements and may be used to override the default size and styling of the semantic HTML heading elements. For example, the `h1` element has the `Primary` style applied by default, but a new style can be applied through the `displaySize` prop. Any `displaySize` style can be applied to any `Heading` element.
 
-<Heading level={1} displaySize={HeadingDisplaySizes.Primary}>
+<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Primary}>
   Primary Heading
 </Heading>
 
@@ -70,7 +70,7 @@ Each heading level has a default style and size, but those styles can be overrid
 | `font-weight` | `300`     | `--font-weight-light` |
 | `line-height` | `1.1`     | n/a                   |
 
-<Heading level={1} displaySize={HeadingDisplaySizes.Secondary}>
+<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Secondary}>
   Secondary Heading
 </Heading>
 
@@ -80,7 +80,7 @@ Each heading level has a default style and size, but those styles can be overrid
 | `font-weight` | `500`     | `--font-weight-medium` |
 | `line-height` | `1.25`    | n/a                    |
 
-<Heading level={1} displaySize={HeadingDisplaySizes.Tertiary}>
+<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Tertiary}>
   Tertiary Heading
 </Heading>
 
@@ -90,7 +90,7 @@ Each heading level has a default style and size, but those styles can be overrid
 | `font-weight` | `500`      | `--font-weight-medium` |
 | `line-height` | `1.25`     | n/a                    |
 
-<Heading level={1} displaySize={HeadingDisplaySizes.Callout}>
+<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Callout}>
   Callout Heading
 </Heading>
 
@@ -195,7 +195,7 @@ All text within a project, unless specifically noted in mockups, should be black
 
 <Preview>
   <>
-    <Heading level={3}>Default Heading Color</Heading>
+    <Heading level={HeadingLevels.Three}>Default Heading Color</Heading>
     <p>
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
@@ -377,7 +377,7 @@ In general, the New York Public Library uses Title Case for titles. This means o
 80 characters max, 60 characters recommended
 
 <Preview>
-  <Heading level={4}>
+  <Heading level={HeadingLevels.Four}>
     This is a Long Title to Show What 58 Characters Looks Like
   </Heading>
 </Preview>
