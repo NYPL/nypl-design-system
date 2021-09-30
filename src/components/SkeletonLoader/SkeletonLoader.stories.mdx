@@ -33,7 +33,7 @@ import { getCategory } from "../../utils/componentCategories";
     className: { table: { disable: true } },
     modifiers: { table: { disable: true } },
     layout: {
-      table: { defaultValue: { summary: "vertical" } },
+      table: { defaultValue: { summary: "column" } },
     },
     showImage: {
       table: { defaultValue: { summary: "true" } },
@@ -68,9 +68,12 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={SkeletonLoader} />
 
-The `SkeletonLoader` component renders a placeholder to be used while dynamic content is loading. The `layout`, `width` and placeholder elements within the `SkeletonLoader` can be customized.
+The `SkeletonLoader` component renders a placeholder to be used while dynamic
+content is loading. The `layout`, `width` and placeholder elements within the
+`SkeletonLoader` can be customized.
 
-Please note that the initial rendering below has the `width` prop set to `300px`. The default value is `100%`.
+Please note that the initial rendering below has the `width` prop set to `300px`.
+The default value is `100%`.
 
 <Preview withToolbar>
   <Story
@@ -93,7 +96,7 @@ Please note that the initial rendering below has the `width` prop set to `300px`
       style={{
         display: "grid",
         gap: "2rem",
-        "grid-template-columns": "repeat(3, 1fr)",
+        gridTemplateColumns: "repeat(3, 1fr)",
       }}
     >
       <SkeletonLoader
@@ -132,29 +135,14 @@ Please note that the initial rendering below has the `width` prop set to `300px`
       style={{
         display: "grid",
         gap: "2rem",
-        "grid-template-columns": "repeat(1, 1fr)",
+        gridTemplateColumns: "repeat(1, 1fr)",
       }}
     >
-      <SkeletonLoader
-        layout={SkeletonLoaderLayouts.Horizontal}
-        showImage={false}
-      />
-      <SkeletonLoader
-        layout={SkeletonLoaderLayouts.Horizontal}
-        showImage={false}
-      />
-      <SkeletonLoader
-        layout={SkeletonLoaderLayouts.Horizontal}
-        showImage={false}
-      />
-      <SkeletonLoader
-        layout={SkeletonLoaderLayouts.Horizontal}
-        showImage={false}
-      />
-      <SkeletonLoader
-        layout={SkeletonLoaderLayouts.Horizontal}
-        showImage={false}
-      />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
     </div>
   </Story>
 </Preview>

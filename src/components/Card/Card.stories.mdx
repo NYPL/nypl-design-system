@@ -75,7 +75,7 @@ The `CardContent` component should be used to display all content other than hea
     name="Card Props"
     args={{
       id: "custom-card",
-      layout: CardLayouts.Horizontal,
+      layout: CardLayouts.Row,
       imageSrc: "https://placeimg.com/400/300/animals",
       imageAspectRatio: ImageRatios.ThreeByFour,
       imageSize: ImageSizes.Default,
@@ -130,9 +130,12 @@ The `CardContent` component should be used to display all content other than hea
 
 ## Image Position
 
-By default, the image is always the first element within a `Card`. This means the image is at the top of a vertical `Card` and on the left size of a horizontal `Card`. However, you can use the `imageAtEnd` prop to override the default placement and move the image to the last element within a `Card`.
+By default, the image is always the first element within a `Card`. This means
+the image is at the top of a `Card` with a column layout and on the left side of
+a `Card` with a row layout. However, you can use the `imageAtEnd` prop to override
+the default placement and move the image to the last element within a `Card`.
 
-### Vertical Cards
+### Column Cards
 
 <Preview>
   <Story name="Card Image Position">
@@ -174,7 +177,7 @@ By default, the image is always the first element within a `Card`. This means th
   </Story>
 </Preview>
 
-### Horizontal Cards
+### Row Cards
 
 <Preview>
   <div
@@ -185,7 +188,7 @@ By default, the image is always the first element within a `Card`. This means th
     }}
   >
     <Card
-      layout={CardLayouts.Horizontal}
+      layout={CardLayouts.Row}
       center
       imageSrc="https://placeimg.com/400/200/animals"
       imageAlt="Alt text"
@@ -201,7 +204,7 @@ By default, the image is always the first element within a `Card`. This means th
       </CardContent>
     </Card>
     <Card
-      layout={CardLayouts.Horizontal}
+      layout={CardLayouts.Row}
       center
       imageSrc="https://placeimg.com/410/210/animals"
       imageAlt="Alt text"
@@ -222,9 +225,11 @@ By default, the image is always the first element within a `Card`. This means th
 
 ## Image Size
 
-By default, the image width is `100%` for a vertical `Card` and `225px` for a horizontal `Card`. However, you can use the `imageSize` prop to override the default width.
+By default, the image width is `100%` for a `Card` with a column layout and
+`225px` for a `Card` with a row layout. However, you can use the `imageSize`
+prop to override the default width.
 
-### Vertical Cards
+### Column Cards
 
 <Preview>
   <Story name="Card Image Size">
@@ -311,7 +316,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
   </Story>
 </Preview>
 
-### Horizontal Cards
+### Row Cards
 
 <Preview>
   <div
@@ -322,7 +327,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
     }}
   >
     <Card
-      layout={CardLayouts.Horizontal}
+      layout={CardLayouts.Row}
       center
       imageSrc="https://placeimg.com/400/200/animals"
       imageAlt="Alt text"
@@ -340,7 +345,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       </CardContent>
     </Card>
     <Card
-      layout={CardLayouts.Horizontal}
+      layout={CardLayouts.Row}
       center
       imageSrc="https://placeimg.com/410/210/animals"
       imageAlt="Alt text"
@@ -359,7 +364,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       </CardContent>
     </Card>
     <Card
-      layout={CardLayouts.Horizontal}
+      layout={CardLayouts.Row}
       center
       imageSrc="https://placeimg.com/400/250/animals"
       imageAlt="Alt text"
@@ -379,7 +384,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       </CardContent>
     </Card>
     <Card
-      layout={CardLayouts.Horizontal}
+      layout={CardLayouts.Row}
       center
       imageSrc="https://placeimg.com/450/250/animals"
       imageAlt="Alt text"
@@ -505,7 +510,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
       }}
     >
       <Card
-        layout={CardLayouts.Horizontal}
+        layout={CardLayouts.Row}
         center
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
@@ -521,7 +526,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         </CardContent>
       </Card>
       <Card
-        layout={CardLayouts.Horizontal}
+        layout={CardLayouts.Row}
         center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
@@ -537,7 +542,7 @@ By default, the image width is `100%` for a vertical `Card` and `225px` for a ho
         </CardContent>
       </Card>
       <Card
-        layout={CardLayouts.Horizontal}
+        layout={CardLayouts.Row}
         center
         imageSrc="https://placeimg.com/420/220/animals"
         imageAlt="Alt text"
@@ -644,7 +649,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         gridTemplateColumns: "repeat(1, 1fr)",
       }}
     >
-      <Card layout={CardLayouts.Horizontal} border>
+      <Card layout={CardLayouts.Row} border>
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
@@ -657,7 +662,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
           eget metus.
         </CardContent>
       </Card>
-      <Card layout={CardLayouts.Horizontal} border>
+      <Card layout={CardLayouts.Row} border>
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>
@@ -670,7 +675,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
           eget metus.
         </CardContent>
       </Card>
-      <Card layout={CardLayouts.Horizontal} border>
+      <Card layout={CardLayouts.Row} border>
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
         </CardHeading>

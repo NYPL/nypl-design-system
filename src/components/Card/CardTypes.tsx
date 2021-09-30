@@ -1,4 +1,4 @@
 export enum CardLayouts {
-  Horizontal = "horizontal",
-  Vertical = "vertical",
+  Row = "row",
+  Column = "column",
 }
