@@ -23,7 +23,7 @@ import { getCategory } from "../../utils/componentCategories";
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10766%3A1031",
     },
     jest: ["Breadcrumbs.test.tsx"],
   }}
@@ -49,9 +49,9 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
     name="Breadcrumbs Props"
     args={{
       breadcrumbsData: [
-        { url: "http://parent.com", text: "Parent" },
-        { url: "http://child.com", text: "Child" },
-        { url: "http://grandchild.com", text: "Grandchild" },
+        { url: "#", text: "Parent" },
+        { url: "#", text: "Child" },
+        { url: "#", text: "Grandchild" },
       ],
       id: "init-breadcrumbs",
     }}
@@ -65,21 +65,23 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
 ### Long Titles
 
 <Canvas>
-  <Breadcrumbs
-    breadcrumbsData={[
-      { url: "#", text: "Parent with a Long Name" },
-      { url: "#", text: "Child with an Even Longer Name" },
-      {
-        url: "#",
-        text: "Grandchild with an Exceptionally Long Name",
-      },
-      {
-        url: "#",
-        text:
-          "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component Under the Right Circumstances",
-      },
-    ]}
-  />
+  <DSProvider>
+    <Breadcrumbs
+      breadcrumbsData={[
+        { url: "#", text: "Parent with a Long Name" },
+        { url: "#", text: "Child with an Even Longer Name" },
+        {
+          url: "#",
+          text: "Grandchild with an Exceptionally Long Name",
+        },
+        {
+          url: "#",
+          text:
+            "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component Under the Right Circumstances",
+        },
+      ]}
+    />
+  </DSProvider>
 </Canvas>
 
 ## Color Variations

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Breadcrumbs Snapshot 1`] = `
+exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
 <nav
   aria-label="breadcrumb"
   className="chakra-breadcrumb css-0"

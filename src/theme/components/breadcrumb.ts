@@ -20,7 +20,9 @@ const Breadcrumb = {
     fontWeight: "regular",
     paddingBottom: "xs",
     paddingTop: "xs",
-    ".chakra-breadcrumb__list": {
+    ol: {
+      alignItems: { base: "center", md: "unset" },
+      display: { base: "flex", md: "block" },
       margin: "auto",
       maxWidth: "1280px",
       paddingLeft: "s",
@@ -32,7 +34,7 @@ const Breadcrumb = {
       },
     },
     "li:last-child": {
-      fontWeight: ["regular", null, "bold"],
+      fontWeight: { base: "regular", md: "bold" },
       ".chakra-breadcrumb__link": {
         _hover: {
           cursor: "default",
@@ -44,12 +46,12 @@ const Breadcrumb = {
       },
     },
     "li:not(:last-child)": {
-      display: ["none", null, "inline-block"],
+      display: { base: "none", md: "inline-block" },
       a: {
-        marginRight: ["xs", null, "0"],
+        marginRight: { base: "xs", md: "0" },
       },
       ".icon": {
-        display: ["inline", null, "none"],
+        display: { base: "inline", md: "none" },
       },
       "span:not(.breadcrumb-label)": {
         marginInlineEnd: "xxs",
@@ -59,7 +61,7 @@ const Breadcrumb = {
     "li:nth-last-child(2)": {
       display: "inline-block",
       span: {
-        display: ["none", null, "inline"],
+        display: { base: "none", md: "inline" },
       },
     },
   },

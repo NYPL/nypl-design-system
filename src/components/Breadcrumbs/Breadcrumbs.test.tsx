@@ -18,20 +18,22 @@ describe("Breadcrumbs Accessibility", () => {
   });
 });
 
-it("Breadcrumbs Snapshot", () => {
-  const breadcrumbString = [
-    { url: "#string1", text: "string1" },
-    { url: "#string2", text: "string2" },
-    { url: "#string3", text: "string3" },
-  ];
+describe("Breadcrumbs Snapshot", () => {
+  it("Renders the UI snapshot correctly", () => {
+    const breadcrumbString = [
+      { url: "#string1", text: "string1" },
+      { url: "#string2", text: "string2" },
+      { url: "#string3", text: "string3" },
+    ];
 
-  const breadcrumbsSnapshot = renderer
-    .create(
-      <Breadcrumbs id="breadcrumbs-test" breadcrumbsData={breadcrumbString} />
-    )
-    .toJSON();
+    const breadcrumbsSnapshot = renderer
+      .create(
+        <Breadcrumbs id="breadcrumbs-test" breadcrumbsData={breadcrumbString} />
+      )
+      .toJSON();
 
-  expect(breadcrumbsSnapshot).toMatchSnapshot();
+    expect(breadcrumbsSnapshot).toMatchSnapshot();
+  });
 });
 
 describe("Breadcrumbs Testing", () => {
