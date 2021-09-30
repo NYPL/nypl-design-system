@@ -1,4 +1,5 @@
 import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+
 import SearchBar from "../SearchBar/SearchBar";
 import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
@@ -8,6 +9,7 @@ import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta title={getCategory("Bidirectionality")} />
 
@@ -115,97 +117,111 @@ won't hurt.
 #1 - Left to right default
 
 <Canvas>
-  <div style={{ width: "400px" }}>
-    <SearchBar>
-      <Input
-        ariaLabelledBy="button-ex1"
-        id="input-ex1"
-        placeholder="Item Search"
-        required={true}
-        type={InputTypes.text}
-        attributes={{
-          ["aria-describedby"]: "error-helperText-ex1",
-        }}
-      />
-      <Button buttonType={ButtonTypes.Primary} id="button-ex1" type="submit">
-        <Icon
-          name={IconNames.search}
-          decorative={true}
-          modifiers={["small", "icon-left"]}
+  <DSProvider>
+    <div style={{ width: "400px" }}>
+      <SearchBar>
+        <Input
+          ariaLabelledBy="button-ex1"
+          id="input-ex1"
+          placeholder="Item Search"
+          required={true}
+          type={InputTypes.text}
+          attributes={{
+            ["aria-describedby"]: "error-helperText-ex1",
+          }}
         />
-        Search
-      </Button>
-    </SearchBar>
-    <HelperErrorText id="error-helperText-ex1">
-      Use a keyword or phrase to search!
-    </HelperErrorText>
-  </div>
+        <Button buttonType={ButtonTypes.Primary} id="button-ex1" type="submit">
+          <Icon
+            name={IconNames.search}
+            decorative={true}
+            modifiers={["small", "icon-left"]}
+          />
+          Search
+        </Button>
+      </SearchBar>
+      <HelperErrorText id="error-helperText-ex1">
+        Use a keyword or phrase to search!
+      </HelperErrorText>
+    </div>
+  </DSProvider>
 </Canvas>
 
 #2 - Right to left using `dir="rtl"`. Click on "Show code" in the following
 block to see its code implementation.
 
 <Canvas>
-  <div dir="rtl">
-    <div style={{ width: "400px" }}>
-      <SearchBar>
-        <Input
-          ariaLabelledBy="button-ex2"
-          id="input-ex2"
-          placeholder="البحث عن عنصر"
-          required={true}
-          type={InputTypes.text}
-          attributes={{
-            ["aria-describedby"]: "error-helperText-ex2",
-          }}
-        />
-        <Button buttonType={ButtonTypes.Primary} id="button-ex2" type="submit">
-          <Icon
-            name={IconNames.search}
-            decorative={true}
-            modifiers={["small", "icon-left"]}
+  <DSProvider>
+    <div dir="rtl">
+      <div style={{ width: "400px" }}>
+        <SearchBar>
+          <Input
+            ariaLabelledBy="button-ex2"
+            id="input-ex2"
+            placeholder="البحث عن عنصر"
+            required={true}
+            type={InputTypes.text}
+            attributes={{
+              ["aria-describedby"]: "error-helperText-ex2",
+            }}
           />
-          يبحث
-        </Button>
-      </SearchBar>
-      <HelperErrorText id="error-helperText-ex2">
-        استخدم كلمة رئيسية أو عبارة للبحث!
-      </HelperErrorText>
+          <Button
+            buttonType={ButtonTypes.Primary}
+            id="button-ex2"
+            type="submit"
+          >
+            <Icon
+              name={IconNames.search}
+              decorative={true}
+              modifiers={["small", "icon-left"]}
+            />
+            يبحث
+          </Button>
+        </SearchBar>
+        <HelperErrorText id="error-helperText-ex2">
+          استخدم كلمة رئيسية أو عبارة للبحث!
+        </HelperErrorText>
+      </div>
     </div>
-  </div>
+  </DSProvider>
 </Canvas>
 
 #3 - Right to left using `direction: rtl;`. Click on "Show code" in the following
 block to see its code implementation.
 
 <Canvas>
-  <div style={{ direction: "rtl" }}>
-    <div style={{ width: "400px" }}>
-      <SearchBar>
-        <Input
-          ariaLabelledBy="button-ex3"
-          id="input-ex3"
-          placeholder="البحث عن عنصر"
-          required={true}
-          type={InputTypes.text}
-          attributes={{
-            ["aria-describedby"]: "error-helperText-ex3",
-          }}
-        />
-        <Button buttonType={ButtonTypes.Primary} id="button-ex3" type="submit">
-          <Icon
-            name={IconNames.search}
-            decorative={true}
-            modifiers={["small", "icon-left"]}
+  <DSProvider>
+    <div style={{ direction: "rtl" }}>
+      <div style={{ width: "400px" }}>
+        <SearchBar>
+          <Input
+            ariaLabelledBy="button-ex3"
+            id="input-ex3"
+            placeholder="البحث عن عنصر"
+            required={true}
+            type={InputTypes.text}
+            attributes={{
+              ["aria-describedby"]: "error-helperText-ex3",
+            }}
           />
-          يبحث
-        </Button>
-      </SearchBar>
-      <HelperErrorText id="error-helperText-ex3">
-        استخدم كلمة رئيسية أو عبارة للبحث!
-      </HelperErrorText>
+          <Button
+            buttonType={ButtonTypes.Primary}
+            id="button-ex3"
+            type="submit"
+          >
+            <Icon
+              name={IconNames.search}
+              decorative={true}
+              modifiers={["small", "icon-left"]}
+            />
+            يبحث
+          </Button>
+        </SearchBar>
+        <HelperErrorText id="error-helperText-ex3">
+          استخدم كلمة رئيسية أو عبارة للبحث!
+        </HelperErrorText>
+      </div>
     </div>
-  </div>
+  </DSProvider>
 </Canvas>
 
 ## Component Updates
@@ -220,22 +236,11 @@ general, specifying an equal margin or padding to both sides of an element may
 help reduce any visual mistakes.
 
 <Canvas>
-  <div style={{ display: "flex", "flex-direction": "column" }}>
-    <div style={{ width: "300px" }}>
-      A regular button:
-      <Button buttonType={ButtonTypes.Primary} id="button-ex4" type="submit">
-        <Icon
-          name={IconNames.search}
-          decorative={true}
-          modifiers={["small", "icon-left"]}
-        />
-        Search
-      </Button>
-    </div>
-    <div style={{ width: "300px" }}>
-      A RTL button:
-      <div dir="rtl">
-        <Button buttonType={ButtonTypes.Primary} id="button-ex5" type="submit">
+  <DSProvider>
+    <div style={{ display: "flex", "flex-direction": "column" }}>
+      <div style={{ width: "300px" }}>
+        A regular button:
+        <Button buttonType={ButtonTypes.Primary} id="button-ex4" type="submit">
           <Icon
             name={IconNames.search}
             decorative={true}
@@ -244,6 +249,23 @@ help reduce any visual mistakes.
           Search
         </Button>
       </div>
+      <div style={{ width: "300px" }}>
+        A RTL button:
+        <div dir="rtl">
+          <Button
+            buttonType={ButtonTypes.Primary}
+            id="button-ex5"
+            type="submit"
+          >
+            <Icon
+              name={IconNames.search}
+              decorative={true}
+              modifiers={["small", "icon-left"]}
+            />
+            Search
+          </Button>
+        </div>
+      </div>
     </div>
-  </div>
+  </DSProvider>
 </Canvas>

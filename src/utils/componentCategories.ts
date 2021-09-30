@@ -86,6 +86,10 @@ const categories = {
     title: "Components/Navigation",
     components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
   },
+  chakra: {
+    title: "Chakra/Layout",
+    components: ["Box", "Center, Circle, Square", "Stack, HStack, VStack"],
+  },
   typography: {
     title: "Components/Typography & Styles",
     components: ["Heading", "List"],

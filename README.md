@@ -9,18 +9,19 @@ The NYPL Design System (DS) is NYPL’s open-source extensible React library for
 Storybook documentation
 
 - [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page)
-- [Development - deployed to Netlify](https://nypl-design-system-dev.netlify.app/?path=/story/introduction--page)
+- [Development - deployed to Tugboat QA](https://development-6y1v6na1ceqnmojvc5akrm5ewys3cshs.tugboat.qa/?path=/story/introduction--page)
 
 | Table of Contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
 | 1.                | [Contributing Quickstart](#contributing-quickstart)                                 |
 | 2.                | [Developing with NPM Link](#developing-with-npm-link)                               |
 | 3.                | [Using the Design System in Your Product](#using-the-design-system-in-your-product) |
-| 4.                | [CDN](#cdn)                                                                         |
-| 5.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
-| 6.                | [Storybook](#storybook)                                                             |
-| 7.                | [Typescript Usage](#typescript-usage)                                               |
-| 8.                | [Unit Testing](#unit-testing)                                                       |
+| 4.                | [Using Chakra UI Components](#using-chakra-ui-components)                           |
+| 5.                | [CDN](#cdn)                                                                         |
+| 6.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
+| 7.                | [Storybook](#storybook)                                                             |
+| 8.                | [Typescript Usage](#typescript-usage)                                               |
+| 9.                | [Unit Testing](#unit-testing)                                                       |
 
 ## Contributing Quickstart
 
@@ -142,6 +143,30 @@ Some CSS rules in the Design System, such as the universal focus styling and the
 </div>
 ```
 
+4. Import the `DSProvider` component
+
+While the Chakra UI integration into the DS is a work-in-progress, there is one necessary step consuming applications need to take for component styles to properly render. In order render styles properly, consuming applications need to wrap all the DS components with a simple provider component. Fortunately, this only needs to be done once at the top level of the consuming application.
+
+Once the following is completed, DS components that internally use Chakra UI will render styles properly.
+
+```jsx
+// your main application file
+import { DSProvider } from "@nypl/design-system-react-components";
+
+// ...
+const ApplicationContainer = (props) => {
+  // ...
+  return (
+    <DSProvider>
+      <div className="my-app nypl-ds">
+        // ...
+        {children}
+      </div>
+    </DSProvider>
+  );
+};
+```
+
 ### NYPL DS, NYPL Header, and NYPL Footer
 
 Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds` wrapper class.
@@ -157,6 +182,16 @@ Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds
   <NYPLFooter />
 </body>
 ```
+
+## Using Chakra UI Components
+
+The Chakra UI component library is integrated into the NYPL Design System and is currently a work-in-progress. We
+are in the middle of the process of using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
+
+The list of re-exported Chakra components can be found in the main
+[index.ts](/index.ts) file.
+
+Find more information about the Design System's use of [Chakra](/src/docs/Chakra.stories.mdx).
 
 ## CDN
 
@@ -196,11 +231,11 @@ As of July, 2021, the Github Pages production site gets deployed every two weeks
 
 **Development**
 
-The development Storybook documentation is deployed to [Netlify](https://nypl-design-system-dev.netlify.app/?path=/story/introduction--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
+The development Storybook documentation is deployed to [Tugboat QA](https://development-6y1v6na1ceqnmojvc5akrm5ewys3cshs.tugboat.qa/?path=/story/introduction--page). This development site has all the working updates that get merged to the `development` branch. This means that this site is constantly being updated as pull requests are being merged in. This site is used to see the lastest changes during a working sprint before a production release is made.
 
 **Preview Sites**
 
-Preview Storybook documentation sites are deployed to Netlify for every pull request. They follow a pattern such as `deploy-preview-[pr-number]--nypl-design-system-dev.netlify.app` where `[pr-number]` is the number of the pull request it is deploying. For example, for pull request #101, Netlify will deploy a "preview" site to `deploy-preview-101--nypl-design-system-dev.netlify.app`. Since these "preview" sites are brought up only for pull requests, this means that the URL varies and that those instances are eventually shut off. They are not meant to be used as long-term sites but rather for reviewing working changes within the team.
+Preview Storybook documentation sites are deployed to Tugboat QA for every pull request. They follow a pattern such as `pr[number]-[hash].tugboat.qa` where `[number]` is the number of the pull request it is deploying. For example, for pull request #101, Tugboat will deploy a "preview" site to `pr101-wldudndlk24kas42.tugboat.qa`. Since these "preview" sites are brought up only for pull requests, this means that the URL varies and that those instances are eventually shut off. They are not meant to be used as long-term sites but rather for reviewing working changes within the team.
 
 ### React Component Documentation
 
@@ -237,7 +272,7 @@ You can then view `/storybook-static/index.html` in your browser. _Make sure not
 
 ## Typescript Usage
 
-The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/typescript.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
+The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/TYPESCRIPT.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
 
 ## Unit Testing
 
@@ -309,7 +344,7 @@ Now, if we unintentionally update the `Notification.tsx` component to render a `
 If you want to update any existing snapshots, re-run the test script as:
 
 ```sh
-$ npm test -- updateSnapshot
+$ npm test -- --updateSnapshot
 ```
 
 Each snapshot file also includes a link to its [Jest Snapshot documentation](https://jestjs.io/docs/snapshot-testing) which is recommended to read!

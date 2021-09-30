@@ -4,6 +4,7 @@ import bem from "../../utils/bem";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconColors, IconNames } from "../Icons/IconTypes";
 import { NotificationTypes } from "./NotificationTypes";
@@ -34,7 +35,7 @@ export function NotificationHeading(props) {
   const { children, className } = props;
   return (
     <Heading
-      level={4}
+      level={HeadingLevels.Four}
       className={bem("notification-heading", [], "", [className])}
     >
       {children}
@@ -42,7 +43,7 @@ export function NotificationHeading(props) {
   );
 }
 
-// NotificationHeading child-component
+// NotificationContent child-component
 export function NotificationContent(props) {
   const { children, className } = props;
   return (

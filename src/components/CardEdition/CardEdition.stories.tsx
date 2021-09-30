@@ -4,6 +4,7 @@ import { text, boolean, select } from "@storybook/addon-knobs";
 
 import CardEdition from "./CardEdition";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Image from "../Image/Image";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
@@ -108,7 +109,11 @@ export const ExampleCardEdition = () => (
     }
   >
     <>
-      <Heading level={2} id="heading1" text={"The Year of Magical Thinking"} />
+      <Heading
+        level={HeadingLevels.Two}
+        id="heading1"
+        text={"The Year of Magical Thinking"}
+      />
       <div className="book__callout">A portrait of loss and grief</div>
       <div>
         By <Link href="#joan-didion">Joan Didion</Link>,{" "}

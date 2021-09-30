@@ -6,6 +6,7 @@ import React from "react";
 import { addParameters, addDecorator } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
 import { withTests } from "@storybook/addon-jest";
+import DSProvider from "../src/theme/provider";
 
 import results from "../.jest-test-results.json";
 
@@ -28,13 +29,13 @@ addDecorator(
   })
 );
 
-export const decorators = [
-  (Story) => (
+addDecorator((StoryFn) => (
+  <DSProvider>
     <div style={{ margin: "10px" }}>
-      <Story />
+      <StoryFn />
     </div>
-  ),
-];
+  </DSProvider>
+));
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
 export const parameters = {
