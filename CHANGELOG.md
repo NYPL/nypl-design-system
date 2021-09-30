@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.0
+
 ### Breaking Changes
 
 - Renames `HeadingDisplaySizes.tsx` to `HeadingTypes.tsx`.
