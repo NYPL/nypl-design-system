@@ -27,6 +27,7 @@ const select = {
 const Select = {
   parts: ["select", "helper"],
   baseStyle: {
+    marginBottom: "xs",
     helper: {
       ...helperTextMargin,
     },

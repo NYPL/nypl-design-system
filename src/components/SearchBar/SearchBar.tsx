@@ -1,69 +1,115 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+
+import generateUUID from "../../helpers/generateUUID";
+import Select from "../Select/Select";
+import TextInput from "../TextInput/TextInput";
+import Button from "../Button/Button";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export interface SearchBarProps {
-  /** Populates aria-label on the form;
-   * defines a hidden string that labels
-   * the SearchBar
-   */
-  ariaLabel?: string;
-  /** Populates aria-labelledby on the form;
-   * defines a visible string that labels
-   * the SearchBar
-   */
-  ariaLabelledBy?: string;
-  /** Additional attributes passed to the form */
-  attributes?: { [key: string]: any };
-  /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** ClassName that appears in addition to "search-bar" */
-  className?: string;
-  /** Adds 'method' property to the form */
-  method?: string;
-  /** Adds 'action' property to the form */
+  /** Adds 'action' property to the `form` element. */
   action?: string;
+  /** Populates aria-label on the form and labels the entire SearchBar. */
+  ariaLabel?: string;
+  /** A class name for the `form` element. */
+  className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
-  /** Handler on form submit */
+  /** Sets children form components in the disabled state. */
+  isDisabled?: boolean;
+  /** Sets children form components in the error state. */
+  isInvalid?: boolean;
+  /** Sets children form components in the required state. */
+  isRequired?: boolean;
+  /** Adds 'method' property to the `form` element. */
+  method?: string;
+  /** Handler function when the form is submitted. */
   onSubmit: (event: React.FormEvent) => void;
 }
 
-/** Renders a wrapper `form` element to be used with `Select` (optional),
+/**
+ * Renders a wrapper `form` element to be used with `Select` (optional),
  * `Input`, and `Button` components together. */
 export default function SearchBar(
   props: React.PropsWithChildren<SearchBarProps>
 ) {
   const {
     ariaLabel,
-    ariaLabelledBy,
-    blockName,
     children,
     className,
-    id,
-    modifiers = [],
+    id = generateUUID(),
+    isDisabled = false,
+    isInvalid = false,
+    isRequired = false,
     onSubmit,
-    attributes,
     method,
     action,
   } = props;
+  const styles = useMultiStyleConfig("SearchBar", {});
+  const stateProps = { isDisabled, isInvalid, isRequired };
+  // Select, TextInput, Button
+  const topRow = [];
+  // HelperErrorText
+  const bottomRow = [];
+  let ariaDescribedby = null;
+  let finalAriaLabel;
 
-  const baseClass = "search-bar";
+  React.Children.map(children, (child: React.ReactElement, key) => {
+    if (!child) return;
+    if (child.type === Select || child.props?.mdxType === "Select") {
+      topRow.push(
+        React.cloneElement(child, {
+          key,
+          className: "select",
+          showLabel: false,
+          helperText: "",
+          ...stateProps,
+        })
+      );
+    } else if (
+      child.type === TextInput ||
+      child.props?.mdxType === "TextInput"
+    ) {
+      finalAriaLabel = ariaLabel || child.props.labelText;
+      topRow.push(
+        React.cloneElement(child, {
+          key,
+          className: "textInput",
+          helperText: "",
+          showLabel: false,
+          ...stateProps,
+        })
+      );
+    } else if (child.type === Button || child.props?.mdxType === "Button") {
+      topRow.push(React.cloneElement(child, { key, disabled: isDisabled }));
+    } else if (
+      child.type === HelperErrorText ||
+      child.props?.mdxType === "HelperErrorText"
+    ) {
+      ariaDescribedby = child.props?.id;
+      bottomRow.push(React.cloneElement(child, { key, isError: isInvalid }));
+    } else {
+      // Assuming it's an autosuggest component.
+      topRow.push(child);
+    }
+  });
 
   return (
-    <form
-      className={bem(baseClass, modifiers, blockName, [className])}
+    <Box
+      as="form"
       id={id}
+      className={className}
       role="search"
-      aria-label={ariaLabel}
-      aria-labelledby={ariaLabelledBy}
+      aria-label={finalAriaLabel}
+      aria-describedby={ariaDescribedby}
       onSubmit={onSubmit}
       method={method}
       action={action}
-      {...attributes}
+      __css={styles}
     >
-      {children}
-    </form>
+      <Box __css={styles.topRow}>{topRow}</Box>
+      {bottomRow}
+    </Box>
   );
 }

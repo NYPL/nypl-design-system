@@ -14,6 +14,8 @@ import generateUUID from "../../helpers/generateUUID";
 export interface InputProps {
   /** Additional attributes to pass to the `<input>` or `<textarea>` element */
   attributes?: { [key: string]: any };
+  /** A class name for the TextInput parent div. */
+  className?: string;
   /** Populates the HelperErrorText for the standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -64,6 +66,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
   (props, ref: React.Ref<TextInputRefType>) => {
     const {
       attributes = {},
+      className,
       helperText,
       id = generateUUID(),
       invalidText,
@@ -139,7 +142,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     }
 
     return (
-      <Box __css={styles}>
+      <Box __css={styles} className={className}>
         {labelText && showLabel && !isHidden && (
           <Label
             htmlFor={id}

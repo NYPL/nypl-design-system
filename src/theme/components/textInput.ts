@@ -31,6 +31,7 @@ const input = {
 const TextInput = {
   parts: ["helper", "input", "textarea"],
   baseStyle: {
+    marginBottom: "xs",
     helper: {
       ...helperTextMargin,
     },

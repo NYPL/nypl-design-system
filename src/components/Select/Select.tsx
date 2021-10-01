@@ -12,6 +12,8 @@ import { IconNames } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
 
 export interface SelectProps {
+  /** A class name for the `div` parent element. */
+  className?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -55,6 +57,7 @@ const Select = React.forwardRef<
 >((props: React.PropsWithChildren<SelectProps>, ref?) => {
   const {
     children,
+    className,
     helperText,
     id = generateUUID(),
     invalidText,
@@ -99,7 +102,7 @@ const Select = React.forwardRef<
   }
 
   return (
-    <Box __css={styles}>
+    <Box className={className} __css={styles}>
       {showLabel && (
         <Label
           id={`${id}-label`}
