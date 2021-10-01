@@ -9,6 +9,7 @@ import { withDesign } from "storybook-addon-designs";
 import { VStack } from "@chakra-ui/react";
 
 import StatusBadge from "./StatusBadge";
+import { StatusBadgeTypes } from "./StatusBadgeTypes";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -32,7 +33,7 @@ import DSProvider from "../../theme/provider";
       control: {
         type: "select",
       },
-      options: ["low", "medium", "high"],
+      options: Object.values(StatusBadgeTypes).map((value) => value),
     },
   }}
 />
@@ -49,7 +50,7 @@ import DSProvider from "../../theme/provider";
 <Canvas withToolbar>
   <Story
     name="Basic with props"
-    args={{ level: "low", text: "Registration Required" }}
+    args={{ level: StatusBadgeTypes.Low, text: "Registration Required" }}
   >
     {(args) => <StatusBadge {...args}>{args.text}</StatusBadge>}
   </Story>
@@ -67,8 +68,10 @@ Used in instances where the associated message is the highest barrier. Use
 <Canvas>
   <DSProvider>
     <VStack spacing="s" align="stretch">
-      <StatusBadge level="high">On-Site Access Only</StatusBadge>
-      <StatusBadge level="medium">Cancelled</StatusBadge>
+      <StatusBadge level={StatusBadgeTypes.High}>
+        On-Site Access Only
+      </StatusBadge>
+      <StatusBadge level={StatusBadgeTypes.Medium}>Cancelled</StatusBadge>
     </VStack>
   </DSProvider>
 </Canvas>

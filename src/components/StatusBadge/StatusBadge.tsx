@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
 
+import { StatusBadgeTypes } from "./StatusBadgeTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface StatusBadgeProps {
@@ -8,12 +9,17 @@ export interface StatusBadgeProps {
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Level of the status badge */
-  level?: "low" | "medium" | "high";
+  /** Level of the status badge through StatusBadgeTypes. */
+  level?: StatusBadgeTypes;
 }
 
 function StatusBadge(props: React.PropsWithChildren<StatusBadgeProps>) {
-  const { children, className, id = generateUUID(), level = "low" } = props;
+  const {
+    children,
+    className,
+    id = generateUUID(),
+    level = StatusBadgeTypes.Low,
+  } = props;
   const styles = useStyleConfig("StatusBadge", { variant: level });
 
   if (!children) {
