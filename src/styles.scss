@@ -46,7 +46,6 @@
 @import "./components/Button/_Button.scss";
 @import "./components/Link/_Link.scss";
 @import "./components/Input/_Input.scss";
-@import "./components/TextInput/_TextInput.scss";
 @import "./components/Autosuggest/_Autosuggest.scss";
 
 fieldset {
@@ -56,14 +55,11 @@ fieldset {
 }
 
 // Order not important
-@import "./components/Accordion/_Accordion.scss";
-@import "./components/Breadcrumbs/_Breadcrumbs.scss";
 @import "./components/Card/_Card.scss";
 @import "./components/CardEdition/_CardEdition.scss";
 @import "./components/DatePicker/_DatePicker.scss";
 @import "./components/Form/_Form.scss";
 @import "./components/HelperErrorText/_HelperErrorText.scss";
-@import "./components/Hero/_Hero.scss";
 @import "./components/HorizontalRule/_HorizontalRule.scss";
 @import "./components/Image/_Image.scss";
 @import "./components/Label/_Label.scss";
@@ -72,8 +68,6 @@ fieldset {
 @import "./components/Notification/_Notification.scss";
 @import "./components/Pagination/_Pagination.scss";
 @import "./components/SearchBar/_SearchBar.scss";
-@import "./components/Select/_Select.scss";
 @import "./components/SkeletonLoader/_SkeletonLoader.scss";
 @import "./components/StatusBadge/_StatusBadge.scss";
-@import "./components/Template/_Template.scss";
 @import "./components/VideoPlayer/_VideoPlayer.scss";

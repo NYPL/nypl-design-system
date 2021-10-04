@@ -10,6 +10,9 @@ const global = {
     bg: "ui.white",
     color: "ui.black",
     fontFamily: "body",
+    fontSize: 0,
+    fontWeight: "300",
+    lineHeight: "1.5",
   },
   // styles for the `a` element
   a: {

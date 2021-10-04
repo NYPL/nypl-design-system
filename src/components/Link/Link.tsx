@@ -1,70 +1,35 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useStyleConfig } from "@chakra-ui/react";
+
 import { LinkTypes } from "./LinkTypes";
-import Icon, { IconProps } from "../Icons/Icon";
+import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface LinkProps {
   /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
   attributes?: { [key: string]: any };
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** className that appears in addition to "link" */
-  className?: string;
-  /** Href attribute */
-  href?: string;
-  /** ID */
-  id?: string;
-  /** Controls the link visuals—action, button, or default. */
-  type?: LinkTypes;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
   /** Any child node passed to the component. */
   children: React.ReactNode;
+  /** Additional class name to render in the `Link` component. */
+  className?: string;
+  /** The `href` attribute for the anchor element. */
+  href?: string;
+  /** ID used for accessibility purposes. */
+  id?: string;
+  /** Controls the link visuals: action, button, backwards, forwards, or default. */
+  type?: LinkTypes;
 }
 
 /**
- * A component that uses an `href` prop or a child anchor element, to create an
- * anchor element with added styling and conventions.
+ * Renders the `Link` children components with a direction arrow icon based
+ * on the `Backwards` or `Forwards` `LinkTypes` type.
  */
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
-  const {
-    attributes,
-    blockName,
-    className,
-    href,
-    id,
-    type = LinkTypes.Default,
-    modifiers = [],
-    children,
-  } = props;
+function getWithDirectionIcon(children, type: LinkTypes) {
+  let iconRotation;
+  let iconPosition;
+  let icon = null;
 
-  // Merge the necessary props alongside any extra props for the
-  // anchor element.
-  const linkProps = {
-    id,
-    href,
-    ...attributes,
-  };
-  let baseClass = "link";
-
-  let childProps = {};
-
-  if (typeof children === "string" && !href) {
-    throw new Error("Link needs prop 'href'");
-  }
-
-  if (
-    type === LinkTypes.Action ||
-    type === LinkTypes.Forwards ||
-    type === LinkTypes.Backwards
-  ) {
-    baseClass = "more-link";
-  } else if (type === LinkTypes.Button) {
-    baseClass = "button";
-  }
-
-  let iconRotation, iconPosition, iconLeft, iconRight;
   // An icon needs a position in order for it to be created and
   // rendered in the link.
   if (type === LinkTypes.Backwards) {
@@ -75,54 +40,103 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     iconPosition = "right";
   }
 
-  const navigationIconProps: IconProps = {
-    name: IconNames.arrow,
-    modifiers: [iconPosition, iconRotation, ...modifiers],
-    blockName: "more-link",
-    decorative: true,
-  };
+  icon = (
+    <Icon
+      name={IconNames.arrow}
+      modifiers={[iconPosition, iconRotation]}
+      blockName={"more-link"}
+      decorative={true}
+    />
+  );
 
-  if (type === LinkTypes.Backwards) {
-    iconLeft = <Icon {...navigationIconProps} />;
-  } else if (type === LinkTypes.Forwards) {
-    iconRight = <Icon {...navigationIconProps} />;
-  }
-  const linkClassName = bem(baseClass, modifiers, blockName, [className]);
+  return (
+    <>
+      {type === LinkTypes.Backwards && icon}
+      {children}
+      {type === LinkTypes.Forwards && icon}
+    </>
+  );
+}
 
-  if (!props.href) {
-    // React Types error makes this fail:  https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
-    // let children = React.Children.only(props.children);
-    if (React.Children.count(props.children) > 1) {
-      throw new Error("Please pass only one child into Link");
-    }
-    const children = props.children[0] ? props.children[0] : props.children;
-    childProps = children.props;
-
-    return React.cloneElement(
+/**
+ * A component that uses an `href` prop or a child anchor element, to create
+ * an anchor element with added styling and conventions.
+ */
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref: any) => {
+    const {
+      attributes,
       children,
-      {
-        className: linkClassName,
-        ...linkProps,
-        ...childProps,
-        ref,
-      },
-      [children.props.children]
-    );
-  } else {
-    return React.createElement(
-      "a",
-      {
-        ...linkProps,
-        className: linkClassName,
-        ref,
-      },
-      iconLeft,
-      props.children,
-      iconRight
-    );
-  }
-});
+      className,
+      href,
+      id = generateUUID(),
+      type = LinkTypes.Default,
+    } = props;
 
-Link.displayName = "Link";
+    // Merge the necessary props alongside any extra props for the
+    // anchor element.
+    const linkProps = {
+      id,
+      href,
+      ...attributes,
+    };
+    // The LinkTypes.Default type.
+    let variant = "link";
+
+    if (typeof children === "string" && !href) {
+      throw new Error("Link needs prop 'href'");
+    }
+
+    if (
+      type === LinkTypes.Action ||
+      type === LinkTypes.Forwards ||
+      type === LinkTypes.Backwards
+    ) {
+      variant = "moreLink";
+    } else if (type === LinkTypes.Button) {
+      variant = "button";
+    }
+    const style = useStyleConfig("Link", { variant });
+    // Render with specific direction arrows only if the type
+    // is Forwards or Backwards.
+    const newChildren =
+      type === LinkTypes.Forwards || type === LinkTypes.Backwards
+        ? getWithDirectionIcon(children, type)
+        : children;
+
+    if (!href) {
+      // React Types error makes this fail:
+      // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32832
+      // let children = React.Children.only(children);
+      if (React.Children.count(children) > 1) {
+        throw new Error("Please pass only one child into `Link`.");
+      }
+      const childrenToClone: any = children[0] ? children[0] : children;
+      const childProps = childrenToClone.props;
+      return React.cloneElement(
+        childrenToClone,
+        {
+          className,
+          ...linkProps,
+          ...childProps,
+          ref,
+        },
+        [childrenToClone.props.children]
+      );
+    } else {
+      return (
+        <Box
+          as="a"
+          className={className}
+          ref={ref}
+          {...linkProps}
+          __css={style}
+        >
+          {newChildren}
+        </Box>
+      );
+    }
+  }
+);
 
 export default Link;

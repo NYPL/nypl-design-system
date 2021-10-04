@@ -6,6 +6,8 @@ export {
   Box,
   Center,
   Circle,
+  Grid,
+  GridItem,
   Square,
   Stack,
   HStack,
@@ -28,11 +30,14 @@ export {
 } from "./components/Card/CardTypes";
 export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
+export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
+export { CheckboxGroupLayoutTypes } from "./components/CheckboxGroup/CheckboxGroupLayoutTypes";
 export { default as DatePicker } from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as FilterBar } from "./components/FilterBar/FilterBar";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { FormSpacing } from "./components/Form/FormTypes";
+export { GridGaps } from "./components/Grid/GridTypes";
 export { default as Heading } from "./components/Heading/Heading";
 export {
   HeadingDisplaySizes,
@@ -70,6 +75,7 @@ export { default as Radio } from "./components/Radio/Radio";
 export { default as RadioGroup } from "./components/RadioGroup/RadioGroup";
 export { RadioGroupLayoutTypes } from "./components/RadioGroup/RadioGroupLayoutTypes";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
+export { default as SimpleGrid } from "./components/Grid/SimpleGrid";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export {
   SkeletonLoaderImageRatios,
@@ -84,6 +90,17 @@ export {
   TabPanels,
   TabPanel,
 } from "./components/Tabs/Tabs";
+export {
+  TemplateAppContainer,
+  Template,
+  TemplateHeader,
+  TemplateBreakout,
+  TemplateContent,
+  TemplateContentTop,
+  TemplateContentPrimary,
+  TemplateContentSidebar,
+  TemplateFooter,
+} from "./components/Template/Template";
 export {
   default as TextInput,
   TextInputRefType,

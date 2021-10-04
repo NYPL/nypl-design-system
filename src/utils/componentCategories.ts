@@ -66,6 +66,7 @@ const categories = {
       "Header",
       "HorizontalRule",
       "Section",
+      "SimpleGrid",
       "Template",
     ],
   },
@@ -90,7 +91,12 @@ const categories = {
   },
   chakra: {
     title: "Chakra/Layout",
-    components: ["Box", "Center, Circle, Square", "Stack, HStack, VStack"],
+    components: [
+      "Box",
+      "Grid",
+      "Center, Circle, Square",
+      "Stack, HStack, VStack",
+    ],
   },
   typography: {
     title: "Components/Typography & Styles",
