@@ -1,92 +1,84 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import {
+  Breadcrumb as ChakraBreadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  useStyleConfig,
+} from "@chakra-ui/react";
+import generateUUID from "../../helpers/generateUUID";
+import { ColorVariants } from "./BreadcrumbsTypes";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
+import { getVariant } from "../../utils/utils";
 
-type breadcrumb = { url: string; text: string };
-
-function isTextBreadcrumb(obj: breadcrumb | JSX.Element): obj is breadcrumb {
-  return typeof (obj as breadcrumb).url === "string";
+export interface BreadcrumbsDataProps {
+  url: string;
+  text: string | React.ReactNode;
 }
 
 export interface BreadcrumbProps {
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
   /** Breadcrumb links as an array */
-  breadcrumbs: breadcrumb[] | JSX.Element[];
+  breadcrumbsData: BreadcrumbsDataProps[];
   /** className you can add in addition to 'input' */
   className?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
+  /** Used to control how the `Hero` component will be rendered. */
+  colorVariant?: ColorVariants;
 }
 
-export default class Breadcrumbs extends React.Component<BreadcrumbProps, any> {
-  static defaultProps = {};
-
-  constructor(props: BreadcrumbProps) {
-    super(props);
+const getElementsFromData = (data, breadcrumbsID) => {
+  if (!data?.length) {
+    return {};
   }
 
-  render(): JSX.Element {
-    const { breadcrumbs, className, blockName, modifiers } = this.props;
+  const breadcrumbItems = data.map((breadcrumbData, index) => (
+    <BreadcrumbItem
+      key={index}
+      isCurrentPage={index === data.length - 1 ? true : false}
+    >
+      <BreadcrumbLink href={breadcrumbData.url}>
+        {index === data.length - 2 && (
+          <Icon
+            name={IconNames.arrow}
+            size={IconSizes.small}
+            iconRotation={IconRotationTypes.rotate90}
+            id={`${breadcrumbsID}__backarrow`}
+            decorative={true}
+            titleText={breadcrumbData.text}
+          />
+        )}
+        <span className="breadcrumb-label">{breadcrumbData.text}</span>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+  ));
 
-    const baseClass = "breadcrumbs";
+  return breadcrumbItems;
+};
 
-    const breadcrumbItems = [];
+function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
+  const {
+    breadcrumbsData,
+    className,
+    colorVariant,
+    id = generateUUID(),
+  } = props;
+  const variant = getVariant(colorVariant, ColorVariants);
 
-    if (!breadcrumbs || breadcrumbs.length === 0) {
-      throw new Error(
-        "Breadcrumbs must contain a set of links. Breadcrumbs currently empty"
-      );
-    }
-    breadcrumbs.forEach((item: breadcrumb | JSX.Element, index: number) => {
-      const last = index === breadcrumbs.length - 1;
-      let linkComponent: string | JSX.Element;
-
-      if (isTextBreadcrumb(item)) {
-        linkComponent = item.url ? (
-          <a href={item.url} className={bem("link", [], baseClass)}>
-            {item.text}
-          </a>
-        ) : (
-          item.text
-        );
-      } else {
-        const props = {
-          className: bem("link", [], baseClass),
-        };
-        linkComponent = React.createElement(
-          item.type,
-          { ...props, ...item.props },
-          item.props.children
-        );
-      }
-      breadcrumbItems.push(
-        <li
-          key={`${baseClass}-${index}`}
-          className={bem("item", [], baseClass)}
-        >
-          {last && (
-            <Icon
-              name={IconNames.arrow}
-              blockName={baseClass}
-              modifiers={["small"]}
-              decorative={true}
-            />
-          )}
-          {linkComponent}
-        </li>
-      );
-    });
-
-    return (
-      <nav
-        className={bem(baseClass, modifiers, blockName, [className])}
-        role="navigation"
-        aria-label="Breadcrumbs"
-      >
-        <ul className={bem("list", [], baseClass)}>{breadcrumbItems}</ul>
-      </nav>
+  if (!breadcrumbsData || breadcrumbsData.length === 0) {
+    throw new Error(
+      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
     );
   }
+
+  const styles = useStyleConfig("Breadcrumb", { variant });
+  const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
+
+  return (
+    <ChakraBreadcrumb className={className} __css={styles} id={id}>
+      {breadcrumbItems}
+    </ChakraBreadcrumb>
+  );
 }
+
+export default Breadcrumbs;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusBadge renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+  id="low"
+>
+  Registration Required
+</div>
+`;
+
+exports[`StatusBadge renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+  id="medium"
+>
+  Registration Required
+</div>
+`;
+
+exports[`StatusBadge renders the UI snapshot correctly 3`] = `
+<div
+  className="css-0"
+  id="high"
+>
+  Registration Required
+</div>
+`;
