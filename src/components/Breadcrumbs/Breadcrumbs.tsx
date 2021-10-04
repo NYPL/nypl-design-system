@@ -65,7 +65,7 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
   } = props;
   const variant = getVariant(colorVariant, ColorVariants);
 
-  if (breadcrumbsData.length === 0) {
+  if (!breadcrumbsData || breadcrumbsData.length === 0) {
     throw new Error(
       "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
     );
