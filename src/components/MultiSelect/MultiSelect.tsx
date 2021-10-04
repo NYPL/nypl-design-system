@@ -16,16 +16,23 @@ import {
 } from "@chakra-ui/react";
 
 export interface MultiSelectProps {
+  /** The id of the multiSelect. */
   id: string;
+  /** The label of the multiSelect. */
   label: string;
+  /** The items to be rendered in the multiselect. */
   items: MultiSelectItem[];
   /** Handler for onChange of checkbox, for controlled MultiSelect. */
   handleOnSelectedItemChange: any;
+  /** The selected items (items that were checked by user). */
   selectedItems: SelectedItems;
+  /** Handler for save button of multiselect. */
   onSaveMultiSelect?: () => void;
+  /** Handler for clear/reset button of multiselect. */
   onClearMultiSelect?: () => void;
+  /** Not used? */
   onMenuClick?: () => void;
-  //selectedGroupIds: string[];
+  /** Controls the display of the save and clear buttons on multiselect. */
   showCtaButtons: boolean;
 }
 
@@ -37,19 +44,14 @@ function MultiSelect({
   selectedItems,
   onSaveMultiSelect,
   onClearMultiSelect,
-  //onMenuClick,
-  //selectedGroupIds,
   showCtaButtons,
 }: MultiSelectProps) {
   const {
-    //closeMenu,
     isOpen,
     getToggleButtonProps,
-    //getLabelProps,
     getMenuProps,
     highlightedIndex,
     getItemProps,
-    //selectItem,
   } = useSelect({
     items,
     // Downshift's internal state for handling keyboard and mouse events.
@@ -70,11 +72,6 @@ function MultiSelect({
     },
     // @ts-ignore
     selectedItem: selectedItems,
-    /*...(handleOnSelectedItemChange && {
-      onSelectedItemChange: ({ selectedItem }) =>
-        handleOnSelectedItemChange(selectedItem, id),
-    }),
-    */
     onSelectedItemChange: ({ selectedItem }) => {
       handleOnSelectedItemChange(selectedItem, id);
     },
@@ -97,11 +94,11 @@ function MultiSelect({
     return buttonLabel;
   }
 
-  function setFilterCheckedProp(groupdId: string, itemId: string) {
+  function setFilterCheckedProp(multiSelectId: string, itemId: string) {
     let checked = false;
-    if (selectedItems[groupdId] !== undefined) {
+    if (selectedItems[multiSelectId] !== undefined) {
       // @ts-ignore
-      checked = selectedItems[groupdId].items.find(
+      checked = selectedItems[multiSelectId].items.find(
         // @ts-ignore
         (filter: string) => filter === itemId
       );
@@ -159,6 +156,7 @@ function MultiSelect({
                   labelText={item.name}
                   showLabel={true}
                   name={item.name}
+                  // @TODO Remove the conditional? Component is unuseable without it.
                   {...(handleOnSelectedItemChange !== undefined
                     ? {
                         isChecked: setFilterCheckedProp(id, item.id) || false,

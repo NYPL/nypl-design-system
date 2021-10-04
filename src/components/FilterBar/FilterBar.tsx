@@ -9,15 +9,25 @@ import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 import { SelectedItems } from "./../MultiSelect/MultiSelectTypes";
 
 export interface FilterBarProps {
+  /** The id of the FilterBar. */
   id: string;
+  /** The label of the FilterBar. */
   label: string;
+  /**  */
   isModalOpen: boolean;
-  onClickMobileFiltersButton: () => void;
-  onClickGoBack: () => void;
+  /**  */
   isMobile: boolean;
+  /** The selected items (items that were checked by user). */
   selectedItems: SelectedItems;
+  /** Handler for the mobile filters button. */
+  onClickMobileFiltersButton: () => void;
+  /** Handler for the mobile go back button. */
+  onClickGoBack: () => void;
+  /** Handler for the mobile clear selected items button. */
   onClearSelectedItems: () => void;
+  /** Handler for the mobile clear save button. */
   onSaveSelectedItems: () => void;
+  /** Children compenents */
   children: React.ReactNode;
 }
 
@@ -127,3 +137,34 @@ function FilterBar({
 }
 
 export default FilterBar;
+
+const topCheckouts = [
+  {
+    data: [
+      {
+        title: "Book 1",
+        description: "Book 1 Description.",
+        isbn: "12345",
+        link: "https://nypl.org/book-whatever",
+        bib: 5678,
+      },
+      {
+        title: "Book 2",
+        description: "Book 2 Description.",
+        isbn: "12345",
+        link: "https://nypl.org/book-whatever",
+        bib: 5678,
+      },
+      {
+        title: "Book 3",
+        description: "Book 2 Description.",
+        isbn: "12345",
+        link: "https://nypl.org/book-whatever",
+        bib: 5678,
+      },
+    ],
+    meta: {
+      count: 225,
+    },
+  },
+];
