@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Link` component with Chakra component and fixes the `Button` type.
 - Exports Chakra's `Grid` and `GridItem` components.
 - Composes the DS `Label` component with Chakra component and updates the font size.
+- Composes the DS `StatusBadge` component from Chakra's component.
 
 ### Changes
 
