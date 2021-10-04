@@ -24,6 +24,8 @@ export interface IconProps {
   className?: string;
   /** Icons designated as decorative will be ignored by screenreaders */
   decorative?: boolean;
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
   /** This text will be added as a child `<title>` element inside the `<svg>` tag.  It is recommended to do this for increased accessibility. */
   titleText?: string;
   /** Rotates the icon clockwise in increments of 90deg */
@@ -46,6 +48,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     className,
     titleText,
     iconRotation,
+    id = generateUUID(),
     color,
     size,
     modifiers = [],
@@ -66,10 +69,9 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     modifiers.push(size);
   }
 
-  const iconID = generateUUID();
   const iconProps = {
     className: bem("icon", modifiers, blockName, [className]),
-    id: iconID,
+    id: id,
     role: "img",
     title: titleText || null,
     "aria-hidden": decorative,

@@ -116,18 +116,20 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       );
     }
 
-    options = {
-      id,
-      "aria-required": isRequired,
-      "aria-hidden": isHidden,
-      isDisabled,
-      isRequired,
-      isInvalid,
-      placeholder,
-      onChange,
-      ref,
-      ...attributes,
-    };
+    // When the type is "hidden", the input element needs fewer attributes.
+    options = isHidden
+      ? { id, "aria-hidden": isHidden, onChange, ref }
+      : {
+          id,
+          "aria-required": isRequired,
+          isDisabled,
+          isRequired,
+          isInvalid,
+          placeholder,
+          onChange,
+          ref,
+          ...attributes,
+        };
     // For `input` and `textarea`, all attributes are the same but `input`
     // also needs `type` and `value` to render correctly.
     if (!isTextArea) {
@@ -153,7 +155,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
           </Label>
         )}
         {fieldOutput}
-        {footnote && (
+        {footnote && !isHidden && (
           <Box __css={styles.helper} aria-disabled={isDisabled}>
             <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
               {footnote}
