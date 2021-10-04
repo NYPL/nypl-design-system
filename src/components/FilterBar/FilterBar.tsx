@@ -137,34 +137,3 @@ function FilterBar({
 }
 
 export default FilterBar;
-
-const topCheckouts = [
-  {
-    data: [
-      {
-        title: "Book 1",
-        description: "Book 1 Description.",
-        isbn: "12345",
-        link: "https://nypl.org/book-whatever",
-        bib: 5678,
-      },
-      {
-        title: "Book 2",
-        description: "Book 2 Description.",
-        isbn: "12345",
-        link: "https://nypl.org/book-whatever",
-        bib: 5678,
-      },
-      {
-        title: "Book 3",
-        description: "Book 2 Description.",
-        isbn: "12345",
-        link: "https://nypl.org/book-whatever",
-        bib: 5678,
-      },
-    ],
-    meta: {
-      count: 225,
-    },
-  },
-];
