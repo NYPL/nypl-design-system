@@ -5,6 +5,7 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs/blocks";
+import { Box } from "@chakra-ui/react";
 
 import Label from "./Label";
 import { getCategory } from "../../utils/componentCategories";
@@ -16,7 +17,8 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Label.test.tsx"],
   }}
   argTypes={{
-    attributes: { table: { disable: true } },
+    className: { table: { disable: true } },
+    id: { table: { disable: true } },
   }}
 />
 
@@ -25,7 +27,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.24.0`   |
+| Latest            | `0.25.1`   |
 
 <Description of={Label} />
 
@@ -35,6 +37,7 @@ import { getCategory } from "../../utils/componentCategories";
     args={{
       text: "A label for a villager.",
       optReqFlag: "Required",
+      htmlFor: "id-of-input-element",
     }}
     argTypes={{
       optReqFlag: {
@@ -45,12 +48,30 @@ import { getCategory } from "../../utils/componentCategories";
       },
     }}
   >
-    {(args) => (
-      <Label htmlFor="some-input-element" id="label" {...args}>
-        {args.text}
-      </Label>
-    )}
+    {(args) => <Label {...args}>{args.text}</Label>}
   </Story>
 </Canvas>
 
 <ArgsTable story="Label" />
+
+## Required/Optional helper text
+
+An optional helper string can be rendered at the end of the `Label` text through
+the `optReqFlag` prop. Pass in either `"Required"`, `"Optional"`, or `""`. The
+default value is undefined for no helper text to appear.
+
+<Canvas>
+  <Story name="Required/Optional helper text">
+    <Box width="300px">
+      <Label htmlFor="some-id1" optReqFlag="">
+        No text
+      </Label>
+      <Label htmlFor="some-id2" optReqFlag="Required">
+        Required helper text
+      </Label>
+      <Label htmlFor="some-id3" optReqFlag="Optional">
+        Optional helper text
+      </Label>
+    </Box>
+  </Story>
+</Canvas>
