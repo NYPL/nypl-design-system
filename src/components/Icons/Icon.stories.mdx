@@ -3,13 +3,13 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
 import Icon from "./Icon";
 import {
+  IconAlign,
   IconNames,
   LogoNames,
   IconColors,
@@ -33,6 +33,10 @@ import { getCategory } from "../../utils/componentCategories";
     },
     jest: ["Icon.test.tsx"],
   }}
+  argTypes={{
+    children: { table: { disable: true } },
+    className: { table: { disable: true } },
+  }}
 />
 
 # Icon
@@ -40,55 +44,65 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.24.1`   |
+| Latest            | `0.25.1`   |
 
 <Description of={Icon} />
 
-<Preview withToolbar style={{ backgroundColor: "#fafafa" }}>
+<Canvas withToolbar>
   <Story
     name="Icon Props Control"
     args={{
-      name: "check",
-      color: IconColors.ui_black,
-      size: IconSizes.xlarge,
-      iconRotation: IconRotationTypes.rotate0,
+      align: "None",
+      color: "UiBlack",
       decorative: true,
-      titleText: "An example icon",
+      iconRotation: "Rotate0",
+      name: "Check",
+      size: "ExtraLarge",
     }}
     argTypes={{
+      align: {
+        control: {
+          type: "select",
+        },
+        options: Object.keys(IconAlign),
+      },
       color: {
         control: {
           type: "select",
-          options: IconColors,
         },
-      },
-      size: {
-        control: {
-          type: "select",
-          options: IconSizes,
-        },
+        options: Object.keys(IconColors),
       },
       iconRotation: {
         control: {
           type: "select",
-          options: IconRotationTypes,
         },
+        options: Object.keys(IconRotationTypes),
       },
-      blockName: {
-        table: {
-          disable: true,
+      name: {
+        control: {
+          type: "select",
         },
+        options: Object.keys(IconNames),
       },
-      modifiers: {
-        table: {
-          disable: true,
+      size: {
+        control: {
+          type: "select",
         },
+        options: Object.keys(IconSizes),
       },
     }}
   >
-    {(args) => <Icon {...args} />}
+    {(args) => (
+      <Icon
+        align={IconAlign[args.align]}
+        color={IconColors[args.color]}
+        iconRotation={IconRotationTypes[args.iconRotation]}
+        name={IconNames[args.name]}
+        size={IconSizes[args.size]}
+      />
+    )}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Icon Props Control" />
 
@@ -97,24 +111,24 @@ export const iconRow = (icon, opts = {}) => {
   // Some icons display better with a dark background.
   const styles = { padding: "1rem" };
   const {
-    size = IconSizes.large,
-    iconRotation = IconRotationTypes.rotate0,
-    color = IconColors.ui_black,
+    size = IconSizes.Large,
+    iconRotation = IconRotationTypes.Rotate0,
+    color = IconColors.UiBlack,
     displayValue = icon,
   } = opts;
   let key = icon;
-  if (icon.indexOf("_negative") !== -1) {
+  if (icon.indexOf("Negative") !== -1) {
     styles.backgroundColor = "#000";
     styles.display = "inline-block";
   }
   // The following is just to fix duplicate React key issues.
-  if (iconRotation !== IconRotationTypes.rotate0) {
+  if (iconRotation !== IconRotationTypes.Rotate0) {
     key += `-${iconRotation}`;
   }
-  if (color !== IconColors.ui_black) {
+  if (color !== IconColors.UiBlack) {
     key += `-${color}`;
   }
-  if (size !== IconSizes.large) {
+  if (size !== IconSizes.Large) {
     key += `-${size}`;
   }
   return (
@@ -122,7 +136,6 @@ export const iconRow = (icon, opts = {}) => {
       <span style={styles}>
         <Icon
           name={icon}
-          decorative={true}
           size={size}
           iconRotation={iconRotation}
           color={color}
@@ -138,33 +151,33 @@ export const rotations = [];
 export const colors = [];
 export const sizes = [];
 for (const icon in IconNames) {
-  icons.push(iconRow(icon));
+  icons.push(iconRow(IconNames[icon]));
 }
 for (const logo in LogoNames) {
-  logos.push(iconRow(logo, { iconSize: IconSizes.xlarge }));
+  logos.push(iconRow(LogoNames[logo], { iconSize: IconSizes.ExtraLarge }));
 }
 for (const iconRotation in IconRotationTypes) {
   rotations.push(
-    iconRow(IconNames.arrow, {
-      size: IconSizes.large,
+    iconRow(IconNames.Arrow, {
+      size: IconSizes.Large,
       iconRotation: IconRotationTypes[iconRotation],
-      displayValue: IconRotationTypes[iconRotation],
+      displayValue: iconRotation,
     })
   );
 }
 for (const iconColor in IconColors) {
   colors.push(
-    iconRow(IconNames.download, {
+    iconRow(IconNames.Download, {
       color: IconColors[iconColor],
-      displayValue: IconColors[iconColor],
+      displayValue: iconColor,
     })
   );
 }
 for (const iconSize in IconSizes) {
   sizes.push(
-    iconRow(IconNames.arrow, {
+    iconRow(IconNames.Arrow, {
       size: IconSizes[iconSize],
-      displayValue: IconSizes[iconSize],
+      displayValue: iconSize,
     })
   );
 }
@@ -181,16 +194,12 @@ can be found in `src/components/Icons/IconTypes.tsx`.
 
 ```js
 // Example
-<Icon
-  name={IconNames.arrow}
-  decorative={true}
-  iconRotation={IconRotationTypes.rotate180}
-/>
+<Icon name={IconNames.Arrow} iconRotation={IconRotationTypes.Rotate180} />
 ```
 
-<Preview>
+<Canvas>
   <Story name="Rotation Types">{allIconsType(rotations)}</Story>
-</Preview>
+</Canvas>
 
 ## IconColors Types
 
@@ -199,16 +208,12 @@ The `IconColors` enum can be found in`src/components/Icons/IconTypes.tsx`.
 
 ```js
 // Example
-<Icon
-  name={IconNames.speaker_notes}
-  decorative={true}
-  color={IconColors.brand_primary}
-/>
+<Icon name={IconNames.Speaker_notes} color={IconColors.BrandPrimary} />
 ```
 
-<Preview>
+<Canvas>
   <Story name="Color Types">{allIconsType(colors)}</Story>
-</Preview>
+</Canvas>
 
 ## IconSizes Types
 
@@ -217,21 +222,21 @@ The `IconSizes` enum can be found in`src/components/Icons/IconTypes.tsx`.
 
 ```js
 // Example
-<Icon name={IconNames.clock} decorative={true} size={IconSizes.xxlarge} />
+<Icon name={IconNames.Clock} size={IconSizes.ExtraExtraLarge} />
 ```
 
-<Preview>
+<Canvas>
   <Story name="Sizes Types">{allIconsType(sizes)}</Story>
-</Preview>
+</Canvas>
 
 ## All Display Icons
 
 The following icons are for generic purposes. All the available logo names can
 be found in the `IconNames` enum in `src/components/Icons/IconTypes.tsx`.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="All Display Icons">{allIconsType(icons)}</Story>
-</Preview>
+</Canvas>
 
 ## All Logo Icons
 
@@ -241,28 +246,28 @@ The following icons are meant to be used for logos for different libraries
 and products. All the available logo names can
 be found in the `LogoNames` enum in `src/components/Icons/IconTypes.tsx`.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="All Logo Icons">{allIconsType(logos)}</Story>
-</Preview>
+</Canvas>
 
 ## Custom Icons
 
 If you'd like to pass a custom svg to your application, you can pass it a
 child to the `Icon` component.
 
-```js
-<Icon {...args}>
-  <svg ...><!-- the direct svg here --></svg>
+```jsx
+<Icon {...props}>
+  <svg><!-- the direct svg here --></svg>
 </Icon>
 ```
 
-<Preview>
+<Canvas>
   <Story
     name="Custom Icons"
     args={{
-      color: IconColors.ui_black,
-      size: IconSizes.xxxlarge,
-      iconRotation: IconRotationTypes.rotate0,
+      color: IconColors.UiBlack,
+      size: IconSizes.ExtraExtraExtraLarge,
+      iconRotation: IconRotationTypes.Rotate0,
       decorative: true,
     }}
   >
@@ -280,4 +285,4 @@ child to the `Icon` component.
       </Icon>
     )}
   </Story>
-</Preview>
+</Canvas>

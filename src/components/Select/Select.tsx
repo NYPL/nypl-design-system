@@ -8,7 +8,7 @@ import {
 import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
-import { IconNames } from "../Icons/IconTypes";
+import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
 
 export interface SelectProps {
@@ -119,13 +119,7 @@ const Select = React.forwardRef<
         ref={ref}
         {...controlledProps}
         {...ariaAttributes}
-        icon={
-          <Icon
-            name={IconNames.arrow}
-            decorative={true}
-            modifiers={["medium"]}
-          />
-        }
+        icon={<Icon name={IconNames.Arrow} size={IconSizes.Medium} />}
         __css={styles.select}
       >
         {children}

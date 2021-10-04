@@ -1,7 +1,7 @@
 import * as React from "react";
 import bem from "../../utils/bem";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
 
 type breadcrumb = { url: string; text: string };
 
@@ -68,10 +68,10 @@ export default class Breadcrumbs extends React.Component<BreadcrumbProps, any> {
         >
           {last && (
             <Icon
-              name={IconNames.arrow}
-              blockName={baseClass}
-              modifiers={["small"]}
-              decorative={true}
+              className="breadcrumbs-icon"
+              name={IconNames.Arrow}
+              size={IconSizes.Small}
+              iconRotation={IconRotationTypes.Rotate90}
             />
           )}
           {linkComponent}

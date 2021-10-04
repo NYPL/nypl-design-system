@@ -37,13 +37,11 @@
     }
   }
 
-  &__icon {
-    @include icon;
-
+  & .breadcrumbs-icon {
     left: 0;
     position: absolute;
-    top: 50%;
-    transform: rotate(90deg) translateX(-50%);
+    top: 20%;
+    fill: var(--ui-white);
 
     @include breakpoint($breakpoint-medium) {
       display: none;

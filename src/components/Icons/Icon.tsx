@@ -1,39 +1,33 @@
-/* eslint-disable camelcase */
 import * as React from "react";
-import bem from "../../utils/bem";
-import generateUUID from "../../helpers/generateUUID";
+import { Icon as ChakraIcon, Box, useStyleConfig } from "@chakra-ui/react";
 
+import generateUUID from "../../helpers/generateUUID";
 import {
+  IconAlign,
   IconRotationTypes,
   IconNames,
   LogoNames,
   IconColors,
   IconSizes,
 } from "./IconTypes";
-
 import iconSvgs from "./IconSvgs";
 
 export interface IconProps {
-  /** Additional attributes to pass to the `<svg>` tag. */
-  attributes?: { [key: string]: any };
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
+  /** Aligns the icon. */
+  align?: IconAlign;
   /** className that appears in addition to "icon" */
   className?: string;
-  /** Icons designated as decorative will be ignored by screenreaders */
-  decorative?: boolean;
-  /** This text will be added as a child `<title>` element inside the `<svg>` tag.  It is recommended to do this for increased accessibility. */
-  titleText?: string;
-  /** Rotates the icon clockwise in increments of 90deg */
-  iconRotation?: IconRotationTypes;
   /** Overrides default icon color (black). */
   color?: IconColors;
-  /** Sets the icon size. */
-  size?: IconSizes;
+  /** Icons designated as decorative will be ignored by screenreaders. True
+   * by default. */
+  decorative?: boolean;
+  /** Rotates the icon clockwise in increments of 90deg */
+  iconRotation?: IconRotationTypes;
   /** The name of the icon you want to use. */
   name?: IconNames | LogoNames;
+  /** Sets the icon size. */
+  size?: IconSizes;
 }
 
 /**
@@ -41,63 +35,58 @@ export interface IconProps {
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
-    blockName,
-    decorative = false,
-    className,
-    titleText,
-    iconRotation,
-    color,
-    size,
-    modifiers = [],
-    name,
+    align = "none",
     children,
-    attributes = [],
+    className,
+    color = IconColors.UiBlack,
+    decorative = true,
+    iconRotation = IconRotationTypes.Rotate0,
+    name,
+    size = IconSizes.Medium,
   } = props;
-
-  if (iconRotation) {
-    modifiers.push(iconRotation);
-  }
-
-  if (color) {
-    modifiers.push(color);
-  }
-
-  if (size) {
-    modifiers.push(size);
-  }
-
-  const iconID = generateUUID();
+  const styles = useStyleConfig("Icon", { align, color, iconRotation, size });
   const iconProps = {
-    className: bem("icon", modifiers, blockName, [className]),
-    id: iconID,
-    role: "img",
-    title: titleText || null,
     "aria-hidden": decorative,
-    ...attributes,
+    id: generateUUID(),
+    role: "img",
+    className,
   };
-
-  // Apply icon props to SVG that was passed as a child.
-  const renderChildren = () =>
-    React.Children.map(children, (child) =>
-      React.cloneElement(child as JSX.Element, { ...iconProps })
-    );
+  let childSVG = null;
 
   // Component prop validation
   if (name && children) {
-    throw new Error("Icon accepts either a name or children, not both");
+    console.warn(
+      "Icon accepts either a `name` prop or an `svg` element child, not both."
+    );
+    return null;
   } else if (!name && !children) {
     console.warn(
-      "Pass a name or any children to Icon to ensure an icon appears"
+      "Pass an icon `name` prop or an SVG child to `Icon` to ensure an icon appears."
     );
+    return null;
   }
 
   // The user wants to render an existing icon. Load the icon and render it
-  // as a component. Otherwise, we're just going to render the children that
-  // were passed to this component.
+  // as a component through Chakra's Icon component. Otherwise, we're going to
+  // render the SVG child with NYPL-theme styling.
   if (name) {
-    const SvgComponent = iconSvgs[name];
-    return <SvgComponent {...iconProps} />;
+    const SvgComponent: any = iconSvgs[name];
+    return <ChakraIcon as={SvgComponent} {...iconProps} __css={styles} />;
   }
 
-  return <>{renderChildren()}</>;
+  // If no `name` prop was passed, we expect a child SVG element to be passed.
+  // Apply icon props to the SVG child.
+  if (
+    (children as JSX.Element).type === "svg" ||
+    (children as JSX.Element).props.type === "svg" ||
+    (children as JSX.Element).props.mdxType === "svg"
+  ) {
+    childSVG = React.cloneElement(children as JSX.Element, {
+      ...iconProps,
+    });
+  } else {
+    console.warn("You must pass an `svg` element to the `Icon` component.");
+  }
+
+  return <Box __css={styles}>{childSVG}</Box>;
 }

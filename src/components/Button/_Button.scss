@@ -34,22 +34,15 @@
 .button {
   // These `icon` rules are a better fit for the Icon
   // component but we'll keep them here for now.
-  .icon {
-    @include icon;
-
+  svg {
     fill: currentColor;
+    margin-top: var(--space-xxs);
 
-    &--small,
-    &--icon-left,
-    &--icon-right {
-      margin-top: var(--space-xxs);
-    }
-
-    &--icon-left {
+    &.left {
       margin-right: var(--space-xs);
     }
 
-    &--icon-right {
+    &.right {
       margin-left: var(--space-xs);
     }
   }

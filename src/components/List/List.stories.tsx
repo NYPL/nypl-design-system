@@ -4,7 +4,7 @@ import CardEdition from "../CardEdition/CardEdition";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
@@ -118,10 +118,10 @@ const exampleCard = (
       </div>
       <div className="book__filetype">
         <Icon
-          name={IconNames.headset}
-          decorative={true}
-          modifiers={["left", "small"]}
-        ></Icon>
+          name={IconNames.Headset}
+          align={IconAlign.Left}
+          size={IconSizes.Small}
+        />
         Audiobook
       </div>
       <div className="book__description">

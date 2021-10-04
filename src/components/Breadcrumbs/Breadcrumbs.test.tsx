@@ -51,7 +51,7 @@ describe("Breadcrumbs", () => {
     const { container } = render(
       <Breadcrumbs breadcrumbs={breadcrumbComponent} />
     );
-    expect(container.querySelector(".breadcrumbs__icon")).toBeInTheDocument();
+    expect(container.querySelector(".breadcrumbs svg")).toBeInTheDocument();
   });
 
   it("Throws error when nothing is passed into Breadcrumb", () => {
