@@ -311,6 +311,21 @@ describe("Hidden input", () => {
       "hidden"
     );
   });
+
+  it("does not show the helper text", () => {
+    render(
+      <TextInput
+        id="inputID-hidden"
+        labelText="Hidden Input Label"
+        helperText="Helper Text"
+        type={TextInputTypes.hidden}
+        value="hidden"
+      />
+    );
+
+    expect(screen.queryByText("Hidden Input Label")).not.toBeInTheDocument();
+    expect(screen.queryByText("Helper Text")).not.toBeInTheDocument();
+  });
 });
 
 describe("Textarea element type", () => {
