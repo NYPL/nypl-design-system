@@ -4,11 +4,12 @@ import { Icon as ChakraIcon, Box, useStyleConfig } from "@chakra-ui/react";
 import generateUUID from "../../helpers/generateUUID";
 import {
   IconAlign,
-  IconRotationTypes,
-  IconNames,
-  LogoNames,
   IconColors,
+  IconNames,
+  IconRotationTypes,
   IconSizes,
+  IconTypes,
+  LogoNames,
 } from "./IconTypes";
 import iconSvgs from "./IconSvgs";
 
@@ -24,10 +25,14 @@ export interface IconProps {
   decorative?: boolean;
   /** Rotates the icon clockwise in increments of 90deg */
   iconRotation?: IconRotationTypes;
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
   /** The name of the icon you want to use. */
   name?: IconNames | LogoNames;
   /** Sets the icon size. */
   size?: IconSizes;
+  /** Sets the icon variant type. */
+  type?: IconTypes;
 }
 
 /**
@@ -41,15 +46,23 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     color = IconColors.UiBlack,
     decorative = true,
     iconRotation = IconRotationTypes.Rotate0,
+    id = generateUUID(),
     name,
     size = IconSizes.Medium,
+    type = IconTypes.Default,
   } = props;
-  const styles = useStyleConfig("Icon", { align, color, iconRotation, size });
+  const styles = useStyleConfig("Icon", {
+    align,
+    color,
+    iconRotation,
+    size,
+    variant: type,
+  });
   const iconProps = {
     "aria-hidden": decorative,
-    id: generateUUID(),
-    role: "img",
     className,
+    id,
+    role: "img",
   };
   let childSVG = null;
 

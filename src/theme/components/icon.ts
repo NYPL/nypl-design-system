@@ -67,6 +67,13 @@ const Icon = {
       },
     };
   },
+  variants: {
+    default: {},
+    breadcrumbs: {
+      fill: "var(--ui-white)",
+      display: { md: "none" },
+    },
+  },
 };
 
 export default Icon;

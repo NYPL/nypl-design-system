@@ -5,6 +5,11 @@ export enum IconAlign {
   None = "none",
 }
 
+export enum IconTypes {
+  Default = "default",
+  Breadcrumbs = "breadcrumbs",
+}
+
 export enum IconRotationTypes {
   Rotate0 = "rotate0",
   Rotate90 = "rotate90",
