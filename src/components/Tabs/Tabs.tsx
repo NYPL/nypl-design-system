@@ -218,8 +218,10 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
           }}
         >
           {previousButton}
-          <Box __css={styles.carouselWrapper} {...carouselStyle}>
-            {tabs}
+          <Box __css={styles.carouselParent}>
+            <Box __css={styles.carouselWrapper} {...carouselStyle}>
+              {tabs}
+            </Box>
           </Box>
           {nextButton}
         </Box>
