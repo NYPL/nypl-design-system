@@ -8,6 +8,7 @@ import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
 /** Component styles */
 import Accordion from "./components/accordion";
+import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import Checkbox from "./components/checkbox";
 import Radio from "./components/radio";
@@ -20,6 +21,7 @@ import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 import TemplateStyles from "./components/template";
 import Link from "./components/link";
+import Label from "./components/label";
 import StatusBadge from "./components/statusBadge";
 
 /**
@@ -53,6 +55,7 @@ const theme = extendTheme({
    */
   components: {
     Accordion,
+    Breadcrumb,
     Button,
     Checkbox,
     CustomCheckboxGroup,
@@ -60,6 +63,7 @@ const theme = extendTheme({
     CustomSelect,
     Heading,
     Hero,
+    Label,
     Link,
     Radio,
     StatusBadge,
