@@ -2,15 +2,44 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import renderer from "react-test-renderer";
 
-import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import SearchBar from "./SearchBar";
+
+const optionsGroup = [
+  "Art",
+  "Bushes",
+  "Clothing",
+  "Flowers",
+  "Fossils",
+  "Fruits",
+  "Furniture",
+  "Songs",
+  "Tools",
+  "Villagers",
+];
+const selectProps = {
+  name: "nhItemSearch",
+  labelText: "Select a category",
+  optionsData: optionsGroup,
+};
+const textInputProps = {
+  labelText: "Item Search",
+  placeholder: "Item Search",
+};
+const helperErrorText = "Search for items in Animal Crossing New Horizons";
 
 describe("SearchBar Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
-      <SearchBar id="id" ariaLabel="searchbar" onSubmit={jest.fn()} />
+      <SearchBar
+        id="id"
+        ariaLabel="searchbar"
+        onSubmit={jest.fn()}
+        selectProps={selectProps}
+        textInputProps={textInputProps}
+        helperErrorText={helperErrorText}
+      />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -20,32 +49,119 @@ describe("SearchBar", () => {
   const searchBarSubmit = jest.fn();
   const buttonCallback = jest.fn();
 
-  it("Renders SearchBar", () => {
+  it("renders the basic form", () => {
     render(
-      <SearchBar id="id" ariaLabel="searchbar" onSubmit={searchBarSubmit} />
+      <SearchBar
+        id="id"
+        ariaLabel="searchbar"
+        onSubmit={searchBarSubmit}
+        textInputProps={textInputProps}
+        helperErrorText={helperErrorText}
+      />
     );
     expect(screen.getByRole("search")).toBeInTheDocument();
     expect(screen.getByRole("search")).toHaveAttribute(
       "aria-label",
       "searchbar"
     );
+    expect(screen.getByPlaceholderText("Item Search")).toBeInTheDocument();
+    expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
-  it("Search Bar calls call back on Submit ", () => {
+  it("renders an optional Select component", () => {
     render(
-      <SearchBar ariaLabel="searchBar" id="id" onSubmit={searchBarSubmit}>
-        <Button
-          buttonType={ButtonTypes.Primary}
-          id="button"
-          onClick={buttonCallback}
-          type="submit"
-        >
-          Search
-        </Button>
-      </SearchBar>
+      <SearchBar
+        id="id"
+        ariaLabel="searchbar"
+        onSubmit={searchBarSubmit}
+        selectProps={selectProps}
+        textInputProps={textInputProps}
+        helperErrorText={helperErrorText}
+      />
+    );
+    expect(screen.getByRole("combobox")).toBeInTheDocument();
+    expect(screen.getByLabelText("Select a category")).toBeInTheDocument();
+  });
+
+  it("calls the callback function on submit ", () => {
+    render(
+      <SearchBar
+        ariaLabel="searchBar"
+        id="id"
+        onSubmit={searchBarSubmit}
+        selectProps={selectProps}
+        textInputProps={textInputProps}
+        helperErrorText={helperErrorText}
+      />
     );
     expect(searchBarSubmit).toHaveBeenCalledTimes(0);
+    expect(buttonCallback).toHaveBeenCalledTimes(0);
     userEvent.click(screen.getByRole("button"));
     expect(searchBarSubmit).toHaveBeenCalledTimes(1);
+    expect(buttonCallback).toHaveBeenCalledTimes(1);
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const basic = renderer
+      .create(
+        <SearchBar
+          id="id"
+          ariaLabel="searchbar"
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          helperErrorText={helperErrorText}
+        />
+      )
+      .toJSON();
+    const withSelect = renderer
+      .create(
+        <SearchBar
+          id="id"
+          ariaLabel="searchbar"
+          onSubmit={jest.fn()}
+          selectProps={selectProps}
+          textInputProps={textInputProps}
+          helperErrorText={helperErrorText}
+        />
+      )
+      .toJSON();
+    const withoutHelperText = renderer
+      .create(
+        <SearchBar
+          id="id"
+          ariaLabel="searchbar"
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+        />
+      )
+      .toJSON();
+    const invalidState = renderer
+      .create(
+        <SearchBar
+          id="id"
+          ariaLabel="searchbar"
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          isInvalid
+        />
+      )
+      .toJSON();
+    const disabledState = renderer
+      .create(
+        <SearchBar
+          id="id"
+          ariaLabel="searchbar"
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          isDisabled
+        />
+      )
+      .toJSON();
+
+    expect(basic).toMatchSnapshot();
+    expect(withSelect).toMatchSnapshot();
+    expect(withoutHelperText).toMatchSnapshot();
+    expect(invalidState).toMatchSnapshot();
+    expect(disabledState).toMatchSnapshot();
   });
 });

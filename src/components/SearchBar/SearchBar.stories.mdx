@@ -35,10 +35,14 @@ import DSProvider from "../../theme/provider";
   argTypes={{
     action: { table: { disable: true } },
     ariaLabel: { table: { disable: true } },
+    buttonOnClick: { table: { disable: true } },
     className: { table: { disable: true } },
     id: { table: { disable: true } },
     method: { table: { disable: true } },
     onSubmit: { table: { disable: true } },
+    selectProps: { table: { disable: true } },
+    textInputProps: { table: { disable: true } },
+    textInputElement: { table: { disable: true } },
   }}
 />
 
@@ -46,76 +50,27 @@ import DSProvider from "../../theme/provider";
 
 <Description of={SearchBar} />
 
-The main wrapper element that is rendered is `<form>` DOM element. All the props
-passed to `SearchBar` will apply to the `<form>` element. If you need to update
-the children, make sure the props are passed to the appropriate components.
+The main wrapper element that is rendered is a `<form>` DOM element. All the
+props passed to `SearchBar` will apply to the `<form>` element and its children.
+The `SearchBar` component will render a `Select` component (optional),
+`TextInput` component, `Button` component, and `HelperErrorText` component
+based on the required props.
 
 The `Select` dropdown narrows the search within a specific category, typically
-title or author. You should only have one `Select` component at a time. If you
-need more options, link to the advance search page. Toggle the `Select` through
-the Controls.
+title or author. Toggle the `Select` through the Controls.
 
-_Note: The `HelperErrorText` component should be the next direct sibling of the
-`SearchBar` component if it will be used._
-
-export const optionsGroup = {
-  Art: [
-    "Academic Painting",
-    "Amazing Painting",
-    "Ancient Statue",
-    "Basic Painting",
-    "Beautiful Statue",
-  ],
-  Bushes: [
-    "Blue-Hydrangea Bush",
-    "Blue-Hydrangea Start",
-    "Holly Bush",
-    "Orange-Tea-Olive Bush",
-    "Pink Camellia Bush",
-  ],
-  Clothing: ["3D Glasses", "Academy Uniform", "Acid-Washed Jacket"],
-  "DIY Recipes": ["Acorn Pochette", "Acoustic Guitar", "Angled Signpost"],
-  Flowers: [
-    "Black Cosmos",
-    "Blue Pansies",
-    "Gold Roses",
-    "Lily of the Valley",
-    "Orange Hyacinth",
-  ],
-  Fossils: [
-    "Acanthostega",
-    "Amber",
-    "Ammonite",
-    "Ankylo Skull",
-    "Anomalocaris",
-    "Australopith",
-  ],
-  Fruits: ["Apples", "Oranges", "Pears", "Coconuts", "Cherries"],
-  Furniture: [
-    "Abstract Wall",
-    "Accessories Stand",
-    "ACNH Switch",
-    "Air Circulator",
-  ],
-  Materials: [
-    "Acorn",
-    "Aquaris Fragment",
-    "Bamboo Piece",
-    "Boot",
-    "Clump of Weeds",
-  ],
-  NPC: ["Celeste", "Kicks", "Leif", "Redd", "Saharah"],
-  Songs: ["Agent K.K.", "Café K.K.", "Comrade K.K."],
-  Tools: [
-    "Axe",
-    "Bamboo Wand",
-    "Fishing Rod",
-    "Shovel",
-    "Slingshot",
-    "Watering Can",
-  ],
-  Villagers: ["Agnes", "Alfonso", "Anchovy", "Axel", "Aurora"],
-};
+export const optionsGroup = [
+  "Art",
+  "Bushes",
+  "Clothing",
+  "Flowers",
+  "Fossils",
+  "Fruits",
+  "Furniture",
+  "Songs",
+  "Tools",
+  "Villagers",
+];
 
 <Canvas withToolbar>
   <Story
@@ -126,44 +81,115 @@ export const optionsGroup = {
       isInvalid: false,
       isDisabled: false,
       isRequired: false,
+      helperErrorText: "Search for items in Animal Crossing New Horizons",
     }}
   >
     {(args) => (
-      <SearchBar onSubmit={() => {}} {...args}>
-        {args.showSelect && (
-          <Select id="select-searchBar" name="nhItemSearch">
-            {Object.keys(optionsGroup).map((nhOption) => (
-              <option key={nhOption} value={nhOption}>
-                {nhOption}
-              </option>
-            ))}
-          </Select>
-        )}
-        <TextInput
-          id="inputBasic"
-          labelText="Item Search"
-          placeholder="Item Search"
-          type={TextInputTypes.text}
-        />
-        <Button id="buttonBasic" buttonType={ButtonTypes.Primary} type="submit">
-          <Icon
-            name={IconNames.search}
-            decorative={true}
-            modifiers={["small", "icon-left"]}
-          />
-          Search
-        </Button>
-        {args.showHelperText && (
-          <HelperErrorText id="error-disabled">
-            Search for items in Animal Crossing New Horizons
-          </HelperErrorText>
-        )}
-      </SearchBar>
+      <SearchBar
+        onSubmit={() => {}}
+        {...args}
+        selectProps={
+          args.showSelect && {
+            name: "nhItemSearch",
+            labelText: "Select a category",
+            optionsData: optionsGroup,
+          }
+        }
+        textInputProps={{
+          labelText: "Item Search",
+          placeholder: "Item Search",
+        }}
+        helperErrorText={args.showHelperText && args.helperErrorText}
+      />
     )}
   </Story>
 </Canvas>
 
 <ArgsTable story="Basic" />
+
+## Component Props
+
+### Select Component
+
+To render an optional `Select` component, an object must be passed to the
+`selectProps` prop. It _must_ include `name`, `labelText`, and `optionsData`
+properties. The `labelText` value won't be rendered but will be used for its
+`aria-label` attribute.
+
+```
+const selectProps = {
+  name: "select-form-name",
+  labelText: "Select a category",
+  optionsData: optionsGroup,
+};
+
+// ...
+<SearchBar
+  onSubmit={() => {}}
+  selectProps={selectProps}
+  // ...
+/>
+```
+
+### TextInput Component
+
+To render the `TextInput` component, an object must be passed to the
+`textInputProps` prop. It _must_ include `labelText` and `placeholder`
+properties. The `labelText` value won't be rendered but will be used for its
+`aria-label` attribute.
+
+```
+const textInputProps = {
+  labelText: "Item Search",
+  placeholder: "Item Search",
+};
+
+// ...
+<SearchBar
+  onSubmit={() => {}}
+  textInputProps={textInputProps}
+  // ...
+/>
+```
+
+### Custom Input Component
+
+To render a custom input component, pass the component to the `textInputElement`
+prop. This will render your custom input component such as an `Autocomplete`
+component. Check the "Search Autocomplete" example for more details.
+
+```
+const textInputElement = <CustomInput {...props} />;
+
+// ...
+<SearchBar
+  onSubmit={() => {}}
+  textInputElement={textInputElement}
+  // ...
+/>
+```
+
+### Button Component
+
+A `Button` component will automatically be rendered for the `SearchBar`
+component. If you want to pass a callback function to the `Button`, use the
+`buttonOnClick` prop.
+
+### HelperErrorText Component
+
+To render the `HelperErrorText` component, pass a string value to the
+`helperErrorText` prop.
+
+```
+const helperErrorText = "";
+
+// ...
+<SearchBar
+  onSubmit={() => {}}
+  helperErrorText="Search for items in Animal Crossing New Horizons"
+  // ...
+/>
+```
 
 ## Search Autocomplete
 
@@ -171,9 +197,12 @@ While the Design System does not implement an `Autosuggest` or `Autocomplete`
 component, it does show a pattern for using the `react-autosuggest` package.
 In this example, we're using the `react-autosuggest` example found in the
 [Basic Autosuggest story](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/autosuggest--autosuggest-library)
-as the main component inside the `SearchBar` component. See the combination of
-the Autosuggest story along with this story to see how to compose all the
-components together.
+as the main component inside the `SearchBar` component.
+
+In order to render this custom input element in the `SearchBar` component, pass
+it in the `textInputElement` prop. Do not pass an object to the `textInputProps`
+prop since the custom input component passed in `textInputElement` will take
+precedence.
 
 <Canvas withToolbar>
   <Story
@@ -186,25 +215,12 @@ components together.
   >
     {(args) => (
       <div style={{ minHeight: "150px" }}>
-        <SearchBar onSubmit={() => {}} {...args}>
-          {stories.SearchBarExample()}
-          <Button
-            buttonType={ButtonTypes.Primary}
-            id="autosuggest-button"
-            type="submit"
-          >
-            <Icon
-              name={IconNames.search}
-              decorative={true}
-              modifiers={["small", "icon-left"]}
-            />
-            Search
-          </Button>
-          <HelperErrorText id="autosuggest-helperText">
-            Select your home library. Start by typing the name of the library.
-            Try {'"'}ba{'"'}.
-          </HelperErrorText>
-        </SearchBar>
+        <SearchBar
+          onSubmit={() => {}}
+          textInputElement={stories.SearchBarExample()}
+          helperErrorText="Select your home library. Start by typing the name of the library. Try 'ba'."
+          {...args}
+        />
       </div>
     )}
   </Story>
@@ -217,69 +233,40 @@ Here are the same possible states of the `SearchBar` component in static example
 
 ### Error State
 
-For the error state, make sure that the `errored` prop is passed to the `Input`
-component and the `isError` prop is passed to the `HelperErrorText` component.
+For the error state, set the `isInvalid` prop to `true`. This will update the
+state for all its children. If you passed a custom input element, you must
+handle the error state yourself.
 
 <Canvas>
   <DSProvider>
-    <SearchBar obSubmit={() => {}} isInvalid>
-      <TextInput
-        id="input-error"
-        labelText="Item Search"
-        type={TextInputTypes.text}
-        placeholder="Item Search"
-      />
-      <Button
-        buttonType={ButtonTypes.Primary}
-        id="button-error-state"
-        type="submit"
-      >
-        <Icon
-          name={IconNames.search}
-          decorative={true}
-          modifiers={["small", "icon-left"]}
-        />
-        Search
-      </Button>
-      <HelperErrorText id="error-helperText">
-        Sorry, we can't find that item!
-      </HelperErrorText>
-    </SearchBar>
+    <SearchBar
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        placeholder: "Item Search",
+      }}
+      helperErrorText="Sorry, we can't find that item!"
+      isInvalid
+    />
   </DSProvider>
 </Canvas>
 
-<br />
-
 ### Disabled State
 
-For the disabled state, make sure to pass the `disabled` prop to the
-`Button` component.
+For the disabled state, set the `isDisabled` prop to `true`. This will update
+the state for all its children. If you passed a custom input element, you must
+handle the disabled state yourself.
 
 <Canvas>
   <DSProvider>
-    <SearchBar obSubmit={() => {}} isDisabled>
-      <TextInput
-        id="input-disabled"
-        placeholder="Item Search"
-        type={TextInputTypes.text}
-        isDisabled
-        showLabel={true}
-      />
-      <Button
-        buttonType={ButtonTypes.Primary}
-        id="button-disabled"
-        type="submit"
-      >
-        <Icon
-          name={IconNames.search}
-          decorative={true}
-          modifiers={["small", "icon-left"]}
-        />
-        Search
-      </Button>
-      <HelperErrorText id="error-disabled">
-        Reason for disabled state.
-      </HelperErrorText>
-    </SearchBar>
+    <SearchBar
+      obSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        placeholder: "Item Search",
+      }}
+      helperErrorText="Reason for disabled state."
+      isDisabled
+    />
   </DSProvider>
 </Canvas>

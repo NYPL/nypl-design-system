@@ -12,12 +12,6 @@ const SearchBar = {
         md: "row nowrap",
       },
     },
-    ".select": {
-      flex: "1 1 20%",
-    },
-    ".textInput": {
-      flex: "1 1 80%",
-    },
     button: {
       marginBottom: "auto",
     },

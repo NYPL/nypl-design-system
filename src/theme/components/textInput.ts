@@ -42,6 +42,11 @@ const TextInput = {
       minHeight: "xxl",
     },
   },
+  variants: {
+    searchbar: {
+      flex: "1 1 80%",
+    },
+  },
 };
 
 export default TextInput;

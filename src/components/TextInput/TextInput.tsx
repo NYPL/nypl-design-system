@@ -6,7 +6,11 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import { TextInputTypes, TextInputFormats } from "./TextInputTypes";
+import {
+  TextInputTypes,
+  TextInputFormats,
+  TextInputVariants,
+} from "./TextInputTypes";
 import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
@@ -49,6 +53,8 @@ export interface InputProps {
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
   value?: string;
+  /** The variant to display. */
+  variantType?: TextInputVariants;
 }
 
 /**
@@ -80,8 +86,9 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       showOptReqLabel = true,
       type = TextInputTypes.text,
       value,
+      variantType = TextInputVariants.Default,
     } = props;
-    const styles = useMultiStyleConfig("TextInput", {});
+    const styles = useMultiStyleConfig("TextInput", { variant: variantType });
     const isTextArea = type === TextInputTypes.textarea;
     const isHidden = type === TextInputTypes.hidden;
     const optReqFlag = isRequired ? "Required" : "Optional";

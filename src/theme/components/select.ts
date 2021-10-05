@@ -33,6 +33,13 @@ const Select = {
     },
     select,
   },
+  variants: {
+    searchbar: {
+      select: {
+        flex: "1 1 20%",
+      },
+    },
+  },
   defaultProps: {
     size: "md",
   },

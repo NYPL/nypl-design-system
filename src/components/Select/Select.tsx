@@ -10,6 +10,7 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 import { IconNames } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
+import { SelectTypes } from "./SelectTypes";
 
 export interface SelectProps {
   /** A class name for the `div` parent element. */
@@ -42,6 +43,8 @@ export interface SelectProps {
   showLabel?: boolean;
   /** Whether or not to display the "Required"/"Optional" text in the label text. */
   showOptReqLabel?: boolean;
+  /** The variant to display. */
+  type?: SelectTypes;
   /** The value of the selected option.
    * Should be passed along with `onChange` for controlled components. */
   value?: string;
@@ -69,11 +72,12 @@ const Select = React.forwardRef<
     onChange,
     showLabel = true,
     showOptReqLabel = true,
+    type = SelectTypes.Default,
     value,
   } = props;
   const ariaAttributes = {};
   const optReqFlag = isRequired ? "Required" : "Optional";
-  const styles = useMultiStyleConfig("CustomSelect", {});
+  const styles = useMultiStyleConfig("CustomSelect", { variant: type });
   const finalInvalidText = invalidText
     ? invalidText
     : "There is an error related to this field.";

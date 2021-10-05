@@ -23,6 +23,11 @@ export enum TextInputFormats {
   url = "https://domain.com",
 }
 
+export enum TextInputVariants {
+  Default = "default",
+  SearchBar = "searchbar",
+}
+
 /*
 export enum TextInputPatterns {
   // eslint-disable-next-line prettier/prettier

@@ -4,16 +4,36 @@ import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 import generateUUID from "../../helpers/generateUUID";
 import Select from "../Select/Select";
 import TextInput from "../TextInput/TextInput";
+import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
 import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Icon from "../Icons/Icon";
+import { IconNames } from "../Icons/IconTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import { SelectTypes } from "../Select/SelectTypes";
+
+// Internal interfaces that are used only for `SearchBar` props.
+interface SelectProps {
+  labelText: string;
+  name: string;
+  optionsData: string[];
+}
+interface TextInputProps {
+  labelText: string;
+  placeholder: string;
+}
 
 export interface SearchBarProps {
   /** Adds 'action' property to the `form` element. */
   action?: string;
   /** Populates aria-label on the form and labels the entire SearchBar. */
   ariaLabel?: string;
+  /** The onClick callback function for the `Button` component. */
+  buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** A class name for the `form` element. */
   className?: string;
+  /** The text to display below the form in a `HelperErrorText` component. */
+  helperErrorText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Sets children form components in the disabled state. */
@@ -26,74 +46,97 @@ export interface SearchBarProps {
   method?: string;
   /** Handler function when the form is submitted. */
   onSubmit: (event: React.FormEvent) => void;
+  /** Required props to render a `Select` element. */
+  selectProps?: SelectProps | undefined;
+  /** Custom input element to render instead of a `TextInput` element. */
+  textInputElement?: JSX.Element;
+  /** Required props to render a `TextInput` element. */
+  textInputProps?: TextInputProps | undefined;
 }
 
 /**
  * Renders a wrapper `form` element to be used with `Select` (optional),
- * `Input`, and `Button` components together. */
-export default function SearchBar(
-  props: React.PropsWithChildren<SearchBarProps>
-) {
+ * `Input`, and `Button` components together.
+ */
+export default function SearchBar(props: SearchBarProps) {
   const {
+    action,
     ariaLabel,
-    children,
+    buttonOnClick = null,
     className,
+    helperErrorText,
     id = generateUUID(),
     isDisabled = false,
     isInvalid = false,
     isRequired = false,
-    onSubmit,
     method,
-    action,
+    onSubmit,
+    selectProps,
+    textInputElement,
+    textInputProps,
   } = props;
   const styles = useMultiStyleConfig("SearchBar", {});
   const stateProps = { isDisabled, isInvalid, isRequired };
-  // Select, TextInput, Button
-  const topRow = [];
-  // HelperErrorText
-  const bottomRow = [];
-  let ariaDescribedby = null;
-  let finalAriaLabel;
-
-  React.Children.map(children, (child: React.ReactElement, key) => {
-    if (!child) return;
-    if (child.type === Select || child.props?.mdxType === "Select") {
-      topRow.push(
-        React.cloneElement(child, {
-          key,
-          className: "select",
-          showLabel: false,
-          helperText: "",
-          ...stateProps,
-        })
-      );
-    } else if (
-      child.type === TextInput ||
-      child.props?.mdxType === "TextInput"
-    ) {
-      finalAriaLabel = ariaLabel || child.props.labelText;
-      topRow.push(
-        React.cloneElement(child, {
-          key,
-          className: "textInput",
-          helperText: "",
-          showLabel: false,
-          ...stateProps,
-        })
-      );
-    } else if (child.type === Button || child.props?.mdxType === "Button") {
-      topRow.push(React.cloneElement(child, { key, disabled: isDisabled }));
-    } else if (
-      child.type === HelperErrorText ||
-      child.props?.mdxType === "HelperErrorText"
-    ) {
-      ariaDescribedby = child.props?.id;
-      bottomRow.push(React.cloneElement(child, { key, isError: isInvalid }));
-    } else {
-      // Assuming it's an autosuggest component.
-      topRow.push(child);
-    }
-  });
+  const helperErrorTextID = generateUUID();
+  const ariaDescribedby = helperErrorTextID;
+  const finalAriaLabel = ariaLabel || textInputProps?.labelText;
+  // Render the `Select` component.
+  const selectElem = selectProps && (
+    <Select
+      id={generateUUID()}
+      name={selectProps?.name}
+      labelText={selectProps?.labelText}
+      showLabel={false}
+      helperText=""
+      type={SelectTypes.SearchBar}
+      {...stateProps}
+    >
+      {selectProps?.optionsData.map((option) => (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      ))}
+    </Select>
+  );
+  // Render the `TextInput` component.
+  const textInputNative = textInputProps && (
+    <TextInput
+      id={generateUUID()}
+      labelText={textInputProps?.labelText}
+      placeholder={textInputProps?.placeholder}
+      type={TextInputTypes.text}
+      variantType={TextInputVariants.SearchBar}
+      helperText=""
+      showLabel={false}
+      {...stateProps}
+    />
+  );
+  // Render the `Button` component.
+  const buttonElem = (
+    <Button
+      id={generateUUID()}
+      buttonType={ButtonTypes.Primary}
+      type="submit"
+      onClick={buttonOnClick}
+      disabled={isDisabled}
+    >
+      <Icon
+        name={IconNames.search}
+        modifiers={["small", "icon-left"]}
+        decorative
+      />
+      Search
+    </Button>
+  );
+  // Render the `HelperErrorText` component.
+  const helperErrorTextElem = helperErrorText && (
+    <HelperErrorText id={helperErrorTextID} isError={isInvalid}>
+      {helperErrorText}
+    </HelperErrorText>
+  );
+  // If a custom input element was passed, use that instead of the
+  // `TextInput` component.
+  const textInputElem = textInputElement || textInputNative;
 
   return (
     <Box
@@ -108,8 +151,12 @@ export default function SearchBar(
       action={action}
       __css={styles}
     >
-      <Box __css={styles.topRow}>{topRow}</Box>
-      {bottomRow}
+      <Box __css={styles.topRow}>
+        {selectElem}
+        {textInputElem}
+        {buttonElem}
+      </Box>
+      {helperErrorTextElem}
     </Box>
   );
 }
