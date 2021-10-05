@@ -76,7 +76,6 @@ const tablistWrapper = {
 const tabpanels = {
   paddingTop: "2px",
 };
-const carouselWrapper = {};
 
 const carouselParent = {
   position: { base: "absolute", md: "relative" },
@@ -92,14 +91,9 @@ const carouselParent = {
 
 const CustomTabs = {
   // tablist, tab, and tabpanels are existing keys which are extended but
-  // buttonArrows, tablistWrapper, and carouselWrapper are custom elements
+  // buttonArrows, tablistWrapper, and carouselParent are custom elements
   // in the `Tabs` component.
-  parts: [
-    "buttonArrows",
-    "tablistWrapper",
-    "carouselWrapper",
-    "carouselParent",
-  ],
+  parts: ["buttonArrows", "tablistWrapper", "carouselParent"],
   baseStyle: {
     tablist,
     tab,
@@ -108,7 +102,6 @@ const CustomTabs = {
     // To better align the mobile arrow buttons with the tablist.
     tablistWrapper,
     tabpanels,
-    carouselWrapper,
     carouselParent,
   },
 };

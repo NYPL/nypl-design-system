@@ -151,7 +151,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   // to set the carousel's length.
   const tabProps = tabs[0] ? tabs[0]?.props : (tabs as any).props;
   // Just an estimate of the tab width for the mobile carousel.
-  const tabWidth = 40;
+  const tabWidth = 60;
   const { prevSlide, nextSlide, carouselStyle } = useCarouselStyles(
     tabProps?.children?.length,
     tabWidth
@@ -208,25 +208,21 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
       defaultIndex={defaultIndex}
       variant="enclosed"
     >
-      <>
-        <Box
-          __css={styles.tablistWrapper}
-          sx={{
-            "&::-webkit-scrollbar": {
-              display: "none",
-            },
-          }}
-        >
-          {previousButton}
-          <Box __css={styles.carouselParent}>
-            <Box __css={styles.carouselWrapper} {...carouselStyle}>
-              {tabs}
-            </Box>
-          </Box>
-          {nextButton}
+      <Box
+        __css={styles.tablistWrapper}
+        sx={{
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        }}
+      >
+        {previousButton}
+        <Box __css={styles.carouselParent}>
+          <Box {...carouselStyle}>{tabs}</Box>
         </Box>
-        {panels}
-      </>
+        {nextButton}
+      </Box>
+      {panels}
     </ChakraTabs>
   );
 }
