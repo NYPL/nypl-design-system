@@ -94,7 +94,7 @@ export default function Notification(
         return (
           <Icon
             decorative={false}
-            className="notification-icon icon"
+            className="notification-icon"
             name={IconNames.SpeakerNotes}
             color={IconColors.SectionResearchSecondary}
             size={IconSizes.Large}
@@ -104,7 +104,7 @@ export default function Notification(
         return (
           <Icon
             decorative={false}
-            className="notification-icon icon"
+            className="notification-icon"
             name={IconNames.ErrorFilled}
             color={IconColors.BrandPrimary}
             size={IconSizes.Large}

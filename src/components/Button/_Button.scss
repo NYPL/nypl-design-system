@@ -30,20 +30,3 @@
     pointer-events: none;
   }
 }
-
-.button {
-  // These `icon` rules are a better fit for the Icon
-  // component but we'll keep them here for now.
-  svg {
-    fill: currentColor;
-    margin-top: var(--space-xxs);
-
-    &.left {
-      margin-right: var(--space-xs);
-    }
-
-    &.right {
-      margin-left: var(--space-xs);
-    }
-  }
-}

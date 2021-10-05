@@ -104,7 +104,6 @@ Controls for this Story section to preview a `Button` with the selected icon.
         {args.displayLeft && (
           <Icon
             name={args.iconType}
-            className="left"
             align={IconAlign.Left}
             size={IconSizes.Small}
           />
@@ -113,7 +112,6 @@ Controls for this Story section to preview a `Button` with the selected icon.
         {!args.displayLeft && (
           <Icon
             name={args.iconType}
-            className="right"
             align={IconAlign.Right}
             size={IconSizes.Small}
           />
@@ -131,7 +129,6 @@ The icon can be placed to the left or the right of the button text.
       <Button buttonType={ButtonTypes.Secondary}>
         <Icon
           name={IconNames.Arrow}
-          className="left"
           iconRotation={IconRotationTypes.Rotate90}
           align={IconAlign.Left}
           size={IconSizes.Small}
@@ -142,7 +139,6 @@ The icon can be placed to the left or the right of the button text.
         Next
         <Icon
           name={IconNames.Arrow}
-          className="right"
           iconRotation={IconRotationTypes.Rotate270}
           align={IconAlign.Right}
           size={IconSizes.Small}
