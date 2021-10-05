@@ -1,39 +1,63 @@
 // MT-82, MT 225, etc
 import * as React from "react";
-import bem from "../../utils/bem";
+import {
+  Box,
+  Heading as ChakraHeading,
+  Link as ChakraLink,
+  useStyleConfig,
+} from "@chakra-ui/react";
+
+import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
 
 export interface HeadingProps {
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** ClassName that appears in addition to "heading" */
+  /** Optional className that appears in addition to `heading` */
   className?: string;
-  /** ID that other components can cross reference for accessibility purposes */
+  /** Optional size used to override the default styles of the semantic HTML `<h>` elements */
+  displaySize?: HeadingDisplaySizes;
+  /** Optional ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Number 1-6, creating the <h*> tag */
-  level: number;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
-  /** Inner text of the <h*> element */
+  /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed, `Heading` will default to `<h2>` */
+  level?: HeadingLevels;
+  /** Optionally pass in additional Chakra-based styles. */
+  sx?: { [key: string]: any };
+  /** Inner text of the `<h*>` element */
   text?: string;
-  /** URL that header points to */
+  /** Optional URL that header points to; when `url` prop is passed to `Heading`, a child `<a>` element is created and the heading text becomes an active link */
   url?: string;
-  /** className for the URL when the url prop is passed */
+  /** Optional className for the URL when the `url` prop is passed */
   urlClass?: string;
 }
 
-export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
+// Used to map between ButtonTypes enum values and Chakra variant options.
+const variantMap = {};
+for (const type in HeadingDisplaySizes) {
+  variantMap[HeadingDisplaySizes[type]] = HeadingDisplaySizes[type];
+}
+
+/**
+ * Map the HeadingDisplaySizes to the Heading Chakra theme variant object. If a wrong
+ * value is passed (typically in non-Typescript scenarios), then the default
+ * is "null" and displaySize is not envoked.
+ */
+const getVariant = (displaySize) => variantMap[displaySize] || null;
+
+function Heading(props: React.PropsWithChildren<HeadingProps>) {
   const {
-    blockName,
     className,
+    displaySize,
     id,
-    level,
-    modifiers = [],
+    level = HeadingLevels.Two,
+    sx = {},
     text,
     url,
     urlClass,
   } = props;
-
-  const baseClass = "heading";
+  const variant = displaySize ? getVariant(displaySize) : `h${level}`;
+  const styles = useStyleConfig("Heading", { variant });
+  // Combine native base styles with any additional styles.
+  // This is used only in the `Hero` component, for now.
+  const finalStyles = { ...styles, ...sx };
+  const asHeading: any = `h${level}`;
 
   if (level < 1 || level > 6) {
     throw new Error("Heading only supports levels 1-6");
@@ -46,7 +70,7 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
   if (React.Children.count(props.children) > 1) {
     const children = React.Children.map(
       props.children,
-      child => (child as JSX.Element).type
+      (child) => (child as JSX.Element).type
     );
     // Catching the error because React's error isn't as helpful.
     throw new Error(
@@ -54,25 +78,25 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
     );
   }
 
-  let content: string | React.ReactNode;
-  if (props.children) {
-    content = url
-      ? React.createElement(
-          "a",
-          { href: url, className: urlClass },
-          props.children
-        )
-      : props.children;
-  } else {
-    content = url
-      ? React.createElement("a", { href: url, className: urlClass }, text)
-      : text;
-  }
+  const contentToRender = props.children ? props.children : text;
+  const content = url ? (
+    <Box as={ChakraLink} href={url} className={urlClass}>
+      {contentToRender}
+    </Box>
+  ) : (
+    contentToRender
+  );
 
-  const headingProps = {
-    className: bem(baseClass, modifiers, blockName, [className]),
-    id: id,
-  };
-
-  return React.createElement("h" + level, headingProps, content);
+  return (
+    <ChakraHeading
+      id={id}
+      as={asHeading}
+      sx={finalStyles}
+      className={className}
+    >
+      {content}
+    </ChakraHeading>
+  );
 }
+
+export default Heading;

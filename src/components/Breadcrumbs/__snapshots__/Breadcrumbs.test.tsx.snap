@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
+<nav
+  aria-label="breadcrumb"
+  className="chakra-breadcrumb css-0"
+  id="breadcrumbs-test"
+>
+  <ol
+    className="chakra-breadcrumb__list css-0"
+  >
+    <li
+      className="chakra-breadcrumb__list-item css-18biwo"
+    >
+      <a
+        className="chakra-breadcrumb__link css-0"
+        href="#string1"
+      >
+        <span
+          className="breadcrumb-label"
+        >
+          string1
+        </span>
+      </a>
+      <span
+        className="css-t4q1nq"
+        role="presentation"
+      >
+        /
+      </span>
+    </li>
+    <li
+      className="chakra-breadcrumb__list-item css-18biwo"
+    >
+      <a
+        className="chakra-breadcrumb__link css-0"
+        href="#string2"
+      >
+        <div
+          aria-hidden={true}
+          className="icon icon--rotate-90 icon--small "
+          id="breadcrumbs-test__backarrow"
+          role="img"
+          title="string2"
+        />
+        <span
+          className="breadcrumb-label"
+        >
+          string2
+        </span>
+      </a>
+      <span
+        className="css-t4q1nq"
+        role="presentation"
+      >
+        /
+      </span>
+    </li>
+    <li
+      className="chakra-breadcrumb__list-item css-18biwo"
+    >
+      <span
+        aria-current="page"
+        className="chakra-breadcrumb__link css-0"
+        href="#string3"
+      >
+        <span
+          className="breadcrumb-label"
+        >
+          string3
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;

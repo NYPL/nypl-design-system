@@ -1,0 +1,254 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import { VStack } from "@chakra-ui/react";
+import Select from "./Select";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("Select")}
+  component={Select}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
+    },
+    jest: ["Select.test.tsx"],
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+    id: { table: { disable: true } },
+    name: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+    value: { table: { disable: true } },
+  }}
+/>
+
+# Select
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.7.0`    |
+| Latest            | `0.25.1`   |
+
+<Description of={Select} />
+
+The `Select` component renders a `select` element along with its `option`
+children. For optimal accessibility, the `labelText` property is a required
+prop, regardless of the label visibility. Additionally, while the `id` prop is
+optional, a unique `id` attribute is necessary for accessibility. If the prop
+is left blank, a value will be generated for you.
+
+The `Select` component renders all the necessary wrapping and associated text
+elements, but the select options _need_ to be child `<option>` HTML elements.
+
+```jsx
+<Select labelText="What is your favorite color?" name="color">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="black">Black</option>
+  <option value="white">White</option>
+</Select>
+```
+
+<Canvas withToolbar>
+  <Story
+    name="Select"
+    args={{
+      helperText: "This is the helper text.",
+      invalidText: "This is the error text :(",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: false,
+      labelText: "What is your favorite color?",
+      name: "color",
+      showLabel: true,
+      showOptReqLabel: true,
+    }}
+  >
+    {(args) => (
+      <Select {...args}>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Select" />
+
+## Labelling Variations
+
+A Select can be rendered with or without a visible label. When `showLabel` is
+set to `false`, an `aria-label` attribute is added to the select input to
+maintain accessibility. If the component needs to be required, the
+`showOptReqLabel` prop can be used to show or hide the "Required"/"Optional"
+text within the `label` element.
+
+<Canvas>
+  <Story name="Labelling Variations">
+    <VStack align="stretch" spacing={8}>
+      <Select
+        labelText="What is your favorite color?"
+        helperText="Display the label"
+        name="color"
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Select
+        labelText="What is your favorite color?"
+        helperText="Do not display the label"
+        name="color"
+        showLabel={false}
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Select
+        labelText="What is your favorite color?"
+        helperText="Display the Required/Optional text"
+        name="color"
+        isRequired
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Select
+        labelText="What is your favorite color?"
+        helperText="Do not display the Required/Optional text"
+        name="color"
+        showOptReqLabel={false}
+        isRequired
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+    </VStack>
+  </Story>
+</Canvas>
+
+## Errored
+
+<Canvas>
+  <DSProvider>
+    <Select
+      labelText="What is your favorite color?"
+      helperText="This is the helper text."
+      invalidText="This is the error text :("
+      name="color"
+      isInvalid
+    >
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+    </Select>
+  </DSProvider>
+</Canvas>
+
+## Disabled
+
+<Canvas>
+  <DSProvider>
+    <Select
+      labelText="What is your favorite color?"
+      helperText="This is the helper text."
+      invalidText="This is the error text :("
+      name="color"
+      isDisabled
+    >
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+    </Select>
+  </DSProvider>
+</Canvas>
+
+## Getting Select Data Value
+
+### Controlled Component using `value` and `onChange` props
+
+If your application uses controlled React components and the DS `Select`
+component must be controlled, you can control and extract the data through the
+`value` and `onChange` props. This will be called every time a new `option`
+value is selected.
+
+```jsx
+const value = "red";
+const onChange = (e) => {
+  // This will return the value selected through the event object.
+  console.log(e.target.value);
+};
+// ...
+
+<Select
+  labelText="What is your favorite color?"
+  helperText="This is the helper text."
+  name="color"
+  value={value}
+  onChange={onChange}
+>
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="black">Black</option>
+  <option value="white">White</option>
+</Select>;
+```
+
+### Uncontrolled Component using `ref`s
+
+If your application uses uncontrolled components, you can pass a React `ref`
+prop to the DS Select component to get the selected value from the DOM.
+
+```jsx
+const selectRef = React.createRef<HTMLSelectElement>();
+// ...
+<Select
+  labelText="What is your favorite color?"
+  helperText="This is the helper text."
+  name="color"
+>
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="black">Black</option>
+  <option value="white">White</option>
+</Select>
+
+// ...
+// Get the value through:
+const onSubmit = () => {
+  // ...
+  const selectValue = selectRef.current.value;
+};
+```

@@ -1,48 +1,68 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render, screen } from "@testing-library/react";
+import renderer from "react-test-renderer";
+import { axe } from "jest-axe";
 
 import Breadcrumbs from "./Breadcrumbs";
 
-describe("Breadcrumbs", () => {
-  let wrapper: Enzyme.ShallowWrapper<any, any>;
+describe("Breadcrumbs Accessibility", () => {
   const breadcrumbString = [
-    { url: "#", text: "test1" },
-    { url: "#", text: "test2" },
+    { url: "#string1", text: "string1" },
+    { url: "#string2", text: "string2" },
   ];
-  const breadcrumbComponent = [
-    <a key="link1" href="#test1">
-      <span>Hello</span>
-    </a>,
-    <a key="link2" href="#test2">
-      Goodbye
-    </a>,
+  it("passes axe accessibility test", async () => {
+    const { container } = render(
+      <Breadcrumbs breadcrumbsData={breadcrumbString} />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("Breadcrumbs Snapshot", () => {
+  it("Renders the UI snapshot correctly", () => {
+    const breadcrumbString = [
+      { url: "#string1", text: "string1" },
+      { url: "#string2", text: "string2" },
+      { url: "#string3", text: "string3" },
+    ];
+
+    const breadcrumbsSnapshot = renderer
+      .create(
+        <Breadcrumbs id="breadcrumbs-test" breadcrumbsData={breadcrumbString} />
+      )
+      .toJSON();
+
+    expect(breadcrumbsSnapshot).toMatchSnapshot();
+  });
+});
+
+describe("Breadcrumbs Testing", () => {
+  const breadcrumbString = [
+    { url: "#string1", text: "string1" },
+    { url: "#string2", text: "string2" },
+    { url: "#string3", text: "string3" },
   ];
 
   it("Renders a tag with custom text", () => {
-    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbString} />);
-    const links = wrapper.render();
+    render(<Breadcrumbs breadcrumbsData={breadcrumbString} />);
 
-    expect(links.find("a.breadcrumbs__link")).to.have.lengthOf(2);
-    expect(links.find("a.breadcrumbs__link").first().text()).to.equal("test1");
-    expect(links.find("a.breadcrumbs__link").last().text()).to.equal("test2");
-  });
-
-  it("Renders breadcrumb when passed components", () => {
-    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbComponent} />);
-    const links = wrapper.render();
-    expect(links.find("a.breadcrumbs__link").first().text()).to.equal("Hello");
+    // The last breadcrumb (the active page) is not a link.
+    expect(screen.getAllByRole("link")).toHaveLength(2);
+    expect(screen.getAllByRole("link")[0]).toHaveTextContent("string1");
+    expect(screen.getAllByRole("link")[1]).toHaveTextContent("string2");
+    expect(screen.getByText(/string3/)).toBeInTheDocument();
   });
 
   it("Renders icon", () => {
-    wrapper = Enzyme.shallow(<Breadcrumbs breadcrumbs={breadcrumbComponent} />);
-
-    expect(wrapper.find("Icon")).to.have.lengthOf(1);
+    const { container } = render(
+      <Breadcrumbs breadcrumbsData={breadcrumbString} />
+    );
+    expect(container.querySelector(".icon")).toBeInTheDocument();
   });
 
   it("Throws error when nothing is passed into Breadcrumb", () => {
-    expect(() => Enzyme.mount(<Breadcrumbs breadcrumbs={[]} />)).to.throw(
-      "Breadcrumbs must contain a set of links. Breadcrumbs currently empty"
+    expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
+      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
     );
   });
 });

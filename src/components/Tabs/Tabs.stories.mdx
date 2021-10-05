@@ -1,0 +1,221 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("Tabs")}
+  component={Tabs}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26464",
+    },
+    jest: ["Tabs.test.tsx"],
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+    id: { table: { disable: true } },
+    className: { table: { disable: true } },
+    data: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+  }}
+/>
+
+# Tabs
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+| Latest            | `0.25.0`   |
+
+<Description of={Tabs} />
+
+export const animalCrossing = [
+  {
+    label: "Tom Nook",
+    content: (
+      <p>
+        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
+        in the Animal Crossing series who operates the village store.
+      </p>
+    ),
+  },
+  {
+    label: "Isabelle",
+    content:
+      "Isabelle, known as Shizue in Japan, is a fictional character " +
+      "from the Animal Crossing series of video games. She is a kindly Shih " +
+      "Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where " +
+      "she serves as the secretary to the player character.",
+  },
+  {
+    label: "K.K. Slider",
+    content:
+      "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a " +
+      "fictional character within the Animal Crossing franchise. One of the " +
+      "franchise's most popular characters, he debuted in the title Animal " +
+      "Crossing, and has appeared in every installment since.</p>",
+  },
+  {
+    label: "Mr. Resetti",
+    content:
+      "<strong>Mr. Resetti</strong>, full name Sonny Resetti, is a fictional character from the Animal Crossing series of video games by Nintendo. His first appearance was in the Nintendo 64 game Dōbutsu no Mori, released in Europe and North America on the GameCube as Animal Crossing.",
+  },
+  {
+    label: "Zucker",
+    content:
+      "<strong>Zucker</strong> is a lazy octopus villager who first appeared in New Leaf. His Japanese name and general appearance refers to the Japanese snack takoyaki, which is a fried ball of dough commonly filled with minced octopus. His catchphrase is a reference to how he is an underwater animal. He has the same initial phrase as Bertha. He has the nature hobby.",
+  },
+];
+
+<Canvas withToolbar>
+  <Story
+    name="Basic with props"
+    args={{
+      defaultIndex: 0,
+      useHash: false,
+      contentData: animalCrossing,
+    }}
+  >
+    {(args) => <Tabs {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic with props" />
+
+## Composing with a Data Object
+
+_Note: this is the recommended approach._
+
+We recommended passing in the data for the `Tabs` component through the `data`
+prop. This allows the consumer to pass in well-formed data and always generate
+the correct DOM. Internally in the DS `Tabs` component, we map through the data
+array and generate the appropriate components needed for the layout.
+
+Note that HTML is allowed in the `content` property in each object as part of the
+string or as straight HTML.
+
+```jsx
+import { Tabs } from "@nypl/design-system-react-components";
+
+const animalCrossing = [
+  {
+    label: "Tom Nook",
+    content: <p>Tom Nook, <b>known in Japan as Tanukichi</b>, is a ...,
+  {
+    label: "Isabelle",
+    content: "Isabelle, known as Shizue in Japan, is a fictional ...",
+  },
+  {
+    label: "K.K. Slider",
+    content:
+      "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is ...",
+  },
+];
+
+// ...
+<Tabs contentData={animalCrossing} />;
+```
+
+## With Callback Event Function
+
+If you need to keep track of the index of current tab that was selected, pass
+an `onChange` event handler to the `onChange` prop. This will return the index
+(0-based) of the tab selected.
+
+```jsx
+export const onChange = (value) => {
+  window.alert(`Tab index selected was ${value}`);
+};
+
+// ...
+<Tabs contentData={animalCrossing} onChange={onChange} />;
+```
+
+export const onChange = (value) => {
+  window.alert(`Tab index selected was ${value}`);
+};
+
+<Canvas>
+  <Story name="With Callback Event Function">
+    <Tabs contentData={animalCrossing} onChange={onChange} />
+  </Story>
+</Canvas>
+
+## With URL Hash Option
+
+In some situations, each selected tab should update the URL with a hash value.
+To enable this, set the `useHash` prop to true.
+
+<Canvas>
+  <Story name="With URL Hash Option">
+    <Tabs contentData={animalCrossing} useHash={true} />
+  </Story>
+</Canvas>
+
+## With Children Components
+
+_Note: not recommended but available._
+
+There are five components that make up the Design System `Tabs` component:
+`Tabs`, `TabList`, `Tab`, `TabPanels`, `TabPanel`. The general layout is always
+the same such that the `Tabs` component has `TabList` and `TabPanels` as children.
+
+`TabList` only takes `Tab` components as children and `TabPanels` only take
+`TabPanel` as children. While you can compose the DS `Tabs` components with these
+available components, you will probably have to iterate or map through an array
+to get the desired outcome. The DS `Tabs` component does this internally for
+you so this should be a last resort option.
+
+Make sure all five components are imported to use this approach.
+
+```jsx
+import {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from "@nypl/design-system-react-components";
+```
+
+<Canvas>
+  <Story name="With Children Components">
+    <Tabs>
+      <TabList>
+        <Tab>Tom Nook</Tab>
+        <Tab>Isabelle</Tab>
+        <Tab>K.K. Slider</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>
+          Tom Nook, known in Japan as Tanukichi, is a fictional character in the
+          Animal Crossing series who operates the village store.
+        </TabPanel>
+        <TabPanel>
+          Isabelle, known as Shizue in Japan, is a fictional character from the
+          Animal Crossing series of video games. She is a kindly Shih Tzu that
+          debuted in the 2012 release Animal Crossing: New Leaf, where she
+          serves as the secretary to the player character.
+        </TabPanel>
+        <TabPanel>
+          Totakeke, more commonly known as K.K. Slider or K.K., is a fictional
+          character within the Animal Crossing franchise. One of the franchise's
+          most popular characters, he debuted in the title Animal Crossing, and
+          has appeared in every installment since.
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
+  </Story>
+</Canvas>

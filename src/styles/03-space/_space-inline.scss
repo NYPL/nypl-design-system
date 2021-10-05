@@ -1,10 +1,12 @@
-// $space-xxs: $space/4;   //  4px
-// $space-xs: $space/2;    //  8px
-// $space-s: $space*1;     // 16px
-// $space-m: $space*1.5;   // 24px
-// $space-l: $space*2;     // 32px
-// $space-xl: $space*3;    // 48px
-// $space-xxl: $space*4;   // 64px
+/**
+ * $space-xxs: $space / 4;   //  4px
+ * $space-xs: $space / 2;    //  8px
+ * $space-s: $space * 1;     // 16px
+ * $space-m: $space * 1.5;   // 24px
+ * $space-l: $space * 2;     // 32px
+ * $space-xl: $space * 3;    // 48px
+ * $space-xxl: $space * 4;   // 64px
+ */
 
 @mixin space-inline-none {
   margin-right: 0;
@@ -36,4 +38,42 @@
 
 @mixin space-inline-xxl {
   margin-right: var(--space-xxl);
+}
+
+@mixin get-space-inline($id) {
+  @if $id == "none" {
+    @include space-inline-none;
+  }
+
+  @if $id == "xxs" {
+    @include space-inline-xxs;
+  }
+
+  @if $id == "xs" {
+    @include space-inline-xs;
+  }
+
+  @if $id == "s" {
+    @include space-inline-s;
+  }
+
+  @if $id == "m" {
+    @include space-inline-m;
+  }
+
+  @if $id == "l" {
+    @include space-inline-l;
+  }
+
+  @if $id == "xl" {
+    @include space-inline-xl;
+  }
+
+  @if $id == "xxl" {
+    @include space-inline-xxl;
+  }
+
+  @if $id == "xxxl" {
+    @include space-inline-xxxl;
+  }
 }

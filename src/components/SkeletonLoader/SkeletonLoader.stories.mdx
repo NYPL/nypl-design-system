@@ -1,0 +1,148 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import SkeletonLoader from "./SkeletonLoader";
+import {
+  SkeletonLoaderLayouts,
+  SkeletonLoaderImageRatios,
+} from "./SkeletonLoaderTypes";
+import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("SkeletonLoader")}
+  component={SkeletonLoader}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17219%3A7",
+    },
+    jest: ["SkeletonLoader.test.tsx"],
+  }}
+  argTypes={{
+    attributes: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    layout: {
+      table: { defaultValue: { summary: "column" } },
+    },
+    showImage: {
+      table: { defaultValue: { summary: "true" } },
+    },
+    showHeading: {
+      table: { defaultValue: { summary: "true" } },
+    },
+    showContent: {
+      table: { defaultValue: { summary: "true" } },
+    },
+    showButton: {
+      table: { defaultValue: { summary: "false" } },
+    },
+    headingSize: {
+      table: { defaultValue: { summary: "1" } },
+    },
+    contentSize: {
+      table: { defaultValue: { summary: "3" } },
+    },
+    imageAspectRatio: {
+      table: { defaultValue: { summary: "square" } },
+    },
+  }}
+/>
+
+# SkeletonLoader
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.17.3`   |
+| Latest            | `0.23.4`   |
+
+<Description of={SkeletonLoader} />
+
+The `SkeletonLoader` component renders a placeholder to be used while dynamic
+content is loading. The `layout`, `width` and placeholder elements within the
+`SkeletonLoader` can be customized.
+
+Please note that the initial rendering below has the `width` prop set to `300px`.
+The default value is `100%`.
+
+<Preview withToolbar>
+  <Story
+    name="SkeletonLoader"
+    args={{
+      width: "300px",
+    }}
+  >
+    {(args) => <SkeletonLoader {...args} />}
+  </Story>
+</Preview>
+
+<ArgsTable story="SkeletonLoader" />
+
+# Card Placeholders in a Grid
+
+<Preview>
+  <Story name="Placeholders in a Grid">
+    <div
+      style={{
+        display: "grid",
+        gap: "2rem",
+        gridTemplateColumns: "repeat(3, 1fr)",
+      }}
+    >
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+      <SkeletonLoader
+        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
+        border
+      />
+    </div>
+  </Story>
+</Preview>
+
+# Text Placeholders in a List
+
+<Preview>
+  <Story name="Placeholders in a List">
+    <div
+      style={{
+        display: "grid",
+        gap: "2rem",
+        gridTemplateColumns: "repeat(1, 1fr)",
+      }}
+    >
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
+    </div>
+  </Story>
+</Preview>

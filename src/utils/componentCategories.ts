@@ -1,38 +1,38 @@
 // NYPL Design System Component Categories
 
 const categories = {
-  content: {
-    title: "Content Display",
+  basicContent: {
+    title: "Components/Basic Elements",
+    components: ["Card", "CardEdition", "Hero", "Promo", "Sponsor", "Table"],
+  },
+  contentDisplay: {
+    title: "Components/Content Display",
     components: [
       "AccessibilityDisplayHelper",
-      "Accordion",
       "AddressDisplayHelper",
-      "Card",
-      "ContentSwitcher",
       "DateDisplayHelper",
-      "DefinitionList",
-      "Heading",
-      "Hero",
+      "HelperErrorText",
       "HoursDisplayHelper",
-      "List",
-      "Modal",
       "OverflowMenu",
-      "Promo",
+      "StatusBadge",
     ],
   },
+  deprecated: {
+    title: "Components/Deprecated",
+    components: [],
+  },
   feedback: {
-    title: "Feedback",
+    title: "Components/Feedback",
     components: [
       "Alert",
       "InlineLoading",
       "Notification",
       "ProgressIndicator",
       "SkeletonLoader",
-      "Tooltip",
     ],
   },
   forms: {
-    title: "Form Elements",
+    title: "Components/Form Elements",
     components: [
       "Button",
       "Checkbox",
@@ -55,26 +55,74 @@ const categories = {
     ],
   },
   layout: {
-    title: "Page Layout",
-    components: ["BasicPageSection", "Footer", "Grid", "Header", "Template"],
+    title: "Components/Page Layout",
+    components: [
+      "BasicPageSection",
+      "ContentSwitcher",
+      "Footer",
+      "Grid",
+      "Header",
+      "HorizontalRule",
+      "Section",
+      "SimpleGrid",
+      "Template",
+    ],
+  },
+  overlayContentSwitcher: {
+    title: "Components/Overlays & Switchers",
+    components: ["Accordion", "Modal", "Tabs", "Tooltip"],
   },
   media: {
-    title: "Media",
-    components: ["AudioPlayer", "Icon", "Image", "Logo", "Slideshow", "Video"],
+    title: "Components/Media & Icons",
+    components: [
+      "AudioPlayer",
+      "Icon",
+      "Image",
+      "Logo",
+      "Slideshow",
+      "VideoPlayer",
+    ],
   },
   navigation: {
-    title: "Navigation",
+    title: "Components/Navigation",
     components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
   },
-  deprecated: {
-    title: "Deprecated",
-    components: ["CheckboxOld"],
+  chakra: {
+    title: "Chakra/Layout",
+    components: [
+      "Box",
+      "Grid",
+      "Center, Circle, Square",
+      "Stack, HStack, VStack",
+    ],
+  },
+  typography: {
+    title: "Components/Typography & Styles",
+    components: ["Heading", "List"],
+  },
+  devguide: {
+    title: "Documentation/Development Guide",
+    components: ["Autosuggest"],
+  },
+  styleguide: {
+    title: "Documentation/Style Guide",
+    components: [
+      "Bidirectionality",
+      "Breakpoints",
+      "Buttons",
+      "Colors",
+      "Forms",
+      "Iconography",
+      "Spacing",
+      "Template Bidirectionality",
+      "Typography",
+    ],
   },
 };
 
-export const getCategory = component => {
+export const getCategory = (component) => {
   let catPath = component;
-  Object.keys(categories).forEach(key => {
+  Object.keys(categories).forEach((key) => {
     const t = categories[key].title;
     const c = categories[key].components;
     if (c.includes(component)) {

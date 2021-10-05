@@ -1,111 +1,144 @@
 import React from "react";
-import bem from "../../utils/bem";
+import {
+  Box,
+  Select as ChakraSelect,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+
+import Label from "../Label/Label";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import generateUUID from "../../helpers/generateUUID";
+import { IconNames } from "../Icons/IconTypes";
+import Icon from "../Icons/Icon";
 
 export interface SelectProps {
-  /** When passed, will populate the aria-label on the select */
-  ariaLabel?: string;
-  /** Additional attributes passed to the <select> tag */
-  attributes?: { [key: string]: any };
-  /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** ClassName you can add in addition to 'select' */
-  className?: string;
-  children?: React.ReactNode;
-  /** When true, disables the select */
-  disabled?: boolean;
-  /** ID of associated HelperText */
-  helperTextId?: string;
+  /** Optional string to populate the `HelperErrorText` for the standard state. */
+  helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Attribute indicating that an option with a non-empty string value must be selected */
-  isRequired: boolean;
-  /** ID of associated label */
-  labelId?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
-  /** The name of the select element to use in form submission */
+  /** Optional string to populate the `HelperErrorText` for the error state
+   * when `isInvalid` is true. */
+  invalidText?: string;
+  /** Adds the `disabled` and `aria-disabled` attributes to the select when true */
+  isDisabled?: boolean;
+  /** Adds the `aria-invalid` attribute to the select when true. This also makes
+   * the color theme "NYPL error" red for the select and text. */
+  isInvalid?: boolean;
+  /** Adds the `required` and `aria-required` attributes to the input when true. */
+  isRequired?: boolean;
+  /** Provides text for a `Label` component if `showLabel` is set to `true`;
+   * populates an `aria-label` attribute on the select input if `showLabel` is
+   * set to `false`. */
+  labelText: string;
+  /** Used to reference the select element in forms. */
   name: string;
-  /** Passes selects' current value to the React state handler */
-  onBlur?: (event: React.FormEvent) => void;
-  /** Passes selects' current value to the React state handler */
+  /** The callback function to get the selected value.
+   * Should be passed along with `value` for controlled components. */
   onChange?: (event: React.FormEvent) => void;
-  /** The selected value */
-  selectedOption?: string;
+  /** Offers the ability to show the select's label onscreen or hide it. Refer
+   * to the `labelText` property for more information. */
+  showLabel?: boolean;
+  /** Whether or not to display the "Required"/"Optional" text in the label text. */
+  showOptReqLabel?: boolean;
+  /** The value of the selected option.
+   * Should be passed along with `onChange` for controlled components. */
+  value?: string;
 }
 
 /**
- * Select
- * A component that renders a `select` DOM element along with its `option`
- * children.
+ * Component that renders Chakra's `Select` component along with an accessible
+ * `Label` and optional `HelperErrorText` component.
  */
-const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  (props, ref?) => {
-    const {
-      ariaLabel = null,
-      blockName,
-      children,
-      className,
-      helperTextId,
-      id,
-      isRequired,
-      labelId,
-      onBlur,
-      onChange,
-      name,
-      attributes,
-      disabled = false,
-      selectedOption,
-    } = props;
-    const modifiers = props.modifiers ? props.modifiers : [];
-    let ariaLabelledBy = null;
+const Select = React.forwardRef<
+  HTMLSelectElement,
+  React.PropsWithChildren<SelectProps>
+>((props: React.PropsWithChildren<SelectProps>, ref?) => {
+  const {
+    children,
+    helperText,
+    id = generateUUID(),
+    invalidText,
+    isDisabled = false,
+    isInvalid = false,
+    isRequired = false,
+    labelText,
+    name,
+    onChange,
+    showLabel = true,
+    showOptReqLabel = true,
+    value,
+  } = props;
+  const ariaAttributes = {};
+  const optReqFlag = isRequired ? "Required" : "Optional";
+  const styles = useMultiStyleConfig("CustomSelect", {});
+  const finalInvalidText = invalidText
+    ? invalidText
+    : "There is an error related to this field.";
+  const footnote = isInvalid ? finalInvalidText : helperText;
+  // To control the `Select` component, both `onChange` and `value`
+  // must be passed.
+  const controlledProps = onChange && value ? { onChange, value } : {};
 
-    if (labelId && !helperTextId) {
-      ariaLabelledBy = labelId;
-    } else if (helperTextId && !labelId) {
-      ariaLabelledBy = helperTextId;
-    } else if (labelId && helperTextId) {
-      ariaLabelledBy = labelId + " " + helperTextId;
-    }
+  if (!showLabel) {
+    ariaAttributes["aria-label"] =
+      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+  } else if (helperText) {
+    ariaAttributes["aria-describedby"] = `${id}-helperText`;
+  }
 
-    if (React.Children.count(children) > 7) {
-      console.warn(
-        "NYPL DS recommends that your <select>s have fewer than 8 options"
-      );
-    }
-
-    if (React.Children.count(children) < 2) {
-      console.warn(
-        "NYPL DS recomments <select> not be used with 1 or fewer options"
-      );
-    }
-
-    return (
-      <select
-        name={name}
-        id={id}
-        className={bem("select", modifiers, blockName, [className])}
-        aria-required={isRequired}
-        disabled={disabled}
-        aria-label={ariaLabel}
-        aria-labelledby={ariaLabelledBy}
-        value={selectedOption}
-        ref={ref}
-        onBlur={onBlur}
-        onChange={onChange}
-        {...attributes}
-      >
-        {React.Children.map(children, (child, key) => {
-          return React.cloneElement(child as React.ReactElement<any>, {
-            "aria-selected": children[key]
-              ? children[key].props.children === selectedOption
-              : false,
-          });
-        })}
-      </select>
+  if (React.Children.count(children) > 10) {
+    console.warn(
+      "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
     );
   }
-);
 
-Select.displayName = "Select";
+  if (React.Children.count(children) < 4) {
+    console.warn(
+      "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
+    );
+  }
+
+  return (
+    <Box __css={styles}>
+      {showLabel && (
+        <Label
+          id={`${id}-label`}
+          htmlFor={id}
+          optReqFlag={showOptReqLabel && optReqFlag}
+        >
+          {labelText}
+        </Label>
+      )}
+      <ChakraSelect
+        id={id}
+        variant="outline"
+        isRequired={isRequired}
+        isDisabled={isDisabled}
+        isInvalid={isInvalid}
+        name={name}
+        ref={ref}
+        {...controlledProps}
+        {...ariaAttributes}
+        icon={
+          <Icon
+            name={IconNames.arrow}
+            decorative={true}
+            modifiers={["medium"]}
+          />
+        }
+        __css={styles.select}
+      >
+        {children}
+      </ChakraSelect>
+      {footnote && (
+        <Box __css={styles.helper} aria-disabled={isDisabled}>
+          <HelperErrorText isError={isInvalid} id={id + `-helperText`}>
+            {footnote}
+          </HelperErrorText>
+        </Box>
+      )}
+    </Box>
+  );
+});
 
 export default Select;

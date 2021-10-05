@@ -1,63 +1,46 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
-export interface LabelOptions {
-  labelContent?: JSX.Element;
-  id?: string;
-  htmlFor?: string;
-}
+import generateUUID from "../../helpers/generateUUID";
+
+type optReqFlagType = "Required" | "Optional" | "" | undefined;
 
 interface LabelProps {
-  /** Additional attributes to pass to the <label> tag */
-  attributes?: { [key: string]: any };
-
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** className that appears in addition to "label" */
+  /** Additional CSS class name to render in the `label` element. */
   className?: string;
-  /** The id of the html element that this Label is describing */
-  htmlFor?: string;
+  /** The id of the html element that this `Label` is describing. */
+  htmlFor: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Modifiers for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
-  /** Displays "Required" or "Optional" string alongside label */
-  optReqFlag?: string;
+  /** Displays "Required" or "Optional" string alongside the label */
+  optReqFlag?: optReqFlagType;
 }
 
-/** A Label for form inputs.
- * It should never be used alone.
+/**
+ * A label for form inputs. It should never be used alone.
  */
-export default function Label(props: React.PropsWithChildren<LabelProps>) {
+function Label(props: React.PropsWithChildren<LabelProps>) {
   const {
-    attributes,
-    blockName,
+    children,
     className,
     htmlFor,
-    id,
-    modifiers = [],
+    id = generateUUID(),
     optReqFlag,
   } = props;
+  const styles = useMultiStyleConfig("Label", {});
 
-  const baseClass = "label";
-  let helperString;
-
-  if (optReqFlag) {
-    helperString = (
-      <div className={bem("required-helper", [], baseClass)}>{optReqFlag}</div>
-    );
-  }
-
-  const labelAttributes = {
-    id: id,
-    htmlFor: htmlFor,
-    className: bem(baseClass, modifiers, blockName, [className]),
-  };
-  return React.createElement(
-    "label",
-    labelAttributes,
-    attributes,
-    props.children,
-    helperString
+  return (
+    <Box
+      as="label"
+      id={id}
+      className={className}
+      htmlFor={htmlFor}
+      __css={styles}
+    >
+      {children}
+      {optReqFlag && <Box __css={styles.helper}>{optReqFlag}</Box>}
+    </Box>
   );
 }
+
+export default Label;

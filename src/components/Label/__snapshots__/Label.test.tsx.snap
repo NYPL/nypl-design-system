@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label Renders the UI snapshot correctly 1`] = `
+<label
+  className="css-0"
+  htmlFor="some-input-id"
+  id="label"
+>
+  Cupcakes
+</label>
+`;
+
+exports[`Label Renders the UI snapshot correctly 2`] = `
+<label
+  className="css-0"
+  htmlFor="some-input-id"
+  id="label2"
+>
+  Cupcakes
+  <div
+    className="css-0"
+  >
+    Optional
+  </div>
+</label>
+`;
+
+exports[`Label Renders the UI snapshot correctly 3`] = `
+<label
+  className="css-0"
+  htmlFor="some-input-id"
+  id="label3"
+>
+  Cupcakes
+  <div
+    className="css-0"
+  >
+    Required
+  </div>
+</label>
+`;

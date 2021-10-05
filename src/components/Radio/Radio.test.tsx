@@ -1,138 +1,157 @@
-import { expect } from "chai";
-import * as Enzyme from "enzyme";
 import * as React from "react";
-import { stub, spy } from "sinon";
-import generateUUID from "../../helpers/generateUUID";
+import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
+import * as generateUUID from "../../helpers/generateUUID";
 import Radio from "./Radio";
 
-describe("Radio Button", () => {
-  let container;
-  let changeHandler;
-  let clickHander;
-  let generateUUIDSpy;
+describe("Radio Accessibility", () => {
+  it("passes axe accessibility", async () => {
+    const { container } = render(<Radio id="inputID" labelText="Test Label" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
 
-  before(() => {
-    clickHander = stub();
-    changeHandler = stub();
-    generateUUIDSpy = spy(generateUUID);
-    container = Enzyme.mount(
+describe("Radio Button", () => {
+  it("renders with a radio input and label", () => {
+    render(<Radio id="inputID" labelText="Test Label" />);
+    expect(screen.getByLabelText("Test Label")).toBeInTheDocument();
+    expect(screen.getByRole("radio")).toBeInTheDocument();
+  });
+
+  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
+    render(<Radio id="inputID" labelText="Test Label" showLabel={false} />);
+    expect(screen.getByLabelText("Test Label")).toHaveAttribute(
+      "aria-label",
+      "Test Label"
+    );
+  });
+
+  it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false and 'helperText' has been passed", () => {
+    render(
       <Radio
         id="inputID"
-        attributes={{ onClick: clickHander }}
-        onChange={changeHandler}
         labelText="Test Label"
         showLabel={false}
-      ></Radio>
+        helperText="This is the helper text."
+      />
     );
+    expect(
+      screen.getByLabelText("Test Label - This is the helper text.")
+    ).toBeInTheDocument();
   });
 
-  it("Renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
-    const labelText = container.prop("labelText");
-    expect(container.find("input").prop("aria-label")).to.equal(labelText);
-  });
-
-  it("Renders without crashing", () => {
-    expect(container.find("input").exists()).to.equal(true);
-  });
-
-  it("The radio element is an input with type='radio'", () => {
-    expect(container.find("input").prop("type")).to.equal("radio");
-  });
-
-  it("The radio element's ID is set properly using the value passed to it.", () => {
-    expect(container.find("input").prop("id")).to.equal("inputID");
-  });
-
-  it("Allows user to pass in additional attributes", () => {
-    container.simulate("click");
-    expect(clickHander.callCount).to.equal(1);
-  });
-
-  it("Changing the value calls the onChange handler", () => {
-    container.find("input").simulate("change", { target: { value: "Hello" } });
-    expect(changeHandler.callCount).to.equal(1);
-  });
-
-  it("Renders with label", () => {
-    container = Enzyme.mount(
+  it("renders visible helper or error text", () => {
+    const { rerender } = render(
       <Radio
-        //add other props here
-        id="test_id"
-        labelText="Hello"
+        id="inputID"
+        labelText="Test Label"
+        helperText="This is the helper text."
+        invalidText="This is the error text :("
+      />
+    );
+    expect(screen.getByText("This is the helper text.")).toBeVisible();
+    expect(
+      screen.queryByText("This is the error text :(")
+    ).not.toBeInTheDocument();
+
+    rerender(
+      <Radio
+        id="inputID"
+        labelText="Test Label"
+        isInvalid
+        helperText="This is the helper text."
+        invalidText="This is the error text :("
+      />
+    );
+    expect(screen.getByText("This is the error text :(")).toBeVisible();
+    expect(
+      screen.queryByText("This is the helper text.")
+    ).not.toBeInTheDocument();
+  });
+
+  it("sets the radio's ID", () => {
+    render(<Radio id="inputID" labelText="Test Label" />);
+    expect(screen.getByRole("radio")).toHaveAttribute("id", "inputID");
+  });
+
+  it("calls the UUID generation function if no id prop value is passed", () => {
+    const generateUUIDSpy = jest.spyOn(generateUUID, "default");
+    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
+    render(<Radio labelText="Hello" />);
+    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it("sets the 'checked' attribute", () => {
+    render(
+      <Radio
+        id="inputID-attributes"
+        labelText="onChange test"
         showLabel={true}
-      ></Radio>
+        isChecked
+      />
     );
-    expect(container.find("label").exists()).to.equal(true);
-    expect(container.find("input").props()).not.to.have.property("aria-label");
-    const radioId = container.prop("id");
-    expect(container.find("label").prop("htmlFor")).to.equal(radioId);
+    expect(screen.getByRole("radio")).toHaveAttribute("checked");
   });
 
-  it("Calls a UUID generation method if no ID is passed as a prop", () => {
-    container = Enzyme.mount(
-      <Radio labelText="Hello" showLabel={true}></Radio>
-    );
-    expect(container.find("input").props()).to.have.property("id");
-
-    expect(generateUUIDSpy.called);
-  });
-
-  it("The 'checked' attribute can set properly", () => {
-    const onChange = stub();
-    const container = Enzyme.mount(
+  it("sets the 'disabled' attribute", () => {
+    render(
       <Radio
         id="inputID-attributes"
-        labelText="Hello"
-        showLabel={false}
-        attributes={{
-          checked: true,
-          "aria-checked": true,
-          onChange,
-        }}
-      ></Radio>
-    );
-
-    const input = container.find("input");
-
-    expect(input.prop("checked")).to.equal(true);
-    expect(input.prop("aria-checked")).to.equal(true);
-  });
-
-  it("Passes the ref to the input element", () => {
-    const ref = React.createRef<HTMLInputElement>();
-    const container = Enzyme.mount(
-      <Radio
-        id="inputID-attributes"
-        ref={ref}
-        labelText="Hello"
-        showLabel={false}
-      ></Radio>
-    );
-    expect(container.find("input").instance()).to.equal(ref.current);
-  });
-
-  it("Renders HTML attributes passed through the `attributes` prop", () => {
-    const onChangeSpy = stub();
-    const onBlurSpy = stub();
-    container = Enzyme.mount(
-      <Radio
-        id="inputID-attributes"
-        attributes={{
-          onChange: onChangeSpy,
-          onBlur: onBlurSpy,
-          tabIndex: 0,
-        }}
-        labelText="Hello"
+        labelText="onChange test"
         showLabel={true}
-      ></Radio>
+        isDisabled
+      />
     );
-    expect(container.find("input").prop("tabIndex")).to.equal(0);
-    expect(onChangeSpy.callCount).to.equal(0);
-    container.find("input").simulate("change");
-    expect(onChangeSpy.callCount).to.equal(1);
-    expect(onBlurSpy.callCount).to.equal(0);
-    container.find("input").simulate("blur");
-    expect(onBlurSpy.callCount).to.equal(1);
+    expect(screen.getByRole("radio")).toHaveAttribute("disabled");
+  });
+
+  it("sets the 'required' attribute", () => {
+    render(
+      <Radio
+        id="inputID-attributes"
+        labelText="onChange test"
+        showLabel={true}
+        isRequired
+      />
+    );
+    expect(screen.getByRole("radio")).toHaveAttribute("required");
+  });
+
+  it("sets the error state", () => {
+    render(
+      <Radio
+        id="inputID-attributes"
+        labelText="onChange test"
+        showLabel={true}
+        isInvalid
+      />
+    );
+    expect(screen.getByRole("radio")).toHaveAttribute("aria-invalid");
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const primary = renderer
+      .create(<Radio id="inputID" labelText="Test Label" />)
+      .toJSON();
+    const isChecked = renderer
+      .create(<Radio id="radio-checked" labelText="Test Label" isChecked />)
+      .toJSON();
+    const isRequired = renderer
+      .create(<Radio id="radio-required" labelText="Test Label" isRequired />)
+      .toJSON();
+    const isInvalid = renderer
+      .create(<Radio id="radio-invalid" labelText="Test Label" isInvalid />)
+      .toJSON();
+    const isDisabled = renderer
+      .create(<Radio id="radio-disabled" labelText="Test Label" isDisabled />)
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
+    expect(isChecked).toMatchSnapshot();
+    expect(isRequired).toMatchSnapshot();
+    expect(isInvalid).toMatchSnapshot();
+    expect(isDisabled).toMatchSnapshot();
   });
 });

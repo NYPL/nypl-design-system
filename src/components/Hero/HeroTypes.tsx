@@ -1,6 +1,19 @@
 export enum HeroTypes {
-  Primary = "PRIMARY",
-  Secondary = "SECONDARY",
-  Tertiary = "TERTIARY",
-  FiftyFifty = "FIFTYFIFTY",
+  Primary = "primary",
+  Secondary = "secondary",
+  SecondaryBooksAndMore = "secondaryBooksAndMore",
+  SecondaryLocations = "secondaryLocations",
+  SecondaryResearch = "secondaryResearch",
+  SecondaryWhatsOn = "secondaryWhatsOn",
+  Tertiary = "tertiary",
+  Campaign = "campaign",
+  FiftyFifty = "fiftyfifty",
 }
+
+export const HeroSecondaryTypes = [
+  HeroTypes.Secondary,
+  HeroTypes.SecondaryBooksAndMore,
+  HeroTypes.SecondaryLocations,
+  HeroTypes.SecondaryResearch,
+  HeroTypes.SecondaryWhatsOn,
+];

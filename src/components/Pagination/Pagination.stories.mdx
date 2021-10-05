@@ -2,43 +2,112 @@ import {
   Meta,
   Story,
   ArgsTable,
-  Preview,
+  Canvas,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { withQuery } from "@storybook/addon-queryparams";
+import Pagination from "./Pagination";
 import * as stories from "./Pagination.stories.tsx";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Pagination"
+  title={getCategory("Pagination")}
   component={Pagination}
-  decorators={[withDesign]}
+  decorators={[withDesign, withQuery]}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    className: { table: { disable: true } },
+  }}
   parameters={{
     design: {
       type: "figma",
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
     },
+    jest: ["Pagination.test.tsx"],
   }}
 />
 
 # Pagination
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.10`   |
+| Latest            | `0.22.2`   |
+
 <Description of={Pagination} />
-Pagination navigates between the pages of a multi-page application. It is commonly
-in search results. Use controls in the Basic example to explore this component with
-very many or very few pages.
+
+The `Pagination` component helps navigate between pages of a multi-page
+application. It is commonly used on a search results page. Update the `pageCount`
+prop in the Controls to explore this component with many or few pages.
 
 Pagination uses anchor tags because it is navigating between URLs.
 
-<Preview>
-  <Story story={stories.paginationUrlHref} />
-</Preview>
+## Pagination with URL Updates
 
-## Pagination with onClick
+In order to update the URL with a query parameter, the parent component must
+declare and pass a `getPageHref` function to the `Pagination` component. This
+function should return a string with the desired URL that the pagination links
+should go to. Note that this will refresh the browser on every click.
 
-It is preferred to use pagination with `getPageHref` and that the URL is updated whenever a page is changed.
-However, optional `onClick` is available in case URL updating is not desired.
+In the following example, the `getPageHref` function will compute a new URL that
+has `&page=` as a URL query. In your own application this query parameter can be
+named anything but you have to pick up the value in the wrapper component.
 
-<Preview>
-  <Story story={stories.paginationOnClick} />
-</Preview>
+```jsx
+// Example in a search results page.
+const getPageHref = (page) => {
+  return `${location.origin}?q=celeste&page=${page}`;
+};
+```
+
+<Canvas withToolbar>
+  <Story
+    name="Pagination with URL Updates"
+    args={{
+      currentPage: 4,
+      pageCount: 100,
+    }}
+  >
+    {(args) => stories.PaginationGetPageHref(args)}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Pagination with URL Updates" />
+
+## Pagination with Unchanging URL
+
+It is preferred to use the `Pagination` component with the `getPageHref`
+function passed as a prop and that the URL is updated whenever a page is
+changed. However, the optional `onPageChange` prop is available in case URL
+updating is not desired. The parent component must now keep track of the state
+of the current page value.
+
+the `getPageHref` function will compute a new URL that
+has `&page=` as a URL query. In your own application this query parameter can be
+named anything but you have to pick up the value in the wrapper component.
+
+In the following example, the `onPageChange` function is keeping track of the
+current page through the use of React's `useState` feature.
+
+```jsx
+// Example in a search results page.
+const [computedCurrentPage, setComputedCurrentPage] = useState(
+  args.currentPage
+);
+const onPageChange = (page: number) => setComputedCurrentPage(page);
+```
+
+<Canvas withToolbar>
+  <Story
+    name="Pagination with Unchanging URL"
+    args={{
+      currentPage: 7,
+      pageCount: 100,
+    }}
+  >
+    {(args) => stories.PaginationOnPageChange(args)}
+  </Story>
+</Canvas>

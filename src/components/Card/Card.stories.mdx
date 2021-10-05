@@ -1,0 +1,695 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { action } from "@storybook/addon-actions";
+
+import Button from "../Button/Button";
+import { ButtonTypes } from "../Button/ButtonTypes";
+import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
+import { CardImageRatios, CardImageSizes, CardLayouts } from "./CardTypes";
+import Link from "../Link/Link";
+import Heading from "../Heading/Heading";
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import { LinkTypes } from "../Link/LinkTypes";
+import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
+import Icon from "../Icons/Icon";
+import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import Image from "../Image/Image";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("Card")}
+  component={Card}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+    },
+  }}
+  argTypes={{
+    blockName: { table: { disable: true } },
+    className: { table: { disable: true } },
+    modifiers: { table: { disable: true } },
+    id: { table: { disable: true } },
+    imageComponent: { table: { disable: true } },
+    layout: { table: { disable: false } },
+    imageSrc: { table: { disable: false } },
+    imageAlt: { table: { disable: false } },
+    imageSize: { table: { disable: false } },
+    imageAspectRatio: { table: { disable: false } },
+    imageAtEnd: { table: { disable: false } },
+    border: { table: { disable: false } },
+    padding: { table: { disable: false } },
+    backgroundColor: { control: { type: "color" } },
+    foregroundColor: { control: { type: "color" } },
+  }}
+/>
+
+# Card
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.24.0`   |
+| Latest            | `0.24.1`   |
+
+<Description of={Card} />
+
+The `Card` component is viewed as a contained, stand-alone element. It is highly configurable and composable. It can be shown with or without an image and the content area is composed using Card-specific child components: `CardHeading`, `CardActions` and `CardContent`. These child components can be arranged in any order and each child component may be used multiple times within the content area. Although a `Card` is a self-contained unit, `Card` components are often grouped together and displayed in some type of grid layout.
+
+#### CardHeading
+
+The `CardHeading` component mirrors the standard DS `Heading` component and accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/heading--heading-props).
+
+#### CardActions
+
+The `CardActions` component is used to display "call to action" (CTA) buttons and links for the card. The DS `Button` and `Link` components should be passed as children into the `CardActions` component.
+
+#### CardContent
+
+The `CardContent` component should be used to display all content other than headings and CTAs.
+
+<Preview withToolbar>
+  <Story
+    name="Card Props"
+    args={{
+      id: "custom-card",
+      layout: CardLayouts.Row,
+      imageSrc: "https://placeimg.com/400/300/animals",
+      imageAspectRatio: CardImageRatios.ThreeByFour,
+      imageAlt: "Alt text",
+    }}
+  >
+    {(args) => (
+      <Card {...args}>
+        <CardHeading level={HeadingLevels.Two} id="heading1">
+          Optional Header
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="heading2">
+          Sollicitudin Lorem Tortor Purus Ornare
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nullam quis risus eget urna mollis ornare
+          vel eu leo. Nulla vitae elit libero, a pharetra augue.
+        </CardContent>
+        <CardActions topBorder bottomBorder>
+          <Button
+            onClick={action("clicked")}
+            id="button1"
+            buttonType={ButtonTypes.Primary}
+            type="submit"
+          >
+            Primary
+          </Button>
+          <Button
+            onClick={action("clicked")}
+            id="button2"
+            buttonType={ButtonTypes.Secondary}
+            type="submit"
+          >
+            Secondary
+          </Button>
+        </CardActions>
+        <CardActions>
+          <Link href="javascript:void(0);">#hash1</Link>,
+          <Link href="javascript:void(0);">#hash2</Link>,
+          <Link href="javascript:void(0);">#hash3</Link>
+        </CardActions>
+      </Card>
+    )}
+  </Story>
+</Preview>
+
+<ArgsTable story="Card Props" />
+
+## Image Position
+
+By default, the image is always the first element within a `Card`. This means
+the image is at the top of a `Card` with a column layout and on the left side of
+a `Card` with a row layout. However, you can use the `imageAtEnd` prop to override
+the default placement and move the image to the last element within a `Card`.
+
+### Column Cards
+
+<Preview>
+  <Story name="Card Image Position">
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "2rem",
+        "grid-template-columns": "repeat(2, 1fr)",
+      }}
+    >
+      <Card
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Image on Top (default)
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAtEnd
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Image on Bottom
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+    </div>
+  </Story>
+</Preview>
+
+### Row Cards
+
+<Preview>
+  <div
+    style={{
+      display: "grid",
+      "grid-gap": "2rem",
+      "grid-template-columns": "repeat(1, 1fr)",
+    }}
+  >
+    <Card
+      layout={CardLayouts.Row}
+      center
+      imageSrc="https://placeimg.com/400/200/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+    >
+      <CardHeading level={HeadingLevels.Four} id="heading1">
+        Image on Left (default)
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+    <Card
+      layout={CardLayouts.Row}
+      center
+      imageSrc="https://placeimg.com/410/210/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageAtEnd
+    >
+      <CardHeading level={HeadingLevels.Four} id="heading2">
+        Image on Right
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+  </div>
+</Preview>
+
+## Image Size
+
+By default, the image width is `100%` for a `Card` with a column layout and
+`225px` for a `Card` with a row layout. However, you can use the `imageSize`
+prop to override the default width.
+
+### Column Cards
+
+<Preview>
+  <Story name="Card Image Size">
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "4rem",
+        "grid-template-columns": "repeat(1, 1fr)",
+      }}
+    >
+      <Card
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.Square}
+        imageSize={CardImageSizes.Small}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 165px
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <HorizontalRule />
+      <Card
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.Square}
+        imageSize={CardImageSizes.Medium}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Medium Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 225px
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.Square}
+        imageSize={CardImageSizes.Large}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Large Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 360px
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.Square}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Default Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Width: 100%
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+    </div>
+  </Story>
+</Preview>
+
+### Row Cards
+
+<Preview>
+  <div
+    style={{
+      display: "grid",
+      "grid-gap": "2rem",
+      "grid-template-columns": "repeat(1, 1fr)",
+    }}
+  >
+    <Card
+      layout={CardLayouts.Row}
+      center
+      imageSrc="https://placeimg.com/400/200/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageSize={CardImageSizes.Small}
+    >
+      <CardHeading level={HeadingLevels.Three} id="heading1">
+        Small Image
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Five} id="heading2">
+        Max-Width: 165px
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+      </CardContent>
+    </Card>
+    <Card
+      layout={CardLayouts.Row}
+      center
+      imageSrc="https://placeimg.com/410/210/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageSize={CardImageSizes.Medium}
+    >
+      <CardHeading level={HeadingLevels.Three} id="heading2">
+        Medium Image
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Five} id="heading2">
+        Max-Width: 225px
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis.
+      </CardContent>
+    </Card>
+    <Card
+      layout={CardLayouts.Row}
+      center
+      imageSrc="https://placeimg.com/400/250/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+      imageSize={CardImageSizes.Large}
+    >
+      <CardHeading level={HeadingLevels.Three} id="heading1">
+        Large Image
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Five} id="heading2">
+        Max-Width: 360px
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+    <Card
+      layout={CardLayouts.Row}
+      center
+      imageSrc="https://placeimg.com/450/250/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.TwoByOne}
+    >
+      <CardHeading level={HeadingLevels.Three} id="heading2">
+        Default Image
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Five} id="heading2">
+        Max-Width: 225px
+      </CardHeading>
+      <CardContent>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
+        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+        facilisis in, egestas eget quam.
+      </CardContent>
+    </Card>
+  </div>
+</Preview>
+
+## Cards in a Grid
+
+<Preview>
+  <Story name="Cards in a Grid">
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "2rem",
+        "grid-template-columns": "repeat(3, 1fr)",
+      }}
+    >
+      <Card
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageSrc="https://placeimg.com/420/220/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageSrc="https://placeimg.com/430/230/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageSrc="https://placeimg.com/440/240/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageSrc="https://placeimg.com/450/250/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+    </div>
+  </Story>
+</Preview>
+
+## Cards in a Stack
+
+<Preview>
+  <Story name="Cards in a Stack">
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "2rem",
+        "grid-template-columns": "repeat(1, 1fr)",
+      }}
+    >
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading2">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/420/220/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={CardImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading3">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+    </div>
+  </Story>
+</Preview>
+
+## Custom Image Component
+
+Instead of passing a path for the `imageSrc` prop, you can pass a custom image component in using the `imageComponent` prop.
+
+<Preview withToolbar>
+  <Story name="Custom Image Component">
+    <Card
+      imageAlt="Alt text"
+      imageAspectRatio={CardImageRatios.SixteenByNine}
+      imageComponent={
+        <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
+      }
+    >
+      <CardHeading level={HeadingLevels.Two} id="heading1">
+        Card Component with Custom Image Component
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Four} id="heading2">
+        Secondary Heading
+      </CardHeading>
+      <CardContent>
+        Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean lacinia bibendum nulla sed
+        consectetur. Vestibulum id ligula porta felis euismod semper. Cras justo
+        odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
+        consectetur est at lobortis.
+      </CardContent>
+      <CardActions>
+        <Link type={LinkTypes.Button} href="blah">
+          Reserve
+        </Link>
+        <Link href="#url" type={LinkTypes.Forwards}>
+          View Book Details
+        </Link>
+      </CardActions>
+    </Card>
+  </Story>
+</Preview>
+
+## Cards Without Images
+
+<Preview>
+  <Story name="Cards Without Images">
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "2rem",
+        "grid-template-columns": "repeat(3, 1fr)",
+        "margin-bottom": "2rem",
+      }}
+    >
+      <Card border>
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
+        </CardContent>
+      </Card>
+      <Card border>
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
+        </CardContent>
+      </Card>
+      <Card border>
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
+        </CardContent>
+      </Card>
+    </div>
+    <div
+      style={{
+        display: "grid",
+        "grid-gap": "2rem",
+        "grid-template-columns": "repeat(1, 1fr)",
+      }}
+    >
+      <Card layout={CardLayouts.Row} border>
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+      <Card layout={CardLayouts.Row} border>
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+      <Card layout={CardLayouts.Row} border>
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+    </div>
+  </Story>
+</Preview>

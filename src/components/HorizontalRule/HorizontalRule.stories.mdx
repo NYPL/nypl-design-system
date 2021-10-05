@@ -10,9 +10,10 @@ import { withDesign } from "storybook-addon-designs";
 
 import HorizontalRule from "./HorizontalRule";
 import { action } from "@storybook/addon-actions";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="HorizontalRule"
+  title={getCategory("HorizontalRule")}
   component={HorizontalRule}
   decorators={[withDesign]}
   parameters={{
@@ -21,6 +22,7 @@ import { action } from "@storybook/addon-actions";
       url:
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
     },
+    jest: ["HorizontalRule.test.tsx"],
   }}
   argTypes={{
     attributes: { table: { disable: true } },
@@ -30,12 +32,16 @@ import { action } from "@storybook/addon-actions";
 
 # Horizontal Rule
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.23.0`   |
+
 <Description of={HorizontalRule} />
 
 The `HorizontalRule` component renders a basic `<hr>` element. The `height`, `width` and `alignment` can be customized.
 
 <Preview withToolbar>
-  <Story name="HorizontalRule">{args => <HorizontalRule {...args} />}</Story>
+  <Story name="HorizontalRule">{(args) => <HorizontalRule {...args} />}</Story>
 </Preview>
 
 <ArgsTable story="HorizontalRule" />

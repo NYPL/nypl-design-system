@@ -3,100 +3,98 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs from "./Breadcrumbs";
+import { ColorVariants } from "./BreadcrumbsTypes";
+import DSProvider from "../../theme/provider";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Link from "../Link/Link";
-import sections from "../../utils/siteSections";
+import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title="Breadcrumbs"
+  title={getCategory("Breadcrumbs")}
   component={Breadcrumbs}
   decorators={[withDesign]}
   parameters={{
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10766%3A1031",
     },
+    jest: ["Breadcrumbs.test.tsx"],
   }}
   argTypes={{
-    blockName: { table: { disable: true } },
+    id: { table: { disable: true } },
     className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
   }}
 />
 
 # Breadcrumbs
 
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.3`    |
+| Latest            | `0.25.1`   |
+
 <Description of={Breadcrumbs} />
 
 The `Breadcrumbs` component is a navigation element that provides a breadcrumb path that reflects the site structure and allows a user to navigate to any page available in the breadcrumb hierarchy.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
-    name="Basic"
+    name="Breadcrumbs Props"
     args={{
-      breadcrumbs: [
+      breadcrumbsData: [
         { url: "#", text: "Parent" },
         { url: "#", text: "Child" },
         { url: "#", text: "Grandchild" },
       ],
+      id: "init-breadcrumbs",
     }}
   >
-    {args => <Breadcrumbs {...args} />}
+    {(args) => <Breadcrumbs {...args} />}
   </Story>
-</Preview>
+</Canvas>
 
-<ArgsTable story="Basic" />
+<ArgsTable story="Breadcrumbs Props" />
 
 ### Long Titles
 
 <Canvas>
-  <Breadcrumbs
-    breadcrumbs={[
-      { url: "#", text: "Parent with a Long Name" },
-      { url: "#", text: "Child with an Even Longer Name" },
-      {
-        url: "#",
-        text: "Grandchild with an Exceptionally Long Name",
-      },
-      {
-        url: "#",
-        text:
-          "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component Under the Right Circumstances",
-      },
-    ]}
-  />
+  <DSProvider>
+    <Breadcrumbs
+      breadcrumbsData={[
+        { url: "#", text: "Parent with a Long Name" },
+        { url: "#", text: "Child with an Even Longer Name" },
+        {
+          url: "#",
+          text: "Grandchild with an Exceptionally Long Name",
+        },
+        {
+          url: "#",
+          text:
+            "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component Under the Right Circumstances",
+        },
+      ]}
+    />
+  </DSProvider>
 </Canvas>
 
 ## Color Variations
 
-The `Breadcrumbs` component background color will match the secondary section color of the website section it is placed into. See more about brand colors <Link href="?path=/story/colors--colors-brand">here</Link>.
+The `Breadcrumbs` component background color can be set using the `colorVariant` prop and the `ColorVariants` enum. If the `colorVariant` prop is omitted, the default background color is `black`.
 
-<Preview>
-  <Story
-    name="Color Variations"
-    args={{
-      breadcrumbs: [
-        { url: "#", text: "Parent" },
-        { url: "#", text: "Child" },
-        {
-          url: "#",
-          text: "Grandchild",
-        },
-      ],
-    }}
-  >
-    {args => (
+<Canvas>
+  <Story name="Color Variations" args={{}}>
+    {(args) => (
       <div className="nypl--books-and-more">
-        <Heading level={3}>Books and More</Heading>
+        <Heading level={HeadingLevels.Three}>Books and More</Heading>
         <Breadcrumbs
-          breadcrumbs={[
+          breadcrumbsData={[
             { url: "#", text: "Parent" },
             { url: "#", text: "Child" },
             {
@@ -104,33 +102,18 @@ The `Breadcrumbs` component background color will match the secondary section co
               text: "Grandchild",
             },
           ]}
+          colorVariant={ColorVariants.BooksAndMore}
         />
       </div>
     )}
   </Story>
-</Preview>
-
-<Canvas>
-  <div className="nypl--locations">
-    <Heading level={3}>Locations</Heading>
-    <Breadcrumbs
-      breadcrumbs={[
-        { url: "#", text: "Parent" },
-        { url: "#", text: "Child" },
-        {
-          url: "#",
-          text: "Grandchild",
-        },
-      ]}
-    />
-  </div>
 </Canvas>
 
 <Canvas>
-  <div className="nypl--research">
-    <Heading level={3}>Research</Heading>
+  <DSProvider>
+    <Heading level={HeadingLevels.Three}>Locations</Heading>
     <Breadcrumbs
-      breadcrumbs={[
+      breadcrumbsData={[
         { url: "#", text: "Parent" },
         { url: "#", text: "Child" },
         {
@@ -138,15 +121,16 @@ The `Breadcrumbs` component background color will match the secondary section co
           text: "Grandchild",
         },
       ]}
+      colorVariant={ColorVariants.Locations}
     />
-  </div>
+  </DSProvider>
 </Canvas>
 
 <Canvas>
-  <div className="nypl--whats-on">
-    <Heading level={3}>What's On</Heading>
+  <DSProvider>
+    <Heading level={HeadingLevels.Three}>Research</Heading>
     <Breadcrumbs
-      breadcrumbs={[
+      breadcrumbsData={[
         { url: "#", text: "Parent" },
         { url: "#", text: "Child" },
         {
@@ -154,6 +138,24 @@ The `Breadcrumbs` component background color will match the secondary section co
           text: "Grandchild",
         },
       ]}
+      colorVariant={ColorVariants.Research}
     />
-  </div>
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading level={HeadingLevels.Three}>What's On</Heading>
+    <Breadcrumbs
+      breadcrumbsData={[
+        { url: "#", text: "Parent" },
+        { url: "#", text: "Child" },
+        {
+          url: "#",
+          text: "Grandchild",
+        },
+      ]}
+      colorVariant={ColorVariants.WhatsOn}
+    />
+  </DSProvider>
 </Canvas>

@@ -1,88 +1,109 @@
 import * as React from "react";
-import bem from "../../utils/bem";
-import Label from "../Label/Label";
+import {
+  Box,
+  Radio as ChakraRadio,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+
 import generateUUID from "../../helpers/generateUUID";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export interface RadioProps {
-  /** The radio button's label.  This will serve as the text content for a `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
-  labelText: string;
-  /** Additional attributes to pass to the `<input>` tag */
-  attributes?: { [key: string]: any };
-  /** When using the Radio as a "controlled" form element, you can specify the Radio's checked state using this prop. Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
-  checked?: boolean;
-  /** className you can add in addition to 'input' */
+  /** Additional class name. */
   className?: string;
-  /** Adds the 'disabled' prop to the input when true */
-  disabled?: boolean;
-  /** Helper for modifiers array; adds 'errored' styling */
-  errored?: boolean;
+  /** Optional string to populate the HelperErrorText for the error state
+   * when `isInvalid` is true.
+   */
+  invalidText?: string;
+  /** Optional string to populate the HelperErrorText for the standard state. */
+  helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
-  /** The name prop indicates into which group of radios this radio belongs.  If none is specified, 'default' will be used */
+  /** When using the Radio as a "controlled" form element, you can specify the
+   * `Radio`'s checked state using this prop. You must also pass an onChange prop.
+   * Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
+  isChecked?: boolean;
+  /** Adds the 'disabled' and `aria-disabled` attributes to the input when true.
+   * This also makes the text italic and color scheme gray.
+   */
+  isDisabled?: boolean;
+  /** Adds the 'aria-invalid' attribute to the input when true. This also makes
+   * the color theme "NYPL error" red for the button and text.
+   */
+  isInvalid?: boolean;
+  /** Adds the 'required' attribute to the input when true. */
+  isRequired?: boolean;
+  /** The radio button's label. This will serve as the text content for the
+   * `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel`
+   * is false. */
+  labelText: string;
+  /** Used to reference the input element in forms. */
   name?: string;
-  /** The action to perform on the `<input>`'s onChange function  */
+  /** Should be passed along with `isChecked` for controlled components. */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Offers the ability to show the radio's label onscreen or hide it. Refer to the `labelText` property for more information. */
-  showLabel: boolean;
-  /** Populates the value of the input */
+  /** Offers the ability to show the radio's label onscreen or hide it. Refer
+   * to the `labelText` property for more information. */
+  showLabel?: boolean;
+  /** Populates the value of the input. */
   value?: string;
 }
 
-export const onChangeDefault = () => {
-  return;
-};
-
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const {
-    checked,
     className,
-    disabled,
-    errored,
-    id,
+    invalidText,
+    helperText,
+    id = generateUUID(),
+    isChecked,
+    isDisabled = false,
+    isInvalid = false,
+    isRequired = false,
     labelText,
     name,
-    showLabel,
+    onChange,
+    showLabel = true,
     value,
   } = props;
+  const styles = useMultiStyleConfig("Radio", {});
+  const footnote = isInvalid ? invalidText : helperText;
+  const attributes = {};
 
-  const attributes = props.attributes || {};
-  const modifiers = props.modifiers ? props.modifiers : [];
-  const radioID = id || generateUUID();
-  const onChange = props.onChange || onChangeDefault;
-
-  if (!showLabel) attributes["aria-label"] = labelText;
-
-  if (errored) {
-    modifiers.push("error");
+  if (!showLabel) {
+    attributes["aria-label"] =
+      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+  } else {
+    if (footnote) {
+      attributes["aria-describedby"] = `${id}-helperText`;
+    }
   }
+
   return (
     <>
-      <input
-        {...(checked !== undefined
-          ? {
-              checked: checked,
-              onChange: onChange,
-            }
-          : {
-              defaultChecked: false,
-            })}
-        className={bem("radio", modifiers, "", [className])}
-        disabled={disabled}
-        id={radioID}
-        name={name || "default"}
-        ref={ref}
-        type="radio"
-        value={value}
+      <ChakraRadio
+        className={className}
+        id={id}
+        isChecked={isChecked}
+        isDisabled={isDisabled}
+        isInvalid={isInvalid}
+        isRequired={isRequired}
+        name={name}
         onChange={onChange}
+        value={value}
+        ref={ref}
+        __css={styles}
         {...attributes}
-      />
-      {labelText && showLabel && <Label htmlFor={radioID}>{labelText}</Label>}
+      >
+        {showLabel && labelText}
+      </ChakraRadio>
+      {footnote && showLabel && (
+        <Box __css={styles.helper} aria-disabled={isDisabled}>
+          <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+            {footnote}
+          </HelperErrorText>
+        </Box>
+      )}
     </>
   );
 });
-
-Radio.displayName = "Radio";
 
 export default Radio;

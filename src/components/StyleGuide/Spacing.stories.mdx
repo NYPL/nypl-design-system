@@ -1,0 +1,81 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Preview,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import { getCategory } from "../../utils/componentCategories";
+import getCSSVariable from "../../helpers/getCSSVariable";
+import Card from "../Card/Card";
+import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
+
+<Meta
+  title={getCategory("Spacing")}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17249%3A13",
+    },
+  }}
+/>
+
+# Spacing
+
+The DS spacing values are based on a root font size of `16px` (`1rem` = `16px`).
+
+## Style Guide Topics
+
+- [CSS Variables](#css-variables)
+- [Section Spacing](#section-spacing)
+- [Grid Spacing](#grid-spacing)
+- [Tabular Data Spacing](#tabular-data-spacing)
+- [Form Spacing](#form-spacing)
+- [Figma Reference](#figma-reference)
+
+## CSS Variables
+
+The following CSS variables are available through the DS.
+
+| Variable Name  | Calculation                | Pixel Equivalent | Visual Reference                                                                             |
+| -------------- | -------------------------- | ---------------- | -------------------------------------------------------------------------------------------- |
+| `--space`      | n/a                        | `16px`           | <div style={{ width: "var(--space)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>      |
+| `--space-xxs`  | `calc(var(--space) / 4)`   | `4px`            | <div style={{ width: "var(--space-xxs)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>  |
+| `--space-xs`   | `calc(var(--space) / 2)`   | `8px`            | <div style={{ width: "var(--space-xs)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>   |
+| `--space-s`    | `calc(var(--space) * 1)`   | `16px`           | <div style={{ width: "var(--space-s)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>    |
+| `--space-m`    | `calc(var(--space) * 1.5)` | `24px`           | <div style={{ width: "var(--space-m)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>    |
+| `--space-l`    | `calc(var(--space) * 2)`   | `32px`           | <div style={{ width: "var(--space-l)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>    |
+| `--space-xl`   | `calc(var(--space) * 3)`   | `48px`           | <div style={{ width: "var(--space-xl)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>   |
+| `--space-xxl`  | `calc(var(--space) * 4)`   | `64px`           | <div style={{ width: "var(--space-xxl)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>  |
+| `--space-xxxl` | `calc(var(--space) * 6)`   | `96px`           | <div style={{ width: "var(--space-xxxl)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div> |
+
+## Section Spacing
+
+In consuming apps, the major page sections should be separated vertically by `3rem` `(--space-xl`). This includes the space after the page global `header` and the space before the global `footer`.
+
+## Grid Spacing
+
+When elements are displayed in a grid (i.e. Cards, Images, etc.), the space between elements, both horizontal and vertical, should be `2rem` (`--space-l`).
+
+## Tabular Data Spacing
+
+When data is displayed in a tabular layout (i.e. rows and columns in a table, a definition list, etc.), the space between data cells in a row should be `1.5rem` (`--space-m`) and the space between rows should be `2rem` (`--space-l`).
+
+## Form Spacing
+
+Form input components should have a `2rem` (`--space-l`) space between each component. This includes both vertical (column) and horizontal (row) stacking. The DS [Form](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/form-elements-form--form) component has correct spacing incorporated into its UI structure and should always be used when building forms.
+
+## Figma Reference
+
+For additional spacing information, please refer to the Figma Main file.
+
+- [General Spacing](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=17249%3A13)
+- [Section Spacing](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=17185%3A249)
+- [Grid Spacing](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=17185%3A204)
+- [Tabular Data Spacing](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A5146)

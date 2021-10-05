@@ -1,16 +1,49 @@
+// Keeping `button-base` and `button--outline` for the
+// Accordion component until that component is updated.
 @mixin button-base {
-  @include space-inset-xs;
-
-  border-radius: 2px;
+  border-radius: 2px !important;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  padding: var(--space-xs) var(--space-s) !important;
   text-decoration: none;
+}
 
+@mixin button--outline {
+  @include button-base;
+
+  background-color: var(--ui-white);
+  border: 1px solid var(--ui-gray-light-cool);
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    background-color: var(--ui-gray-xx-light-cool);
+  }
+
+  &:disabled {
+    background-color: var(--ui-gray-light-cool);
+    color: var(--ui-gray-dark);
+    pointer-events: none;
+  }
+}
+
+.button {
+  // These `icon` rules are a better fit for the Icon
+  // component but we'll keep them here for now.
   .icon {
     @include icon;
 
     fill: currentColor;
+
+    &--small,
+    &--icon-left,
+    &--icon-right {
+      margin-top: var(--space-xxs);
+    }
 
     &--icon-left {
       margin-right: var(--space-xs);
@@ -19,93 +52,5 @@
     &--icon-right {
       margin-left: var(--space-xs);
     }
-  }
-}
-
-@mixin button--filled {
-  @include button-base;
-
-  background-color: var(--ui-link-primary);
-  border: none;
-  color: var(--ui-white);
-
-  &:visited {
-    color: var(--ui-white);
-  }
-
-  &:hover {
-    background-color: var(--ui-link-secondary);
-  }
-
-  &:disabled {
-    background-color: var(--ui-gray-light);
-    color: var(--ui-gray-dark);
-    pointer-events: none;
-  }
-}
-
-@mixin button--outline {
-  @include button-base;
-
-  background-color: var(--ui-white);
-  border: 1px solid var(--ui-gray-light);
-  color: inherit;
-
-  &:visited {
-    color: inherit;
-  }
-
-  &:hover {
-    background-color: var(--ui-gray-xxlight);
-  }
-
-  &:disabled {
-    background-color: var(--ui-gray-light);
-    color: var(--ui-gray-dark);
-    pointer-events: none;
-  }
-}
-
-@mixin button--link {
-  background-color: transparent;
-  color: var(--ui-link-primary);
-  text-decoration: underline;
-
-  &--no-underline {
-    text-decoration: none;
-  }
-
-  &:hover {
-    background-color: transparent;
-    color: var(--ui-link-secondary);
-  }
-
-  &:disabled {
-    background-color: transparent;
-    color: var(--ui-gray-dark);
-    pointer-events: none;
-  }
-}
-
-@mixin button--pill {
-  @include button-base;
-  @include button--outline;
-
-  border-radius: 20px;
-}
-
-.button {
-  @include button--filled;
-
-  &--link {
-    @include button--link;
-  }
-
-  &--outline {
-    @include button--outline;
-  }
-
-  &--pill {
-    @include button--pill;
   }
 }

@@ -1,265 +1,230 @@
-import { expect } from "chai";
-import { stub, spy } from "sinon";
-import * as Enzyme from "enzyme";
 import * as React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import Select from "./Select";
 
+const baseProps = {
+  labelText: "What is your favorite color?",
+  helperText: "This is the helper text.",
+  name: "color",
+};
+const baseOptions = (
+  <>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+    <option value="black">Black</option>
+    <option value="white">White</option>
+  </>
+);
+
+describe("Select Accessibility", () => {
+  it("passes axe accessibility test", async () => {
+    const { container } = render(<Select {...baseProps}>{baseOptions}</Select>);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
 describe("Select", () => {
-  let wrapper: Enzyme.ReactWrapper<any, any>;
-  let blurCallback;
-  let changeCallback;
+  it("renders a label, select, option, and helper text DOM elements", () => {
+    render(<Select {...baseProps}>{baseOptions}</Select>);
 
-  const warn = spy(console, "warn");
-
-  beforeEach(() => {
-    changeCallback = spy();
-    blurCallback = stub();
-  });
-
-  it("Renders a select DOM element", () => {
-    wrapper = Enzyme.mount(
-      <Select
-        isRequired={false}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(wrapper.find("select")).to.have.lengthOf(1);
-  });
-
-  it("Renders a name attribute to use in forms", () => {
-    wrapper = Enzyme.mount(
-      <Select
-        isRequired={false}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        ariaLabel="arialabel"
-        name="test2"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(wrapper.find("select").prop("name")).to.equal("test2");
-  });
-
-  it("Renders an aria-label", () => {
-    wrapper = Enzyme.mount(
-      <Select
-        isRequired={false}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        ariaLabel="arialabel"
-        name="test3"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(wrapper.find("select").props()["aria-label"]).to.equal("arialabel");
-  });
-
-  it("Renders aria-labelledby for labelId and helperTextId", () => {
-    wrapper = Enzyme.mount(
-      <Select
-        isRequired={false}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        labelId="labelId"
-        helperTextId="helperTextId"
-        name="test4"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-
-    expect(wrapper.find("select").prop("aria-labelledby")).to.equal(
-      "labelId helperTextId"
-    );
-  });
-
-  it("Calls the onChange callback", () => {
-    wrapper = Enzyme.mount(
-      <Select
-        labelId="label"
-        isRequired={false}
-        id="hi"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test5"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-
-    wrapper.find("select").simulate("change", { target: { value: "test2" } });
-
-    expect(changeCallback.callCount).to.equal(1);
-  });
-
-  it("Calls the callback onChange function with the updated value", () => {
-    let currentValue = "";
-    const onChange = event => {
-      currentValue = event?.target?.value;
-    };
-    wrapper = Enzyme.mount(
-      <Select
-        labelId="label"
-        isRequired={false}
-        id="update-value"
-        onChange={onChange}
-        onBlur={blurCallback}
-        name="test6"
-      >
-        <option aria-selected={false}>value1</option>
-        <option aria-selected={false}>value2</option>
-        <option aria-selected={false}>value3</option>
-      </Select>
-    );
-
-    wrapper.find("select").simulate("change", { target: { value: "value2" } });
-    expect(currentValue).to.equal("value2");
-
-    wrapper.find("select").simulate("change", { target: { value: "value3" } });
-    expect(currentValue).to.equal("value3");
-
-    wrapper.find("select").simulate("change", { target: { value: "value1" } });
-    expect(currentValue).to.equal("value1");
-  });
-
-  it("Calls the onBlur callback", () => {
-    wrapper = Enzyme.mount(
-      <Select
-        id="hi"
-        labelId="label"
-        isRequired={false}
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test7"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    wrapper.find("select").simulate("blur", { target: { value: "" } });
-
-    expect(blurCallback.callCount).to.equal(1);
-  });
-
-  it("Calls the callback onBlur function with the updated value", () => {
-    let currentValue = "";
-    const onBlur = event => {
-      currentValue = event?.target?.value;
-    };
-    wrapper = Enzyme.mount(
-      <Select
-        labelId="label"
-        isRequired={false}
-        id="update-value"
-        onChange={changeCallback}
-        onBlur={onBlur}
-        name="test8"
-      >
-        <option aria-selected={false}>value1</option>
-        <option aria-selected={false}>value2</option>
-        <option aria-selected={false}>value3</option>
-      </Select>
-    );
-
-    wrapper.find("select").simulate("blur", { target: { value: "value2" } });
-    expect(currentValue).to.equal("value2");
-
-    wrapper.find("select").simulate("blur", { target: { value: "value3" } });
-    expect(currentValue).to.equal("value3");
-
-    wrapper.find("select").simulate("blur", { target: { value: "value1" } });
-    expect(currentValue).to.equal("value1");
-  });
-
-  it("Displays the selected option onLoad when passed selectedOption", () => {
-    wrapper = Enzyme.mount(
-      <Select
-        labelId="label"
-        isRequired={false}
-        id="hi"
-        selectedOption="test2"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        name="test9"
-      >
-        <option aria-selected={true}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(wrapper.find("select").props().value).to.equal("test2");
-  });
-
-  it("Calls the correct handlers when a new value is selected", () => {
-    wrapper = Enzyme.mount(
-      <Select
-        labelId="label"
-        isRequired={false}
-        id="state-change"
-        onChange={changeCallback}
-        onBlur={blurCallback}
-        selectedOption="value1"
-        name="test10"
-      >
-        <option aria-selected={false}>value1</option>
-        <option aria-selected={false}>value2</option>
-        <option aria-selected={false}>value3</option>
-      </Select>
-    );
-    expect(wrapper.find("select").props().value).to.equal("value1");
-
-    wrapper.find("select").simulate("change", { target: { value: "value2" } });
-    expect(changeCallback.callCount).to.equal(1);
-
-    wrapper.find("select").simulate("blur", { target: { value: "value3" } });
-    expect(blurCallback.callCount).to.equal(1);
-  });
-
-  it("Passes the ref to the select element", () => {
-    const ref = React.createRef<HTMLSelectElement>();
-    const container = Enzyme.mount(
-      <Select
-        labelId="label"
-        isRequired={false}
-        id="ref-test"
-        name="test11"
-        ref={ref}
-      >
-        <option aria-selected={false}>test1</option>
-        <option aria-selected={false}>test2</option>
-      </Select>
-    );
-    expect(container.find("select").instance()).to.equal(ref.current);
-  });
-
-  it("should throw warning when fewer than 2 options", () => {
-    wrapper = Enzyme.mount(
-      <Select labelId="label" isRequired={false} id="ref-test" name="test1">
-        <option aria-selected={false}>test1</option>
-      </Select>
-    );
-    expect(wrapper.find("select").prop("name")).to.equal("test1");
     expect(
-      warn.calledWith(
-        "NYPL DS recommends <select> not be used for 1 or fewer options"
-      )
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toBeInTheDocument();
+    expect(screen.getByRole("combobox")).toBeInTheDocument();
+    expect(screen.getAllByRole("option")).toHaveLength(5);
+    expect(screen.getByText(/This is the helper text/i)).toBeInTheDocument();
+  });
+
+  it("renders a name attribute to use in forms", () => {
+    render(<Select {...baseProps}>{baseOptions}</Select>);
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute("name", "color");
+  });
+
+  it("renders an aria-label attribute when `showLabel` is false", () => {
+    const { rerender } = render(<Select {...baseProps}>{baseOptions}</Select>);
+
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).not.toHaveAttribute("aria-label");
+
+    rerender(
+      <Select {...baseProps} showLabel={false}>
+        {baseOptions}
+      </Select>
+    );
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute(
+      "aria-label",
+      "What is your favorite color? - This is the helper text."
     );
   });
 
-  it("should throw warning when there are more than 7 options", () => {
-    wrapper = Enzyme.mount(
-      <Select labelId="label" isRequired={false} id="ref-test" name="test1">
+  it("renders aria-describedby when helperText prop is passed", () => {
+    const id = "test-describe";
+    render(
+      <Select {...baseProps} id={id}>
+        {baseOptions}
+      </Select>
+    );
+
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute("aria-describedby", `${id}-helperText`);
+  });
+
+  it("renders required or optional text in the label", () => {
+    const { rerender } = render(<Select {...baseProps}>{baseOptions}</Select>);
+    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
+
+    rerender(
+      <Select {...baseProps} isRequired>
+        {baseOptions}
+      </Select>
+    );
+    expect(screen.getByText(/Required/i)).toBeInTheDocument();
+
+    rerender(
+      <Select {...baseProps} showOptReqLabel={false}>
+        {baseOptions}
+      </Select>
+    );
+    expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
+
+    rerender(
+      <Select {...baseProps} isRequired showOptReqLabel={false}>
+        {baseOptions}
+      </Select>
+    );
+    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+  });
+
+  it("renders required and aria-required attributes when 'showLabel' is false", () => {
+    render(
+      <Select {...baseProps} isRequired showLabel={false}>
+        {baseOptions}
+      </Select>
+    );
+    expect(screen.queryByText(/equired/i)).not.toBeInTheDocument();
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute("aria-required");
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toHaveAttribute("required");
+  });
+
+  it("should not render a required label if 'showOptReqLabel' flag is false, but still render the label", () => {
+    render(
+      <Select {...baseProps} isRequired showOptReqLabel={false}>
+        {baseOptions}
+      </Select>
+    );
+    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+    expect(
+      screen.getByLabelText(/What is your favorite color/i)
+    ).toBeInTheDocument();
+  });
+
+  it("renders helper text when helperText prop is passed", () => {
+    render(<Select {...baseProps}>{baseOptions}</Select>);
+
+    expect(screen.getByText("This is the helper text.")).toBeInTheDocument();
+  });
+
+  it("renders default error text when 'invalidText' prop is not passed and 'isInvalid' prop is set to true", () => {
+    render(
+      <Select {...baseProps} isInvalid>
+        {baseOptions}
+      </Select>
+    );
+
+    expect(
+      screen.getByText("There is an error related to this field.")
+    ).toBeInTheDocument();
+  });
+
+  it("renders custom error text when 'invalidText' prop is passed and 'isInvalid' prop is set to true", () => {
+    render(
+      <Select
+        {...baseProps}
+        invalidText="This is a custom error text!"
+        isInvalid
+      >
+        {baseOptions}
+      </Select>
+    );
+    expect(
+      screen.getByText("This is a custom error text!")
+    ).toBeInTheDocument();
+  });
+
+  it("updates the value through a ref", () => {
+    const selectRef = React.createRef<HTMLSelectElement>();
+    render(
+      <Select {...baseProps} ref={selectRef}>
+        {baseOptions}
+      </Select>
+    );
+
+    expect(selectRef.current.value).toEqual("red");
+
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "blue" },
+    });
+    expect(selectRef.current.value).toEqual("blue");
+
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "white" },
+    });
+    expect(selectRef.current.value).toEqual("white");
+  });
+
+  it("calls the onChange callback function", () => {
+    let value = "red";
+    const changeCallback = (e) => {
+      value = e.target.value;
+    };
+    render(
+      <Select {...baseProps} onChange={changeCallback} value={value}>
+        {baseOptions}
+      </Select>
+    );
+
+    expect(value).toEqual("red");
+
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "blue" },
+    });
+    expect(value).toEqual("blue");
+
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "white" },
+    });
+    expect(value).toEqual("white");
+  });
+
+  it("should throw warning when fewer than 4 options", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Select {...baseProps}>
+        <option value="red">Red</option>
+      </Select>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
+    );
+  });
+
+  it("should throw warning when there are more than 10 options", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Select {...baseProps}>
         <option aria-selected={false}>test1</option>
         <option aria-selected={false}>test2</option>
         <option aria-selected={false}>test3</option>
@@ -268,13 +233,14 @@ describe("Select", () => {
         <option aria-selected={false}>test6</option>
         <option aria-selected={false}>test7</option>
         <option aria-selected={false}>test8</option>
+        <option aria-selected={false}>test9</option>
+        <option aria-selected={false}>test10</option>
+        <option aria-selected={false}>test11</option>
       </Select>
     );
-    expect(wrapper.find("select").prop("name")).to.equal("test1");
-    expect(
-      warn.calledWith(
-        "NYPL DS recommends that your <select>s have fewer than 8 options"
-      )
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
     );
   });
 });

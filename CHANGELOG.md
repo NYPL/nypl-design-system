@@ -8,6 +8,179 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Updates the `Accordion` component to internally use Chakra components.
+- Adds DS `SimpleGrid` component composed from Chakra's `Simplegrid` component.
+- Update the NYPL Colors with updated color names and values.
+- Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
+- Composes the DS `Select` component from Chakra's `Select` component.
+- Composes the DS `Hero` component from Chakra's component.
+- Composes the DS `CheckboxGroup` component from Chakra's `CheckboxGroup` component.
+- Composes the DS "Template" components (`Template`, `TemplateHeader`, `TemplateBreakout`, `TemplateContent`, `TemplateContentPrimary`, `TemplateContentSidebar`, `TemplateFooter`) from Chakra's `Box` component for page layouts through children components.
+- Composes the DS `TemplateAppContainer` component from Chakra's `Box` component for page layouts through props.
+- Composes the DS `Link` component with Chakra component and fixes the `Button` type.
+- Exports Chakra's `Grid` and `GridItem` components.
+- Composes the DS `Label` component with Chakra component and updates the font size.
+- Composes the DS `StatusBadge` component from Chakra's component.
+
+### Changes
+
+- Updating spacing values to use NYPL spacing rather than "em"s.
+- Updates the `SkeletonLoaderLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
+- Updates the `CardLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
+
+## 0.25.0
+
+### Breaking Changes
+
+- Renames `HeadingDisplaySizes.tsx` to `HeadingTypes.tsx`.
+
+### Adds
+
+- Integrates Chakra-UI into the codebase.
+- Moved SCSS and CSS variable styles into a custom NYPL theme to extend Chakra's base theme.
+- Adds `DSProvider` component to use the NYPL theme in consuming applications.
+- Exports Chakra's `Box`, `Center`, `Circle`, `Square`, `Stack`, `HStack`, and `VStack` components.
+- Composes the DS `Button` component from Chakra's `Button` component.
+- Composes the DS `Heading` component from Chakra's `Heading` component.
+- Composes the DS `Tabs` component from Chakra's `Tabs`, `TabList`, `Tab`, `TabPanels`, and `TabPanel` components.
+- Composes the DS `Radio` component from Chakra's `Radio` component.
+- Composes the DS `RadioGroup` component from Chakra's `RadioGroup` component.
+- Composes the DS `Checkbox` component from Chakra's `Checkbox` component.
+- Updates the `errorText` prop name to `invalidText`.
+
+### Removes
+
+- Removes the `color-classes` SCSS mixin.
+
+### Changes
+
+- Updates the development preview URL from the Netlify link to the Tugboat QA link.
+
+## 0.24.1
+
+### Adds
+
+- Adds `FormSpacing` enum to DS exports.
+- Adds `utility_account_filled`, `utility_account_unfilled`, `utility_hamburger` and `utility_search` icons to `Icon` component.
+
+### Changes
+
+- Updates `General Guidelines` for `Buttons Style Guide`.
+
+### Fixes
+
+- Fixes left padding on `Card` when `imageAtEnd` and `border` are both `true`.
+
+## 0.24.0
+
+### Breaking Changes
+
+- Renames original `Card` components to be `CardEdition`.
+
+### Adds
+
+- Adds the `DatePicker` component.
+- Adds new `Card` component.
+- Adds `spacing` prop to `Form` component to allow for spacing variations.
+- Adds Style Guide `Forms`
+
+### Changes
+
+- Exports `VideoPlayerAspectRatios`.
+- Adds additional props for the `DatePicker` component based on its TAD Addendum section.
+- Adds Tugboat QA configuration for PR preview deployments to replace Netlify.
+- Updates the `DatePicker`, `TextInput`, `Select`, and `Label` components to pass an optional `showOptReqLabel` prop to conditionally render "Required"/"Optional" in the label text.
+
+### Fixes
+
+- Fixes Accordion FAQ Storybook example rendering bug.
+
+## 0.23.4
+
+### Adds
+
+- Adds TSDX as the bootstrapping tool to add opinionated configurations.
+- Adds an `/example/` directory through TSDX with an small playground app.
+- Snapshot testing through `react-test-renderer` and Jest.
+- Typescript documentation file to be use as a development guide.
+- Typescript documentation for `enum` variables in the TYPESCRIPT file.
+- Adds `SkeletonLoaderLayouts` and `SkeletonLoaderImageRatios` enums to DS exports.
+- Adds heading, description and helper text to `VideoPlayer` component.
+- Adds `@storybook/addons-jest` plugin to display Jest/React Testing Library unit tests in a Storybook tab.
+
+### Changes
+
+- Updates Style Guide `Spacing`.
+- Updates `Hero` component to include `Campaign` variant.
+- Updates `Hero` stories to use MDX format.
+- Updated warnings for too few or too many option children for the `Select` component.
+- Updates the README to include information on the production, development, and "preview" Storybook documentation instances.
+- Removes a custom SCSS breakpoint in `_Breadcrumbs.scss` in favor of mobile-first style rules.
+- Replaces Mocha, Chai, Sinon, and Enzyme for Jest and React Testing Library for unit testing.
+- Replaces webpack with rollup through TSDX.
+- Updates npm scripts to use TSDX for internal commands.
+- Replaces lodash with own functions.
+- Minor updates to Github Actions.
+- Adds PostCSS/autoprefixer to Rollup workflow instead of the default scss minifier.
+
+### Fixes
+
+- Fixes the `bem` utility function so that it doesn't crash Storybook whenever the `modifiers` Controls prop option is empty.
+
+## 0.23.3
+
+### Fixes
+
+- Removes the `storybook-static` directory from `.gitignore` so that the Github Actions deploy job can work properly.
+
+## 0.23.2
+
+### Adds
+
+- Adds `Form` component.
+- Adds `Notification` component.
+- Adds Style Guide `Buttons`.
+- Adds `VideoPlayer` component.
+- Adds the ability to render a `textarea` element from the `TextInput` component.
+
+### Changes
+
+- Updates stories for the `List` component to use MDX format.
+- Updates stories for the `Pagination` component to use MDX format.
+- Updates how children are rendered in the `List` component. Direct children `li`, `dt`, and `dd` elements can still be passed, but specific data structures can be passed to the `listItems` prop to render the appropriate children element.
+- Updates to the contributing documentation, pull request template, and the README.
+- Changes `DisplaySizes` to `HeadingDisplaySizes`.
+- Changes `Skeleton Loader` to be configurable via props.
+- Changes `Button` to use `16px` for left/right padding for buttons with text; icon only buttons still use `8px` left/right padding.
+- Changes `TextInput` label text to `font-weight: 500`.
+
+## 0.23.1
+
+### Adds
+
+- Adds CSS vars for `font-weight`
+- Adds `displaySize` prop to `Heading`
+- Adds Style Guide `Iconography`
+- Adds new SVGs to be used with the `Icon` component. Among the new SVGs are: Error solid, Error outlined, Speaker Notes.
+- Adds ability to change the color of an SVG icon with classes such as: `ui-black` (default), `ui-white`, `brand-primary` (red), `section-research-secondary` (turquoise).
+- Adds `helperText` and `errorText` props to `Checkbox`
+- Adds `helperText` and `errorText` props to `Radio`
+- Adds `errorText`, `helperText`, `labelText`, `required` and `showLabel` props to `Select`
+
+### Changes
+
+- Updates content in Style Guide `Typography`
+- Updates content in Style Guide `Breakpoints`
+- Changes `Link` story from `.tsx` to `.mdx`.
+
+### Deprecates
+
+- Deprecates `ariaLabel`, `helperTextId`, `isRequired` and `labelId` props in `Select`
+
+## 0.23.0
+
 ### Breaking Changes
 
 - Removes `breakout` CSS from `Breadcrumbs`. To retain previous behavior, `Breadcrumbs` component should be a child of a `.content-header` element.
@@ -17,6 +190,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `HorizontalRule` component
 - Adds new `short` class for `Placeholder`
+- Adds `Style Guide` category to Storybook sidebar
 
 ### Changes
 
@@ -47,7 +221,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `--ui-success` CSS variable and adds `--ui-success-primary` and `--ui-success-secondary`
 - Removes `checkboxId` prop from `Checkbox` component and employs `id` in its place.
 - Removes `defaultChecked` prop from `Checkbox` component.
-- Removed `labelOptions` porp from `Checkbox` component and employs `labelText` in its place.
+- Removed `labelOptions` prop from `Checkbox` component and employs `labelText` in its place.
 
 ### Changes
 

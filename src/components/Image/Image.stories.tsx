@@ -2,9 +2,10 @@ import * as React from "react";
 
 import Image from "./Image";
 import { text, boolean, select } from "@storybook/addon-knobs";
+import { getCategory } from "../../utils/componentCategories";
 
 export default {
-  title: "Image",
+  title: getCategory("Image"),
   component: Image,
 };
 
@@ -49,4 +50,5 @@ ImageWithOptionalCaptionandCredit.parameters = {
     url:
       "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11896%3A45379",
   },
+  jest: ["Image.test.tsx"],
 };

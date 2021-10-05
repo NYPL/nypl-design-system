@@ -1,0 +1,110 @@
+.notification {
+  border-radius: 4px;
+  display: flex;
+  font-size: var(--font-size--1);
+  margin: var(--space-s);
+  padding: var(--space) var(--space-l);
+  position: relative;
+
+  &__container {
+    margin: auto;
+    max-width: var(--breakpoint-large);
+    width: 100%;
+  }
+
+  .content {
+    &__container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .notification-content {
+    width: 100%;
+  }
+
+  &--centered {
+    text-align: center;
+
+    header {
+      justify-content: center;
+    }
+
+    .content {
+      display: block;
+    }
+  }
+
+  &--no-margin {
+    border-radius: 0;
+    margin: 0;
+  }
+
+  &--standard {
+    background-color: var(--ui-status-primary);
+  }
+
+  &--announcement {
+    background-color: var(--ui-gray-light-cool);
+
+    .notification-heading {
+      color: var(--section-research-secondary);
+    }
+  }
+
+  &--warning {
+    background-color: var(--ui-gray-xx-light-cool);
+
+    .notification-heading {
+      color: var(--brand-primary);
+    }
+
+    .notification-content {
+      color: var(--brand-primary);
+    }
+  }
+
+  &--align-text {
+    .notification-content {
+      padding-left: calc(var(--space-m) + var(--space-s));
+    }
+  }
+
+  header {
+    display: flex;
+    margin-bottom: var(--space-s);
+
+    .notification-heading {
+      margin-bottom: 0;
+    }
+  }
+
+  .icon {
+    flex-shrink: 0;
+    margin-right: var(--space-s);
+  }
+
+  .dismissible-button {
+    align-items: center;
+    background-color: inherit;
+    color: var(--ui-black);
+    display: flex;
+    height: var(--space-l);
+    padding: 0;
+    position: absolute;
+    right: var(--space-xs);
+    top: var(--space-xs);
+    width: var(--space-l);
+
+    @include breakpoint($breakpoint-large) {
+      height: var(--space-m);
+      width: var(--space-m);
+    }
+
+    .icon {
+      height: var(--space-m);
+      margin-right: 0;
+      width: var(--space-m);
+    }
+  }
+}

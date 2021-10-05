@@ -1,20 +1,15 @@
 import * as React from "react";
-import { boolean, select } from "@storybook/addon-knobs";
 
-import Card from "../Card/Card";
+import CardEdition from "../CardEdition/CardEdition";
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import { IconNames } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import { LinkTypes } from "../Link/LinkTypes";
 import List from "./List";
 import { ListTypes } from "./ListTypes";
-
-export default {
-  title: "List",
-  component: List,
-};
 
 const itemGroups = [
   "Art",
@@ -59,10 +54,32 @@ const definitions = [
       'Hobbits are a race of Middle-earth, also known as "halflings" on account of their short stature, roughly half the size of men. They are characterized by curly hair on their heads and leathery feet that have furry insteps, for which they did not wear shoes. Many hobbits live in the Shire as well as Bree, and they once lived in the vales of the Anduin. They are fond of an unadventurous life of farming, eating, and socializing. There were three types of Hobbits: The Harfoots were the most numerous. The Stoors had an affinity for water, boats and swimming; the Fallohides were an adventurous people. The origin of hobbits is unclear, but of all the races they have the closest affinity to men, and in the Prologue to The Lord of the Rings Tolkien calls them relatives of men.',
   },
 ];
+export const animalCrossingDefinitions = [
+  {
+    term: "Mahi-mahi",
+    definition:
+      'The mahi-mahi is an ocean fish known for its wide, somewhat-cute face. It can reach over six feet long. It is known by different names including "dolphinfish," even though it has no relation to dolphins. They live in only in warm, tropical waters...which perhaps explains the relaxed, happy look on their faces.',
+  },
+  {
+    term: "Golden trout",
+    definition:
+      "The golden trout is a beautifully colored fish that can only live in very clean waters. They are difficult to come across since they are found only in high mountain streams. As a side note, I find it much easier to appreciate fish that aren't such prima donnas about everything.",
+  },
+  {
+    term: "Rainbowfish",
+    definition:
+      'The rainbowfish is a tropical fish known for its metallic colors and beautiful fins. There are over 50 different species, each unique and pleasing color. I must say, it does make me wish for feathers of a more exciting hue than "underbaked brownie."',
+  },
+  {
+    term: "Suckerfish",
+    definition:
+      "The suckerfish is a curious fish that likes to attach itself with its sucker mouth to larger marine animals. The benefit to the suckerfish is that it gets to eat smaller parasites and dead skin off the host's body. Amusingly, some people have used suckerfish on cords to catch large turtles with the fish's own suction! I imagine this practice is the cause of some awkward conversations between fish and turtle, eh wot?",
+  },
+];
 
-const ListTemplate = ({ type, ...args }) => (
-  <List type={type} {...args}>
-    {type !== ListTypes.Definition
+export const listRenderer = (args) => (
+  <List {...args}>
+    {args.type !== ListTypes.Definition
       ? itemGroups.map((item, i) => <li key={i}>{item}</li>)
       : definitions.map((item, i) => [
           <dt key={`dt_${i}`}>{item.term}</dt>,
@@ -71,54 +88,8 @@ const ListTemplate = ({ type, ...args }) => (
   </List>
 );
 
-export const list = ListTemplate.bind({});
-
-list.args = {
-  type: ListTypes.Unordered,
-  itemGroups: itemGroups,
-  definitions: definitions,
-};
-
-list.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
-  },
-};
-
-const DefinitionListTemplate = ({ items, ...args }) => (
-  <List type={ListTypes.Definition} {...args}>
-    {items.map((item, i) => [
-      <dt key={`dt_${i}`}>{...item.term}</dt>,
-      <dd key={`dd_${i}`}>{...item.definition}</dd>,
-    ])}
-  </List>
-);
-
-export const definitionList = DefinitionListTemplate.bind({});
-definitionList.args = {
-  items: definitions,
-  title: "Middle-Earth Peoples",
-};
-
-definitionList.argTypes = {
-  type: {
-    table: { disable: true },
-  },
-};
-
-definitionList.storyName = "Definition List";
-definitionList.parameters = {
-  design: {
-    type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
-  },
-};
-
 const exampleCard = (
-  <Card
+  <CardEdition
     className="example-card"
     image={<Image src="https://placeimg.com/300/400/arch" alt={""} />}
     ctas={
@@ -134,7 +105,11 @@ const exampleCard = (
     }
   >
     <>
-      <Heading level={2} id="heading1" text={"The Year of Magical Thinking"} />
+      <Heading
+        level={HeadingLevels.Two}
+        id="heading1"
+        text={"The Year of Magical Thinking"}
+      />
       <div className="book__callout">A portrait of loss and grief</div>
       <div>
         By <Link href="#joan-didion">Joan Didion</Link>,{" "}
@@ -146,7 +121,6 @@ const exampleCard = (
           name={IconNames.headset}
           decorative={true}
           modifiers={["left", "small"]}
-          iconRotation={IconRotationTypes.rotate0}
         ></Icon>
         Audiobook
       </div>
@@ -156,72 +130,10 @@ const exampleCard = (
         <Link href="#">Read More</Link>
       </div>
     </>
-  </Card>
+  </CardEdition>
 );
 
-const cards = [];
-
+export const cardsList = [];
 for (let i = 0; i < 3; i++) {
-  cards.push(<li key={i}>{exampleCard}</li>);
+  cardsList.push(<li key={i}>{exampleCard}</li>);
 }
-
-export const cardList = () => (
-  <>
-    <List
-      type={select("List Type", ListTypes, ListTypes.Unordered)}
-      modifiers={boolean("List Styling", false) ? null : ["no-list-styling"]}
-    >
-      {cards}
-    </List>
-  </>
-);
-/* eslint-disable jsx-a11y/anchor-is-valid */
-export const listOfLinks = () => (
-  <List title="Details" type={ListTypes.Definition}>
-    <dt>Authors</dt>
-    <dd>
-      <a href="#">Chirwa, Ephraim Wadonda, author</a>
-      <br />
-      <a href="#">Dorward, Andrew, author</a>
-    </dd>
-    <dt>Subjects</dt>
-    <dd>
-      <a href="#">Ackerbau</a>
-      <br />
-      <a href="#">Ackerbau.</a>
-      <br />
-      <a href="#">Africa.</a>
-      <br />
-      <a href="#">Afrika.</a>
-      <br />
-      <a href="#">Agrarsubvention</a>
-      <br />
-      <a href="#">Agrarsubvention.</a>
-      <br />
-      <a href="#">Agricultura -- Subvencions -- Malawi.</a>
-      <br />
-      <a href="#">Agricultural economics New.</a>
-      <br />
-      <a href="#">Agricultural subsidies</a>
-      <br />
-      <a href="#">Agricultural subsidies -- Developing countries.</a>
-      <br />
-      <a href="#">Agricultural subsidies -- Malawi.</a>
-      <br />
-      <a href="#">Agricultural subsidies.</a>
-      <br />
-      <a href="#">BUSINESS &amp; ECONOMICS -- Industries</a>
-      <br />
-    </dd>
-  </List>
-);
-/* eslint-enable jsx-a11y/anchor-is-valid */
-
-listOfLinks.storyName = "Definition List of Links";
-listOfLinks.parameters = {
-  docs: {
-    source: {
-      type: "dynamic",
-    },
-  },
-};
