@@ -89,6 +89,8 @@ export {
   TabPanels,
   TabPanel,
 } from "./components/Tabs/Tabs";
+export { default as Text } from "./components/Text/Text";
+export { TextDisplaySizes } from "./components/Text/TextTypes";
 export {
   TemplateAppContainer,
   Template,
@@ -100,6 +102,7 @@ export {
   TemplateContentSidebar,
   TemplateFooter,
 } from "./components/Template/Template";
+
 export {
   default as TextInput,
   TextInputRefType,
