@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Accordion` component to internally use Chakra components.
 - Adds DS `SimpleGrid` component composed from Chakra's `Simplegrid` component.
+- Adds DS `Text` component composed from Chakra's `Text` component.
 - Update the NYPL Colors with updated color names and values.
 - Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
 - Composes the DS `Select` component from Chakra's `Select` component.
