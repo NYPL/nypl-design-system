@@ -28,6 +28,7 @@ import {
   ImageSizesWrapper,
   ImageAspectRatioWrapper,
 } from "./components/image";
+import { Card, CardActions, CardContent } from "./components/card";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -62,6 +63,9 @@ const theme = extendTheme({
     Accordion,
     Breadcrumb,
     Button,
+    Card,
+    CardActions,
+    CardContent,
     Checkbox,
     CustomCheckboxGroup,
     CustomImage,

@@ -3,41 +3,34 @@
   display: flex;
   flex-flow: column wrap;
 
-  .card__body {
-    @include breakpoint($breakpoint-medium) {
-      display: block;
-      flex-flow: row nowrap;
-    }
-
-    .card-content {
-      @include space-stack-s;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    .card-actions {
-      @include space-stack-s;
-
-      column-gap: var(--space-xs);
-      display: flex;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      &--top-border {
-        border-top: 1px solid var(--ui-gray-medium);
-        padding-top: var(--space-xs);
-      }
-
-      &--bottom-border {
-        border-bottom: 1px solid var(--ui-gray-medium);
-        padding-bottom: var(--space-xs);
-      }
-    }
-  }
+  // .card__body {
+  //   @include breakpoint($breakpoint-medium) {
+  //     display: block;
+  //     flex-flow: row nowrap;
+  //   }
+  // .card-content {
+  //   @include space-stack-s;
+  //   &:last-child {
+  //     margin-bottom: 0;
+  //   }
+  // }
+  // .card-actions {
+  //   @include space-stack-s;
+  //   column-gap: var(--space-xs);
+  //   display: flex;
+  //   &:last-child {
+  //     margin-bottom: 0;
+  //   }
+  // &--top-border {
+  //   border-top: 1px solid var(--ui-gray-medium);
+  //   padding-top: var(--space-xs);
+  // }
+  // &--bottom-border {
+  //   border-bottom: 1px solid var(--ui-gray-medium);
+  //   padding-bottom: var(--space-xs);
+  // }
+  // }
+  // }
 
   &--center {
     text-align: center;
@@ -151,65 +144,6 @@
           }
         }
       }
-    }
-  }
-}
-
-// Stories-only styles
-.sb-show-main {
-  .var-docs {
-    padding: 0 0 var(--space) 0;
-  }
-
-  .example-card {
-    .card__content {
-      > * {
-        @include space-stack-xxs;
-      }
-    }
-
-    .book__callout {
-      // formerly imported with @include heading-xs;
-      font-size: var(--font-size-1);
-      font-weight: 400;
-      line-height: 1.15;
-      margin: 0 0 0.5em;
-      width: auto;
-
-      &__link {
-        color: inherit;
-
-        &:hover {
-          color: inherit;
-        }
-      }
-
-      /* stylelint-disable */
-      font-style: italic;
-      font-weight: 300;
-      /* stylelint-enable */
-    }
-
-    .card__ctas {
-      align-items: flex-end;
-      display: flex;
-      flex-flow: row wrap;
-
-      .button {
-        width: 100%;
-      }
-
-      > * {
-        @include space-stack-xxs;
-      }
-    }
-
-    .book__filetype {
-      @include space-stack-s;
-    }
-
-    .book__description {
-      font-style: italic;
     }
   }
 }

@@ -1,24 +1,19 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useMultiStyleConfig, useStyleConfig } from "@chakra-ui/react";
 
+import bem from "../../utils/bem";
 import { CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
-
-interface CardContentProps {
-  /** Optional className that would be applied to the `card-content` element */
-  className?: string;
-}
+import generateUUID from "../../helpers/generateUUID";
 
 interface CardActionsProps {
-  /** Optional boolean value to control visibility of border on the bottom edge of the card actions element */
+  /** Optional boolean value to control visibility of border on the bottom edge
+   * of the card actions element */
   bottomBorder?: boolean;
-  /** Optional className that would be applied to the `card-actions` element */
-  className?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
-  /** Optional boolean value to control visibility of border on the top edge of the card actions element */
+  /** Optional boolean value to control visibility of border on the top edge of
+   * the card actions element */
   topBorder?: boolean;
 }
 
@@ -31,7 +26,7 @@ export interface CardProps {
   border?: boolean;
   /** Optional boolean value to control the alignment of the text and elements within the card */
   center?: boolean;
-  /** ClassName that appears in addition to "card" */
+  /** Optional CSS class name to add */
   className?: string;
   /** Optional hex color value used to override the default text color */
   foregroundColor?: string;
@@ -61,36 +56,34 @@ export interface CardProps {
 export const CardImage = Image;
 
 // CardHeading child-component
-export const CardHeading = (props) => <Heading {...props} />;
+export const CardHeading = Heading;
 
 // CardContent child-component
-export function CardContent(props: React.PropsWithChildren<CardContentProps>) {
-  const { children, className } = props;
+export function CardContent(props: React.PropsWithChildren<{}>) {
+  const { children } = props;
+  const styles = useStyleConfig("CardContent");
   return (
     children && (
-      <div className={bem("card-content", [], "", [className])}>{children}</div>
+      <Box className="card-content" __css={styles}>
+        {children}
+      </Box>
     )
   );
 }
 
 // CardActions child-component
 export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
-  const {
+  const { bottomBorder, children, topBorder } = props;
+  const styles = useStyleConfig("CardActions", {
     bottomBorder,
-    children,
-    className,
-    modifiers = [],
     topBorder,
-  } = props;
-
-  bottomBorder && modifiers.push("bottom-border");
-  topBorder && modifiers.push("top-border");
+  });
 
   return (
     children && (
-      <div className={bem("card-actions", modifiers, "", [className])}>
+      <Box className="card-actions" __css={styles}>
         {children}
-      </div>
+      </Box>
     )
   );
 }
@@ -103,7 +96,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     children,
     className,
     foregroundColor,
-    id,
+    id = generateUUID(),
     imageAtEnd,
     layout,
     border,
@@ -143,11 +136,14 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     }
   });
 
+  const styles2 = useMultiStyleConfig("Card", {});
+
   return (
-    <div
+    <Box
       className={bem(baseClass, modifiers, blockName, [className])}
       id={id}
       style={styles}
+      __css={styles2}
     >
       {hasImage && (
         <CardImage
@@ -159,7 +155,9 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
           imageAspectRatio={imageAspectRatio}
         />
       )}
-      <div className={bem("body", [], baseClass)}>{cardContents}</div>
-    </div>
+      <Box className="card-body" __css={styles2.content}>
+        {cardContents}
+      </Box>
+    </Box>
   );
 }
