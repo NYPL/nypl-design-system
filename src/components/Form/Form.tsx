@@ -1,66 +1,84 @@
 import * as React from "react";
-import bem from "../../utils/bem";
-import generateUUID from "../../helpers/generateUUID";
 import { FormSpacing } from "./FormTypes";
+import SimpleGrid from "../Grid/SimpleGrid";
+import { Box } from "@chakra-ui/react";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface FormProps {
   /** Optional form `action` attribute */
   action?: string;
-  /** Optional additional attributes passed to the `<form>` element */
-  attributes?: { [key: string]: any };
   /** Optional className you can add in addition to `form` */
   className?: string;
   /** Optional ID that other components can cross reference */
   id?: string;
   /** Optional form `method` attribute */
   method?: "get" | "post";
-  /** Optional modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
   /** Optional spacing size; if omitted, the default `large` (2rem / 32px) spacing will be used; ```IMPORTANT: for general form layout, this prop should not be used``` */
   spacing?: FormSpacing;
 }
 
 // FormRow child-component
 export function FormRow(props) {
-  const { children, className } = props;
-  return <div className={bem("form-row", [], "", [className])}>{children}</div>;
+  const { children, className, gap, id } = props;
+  const count = React.Children.count(children);
+  const alteredChildren = React.Children.map(
+    children,
+    (child: React.ReactElement, i) => {
+      return React.cloneElement(child, { id: `${id}-grandchild${i}` });
+    }
+  );
+  return (
+    <SimpleGrid columns={count} className={className} gap={gap} id={id}>
+      {alteredChildren}
+    </SimpleGrid>
+  );
 }
 
 // FormField child-component
 export function FormField(props) {
-  const { children, className } = props;
+  const { children, className, gap, id } = props;
   return (
-    <div className={bem("form-field", [], "", [className])}>{children}</div>
+    <SimpleGrid columns={1} className={className} gap={gap} id={id}>
+      {children}
+    </SimpleGrid>
   );
 }
 
 export default function Form(props: React.ComponentProps<"form"> & FormProps) {
   const {
     action,
-    attributes = {},
     children,
     className,
     id = generateUUID(),
     method,
-    modifiers = [],
     spacing,
   } = props;
 
+  let attributes = {};
   action && (attributes["action"] = action);
 
   method &&
     (method === "get" || method === "post") &&
     (attributes["method"] = method);
 
-  spacing && modifiers.push(`spacing-${spacing}`);
+  const alteredChildren = React.Children.map(
+    children,
+    (child: React.ReactElement, i) => {
+      return React.cloneElement(child, { gap: spacing, id: `${id}-child${i}` });
+    }
+  );
 
   return (
-    <form
-      className={bem("form", modifiers, "", [className])}
+    <Box
+      as="form"
+      aria-label="form"
       id={id}
       {...attributes}
+      className={className}
     >
-      {children}
-    </form>
+      <SimpleGrid columns={1} gap={spacing} id={id + "-parent"}>
+        {alteredChildren}
+      </SimpleGrid>
+    </Box>
   );
 }
