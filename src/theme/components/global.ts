@@ -42,6 +42,7 @@ const checkboxRadioControlSize = {
 // Used in `CheckboxGroup` and `RadioGroup`.
 const checkboxRadioGroupLayout = {
   legend: {
+    fontSize: "14px",
     marginBottom: "s",
   },
   required: {
