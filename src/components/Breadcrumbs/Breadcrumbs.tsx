@@ -5,10 +5,16 @@ import {
   BreadcrumbLink,
   useStyleConfig,
 } from "@chakra-ui/react";
+
 import generateUUID from "../../helpers/generateUUID";
 import { ColorVariants } from "./BreadcrumbsTypes";
 import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
+import {
+  IconNames,
+  IconRotationTypes,
+  IconSizes,
+  IconTypes,
+} from "../Icons/IconTypes";
 import { getVariant } from "../../utils/utils";
 
 export interface BreadcrumbsDataProps {
@@ -40,12 +46,12 @@ const getElementsFromData = (data, breadcrumbsID) => {
       <BreadcrumbLink href={breadcrumbData.url}>
         {index === data.length - 2 && (
           <Icon
-            name={IconNames.arrow}
-            size={IconSizes.small}
-            iconRotation={IconRotationTypes.rotate90}
+            name={IconNames.Arrow}
+            size={IconSizes.Small}
+            iconRotation={IconRotationTypes.Rotate90}
             id={`${breadcrumbsID}__backarrow`}
-            decorative={true}
-            titleText={breadcrumbData.text}
+            className="breadcrumbs-icon"
+            type={IconTypes.Breadcrumbs}
           />
         )}
         <span className="breadcrumb-label">{breadcrumbData.text}</span>

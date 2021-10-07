@@ -23,6 +23,7 @@ import TemplateStyles from "./components/template";
 import Link from "./components/link";
 import Label from "./components/label";
 import StatusBadge from "./components/statusBadge";
+import Icon from "./components/icon";
 import {
   CustomImage,
   ImageSizesWrapper,
@@ -69,6 +70,7 @@ const theme = extendTheme({
     CustomSelect,
     Heading,
     Hero,
+    Icon,
     ImageAspectRatioWrapper,
     ImageSizesWrapper,
     Label,
