@@ -3,7 +3,7 @@ import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface LinkProps {
@@ -27,25 +27,25 @@ export interface LinkProps {
  */
 function getWithDirectionIcon(children, type: LinkTypes) {
   let iconRotation;
-  let iconPosition;
+  let iconAlign;
   let icon = null;
 
   // An icon needs a position in order for it to be created and
   // rendered in the link.
   if (type === LinkTypes.Backwards) {
-    iconRotation = IconRotationTypes.rotate90;
-    iconPosition = "left";
+    iconRotation = IconRotationTypes.Rotate90;
+    iconAlign = IconAlign.Left;
   } else if (type === LinkTypes.Forwards) {
-    iconRotation = IconRotationTypes.rotate270;
-    iconPosition = "right";
+    iconRotation = IconRotationTypes.Rotate270;
+    iconAlign = IconAlign.Right;
   }
 
   icon = (
     <Icon
-      name={IconNames.arrow}
-      modifiers={[iconPosition, iconRotation]}
-      blockName={"more-link"}
-      decorative={true}
+      name={IconNames.Arrow}
+      align={iconAlign}
+      iconRotation={iconRotation}
+      className="more-link"
     />
   );
 

@@ -10,6 +10,10 @@ const baseStyle = {
   px: "s",
   textDecoration: "none",
   wordWrap: "normal",
+  svg: {
+    fill: "currentColor",
+    marginTop: "xxs",
+  },
   _hover: {
     bg: "ui.link.secondary",
   },

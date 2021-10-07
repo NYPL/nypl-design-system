@@ -3,6 +3,12 @@ const variants = {
   moreLink: {
     alignItems: "center",
     display: "inline-flex",
+    svg: {
+      height: "s",
+      width: "s",
+      textDecoration: "none",
+      fill: "currentColor",
+    },
     _hover: {
       textDecoration: "underline",
     },

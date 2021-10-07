@@ -8,7 +8,7 @@ import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import { SelectTypes } from "../Select/SelectTypes";
 
@@ -133,9 +133,9 @@ export default function SearchBar(props: SearchBarProps) {
       disabled={isDisabled}
     >
       <Icon
-        name={IconNames.search}
-        modifiers={["small", "icon-left"]}
-        decorative
+        name={IconNames.Search}
+        size={IconSizes.Small}
+        align={IconAlign.Left}
       />
       Search
     </Button>

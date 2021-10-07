@@ -6,7 +6,7 @@ import { ButtonTypes } from "../Button/ButtonTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
-import { IconColors, IconNames } from "../Icons/IconTypes";
+import { IconColors, IconNames, IconSizes } from "../Icons/IconTypes";
 import { NotificationTypes } from "./NotificationTypes";
 
 export interface NotificationProps {
@@ -95,9 +95,9 @@ export default function Notification(
           <Icon
             decorative={false}
             className="notification-icon"
-            name={IconNames.speaker_notes}
-            color={IconColors.section_research_secondary}
-            modifiers={["large"]}
+            name={IconNames.SpeakerNotes}
+            color={IconColors.SectionResearchSecondary}
+            size={IconSizes.Large}
           />
         );
       case "warning":
@@ -105,9 +105,9 @@ export default function Notification(
           <Icon
             decorative={false}
             className="notification-icon"
-            name={IconNames.error_filled}
-            color={IconColors.brand_primary}
-            modifiers={["large"]}
+            name={IconNames.ErrorFilled}
+            color={IconColors.BrandPrimary}
+            size={IconSizes.Large}
           />
         );
       default:
@@ -190,10 +190,9 @@ export default function Notification(
           onClick={handleClose}
         >
           <Icon
-            modifiers={["medium"]}
             decorative={false}
-            name={IconNames.close}
-            titleText={"Close notification"}
+            name={IconNames.Close}
+            size={IconSizes.Large}
           />
         </Button>
       ) : null}
