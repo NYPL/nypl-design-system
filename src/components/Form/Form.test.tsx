@@ -37,33 +37,37 @@ describe("Form", () => {
     expect(screen.getByRole("form")).toBeInTheDocument();
   });
 
-  it("Renders a <form> element with child .form-row element", () => {
+  it("Renders a <form> element with child FormRow element", () => {
     render(
       <Form>
         <FormRow />
       </Form>
     );
-    expect(screen.getByRole("form")).toBeInTheDocument();
-    expect(screen.getByRole("form").firstChild).toBeInTheDocument();
-    expect(screen.getByRole("form").firstChild).toHaveStyle({
+    const form = screen.getByRole("form");
+    const formRow = form.firstChild;
+    expect(form).toBeInTheDocument();
+    expect(formRow).toBeInTheDocument();
+    expect(formRow).toHaveStyle({
       display: "grid",
     });
   });
 
-  it("Renders a <form> element with child .form-field element", () => {
+  it("Renders a <form> element with child FormField element", () => {
     render(
       <Form>
         <FormField />
       </Form>
     );
-    expect(screen.getByRole("form")).toBeInTheDocument();
-    expect(screen.getByRole("form").firstChild).toBeInTheDocument();
-    expect(screen.getByRole("form").firstChild).toHaveStyle({
+    const form = screen.getByRole("form");
+    const formField = form.firstChild;
+    expect(form).toBeInTheDocument();
+    expect(formField).toBeInTheDocument();
+    expect(formField).toHaveStyle({
       display: "grid",
     });
   });
 
-  it("Renders a <form> element with .form-row, .form-field and input elements properly nested", () => {
+  it("Renders a <form> element with FormRow, FormField and input elements properly nested", () => {
     render(
       <Form>
         <FormRow>
@@ -73,23 +77,28 @@ describe("Form", () => {
         </FormRow>
       </Form>
     );
-    expect(screen.getByRole("form")).toBeInTheDocument();
-    expect(screen.getByRole("form").firstChild).toBeInTheDocument();
-    expect(screen.getByRole("form").firstChild).toHaveStyle({
+    const form = screen.getByRole("form");
+    const formRow = form.firstChild;
+    const formField = formRow.firstChild;
+    const textInput = screen.getByRole("textbox");
+    expect(form).toBeInTheDocument();
+    expect(formRow).toBeInTheDocument();
+    expect(formRow).toHaveStyle({
       display: "grid",
     });
-    expect(screen.getByRole("form").firstChild.firstChild).toBeInTheDocument();
-    expect(screen.getByRole("form").firstChild.firstChild).toHaveStyle({
+    expect(formField).toBeInTheDocument();
+    expect(formField).toHaveStyle({
       display: "grid",
     });
-    expect(screen.getByRole("textbox")).toBeInTheDocument();
+    expect(textInput).toBeInTheDocument();
   });
 
   it("Renders a <form> element with custom `action` and `method` attributes", () => {
     render(<Form action="/end/point" method="get" />);
-    expect(screen.getByRole("form")).toBeInTheDocument();
-    expect(screen.getByRole("form")).toHaveAttribute("action", "/end/point");
-    expect(screen.getByRole("form")).toHaveAttribute("method", "get");
+    const form = screen.getByRole("form");
+    expect(form).toBeInTheDocument();
+    expect(form).toHaveAttribute("action", "/end/point");
+    expect(form).toHaveAttribute("method", "get");
   });
 
   // I could not get this to work properly.
