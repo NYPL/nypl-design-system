@@ -101,12 +101,18 @@ describe("Form", () => {
     expect(form).toHaveAttribute("method", "get");
   });
 
-  // I could not get this to work properly.
-  // Do you have any ideas on how to get this to work?
+  // TO DO: There's somethign weird about checking for the "grid-gap" style.
+  // Other styles can be validated, but "grid-gap" is being ellusive.
   // it("Renders a <form> element with spacing variant applied", () => {
-  //   render(<Form spacing={FormSpacing.ExtraSmall} />);
-  //   expect(screen.getByRole("form")).toBeInTheDocument();
-  //   expect(screen.getByRole("form").firstChild).toHaveStyle({
+  //   render(
+  //     <Form spacing={FormSpacing.ExtraSmall}>
+  //       <FormRow />
+  //     </Form>
+  //   );
+  //   const form = screen.getByRole("form");
+  //   const formRow = form.firstChild;
+  //   expect(form).toBeInTheDocument();
+  //   expect(formRow).toHaveStyle({
   //     "grid-gap": "var(--chakra-space-xs)",
   //   });
   // });
