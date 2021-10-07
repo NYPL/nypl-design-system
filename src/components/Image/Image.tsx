@@ -10,6 +10,8 @@ interface ImageWrapperProps {
   imageAspectRatio?: ImageRatios;
   /** Optional value to control the size of the image */
   imageSize?: ImageSizes;
+  /** Optionally pass in additional Chakra-based styles. */
+  sx?: { [key: string]: any };
 }
 
 export interface ImageProps extends ImageWrapperProps {
@@ -35,13 +37,14 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
     children,
     imageAspectRatio = ImageRatios.Original,
     imageSize = ImageSizes.Default,
+    sx = {},
   } = props;
   const styles = useMultiStyleConfig("CustomImageWrapper", {
     size: imageSize,
     ratio: imageAspectRatio,
   });
   return (
-    <Box __css={styles.size} className={className}>
+    <Box __css={{ ...styles.size, ...sx }} className={className}>
       <Box __css={styles.ratio}>{children}</Box>
     </Box>
   );
@@ -58,6 +61,7 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
     imageSize = ImageSizes.Default,
     imageType = ImageTypes.Default,
     src,
+    sx = {},
     useImageWrapper = true,
   } = props;
   const styles = useMultiStyleConfig("CustomImage", { variant: imageType });
@@ -76,6 +80,7 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
       className={className}
       imageSize={imageSize}
       imageAspectRatio={imageAspectRatio}
+      sx={sx}
     >
       <Box __css={styles.imgCrop}>{imageComponent}</Box>
     </ImageWrapper>

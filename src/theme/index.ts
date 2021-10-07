@@ -25,7 +25,7 @@ import Label from "./components/label";
 import StatusBadge from "./components/statusBadge";
 import { CustomImage, CustomImageWrapper } from "./components/image";
 import Icon from "./components/icon";
-import { Card, CardActions, CardContent } from "./components/card";
+import Card from "./components/card";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -60,9 +60,7 @@ const theme = extendTheme({
     Accordion,
     Breadcrumb,
     Button,
-    Card,
-    CardActions,
-    CardContent,
+    ...Card,
     Checkbox,
     CustomCheckboxGroup,
     CustomImage,

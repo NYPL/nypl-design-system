@@ -25,9 +25,7 @@ describe("Card Accessibility", () => {
         <CardContent>middle column content</CardContent>
         <CardActions>
           <Button
-            onClick={function () {
-              console.log(this);
-            }}
+            onClick={() => {}}
             id="button1"
             buttonType={ButtonTypes.Primary}
             type="submit"
@@ -54,9 +52,7 @@ describe("Card", () => {
       <CardContent>middle column content</CardContent>
       <CardActions>
         <Button
-          onClick={function () {
-            console.log(this);
-          }}
+          onClick={() => {}}
           id="button1"
           buttonType={ButtonTypes.Primary}
           type="submit"
@@ -85,21 +81,17 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <div className="edition-card-actions">
-          <Link type={LinkTypes.Button} href="blah">
-            Read Online
-          </Link>
-          <div className="edition-card__download">
-            <Link href="#url" type={LinkTypes.Action}>
-              <Icon
-                name={IconNames.Download}
-                align={IconAlign.Left}
-                iconRotation={IconRotationTypes.Rotate0}
-              />
-              Download
-            </Link>
-          </div>
-        </div>
+        <Link type={LinkTypes.Button} href="blah">
+          Read Online
+        </Link>
+        <Link href="#url" type={LinkTypes.Action}>
+          <Icon
+            name={IconNames.Download}
+            align={IconAlign.Left}
+            iconRotation={IconRotationTypes.Rotate0}
+          />
+          Download
+        </Link>
       </CardActions>
     </Card>
   );
@@ -114,9 +106,9 @@ describe("Card", () => {
         The Card Heading
       </CardHeading>
       <CardContent>
-        <div>Published in New York by Random House</div>
-        <div>Written in English</div>
-        <div>Under Creative Commons License</div>
+        <p>Published in New York by Random House</p>
+        <p>Written in English</p>
+        <p>Under Creative Commons License</p>
       </CardContent>
     </Card>
   );
@@ -135,21 +127,17 @@ describe("Card", () => {
         The Card Heading
       </CardHeading>
       <CardActions>
-        <div className="edition-card-actions">
-          <Link type={LinkTypes.Button} href="blah">
-            Read Online
-          </Link>
-          <div className="edition-card__download">
-            <Link href="#url" type={LinkTypes.Action}>
-              <Icon
-                name={IconNames.Download}
-                align={IconAlign.Left}
-                iconRotation={IconRotationTypes.Rotate0}
-              />
-              Download
-            </Link>
-          </div>
-        </div>
+        <Link type={LinkTypes.Button} href="blah">
+          Read Online
+        </Link>
+        <Link href="#url" type={LinkTypes.Action}>
+          <Icon
+            name={IconNames.Download}
+            align={IconAlign.Left}
+            iconRotation={IconRotationTypes.Rotate0}
+          />
+          Download
+        </Link>
       </CardActions>
     </Card>
   );
@@ -164,71 +152,77 @@ describe("Card", () => {
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <div className="edition-card-actions">
-          <Link type={LinkTypes.Button} href="blah">
-            Read Online
-          </Link>
-          <div className="edition-card__download">
-            <Link href="#url" type={LinkTypes.Action}>
-              <Icon
-                name={IconNames.Download}
-                align={IconAlign.Left}
-                iconRotation={IconRotationTypes.Rotate0}
-              />
-              Download
-            </Link>
-          </div>
-        </div>
+        <Link type={LinkTypes.Button} href="blah">
+          Read Online
+        </Link>
+        <Link href="#url" type={LinkTypes.Action}>
+          <Icon
+            name={IconNames.Download}
+            align={IconAlign.Left}
+            iconRotation={IconRotationTypes.Rotate0}
+          />
+          Download
+        </Link>
       </CardActions>
     </Card>
   );
   let container;
 
-  it("Generates a Card with a header, image, content, and CTAs", () => {
+  it("renders a Card with a header, image, content, and CTAs", () => {
     const utils = render(regularCard);
     container = utils.container;
-    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card__image")).toBeInTheDocument();
-    expect(container.querySelector(".card-content")).toBeInTheDocument();
-    expect(container.querySelector(".card-actions")).toBeInTheDocument();
+
+    expect(container.querySelector("h3")).toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(screen.getByText("middle column content")).toBeInTheDocument();
+    expect(screen.getByText("Example CTA")).toBeInTheDocument();
   });
 
-  it("Generates a Card with variable data", () => {
+  it("renders a Card with variable data", () => {
     const utils = render(cardWithExtendedStyles);
     container = utils.container;
 
     expect(container.querySelector("h2")).toBeInTheDocument();
-    expect(container.querySelector(".card-content")).toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Published in New York by Random House/i)
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Read Online/i)).toBeInTheDocument();
     expect(screen.getAllByRole("link")).toHaveLength(2);
   });
 
   it("Generates a card without a CTA block if one isn't provided", () => {
-    const utils = render(cardWithNoCTAs);
-    container = utils.container;
+    render(cardWithNoCTAs);
 
-    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card__image")).toBeInTheDocument();
-    expect(container.querySelector(".card-content")).toBeInTheDocument();
-    expect(container.querySelector(".card-actions")).not.toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Published in New York by Random House/i)
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/Read Online/i)).not.toBeInTheDocument();
+    expect(screen.queryAllByRole("link")).toHaveLength(0);
   });
 
   it("Generates a card without a content block if one isn't provided", () => {
-    const utils = render(cardWithNoContent);
-    container = utils.container;
+    render(cardWithNoContent);
 
-    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card__image")).toBeInTheDocument();
-    expect(container.querySelector(".card-content")).not.toBeInTheDocument();
-    expect(container.querySelector(".card-actions")).toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(
+      screen.queryByText(/Published in New York by Random House/i)
+    ).not.toBeInTheDocument();
+    expect(screen.getByText(/Read Online/i)).toBeInTheDocument();
+    expect(screen.getAllByRole("link")).toHaveLength(3);
   });
 
   it("Generates a card without an image block if no image is provided", () => {
-    const utils = render(cardWithNoImage);
-    container = utils.container;
+    render(cardWithNoImage);
 
-    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card__image")).not.toBeInTheDocument();
-    expect(container.querySelector(".card-content")).toBeInTheDocument();
-    expect(container.querySelector(".card-actions")).toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    expect(screen.getByText("middle column content")).toBeInTheDocument();
+    expect(screen.getByText(/Read Online/i)).toBeInTheDocument();
   });
 });
