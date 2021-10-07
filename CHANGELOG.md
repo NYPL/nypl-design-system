@@ -24,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Label` component with Chakra component and updates the font size.
 - Composes the DS `StatusBadge` component from Chakra's component.
 - Composes the DS `Icon` component with Chakra's `Icon` component. Added new props for `Icon` sizing, alignment, name, and rotation.
+- Composes the DS `SearchBar` component from DS `Select`, `TextInput`, `Button`, and `HelperErrorText` components.
 - Adds custom `useCarouselStyles` hook for the `Tabs` mobile functionality.
 
 ### Changes

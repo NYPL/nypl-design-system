@@ -24,6 +24,7 @@ import Link from "./components/link";
 import Label from "./components/label";
 import StatusBadge from "./components/statusBadge";
 import Icon from "./components/icon";
+import SearchBar from "./components/searchBar";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -68,6 +69,7 @@ const theme = extendTheme({
     Label,
     Link,
     Radio,
+    SearchBar,
     StatusBadge,
     Tabs,
     ...TemplateStyles,
