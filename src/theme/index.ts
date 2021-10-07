@@ -25,6 +25,7 @@ import Label from "./components/label";
 import StatusBadge from "./components/statusBadge";
 import { CustomImage, CustomImageWrapper } from "./components/image";
 import Icon from "./components/icon";
+import SearchBar from "./components/searchBar";
 import Card from "./components/card";
 
 /**
@@ -73,6 +74,7 @@ const theme = extendTheme({
     Label,
     Link,
     Radio,
+    SearchBar,
     StatusBadge,
     Tabs,
     ...TemplateStyles,

@@ -31,6 +31,7 @@ const input = {
 const TextInput = {
   parts: ["helper", "input", "textarea"],
   baseStyle: {
+    marginBottom: "xs",
     helper: {
       ...helperTextMargin,
     },
@@ -39,6 +40,20 @@ const TextInput = {
       ...input,
       lineheight: "1.5",
       minHeight: "xxl",
+    },
+  },
+  variants: {
+    searchBar: {
+      flex: "1 1 80%",
+      input: {
+        borderRightRadius: "0",
+      },
+    },
+    searchBarSelect: {
+      flex: "1 1 80%",
+      input: {
+        borderRadius: "0",
+      },
     },
   },
 };
