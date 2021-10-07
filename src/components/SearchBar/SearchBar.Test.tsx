@@ -35,7 +35,7 @@ describe("SearchBar Accessibility", () => {
     const { container } = render(
       <SearchBar
         id="id"
-        ariaLabel="searchbar"
+        labelText="Searchbar"
         onSubmit={jest.fn()}
         selectProps={selectProps}
         textInputProps={textInputProps}
@@ -55,7 +55,7 @@ describe("SearchBar", () => {
     render(
       <SearchBar
         id="id"
-        ariaLabel="searchbar"
+        labelText="searchbar"
         onSubmit={searchBarSubmit}
         textInputProps={textInputProps}
         helperErrorText={helperErrorText}
@@ -74,7 +74,7 @@ describe("SearchBar", () => {
     render(
       <SearchBar
         id="id"
-        ariaLabel="searchbar"
+        labelText="searchbar"
         onSubmit={searchBarSubmit}
         selectProps={selectProps}
         textInputProps={textInputProps}
@@ -89,7 +89,7 @@ describe("SearchBar", () => {
     render(
       <SearchBar
         id="id"
-        ariaLabel="searchbar"
+        labelText="searchbar"
         onSubmit={searchBarSubmit}
         selectProps={selectProps}
         textInputProps={textInputProps}
@@ -105,7 +105,7 @@ describe("SearchBar", () => {
   it("calls the callback function on submit ", () => {
     render(
       <SearchBar
-        ariaLabel="searchBar"
+        labelText="searchBar"
         id="id"
         onSubmit={searchBarSubmit}
         selectProps={selectProps}
@@ -125,7 +125,7 @@ describe("SearchBar", () => {
       .create(
         <SearchBar
           id="id"
-          ariaLabel="searchbar"
+          labelText="searchbar"
           onSubmit={jest.fn()}
           textInputProps={textInputProps}
           helperErrorText={helperErrorText}
@@ -136,7 +136,7 @@ describe("SearchBar", () => {
       .create(
         <SearchBar
           id="id"
-          ariaLabel="searchbar"
+          labelText="searchbar"
           onSubmit={jest.fn()}
           selectProps={selectProps}
           textInputProps={textInputProps}
@@ -148,7 +148,7 @@ describe("SearchBar", () => {
       .create(
         <SearchBar
           id="id"
-          ariaLabel="searchbar"
+          labelText="searchbar"
           onSubmit={jest.fn()}
           textInputProps={textInputProps}
         />
@@ -158,7 +158,7 @@ describe("SearchBar", () => {
       .create(
         <SearchBar
           id="id"
-          ariaLabel="searchbar"
+          labelText="searchbar"
           onSubmit={jest.fn()}
           textInputProps={textInputProps}
           isInvalid
@@ -169,7 +169,7 @@ describe("SearchBar", () => {
       .create(
         <SearchBar
           id="id"
-          ariaLabel="searchbar"
+          labelText="searchbar"
           onSubmit={jest.fn()}
           textInputProps={textInputProps}
           isDisabled
