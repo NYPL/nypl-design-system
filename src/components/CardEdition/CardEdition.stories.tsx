@@ -9,7 +9,12 @@ import Image from "../Image/Image";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import {
+  IconRotationTypes,
+  IconNames,
+  IconSizes,
+  IconAlign,
+} from "../Icons/IconTypes";
 import { LinkTypes } from "../Link/LinkTypes";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import { getCategory } from "../../utils/componentCategories";
@@ -122,11 +127,11 @@ export const ExampleCardEdition = () => (
       </div>
       <div className="book__filetype">
         <Icon
-          name={IconNames.headset}
-          decorative={true}
-          modifiers={["left", "small"]}
-          iconRotation={IconRotationTypes.rotate0}
-        ></Icon>
+          name={IconNames.Headset}
+          size={IconSizes.Small}
+          align={IconAlign.Left}
+          iconRotation={IconRotationTypes.Rotate0}
+        />
         Audiobook
       </div>
       <div className="book__description">

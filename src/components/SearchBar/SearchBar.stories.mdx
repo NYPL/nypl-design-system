@@ -13,7 +13,7 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconNames, IconAlign, IconSizes } from "../Icons/IconTypes";
 import Input from "../Input/Input";
 import { InputTypes } from "../Input/InputTypes";
 import * as stories from "../Autosuggest/Autosuggest.stories.tsx";
@@ -159,9 +159,9 @@ export const optionsGroup = {
             disabled={args.disabledButton}
           >
             <Icon
-              name={IconNames.search}
-              decorative={true}
-              modifiers={["small", "icon-left"]}
+              name={IconNames.Search}
+              size={IconSizes.Small}
+              align={IconAlign.Left}
             />
             Search
           </Button>
@@ -200,9 +200,9 @@ components together.
             type="submit"
           >
             <Icon
-              name={IconNames.search}
-              decorative={true}
-              modifiers={["small", "icon-left"]}
+              name={IconNames.Search}
+              size={IconSizes.Small}
+              align={IconAlign.Left}
             />
             Search
           </Button>
@@ -246,9 +246,9 @@ component and the `isError` prop is passed to the `HelperErrorText` component.
         type="submit"
       >
         <Icon
-          name={IconNames.search}
-          decorative={true}
-          modifiers={["small", "icon-left"]}
+          name={IconNames.Search}
+          size={IconSizes.Small}
+          align={IconAlign.Left}
         />
         Search
       </Button>
@@ -283,9 +283,9 @@ For the disabled state, make sure to pass the `disabled` prop to the
         disabled={true}
       >
         <Icon
-          name={IconNames.search}
-          decorative={true}
-          modifiers={["small", "icon-left"]}
+          name={IconNames.Search}
+          size={IconSizes.Small}
+          align={IconAlign.Left}
         />
         Search
       </Button>

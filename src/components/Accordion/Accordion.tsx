@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconNames, IconSizes } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface AccordionContentDataProps {
@@ -30,8 +30,8 @@ export interface AccordionProps {
  * is open or closed.
  */
 const getIcon = (isExpanded = false) => {
-  const iconName = isExpanded ? IconNames.minus : IconNames.plus;
-  return <Icon decorative={true} name={iconName} modifiers={["small"]} />;
+  const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
+  return <Icon name={iconName} size={IconSizes.Small} />;
 };
 
 /**
