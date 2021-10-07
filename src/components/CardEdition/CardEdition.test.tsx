@@ -11,7 +11,7 @@ import Image from "../Image/Image";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
 
 describe("CardEdition Accessibility", () => {
   const regularCard = (
@@ -99,12 +99,11 @@ describe("CardEdition", () => {
           <div className="edition-card__download">
             <Link href="#url" type={LinkTypes.Action}>
               <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                decorative={true}
-                modifiers={["left"]}
-                iconRotation={IconRotationTypes.rotate0}
-              ></Icon>
+                name={IconNames.Download}
+                // blockName="more-link"
+                align={IconAlign.Left}
+                iconRotation={IconRotationTypes.Rotate0}
+              />
               Download
             </Link>
           </div>
@@ -164,12 +163,11 @@ describe("CardEdition", () => {
           <div className="edition-card__download">
             <Link href="#url" type={LinkTypes.Action}>
               <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                decorative={true}
-                modifiers={["left"]}
-                iconRotation={IconRotationTypes.rotate0}
-              ></Icon>
+                name={IconNames.Download}
+                // blockName="more-link"
+                align={IconAlign.Left}
+                iconRotation={IconRotationTypes.Rotate0}
+              />
               Download
             </Link>
           </div>
@@ -198,12 +196,10 @@ describe("CardEdition", () => {
           <div className="edition-card__download">
             <Link href="#url" type={LinkTypes.Action}>
               <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                decorative={true}
-                modifiers={["left"]}
-                iconRotation={IconRotationTypes.rotate0}
-              ></Icon>
+                name={IconNames.Download}
+                align={IconAlign.Left}
+                iconRotation={IconRotationTypes.Rotate0}
+              />
               Download
             </Link>
           </div>
@@ -227,12 +223,10 @@ describe("CardEdition", () => {
           <div className="edition-card__download">
             <Link href="#url" type={LinkTypes.Action}>
               <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                decorative={true}
-                modifiers={["left"]}
-                iconRotation={IconRotationTypes.rotate0}
-              ></Icon>
+                name={IconNames.Download}
+                align={IconAlign.Left}
+                iconRotation={IconRotationTypes.Rotate0}
+              />
               Download
             </Link>
           </div>
@@ -265,12 +259,10 @@ describe("CardEdition", () => {
           <div className="edition-card__download">
             <Link href="#url" type={LinkTypes.Action}>
               <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                decorative={true}
-                modifiers={["left"]}
-                iconRotation={IconRotationTypes.rotate0}
-              ></Icon>
+                name={IconNames.Download}
+                align={IconAlign.Left}
+                iconRotation={IconRotationTypes.Rotate0}
+              />
               Download
             </Link>
           </div>
