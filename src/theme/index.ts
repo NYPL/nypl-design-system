@@ -24,11 +24,7 @@ import Link from "./components/link";
 import Label from "./components/label";
 import StatusBadge from "./components/statusBadge";
 import Icon from "./components/icon";
-import {
-  CustomImage,
-  ImageSizesWrapper,
-  ImageAspectRatioWrapper,
-} from "./components/image";
+import { CustomImage, CustomImageWrapper } from "./components/image";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -66,13 +62,12 @@ const theme = extendTheme({
     Checkbox,
     CustomCheckboxGroup,
     CustomImage,
+    CustomImageWrapper,
     CustomRadioGroup,
     CustomSelect,
     Heading,
     Hero,
     Icon,
-    ImageAspectRatioWrapper,
-    ImageSizesWrapper,
     Label,
     Link,
     Radio,
