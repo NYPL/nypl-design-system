@@ -1,7 +1,7 @@
 .card {
-  align-items: flex-start;
-  display: flex;
-  flex-flow: column wrap;
+  // align-items: flex-start;
+  // display: flex;
+  // flex-flow: column wrap;
 
   // .card__body {
   //   @include breakpoint($breakpoint-medium) {
@@ -32,69 +32,69 @@
   // }
   // }
 
-  &--center {
-    text-align: center;
+  // &--center {
+  //   text-align: center;
 
-    /* stylelint-disable */
-    .card-actions {
-      justify-content: center;
-    }
-    /* stylelint-enable */
-    .card__body {
-      margin: auto;
-    }
-  }
+  //   /* stylelint-disable */
+  //   .card-actions {
+  //     justify-content: center;
+  //   }
+  //   /* stylelint-enable */
+  //   .card__body {
+  //     margin: auto;
+  //   }
+  // }
 
-  &--with-border {
-    border: 1px solid var(--ui-gray-medium);
+  // &--with-border {
+  // border: 1px solid var(--ui-gray-medium);
 
-    .card__body {
-      padding: var(--space-s);
-    }
+  // .card__body {
+  //   padding: var(--space-s);
+  // }
 
-    &.card--has-image {
-      .card__body {
-        padding: 0 var(--space-s) var(--space-s);
-      }
-    }
-  }
+  //   &.card--has-image {
+  //     .card__body {
+  //       padding: 0 var(--space-s) var(--space-s);
+  //     }
+  //   }
+  // }
 
-  &--at-end {
-    .card__image {
-      margin-bottom: 0;
-      margin-top: var(--space-s);
-      order: 2;
-    }
-  }
+  // &--at-end {
+  //   .card__image {
+  //     margin-bottom: 0;
+  //     margin-top: var(--space-s);
+  //     order: 2;
+  //   }
+  // }
 
   &.card--row {
-    display: flex;
-    flex-flow: column nowrap;
-    max-width: 100%;
-    text-align: left;
+    // display: flex;
+    // flex-flow: column nowrap;
+    // max-width: 100%;
+    // text-align: left;
 
     /* stylelint-disable */
-    .card-actions {
-      justify-content: left;
-    }
+    // .card-actions {
+    //   justify-content: left;
+    // }
     /* stylelint-enable */
-    &.card--center {
-      align-items: center;
+    // &.card--center {
+    //   align-items: center;
 
-      .card__body {
-        margin: 0;
-      }
-    }
+    //   .card__body {
+    //     margin: 0;
+    //   }
+    // }
 
-    @include breakpoint($breakpoint-medium) {
-      flex-flow: row;
-    }
+    // @include breakpoint($breakpoint-medium) {
+    //   flex-flow: row;
+    // }
 
     .card__image {
       @include breakpoint($breakpoint-medium) {
-        flex: 0 0 225px;
-        margin: 0 var(--space-m) 0 0;
-        max-width: 50%;
+        // flex: 0 0 225px;
+        // margin: 0 var(--space-m) 0 0;
+        // max-width: 50%;
 
         &.small {
           flex: 0 0 165px;
@@ -110,40 +110,40 @@
       }
     }
 
-    &.card--at-end {
-      .card__image {
-        margin: var(--space-m) 0 0;
+    // &.card--at-end {
+    //   .card__image {
+    //     margin: var(--space-m) 0 0;
 
-        @include breakpoint($breakpoint-medium) {
-          margin: 0 0 0 var(--space-m);
-        }
-      }
-    }
+    //     @include breakpoint($breakpoint-medium) {
+    //       margin: 0 0 0 var(--space-m);
+    //     }
+    //   }
+    // }
 
-    &.card--with-border {
-      .card__body {
-        padding: var(--space-s);
-      }
+    // &.card--with-border {
+    //   // .card__body {
+    //   //   padding: var(--space-s);
+    //   // }
 
-      &.card--has-image {
-        .card__body {
-          padding: 0 var(--space-s) var(--space-s);
+    //   &.card--has-image {
+    //     .card__body {
+    //       padding: 0 var(--space-s) var(--space-s);
 
-          @include breakpoint($breakpoint-medium) {
-            padding: var(--space-s) var(--space-s) var(--space-s) 0;
-          }
-        }
+    //       @include breakpoint($breakpoint-medium) {
+    //         padding: var(--space-s) var(--space-s) var(--space-s) 0;
+    //       }
+    //     }
 
-        &.card--at-end {
-          .card__body {
-            padding: var(--space-s) var(--space-s) 0;
+    //     &.card--at-end {
+    //       .card__body {
+    //         padding: var(--space-s) var(--space-s) 0;
 
-            @include breakpoint($breakpoint-medium) {
-              padding: var(--space-s) 0 var(--space-s) var(--space-s);
-            }
-          }
-        }
-      }
-    }
+    //         @include breakpoint($breakpoint-medium) {
+    //           padding: var(--space-s) 0 var(--space-s) var(--space-s);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   }
 }

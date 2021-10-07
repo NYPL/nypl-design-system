@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Box, useMultiStyleConfig, useStyleConfig } from "@chakra-ui/react";
 
-import bem from "../../utils/bem";
 import { CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
@@ -9,6 +8,8 @@ import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 interface CardActionsProps {
+  center?: boolean;
+  layout?: CardLayouts;
   /** Optional boolean value to control visibility of border on the bottom edge
    * of the card actions element */
   bottomBorder?: boolean;
@@ -48,8 +49,6 @@ export interface CardProps {
   layout?: CardLayouts;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Optional padding value.  This value should be entered with the same formatting as a CSS padding attribute (ex. `5%`, `20px`, `2rem`).  If omitted, the Card will use the default padding. */
-  padding?: string;
 }
 
 // Not being used in any examples but available for use.
@@ -73,10 +72,12 @@ export function CardContent(props: React.PropsWithChildren<{}>) {
 
 // CardActions child-component
 export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
-  const { bottomBorder, children, topBorder } = props;
+  const { bottomBorder, children, topBorder, center, layout } = props;
   const styles = useStyleConfig("CardActions", {
     bottomBorder,
     topBorder,
+    center,
+    layout,
   });
 
   return (
@@ -91,37 +92,29 @@ export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
 export default function Card(props: React.PropsWithChildren<CardProps>) {
   const {
     backgroundColor,
-    blockName,
-    center,
+    center = false,
     children,
     className,
     foregroundColor,
     id = generateUUID(),
     imageAtEnd,
-    layout,
+    layout = CardLayouts.Column,
     border,
-    padding,
-    modifiers = [],
     imageAlt,
     imageComponent,
     imageAspectRatio = ImageRatios.Original,
     imageSize = ImageSizes.Default,
     imageSrc,
   } = props;
-  const baseClass = "card";
   const hasImage = imageSrc || imageComponent;
-  const styles = {};
+  const customColors = {};
   const cardContents = [];
 
-  layout && modifiers.push(layout);
-  border && modifiers.push("with-border");
-  center && modifiers.push("center");
-  hasImage && modifiers.push("has-image");
-  imageAtEnd && modifiers.push("at-end");
+  // Five modifiers:
+  // layout, border, center, hasImage, imageAtEnd,
 
-  padding && (styles["padding"] = padding);
-  backgroundColor && (styles["backgroundColor"] = backgroundColor);
-  foregroundColor && (styles["color"] = foregroundColor);
+  backgroundColor && (customColors["backgroundColor"] = backgroundColor);
+  foregroundColor && (customColors["color"] = foregroundColor);
 
   React.Children.map(children, (child: React.ReactElement) => {
     if (
@@ -132,18 +125,27 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       child.type === CardActions ||
       child.props.mdxType === "CardActions"
     ) {
-      cardContents.push(child);
+      const elem = React.cloneElement(child, { center, layout });
+      cardContents.push(elem);
     }
   });
 
-  const styles2 = useMultiStyleConfig("Card", {});
+  const styles = useMultiStyleConfig("Card", {
+    center,
+    imageAtEnd,
+    layout,
+    border,
+    hasImage,
+  });
 
   return (
     <Box
-      className={bem(baseClass, modifiers, blockName, [className])}
+      className={`card ${className}`}
       id={id}
-      style={styles}
-      __css={styles2}
+      __css={{
+        ...styles,
+        ...customColors,
+      }}
     >
       {hasImage && (
         <CardImage
@@ -155,7 +157,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
           imageAspectRatio={imageAspectRatio}
         />
       )}
-      <Box className="card-body" __css={styles2.content}>
+      <Box className="card-body" __css={styles.body}>
         {cardContents}
       </Box>
     </Box>

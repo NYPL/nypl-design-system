@@ -3,7 +3,6 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
@@ -23,6 +22,7 @@ import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Card")}
@@ -36,12 +36,9 @@ import { getCategory } from "../../utils/componentCategories";
     },
   }}
   argTypes={{
-    blockName: { table: { disable: true } },
     className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
     id: { table: { disable: true } },
     imageComponent: { table: { disable: true } },
-    padding: { table: { disable: true } },
     backgroundColor: { control: { type: "color" } },
     foregroundColor: { control: { type: "color" } },
   }}
@@ -52,7 +49,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.24.1`   |
+| Latest            | `0.25.1`   |
 
 <Description of={Card} />
 
@@ -70,7 +67,7 @@ The `CardActions` component is used to display "call to action" (CTA) buttons an
 
 The `CardContent` component should be used to display all content other than headings and CTAs.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="Card Props"
     args={{
@@ -124,7 +121,7 @@ The `CardContent` component should be used to display all content other than hea
       </Card>
     )}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Card Props" />
 
@@ -137,7 +134,7 @@ the default placement and move the image to the last element within a `Card`.
 
 ### Column Cards
 
-<Preview>
+<Canvas>
   <Story name="Card Image Position">
     <div
       style={{
@@ -175,53 +172,55 @@ the default placement and move the image to the last element within a `Card`.
       </Card>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Row Cards
 
-<Preview>
-  <div
-    style={{
-      display: "grid",
-      gridGap: "2rem",
-      gridTemplateColumns: "repeat(1, 1fr)",
-    }}
-  >
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/400/200/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={ImageRatios.TwoByOne}
+<Canvas>
+  <DSProvider>
+    <div
+      style={{
+        display: "grid",
+        gridGap: "2rem",
+        gridTemplateColumns: "repeat(1, 1fr)",
+      }}
     >
-      <CardHeading level={HeadingLevels.Four} id="heading1">
-        Image on Left (default)
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/410/210/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={ImageRatios.TwoByOne}
-      imageAtEnd
-    >
-      <CardHeading level={HeadingLevels.Four} id="heading2">
-        Image on Right
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-  </div>
-</Preview>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Image on Left (default)
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageAtEnd
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading2">
+          Image on Right
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+    </div>
+  </DSProvider>
+</Canvas>
 
 ## Image Size
 
@@ -231,7 +230,7 @@ prop to override the default width.
 
 ### Column Cards
 
-<Preview>
+<Canvas>
   <Story name="Card Image Size">
     <div
       style={{
@@ -314,100 +313,102 @@ prop to override the default width.
       </Card>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ### Row Cards
 
-<Preview>
-  <div
-    style={{
-      display: "grid",
-      gridGap: "2rem",
-      gridTemplateColumns: "repeat(1, 1fr)",
-    }}
-  >
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/400/200/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={ImageRatios.TwoByOne}
-      imageSize={ImageSizes.Small}
+<Canvas>
+  <DSProvider>
+    <div
+      style={{
+        display: "grid",
+        gridGap: "2rem",
+        gridTemplateColumns: "repeat(1, 1fr)",
+      }}
     >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
-        Small Image
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Five} id="heading2">
-        Max-Width: 165px
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-      </CardContent>
-    </Card>
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/410/210/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={ImageRatios.TwoByOne}
-      imageSize={ImageSizes.Medium}
-    >
-      <CardHeading level={HeadingLevels.Three} id="heading2">
-        Medium Image
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Five} id="heading2">
-        Max-Width: 225px
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis.
-      </CardContent>
-    </Card>
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/400/250/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={ImageRatios.TwoByOne}
-      imageSize={ImageSizes.Large}
-    >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
-        Large Image
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Five} id="heading2">
-        Max-Width: 360px
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/450/250/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={ImageRatios.TwoByOne}
-    >
-      <CardHeading level={HeadingLevels.Three} id="heading2">
-        Default Image
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Five} id="heading2">
-        Max-Width: 225px
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-  </div>
-</Preview>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.Small}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 165px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.Medium}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading2">
+          Medium Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 225px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/400/250/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.Large}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Large Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 360px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/450/250/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading2">
+          Default Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 225px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+    </div>
+  </DSProvider>
+</Canvas>
 
 ## Cards in a Grid
 
-<Preview>
+<Canvas>
   <Story name="Cards in a Grid">
     <div
       style={{
@@ -496,11 +497,11 @@ prop to override the default width.
       </Card>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Cards in a Stack
 
-<Preview>
+<Canvas>
   <Story name="Cards in a Stack">
     <div
       style={{
@@ -559,13 +560,13 @@ prop to override the default width.
       </Card>
     </div>
   </Story>
-</Preview>
+</Canvas>
 
 ## Custom Image Component
 
 Instead of passing a path for the `imageSrc` prop, you can pass a custom image component in using the `imageComponent` prop.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="Custom Image Component">
     <Card
       imageAlt="Alt text"
@@ -597,11 +598,11 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
       </CardActions>
     </Card>
   </Story>
-</Preview>
+</Canvas>
 
 ## Cards Without Images
 
-<Preview>
+<Canvas>
   <Story name="Cards Without Images">
     <div
       style={{
@@ -690,4 +691,4 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
       </Card>
     </div>
   </Story>
-</Preview>
+</Canvas>
