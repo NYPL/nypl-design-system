@@ -15,7 +15,6 @@ import Icon from "../Icons/Icon";
 import {
   IconNames,
   LogoNames,
-  IconColors,
   IconSizes,
   IconRotationTypes,
 } from "../Icons/IconTypes";
@@ -161,7 +160,11 @@ export const icons = [];
 for (const icon in IconNames) {
   const iname = `Example icon: ${IconNames[icon]}`;
   const iconRender = (
-    <Icon decorative name={icon} size={IconSizes.xxxlarge} titleText={iname} />
+    <Icon
+      name={IconNames[icon]}
+      size={IconSizes.ExtraExtraExtraLarge}
+      titleText={iname}
+    />
   );
   icons.push(iconRender);
 }

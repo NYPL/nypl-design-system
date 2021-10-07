@@ -28,6 +28,7 @@ import {
   ImageSizesWrapper,
   ImageAspectRatioWrapper,
 } from "./components/image";
+import Icon from "./components/icon";
 import { Card, CardActions, CardContent } from "./components/card";
 
 /**
@@ -73,6 +74,7 @@ const theme = extendTheme({
     CustomSelect,
     Heading,
     Hero,
+    Icon,
     ImageAspectRatioWrapper,
     ImageSizesWrapper,
     Label,

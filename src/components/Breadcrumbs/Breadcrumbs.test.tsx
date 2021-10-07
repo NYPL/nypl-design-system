@@ -6,13 +6,13 @@ import { axe } from "jest-axe";
 import Breadcrumbs from "./Breadcrumbs";
 
 describe("Breadcrumbs Accessibility", () => {
-  const breadcrumbString = [
+  const breadcrumbsData = [
     { url: "#string1", text: "string1" },
     { url: "#string2", text: "string2" },
   ];
   it("passes axe accessibility test", async () => {
     const { container } = render(
-      <Breadcrumbs breadcrumbsData={breadcrumbString} />
+      <Breadcrumbs breadcrumbsData={breadcrumbsData} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -20,7 +20,7 @@ describe("Breadcrumbs Accessibility", () => {
 
 describe("Breadcrumbs Snapshot", () => {
   it("Renders the UI snapshot correctly", () => {
-    const breadcrumbString = [
+    const breadcrumbsData = [
       { url: "#string1", text: "string1" },
       { url: "#string2", text: "string2" },
       { url: "#string3", text: "string3" },
@@ -28,7 +28,7 @@ describe("Breadcrumbs Snapshot", () => {
 
     const breadcrumbsSnapshot = renderer
       .create(
-        <Breadcrumbs id="breadcrumbs-test" breadcrumbsData={breadcrumbString} />
+        <Breadcrumbs id="breadcrumbs-test" breadcrumbsData={breadcrumbsData} />
       )
       .toJSON();
 
@@ -37,14 +37,14 @@ describe("Breadcrumbs Snapshot", () => {
 });
 
 describe("Breadcrumbs Testing", () => {
-  const breadcrumbString = [
+  const breadcrumbsData = [
     { url: "#string1", text: "string1" },
     { url: "#string2", text: "string2" },
     { url: "#string3", text: "string3" },
   ];
 
   it("Renders a tag with custom text", () => {
-    render(<Breadcrumbs breadcrumbsData={breadcrumbString} />);
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
 
     // The last breadcrumb (the active page) is not a link.
     expect(screen.getAllByRole("link")).toHaveLength(2);
@@ -55,9 +55,9 @@ describe("Breadcrumbs Testing", () => {
 
   it("Renders icon", () => {
     const { container } = render(
-      <Breadcrumbs breadcrumbsData={breadcrumbString} />
+      <Breadcrumbs breadcrumbsData={breadcrumbsData} />
     );
-    expect(container.querySelector(".icon")).toBeInTheDocument();
+    expect(container.querySelector(".breadcrumbs-icon")).toBeInTheDocument();
   });
 
   it("Throws error when nothing is passed into Breadcrumb", () => {
