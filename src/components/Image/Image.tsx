@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, useMultiStyleConfig, useStyleConfig } from "@chakra-ui/react";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
@@ -36,16 +36,13 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
     imageAspectRatio = ImageRatios.Original,
     imageSize = ImageSizes.Default,
   } = props;
-  const imageSizeStyles = useStyleConfig("ImageSizesWrapper", {
-    variant: imageSize,
+  const styles = useMultiStyleConfig("CustomImageWrapper", {
+    size: imageSize,
+    ratio: imageAspectRatio,
   });
-  const aspectRatioStyles = useStyleConfig("ImageAspectRatioWrapper", {
-    variant: imageAspectRatio,
-  });
-
   return (
-    <Box __css={imageSizeStyles} className={className}>
-      <Box __css={aspectRatioStyles}>{children}</Box>
+    <Box __css={styles.size} className={className}>
+      <Box __css={styles.ratio}>{children}</Box>
     </Box>
   );
 }
