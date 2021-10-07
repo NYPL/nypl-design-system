@@ -26,9 +26,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
-- Updating spacing values to use NYPL spacing rather than "em"s.
+- Updates spacing values to use NYPL spacing rather than "em"s.
 - Updates the `SkeletonLoaderLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
 - Updates the `CardLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
+- Updates font size of the `legend` element used in `CheckboxGroup`, `DatePicker` and `RadioGroup`.
 
 ## 0.25.0
 
