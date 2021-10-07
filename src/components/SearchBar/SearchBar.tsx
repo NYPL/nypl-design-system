@@ -26,8 +26,6 @@ interface TextInputProps {
 export interface SearchBarProps {
   /** Adds 'action' property to the `form` element. */
   action?: string;
-  /** Populates aria-label on the form and labels the entire SearchBar. */
-  ariaLabel?: string;
   /** The onClick callback function for the `Button` component. */
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** A class name for the `form` element. */
@@ -36,18 +34,26 @@ export interface SearchBarProps {
   helperErrorText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Optional string to populate the `HelperErrorText` for the error state
+   * when `isInvalid` is true. */
+  invalidText?: string;
   /** Sets children form components in the disabled state. */
   isDisabled?: boolean;
   /** Sets children form components in the error state. */
   isInvalid?: boolean;
   /** Sets children form components in the required state. */
   isRequired?: boolean;
+  /** Populates the `aria-label` attribute on the form element. */
+  labelText: string;
   /** Adds 'method' property to the `form` element. */
   method?: string;
   /** Handler function when the form is submitted. */
   onSubmit: (event: React.FormEvent) => void;
   /** Required props to render a `Select` element. */
   selectProps?: SelectProps | undefined;
+  /** Will be used to visually display the label text for this
+   * `SearchBar` component. False by default. */
+  showLabel?: boolean;
   /** Custom input element to render instead of a `TextInput` element. */
   textInputElement?: JSX.Element;
   /** Required props to render a `TextInput` element. */
@@ -61,25 +67,27 @@ export interface SearchBarProps {
 export default function SearchBar(props: SearchBarProps) {
   const {
     action,
-    ariaLabel,
     buttonOnClick = null,
     className,
     helperErrorText,
     id = generateUUID(),
+    invalidText,
     isDisabled = false,
     isInvalid = false,
     isRequired = false,
+    labelText,
     method,
     onSubmit,
     selectProps,
     textInputElement,
     textInputProps,
   } = props;
-  const styles = useMultiStyleConfig("SearchBar", {});
+  const styles = useMultiStyleConfig("SearchBar", { hasSelect: selectProps });
   const stateProps = { isDisabled, isInvalid, isRequired };
   const helperErrorTextID = generateUUID();
   const ariaDescribedby = helperErrorTextID;
-  const finalAriaLabel = ariaLabel || textInputProps?.labelText;
+  const footnote = isInvalid ? invalidText : helperErrorText;
+  const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
@@ -105,7 +113,11 @@ export default function SearchBar(props: SearchBarProps) {
       labelText={textInputProps?.labelText}
       placeholder={textInputProps?.placeholder}
       type={TextInputTypes.text}
-      variantType={TextInputVariants.SearchBar}
+      variantType={
+        selectElem
+          ? TextInputVariants.SearchBarSelect
+          : TextInputVariants.SearchBar
+      }
       helperText=""
       showLabel={false}
       {...stateProps}
@@ -115,7 +127,7 @@ export default function SearchBar(props: SearchBarProps) {
   const buttonElem = (
     <Button
       id={generateUUID()}
-      buttonType={ButtonTypes.Primary}
+      buttonType={ButtonTypes.SearchBar}
       type="submit"
       onClick={buttonOnClick}
       disabled={isDisabled}
@@ -129,9 +141,9 @@ export default function SearchBar(props: SearchBarProps) {
     </Button>
   );
   // Render the `HelperErrorText` component.
-  const helperErrorTextElem = helperErrorText && (
+  const helperErrorTextElem = footnote && (
     <HelperErrorText id={helperErrorTextID} isError={isInvalid}>
-      {helperErrorText}
+      {footnote}
     </HelperErrorText>
   );
   // If a custom input element was passed, use that instead of the

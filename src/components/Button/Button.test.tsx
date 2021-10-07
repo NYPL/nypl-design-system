@@ -149,11 +149,23 @@ describe("Button Snapshot", () => {
         </Button>
       )
       .toJSON();
+    const searchBar = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          buttonType={ButtonTypes.SearchBar}
+        >
+          SearchBar
+        </Button>
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(secondary).toMatchSnapshot();
     expect(callout).toMatchSnapshot();
     expect(pill).toMatchSnapshot();
     expect(link).toMatchSnapshot();
+    expect(searchBar).toMatchSnapshot();
   });
 });

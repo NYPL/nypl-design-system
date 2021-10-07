@@ -91,12 +91,16 @@ const callout = {
     bg: "brand.secondary",
   },
 };
+const searchBar = {
+  ...primary,
+  borderLeftRadius: "0",
+};
 
 const Button = {
   baseStyle,
   sizes,
   // Available variants:
-  // primary, secondary, link, pill, icon-only
+  // primary, secondary, link, pill, icon-only, searchBar
   variants: {
     primary,
     secondary,
@@ -104,6 +108,7 @@ const Button = {
     pill,
     ["icon-only"]: iconOnly,
     callout,
+    searchBar,
   },
   // Default values
   defaultProps: {

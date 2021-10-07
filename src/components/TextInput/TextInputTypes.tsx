@@ -25,7 +25,8 @@ export enum TextInputFormats {
 
 export enum TextInputVariants {
   Default = "default",
-  SearchBar = "searchbar",
+  SearchBar = "searchBar",
+  SearchBarSelect = "searchBarSelect",
 }
 
 /*

@@ -43,8 +43,17 @@ const TextInput = {
     },
   },
   variants: {
-    searchbar: {
+    searchBar: {
       flex: "1 1 80%",
+      input: {
+        borderRightRadius: "0",
+      },
+    },
+    searchBarSelect: {
+      flex: "1 1 80%",
+      input: {
+        borderRadius: "0",
+      },
     },
   },
 };

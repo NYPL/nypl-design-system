@@ -28,6 +28,7 @@ const textInputProps = {
   placeholder: "Item Search",
 };
 const helperErrorText = "Search for items in Animal Crossing New Horizons";
+const invalidText = "Could not find the item :(";
 
 describe("SearchBar Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -39,6 +40,7 @@ describe("SearchBar Accessibility", () => {
         selectProps={selectProps}
         textInputProps={textInputProps}
         helperErrorText={helperErrorText}
+        invalidText={invalidText}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -81,6 +83,23 @@ describe("SearchBar", () => {
     );
     expect(screen.getByRole("combobox")).toBeInTheDocument();
     expect(screen.getByLabelText("Select a category")).toBeInTheDocument();
+  });
+
+  it("renders the invalid text in the invalid state", () => {
+    render(
+      <SearchBar
+        id="id"
+        ariaLabel="searchbar"
+        onSubmit={searchBarSubmit}
+        selectProps={selectProps}
+        textInputProps={textInputProps}
+        helperErrorText={helperErrorText}
+        invalidText={invalidText}
+        isInvalid
+      />
+    );
+    expect(screen.getByText(invalidText)).toBeInTheDocument();
+    expect(screen.queryByText(helperErrorText)).not.toBeInTheDocument();
   });
 
   it("calls the callback function on submit ", () => {

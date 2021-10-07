@@ -37,6 +37,8 @@ const Select = {
     searchbar: {
       select: {
         flex: "1 1 20%",
+        borderRight: "none",
+        borderRightRadius: "0",
       },
     },
   },
