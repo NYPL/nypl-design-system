@@ -31,11 +31,13 @@ function Text(props: React.PropsWithChildren<TextProps>) {
     TextDisplaySizes,
     TextDisplaySizes.Default
   );
-  isBold && (variant = `${variant}Bold`);
-  isItalic && (variant = `${variant}Italic`);
 
-  const styles = useStyleConfig("Text", { variant });
-  const finalClassName = noSpace ? `${className} no-space` : className;
+  const styles = useStyleConfig("Text", {
+    variant,
+    isBold: isBold,
+    isItalic: isItalic,
+    noSpace: noSpace,
+  });
 
   if (!children) {
     console.warn(
@@ -44,7 +46,7 @@ function Text(props: React.PropsWithChildren<TextProps>) {
   }
 
   return (
-    <ChakraText className={finalClassName} sx={styles}>
+    <ChakraText className={className} sx={styles}>
       {children}
     </ChakraText>
   );
