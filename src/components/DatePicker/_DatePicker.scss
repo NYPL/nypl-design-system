@@ -2,6 +2,7 @@ fieldset {
   legend {
     @include space-stack-xs;
 
+    font-size: 14px;
     font-weight: var(--font-weight-medium);
   }
 

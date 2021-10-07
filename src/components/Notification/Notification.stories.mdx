@@ -15,6 +15,12 @@ import Notification, {
 } from "./Notification";
 import { NotificationTypes } from "./NotificationTypes";
 import Icon from "../Icons/Icon";
+import {
+  IconSizes,
+  IconColors,
+  IconNames,
+  IconAlign,
+} from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -183,7 +189,12 @@ The default icon can be overridden by using the `icon` prop to pass a custom `Ic
     {(args) => (
       <Notification
         icon={
-          <Icon name="check" size="large" color="section-research-secondary" />
+          <Icon
+            align={IconAlign.Left}
+            name={IconNames.Check}
+            size={IconSizes.Large}
+            color={IconColors.SectionResearchSecondary}
+          />
         }
       >
         <NotificationHeading>Custom Icon</NotificationHeading>

@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
-import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Button from "../Button/Button";
@@ -167,10 +167,9 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
       onClick={prevSlide}
     >
       <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate90}
-        modifiers={["small"]}
+        name={IconNames.Arrow}
+        iconRotation={IconRotationTypes.Rotate90}
+        size={IconSizes.Small}
       />
     </Button>
   );
@@ -185,10 +184,9 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
       onClick={nextSlide}
     >
       <Icon
-        name={IconNames.arrow}
-        decorative={true}
-        iconRotation={IconRotationTypes.rotate270}
-        modifiers={["small"]}
+        name={IconNames.Arrow}
+        iconRotation={IconRotationTypes.Rotate270}
+        size={IconSizes.Small}
       />
     </Button>
   );
