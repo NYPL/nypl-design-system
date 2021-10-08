@@ -27,10 +27,20 @@ const select = {
 const Select = {
   parts: ["select", "helper"],
   baseStyle: {
+    marginBottom: "xs",
     helper: {
       ...helperTextMargin,
     },
     select,
+  },
+  variants: {
+    searchbar: {
+      select: {
+        flex: "1 1 20%",
+        borderRight: "none",
+        borderRightRadius: "0",
+      },
+    },
   },
   defaultProps: {
     size: "md",
