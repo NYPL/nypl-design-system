@@ -34,9 +34,9 @@ function Text(props: React.PropsWithChildren<TextProps>) {
 
   const styles = useStyleConfig("Text", {
     variant,
-    isBold: isBold,
-    isItalic: isItalic,
-    noSpace: noSpace,
+    isBold,
+    isItalic,
+    noSpace,
   });
 
   if (!children) {
