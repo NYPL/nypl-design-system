@@ -24,12 +24,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports Chakra's `Grid` and `GridItem` components.
 - Composes the DS `Label` component with Chakra component and updates the font size.
 - Composes the DS `StatusBadge` component from Chakra's component.
+- Composes the DS `Icon` component with Chakra's `Icon` component. Added new props for `Icon` sizing, alignment, name, and rotation.
+- Composes the DS `SearchBar` component from DS `Select`, `TextInput`, `Button`, and `HelperErrorText` components.
 
 ### Changes
 
-- Updating spacing values to use NYPL spacing rather than "em"s.
+- Updates spacing values to use NYPL spacing rather than "em"s.
 - Updates the `SkeletonLoaderLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
 - Updates the `CardLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
+- Updates font size of the `legend` element used in `CheckboxGroup`, `DatePicker` and `RadioGroup`.
 
 ## 0.25.0
 

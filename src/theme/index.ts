@@ -16,9 +16,11 @@ import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 import Hero from "./components/hero";
+import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
 import Radio from "./components/radio";
+import SearchBar from "./components/searchBar";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
@@ -64,9 +66,11 @@ const theme = extendTheme({
     CustomSelect,
     Heading,
     Hero,
+    Icon,
     Label,
     Link,
     Radio,
+    SearchBar,
     StatusBadge,
     Tabs,
     ...TemplateStyles,
