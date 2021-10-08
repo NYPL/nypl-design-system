@@ -4,8 +4,7 @@ import SimpleGrid from "../Grid/SimpleGrid";
 import { Box } from "@chakra-ui/react";
 import generateUUID from "../../helpers/generateUUID";
 
-/** FormRow child-component */
-export interface FormRowProps {
+export interface FormChildProps {
   /** className to be applied to FormRow */
   className?: string;
   /** Spacing size (internal use) */
@@ -14,7 +13,21 @@ export interface FormRowProps {
   id?: string;
 }
 
-export function FormRow(props: React.PropsWithChildren<FormRowProps>) {
+export interface FormProps {
+  /** Optional form `action` attribute */
+  action?: string;
+  /** Optional className you can add in addition to `form` */
+  className?: string;
+  /** Optional ID that other components can cross reference */
+  id?: string;
+  /** Optional form `method` attribute */
+  method?: "get" | "post";
+  /** Optional spacing size; if omitted, the default `large` (2rem / 32px) spacing will be used; ```IMPORTANT: for general form layout, this prop should not be used``` */
+  spacing?: FormSpacing;
+}
+
+/** FormRow child-component */
+export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
   const { children, className, gap, id } = props;
   const count = React.Children.count(children);
   const alteredChildren = React.Children.map(
@@ -31,16 +44,7 @@ export function FormRow(props: React.PropsWithChildren<FormRowProps>) {
 }
 
 /** FormField child-component */
-export interface FormFieldProps {
-  /** className to be applied to FormField */
-  className?: string;
-  /** Spacing size (internal use) */
-  gap?: FormSpacing;
-  /** ID that other components can cross reference (internal use) */
-  id?: string;
-}
-
-export function FormField(props: React.PropsWithChildren<FormFieldProps>) {
+export function FormField(props: React.PropsWithChildren<FormChildProps>) {
   const { children, className, gap, id } = props;
   return (
     <SimpleGrid columns={1} className={className} gap={gap} id={id}>
@@ -50,19 +54,6 @@ export function FormField(props: React.PropsWithChildren<FormFieldProps>) {
 }
 
 /** main Form component */
-export interface FormProps {
-  /** Optional form `action` attribute */
-  action?: string;
-  /** Optional className you can add in addition to `form` */
-  className?: string;
-  /** Optional ID that other components can cross reference */
-  id?: string;
-  /** Optional form `method` attribute */
-  method?: "get" | "post";
-  /** Optional spacing size; if omitted, the default `large` (2rem / 32px) spacing will be used; ```IMPORTANT: for general form layout, this prop should not be used``` */
-  spacing?: FormSpacing;
-}
-
 export default function Form(props: React.ComponentProps<"form"> & FormProps) {
   const {
     action,
