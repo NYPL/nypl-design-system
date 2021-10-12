@@ -43,7 +43,7 @@ export interface InputProps {
   ) => void;
   /** Populates the placeholder for the input/textarea elements */
   placeholder?: string;
-  /** Offers the ability to hide the input's helper/invalid text. */
+  /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the label onscreen or hide it. Refer to the
    * `labelText` property for more information. */

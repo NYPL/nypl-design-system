@@ -179,7 +179,12 @@ describe("Radio Button", () => {
 
   it("sets the error state for all its Radio children", () => {
     render(
-      <RadioGroup labelText="Test Label" name="test9" isInvalid>
+      <RadioGroup
+        labelText="Test Label"
+        name="test9"
+        isInvalid
+        invalidText="There is an error :("
+      >
         <Radio value="2" labelText="Radio 2" />
         <Radio value="3" labelText="Radio 3" />
         <Radio value="4" labelText="Radio 4" />
@@ -191,6 +196,24 @@ describe("Radio Button", () => {
     expect(radios[0]).toHaveAttribute("aria-invalid");
     expect(radios[1]).toHaveAttribute("aria-invalid");
     expect(radios[2]).toHaveAttribute("aria-invalid");
+    expect(screen.getByText("There is an error :(")).toBeInTheDocument();
+  });
+
+  it("does not render the error text when 'showHelperInvalidText' is false", () => {
+    render(
+      <RadioGroup
+        labelText="Test Label"
+        name="test10"
+        isInvalid
+        invalidText="There is an error :("
+        showHelperInvalidText={false}
+      >
+        <Radio value="2" labelText="Radio 2" />
+        <Radio value="3" labelText="Radio 3" />
+        <Radio value="4" labelText="Radio 4" />
+      </RadioGroup>
+    );
+    expect(screen.queryByText("There is an error :(")).not.toBeInTheDocument();
   });
 
   it("renders the UI snapshot correctly", () => {

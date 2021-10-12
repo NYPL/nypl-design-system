@@ -38,7 +38,7 @@ export interface SelectProps {
   /** The callback function to get the selected value.
    * Should be passed along with `value` for controlled components. */
   onChange?: (event: React.FormEvent) => void;
-  /** Offers the ability to hide the select's helper/invalid text. */
+  /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the select's label onscreen or hide it. Refer
    * to the `labelText` property for more information. */

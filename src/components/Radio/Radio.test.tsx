@@ -88,7 +88,7 @@ describe("Radio Button", () => {
       <Radio
         id="inputID-attributes"
         labelText="onChange test"
-        showLabel={true}
+        showLabel
         isChecked
       />
     );
@@ -100,7 +100,7 @@ describe("Radio Button", () => {
       <Radio
         id="inputID-attributes"
         labelText="onChange test"
-        showLabel={true}
+        showLabel
         isDisabled
       />
     );
@@ -112,7 +112,7 @@ describe("Radio Button", () => {
       <Radio
         id="inputID-attributes"
         labelText="onChange test"
-        showLabel={true}
+        showLabel
         isRequired
       />
     );
@@ -124,11 +124,27 @@ describe("Radio Button", () => {
       <Radio
         id="inputID-attributes"
         labelText="onChange test"
-        showLabel={true}
+        showLabel
+        invalidText="There is an error!"
         isInvalid
       />
     );
     expect(screen.getByRole("radio")).toHaveAttribute("aria-invalid");
+    expect(screen.getByText("There is an error!")).toBeInTheDocument();
+  });
+
+  it("does not render the error text when 'showHelperInvalidText' is false", () => {
+    render(
+      <Radio
+        id="inputID-attributes"
+        labelText="onChange test"
+        showLabel
+        showHelperInvalidText={false}
+        isInvalid
+      />
+    );
+    expect(screen.getByRole("radio")).toHaveAttribute("aria-invalid");
+    expect(screen.queryByText("There is an error!")).not.toBeInTheDocument();
   });
 
   it("renders the UI snapshot correctly", () => {

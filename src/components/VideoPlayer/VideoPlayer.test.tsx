@@ -97,6 +97,22 @@ describe("VideoPlayer", () => {
     it("Renders HelperErrorText component", () => {
       expect(screen.getByText("Video Player helper text.")).toBeInTheDocument();
     });
+
+    it("does not render the helper text", () => {
+      utils.rerender(
+        <VideoPlayer
+          videoType={VideoPlayerTypes.YouTube}
+          videoId={videoId}
+          headingText="Video Player Heading"
+          descriptionText="Video Player description text."
+          helperText="Video Player helper text."
+          showHelperInvalidText={false}
+        />
+      );
+      expect(
+        screen.queryByText("Video Player helper text.")
+      ).not.toBeInTheDocument();
+    });
   });
 
   describe("custom iframe title", () => {
