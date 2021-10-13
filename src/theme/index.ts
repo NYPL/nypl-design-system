@@ -10,23 +10,24 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
+import Card from "./components/card";
 import Checkbox from "./components/checkbox";
-import Radio from "./components/radio";
-import CustomRadioGroup from "./components/customRadioGroup";
 import CustomCheckboxGroup from "./components/customCheckboxGroup";
-import Tabs from "./components/tabs";
-import Hero from "./components/hero";
-import TextInput from "./components/textInput";
+import { CustomImage, CustomImageWrapper } from "./components/image";
+import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
-import TemplateStyles from "./components/template";
-import Link from "./components/link";
-import Label from "./components/label";
-import StatusBadge from "./components/statusBadge";
-import { CustomImage, CustomImageWrapper } from "./components/image";
+import Hero from "./components/hero";
 import Icon from "./components/icon";
+import Label from "./components/label";
+import Link from "./components/link";
+import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
-import Card from "./components/card";
+import StatusBadge from "./components/statusBadge";
+import Tabs from "./components/tabs";
+import TemplateStyles from "./components/template";
+import Text from "./components/text";
+import TextInput from "./components/textInput";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -78,6 +79,7 @@ const theme = extendTheme({
     StatusBadge,
     Tabs,
     ...TemplateStyles,
+    Text,
     TextInput,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this

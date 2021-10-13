@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders the UI snapshot correctly 1`] = `
+<p
+  className="chakra-text css-0"
+>
+  Animal Crossing is all that!
+</p>
+`;
+
+exports[`Text renders the UI snapshot correctly 2`] = `
+<p
+  className="chakra-text css-0"
+>
+  Animal Crossing is all that!
+</p>
+`;
+
+exports[`Text renders the UI snapshot correctly 3`] = `
+<p
+  className="chakra-text css-0"
+>
+  Animal Crossing is all that!
+</p>
+`;
+
+exports[`Text renders the UI snapshot correctly 4`] = `
+<p
+  className="chakra-text css-0"
+>
+  Animal Crossing is all that!
+</p>
+`;
