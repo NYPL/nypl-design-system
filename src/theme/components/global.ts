@@ -11,7 +11,7 @@ const activeFocus = {
   outline: "1px solid",
   outlineColor: "ui.focus",
 };
-// Used in `Select` and `TextInput`.
+// Used in `Select`.
 const helperTextMargin = {
   marginTop: "xs",
   marginBottom: "0",

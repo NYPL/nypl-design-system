@@ -1,4 +1,4 @@
-import { activeFocus, helperTextMargin } from "./global";
+import { activeFocus } from "./global";
 
 const input = {
   border: "1px solid",
@@ -31,9 +31,8 @@ const input = {
 const TextInput = {
   parts: ["helper", "input", "textarea"],
   baseStyle: {
-    marginBottom: "xs",
     helper: {
-      ...helperTextMargin,
+      marginTop: "xs",
     },
     input,
     textarea: {
