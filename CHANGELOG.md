@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Accordion` component to internally use Chakra components.
 - Adds DS `SimpleGrid` component composed from Chakra's `Simplegrid` component.
+- Adds DS `Text` component composed from Chakra's `Text` component.
 - Update the NYPL Colors with updated color names and values.
 - Composes the DS `TextInput` component from Chakra's `Input` and `Textarea` components.
 - Composes the DS `Select` component from Chakra's `Select` component.
@@ -23,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports Chakra's `Grid` and `GridItem` components.
 - Composes the DS `Label` component with Chakra component and updates the font size.
 - Composes the DS `StatusBadge` component from Chakra's component.
+- Composes the DS `Forms` component using DS and Chakra components.
 - Composes the DS `Icon` component with Chakra's `Icon` component. Added new props for `Icon` sizing, alignment, name, and rotation.
 - Composes the DS `SearchBar` component from DS `Select`, `TextInput`, `Button`, and `HelperErrorText` components.
 
