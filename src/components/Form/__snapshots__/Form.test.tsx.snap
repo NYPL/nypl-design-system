@@ -2,26 +2,36 @@
 
 exports[`Form Snapshot Renders the UI snapshot correctly 1`] = `
 <form
-  className="form "
+  aria-label="form"
+  className="css-0"
   id="snapshot-form"
 >
   <div
-    className="form-row "
+    className="css-aq1pyb"
+    id="snapshot-form-parent"
   >
     <div
-      className="form-field "
+      className="css-1ao258g"
+      id="snapshot-form-child0"
     >
-      Form Field 1
-    </div>
-    <div
-      className="form-field "
-    >
-      Form Field 2
-    </div>
-    <div
-      className="form-field "
-    >
-      Form Field 3
+      <div
+        className="css-aq1pyb"
+        id="snapshot-form-child0-grandchild0"
+      >
+        Form Field 1
+      </div>
+      <div
+        className="css-aq1pyb"
+        id="snapshot-form-child0-grandchild1"
+      >
+        Form Field 2
+      </div>
+      <div
+        className="css-aq1pyb"
+        id="snapshot-form-child0-grandchild2"
+      >
+        Form Field 3
+      </div>
     </div>
   </div>
 </form>
