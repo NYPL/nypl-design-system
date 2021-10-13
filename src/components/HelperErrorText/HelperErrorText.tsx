@@ -1,24 +1,19 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useStyleConfig } from "@chakra-ui/react";
+
+import generateUUID from "../../helpers/generateUUID";
 
 interface HelperErrorTextProps {
   /** Added prop when HelperText is errored */
-  ariaLive?: "polite" | "off" | "assertive";
-  /** Added prop when HelperText is errored */
   ariaAtomic?: boolean;
-  /** Additional attributes passed to <HelperErrorText> */
-  attributes?: { [key: string]: any };
-
+  /** Added prop when HelperText is errored */
+  ariaLive?: "polite" | "off" | "assertive";
   /** Additional className to add to the helperErrorText */
   className?: string;
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
   /** unique ID for helper */
   id?: string;
   /** Toggles between helper and error styling */
-  isError: boolean;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
+  isInvalid?: boolean;
 }
 
 /**
@@ -28,36 +23,24 @@ export default function HelperErrorText(
   props: React.PropsWithChildren<HelperErrorTextProps>
 ) {
   const {
-    attributes,
-    id,
-    blockName,
-    isError,
-    ariaLive = "polite",
     ariaAtomic = true,
+    ariaLive = "polite",
+    className,
+    id = generateUUID(),
+    isInvalid = false,
   } = props;
-
-  const baseClass = "helper-text";
-  const modifiers = [];
-  let announceAriaLive = false;
-
-  if (isError) {
-    modifiers.push("error");
-    announceAriaLive = true;
-  }
-
-  if (props.modifiers) {
-    modifiers.push(...props.modifiers);
-  }
+  const announceAriaLive = isInvalid;
+  const styles = useStyleConfig("HelperErrorText", { isInvalid });
 
   return (
-    <div
+    <Box
       id={id}
-      className={bem(baseClass, modifiers, blockName)}
-      aria-live={announceAriaLive ? ariaLive : "off"}
+      className={className}
       aria-atomic={ariaAtomic}
-      {...attributes}
+      aria-live={announceAriaLive ? ariaLive : "off"}
+      __css={styles}
     >
       {props.children}
-    </div>
+    </Box>
   );
 }

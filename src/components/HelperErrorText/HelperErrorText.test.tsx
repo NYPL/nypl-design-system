@@ -7,9 +7,7 @@ import HelperErrorText from "./HelperErrorText";
 describe("HelperErrorText Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
-      <HelperErrorText id="helperTextWithLink" isError={false}>
-        Text
-      </HelperErrorText>
+      <HelperErrorText id="helperTextWithLink">Text</HelperErrorText>
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -17,18 +15,14 @@ describe("HelperErrorText Accessibility", () => {
 
 describe("HelperErrorText", () => {
   it("Renders HelperErrorText", () => {
-    render(
-      <HelperErrorText id="helperTextWithLink" isError={false}>
-        Text
-      </HelperErrorText>
-    );
+    render(<HelperErrorText id="helperTextWithLink">Text</HelperErrorText>);
     expect(screen.getByText("Text")).toBeInTheDocument();
     expect(screen.getByText("Text")).toHaveAttribute("class", "helper-text");
   });
 
   it("Has 'error' modifier if error is passed", () => {
     render(
-      <HelperErrorText id="helperTextWithLink" isError={true}>
+      <HelperErrorText id="helperTextWithLink" isInvalid>
         Text
       </HelperErrorText>
     );
@@ -40,7 +34,7 @@ describe("HelperErrorText", () => {
 
   it("Has aria-live and aria-atomic properties when errored", () => {
     render(
-      <HelperErrorText id="helperTextWithLink" isError={true}>
+      <HelperErrorText id="helperTextWithLink" isInvalid>
         Text
       </HelperErrorText>
     );
@@ -50,7 +44,7 @@ describe("HelperErrorText", () => {
 
   it("Accepts an aria-atomic value of false", () => {
     const utils = render(
-      <HelperErrorText id="helperTextWithLink" isError={true}>
+      <HelperErrorText id="helperTextWithLink" isInvalid>
         Text
       </HelperErrorText>
     );
@@ -58,11 +52,7 @@ describe("HelperErrorText", () => {
     expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
 
     utils.rerender(
-      <HelperErrorText
-        id="helperTextWithLink"
-        isError={true}
-        ariaAtomic={false}
-      >
+      <HelperErrorText id="helperTextWithLink" ariaAtomic={false} isInvalid>
         <p>
           This is static <span>but this part changes often!</span>
         </p>
