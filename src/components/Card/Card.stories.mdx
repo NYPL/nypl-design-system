@@ -20,6 +20,7 @@ import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -48,7 +49,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.2`   |
 
 <Description of={Card} />
 
@@ -135,13 +136,7 @@ the default placement and move the image to the last element within a `Card`.
 
 <Canvas>
   <Story name="Card Image Position">
-    <div
-      style={{
-        display: "grid",
-        gridGap: "2rem",
-        gridTemplateColumns: "repeat(2, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={2}>
       <Card
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
@@ -169,7 +164,7 @@ the default placement and move the image to the last element within a `Card`.
           libero, a pharetra augue.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
 </Canvas>
 
@@ -177,13 +172,7 @@ the default placement and move the image to the last element within a `Card`.
 
 <Canvas>
   <DSProvider>
-    <div
-      style={{
-        display: "grid",
-        gridGap: "2rem",
-        gridTemplateColumns: "repeat(1, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={1}>
       <Card
         layout={CardLayouts.Row}
         center
@@ -217,7 +206,7 @@ the default placement and move the image to the last element within a `Card`.
           facilisis in, egestas eget quam.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -231,13 +220,7 @@ prop to override the default width.
 
 <Canvas>
   <Story name="Card Image Size">
-    <div
-      style={{
-        display: "grid",
-        gridGap: "4rem",
-        gridTemplateColumns: "repeat(1, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={1}>
       <Card
         center
         imageSrc="https://placeimg.com/400/200/animals"
@@ -275,6 +258,7 @@ prop to override the default width.
           libero, a pharetra augue.
         </CardContent>
       </Card>
+      <HorizontalRule />
       <Card
         center
         imageSrc="https://placeimg.com/410/210/animals"
@@ -293,6 +277,7 @@ prop to override the default width.
           libero, a pharetra augue.
         </CardContent>
       </Card>
+      <HorizontalRule />
       <Card
         center
         imageSrc="https://placeimg.com/410/210/animals"
@@ -310,7 +295,7 @@ prop to override the default width.
           libero, a pharetra augue.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
 </Canvas>
 
@@ -318,13 +303,7 @@ prop to override the default width.
 
 <Canvas>
   <DSProvider>
-    <div
-      style={{
-        display: "grid",
-        gridGap: "2rem",
-        gridTemplateColumns: "repeat(1, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={1}>
       <Card
         layout={CardLayouts.Row}
         center
@@ -401,7 +380,7 @@ prop to override the default width.
           facilisis in, egestas eget quam.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -409,13 +388,7 @@ prop to override the default width.
 
 <Canvas>
   <Story name="Cards in a Grid">
-    <div
-      style={{
-        display: "grid",
-        gridGap: "2rem",
-        gridTemplateColumns: "repeat(3, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={3}>
       <Card
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
@@ -494,7 +467,7 @@ prop to override the default width.
           libero, a pharetra augue.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
 </Canvas>
 
@@ -502,13 +475,7 @@ prop to override the default width.
 
 <Canvas>
   <Story name="Cards in a Stack">
-    <div
-      style={{
-        display: "grid",
-        gridGap: "2rem",
-        gridTemplateColumns: "repeat(1, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={1}>
       <Card
         layout={CardLayouts.Row}
         center
@@ -557,7 +524,7 @@ prop to override the default width.
           facilisis in, egestas eget quam.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
 </Canvas>
 
@@ -603,14 +570,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
 
 <Canvas>
   <Story name="Cards Without Images">
-    <div
-      style={{
-        display: "grid",
-        gridGap: "2rem",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        marginBottom: "2rem",
-      }}
-    >
+    <SimpleGrid columns={3}>
       <Card border>
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -641,14 +601,9 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
           Praesent commodo cursus magna, vel scelerisque nisl.
         </CardContent>
       </Card>
-    </div>
-    <div
-      style={{
-        display: "grid",
-        gridGap: "2rem",
-        gridTemplateColumns: "repeat(1, 1fr)",
-      }}
-    >
+    </SimpleGrid>
+    <br />
+    <SimpleGrid columns={1}>
       <Card layout={CardLayouts.Row} border>
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -688,6 +643,6 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
           eget metus.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
 </Canvas>
