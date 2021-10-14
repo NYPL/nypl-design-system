@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.1 (October 14, 2021)
+
 ### Adds
 
 - Updates the `Accordion` component to internally use Chakra components.
