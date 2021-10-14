@@ -17,6 +17,8 @@ export interface LinkProps {
   href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
+  /** Optionally pass in additional Chakra-based styles. */
+  sx?: { [key: string]: any };
   /** Controls the link visuals: action, button, backwards, forwards, or default. */
   type?: LinkTypes;
 }
@@ -70,6 +72,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       className,
       href,
       id = generateUUID(),
+      sx = {},
       type = LinkTypes.Default,
     } = props;
 
@@ -130,7 +133,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           className={className}
           ref={ref}
           {...linkProps}
-          __css={style}
+          __css={{ ...style, ...sx }}
         >
           {newChildren}
         </Box>

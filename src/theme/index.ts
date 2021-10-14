@@ -19,6 +19,7 @@ import Hero from "./components/hero";
 import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
+import Pagination from "./components/pagination";
 import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
 import StatusBadge from "./components/statusBadge";
@@ -69,6 +70,7 @@ const theme = extendTheme({
     Icon,
     Label,
     Link,
+    Pagination,
     Radio,
     SearchBar,
     StatusBadge,

@@ -1,38 +1,36 @@
 import * as React from "react";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Link from "../Link/Link";
-import bem from "../../utils/bem";
 import { range } from "../../utils/utils";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface PaginationProps {
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
   /** Additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
   className?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
-  /** The total number of pages. */
-  pageCount: number;
   /** The current page selected. */
   currentPage: number;
   /** A method that returns a Link component given the target page */
   getPageHref?: (pageNumber: number) => string;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** The method to callback when an item is selected. Passes the selected page to the consuming app as an argument. */
   onPageChange?: (selected: number) => void;
+  /** The total number of pages. */
+  pageCount: number;
 }
 
 /** A component that provides a navigational list of page items. */
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const {
-    blockName,
     className,
-    modifiers = [],
-    pageCount,
     currentPage = 1,
     getPageHref,
+    id = generateUUID(),
     onPageChange,
+    pageCount,
   } = props;
-
+  const styles = useMultiStyleConfig("Pagination", {});
   // If there are 0 or 1 pages, the pagination should not show.
   if (pageCount <= 1) {
     return null;
@@ -90,13 +88,15 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
 
     pageAttributes["aria-label"] = item ? item : null;
 
-    const pageClass = currentPage === item ? "selected" : null;
-
     return (
       <Link
         attributes={{ ...pageAttributes }}
-        className={bem("link", modifiers, "pagination", [pageClass])}
         href={changeUrls ? getPageHref(item) : "#"}
+        sx={{
+          ...styles.link,
+          color: currentPage === item ? "ui.black" : null,
+          pointerEvents: currentPage === item ? "none" : null,
+        }}
       >
         {item}
       </Link>
@@ -145,9 +145,9 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
       const itemElement =
         typeof item === "number" ? getPageElement(item) : "...";
       return (
-        <li key={item} className={bem("item", modifiers, "pagination")}>
+        <Box as="li" key={item} __css={styles.item}>
           {itemElement}
-        </li>
+        </Box>
       );
     });
 
@@ -175,44 +175,52 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     tabIndex: nextDisabled ? -1 : null,
   };
 
-  const prevClass = prevDisabled ? "disabled" : null;
-  const nextClass = nextDisabled ? "disabled" : null;
-
   return (
-    <nav
+    <Box
+      as="nav"
+      id={id}
       aria-label="Pagination"
-      className={bem("pagination", modifiers, blockName, [className])}
+      className={className}
+      __css={styles}
     >
-      <ul className={bem("list", modifiers, "pagination")}>
-        <li key="previous" className={bem("item", modifiers, "pagination")}>
+      <Box as="ul" __css={styles.list}>
+        <Box as="li" key="previous" __css={styles.item}>
           <Link
             attributes={{ ...prevAttributes }}
-            className={bem("link", modifiers, "pagination", [prevClass])}
             href={
               !prevDisabled && changeUrls ? getPageHref(currentPage - 1) : "#"
             }
+            sx={{
+              ...styles.link,
+              color: prevDisabled ? "ui.gray.dark" : null,
+              pointerEvents: prevDisabled ? "none" : null,
+            }}
           >
             Previous
           </Link>
-        </li>
+        </Box>
 
         {pagination(currentPage)}
 
-        <li key="next" className={bem("item", modifiers, "pagination")}>
+        <Box as="li" key="next" __css={styles.item}>
           <Link
             attributes={{
               ...nextAttributes,
             }}
-            className={bem("link", modifiers, "pagination", [nextClass])}
             href={
               !nextDisabled && changeUrls ? getPageHref(currentPage + 1) : "#"
             }
+            sx={{
+              ...styles.link,
+              color: nextDisabled ? "ui.gray.dark" : null,
+              pointerEvents: nextDisabled ? "none" : null,
+            }}
           >
             Next
           </Link>
-        </li>
-      </ul>
-    </nav>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
