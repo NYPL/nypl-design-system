@@ -2,10 +2,16 @@ import { Colors } from "@chakra-ui/react";
 
 /**
  * Colors taken from "../../styles/01-colors/*.scss"
+ *
  * All UI colors can be found in Storybook:
- *   https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/style-guide-colors--colors-utility
+ *   https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/documentation-style-guide-colors--colors-utility
+ * and in Figma:
+ *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=14989%3A37
+ *
  * All Brand colors can be found in Storybook:
- *   https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/style-guide-colors--colors-brand
+ *   https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/documentation-style-guide-colors--colors-brand
+ * and in Figma:
+ *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=15454%3A47007
  *
  * At the end of this file, there are objects that extend Chakra's default
  * color shade palette for individual colors. WE DO NOT RECOMMEND to use them
@@ -14,8 +20,9 @@ import { Colors } from "@chakra-ui/react";
  */
 
 // Reusable variables:
-const grayLight = "#E0E0E0";
-const grayxxlight = "#FAFAFA";
+const grayLightCool = "#E0E0E0";
+const grayxxLightCool = "#FAFAFA";
+const grayMedium = "#BDBDBD";
 const brandPrimary = "#C60917";
 const brandSecondary = "#760000";
 const brandObj = {
@@ -32,10 +39,13 @@ const colors: Colors = {
     white: "#fff",
     /// State and link utilities
     disabled: {
-      primary: grayLight,
-      secondary: grayxxlight,
+      primary: grayLightCool,
+      secondary: grayxxLightCool,
     },
-    error: "#97272C",
+    error: {
+      primary: "#97272C",
+      secondary: "#6F0106",
+    },
     focus: "#4181F1",
     link: {
       primary: "#0576D3",
@@ -58,12 +68,12 @@ const colors: Colors = {
     gray: {
       xdark: "#424242",
       dark: "#616161",
-      medium: "#BDBDBD",
-      light: grayLight,
-      "warm-light": "#EFEDEB",
-      xlight: "#F5F5F5",
-      "warm-xlight": "#F8F8F7",
-      xxlight: grayxxlight,
+      medium: grayMedium,
+      "light-cool": grayLightCool,
+      "light-warm": "#EFEDEB",
+      "x-light-cool": "#F5F5F5",
+      "x-light-warm": "#F8F8F7",
+      "xx-light-cool": grayxxLightCool,
     },
   },
 
@@ -91,6 +101,12 @@ const colors: Colors = {
     /** Locations is used for Location Finder and all branch pages with
      * the exceptions of some research libraries. */
     locations: brandObj,
+
+    /** Blogs is used for the Blogs section. */
+    blogs: {
+      primary: grayLightCool,
+      secondary: grayMedium,
+    },
 
     /** Research libraries with specific brand colors to adhere to. */
     "research-library": {

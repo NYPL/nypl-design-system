@@ -29,7 +29,7 @@
   display: block;
   font-weight: 300;
   margin-top: -6px; // accounts for the focus ring on the input
-  outline: 1px solid var(--ui-gray-light);
+  outline: 1px solid var(--ui-gray-light-cool);
   position: absolute;
   width: 100%;
   z-index: 2;
@@ -47,7 +47,7 @@
 }
 
 .react-autosuggest__suggestion--highlighted {
-  background-color: var(--ui-gray-light);
+  background-color: var(--ui-gray-light-cool);
 }
 
 .auto-suggest-bottom {

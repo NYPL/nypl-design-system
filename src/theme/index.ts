@@ -1,15 +1,31 @@
 import { extendTheme } from "@chakra-ui/react";
-import colors from "./foundations/colors";
+/** Global theme styles */
 import global from "./foundations/global";
-import typography from "./foundations/typography";
-import { spacing } from "./foundations/spacing";
 import breakpoints from "./foundations/breakpoints";
+import colors from "./foundations/colors";
+import shadows from "./foundations/shadows";
+import { spacing } from "./foundations/spacing";
+import typography from "./foundations/typography";
+/** Component styles */
+import Accordion from "./components/accordion";
+import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import Checkbox from "./components/checkbox";
-import Radio from "./components/radio";
+import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import CustomRadioGroup from "./components/customRadioGroup";
-import Tabs from "./components/tabs";
+import CustomSelect from "./components/select";
 import Heading from "./components/heading";
+import Hero from "./components/hero";
+import Icon from "./components/icon";
+import Label from "./components/label";
+import Link from "./components/link";
+import Radio from "./components/radio";
+import SearchBar from "./components/searchBar";
+import StatusBadge from "./components/statusBadge";
+import Tabs from "./components/tabs";
+import TemplateStyles from "./components/template";
+import Text from "./components/text";
+import TextInput from "./components/textInput";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -33,19 +49,33 @@ const theme = extendTheme({
   styles: { global },
   breakpoints,
   colors,
-  ...typography,
+  shadows,
   space: spacing,
+  ...typography,
   /**
    * Chakra documentation on component styles:
    * https://chakra-ui.com/docs/theming/component-style
    */
   components: {
+    Accordion,
+    Breadcrumb,
     Button,
     Checkbox,
-    Heading,
-    Radio,
+    CustomCheckboxGroup,
     CustomRadioGroup,
+    CustomSelect,
+    Heading,
+    Hero,
+    Icon,
+    Label,
+    Link,
+    Radio,
+    SearchBar,
+    StatusBadge,
     Tabs,
+    ...TemplateStyles,
+    Text,
+    TextInput,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this
   // can be updated to be anything we want. This can be "nypl" to have the

@@ -26,7 +26,7 @@ describe("SkeletonLoader", () => {
       expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
       expect(container.querySelector(".skeleton-loader")).toHaveAttribute(
         "class",
-        "skeleton-loader skeleton-loader--vertical "
+        "skeleton-loader skeleton-loader--column "
       );
       expect(container.querySelector(".skeleton-loader")).not.toHaveAttribute(
         "class",
@@ -34,27 +34,27 @@ describe("SkeletonLoader", () => {
       );
     });
 
-    it("renders vertical layout", () => {
+    it("renders column layout", () => {
       const utils = render(
-        <SkeletonLoader layout={SkeletonLoaderLayouts.Vertical} />
+        <SkeletonLoader layout={SkeletonLoaderLayouts.Column} />
       );
       container = utils.container;
 
       expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
       expect(
-        container.querySelector(".skeleton-loader--vertical")
+        container.querySelector(".skeleton-loader--column")
       ).toBeInTheDocument();
     });
 
-    it("renders horizontal layout", () => {
+    it("renders row layout", () => {
       const utils = render(
-        <SkeletonLoader layout={SkeletonLoaderLayouts.Horizontal} />
+        <SkeletonLoader layout={SkeletonLoaderLayouts.Row} />
       );
       container = utils.container;
 
       expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
       expect(
-        container.querySelector(".skeleton-loader--horizontal")
+        container.querySelector(".skeleton-loader--row")
       ).toBeInTheDocument();
     });
   });

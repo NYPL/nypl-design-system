@@ -13,7 +13,7 @@
   @include button-base;
 
   background-color: var(--ui-white);
-  border: 1px solid var(--ui-gray-light);
+  border: 1px solid var(--ui-gray-light-cool);
   color: inherit;
 
   &:visited {
@@ -21,36 +21,12 @@
   }
 
   &:hover {
-    background-color: var(--ui-gray-xxlight);
+    background-color: var(--ui-gray-xx-light-cool);
   }
 
   &:disabled {
-    background-color: var(--ui-gray-light);
+    background-color: var(--ui-gray-light-cool);
     color: var(--ui-gray-dark);
     pointer-events: none;
-  }
-}
-
-.button {
-  // These `icon` rules are a better fit for the Icon
-  // component but we'll keep them here for now.
-  .icon {
-    @include icon;
-
-    fill: currentColor;
-
-    &--small,
-    &--icon-left,
-    &--icon-right {
-      margin-top: var(--space-xxs);
-    }
-
-    &--icon-left {
-      margin-right: var(--space-xs);
-    }
-
-    &--icon-right {
-      margin-left: var(--space-xs);
-    }
   }
 }
