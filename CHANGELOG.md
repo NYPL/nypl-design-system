@@ -10,6 +10,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds custom `useCarouselStyles` hook for the `Tabs` mobile functionality.
+
+## 0.25.1 (October 14, 2021)
+
+### Adds
+
 - Updates the `Accordion` component to internally use Chakra components.
 - Adds DS `SimpleGrid` component composed from Chakra's `Simplegrid` component.
 - Adds DS `Text` component composed from Chakra's `Text` component.
@@ -27,6 +33,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Forms` component using DS and Chakra components.
 - Composes the DS `Icon` component with Chakra's `Icon` component. Added new props for `Icon` sizing, alignment, name, and rotation.
 - Composes the DS `SearchBar` component from DS `Select`, `TextInput`, `Button`, and `HelperErrorText` components.
+- Composes the DS `Breadcrumbs` component from Chakra's `Breadcumb`, `BreadcrumbItem` and `BreadcrumbLink` components.
 
 ### Changes
 
