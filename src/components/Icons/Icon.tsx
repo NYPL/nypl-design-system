@@ -31,6 +31,8 @@ export interface IconProps {
   name?: IconNames | LogoNames;
   /** Sets the icon size. */
   size?: IconSizes;
+  /** Optionally pass in additional Chakra-based styles. */
+  sx?: { [key: string]: any };
   /** Sets the icon variant type. */
   type?: IconTypes;
 }
@@ -49,6 +51,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     id = generateUUID(),
     name,
     size = IconSizes.Medium,
+    sx = {},
     type = IconTypes.Default,
   } = props;
   const styles = useStyleConfig("Icon", {
@@ -84,7 +87,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   // render the SVG child with NYPL-theme styling.
   if (name) {
     const SvgComponent: any = iconSvgs[name];
-    return <ChakraIcon as={SvgComponent} {...iconProps} __css={styles} />;
+    return (
+      <ChakraIcon
+        as={SvgComponent}
+        {...iconProps}
+        __css={{ ...styles, ...sx }}
+      />
+    );
   }
 
   // If no `name` prop was passed, we expect a child SVG element to be passed.

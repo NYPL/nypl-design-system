@@ -8,11 +8,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
-import Notification, {
-  NotificationContent,
-  NotificationHeading,
-  NotificationProps,
-} from "./Notification";
+import Notification from "./Notification";
 import { NotificationTypes } from "./NotificationTypes";
 import Icon from "../Icons/Icon";
 import {
@@ -43,12 +39,16 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
+| Latest            | `0.25.2`   |
 
 <Description of={Notification} />
 
-The `Notification` component is a configurable callout that should be used to display important messages.
+The `Notification` component is a configurable callout that should be used to
+display important messages.
 
-In the preview below, the border around the `Notification` is not part of the component. It has been added to help illustrate how the `Notification` sits within a parent element.
+In the preview below, the border around the `Notification` is not part of the
+component. It has been added to help illustrate how the `Notification` sits
+within a parent element.
 
 <Canvas>
   <Story
@@ -56,25 +56,22 @@ In the preview below, the border around the `Notification` is not part of the co
     args={{
       id: "basic-notification",
       centered: true,
-    }}
-    argTypes={{
-      blockName: { table: { disable: true } },
-      modifiers: { table: { disable: true } },
+      notificationHeading: <>Notification Heading</>,
+      notificationContent: (
+        <>
+          Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+          mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum
+          at eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+          rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
+          nisi erat porttitor ligula.
+        </>
+      ),
     }}
   >
     {(args) => (
       <div style={{ border: "1px solid #ccc" }}>
-        <Notification {...args}>
-          <NotificationHeading>Notification Heading</NotificationHeading>
-          <NotificationContent>
-            Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
-            mollis interdum. Morbi leo risus, porta ac consectetur ac,
-            vestibulum at eros. Cum sociis natoque penatibus et magnis dis
-            parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus
-            vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non
-            commodo luctus, nisi erat porttitor ligula.
-          </NotificationContent>
-        </Notification>
+        <Notification {...args} />
       </div>
     )}
   </Story>
@@ -88,48 +85,57 @@ In the preview below, the border around the `Notification` is not part of the co
 
 <Canvas>
   <DSProvider>
-    <Notification>
-      <NotificationHeading>Standard Notification</NotificationHeading>
-      <NotificationContent>
-        This is a "standard" Notification with a heading. Cras mattis
-        consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-        auctor.
-      </NotificationContent>
-    </Notification>
+    <Notification
+      notificationHeading={<>Standard Notification</>}
+      notificationContent={
+        <>
+          This is a "standard" Notification with a heading. Cras mattis
+          consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+          rutrum faucibus dolor auctor.
+        </>
+      }
+    />
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Notification notificationType={NotificationTypes.Announcement}>
-      <NotificationHeading>Announcement Notification</NotificationHeading>
-      <NotificationContent>
-        This is an "announcement" Notification with a heading. Cras mattis
-        consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-        auctor.
-      </NotificationContent>
-    </Notification>
+    <Notification
+      notificationType={NotificationTypes.Announcement}
+      notificationHeading={<>Announcement Notification</>}
+      notificationContent={
+        <>
+          This is an "announcement" Notification with a heading. Cras mattis
+          consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+          rutrum faucibus dolor auctor.
+        </>
+      }
+    />
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Notification notificationType={NotificationTypes.Warning}>
-      <NotificationHeading>Warning Notification</NotificationHeading>
-      <NotificationContent>
-        This is a "warning" Notification with a heading. Cras mattis consectetur
-        purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi leo
-        risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
-        penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-      </NotificationContent>
-    </Notification>
+    <Notification
+      notificationType={NotificationTypes.Warning}
+      notificationHeading={<>Warning Notification</>}
+      notificationContent={
+        <>
+          This is a "warning" Notification with a heading. Cras mattis
+          consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+          rutrum faucibus dolor auctor.
+        </>
+      }
+    />
   </DSProvider>
 </Canvas>
 
@@ -137,46 +143,54 @@ In the preview below, the border around the `Notification` is not part of the co
 
 <Canvas>
   <DSProvider>
-    <Notification>
-      <NotificationContent>
-        This is a "standard" Notification without a heading. Cras mattis
-        consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-        auctor.
-      </NotificationContent>
-    </Notification>
+    <Notification
+      notificationContent={
+        <>
+          This is a "standard" Notification without a heading. Cras mattis
+          consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+          rutrum faucibus dolor auctor.
+        </>
+      }
+    />
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Notification notificationType={NotificationTypes.Announcement}>
-      <NotificationContent>
-        This is an "announcement" Notification without a heading. Cras mattis
-        consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-        auctor.
-      </NotificationContent>
-    </Notification>
+    <Notification
+      notificationType={NotificationTypes.Announcement}
+      notificationContent={
+        <>
+          This is an "announcement" Notification without a heading. Cras mattis
+          consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+          rutrum faucibus dolor auctor.
+        </>
+      }
+    />
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Notification notificationType={NotificationTypes.Warning}>
-      <NotificationContent>
-        This is a "warning" Notification without a heading. Cras mattis
-        consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-        auctor.
-      </NotificationContent>
-    </Notification>
+    <Notification
+      notificationType={NotificationTypes.Warning}
+      notificationContent={
+        <>
+          This is a "warning" Notification without a heading. Cras mattis
+          consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
+          rutrum faucibus dolor auctor.
+        </>
+      }
+    />
   </DSProvider>
 </Canvas>
 
@@ -196,32 +210,17 @@ The default icon can be overridden by using the `icon` prop to pass a custom `Ic
             color={IconColors.SectionResearchSecondary}
           />
         }
-      >
-        <NotificationHeading>Custom Icon</NotificationHeading>
-        <NotificationContent>
-          This is a Notification with a custom icon. Cras mattis consectetur
-          purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi leo
-          risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
-          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        </NotificationContent>
-      </Notification>
-    )}
-  </Story>
-</Canvas>
-
-## Development Errors
-
-The `Notification` component will only accept one `NotificationHeading` child and one `NotificationContent` child.
-
-<Canvas>
-  <Story name="Development Errors">
-    {(args) => (
-      <Notification>
-        <NotificationHeading>Heading One</NotificationHeading>
-        <NotificationHeading>Heading Two</NotificationHeading>
-        <NotificationContent>Content one.</NotificationContent>
-        <NotificationContent>Content two.</NotificationContent>
-      </Notification>
+        notificationHeading={<>Custom Icon</>}
+        notificationContent={
+          <>
+            This is a Notification with a custom icon. Cras mattis consectetur
+            purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
+            leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
+            natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus.
+          </>
+        }
+      />
     )}
   </Story>
 </Canvas>

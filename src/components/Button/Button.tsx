@@ -26,6 +26,8 @@ interface ButtonProps {
   mouseDown?: boolean;
   /** The action to perform on the `<button>`'s onClick function */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /** Optionally pass in additional Chakra-based styles. */
+  sx?: { [key: string]: any };
   /** The html button attribute */
   type?: ButtonElementType;
 }
@@ -55,6 +57,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
     id,
     mouseDown = false,
     onClick,
+    sx = {},
     type = "button",
   } = props;
   const baseClass = "button";
@@ -90,7 +93,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
       className={bem(baseClass, [], "", [className])}
       type={type}
       disabled={disabled}
-      __css={styles}
+      __css={{ ...styles, ...sx }}
       {...attributes}
       {...btnCallback}
     >

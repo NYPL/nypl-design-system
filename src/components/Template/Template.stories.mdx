@@ -452,17 +452,20 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
       </TemplateHeader>
       <TemplateContent sidebar="right">
         <TemplateContentTop>
-          <Notification notificationType={NotificationTypes.Announcement}>
-            <NotificationHeading>Announcement Notification</NotificationHeading>
-            <NotificationContent>
-              This is an "announcement" Notification with a heading. Cras mattis
-              consectetur purus sit amet fermentum. Maecenas faucibus mollis
-              interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-              eros. Cum sociis natoque penatibus et magnis dis parturient
-              montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue
-              laoreet rutrum faucibus dolor auctor.
-            </NotificationContent>
-          </Notification>
+          <Notification
+            notificationType={NotificationTypes.Announcement}
+            notificationHeading={<>Announcement Notification</>}
+            notificationContent={
+              <>
+                This is an "announcement" Notification with a heading. Cras
+                mattis consectetur purus sit amet fermentum. Maecenas faucibus
+                mollis interdum. Morbi leo risus, porta ac consectetur ac,
+                vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus. Vivamus sagittis
+                lacus vel augue laoreet rutrum faucibus dolor auctor.
+              </>
+            }
+          />
         </TemplateContentTop>
         <TemplateContentPrimary>
           <p>This is the main content!</p>

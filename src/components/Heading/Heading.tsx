@@ -55,7 +55,7 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
   const variant = displaySize ? getVariant(displaySize) : `h${level}`;
   const styles = useStyleConfig("Heading", { variant });
   // Combine native base styles with any additional styles.
-  // This is used only in the `Hero` component, for now.
+  // This is used in the `Hero` and `Notification` components.
   const finalStyles = { ...styles, ...sx };
   const asHeading: any = `h${level}`;
 

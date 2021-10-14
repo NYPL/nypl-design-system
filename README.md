@@ -316,10 +316,11 @@ import renderer from "react-test-renderer";
 it("Renders the UI snapshot correctly", () => {
   const tree = renderer
     .create(
-      <Notification id="notificationID">
-        <NotificationHeading>Notification Heading</NotificationHeading>
-        <NotificationContent>Notification content.</NotificationContent>
-      </Notification>
+      <Notification
+        id="notificationID"
+        notificationHeading={<>Notification Heading</>}
+        notificationContent={<>Notification content.</>}
+      />
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
