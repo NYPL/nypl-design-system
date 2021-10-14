@@ -113,7 +113,7 @@ export default function VideoPlayer(
             {embedCode}
           </div>
           {helperText && (
-            <HelperErrorText isError={false}>{helperText}</HelperErrorText>
+            <HelperErrorText isInvalid={false}>{helperText}</HelperErrorText>
           )}
         </>
       )}

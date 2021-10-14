@@ -599,7 +599,9 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     <div
       aria-atomic={true}
       aria-live="off"
-      className="helper-text"
+      className=" css-0"
+      data-isInvalid={false}
+      id="helperText-helperErrorText"
     >
       helper text
     </div>

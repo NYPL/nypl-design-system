@@ -137,7 +137,9 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
         </ChakraCheckboxGroup>
         {footnote && (
           <Box __css={styles.helper}>
-            <HelperErrorText isError={isInvalid}>{footnote}</HelperErrorText>
+            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
+              {footnote}
+            </HelperErrorText>
           </Box>
         )}
       </Box>

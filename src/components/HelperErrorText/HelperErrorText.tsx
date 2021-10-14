@@ -3,16 +3,24 @@ import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
 
+export type AriaLiveValues = "assertive" | "off" | "polite";
+
 interface HelperErrorTextProps {
-  /** Added prop when HelperText is errored */
+  /** Aria attribute. When true, assistive technologies will
+   * read the entire DOM element. When false, only changes (additionals or
+   * removals) will be read. True by default. */
   ariaAtomic?: boolean;
-  /** Added prop when HelperText is errored */
-  ariaLive?: "polite" | "off" | "assertive";
-  /** Additional className to add to the helperErrorText */
+  /** Aria attribute only used in the invalid state to read error text. This
+   * indicates the priority of the text and when it should be presented to users
+   * using screen readers; "off" indicates that the content should not be presented,
+   * "polite" that it will be announced at the next available time slot, and
+   * "assertive" that it should be announced immediately. "polite" by default. */
+  ariaLive?: AriaLiveValues;
+  /** Additional className to add. */
   className?: string;
-  /** unique ID for helper */
+  /** Unique ID for accessibility purposes. */
   id?: string;
-  /** Toggles between helper and error styling */
+  /** Toggles between helper and invalid styling. */
   isInvalid?: boolean;
 }
 
@@ -25,10 +33,12 @@ export default function HelperErrorText(
   const {
     ariaAtomic = true,
     ariaLive = "polite",
-    className,
+    children,
+    className = "",
     id = generateUUID(),
     isInvalid = false,
   } = props;
+  // Only announce the text in the invalid state.
   const announceAriaLive = isInvalid;
   const styles = useStyleConfig("HelperErrorText", { isInvalid });
 
@@ -37,10 +47,11 @@ export default function HelperErrorText(
       id={id}
       className={className}
       aria-atomic={ariaAtomic}
+      data-isInvalid={isInvalid}
       aria-live={announceAriaLive ? ariaLive : "off"}
       __css={styles}
     >
-      {props.children}
+      {children}
     </Box>
   );
 }

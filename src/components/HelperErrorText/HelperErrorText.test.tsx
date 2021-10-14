@@ -1,67 +1,72 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import HelperErrorText from "./HelperErrorText";
 
 describe("HelperErrorText Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(
-      <HelperErrorText id="helperTextWithLink">Text</HelperErrorText>
-    );
+    const { container } = render(<HelperErrorText>Text</HelperErrorText>);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
 describe("HelperErrorText", () => {
-  it("Renders HelperErrorText", () => {
-    render(<HelperErrorText id="helperTextWithLink">Text</HelperErrorText>);
+  it("renders the text passed", () => {
+    render(<HelperErrorText>Text</HelperErrorText>);
     expect(screen.getByText("Text")).toBeInTheDocument();
-    expect(screen.getByText("Text")).toHaveAttribute("class", "helper-text");
   });
 
-  it("Has 'error' modifier if error is passed", () => {
-    render(
-      <HelperErrorText id="helperTextWithLink" isInvalid>
-        Text
-      </HelperErrorText>
-    );
-    expect(screen.getByText("Text")).toHaveAttribute(
-      "class",
-      "helper-text helper-text--error"
-    );
+  it("renders the invalid state", () => {
+    const utils = render(<HelperErrorText>Text</HelperErrorText>);
+
+    // False by default. Note, this is a custom `data-*` attribute only used
+    // for testing the invalid state.
+    expect(screen.getByText("Text")).toHaveAttribute("data-isInvalid", "false");
+
+    utils.rerender(<HelperErrorText isInvalid>Text</HelperErrorText>);
+    expect(screen.getByText("Text")).toHaveAttribute("data-isInvalid", "true");
   });
 
-  it("Has aria-live and aria-atomic properties when errored", () => {
-    render(
-      <HelperErrorText id="helperTextWithLink" isInvalid>
-        Text
-      </HelperErrorText>
-    );
+  it("has aria-live and aria-atomic attributes when errored", () => {
+    render(<HelperErrorText isInvalid>Text</HelperErrorText>);
     expect(screen.getByText("Text")).toHaveAttribute("aria-live", "polite");
     expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
   });
 
-  it("Accepts an aria-atomic value of false", () => {
+  it("accepts an aria-atomic value of false", () => {
     const utils = render(
-      <HelperErrorText id="helperTextWithLink" isInvalid>
-        Text
-      </HelperErrorText>
+      <HelperErrorText isInvalid>Static Text</HelperErrorText>
     );
     // The default is "true".
-    expect(screen.getByText("Text")).toHaveAttribute("aria-atomic");
+    expect(screen.getByText("Static Text")).toHaveAttribute("aria-atomic");
 
     utils.rerender(
-      <HelperErrorText id="helperTextWithLink" ariaAtomic={false} isInvalid>
-        <p>
-          This is static <span>but this part changes often!</span>
-        </p>
+      <HelperErrorText ariaAtomic={false} isInvalid>
+        Static Text
       </HelperErrorText>
     );
     // But the prop accepts false in case only part of the helper text
     // should only be read instead of the whole region.
-    expect(
-      utils.container.querySelector("#helperTextWithLink")
-    ).toHaveAttribute("aria-atomic", "false");
+    expect(screen.getByText("Static Text")).toHaveAttribute(
+      "aria-atomic",
+      "false"
+    );
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const basic = renderer
+      .create(<HelperErrorText id="basic">Text</HelperErrorText>)
+      .toJSON();
+    const invalid = renderer
+      .create(
+        <HelperErrorText id="invalid" isInvalid>
+          Text
+        </HelperErrorText>
+      )
+      .toJSON();
+    expect(basic).toMatchSnapshot();
+    expect(invalid).toMatchSnapshot();
   });
 });

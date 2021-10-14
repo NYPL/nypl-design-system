@@ -164,7 +164,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
         {fieldOutput}
         {footnote && !isHidden && (
           <Box __css={styles.helper} aria-disabled={isDisabled}>
-            <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
               {footnote}
             </HelperErrorText>
           </Box>

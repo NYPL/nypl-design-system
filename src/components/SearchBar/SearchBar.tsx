@@ -142,7 +142,7 @@ export default function SearchBar(props: SearchBarProps) {
   );
   // Render the `HelperErrorText` component.
   const helperErrorTextElem = footnote && (
-    <HelperErrorText id={helperErrorTextID} isError={isInvalid}>
+    <HelperErrorText id={helperErrorTextID} isInvalid={isInvalid}>
       {footnote}
     </HelperErrorText>
   );

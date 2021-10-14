@@ -97,7 +97,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
       </ChakraRadio>
       {footnote && showLabel && (
         <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+          <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
             {footnote}
           </HelperErrorText>
         </Box>

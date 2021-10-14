@@ -122,7 +122,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         </ChakraCheckbox>
         {footnote && showLabel && (
           <Box __css={styles.helper} aria-disabled={isDisabled}>
-            <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
               {footnote}
             </HelperErrorText>
           </Box>
