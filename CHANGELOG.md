@@ -29,6 +29,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Forms` component using DS and Chakra components.
 - Composes the DS `Icon` component with Chakra's `Icon` component. Added new props for `Icon` sizing, alignment, name, and rotation.
 - Composes the DS `SearchBar` component from DS `Select`, `TextInput`, `Button`, and `HelperErrorText` components.
+- Composes the DS `Breadcrumbs` component from Chakra's `Breadcumb`, `BreadcrumbItem` and `BreadcrumbLink` components.
 
 ### Changes
 
