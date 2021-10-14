@@ -10,7 +10,12 @@ import { withDesign } from "storybook-addon-designs";
 import Button, { ButtonGroup } from "./Button";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes } from "../Icons/IconTypes";
+import {
+  IconNames,
+  IconRotationTypes,
+  IconAlign,
+  IconSizes,
+} from "../Icons/IconTypes";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -83,7 +88,7 @@ Controls for this Story section to preview a `Button` with the selected icon.
     args={{
       displayLeft: true,
       buttonText: "Button Text",
-      iconType: IconNames.search,
+      iconType: IconNames.Search,
     }}
     argTypes={{
       iconType: {
@@ -99,16 +104,16 @@ Controls for this Story section to preview a `Button` with the selected icon.
         {args.displayLeft && (
           <Icon
             name={args.iconType}
-            decorative={true}
-            modifiers={["small", "icon-left"]}
+            align={IconAlign.Left}
+            size={IconSizes.Small}
           />
         )}
         {args.buttonText}
         {!args.displayLeft && (
           <Icon
             name={args.iconType}
-            decorative={true}
-            modifiers={["small", "icon-right"]}
+            align={IconAlign.Right}
+            size={IconSizes.Small}
           />
         )}
       </Button>
@@ -123,20 +128,20 @@ The icon can be placed to the left or the right of the button text.
     <ButtonGroup>
       <Button buttonType={ButtonTypes.Secondary}>
         <Icon
-          name={IconNames.arrow}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate90}
-          modifiers={["small", "icon-left"]}
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate90}
+          align={IconAlign.Left}
+          size={IconSizes.Small}
         />
         Previous
       </Button>
       <Button buttonType={ButtonTypes.Secondary}>
         Next
         <Icon
-          name={IconNames.arrow}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate270}
-          modifiers={["small", "icon-right"]}
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate270}
+          align={IconAlign.Right}
+          size={IconSizes.Small}
         />
       </Button>
     </ButtonGroup>
@@ -157,10 +162,9 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
         }}
       >
         <Icon
-          name={IconNames.arrow}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate90}
-          modifiers={["small"]}
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate90}
+          size={IconSizes.Small}
         />
       </Button>
       <Button
@@ -170,10 +174,9 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
         }}
       >
         <Icon
-          name={IconNames.arrow}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate270}
-          modifiers={["small"]}
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate270}
+          size={IconSizes.Small}
         />
       </Button>
       <Button
@@ -182,7 +185,7 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
           "aria-label": "Close",
         }}
       >
-        <Icon name={IconNames.close} decorative={true} modifiers={["small"]} />
+        <Icon name={IconNames.Close} size={IconSizes.Small} />
       </Button>
     </ButtonGroup>
   </DSProvider>
@@ -201,10 +204,11 @@ must include an up arrow icon on the right side.
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
-          name={IconNames.arrow}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate180}
-          modifiers={["small", "icon-right"]}
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate180}
+          size={IconSizes.Small}
+          className="right"
+          align={IconAlign.Right}
         />
       </Button>
     </ButtonGroup>

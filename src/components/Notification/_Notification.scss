@@ -45,7 +45,7 @@
   }
 
   &--announcement {
-    background-color: var(--ui-gray-light);
+    background-color: var(--ui-gray-light-cool);
 
     .notification-heading {
       color: var(--section-research-secondary);
@@ -53,7 +53,7 @@
   }
 
   &--warning {
-    background-color: var(--ui-gray-xxlight);
+    background-color: var(--ui-gray-xx-light-cool);
 
     .notification-heading {
       color: var(--brand-primary);
@@ -79,7 +79,7 @@
     }
   }
 
-  .icon {
+  .chakra-icon {
     flex-shrink: 0;
     margin-right: var(--space-s);
   }
@@ -101,7 +101,7 @@
       width: var(--space-m);
     }
 
-    .icon {
+    .chakra-icon {
       height: var(--space-m);
       margin-right: 0;
       width: var(--space-m);

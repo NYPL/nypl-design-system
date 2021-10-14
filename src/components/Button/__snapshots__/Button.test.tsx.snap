@@ -54,3 +54,14 @@ exports[`Button Snapshot Renders the UI snapshot correctly 5`] = `
   Link
 </button>
 `;
+
+exports[`Button Snapshot Renders the UI snapshot correctly 6`] = `
+<button
+  className="chakra-button button  css-0"
+  id="button"
+  onClick={[MockFunction]}
+  type="button"
+>
+  SearchBar
+</button>
+`;

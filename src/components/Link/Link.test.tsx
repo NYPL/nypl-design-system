@@ -9,10 +9,10 @@ import {
   Link as ReactRouterLink,
 } from "react-router-dom";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
 
 describe("Link Accessibility", () => {
-  it("passes axe accessibility test", async () => {
+  it("passes axe accessibility test for children component", async () => {
     const { container } = render(
       <Link>
         <a href="#test">Test</a>
@@ -20,26 +20,28 @@ describe("Link Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test for href prop", async () => {
+    const { container } = render(<Link href="#test">Test</Link>);
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Link", () => {
-  it("Can pass in icon, text as child and url as props", () => {
+  it("Can pass in an icon and text as children and url as prop", () => {
     const utils = render(
       <Link href="#passed-in-link" type={LinkTypes.Action}>
         <Icon
-          name={IconNames.download}
-          blockName="more-link"
-          modifiers={["left"]}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate0}
+          className="more-link"
+          name={IconNames.Download}
+          align={IconAlign.Left}
+          iconRotation={IconRotationTypes.Rotate0}
         />
         Download
       </Link>
     );
     expect(screen.getByRole("link")).toBeInTheDocument();
-    expect(
-      utils.container.querySelector(".more-link__icon")
-    ).toBeInTheDocument();
+    expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
   });
 
   it("Can pass a link with <a> tag", () => {
@@ -56,20 +58,17 @@ describe("Link", () => {
       <Link type={LinkTypes.Action}>
         <a href="#test2">
           <Icon
-            name={IconNames.download}
-            blockName="more-link"
-            modifiers={["left"]}
-            decorative={true}
-            iconRotation={IconRotationTypes.rotate0}
+            className="more-link"
+            name={IconNames.Download}
+            align={IconAlign.Left}
+            iconRotation={IconRotationTypes.Rotate0}
           />
           Test
         </a>
       </Link>
     );
     expect(screen.getByRole("link")).toBeInTheDocument();
-    expect(
-      utils.container.querySelector(".more-link__icon")
-    ).toBeInTheDocument();
+    expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
   });
 
   it("Generated back link has icon", () => {
@@ -78,13 +77,10 @@ describe("Link", () => {
         content
       </Link>
     );
+    expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
     expect(
-      utils.container.querySelector(".more-link__icon")
-    ).toBeInTheDocument();
-    expect(utils.container.querySelector(".more-link__icon")).toHaveAttribute(
-      "class",
-      "more-link__icon more-link__icon--left more-link__icon--rotate-90 "
-    );
+      utils.container.querySelector(".more-link").getAttribute("class")
+    ).toContain("chakra-icon more-link");
   });
 
   it("Generated forwards link has icon", () => {
@@ -93,13 +89,10 @@ describe("Link", () => {
         content
       </Link>
     );
+    expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
     expect(
-      utils.container.querySelector(".more-link__icon")
-    ).toBeInTheDocument();
-    expect(utils.container.querySelector(".more-link__icon")).toHaveAttribute(
-      "class",
-      "more-link__icon more-link__icon--right more-link__icon--rotate-270 "
-    );
+      utils.container.querySelector(".more-link").getAttribute("class")
+    ).toContain("chakra-icon more-link");
   });
 
   it("Can pass in text as child and url as props", () => {
@@ -113,12 +106,10 @@ describe("Link", () => {
         <Link type={LinkTypes.Action}>
           <ReactRouterLink to="#">
             <Icon
-              name={IconNames.download}
-              blockName="more-link"
-              modifiers={["left"]}
-              decorative={true}
-              iconRotation={IconRotationTypes.rotate0}
-            ></Icon>
+              name={IconNames.Download}
+              align={IconAlign.Left}
+              iconRotation={IconRotationTypes.Rotate0}
+            />
             Download
           </ReactRouterLink>
         </Link>
@@ -138,16 +129,14 @@ describe("Link", () => {
       render(
         <Link>
           <Icon
-            name={IconNames.download}
-            blockName="more-link"
-            modifiers={["left"]}
-            decorative={true}
-            iconRotation={IconRotationTypes.rotate0}
-          ></Icon>
+            name={IconNames.Download}
+            align={IconAlign.Left}
+            iconRotation={IconRotationTypes.Rotate0}
+          />
           <a href="#test">Test</a>
         </Link>
       )
-    ).toThrowError("Please pass only one child into Link");
+    ).toThrowError("Please pass only one child into `Link`.");
   });
 
   // TODO:

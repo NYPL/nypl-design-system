@@ -12,10 +12,10 @@ import Button, { ButtonGroup } from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import {
-  IconColors,
   IconNames,
   IconRotationTypes,
   IconSizes,
+  IconAlign,
 } from "../Icons/IconTypes";
 import getCSSVariable from "../../helpers/getCSSVariable";
 import DSProvider from "../../theme/provider";
@@ -87,7 +87,11 @@ Buttons should use `--space-xs` (0.5rem) for spacing in situations where multipl
           },
         }}
       >
-        <Icon decorative modifiers={["small", "icon-left"]} name="search" />
+        <Icon
+          name={IconNames.Search}
+          size={IconSizes.Small}
+          align={IconAlign.Left}
+        />
         Button Text
       </Button>
       <Button
@@ -98,11 +102,7 @@ Buttons should use `--space-xs` (0.5rem) for spacing in situations where multipl
           },
         }}
       >
-        <Icon
-          name={IconNames.close}
-          decorative={true}
-          size={IconSizes.medium}
-        />
+        <Icon name={IconNames.Close} size={IconSizes.Medium} />
       </Button>
       <Button
         buttonType={ButtonTypes.Primary}
@@ -118,10 +118,10 @@ Buttons should use `--space-xs` (0.5rem) for spacing in situations where multipl
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
-          name={IconNames.arrow}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate180}
-          modifiers={["small", "icon-right"]}
+          name={IconNames.Arrow}
+          size={IconSizes.Small}
+          align={IconAlign.Right}
+          iconRotation={IconRotationTypes.Rotate180}
         />
       </Button>
     </ButtonGroup>
@@ -186,10 +186,10 @@ The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include a
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
-          name={IconNames.arrow}
-          decorative={true}
-          iconRotation={IconRotationTypes.rotate180}
-          modifiers={["small", "icon-right"]}
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate180}
+          size={IconSizes.Small}
+          align={IconAlign.Right}
         />
       </Button>
     </ButtonGroup>

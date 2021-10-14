@@ -51,7 +51,9 @@ export const onChangeDefault = () => {
 };
 
 function CheckboxIcon(props) {
-  const { isIndeterminate, ...rest } = props;
+  // Don't need the `isChecked` prop but it causes
+  // rendering issues on the SVG element.
+  const { isIndeterminate, isChecked, ...rest } = props;
 
   const d = isIndeterminate
     ? "M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,19a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,19Zm1.6-6.08a1,1,0,0,0-.6.917,1,1,0,1,1-2,0,3,3,0,0,1,1.8-2.75A2,2,0,1,0,10,9.255a1,1,0,1,1-2,0,4,4,0,1,1,5.6,3.666Z"
@@ -70,7 +72,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       className,
       errorText,
       helperText,
-      id,
+      id = generateUUID(),
       isChecked,
       isDisabled = false,
       isInvalid = false,
@@ -84,20 +86,19 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const styles = useMultiStyleConfig("Checkbox", {});
     const footnote = isInvalid ? errorText : helperText;
     const attributes = {};
-    const checkboxID = id || generateUUID();
     const onChange = props.onChange || onChangeDefault;
 
     if (!showLabel) {
       attributes["aria-label"] =
         labelText && footnote ? `${labelText} - ${footnote}` : labelText;
     } else {
-      if (footnote) attributes["aria-describedby"] = `${checkboxID}-helperText`;
+      if (footnote) attributes["aria-describedby"] = `${id}-helperText`;
     }
 
     return (
       <>
         <ChakraCheckbox
-          id={checkboxID}
+          id={id}
           className={className}
           name={name || "default"}
           isDisabled={isDisabled}
@@ -107,14 +108,13 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           value={value}
           {...(isChecked !== undefined
             ? {
-                isChecked: isChecked,
-                onChange: onChange,
+                isChecked,
+                onChange,
               }
             : {
                 defaultIsChecked: false,
               })}
           icon={<CheckboxIcon />}
-          //iconColor="ui.focus"
           __css={styles}
           {...attributes}
         >
@@ -122,10 +122,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         </ChakraCheckbox>
         {footnote && showLabel && (
           <Box __css={styles.helper} aria-disabled={isDisabled}>
-            <HelperErrorText
-              isError={isInvalid}
-              id={`${checkboxID}-helperText`}
-            >
+            <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
               {footnote}
             </HelperErrorText>
           </Box>

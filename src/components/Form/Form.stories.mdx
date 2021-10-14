@@ -13,7 +13,9 @@ import Form, { FormRow, FormField } from "./Form";
 import { FormSpacing } from "./FormTypes";
 import TextInput from "../TextInput/TextInput";
 import Radio from "../Radio/Radio";
+import RadioGroup from "../RadioGroup/RadioGroup";
 import Checkbox from "../Checkbox/Checkbox";
+import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import Label from "../Label/Label";
 import Button from "../Button/Button";
 import Select from "../Select/Select";
@@ -21,6 +23,8 @@ import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import { action } from "@storybook/addon-actions";
+
+import SimpleGrid from "../Grid/SimpleGrid";
 
 <Meta
   title={getCategory("Form")}
@@ -41,7 +45,7 @@ import { action } from "@storybook/addon-actions";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.24.1`   |
+| Latest            | `0.25.1`   |
 
 <Description of={Form} />
 
@@ -70,18 +74,34 @@ The `Form` component renders a standard `<form>` element and should be used to h
   >
     {(args) => (
       <Form {...args}>
+        <FormRow>
+          <FormField>
+            <TextInput
+              labelText="First Name"
+              helperText="Make sure to complete this field."
+              isRequired
+            />
+          </FormField>
+          <FormField>
+            <TextInput
+              labelText="Last Name"
+              helperText="Make sure to complete this field."
+              isRequired
+            />
+          </FormField>
+        </FormRow>
         <FormField>
           <TextInput
             labelText="Username"
             helperText="Make sure to complete this field."
-            required
+            isRequired
           />
         </FormField>
         <FormField>
           <TextInput
             labelText="Password"
             helperText="Make sure to complete this field."
-            required
+            isRequired
           />
         </FormField>
         <FormRow>
@@ -109,24 +129,24 @@ The `Form` component renders a standard `<form>` element and should be used to h
         </FormRow>
         <FormRow>
           <FormField>
-            <Label>Checkbox Group</Label>
-            <Checkbox labelText="Checkbox 1" showLabel />
-            <br />
-            <Checkbox labelText="Checkbox 1" showLabel />
-            <br />
-            <Checkbox labelText="Checkbox 1" showLabel />
-            <br />
-            <Checkbox labelText="Checkbox 1" showLabel />
+            <CheckboxGroup
+              labelText="Checkbox Group"
+              name="cbg1"
+              optReqFlag={false}
+            >
+              <Checkbox labelText="Checkbox 1" showLabel />
+              <Checkbox labelText="Checkbox 2" showLabel />
+              <Checkbox labelText="Checkbox 3" showLabel />
+              <Checkbox labelText="Checkbox 4" showLabel />
+            </CheckboxGroup>
           </FormField>
           <FormField>
-            <Label>Radio Group</Label>
-            <Radio labelText="Radio 1" showLabel />
-            <br />
-            <Radio labelText="Radio 2" showLabel />
-            <br />
-            <Radio labelText="Radio 3" showLabel />
-            <br />
-            <Radio labelText="Radio 4" showLabel />
+            <RadioGroup labelText="Radio Group" name="rg1" optReqFlag={false}>
+              <Radio labelText="Radio 1" showLabel />
+              <Radio labelText="Radio 2" showLabel />
+              <Radio labelText="Radio 3" showLabel />
+              <Radio labelText="Radio 4" showLabel />
+            </RadioGroup>
           </FormField>
           <FormField>
             <Select
@@ -137,6 +157,8 @@ The `Form` component renders a standard `<form>` element and should be used to h
               <option>Option 1</option>
               <option>Option 2</option>
               <option>Option 3</option>
+              <option>Option 4</option>
+              <option>Option 5</option>
             </Select>
           </FormField>
         </FormRow>
@@ -168,6 +190,7 @@ export const formRow = (size) => {
               <option>Option 1</option>
               <option>Option 2</option>
               <option>Option 3</option>
+              <option>Option 4</option>
             </Select>
           </FormField>
           <FormField>
@@ -179,6 +202,7 @@ export const formRow = (size) => {
               <option>Option 1</option>
               <option>Option 2</option>
               <option>Option 3</option>
+              <option>Option 4</option>
             </Select>
           </FormField>
           <FormField>
@@ -190,6 +214,7 @@ export const formRow = (size) => {
               <option>Option 1</option>
               <option>Option 2</option>
               <option>Option 3</option>
+              <option>Option 4</option>
             </Select>
           </FormField>
         </FormRow>
@@ -231,14 +256,14 @@ Below are the spacing variants available with the `FormSpacing` enum.
     <TextInput
       labelText="Username"
       helperText="Make sure to complete this field."
-      required
+      isRequired
     />
   </FormField>
   <FormField>
     <TextInput
       labelText="Password"
       helperText="Make sure to complete this field."
-      required
+      isRequired
     />
   </FormField>
   <FormRow>

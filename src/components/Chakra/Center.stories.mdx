@@ -1,10 +1,11 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import { Box, Center, Square, Circle } from "@chakra-ui/react";
+import { Box, Center, Square, Circle, HStack } from "@chakra-ui/react";
 
 import { getCategory } from "../../utils/componentCategories";
 import Image from "../Image/Image";
 import Icon from "../Icons/Icon";
-import { IconNames, IconColors } from "../Icons/IconTypes";
+import { IconNames, IconColors, IconSizes } from "../Icons/IconTypes";
+import DSProvider from "../../theme/provider";
 
 <Meta title={getCategory("Center, Circle, Square")} component={Center} />
 
@@ -60,12 +61,20 @@ guide on the Chakra UI site.
 Similar to `Center` but is always a circle!
 
 <Canvas>
-  <Circle size="50px" bg="var(--ui-test)">
-    <Icon name={IconNames.download} />
-  </Circle>
-  <Circle size="50px" bg="var(--ui-link-primary)">
-    <Icon name={IconNames.check} color={IconColors.ui_white} />
-  </Circle>
+  <DSProvider>
+    <HStack spacing="s">
+      <Circle size="50px" bg="var(--ui-test)">
+        <Icon name={IconNames.Download} size={IconSizes.Large} />
+      </Circle>
+      <Circle size="50px" bg="var(--ui-link-primary)">
+        <Icon
+          name={IconNames.Check}
+          color={IconColors.UiWhite}
+          size={IconSizes.Large}
+        />
+      </Circle>
+    </HStack>
+  </DSProvider>
 </Canvas>
 
 ## Square
@@ -73,10 +82,18 @@ Similar to `Center` but is always a circle!
 Similar to `Center` but always has equal height and width.
 
 <Canvas>
-  <Square size="50px" bg="var(--ui-test)">
-    <Icon name={IconNames.download} />
-  </Square>
-  <Square size="50px" bg="var(--ui-link-primary)">
-    <Icon name={IconNames.check} color={IconColors.ui_white} />
-  </Square>
+  <DSProvider>
+    <HStack spacing="s">
+      <Square size="50px" bg="var(--ui-test)">
+        <Icon name={IconNames.Download} size={IconSizes.Large} />
+      </Square>
+      <Square size="50px" bg="var(--ui-link-primary)">
+        <Icon
+          name={IconNames.Check}
+          color={IconColors.UiWhite}
+          size={IconSizes.Large}
+        />
+      </Square>
+    </HStack>
+  </DSProvider>
 </Canvas>

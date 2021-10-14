@@ -9,7 +9,7 @@ import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames } from "../Icons/IconTypes";
+import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
 
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -92,12 +92,10 @@ describe("Card", () => {
           <div className="edition-card__download">
             <Link href="#url" type={LinkTypes.Action}>
               <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                decorative={true}
-                modifiers={["left"]}
-                iconRotation={IconRotationTypes.rotate0}
-              ></Icon>
+                name={IconNames.Download}
+                align={IconAlign.Left}
+                iconRotation={IconRotationTypes.Rotate0}
+              />
               Download
             </Link>
           </div>
@@ -144,12 +142,10 @@ describe("Card", () => {
           <div className="edition-card__download">
             <Link href="#url" type={LinkTypes.Action}>
               <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                decorative={true}
-                modifiers={["left"]}
-                iconRotation={IconRotationTypes.rotate0}
-              ></Icon>
+                name={IconNames.Download}
+                align={IconAlign.Left}
+                iconRotation={IconRotationTypes.Rotate0}
+              />
               Download
             </Link>
           </div>
@@ -175,12 +171,10 @@ describe("Card", () => {
           <div className="edition-card__download">
             <Link href="#url" type={LinkTypes.Action}>
               <Icon
-                name={IconNames.download}
-                blockName="more-link"
-                decorative={true}
-                modifiers={["left"]}
-                iconRotation={IconRotationTypes.rotate0}
-              ></Icon>
+                name={IconNames.Download}
+                align={IconAlign.Left}
+                iconRotation={IconRotationTypes.Rotate0}
+              />
               Download
             </Link>
           </div>

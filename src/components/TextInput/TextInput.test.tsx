@@ -1,23 +1,33 @@
 import * as React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
 
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
 import * as generateUUID from "../../helpers/generateUUID";
 
 describe("TextInput Accessibility", () => {
-  it("passes axe accessibility test", async () => {
+  it("passes axe accessibility test for the input element", async () => {
     const { container } = render(
       <TextInput
-        id="myTextInput"
-        labelText="Custom Input Label"
-        required={true}
+        labelText="Custom input label"
+        isRequired
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
-        attributes={{ onFocus: jest.fn() }}
+        onChange={jest.fn()}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test for the textarea element", async () => {
+    const { container } = render(
+      <TextInput
+        labelText="Custom textarea label"
+        isRequired
+        placeholder="Input Placeholder"
+        type={TextInputTypes.textarea}
         onChange={jest.fn()}
       />
     );
@@ -37,7 +47,7 @@ describe("TextInput", () => {
       <TextInput
         id="myTextInput"
         labelText="Custom Input Label"
-        required={true}
+        isRequired
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
         attributes={{ onFocus: focusHandler }}
@@ -46,25 +56,25 @@ describe("TextInput", () => {
     );
   });
 
-  it("Renders an input element", () => {
+  it("renders an input element", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
   });
 
-  it("Renders label with label text", () => {
+  it("renders label with label text", () => {
     expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
   });
 
-  it("Renders 'Required' along with the label text", () => {
+  it("renders 'Required' along with the label text", () => {
     expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
   });
 
-  it("Renders 'Optional' along with the label text", () => {
+  it("renders 'Optional' along with the label text", () => {
     utils.rerender(
       <TextInput
         id="myTextInput"
         labelText="Custom Input Label"
-        required={false}
+        isRequired={false}
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
         attributes={{ onFocus: focusHandler }}
@@ -76,12 +86,12 @@ describe("TextInput", () => {
     expect(screen.getByText(/Optional/i)).toBeInTheDocument();
   });
 
-  it("Does not render 'Required' along with the label text", () => {
+  it("does not render 'Required' along with the label text", () => {
     utils.rerender(
       <TextInput
         id="myTextInput"
         labelText="Custom Input Label"
-        required={true}
+        isRequired
         showOptReqLabel={false}
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
@@ -94,32 +104,32 @@ describe("TextInput", () => {
     expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
   });
 
-  it("Renders label's `for` attribute pointing at ID from input", () => {
+  it("renders label's `for` attribute pointing at ID from input", () => {
     expect(screen.getByText(/Custom Input Label/i)).toHaveAttribute(
       "for",
       "myTextInput"
     );
   });
 
-  it("Renders placeholder text", () => {
+  it("renders placeholder text", () => {
     expect(
       screen.getByPlaceholderText("Input Placeholder")
     ).toBeInTheDocument();
   });
 
-  it("Adds aria-required prop if input is required", () => {
+  it("adds aria-required prop if input is required", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
       "aria-required"
     );
   });
 
-  it("Allows user to pass in additional attributes", () => {
+  it("allows user to pass in additional attributes", () => {
     expect(focusHandler).toHaveBeenCalledTimes(0);
     fireEvent.focus(screen.getByLabelText(/Custom Input Label/i));
     expect(focusHandler).toHaveBeenCalledTimes(1);
   });
 
-  it("Changing the value calls the onChange handler", () => {
+  it("changing the value calls the onChange handler", () => {
     expect(changeHandler).toHaveBeenCalledTimes(0);
     userEvent.type(screen.getByLabelText(/Custom Input Label/i), "Hello");
     // Called 5 times because "Hello" has length of 5.
@@ -137,42 +147,35 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
         labelText="Custom Input Label"
         showLabel={false}
         helperText="Custom Helper Text"
-        required={true}
+        isRequired
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
       />
     );
   });
 
-  it("Renders Input component", () => {
+  it("renders Input component", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
   });
 
-  it("Calls a UUID generation method if no ID is passed as a prop", () => {
+  it("calls a UUID generation method if no ID is passed as a prop", () => {
     // Called twice for the `TextInput` and the SVG icon components.
     expect(generateUUIDSpy).toHaveBeenCalledTimes(2);
   });
 
-  it("Does not renders Label component", () => {
+  it("does not renders Label component", () => {
     expect(screen.queryByText(/Custom Input Label/i)).not.toBeInTheDocument();
   });
 
-  it("Renders custom aria-label", () => {
+  it("renders custom aria-label", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
       "aria-label",
-      "Custom Input Label"
+      "Custom Input Label - Custom Helper Text"
     );
   });
 
-  it("Renders HelperErrorText component", () => {
+  it("renders HelperErrorText component", () => {
     expect(screen.getByText("Custom Helper Text")).toBeInTheDocument();
-  });
-
-  it("Renders aria-describedby with helper text", () => {
-    expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
-      "aria-describedby",
-      "Custom Helper Text"
-    );
   });
 });
 
@@ -185,68 +188,29 @@ describe("TextInput shows error state", () => {
         helperText="Custom Helper Text"
         invalidText="Custom Error Text"
         placeholder="Input Placeholder"
-        errored={true}
+        isInvalid={true}
         type={TextInputTypes.text}
       />
     );
   });
 
-  it("Renders Input component", () => {
+  it("renders Input component", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
   });
 
-  it("Renders Label component", () => {
+  it("renders Label component", () => {
     expect(screen.getByText(/Custom Input Label/i)).toBeInTheDocument();
   });
 
-  it("Renders HelperErrorText component", () => {
+  it("renders HelperErrorText component", () => {
     expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
     expect(screen.getByText("Custom Error Text")).toBeInTheDocument();
   });
 
-  it("Input shows error state", () => {
+  it("input shows error state", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
-      "class",
-      "inputfield inputfield--error "
+      "aria-invalid"
     );
-  });
-});
-
-describe("TextInput Group", () => {
-  beforeEach(() => {
-    render(
-      <fieldset>
-        <legend>Input Group Label Legend</legend>
-
-        <TextInput
-          id="input1"
-          required={true}
-          type={TextInputTypes.text}
-          labelText="For"
-          helperText="Input 1 Helper Text"
-        />
-
-        <TextInput
-          id="input2"
-          required={true}
-          type={TextInputTypes.text}
-          labelText="To"
-          helperText="Input 2 Helper Text"
-        />
-
-        <HelperErrorText isError={true} id={"sharedHelperText"}>
-          Additional Error Text
-        </HelperErrorText>
-      </fieldset>
-    );
-  });
-
-  it("Renders legend", () => {
-    expect(screen.getByText("Input Group Label Legend")).toBeInTheDocument();
-  });
-
-  it("Renders two inputs", () => {
-    expect(screen.getAllByRole("textbox")).toHaveLength(2);
   });
 });
 
@@ -270,27 +234,27 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
     );
   });
 
-  it("Has a maxlength for the input element", () => {
+  it("has a maxlength for the input element", () => {
     expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
       "maxLength",
       "10"
     );
   });
 
-  it("Has a tabIndex", () => {
+  it("has a tabIndex", () => {
     expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
       "tabIndex",
       "0"
     );
   });
 
-  it("Calls the onChange function", () => {
+  it("calls the onChange function", () => {
     expect(onChangeSpy).toHaveBeenCalledTimes(0);
     userEvent.type(screen.getByLabelText(/Input Label/i), "Hello");
     expect(onChangeSpy).toHaveBeenCalledTimes(5);
   });
 
-  it("Calls the onBlur function", () => {
+  it("calls the onBlur function", () => {
     expect(onBlurSpy).toHaveBeenCalledTimes(0);
     fireEvent.blur(screen.getByLabelText(/Input Label/i));
     expect(onBlurSpy).toHaveBeenCalledTimes(1);
@@ -329,7 +293,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
 // });
 
 describe("Hidden input", () => {
-  it("Renders a hidden type input", () => {
+  it("renders a hidden type input", () => {
     const utils = render(
       <TextInput
         id="inputID-hidden"
@@ -347,6 +311,21 @@ describe("Hidden input", () => {
       "hidden"
     );
   });
+
+  it("does not show the helper text", () => {
+    render(
+      <TextInput
+        id="inputID-hidden"
+        labelText="Hidden Input Label"
+        helperText="Helper Text"
+        type={TextInputTypes.hidden}
+        value="hidden"
+      />
+    );
+
+    expect(screen.queryByText("Hidden Input Label")).not.toBeInTheDocument();
+    expect(screen.queryByText("Helper Text")).not.toBeInTheDocument();
+  });
 });
 
 describe("Textarea element type", () => {
@@ -361,11 +340,11 @@ describe("Textarea element type", () => {
     );
   });
 
-  it("Renders a textarea element", () => {
+  it("renders a textarea element", () => {
     expect(screen.getByRole("textbox")).toBeInTheDocument();
   });
 
-  it("Renders label with label text", () => {
+  it("renders label with label text", () => {
     expect(screen.getByLabelText(/Custom textarea Label/i)).toBeInTheDocument();
   });
 });

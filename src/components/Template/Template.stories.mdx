@@ -1,0 +1,574 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import {
+  Template,
+  TemplateHeader,
+  TemplateBreakout,
+  TemplateContent,
+  TemplateContentTop,
+  TemplateContentPrimary,
+  TemplateContentSidebar,
+  TemplateFooter,
+  TemplateAppContainer,
+} from "./Template";
+import Placeholder from "../Placeholder/Placeholder";
+import Hero from "../Hero/Hero";
+import { HeroTypes } from "../Hero/HeroTypes";
+import Image from "../Image/Image";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+import Notification, {
+  NotificationContent,
+  NotificationHeading,
+  NotificationProps,
+} from "../Notification/Notification";
+import Form, { FormRow, FormField } from "../Form/Form";
+import TextInput from "../TextInput/TextInput";
+import Button from "../Button/Button";
+import Link from "../Link/Link";
+import Card, {
+  CardImage,
+  CardHeading,
+  CardContent,
+  CardActions,
+} from "../Card/Card";
+import { CardImageRatios, CardImageSizes } from "../Card/CardTypes";
+import Accordion from "../Accordion/Accordion";
+import { faqContent } from "../Accordion/Accordion.stories.mdx";
+import { NotificationTypes } from "../Notification/NotificationTypes";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("Template")}
+  component={TemplateAppContainer}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
+    },
+  }}
+/>
+
+# Template
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.3.6`    |
+| Latest            | `0.25.1`   |
+
+## TemplateAppContainer Component
+
+<Description of={TemplateAppContainer} />
+
+<b>This is the recommended way to render an app page template.</b>
+
+```jsx
+import { TemplateAppContainer } from "@nypl/design-system-react-components";
+
+<TemplateAppContainer
+  header={<Placeholder modifiers={["short"]}>NYPL Header</Placeholder>}
+  breakout={
+    <>
+      <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
+      <Placeholder modifiers={["short"]}>Hero</Placeholder>
+    </>
+  }
+  sidebar="left"
+  contentTop={<Placeholder>Content Top</Placeholder>}
+  contentSidebar={<Placeholder>Left Sidebar</Placeholder>}
+  contentPrimary={
+    <>
+      <Placeholder>Main Content</Placeholder>
+      <Placeholder modifiers={["short"]}>More Content</Placeholder>
+    </>
+  }
+  footer={<Placeholder modifiers={["short"]}>Footer</Placeholder>}
+/>;
+```
+
+<Canvas>
+  <Story
+    name="TemplateAppContainer Component"
+    args={{
+      header: <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>,
+      breakout: (
+        <>
+          <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
+          <Placeholder modifiers={["short"]}>Hero</Placeholder>
+        </>
+      ),
+      sidebar: "left",
+      contentTop: <Placeholder>Content Top</Placeholder>,
+      contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
+      contentPrimary: (
+        <>
+          <Placeholder>Main Content</Placeholder>
+          <Placeholder modifiers={["short"]}>More Content</Placeholder>
+        </>
+      ),
+      footer: <Placeholder modifiers={["short"]}>Footer</Placeholder>,
+    }}
+    argTypes={{
+      header: { control: false },
+      breakout: { control: false },
+      contentTop: { control: false },
+      contentSidebar: { control: false },
+      contentPrimary: { control: false },
+      footer: { control: false },
+    }}
+  >
+    {(args) => <TemplateAppContainer {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="TemplateAppContainer Component" />
+
+## Template Children Components
+
+The DS also provides a set of "template" components that work together to
+render a consistent mobile and desktop layout. More information on individual
+components and how they should be composed can be found below. Even though these
+component are available for use, we recommend using the `TemplateAppContainer`
+component and passing down children component as props as needed.
+
+Basic "template" components structure:
+
+```
+import {
+  Template,
+  TemplateHeader,
+  TemplateBreakout,
+  TemplateContent,
+  TemplateContentTop,
+  TemplateContentPrimary,
+  TemplateContentSidebar,
+  TemplateFooter,
+} from "@nypl/design-system-react-components";
+
+
+<Template>
+  <TemplateHeader>
+    // ...
+    <TemplateBreakout>
+      // ...
+    </TemplateBreakout>
+  </TemplateHeader>
+
+  <TemplateContent>
+    <TemplateContentTop>
+      // ...
+    </TemplateContentTop>
+
+    <TemplateContentPrimary>
+      // ...
+    </TemplateContentPrimary>
+  </TemplateContent>
+
+  <TemplateFooter>
+    // ...
+  </TemplateFooter>
+</Template>
+```
+
+<Canvas>
+  <Story
+    name="Template Children Components"
+    args={{
+      sidebar: "left",
+    }}
+    argTypes={{
+      breakout: { table: { disable: true } },
+      contentPrimary: { table: { disable: true } },
+      contentSidebar: { table: { disable: true } },
+      contentTop: { table: { disable: true } },
+      footer: { table: { disable: true } },
+      header: { table: { disable: true } },
+    }}
+  >
+    {(args) => (
+      <Template>
+        <TemplateHeader>
+          <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>
+          <TemplateBreakout>
+            <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
+            <Placeholder modifiers={["short"]}>Hero</Placeholder>
+          </TemplateBreakout>
+        </TemplateHeader>
+        <TemplateContent sidebar={args.sidebar}>
+          <TemplateContentTop>
+            <Placeholder>Content Top</Placeholder>
+          </TemplateContentTop>
+          {args.sidebar === "left" && (
+            <TemplateContentSidebar>
+              <Placeholder>Left Sidebar</Placeholder>
+            </TemplateContentSidebar>
+          )}
+          <TemplateContentPrimary>
+            <Placeholder>Main Content</Placeholder>
+            <Placeholder modifiers={["short"]}>More Content</Placeholder>
+          </TemplateContentPrimary>
+          {args.sidebar === "right" && (
+            <TemplateContentSidebar>
+              <Placeholder>Right Sidebar</Placeholder>
+            </TemplateContentSidebar>
+          )}
+        </TemplateContent>
+        <TemplateFooter>
+          <Placeholder modifiers={["short"]}>Footer</Placeholder>
+        </TemplateFooter>
+      </Template>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Template Children Components" />
+
+### Template Components
+
+The components consist of:
+
+- `Template`
+- `TemplateHeader`
+- `TemplateBreakout`
+- `TemplateContent`
+- `TemplateContentTop`
+- `TemplateContentPrimary`
+- `TemplateContentSidebar`
+- `TemplateFooter`
+
+#### Template
+
+```
+<Template>
+  // ...
+</Template>
+```
+
+<Description of={Template} />
+
+#### TemplateHeader
+
+```
+<Template>
+  <TemplateHeader>
+    // ...
+  </TemplateHeader>
+<Template>
+```
+
+<Description of={TemplateHeader} />
+
+#### TemplateBreakout
+
+```
+<Template>
+  <TemplateHeader>
+    <TemplateBreakout>
+      // ...
+    </TemplateBreakout>
+  </TemplateHeader>
+<Template>
+```
+
+<Description of={TemplateBreakout} />
+
+#### TemplateContent
+
+```
+<Template>
+  <TemplateHeader>...</TemplateHeader>
+  <TemplateContent sidebar="left">
+    // ...
+  </TemplateContent>
+<Template>
+```
+
+<Description of={TemplateContent} />
+
+#### TemplateContentTop
+
+```
+<Template>
+  <TemplateHeader>...</TemplateHeader>
+  <TemplateContent>
+    <TemplateContentTop>
+      // ...
+    </TemplateContent>
+  </TemplateContent>
+<Template>
+```
+
+<Description of={TemplateContentTop} />
+
+#### TemplateContentPrimary
+
+```
+<Template>
+  <TemplateHeader>...</TemplateHeader>
+  <TemplateContent>
+    <TemplateContentPrimary>
+      // ...
+    </TemplateContentPrimary>
+  </TemplateContent>
+<Template>
+```
+
+<Description of={TemplateContentPrimary} />
+
+#### TemplateContentSidebar
+
+```
+<Template>
+  <TemplateHeader>...</TemplateHeader>
+  <TemplateContent sidebar="right">
+    <TemplateContentPrimary>
+      // ...
+    </TemplateContentPrimary>
+    <TemplateContentSidebar>
+      // RIGHT SIDEBAR
+    </TemplateContentSidebar>
+  </TemplateContent>
+<Template>
+
+<Template>
+  <TemplateHeader>...</TemplateHeader>
+  <TemplateContent sidebar="left">
+    <TemplateContentSidebar>
+      // LEFT SIDEBAR
+    </TemplateContentSidebar>
+    <TemplateContentPrimary>
+      // ...
+    </TemplateContentPrimary>
+  </TemplateContent>
+<Template>
+```
+
+<Description of={TemplateContentSidebar} />
+
+#### TemplateFooter
+
+```
+<Template>
+  <TemplateHeader>
+    // ...
+  </TemplateHeader>
+  <TemplateContent sidebar="right">
+    //...
+  </TemplateContent>
+  <TemplateFooter>
+    // ...
+  </TemplateFooter>
+<Template>
+```
+
+<Description of={TemplateFooter} />
+
+### Template Children Components Sidebar Configuration
+
+In order to render a sidebar, two steps must be taken.
+
+1. The `TemplateContent` component needs to be aware of it. Pass the location
+   of the sidebar to the `sidebar` prop as either "left" or "right".
+
+```jsx
+<TemplateContent sidebar="left">
+```
+
+2. Render `TemplateContentSidebar` and `TemplateContentPrimary` next to each
+   other in the appropriate order. If the sidebar must show left, then
+   `TemplateContentSidebar` comes before `TemplateContentPrimary`. Otherwise,
+   `TemplateContentPrimary` must come before `TemplateContentSidebar`.
+
+```jsx
+// Render left sidebar
+<TemplateContent sidebar="left">
+  <TemplateContentSidebar>
+    // ...
+  </TemplateContentSidebar>
+  <TemplateContentPrimary>
+    // ...
+  </TemplateContentPrimary>
+</TemplateContent>
+
+// Render right sidebar
+<TemplateContent sidebar="right">
+  <TemplateContentPrimary>
+    // ...
+  </TemplateContentPrimary>
+  <TemplateContentSidebar>
+    // ...
+  </TemplateContentSidebar>
+</TemplateContent>
+```
+
+## Full Example with Template Children Components
+
+export const otherSubHeaderText =
+  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+
+This is best viewed in the Storybook "Canvas" and not "Docs" section.
+
+<Canvas>
+  <Story name="Full Example with Template Children Components">
+    <Template>
+      <TemplateHeader>
+        <TemplateBreakout>
+          <Breadcrumbs
+            breadcrumbsData={[
+              { url: "#", text: "Home" },
+              { url: "#", text: "Research" },
+              {
+                url: "#",
+                text: "Catalog",
+              },
+            ]}
+          />
+          <Hero
+            heroType={HeroTypes.Campaign}
+            heading={
+              <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
+            }
+            subHeaderText={otherSubHeaderText}
+            backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+            image={
+              <Image
+                src="https://placeimg.com/800/400/animals"
+                alt="Image example"
+              />
+            }
+          />
+        </TemplateBreakout>
+      </TemplateHeader>
+      <TemplateContent sidebar="right">
+        <TemplateContentTop>
+          <Notification notificationType={NotificationTypes.Announcement}>
+            <NotificationHeading>Announcement Notification</NotificationHeading>
+            <NotificationContent>
+              This is an "announcement" Notification with a heading. Cras mattis
+              consectetur purus sit amet fermentum. Maecenas faucibus mollis
+              interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Cum sociis natoque penatibus et magnis dis parturient
+              montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue
+              laoreet rutrum faucibus dolor auctor.
+            </NotificationContent>
+          </Notification>
+        </TemplateContentTop>
+        <TemplateContentPrimary>
+          <p>This is the main content!</p>
+          <Accordion contentData={faqContent} />
+          <HorizontalRule />
+          <p>Fill out the form!</p>
+          <Form action="/end/point">
+            <FormField>
+              <TextInput
+                labelText="Username"
+                helperText="Make sure to complete this field."
+                required
+              />
+            </FormField>
+            <FormField>
+              <TextInput
+                labelText="Password"
+                helperText="Make sure to complete this field."
+                required
+              />
+            </FormField>
+            <FormRow>
+              <FormField>
+                <TextInput labelText="Phone Field" type="tel" />
+              </FormField>
+              <FormField>
+                <TextInput labelText="URL Field" type="url" />
+              </FormField>
+              <FormField>
+                <TextInput labelText="Age" type="number" />
+              </FormField>
+            </FormRow>
+            <FormField>
+              <Button>Submit</Button>
+            </FormField>
+          </Form>
+        </TemplateContentPrimary>
+        <TemplateContentSidebar>
+          <p>Sidebar information in a `Card` component.</p>
+          <Card
+            center
+            imageSrc="https://placeimg.com/400/200/animals"
+            imageAlt="Alt text"
+            imageAspectRatio={CardImageRatios.Square}
+            imageSize={CardImageSizes.Small}
+          >
+            <CardHeading level={HeadingLevels.Three} id="heading1">
+              Small Animal Image
+            </CardHeading>
+            <CardHeading level={HeadingLevels.Five} id="heading2">
+              Animal info
+            </CardHeading>
+            <CardContent>
+              Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+              libero, a pharetra augue.
+            </CardContent>
+          </Card>
+        </TemplateContentSidebar>
+      </TemplateContent>
+      <TemplateFooter>
+        <Card
+          id="custom-card"
+          imageAlt="Alt text"
+          imageSrc="https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
+          imageAspectRatio={CardImageRatios.SixteenByNine}
+          layout="horizontal"
+          backgroundColor="#616161"
+          foregroundColor="#FFF"
+        >
+          <CardHeading id="heading1" level={2}>
+            Footer
+          </CardHeading>
+          <CardContent>
+            <p>This is an example footer using the `Card` component.</p>
+            <p>
+              © The New York Public Library, 2021 The New York Public Library is
+              a 501(c)(3) | EIN 13-1887440
+            </p>
+          </CardContent>
+          <CardActions>
+            <Link
+              href="javascript:void(0);"
+              attributes={{
+                style: { color: "#FFF", textDecoration: "underline" },
+              }}
+            >
+              Facebook
+            </Link>
+            ,<Link
+              href="javascript:void(0);"
+              attributes={{
+                style: { color: "#FFF", textDecoration: "underline" },
+              }}
+            >
+              Instagram
+            </Link>,<Link
+              href="javascript:void(0);"
+              attributes={{
+                style: { color: "#FFF", textDecoration: "underline" },
+              }}
+            >
+              Twitter
+            </Link>
+          </CardActions>
+        </Card>
+      </TemplateFooter>
+    </Template>
+  </Story>
+</Canvas>
