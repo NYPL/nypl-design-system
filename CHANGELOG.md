@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds custom `useCarouselStyles` hook for the `Tabs` mobile functionality.
 - Composes the DS `Image` component with Chakra styling and all `Image` references in other DS components.
+- Composes the DS `Card` component with Chakra.
 
 ## 0.25.1 (October 14, 2021)
 
