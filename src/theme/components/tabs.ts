@@ -22,7 +22,7 @@ const tab = {
   whiteSpace: "nowrap",
   _hover: {
     bg: "ui.gray.x-light-warm",
-    borderTopRadius: "4px",
+    borderTopRadius: "sm",
     borderBottom: "1px solid",
     borderBottomColor: "ui.black",
   },
@@ -30,7 +30,7 @@ const tab = {
     fontWeight: "bold",
     bg: "ui.gray.light-warm",
     border: "0",
-    borderTopRadius: "4px",
+    borderTopRadius: "sm",
     borderBottom: "3px solid",
     borderBottomColor: "ui.black",
     paddingBottom: "5px",
