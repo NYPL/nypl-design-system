@@ -37,7 +37,7 @@ export interface NotificationProps extends BaseProps {
   /** Content to be rendered in a `NotificationContent` component. */
   notificationContent: JSX.Element;
   /** Content to be rendered in a `NotificationHeading` component. */
-  notificationHeading?: string;
+  notificationHeading?: string | JSX.Element;
 }
 
 /**
@@ -52,7 +52,7 @@ export function NotificationHeading(props: React.PropsWithChildren<BaseProps>) {
   return (
     <Box as="header" __css={styles}>
       {icon}
-      <Heading level={HeadingLevels.Four} sx={styles.heading}>
+      <Heading level={HeadingLevels.Four} additionalStyles={styles.heading}>
         {children}
       </Heading>
     </Box>
@@ -117,7 +117,7 @@ export default function Notification(props: NotificationProps) {
         id={`${id}-notification-icon`}
         decorative={false}
         size={IconSizes.Large}
-        sx={styles.icon}
+        additionalStyles={styles.icon}
         {...iconProps[notificationType]}
       />
     ) : null;
@@ -126,14 +126,14 @@ export default function Notification(props: NotificationProps) {
     <Button
       buttonType={ButtonTypes.Link}
       onClick={handleClose}
-      sx={styles.dismissibleButton}
+      additionalStyles={styles.dismissibleButton}
     >
       <Icon
         id={`${id}-notification-dismissible-icon`}
         decorative={false}
         name={IconNames.Close}
         size={IconSizes.Large}
-        sx={styles.dismissibleIcon}
+        additionalStyles={styles.dismissibleIcon}
       />
     </Button>
   );

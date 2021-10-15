@@ -12,6 +12,8 @@ import Icon from "../Icons/Icon";
 type ButtonElementType = "submit" | "button" | "reset";
 
 interface ButtonProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Additional attributes passed to the button */
   attributes?: { [key: string]: any };
   /** The kind of button assigned through the `ButtonTypes` enum  */
@@ -26,8 +28,6 @@ interface ButtonProps {
   mouseDown?: boolean;
   /** The action to perform on the `<button>`'s onClick function */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  /** Optionally pass in additional Chakra-based styles. */
-  sx?: { [key: string]: any };
   /** The html button attribute */
   type?: ButtonElementType;
 }
@@ -49,6 +49,7 @@ const getVariant = (buttonType) =>
 /** Renders a simple `button` element with custom classes and modifiers. */
 function Button(props: React.PropsWithChildren<ButtonProps>) {
   const {
+    additionalStyles = {},
     attributes,
     buttonType,
     children,
@@ -57,7 +58,6 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
     id,
     mouseDown = false,
     onClick,
-    sx = {},
     type = "button",
   } = props;
   const baseClass = "button";
@@ -93,7 +93,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
       className={bem(baseClass, [], "", [className])}
       type={type}
       disabled={disabled}
-      __css={{ ...styles, ...sx }}
+      __css={{ ...styles, ...additionalStyles }}
       {...attributes}
       {...btnCallback}
     >

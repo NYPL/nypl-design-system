@@ -14,6 +14,8 @@ import {
 import iconSvgs from "./IconSvgs";
 
 export interface IconProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Aligns the icon. */
   align?: IconAlign;
   /** className that appears in addition to "icon" */
@@ -31,8 +33,6 @@ export interface IconProps {
   name?: IconNames | LogoNames;
   /** Sets the icon size. */
   size?: IconSizes;
-  /** Optionally pass in additional Chakra-based styles. */
-  sx?: { [key: string]: any };
   /** Sets the icon variant type. */
   type?: IconTypes;
 }
@@ -42,6 +42,7 @@ export interface IconProps {
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
+    additionalStyles = {},
     align = "none",
     children,
     className,
@@ -51,7 +52,6 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     id = generateUUID(),
     name,
     size = IconSizes.Medium,
-    sx = {},
     type = IconTypes.Default,
   } = props;
   const styles = useStyleConfig("Icon", {
@@ -91,7 +91,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
       <ChakraIcon
         as={SvgComponent}
         {...iconProps}
-        __css={{ ...styles, ...sx }}
+        __css={{ ...styles, ...additionalStyles }}
       />
     );
   }
