@@ -13,7 +13,7 @@ describe("Notification Accessibility", () => {
     const { container } = render(
       <Notification
         id="notificationID"
-        notificationHeading={<>Notification Heading</>}
+        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
       />
     );
@@ -37,7 +37,7 @@ describe("Notification", () => {
     utils = render(
       <Notification
         id="notificationID"
-        notificationHeading={<>Notification Heading</>}
+        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
       />
     );
@@ -69,7 +69,7 @@ describe("Notification", () => {
             className="custom-icon"
           />
         }
-        notificationHeading={<>Notification Heading</>}
+        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
       />
     );
@@ -81,7 +81,7 @@ describe("Notification", () => {
       <Notification
         id="notificationID"
         notificationType={NotificationTypes.Announcement}
-        notificationHeading={<>Notification Heading</>}
+        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
       />
     );
@@ -97,7 +97,7 @@ describe("Notification", () => {
       <Notification
         id="notificationID"
         notificationType={NotificationTypes.Warning}
-        notificationHeading={<>Notification Heading</>}
+        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
       />
     );
@@ -113,7 +113,7 @@ describe("Notification", () => {
       .create(
         <Notification
           id="notificationID1"
-          notificationHeading={<>Notification Heading</>}
+          notificationHeading="Notification Heading"
           notificationContent={<>Notification content.</>}
         />
       )
@@ -123,7 +123,7 @@ describe("Notification", () => {
         <Notification
           id="notificationID2"
           notificationType={NotificationTypes.Announcement}
-          notificationHeading={<>Notification Heading</>}
+          notificationHeading="Notification Heading"
           notificationContent={<>Notification content.</>}
         />
       )
@@ -133,7 +133,7 @@ describe("Notification", () => {
         <Notification
           id="notificationID3"
           notificationType={NotificationTypes.Warning}
-          notificationHeading={<>Notification Heading</>}
+          notificationHeading="Notification Heading"
           notificationContent={<>Notification content.</>}
         />
       )

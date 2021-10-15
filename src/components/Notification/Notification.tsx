@@ -37,7 +37,7 @@ export interface NotificationProps extends BaseProps {
   /** Content to be rendered in a `NotificationContent` component. */
   notificationContent: JSX.Element;
   /** Content to be rendered in a `NotificationHeading` component. */
-  notificationHeading?: JSX.Element;
+  notificationHeading?: string;
 }
 
 /**

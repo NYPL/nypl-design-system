@@ -318,7 +318,7 @@ it("Renders the UI snapshot correctly", () => {
     .create(
       <Notification
         id="notificationID"
-        notificationHeading={<>Notification Heading</>}
+        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
       />
     )

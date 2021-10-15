@@ -56,7 +56,7 @@ within a parent element.
     args={{
       id: "basic-notification",
       centered: true,
-      notificationHeading: <>Notification Heading</>,
+      notificationHeading: "Notification Heading",
       notificationContent: (
         <>
           Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
@@ -86,7 +86,7 @@ within a parent element.
 <Canvas>
   <DSProvider>
     <Notification
-      notificationHeading={<>Standard Notification</>}
+      notificationHeading="Standard Notification"
       notificationContent={
         <>
           This is a "standard" Notification with a heading. Cras mattis
@@ -105,7 +105,7 @@ within a parent element.
   <DSProvider>
     <Notification
       notificationType={NotificationTypes.Announcement}
-      notificationHeading={<>Announcement Notification</>}
+      notificationHeading="Announcement Notification"
       notificationContent={
         <>
           This is an "announcement" Notification with a heading. Cras mattis
@@ -124,7 +124,7 @@ within a parent element.
   <DSProvider>
     <Notification
       notificationType={NotificationTypes.Warning}
-      notificationHeading={<>Warning Notification</>}
+      notificationHeading="Warning Notification"
       notificationContent={
         <>
           This is a "warning" Notification with a heading. Cras mattis
@@ -210,7 +210,7 @@ The default icon can be overridden by using the `icon` prop to pass a custom `Ic
             color={IconColors.SectionResearchSecondary}
           />
         }
-        notificationHeading={<>Custom Icon</>}
+        notificationHeading="Custom Icon"
         notificationContent={
           <>
             This is a Notification with a custom icon. Cras mattis consectetur

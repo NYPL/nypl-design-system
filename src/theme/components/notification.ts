@@ -78,7 +78,7 @@ const NotificationHeading = {
     }
     return {
       display: "flex",
-      marginBottom: "s",
+      marginBottom: "xxs",
       justifyContent: centered ? "center" : null,
       heading: {
         marginBottom: "0",
