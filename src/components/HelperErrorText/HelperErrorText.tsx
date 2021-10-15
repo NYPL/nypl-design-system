@@ -47,7 +47,7 @@ export default function HelperErrorText(
       id={id}
       className={className}
       aria-atomic={ariaAtomic}
-      data-isInvalid={isInvalid}
+      data-isinvalid={isInvalid}
       aria-live={announceAriaLive ? ariaLive : "off"}
       __css={styles}
     >

@@ -5,7 +5,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
   aria-atomic={true}
   aria-live="off"
   className=" css-0"
-  data-isInvalid={false}
+  data-isinvalid={false}
   id="basic"
 >
   Text
@@ -17,7 +17,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
   aria-atomic={true}
   aria-live="polite"
   className=" css-0"
-  data-isInvalid={true}
+  data-isinvalid={true}
   id="invalid"
 >
   Text

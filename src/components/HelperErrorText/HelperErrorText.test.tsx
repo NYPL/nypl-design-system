@@ -23,10 +23,10 @@ describe("HelperErrorText", () => {
 
     // False by default. Note, this is a custom `data-*` attribute only used
     // for testing the invalid state.
-    expect(screen.getByText("Text")).toHaveAttribute("data-isInvalid", "false");
+    expect(screen.getByText("Text")).toHaveAttribute("data-isinvalid", "false");
 
     utils.rerender(<HelperErrorText isInvalid>Text</HelperErrorText>);
-    expect(screen.getByText("Text")).toHaveAttribute("data-isInvalid", "true");
+    expect(screen.getByText("Text")).toHaveAttribute("data-isinvalid", "true");
   });
 
   it("has aria-live and aria-atomic attributes when errored", () => {

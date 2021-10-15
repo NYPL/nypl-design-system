@@ -484,7 +484,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
-      data-isInvalid={false}
+      data-isinvalid={false}
       id="helperText-helperErrorText"
     >
       helper text

@@ -1,6 +1,6 @@
 const helperErrorText = {
   baseStyle: ({ isInvalid }) => ({
-    marginBottom: "xs",
+    marginBottom: "0",
     fontSize: "-1",
     color: isInvalid ? "ui.error.primary" : "ui.black",
   }),
