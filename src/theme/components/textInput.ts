@@ -3,7 +3,7 @@ import { activeFocus } from "./global";
 const input = {
   border: "1px solid",
   borderColor: "ui.gray.medium",
-  borderRadius: "2px",
+  borderRadius: "sm",
   py: "xs",
   px: "s",
   _hover: {
@@ -45,13 +45,13 @@ const TextInput = {
     searchBar: {
       flex: "1 1 80%",
       input: {
-        borderRightRadius: "0",
+        borderRightRadius: "none",
       },
     },
     searchBarSelect: {
       flex: "1 1 80%",
       input: {
-        borderRadius: "0",
+        borderRadius: "none",
       },
     },
   },

@@ -86,7 +86,7 @@ const sizes = {
     // Controls the width/height of the checkbox itself.
     control: {
       ...checkboxRadioControlSize,
-      borderRadius: "3px",
+      borderRadius: "sm",
     },
     // Controls the font-size of the label only.
     label: { fontSize: "md" },
