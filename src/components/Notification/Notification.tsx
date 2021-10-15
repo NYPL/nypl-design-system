@@ -35,9 +35,9 @@ export interface NotificationProps extends BaseProps {
   /** Optional prop to control the margin around the `Notification` component. */
   noMargin?: boolean;
   /** Content to be rendered in a `NotificationContent` component. */
-  notificationContent: JSX.Element;
+  notificationContent: string | JSX.Element;
   /** Content to be rendered in a `NotificationHeading` component. */
-  notificationHeading?: string | JSX.Element;
+  notificationHeading?: string;
 }
 
 /**
