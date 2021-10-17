@@ -3,7 +3,7 @@ import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
 import Icon from "./../Icons/Icon";
-import { IconNames } from "./../Icons/IconTypes";
+import { IconNames, IconSizes } from "./../Icons/IconTypes";
 import { useSelect /*, UseSelectProps */ } from "downshift";
 import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
 
@@ -61,10 +61,13 @@ function MultiSelect({
         case useSelect.stateChangeTypes.MenuKeyDownEnter:
         case useSelect.stateChangeTypes.MenuKeyDownSpaceButton:
         case useSelect.stateChangeTypes.ItemClick:
+          // This allows you to access the cta buttons, but then also keeps menu open on blur...
+          //case useSelect.stateChangeTypes.MenuBlur:
           return {
             ...changes,
             isOpen: true, // Keep menu open after selection.
             highlightedIndex: state.highlightedIndex,
+            //circularNavigation: true,
           };
         default:
           return changes;
@@ -79,7 +82,7 @@ function MultiSelect({
 
   const styles = useMultiStyleConfig("MultiSelect", {});
   // @ts-ignore
-  const iconType = isOpen ? "minus" : "plus";
+  const iconType = isOpen ? "Minus" : "Plus";
 
   // Sets the ListBoxMenuButton label, including a count of selected items.
   function getButtonLabel(id: string) {
@@ -130,7 +133,7 @@ function MultiSelect({
         <Icon
           name={IconNames[iconType]}
           decorative={true}
-          modifiers={["small", IconNames[iconType]]}
+          size={IconSizes.Small}
         />
       </Button>
       <Box __css={styles.menu} {...(!isOpen && { display: "none" })}>

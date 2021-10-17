@@ -3,7 +3,7 @@ import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Heading from "./../Heading/Heading";
 import Icon from "./../Icons/Icon";
-import { IconRotationTypes } from "./../Icons/IconTypes";
+import { IconRotationTypes, IconSizes } from "./../Icons/IconTypes";
 import Modal from "./../Modal/Modal";
 import { Box, Stack, useMultiStyleConfig } from "@chakra-ui/react";
 import { SelectedItems } from "./../MultiSelect/MultiSelectTypes";
@@ -83,8 +83,8 @@ function FilterBar({
                 >
                   <Icon
                     decorative
-                    iconRotation={IconRotationTypes.rotate90}
-                    modifiers={["small"]}
+                    iconRotation={IconRotationTypes.Rotate90}
+                    size={IconSizes.Small}
                   />
                   Go Back
                 </Button>
