@@ -5,7 +5,7 @@ import Heading from "./../Heading/Heading";
 import Icon from "./../Icons/Icon";
 import { IconRotationTypes } from "./../Icons/IconTypes";
 import Modal from "./../Modal/Modal";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, Stack, useMultiStyleConfig } from "@chakra-ui/react";
 import { SelectedItems } from "./../MultiSelect/MultiSelectTypes";
 
 export interface FilterBarProps {
@@ -62,8 +62,8 @@ function FilterBar({
       {isMobile ? (
         <Box __css={styles.inner}>
           <Button
-            id="search-filters__mobile-filters-button"
-            className={"filterBarButtonMobile"}
+            //id="search-filters__mobile-filters-button"
+            //className={"filterBarButtonMobile"}
             onClick={onClickMobileFiltersButton}
             buttonType={ButtonTypes.Secondary}
             type="button"
@@ -75,8 +75,8 @@ function FilterBar({
               <Box __css={styles.ctaContainer}>
                 <Button
                   buttonType={ButtonTypes.Link}
-                  className={"ctaClearButtonMobile"}
-                  id={"multiselect-button-goback"}
+                  //className={"ctaClearButtonMobile"}
+                  //id={"multiselect-button-goback"}
                   mouseDown={false}
                   type="button"
                   onClick={onClickGoBack}
@@ -90,7 +90,7 @@ function FilterBar({
                 </Button>
                 <Button
                   buttonType={ButtonTypes.Primary}
-                  id={`multiselect-button-save`}
+                  //id={`multiselect-button-save`}
                   mouseDown={false}
                   type="button"
                   onClick={onSaveSelectedItems}
@@ -100,19 +100,21 @@ function FilterBar({
               </Box>
               <div className={"multiSelectsContainerMobile"}>
                 <Heading
-                  id="search-filters__mobile-heading"
+                  //id="search-filters__mobile-heading"
                   level={3}
                   text="Filters"
                 />
                 {children}
                 {Object.keys(selectedItems).length > 0 && (
                   <Button
+                    //id="mobile-clear-all-button"
+                    attributes={{
+                      ...styles.clearFilters,
+                    }}
+                    type="submit"
                     buttonType={ButtonTypes.Link}
-                    id="mobile-clear-all-button"
-                    className={"clearAllFiltersButton"}
                     mouseDown={false}
                     onClick={onClearSelectedItems}
-                    type="submit"
                   >
                     Clear all filters
                   </Button>
@@ -124,12 +126,14 @@ function FilterBar({
       ) : (
         <Box __css={styles.inner}>
           <Heading
-            id="search-filters--heading"
-            className={"filterBarHeading"}
+            //id="search-filters--heading"
+            //className={"filterBarHeading"}
             level={2}
             text={label}
           />
-          <Box __css={styles.multiSelectsContainerDesktop}>{children}</Box>
+          <Stack direction="row" spacing={2}>
+            {children}
+          </Stack>
         </Box>
       )}
     </Box>

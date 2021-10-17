@@ -119,7 +119,13 @@ function MultiSelect({
 
   return (
     <Box id={id} __css={styles.container}>
-      <Button buttonType={ButtonTypes.Secondary} {...getToggleButtonProps()}>
+      <Button
+        buttonType={ButtonTypes.Secondary}
+        attributes={{
+          ...styles.menuButton,
+        }}
+        {...getToggleButtonProps()}
+      >
         <span>{getButtonLabel(id)}</span>
         <Icon
           name={IconNames[iconType]}

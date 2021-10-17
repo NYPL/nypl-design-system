@@ -1,33 +1,32 @@
 const MultiSelect = {
   baseStyle: {
     container: {
-      width: "fit-content",
-      minWidth: {
-        //md: "100%",
-        base: "175px",
+      width: {
+        base: "100%",
+        md: "fit-content",
       },
-      margin: "0 2em 0 0",
+      minWidth: {
+        base: "100%",
+        md: "175px",
+      },
+      margin: {
+        base: ".75rem 0",
+        md: "0 2em 0 0",
+      },
     },
     menuButton: {
-      w: "100%",
-      /*border: "1px solid #e0e0e0",
-      display: "flex",
+      width: "100%",
       justifyContent: "space-between",
-      alignItems: "center",
-      padding: "0.65em 0.85em",
-      borderRadius: "2px",
-      backgroundColor: "white",
-      color: "inherit",
-      cursor: "pointer",
-      fontWeight: 500,
-      fontSize: "14px",
-      textDecoration: "none",
-      */
     },
     menu: {
-      position: "absolute",
+      position: {
+        md: "absolute",
+      },
       zIndex: 1,
-      minWidth: "275px",
+      minWidth: {
+        base: "100%",
+        md: "275px",
+      },
       // These are for active states
       boxSizing: "border-box",
       background: "white",
@@ -36,7 +35,8 @@ const MultiSelect = {
     },
     menuInner: {
       maxHeight: {
-        base: "285px",
+        base: "100%",
+        md: "285px",
       },
       overflowX: {
         base: "hidden",
