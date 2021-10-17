@@ -4,7 +4,7 @@ import { Box, Stack, HStack, VStack, Circle } from "@chakra-ui/react";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes, IconColors } from "../Icons/IconTypes";
+import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
 import Radio from "../Radio/Radio";
 
 <Meta title={getCategory("Stack, HStack, VStack")} component={Stack} />
@@ -49,13 +49,13 @@ both horizontally and vertically through the `direction` prop.
     {(args) => (
       <Stack {...args}>
         <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-          <Icon name={IconNames.error_filled} />
+          <Icon name={IconNames.ErrorFilled} size={IconSizes.Large} />
         </Circle>
         <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-          <Icon name={IconNames.error_outline} />
+          <Icon name={IconNames.ErrorOutline} size={IconSizes.Large} />
         </Circle>
         <Circle size="50px" borderColor="ui.black" borderWidth="1px">
-          <Icon name={IconNames.check} />
+          <Icon name={IconNames.Check} size={IconSizes.Large} />
         </Circle>
       </Stack>
     )}

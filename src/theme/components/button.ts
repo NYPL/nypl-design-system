@@ -1,6 +1,6 @@
 // Style object for base or default style
 const baseStyle = {
-  borderRadius: "2px",
+  borderRadius: "sm",
   lineHeight: "1.5",
   display: "flex",
   cursor: "pointer",
@@ -10,6 +10,10 @@ const baseStyle = {
   px: "s",
   textDecoration: "none",
   wordWrap: "normal",
+  svg: {
+    fill: "currentColor",
+    marginTop: "xxs",
+  },
   _hover: {
     bg: "ui.link.secondary",
   },
@@ -63,7 +67,7 @@ const pill = {
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
   color: "inherit",
-  borderRadius: "20px",
+  borderRadius: "pill",
   py: "xs",
   paddingInlineStart: "m",
   paddingInlineEnd: "m",
@@ -91,12 +95,16 @@ const callout = {
     bg: "brand.secondary",
   },
 };
+const searchBar = {
+  ...primary,
+  borderLeftRadius: "none",
+};
 
 const Button = {
   baseStyle,
   sizes,
   // Available variants:
-  // primary, secondary, link, pill, icon-only
+  // primary, secondary, link, pill, icon-only, searchBar
   variants: {
     primary,
     secondary,
@@ -104,6 +112,7 @@ const Button = {
     pill,
     ["icon-only"]: iconOnly,
     callout,
+    searchBar,
   },
   // Default values
   defaultProps: {

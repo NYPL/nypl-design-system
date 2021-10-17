@@ -86,13 +86,6 @@ describe("Notification: check for Announcement Notification", () => {
       utils.container.querySelector(".notification--announcement")
     ).toBeInTheDocument();
   });
-  it("Renders Icon with proper color", () => {
-    expect(
-      utils.container.querySelector(
-        ".notification-icon.icon--section-research-secondary"
-      )
-    ).toBeInTheDocument();
-  });
 });
 
 describe("Notification: check for Warning Notification", () => {
@@ -114,12 +107,6 @@ describe("Notification: check for Warning Notification", () => {
       utils.container.querySelector(".notification--warning")
     ).toBeInTheDocument();
   });
-
-  it("Renders Icon with proper color", () => {
-    expect(
-      utils.container.querySelector(".notification-icon.icon--brand-primary")
-    ).toBeInTheDocument();
-  });
 });
 
 describe("Notification: check for custom Icon", () => {
@@ -130,9 +117,9 @@ describe("Notification: check for custom Icon", () => {
         id="notificationID"
         icon={
           <Icon
-            name={IconNames.check}
-            size={IconSizes.large}
-            color={IconColors.brand_primary}
+            name={IconNames.Check}
+            size={IconSizes.Large}
+            color={IconColors.BrandPrimary}
             className="custom-icon"
           />
         }

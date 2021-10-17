@@ -3,6 +3,7 @@ import { extendTheme } from "@chakra-ui/react";
 import global from "./foundations/global";
 import breakpoints from "./foundations/breakpoints";
 import colors from "./foundations/colors";
+import radii from "./foundations/radii";
 import shadows from "./foundations/shadows";
 import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
@@ -11,18 +12,23 @@ import Accordion from "./components/accordion";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import Checkbox from "./components/checkbox";
-import Radio from "./components/radio";
-import CustomRadioGroup from "./components/customRadioGroup";
 import CustomCheckboxGroup from "./components/customCheckboxGroup";
-import Tabs from "./components/tabs";
-import Hero from "./components/hero";
-import TextInput from "./components/textInput";
+import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 import FilterBar from "./components/filterBar";
 import MultiSelect from "./components/multiSelect";
-import TemplateStyles from "./components/template";
+import Hero from "./components/hero";
+import Icon from "./components/icon";
+import Label from "./components/label";
 import Link from "./components/link";
+import Radio from "./components/radio";
+import SearchBar from "./components/searchBar";
+import StatusBadge from "./components/statusBadge";
+import Tabs from "./components/tabs";
+import TemplateStyles from "./components/template";
+import Text from "./components/text";
+import TextInput from "./components/textInput";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -46,6 +52,7 @@ const theme = extendTheme({
   styles: { global },
   breakpoints,
   colors,
+  radii,
   shadows,
   space: spacing,
   ...typography,
@@ -63,12 +70,17 @@ const theme = extendTheme({
     CustomSelect,
     Heading,
     Hero,
+    Icon,
+    Label,
     Link,
     Radio,
+    SearchBar,
+    StatusBadge,
     Tabs,
     FilterBar,
     MultiSelect,
     ...TemplateStyles,
+    Text,
     TextInput,
   },
   // Chakra prefixes its own CSS variables with `--chakra` by default but this

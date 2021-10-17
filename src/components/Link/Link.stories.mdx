@@ -15,6 +15,7 @@ import { VStack } from "@chakra-ui/react";
 import Link from "./Link";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
+import { IconAlign, IconSizes } from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -81,24 +82,20 @@ links with icons. Icons can be rendered to the left or right of the link text.
   <Story name="With Icons">
     <VStack spacing="xs" align="flex-start">
       <Link type={LinkTypes.Action} href="#passed-in-link">
-        <Icon
-          name={"headset"}
-          modifiers={["left", "small"]}
-          decorative={true}
-        />
+        <Icon name="headset" align={IconAlign.Left} size={IconSizes.Small} />
         Headset Link
       </Link>
       <Link type={LinkTypes.Action} href="#passed-in-link">
-        <Icon name={"clock"} modifiers={["left", "small"]} decorative={true} />
+        <Icon name="clock" align={IconAlign.Left} size={IconSizes.Small} />
         Clock Link
       </Link>
       <Link type={LinkTypes.Action} href="#passed-in-link">
-        <Icon name={"check"} modifiers={["left", "small"]} decorative={true} />
+        <Icon name="check" align={IconAlign.Left} size={IconSizes.Small} />
         Check Link
       </Link>
       <Link type={LinkTypes.Action} href="#passed-in-link-right">
         Check Link Right
-        <Icon name={"check"} modifiers={["right", "small"]} decorative={true} />
+        <Icon name="check" align={IconAlign.Right} size={IconSizes.Small} />
       </Link>
     </VStack>
   </Story>

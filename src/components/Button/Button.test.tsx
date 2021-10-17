@@ -6,7 +6,7 @@ import renderer from "react-test-renderer";
 
 import Button from "./Button";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
+import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
 import { ButtonTypes } from "./ButtonTypes";
 
 describe("Button Accessibility", () => {
@@ -94,13 +94,13 @@ describe("padding for icon only button", () => {
     const { container } = render(
       <Button id="button" onClick={onClick} type="button">
         <Icon
-          name={IconNames.check}
-          decorative={true}
-          modifiers={["small", "icon-left"]}
+          align={IconAlign.Left}
+          name={IconNames.Check}
+          size={IconSizes.Small}
         />
       </Button>
     );
-    expect(container.querySelector(".button .icon")).toBeInTheDocument();
+    expect(container.querySelector(".button svg")).toBeInTheDocument();
   });
 });
 
@@ -149,11 +149,23 @@ describe("Button Snapshot", () => {
         </Button>
       )
       .toJSON();
+    const searchBar = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          buttonType={ButtonTypes.SearchBar}
+        >
+          SearchBar
+        </Button>
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(secondary).toMatchSnapshot();
     expect(callout).toMatchSnapshot();
     expect(pill).toMatchSnapshot();
     expect(link).toMatchSnapshot();
+    expect(searchBar).toMatchSnapshot();
   });
 });

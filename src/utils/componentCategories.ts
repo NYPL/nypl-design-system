@@ -100,7 +100,7 @@ const categories = {
   },
   typography: {
     title: "Components/Typography & Styles",
-    components: ["Heading", "List"],
+    components: ["Heading", "List", "Text"],
   },
   devguide: {
     title: "Documentation/Development Guide",

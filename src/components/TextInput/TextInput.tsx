@@ -6,7 +6,11 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import { TextInputTypes, TextInputFormats } from "./TextInputTypes";
+import {
+  TextInputTypes,
+  TextInputFormats,
+  TextInputVariants,
+} from "./TextInputTypes";
 import Label from "../Label/Label";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
@@ -14,6 +18,8 @@ import generateUUID from "../../helpers/generateUUID";
 export interface InputProps {
   /** Additional attributes to pass to the `<input>` or `<textarea>` element */
   attributes?: { [key: string]: any };
+  /** A class name for the TextInput parent div. */
+  className?: string;
   /** Populates the HelperErrorText for the standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -47,6 +53,8 @@ export interface InputProps {
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
   value?: string;
+  /** The variant to display. */
+  variantType?: TextInputVariants;
 }
 
 /**
@@ -64,6 +72,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
   (props, ref: React.Ref<TextInputRefType>) => {
     const {
       attributes = {},
+      className,
       helperText,
       id = generateUUID(),
       invalidText,
@@ -77,8 +86,9 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       showOptReqLabel = true,
       type = TextInputTypes.text,
       value,
+      variantType = TextInputVariants.Default,
     } = props;
-    const styles = useMultiStyleConfig("TextInput", {});
+    const styles = useMultiStyleConfig("TextInput", { variant: variantType });
     const isTextArea = type === TextInputTypes.textarea;
     const isHidden = type === TextInputTypes.hidden;
     const optReqFlag = isRequired ? "Required" : "Optional";
@@ -113,18 +123,20 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       );
     }
 
-    options = {
-      id,
-      "aria-required": isRequired,
-      "aria-hidden": isHidden,
-      isDisabled,
-      isRequired,
-      isInvalid,
-      placeholder,
-      onChange,
-      ref,
-      ...attributes,
-    };
+    // When the type is "hidden", the input element needs fewer attributes.
+    options = isHidden
+      ? { id, "aria-hidden": isHidden, onChange, ref }
+      : {
+          id,
+          "aria-required": isRequired,
+          isDisabled,
+          isRequired,
+          isInvalid,
+          placeholder,
+          onChange,
+          ref,
+          ...attributes,
+        };
     // For `input` and `textarea`, all attributes are the same but `input`
     // also needs `type` and `value` to render correctly.
     if (!isTextArea) {
@@ -139,7 +151,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     }
 
     return (
-      <Box __css={styles}>
+      <Box __css={styles} className={className}>
         {labelText && showLabel && !isHidden && (
           <Label
             htmlFor={id}
@@ -150,7 +162,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
           </Label>
         )}
         {fieldOutput}
-        {footnote && (
+        {footnote && !isHidden && (
           <Box __css={styles.helper} aria-disabled={isDisabled}>
             <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
               {footnote}
