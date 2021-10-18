@@ -146,7 +146,9 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
         </Stack>
         {footnote && showHelperInvalidText && (
           <Box __css={styles.helper}>
-            <HelperErrorText isError={isInvalid}>{footnote}</HelperErrorText>
+            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
+              {footnote}
+            </HelperErrorText>
           </Box>
         )}
       </Box>

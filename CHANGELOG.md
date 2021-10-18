@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds custom NYPL-theme radii values to use within Chakra.
 - Adds the `showHelperInvalidText` prop to form components to control displaying or hiding the content in the `HelperErrorText` component.
 - Composes the DS `Notification` component with Chakra components.
+- Composes the DS `HelperErrorText` component with Chakra.
 
 ## 0.25.1 (October 14, 2021)
 
