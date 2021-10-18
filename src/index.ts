@@ -34,6 +34,7 @@ export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGro
 export { CheckboxGroupLayoutTypes } from "./components/CheckboxGroup/CheckboxGroupLayoutTypes";
 export { default as DatePicker } from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
+export { default as DSProvider } from "./theme/provider";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { FormSpacing } from "./components/Form/FormTypes";
 export { GridGaps } from "./components/Grid/GridTypes";
@@ -104,9 +105,9 @@ export {
   TextInputRefType,
 } from "./components/TextInput/TextInput";
 export { TextInputTypes } from "./components/TextInput/TextInputTypes";
+export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {
   VideoPlayerAspectRatios,
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayerTypes";
-export { default as DSProvider } from "./theme/provider";
