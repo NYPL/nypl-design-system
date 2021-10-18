@@ -41,6 +41,8 @@ export interface CheckboxGroupProps {
   onChange?: (value: string[]) => void;
   /** Whether or not to display "Required"/"Optional" in the label text. */
   optReqFlag?: boolean;
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
   /** Offers the ability to show the group's legend onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
@@ -59,9 +61,9 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     const {
       children,
       defaultValue = [],
-      invalidText,
       helperText,
       id = generateUUID(),
+      invalidText,
       isDisabled = false,
       isInvalid = false,
       isRequired = false,
@@ -70,6 +72,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       name,
       onChange,
       optReqFlag = true,
+      showHelperInvalidText = true,
       showLabel = true,
     } = props;
     const footnote = isInvalid ? invalidText : helperText;
@@ -135,7 +138,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
             {newChildren}
           </Stack>
         </ChakraCheckboxGroup>
-        {footnote && (
+        {footnote && showHelperInvalidText && (
           <Box __css={styles.helper}>
             <HelperErrorText isError={isInvalid}>{footnote}</HelperErrorText>
           </Box>

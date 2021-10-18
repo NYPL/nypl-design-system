@@ -192,7 +192,34 @@ describe("Checkbox", () => {
 
   it("sets the error state for all its Checkbox children", () => {
     render(
-      <CheckboxGroup labelText="Test Label" name="test9" isInvalid>
+      <CheckboxGroup
+        labelText="Test Label"
+        name="test9"
+        isInvalid
+        invalidText="There's an error!"
+      >
+        <Checkbox value="2" labelText="Checkbox 2" />
+        <Checkbox value="3" labelText="Checkbox 3" />
+        <Checkbox value="4" labelText="Checkbox 4" />
+      </CheckboxGroup>
+    );
+    const Checkboxes = screen.getAllByRole("checkbox");
+
+    expect(Checkboxes).toHaveLength(3);
+    expect(Checkboxes[0]).toHaveAttribute("aria-invalid");
+    expect(Checkboxes[1]).toHaveAttribute("aria-invalid");
+    expect(Checkboxes[2]).toHaveAttribute("aria-invalid");
+  });
+
+  it("does not render the invalid text when 'isInvalid' is true but 'showHelperInvalidText' is false", () => {
+    render(
+      <CheckboxGroup
+        labelText="Test Label"
+        name="test9"
+        isInvalid
+        invalidText="There's an error!"
+        showHelperInvalidText={false}
+      >
         <Checkbox value="2" labelText="Checkbox 2" />
         <Checkbox value="3" labelText="Checkbox 3" />
         <Checkbox value="4" labelText="Checkbox 4" />
