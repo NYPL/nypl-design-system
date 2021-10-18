@@ -90,6 +90,8 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   isInvalid?: boolean;
   /** Adds the 'required' property to the input element(s). */
   required?: boolean;
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
   /** Whether or not to display the "Required"/"Optional" text in the label text. */
   showOptReqLabel?: boolean;
   /** Adds the 'disabled' property to the input element(s). */
@@ -235,6 +237,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       initialDateTo,
       minDate,
       maxDate,
+      showHelperInvalidText = true,
     } = props;
     const initStartDate = initialDate ? new Date(initialDate) : new Date();
     const initEndDate = initialDateTo ? new Date(initialDateTo) : new Date();
@@ -385,7 +388,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
             <FormField>{endDatePickerElement}</FormField>
           )}
         </DateRangeRow>
-        {helperText && dateRange && (
+        {helperText && dateRange && showHelperInvalidText && (
           <HelperErrorText isError={false}>{helperText}</HelperErrorText>
         )}
       </DatePickerWrapper>

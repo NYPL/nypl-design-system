@@ -102,6 +102,24 @@ describe("SearchBar", () => {
     expect(screen.queryByText(helperErrorText)).not.toBeInTheDocument();
   });
 
+  it("does not render the default invalid text from the Select or TextInput components", () => {
+    render(
+      <SearchBar
+        id="id"
+        labelText="searchbar"
+        onSubmit={searchBarSubmit}
+        selectProps={selectProps}
+        textInputProps={textInputProps}
+        helperErrorText={helperErrorText}
+        invalidText={invalidText}
+        isInvalid
+      />
+    );
+    expect(
+      screen.queryByText("There is an error related to this field.")
+    ).not.toBeInTheDocument();
+  });
+
   it("calls the callback function on submit ", () => {
     render(
       <SearchBar
