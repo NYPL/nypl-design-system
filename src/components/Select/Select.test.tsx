@@ -149,6 +149,18 @@ describe("Select", () => {
     ).toBeInTheDocument();
   });
 
+  it("does not render the error text when 'isInvalid' is true and 'showHelperInvalidText' is false", () => {
+    render(
+      <Select {...baseProps} showHelperInvalidText={false} isInvalid>
+        {baseOptions}
+      </Select>
+    );
+
+    expect(
+      screen.queryByText("There is an error related to this field.")
+    ).not.toBeInTheDocument();
+  });
+
   it("renders custom error text when 'invalidText' prop is passed and 'isInvalid' prop is set to true", () => {
     render(
       <Select

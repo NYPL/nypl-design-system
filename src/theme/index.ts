@@ -3,6 +3,7 @@ import { extendTheme } from "@chakra-ui/react";
 import global from "./foundations/global";
 import breakpoints from "./foundations/breakpoints";
 import colors from "./foundations/colors";
+import radii from "./foundations/radii";
 import shadows from "./foundations/shadows";
 import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
@@ -15,11 +16,13 @@ import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
+import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
 import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
+import NotificationStyles from "./components/notification";
 import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
 import StatusBadge from "./components/statusBadge";
@@ -50,6 +53,7 @@ const theme = extendTheme({
   styles: { global },
   breakpoints,
   colors,
+  radii,
   shadows,
   space: spacing,
   ...typography,
@@ -66,11 +70,13 @@ const theme = extendTheme({
     CustomRadioGroup,
     CustomSelect,
     Heading,
+    HelperErrorText,
     Hero,
     Icon,
     Label,
     Link,
     List,
+    ...NotificationStyles,
     Radio,
     SearchBar,
     StatusBadge,

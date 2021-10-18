@@ -3,163 +3,152 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import Notification, {
-  NotificationContent,
-  NotificationHeading,
-} from "./Notification";
+import Notification from "./Notification";
 import { NotificationTypes } from "./NotificationTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconColors, IconSizes } from "../Icons/IconTypes";
 
 describe("Notification Accessibility", () => {
-  it("passes axe accessibility test", async () => {
+  it("passes axe accessibility test with heading", async () => {
     const { container } = render(
-      <Notification id="notificationID">
-        <NotificationHeading>Notification Heading</NotificationHeading>
-        <NotificationContent>Notification content.</NotificationContent>
-      </Notification>
+      <Notification
+        id="notificationID"
+        notificationHeading="Notification Heading"
+        notificationContent={<>Notification content.</>}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test without heading", async () => {
+    const { container } = render(
+      <Notification
+        id="notificationID"
+        notificationContent={<>Notification content.</>}
+      />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-describe("Notification: check for basic DOM structure", () => {
+describe("Notification", () => {
   let utils;
   beforeEach(() => {
     utils = render(
-      <Notification id="notificationID">
-        <NotificationHeading>Notification Heading</NotificationHeading>
-        <NotificationContent>Notification content.</NotificationContent>
-      </Notification>
+      <Notification
+        id="notificationID"
+        notificationHeading="Notification Heading"
+        notificationContent={<>Notification content.</>}
+      />
     );
   });
 
-  it("Renders Notification component wrapper", () => {
-    expect(utils.container.querySelector(".notification")).toBeInTheDocument();
-  });
-
-  it("Renders Notification heading child component", () => {
+  it("renders Notification heading child component", () => {
     expect(screen.getByText("Notification Heading")).toBeInTheDocument();
   });
 
-  it("Renders Notification content child component", () => {
+  it("renders Notification content child component", () => {
     expect(screen.getByText("Notification content.")).toBeInTheDocument();
   });
 
-  it("Renders without Icon", () => {
-    expect(
-      utils.container.querySelector(".notification-icon")
-    ).not.toBeInTheDocument();
-  });
-});
-
-describe("Notification Snapshot", () => {
-  it("Renders the UI snapshot correctly", () => {
-    const tree = renderer
-      .create(
-        <Notification id="notificationID">
-          <NotificationHeading>Notification Heading</NotificationHeading>
-          <NotificationContent>Notification content.</NotificationContent>
-        </Notification>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
-
-describe("Notification: check for Announcement Notification", () => {
-  let utils;
-  beforeEach(() => {
-    utils = render(
-      <Notification
-        id="notificationID"
-        notificationType={NotificationTypes.Announcement}
-      >
-        <NotificationHeading>Notification Heading</NotificationHeading>
-        <NotificationContent>Notification content.</NotificationContent>
-      </Notification>
-    );
+  it("renders without Icon", () => {
+    // The Icon's role is "img".
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 
-  it("Renders Notification component as Announcement", () => {
-    expect(
-      utils.container.querySelector(".notification--announcement")
-    ).toBeInTheDocument();
-  });
-});
-
-describe("Notification: check for Warning Notification", () => {
-  let utils;
-  beforeEach(() => {
-    utils = render(
-      <Notification
-        id="notificationID"
-        notificationType={NotificationTypes.Warning}
-      >
-        <NotificationHeading>Notification Heading</NotificationHeading>
-        <NotificationContent>Notification content.</NotificationContent>
-      </Notification>
-    );
-  });
-
-  it("Renders Notification component as Warning", () => {
-    expect(
-      utils.container.querySelector(".notification--warning")
-    ).toBeInTheDocument();
-  });
-});
-
-describe("Notification: check for custom Icon", () => {
-  let utils;
-  beforeEach(() => {
-    utils = render(
+  it("renders a custom Icon component", () => {
+    utils.rerender(
       <Notification
         id="notificationID"
         icon={
           <Icon
+            id="custom-icon"
             name={IconNames.Check}
             size={IconSizes.Large}
             color={IconColors.BrandPrimary}
             className="custom-icon"
           />
         }
-      >
-        <NotificationHeading>Notification Heading</NotificationHeading>
-        <NotificationContent>Notification content.</NotificationContent>
-      </Notification>
+        notificationHeading="Notification Heading"
+        notificationContent={<>Notification content.</>}
+      />
     );
-  });
-
-  it("Renders custom Icon component", () => {
     expect(utils.container.querySelector(".custom-icon")).toBeInTheDocument();
   });
-});
 
-describe("Notification: check for validation", () => {
-  beforeEach(() => {
-    render(
-      <Notification id="notificationID">
-        <NotificationHeading>First Notification Heading</NotificationHeading>
-        <NotificationHeading>Second Notification Heading</NotificationHeading>
-        <NotificationContent>First notification content.</NotificationContent>
-        <NotificationContent>Second notification content.</NotificationContent>
-      </Notification>
+  it("renders the announcement Notification type", () => {
+    utils.rerender(
+      <Notification
+        id="notificationID"
+        notificationType={NotificationTypes.Announcement}
+        notificationHeading="Notification Heading"
+        notificationContent={<>Notification content.</>}
+      />
+    );
+
+    expect(utils.container.querySelector("aside")).toHaveAttribute(
+      "data-type",
+      "announcement"
     );
   });
 
-  it("Shows error when two NotificationHeading children are passed to Notification", () => {
-    expect(
-      screen.getByText(
-        "Error: Only one NotificationHeading child component may be passed to Notification."
-      )
-    ).toBeInTheDocument();
+  it("renders the warning Notification type", () => {
+    utils.rerender(
+      <Notification
+        id="notificationID"
+        notificationType={NotificationTypes.Warning}
+        notificationHeading="Notification Heading"
+        notificationContent={<>Notification content.</>}
+      />
+    );
+
+    expect(utils.container.querySelector("aside")).toHaveAttribute(
+      "data-type",
+      "warning"
+    );
   });
 
-  it("Shows error when two NotificationContent children are passed to Notification", () => {
-    expect(
-      screen.getByText(
-        "Error: Only one NotificationContent child component may be passed to Notification."
+  it("renders the UI snapshot correctly", () => {
+    const standard = renderer
+      .create(
+        <Notification
+          id="notificationID1"
+          notificationHeading="Notification Heading"
+          notificationContent={<>Notification content.</>}
+        />
       )
-    ).toBeInTheDocument();
+      .toJSON();
+    const announcement = renderer
+      .create(
+        <Notification
+          id="notificationID2"
+          notificationType={NotificationTypes.Announcement}
+          notificationHeading="Notification Heading"
+          notificationContent={<>Notification content.</>}
+        />
+      )
+      .toJSON();
+    const warning = renderer
+      .create(
+        <Notification
+          id="notificationID3"
+          notificationType={NotificationTypes.Warning}
+          notificationHeading="Notification Heading"
+          notificationContent={<>Notification content.</>}
+        />
+      )
+      .toJSON();
+    const withoutHeading = renderer
+      .create(
+        <Notification
+          id="notificationID4"
+          notificationContent={<>Notification content.</>}
+        />
+      )
+      .toJSON();
+    expect(standard).toMatchSnapshot();
+    expect(announcement).toMatchSnapshot();
+    expect(warning).toMatchSnapshot();
+    expect(withoutHeading).toMatchSnapshot();
   });
 });

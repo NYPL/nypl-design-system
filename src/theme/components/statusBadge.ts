@@ -1,7 +1,6 @@
 const StatusBadge = {
   baseStyle: {
-    // Temporary until NYPL-theme radius values are configured.
-    borderRadius: "4px",
+    borderRadius: "base",
     color: "ui.black",
     display: "block",
     fontSize: "-1",

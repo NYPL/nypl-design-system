@@ -22,6 +22,8 @@ import Select from "../Select/Select";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import DatePicker from "../DatePicker/DatePicker";
+import { DatePickerTypes } from "../DatePicker/DatePickerTypes";
 import { action } from "@storybook/addon-actions";
 
 import SimpleGrid from "../Grid/SimpleGrid";
@@ -87,6 +89,23 @@ The `Form` component renders a standard `<form>` element and should be used to h
               labelText="Last Name"
               helperText="Make sure to complete this field."
               isRequired
+            />
+          </FormField>
+          <FormField>
+            <DatePicker
+              id="date-range"
+              dateType={DatePickerTypes.Full}
+              dateFormat="yyyy-MM-dd"
+              dateRange={true}
+              minDate="1/1/2021"
+              maxDate="1/1/2022"
+              labelText="Select the date range you want to visit NYPL"
+              nameFrom="visit-dates"
+              helperTextFrom="From this date."
+              helperTextTo="To this date."
+              helperText="Select a valid date range."
+              invalidText="Please select a valid date range."
+              showLabel={false}
             />
           </FormField>
         </FormRow>

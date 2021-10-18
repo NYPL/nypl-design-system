@@ -14,6 +14,8 @@ import {
 import iconSvgs from "./IconSvgs";
 
 export interface IconProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Aligns the icon. */
   align?: IconAlign;
   /** className that appears in addition to "icon" */
@@ -40,6 +42,7 @@ export interface IconProps {
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
+    additionalStyles = {},
     align = "none",
     children,
     className,
@@ -84,7 +87,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   // render the SVG child with NYPL-theme styling.
   if (name) {
     const SvgComponent: any = iconSvgs[name];
-    return <ChakraIcon as={SvgComponent} {...iconProps} __css={styles} />;
+    return (
+      <ChakraIcon
+        as={SvgComponent}
+        {...iconProps}
+        __css={{ ...styles, ...additionalStyles }}
+      />
+    );
   }
 
   // If no `name` prop was passed, we expect a child SVG element to be passed.

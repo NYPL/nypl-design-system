@@ -12,6 +12,8 @@ import Icon from "../Icons/Icon";
 type ButtonElementType = "submit" | "button" | "reset";
 
 interface ButtonProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Additional attributes passed to the button */
   attributes?: { [key: string]: any };
   /** The kind of button assigned through the `ButtonTypes` enum  */
@@ -47,6 +49,7 @@ const getVariant = (buttonType) =>
 /** Renders a simple `button` element with custom classes and modifiers. */
 function Button(props: React.PropsWithChildren<ButtonProps>) {
   const {
+    additionalStyles = {},
     attributes,
     buttonType,
     children,
@@ -90,7 +93,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
       className={bem(baseClass, [], "", [className])}
       type={type}
       disabled={disabled}
-      __css={styles}
+      __css={{ ...styles, ...additionalStyles }}
       {...attributes}
       {...btnCallback}
     >
