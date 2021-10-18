@@ -83,7 +83,14 @@ export default function SearchBar(props: SearchBarProps) {
     textInputProps,
   } = props;
   const styles = useMultiStyleConfig("SearchBar", { hasSelect: selectProps });
-  const stateProps = { isDisabled, isInvalid, isRequired };
+  const stateProps = {
+    helperText: "",
+    isDisabled,
+    isInvalid,
+    isRequired,
+    showHelperInvalidText: false,
+    showLabel: false,
+  };
   const helperErrorTextID = generateUUID();
   const ariaDescribedby = helperErrorTextID;
   const footnote = isInvalid ? invalidText : helperErrorText;
@@ -94,8 +101,6 @@ export default function SearchBar(props: SearchBarProps) {
       id={generateUUID()}
       name={selectProps?.name}
       labelText={selectProps?.labelText}
-      showLabel={false}
-      helperText=""
       type={SelectTypes.SearchBar}
       {...stateProps}
     >
@@ -118,8 +123,6 @@ export default function SearchBar(props: SearchBarProps) {
           ? TextInputVariants.SearchBarSelect
           : TextInputVariants.SearchBar
       }
-      helperText=""
-      showLabel={false}
       {...stateProps}
     />
   );

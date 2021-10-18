@@ -195,7 +195,7 @@ describe("DatePicker", () => {
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
-          isInvalid={true}
+          isInvalid
         />
       );
       // When errored, we expect only the error text to appear.
@@ -205,6 +205,23 @@ describe("DatePicker", () => {
       expect(
         screen.getByText("Please select a valid date.")
       ).toBeInTheDocument();
+    });
+
+    // TODO: this should also be for the invalid text.
+    it("should not render the helper text when 'showHelperInvalidText' is false", () => {
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          helperText="Note that the Library may be closed on Sundays."
+          invalidText="Please select a valid date."
+          showHelperInvalidText={false}
+          isInvalid
+        />
+      );
+
+      expect(
+        screen.queryByText("Note that the Library may be closed on Sundays.")
+      ).not.toBeInTheDocument();
     });
 
     it("should render a disabled input field", () => {
@@ -378,12 +395,12 @@ describe("DatePicker", () => {
     it("should render based on other props", () => {
       const { rerender } = render(
         <DatePicker
-          dateRange={true}
+          dateRange
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
-          isInvalid={true}
+          isInvalid
         />
       );
 
@@ -393,12 +410,12 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
-          dateRange={true}
+          dateRange
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
-          isDisabled={true}
+          isDisabled
         />
       );
 
@@ -407,12 +424,12 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
-          dateRange={true}
+          dateRange
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
-          required={true}
+          required
         />
       );
 
