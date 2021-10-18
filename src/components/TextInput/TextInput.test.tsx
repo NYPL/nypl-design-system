@@ -180,18 +180,21 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
 });
 
 describe("TextInput shows error state", () => {
+  let rerender;
   beforeEach(() => {
-    render(
+    const utils = render(
       <TextInput
         id="myTextInputError"
         labelText="Custom Input Label"
         helperText="Custom Helper Text"
         invalidText="Custom Error Text"
         placeholder="Input Placeholder"
-        isInvalid={true}
+        isInvalid
         type={TextInputTypes.text}
       />
     );
+
+    rerender = utils.rerender;
   });
 
   it("renders Input component", () => {
@@ -205,6 +208,23 @@ describe("TextInput shows error state", () => {
   it("renders HelperErrorText component", () => {
     expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
     expect(screen.getByText("Custom Error Text")).toBeInTheDocument();
+  });
+
+  it("does not render the invalid text when 'showHelperInvalidText' is set to false", () => {
+    rerender(
+      <TextInput
+        id="myTextInputError"
+        labelText="Custom Input Label"
+        helperText="Custom Helper Text"
+        invalidText="Custom Error Text"
+        placeholder="Input Placeholder"
+        showHelperInvalidText={false}
+        type={TextInputTypes.text}
+        isInvalid
+      />
+    );
+    expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
+    expect(screen.queryByText("Custom Error Text")).not.toBeInTheDocument();
   });
 
   it("input shows error state", () => {
