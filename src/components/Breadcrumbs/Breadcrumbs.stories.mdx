@@ -89,9 +89,14 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
 The `Breadcrumbs` component background color can be set using the `colorVariant` prop and the `ColorVariants` enum. If the `colorVariant` prop is omitted, the default background color is `black`.
 
 <Canvas>
-  <Story name="Color Variations" args={{}}>
+  <Story
+    name="Color Variations"
+    args={{
+      colorVariant: ColorVariants.BooksAndMore,
+    }}
+  >
     {(args) => (
-      <div className="nypl--books-and-more">
+      <>
         <Heading level={HeadingLevels.Three}>Books and More</Heading>
         <Breadcrumbs
           breadcrumbsData={[
@@ -102,9 +107,9 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
               text: "Grandchild",
             },
           ]}
-          colorVariant={ColorVariants.BooksAndMore}
+          colorVariant={args.colorVariant}
         />
-      </div>
+      </>
     )}
   </Story>
 </Canvas>
