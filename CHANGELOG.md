@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds custom `useCarouselStyles` hook for the `Tabs` mobile functionality.
+- Adds custom NYPL-theme radii values to use within Chakra.
 - Adds the `showHelperInvalidText` prop to form components to control displaying or hiding the content in the `HelperErrorText` component.
 
 ## 0.25.1 (October 14, 2021)
@@ -42,6 +43,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SkeletonLoaderLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
 - Updates the `CardLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
 - Updates font size of the `legend` element used in `CheckboxGroup`, `DatePicker` and `RadioGroup`.
+- Updates the radius values through Chakra's theme object.
 
 ## 0.25.0
 

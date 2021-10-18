@@ -1,7 +1,7 @@
 import { activeFocus, helperTextMargin } from "./global";
 
 const select = {
-  borderRadius: "2px",
+  borderRadius: "sm",
   borderColor: "ui.gray.medium",
   paddingTop: "xs",
   paddingRight: "xl",
@@ -38,7 +38,7 @@ const Select = {
       select: {
         flex: "1 1 20%",
         borderRight: "none",
-        borderRightRadius: "0",
+        borderRightRadius: "none",
       },
     },
   },
