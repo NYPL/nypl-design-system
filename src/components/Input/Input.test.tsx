@@ -98,7 +98,7 @@ describe("Input with Label", () => {
           placeholder="Input Placeholder"
           type={InputTypes.text}
         />
-        <HelperErrorText isError={false} id="helperText">
+        <HelperErrorText isInvalid={false} id="helperText">
           Helper Text Content
         </HelperErrorText>
       </>
@@ -140,7 +140,7 @@ describe("Input Group", () => {
               required={true}
               type={InputTypes.text}
             ></Input>
-            <HelperErrorText isError={false} id={"helperText1"}>
+            <HelperErrorText isInvalid={false} id={"helperText1"}>
               Input 1 Helper Text
             </HelperErrorText>
           </>
@@ -155,12 +155,12 @@ describe("Input Group", () => {
               required={true}
               type={InputTypes.text}
             ></Input>
-            <HelperErrorText isError={false} id={"helperText2"}>
+            <HelperErrorText isInvalid={false} id={"helperText2"}>
               Input 2 Helper Text
             </HelperErrorText>
           </>
         </>
-        <HelperErrorText isError={true} id={"sharedHelperText"}>
+        <HelperErrorText isInvalid={true} id={"sharedHelperText"}>
           Additional Error Text
         </HelperErrorText>
       </fieldset>

@@ -41,6 +41,8 @@ export interface RadioProps {
   name?: string;
   /** Should be passed along with `isChecked` for controlled components. */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
   /** Offers the ability to show the radio's label onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
@@ -51,9 +53,9 @@ export interface RadioProps {
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const {
     className,
-    invalidText,
     helperText,
     id = generateUUID(),
+    invalidText,
     isChecked,
     isDisabled = false,
     isInvalid = false,
@@ -61,6 +63,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     labelText,
     name,
     onChange,
+    showHelperInvalidText = true,
     showLabel = true,
     value,
   } = props;
@@ -95,9 +98,9 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
       >
         {showLabel && labelText}
       </ChakraRadio>
-      {footnote && showLabel && (
+      {footnote && showHelperInvalidText && (
         <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+          <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
             {footnote}
           </HelperErrorText>
         </Box>

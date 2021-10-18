@@ -16,10 +16,12 @@ import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
+import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
 import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
+import NotificationStyles from "./components/notification";
 import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
 import StatusBadge from "./components/statusBadge";
@@ -67,10 +69,12 @@ const theme = extendTheme({
     CustomRadioGroup,
     CustomSelect,
     Heading,
+    HelperErrorText,
     Hero,
     Icon,
     Label,
     Link,
+    ...NotificationStyles,
     Radio,
     SearchBar,
     StatusBadge,
