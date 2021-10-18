@@ -120,16 +120,17 @@ const tertiary = {
     color: "ui.white",
     display: "flex",
     flexFlow: "column nowrap",
-    paddingTop: "l",
-    paddingBottom: "l",
+    paddingTop: "m",
+    paddingBottom: "m",
     paddingRight: "s",
     paddingLeft: "s",
     p: {
       marginBottom: "0",
+      marginTop: "s",
     },
   },
   heading: {
-    marginBottom: "s",
+    marginBottom: "0",
     _lastChild: {
       marginBottom: "0",
     },
