@@ -43,6 +43,8 @@ export interface RadioGroupProps {
   onChange?: (value: string) => void;
   /** Whether or not to display "Required"/"Optional" in the label text. */
   optReqFlag?: boolean;
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
   /** Offers the ability to show the group's legend onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
@@ -59,9 +61,9 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       children,
       className = "",
       defaultValue,
-      invalidText,
       helperText,
       id = generateUUID(),
+      invalidText,
       isDisabled = false,
       isInvalid = false,
       isRequired = false,
@@ -70,6 +72,7 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       name,
       onChange = onChangeDefault,
       optReqFlag = true,
+      showHelperInvalidText = true,
       showLabel = true,
     } = props;
     const footnote = isInvalid ? invalidText : helperText;
@@ -141,9 +144,11 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
         >
           {newChildren}
         </Stack>
-        {footnote && (
+        {footnote && showHelperInvalidText && (
           <Box __css={styles.helper}>
-            <HelperErrorText isError={isInvalid}>{footnote}</HelperErrorText>
+            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
+              {footnote}
+            </HelperErrorText>
           </Box>
         )}
       </Box>

@@ -48,7 +48,7 @@ export const input = () => (
       : (showHelperText = false)}
     {showHelperText && (
       <HelperErrorText
-        isError={boolean("Helper Text Errored", false)}
+        isInvalid={boolean("Helper Text Errored", false)}
         id={"helperText"}
       >
         {text(
@@ -96,7 +96,7 @@ export const inputGroup = () => (
           required={true}
           type={InputTypes.text}
         ></Input>
-        <HelperErrorText isError={false} id={"helperText1"}>
+        <HelperErrorText isInvalid={false} id={"helperText1"}>
           {text("Input 1 Helper Text", "E.g., 10am")}
         </HelperErrorText>
       </div>
@@ -116,13 +116,13 @@ export const inputGroup = () => (
           required={true}
           type={InputTypes.text}
         ></Input>
-        <HelperErrorText isError={false} id={"helperText2"}>
+        <HelperErrorText isInvalid={false} id={"helperText2"}>
           {text("Input 2 Helper Text", "E.g., 11am")}
         </HelperErrorText>
       </div>
     </div>
     {groupErrored && (
-      <HelperErrorText isError={true} id={"sharedHelperText"}>
+      <HelperErrorText isInvalid={true} id={"sharedHelperText"}>
         {text(
           "Additional Error Text",
           "Sorry villager! Those times are not available right now."
@@ -169,7 +169,7 @@ export const inputAttributes = () => (
         tabIndex: number("tabIndex", 0),
       }}
     ></Input>
-    <HelperErrorText isError={false} id="helperText-attrs">
+    <HelperErrorText isInvalid={false} id="helperText-attrs">
       {"Change the max length for 'text' input as an example! And note " +
         "the actions being called for the passed object in the `attributes` props."}
     </HelperErrorText>

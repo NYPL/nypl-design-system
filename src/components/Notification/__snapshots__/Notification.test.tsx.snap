@@ -1,25 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Notification Snapshot Renders the UI snapshot correctly 1`] = `
+exports[`Notification renders the UI snapshot correctly 1`] = `
 <aside
-  className="notification notification--standard "
-  id="notificationID"
+  className="css-0"
+  data-type="standard"
+  id="notificationID1"
 >
   <div
-    className="notification__container"
+    className="css-0"
   >
-    <header>
+    <header
+      className="css-0"
+    >
       <h4
-        className="chakra-heading notification-heading  css-0"
+        className="chakra-heading css-0"
       >
         Notification Heading
       </h4>
     </header>
     <div
-      className="content__container"
+      className="css-0"
     >
       <div
-        className="notification-content "
+        className="css-0"
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Notification renders the UI snapshot correctly 2`] = `
+<aside
+  className="css-0"
+  data-type="announcement"
+  id="notificationID2"
+>
+  <div
+    className="css-0"
+  >
+    <header
+      className="css-0"
+    >
+      <svg
+        aria-hidden={false}
+        className="chakra-icon css-onkibi"
+        focusable={false}
+        id="notificationID2-notification-icon"
+        role="img"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <h4
+        className="chakra-heading css-0"
+      >
+        Notification Heading
+      </h4>
+    </header>
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Notification renders the UI snapshot correctly 3`] = `
+<aside
+  className="css-0"
+  data-type="warning"
+  id="notificationID3"
+>
+  <div
+    className="css-0"
+  >
+    <header
+      className="css-0"
+    >
+      <svg
+        aria-hidden={false}
+        className="chakra-icon css-onkibi"
+        focusable={false}
+        id="notificationID3-notification-icon"
+        role="img"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <h4
+        className="chakra-heading css-0"
+      >
+        Notification Heading
+      </h4>
+    </header>
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Notification renders the UI snapshot correctly 4`] = `
+<aside
+  className="css-0"
+  data-type="standard"
+  id="notificationID4"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
       >
         Notification content.
       </div>

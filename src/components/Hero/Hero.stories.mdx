@@ -57,7 +57,7 @@ export const image = (
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.2.0`    |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.2`   |
 
 <Description of={Hero} />
 
@@ -277,10 +277,20 @@ parent wrapper's CSS class name for background color updates. Now, the proper
           <Heading
             level={HeadingLevels.One}
             id="tertiary-hero"
-            text="Hero Tertiary"
+            text="Hero Tertiary with Sub-Header"
           />
         }
         subHeaderText={otherSubHeaderText}
+      />
+      <Hero
+        heroType={HeroTypes.Tertiary}
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="tertiary-hero"
+            text="Hero Tertiary without Sub-Header"
+          />
+        }
       />
       <Heading
         level={HeadingLevels.Two}

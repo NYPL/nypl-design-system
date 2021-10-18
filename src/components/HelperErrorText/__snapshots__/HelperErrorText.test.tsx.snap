@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
+<div
+  aria-atomic={true}
+  aria-live="off"
+  className=" css-0"
+  data-isinvalid={false}
+  id="basic"
+>
+  Text
+</div>
+`;
+
+exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
+<div
+  aria-atomic={true}
+  aria-live="polite"
+  className=" css-0"
+  data-isinvalid={true}
+  id="invalid"
+>
+  Text
+</div>
+`;

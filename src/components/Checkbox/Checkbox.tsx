@@ -19,8 +19,8 @@ export interface CheckboxProps {
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** When using the Checkbox as a "controlled" form element, you can specify the
-   * Checkbox's checked state using this prop.
+  /** When using the Checkbox as a "controlled" form element, you can specify
+   * the Checkbox's checked state using this prop.
    * Learn more about controlled and uncontrolled form fields:
    * https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
   isChecked?: boolean;
@@ -34,13 +34,18 @@ export interface CheckboxProps {
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
-  /** The checkbox's label.  This will serve as the text content for a `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
+  /** The checkbox's label. This will serve as the text content for a `<label>`
+   * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
-  /** The name prop indicates into which group of checkboxes this checkbox belongs.  If none is specified, 'default' will be used */
+  /** The name prop indicates into which group of checkboxes this checkbox
+   * belongs.  If none is specified, 'default' will be used */
   name?: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Offers the ability to show the checkbox's label onscreen or hide it. Refer to the `labelText` property for more information. */
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
+  /** Offers the ability to show the checkbox's label onscreen or hide it.
+   * Refer to the `labelText` property for more information. */
   showLabel?: boolean;
   /** Populates the value of the input */
   value?: string;
@@ -79,6 +84,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       isRequired = false,
       labelText,
       name,
+      showHelperInvalidText = true,
       showLabel = true,
       value,
     } = props;
@@ -120,9 +126,9 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         >
           {showLabel && labelText}
         </ChakraCheckbox>
-        {footnote && showLabel && (
+        {footnote && showHelperInvalidText && (
           <Box __css={styles.helper} aria-disabled={isDisabled}>
-            <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
               {footnote}
             </HelperErrorText>
           </Box>

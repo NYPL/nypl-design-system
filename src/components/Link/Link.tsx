@@ -18,7 +18,7 @@ export interface LinkProps {
   /** ID used for accessibility purposes. */
   id?: string;
   /** Optionally pass in additional Chakra-based styles. */
-  sx?: { [key: string]: any };
+  additionalStyles?: { [key: string]: any };
   /** Controls the link visuals: action, button, backwards, forwards, or default. */
   type?: LinkTypes;
 }
