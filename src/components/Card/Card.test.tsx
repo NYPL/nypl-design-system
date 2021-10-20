@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
 import Link from "../Link/Link";
@@ -25,9 +26,7 @@ describe("Card Accessibility", () => {
         <CardContent>middle column content</CardContent>
         <CardActions>
           <Button
-            onClick={function () {
-              console.log(this);
-            }}
+            onClick={() => {}}
             id="button1"
             buttonType={ButtonTypes.Primary}
             type="submit"
@@ -44,7 +43,7 @@ describe("Card Accessibility", () => {
 describe("Card", () => {
   const regularCard = (
     <Card
-      id="cardID"
+      id="regularCard"
       imageSrc="https://placeimg.com/400/200/arch"
       imageAlt="Alt text"
     >
@@ -54,9 +53,7 @@ describe("Card", () => {
       <CardContent>middle column content</CardContent>
       <CardActions>
         <Button
-          onClick={function () {
-            console.log(this);
-          }}
+          onClick={() => {}}
           id="button1"
           buttonType={ButtonTypes.Primary}
           type="submit"
@@ -68,7 +65,7 @@ describe("Card", () => {
   );
   const cardWithExtendedStyles = (
     <Card
-      id="card#1"
+      id="cardWithExtendedStyles"
       className="edition-card"
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
@@ -85,27 +82,24 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <div className="edition-card-actions">
-          <Link type={LinkTypes.Button} href="blah">
-            Read Online
-          </Link>
-          <div className="edition-card__download">
-            <Link href="#url" type={LinkTypes.Action}>
-              <Icon
-                name={IconNames.Download}
-                align={IconAlign.Left}
-                iconRotation={IconRotationTypes.Rotate0}
-              />
-              Download
-            </Link>
-          </div>
-        </div>
+        <Link id="link-online" href="online" type={LinkTypes.Button}>
+          Read Online
+        </Link>
+        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+          <Icon
+            id="icon-cardWithExtendedStyles"
+            name={IconNames.Download}
+            align={IconAlign.Left}
+            iconRotation={IconRotationTypes.Rotate0}
+          />
+          Download
+        </Link>
       </CardActions>
     </Card>
   );
   const cardWithNoCTAs = (
     <Card
-      id="card#1"
+      id="cardWithNoCTAs"
       className="edition-card"
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
@@ -114,15 +108,15 @@ describe("Card", () => {
         The Card Heading
       </CardHeading>
       <CardContent>
-        <div>Published in New York by Random House</div>
-        <div>Written in English</div>
-        <div>Under Creative Commons License</div>
+        <p>Published in New York by Random House</p>
+        <p>Written in English</p>
+        <p>Under Creative Commons License</p>
       </CardContent>
     </Card>
   );
   const cardWithNoContent = (
     <Card
-      id="card#1"
+      id="cardWithNoContent"
       className="edition-card"
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
@@ -135,26 +129,23 @@ describe("Card", () => {
         The Card Heading
       </CardHeading>
       <CardActions>
-        <div className="edition-card-actions">
-          <Link type={LinkTypes.Button} href="blah">
-            Read Online
-          </Link>
-          <div className="edition-card__download">
-            <Link href="#url" type={LinkTypes.Action}>
-              <Icon
-                name={IconNames.Download}
-                align={IconAlign.Left}
-                iconRotation={IconRotationTypes.Rotate0}
-              />
-              Download
-            </Link>
-          </div>
-        </div>
+        <Link id="link-online" href="online" type={LinkTypes.Button}>
+          Read Online
+        </Link>
+        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+          <Icon
+            id="icon-cardWithNoContent"
+            name={IconNames.Download}
+            align={IconAlign.Left}
+            iconRotation={IconRotationTypes.Rotate0}
+          />
+          Download
+        </Link>
       </CardActions>
     </Card>
   );
   const cardWithNoImage = (
-    <Card id="card#1" className="edition-card">
+    <Card id="cardWithNoImage" className="edition-card">
       <CardHeading
         level={HeadingLevels.Two}
         id="editioncardheading1"
@@ -164,68 +155,91 @@ describe("Card", () => {
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <div className="edition-card-actions">
-          <Link type={LinkTypes.Button} href="blah">
-            Read Online
-          </Link>
-          <div className="edition-card__download">
-            <Link href="#url" type={LinkTypes.Action}>
-              <Icon
-                name={IconNames.Download}
-                align={IconAlign.Left}
-                iconRotation={IconRotationTypes.Rotate0}
-              />
-              Download
-            </Link>
-          </div>
-        </div>
+        <Link id="link-online" href="online" type={LinkTypes.Button}>
+          Read Online
+        </Link>
+        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+          <Icon
+            id="icon-cardWithNoImage"
+            name={IconNames.Download}
+            align={IconAlign.Left}
+            iconRotation={IconRotationTypes.Rotate0}
+          />
+          Download
+        </Link>
       </CardActions>
     </Card>
   );
   let container;
 
-  it("Generates a Card with a header, image, content, and CTAs", () => {
+  it("renders a Card with a header, image, content, and CTAs", () => {
     const utils = render(regularCard);
     container = utils.container;
-    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card-content")).toBeInTheDocument();
-    expect(container.querySelector(".card-actions")).toBeInTheDocument();
+
+    expect(container.querySelector("h3")).toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(screen.getByText("middle column content")).toBeInTheDocument();
+    expect(screen.getByText("Example CTA")).toBeInTheDocument();
   });
 
-  it("Generates a Card with variable data", () => {
+  it("renders a Card with variable data", () => {
     const utils = render(cardWithExtendedStyles);
     container = utils.container;
 
     expect(container.querySelector("h2")).toBeInTheDocument();
-    expect(container.querySelector(".card-content")).toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Published in New York by Random House/i)
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Read Online/i)).toBeInTheDocument();
     expect(screen.getAllByRole("link")).toHaveLength(2);
   });
 
   it("Generates a card without a CTA block if one isn't provided", () => {
-    const utils = render(cardWithNoCTAs);
-    container = utils.container;
+    render(cardWithNoCTAs);
 
-    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card-content")).toBeInTheDocument();
-    expect(container.querySelector(".card-actions")).not.toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Published in New York by Random House/i)
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/Read Online/i)).not.toBeInTheDocument();
+    expect(screen.queryAllByRole("link")).toHaveLength(0);
   });
 
   it("Generates a card without a content block if one isn't provided", () => {
-    const utils = render(cardWithNoContent);
-    container = utils.container;
+    render(cardWithNoContent);
 
-    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card-content")).not.toBeInTheDocument();
-    expect(container.querySelector(".card-actions")).toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(
+      screen.queryByText(/Published in New York by Random House/i)
+    ).not.toBeInTheDocument();
+    expect(screen.getByText(/Read Online/i)).toBeInTheDocument();
+    expect(screen.getAllByRole("link")).toHaveLength(3);
   });
 
   it("Generates a card without an image block if no image is provided", () => {
-    const utils = render(cardWithNoImage);
-    container = utils.container;
+    render(cardWithNoImage);
 
-    expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card__image")).not.toBeInTheDocument();
-    expect(container.querySelector(".card-content")).toBeInTheDocument();
-    expect(container.querySelector(".card-actions")).toBeInTheDocument();
+    expect(screen.getByText("The Card Heading")).toBeInTheDocument();
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    expect(screen.getByText("middle column content")).toBeInTheDocument();
+    expect(screen.getByText(/Read Online/i)).toBeInTheDocument();
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const regular = renderer.create(regularCard).toJSON();
+    const withExtendedStyles = renderer.create(cardWithExtendedStyles).toJSON();
+    const withNoCTAs = renderer.create(cardWithNoCTAs).toJSON();
+    const withNoContent = renderer.create(cardWithNoContent).toJSON();
+    const withNoImage = renderer.create(cardWithNoImage).toJSON();
+    expect(regular).toMatchSnapshot();
+    expect(withExtendedStyles).toMatchSnapshot();
+    expect(withNoCTAs).toMatchSnapshot();
+    expect(withNoContent).toMatchSnapshot();
+    expect(withNoImage).toMatchSnapshot();
   });
 });

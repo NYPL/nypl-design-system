@@ -4,6 +4,8 @@ import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
 interface ImageWrapperProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** ClassName you can add in addition to 'image' */
   className?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
@@ -29,6 +31,7 @@ export interface ImageProps extends ImageWrapperProps {
 
 function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
   const {
+    additionalStyles = {},
     className = "",
     children,
     imageAspectRatio = ImageRatios.Original,
@@ -39,7 +42,7 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
     ratio: imageAspectRatio,
   });
   return (
-    <Box __css={styles.size} className={className}>
+    <Box __css={{ ...styles.size, ...additionalStyles }} className={className}>
       <Box __css={styles.ratio}>{children}</Box>
     </Box>
   );
@@ -47,6 +50,7 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
 
 export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
   const {
+    additionalStyles = {},
     alt,
     className = "",
     component,
@@ -76,6 +80,7 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
       className={className}
       imageSize={imageSize}
       imageAspectRatio={imageAspectRatio}
+      additionalStyles={additionalStyles}
     >
       <Box __css={styles.imgCrop}>{imageComponent}</Box>
     </ImageWrapper>
