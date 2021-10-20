@@ -101,7 +101,8 @@ export default function Notification(props: NotificationProps) {
   });
   const iconElement = () => {
     // If a custom icon is passed, add specific `Notification` styles.
-    if (icon) return React.cloneElement(icon, { sx: styles.icon });
+    if (icon)
+      return React.cloneElement(icon, { additionalStyles: styles.icon });
     const iconProps = {
       [NotificationTypes.Announcement]: {
         name: IconNames.SpeakerNotes,

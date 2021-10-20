@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
 import Link from "../Link/Link";
@@ -42,7 +43,7 @@ describe("Card Accessibility", () => {
 describe("Card", () => {
   const regularCard = (
     <Card
-      id="cardID"
+      id="regularCard"
       imageSrc="https://placeimg.com/400/200/arch"
       imageAlt="Alt text"
     >
@@ -64,7 +65,7 @@ describe("Card", () => {
   );
   const cardWithExtendedStyles = (
     <Card
-      id="card#1"
+      id="cardWithExtendedStyles"
       className="edition-card"
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
@@ -81,11 +82,12 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <Link type={LinkTypes.Button} href="blah">
+        <Link id="link-online" href="online" type={LinkTypes.Button}>
           Read Online
         </Link>
-        <Link href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
+            id="icon-cardWithExtendedStyles"
             name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
@@ -97,7 +99,7 @@ describe("Card", () => {
   );
   const cardWithNoCTAs = (
     <Card
-      id="card#1"
+      id="cardWithNoCTAs"
       className="edition-card"
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
@@ -114,7 +116,7 @@ describe("Card", () => {
   );
   const cardWithNoContent = (
     <Card
-      id="card#1"
+      id="cardWithNoContent"
       className="edition-card"
       imageSrc="https://placeimg.com/300/400/arch"
       imageAlt="Alt text"
@@ -127,11 +129,12 @@ describe("Card", () => {
         The Card Heading
       </CardHeading>
       <CardActions>
-        <Link type={LinkTypes.Button} href="blah">
+        <Link id="link-online" href="online" type={LinkTypes.Button}>
           Read Online
         </Link>
-        <Link href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
+            id="icon-cardWithNoContent"
             name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
@@ -142,7 +145,7 @@ describe("Card", () => {
     </Card>
   );
   const cardWithNoImage = (
-    <Card id="card#1" className="edition-card">
+    <Card id="cardWithNoImage" className="edition-card">
       <CardHeading
         level={HeadingLevels.Two}
         id="editioncardheading1"
@@ -152,11 +155,12 @@ describe("Card", () => {
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Link type={LinkTypes.Button} href="blah">
+        <Link id="link-online" href="online" type={LinkTypes.Button}>
           Read Online
         </Link>
-        <Link href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
+            id="icon-cardWithNoImage"
             name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
@@ -224,5 +228,18 @@ describe("Card", () => {
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
     expect(screen.getByText("middle column content")).toBeInTheDocument();
     expect(screen.getByText(/Read Online/i)).toBeInTheDocument();
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const regular = renderer.create(regularCard).toJSON();
+    const withExtendedStyles = renderer.create(cardWithExtendedStyles).toJSON();
+    const withNoCTAs = renderer.create(cardWithNoCTAs).toJSON();
+    const withNoContent = renderer.create(cardWithNoContent).toJSON();
+    const withNoImage = renderer.create(cardWithNoImage).toJSON();
+    expect(regular).toMatchSnapshot();
+    expect(withExtendedStyles).toMatchSnapshot();
+    expect(withNoCTAs).toMatchSnapshot();
+    expect(withNoContent).toMatchSnapshot();
+    expect(withNoImage).toMatchSnapshot();
   });
 });

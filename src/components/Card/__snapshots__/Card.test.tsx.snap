@@ -1,0 +1,364 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+  id="regularCard"
+>
+  <div
+    className=" css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/400/200/arch"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h3
+      className="chakra-heading css-0"
+      id="heading1"
+    >
+      The Card Heading
+    </h3>
+    <div
+      className="css-0"
+    >
+      middle column content
+    </div>
+    <div
+      className="css-0"
+    >
+      <button
+        className="chakra-button button  css-0"
+        id="button1"
+        onClick={[Function]}
+        type="submit"
+      >
+        Example CTA
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Renders the UI snapshot correctly 2`] = `
+<div
+  className="edition-card css-0"
+  id="cardWithExtendedStyles"
+>
+  <div
+    className=" css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h2
+      className="chakra-heading css-0"
+      id="editioncardheading1"
+    >
+      The Card Heading
+    </h2>
+    <div
+      className="css-0"
+    >
+      <div>
+        Published in New York by Random House
+      </div>
+      <div>
+        Written in English
+      </div>
+      <div>
+        License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+      </div>
+    </div>
+    <div
+      className="css-0"
+    >
+      <a
+        className="css-0"
+        href="online"
+        id="link-online"
+      >
+        Read Online
+      </a>
+      <a
+        className="css-0"
+        href="#url"
+        id="link-icon"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-onkibi"
+          focusable={false}
+          id="icon-cardWithExtendedStyles"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+        Download
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Renders the UI snapshot correctly 3`] = `
+<div
+  className="edition-card css-0"
+  id="cardWithNoCTAs"
+>
+  <div
+    className=" css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h2
+      className="chakra-heading css-0"
+      id="editioncardheading1"
+    >
+      The Card Heading
+    </h2>
+    <div
+      className="css-0"
+    >
+      <p>
+        Published in New York by Random House
+      </p>
+      <p>
+        Written in English
+      </p>
+      <p>
+        Under Creative Commons License
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Renders the UI snapshot correctly 4`] = `
+<div
+  className="edition-card css-0"
+  id="cardWithNoContent"
+>
+  <div
+    className=" css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h2
+      className="chakra-heading css-0"
+      id="editioncardheading1"
+    >
+      <a
+        className="chakra-link css-1xdhyk6"
+        href="#edition-link"
+      >
+        The Card Heading
+      </a>
+    </h2>
+    <div
+      className="css-0"
+    >
+      <a
+        className="css-0"
+        href="online"
+        id="link-online"
+      >
+        Read Online
+      </a>
+      <a
+        className="css-0"
+        href="#url"
+        id="link-icon"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-onkibi"
+          focusable={false}
+          id="icon-cardWithNoContent"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+        Download
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Renders the UI snapshot correctly 5`] = `
+<div
+  className="edition-card css-0"
+  id="cardWithNoImage"
+>
+  <div
+    className="card-body css-0"
+  >
+    <h2
+      className="chakra-heading css-0"
+      id="editioncardheading1"
+    >
+      <a
+        className="chakra-link css-1xdhyk6"
+        href="#edition-link"
+      >
+        The Card Heading
+      </a>
+    </h2>
+    <div
+      className="css-0"
+    >
+      middle column content
+    </div>
+    <div
+      className="css-0"
+    >
+      <a
+        className="css-0"
+        href="online"
+        id="link-online"
+      >
+        Read Online
+      </a>
+      <a
+        className="css-0"
+        href="#url"
+        id="link-icon"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-onkibi"
+          focusable={false}
+          id="icon-cardWithNoImage"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+        Download
+      </a>
+    </div>
+  </div>
+</div>
+`;
