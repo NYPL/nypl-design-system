@@ -42,16 +42,7 @@ The `HorizontalRule` component renders a basic `<hr>` element. The `height`,
 `width`, and `align` props can be customized.
 
 <Preview withToolbar>
-  <Story
-    name="HorizontalRule"
-    args={{
-      align: "left",
-      height: "2px",
-      width: "auto",
-    }}
-  >
-    {(args) => <HorizontalRule {...args} />}
-  </Story>
+  <Story name="HorizontalRule">{(args) => <HorizontalRule {...args} />}</Story>
 </Preview>
 
 <ArgsTable story="HorizontalRule" />
