@@ -43,6 +43,8 @@ export interface InputProps {
   ) => void;
   /** Populates the placeholder for the input/textarea elements */
   placeholder?: string;
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
   /** Offers the ability to show the label onscreen or hide it. Refer to the
    * `labelText` property for more information. */
   showLabel?: boolean;
@@ -82,6 +84,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       labelText,
       onChange,
       placeholder,
+      showHelperInvalidText = true,
       showLabel = true,
       showOptReqLabel = true,
       type = TextInputTypes.text,
@@ -162,9 +165,9 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
           </Label>
         )}
         {fieldOutput}
-        {footnote && !isHidden && (
+        {footnote && showHelperInvalidText && !isHidden && (
           <Box __css={styles.helper} aria-disabled={isDisabled}>
-            <HelperErrorText isError={isInvalid} id={`${id}-helperText`}>
+            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
               {footnote}
             </HelperErrorText>
           </Box>

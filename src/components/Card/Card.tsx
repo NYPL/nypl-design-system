@@ -86,7 +86,7 @@ export function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
       imageAspectRatio={imageAspectRatio}
       imageSize={imageSize}
       src={src}
-      sx={styles}
+      additionalStyles={styles}
     />
   );
 }

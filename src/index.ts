@@ -30,6 +30,7 @@ export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGro
 export { CheckboxGroupLayoutTypes } from "./components/CheckboxGroup/CheckboxGroupLayoutTypes";
 export { default as DatePicker } from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
+export { default as DSProvider } from "./theme/provider";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { FormSpacing } from "./components/Form/FormTypes";
 export { GridGaps } from "./components/Grid/GridTypes";
@@ -51,6 +52,11 @@ export {
   IconSizes,
 } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
+export {
+  ImageRatios,
+  ImageSizes,
+  ImageTypes,
+} from "./components/Image/ImageTypes";
 export { default as Input } from "./components/Input/Input";
 export { InputTypes } from "./components/Input/InputTypes";
 export { default as Label } from "./components/Label/Label";
@@ -59,11 +65,7 @@ export { LinkTypes } from "./components/Link/LinkTypes";
 export { default as List } from "./components/List/List";
 export { ListTypes } from "./components/List/ListTypes";
 export { default as Modal } from "./components/Modal/Modal";
-export {
-  default as Notification,
-  NotificationContent,
-  NotificationHeading,
-} from "./components/Notification/Notification";
+export { default as Notification } from "./components/Notification/Notification";
 export { NotificationTypes } from "./components/Notification/NotificationTypes";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as Radio } from "./components/Radio/Radio";
@@ -104,9 +106,9 @@ export {
   TextInputRefType,
 } from "./components/TextInput/TextInput";
 export { TextInputTypes } from "./components/TextInput/TextInputTypes";
+export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {
   VideoPlayerAspectRatios,
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayerTypes";
-export { default as DSProvider } from "./theme/provider";

@@ -29,7 +29,6 @@ import { getCategory } from "../../utils/componentCategories";
     alt: { table: { disable: true } },
     className: { table: { disable: true } },
     component: { table: { disable: true } },
-    useImageWrapper: { table: { disable: true } },
   }}
 />
 
@@ -38,13 +37,13 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.6`    |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.2`   |
 
 <Description of={Image} />
 
 <p>
-  If you want a simple HTML `img` element then set the `useImageWrapper` prop to
-  `false`. This will not wrap the `img` element with styling `div` wrappers.
+  If you want a simple HTML `img` element then don't pass in values for the
+  `imageAspectRatio` or `imageSize` props.
 </p>
 
 <Canvas>
