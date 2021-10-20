@@ -1,6 +1,6 @@
 // Style object for base or default style
 const baseStyle = {
-  borderRadius: "2px",
+  borderRadius: "sm",
   lineHeight: "1.5",
   display: "flex",
   cursor: "pointer",
@@ -67,7 +67,7 @@ const pill = {
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
   color: "inherit",
-  borderRadius: "20px",
+  borderRadius: "pill",
   py: "xs",
   paddingInlineStart: "m",
   paddingInlineEnd: "m",
@@ -97,7 +97,7 @@ const callout = {
 };
 const searchBar = {
   ...primary,
-  borderLeftRadius: "0",
+  borderLeftRadius: "none",
 };
 
 const Button = {
