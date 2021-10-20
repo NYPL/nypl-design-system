@@ -6,21 +6,91 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
-import { select } from "@storybook/addon-knobs";
 
-import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-import cssVariables from "../../helpers/CSSVariablesHelper";
-import { getCategory } from "../../utils/componentCategories";
+import ColorCard from "./ColorCard";
+import DSProvider from "../../theme/provider";
 import getCSSVariable from "../../helpers/getCSSVariable";
-import List from "../List/List";
+import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
-import { ListTypes } from "../List/ListTypes";
-import sections from "../../utils/siteSections";
 import SimpleGrid from "../Grid/SimpleGrid";
-import ColorCard from "./ColorCard";
-import UIDocCard from "./UIDocCard";
-import DSProvider from "../../theme/provider";
+
+export const cssVars = {
+  brand: ["--nypl-colors-brand-primary", "--nypl-colors-brand-secondary"],
+  whatsOn: [
+    "--nypl-colors-section-whats-on-primary",
+    "--nypl-colors-section-whats-on-secondary",
+  ],
+  booksAndMore: [
+    "--nypl-colors-section-books-and-more-primary",
+    "--nypl-colors-section-books-and-more-secondary",
+  ],
+  research: [
+    "--nypl-colors-section-research-primary",
+    "--nypl-colors-section-research-secondary",
+  ],
+  locations: [
+    "--nypl-colors-section-locations-primary",
+    "--nypl-colors-section-locations-secondary",
+  ],
+  blogs: [
+    "--nypl-colors-section-blogs-primary",
+    "--nypl-colors-section-blogs-secondary",
+  ],
+  researchLibraries: [
+    "--nypl-colors-section-research-library-lpa",
+    "--nypl-colors-section-research-library-schomburg",
+    "--nypl-colors-section-research-library-schwartzman",
+  ],
+  ui: [
+    "--nypl-colors-ui-black",
+    "--nypl-colors-ui-white",
+    "--nypl-colors-ui-disabled-primary",
+    "--nypl-colors-ui-disabled-secondary",
+    "--nypl-colors-ui-error-primary",
+    "--nypl-colors-ui-error-secondary",
+    "--nypl-colors-ui-focus",
+    "--nypl-colors-ui-link-primary",
+    "--nypl-colors-ui-link-secondary",
+    "--nypl-colors-ui-status-primary",
+    "--nypl-colors-ui-status-secondary",
+    "--nypl-colors-ui-success-primary",
+    "--nypl-colors-ui-success-secondary",
+    "--nypl-colors-ui-test",
+    "--nypl-colors-ui-warning-primary",
+    "--nypl-colors-ui-warning-secondary",
+  ],
+  grayscale: [
+    "--nypl-colors-ui-gray-xdark",
+    "--nypl-colors-ui-gray-dark",
+    "--nypl-colors-ui-gray-medium",
+    "--nypl-colors-ui-gray-light-cool",
+    "--nypl-colors-ui-gray-light-warm",
+    "--nypl-colors-ui-gray-x-light-cool",
+    "--nypl-colors-ui-gray-x-light-warm",
+    "--nypl-colors-ui-gray-xx-light-cool",
+  ],
+};
+
+export const makeColorCard = function (key) {
+  // const cssValue = getCSSVariable(key);
+  const cssValue = `var(${key})`;
+  const card = (
+    <ColorCard backgroundColor={cssValue} colorName={key} key={key} />
+  );
+  return card;
+};
+
+export const getColorCards = (cat) => {
+  const cards = [];
+  const catArr = cssVars[cat];
+  for (let i = 0; i < catArr.length; i++) {
+    const varName = catArr[i];
+    const card = makeColorCard(varName);
+    cards.push(card);
+  }
+  return cards;
+};
 
 <Meta title={getCategory("Colors")} decorators={[withDesign]} />
 
@@ -40,16 +110,7 @@ Brand fills are the NYPL primary and secondary colors.
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={2}>
-      <ColorCard
-        backgroundColor={getCSSVariable("--nypl-colors-brand-primary")}
-        colorName="--nypl-colors-brand-primary"
-      />
-      <ColorCard
-        backgroundColor={getCSSVariable("--nypl-colors-brand-secondary")}
-        colorName="--nypl-colors-brand-secondary"
-      />
-    </SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("brand")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -61,20 +122,7 @@ Section colors are branding colors only in use at NYPL.
   <DSProvider>
     <Heading level={HeadingLevels.Two}>What's On</Heading>
     <p>What's On is used for Events, Exhibitions &amp; Audio Guides.</p>
-    <SimpleGrid columns={2}>
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-whats-on-primary"
-        )}
-        colorName="--nypl-colors-section-whats-on-primary"
-      />
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-whats-on-secondary"
-        )}
-        colorName="--nypl-colors-section-whats-on-secondary"
-      />
-    </SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("whatsOn")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -85,20 +133,7 @@ Section colors are branding colors only in use at NYPL.
       Books and More is used for the Catalog, Staff Picks, Recommendations, New
       Arrivals, and E-Book Central.
     </p>
-    <SimpleGrid columns={2}>
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-books-and-more-primary"
-        )}
-        colorName="--nypl-colors-section-books-and-more-primary"
-      />
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-books-and-more-secondary"
-        )}
-        colorName="--nypl-colors-section-books-and-more-secondary"
-      />
-    </SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("booksAndMore")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -106,20 +141,7 @@ Section colors are branding colors only in use at NYPL.
   <DSProvider>
     <Heading level={HeadingLevels.Two}>Research</Heading>
     <p>Research is used for the Research Catalog and SCC.</p>
-    <SimpleGrid columns={2}>
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-research-primary"
-        )}
-        colorName="--nypl-colors-section-research-primary"
-      />
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-research-secondary"
-        )}
-        colorName="--nypl-colors-section-research-secondary"
-      />
-    </SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("research")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -130,20 +152,7 @@ Section colors are branding colors only in use at NYPL.
       Locations is used for Location Finder and all branch pages with the
       exceptions of some research libraries.
     </p>
-    <SimpleGrid columns={2}>
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-locations-primary"
-        )}
-        colorName="--nypl-colors-section-locations-primary"
-      />
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-locations-secondary"
-        )}
-        colorName="--nypl-colors-section-locations-secondary"
-      />
-    </SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("locations")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -151,18 +160,7 @@ Section colors are branding colors only in use at NYPL.
   <DSProvider>
     <Heading level={HeadingLevels.Two}>Blogs</Heading>
     <p>Blogs is used for the Blogs section.</p>
-    <SimpleGrid columns={2}>
-      <ColorCard
-        backgroundColor={getCSSVariable("--nypl-colors-section-blogs-primary")}
-        colorName="--nypl-colors-section-blogs-primary"
-      />
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-blogs-secondary"
-        )}
-        colorName="--nypl-colors-section-blogs-secondary"
-      />
-    </SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("blogs")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -170,84 +168,15 @@ Section colors are branding colors only in use at NYPL.
   <DSProvider>
     <Heading level={HeadingLevels.Two}>Research Libraries</Heading>
     <p>Research libraries with specific brand colors to adhere to.</p>
-    <SimpleGrid columns={1}>
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-research-library-lpa"
-        )}
-        colorName="--nypl-colors-section-research-library-lpa"
-      />
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-research-library-schomburg"
-        )}
-        colorName="--nypl-colors-section-research-library-schomburg"
-      />
-      <ColorCard
-        backgroundColor={getCSSVariable(
-          "--nypl-colors-section-research-library-schwartzman"
-        )}
-        colorName="--nypl-colors-section-research-library-schwartzman"
-      />
-    </SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("researchLibraries")}</SimpleGrid>
   </DSProvider>
 </Canvas>
-
-export const uiVars_arr = [
-  "--nypl-colors-ui-black",
-  "--nypl-colors-ui-white",
-  "--nypl-colors-ui-disabled-primary",
-  "--nypl-colors-ui-disabled-secondary",
-  "--nypl-colors-ui-error-primary",
-  "--nypl-colors-ui-error-secondary",
-  "--nypl-colors-ui-focus",
-  "--nypl-colors-ui-link-primary",
-  "--nypl-colors-ui-link-secondary",
-  "--nypl-colors-ui-status-primary",
-  "--nypl-colors-ui-status-secondary",
-  "--nypl-colors-ui-success-primary",
-  "--nypl-colors-ui-success-secondary",
-  "--nypl-colors-ui-test",
-  "--nypl-colors-ui-warning-primary",
-  "--nypl-colors-ui-warning-secondary",
-];
-export const grayscaleVars_arr = [
-  "--nypl-colors-ui-gray-xdark",
-  "--nypl-colors-ui-gray-dark",
-  "--nypl-colors-ui-gray-medium",
-  "--nypl-colors-ui-gray-light-cool",
-  "--nypl-colors-ui-gray-light-warm",
-  "--nypl-colors-ui-gray-x-light-cool",
-  "--nypl-colors-ui-gray-x-light-warm",
-  "--nypl-colors-ui-gray-xx-light-cool",
-];
-export const uiVarDocs = [];
-export const grayscaleVarDocs = [];
-export const makeColorCard = function (key, value, docArray) {
-  docArray.push(
-    <ColorCard
-      backgroundColor={value}
-      foregroundColor="#ffffff"
-      colorName={key}
-    />
-  );
-};
-for (let i = 0; i < uiVars_arr.length; i++) {
-  const varName = uiVars_arr[i];
-  const varValue = getCSSVariable(varName);
-  makeColorCard(varName, varValue, uiVarDocs);
-}
-for (let i = 0; i < grayscaleVars_arr.length; i++) {
-  const varName = grayscaleVars_arr[i];
-  const varValue = getCSSVariable(varName);
-  makeColorCard(varName, varValue, grayscaleVarDocs);
-}
 
 ## Utility Colors
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={2}>{uiVarDocs}</SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("ui")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -255,7 +184,7 @@ for (let i = 0; i < grayscaleVars_arr.length; i++) {
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1}>{grayscaleVarDocs}</SimpleGrid>
+    <SimpleGrid columns={1}>{getColorCards("grayscale")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 

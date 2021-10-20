@@ -31,8 +31,8 @@ guide on the Chakra UI site.
     name="Center, Circle, Square"
     args={{
       p: "5",
-      bg: "var(--brand-primary)",
-      color: "var(--ui-white)",
+      bg: "var(--nypl-colors-brand-primary)",
+      color: "var(--nypl-colors-ui-white)",
     }}
   >
     {(args) => (
@@ -63,10 +63,14 @@ Similar to `Center` but is always a circle!
 <Canvas>
   <DSProvider>
     <HStack spacing="s">
-      <Circle size="50px" bg="var(--ui-test)">
-        <Icon name={IconNames.Download} size={IconSizes.Large} />
+      <Circle size="50px" bg="var(--nypl-colors-brand-secondary)">
+        <Icon
+          name={IconNames.Download}
+          color={IconColors.UiWhite}
+          size={IconSizes.Large}
+        />
       </Circle>
-      <Circle size="50px" bg="var(--ui-link-primary)">
+      <Circle size="50px" bg="var(--nypl-colors-ui-link-primary)">
         <Icon
           name={IconNames.Check}
           color={IconColors.UiWhite}
@@ -84,10 +88,14 @@ Similar to `Center` but always has equal height and width.
 <Canvas>
   <DSProvider>
     <HStack spacing="s">
-      <Square size="50px" bg="var(--ui-test)">
-        <Icon name={IconNames.Download} size={IconSizes.Large} />
+      <Square size="50px" bg="var(--nypl-colors-brand-secondary)">
+        <Icon
+          name={IconNames.Download}
+          color={IconColors.UiWhite}
+          size={IconSizes.Large}
+        />
       </Square>
-      <Square size="50px" bg="var(--ui-link-primary)">
+      <Square size="50px" bg="var(--nypl-colors-ui-link-primary)">
         <Icon
           name={IconNames.Check}
           color={IconColors.UiWhite}

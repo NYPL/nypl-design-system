@@ -210,12 +210,12 @@ the `variants` object as in the following example.
 .button--outline {
   @include button-base;
 
-  background-color: var(--ui-white);
-  border: 1px solid var(--ui-gray-light-cool);
+  background-color: var(--nypl-colors-ui-white);
+  border: 1px solid var(--nypl-colors-ui-gray-light-cool);
   color: inherit;
 
   &:hover {
-    background-color: var(--ui-gray-xx-light-cool);
+    background-color: var(--nypl-colors-ui-gray-xx-light-cool);
   }
 }
 
@@ -317,8 +317,8 @@ For example, to make all `button`s have a `padding: 8px 16px` value:
 // src/theme/components/button.ts
 const Button = {
   baseStyle: {
-    py: 2, // var(--space-xs) which results in a value of 8px or 0.5rem
-    px: 4, // var(--space-s) which results in a value of 16px or 1rem
+    py: 2, // var(--nypl-space-xs) which results in a value of 8px or 0.5rem
+    px: 4, // var(--nypl-space-s) which results in a value of 16px or 1rem
     // ... other styles
   },
   sizes: { ... },

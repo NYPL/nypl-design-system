@@ -1,7 +1,10 @@
 import * as React from "react";
 import Card from "../Card/Card";
 import { CardLayouts } from "../Card/CardTypes";
-import Text from "../Text/Text";
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+// import Text from "../Text/Text";
+// import { TextDisplaySizes } from "../Text/TextTypes";
 
 export interface ColorCardProps {
   /** backgroundColor of the color card */
@@ -29,8 +32,15 @@ export default function ColorCard(
         border
       />
       <div style={{ marginLeft: "1rem" }}>
-        <Text noSpace>{colorName}</Text>
-        <Text noSpace>{backgroundColor}</Text>
+        <Heading level={HeadingLevels.Four}>{colorName}</Heading>
+        {/* 
+        TODO:
+        This code is returning the CSS variable name.  This is not what we 
+        want.  Rather, we want to see the variable's hex value.  This is 
+        somethign we will need to come back to.
+
+        <Text noSpace>{backgroundColor}</Text> 
+        */}
       </div>
     </div>
   );
