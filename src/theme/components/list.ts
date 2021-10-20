@@ -5,6 +5,11 @@ const List = {
     listStyle: noStyling ? "none" : null,
     marginInlineStart: "unset",
     padding: noStyling ? "0" : null,
+    li: {
+      _notFirst: {
+        marginTop: "xxs",
+      },
+    },
   }),
   variants: {
     ul: ({ noStyling }) => ({
@@ -18,8 +23,10 @@ const List = {
           // Needed to add space between the bullet and the text.
           display: "inline-block",
           fontWeight: "bold",
-          marginLeft: "-1em",
-          width: "1em",
+          fontSize: "2",
+          lineHeight: "normal",
+          marginLeft: "-.75rem",
+          width: "1rem",
         },
       },
     }),
@@ -34,7 +41,7 @@ const List = {
       },
       dl: {
         display: "grid",
-        gridTemplateColumns: { base: "100%", md: "max(225px) 1fr" },
+        gridTemplateColumns: { base: "100%", md: "max(250px) 1fr" },
         gridTemplateRows: "1fr",
         margin: "var(--space-xs) 0 0",
       },
