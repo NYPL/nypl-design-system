@@ -51,6 +51,11 @@ export {
   IconSizes,
 } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
+export {
+  ImageRatios,
+  ImageSizes,
+  ImageTypes,
+} from "./components/Image/ImageTypes";
 export { default as Input } from "./components/Input/Input";
 export { InputTypes } from "./components/Input/InputTypes";
 export { default as Label } from "./components/Label/Label";

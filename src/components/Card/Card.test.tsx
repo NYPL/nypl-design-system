@@ -188,7 +188,6 @@ describe("Card", () => {
     const utils = render(regularCard);
     container = utils.container;
     expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card__image")).toBeInTheDocument();
     expect(container.querySelector(".card-content")).toBeInTheDocument();
     expect(container.querySelector(".card-actions")).toBeInTheDocument();
   });
@@ -207,7 +206,6 @@ describe("Card", () => {
     container = utils.container;
 
     expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card__image")).toBeInTheDocument();
     expect(container.querySelector(".card-content")).toBeInTheDocument();
     expect(container.querySelector(".card-actions")).not.toBeInTheDocument();
   });
@@ -217,7 +215,6 @@ describe("Card", () => {
     container = utils.container;
 
     expect(container.querySelector(".chakra-heading")).toBeInTheDocument();
-    expect(container.querySelector(".card__image")).toBeInTheDocument();
     expect(container.querySelector(".card-content")).not.toBeInTheDocument();
     expect(container.querySelector(".card-actions")).toBeInTheDocument();
   });

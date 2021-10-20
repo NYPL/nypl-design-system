@@ -1,8 +1,10 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Image from "./Image";
+import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
 describe("Image Accessibility", () => {
   it("passes axe accessibility for regular img element", async () => {
@@ -65,5 +67,102 @@ describe("Image", () => {
     expect(() =>
       render(<Image src="test.png" alt={tooManyChars} />)
     ).toThrowError("Alt Text must be less than 300 characters");
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const basic = renderer.create(<Image src="test.png" alt="" />).toJSON();
+    const figCaption = renderer
+      .create(<Image src="test.png" alt="" imageCaption="Caption" />)
+      .toJSON();
+    const sizeSmall = renderer
+      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Small} />)
+      .toJSON();
+    const sizeMedium = renderer
+      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Medium} />)
+      .toJSON();
+    const sizeLarge = renderer
+      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Large} />)
+      .toJSON();
+    const ratioFourByThree = renderer
+      .create(
+        <Image
+          src="test.png"
+          alt=""
+          imageAspectRatio={ImageRatios.FourByThree}
+        />
+      )
+      .toJSON();
+    const ratioOneByTwo = renderer
+      .create(
+        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.OneByTwo} />
+      )
+      .toJSON();
+    const ratioOriginal = renderer
+      .create(
+        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.Original} />
+      )
+      .toJSON();
+    const ratioSixteenByNine = renderer
+      .create(
+        <Image
+          src="test.png"
+          alt=""
+          imageAspectRatio={ImageRatios.SixteenByNine}
+        />
+      )
+      .toJSON();
+    const ratioSquare = renderer
+      .create(
+        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.Square} />
+      )
+      .toJSON();
+    const ratioThreeByFour = renderer
+      .create(
+        <Image
+          src="test.png"
+          alt=""
+          imageAspectRatio={ImageRatios.ThreeByFour}
+        />
+      )
+      .toJSON();
+    const ratioThreeByTwo = renderer
+      .create(
+        <Image
+          src="test.png"
+          alt=""
+          imageAspectRatio={ImageRatios.ThreeByTwo}
+        />
+      )
+      .toJSON();
+    const ratioTwoByOne = renderer
+      .create(
+        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.TwoByOne} />
+      )
+      .toJSON();
+    const typeCircle = renderer
+      .create(
+        <Image
+          src="test.png"
+          alt=""
+          imageAspectRatio={ImageRatios.Square}
+          imageSize={ImageSizes.Small}
+          imageType={ImageTypes.Circle}
+        />
+      )
+      .toJSON();
+    expect(basic).toMatchSnapshot();
+    expect(figCaption).toMatchSnapshot();
+    expect(sizeSmall).toMatchSnapshot();
+    expect(sizeMedium).toMatchSnapshot();
+    expect(sizeLarge).toMatchSnapshot();
+    expect(ratioFourByThree).toMatchSnapshot();
+    expect(ratioOneByTwo).toMatchSnapshot();
+    expect(ratioOriginal).toMatchSnapshot();
+    expect(ratioSixteenByNine).toMatchSnapshot();
+    expect(ratioSquare).toMatchSnapshot();
+    expect(ratioThreeByFour).toMatchSnapshot();
+    expect(ratioThreeByTwo).toMatchSnapshot();
+    expect(ratioTwoByOne).toMatchSnapshot();
+    expect(typeCircle).toMatchSnapshot();
   });
 });

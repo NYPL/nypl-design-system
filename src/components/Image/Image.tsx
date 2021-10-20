@@ -25,8 +25,6 @@ export interface ImageProps extends ImageWrapperProps {
   imageType?: ImageTypes;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src: string;
-  /** Adds wrapper divs to control size and aspect ratio styling. */
-  useImageWrapper?: boolean;
 }
 
 function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
@@ -58,9 +56,11 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
     imageSize = ImageSizes.Default,
     imageType = ImageTypes.Default,
     src,
-    useImageWrapper = true,
   } = props;
   const styles = useMultiStyleConfig("CustomImage", { variant: imageType });
+  const useImageWrapper =
+    imageAspectRatio !== ImageRatios.Original ||
+    imageSize !== ImageSizes.Default;
 
   if (alt && alt.length > 300) {
     throw new Error("Alt Text must be less than 300 characters");
