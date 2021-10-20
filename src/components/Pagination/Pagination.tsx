@@ -2,224 +2,235 @@ import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Link from "../Link/Link";
+import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
 import { range } from "../../utils/utils";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface PaginationProps {
-  /** Additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+  /** Additional className. */
   className?: string;
   /** The current page selected. */
   currentPage: number;
-  /** A method that returns a Link component given the target page */
-  getPageHref?: (pageNumber: number) => string;
+  /** The callback function that takes a page number and returns a string
+   * to use for a link's `href` attribute. This is used when the current
+   * page should refresh when navigating. */
+  getPageHref?: undefined | ((pageNumber: number) => string);
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** The method to callback when an item is selected. Passes the selected page to the consuming app as an argument. */
+  /** The callback function called when an item is selected and the current
+   * page should not refresh. */
   onPageChange?: (selected: number) => void;
   /** The total number of pages. */
   pageCount: number;
 }
 
-/** A component that provides a navigational list of page items. */
+/**
+ * A component that provides a navigational list of page items.
+ */
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const {
     className,
-    currentPage = 1,
+    currentPage,
     getPageHref,
     id = generateUUID(),
-    onPageChange,
+    onPageChange = () => {},
     pageCount,
   } = props;
   const styles = useMultiStyleConfig("Pagination", {});
-  // If there are 0 or 1 pages, the pagination should not show.
+  const previousPageNumber = currentPage - 1;
+  const nextPageNumber = currentPage + 1;
+
+  // If there are 0 or 1 page, the pagination should not show.
   if (pageCount <= 1) {
     return null;
   }
-
   if (getPageHref && onPageChange) {
     console.warn(
-      "Both onPageHref and onPageChange are passed. Will default to using `onPageHref`."
+      "Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
     );
   }
 
+  // If `getPageHref` was passed, then links should go to a new page.
   const changeUrls =
     typeof getPageHref !== "undefined" && typeof getPageHref === "function";
-
-  const selectPage = (evt: Event, item: number) => {
-    const runCallback = (selectedItem: number) => {
-      evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
-
-      if (
-        typeof onPageChange !== "undefined" &&
-        typeof onPageChange === "function"
-      ) {
-        onPageChange(selectedItem);
-      }
-    };
-
-    evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
+  /**
+   * This function is only called when clicking on a link should not update
+   * the URL or refresh the page. It is the responsibility of the parent to
+   * manage the data.
+   */
+  const selectPage = (e: Event, item: number) => {
+    e.preventDefault && e.preventDefault();
     if (currentPage === item) return;
-
-    // Invoke the callback with the new selected item.
-    runCallback(item);
+    onPageChange(item);
   };
-
-  const previousPage = (evt: Event) => {
-    evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
+  // Select the previous page.
+  const previousPage = (e: Event) => {
     if (currentPage > 1) {
-      selectPage(evt, currentPage - 1);
+      selectPage(e, previousPageNumber);
     }
   };
-
-  const nextPage = (evt: Event) => {
-    evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
+  // Select the next page.
+  const nextPage = (e: Event) => {
     if (currentPage < pageCount) {
-      selectPage(evt, currentPage + 1);
+      selectPage(e, nextPageNumber);
     }
   };
-
-  const getPageElement = (item: number) => {
-    const pageAttributes = {
-      "aria-label": null,
-      onClick: !changeUrls ? (evt) => selectPage(evt, item) : undefined,
-      role: "button",
-      tabIndex: 0,
+  /**
+   * All `Link` components have similar attributes but we need to differentiate
+   * between the "previous", "next", and regular number links.
+   * 1. If `getPageHref` is passed, this means that the page refreshes and the
+   *    URL changes. In this case, the parent component returns the `href` URL
+   *    and the `onClick` callback is undefined.
+   * 2. Otherwise, we stay on the same page by setting the `href` attribute to
+   *    "#" and call the `onPageChange` prop through the `onClick` callback.
+   */
+  const getLinkElement = (type: string, item?: number) => {
+    const isCurrent = currentPage === item;
+    // The current page link has different styles.
+    const currentStyles = isCurrent
+      ? {
+          color: "ui.black",
+          pointerEvent: "none",
+        }
+      : null;
+    const allAttrs = {
+      items: {
+        href: changeUrls ? getPageHref(item) : "#",
+        attributes: {
+          "aria-label": `Page ${item}`,
+          "aria-current": isCurrent ? "page" : null,
+          onClick: changeUrls ? undefined : (e) => selectPage(e, item),
+        },
+        text: item,
+      },
+      previous: {
+        href: changeUrls ? getPageHref(previousPageNumber) : "#",
+        attributes: {
+          "aria-label": "Previous page",
+          onClick: changeUrls ? undefined : previousPage,
+        },
+        text: "Previous",
+      },
+      next: {
+        href: changeUrls ? getPageHref(nextPageNumber) : "#",
+        attributes: {
+          "aria-label": "Next page",
+          onClick: changeUrls ? undefined : nextPage,
+        },
+        text: "Next",
+      },
     };
-
-    pageAttributes["aria-label"] = item ? item : null;
-
+    const linkAttrs = allAttrs[type];
     return (
       <Link
-        attributes={{ ...pageAttributes }}
-        href={changeUrls ? getPageHref(item) : "#"}
-        sx={{
+        additionalStyles={{
           ...styles.link,
-          color: currentPage === item ? "ui.black" : null,
-          pointerEvents: currentPage === item ? "none" : null,
+          ...currentStyles,
         }}
+        attributes={linkAttrs.attributes}
+        href={linkAttrs.href}
+        id={`${id}-${linkAttrs.text}`}
       >
-        {item}
+        {linkAttrs.text}
       </Link>
     );
   };
 
-  const pagination = (selected: number) => {
-    // 1, (2 or ...), pageStart - pageEnd, (next to last item or ...), pageCount
-    const pageStart = Math.max(
-      3, // if near the beginning, inner pages start at 3
+  /**
+   * This function returns an array of `li` elements with numbers based on the
+   * total pages that `Pagination` should display. When there are many pages to
+   * display, ellipsis are shown to signify that the intermediate page numbers
+   * are hidden.
+   * For a small number of pages, the array will be simple.
+   * For a large number of pages, the resulting array will be in the shape of:
+   * [
+   *    1, // this always displays
+   *    2 or an ellipsis,
+   *    a range of numbers in the middle of the total count,
+   *    pageCount - 1 or an ellipsis,
+   *    pageCount, // the total number of pages
+   * ]
+   */
+  const getPaginationNumbers = (selected: number) => {
+    // Where should the middle range of numbers start at?
+    const middleRangeStart = Math.max(
+      // Start at three if the current page is near the beginning.
+      3,
       Math.min(
-        // If in the middle, inner pages begin two items before the selected page
-        selected - 2,
-        // If near the end, count back and show 7 items
-        pageCount - 6
+        // If the current page is in the middle, start the range
+        // one number before the current page.
+        selected - 1,
+        // If the current page is near the end, show the last five items.
+        pageCount - 4
       )
     );
-
-    const pageEnd = Math.min(
-      // if near the end, inner pages end just before next to last item (or ellipse)
+    // Where should the middle range of numbers end at?
+    const middleRangeEnd = Math.min(
+      // If the current page is near the end, end the range
+      // two place before the last page number.
       pageCount - 2,
       Math.max(
-        // If in the middle, inner pages end two items after the selected page
-        selected + 2,
-        // If near the beginning, show the first 7 items
-        7
+        // If the current page is in the middle, end the range
+        // one number after the current page.
+        selected + 1,
+        // If the current page is near the end, show the first five items.
+        5
       )
     );
-    const truncatedList =
+    const itemList =
       pageCount < 4
-        ? Array.from({ length: pageCount }, (_, i) => i + 1)
-        : [
-            // list always starts at and displays the first page item
+        ? // Get a short array with 2 or 3 items: [1, 2] or [1, 2, 3]
+          Array.from({ length: pageCount }, (_, i) => i + 1)
+        : // Otherwise, create the longer array of items.
+          [
+            // Always display the first page.
             1,
-            // second item will either be item 2 or an ellipse
-            pageStart > 3 ? "ellipse-start" : 2,
-            // Adding + 1 here since range() doesn't include the last item passed to it
-            ...range(pageStart, pageEnd + 1),
-            // next to last item will either be an ellipse or the next to last page number
-            pageEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,
-            // list always ends at and displays the last page number in the pageCount
+            // The second item will be 2 or an ellipse.
+            middleRangeStart > 3 ? "ellipse-start" : 2,
+            // The middle range of page numbers to display.
+            // Add +1 to the end since range() doesn't include the last number.
+            ...range(middleRangeStart, middleRangeEnd + 1),
+            // The next to last item will be the next to last
+            // number or an ellipse.
+            middleRangeEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,
+            // Always display the last page.
             pageCount,
           ];
-    const pageItems = truncatedList.map((item) => {
-      // if it's a number, render that page item, otherwise return the ellipse
+    // If it's a number, render an `li` element with a link page item,
+    // otherwise return the `li` with the ellipse for a break.
+    const pageLiItems = itemList.map((item) => {
       const itemElement =
-        typeof item === "number" ? getPageElement(item) : "...";
-      return (
-        <Box as="li" key={item} __css={styles.item}>
-          {itemElement}
-        </Box>
-      );
+        typeof item === "number" ? getLinkElement("items", item) : "...";
+      return <li key={item}>{itemElement}</li>;
     });
 
-    return pageItems;
+    return pageLiItems;
   };
 
-  // When at the beginning, disable Previous. When at the end, disable Next.
-  const prevDisabled = currentPage === 1;
-  const nextDisabled = currentPage === pageCount;
-
-  // Attributes for Previous and Next Buttons
-  const prevAttributes = {
-    "aria-disabled": prevDisabled ? "true" : null,
-    "aria-label": "Previous page",
-    role: "button",
-    onClick: changeUrls ? undefined : previousPage,
-    tabIndex: prevDisabled ? -1 : 0,
-  };
-
-  const nextAttributes = {
-    "aria-disabled": nextDisabled ? "true" : null,
-    "aria-label": "Next page",
-    role: "button",
-    onClick: changeUrls ? undefined : nextPage,
-    tabIndex: nextDisabled ? -1 : null,
-  };
+  // Don't display the previous link when you're on the first page.
+  const previousLiLink = currentPage !== 1 && (
+    <li key="previous">{getLinkElement("previous")}</li>
+  );
+  /// Don't display the next link when you're on the last page.
+  const nextLiLink = currentPage !== pageCount && (
+    <li key="next">{getLinkElement("next")}</li>
+  );
 
   return (
     <Box
       as="nav"
       id={id}
       aria-label="Pagination"
+      role="navigation"
       className={className}
       __css={styles}
     >
-      <Box as="ul" __css={styles.list}>
-        <Box as="li" key="previous" __css={styles.item}>
-          <Link
-            attributes={{ ...prevAttributes }}
-            href={
-              !prevDisabled && changeUrls ? getPageHref(currentPage - 1) : "#"
-            }
-            sx={{
-              ...styles.link,
-              color: prevDisabled ? "ui.gray.dark" : null,
-              pointerEvents: prevDisabled ? "none" : null,
-            }}
-          >
-            Previous
-          </Link>
-        </Box>
-
-        {pagination(currentPage)}
-
-        <Box as="li" key="next" __css={styles.item}>
-          <Link
-            attributes={{
-              ...nextAttributes,
-            }}
-            href={
-              !nextDisabled && changeUrls ? getPageHref(currentPage + 1) : "#"
-            }
-            sx={{
-              ...styles.link,
-              color: nextDisabled ? "ui.gray.dark" : null,
-              pointerEvents: nextDisabled ? "none" : null,
-            }}
-          >
-            Next
-          </Link>
-        </Box>
-      </Box>
+      <List type={ListTypes.Unordered} inline noStyling id={`${id}-list`}>
+        {previousLiLink}
+        {getPaginationNumbers(currentPage)}
+        {nextLiLink}
+      </List>
     </Box>
   );
 };

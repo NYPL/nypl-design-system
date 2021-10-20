@@ -7,6 +7,8 @@ import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface LinkProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
   attributes?: { [key: string]: any };
   /** Any child node passed to the component. */
@@ -17,8 +19,6 @@ export interface LinkProps {
   href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Controls the link visuals: action, button, backwards, forwards, or default. */
   type?: LinkTypes;
 }
@@ -67,12 +67,12 @@ function getWithDirectionIcon(children, type: LinkTypes) {
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   (props, ref: any) => {
     const {
+      additionalStyles = {},
       attributes,
       children,
       className,
       href,
       id = generateUUID(),
-      sx = {},
       type = LinkTypes.Default,
     } = props;
 
@@ -133,7 +133,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           className={className}
           ref={ref}
           {...linkProps}
-          __css={{ ...style, ...sx }}
+          __css={{ ...style, ...additionalStyles }}
         >
           {newChildren}
         </Box>

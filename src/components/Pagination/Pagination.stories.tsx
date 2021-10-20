@@ -11,7 +11,7 @@ export const PaginationGetPageHref: Story<PaginationProps> = (args) => {
   const urlParams = new URLSearchParams(document.location.search);
   const pageParam = urlParams.get("page");
   const getPageNumber = (page: number, pageCount: number) => {
-    return page > 0 && page < pageCount ? page : 1;
+    return page > 0 && page <= pageCount ? page : 1;
   };
   const computedCurrentPage =
     pageParam &&

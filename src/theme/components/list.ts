@@ -1,10 +1,15 @@
 const List = {
-  baseStyle: ({ noStyling }) => ({
+  baseStyle: ({ inline, noStyling }) => ({
     // Browser automatically applies margin, so by default we unset it.
     margin: noStyling ? "0" : "unset",
     listStyle: noStyling ? "none" : null,
     marginInlineStart: "unset",
     padding: noStyling ? "0" : null,
+    display: inline ? "flex" : null,
+    li: {
+      marginRight: inline ? "xs" : null,
+      listStyleType: inline ? "none" : null,
+    },
   }),
   variants: {
     ul: ({ noStyling }) => ({
