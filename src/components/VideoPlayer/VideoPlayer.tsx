@@ -14,14 +14,16 @@ export interface VideoPlayerProps {
   className?: string;
   /** Optional string to set the text for a video description */
   descriptionText?: string;
+  /** Optional string to set the text for a `Heading` component */
+  headingText?: string;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: string;
   /** Optional title to be added to the `<iframe>` element for improved accessibility; this title should describe in a few words the content of the video; if omitted, a generic title will be added */
   iframeTitle?: string;
   /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
   modifiers?: string[];
-  /** Optional string to set the text for a `Heading` component */
-  headingText?: string;
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
   /** Required YouTube or Vimeo video ID. This value can be pulled from a video's YouTube or Vimeo URL. */
   videoId: string;
   /** Required. Used to specify which video service is being used. */
@@ -36,10 +38,11 @@ export default function VideoPlayer(
     attributes = {},
     className,
     descriptionText,
+    headingText,
     helperText,
     iframeTitle,
     modifiers = [],
-    headingText,
+    showHelperInvalidText = true,
     videoId,
     videoType,
   } = props;
@@ -112,8 +115,8 @@ export default function VideoPlayer(
           <div className={bem("video-player__inside", modifiers, "", [])}>
             {embedCode}
           </div>
-          {helperText && (
-            <HelperErrorText isError={false}>{helperText}</HelperErrorText>
+          {helperText && showHelperInvalidText && (
+            <HelperErrorText isInvalid={false}>{helperText}</HelperErrorText>
           )}
         </>
       )}

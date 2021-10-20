@@ -139,10 +139,28 @@ describe("Checkbox", () => {
         id="inputID-attributes"
         labelText="onChange test"
         showLabel={true}
+        errorText="This is the error text!"
         isInvalid
       />
     );
     expect(screen.getByRole("checkbox")).toHaveAttribute("aria-invalid");
+    expect(screen.getByText("This is the error text!")).toBeInTheDocument();
+  });
+
+  it("does not render the error text when 'isInvalid' is true but 'showHelperInvalidText' is false", () => {
+    render(
+      <Checkbox
+        id="inputID-attributes"
+        labelText="onChange test"
+        showLabel={true}
+        showHelperInvalidText={false}
+        isInvalid
+      />
+    );
+    expect(screen.getByRole("checkbox")).toHaveAttribute("aria-invalid");
+    expect(
+      screen.queryByText("This is the error text!")
+    ).not.toBeInTheDocument();
   });
 
   it("Changing the value calls the onChange handler", () => {
