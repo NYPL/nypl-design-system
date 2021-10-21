@@ -1,6 +1,5 @@
 const imageWrap = {
   boxSizing: "border-box",
-  height: "0",
   overflow: "hidden",
   paddingBottom: "100%",
   position: "relative",
@@ -82,9 +81,7 @@ const CustomImage = {
     },
     img: {
       display: "block",
-      height: "100%",
       maxWidth: "100%",
-      // from card
       boxSizing: "border-box",
       objectFit: "cover",
       position: "relative",
@@ -116,7 +113,12 @@ const CustomImageWrapper = {
         width: "100%",
         ...updatedSize,
       },
-      ratio: { ...updatedRatio },
+      ratio: {
+        // Only update the height of the image element
+        // when the aspect ratio is modified.
+        img: ratio !== "original" ? { height: "100%" } : null,
+        ...updatedRatio,
+      },
     };
   },
 };
