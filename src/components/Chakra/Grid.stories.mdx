@@ -56,10 +56,14 @@ In some layouts, you may need certain grid items to span a specific amount of co
       templateColumns="repeat(5, 1fr)"
       gap="32"
     >
-      <GridItem rowSpan={2} colSpan={1} bg="var(--ui-link-primary)" />
-      <GridItem colSpan={2} bg="var(--ui-success-primary)" />
-      <GridItem colSpan={2} bg="var(--ui-success-secondary)" />
-      <GridItem colSpan={4} bg="var(--ui-link-secondary)" />
+      <GridItem
+        rowSpan={2}
+        colSpan={1}
+        bg="var(--nypl-colors-ui-link-primary)"
+      />
+      <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-primary)" />
+      <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-secondary)" />
+      <GridItem colSpan={4} bg="var(--nypl-colors-ui-link-secondary)" />
     </Grid>
   </DSProvider>
 </Canvas>
@@ -71,9 +75,9 @@ In some layouts, you may need certain grid items to span a specific amount of co
   templateColumns="repeat(5, 1fr)"
   gap="32"
 >
-  <GridItem rowSpan={2} colSpan={1} bg="var(--ui-link-primary)" />
-  <GridItem colSpan={2} bg="var(--ui-success-primary)" />
-  <GridItem colSpan={2} bg="var(--ui-success-secondary)" />
-  <GridItem colSpan={4} bg="var(--ui-link-secondary)" />
+  <GridItem rowSpan={2} colSpan={1} bg="var(--nypl-colors-ui-link-primary)" />
+  <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-primary)" />
+  <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-secondary)" />
+  <GridItem colSpan={4} bg="var(--nypl-colors-ui-link-secondary)" />
 </Grid>
 ```
