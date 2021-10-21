@@ -4,6 +4,7 @@ const List = {
     margin: noStyling ? "0" : "unset",
     listStyle: noStyling ? "none" : null,
     marginInlineStart: "unset",
+    paddingLeft: noStyling ? "0" : "l",
     padding: noStyling ? "0" : null,
     li: {
       _notFirst: {
@@ -13,7 +14,6 @@ const List = {
   }),
   variants: {
     ul: ({ noStyling }) => ({
-      margin: "unset",
       listStyle: "none",
       li: {
         _before: {
@@ -33,6 +33,7 @@ const List = {
     dl: {
       borderBottom: "1px solid",
       borderColor: "ui.gray.light-cool",
+      paddingLeft: "0",
       h2: {
         borderTop: "3px solid",
         borderColor: "section.research.primary",
