@@ -5,8 +5,8 @@ const HorizontalRule = {
     height: "2px",
     marginBottom: "s",
     marginTop: "s",
-    marginLeft: align === "left" ? 0 : null,
-    marginRight: align === "right" ? 0 : null,
+    marginLeft: align === "left" ? 0 : "auto",
+    marginRight: align === "right" ? 0 : "auto",
   }),
 };
 
