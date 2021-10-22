@@ -22,6 +22,7 @@ import HorizontalRule from "./components/horizontalRule";
 import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
+import List from "./components/list";
 import NotificationStyles from "./components/notification";
 import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
@@ -76,6 +77,7 @@ const theme = extendTheme({
     Icon,
     Label,
     Link,
+    List,
     ...NotificationStyles,
     Radio,
     SearchBar,

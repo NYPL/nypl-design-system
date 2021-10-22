@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Renders the UI snapshot correctly 1`] = `
+<ul
+  className="css-0"
+  id="unordered"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`List Renders the UI snapshot correctly 2`] = `
+<ul
+  className="css-0"
+  id="ordered"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`List Renders the UI snapshot correctly 3`] = `
+<ol
+  className="css-0"
+  id="unordered-no-styling"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ol>
+`;
+
+exports[`List Renders the UI snapshot correctly 4`] = `
+<ol
+  className="css-0"
+  id="ordered-no-styling"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ol>
+`;
+
+exports[`List Renders the UI snapshot correctly 5`] = `
+<section
+  className="css-0"
+  id="definition"
+>
+  <h2
+    className="chakra-heading css-0"
+    id="definition-heading"
+  >
+    Animal Crossing Fish
+  </h2>
+  <dl>
+    <dt>
+      Mahi-mahi
+    </dt>
+    <dd>
+      The mahi-mahi is an ocean fish known...
+    </dd>
+    <dt>
+      Golden trout
+    </dt>
+    <dd>
+      The golden trout is a beautifully colored fish...
+    </dd>
+  </dl>
+</section>
+`;
