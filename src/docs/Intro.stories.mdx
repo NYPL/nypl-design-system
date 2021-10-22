@@ -10,6 +10,9 @@ import DSProvider from "../theme/provider";
 
 # NYPL Design System
 
+export const heroBackgroundColor = `var(--nypl-colors-section-books-and-more-primary)`;
+export const heroForegroundColor = `var(--nypl-colors-ui-white)`;
+
 <DSProvider>
   <Hero
     heroType={HeroTypes.FiftyFifty}
@@ -20,8 +23,8 @@ import DSProvider from "../theme/provider";
         alt=""
       />
     }
-    backgroundColor={getCSSVariable("--section-books-and-more-primary")}
-    foregroundColor={getCSSVariable("--ui-white")}
+    backgroundColor={heroBackgroundColor}
+    foregroundColor={heroForegroundColor}
   />
 </DSProvider>
 
