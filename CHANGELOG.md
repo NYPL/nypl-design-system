@@ -16,8 +16,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Notification` component with Chakra components.
 - Composes the DS `HelperErrorText` component with Chakra.
 - Adds `useNYPLTheme` hook for consuming applications to use NYPL DS values.
+- Composes the DS `HorizontalRule` component with Chakra.
+- Composes the DS `List` component with Chakra.
 - Composes the DS `Image` component with Chakra styling and all `Image` references in other DS components.
 - Composes the DS `Card` component with Chakra.
+
+### Changes
+
+- Updates the CSS vars name prefix to use `nypl`.
 
 ## 0.25.1 (October 14, 2021)
 
