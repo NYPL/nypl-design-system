@@ -1,5 +1,6 @@
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
+import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import { FormRow, FormField } from "../Form/Form";
 import { DatePickerTypes } from "./DatePickerTypes";
@@ -9,61 +10,62 @@ import TextInput, {
 } from "../TextInput/TextInput";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
-import bem from "../../utils/bem";
 
 // The object shape for the DatePicker's start and end date state values.
 // Internal use only.
 interface FullDateType {
-  startDate: Date;
+  /** Date object that gets returned for the onChange
+   * function only for date ranges. */
   endDate?: Date;
+  /** Date object that gets returned for the onChange function. */
+  startDate: Date;
 }
 
 // Used for the input fields' parent wrapper. Internal use only.
 interface DateRangeRowProps {
   /** Whether to render a single date input or two for a range of two dates. */
-  dateRange?: boolean;
+  isDateRange?: boolean;
 }
 
 // Interface used by the `div` or `fieldset` parent wrapper element.
 // Internal use only.
 interface DatePickerWrapperProps extends DateRangeRowProps {
+  /** Additional className. */
+  className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Passed to the `TextInput` component to render a label associated with an input field. */
   labelText: string;
   /** Offers the ability to show the label onscreen or hide it. */
   showLabel?: boolean;
-  /** Additional className for use with BEM. See how to work with blockNames and
-   * BEM here: http://getbem.com/introduction/ */
-  className?: string;
 }
 
 // Interface used by the internal DS `TextInput` component as a custom
 // component for the ReactDatePicker plugin component. Internal use only.
 interface CustomTextInputProps extends InputProps {
-  /** Data value used by the ReactDatePicker plugin and the custom TextInput component. */
-  value?: string;
-  /** Event handler used by the ReactDatePicker plugin to open the popup calendar. */
-  onClick?: (data: any) => any;
-  /** The ReactDatePicker plugin has its own `required` prop so we use this to
-   * pass the value from the parent `DatePicker` component. */
-  dsRequired?: boolean;
   /** The ReactDatePicker plugin has its own `id` prop so we use this to pass the
    * value from the parent `DatePicker` component. */
   dsId?: string;
   /** The ReactDatePicker plugin manipulates the ref value so we declare our
    * own for some cases. */
   dsRef?: React.Ref<TextInputRefType>;
+  /** The ReactDatePicker plugin has its own `required` prop so we use this to
+   * pass the value from the parent `DatePicker` component. */
+  isRequired?: boolean;
+  /** Event handler used by the ReactDatePicker plugin to open the popup calendar. */
+  onClick?: (data: any) => any;
   /** Whether or not to display the "Required"/"Optional" text in the label text. */
   showOptReqLabel?: boolean;
+  /** Data value used by the ReactDatePicker plugin and the custom TextInput component. */
+  value?: string;
 }
 
 // Main interface for the exported DS DatePicker component.
 export interface DatePickerProps extends DatePickerWrapperProps {
-  /** DatePicker date types that can be rendered. */
-  dateType?: DatePickerTypes;
   /** The date format to display. Defaults to "yyyy-MM-dd". */
   dateFormat?: string;
+  /** DatePicker date types that can be rendered. */
+  dateType?: DatePickerTypes;
   /** Populates the `HelperErrorText` component in this component. */
   helperText?: string;
   /** Populates the `HelperErrorText` component in the "From" `TextInput` component. */
@@ -73,75 +75,65 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   /** The initial date value. This must be in the mm/dd/yyyy format. */
   initialDate?: string;
   /** The initialTo date value used for date ranges.
-   * This must be in the mm/dd/yyyy format.
-   */
+   * This must be in the mm/dd/yyyy format. */
   initialDateTo?: string;
-  /** The minimum date value that applies to both input fields.
-   * This must be in the mm/dd/yyyy format.
-   */
-  minDate?: string;
-  /** The maximum date value that applies to both input fields.
-   * This must be in the mm/dd/yyyy format.
-   */
-  maxDate?: string;
-  /** Populates the `HelperErrorText` error state for both "From" and "To" input components. */
+  /** Populates the `HelperErrorText` error state for both "From"
+   * and "To" input components. */
   invalidText?: string;
-  /** Helper for modifiers array; adds 'isInvalid' styling. */
-  isInvalid?: boolean;
-  /** Adds the 'required' property to the input element(s). */
-  required?: boolean;
-  /** Offers the ability to hide the helper/invalid text. */
-  showHelperInvalidText?: boolean;
-  /** Whether or not to display the "Required"/"Optional" text in the label text. */
-  showOptReqLabel?: boolean;
   /** Adds the 'disabled' property to the input element(s). */
   isDisabled?: boolean;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM
-   * here: http://getbem.com/introduction/ */
-  modifiers?: string[];
-  /** BlockName for use with BEM. See how to work with blockNames and BEM
-   * here: http://getbem.com/introduction/ */
-  blockName?: string;
+  /** Adds 'isInvalid' styling. */
+  isInvalid?: boolean;
+  /** Adds the 'required' property to the input element(s). */
+  isRequired?: boolean;
+  /** The maximum date value that applies to both input fields.
+   * This must be in the mm/dd/yyyy format. */
+  maxDate?: string;
+  /** The minimum date value that applies to both input fields.
+   * This must be in the mm/dd/yyyy format. */
+  minDate?: string;
   /** Value name for the single input field or the "From" input field in a date range. */
   nameFrom?: string;
   /** Value name for the "To" input field */
   nameTo?: string;
-  /** An additional explicit React ref passed for a date range's "From" input field. */
-  refTo?: React.Ref<TextInputRefType>;
   /** The action to perform on the `input`'s onChange function for both fields.
    * This will return the data in an object with `startDate` and `endDate` keys.
    */
   onChange?: (data: FullDateType) => void;
+  /** An additional explicit React ref passed for a date range's "To"
+   * input field. Note that the "From" input takes the initial "ref" value. */
+  refTo?: React.Ref<TextInputRefType>;
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
+  /** Whether or not to display the "Required"/"Optional" text in the label text. */
+  showOptReqLabel?: boolean;
 }
 
 /**
  * A Design System `TextInput` component that is used as the custom input
- * element for the `DatePicker` plugin. This uses `forwardRef` because,
- * internally, the `DatePicker` plugin needs to keep track of the input data.
+ * element for the `react-datepicker` plugin. This uses `forwardRef` because,
+ * internally, the `react-datepicker` plugin needs to keep track of the input data.
  * @note This is only used internally for this file.
- * @note we don't declare an `onClick` prop but the `DatePicker` plugin takes
- * care of that. That is used and needed to open/close the popup calendar.
- * @note we can't use the prop name "required" for the `required` prop we need.
- * Instead, we are calling it `dsRequired`. This is because the `DatePicker`
- * plugin internally makes use of the "required" name so we need a new name.
+ * @note we don't declare an `onClick` prop but the `react-datepicker` plugin
+ * takes care of that. That is used and needed to open/close the popup calendar.
  */
 const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
   (
     {
-      showLabel,
-      onChange,
-      value,
-      labelText,
-      isDisabled,
-      dsRequired,
-      showOptReqLabel,
-      isInvalid,
-      helperText,
-      invalidText,
-      onClick,
+      attributes,
       dsId,
       dsRef,
-      attributes,
+      helperText,
+      invalidText,
+      isDisabled,
+      isInvalid,
+      isRequired,
+      labelText,
+      onChange,
+      onClick,
+      showLabel,
+      showOptReqLabel,
+      value,
     },
     ref: React.Ref<TextInputRefType>
   ) => (
@@ -152,19 +144,29 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       value={value}
       labelText={labelText}
       isDisabled={isDisabled}
-      isRequired={dsRequired}
+      isRequired={isRequired}
       showOptReqLabel={showOptReqLabel}
       isInvalid={isInvalid}
       helperText={helperText}
       invalidText={invalidText}
-      // Use either the specific prop-based or the forwardRef value.
-      // react-datepicker manipulates the `ref` value so sometimes we want a
-      // specific ref through the `dsRef` prop.
+      // Use either the specific prop-based or the `forwardRef` value.
+      // `react-datepicker` manipulates the `ref` value so when we
+      // want a specific ref, use the `dsRef` prop.
       ref={dsRef || ref}
       attributes={{ ...attributes, onClick }}
     />
   )
 );
+
+const Fieldset: React.FC<any> = ({ hideLegend, labelText, children }) => {
+  const styles = useStyleConfig("Fieldset", { hideLegend });
+  return (
+    <Box as="fieldset" __css={styles}>
+      <legend>{labelText}</legend>
+      {children}
+    </Box>
+  );
+};
 
 /**
  * This is the wrapper component that is rendered as the parent for the input
@@ -173,23 +175,21 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
  * @note This is only used internally for this file.
  */
 const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
-  id,
-  dateRange,
-  showLabel,
-  labelText,
-  className = "",
   children,
-}) =>
-  dateRange ? (
-    <fieldset id={`date-range-${id}`} className={className}>
-      <legend className={showLabel ? "" : "sr-only"}>{labelText}</legend>
-      {children}
-    </fieldset>
-  ) : (
-    <div id={`date-range-${id}`} className={className}>
-      {children}
-    </div>
-  );
+  isDateRange,
+  labelText,
+  showLabel,
+}) => (
+  <FormField>
+    {isDateRange ? (
+      <Fieldset hideLegend={!showLabel} labelText={labelText}>
+        {children}
+      </Fieldset>
+    ) : (
+      children
+    )}
+  </FormField>
+);
 
 /**
  * This is the wrapper component that conditionally renders the input fields
@@ -197,14 +197,8 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
  * layout for the two side-by-side date input fields.
  * @note This is only used internally for this file.
  */
-const DateRangeRow: React.FC<DateRangeRowProps> = ({ dateRange, children }) =>
-  dateRange ? (
-    <div className="form form--spacing-extra-small">
-      <FormRow>{children}</FormRow>
-    </div>
-  ) : (
-    <>{children}</>
-  );
+const DateRangeRow: React.FC<DateRangeRowProps> = ({ isDateRange, children }) =>
+  isDateRange ? <FormRow>{children}</FormRow> : <>{children}</>;
 
 /**
  * Returns a single date input field or two date input fields for a date range.
@@ -212,38 +206,36 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({ dateRange, children }) =>
 const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
   (props, ref?) => {
     const {
-      id = generateUUID(),
-      dateType = DatePickerTypes.Full,
+      className,
       dateFormat = "yyyy-MM-dd",
-      dateRange = false,
-      labelText = "From",
-      showLabel = true,
+      dateType = DatePickerTypes.Full,
       helperText,
       helperTextFrom,
       helperTextTo,
-      invalidText,
-      isInvalid,
-      required,
-      showOptReqLabel = true,
-      isDisabled,
-      nameFrom,
-      nameTo,
-      blockName,
-      modifiers = [],
-      className,
-      refTo,
-      onChange,
+      id = generateUUID(),
       initialDate,
       initialDateTo,
-      minDate,
+      invalidText,
+      isDateRange = false,
+      isDisabled,
+      isInvalid,
+      isRequired,
+      labelText = "From",
       maxDate,
+      minDate,
+      nameFrom,
+      nameTo,
+      onChange,
+      refTo,
       showHelperInvalidText = true,
+      showLabel = true,
+      showOptReqLabel = true,
     } = props;
     const initStartDate = initialDate ? new Date(initialDate) : new Date();
     const initEndDate = initialDateTo ? new Date(initialDateTo) : new Date();
     let initFullDate: FullDateType = { startDate: initStartDate };
     // Only include the `endDate` key for date ranges.
-    if (dateRange) {
+    if (isDateRange) {
       initFullDate = { ...initFullDate, endDate: initEndDate };
     }
     const [fullDate, setFullDate] = useState<FullDateType>(initFullDate);
@@ -275,20 +267,20 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     };
     // Both TextInput components share some props.
     let baseCustomTextInputAttrs = {
-      dsRequired: required,
+      isRequired,
       showOptReqLabel,
       // Always display the labels or the input fields when
       // the DatePicker component is a `dateRange` type.
-      showLabel: dateRange ? true : showLabel,
+      showLabel: isDateRange ? true : showLabel,
       isDisabled,
       isInvalid,
-      helperText: dateRange ? helperTextFrom : helperText,
+      helperText: isDateRange ? helperTextFrom : helperText,
       invalidText,
     };
     let startDatePickerAttrs = {};
     let endDatePickerAttrs = {};
     let endDatePickerElement = null;
-    // This changes to "From" when `dateRange` is true.
+    // This changes to "From" when `isDateRange` is true.
     let startLabelText = labelText;
 
     // Update the appropriate props for the selected date type to render.
@@ -316,10 +308,9 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     // range is selected additional props get added automatically.
     startDatePickerAttrs = { ...baseDatePickerAttrs };
 
-    // A date range is selected. We must now update the props for the start/"from"
-    // input component and render an end/"To" input component.
-    if (dateRange) {
-      modifiers.push("date-range");
+    // A date range is selected. We must now update the props for the
+    // start/"from" input component and render an end/"To" input component.
+    if (isDateRange) {
       const endCustomTextInputAttrs = {
         ...baseCustomTextInputAttrs,
         helperText: helperTextTo,
@@ -376,19 +367,19 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     return (
       <DatePickerWrapper
         id={id}
-        dateRange={dateRange}
+        isDateRange={isDateRange}
         showLabel={showLabel}
         labelText={labelText}
-        className={bem("date-picker", modifiers, blockName, [className])}
+        className={className}
       >
-        <DateRangeRow dateRange={dateRange}>
+        <DateRangeRow isDateRange={isDateRange}>
           <FormField>{startDatePickerElement}</FormField>
 
           {endDatePickerElement && (
             <FormField>{endDatePickerElement}</FormField>
           )}
         </DateRangeRow>
-        {helperText && dateRange && showHelperInvalidText && (
+        {helperText && isDateRange && showHelperInvalidText && (
           <HelperErrorText isInvalid={false}>{helperText}</HelperErrorText>
         )}
       </DatePickerWrapper>

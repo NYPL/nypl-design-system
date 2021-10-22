@@ -25,14 +25,14 @@ import { DatePickerTypes } from "./DatePickerTypes";
     jest: ["DatePicker.test.tsx"],
   }}
   argTypes={{
-    blockName: { table: { disable: true } },
     className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
     id: { table: { disable: true } },
     nameTo: { table: { disable: true } },
     nameFrom: { table: { disable: true } },
     value: { table: { disable: true } },
     refTo: { table: { disable: true } },
+    refFrom: { table: { disable: true } },
+    onChange: { table: { disable: true } },
   }}
 />
 
@@ -41,7 +41,7 @@ import { DatePickerTypes } from "./DatePickerTypes";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.24.0`   |
+| Latest            | `0.25.2`   |
 
 <Description of={DatePicker} />
 
@@ -51,7 +51,7 @@ import { DatePickerTypes } from "./DatePickerTypes";
     args={{
       dateType: DatePickerTypes.Full,
       dateFormat: "yyyy-MM-dd",
-      dateRange: false,
+      isDateRange: false,
       initialDate: "1/1/2021",
       minDate: "1/1/2021",
       maxDate: "1/1/2022",
@@ -62,10 +62,11 @@ import { DatePickerTypes } from "./DatePickerTypes";
       helperTextTo: "Select end date.",
       invalidText: "Please select a valid date.",
       showLabel: true,
-      errored: false,
-      disabled: false,
-      required: false,
+      isInvalid: false,
+      isDisabled: false,
+      isRequired: false,
       showOptReqLabel: true,
+      showHelperInvalidText: true,
     }}
   >
     {(args) => <DatePicker id="visit-dates" {...args} />}
@@ -156,7 +157,7 @@ calendar; the four previous years, the current year, and the next seven years.
   labelText="Select the year you want to visit NYPL"
   helperText="Note that the Library may be closed on Sundays."
   invalidText="Please select a valid year."
-  errored={true}
+  isInvalid={true}
   showOptReqLabel={false}
 />
 <br />
@@ -168,7 +169,7 @@ calendar; the four previous years, the current year, and the next seven years.
   dateType={DatePickerTypes.Full}
   dateRange={true}
   labelText="Select the year you want to visit NYPL"
-  disabled={true}
+  isDisabled={true}
   showOptReqLabel={false}
 />
 

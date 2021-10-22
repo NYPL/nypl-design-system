@@ -15,6 +15,7 @@ import Checkbox from "./components/checkbox";
 import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
+import Fieldset from "./components/fieldset";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
@@ -68,6 +69,7 @@ const theme = extendTheme({
     CustomCheckboxGroup,
     CustomRadioGroup,
     CustomSelect,
+    Fieldset,
     Heading,
     HelperErrorText,
     Hero,
