@@ -4,16 +4,19 @@ const List = {
     margin: noStyling ? "0" : "unset",
     listStyle: noStyling ? "none" : null,
     marginInlineStart: "unset",
+    paddingLeft: noStyling ? "0" : "l",
     padding: noStyling ? "0" : null,
     display: inline ? "flex" : null,
     li: {
       marginRight: inline ? "xs" : null,
       listStyleType: inline ? "none" : null,
+      _notFirst: {
+        marginTop: "xxs",
+      },
     },
   }),
   variants: {
     ul: ({ noStyling }) => ({
-      margin: "unset",
       listStyle: "none",
       li: {
         _before: {
@@ -23,14 +26,17 @@ const List = {
           // Needed to add space between the bullet and the text.
           display: "inline-block",
           fontWeight: "bold",
-          marginLeft: "-1em",
-          width: "1em",
+          fontSize: "2",
+          lineHeight: "0.9",
+          marginLeft: "-1rem",
+          width: "1rem",
         },
       },
     }),
     dl: {
       borderBottom: "1px solid",
       borderColor: "ui.gray.light-cool",
+      paddingLeft: "0",
       h2: {
         borderTop: "3px solid",
         borderColor: "section.research.primary",
@@ -39,7 +45,7 @@ const List = {
       },
       dl: {
         display: "grid",
-        gridTemplateColumns: { base: "100%", md: "max(225px) 1fr" },
+        gridTemplateColumns: { base: "100%", md: "max(250px) 1fr" },
         gridTemplateRows: "1fr",
         margin: "var(--space-xs) 0 0",
       },
