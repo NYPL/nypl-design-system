@@ -1,13 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HorizontalRule Renders the UI snapshot correctly 1`] = `
+exports[`HorizontalRule renders the UI snapshot correctly 1`] = `
 <hr
-  className="horizontal-rule "
-  style={
-    Object {
-      "height": "2px",
-      "width": "auto",
-    }
-  }
+  className="css-14epzr5"
+/>
+`;
+
+exports[`HorizontalRule renders the UI snapshot correctly 2`] = `
+<hr
+  className="css-21umwa"
+/>
+`;
+
+exports[`HorizontalRule renders the UI snapshot correctly 3`] = `
+<hr
+  className="css-bbdxhg"
+/>
+`;
+
+exports[`HorizontalRule renders the UI snapshot correctly 4`] = `
+<hr
+  className="css-14epzr5"
+/>
+`;
+
+exports[`HorizontalRule renders the UI snapshot correctly 5`] = `
+<hr
+  className="css-14epzr5"
 />
 `;

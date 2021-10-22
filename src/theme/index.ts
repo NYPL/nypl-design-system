@@ -18,6 +18,7 @@ import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
+import HorizontalRule from "./components/horizontalRule";
 import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
@@ -72,6 +73,7 @@ const theme = extendTheme({
     Heading,
     HelperErrorText,
     Hero,
+    HorizontalRule,
     Icon,
     Label,
     Link,
