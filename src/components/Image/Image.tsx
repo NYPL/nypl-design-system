@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, useMultiStyleConfig, useStyleConfig } from "@chakra-ui/react";
 
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
@@ -10,8 +10,6 @@ interface ImageWrapperProps {
   className?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
   imageAspectRatio?: ImageRatios;
-  /** Optional value to control the size of the image */
-  imageSize?: ImageSizes;
 }
 
 export interface ImageProps extends ImageWrapperProps {
@@ -23,6 +21,8 @@ export interface ImageProps extends ImageWrapperProps {
   imageCaption?: string;
   /** Adding will wrap the image in a <figure> */
   imageCredit?: string;
+  /** Optional value to control the size of the image */
+  imageSize?: ImageSizes;
   /** Optional value for the image type */
   imageType?: ImageTypes;
   /** The src attribute is required, and contains the path to the image you want to embed. */
@@ -35,15 +35,13 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
     className = "",
     children,
     imageAspectRatio = ImageRatios.Original,
-    imageSize = ImageSizes.Default,
   } = props;
-  const styles = useMultiStyleConfig("CustomImageWrapper", {
-    size: imageSize,
+  const styles = useStyleConfig("CustomImageWrapper", {
     ratio: imageAspectRatio,
   });
   return (
-    <Box __css={{ ...styles.size, ...additionalStyles }} className={className}>
-      <Box __css={styles.ratio}>{children}</Box>
+    <Box __css={{ ...styles, ...additionalStyles }} className={className}>
+      {children}
     </Box>
   );
 }
@@ -61,10 +59,11 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
     imageType = ImageTypes.Default,
     src,
   } = props;
-  const styles = useMultiStyleConfig("CustomImage", { variant: imageType });
-  const useImageWrapper =
-    imageAspectRatio !== ImageRatios.Original ||
-    imageSize !== ImageSizes.Default;
+  const useImageWrapper = imageAspectRatio !== ImageRatios.Original;
+  const styles = useMultiStyleConfig("CustomImage", {
+    variant: imageType,
+    size: imageSize,
+  });
 
   if (alt && alt.length > 300) {
     throw new Error("Alt Text must be less than 300 characters");
@@ -78,11 +77,10 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
   const finalImage = useImageWrapper ? (
     <ImageWrapper
       className={className}
-      imageSize={imageSize}
       imageAspectRatio={imageAspectRatio}
       additionalStyles={additionalStyles}
     >
-      <Box __css={styles.imgCrop}>{imageComponent}</Box>
+      {imageComponent}
     </ImageWrapper>
   ) : (
     imageComponent

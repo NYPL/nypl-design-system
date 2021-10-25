@@ -1,16 +1,17 @@
 const imageWrap = {
-  boxSizing: "border-box",
-  overflow: "hidden",
-  paddingBottom: "100%",
   position: "relative",
   width: "100%",
+  height: "auto",
+  overflow: "hidden",
 };
 const sideMarginsAuto = {
   marginLeft: "auto",
   marginRight: "auto",
 };
 const imageSizes = {
-  default: {},
+  default: {
+    maxWidth: "100%",
+  },
   small: {
     ...sideMarginsAuto,
     maxWidth: "165px",
@@ -66,7 +67,7 @@ const CustomImage = {
       },
     },
   },
-  baseStyle: {
+  baseStyle: ({ size = "default" }) => ({
     figure: {
       margin: "unset",
       img: {
@@ -81,46 +82,29 @@ const CustomImage = {
     },
     img: {
       display: "block",
-      maxWidth: "100%",
       boxSizing: "border-box",
       objectFit: "cover",
       position: "relative",
       width: "100%",
-    },
-    imgCrop: {
-      boxSizing: "border-box",
-      height: "100%",
-      left: "0",
-      position: "absolute",
-      top: "0",
-      width: "100%",
+      ...imageSizes[size],
     },
     captionWrappers: {
       marginBottom: "xxs",
       fontSize: "-1",
     },
-  },
+  }),
 };
 const CustomImageWrapper = {
-  parts: ["size", "ratio"],
-  baseStyle: ({ size = "default", ratio = "original" }) => {
-    const updatedSize = imageSizes[size];
-    const updatedRatio = imageRatios[ratio];
-
-    return {
-      size: {
-        marginBottom: "s",
-        width: "100%",
-        ...updatedSize,
-      },
-      ratio: {
-        // Only update the height of the image element
-        // when the aspect ratio is modified.
-        img: ratio !== "original" ? { height: "100%" } : null,
-        ...updatedRatio,
-      },
-    };
-  },
+  baseStyle: ({ ratio = "original" }) => ({
+    ...imageRatios[ratio],
+    img: {
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      top: "0",
+      left: "0",
+    },
+  }),
 };
 
 export { CustomImage, CustomImageWrapper };
