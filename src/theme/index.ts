@@ -15,6 +15,7 @@ import Checkbox from "./components/checkbox";
 import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
+import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
@@ -69,6 +70,7 @@ const theme = extendTheme({
     CustomCheckboxGroup,
     CustomRadioGroup,
     CustomSelect,
+    DatePicker,
     Fieldset,
     Heading,
     HelperErrorText,

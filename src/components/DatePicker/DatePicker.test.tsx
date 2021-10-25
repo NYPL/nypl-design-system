@@ -36,7 +36,7 @@ describe("DatePicker Accessibility", () => {
     const { container } = render(
       <DatePicker
         labelText="Select the date range you want to visit NYPL"
-        dateRange={true}
+        isDateRange
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -229,7 +229,7 @@ describe("DatePicker", () => {
         <DatePicker
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
-          isDisabled={true}
+          isDisabled
         />
       );
 
@@ -243,7 +243,7 @@ describe("DatePicker", () => {
         <DatePicker
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
-          required={true}
+          isRequired
         />
       );
 
@@ -259,8 +259,8 @@ describe("DatePicker", () => {
         <DatePicker
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
-          required={true}
           onChange={onChange}
+          isRequired
         />
       );
 
@@ -321,8 +321,8 @@ describe("DatePicker", () => {
         <DatePicker
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
-          required={true}
           showOptReqLabel={false}
+          isRequired
         />
       );
 
@@ -334,8 +334,8 @@ describe("DatePicker", () => {
     it("should render the date range with two input fields", () => {
       render(
         <DatePicker
-          dateRange={true}
           labelText="Select the date range you want to visit NYPL"
+          isDateRange
         />
       );
       const [year, month, day] = getTodaysValues();
@@ -354,7 +354,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           labelText="Select the full date you want to visit NYPL"
-          dateRange={true}
+          isDateRange
           initialDate="1/2/1988"
           initialDateTo="3/4/1990"
         />
@@ -369,12 +369,12 @@ describe("DatePicker", () => {
     it("should render two input labels and three separate helper text", () => {
       render(
         <DatePicker
-          dateRange={true}
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextFrom="Note for the 'from' field."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
+          isDateRange
         />
       );
       // There are two labels for each input.
@@ -392,14 +392,14 @@ describe("DatePicker", () => {
       expect(screen.getByText(/Note for the 'to' field./i)).toBeInTheDocument();
     });
 
-    it("should render based on other props", () => {
+    it("should render different states based on respective props", () => {
       const { rerender } = render(
         <DatePicker
-          dateRange
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
+          isDateRange
           isInvalid
         />
       );
@@ -410,12 +410,12 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
-          dateRange
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
           isDisabled
+          isDateRange
         />
       );
 
@@ -424,16 +424,18 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
-          dateRange
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
           invalidText="Please select a valid date range."
-          required
+          isRequired
+          isDateRange
         />
       );
 
-      expect(screen.getAllByText(/required/i)).toHaveLength(2);
+      expect(screen.getAllByText(/required/i)).toHaveLength(1);
+      expect(screen.getByLabelText(/From/i)).toHaveAttribute("required");
+      expect(screen.getByLabelText(/To/i)).toHaveAttribute("required");
     });
 
     /* // REVISIT THIS TEST

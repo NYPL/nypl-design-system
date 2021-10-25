@@ -11,6 +11,7 @@ import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
 import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
 import Checkbox from "../Checkbox/Checkbox";
+import Fieldset from "../Fieldset/Fieldset";
 
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
@@ -117,15 +118,12 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     const styles = useMultiStyleConfig("CustomCheckboxGroup", {});
 
     return (
-      <Box as="fieldset" id={`checkbox-group-${id}`} __css={styles}>
-        <legend className={showLabel ? "" : "sr-only"}>
-          <span>{labelText}</span>
-          {optReqFlag && (
-            <Box as="span" __css={styles.required}>
-              {isRequired ? "Required" : "Optional"}
-            </Box>
-          )}
-        </legend>
+      <Fieldset
+        id={`checkbox-group-${id}`}
+        isLegendHidden={showLabel}
+        legendText={labelText}
+        optReqFlag={optReqFlag}
+      >
         <ChakraCheckboxGroup {...checkboxProps}>
           <Stack
             id={id}
@@ -145,7 +143,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
             </HelperErrorText>
           </Box>
         )}
-      </Box>
+      </Fieldset>
     );
   }
 );

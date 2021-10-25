@@ -1,15 +1,16 @@
+import { labelLegendText } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
 const Fieldset = {
-  baseStyle: ({ hideLegend }) => {
-    const screenreaderStyles = hideLegend ? screenreaderOnly : {};
+  parts: ["helper"],
+  baseStyle: ({ isLegendHidden }) => {
+    const screenreaderStyles = isLegendHidden ? screenreaderOnly : {};
     return {
       legend: {
-        marginBottom: "xs",
-        fontSize: "14px",
-        fontWeight: "medium",
+        ...labelLegendText,
         ...screenreaderStyles,
       },
+      helper: { ...labelLegendText.helper },
     };
   },
 };

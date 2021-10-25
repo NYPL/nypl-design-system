@@ -39,19 +39,6 @@ const checkboxRadioControlSize = {
   h: "1.375rem",
   w: "1.375rem",
 };
-// Used in `CheckboxGroup` and `RadioGroup`.
-const checkboxRadioGroupLayout = {
-  legend: {
-    fontSize: "14px",
-    marginBottom: "s",
-  },
-  required: {
-    marginLeft: "m",
-  },
-  helper: {
-    marginTop: "s",
-  },
-};
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioHelperStyle = {
   ...helperTextMargin,
@@ -60,12 +47,27 @@ const checkboxRadioHelperStyle = {
     fontStyle: "italic",
   },
 };
+// Used in `Label` and `Fieldset`:
+const labelLegendText = {
+  alignItems: "baseline",
+  width: "100%",
+  marginBottom: "xs",
+  fontSize: "14px",
+  fontWeight: "medium",
+  display: "flex",
+  justifyContent: "space-between",
+  helper: {
+    marginLeft: "m",
+    fontWeight: "300",
+    fontSize: "-1",
+  },
+};
 
 export {
   activeFocus,
   checkboxRadioLabelStyles,
   checkboxRadioControlSize,
-  checkboxRadioGroupLayout,
   checkboxRadioHelperStyle,
   helperTextMargin,
+  labelLegendText,
 };
