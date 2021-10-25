@@ -34,6 +34,17 @@ import DSProvider from "../../theme/provider";
 
 # Buttons
 
+| Table of Contents                              |
+| ---------------------------------------------- |
+| 1. [General Information](#general-information) |
+| 2. [Guidelines](#guidelines)                   |
+| 3. [Button Groups](#button-groups)             |
+| 4. [Button Types](#button-types)               |
+| 5. [Patterns](#patterns)                       |
+| 6. [Figma Reference](#figma-reference)         |
+
+## General Information
+
 Use the NYPL Design System [Button](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/form-elements-button--basic) component to render form buttons.
 
 ```jsx
@@ -42,17 +53,7 @@ import { Button, ButtonTypes } from "@nypl/design-system-react-components";
 <Button buttonType={ButtonTypes.Primary}>Button Text</Button>;
 ```
 
-## Style Guide Topics
-
-For information about using the `Button` component, please see below.
-
-- [General Guidelines](#general-guidelines)
-- [Spacing](#spacing)
-- [Button Types](#button-types)
-- [Patterns](#patterns)
-- [Figma Reference](#figma-reference)
-
-## General Guidelines
+## Guidelines
 
 - Button text is optional.
 - Button text should be title case.
@@ -62,31 +63,17 @@ For information about using the `Button` component, please see below.
 - Buttons used for Back to Top actions have a Secondary button style with an arrow icon pointing up.
 - When buttons are used in a set (where the user can move forward or backward), the `Primary` button is on the right and the `Secondary` button on the left (i.e. cancel = secondary, submit = primary).
 
-## Spacing
+## Button Groups
 
-Buttons should use `--space-xs` (0.5rem) for spacing in situations where multiple buttons are aligned in horizontal or vertical layouts. Buttons should use `--space-l` (2rem) for all other spacing situations.
+When `Button` components are displayed in a group, use the `ButtonGroup` component to handle the spacing and layout. The `ButtonGroup` component will use `--nypl-space-xs` (0.5rem) for spacing in horizontal group layouts.
+
+Standalone `Button` components and the `ButtonGroup` component should use `--nypl-space-l` (2rem) for spacing between all other UI elements. This spacing can be achieved by using the `Form` component.
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
-        Button Text
-      </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
+      <Button buttonType={ButtonTypes.Primary}>Button Text</Button>
+      <Button buttonType={ButtonTypes.Primary}>
         <Icon
           name={IconNames.Search}
           size={IconSizes.Small}
@@ -94,27 +81,10 @@ Buttons should use `--space-xs` (0.5rem) for spacing in situations where multipl
         />
         Button Text
       </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
+      <Button buttonType={ButtonTypes.Primary}>
         <Icon name={IconNames.Close} size={IconSizes.Medium} />
       </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            backgroundColor: getCSSVariable("--section-books-and-more-primary"),
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
-        Button Text
-      </Button>
+      <Button buttonType={ButtonTypes.Callout}>Button Text</Button>
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
@@ -167,22 +137,14 @@ The `buttonType` prop should be used to render various forms of the button compo
 
 ## Patterns
 
-Buttons are blue by default but should be red when it is intended as a call out.
-The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include an up arrow icon.
+- Buttons are blue by default.
+- Buttons that are intended as a call out (i.e. Donation buttons) shoud be set as `ButtonTypes.Callout`.
+- The "Back to Top" button must be set as `ButtonTypes.Secondary` and must include an up arrow icon.
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            backgroundColor: getCSSVariable("--section-books-and-more-primary"),
-          },
-        }}
-      >
-        Donate to this library
-      </Button>
+      <Button buttonType={ButtonTypes.Callout}>Donate to this library</Button>
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
@@ -200,4 +162,4 @@ The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include a
 
 For more styling information, please refer to the Figma Main file.
 
-https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298
+- https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298

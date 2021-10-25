@@ -19,9 +19,11 @@ import CustomSelect from "./components/select";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
+import HorizontalRule from "./components/horizontalRule";
 import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
+import List from "./components/list";
 import NotificationStyles from "./components/notification";
 import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
@@ -74,9 +76,11 @@ const theme = extendTheme({
     Heading,
     HelperErrorText,
     Hero,
+    HorizontalRule,
     Icon,
     Label,
     Link,
+    List,
     ...NotificationStyles,
     Radio,
     SearchBar,
@@ -87,12 +91,11 @@ const theme = extendTheme({
     TextInput,
     VideoPlayer,
   },
-  // Chakra prefixes its own CSS variables with `--chakra` by default but this
-  // can be updated to be anything we want. This can be "nypl" to have the
-  // `--nypl` prefix or even "" to have no prefix.
-  // config: {
-  //   cssVarPrefix: "nypl",
-  // },
+  // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
+  // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
+  config: {
+    cssVarPrefix: "nypl",
+  },
 });
 
 export default theme;

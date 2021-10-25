@@ -13,6 +13,7 @@ import getCSSVariable from "../../helpers/getCSSVariable";
 import Card from "../Card/Card";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Spacing")}
@@ -28,48 +29,55 @@ import { ListTypes } from "../List/ListTypes";
 
 # Spacing
 
+| Table of Contents                                |
+| ------------------------------------------------ |
+| 1. [General Information](#general-information)   |
+| 2. [CSS Variables](#css-variables)               |
+| 3. [Section Spacing](#section-spacing)           |
+| 4. [Grid Spacing](#grid-spacing)                 |
+| 5. [Tabular Data Spacing](#tabular-data-spacing) |
+| 6. [Form Spacing](#form-spacing)                 |
+| 7. [Figma Reference](#figma-reference)           |
+
+## General Information
+
 The DS spacing values are based on a root font size of `16px` (`1rem` = `16px`).
-
-## Style Guide Topics
-
-- [CSS Variables](#css-variables)
-- [Section Spacing](#section-spacing)
-- [Grid Spacing](#grid-spacing)
-- [Tabular Data Spacing](#tabular-data-spacing)
-- [Form Spacing](#form-spacing)
-- [Figma Reference](#figma-reference)
 
 ## CSS Variables
 
+<DSProvider>
 The following CSS variables are available through the DS.
 
-| Variable Name  | Calculation                | Pixel Equivalent | Visual Reference                                                                             |
-| -------------- | -------------------------- | ---------------- | -------------------------------------------------------------------------------------------- |
-| `--space`      | n/a                        | `16px`           | <div style={{ width: "var(--space)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>      |
-| `--space-xxs`  | `calc(var(--space) / 4)`   | `4px`            | <div style={{ width: "var(--space-xxs)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>  |
-| `--space-xs`   | `calc(var(--space) / 2)`   | `8px`            | <div style={{ width: "var(--space-xs)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>   |
-| `--space-s`    | `calc(var(--space) * 1)`   | `16px`           | <div style={{ width: "var(--space-s)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>    |
-| `--space-m`    | `calc(var(--space) * 1.5)` | `24px`           | <div style={{ width: "var(--space-m)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>    |
-| `--space-l`    | `calc(var(--space) * 2)`   | `32px`           | <div style={{ width: "var(--space-l)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>    |
-| `--space-xl`   | `calc(var(--space) * 3)`   | `48px`           | <div style={{ width: "var(--space-xl)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>   |
-| `--space-xxl`  | `calc(var(--space) * 4)`   | `64px`           | <div style={{ width: "var(--space-xxl)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div>  |
-| `--space-xxxl` | `calc(var(--space) * 6)`   | `96px`           | <div style={{ width: "var(--space-xxxl)", backgroundColor: "var(--ui-focus)" }}>&nbsp;</div> |
+
+| Variable Name       | REM Equivalent | Pixel Equivalent | Visual Reference                                                                                              |
+| ------------------- | -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| `--nypl-space-xxs`  | `0.25rem`      | `4px`            | <div style={{ width: "var(--nypl-space-xxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
+| `--nypl-space-xs`   | `0.5rem`       | `8px`            | <div style={{ width: "var(--nypl-space-xs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
+| `--nypl-space-s`    | `1rem`         | `16px`           | <div style={{ width: "var(--nypl-space-s)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `--nypl-space-m`    | `1.5rem`       | `24px`           | <div style={{ width: "var(--nypl-space-m)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `--nypl-space-l`    | `2rem`         | `32px`           | <div style={{ width: "var(--nypl-space-l)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `--nypl-space-xl`   | `3rem`         | `48px`           | <div style={{ width: "var(--nypl-space-xl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
+| `--nypl-space-xxl`  | `4rem`         | `64px`           | <div style={{ width: "var(--nypl-space-xxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
+| `--nypl-space-xxxl` | `6rem`         | `96px`           | <div style={{ width: "var(--nypl-space-xxxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
+
+</DSProvider>
+
 
 ## Section Spacing
 
-In consuming apps, the major page sections should be separated vertically by `3rem` `(--space-xl`). This includes the space after the page global `header` and the space before the global `footer`.
+In consuming apps, the major page sections should be separated vertically by `3rem` `(--nypl-space-xl`). This includes the space after the page global `header` and the space before the global `footer`.
 
 ## Grid Spacing
 
-When elements are displayed in a grid (i.e. Cards, Images, etc.), the space between elements, both horizontal and vertical, should be `2rem` (`--space-l`).
+When elements are displayed in a grid (i.e. Cards, Images, etc.), the space between elements, both horizontal and vertical, should be `2rem` (`--nypl-space-l`).
 
 ## Tabular Data Spacing
 
-When data is displayed in a tabular layout (i.e. rows and columns in a table, a definition list, etc.), the space between data cells in a row should be `1.5rem` (`--space-m`) and the space between rows should be `2rem` (`--space-l`).
+When data is displayed in a tabular layout (i.e. rows and columns in a table, a definition list, etc.), the space between data cells in a row should be `1.5rem` (`--nypl-space-m`) and the space between rows should be `2rem` (`--nypl-space-l`).
 
 ## Form Spacing
 
-Form input components should have a `2rem` (`--space-l`) space between each component. This includes both vertical (column) and horizontal (row) stacking. The DS [Form](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/form-elements-form--form) component has correct spacing incorporated into its UI structure and should always be used when building forms.
+Form input components should have a `2rem` (`--nypl-space-l`) space between each component. This includes both vertical (column) and horizontal (row) stacking. The DS [Form](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/form-elements-form--form) component has correct spacing incorporated into its UI structure and should always be used when building forms.
 
 ## Figma Reference
 
