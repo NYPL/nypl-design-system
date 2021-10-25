@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+// import renderer from "react-test-renderer";
 
 import VideoPlayer from "./VideoPlayer";
 import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
@@ -21,7 +22,11 @@ describe("VideoPlayer", () => {
   describe("YouTube player", () => {
     beforeEach(() => {
       utils = render(
-        <VideoPlayer videoType={VideoPlayerTypes.YouTube} videoId={videoId} />
+        <VideoPlayer
+          videoType={VideoPlayerTypes.YouTube}
+          videoId={videoId}
+          className="video-player"
+        />
       );
     });
 
@@ -45,18 +50,11 @@ describe("VideoPlayer", () => {
 
   describe("Vimeo player", () => {
     const videoId = "474719268";
-    let utils;
 
     beforeEach(() => {
       utils = render(
         <VideoPlayer videoType={VideoPlayerTypes.Vimeo} videoId={videoId} />
       );
-    });
-
-    it("Renders VideoPlayer container", () => {
-      expect(
-        utils.container.querySelector(".video-player")
-      ).toBeInTheDocument();
     });
 
     it("Renders VideoPlayer iframe", () => {
@@ -128,64 +126,20 @@ describe("VideoPlayer", () => {
     });
   });
 
-  describe("aspect ratio", () => {
-    it("Renders with 4:3 aspect ratio", () => {
-      const utils = render(
-        <VideoPlayer
-          videoType={VideoPlayerTypes.Vimeo}
-          videoId="474719268"
-          aspectRatio={VideoPlayerAspectRatios.FourByThree}
-        />
-      );
-      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
-        "class",
-        "video-player video-player--four-by-three "
-      );
-    });
-
-    it("Renders with 16:9 aspect ratio", () => {
-      const utils = render(
-        <VideoPlayer
-          videoType={VideoPlayerTypes.Vimeo}
-          videoId="474719268"
-          aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
-        />
-      );
-      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
-        "class",
-        "video-player video-player--sixteen-by-nine "
-      );
-    });
-
-    it("Renders with 1:1 aspect ratio", () => {
-      const utils = render(
-        <VideoPlayer
-          videoType={VideoPlayerTypes.Vimeo}
-          videoId="474719268"
-          aspectRatio={VideoPlayerAspectRatios.Square}
-        />
-      );
-
-      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
-        "class",
-        "video-player video-player--square "
-      );
-    });
-  });
-
   describe("prop validation", () => {
     it("Throws error if videoId not formatted properly", () => {
-      const utils = render(
+      render(
         <VideoPlayer
           videoType={VideoPlayerTypes.Vimeo}
           videoId="http://vimeo.com/474719268"
           aspectRatio={VideoPlayerAspectRatios.FourByThree}
         />
       );
-      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
-        "class",
-        "video-player video-player--four-by-three video-player--errored "
-      );
+      expect(
+        screen.getByText(
+          "This video player has not been configured properly. Please contact the site administrator."
+        )
+      ).toBeInTheDocument();
     });
   });
 });
