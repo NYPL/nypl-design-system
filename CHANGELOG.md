@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `useNYPLTheme` hook for consuming applications to use NYPL DS values.
 - Composes the DS `HorizontalRule` component with Chakra.
 - Composes the DS `List` component with Chakra.
+- Adds `useWindowSize` hook for responsive styles and functionality.
 
 ### Changes
 
