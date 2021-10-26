@@ -145,7 +145,7 @@ Some CSS rules in the Design System, such as the universal focus styling and the
 
 4. Import the `DSProvider` component
 
-While the Chakra UI integration into the DS is a work-in-progress, there is one necessary step consuming applications need to take for component styles to properly render. In order render styles properly, consuming applications need to wrap all the DS components with a simple provider component. Fortunately, this only needs to be done once at the top level of the consuming application.
+In order to use DS components in a consuming application, there is a necessary step that must be done for component styles to properly render. Consuming applications need to wrap all the DS components with a simple provider component. Fortunately, this only needs to be done once at the top level of the consuming application.
 
 Once the following is completed, DS components that internally use Chakra UI will render styles properly.
 
@@ -185,8 +185,7 @@ Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds
 
 ## Using Chakra UI Components
 
-The Chakra UI component library is integrated into the NYPL Design System and is currently a work-in-progress. We
-are in the middle of the process of using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
+The Chakra UI component library has been integrated into the NYPL Design System. We are still progressing towards using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
 
 The list of re-exported Chakra components can be found in the main
 [index.ts](/index.ts) file.
@@ -308,7 +307,7 @@ The NYPL DS implements snapshot testing with `react-test-renderer` and `jest`. U
 
 The `react-test-renderer` package, will create a directory and a file to hold `.snap` files after a unit test is created. Using the `Notification` component as an example, this is the basic layout for a snapshot test:
 
-```jsx
+```tsx
 import renderer from "react-test-renderer";
 
 // ...
@@ -329,7 +328,7 @@ it("Renders the UI snapshot correctly", () => {
 
 If this is a new test and we run `npm test`, a [`/__snapshots__/Notification.test.tsx.snap`](/src/components/Notification/__snapshots__/Notification.test.tsx.snap) file is created. This holds the DOM structure as well as any inline CSS that was added.
 
-```jsx
+```tsx
 exports[`Notification Snapshot Renders the UI snapshot correctly 1`] = `
 <aside
   className="notification notification--standard "
