@@ -8,6 +8,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
+import DSProvider from "../../theme/provider";
 import VideoPlayer from "./VideoPlayer";
 import { VideoPlayerTypes } from "./VideoPlayerTypes";
 import { action } from "@storybook/addon-actions";
@@ -37,7 +38,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.23.4`   |
+| Latest            | `0.25.2`   |
 
 <Description of={VideoPlayer} />
 
@@ -93,3 +94,16 @@ https://vimeo.com/474719268
 https://www.youtube.com/watch?v=[VIDEO_ID]
 https://www.youtube.com/watch?v=nm-dD2tx6bk
 ```
+
+## Errored
+
+If the necessary props are not passed to the `VideoPlayer` component, the component UI will display an error message.
+
+<Canvas>
+  <DSProvider>
+    <VideoPlayer
+      type={VideoPlayerTypes.Vimeo}
+      videoId="https://vimeo.com/474719268"
+    />
+  </DSProvider>
+</Canvas>

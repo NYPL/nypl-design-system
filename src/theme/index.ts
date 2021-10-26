@@ -12,6 +12,7 @@ import Accordion from "./components/accordion";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
 import Checkbox from "./components/checkbox";
+import ComponentWrapper from "./components/componentWrapper";
 import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
@@ -32,6 +33,7 @@ import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
+import VideoPlayer from "./components/videoPlayer";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -68,6 +70,7 @@ const theme = extendTheme({
     Breadcrumb,
     Button,
     Checkbox,
+    ComponentWrapper,
     CustomCheckboxGroup,
     CustomRadioGroup,
     CustomSelect,
@@ -88,6 +91,7 @@ const theme = extendTheme({
     ...TemplateStyles,
     Text,
     TextInput,
+    VideoPlayer,
   },
   // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
   // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
