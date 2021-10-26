@@ -125,7 +125,7 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       <Fieldset
         id={`radio-group-${id}`}
         className={className}
-        isLegendHidden={showLabel}
+        isLegendHidden={!showLabel}
         legendText={labelText}
         optReqFlag={optReqFlag}
       >

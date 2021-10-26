@@ -120,7 +120,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     return (
       <Fieldset
         id={`${id}-checkbox-group`}
-        isLegendHidden={showLabel}
+        isLegendHidden={!showLabel}
         legendText={labelText}
         optReqFlag={optReqFlag}
       >
