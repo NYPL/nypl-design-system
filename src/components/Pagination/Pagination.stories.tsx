@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Story } from "@storybook/react/types-6-0";
 
 import Pagination, { PaginationProps } from "./Pagination";
 
 /**
  * PaginationGetPageHref will refresh the browser as a new page is selected.
+ * In this example, `getPageHref` creates the `href` attribute for each
+ * page URL.
  */
 export const PaginationGetPageHref: Story<PaginationProps> = (args) => {
   // This uses the `addon-queryparams` Storybook addon.
@@ -20,15 +22,15 @@ export const PaginationGetPageHref: Story<PaginationProps> = (args) => {
   const location = window.location;
   // Passing this function into `Pagination` makes the URL to change
   // and refreshes the page.
-  const getPageHref = (page) => {
+  const getPageHref = (selectedPage) => {
     const currentStoryId = urlParams.get("id");
-    return `${location.origin}?path=/story/${currentStoryId}&page=${page}`;
+    return `${location.origin}?path=/story/${currentStoryId}&page=${selectedPage}`;
   };
 
   return (
     <Pagination
       pageCount={args.pageCount}
-      currentPage={computedCurrentPage || args.currentPage}
+      initialPage={computedCurrentPage || args.initialPage}
       getPageHref={getPageHref}
     />
   );
@@ -39,20 +41,14 @@ export const PaginationGetPageHref: Story<PaginationProps> = (args) => {
  * selected but will not change the URL or refresh the page.
  */
 export const PaginationOnPageChange: Story<PaginationProps> = (args) => {
-  const [computedCurrentPage, setComputedCurrentPage] = useState(
-    args.currentPage
-  );
-  const onPageChange = (page: number) => setComputedCurrentPage(page);
-
-  // Allows storybook controls to control `currentPage` prop.
-  useEffect(() => {
-    setComputedCurrentPage(args.currentPage);
-  }, [args.currentPage]);
+  const onPageChange = (currentPage: number) => {
+    console.log(`Current page: ${currentPage}`);
+  };
 
   return (
     <Pagination
       pageCount={args.pageCount}
-      currentPage={computedCurrentPage}
+      initialPage={args.initialPage}
       onPageChange={onPageChange}
     />
   );

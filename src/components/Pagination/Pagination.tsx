@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Link from "../Link/Link";
@@ -10,14 +10,14 @@ import generateUUID from "../../helpers/generateUUID";
 export interface PaginationProps {
   /** Additional className. */
   className?: string;
-  /** The current page selected. */
-  currentPage: number;
   /** The callback function that takes a page number and returns a string
    * to use for a link's `href` attribute. This is used when the current
    * page should refresh when navigating. */
   getPageHref?: undefined | ((pageNumber: number) => string);
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** The current page selected. */
+  initialPage: number;
   /** The callback function called when an item is selected and the current
    * page should not refresh. */
   onPageChange?: (selected: number) => void;
@@ -31,12 +31,13 @@ export interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const {
     className,
-    currentPage,
+    initialPage = 1,
     getPageHref,
     id = generateUUID(),
     onPageChange = () => {},
     pageCount,
   } = props;
+  const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const styles = useMultiStyleConfig("Pagination", {});
   const previousPageNumber = currentPage - 1;
   const nextPageNumber = currentPage + 1;
@@ -55,14 +56,14 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const changeUrls =
     typeof getPageHref !== "undefined" && typeof getPageHref === "function";
   /**
-   * This function is only called when clicking on a link should not update
-   * the URL or refresh the page. It is the responsibility of the parent to
-   * manage the data.
+   * This function is only called when clicking on a link should
+   * not update the URL or refresh the page.
    */
-  const selectPage = (e: Event, item: number) => {
+  const selectPage = (e: Event, selectedPage: number) => {
     e.preventDefault && e.preventDefault();
-    if (currentPage === item) return;
-    onPageChange(item);
+    if (currentPage === selectedPage) return;
+    setCurrentPage(selectedPage);
+    onPageChange(selectedPage);
   };
   // Select the previous page.
   const previousPage = (e: Event) => {
@@ -86,20 +87,20 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
    *    "#" and call the `onPageChange` prop through the `onClick` callback.
    */
   const getLinkElement = (type: string, item?: number) => {
-    const isCurrent = currentPage === item;
+    const isCurrentPage = currentPage === item;
     // The current page link has different styles.
-    const currentStyles = isCurrent
+    const currentStyles = isCurrentPage
       ? {
           color: "ui.black",
           pointerEvent: "none",
         }
-      : null;
+      : {};
     const allAttrs = {
       items: {
         href: changeUrls ? getPageHref(item) : "#",
         attributes: {
           "aria-label": `Page ${item}`,
-          "aria-current": isCurrent ? "page" : null,
+          "aria-current": isCurrentPage ? "page" : null,
           onClick: changeUrls ? undefined : (e) => selectPage(e, item),
         },
         text: item,
@@ -145,11 +146,11 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
    * For a small number of pages, the array will be simple.
    * For a large number of pages, the resulting array will be in the shape of:
    * [
-   *    1, // this always displays
+   *    1, this always displays
    *    2 or an ellipsis,
    *    a range of numbers in the middle of the total count,
    *    pageCount - 1 or an ellipsis,
-   *    pageCount, // the total number of pages
+   *    pageCount, the total number of pages
    * ]
    */
   const getPaginationNumbers = (selected: number) => {

@@ -11,19 +11,19 @@ describe("Pagination Accessibility", () => {
 
   it("passes axe accessibility on the first page", async () => {
     const { container } = render(
-      <Pagination pageCount={20} currentPage={1} getPageHref={getPageHref} />
+      <Pagination pageCount={20} initialPage={1} getPageHref={getPageHref} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility on a middle page", async () => {
     const { container } = render(
-      <Pagination pageCount={20} currentPage={10} getPageHref={getPageHref} />
+      <Pagination pageCount={20} initialPage={10} getPageHref={getPageHref} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility on the last page", async () => {
     const { container } = render(
-      <Pagination pageCount={20} currentPage={20} getPageHref={getPageHref} />
+      <Pagination pageCount={20} initialPage={20} getPageHref={getPageHref} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -35,7 +35,7 @@ describe("Pagination", () => {
   describe("Rendering", () => {
     it("renders a nav element with an unordered list and links", () => {
       render(
-        <Pagination pageCount={5} currentPage={3} getPageHref={getPageHref} />
+        <Pagination pageCount={5} initialPage={3} getPageHref={getPageHref} />
       );
       const nav = screen.getByRole("navigation");
 
@@ -54,7 +54,7 @@ describe("Pagination", () => {
 
     it("does not render the Previous link on the first page", () => {
       render(
-        <Pagination pageCount={5} currentPage={1} getPageHref={getPageHref} />
+        <Pagination pageCount={5} initialPage={1} getPageHref={getPageHref} />
       );
       // Pagination should show:
       // 1 2 3 4 5 Next
@@ -67,7 +67,7 @@ describe("Pagination", () => {
 
     it("does not render the Next link on the last page", () => {
       render(
-        <Pagination pageCount={5} currentPage={5} getPageHref={getPageHref} />
+        <Pagination pageCount={5} initialPage={5} getPageHref={getPageHref} />
       );
       // Pagination should show:
       // Previous 1 2 3 4 5
@@ -80,7 +80,7 @@ describe("Pagination", () => {
 
     it("renders an ellipsis at the end of the list", () => {
       render(
-        <Pagination pageCount={10} currentPage={1} getPageHref={getPageHref} />
+        <Pagination pageCount={10} initialPage={1} getPageHref={getPageHref} />
       );
       // Pagination should show:
       // 1 2 3 4 5 ... 10 Next
@@ -97,7 +97,7 @@ describe("Pagination", () => {
 
     it("renders an ellipsis at the start of the list", () => {
       render(
-        <Pagination pageCount={10} currentPage={10} getPageHref={getPageHref} />
+        <Pagination pageCount={10} initialPage={10} getPageHref={getPageHref} />
       );
       // Pagination should show:
       // Previous 1 ... 6 7 8 9 10
@@ -114,7 +114,7 @@ describe("Pagination", () => {
 
     it("renders two ellipsis when the current page is in the middle", () => {
       render(
-        <Pagination pageCount={10} currentPage={5} getPageHref={getPageHref} />
+        <Pagination pageCount={10} initialPage={5} getPageHref={getPageHref} />
       );
       // Pagination should show:
       // Previous 1 ... 4 5 6 ... 10 Next
@@ -137,7 +137,7 @@ describe("Pagination", () => {
 
     it("adds aria-current to the active page", () => {
       render(
-        <Pagination pageCount={5} currentPage={3} getPageHref={getPageHref} />
+        <Pagination pageCount={5} initialPage={3} getPageHref={getPageHref} />
       );
       // Pagination should show:
       // Previous 1 2 3 4 5 Next
@@ -154,14 +154,14 @@ describe("Pagination", () => {
 
     it("When pagination has 1 element, pagination is not shown", () => {
       render(
-        <Pagination pageCount={1} currentPage={1} getPageHref={getPageHref} />
+        <Pagination pageCount={1} initialPage={1} getPageHref={getPageHref} />
       );
       expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
     });
 
     it("When pagination has 0 elements, pagination is not shown", () => {
       render(
-        <Pagination pageCount={0} currentPage={1} getPageHref={getPageHref} />
+        <Pagination pageCount={0} initialPage={1} getPageHref={getPageHref} />
       );
       expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
     });
@@ -172,7 +172,7 @@ describe("Pagination", () => {
           <Pagination
             id="firstPage"
             pageCount={10}
-            currentPage={1}
+            initialPage={1}
             getPageHref={getPageHref}
           />
         )
@@ -182,7 +182,7 @@ describe("Pagination", () => {
           <Pagination
             id="lastPage"
             pageCount={10}
-            currentPage={10}
+            initialPage={10}
             getPageHref={getPageHref}
           />
         )
@@ -192,7 +192,7 @@ describe("Pagination", () => {
           <Pagination
             id="middlePage"
             pageCount={10}
-            currentPage={5}
+            initialPage={5}
             getPageHref={getPageHref}
           />
         )
@@ -208,7 +208,7 @@ describe("Pagination", () => {
     it("updates the links href value when getPageHref is used", () => {
       const getPageHref = (page: number) => `?page=${page}`;
       render(
-        <Pagination pageCount={10} currentPage={5} getPageHref={getPageHref} />
+        <Pagination pageCount={10} initialPage={5} getPageHref={getPageHref} />
       );
       // Pagination should show:
       // Previous 1 ... 4 5 6 ... 10 Next
@@ -236,7 +236,7 @@ describe("Pagination", () => {
       const { rerender } = render(
         <Pagination
           pageCount={10}
-          currentPage={currentPage}
+          initialPage={currentPage}
           onPageChange={onPageChange}
         />
       );
@@ -262,7 +262,7 @@ describe("Pagination", () => {
       rerender(
         <Pagination
           pageCount={10}
-          currentPage={currentPage}
+          initialPage={currentPage}
           onPageChange={onPageChange}
         />
       );
@@ -277,7 +277,7 @@ describe("Pagination", () => {
       rerender(
         <Pagination
           pageCount={10}
-          currentPage={currentPage}
+          initialPage={currentPage}
           onPageChange={onPageChange}
         />
       );
@@ -292,7 +292,7 @@ describe("Pagination", () => {
       rerender(
         <Pagination
           pageCount={10}
-          currentPage={currentPage}
+          initialPage={currentPage}
           onPageChange={onPageChange}
         />
       );

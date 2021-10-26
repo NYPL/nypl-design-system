@@ -18,7 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `useNYPLTheme` hook for consuming applications to use NYPL DS values.
 - Composes the DS `HorizontalRule` component with Chakra.
 - Composes the DS `List` component with Chakra.
-- Composes the DS `Pagination` component with Chakra.
+- Composes the DS `Pagination` component with Chakra. Removes the BEM-related props and updates the `currentPage` prop to `initialPage`. The current selected page is now kept in state inside the `Pagination` component and returned to the user through `getPageHref` or `onPageChange`. This also adds better aria attributes to the list inside the `Pagination` component.
 
 ### Changes
 
