@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-// import renderer from "react-test-renderer";
+import renderer from "react-test-renderer";
 
 import VideoPlayer from "./VideoPlayer";
 import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
@@ -22,18 +22,12 @@ describe("VideoPlayer", () => {
   describe("YouTube player", () => {
     beforeEach(() => {
       utils = render(
-        <VideoPlayer
-          videoType={VideoPlayerTypes.YouTube}
-          videoId={videoId}
-          className="video-player"
-        />
+        <VideoPlayer videoType={VideoPlayerTypes.YouTube} videoId={videoId} />
       );
     });
 
     it("Renders VideoPlayer container", () => {
-      expect(
-        utils.container.querySelector(".video-player")
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("video-player-component")).toBeInTheDocument();
     });
 
     it("Renders VideoPlayer iframe", () => {
@@ -141,5 +135,42 @@ describe("VideoPlayer", () => {
         )
       ).toBeInTheDocument();
     });
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const videoPlayerWithoutText = renderer
+      .create(
+        <VideoPlayer
+          id="video-player-without-text"
+          videoId="474719268"
+          videoType={VideoPlayerTypes.Vimeo}
+        />
+      )
+      .toJSON();
+    const videoPlayerWithText = renderer
+      .create(
+        <VideoPlayer
+          descriptionText="VideoPlayer description"
+          headingText="VideoPlayer Heading"
+          id="video-player-with-text"
+          helperText="VideoPlayer helper test."
+          videoId="474719268"
+          videoType={VideoPlayerTypes.Vimeo}
+        />
+      )
+      .toJSON();
+    const videoPlayerError = renderer
+      .create(
+        <VideoPlayer
+          id="video-player-error"
+          videoId="https://vimeo.com/474719268"
+          videoType={VideoPlayerTypes.Vimeo}
+        />
+      )
+      .toJSON();
+
+    expect(videoPlayerWithoutText).toMatchSnapshot();
+    expect(videoPlayerWithText).toMatchSnapshot();
+    expect(videoPlayerError).toMatchSnapshot();
   });
 });

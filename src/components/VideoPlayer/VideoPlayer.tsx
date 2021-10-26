@@ -1,8 +1,9 @@
 import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
-import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
+import generateUUID from "../../helpers/generateUUID";
 import { getVariant } from "../../utils/utils";
+import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
 
 export interface VideoPlayerProps {
   /** Optional aspect ratio prop to control the sizing of the video player; if omitted, the video player defaults to `sixteen-by-nine` */
@@ -15,6 +16,8 @@ export interface VideoPlayerProps {
   headingText?: string;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: string;
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
   /** Optional title to be added to the `<iframe>` element for improved accessibility; this title should describe in a few words the content of the video; if omitted, a generic title will be added */
   iframeTitle?: string;
   /** Offers the ability to hide the helper/invalid text. */
@@ -34,6 +37,7 @@ export default function VideoPlayer(
     descriptionText,
     headingText,
     helperText,
+    id = generateUUID(),
     iframeTitle,
     showHelperInvalidText = true,
     videoId,
@@ -81,8 +85,6 @@ export default function VideoPlayer(
     : getVariant(aspectRatio, VideoPlayerAspectRatios);
   const styles = useMultiStyleConfig("VideoPlayer", { variant });
 
-  console.log(`variant == ${variant}`);
-
   const embedCode = (
     <Box
       as="iframe"
@@ -96,7 +98,12 @@ export default function VideoPlayer(
   );
 
   return (
-    <Box className={className} __css={styles}>
+    <Box
+      className={className}
+      data-testid="video-player-component"
+      id={id}
+      __css={styles}
+    >
       {isInvalid ? (
         <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
       ) : (
@@ -104,6 +111,7 @@ export default function VideoPlayer(
           headingText={headingText ? headingText : null}
           descriptionText={descriptionText ? descriptionText : null}
           helperText={helperText && showHelperInvalidText ? helperText : null}
+          id={`${id}-componentWrapper`}
         >
           <Box __css={styles.inside}>{embedCode}</Box>
         </ComponentWrapper>
