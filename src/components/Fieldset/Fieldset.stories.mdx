@@ -1,0 +1,54 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Fieldset from "./Fieldset";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("Fieldset")}
+  component={Fieldset}
+  decorators={[withDesign]}
+  parameters={{
+    jest: ["Fieldset.test.tsx"],
+  }}
+  argTypes={{
+    children: { table: { disable: true } },
+    className: { table: { disable: true } },
+    id: { table: { disable: true } },
+  }}
+/>
+
+# Fieldset
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.2`   |
+
+<Description of={Fieldset} />
+
+<Canvas withToolbar>
+  <Story
+    name="Basic"
+    args={{
+      isLegendHidden: false,
+      isRequired: false,
+      legendText: "This is the legend text",
+      optReqFlag: true,
+    }}
+  >
+    {(args) => (
+      <Fieldset {...args}>
+        <p>Text children in the Fieldset component.</p>
+      </Fieldset>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic" />

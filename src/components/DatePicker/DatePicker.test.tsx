@@ -2,6 +2,7 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import renderer from "react-test-renderer";
 
 import DatePicker from "./DatePicker";
 import { DatePickerTypes } from "./DatePickerTypes";
@@ -207,9 +208,23 @@ describe("DatePicker", () => {
       ).toBeInTheDocument();
     });
 
-    // TODO: this should also be for the invalid text.
-    it("should not render the helper text when 'showHelperInvalidText' is false", () => {
-      render(
+    it("should not render the helper text or invalid text when 'showHelperInvalidText' is false", () => {
+      const { rerender } = render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          helperText="Note that the Library may be closed on Sundays."
+          invalidText="Please select a valid date."
+          showHelperInvalidText={false}
+        />
+      );
+      expect(
+        screen.queryByText("Note that the Library may be closed on Sundays.")
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText("Please select a valid date.")
+      ).not.toBeInTheDocument();
+
+      rerender(
         <DatePicker
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
@@ -218,9 +233,11 @@ describe("DatePicker", () => {
           isInvalid
         />
       );
-
       expect(
         screen.queryByText("Note that the Library may be closed on Sundays.")
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText("Please select a valid date.")
       ).not.toBeInTheDocument();
     });
 
@@ -248,6 +265,38 @@ describe("DatePicker", () => {
       );
 
       expect(screen.getByText(/required/i)).toBeInTheDocument();
+    });
+
+    it("should hide the Optional/Required text in the label with `showOptReqLabel`", () => {
+      const { rerender } = render(
+        <DatePicker labelText="Select the date you want to visit NYPL" />
+      );
+      expect(screen.getByText(/Optional/i)).toBeInTheDocument();
+
+      rerender(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          showOptReqLabel={false}
+        />
+      );
+      expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
+
+      rerender(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          isRequired
+        />
+      );
+      expect(screen.getByText(/Required/i)).toBeInTheDocument();
+
+      rerender(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          showOptReqLabel={false}
+          isRequired
+        />
+      );
+      expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
     });
 
     it("should pass the value to the `onChange` function", () => {
@@ -316,17 +365,70 @@ describe("DatePicker", () => {
       );
     });
 
-    it("should not render a required label if the 'showOptReqLabel' flag is false", () => {
-      render(
-        <DatePicker
-          labelText="Select the date you want to visit NYPL"
-          helperText="Note that the Library may be closed on Sundays."
-          showOptReqLabel={false}
-          isRequired
-        />
-      );
-
-      expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
+    it("renders the UI snapshot correctly", () => {
+      const basic = renderer
+        .create(
+          <DatePicker
+            id="basic"
+            labelText="Select the full date you want to visit NYPL"
+          />
+        )
+        .toJSON();
+      const withoutLabel = renderer
+        .create(
+          <DatePicker
+            id="no-label"
+            labelText="Select the date you want to visit NYPL"
+            showLabel={false}
+          />
+        )
+        .toJSON();
+      const withInitDate = renderer
+        .create(
+          <DatePicker
+            id="init-date"
+            labelText="Select the full date you want to visit NYPL"
+            initialDate="1/2/1988"
+          />
+        )
+        .toJSON();
+      const withCustomFormat = renderer
+        .create(
+          <DatePicker
+            id="custom-format"
+            labelText="Select the date you want to visit NYPL"
+            dateFormat="yyyy/dd/MM"
+          />
+        )
+        .toJSON();
+      const invalid = renderer
+        .create(
+          <DatePicker
+            id="invalid"
+            labelText="Select the date you want to visit NYPL"
+            helperText="Note that the Library may be closed on Sundays."
+            invalidText="Please select a valid date."
+            isInvalid
+          />
+        )
+        .toJSON();
+      const disabled = renderer
+        .create(
+          <DatePicker
+            id="disabled"
+            labelText="Select the date you want to visit NYPL"
+            helperText="Note that the Library may be closed on Sundays."
+            invalidText="Please select a valid date."
+            isDisabled
+          />
+        )
+        .toJSON();
+      expect(basic).toMatchSnapshot();
+      expect(withoutLabel).toMatchSnapshot();
+      expect(withInitDate).toMatchSnapshot();
+      expect(withCustomFormat).toMatchSnapshot();
+      expect(invalid).toMatchSnapshot();
+      expect(disabled).toMatchSnapshot();
     });
   });
 
@@ -404,6 +506,7 @@ describe("DatePicker", () => {
         />
       );
 
+      // The invalid text displays under each input field.
       expect(
         screen.getAllByText("Please select a valid date range.")
       ).toHaveLength(2);
@@ -418,7 +521,7 @@ describe("DatePicker", () => {
           isDateRange
         />
       );
-
+      // Both input fields are disabled.
       expect(screen.getByLabelText(/From/i)).toHaveAttribute("disabled");
       expect(screen.getByLabelText(/To/i)).toHaveAttribute("disabled");
 
@@ -432,10 +535,84 @@ describe("DatePicker", () => {
           isDateRange
         />
       );
-
+      // Both input fields are required.
+      // The "Required" text is only displayed once in the `legend`.
       expect(screen.getAllByText(/required/i)).toHaveLength(1);
       expect(screen.getByLabelText(/From/i)).toHaveAttribute("required");
       expect(screen.getByLabelText(/To/i)).toHaveAttribute("required");
+    });
+
+    it("renders the UI snapshot correctly", () => {
+      const basic = renderer
+        .create(
+          <DatePicker
+            id="basic"
+            labelText="Select the full date you want to visit NYPL"
+            isDateRange
+          />
+        )
+        .toJSON();
+      const withoutLabel = renderer
+        .create(
+          <DatePicker
+            id="no-label"
+            labelText="Select the date you want to visit NYPL"
+            showLabel={false}
+            isDateRange
+          />
+        )
+        .toJSON();
+      const withInitDate = renderer
+        .create(
+          <DatePicker
+            id="init-date"
+            labelText="Select the full date you want to visit NYPL"
+            initialDate="1/2/1988"
+            initialDateTo="2/2/1988"
+            isDateRange
+          />
+        )
+        .toJSON();
+      const withCustomFormat = renderer
+        .create(
+          <DatePicker
+            id="custom-format"
+            labelText="Select the date you want to visit NYPL"
+            dateFormat="yyyy/dd/MM"
+            isDateRange
+          />
+        )
+        .toJSON();
+      const invalid = renderer
+        .create(
+          <DatePicker
+            id="invalid"
+            labelText="Select the date you want to visit NYPL"
+            helperText="Note that the Library may be closed on Sundays."
+            invalidText="Please select a valid date."
+            isInvalid
+            isDateRange
+          />
+        )
+        .toJSON();
+      const disabled = renderer
+        .create(
+          <DatePicker
+            id="disabled"
+            labelText="Select the date you want to visit NYPL"
+            helperText="Note that the Library may be closed on Sundays."
+            invalidText="Please select a valid date."
+            isDisabled
+            isDateRange
+          />
+        )
+        .toJSON();
+      expect(basic).toMatchSnapshot();
+      expect(withoutLabel).toMatchSnapshot();
+      expect(withInitDate).toMatchSnapshot();
+      expect(withCustomFormat).toMatchSnapshot();
+      expect(invalid).toMatchSnapshot();
+      expect(disabled).toMatchSnapshot();
     });
 
     /* // REVISIT THIS TEST

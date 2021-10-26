@@ -40,6 +40,7 @@ const categories = {
       "DatePicker",
       "DateRangePicker",
       "Dropdown",
+      "Fieldset",
       "FileUploader",
       "Form",
       "Input",

@@ -24,6 +24,8 @@ interface FullDateType {
 
 // Used for the input fields' parent wrapper. Internal use only.
 interface DateRangeRowProps {
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Whether to render a single date input or two for a range of two dates. */
   isDateRange?: boolean;
 }
@@ -33,8 +35,6 @@ interface DateRangeRowProps {
 interface DatePickerWrapperProps extends DateRangeRowProps {
   /** Additional className. */
   className?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Adds the 'required' property to the input element(s). */
   isRequired?: boolean;
   /** Passed to the `TextInput` component to render a label associated with an input field. */
@@ -67,7 +67,8 @@ interface CustomTextInputProps extends InputProps {
 
 // Main interface for the exported DS DatePicker component.
 export interface DatePickerProps extends DatePickerWrapperProps {
-  /** The date format to display. Defaults to "yyyy-MM-dd". */
+  /** The date format to display. Defaults to "yyyy-MM-dd".
+   * Must be in ISO-8601 format. */
   dateFormat?: string;
   /** DatePicker date types that can be rendered. */
   dateType?: DatePickerTypes;
@@ -138,6 +139,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       onChange,
       onClick,
       showLabel,
+      showHelperInvalidText,
       showOptReqLabel,
       value,
     },
@@ -151,6 +153,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       labelText={labelText}
       isDisabled={isDisabled}
       isRequired={isRequired}
+      showHelperInvalidText={showHelperInvalidText}
       showOptReqLabel={showOptReqLabel}
       isInvalid={isInvalid}
       helperText={helperText}
@@ -181,7 +184,7 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
   showLabel,
   showOptReqLabel,
 }) => (
-  <FormField>
+  <FormField id={`${id}-form-field}`}>
     {isDateRange ? (
       <Fieldset
         id={id}
@@ -205,8 +208,16 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
  * layout for the two side-by-side date input fields.
  * @note This is only used internally for this file.
  */
-const DateRangeRow: React.FC<DateRangeRowProps> = ({ isDateRange, children }) =>
-  isDateRange ? <FormRow>{children}</FormRow> : <>{children}</>;
+const DateRangeRow: React.FC<DateRangeRowProps> = ({
+  id,
+  isDateRange,
+  children,
+}) =>
+  isDateRange ? (
+    <FormRow id={`${id}-form-row`}>{children}</FormRow>
+  ) : (
+    <>{children}</>
+  );
 
 /**
  * Returns a single date input field or two date input fields for a date range.
@@ -258,7 +269,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     };
     // How many years to display in the DatePickerTypes.Year option.
     const yearsToDisplay = 12;
-    // Both ReactDatePicker components share some props.
+    // Both `ReactDatePicker` components share some props.
     let baseDatePickerAttrs = {
       popperClassName: "date-picker-calendar",
       popperPlacement: "bottom-start",
@@ -273,23 +284,28 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       minDate: minDate ? new Date(minDate) : null,
       maxDate: maxDate ? new Date(maxDate) : null,
       dateFormat,
-      isDisabled,
     };
-    // Both TextInput components share some props.
+    // Both custom `TextInput` components share some props.
     let baseCustomTextInputAttrs = {
+      dsId: `${id}-start`,
       isRequired,
+      // In the date range type, don't display the "required"/"optional" text
+      // in individual input labels. It'll display in the legend element.
       showOptReqLabel: isDateRange ? false : showOptReqLabel,
-      // Always display the labels or the input fields when
-      // the DatePicker component is a `dateRange` type.
+      // Always display the labels for the input fields when
+      // the DatePicker component is a date range type.
       showLabel: isDateRange ? true : showLabel,
       isDisabled,
       isInvalid,
       helperText: isDateRange ? helperTextFrom : helperText,
+      showHelperInvalidText,
       invalidText,
       additionalStyles: finalStyles.subLabels,
     };
+    // These are attribute objects for the `react-datepicker` package component.
     let startDatePickerAttrs = {};
     let endDatePickerAttrs = {};
+    // This sets set only for date ranges for the "To" input field.
     let endDatePickerElement = null;
     // This changes to "From" when `isDateRange` is true.
     let startLabelText = labelText;
@@ -315,19 +331,20 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       );
     }
 
-    // Set the "From" DatePicker values here based off the base props. If a date
-    // range is selected additional props get added automatically.
+    // Set the "From" DatePicker values here based on the base props. If a date
+    // range is selected, additional props get added automatically.
     startDatePickerAttrs = { ...baseDatePickerAttrs };
 
     // A date range is selected. We must now update the props for the
-    // start/"from" input component and render an end/"To" input component.
+    // "start"/"from" input component and render an "end"/"To" input component.
     if (isDateRange) {
       const endCustomTextInputAttrs = {
         ...baseCustomTextInputAttrs,
+        dsId: `${id}-end`,
         helperText: helperTextTo,
       };
-      // These props are used to follow the pattern recommended by the
-      // react-datepicker plugin.
+      // These props are used to follow the pattern recommended by
+      // the react-datepicker plugin.
       startDatePickerAttrs = {
         ...startDatePickerAttrs,
         selectsStart: true,
@@ -385,15 +402,18 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
         isRequired={isRequired}
         showOptReqLabel={showOptReqLabel}
       >
-        <DateRangeRow isDateRange={isDateRange}>
-          <FormField>{startDatePickerElement}</FormField>
+        <DateRangeRow id={id} isDateRange={isDateRange}>
+          <FormField id={`${id}-start-form`}>
+            {startDatePickerElement}
+          </FormField>
 
           {endDatePickerElement && (
-            <FormField>{endDatePickerElement}</FormField>
+            <FormField id={`${id}-end-form`}>{endDatePickerElement}</FormField>
           )}
         </DateRangeRow>
         {helperText && isDateRange && showHelperInvalidText && (
           <HelperErrorText
+            id={`${id}-helper-text`}
             isInvalid={false}
             additionalStyles={finalStyles.helper}
           >

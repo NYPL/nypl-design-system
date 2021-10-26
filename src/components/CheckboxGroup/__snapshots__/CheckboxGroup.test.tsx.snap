@@ -3,7 +3,7 @@
 exports[`Checkbox renders the UI snapshot correctly 1`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-column"
+  id="column-checkbox-group"
 >
   <legend>
     column
@@ -148,7 +148,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 exports[`Checkbox renders the UI snapshot correctly 2`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-row"
+  id="row-checkbox-group"
 >
   <legend>
     row
@@ -293,7 +293,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 exports[`Checkbox renders the UI snapshot correctly 3`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-noLabel"
+  id="noLabel-checkbox-group"
 >
   <legend>
     no label
@@ -438,7 +438,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 exports[`Checkbox renders the UI snapshot correctly 4`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-helperText"
+  id="helperText-checkbox-group"
 >
   <legend>
     helperText
@@ -596,7 +596,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 exports[`Checkbox renders the UI snapshot correctly 5`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-invalidText"
+  id="invalidText-checkbox-group"
 >
   <legend>
     invalidText
@@ -741,7 +741,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-optReq"
+  id="optReq-checkbox-group"
 >
   <legend>
     no optional or required label
@@ -881,7 +881,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
 exports[`Checkbox renders the UI snapshot correctly 7`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-required"
+  id="required-checkbox-group"
 >
   <legend>
     required
@@ -1026,7 +1026,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 exports[`Checkbox renders the UI snapshot correctly 8`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-invalid"
+  id="invalid-checkbox-group"
 >
   <legend>
     invalid
@@ -1177,7 +1177,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
 exports[`Checkbox renders the UI snapshot correctly 9`] = `
 <fieldset
   className="css-0"
-  id="checkbox-group-disabled"
+  id="disabled-checkbox-group"
 >
   <legend>
     disabled
