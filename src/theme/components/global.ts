@@ -42,7 +42,7 @@ const checkboxRadioControlSize = {
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioHelperStyle = {
   ...helperTextMargin,
-  marginLeft: "30px", // calc(22px + var(--space-xs))
+  marginLeft: "30px", // calc(22px + var(--nypl-space-xs))
   _disabled: {
     fontStyle: "italic",
   },

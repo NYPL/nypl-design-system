@@ -1,15 +1,13 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import generateUUID from "../../helpers/generateUUID";
+import { getVariant } from "../../utils/utils";
 import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
-import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export interface VideoPlayerProps {
   /** Optional aspect ratio prop to control the sizing of the video player; if omitted, the video player defaults to `sixteen-by-nine` */
   aspectRatio?: VideoPlayerAspectRatios;
-  /** Optional additional attributes passed to the video player iframe */
-  attributes?: { [key: string]: any };
   /** Optional className you can add in addition to `video-player` */
   className?: string;
   /** Optional string to set the text for a video description */
@@ -18,10 +16,10 @@ export interface VideoPlayerProps {
   headingText?: string;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: string;
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
   /** Optional title to be added to the `<iframe>` element for improved accessibility; this title should describe in a few words the content of the video; if omitted, a generic title will be added */
   iframeTitle?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Required YouTube or Vimeo video ID. This value can be pulled from a video's YouTube or Vimeo URL. */
@@ -35,13 +33,12 @@ export default function VideoPlayer(
 ) {
   const {
     aspectRatio,
-    attributes = {},
     className,
     descriptionText,
     headingText,
     helperText,
+    id = generateUUID(),
     iframeTitle,
-    modifiers = [],
     showHelperInvalidText = true,
     videoId,
     videoType,
@@ -60,31 +57,16 @@ export default function VideoPlayer(
   const errorMessage =
     "<strong>Error:</strong> This video player has not been configured properly. Please contact the site administrator.";
 
-  {
-    aspectRatio && modifiers.push(aspectRatio);
-  }
-
-  const embedCode = (
-    <iframe
-      src={videoSrc}
-      title={iframeTitleFinal}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-      allowFullScreen
-      {...attributes}
-    />
-  );
-
-  let errored = false;
+  let isInvalid = false;
   if (!videoType && !videoId) {
     console.warn("VideoPlayer requires the `videoType` and `videoId` props");
-    errored = true;
+    isInvalid = true;
   } else if (!videoType) {
     console.warn("VideoPlayer requires the `videoType` prop");
-    errored = true;
+    isInvalid = true;
   } else if (!videoId) {
     console.warn("VideoPlayer requires the `videoId` prop");
-    errored = true;
+    isInvalid = true;
   }
 
   if (
@@ -95,31 +77,45 @@ export default function VideoPlayer(
     videoId.includes("vimeo")
   ) {
     console.warn("VideoPlayer `videoId` prop is not configured properly");
-    errored = true;
+    isInvalid = true;
   }
 
-  {
-    errored && modifiers.push("errored");
-  }
+  const variant = isInvalid
+    ? "invalid"
+    : getVariant(aspectRatio, VideoPlayerAspectRatios);
+  const styles = useMultiStyleConfig("VideoPlayer", { variant });
+
+  const embedCode = (
+    <Box
+      as="iframe"
+      src={videoSrc}
+      title={iframeTitleFinal}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+      allowFullScreen
+      __css={styles.iframe}
+    />
+  );
 
   return (
-    <div className={bem("video-player", modifiers, "", [className])}>
-      {errored ? (
+    <Box
+      className={className}
+      data-testid="video-player-component"
+      id={id}
+      __css={styles}
+    >
+      {isInvalid ? (
         <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
       ) : (
-        <>
-          {headingText && (
-            <Heading level={HeadingLevels.Two} text={headingText} />
-          )}
-          {descriptionText && <p>{descriptionText}</p>}
-          <div className={bem("video-player__inside", modifiers, "", [])}>
-            {embedCode}
-          </div>
-          {helperText && showHelperInvalidText && (
-            <HelperErrorText isInvalid={false}>{helperText}</HelperErrorText>
-          )}
-        </>
+        <ComponentWrapper
+          headingText={headingText ? headingText : null}
+          descriptionText={descriptionText ? descriptionText : null}
+          helperText={helperText && showHelperInvalidText ? helperText : null}
+          id={`${id}-componentWrapper`}
+        >
+          <Box __css={styles.inside}>{embedCode}</Box>
+        </ComponentWrapper>
       )}
-    </div>
+    </Box>
   );
 }

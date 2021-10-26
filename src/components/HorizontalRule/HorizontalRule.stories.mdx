@@ -25,8 +25,7 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["HorizontalRule.test.tsx"],
   }}
   argTypes={{
-    attributes: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
+    className: { table: { disable: true } },
   }}
 />
 
@@ -35,10 +34,12 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.0`   |
+| Latest            | `0.25.2`   |
 
 <Description of={HorizontalRule} />
 
-The `HorizontalRule` component renders a basic `<hr>` element. The `height`, `width` and `alignment` can be customized.
+The `HorizontalRule` component renders a basic `<hr>` element. The `height`,
+`width`, and `align` props can be customized.
 
 <Preview withToolbar>
   <Story name="HorizontalRule">{(args) => <HorizontalRule {...args} />}</Story>

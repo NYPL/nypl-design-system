@@ -25,20 +25,20 @@ const iconRotation = {
 };
 const size = {
   xxxlarge: {
-    height: "var(--space-xxl)",
-    width: "var(--space-xxl)",
+    height: "var(--nypl-space-xxl)",
+    width: "var(--nypl-space-xxl)",
   },
   xxlarge: {
-    height: "var(--space-xl)",
-    width: "var(--space-xl)",
+    height: "var(--nypl-space-xl)",
+    width: "var(--nypl-space-xl)",
   },
   xlarge: {
-    height: "var(--space-l)",
-    width: "var(--space-l)",
+    height: "var(--nypl-space-l)",
+    width: "var(--nypl-space-l)",
   },
   large: {
-    height: "var(--space-m)",
-    width: "var(--space-m)",
+    height: "var(--nypl-space-m)",
+    width: "var(--nypl-space-m)",
   },
   medium: {
     height: "1.125rem",
@@ -70,7 +70,7 @@ const Icon = {
   variants: {
     default: {},
     breadcrumbs: {
-      fill: "var(--ui-white)",
+      fill: "var(--nypl-colors-ui-white)",
       display: { md: "none" },
     },
   },

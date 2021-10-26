@@ -42,7 +42,6 @@
   @include space-stack-page;
 
   &__cards {
-    @include list-reset;
     @include cards--spacing;
 
     display: flex;
