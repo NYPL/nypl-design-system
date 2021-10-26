@@ -6,6 +6,8 @@
 
 The NYPL Design System (DS) is NYPL’s open-source extensible React library for products and experiences with the accessibility as its foundation. It ships functional, stateless components with consistent NYPL styling. You can learn more about the project and its goals [on the project's wiki](https://github.com/NYPL/nypl-design-system/wiki).
 
+_Note: This library is still in beta. Until we release the stable `1.0.0` version, we are loosely using semantic versioning._
+
 Storybook documentation
 
 - [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page)
@@ -108,32 +110,7 @@ $ npm install @nypl/design-system-react-components
 @import "~@nypl/design-system-react-components/dist/styles.css";
 ```
 
-3. Consult Storybook for the list of available components and props that they require.
-
-Here's an example with the `Link` component:
-
-```jsx
-import { Link } from "@nypl/design-system-react-components";
-
-function NewComponent(props) {
-  return <Link href="https://www.hathitrust.org/">HathiTrust</Link>;
-}
-```
-
-Sometimes you may have conflicts, perhaps with `React-Router`. In that case, you can alias your imports:
-
-```jsx
-import * as DS from "@nypl/design-system-react-components";
-import { Link } from "react-router";
-
-function NewComponent(props) {
-  return (
-    <DS.Link>
-      <Link to="/license">public domain</Link>
-    </DS.Link>
-  );
-}
-```
+3. Add the `nypl-ds` CSS class
 
 Some CSS rules in the Design System, such as the universal focus styling and the box-model, are namespaced to the `.nypl-ds` class. To include those in your app, add `.nypl-ds` to whichever wrapper tag makes sense in your application (e.g., `<div class="app">` or `<div class="container">`).
 
@@ -167,9 +144,38 @@ const ApplicationContainer = (props) => {
 };
 ```
 
+5. Use DS components!
+
+Consult Storybook for the list of available components and props that they require.
+
+Here's an example with the `Link` component:
+
+```jsx
+import { Link } from "@nypl/design-system-react-components";
+
+function NewComponent(props) {
+  return <Link href="https://www.hathitrust.org/">HathiTrust</Link>;
+}
+```
+
+Sometimes you may have conflicts, perhaps with `React-Router`. In that case, you can alias your imports:
+
+```jsx
+import * as DS from "@nypl/design-system-react-components";
+import { Link } from "react-router";
+
+function NewComponent(props) {
+  return (
+    <DS.Link>
+      <Link to="/license">public domain</Link>
+    </DS.Link>
+  );
+}
+```
+
 ### NYPL DS, NYPL Header, and NYPL Footer
 
-Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds` wrapper class.
+Please note that, if used, the NYPL Header and Footer components should be _outside_ of the `.nypl-ds` wrapper class.
 
 ```jsx
 <body>
@@ -187,10 +193,16 @@ Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds
 
 The Chakra UI component library has been integrated into the NYPL Design System. We are still progressing towards using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
 
-The list of re-exported Chakra components can be found in the main
-[index.ts](/index.ts) file.
+The list of re-exported Chakra components can be found in the main [index.ts](/src/index.ts) file. They include:
 
-Find more information about the Design System's use of [Chakra](/src/docs/Chakra.stories.mdx).
+- `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`
+
+Find more information about the Design System's internal use of Chakra to create and refactor components in the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
+
+- [MDX format](/src/docs/Chakra.stories.mdx)
+- [Storybook page](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page)
+
+Chakra was integrated into the Design System in version `0.25.0`. For those looking to update to a version greater than or equal `0.25.0`, check out our [Chakra Migration Guide](/CHAKRA_MIGRATION_GUIDE.md).
 
 ## CDN
 

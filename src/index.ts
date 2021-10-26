@@ -8,9 +8,9 @@ export {
   Circle,
   Grid,
   GridItem,
+  HStack,
   Square,
   Stack,
-  HStack,
   VStack,
 } from "@chakra-ui/react";
 export { default as Accordion } from "./components/Accordion/Accordion";
