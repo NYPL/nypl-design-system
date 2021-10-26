@@ -19,10 +19,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `VideoPlayer` component with Chakra.
 - Composes the DS `HorizontalRule` component with Chakra.
 - Composes the DS `List` component with Chakra.
+- Composes the DS `DatePicker` component with Chakra. Adds more tests, documentation, and examples. This component now uses the `Fieldset` component for the date range type, and better `Form` components for layout. Prop name changes: `dateRange` is now `isDateRange` and `required` is now `isRequired`. BEM related props `modifiers` and `blockname` have been removed. The "Required"/"Optional" text in the date range legend can now be hidden with the `showOptReqLabel` prop.
+- Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
 
 ### Changes
 
 - Updates the CSS vars name prefix to use `nypl`.
+- Updates the `CheckboxGroup` and `RadioGroup` components to use the `Fieldset` component.
+- Updates the `HelperErrorText` and `TextInput` components with added `additionalStyles` prop.
 
 ## 0.25.1 (October 14, 2021)
 
