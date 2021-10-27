@@ -1,12 +1,12 @@
 export enum ImageRatios {
-  FourByThree = "four-by-three",
-  OneByTwo = "one-by-two",
+  FourByThree = "fourByThree",
+  OneByTwo = "oneByTwo",
   Original = "original",
-  SixteenByNine = "sixteen-by-nine",
+  SixteenByNine = "sixteenByNine",
   Square = "square",
-  ThreeByFour = "three-by-four",
-  ThreeByTwo = "three-by-two",
-  TwoByOne = "two-by-one",
+  ThreeByFour = "threeByFour",
+  ThreeByTwo = "threeByTwo",
+  TwoByOne = "twoByOne",
 }
 
 export enum ImageSizes {

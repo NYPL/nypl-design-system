@@ -26,18 +26,18 @@ const imageSizes = {
   },
 };
 const imageRatios = {
-  "four-by-three": {
+  fourByThree: {
     ...imageWrap,
     paddingBottom: "75%",
   },
-  "one-by-two": {
+  oneByTwo: {
     ...imageWrap,
     paddingBottom: "200%",
   },
   original: {
     ...imageWrap,
   },
-  "sixteen-by-nine": {
+  sixteenByNine: {
     ...imageWrap,
     paddingBottom: "56.25%",
   },
@@ -45,15 +45,15 @@ const imageRatios = {
     ...imageWrap,
     paddingBottom: "100%",
   },
-  "three-by-four": {
+  threeByFour: {
     ...imageWrap,
     paddingBottom: "133.33%",
   },
-  "three-by-two": {
+  threeByTwo: {
     ...imageWrap,
     paddingBottom: "66.66%",
   },
-  "two-by-one": {
+  twoByOne: {
     ...imageWrap,
     paddingBottom: "50%",
   },
@@ -69,12 +69,13 @@ const CustomImage = {
   },
   baseStyle: ({ size = "default" }) => ({
     figure: {
-      margin: "unset",
+      margin: "auto",
+      ...imageSizes[size],
       img: {
         marginBottom: "xxs",
       },
       "> div": {
-        margin: "unset",
+        // margin: "unset",
       },
     },
     figcaption: {
@@ -95,14 +96,21 @@ const CustomImage = {
   }),
 };
 const CustomImageWrapper = {
-  baseStyle: ({ ratio = "original" }) => ({
-    ...imageRatios[ratio],
+  baseStyle: ({ ratio = "original", size = "default" }) => ({
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "100%",
+    ...imageSizes[size],
+    crop: {
+      ...imageRatios[ratio],
+    },
     img: {
-      width: "100%",
       height: "100%",
+      left: "0",
+      maxWidth: "100%",
       position: "absolute",
       top: "0",
-      left: "0",
+      width: "100%",
     },
   }),
 };

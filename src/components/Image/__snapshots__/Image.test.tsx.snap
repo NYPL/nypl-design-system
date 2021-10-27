@@ -55,25 +55,33 @@ exports[`Image Renders the UI snapshot correctly 5`] = `
 
 exports[`Image Renders the UI snapshot correctly 6`] = `
 <div
-  className=" css-0"
+  className="the-wrap  css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
+  <div
+    className="the-crop css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+  </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 7`] = `
 <div
-  className=" css-0"
+  className="the-wrap  css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
+  <div
+    className="the-crop css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+  </div>
 </div>
 `;
 
@@ -87,72 +95,96 @@ exports[`Image Renders the UI snapshot correctly 8`] = `
 
 exports[`Image Renders the UI snapshot correctly 9`] = `
 <div
-  className=" css-0"
+  className="the-wrap  css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
+  <div
+    className="the-crop css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+  </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 10`] = `
 <div
-  className=" css-0"
+  className="the-wrap  css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
+  <div
+    className="the-crop css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+  </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 11`] = `
 <div
-  className=" css-0"
+  className="the-wrap  css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
+  <div
+    className="the-crop css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+  </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 12`] = `
 <div
-  className=" css-0"
+  className="the-wrap  css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
+  <div
+    className="the-crop css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+  </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 13`] = `
 <div
-  className=" css-0"
+  className="the-wrap  css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
+  <div
+    className="the-crop css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+  </div>
 </div>
 `;
 
 exports[`Image Renders the UI snapshot correctly 14`] = `
 <div
-  className=" css-0"
+  className="the-wrap  css-0"
 >
-  <img
-    alt=""
-    className="css-0"
-    src="test.png"
-  />
+  <div
+    className="the-crop css-0"
+  >
+    <img
+      alt=""
+      className="css-0"
+      src="test.png"
+    />
+  </div>
 </div>
 `;

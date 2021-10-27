@@ -51,7 +51,7 @@ import { getCategory } from "../../utils/componentCategories";
     name="Image Props"
     args={{
       alt: "Alt text",
-      imageAspectRatio: ImageRatios.ThreeByFour,
+      imageAspectRatio: ImageRatios.TwoByOne,
       imageCaption: "Image caption",
       imageCredit: "Image credit",
       imageSize: ImageSizes.Medium,
@@ -80,7 +80,7 @@ then an `img` element will be rendered with or without wrapper style divs.
       imageAspectRatio: ImageRatios.ThreeByTwo,
       imageCaption: "Image caption",
       imageCredit: "Image credit",
-      imageSize: ImageSizes.Small,
+      imageSize: ImageSizes.Medium,
       imageType: ImageTypes.Default,
       src: "https://placeimg.com/400/300/animals",
     }}
@@ -133,9 +133,12 @@ Use the `ImageSizes` prop to set the desired size.
 Use the `imageAspectRatio` prop to set the desired aspect ratio. Note: the
 following example has `imageSize` set to `ImageSizes.Small`.
 
+For a better viewing experience, the `Image` components below have been wrapped
+in an element with a fixed width value.
+
 <Canvas>
   <Story name="Image Aspect Ratios">
-    <VStack spacing="xs">
+    <VStack spacing="xs" style={{ maxWidth: "360px", margin: "auto" }}>
       <Heading id="fourbythree" text="ImageRatios.FourByThree" />
       <Image
         alt="Alt text"
@@ -190,12 +193,15 @@ following example has `imageSize` set to `ImageSizes.Small`.
 
 ## Image Types
 
-Use the `imageType` prop to get an image variant. Note that to get a perfect circle, the `imageAspectRatio` prop _must_ be set
-to `ImageRatios.Square`.
+Use the `imageType` prop to get an image variant. Note that to get a perfect
+circle, the `imageAspectRatio` prop _must_ be set to `ImageRatios.Square`.
+
+For a better viewing experience, the `Image` components below have been wrapped
+in an element with a fixed width value.
 
 <Canvas>
   <Story name="Image Types">
-    <VStack spacing="xs">
+    <VStack spacing="xs" style={{ maxWidth: "360px", margin: "auto" }}>
       <Heading id="default" text="ImageTypes.Default" />
       <Image
         alt="Alt text"
