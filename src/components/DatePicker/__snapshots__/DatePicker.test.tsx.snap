@@ -51,7 +51,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021-10-26"
+                value="1988-01-02"
               />
             </div>
           </div>
@@ -87,7 +87,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021-10-26"
+                value="1988-02-02"
               />
             </div>
           </div>
@@ -149,7 +149,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021-10-26"
+                value="1988-01-02"
               />
             </div>
           </div>
@@ -185,104 +185,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021-10-26"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </fieldset>
-</div>
-`;
-
-exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
-<div
-  className="css-aq1pyb"
-  id="init-date-form-field}"
->
-  <fieldset
-    className="css-0"
-    id="init-date"
-  >
-    <legend>
-      Select the full date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
-    </legend>
-    <div
-      className="css-7ft6bq"
-      id="init-date-form-row"
-    >
-      <div
-        className="css-aq1pyb"
-        id="init-date-form-row-grandchild0"
-      >
-        <div
-          className="react-datepicker-wrapper"
-        >
-          <div
-            className="react-datepicker__input-container"
-          >
-            <div
-              className="css-0"
-            >
-              <label
-                className="css-0"
-                htmlFor="init-date-start"
-                id="init-date-start-label"
-              >
-                From
-              </label>
-              <input
-                className="chakra-input css-0"
-                disabled={false}
-                id="init-date-start"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                required={false}
-                type="text"
-                value="1988-01-02"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="css-aq1pyb"
-        id="init-date-form-row-grandchild1"
-      >
-        <div
-          className="react-datepicker-wrapper"
-        >
-          <div
-            className="react-datepicker__input-container"
-          >
-            <div
-              className="css-0"
-            >
-              <label
-                className="css-0"
-                htmlFor="init-date-end"
-                id="init-date-end-label"
-              >
-                To
-              </label>
-              <input
-                className="chakra-input css-0"
-                disabled={false}
-                id="init-date-end"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                required={false}
-                type="text"
                 value="1988-02-02"
               />
             </div>
@@ -294,7 +196,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 </div>
 `;
 
-exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
+exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 <div
   className="css-aq1pyb"
   id="custom-format-form-field}"
@@ -345,7 +247,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021/26/10"
+                value="1988/02/01"
               />
             </div>
           </div>
@@ -381,7 +283,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021/26/10"
+                value="1988/02/02"
               />
             </div>
           </div>
@@ -392,7 +294,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
+exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 <div
   className="css-aq1pyb"
   id="invalid-form-field}"
@@ -444,7 +346,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021-10-26"
+                value="1988-01-02"
               />
               <div
                 aria-disabled={false}
@@ -495,7 +397,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021-10-26"
+                value="1988-02-02"
               />
               <div
                 aria-disabled={false}
@@ -529,7 +431,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`DatePicker Date Range renders the UI snapshot correctly 6`] = `
+exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 <div
   className="css-aq1pyb"
   id="disabled-form-field}"
@@ -580,7 +482,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 6`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021-10-26"
+                value="1988-01-02"
               />
             </div>
           </div>
@@ -616,7 +518,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 6`] = `
                 onFocus={[Function]}
                 required={false}
                 type="text"
-                value="2021-10-26"
+                value="1988-02-02"
               />
             </div>
           </div>
@@ -676,7 +578,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
             onFocus={[Function]}
             required={false}
             type="text"
-            value="2021-10-26"
+            value="1988-01-02"
           />
         </div>
       </div>
@@ -714,7 +616,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
             onFocus={[Function]}
             required={false}
             type="text"
-            value="2021-10-26"
+            value="2021-10-27"
           />
         </div>
       </div>
@@ -724,55 +626,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 `;
 
 exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
-<div
-  className="css-aq1pyb"
-  id="init-date-form-field}"
->
-  <div
-    className="css-aq1pyb"
-    id="init-date-start-form"
-  >
-    <div
-      className="react-datepicker-wrapper"
-    >
-      <div
-        className="react-datepicker__input-container"
-      >
-        <div
-          className="css-0"
-        >
-          <label
-            className="css-0"
-            htmlFor="init-date-start"
-            id="init-date-start-label"
-          >
-            Select the full date you want to visit NYPL
-            <div
-              className="css-0"
-            >
-              Optional
-            </div>
-          </label>
-          <input
-            className="chakra-input css-0"
-            disabled={false}
-            id="init-date-start"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            required={false}
-            type="text"
-            value="1988-01-02"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
   className="css-aq1pyb"
   id="custom-format-form-field}"
@@ -812,7 +665,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             onFocus={[Function]}
             required={false}
             type="text"
-            value="2021/26/10"
+            value="1988/02/01"
           />
         </div>
       </div>
@@ -821,7 +674,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
+exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
   className="css-aq1pyb"
   id="invalid-form-field}"
@@ -863,7 +716,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             onFocus={[Function]}
             required={false}
             type="text"
-            value="2021-10-26"
+            value="1988-01-02"
           />
           <div
             aria-disabled={false}
@@ -886,7 +739,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
+exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 <div
   className="css-aq1pyb"
   id="disabled-form-field}"
@@ -927,7 +780,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             onFocus={[Function]}
             required={false}
             type="text"
-            value="2021-10-26"
+            value="1988-01-02"
           />
           <div
             aria-disabled={true}

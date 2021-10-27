@@ -365,12 +365,16 @@ describe("DatePicker", () => {
       );
     });
 
+    // Note: Have to add an initial date so that the snapshot tests always
+    // pass. Otherwise, it'll use the _current_ date which changes
+    // based on the day it is tested and is not what we want.
     it("renders the UI snapshot correctly", () => {
       const basic = renderer
         .create(
           <DatePicker
             id="basic"
             labelText="Select the full date you want to visit NYPL"
+            initialDate="1/2/1988"
           />
         )
         .toJSON();
@@ -383,21 +387,13 @@ describe("DatePicker", () => {
           />
         )
         .toJSON();
-      const withInitDate = renderer
-        .create(
-          <DatePicker
-            id="init-date"
-            labelText="Select the full date you want to visit NYPL"
-            initialDate="1/2/1988"
-          />
-        )
-        .toJSON();
       const withCustomFormat = renderer
         .create(
           <DatePicker
             id="custom-format"
             labelText="Select the date you want to visit NYPL"
             dateFormat="yyyy/dd/MM"
+            initialDate="1/2/1988"
           />
         )
         .toJSON();
@@ -408,6 +404,7 @@ describe("DatePicker", () => {
             labelText="Select the date you want to visit NYPL"
             helperText="Note that the Library may be closed on Sundays."
             invalidText="Please select a valid date."
+            initialDate="1/2/1988"
             isInvalid
           />
         )
@@ -419,13 +416,13 @@ describe("DatePicker", () => {
             labelText="Select the date you want to visit NYPL"
             helperText="Note that the Library may be closed on Sundays."
             invalidText="Please select a valid date."
+            initialDate="1/2/1988"
             isDisabled
           />
         )
         .toJSON();
       expect(basic).toMatchSnapshot();
       expect(withoutLabel).toMatchSnapshot();
-      expect(withInitDate).toMatchSnapshot();
       expect(withCustomFormat).toMatchSnapshot();
       expect(invalid).toMatchSnapshot();
       expect(disabled).toMatchSnapshot();
@@ -542,12 +539,17 @@ describe("DatePicker", () => {
       expect(screen.getByLabelText(/To/i)).toHaveAttribute("required");
     });
 
+    // Note: Have to add initial dates so that the snapshot tests always
+    // pass. Otherwise, it'll use the _current_ date which changes
+    // based on the day it is tested and is not what we want.
     it("renders the UI snapshot correctly", () => {
       const basic = renderer
         .create(
           <DatePicker
             id="basic"
             labelText="Select the full date you want to visit NYPL"
+            initialDate="1/2/1988"
+            initialDateTo="2/2/1988"
             isDateRange
           />
         )
@@ -558,15 +560,6 @@ describe("DatePicker", () => {
             id="no-label"
             labelText="Select the date you want to visit NYPL"
             showLabel={false}
-            isDateRange
-          />
-        )
-        .toJSON();
-      const withInitDate = renderer
-        .create(
-          <DatePicker
-            id="init-date"
-            labelText="Select the full date you want to visit NYPL"
             initialDate="1/2/1988"
             initialDateTo="2/2/1988"
             isDateRange
@@ -579,6 +572,8 @@ describe("DatePicker", () => {
             id="custom-format"
             labelText="Select the date you want to visit NYPL"
             dateFormat="yyyy/dd/MM"
+            initialDate="1/2/1988"
+            initialDateTo="2/2/1988"
             isDateRange
           />
         )
@@ -590,6 +585,8 @@ describe("DatePicker", () => {
             labelText="Select the date you want to visit NYPL"
             helperText="Note that the Library may be closed on Sundays."
             invalidText="Please select a valid date."
+            initialDate="1/2/1988"
+            initialDateTo="2/2/1988"
             isInvalid
             isDateRange
           />
@@ -602,6 +599,8 @@ describe("DatePicker", () => {
             labelText="Select the date you want to visit NYPL"
             helperText="Note that the Library may be closed on Sundays."
             invalidText="Please select a valid date."
+            initialDate="1/2/1988"
+            initialDateTo="2/2/1988"
             isDisabled
             isDateRange
           />
@@ -609,7 +608,6 @@ describe("DatePicker", () => {
         .toJSON();
       expect(basic).toMatchSnapshot();
       expect(withoutLabel).toMatchSnapshot();
-      expect(withInitDate).toMatchSnapshot();
       expect(withCustomFormat).toMatchSnapshot();
       expect(invalid).toMatchSnapshot();
       expect(disabled).toMatchSnapshot();
