@@ -38,6 +38,9 @@ We recommend to read Chakra's own [documentation](https://chakra-ui.com/docs/get
 to get up to speed on it. This file will provide information on how it is used
 in the DS but we rely on Chakra's documentation.
 
+If you need help updating to a newer version of the NYPL Design System, check out
+our [Chakra Migration Guide](https://github.com/NYPL/nypl-design-system/blob/development/CHAKRA_MIGRATION_GUIDE.md).
+
 ## DSProvider
 
 In order to use DS components in a consuming application, there is a necessary
@@ -155,6 +158,9 @@ Component Styling Object](#anatomy-of-a-component-styling-object) section).
 Some components are directly exported from Chakra. These components can be found
 in the `/src/index.ts` file. Note that not _all_ Chakra components are re-exported
 because we want to limit what developers should use in consuming applications.
+They include:
+
+- `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`
 
 Note: These components are harder to have snapshot tests for because, internally,
 these components autogenerate ids and class names on every new render. We can't
