@@ -145,7 +145,8 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const styles = useMultiStyleConfig("Tabs", {});
   // Just an estimate of the tab width for the mobile carousel.
   const initTabWidth = 65;
-  const mobileTabWidth = 40;
+  // An estimate for the tab width for larger device widths.
+  const mediumTabWidth = 40;
   const [tabWidth, setTabWidth] = React.useState(initTabWidth);
   const windowDimensions = useWindowSize();
   const { tabs, panels } = contentData
@@ -161,7 +162,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   );
   React.useEffect(() => {
     if (windowDimensions.width > 320) {
-      setTabWidth(mobileTabWidth);
+      setTabWidth(mediumTabWidth);
     } else {
       setTabWidth(initTabWidth);
     }
@@ -214,10 +215,10 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   return (
     <ChakraTabs
       id={id}
-      // The following lazy loads each panel whenever it is needed.
       onChange={onChange}
       defaultIndex={defaultIndex}
       variant="enclosed"
+      // The following lazy loads each panel whenever it is needed.
       isLazy
     >
       <Box
