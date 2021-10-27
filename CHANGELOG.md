@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `VideoPlayer` component with Chakra.
 - Composes the DS `HorizontalRule` component with Chakra.
 - Composes the DS `List` component with Chakra.
+- Adds `useWindowSize` hook for responsive styles and functionality.
 
 ### Changes
 

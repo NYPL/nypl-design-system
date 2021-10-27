@@ -90,6 +90,34 @@ describe("useCarouselStyles hook", () => {
     });
   });
 
+  it("resets the slide back to the first slide", () => {
+    // Mocking we have an array of five slides.
+    const slides = [1, 2, 3, 4, 5];
+    const { result } = renderHook(() => useCarouselStyles(slides.length));
+    const { nextSlide, goToStart } = result.current;
+
+    // Start at the first slide.
+    expect(result.current.carouselStyle).toEqual({
+      marginLeft: "-0%",
+      transition: "all .5s",
+    });
+
+    // Move on to the third slide.
+    act(() => nextSlide());
+    act(() => nextSlide());
+    act(() => nextSlide());
+    expect(result.current.carouselStyle).toEqual({
+      marginLeft: "-300%",
+      transition: "all .5s",
+    });
+
+    act(() => goToStart());
+    expect(result.current.carouselStyle).toEqual({
+      marginLeft: "-0%",
+      transition: "all .5s",
+    });
+  });
+
   it("can set a custom slide count and slide width", () => {
     const slides = [1, 2, 3];
     const slideWidth = 50;
