@@ -61,7 +61,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   const headingStyles = styles.heading;
   // We want to add `Hero`-specific styling to the `Heading` component.
   const finalHeading =
-    heading && React.cloneElement(heading, { sx: headingStyles });
+    heading && React.cloneElement(heading, { additionalStyles: headingStyles });
   let backgroundImageStyle = {};
   let contentBoxStyling = {};
 
