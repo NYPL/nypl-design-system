@@ -2,7 +2,7 @@
 
 The first Design System (DS) version that includes the Chakra UI library is version `0.25.0`. This guide is meant for those who are using a version less than `0.25.0` and want to migrate to a version greater than or equal to `0.25.0`. If you're importing the latest DS version, this guide will also help!
 
-If you rather read documentation on the Design System's internal use of Chakra, check the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
+If you would rather read documentation on the Design System's internal use of Chakra, check the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
 
 - [MDX format](/src/docs/Chakra.stories.mdx)
 - [Storybook page](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page)
@@ -42,7 +42,7 @@ In previous iterations, components could be used by importing them directly into
 import { Button } from "@nypl/design-system-react-components";
 ```
 
-The NYPL theme needs to be initialized in your application at the root level in order for styles to be rendered correctly. At the root level of your application, import the `DSProvider` wrapper component and render your application inside of it.
+Starting with the "Phase 1" release, the NYPL DS theme needs to be initialized in your application in order for styles to be rendered correctly. At the root level of your application, import the `DSProvider` wrapper component and render your application inside of it.
 
 ```tsx
 import { DSProvider } from "@nypl/design-system-react-components";
