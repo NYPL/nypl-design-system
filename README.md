@@ -6,6 +6,8 @@
 
 The NYPL Design System (DS) is NYPL’s open-source extensible React library for products and experiences with the accessibility as its foundation. It ships functional, stateless components with consistent NYPL styling. You can learn more about the project and its goals [on the project's wiki](https://github.com/NYPL/nypl-design-system/wiki).
 
+_Note: This library is still in beta. Until we release the stable `1.0.0` version, we are loosely using semantic versioning._
+
 Storybook documentation
 
 - [Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page)
@@ -108,7 +110,43 @@ $ npm install @nypl/design-system-react-components
 @import "~@nypl/design-system-react-components/dist/styles.css";
 ```
 
-3. Consult Storybook for the list of available components and props that they require.
+3. Add the `nypl-ds` CSS class
+
+Some CSS rules in the Design System, such as the universal focus styling and the box-model, are namespaced to the `.nypl-ds` class. To include those in your app, add `.nypl-ds` to whichever wrapper tag makes sense in your application (e.g., `<div class="app">` or `<div class="container">`).
+
+```jsx
+<div class="app nypl-ds">
+  <!-- your code here -->
+</div>
+```
+
+4. Import the `DSProvider` component
+
+In order to use DS components in a consuming application, there is a necessary step that must be done for component styles to properly render. Consuming applications need to wrap all the DS components with a simple provider component. Fortunately, this only needs to be done once at the top level of the consuming application.
+
+Once the following is completed, DS components that internally use Chakra UI will render styles properly.
+
+```jsx
+// your main application file
+import { DSProvider } from "@nypl/design-system-react-components";
+
+// ...
+const ApplicationContainer = (props) => {
+  // ...
+  return (
+    <DSProvider>
+      <div className="my-app nypl-ds">
+        // ...
+        {children}
+      </div>
+    </DSProvider>
+  );
+};
+```
+
+5. Use DS components!
+
+Consult Storybook for the list of available components and props that they require.
 
 Here's an example with the `Link` component:
 
@@ -135,41 +173,9 @@ function NewComponent(props) {
 }
 ```
 
-Some CSS rules in the Design System, such as the universal focus styling and the box-model, are namespaced to the `.nypl-ds` class. To include those in your app, add `.nypl-ds` to whichever wrapper tag makes sense in your application (e.g., `<div class="app">` or `<div class="container">`).
-
-```jsx
-<div class="app nypl-ds">
-  <!-- your code here -->
-</div>
-```
-
-4. Import the `DSProvider` component
-
-While the Chakra UI integration into the DS is a work-in-progress, there is one necessary step consuming applications need to take for component styles to properly render. In order render styles properly, consuming applications need to wrap all the DS components with a simple provider component. Fortunately, this only needs to be done once at the top level of the consuming application.
-
-Once the following is completed, DS components that internally use Chakra UI will render styles properly.
-
-```jsx
-// your main application file
-import { DSProvider } from "@nypl/design-system-react-components";
-
-// ...
-const ApplicationContainer = (props) => {
-  // ...
-  return (
-    <DSProvider>
-      <div className="my-app nypl-ds">
-        // ...
-        {children}
-      </div>
-    </DSProvider>
-  );
-};
-```
-
 ### NYPL DS, NYPL Header, and NYPL Footer
 
-Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds` wrapper class.
+Please note that, if used, the NYPL Header and Footer components should be _outside_ of the `.nypl-ds` wrapper class.
 
 ```jsx
 <body>
@@ -185,13 +191,18 @@ Please note that the NYPL Header and Footer should be _outside_ of the `.nypl-ds
 
 ## Using Chakra UI Components
 
-The Chakra UI component library is integrated into the NYPL Design System and is currently a work-in-progress. We
-are in the middle of the process of using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
+The Chakra UI component library has been integrated into the NYPL Design System. We are still progressing towards using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
 
-The list of re-exported Chakra components can be found in the main
-[index.ts](/index.ts) file.
+The list of re-exported Chakra components can be found in the main [index.ts](/src/index.ts) file. They include:
 
-Find more information about the Design System's use of [Chakra](/src/docs/Chakra.stories.mdx).
+- `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`
+
+Find more information about the Design System's internal use of Chakra to create and refactor components in the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
+
+- [MDX format](/src/docs/Chakra.stories.mdx)
+- [Storybook page](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page)
+
+Chakra was integrated into the Design System in version `0.25.0`. For those looking to update to a version greater than or equal `0.25.0`, check out our [Chakra Migration Guide](/CHAKRA_MIGRATION_GUIDE.md).
 
 ## CDN
 
@@ -308,7 +319,7 @@ The NYPL DS implements snapshot testing with `react-test-renderer` and `jest`. U
 
 The `react-test-renderer` package, will create a directory and a file to hold `.snap` files after a unit test is created. Using the `Notification` component as an example, this is the basic layout for a snapshot test:
 
-```jsx
+```tsx
 import renderer from "react-test-renderer";
 
 // ...
@@ -329,7 +340,7 @@ it("Renders the UI snapshot correctly", () => {
 
 If this is a new test and we run `npm test`, a [`/__snapshots__/Notification.test.tsx.snap`](/src/components/Notification/__snapshots__/Notification.test.tsx.snap) file is created. This holds the DOM structure as well as any inline CSS that was added.
 
-```jsx
+```tsx
 exports[`Notification Snapshot Renders the UI snapshot correctly 1`] = `
 <aside
   className="notification notification--standard "

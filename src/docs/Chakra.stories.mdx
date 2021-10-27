@@ -38,17 +38,21 @@ We recommend to read Chakra's own [documentation](https://chakra-ui.com/docs/get
 to get up to speed on it. This file will provide information on how it is used
 in the DS but we rely on Chakra's documentation.
 
+If you need help updating to a newer version of the NYPL Design System, check out
+our [Chakra Migration Guide](https://github.com/NYPL/nypl-design-system/blob/development/CHAKRA_MIGRATION_GUIDE.md).
+
 ## DSProvider
 
-While the Chakra UI integration into the DS is a work-in-progress, there is one
-necessary step consuming applications need to take for component styles to
-properly render. Consuming applications need to wrap all the DS components with
-a simple provider component. Fortunately, this only needs to be done once at
-the top level of the consuming application.
+In order to use DS components in a consuming application, there is a necessary
+step that must be done for component styles to properly render. Consuming
+applications need to wrap all the DS components with a simple provider
+component. Fortunately, this only needs to be done once at the top level of the
+consuming application.
 
 Once the following is completed, DS components that internally use Chakra UI
 will render styles properly. Internally, the `DSProvider` is built on top of
-Chakra's `ChakraProvider` with NYPL's custom theme.
+Chakra's `ChakraProvider` component with NYPL's custom theme as input. This sets
+up the style context to propogate through all the children nodes in the DOM tree.
 
 ```tsx
 // your main application file
@@ -92,12 +96,12 @@ wrap the elements in the `DSProvider` component.
 
 ## Components
 
-The current work-in-progress is to use Chakra components to compose DS
-components that align directly or to compose DS-specific components with Chakra.
-For example, both the DS and Chakra have a `Button` component so we will use
-Chakra's `Button` component to compose the DS `Button` component. However, the
-DS has a `Hero` component that is not already built by Chakra. In this case,
-the DS `Hero` component will internally use `Chakra` components.
+Although Chakra is integrated into the DS repo, we are still working to compose
+DS components with Chakra components or patterns. For example, both the DS and
+Chakra have a `Button` component so we will use Chakra's `Button` component to
+compose the DS `Button` component. However, the DS has a `Hero` component that
+is not already built by Chakra. In this case, the DS `Hero` component will
+internally use `Chakra` components such as `Box`.
 
 ### Components Composed with Chakra
 
@@ -112,7 +116,7 @@ components that internally are composed with Chakra components.
 
 Components built from Chakra rename the component with the `Chakra` name prefix.
 
-```jsx
+```tsx
 import { Tabs as ChakraTabs, useStyleConfig } from "@chakra-ui/react";
 ```
 
@@ -137,12 +141,13 @@ function Tabs(props) {
 
 #### Patterns
 
-The NYPL DS uses the [CSS BEM](http://getbem.com/introduction/) pattern to structure
-and write CSS. We are moving away from this and re-writing SCSS classes into
-Javascript objects that work with Chakra's theme. Instead of creating a variant
-for a component with a class name, now the `type` prop is used. Internally, the
-`type` prop will be mapped to a Chakra theme variant that will provide all the
-necessary styles.
+The NYPL DS uses the [CSS BEM](http://getbem.com/introduction/) pattern to
+structure and write CSS, but it is slowly being phased out. We are moving away
+from this and re-writing SCSS classes into Javascript objects that work with
+Chakra's theme. Instead of creating a variant for a component with a class name,
+now different props or internal logic are used to get the appropriate variant.
+Internally, the right variant will be mapped to a Chakra theme variant that will
+provide all the necessary styles.
 
 For the `Button` component, for example, we would convert a SCSS class rule such
 as `.button-outline` to a Javascript object (more on this in the [Anatomy of a
@@ -153,22 +158,29 @@ Component Styling Object](#anatomy-of-a-component-styling-object) section).
 Some components are directly exported from Chakra. These components can be found
 in the `/src/index.ts` file. Note that not _all_ Chakra components are re-exported
 because we want to limit what developers should use in consuming applications.
+They include:
+
+- `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`
 
 Note: These components are harder to have snapshot tests for because, internally,
 these components autogenerate ids and class names on every new render. We can't
 override them so snapshot tests will fail.
 
+Update: Newer Chakra UI versions have mostly fixed this issue. Still, since
+Chakra components have already been tested, we don't necessarily want or need
+to test them ourselves.
+
 ## Styling
 
 As mentioned in the [Components composed with Chakra](#components-composed-with-chakra)
-section, we are moving away from using the BEM structure to using Javascript objects
-to extend Chakra's theme.
+section, we are moving away from using the BEM structure to using Javascript
+objects to extend Chakra's theme.
 
 The NYPL DS' theme file can be found at `src/theme/index.ts`. This creates a new
 theme that extends Chakra's theme and is set in the `DSProvider` component. Note
 that the example below is the general structure of the `theme` object but the DS
 `theme` object has values already set so it may look different. You would generally
-only work and add new object values in the `components` attribute for new
+only work and add new object values in the `components` obejct key for new
 components and their theme or variants.
 
 ```ts
@@ -222,7 +234,7 @@ the `variants` object as in the following example.
 ```
 
 ```ts
-// Button.ts
+// button.ts
 const Button = {
   baseStyle: { ... },
   sizes: { ... },
@@ -244,13 +256,82 @@ const Button = {
 
 Now this variant can be rendered:
 
-```jsx
+```tsx
 <Button buttonType={ButtonTypes.Secondary}>Press me</Button>
 ```
 
 ### Breakpoints
 
-TODO:
+There are currently five (5) breakpoint values used in the DS:
+
+| Key Name | EM/PX value |
+| -------- | ----------- |
+| sm       | 20em/320px  |
+| md       | 38em/600px  |
+| lg       | 60em/960px  |
+| xl       | 80em/1280px |
+| 2xl      | 96em/1536px |
+
+There are two ways to set breakpoint values for a style rule: the array method
+and the object method. We prefer the object method and recommend to use the
+object method since it is easier to read and readily know what values take
+effect at defined breakpoint values. Note that the Chakra `"base"` key value is
+the same as `"sm"`.
+
+#### Object Method
+
+We recommend and follow this pattern in the DS. As an example, let's say we want
+to increase the width of the `Button` component as the device width increases.
+We start at value "100px" and increase by "50px" at every breakpoint. In the
+`button.ts` style file, we can define it as in the example below:
+
+```ts
+// button.ts
+const Button = {
+  baseStyle: {
+    width: {
+      base: "100px",
+      md: "150px",
+      lg: "200px",
+      xl: "250px",
+      "2xl": "300px",
+    },
+  },
+  // ...
+};
+```
+
+You do not have to define every breakpoint. If you only want to change the width
+of the `Button` at the `lg` breakpoint, it can be defined as:
+
+```ts
+// button.ts
+const Button = {
+  baseStyle: {
+    width: {
+      base: "100px",
+      lg: "200px",
+    },
+  },
+  // ...
+};
+```
+
+#### Array Method
+
+We do not recommend this pattern because it is harder to read and implicit on
+breakpoint values. Following the same example as the one above, the width of the
+`Button` component can be updated wiht all five values in an array:
+
+```ts
+// button.ts
+const Button = {
+  baseStyle: {
+    width: ["100px", "150px", "200px", "250px", "300px"],
+  },
+  // ...
+};
+```
 
 ### Colors
 
