@@ -15,6 +15,7 @@ import Icon from "../Icons/Icon";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Button from "../Button/Button";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
+import useWindowSize from "../../hooks/useWindowSize";
 
 // The general shape of the data object for each Tab.
 export interface TabsContentDataProps {
@@ -62,7 +63,6 @@ const getElementsFromContentData = (data, useHash) => {
         "needed, consider other navigational patterns."
     );
   }
-
   data.map((tab, index) => {
     let tempPanel;
     // For URL hash enabled tabs, we need to add a custom `onClick` to handle the URL hash.
@@ -143,6 +143,12 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
     useHash = false,
   } = props;
   const styles = useMultiStyleConfig("Tabs", {});
+  // Just an estimate of the tab width for the mobile carousel.
+  const initTabWidth = 65;
+  // An estimate for the tab width for larger device widths.
+  const mediumTabWidth = 40;
+  const [tabWidth, setTabWidth] = React.useState(initTabWidth);
+  const windowDimensions = useWindowSize();
   const { tabs, panels } = contentData
     ? getElementsFromContentData(contentData, useHash)
     : getElementsFromChildren(children);
@@ -150,12 +156,21 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   // the `contentData` prop approach. We need to get the right props key value
   // to set the carousel's length.
   const tabProps = tabs[0] ? tabs[0]?.props : (tabs as any).props;
-  // Just an estimate of the tab width for the mobile carousel.
-  const tabWidth = 60;
-  const { prevSlide, nextSlide, carouselStyle } = useCarouselStyles(
+  const { prevSlide, nextSlide, carouselStyle, goToStart } = useCarouselStyles(
     tabProps?.children?.length,
     tabWidth
   );
+  React.useEffect(() => {
+    if (windowDimensions.width > 320) {
+      setTabWidth(mediumTabWidth);
+    } else {
+      setTabWidth(initTabWidth);
+    }
+    // If we are on larger viewports, reset the carousel so all tabs display.
+    if (windowDimensions.width > 600) {
+      goToStart();
+    }
+  }, [windowDimensions.width]);
   const previousButton = (
     <Button
       buttonType={ButtonTypes.Primary}
@@ -200,11 +215,11 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   return (
     <ChakraTabs
       id={id}
-      // The following lazy loads each panel whenever it is needed.
-      isLazy
       onChange={onChange}
       defaultIndex={defaultIndex}
       variant="enclosed"
+      // The following lazy loads each panel whenever it is needed.
+      isLazy
     >
       <Box
         __css={styles.tablistWrapper}
