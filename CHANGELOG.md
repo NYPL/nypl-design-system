@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the ability to make an entire `Card` component clickable with Chakra's `LinkBox` and `LinkOverlay` components.
+
 ## 0.25.2 (October 28, 2021)
 
 ### Adds
