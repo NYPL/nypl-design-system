@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.2 (October 28, 2021)
+
 ### Adds
 
 - Adds custom `useCarouselStyles` hook for the `Tabs` mobile carousel functionality.
@@ -63,7 +65,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates font size of the `legend` element used in `CheckboxGroup`, `DatePicker` and `RadioGroup`.
 - Updates the radius values through Chakra's theme object.
 
-## 0.25.0
+## 0.25.0 (September 30, 2021)
 
 ### Breaking Changes
 
