@@ -10,7 +10,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `ImageRatios`, `ImageSizes`, and `ImageTypes` enums.
 - Adds the ability to make an entire `Card` component clickable with Chakra's `LinkBox` and `LinkOverlay` components.
+
+### Breaking Changes
+
+- Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
+- Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
 
 ## 0.25.2 (October 28, 2021)
 
@@ -37,8 +43,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `VideoPlayer` component with Chakra. BEM related prop `modifiers` has been removed.
 - Composes the DS `HorizontalRule` component with Chakra. BEM related prop `modifiers` has been removed, as well as the `attributes` prop.
 - Composes the DS `List` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. The `noStyling` prop is now used for the no list style variant style.
-- Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed.
-- Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed.
 
 ## 0.25.1 (October 14, 2021)
 
