@@ -12,6 +12,10 @@ import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
+import Text from "../Text/Text";
+import { TextDisplaySizes } from "../Text/TextTypes";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Typography")}
@@ -27,36 +31,42 @@ import List from "../List/List";
 
 # Typography
 
+| Table of Contents                              |
+| ---------------------------------------------- |
+| 1. [General Information](#general-information) |
+| 2. [Heading Component](#heading-component)     |
+| 3. [Text Component](#text-component)           |
+| 4. [Font Family](#font-family)                 |
+| 5. [Font Color](#font-color)                   |
+| 6. [Font Weight](#font-weight)                 |
+| 7. [Font Sizes](#font-sizes)                   |
+| 8. [Text Case](#text-case)                     |
+| 9. [Character Count](#character-count)         |
+| 10. [Figma Reference](#figma-reference)        |
+
+## General Information
+
 Consuming applications should utilize the DS standard text components as much as possible. In cases where that is not possible, the DS exposes CSS variables to assist with formatting text elements.
 
 The sizing of all text elements in the Design System is based on `1rem` being equal to `16px`.
 
-## Style Guide Topics
+## Heading Component
 
-- [Standard Text Component](#standard-text-components)
-- [Font Family](#font-family)
-- [Font Color](#font-color)
-- [Font Weight](#font-weight)
-- [Font Sizes](#font-sizes)
-- [Text Case](#text-case)
-- [Character Count](#character-count)
+Use the NYPL Design System [Heading](/docs/components-typography-styles-heading--heading-props) component to render a standard HTML `<h>` tag. The `level` prop can be used to set the specific `<h>` tag that you require.
 
-## Standard Text Components
-
-### Headings
-
-Use the NYPL Design System [Heading](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/heading--basic) component to render a standard HTML `<h>` tag. The `level` prop can be used to set the specific `<h>` tag that you require.
-
-<Preview>
-  <>
+<Canvas>
+  <DSProvider>
     <Heading level={HeadingLevels.One}>Heading Level 1</Heading>
     <Heading level={HeadingLevels.Two}>Heading Level 2</Heading>
     <Heading level={HeadingLevels.Three}>Heading Level 3</Heading>
     <Heading level={HeadingLevels.Four}>Heading Level 4</Heading>
-  </>
-</Preview>
+  </DSProvider>
+</Canvas>
 
 #### Heading Display Sizes
+
+<DSProvider>
+
 
 Each heading level has a default style and size, but those styles can be overridden using the `displaySize` prop. The display sizes are separate from semantic elements and may be used to override the default size and styling of the semantic HTML heading elements. For example, the `h1` element has the `Primary` style applied by default, but a new style can be applied through the `displaySize` prop. Any `displaySize` style can be applied to any `Heading` element.
 
@@ -64,126 +74,120 @@ Each heading level has a default style and size, but those styles can be overrid
   Primary Heading
 </Heading>
 
-| CSS Attribute | Value     | CSS Variable          |
-| ------------- | --------- | --------------------- |
-| `font-size`   | `2.25rem` | `--font-size-4`       |
-| `font-weight` | `300`     | `--font-weight-light` |
-| `line-height` | `1.1`     | n/a                   |
+| CSS Attribute | Value     | CSS Variable               |
+| ------------- | --------- | -------------------------- |
+| `font-size`   | `2.25rem` | `--nypl-fontSizes-4`       |
+| `font-weight` | `300`     | `--nypl-fontWeights-light` |
+| `line-height` | `1.1`     | n/a                        |
 
 <Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Secondary}>
   Secondary Heading
 </Heading>
 
-| CSS Attribute | Value     | CSS Variable           |
-| ------------- | --------- | ---------------------- |
-| `font-size`   | `1.75rem` | `--font-size-3`        |
-| `font-weight` | `500`     | `--font-weight-medium` |
-| `line-height` | `1.25`    | n/a                    |
+| CSS Attribute | Value     | CSS Variable                |
+| ------------- | --------- | --------------------------- |
+| `font-size`   | `1.75rem` | `--nypl-fontSizes-3`        |
+| `font-weight` | `500`     | `--nypl-fontWeights-medium` |
+| `line-height` | `1.25`    | n/a                         |
 
 <Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Tertiary}>
   Tertiary Heading
 </Heading>
 
-| CSS Attribute | Value      | CSS Variable           |
-| ------------- | ---------- | ---------------------- |
-| `font-size`   | `1.375rem` | `--font-size-2`        |
-| `font-weight` | `500`      | `--font-weight-medium` |
-| `line-height` | `1.25`     | n/a                    |
+| CSS Attribute | Value      | CSS Variable                |
+| ------------- | ---------- | --------------------------- |
+| `font-size`   | `1.375rem` | `--nypl-fontSizes-2`        |
+| `font-weight` | `500`      | `--nypl-fontWeights-medium` |
+| `line-height` | `1.25`     | n/a                         |
 
 <Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Callout}>
   Callout Heading
 </Heading>
 
-| CSS Attribute | Value     | CSS Variable            |
-| ------------- | --------- | ----------------------- |
-| `font-size`   | `1.25rem` | `--font-size-1`         |
-| `font-weight` | `400`     | `--font-weight-regular` |
-| `line-height` | `1.25`    | n/a                     |
+| CSS Attribute | Value     | CSS Variable                 |
+| ------------- | --------- | ---------------------------- |
+| `font-size`   | `1.25rem` | `--nypl-fontSizes-1`         |
+| `font-weight` | `400`     | `--nypl-fontWeights-regular` |
+| `line-height` | `1.25`    | n/a                          |
 
-### Body Text
+</DSProvider>
 
-Use the NYPL Design System `Text` component to render a standard HTML `<p>` tag. The Text component is generally used for body copy, captions and secondary captions.
 
-<Preview>
-  <p>
-    Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet
-    fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
-    faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac,
-    vestibulum at eros.
-  </p>
-</Preview>
+## Text Component
 
-#### Body Text Display Sizes
+Use the NYPL Design System [Text](/docs/components-typography-styles-text--text) component to render a standard HTML `<p>` tag. The Text component is generally used for body copy, captions and secondary captions.
+
+<Canvas>
+  <DSProvider>
+    <Text>
+      Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet
+      fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
+      faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac,
+      vestibulum at eros.
+    </Text>
+  </DSProvider>
+</Canvas>
+
+### Text Display Sizes
+
+<DSProvider>
+
 
 The `displaySize` prop can be used to render a specific style from the DS default text styles.
 
 - [Typography: Body Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
 - [Typography: Other Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)
 
-> <p className="text" style={{ color: "black" }}>
->   Body
-> </p>
+<Text displaySize={TextDisplaySizes.Default}>Default</Text>
 
-| CSS Attribute | Value  | CSS Variable          |
-| ------------- | ------ | --------------------- |
-| `font-size`   | `1rem` | `--font-size-0`       |
-| `font-weight` | `300`  | `--font-weight-light` |
-| `line-height` | `1.5`  | n/a                   |
+| CSS Attribute | Value  | CSS Variable               |
+| ------------- | ------ | -------------------------- |
+| `font-size`   | `1rem` | `--nypl-fontSizes-0`       |
+| `font-weight` | `300`  | `--nypl-fontWeights-light` |
+| `line-height` | `1.5`  | n/a                        |
 
-> <p className="text--caption" style={{ color: "black" }}>
->   Caption
-> </p>
+<Text displaySize={TextDisplaySizes.Caption}>Caption</Text>
 
-| CSS Attribute | Value      | CSS Variable          |
-| ------------- | ---------- | --------------------- |
-| `font-size`   | `0.875rem` | `--font-size--1`      |
-| `font-weight` | `300`      | `--font-weight-light` |
-| `line-height` | `1.25`     | n/a                   |
+| CSS Attribute | Value      | CSS Variable               |
+| ------------- | ---------- | -------------------------- |
+| `font-size`   | `0.875rem` | `--nypl-fontSizes--1`      |
+| `font-weight` | `300`      | `--nypl-fontWeights-light` |
+| `line-height` | `1.25`     | n/a                        |
 
-> <p className="text--tag" style={{ color: "black" }}>
->   Tag
-> </p>
+<Text displaySize={TextDisplaySizes.Tag}>Tag</Text>
 
-| CSS Attribute | Value     | CSS Variable            |
-| ------------- | --------- | ----------------------- |
-| `font-size`   | `0.75rem` | `--font-size--2`        |
-| `font-weight` | `400`     | `--font-weight-regular` |
-| `line-height` | `1.5`     | n/a                     |
+| CSS Attribute | Value     | CSS Variable                 |
+| ------------- | --------- | ---------------------------- |
+| `font-size`   | `0.75rem` | `--nypl-fontSizes--2`        |
+| `font-weight` | `400`     | `--nypl-fontWeights-regular` |
+| `line-height` | `1.5`     | n/a                          |
 
-> <p className="text--mini" style={{ color: "black" }}>
->   Mini
-> </p>
+<Text displaySize={TextDisplaySizes.Mini}>Mini</Text>
 
-| CSS Attribute | Value      | CSS Variable            |
-| ------------- | ---------- | ----------------------- |
-| `font-size`   | `0.625rem` | `--font-size--3`        |
-| `font-weight` | `400`      | `--font-weight-regular` |
-| `line-height` | `1.5`      | n/a                     |
+| CSS Attribute | Value      | CSS Variable                 |
+| ------------- | ---------- | ---------------------------- |
+| `font-size`   | `0.625rem` | `--nypl-fontSizes--3`        |
+| `font-weight` | `400`      | `--nypl-fontWeights-regular` |
+| `line-height` | `1.5`      | n/a                          |
 
-> **DISCLAIMER**  
-> The `Text` component is still under development and not available to consuming applications.
+</DSProvider>
+
 
 ## Font Family
 
 With website accessibility in mind, font choices for the DS were made with an eye toward clarity and readability. Headings and body content use the following font family assignment:
 
-<Preview>
-  <p
-    style={{
-      fontSize: "var(--font-size--0)",
-      fontWeight: "var(--font-weight-light)",
-      fontFamily: "var(--typeface-body)",
-    }}
-  >
-    system-ui, sans-serif
-  </p>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <Text>system-ui, sans-serif</Text>
+  </DSProvider>
+</Canvas>
 
 The following CSS variables are available through the DS.
 
 ```
---typeface-heading: system-ui, sans-serif;
---typeface-body: system-ui, sans-serif;
+--nypl-fonts-heading: system-ui, sans-serif;
+--nypl-fonts-body: system-ui, sans-serif;
 ```
 
 > **RECOMMENDATIONS**  
@@ -193,18 +197,18 @@ The following CSS variables are available through the DS.
 
 All text within a project, unless specifically noted in mockups, should be black on a white background.
 
-<Preview>
-  <>
+<Canvas>
+  <DSProvider>
     <Heading level={HeadingLevels.Three}>Default Heading Color</Heading>
-    <p>
+    <Text>
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
       Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
       lacinia odio sem nec elit.
-    </p>
-  </>
-</Preview>
+    </Text>
+  </DSProvider>
+</Canvas>
 
 In cases where specific colors must be applied to text elements, the DS provides CSS variables for the full NYPL color palette. Refer to the [Colors](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/style-guide-colors--colors-brand) section of the Style Guide for details.
 
@@ -212,163 +216,157 @@ In cases where specific colors must be applied to text elements, the DS provides
 
 The DS uses four font weights to render text. The default font-weight is 300.
 
-<Preview>
+<Canvas>
   <>
     <p
       style={{
-        fontSize: "1rem",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "system-ui, sans-serif",
+        fontSize: "var(--nypl-fontSizes-0)",
+        fontWeight: "var(--nypl-fontWeights-light)",
+        fontFamily: "var(--nypl-fonts-body)",
       }}
     >
       Light / 300
     </p>
     <p
       style={{
-        fontSize: "1rem",
-        fontWeight: "var(--font-weight-regular)",
-        fontFamily: "system-ui, sans-serif",
+        fontSize: "var(--nypl-fontSizes-0)",
+        fontWeight: "var(--nypl-fontWeights-regular)",
+        fontFamily: "var(--nypl-fonts-body)",
       }}
     >
       Regular / 400
     </p>
     <p
       style={{
-        fontSize: "1rem",
-        fontWeight: "var(--font-weight-medium)",
-        fontFamily: "system-ui, sans-serif",
+        fontSize: "var(--nypl-fontSizes-0)",
+        fontWeight: "var(--nypl-fontWeights-medium)",
+        fontFamily: "var(--nypl-fonts-body)",
       }}
     >
       Medium / 500
     </p>
     <p
       style={{
-        fontSize: "1rem",
-        fontWeight: "var(--font-weight-bold)",
-        fontFamily: "system-ui, sans-serif",
+        fontSize: "var(--nypl-fontSizes-0)",
+        fontWeight: "var(--nypl-fontWeights-bold)",
+        fontFamily: "var(--nypl-fonts-body)",
       }}
     >
       Bold / 700
     </p>
   </>
-</Preview>
+</Canvas>
 
 The following CSS variables are available through the DS.
 
 ```
---font-weight-light: 300; /* default */
---font-weight-regular: 400;
---font-weight-medium: 500;
---font-weight-bold: 700;
+--nypl-fontWeights-light: 300; /* default */
+--nypl-fontWeights-regular: 400;
+--nypl-fontWeights-medium: 500;
+--nypl-fontWeights-bold: 700;
 ```
 
 ## Font Sizes
 
 Font sizing is based on a root font size of 16px (1rem = 16px).
 
-<Preview>
+<Canvas>
   <>
     <p
       style={{
-        fontSize: "var(--font-size--3)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
+        fontSize: "var(--nypl-fontSizes--3)",
+        fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
       Font size -3
     </p>
     <p
       style={{
-        fontSize: "var(--font-size--2)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
+        fontSize: "var(--nypl-fontSizes--2)",
+        fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
       Font size -2
     </p>
     <p
       style={{
-        fontSize: "var(--font-size--1)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
+        fontSize: "var(--nypl-fontSizes--1)",
+        fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
       Font size -1
     </p>
     <p
       style={{
-        fontSize: "var(--font-size--0)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
+        fontSize: "var(--nypl-fontSizes-0)",
+        fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
       Font size 0
     </p>
     <p
       style={{
-        fontSize: "var(--font-size-1)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
+        fontSize: "var(--nypl-fontSizes-1)",
+        fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
       Font size 1
     </p>
     <p
       style={{
-        fontSize: "var(--font-size-2)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
+        fontSize: "var(--nypl-fontSizes-2)",
+        fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
       Font size 2
     </p>
     <p
       style={{
-        fontSize: "var(--font-size-3)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
+        fontSize: "var(--nypl-fontSizes-3)",
+        fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
       Font size 3
     </p>
     <p
       style={{
-        fontSize: "var(--font-size-4)",
-        fontWeight: "var(--font-weight-light)",
-        fontFamily: "var(--typeface-body)",
+        fontSize: "var(--nypl-fontSizes-4)",
+        fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
       Font size 4
     </p>
   </>
-</Preview>
+</Canvas>
 
 The following CSS variables are available through the DS.
 
 ```
---font-size--3: 0.625rem;
---font-size--2: 0.75rem;
---font-size--1: 0.875rem;
---font-size-0: 1rem; /* default */
---font-size-1: 1.125rem;
---font-size-2: 1.375rem;
---font-size-3: 1.75rem;
---font-size-4: 2.25rem;
+--nypl-fontSizes--3: 0.625rem;
+--nypl-fontSizes--2: 0.75rem;
+--nypl-fontSizes--1: 0.875rem;
+--nypl-fontSizes-0: 1rem; /* default */
+--nypl-fontSizes-1: 1.125rem;
+--nypl-fontSizes-2: 1.375rem;
+--nypl-fontSizes-3: 1.75rem;
+--nypl-fontSizes-4: 2.25rem;
 ```
 
 ## Text Case
 
 In general, the New York Public Library uses Title Case for titles. This means only using capital letters for the principal words. Articles, conjunctions, and prepositions do not get capital letters unless they start the title. For example:
 
-<Preview>
-  <ul>
-    <li>Snow White and the Seven Dwarfs</li>
-    <li>The Last of the Mohicans</li>
-    <li>Spooky Books for Kids: The Ultimate Creepy Guide</li>
-    <li>The Future Teen Stars of America Live on TikTok</li>
-    <li>How Jacqueline Woodson Captures Every Side of Brooklyn</li>
-  </ul>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <List type={ListTypes.Unordered}>
+      <li>Snow White and the Seven Dwarfs</li>
+      <li>The Last of the Mohicans</li>
+      <li>Spooky Books for Kids: The Ultimate Creepy Guide</li>
+      <li>The Future Teen Stars of America Live on TikTok</li>
+      <li>How Jacqueline Woodson Captures Every Side of Brooklyn</li>
+    </List>
+  </DSProvider>
+</Canvas>
 
 ## Character Count
 
@@ -376,32 +374,47 @@ In general, the New York Public Library uses Title Case for titles. This means o
 
 80 characters max, 60 characters recommended
 
-<Preview>
-  <Heading level={HeadingLevels.Four}>
-    This is a Long Title to Show What 58 Characters Looks Like
-  </Heading>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <Heading level={HeadingLevels.Three}>
+      This is a Long Title to Show What 58 Characters Looks Like
+    </Heading>
+  </DSProvider>
+</Canvas>
 
 ### Summaries
 
 140 characters max<br />
 Note: Online Exhibitions, with their longer, legacy summaries are an exception to this.
 
-<Preview>
-  <p>
-    This block of text shows what 140 chacters and spaces looks like. Integer
-    posuere erat a ante venenatis dapibus posueret aliquet nullas non.
-  </p>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <Text>
+      This block of text shows what 140 chacters and spaces looks like. Integer
+      posuere erat a ante venenatis dapibus posueret aliquet nullas non.
+    </Text>
+  </DSProvider>
+</Canvas>
 
 ### Page Intros
 
 No max character count, 200 characters recommended
 
-<Preview>
-  <p>
-    This block of text shows what 200 chacters and spaces looks like. Integer
-    posuere erat a ante venenatis dapibus posueret aliquet nullas non. Aenean eu
-    leo quam. Pellentesque ornare sem quam venenatis.
-  </p>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <Text>
+      This block of text shows what 200 chacters and spaces looks like. Integer
+      posuere erat a ante venenatis dapibus posueret aliquet nullas non. Aenean
+      eu leo quam. Pellentesque ornare sem quam venenatis.
+    </Text>
+  </DSProvider>
+</Canvas>
+
+## Figma Reference
+
+For additional spacing information, please refer to the Figma Main file.
+
+- [Typeface](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A0)
+- [Heading Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A16)
+- [Text Styles (Part 1)](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
+- [Text Styles (Part 2)](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)

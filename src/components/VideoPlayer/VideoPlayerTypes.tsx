@@ -4,7 +4,7 @@ export enum VideoPlayerTypes {
 }
 
 export enum VideoPlayerAspectRatios {
-  FourByThree = "four-by-three",
-  SixteenByNine = "sixteen-by-nine",
+  FourByThree = "fourByThree",
+  SixteenByNine = "sixteenByNine",
   Square = "square",
 }

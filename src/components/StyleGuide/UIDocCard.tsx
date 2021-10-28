@@ -21,7 +21,7 @@ export default function UIDocCard(
         style={{
           alignItems: "center",
           backgroundColor: backgroundColor,
-          borderBottom: "1px solid var(--ui-gray-light-cool)",
+          borderBottom: "1px solid var(--nypl-colors-ui-gray-light-cool)",
           color: "white",
           display: "flex",
           height: "100px",

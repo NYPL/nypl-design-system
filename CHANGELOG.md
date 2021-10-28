@@ -8,6 +8,32 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.2 (October 28, 2021)
+
+### Adds
+
+- Adds custom `useCarouselStyles` hook for the `Tabs` mobile carousel functionality.
+- Adds custom NYPL-theme radii values to use within Chakra, mostly for border radius values.
+- Adds the `showHelperInvalidText` prop to form components to control displaying or hiding the content in the `HelperErrorText` component.
+- Adds `useNYPLTheme` hook for consuming applications to use NYPL DS values.
+- Adds the DS `ComponentWrapper` helper component for internal use.
+- Adds `useWindowSize` hook for responsive styles and functionality.
+- Adds Chakra Migration Guide for version `0.25.0` and greater.
+
+### Changes
+
+- Updates the CSS vars name prefix to use `nypl`.
+- Updates documentation in the README and updates the issue contribution template.
+- Updates the following components to use the `showHelperInvalidText` prop: `Checkbox`, `CheckboxGroup`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `TextInput`, `VideoPlayer`.
+
+### Breaking Changes
+
+- Composes the DS `Notification` component with Chakra components. Removes the `NotificationHeading` and `NotificationContent` components as exports and are only used internally in `Notification`. Instead of children component, `Notification` accepts the heading and content values through the `notificationHeading` and `notificationContent` props, respectively.
+- Composes the DS `HelperErrorText` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. The `isError` prop has been renamed to `isInvalid`.
+- Composes the DS `VideoPlayer` component with Chakra. BEM related prop `modifiers` has been removed.
+- Composes the DS `HorizontalRule` component with Chakra. BEM related prop `modifiers` has been removed, as well as the `attributes` prop.
+- Composes the DS `List` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. The `noStyling` prop is now used for the no list style variant style.
+
 ## 0.25.1 (October 14, 2021)
 
 ### Adds
@@ -37,8 +63,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SkeletonLoaderLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
 - Updates the `CardLayouts` enum values from `Horizontal` and `Vertical` to `Row` and `Column`, respectively.
 - Updates font size of the `legend` element used in `CheckboxGroup`, `DatePicker` and `RadioGroup`.
+- Updates the radius values through Chakra's theme object.
 
-## 0.25.0
+## 0.25.0 (September 30, 2021)
 
 ### Breaking Changes
 

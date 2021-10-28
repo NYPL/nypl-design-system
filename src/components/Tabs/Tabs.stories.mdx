@@ -70,12 +70,20 @@ export const animalCrossing = [
   {
     label: "Mr. Resetti",
     content:
-      "<strong>Mr. Resetti</strong>, full name Sonny Resetti, is a fictional character from the Animal Crossing series of video games by Nintendo. His first appearance was in the Nintendo 64 game Dōbutsu no Mori, released in Europe and North America on the GameCube as Animal Crossing.",
+      "<strong>Mr. Resetti</strong>, full name Sonny Resetti, is a fictional " +
+      "character from the Animal Crossing series of video games by Nintendo. " +
+      "His first appearance was in the Nintendo 64 game Dōbutsu no Mori, " +
+      "released in Europe and North America on the GameCube as Animal Crossing.",
   },
   {
     label: "Zucker",
     content:
-      "<strong>Zucker</strong> is a lazy octopus villager who first appeared in New Leaf. His Japanese name and general appearance refers to the Japanese snack takoyaki, which is a fried ball of dough commonly filled with minced octopus. His catchphrase is a reference to how he is an underwater animal. He has the same initial phrase as Bertha. He has the nature hobby.",
+      "<strong>Zucker</strong> is a lazy octopus villager who first appeared " +
+      "in New Leaf. His Japanese name and general appearance refers to the " +
+      "Japanese snack takoyaki, which is a fried ball of dough commonly " +
+      "filled with minced octopus. His catchphrase is a reference to how he " +
+      "is an underwater animal. He has the same initial phrase as Bertha. He " +
+      "has the nature hobby.",
   },
 ];
 
@@ -100,8 +108,13 @@ _Note: this is the recommended approach._
 
 We recommended passing in the data for the `Tabs` component through the `data`
 prop. This allows the consumer to pass in well-formed data and always generate
-the correct DOM. Internally in the DS `Tabs` component, we map through the data
-array and generate the appropriate components needed for the layout.
+the correct DOM.
+
+Internally in the DS `Tabs` component:
+
+- we map through the data array and generate the appropriate components needed
+  for the layout.
+- adds the carousel feature for the mobile view.
 
 Note that HTML is allowed in the `content` property in each object as part of the
 string or as straight HTML.
@@ -122,11 +135,35 @@ const animalCrossing = [
     content:
       "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is ...",
   },
+  {
+    label: "Mr. Resetti",
+    content:
+      "<strong>Mr. Resetti</strong>, full name Sonny Resetti, is a ...",
+  },
+  {
+    label: "Zucker",
+    content:
+      "<strong>Zucker</strong> is a lazy octopus villager who first ...",
+  },
 ];
 
 // ...
 <Tabs contentData={animalCrossing} />;
 ```
+
+## Responsive Mobile Carousel
+
+For both, the `contentData` prop approach and the children component approach
+(described below in this document), the mobile carousel feature is built. This
+adds "previous" and "next" arrows in the tab list for users to scroll through
+all the tabs while the panel stays static.
+
+Note that for the children component approach, we expect a `TabList` component
+to be passed or else the mobile carousel will _not_ be built. More on this in
+the [With Children Components](#with-children-components) section.
+
+To view and test this in Storybook, go to the "Canvas" tab and change the
+viewport in the Storybook toolbar at the top of the page.
 
 ## With Callback Event Function
 
@@ -178,7 +215,10 @@ available components, you will probably have to iterate or map through an array
 to get the desired outcome. The DS `Tabs` component does this internally for
 you so this should be a last resort option.
 
-Make sure all five components are imported to use this approach.
+Make sure that:
+
+- all five components are imported to use this approach.
+- the structure follows the example below for the mobile carousel to render properly.
 
 ```jsx
 import {
@@ -197,11 +237,16 @@ import {
         <Tab>Tom Nook</Tab>
         <Tab>Isabelle</Tab>
         <Tab>K.K. Slider</Tab>
+        <Tab>Mr. Resetti</Tab>
+        <Tab>Zucker</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>
-          Tom Nook, known in Japan as Tanukichi, is a fictional character in the
-          Animal Crossing series who operates the village store.
+          <p>
+            Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
+            character in the Animal Crossing series who operates the village
+            store.
+          </p>
         </TabPanel>
         <TabPanel>
           Isabelle, known as Shizue in Japan, is a fictional character from the
@@ -210,10 +255,27 @@ import {
           serves as the secretary to the player character.
         </TabPanel>
         <TabPanel>
-          Totakeke, more commonly known as K.K. Slider or K.K., is a fictional
-          character within the Animal Crossing franchise. One of the franchise's
-          most popular characters, he debuted in the title Animal Crossing, and
-          has appeared in every installment since.
+          <p>
+            Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a
+            fictional character within the Animal Crossing franchise. One of the
+            franchise's most popular characters, he debuted in the title Animal
+            Crossing, and has appeared in every installment since.
+          </p>
+        </TabPanel>
+        <TabPanel>
+          <strong>Mr. Resetti</strong>, full name Sonny Resetti, is a fictional
+          character from the Animal Crossing series of video games by Nintendo.
+          His first appearance was in the Nintendo 64 game Dōbutsu no Mori,
+          released in Europe and North America on the GameCube as Animal
+          Crossing.
+        </TabPanel>
+        <TabPanel>
+          <strong>Zucker</strong> is a lazy octopus villager who first appeared
+          in New Leaf. His Japanese name and general appearance refers to the
+          Japanese snack takoyaki, which is a fried ball of dough commonly
+          filled with minced octopus. His catchphrase is a reference to how he
+          is an underwater animal. He has the same initial phrase as Bertha. He
+          has the nature hobby.
         </TabPanel>
       </TabPanels>
     </Tabs>

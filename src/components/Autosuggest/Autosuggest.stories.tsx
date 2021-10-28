@@ -29,7 +29,7 @@ const libraryRenderInputComponent = (
       >
         Home Library
       </Label>
-      <HelperErrorText id="id-helperText" isError={false}>
+      <HelperErrorText id="id-helperText" isInvalid={false}>
         Select your home library. Start by typing the name of the library. Try{" "}
         {'"'}ba{'"'}.
       </HelperErrorText>
