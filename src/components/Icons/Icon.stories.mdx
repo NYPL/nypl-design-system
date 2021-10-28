@@ -45,7 +45,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.3`   |
 
 <Description of={Icon} />
 
@@ -185,6 +185,13 @@ for (const iconSize in IconSizes) {
 export const allIconsType = (list) => (
   <ul style={{ listStyle: "none" }}>{list}</ul>
 );
+
+## Accessibility
+
+For accessibility purposes, every DS `Icon` will render the `svg` element with
+its icon name in the `title` element. The default text in the `title` element
+is the icon's code name. Pass in better text in the `title` prop when using the
+`Icon` component in your application.
 
 ## Rotation Types
 

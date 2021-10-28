@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Adds the `title` prop to the `Icon` component to render a `title` HTML element for accessible SVG icons.
+
 ## 0.25.2 (October 28, 2021)
 
 ### Adds
