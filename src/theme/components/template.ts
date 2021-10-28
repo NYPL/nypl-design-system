@@ -34,21 +34,21 @@ const Template = {
 };
 const TemplateHeader = {
   baseStyle: {
-    marginBottom: 8, // --space-l
+    marginBottom: 8, // --nypl-space-l
   },
 };
 const TemplateBreakout = {
   baseStyle: {
     ...breakout,
     width: "100vw",
-    marginBottom: 8, // --space-l
+    marginBottom: 8, // --nypl-space-l
   },
 };
 const TemplateContent = {
   baseStyle: {
     ...wrapperStyles,
     display: "block",
-    marginBottom: 8, // --space-l
+    marginBottom: 8, // --nypl-space-l
   },
   variants: {
     sidebar: {
@@ -63,13 +63,13 @@ const TemplateContent = {
 const TemplateContentTop = {
   baseStyle: {
     flex: "1 0 100%",
-    marginBottom: 8, // --space-l
+    marginBottom: 8, // --nypl-space-l
   },
 };
 const TemplateContentPrimary = {
   baseStyle: {
     flex: "1 1",
-    marginBottom: 8, // --space-l
+    marginBottom: 8, // --nypl-space-l
   },
   variants: {
     left: {
@@ -85,19 +85,19 @@ const TemplateContentSidebar = {
   baseStyle: {
     flex: "0 0 255px",
     order: { md: "1" },
-    marginBottom: 8, // --space-l
+    marginBottom: 8, // --nypl-space-l
   },
   variants: {
     left: {
       marginRight: {
         base: 0,
-        md: 12, // --space-xl
+        md: 12, // --nypl-space-xl
       },
     },
     right: {
       marginLeft: {
         base: 0,
-        md: 12, // --space-xl
+        md: 12, // --nypl-space-xl
       },
     },
   },

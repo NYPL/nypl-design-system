@@ -15,7 +15,7 @@ const variants = {
   },
   button: {
     width: "100px",
-    borderRadius: "2px",
+    borderRadius: "sm",
     lineHeight: "1.5",
     display: "flex",
     cursor: "pointer",
