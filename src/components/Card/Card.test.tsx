@@ -38,6 +38,34 @@ describe("Card Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test for the full-click feature", async () => {
+    const { container } = render(
+      <Card
+        id="cardID"
+        imageSrc="https://placeimg.com/400/200/arch"
+        imageAlt="Alt text"
+        mainActionLink="http://nypl.org"
+        mainAriaLabel="Go to NYPL"
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          The Card Heading
+        </CardHeading>
+        <CardContent>middle column content</CardContent>
+        <CardActions>
+          <Button
+            onClick={() => {}}
+            id="button1"
+            buttonType={ButtonTypes.Primary}
+            type="submit"
+          >
+            Example CTA
+          </Button>
+        </CardActions>
+      </Card>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Card", () => {
@@ -170,6 +198,30 @@ describe("Card", () => {
       </CardActions>
     </Card>
   );
+  const cardFullClick = (mainAriaLabel) => (
+    <Card
+      id="fullclick"
+      imageSrc="https://placeimg.com/400/200/arch"
+      imageAlt="Alt text"
+      mainActionLink="http://nypl.org"
+      mainAriaLabel={mainAriaLabel}
+    >
+      <CardHeading level={HeadingLevels.Three} id="heading1">
+        The Card Heading
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
+      <CardActions>
+        <Button
+          onClick={() => {}}
+          id="button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Example CTA
+        </Button>
+      </CardActions>
+    </Card>
+  );
   let container;
 
   it("renders a Card with a header, image, content, and CTAs", () => {
@@ -230,16 +282,28 @@ describe("Card", () => {
     expect(screen.getByText(/Read Online/i)).toBeInTheDocument();
   });
 
+  it("Generates a card without an image block if no image is provided", () => {
+    render(cardFullClick("Go to NYPL"));
+
+    expect(screen.getByLabelText("Go to NYPL")).toBeInTheDocument();
+    expect(screen.getAllByRole("link")[0]).toHaveAttribute(
+      "href",
+      "http://nypl.org"
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const regular = renderer.create(regularCard).toJSON();
     const withExtendedStyles = renderer.create(cardWithExtendedStyles).toJSON();
     const withNoCTAs = renderer.create(cardWithNoCTAs).toJSON();
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
     const withNoImage = renderer.create(cardWithNoImage).toJSON();
+    const withFullClick = renderer.create(cardFullClick("Go to NYPL")).toJSON();
     expect(regular).toMatchSnapshot();
     expect(withExtendedStyles).toMatchSnapshot();
     expect(withNoCTAs).toMatchSnapshot();
     expect(withNoContent).toMatchSnapshot();
     expect(withNoImage).toMatchSnapshot();
+    expect(withFullClick).toMatchSnapshot();
   });
 });

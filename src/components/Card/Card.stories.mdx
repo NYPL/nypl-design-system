@@ -84,10 +84,10 @@ The `CardContent` component should be used to display all content other than hea
   >
     {(args) => (
       <Card {...args}>
-        <CardHeading level={HeadingLevels.Two} id="heading1">
+        <CardHeading level={HeadingLevels.Two} id="main-heading1">
           Optional Header
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="heading2">
+        <CardHeading level={HeadingLevels.Four} id="main-heading2">
           Sollicitudin Lorem Tortor Purus Ornare
         </CardHeading>
         <CardContent>
@@ -98,7 +98,7 @@ The `CardContent` component should be used to display all content other than hea
         <CardActions topBorder bottomBorder>
           <Button
             onClick={action("clicked")}
-            id="button1"
+            id="main-button1"
             buttonType={ButtonTypes.Primary}
             type="submit"
           >
@@ -106,7 +106,7 @@ The `CardContent` component should be used to display all content other than hea
           </Button>
           <Button
             onClick={action("clicked")}
-            id="button2"
+            id="main-button2"
             buttonType={ButtonTypes.Secondary}
             type="submit"
           >
@@ -142,7 +142,7 @@ the default placement and move the image to the last element within a `Card`.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="props-heading1">
           Image on Top (default)
         </CardHeading>
         <CardContent>
@@ -156,7 +156,7 @@ the default placement and move the image to the last element within a `Card`.
         imageAspectRatio={ImageRatios.TwoByOne}
         imageAtEnd
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="props-heading2">
           Image on Bottom
         </CardHeading>
         <CardContent>
@@ -180,7 +180,7 @@ the default placement and move the image to the last element within a `Card`.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="row-heading1">
           Image on Left (default)
         </CardHeading>
         <CardContent>
@@ -197,7 +197,7 @@ the default placement and move the image to the last element within a `Card`.
         imageAspectRatio={ImageRatios.TwoByOne}
         imageAtEnd
       >
-        <CardHeading level={HeadingLevels.Four} id="heading2">
+        <CardHeading level={HeadingLevels.Four} id="row-heading2">
           Image on Right
         </CardHeading>
         <CardContent>
@@ -228,10 +228,10 @@ prop to override the default width.
         imageAspectRatio={ImageRatios.Square}
         imageSize={ImageSizes.Small}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="column-heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="column-heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -247,10 +247,10 @@ prop to override the default width.
         imageAspectRatio={ImageRatios.Square}
         imageSize={ImageSizes.Medium}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="column2-heading1">
           Medium Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="column2-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -266,10 +266,10 @@ prop to override the default width.
         imageAspectRatio={ImageRatios.Square}
         imageSize={ImageSizes.Large}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="column3-heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="column3-heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -284,10 +284,10 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.Square}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="column-4heading1">
           Default Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="column-4heading2">
           Width: 100%
         </CardHeading>
         <CardContent>
@@ -312,10 +312,10 @@ prop to override the default width.
         imageAspectRatio={ImageRatios.TwoByOne}
         imageSize={ImageSizes.Small}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="row2-heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -330,10 +330,10 @@ prop to override the default width.
         imageAspectRatio={ImageRatios.TwoByOne}
         imageSize={ImageSizes.Medium}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading2">
+        <CardHeading level={HeadingLevels.Three} id="row3-heading2">
           Medium Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="row3-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -349,10 +349,10 @@ prop to override the default width.
         imageAspectRatio={ImageRatios.TwoByOne}
         imageSize={ImageSizes.Large}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="row4-heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="row4-heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -368,10 +368,10 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading2">
+        <CardHeading level={HeadingLevels.Three} id="row5-heading2">
           Default Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="heading2">
+        <CardHeading level={HeadingLevels.Five} id="row5-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -394,7 +394,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="grid1-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -407,7 +407,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="grid2-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -420,7 +420,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="grid3-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -433,7 +433,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="grid4-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -446,7 +446,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="grid5-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -459,7 +459,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="grid6-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -483,7 +483,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="stack1-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -499,7 +499,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading2">
+        <CardHeading level={HeadingLevels.Four} id="stack2-heading2">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -515,7 +515,7 @@ prop to override the default width.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading3">
+        <CardHeading level={HeadingLevels.Four} id="stack3-heading3">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -541,10 +541,10 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
       }
     >
-      <CardHeading level={HeadingLevels.Two} id="heading1">
+      <CardHeading level={HeadingLevels.Two} id="img1-heading1">
         Card Component with Custom Image Component
       </CardHeading>
-      <CardHeading level={HeadingLevels.Four} id="heading2">
+      <CardHeading level={HeadingLevels.Four} id="img2-heading2">
         Secondary Heading
       </CardHeading>
       <CardContent>
@@ -555,7 +555,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         consectetur est at lobortis.
       </CardContent>
       <CardActions>
-        <Link type={LinkTypes.Button} href="blah">
+        <Link type={LinkTypes.Button} href="#">
           Reserve
         </Link>
         <Link href="#url" type={LinkTypes.Forwards}>
@@ -572,7 +572,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
   <Story name="Cards Without Images">
     <SimpleGrid columns={3}>
       <Card border>
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="no-img1-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -582,7 +582,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
       <Card border>
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="no-img2-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -592,7 +592,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
       <Card border>
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="no-img3-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -605,7 +605,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
     <br />
     <SimpleGrid columns={1}>
       <Card layout={CardLayouts.Row} border>
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="no-img4-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -618,7 +618,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
       <Card layout={CardLayouts.Row} border>
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="no-img5-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -631,7 +631,7 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
       <Card layout={CardLayouts.Row} border>
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level={HeadingLevels.Three} id="no-img6-heading1">
           Card Heading
         </CardHeading>
         <CardContent>
@@ -641,6 +641,60 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
           libero, a pharetra augue. Praesent commodo cursus magna, vel
           scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
           eget metus.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </Story>
+</Canvas>
+
+## Card With Full-Click Functionality
+
+To enable the full-click functionality in the `Card` component, pass a URL in
+the `mainActionLink` prop and relevant text in the `mainAriaLabel` prop. This
+will make the entire `Card` component clickable. If the `Card` has action links
+or buttons, they can still be accessed by tabbing through the `Card` and
+pressing `enter`.
+
+<Canvas>
+  <Story name="Card With Full-Click Functionality">
+    <SimpleGrid columns={2}>
+      <Card
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        mainActionLink="http://nypl.org"
+        mainAriaLabel="Go to NYPL home page."
+      >
+        <CardHeading level={HeadingLevels.Three} id="fullclick1-heading1">
+          Image on Top (default)
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+        <CardActions>
+          <Link href="#" type={LinkTypes.Button}>
+            Button
+          </Link>
+          <Link href="#" type={LinkTypes.Forwards}>
+            Read more
+          </Link>
+        </CardActions>
+      </Card>
+      <Card
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        mainActionLink="http://nypl.org"
+        mainAriaLabel="Go to NYPL home page."
+        imageAtEnd
+      >
+        <CardHeading level={HeadingLevels.Three} id="fullclick2-heading1">
+          Image on Bottom
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
         </CardContent>
       </Card>
     </SimpleGrid>

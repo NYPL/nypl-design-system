@@ -1,5 +1,11 @@
 import * as React from "react";
-import { Box, useMultiStyleConfig, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  LinkBox as ChakraLinkBox,
+  LinkOverlay as ChakraLinkOverlay,
+  useMultiStyleConfig,
+  useStyleConfig,
+} from "@chakra-ui/react";
 
 import { CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
@@ -12,6 +18,13 @@ interface CardBaseProps {
   center?: boolean;
   /** Optional value to render the layout in a row or column (default). */
   layout?: CardLayouts;
+}
+
+interface CardLinkBoxProps {
+  /** Main link to use when the full `Card` component should be clickable. */
+  mainActionLink?: string;
+  /** Text to use as the `aria-label` for the `mainActionLink` URL. */
+  mainAriaLabel?: string;
 }
 
 interface CardActionsProps extends CardBaseProps {
@@ -28,7 +41,7 @@ interface CardImageProps extends CardBaseProps, ImageProps {
   imageAtEnd?: boolean;
 }
 
-export interface CardProps extends CardBaseProps {
+export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   /** Optional hex color value used to set the card background color. */
   backgroundColor?: string;
   /** Optional boolean value to control the visibility of a border around
@@ -114,6 +127,39 @@ export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
   return children && <Box __css={styles}>{children}</Box>;
 }
 
+/**
+ * If `mainActionLink` is passed, then this adds Chakra's `LinkBox` wrapper
+ * component and `LinkOverlay` component to allow the entire `Card` component
+ * to be clickable. Otherwise, the initial `Card` component is returned. Make
+ * sure to pass text in the `mainAriaLabel` to make the link accessible.
+ */
+export function CardLinkBox(props: React.PropsWithChildren<CardLinkBoxProps>) {
+  const { children, mainActionLink, mainAriaLabel } = props;
+  // This allows images in the Card to be clickable.
+  const zIndex = { zIndex: "9999" };
+
+  // Since we are adding a link with no discernable text, we must
+  // add an aria-label to keep the `Card` component accessible.
+  if (!mainAriaLabel) {
+    console.warn(
+      "Pass in text for the `mainActionLink` URL in the `mainAriaLabel` prop for accessibility."
+    );
+  }
+
+  return mainActionLink ? (
+    <ChakraLinkBox>
+      <ChakraLinkOverlay
+        href={mainActionLink}
+        _before={zIndex}
+        aria-label={mainAriaLabel}
+      />
+      {children}
+    </ChakraLinkBox>
+  ) : (
+    <>{children}</>
+  );
+}
+
 export default function Card(props: React.PropsWithChildren<CardProps>) {
   const {
     backgroundColor,
@@ -130,6 +176,8 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     imageSize = ImageSizes.Default,
     imageSrc,
     layout = CardLayouts.Column,
+    mainActionLink,
+    mainAriaLabel,
   } = props;
   const hasImage = imageSrc || imageComponent;
   const customColors = {};
@@ -161,28 +209,30 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   });
 
   return (
-    <Box
-      className={className}
-      id={id}
-      __css={{
-        ...styles,
-        ...customColors,
-      }}
-    >
-      {hasImage && (
-        <CardImage
-          src={imageSrc ? imageSrc : null}
-          component={imageComponent}
-          alt={imageAlt}
-          imageSize={imageSize}
-          imageAspectRatio={imageAspectRatio}
-          imageAtEnd={imageAtEnd}
-          layout={layout}
-        />
-      )}
-      <Box className="card-body" __css={styles.body}>
-        {cardContents}
+    <CardLinkBox mainActionLink={mainActionLink} mainAriaLabel={mainAriaLabel}>
+      <Box
+        id={id}
+        className={className}
+        __css={{
+          ...styles,
+          ...customColors,
+        }}
+      >
+        {hasImage && (
+          <CardImage
+            src={imageSrc ? imageSrc : null}
+            component={imageComponent}
+            alt={imageAlt}
+            imageSize={imageSize}
+            imageAspectRatio={imageAspectRatio}
+            imageAtEnd={imageAtEnd}
+            layout={layout}
+          />
+        )}
+        <Box className="card-body" __css={styles.body}>
+          {cardContents}
+        </Box>
       </Box>
-    </Box>
+    </CardLinkBox>
   );
 }
