@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the Github Action for the changelog reminder.
+
 ## 0.25.2 (October 28, 2021)
 
 ### Adds
