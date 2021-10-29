@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the `Notification` component to fix the custom icon alignment.
+
 ## 0.25.2 (October 28, 2021)
 
 ### Adds
