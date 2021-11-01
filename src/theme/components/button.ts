@@ -96,6 +96,7 @@ const callout = {
 const searchBar = {
   ...primary,
   borderLeftRadius: "none",
+  lineHeight: "1.75",
 };
 
 const Button = {
