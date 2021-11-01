@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates the Github Action for the changelog reminder.
+- Updates the `Notification` component to fix the custom icon alignment.
 
 ## 0.25.2 (October 28, 2021)
 
