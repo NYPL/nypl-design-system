@@ -100,8 +100,17 @@ export default function Notification(props: NotificationProps) {
     notificationType,
   });
   const iconElement = () => {
+    const baseIconProps = {
+      decorative: false,
+      size: IconSizes.Large,
+      additionalStyles: styles.icon,
+    };
     // If a custom icon is passed, add specific `Notification` styles.
-    if (icon) return React.cloneElement(icon, { sx: styles.icon });
+    if (icon)
+      return React.cloneElement(icon, {
+        id: `${id}-custom-notification-icon`,
+        ...baseIconProps,
+      });
     const iconProps = {
       [NotificationTypes.Announcement]: {
         name: IconNames.SpeakerNotes,
@@ -115,9 +124,7 @@ export default function Notification(props: NotificationProps) {
     return notificationType !== NotificationTypes.Standard ? (
       <Icon
         id={`${id}-notification-icon`}
-        decorative={false}
-        size={IconSizes.Large}
-        additionalStyles={styles.icon}
+        {...baseIconProps}
         {...iconProps[notificationType]}
       />
     ) : null;
