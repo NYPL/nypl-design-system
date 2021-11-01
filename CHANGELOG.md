@@ -8,6 +8,19 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the `Checkbox` component with an "indeterminate" state through the `isIndeterminate` prop.
+- Updates the `CheckboxGroup` component story with an "indeterminate" state example.
+
+### Fixes
+
+- Fixes nondeterministic unit test in the `DatePicker` component.
+
+### Breaking Changes
+
+- Updates the `errorText` prop to `invalidText` for the `Checkbox` component.
+
 ## 0.25.2 (October 28, 2021)
 
 ### Adds

@@ -38,7 +38,7 @@ import { onChangeDefault } from "./Checkbox";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.25.0`   |
+| Latest            | `0.25.3`   |
 
 <Description of={Checkbox} />
 
@@ -49,16 +49,19 @@ cause an accessibility violation if none is present.
   <Story
     name="Checkbox"
     args={{
-      labelText: "Test Label",
-      showLabel: true,
-      id: "test_id",
-      name: "test_name",
-      value: "1",
-      isDisabled: false,
-      isRequired: false,
-      isInvalid: false,
       helperText: "This is the helper text!",
-      errorText: "This is the error text :(",
+      id: "test_id",
+      invalidText: "This is the error text :(",
+      isChecked: false,
+      isDisabled: false,
+      isIndeterminate: false,
+      isInvalid: false,
+      isRequired: false,
+      labelText: "Test Label",
+      name: "test_name",
+      showHelperInvalidText: true,
+      showLabel: true,
+      value: "1",
     }}
   >
     {(args) => <Checkbox {...args} />}
@@ -72,6 +75,17 @@ cause an accessibility violation if none is present.
 <Canvas>
   <DSProvider>
     <Checkbox labelText="I am checked" isChecked value="1" />
+  </DSProvider>
+</Canvas>
+
+## Indeterminate
+
+Note: This state only changes the icon but does not affect whether the checkbox
+is checked.
+
+<Canvas>
+  <DSProvider>
+    <Checkbox labelText="I am indeterminate" isIndeterminate />
   </DSProvider>
 </Canvas>
 
@@ -126,9 +140,9 @@ cause an accessibility violation if none is present.
 <Canvas>
   <DSProvider>
     <Checkbox
-      name="testErrorText"
+      name="testinvalidText"
       labelText="I have error text"
-      errorText="I am the error text for this Checkbox"
+      invalidText="I am the error text for this Checkbox"
       isInvalid
     />
   </DSProvider>
