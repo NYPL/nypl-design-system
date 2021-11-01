@@ -4,6 +4,7 @@ export enum SkeletonLoaderLayouts {
 }
 
 export enum SkeletonLoaderImageRatios {
+  Default = "default",
   Landscape = "landscape",
   Portrait = "portrait",
   Square = "square",

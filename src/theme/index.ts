@@ -27,6 +27,7 @@ import List from "./components/list";
 import NotificationStyles from "./components/notification";
 import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
+import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
@@ -84,6 +85,8 @@ const theme = extendTheme({
     ...NotificationStyles,
     Radio,
     SearchBar,
+    Skeleton,
+    SkeletonLoader,
     StatusBadge,
     Tabs,
     ...TemplateStyles,
