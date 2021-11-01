@@ -33,7 +33,9 @@ export interface IconProps {
   name?: IconNames | LogoNames;
   /** Sets the icon size. */
   size?: IconSizes;
-  /** Text that goes in the `title` element in the SVG. */
+  /** For accessibility purposes, the text passed in the `title` prop gets
+   * rendered in a `title` element in the SVG. This descriptive text is not
+   * visible but is needed for screenreaders to describe the graphic. */
   title?: string;
   /** Sets the icon variant type. */
   type?: IconTypes;
