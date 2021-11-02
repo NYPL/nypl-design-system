@@ -1,178 +1,308 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import renderer from "react-test-renderer";
 
 import Pagination from "./Pagination";
 
 describe("Pagination Accessibility", () => {
-  it("passes axe accessibility test", async () => {
-    const getPageHref = (page: number) => `page=${page}`;
+  const getPageHref = (page: number) => `page=${page}`;
+
+  it("passes axe accessibility on the first page", async () => {
     const { container } = render(
-      <Pagination pageCount={20} currentPage={6} getPageHref={getPageHref} />
+      <Pagination pageCount={20} initialPage={1} getPageHref={getPageHref} />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+  it("passes axe accessibility on a middle page", async () => {
+    const { container } = render(
+      <Pagination pageCount={20} initialPage={10} getPageHref={getPageHref} />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+  it("passes axe accessibility on the last page", async () => {
+    const { container } = render(
+      <Pagination pageCount={20} initialPage={20} getPageHref={getPageHref} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
-describe("Pagination with getPageHref", () => {
+describe("Pagination", () => {
   const getPageHref = (page: number) => `page=${page}`;
 
-  it("Renders a nav element with items and links", () => {
-    const { container } = render(
-      <Pagination pageCount={20} currentPage={6} getPageHref={getPageHref} />
-    );
+  describe("Rendering", () => {
+    it("renders a nav element with an unordered list and links", () => {
+      render(
+        <Pagination pageCount={5} initialPage={3} getPageHref={getPageHref} />
+      );
+      const nav = screen.getByRole("navigation");
 
-    expect(screen.getByRole("navigation")).toBeInTheDocument();
-    expect(container.querySelector(".pagination__list")).toBeInTheDocument();
-    // Previous/Next buttons + truncated item list = 11 total items
-    expect(screen.getAllByRole("listitem")).toHaveLength(11);
-    // Each element links to anotherpage.
-    // Each link has a `role="button"` attribute.
-    const links = screen.getAllByRole("button");
+      expect(nav).toBeInTheDocument();
+      expect(nav).toHaveAttribute("aria-label", "Pagination");
+      // Chakra renders other lists so we only want the list we
+      // created within the nav element.
+      const { getByRole } = within(nav);
+      expect(getByRole("list")).toBeInTheDocument();
+      // Previous/Next links + truncated item list = 7 total items
+      expect(screen.getAllByRole("listitem")).toHaveLength(7);
+      // Pagination should show:
+      // Previous 1 2 3 4 5 Next
+      expect(screen.getAllByRole("link")).toHaveLength(7);
+    });
 
-    // Pagination should show
-    // Previous 1 ... 4 5 6 7 8 ... 20 Next
-    expect(links).toHaveLength(9);
-    // Previous Page
-    expect(links[0]).toHaveAttribute("href", "page=5");
-    expect(links[1]).toHaveAttribute("href", "page=1");
-    expect(links[2]).toHaveAttribute("href", "page=4");
-    expect(links[3]).toHaveAttribute("href", "page=5");
-    expect(links[4]).toHaveAttribute("href", "page=6");
-    expect(links[5]).toHaveAttribute("href", "page=7");
-    expect(links[6]).toHaveAttribute("href", "page=8");
-    expect(links[7]).toHaveAttribute("href", "page=20");
-    // Next Page
-    expect(links[8]).toHaveAttribute("href", "page=7");
+    it("does not render the Previous link on the first page", () => {
+      render(
+        <Pagination pageCount={5} initialPage={1} getPageHref={getPageHref} />
+      );
+      // Pagination should show:
+      // 1 2 3 4 5 Next
+      const links = screen.getAllByRole("link");
+
+      expect(links).toHaveLength(6);
+      expect(screen.queryByText("Previous")).not.toBeInTheDocument();
+      expect(screen.getByText("Next")).toBeInTheDocument();
+    });
+
+    it("does not render the Next link on the last page", () => {
+      render(
+        <Pagination pageCount={5} initialPage={5} getPageHref={getPageHref} />
+      );
+      // Pagination should show:
+      // Previous 1 2 3 4 5
+      const links = screen.getAllByRole("link");
+
+      expect(links).toHaveLength(6);
+      expect(screen.getByText("Previous")).toBeInTheDocument();
+      expect(screen.queryByText("Next")).not.toBeInTheDocument();
+    });
+
+    it("renders an ellipsis at the end of the list", () => {
+      render(
+        <Pagination pageCount={10} initialPage={1} getPageHref={getPageHref} />
+      );
+      // Pagination should show:
+      // 1 2 3 4 5 ... 10 Next
+      const listitem = screen.getAllByRole("listitem");
+
+      expect(listitem).toHaveLength(8);
+      // The ellipsis is not a link
+      expect(screen.getAllByRole("link")).toHaveLength(7);
+      expect(listitem[4].textContent).toEqual("5");
+      expect(listitem[5].textContent).toEqual("...");
+      expect(listitem[6].textContent).toEqual("10");
+      expect(screen.getByText("...")).toBeInTheDocument();
+    });
+
+    it("renders an ellipsis at the start of the list", () => {
+      render(
+        <Pagination pageCount={10} initialPage={10} getPageHref={getPageHref} />
+      );
+      // Pagination should show:
+      // Previous 1 ... 6 7 8 9 10
+      const listitem = screen.getAllByRole("listitem");
+
+      expect(listitem).toHaveLength(8);
+      // The ellipsis is not a link
+      expect(screen.getAllByRole("link")).toHaveLength(7);
+      expect(listitem[1].textContent).toEqual("1");
+      expect(listitem[2].textContent).toEqual("...");
+      expect(listitem[3].textContent).toEqual("6");
+      expect(screen.getByText("...")).toBeInTheDocument();
+    });
+
+    it("renders two ellipsis when the current page is in the middle", () => {
+      render(
+        <Pagination pageCount={10} initialPage={5} getPageHref={getPageHref} />
+      );
+      // Pagination should show:
+      // Previous 1 ... 4 5 6 ... 10 Next
+      const listitem = screen.getAllByRole("listitem");
+
+      expect(listitem).toHaveLength(9);
+      // The ellipses are not links
+      expect(screen.getAllByRole("link")).toHaveLength(7);
+      expect(listitem[0].textContent).toEqual("Previous");
+      expect(listitem[1].textContent).toEqual("1");
+      expect(listitem[2].textContent).toEqual("...");
+      expect(listitem[3].textContent).toEqual("4");
+      expect(listitem[4].textContent).toEqual("5");
+      expect(listitem[5].textContent).toEqual("6");
+      expect(listitem[6].textContent).toEqual("...");
+      expect(listitem[7].textContent).toEqual("10");
+      expect(listitem[8].textContent).toEqual("Next");
+      expect(screen.getAllByText("...")).toHaveLength(2);
+    });
+
+    it("adds aria-current to the active page", () => {
+      render(
+        <Pagination pageCount={5} initialPage={3} getPageHref={getPageHref} />
+      );
+      // Pagination should show:
+      // Previous 1 2 3 4 5 Next
+      const links = screen.getAllByRole("link");
+      const page2 = links[2].getAttribute("aria-current");
+      const page3 = links[3].getAttribute("aria-current");
+      const page4 = links[4].getAttribute("aria-current");
+
+      expect(page2).toEqual(null);
+      // Only the current page has `aria-current="page"` for accessibility.
+      expect(page3).toEqual("page");
+      expect(page4).toEqual(null);
+    });
+
+    it("When pagination has 1 element, pagination is not shown", () => {
+      render(
+        <Pagination pageCount={1} initialPage={1} getPageHref={getPageHref} />
+      );
+      expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
+    });
+
+    it("When pagination has 0 elements, pagination is not shown", () => {
+      render(
+        <Pagination pageCount={0} initialPage={1} getPageHref={getPageHref} />
+      );
+      expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
+    });
+
+    it("Renders the UI snapshot correctly", () => {
+      const firstPage = renderer
+        .create(
+          <Pagination
+            id="firstPage"
+            pageCount={10}
+            initialPage={1}
+            getPageHref={getPageHref}
+          />
+        )
+        .toJSON();
+      const lastPage = renderer
+        .create(
+          <Pagination
+            id="lastPage"
+            pageCount={10}
+            initialPage={10}
+            getPageHref={getPageHref}
+          />
+        )
+        .toJSON();
+      const middlePage = renderer
+        .create(
+          <Pagination
+            id="middlePage"
+            pageCount={10}
+            initialPage={5}
+            getPageHref={getPageHref}
+          />
+        )
+        .toJSON();
+
+      expect(firstPage).toMatchSnapshot();
+      expect(lastPage).toMatchSnapshot();
+      expect(middlePage).toMatchSnapshot();
+    });
   });
 
-  it("Previous link is disabled when on the first page item", () => {
-    render(
-      <Pagination pageCount={11} currentPage={1} getPageHref={getPageHref} />
-    );
-    const links = screen.getAllByRole("button");
-    expect(links[0]).toHaveAttribute("aria-disabled");
-    const linkClass = links[0].getAttribute("class");
-    expect(linkClass).toContain("pagination__link disabled");
-  });
+  describe("Behavior", () => {
+    it("updates the links href value when getPageHref is used", () => {
+      const getPageHref = (page: number) => `?page=${page}`;
+      render(
+        <Pagination pageCount={10} initialPage={5} getPageHref={getPageHref} />
+      );
+      // Pagination should show:
+      // Previous 1 ... 4 5 6 ... 10 Next
+      const links = screen.getAllByRole("link");
 
-  it("Next link is disabled when on the last page item", () => {
-    render(
-      <Pagination pageCount={11} currentPage={11} getPageHref={getPageHref} />
-    );
-    const links = screen.getAllByRole("button");
-    expect(links[9]).toHaveAttribute("aria-disabled");
-    const linkClass = links[9].getAttribute("class");
-    expect(linkClass).toContain("pagination__link disabled");
-  });
+      expect(screen.getByText("Previous")).toBeInTheDocument();
+      expect(screen.getByText("Next")).toBeInTheDocument();
 
-  it("Current page item has active class", () => {
-    render(
-      <Pagination pageCount={11} currentPage={5} getPageHref={getPageHref} />
-    );
-    const links = screen.getAllByRole("button");
-    const linkClass = links[5].getAttribute("class");
-    expect(linkClass).toContain("pagination__link selected");
-  });
+      // Previous link
+      expect(links[0].getAttribute("href")).toEqual("?page=4");
+      expect(links[1].getAttribute("href")).toEqual("?page=1");
+      expect(links[2].getAttribute("href")).toEqual("?page=4");
+      expect(links[3].getAttribute("href")).toEqual("?page=5");
+      expect(links[4].getAttribute("href")).toEqual("?page=6");
+      expect(links[5].getAttribute("href")).toEqual("?page=10");
+      // Next link
+      expect(links[6].getAttribute("href")).toEqual("?page=6");
+    });
 
-  it("When pagination has 1 element, pagination is not shown", () => {
-    render(
-      <Pagination pageCount={1} currentPage={1} getPageHref={getPageHref} />
-    );
-    expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
-  });
+    // In this scenario, we need to update the current page ourselves
+    // since we stay on the same page.
+    it("When page item is selected, runs the onPageChange callback", () => {
+      const onPageChange = (page: number) => (currentPage = page);
+      let currentPage = 5;
+      const { rerender } = render(
+        <Pagination
+          pageCount={10}
+          initialPage={currentPage}
+          onPageChange={onPageChange}
+        />
+      );
+      // Pagination should show:
+      // Previous 1 ... 4 5 6 ... 10 Next
+      let links = screen.getAllByRole("link");
 
-  it("When pagination has 0 elements, pagination is not shown", () => {
-    render(
-      <Pagination pageCount={0} currentPage={1} getPageHref={getPageHref} />
-    );
-    expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
-  });
-});
+      // Links all have "#" for their href value.
+      // Previous link
+      expect(links[0].getAttribute("href")).toEqual("#");
+      expect(links[1].getAttribute("href")).toEqual("#");
+      expect(links[2].getAttribute("href")).toEqual("#");
+      expect(links[3].getAttribute("href")).toEqual("#");
+      expect(links[4].getAttribute("href")).toEqual("#");
+      expect(links[5].getAttribute("href")).toEqual("#");
+      // Next link
+      expect(links[6].getAttribute("href")).toEqual("#");
 
-describe("Pagination with changeCallback", () => {
-  const changeCallback = jest.fn();
+      // Page 4
+      userEvent.click(links[2]);
+      expect(currentPage).toEqual(4);
 
-  it("Renders a nav element with an unordered list of items", () => {
-    const { container } = render(
-      <Pagination
-        pageCount={11}
-        currentPage={6}
-        onPageChange={changeCallback}
-      />
-    );
-    expect(screen.getByRole("navigation")).toBeInTheDocument();
-    expect(container.querySelector(".pagination__list")).toBeInTheDocument();
-    expect(screen.getAllByRole("listitem")).toHaveLength(11);
-  });
+      rerender(
+        <Pagination
+          pageCount={10}
+          initialPage={currentPage}
+          onPageChange={onPageChange}
+        />
+      );
+      // Pagination should show:
+      // Previous 1 2 3 4 5 ... 10 Next
+      links = screen.getAllByRole("link");
 
-  it("Previous link is disabled when on the first page item", () => {
-    render(
-      <Pagination
-        pageCount={11}
-        currentPage={1}
-        onPageChange={changeCallback}
-      />
-    );
-    const links = screen.getAllByRole("button");
-    expect(links[0]).toHaveAttribute("aria-disabled");
-    const linkClass = links[0].getAttribute("class");
-    expect(linkClass).toContain("pagination__link disabled");
-  });
+      // Previous link
+      userEvent.click(links[0]);
+      expect(currentPage).toEqual(3);
 
-  it("Next link is disabled when on the last page item", () => {
-    render(
-      <Pagination
-        pageCount={11}
-        currentPage={11}
-        onPageChange={changeCallback}
-      />
-    );
-    const links = screen.getAllByRole("button");
-    expect(links[9]).toHaveAttribute("aria-disabled");
-    const linkClass = links[9].getAttribute("class");
-    expect(linkClass).toContain("pagination__link disabled");
-  });
+      rerender(
+        <Pagination
+          pageCount={10}
+          initialPage={currentPage}
+          onPageChange={onPageChange}
+        />
+      );
+      // Pagination should show:
+      // Previous 1 2 3 4 5 ... 10 Next
+      links = screen.getAllByRole("link");
 
-  it("Current page item has active class", () => {
-    render(
-      <Pagination
-        pageCount={11}
-        currentPage={5}
-        onPageChange={changeCallback}
-      />
-    );
-    const links = screen.getAllByRole("button");
-    const linkClass = links[5].getAttribute("class");
-    expect(linkClass).toContain("pagination__link selected");
-  });
+      // Page 10
+      userEvent.click(links[6]);
+      expect(currentPage).toEqual(10);
 
-  it("When page item is selected, runs the onPageChange callback", () => {
-    render(
-      <Pagination
-        pageCount={11}
-        currentPage={5}
-        onPageChange={changeCallback}
-      />
-    );
-    const links = screen.getAllByRole("button");
-    expect(changeCallback).toHaveBeenCalledTimes(0);
-    userEvent.click(links[2]);
-    expect(changeCallback).toHaveBeenCalledTimes(1);
-  });
+      rerender(
+        <Pagination
+          pageCount={10}
+          initialPage={currentPage}
+          onPageChange={onPageChange}
+        />
+      );
+      // Pagination should show:
+      // Previous 1 ... 6 7 8 9 10
+      links = screen.getAllByRole("link");
 
-  it("When pagination has 1 element, pagination is not shown", () => {
-    render(
-      <Pagination pageCount={1} currentPage={1} onPageChange={changeCallback} />
-    );
-    expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
-  });
-
-  it("When pagination has 0 elements, pagination is not shown", () => {
-    render(
-      <Pagination pageCount={0} currentPage={1} onPageChange={changeCallback} />
-    );
-    expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
+      // Page 6
+      userEvent.click(links[2]);
+      expect(currentPage).toEqual(6);
+    });
   });
 });

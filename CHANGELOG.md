@@ -18,6 +18,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
 - Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
 
+### Changes
+
+- Updates the Github Action for the changelog reminder.
+- Updates the `Notification` component to fix the custom icon alignment.
+
 ## 0.25.2 (October 28, 2021)
 
 ### Adds
@@ -43,6 +48,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `VideoPlayer` component with Chakra. BEM related prop `modifiers` has been removed.
 - Composes the DS `HorizontalRule` component with Chakra. BEM related prop `modifiers` has been removed, as well as the `attributes` prop.
 - Composes the DS `List` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. The `noStyling` prop is now used for the no list style variant style.
+- Composes the DS `Pagination` component with Chakra. Removes the BEM-related props and updates the `currentPage` prop to `initialPage`. The current selected page is now kept in state inside the `Pagination` component and returned to the user through `getPageHref` or `onPageChange`. This also adds better aria attributes to the list inside the `Pagination` component.
 
 ## 0.25.1 (October 14, 2021)
 

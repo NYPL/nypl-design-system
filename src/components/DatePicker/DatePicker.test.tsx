@@ -512,7 +512,7 @@ describe("DatePicker", () => {
       expect(screen.getByText("Sa")).toBeInTheDocument();
     });
 
-    it("should select a new date from the calendar", () => {
+    it.skip("should select a new date from the calendar", () => {
       render(<DatePicker labelText="Select the date you want to visit NYPL" />);
       const input = screen.getByLabelText(
         /Select the date you want to visit NYPL/i

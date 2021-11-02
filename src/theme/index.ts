@@ -27,6 +27,7 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import NotificationStyles from "./components/notification";
+import Pagination from "./components/pagination";
 import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
 import StatusBadge from "./components/statusBadge";
@@ -87,6 +88,7 @@ const theme = extendTheme({
     Link,
     List,
     ...NotificationStyles,
+    Pagination,
     Radio,
     SearchBar,
     StatusBadge,
