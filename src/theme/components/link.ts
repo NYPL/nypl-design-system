@@ -1,5 +1,9 @@
 const variants = {
   link: {},
+  disabled: {
+    color: "ui.gray.dark",
+    pointerEvents: "none",
+  },
   moreLink: {
     alignItems: "center",
     display: "inline-flex",

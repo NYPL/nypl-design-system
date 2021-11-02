@@ -11,17 +11,21 @@ interface DefinitionProps {
   definition: string;
 }
 export interface ListProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** ClassName you can add in addition to 'list' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Display the list in a row. */
+  inline?: boolean;
   /** Data to render if children are not passed. For `ListTypes.Ordered` and
    * `ListTypes.Unordered` `List` types, the data structure is an array of
    * strings to renders as `li` items. For `ListTypes.Definition` `List` types,
    * the data structure is an array of objects with `term` and `definition`
    * properties to render `dt` and `dd` elements, respectively.
    */
-  listItems?: (string | DefinitionProps)[];
+  listItems?: (string | JSX.Element | DefinitionProps)[];
   /** Remove list styling. */
   noStyling?: boolean;
   /** An optional title that will appear over the list. This prop only applies
@@ -38,15 +42,18 @@ export interface ListProps {
  */
 export default function List(props: React.PropsWithChildren<ListProps>) {
   const {
+    additionalStyles = {},
     children,
     className,
     id = generateUUID(),
+    inline = false,
     listItems,
     noStyling = false,
     title,
     type = ListTypes.Unordered,
   } = props;
-  const styles = useStyleConfig("List", { noStyling, variant: type });
+  const styles = useStyleConfig("List", { inline, noStyling, variant: type });
+  const finalStyles = { ...styles, ...additionalStyles };
   let listElement = null;
 
   // Either li/dt/dd children elements must be passed or the `listItems`
@@ -122,14 +129,14 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
   if (type === ListTypes.Ordered || type === ListTypes.Unordered) {
     checkListChildrenError(type);
     listElement = (
-      <Box as={type as As} id={id} className={className} __css={styles}>
+      <Box as={type as As} id={id} className={className} __css={finalStyles}>
         {listChildrenElms(type)}
       </Box>
     );
   } else if (type === ListTypes.Definition) {
     checkDefinitionChildrenError();
     listElement = (
-      <Box as="section" id={id} className={className} __css={styles}>
+      <Box as="section" id={id} className={className} __css={finalStyles}>
         {title && (
           <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
             {title}
