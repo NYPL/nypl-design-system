@@ -412,11 +412,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
           )}
         </DateRangeRow>
         {helperText && isDateRange && showHelperInvalidText && (
-          <HelperErrorText
-            id={`${id}-helper-text`}
-            isInvalid={false}
-            additionalStyles={finalStyles.helper}
-          >
+          <HelperErrorText id={`${id}-helper-text`} isInvalid={false}>
             {helperText}
           </HelperErrorText>
         )}

@@ -3,7 +3,7 @@ import {
   Box,
   Stack,
   CheckboxGroup as ChakraCheckboxGroup,
-  useMultiStyleConfig,
+  useStyleConfig,
 } from "@chakra-ui/react";
 
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
@@ -115,7 +115,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     });
 
     // Get the Chakra-based styles for all the custom elements in this component.
-    const styles = useMultiStyleConfig("CustomCheckboxGroup", {});
+    const styles = useStyleConfig("CustomCheckboxGroup", {});
 
     return (
       <Fieldset
@@ -137,7 +137,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
           </Stack>
         </ChakraCheckboxGroup>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
+          <Box __css={styles}>
             <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
               {footnote}
             </HelperErrorText>

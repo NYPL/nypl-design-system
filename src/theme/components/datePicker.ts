@@ -3,15 +3,13 @@
  * DatePicker is in "date range" mode.
  */
 const DatePicker = {
-  parts: ["subLabels", "helper"],
+  parts: ["subLabels"],
   baseStyle: {
     subLabels: {
       label: {
         fontSize: "12px",
+        marginBottom: "xs",
       },
-    },
-    helper: {
-      marginTop: "xs",
     },
   },
 };

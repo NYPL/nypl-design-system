@@ -51,7 +51,7 @@ const checkboxRadioHelperStyle = {
 const labelLegendText = {
   alignItems: "baseline",
   width: "100%",
-  marginBottom: "xs",
+  marginBottom: "s",
   fontSize: "14px",
   fontWeight: "medium",
   display: "flex",

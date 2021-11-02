@@ -11,16 +11,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `ImageRatios`, `ImageSizes`, and `ImageTypes` enums.
-
-### Breaking Changes
-
-- Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
-- Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
+- Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
 
 ### Changes
 
 - Updates the `Checkbox` component with an "indeterminate" state through the `isIndeterminate` prop.
 - Updates the `CheckboxGroup` component story with an "indeterminate" state example.
+- Updates the `CheckboxGroup` and `RadioGroup` components to use the `Fieldset` component.
+- Updates the `HelperErrorText` and `TextInput` components with added `additionalStyles` prop.
 
 ### Fixes
 
@@ -34,8 +32,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the default font size of the `Button` component to `"-1"` (14px) for all variants except the `Link` variant. Removes the `bem` function from internal use and makes it clearer that the `ButtonGroup` Chakra component is exported in the Design System.
 - Updates the `errorText` prop to `invalidText` for the `Checkbox` component.
 - Composes the DS `Pagination` component with Chakra. Removes the BEM-related props and updates the `currentPage` prop to `initialPage`. The current selected page is now kept in state inside the `Pagination` component and returned to the user through `getPageHref` or `onPageChange`. This also adds better aria attributes to the list inside the `Pagination` component.
+- Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
+- Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
 - Composes the DS `DatePicker` component with Chakra. Adds more tests, documentation, and examples. This component now uses the `Fieldset` component for the date range type, and better `Form` components for layout. Prop name changes: `dateRange` is now `isDateRange` and `required` is now `isRequired`. BEM related props `modifiers` and `blockname` have been removed. The "Required"/"Optional" text in the date range legend can now be hidden with the `showOptReqLabel` prop.
-- Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
 
 ## 0.25.2 (October 28, 2021)
 
@@ -54,8 +53,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the CSS vars name prefix to use `nypl`.
 - Updates documentation in the README and updates the issue contribution template.
 - Updates the following components to use the `showHelperInvalidText` prop: `Checkbox`, `CheckboxGroup`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `TextInput`, `VideoPlayer`.
-- Updates the `CheckboxGroup` and `RadioGroup` components to use the `Fieldset` component.
-- Updates the `HelperErrorText` and `TextInput` components with added `additionalStyles` prop.
 
 ### Breaking Changes
 
