@@ -132,6 +132,94 @@ exports[`Checkbox Renders the UI snapshot correctly 2`] = `
 exports[`Checkbox Renders the UI snapshot correctly 3`] = `
 <label
   className="chakra-checkbox css-1uiwwan"
+  data-checked=""
+  onClick={[Function]}
+>
+  <input
+    aria-disabled={false}
+    aria-invalid={false}
+    checked={true}
+    className="chakra-checkbox__input"
+    disabled={false}
+    id="checkbox-checked"
+    name="default"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    required={false}
+    style={
+      Object {
+        "border": "0px",
+        "clip": "rect(0px, 0px, 0px, 0px)",
+        "height": "1px",
+        "margin": "-1px",
+        "overflow": "hidden",
+        "padding": "0px",
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": "1px",
+      }
+    }
+    type="checkbox"
+  />
+  <span
+    aria-hidden={true}
+    className="chakra-checkbox__control css-dnty2r"
+    data-checked=""
+    data-indeterminate=""
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100%",
+          "justifyContent": "center",
+          "transform": "none",
+        }
+      }
+    >
+      <svg
+        className="css-o8vbdw"
+        style={
+          Object {
+            "opacity": 1,
+            "stroke": "currentColor",
+            "strokeWidth": 4,
+            "transform": "none",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <line
+          x1="21"
+          x2="3"
+          y1="12"
+          y2="12"
+        />
+      </svg>
+    </div>
+  </span>
+  <span
+    className="chakra-checkbox__label css-1oeb2oe"
+    data-checked=""
+    onMouseDown={[Function]}
+    onTouchStart={[Function]}
+  >
+    Test Label
+  </span>
+</label>
+`;
+
+exports[`Checkbox Renders the UI snapshot correctly 4`] = `
+<label
+  className="chakra-checkbox css-1uiwwan"
   onClick={[Function]}
 >
   <input
@@ -192,7 +280,7 @@ exports[`Checkbox Renders the UI snapshot correctly 3`] = `
 </label>
 `;
 
-exports[`Checkbox Renders the UI snapshot correctly 4`] = `
+exports[`Checkbox Renders the UI snapshot correctly 5`] = `
 <label
   className="chakra-checkbox css-1uiwwan"
   data-invalid=""
@@ -258,7 +346,7 @@ exports[`Checkbox Renders the UI snapshot correctly 4`] = `
 </label>
 `;
 
-exports[`Checkbox Renders the UI snapshot correctly 5`] = `
+exports[`Checkbox Renders the UI snapshot correctly 6`] = `
 <label
   className="chakra-checkbox css-1uiwwan"
   data-disabled=""

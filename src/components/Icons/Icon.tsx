@@ -33,6 +33,10 @@ export interface IconProps {
   name?: IconNames | LogoNames;
   /** Sets the icon size. */
   size?: IconSizes;
+  /** For accessibility purposes, the text passed in the `title` prop gets
+   * rendered in a `title` element in the SVG. This descriptive text is not
+   * visible but is needed for screenreaders to describe the graphic. */
+  title?: string;
   /** Sets the icon variant type. */
   type?: IconTypes;
 }
@@ -52,6 +56,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     id = generateUUID(),
     name,
     size = IconSizes.Medium,
+    title = `${name} icon`,
     type = IconTypes.Default,
   } = props;
   const styles = useStyleConfig("Icon", {
@@ -66,6 +71,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     className,
     id,
     role: "img",
+    title,
   };
   let childSVG = null;
 
