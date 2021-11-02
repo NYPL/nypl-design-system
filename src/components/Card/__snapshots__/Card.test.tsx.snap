@@ -36,7 +36,8 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <button
-        className="chakra-button button  css-0"
+        className="chakra-button css-0"
+        data-testid="button"
         id="button1"
         onClick={[Function]}
         type="submit"
