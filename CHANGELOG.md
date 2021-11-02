@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the Github Action for the changelog reminder.
 - Updates the `Notification` component to fix the custom icon alignment.
 - Adds the `title` prop to the `Icon` component to render a `title` HTML element for accessible SVG icons.
+- Updates the default font size of the `Button` component to `"-1"` (14px) for all variants except the `Link` variant. Removes the `bem` function from internal use and makes it clearer that the `ButtonGroup` Chakra component is exported in the Design System.
 
 ## 0.25.2 (October 28, 2021)
 
