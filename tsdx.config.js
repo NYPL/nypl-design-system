@@ -21,7 +21,7 @@ module.exports = {
         extract: path.resolve("dist/styles.css"),
       }),
       // Include SVGs.
-      svgr(),
+      svgr({ titleProp: true }),
       // The rest of the default configuration.
       ...config.plugins,
     ];
