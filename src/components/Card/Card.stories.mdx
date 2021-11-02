@@ -3,7 +3,6 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
@@ -11,8 +10,8 @@ import { action } from "@storybook/addon-actions";
 
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
-import Card, { CardImage, CardHeading, CardContent, CardActions } from "./Card";
-import { CardImageRatios, CardImageSizes, CardLayouts } from "./CardTypes";
+import Card, { CardHeading, CardContent, CardActions } from "./Card";
+import { CardLayouts } from "./CardTypes";
 import Link from "../Link/Link";
 import Heading from "../Heading/Heading";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
@@ -20,7 +19,10 @@ import { LinkTypes } from "../Link/LinkTypes";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
+import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Card")}
@@ -34,19 +36,9 @@ import { getCategory } from "../../utils/componentCategories";
     },
   }}
   argTypes={{
-    blockName: { table: { disable: true } },
     className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
     id: { table: { disable: true } },
     imageComponent: { table: { disable: true } },
-    layout: { table: { disable: false } },
-    imageSrc: { table: { disable: false } },
-    imageAlt: { table: { disable: false } },
-    imageSize: { table: { disable: false } },
-    imageAspectRatio: { table: { disable: false } },
-    imageAtEnd: { table: { disable: false } },
-    border: { table: { disable: false } },
-    padding: { table: { disable: false } },
     backgroundColor: { control: { type: "color" } },
     foregroundColor: { control: { type: "color" } },
   }}
@@ -57,7 +49,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.24.1`   |
+| Latest            | `0.25.2`   |
 
 <Description of={Card} />
 
@@ -75,15 +67,19 @@ The `CardActions` component is used to display "call to action" (CTA) buttons an
 
 The `CardContent` component should be used to display all content other than headings and CTAs.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="Card Props"
     args={{
       id: "custom-card",
       layout: CardLayouts.Row,
       imageSrc: "https://placeimg.com/400/300/animals",
-      imageAspectRatio: CardImageRatios.ThreeByFour,
+      imageAspectRatio: ImageRatios.ThreeByFour,
+      imageSize: ImageSizes.Default,
       imageAlt: "Alt text",
+      imageAtEnd: false,
+      border: false,
+      center: false,
     }}
   >
     {(args) => (
@@ -125,7 +121,7 @@ The `CardContent` component should be used to display all content other than hea
       </Card>
     )}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Card Props" />
 
@@ -138,19 +134,13 @@ the default placement and move the image to the last element within a `Card`.
 
 ### Column Cards
 
-<Preview>
+<Canvas>
   <Story name="Card Image Position">
-    <div
-      style={{
-        display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(2, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={2}>
       <Card
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Image on Top (default)
@@ -163,7 +153,7 @@ the default placement and move the image to the last element within a `Card`.
       <Card
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
         imageAtEnd
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
@@ -174,55 +164,51 @@ the default placement and move the image to the last element within a `Card`.
           libero, a pharetra augue.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
-</Preview>
+</Canvas>
 
 ### Row Cards
 
-<Preview>
-  <div
-    style={{
-      display: "grid",
-      "grid-gap": "2rem",
-      "grid-template-columns": "repeat(1, 1fr)",
-    }}
-  >
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/400/200/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-    >
-      <CardHeading level={HeadingLevels.Four} id="heading1">
-        Image on Left (default)
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/410/210/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-      imageAtEnd
-    >
-      <CardHeading level={HeadingLevels.Four} id="heading2">
-        Image on Right
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-  </div>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1}>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Image on Left (default)
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageAtEnd
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading2">
+          Image on Right
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
 
 ## Image Size
 
@@ -232,21 +218,15 @@ prop to override the default width.
 
 ### Column Cards
 
-<Preview>
+<Canvas>
   <Story name="Card Image Size">
-    <div
-      style={{
-        display: "grid",
-        "grid-gap": "4rem",
-        "grid-template-columns": "repeat(1, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={1}>
       <Card
         center
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.Square}
-        imageSize={CardImageSizes.Small}
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.Small}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Small Image
@@ -264,8 +244,8 @@ prop to override the default width.
         center
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.Square}
-        imageSize={CardImageSizes.Medium}
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.Medium}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Medium Image
@@ -278,12 +258,13 @@ prop to override the default width.
           libero, a pharetra augue.
         </CardContent>
       </Card>
+      <HorizontalRule />
       <Card
         center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.Square}
-        imageSize={CardImageSizes.Large}
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.Large}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Large Image
@@ -296,11 +277,12 @@ prop to override the default width.
           libero, a pharetra augue.
         </CardContent>
       </Card>
+      <HorizontalRule />
       <Card
         center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.Square}
+        imageAspectRatio={ImageRatios.Square}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Default Image
@@ -313,114 +295,104 @@ prop to override the default width.
           libero, a pharetra augue.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
-</Preview>
+</Canvas>
 
 ### Row Cards
 
-<Preview>
-  <div
-    style={{
-      display: "grid",
-      "grid-gap": "2rem",
-      "grid-template-columns": "repeat(1, 1fr)",
-    }}
-  >
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/400/200/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-      imageSize={CardImageSizes.Small}
-    >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
-        Small Image
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Five} id="heading2">
-        Max-Width: 165px
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-      </CardContent>
-    </Card>
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/410/210/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-      imageSize={CardImageSizes.Medium}
-    >
-      <CardHeading level={HeadingLevels.Three} id="heading2">
-        Medium Image
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Five} id="heading2">
-        Max-Width: 225px
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis.
-      </CardContent>
-    </Card>
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/400/250/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-      imageSize={CardImageSizes.Large}
-    >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
-        Large Image
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Five} id="heading2">
-        Max-Width: 360px
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-    <Card
-      layout={CardLayouts.Row}
-      center
-      imageSrc="https://placeimg.com/450/250/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.TwoByOne}
-    >
-      <CardHeading level={HeadingLevels.Three} id="heading2">
-        Default Image
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Five} id="heading2">
-        Max-Width: 225px
-      </CardHeading>
-      <CardContent>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed
-        posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-        facilisis in, egestas eget quam.
-      </CardContent>
-    </Card>
-  </div>
-</Preview>
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1}>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.Small}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 165px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/410/210/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.Medium}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading2">
+          Medium Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 225px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/400/250/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.Large}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading1">
+          Large Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 360px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://placeimg.com/450/250/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Three} id="heading2">
+          Default Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Five} id="heading2">
+          Max-Width: 225px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
 
 ## Cards in a Grid
 
-<Preview>
+<Canvas>
   <Story name="Cards in a Grid">
-    <div
-      style={{
-        display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(3, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={3}>
       <Card
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -433,7 +405,7 @@ prop to override the default width.
       <Card
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -446,7 +418,7 @@ prop to override the default width.
       <Card
         imageSrc="https://placeimg.com/420/220/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -459,7 +431,7 @@ prop to override the default width.
       <Card
         imageSrc="https://placeimg.com/430/230/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -472,7 +444,7 @@ prop to override the default width.
       <Card
         imageSrc="https://placeimg.com/440/240/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -485,7 +457,7 @@ prop to override the default width.
       <Card
         imageSrc="https://placeimg.com/450/250/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -495,27 +467,21 @@ prop to override the default width.
           libero, a pharetra augue.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
-</Preview>
+</Canvas>
 
 ## Cards in a Stack
 
-<Preview>
+<Canvas>
   <Story name="Cards in a Stack">
-    <div
-      style={{
-        display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(1, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={1}>
       <Card
         layout={CardLayouts.Row}
         center
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Card Heading
@@ -531,7 +497,7 @@ prop to override the default width.
         center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading2">
           Card Heading
@@ -547,7 +513,7 @@ prop to override the default width.
         center
         imageSrc="https://placeimg.com/420/220/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading3">
           Card Heading
@@ -558,19 +524,19 @@ prop to override the default width.
           facilisis in, egestas eget quam.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
-</Preview>
+</Canvas>
 
 ## Custom Image Component
 
 Instead of passing a path for the `imageSrc` prop, you can pass a custom image component in using the `imageComponent` prop.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="Custom Image Component">
     <Card
       imageAlt="Alt text"
-      imageAspectRatio={CardImageRatios.SixteenByNine}
+      imageAspectRatio={ImageRatios.SixteenByNine}
       imageComponent={
         <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
       }
@@ -598,20 +564,13 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
       </CardActions>
     </Card>
   </Story>
-</Preview>
+</Canvas>
 
 ## Cards Without Images
 
-<Preview>
+<Canvas>
   <Story name="Cards Without Images">
-    <div
-      style={{
-        display: "grid",
-        gridGap: "2rem",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        marginBottom: "2rem",
-      }}
-    >
+    <SimpleGrid columns={3}>
       <Card border>
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -642,14 +601,9 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
           Praesent commodo cursus magna, vel scelerisque nisl.
         </CardContent>
       </Card>
-    </div>
-    <div
-      style={{
-        display: "grid",
-        "grid-gap": "2rem",
-        "grid-template-columns": "repeat(1, 1fr)",
-      }}
-    >
+    </SimpleGrid>
+    <br />
+    <SimpleGrid columns={1}>
       <Card layout={CardLayouts.Row} border>
         <CardHeading level={HeadingLevels.Three} id="heading1">
           Card Heading
@@ -689,6 +643,6 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
           eget metus.
         </CardContent>
       </Card>
-    </div>
+    </SimpleGrid>
   </Story>
-</Preview>
+</Canvas>

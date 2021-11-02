@@ -50,7 +50,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
   >
     <img
       alt="Image example"
-      className="image "
+      className="css-0"
       src="https://placeimg.com/800/400/animals"
     />
     <h1
@@ -82,7 +82,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
   >
     <img
       alt="Image example"
-      className="image "
+      className="css-0"
       src="https://placeimg.com/800/400/animals"
     />
     <h1
@@ -114,7 +114,7 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
   >
     <img
       alt="Image example"
-      className="image "
+      className="css-0"
       src="https://placeimg.com/800/400/animals"
     />
     <h1
@@ -146,7 +146,7 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
   >
     <img
       alt="Image example"
-      className="image "
+      className="css-0"
       src="https://placeimg.com/800/400/animals"
     />
     <h1
@@ -178,7 +178,7 @@ exports[`Hero Renders the UI snapshot correctly 6`] = `
   >
     <img
       alt="Image example"
-      className="image "
+      className="css-0"
       src="https://placeimg.com/800/400/animals"
     />
     <h1
@@ -253,7 +253,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
   >
     <img
       alt="Image example"
-      className="image "
+      className="css-0"
       src="https://placeimg.com/800/400/animals"
     />
     <div
@@ -294,7 +294,7 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
   >
     <img
       alt="Image example"
-      className="image "
+      className="css-0"
       src="https://placeimg.com/800/400/animals"
     />
     <div

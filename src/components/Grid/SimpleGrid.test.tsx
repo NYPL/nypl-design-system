@@ -5,7 +5,7 @@ import renderer from "react-test-renderer";
 
 import SimpleGrid from "./SimpleGrid";
 import Card, { CardHeading, CardContent } from "../Card/Card";
-import { CardImageRatios } from "../Card/CardTypes";
+import { ImageRatios } from "../Image/ImageTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 
 describe("Grid Accessibility", () => {
@@ -15,7 +15,7 @@ describe("Grid Accessibility", () => {
         <Card
           imageSrc="https://placeimg.com/500/200/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Two}>Card Heading</CardHeading>
           <CardContent>
@@ -26,7 +26,7 @@ describe("Grid Accessibility", () => {
         <Card
           imageSrc="https://placeimg.com/400/220/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -37,7 +37,7 @@ describe("Grid Accessibility", () => {
         <Card
           imageSrc="https://placeimg.com/400/240/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
