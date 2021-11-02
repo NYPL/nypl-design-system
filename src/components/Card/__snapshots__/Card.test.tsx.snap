@@ -36,7 +36,8 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <button
-        className="chakra-button button  css-0"
+        className="chakra-button css-0"
+        data-testid="button"
         id="button1"
         onClick={[Function]}
         type="submit"
@@ -109,6 +110,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
           focusable={false}
           id="icon-cardWithExtendedStyles"
           role="img"
+          title="download icon"
           viewBox="0 0 24 24"
         >
           <g
@@ -238,6 +240,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
           focusable={false}
           id="icon-cardWithNoContent"
           role="img"
+          title="download icon"
           viewBox="0 0 24 24"
         >
           <g
@@ -315,6 +318,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
           focusable={false}
           id="icon-cardWithNoImage"
           role="img"
+          title="download icon"
           viewBox="0 0 24 24"
         >
           <g

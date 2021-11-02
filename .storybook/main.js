@@ -48,7 +48,14 @@ module.exports = {
     // Add svgr loader to handle svgs.
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"],
+      use: [
+        {
+          loader: "@svgr/webpack",
+          options: {
+            titleProp: true,
+          },
+        },
+      ],
     });
 
     return {

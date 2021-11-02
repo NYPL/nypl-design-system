@@ -1,11 +1,6 @@
 import * as React from "react";
-import {
-  Button as ChakraButton,
-  ButtonGroup,
-  useStyleConfig,
-} from "@chakra-ui/react";
+import { Button as ChakraButton, useStyleConfig } from "@chakra-ui/react";
 
-import bem from "../../utils/bem";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 
@@ -60,7 +55,6 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
     onClick,
     type = "button",
   } = props;
-  const baseClass = "button";
   const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
   let childCount = 0;
   let hasIcon = false;
@@ -80,7 +74,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
   });
 
   if (childCount === 1 && hasIcon) {
-    variant = "icon-only";
+    variant = "iconOnly";
   } else {
     variant = getVariant(buttonType);
   }
@@ -90,7 +84,8 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
   return (
     <ChakraButton
       id={id}
-      className={bem(baseClass, [], "", [className])}
+      data-testid="button"
+      className={className}
       type={type}
       disabled={disabled}
       __css={{ ...styles, ...additionalStyles }}
@@ -102,5 +97,4 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
   );
 }
 
-export { ButtonGroup };
 export default Button;

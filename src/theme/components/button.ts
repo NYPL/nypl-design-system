@@ -27,24 +27,20 @@ const baseStyle = {
     opacity: "1",
   },
 };
-// Styles for different "lg" size
-const sizes = {
-  lg: {
-    width: "150px",
-  },
-};
 // Styles for different visual variants:
-// primary, secondary, link, pill, icon-only, callout
+// primary, secondary, link, pill, iconOnly, callout
 const primary = {
   bg: "ui.link.primary",
   minWidth: "none",
   height: "none",
+  fontSize: "-1",
 };
 const secondary = {
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
   color: "inherit",
+  fontSize: "-1",
   _hover: {
     bg: "ui.gray.xx-light-cool",
   },
@@ -71,6 +67,7 @@ const pill = {
   py: "xs",
   paddingInlineStart: "m",
   paddingInlineEnd: "m",
+  fontSize: "-1",
   _hover: {
     bg: "ui.gray.xx-light-cool",
   },
@@ -88,6 +85,7 @@ const iconOnly = {
 };
 const callout = {
   bg: "brand.primary",
+  fontSize: "-1",
   _hover: {
     bg: "brand.secondary",
   },
@@ -98,27 +96,25 @@ const callout = {
 const searchBar = {
   ...primary,
   borderLeftRadius: "none",
+  lineHeight: "1.75",
 };
 
 const Button = {
   baseStyle,
-  sizes,
   // Available variants:
-  // primary, secondary, link, pill, icon-only, searchBar
+  // primary, secondary, link, pill, iconOnly, searchBar
   variants: {
     primary,
     secondary,
     link,
     pill,
-    ["icon-only"]: iconOnly,
+    iconOnly,
     callout,
     searchBar,
   },
   // Default values
   defaultProps: {
-    size: "md",
     variant: "primary",
-    colorScheme: "blue",
   },
 };
 
