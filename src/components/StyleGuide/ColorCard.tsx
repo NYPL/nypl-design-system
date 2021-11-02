@@ -28,7 +28,6 @@ export default function ColorCard(
         backgroundColor={backgroundColor}
         center
         layout={CardLayouts.Column}
-        padding="3rem"
         border
       />
       <div style={{ marginLeft: "1rem" }}>

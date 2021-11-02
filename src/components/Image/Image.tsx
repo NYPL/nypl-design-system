@@ -1,84 +1,112 @@
-// Images
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
-export interface ImageProps {
-  /** Text description of the image */
-  alt: string;
-  /** Additional attributes passed to the image */
-  attributes?: { [key: string]: any };
+import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
-  /** BlockName for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
+interface ImageWrapperProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** ClassName you can add in addition to 'image' */
   className?: string;
+  /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
+  imageAspectRatio?: ImageRatios;
+  /** Optional value to control the size of the image */
+  imageSize?: ImageSizes;
+}
+
+export interface ImageProps extends ImageWrapperProps {
+  /** Alternate text description of the image */
+  alt: string;
+  /** Custom image component */
+  component?: JSX.Element | null;
   /** Adding will wrap the image in a <figure> */
   imageCaption?: string;
   /** Adding will wrap the image in a <figure> */
   imageCredit?: string;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
+  /** Optional value to control the size of the image */
+  imageSize?: ImageSizes;
+  /** Optional value for the image type */
+  imageType?: ImageTypes;
   /** The src attribute is required, and contains the path to the image you want to embed. */
   src: string;
 }
 
-export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
-  const baseClass = "image";
+function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
   const {
+    additionalStyles = {},
+    className = "",
+    children,
+    imageAspectRatio = ImageRatios.Original,
+    imageSize = ImageSizes.Default,
+  } = props;
+  const styles = useMultiStyleConfig("CustomImageWrapper", {
+    ratio: imageAspectRatio,
+    size: imageSize,
+  });
+  return (
+    <Box
+      __css={{ ...styles, ...additionalStyles }}
+      className={`the-wrap ${className}`}
+    >
+      <Box __css={styles.crop} className="the-crop">
+        {children}
+      </Box>
+    </Box>
+  );
+}
+
+export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
+  const {
+    additionalStyles = {},
     alt,
-    attributes,
-    blockName,
-    className,
+    className = "",
+    component,
+    imageAspectRatio = ImageRatios.Original,
     imageCaption,
     imageCredit,
-    modifiers = [],
+    imageSize = ImageSizes.Default,
+    imageType = ImageTypes.Default,
     src,
-    ...imgHTMLProps
   } = props;
+  const useImageWrapper = imageAspectRatio !== ImageRatios.Original;
+  const styles = useMultiStyleConfig("CustomImage", {
+    variant: imageType,
+    size: imageSize,
+  });
 
   if (alt && alt.length > 300) {
     throw new Error("Alt Text must be less than 300 characters");
   }
 
-  const figureBlockName = imageCaption || imageCredit ? "figure" : blockName;
+  const imageComponent: JSX.Element = component ? (
+    component
+  ) : (
+    <Box as="img" src={src} alt={alt} __css={styles.img} />
+  );
+  const finalImage = useImageWrapper ? (
+    <ImageWrapper
+      className={className}
+      imageAspectRatio={imageAspectRatio}
+      imageSize={imageSize}
+      additionalStyles={additionalStyles}
+    >
+      {imageComponent}
+    </ImageWrapper>
+  ) : (
+    imageComponent
+  );
 
-  const imageProps: ImageProps = {
-    className: bem(baseClass, modifiers, figureBlockName, [className]),
-    src: src,
-    alt: alt,
-  };
-
-  return (
-    <>
-      {imageCaption || imageCredit ? (
-        <figure className={bem("figure")}>
-          <img
-            alt={imageProps.alt}
-            {...imageProps}
-            {...imgHTMLProps}
-            {...attributes}
-          />
-          <figcaption className={bem("figcaption", [], "figure", ["image"])}>
-            {imageCaption && (
-              <div className={bem("caption", [], "figcaption")}>
-                {imageCaption}
-              </div>
-            )}
-            {imageCredit && (
-              <div className={bem("credit", [], "figcaption")}>
-                {imageCredit}
-              </div>
-            )}
-          </figcaption>
-        </figure>
-      ) : (
-        <img
-          alt={imageProps.alt}
-          {...imageProps}
-          {...imgHTMLProps}
-          {...attributes}
-        />
-      )}
-    </>
+  return imageCaption || imageCredit ? (
+    <Box as="figure" __css={styles.figure}>
+      {finalImage}
+      <Box as="figcaption" __css={styles.figcaption}>
+        {imageCaption && (
+          <Box __css={styles.captionWrappers}>{imageCaption}</Box>
+        )}
+        {imageCredit && <Box __css={styles.captionWrappers}>{imageCredit}</Box>}
+      </Box>
+    </Box>
+  ) : (
+    finalImage
   );
 }

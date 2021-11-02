@@ -8,17 +8,8 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import SimpleGrid from "./SimpleGrid";
-import Card, {
-  CardImage,
-  CardHeading,
-  CardContent,
-  CardActions,
-} from "../Card/Card";
-import {
-  CardImageRatios,
-  CardImageSizes,
-  CardLayouts,
-} from "../Card/CardTypes";
+import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
+import { CardLayouts } from "../Card/CardTypes";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import {
@@ -28,6 +19,7 @@ import {
   IconRotationTypes,
 } from "../Icons/IconTypes";
 import Image from "../Image/Image";
+import { ImageRatios } from "../Image/ImageTypes";
 
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -86,9 +78,9 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
     {(args) => (
       <SimpleGrid {...args}>
         <Card
-          imageSrc="https://placeimg.com/500/200/animals"
+          imageSrc="https://placeimg.com/400/220/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -99,7 +91,7 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
         <Card
           imageSrc="https://placeimg.com/400/220/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -110,7 +102,7 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
         <Card
           imageSrc="https://placeimg.com/400/240/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -121,7 +113,7 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
         <Card
           imageSrc="https://placeimg.com/400/260/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -132,7 +124,7 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
         <Card
           imageSrc="https://placeimg.com/400/320/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -143,7 +135,7 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
         <Card
           imageSrc="https://placeimg.com/400/300/animals"
           imageAlt="Alt text"
-          imageAspectRatio={CardImageRatios.TwoByOne}
+          imageAspectRatio={ImageRatios.TwoByOne}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -190,24 +182,24 @@ This example is rendering square `Image` components with the `columns` prop set 
 <Canvas>
   <DSProvider>
     <SimpleGrid columns={6}>
-      <Image src="https://placeimg.com/300/300/animals?x=1" />
-      <Image src="https://placeimg.com/300/300/animals?x=2" />
-      <Image src="https://placeimg.com/300/300/animals?x=3" />
-      <Image src="https://placeimg.com/300/300/animals?x=4" />
-      <Image src="https://placeimg.com/300/300/animals?x=5" />
-      <Image src="https://placeimg.com/300/300/animals?x=6" />
-      <Image src="https://placeimg.com/300/300/animals?x=7" />
-      <Image src="https://placeimg.com/300/300/animals?x=8" />
-      <Image src="https://placeimg.com/300/300/animals?x=9" />
-      <Image src="https://placeimg.com/300/300/animals?x=10" />
-      <Image src="https://placeimg.com/300/300/animals?x=11" />
-      <Image src="https://placeimg.com/300/300/animals?x=12" />
-      <Image src="https://placeimg.com/300/300/animals?x=13" />
-      <Image src="https://placeimg.com/300/300/animals?x=14" />
-      <Image src="https://placeimg.com/300/300/animals?x=15" />
-      <Image src="https://placeimg.com/300/300/animals?x=16" />
-      <Image src="https://placeimg.com/300/300/animals?x=17" />
-      <Image src="https://placeimg.com/300/300/animals?x=18" />
+      <Image src="https://placeimg.com/300/300/animals?x=1" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=2" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=3" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=4" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=5" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=6" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=7" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=8" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=9" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=10" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=11" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=12" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=13" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=14" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=15" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=16" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=17" alt="" />
+      <Image src="https://placeimg.com/300/300/animals?x=18" alt="" />
     </SimpleGrid>
   </DSProvider>
 </Canvas>
@@ -225,7 +217,7 @@ This example is rendering horizontal `Card` components with the `columns` prop s
         center
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.FourByThree}
+        imageAspectRatio={ImageRatios.FourByThree}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Card Heading
@@ -242,7 +234,7 @@ This example is rendering horizontal `Card` components with the `columns` prop s
         center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.FourByThree}
+        imageAspectRatio={ImageRatios.FourByThree}
       >
         <CardHeading level={HeadingLevels.Four} id="heading2">
           Card Heading
@@ -259,7 +251,7 @@ This example is rendering horizontal `Card` components with the `columns` prop s
         center
         imageSrc="https://placeimg.com/320/320/animals"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.FourByThree}
+        imageAspectRatio={ImageRatios.FourByThree}
       >
         <CardHeading level={HeadingLevels.Four} id="heading3">
           Card Heading

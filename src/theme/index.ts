@@ -11,9 +11,11 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
+import Card from "./components/card";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
 import CustomCheckboxGroup from "./components/customCheckboxGroup";
+import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
 import Heading from "./components/heading";
@@ -70,9 +72,12 @@ const theme = extendTheme({
     Accordion,
     Breadcrumb,
     Button,
+    ...Card,
     Checkbox,
     ComponentWrapper,
     CustomCheckboxGroup,
+    CustomImage,
+    CustomImageWrapper,
     CustomRadioGroup,
     CustomSelect,
     Heading,
