@@ -15,11 +15,6 @@ import { getCategory } from "../../utils/componentCategories";
   title={getCategory("Pagination")}
   component={Pagination}
   decorators={[withDesign, withQuery]}
-  argTypes={{
-    blockName: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
-    className: { table: { disable: true } },
-  }}
   parameters={{
     design: {
       type: "figma",
@@ -28,6 +23,11 @@ import { getCategory } from "../../utils/componentCategories";
     },
     jest: ["Pagination.test.tsx"],
   }}
+  argTypes={{
+    id: { table: { disable: true } },
+    getPageHref: { table: { disable: true } },
+    onPageChange: { table: { disable: true } },
+  }}
 />
 
 # Pagination
@@ -35,7 +35,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.22.2`   |
+| Latest            | `0.25.2`   |
 
 <Description of={Pagination} />
 
@@ -49,17 +49,19 @@ Pagination uses anchor tags because it is navigating between URLs.
 
 In order to update the URL with a query parameter, the parent component must
 declare and pass a `getPageHref` function to the `Pagination` component. This
-function should return a string with the desired URL that the pagination links
-should go to. Note that this will refresh the browser on every click.
+function takes a `selectedPage` number argument for the selected page and it
+should return a string with the desired URL that the pagination links should go
+to. Note that this will refresh the browser on every click.
 
 In the following example, the `getPageHref` function will compute a new URL that
 has `&page=` as a URL query. In your own application this query parameter can be
 named anything but you have to pick up the value in the wrapper component.
 
-```jsx
+```tsx
 // Example in a search results page.
-const getPageHref = (page) => {
-  return `${location.origin}?q=celeste&page=${page}`;
+const getPageHref = (selectedPage: number) => {
+  // This should be updated for your router system, if any.
+  return `${location.origin}?q=celeste&page=${selectedPage}`;
 };
 ```
 
@@ -67,8 +69,8 @@ const getPageHref = (page) => {
   <Story
     name="Pagination with URL Updates"
     args={{
-      currentPage: 4,
-      pageCount: 100,
+      initialPage: 1,
+      pageCount: 10,
     }}
   >
     {(args) => stories.PaginationGetPageHref(args)}
@@ -82,29 +84,25 @@ const getPageHref = (page) => {
 It is preferred to use the `Pagination` component with the `getPageHref`
 function passed as a prop and that the URL is updated whenever a page is
 changed. However, the optional `onPageChange` prop is available in case URL
-updating is not desired. The parent component must now keep track of the state
-of the current page value.
+updating is not desired.
 
-the `getPageHref` function will compute a new URL that
-has `&page=` as a URL query. In your own application this query parameter can be
-named anything but you have to pick up the value in the wrapper component.
+In the following example, the `onPageChange` function gets the current page as
+its only function argument. This is computed internally in the `Pagination`
+component through its own state.
 
-In the following example, the `onPageChange` function is keeping track of the
-current page through the use of React's `useState` feature.
-
-```jsx
+```tsx
 // Example in a search results page.
-const [computedCurrentPage, setComputedCurrentPage] = useState(
-  args.currentPage
-);
-const onPageChange = (page: number) => setComputedCurrentPage(page);
+const onPageChange = (currentPage: number) => {
+  console.log(`Current page: ${currentPage}`);
+  // Do what you need to with the `currentPage` value.
+};
 ```
 
 <Canvas withToolbar>
   <Story
     name="Pagination with Unchanging URL"
     args={{
-      currentPage: 7,
+      initialPage: 7,
       pageCount: 100,
     }}
   >
