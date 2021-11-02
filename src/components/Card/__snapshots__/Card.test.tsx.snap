@@ -351,11 +351,6 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
 <div
   className="chakra-linkbox css-10n1vic"
 >
-  <a
-    aria-label="Go to NYPL"
-    className="chakra-linkbox__overlay css-1s0vgvu"
-    href="http://nypl.org"
-  />
   <div
     className="css-0"
     id="fullclick"
@@ -380,7 +375,12 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
         className="chakra-heading css-0"
         id="heading1"
       >
-        The Card Heading
+        <a
+          className="chakra-linkbox__overlay css-1hnz6hu"
+          href="http://nypl.org"
+        >
+          The Card Heading
+        </a>
       </h3>
       <div
         className="css-0"

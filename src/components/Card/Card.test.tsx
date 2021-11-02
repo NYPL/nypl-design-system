@@ -46,7 +46,6 @@ describe("Card Accessibility", () => {
         imageSrc="https://placeimg.com/400/200/arch"
         imageAlt="Alt text"
         mainActionLink="http://nypl.org"
-        mainAriaLabel="Go to NYPL"
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           The Card Heading
@@ -198,13 +197,12 @@ describe("Card", () => {
       </CardActions>
     </Card>
   );
-  const cardFullClick = (mainAriaLabel) => (
+  const cardFullClick = () => (
     <Card
       id="fullclick"
       imageSrc="https://placeimg.com/400/200/arch"
       imageAlt="Alt text"
       mainActionLink="http://nypl.org"
-      mainAriaLabel={mainAriaLabel}
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
         The Card Heading
@@ -283,9 +281,8 @@ describe("Card", () => {
   });
 
   it("Generates a card without an image block if no image is provided", () => {
-    render(cardFullClick("Go to NYPL"));
+    render(cardFullClick());
 
-    expect(screen.getByLabelText("Go to NYPL")).toBeInTheDocument();
     expect(screen.getAllByRole("link")[0]).toHaveAttribute(
       "href",
       "http://nypl.org"
@@ -298,7 +295,7 @@ describe("Card", () => {
     const withNoCTAs = renderer.create(cardWithNoCTAs).toJSON();
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
     const withNoImage = renderer.create(cardWithNoImage).toJSON();
-    const withFullClick = renderer.create(cardFullClick("Go to NYPL")).toJSON();
+    const withFullClick = renderer.create(cardFullClick()).toJSON();
     expect(regular).toMatchSnapshot();
     expect(withExtendedStyles).toMatchSnapshot();
     expect(withNoCTAs).toMatchSnapshot();

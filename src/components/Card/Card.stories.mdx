@@ -49,7 +49,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.2`   |
+| Latest            | `0.25.3`   |
 
 <Description of={Card} />
 
@@ -87,7 +87,7 @@ The `CardContent` component should be used to display all content other than hea
         <CardHeading level={HeadingLevels.Two} id="main-heading1">
           Optional Header
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="main-heading2">
+        <CardHeading level={HeadingLevels.Three} id="main-heading2">
           Sollicitudin Lorem Tortor Purus Ornare
         </CardHeading>
         <CardContent>
@@ -231,7 +231,7 @@ prop to override the default width.
         <CardHeading level={HeadingLevels.Three} id="column-heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="column-heading2">
+        <CardHeading level={HeadingLevels.Four} id="column-heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -250,7 +250,7 @@ prop to override the default width.
         <CardHeading level={HeadingLevels.Three} id="column2-heading1">
           Medium Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="column2-heading2">
+        <CardHeading level={HeadingLevels.Four} id="column2-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -269,7 +269,7 @@ prop to override the default width.
         <CardHeading level={HeadingLevels.Three} id="column3-heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="column3-heading2">
+        <CardHeading level={HeadingLevels.Four} id="column3-heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -287,7 +287,7 @@ prop to override the default width.
         <CardHeading level={HeadingLevels.Three} id="column-4heading1">
           Default Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="column-4heading2">
+        <CardHeading level={HeadingLevels.Four} id="column-4heading2">
           Width: 100%
         </CardHeading>
         <CardContent>
@@ -315,7 +315,7 @@ prop to override the default width.
         <CardHeading level={HeadingLevels.Three} id="row2-heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="row2-heading2">
+        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -333,7 +333,7 @@ prop to override the default width.
         <CardHeading level={HeadingLevels.Three} id="row3-heading2">
           Medium Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="row3-heading2">
+        <CardHeading level={HeadingLevels.Four} id="row3-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -352,7 +352,7 @@ prop to override the default width.
         <CardHeading level={HeadingLevels.Three} id="row4-heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="row4-heading2">
+        <CardHeading level={HeadingLevels.Four} id="row4-heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -371,7 +371,7 @@ prop to override the default width.
         <CardHeading level={HeadingLevels.Three} id="row5-heading2">
           Default Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Five} id="row5-heading2">
+        <CardHeading level={HeadingLevels.Four} id="row5-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -650,10 +650,13 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
 ## Card With Full-Click Functionality
 
 To enable the full-click functionality in the `Card` component, pass a URL in
-the `mainActionLink` prop and relevant text in the `mainAriaLabel` prop. This
-will make the entire `Card` component clickable. If the `Card` has action links
-or buttons, they can still be accessed by tabbing through the `Card` and
-pressing `enter`.
+the `mainActionLink` prop. This will make the entire `Card` component clickable.
+If the `Card` has action links or buttons, they can still be accessed by tabbing
+through the `Card` and pressing `enter` or clicking like a regular link.
+
+Internally, if multiple `CardHeading` components are passed, only the first one
+will have the full-click link. This, however, does not affect the `Card` itself
+from being having the full-click functionality.
 
 <Canvas>
   <Story name="Card With Full-Click Functionality">
@@ -663,21 +666,24 @@ pressing `enter`.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
         mainActionLink="http://nypl.org"
-        mainAriaLabel="Go to NYPL home page."
       >
         <CardHeading level={HeadingLevels.Three} id="fullclick1-heading1">
-          Image on Top (default)
+          Go to NYPL home page.
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="fullclick1-heading2">
+          Some other heading.
         </CardHeading>
         <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
+          This entire `Card` component is clickable, but the links below are
+          still accessible by tabbing through the `Card` and pressing `enter` or
+          clicking with a mouse.
         </CardContent>
         <CardActions>
           <Link href="#" type={LinkTypes.Button}>
             Button
           </Link>
           <Link href="#" type={LinkTypes.Forwards}>
-            Read more
+            Other link
           </Link>
         </CardActions>
       </Card>
@@ -686,17 +692,40 @@ pressing `enter`.
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
         mainActionLink="http://nypl.org"
-        mainAriaLabel="Go to NYPL home page."
         imageAtEnd
       >
         <CardHeading level={HeadingLevels.Three} id="fullclick2-heading1">
-          Image on Bottom
+          Go to NYPL home page.
         </CardHeading>
         <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
+          This `Card` component does not have any extra links.
         </CardContent>
       </Card>
     </SimpleGrid>
   </Story>
 </Canvas>
+
+## Accessibility
+
+### Headings
+
+In general, headings from `h1` through `h6` must be in sequential order in the
+DOM tree. Rendering an `h4` following an `h2` will throw an error. Therefore,
+when adding `CardHeading` components, make sure to add them in sequential order
+with the `level` prop.
+
+```tsx
+<CardHeading level={HeadingLevels.Three} id="headingthree">
+  Heading level three
+</CardHeading>
+<CardHeading level={HeadingLevels.Four} id="headingfour">
+  Heading level four
+</CardHeading>
+```
+
+### Full-Click Functionality
+
+Passing in a URL in the `mainActionLink` prop will make the entire `Card`
+clickable. Other links in the `CardActions` component can still be accessed by
+tabbing through and pressing "enter" or by clicking as you normally would on a
+link.

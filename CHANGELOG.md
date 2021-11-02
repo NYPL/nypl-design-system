@@ -11,7 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `ImageRatios`, `ImageSizes`, and `ImageTypes` enums.
-- Adds the ability to make an entire `Card` component clickable with Chakra's `LinkBox` and `LinkOverlay` components.
+- Adds the ability to make an entire `Card` component clickable with Chakra's `LinkBox` and `LinkOverlay` components. Links in the `CardActions` component can still be accessed in this state by clicking with the mouse or tabbing and pressing "enter".
 
 ### Breaking Changes
 
