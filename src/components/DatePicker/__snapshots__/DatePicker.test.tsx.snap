@@ -616,7 +616,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
             onFocus={[Function]}
             required={false}
             type="text"
-            value="2021-10-27"
+            value="2021-11-02"
           />
         </div>
       </div>
