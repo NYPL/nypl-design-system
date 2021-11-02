@@ -39,11 +39,16 @@ const baseStyleControl = {
       borderColor: "ui.gray.medium",
       color: "ui.gray.medium",
     },
+
+    _indeterminate: {
+      color: "ui.focus",
+      borderColor: "ui.focus",
+    },
   },
 
   _indeterminate: {
-    bg: "ui.white",
-    borderColor: "ui.gray.medium",
+    color: "ui.focus",
+    borderColor: "ui.focus",
   },
 
   _disabled: {

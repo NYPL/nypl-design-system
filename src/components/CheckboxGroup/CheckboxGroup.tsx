@@ -18,12 +18,12 @@ export interface CheckboxGroupProps {
   children: React.ReactNode;
   /** Populates the initial value of the input */
   defaultValue?: string[];
-  /** Optional string to populate the HelperErrorText for error state */
-  invalidText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Optional string to populate the HelperErrorText for error state */
+  invalidText?: string;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
   /** A`dds the 'aria-invalid' attribute to the input and

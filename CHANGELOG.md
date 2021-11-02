@@ -8,6 +8,28 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the `Checkbox` component with an "indeterminate" state through the `isIndeterminate` prop.
+- Updates the `CheckboxGroup` component story with an "indeterminate" state example.
+
+### Fixes
+
+- Fixes nondeterministic unit test in the `DatePicker` component.
+
+### Breaking Changes
+
+- Updates the Github Action for the changelog reminder.
+- Updates the `Notification` component to fix the custom icon alignment.
+- Adds the `title` prop to the `Icon` component to render a `title` HTML element for accessible SVG icons.
+- Updates the default font size of the `Button` component to `"-1"` (14px) for all variants except the `Link` variant. Removes the `bem` function from internal use and makes it clearer that the `ButtonGroup` Chakra component is exported in the Design System.
+- Updates the `errorText` prop to `invalidText` for the `Checkbox` component.
+- Composes the DS `Pagination` component with Chakra. Removes the BEM-related props and updates the `currentPage` prop to `initialPage`. The current selected page is now kept in state inside the `Pagination` component and returned to the user through `getPageHref` or `onPageChange`. This also adds better aria attributes to the list inside the `Pagination` component.
+- Composes the DS `DatePicker` component with Chakra. Adds more tests, documentation, and examples. This component now uses the `Fieldset` component for the date range type, and better `Form` components for layout. Prop name changes: `dateRange` is now `isDateRange` and `required` is now `isRequired`. BEM related props `modifiers` and `blockname` have been removed. The "Required"/"Optional" text in the date range legend can now be hidden with the `showOptReqLabel` prop.
+- Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
+
+## 0.25.2 (October 28, 2021)
+
 ### Adds
 
 - Adds custom `useCarouselStyles` hook for the `Tabs` mobile carousel functionality.
@@ -33,8 +55,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `VideoPlayer` component with Chakra. BEM related prop `modifiers` has been removed.
 - Composes the DS `HorizontalRule` component with Chakra. BEM related prop `modifiers` has been removed, as well as the `attributes` prop.
 - Composes the DS `List` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. The `noStyling` prop is now used for the no list style variant style.
-- Composes the DS `DatePicker` component with Chakra. Adds more tests, documentation, and examples. This component now uses the `Fieldset` component for the date range type, and better `Form` components for layout. Prop name changes: `dateRange` is now `isDateRange` and `required` is now `isRequired`. BEM related props `modifiers` and `blockname` have been removed. The "Required"/"Optional" text in the date range legend can now be hidden with the `showOptReqLabel` prop.
-- Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
 
 ## 0.25.1 (October 14, 2021)
 
@@ -67,7 +87,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates font size of the `legend` element used in `CheckboxGroup`, `DatePicker` and `RadioGroup`.
 - Updates the radius values through Chakra's theme object.
 
-## 0.25.0
+## 0.25.0 (September 30, 2021)
 
 ### Breaking Changes
 
