@@ -59,7 +59,7 @@ const imageRatios = {
   },
 };
 const CustomImage = {
-  parts: ["captionWrappers", "imgCrop"],
+  parts: ["captionWrappers"],
   variants: {
     circle: {
       img: {
@@ -73,9 +73,6 @@ const CustomImage = {
       ...imageSizes[size],
       img: {
         marginBottom: "xxs",
-      },
-      "> div": {
-        // margin: "unset",
       },
     },
     figcaption: {
@@ -96,6 +93,7 @@ const CustomImage = {
   }),
 };
 const CustomImageWrapper = {
+  parts: ["crop"],
   baseStyle: ({ ratio = "original", size = "default" }) => ({
     marginLeft: "auto",
     marginRight: "auto",
