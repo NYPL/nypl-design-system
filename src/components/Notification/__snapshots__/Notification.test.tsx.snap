@@ -49,6 +49,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
         focusable={false}
         id="notificationID2-notification-icon"
         role="img"
+        title="speaker_notes icon"
         viewBox="0 0 24 24"
       >
         <g
@@ -111,6 +112,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
         focusable={false}
         id="notificationID3-notification-icon"
         role="img"
+        title="error_filled icon"
         viewBox="0 0 24 24"
       >
         <g
