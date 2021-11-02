@@ -512,12 +512,17 @@ describe("DatePicker", () => {
       expect(screen.getByText("Sa")).toBeInTheDocument();
     });
 
-    it.skip("should select a new date from the calendar", () => {
-      render(<DatePicker labelText="Select the date you want to visit NYPL" />);
+    it("should select a new date from the calendar", () => {
+      render(
+        <DatePicker
+          labelText="Select the date you want to visit NYPL"
+          initialDate="08/01/2021"
+        />
+      );
       const input = screen.getByLabelText(
         /Select the date you want to visit NYPL/i
       );
-      const date = getTodaysDateDisplay();
+      const date = "2021-08-01";
       const midMonthDay = "15";
 
       expect(screen.getByDisplayValue(date)).toBeInTheDocument();
@@ -535,19 +540,18 @@ describe("DatePicker", () => {
 
       // Let's select a new month
       userEvent.click(input);
-      // The popup displays.
+      // The popup displays. We are currently on 08/15/2021.
       expect(
-        screen.getByText(monthArray[todaysDate.getMonth()], { exact: false })
+        screen.getByText(monthArray["7"], { exact: false })
       ).toBeInTheDocument();
       userEvent.click(screen.getByLabelText("Next Month"));
       userEvent.click(screen.getByLabelText("Next Month"));
 
       // We are two months ahead but still selecting the midmonth day.
       userEvent.click(screen.getByText(midMonthDay));
-      // So only the month should change accordingly. The month value from JS'
-      // Date object is 0-index so we have to add 3.
+      // So only the month should change accordingly.
       const newMonthValue = `${newDayValue.substr(0, 5)}${str_pad(
-        todaysDate.getMonth() + 3
+        "10"
       )}${newDayValue.substr(7)}`;
       expect(screen.getByDisplayValue(newMonthValue)).toBeInTheDocument();
     });
