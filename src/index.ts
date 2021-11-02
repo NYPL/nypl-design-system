@@ -24,11 +24,7 @@ export {
   CardContent,
   CardHeading,
 } from "./components/Card/Card";
-export {
-  CardImageRatios,
-  CardImageSizes,
-  CardLayouts,
-} from "./components/Card/CardTypes";
+export { CardLayouts } from "./components/Card/CardTypes";
 export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
@@ -57,6 +53,11 @@ export {
   IconSizes,
 } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
+export {
+  ImageRatios,
+  ImageSizes,
+  ImageTypes,
+} from "./components/Image/ImageTypes";
 export { default as Input } from "./components/Input/Input";
 export { InputTypes } from "./components/Input/InputTypes";
 export { default as Label } from "./components/Label/Label";
