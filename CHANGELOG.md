@@ -12,15 +12,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `ImageRatios`, `ImageSizes`, and `ImageTypes` enums.
 
-### Breaking Changes
-
-- Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
-- Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
-
 ### Changes
 
 - Updates the `Checkbox` component with an "indeterminate" state through the `isIndeterminate` prop.
 - Updates the `CheckboxGroup` component story with an "indeterminate" state example.
+- Updates to the `Button` Style Guide documentation.
 
 ### Fixes
 
@@ -33,6 +29,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `title` prop to the `Icon` component to render a `title` HTML element for accessible SVG icons.
 - Updates the default font size of the `Button` component to `"-1"` (14px) for all variants except the `Link` variant. Removes the `bem` function from internal use and makes it clearer that the `ButtonGroup` Chakra component is exported in the Design System.
 - Updates the `errorText` prop to `invalidText` for the `Checkbox` component.
+- Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
+- Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
 
 ## 0.25.2 (October 28, 2021)
 
