@@ -60,6 +60,11 @@ const variants = {
 };
 
 const Heading = {
+  baseStyle: {
+    a: {
+      color: "ui.black",
+    },
+  },
   // Available variants:
   // h1, h2, h3, h4, h5, h6,
   // primary, secondary, tertiary, callout
