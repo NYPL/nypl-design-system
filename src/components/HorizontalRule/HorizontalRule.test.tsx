@@ -24,6 +24,21 @@ describe("HorizontalRule", () => {
     expect(hrClass).toContain("custom-hr");
   });
 
+  it("renders with proper custom class", () => {
+    const warn = jest.spyOn(console, "warn");
+    const { rerender } = render(
+      <HorizontalRule className="custom-hr" height="20px" />
+    );
+    expect(warn).not.toHaveBeenCalledWith(
+      "For the `height` prop, use a whole number, a `px` value, a `em` value, or a `rem` value. Using the default of 2px."
+    );
+
+    rerender(<HorizontalRule className="custom-hr" height="20%" />);
+    expect(warn).toHaveBeenCalledWith(
+      "For the `height` prop, use a whole number, a `px` value, a `em` value, or a `rem` value. Using the default of 2px."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const basic = renderer.create(<HorizontalRule />).toJSON();
     const updatedHeight = renderer
