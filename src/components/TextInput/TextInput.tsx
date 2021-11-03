@@ -16,6 +16,8 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface InputProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Additional attributes to pass to the `<input>` or `<textarea>` element */
   attributes?: { [key: string]: any };
   /** A class name for the TextInput parent div. */
@@ -73,6 +75,7 @@ export type TextInputRefType = HTMLInputElement & HTMLTextAreaElement;
 const TextInput = React.forwardRef<TextInputRefType, InputProps>(
   (props, ref: React.Ref<TextInputRefType>) => {
     const {
+      additionalStyles = {},
       attributes = {},
       className,
       helperText,
@@ -92,6 +95,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       variantType = TextInputVariants.Default,
     } = props;
     const styles = useMultiStyleConfig("TextInput", { variant: variantType });
+    const finalStyles = { ...styles, ...additionalStyles };
     const isTextArea = type === TextInputTypes.textarea;
     const isHidden = type === TextInputTypes.hidden;
     const optReqFlag = isRequired ? "Required" : "Optional";
@@ -144,17 +148,17 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     // also needs `type` and `value` to render correctly.
     if (!isTextArea) {
       options = { type, value, ...options } as any;
-      fieldOutput = <ChakraInput {...options} __css={styles.input} />;
+      fieldOutput = <ChakraInput {...options} __css={finalStyles.input} />;
     } else {
       fieldOutput = (
-        <ChakraTextarea {...options} __css={styles.textarea}>
+        <ChakraTextarea {...options} __css={finalStyles.textarea}>
           {value}
         </ChakraTextarea>
       );
     }
 
     return (
-      <Box __css={styles} className={className}>
+      <Box __css={finalStyles} className={className}>
         {labelText && showLabel && !isHidden && (
           <Label
             htmlFor={id}
@@ -166,7 +170,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
         )}
         {fieldOutput}
         {footnote && showHelperInvalidText && !isHidden && (
-          <Box __css={styles.helper} aria-disabled={isDisabled}>
+          <Box __css={finalStyles.helper} aria-disabled={isDisabled}>
             <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
               {footnote}
             </HelperErrorText>

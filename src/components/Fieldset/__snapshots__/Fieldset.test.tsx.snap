@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fieldset renders the UI snapshot correctly 1`] = `
+<fieldset
+  className="css-0"
+>
+  <legend>
+    Legend Text
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </legend>
+  <p>
+    Some other fields
+  </p>
+</fieldset>
+`;
+
+exports[`Fieldset renders the UI snapshot correctly 2`] = `
+<fieldset
+  className="css-0"
+>
+  <legend>
+    Legend Text
+    <div
+      className="css-0"
+    >
+      Required
+    </div>
+  </legend>
+  <p>
+    Some other fields
+  </p>
+</fieldset>
+`;
+
+exports[`Fieldset renders the UI snapshot correctly 3`] = `
+<fieldset
+  className="css-0"
+>
+  <legend>
+    Legend Text
+  </legend>
+  <p>
+    Some other fields
+  </p>
+</fieldset>
+`;
+
+exports[`Fieldset renders the UI snapshot correctly 4`] = `
+<fieldset
+  className="css-0"
+>
+  <legend>
+    Legend Text
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </legend>
+  <p>
+    Some other fields
+  </p>
+</fieldset>
+`;

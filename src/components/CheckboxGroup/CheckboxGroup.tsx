@@ -3,7 +3,7 @@ import {
   Box,
   Stack,
   CheckboxGroup as ChakraCheckboxGroup,
-  useMultiStyleConfig,
+  useStyleConfig,
 } from "@chakra-ui/react";
 
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
@@ -11,6 +11,7 @@ import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
 import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
 import Checkbox from "../Checkbox/Checkbox";
+import Fieldset from "../Fieldset/Fieldset";
 
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
@@ -114,18 +115,15 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     });
 
     // Get the Chakra-based styles for all the custom elements in this component.
-    const styles = useMultiStyleConfig("CustomCheckboxGroup", {});
+    const styles = useStyleConfig("CustomCheckboxGroup", {});
 
     return (
-      <Box as="fieldset" id={`checkbox-group-${id}`} __css={styles}>
-        <legend className={showLabel ? "" : "sr-only"}>
-          <span>{labelText}</span>
-          {optReqFlag && (
-            <Box as="span" __css={styles.required}>
-              {isRequired ? "Required" : "Optional"}
-            </Box>
-          )}
-        </legend>
+      <Fieldset
+        id={`${id}-checkbox-group`}
+        isLegendHidden={!showLabel}
+        legendText={labelText}
+        optReqFlag={optReqFlag}
+      >
         <ChakraCheckboxGroup {...checkboxProps}>
           <Stack
             id={id}
@@ -139,13 +137,13 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
           </Stack>
         </ChakraCheckboxGroup>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
+          <Box __css={styles}>
             <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
               {footnote}
             </HelperErrorText>
           </Box>
         )}
-      </Box>
+      </Fieldset>
     );
   }
 );
