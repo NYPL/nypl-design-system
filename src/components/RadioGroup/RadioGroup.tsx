@@ -11,6 +11,7 @@ import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
 import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
 import Radio from "../Radio/Radio";
+import Fieldset from "../Fieldset/Fieldset";
 
 export interface RadioGroupProps {
   /** Any child node passed to the component. */
@@ -121,20 +122,13 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
     const styles = useMultiStyleConfig("CustomRadioGroup", {});
 
     return (
-      <Box
-        as="fieldset"
+      <Fieldset
         id={`radio-group-${id}`}
         className={className}
-        __css={styles}
+        isLegendHidden={!showLabel}
+        legendText={labelText}
+        optReqFlag={optReqFlag}
       >
-        <legend className={showLabel ? "" : "sr-only"}>
-          <span>{labelText}</span>
-          {optReqFlag && (
-            <Box as="span" __css={styles.required}>
-              {isRequired ? "Required" : "Optional"}
-            </Box>
-          )}
-        </legend>
         <Stack
           direction={[layout]}
           spacing={spacingProp}
@@ -145,13 +139,13 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
           {newChildren}
         </Stack>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
+          <Box __css={styles}>
             <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
               {footnote}
             </HelperErrorText>
           </Box>
         )}
-      </Box>
+      </Fieldset>
     );
   }
 );

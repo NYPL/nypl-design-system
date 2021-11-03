@@ -6,6 +6,8 @@ import generateUUID from "../../helpers/generateUUID";
 export type AriaLiveValues = "assertive" | "off" | "polite";
 
 interface HelperErrorTextProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Aria attribute. When true, assistive technologies will
    * read the entire DOM element. When false, only changes (additionals or
    * removals) will be read. True by default. */
@@ -31,6 +33,7 @@ export default function HelperErrorText(
   props: React.PropsWithChildren<HelperErrorTextProps>
 ) {
   const {
+    additionalStyles = {},
     ariaAtomic = true,
     ariaLive = "polite",
     children,
@@ -41,6 +44,7 @@ export default function HelperErrorText(
   // Only announce the text in the invalid state.
   const announceAriaLive = isInvalid;
   const styles = useStyleConfig("HelperErrorText", { isInvalid });
+  const finalStyles = { ...styles, ...additionalStyles };
 
   return (
     <Box
@@ -49,7 +53,7 @@ export default function HelperErrorText(
       aria-atomic={ariaAtomic}
       data-isinvalid={isInvalid}
       aria-live={announceAriaLive ? ariaLive : "off"}
-      __css={styles}
+      __css={finalStyles}
     >
       {children}
     </Box>
