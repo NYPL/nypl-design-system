@@ -10,8 +10,9 @@ export interface HorizontalRuleProps {
   /** ClassName you can add in addition to `horizontal-rule` */
   className?: string;
   /** Optional height value. This value should be entered with the same
-   * formatting as a CSS height attribute (ex. `2`, `5px`, `1.5rem`). If
-   * omitted, the horizontal rule will have a default height of 2px. */
+   * formatting as a CSS height attribute except for percent values (ex. `2`,
+   * `5px`, `1.5rem`). If this prop is omitted or a percent value is used, the
+   * horizontal rule will have a default height of 2px. */
   height?: string;
   /** Optional width value. This value should be entered with the same
    * formatting as a CSS width attribute (ex. `50%`, `640px`, `20rem`). If
@@ -28,7 +29,8 @@ export default function HorizontalRule(
 
   if (height.endsWith("%")) {
     console.warn(
-      "For the `height` prop, use a whole number, a `px` value, a `em` value, or a `rem` value. Using the default of 2px."
+      "`HorizontalRule`: For the `height` prop, use a whole number, a `px`" +
+        " value, a `em` value, or a `rem` value. Using the default of 2px."
     );
     finalHeight = "2px";
   }
