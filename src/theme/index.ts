@@ -18,6 +18,8 @@ import CustomCheckboxGroup from "./components/customCheckboxGroup";
 import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
+import DatePicker from "./components/datePicker";
+import Fieldset from "./components/fieldset";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
@@ -79,6 +81,8 @@ const theme = extendTheme({
     CustomImageWrapper,
     CustomRadioGroup,
     CustomSelect,
+    DatePicker,
+    Fieldset,
     Heading,
     HelperErrorText,
     Hero,
