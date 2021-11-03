@@ -14,17 +14,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
 - Adds the ability to make an entire `Card` component clickable with Chakra's `LinkBox` and `LinkOverlay` components. Links in the `CardActions` component can still be accessed in this state by clicking with the mouse or tabbing and pressing "enter".
 
-### Breaking Changes
-
-- Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
-- Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
-
 ### Changes
 
 - Updates the `Checkbox` component with an "indeterminate" state through the `isIndeterminate` prop.
 - Updates the `CheckboxGroup` component story with an "indeterminate" state example.
 - Updates the `CheckboxGroup` and `RadioGroup` components to use the `Fieldset` component.
 - Updates the `HelperErrorText` and `TextInput` components with added `additionalStyles` prop.
+- Updates to the `Button` Style Guide documentation.
 
 ### Fixes
 
