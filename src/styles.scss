@@ -42,17 +42,10 @@
 @import "./styles/base/_card-grid";
 @import "./styles/base/_place-holder";
 @import "./styles/base/_typography";
-@import "./components/Button/_Button.scss";
 @import "./components/Input/_Input.scss";
 @import "./components/Autosuggest/_Autosuggest.scss";
 
-fieldset {
-  .sr-only {
-    @include screenreader-only();
-  }
-}
-
-// Copied over from Label.scss
+// Used in `Input.tsx`
 .fieldset {
   @include fieldset-reset;
 }

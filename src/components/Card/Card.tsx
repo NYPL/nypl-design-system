@@ -1,5 +1,11 @@
 import * as React from "react";
-import { Box, useMultiStyleConfig, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  LinkBox as ChakraLinkBox,
+  LinkOverlay as ChakraLinkOverlay,
+  useMultiStyleConfig,
+  useStyleConfig,
+} from "@chakra-ui/react";
 
 import { CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
@@ -12,6 +18,11 @@ interface CardBaseProps {
   center?: boolean;
   /** Optional value to render the layout in a row or column (default). */
   layout?: CardLayouts;
+}
+
+interface CardLinkBoxProps {
+  /** Main link to use when the full `Card` component should be clickable. */
+  mainActionLink?: string;
 }
 
 interface CardActionsProps extends CardBaseProps {
@@ -28,7 +39,7 @@ interface CardImageProps extends CardBaseProps, ImageProps {
   imageAtEnd?: boolean;
 }
 
-export interface CardProps extends CardBaseProps {
+export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   /** Optional hex color value used to set the card background color. */
   backgroundColor?: string;
   /** Optional boolean value to control the visibility of a border around
@@ -114,6 +125,40 @@ export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
   return children && <Box __css={styles}>{children}</Box>;
 }
 
+/**
+ * If `mainActionLink` is passed, then this adds Chakra's `LinkBox` wrapper
+ * component to the entire `Card` component. This works together with the
+ * `CardLinkOverlay` component to provide a clickable overlay.
+ */
+export function CardLinkBox({
+  children,
+  mainActionLink,
+}: React.PropsWithChildren<CardLinkBoxProps>) {
+  return mainActionLink ? (
+    <ChakraLinkBox>{children}</ChakraLinkBox>
+  ) : (
+    <>{children}</>
+  );
+}
+
+/**
+ * If `mainActionLink` is passed, then this adds Chakra's `LinkOverlay` around
+ * text that should be linked, in this case the `CardHeading` text. This works
+ * together with the `CardLinkBox` component to provide a clickable overlay to
+ * the `Card` component while still allowing links in the `CardActions` to be
+ * clickable.
+ */
+export function CardLinkOverlay({
+  children,
+  mainActionLink,
+}: React.PropsWithChildren<CardLinkBoxProps>) {
+  return mainActionLink ? (
+    <ChakraLinkOverlay href={mainActionLink}>{children}</ChakraLinkOverlay>
+  ) : (
+    <>{children}</>
+  );
+}
+
 export default function Card(props: React.PropsWithChildren<CardProps>) {
   const {
     backgroundColor,
@@ -130,18 +175,41 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     imageSize = ImageSizes.Default,
     imageSrc,
     layout = CardLayouts.Column,
+    mainActionLink,
   } = props;
   const hasImage = imageSrc || imageComponent;
   const customColors = {};
   const cardContents = [];
+  let cardHeadingCount = 0;
 
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
 
   React.Children.map(children, (child: React.ReactElement, key) => {
-    if (
-      child.type === CardHeading ||
-      child.props.mdxType === "CardHeading" ||
+    if (child.type === CardHeading || child.props.mdxType === "CardHeading") {
+      // If the child is a `CardHeading` component, then we add the
+      // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
+      // This allows other links in the `CardActions` to be clickable. This is
+      // only done for the first `CardHeading` component but does not affect
+      // the full-click feature.
+      const newChildren =
+        cardHeadingCount === 0 ? (
+          <CardLinkOverlay mainActionLink={mainActionLink}>
+            {child.props.children}
+          </CardLinkOverlay>
+        ) : (
+          child.props.children
+        );
+      const elem = React.cloneElement(child, {
+        key,
+        center,
+        // Override the child text with the potential `CardLinkOverlay`.
+        children: newChildren,
+        layout,
+      });
+      cardContents.push(elem);
+      cardHeadingCount++;
+    } else if (
       child.type === CardContent ||
       child.props.mdxType === "CardContent" ||
       child.type === CardActions ||
@@ -161,28 +229,30 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   });
 
   return (
-    <Box
-      className={className}
-      id={id}
-      __css={{
-        ...styles,
-        ...customColors,
-      }}
-    >
-      {hasImage && (
-        <CardImage
-          src={imageSrc ? imageSrc : null}
-          component={imageComponent}
-          alt={imageAlt}
-          imageSize={imageSize}
-          imageAspectRatio={imageAspectRatio}
-          imageAtEnd={imageAtEnd}
-          layout={layout}
-        />
-      )}
-      <Box className="card-body" __css={styles.body}>
-        {cardContents}
+    <CardLinkBox mainActionLink={mainActionLink}>
+      <Box
+        id={id}
+        className={className}
+        __css={{
+          ...styles,
+          ...customColors,
+        }}
+      >
+        {hasImage && (
+          <CardImage
+            src={imageSrc ? imageSrc : null}
+            component={imageComponent}
+            alt={imageAlt}
+            imageSize={imageSize}
+            imageAspectRatio={imageAspectRatio}
+            imageAtEnd={imageAtEnd}
+            layout={layout}
+          />
+        )}
+        <Box className="card-body" __css={styles.body}>
+          {cardContents}
+        </Box>
       </Box>
-    </Box>
+    </CardLinkBox>
   );
 }

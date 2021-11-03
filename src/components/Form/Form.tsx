@@ -33,6 +33,7 @@ export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
   const alteredChildren = React.Children.map(
     children,
     (child: React.ReactElement, i) => {
+      if (!child) return null;
       return React.cloneElement(child, { id: `${id}-grandchild${i}` });
     }
   );

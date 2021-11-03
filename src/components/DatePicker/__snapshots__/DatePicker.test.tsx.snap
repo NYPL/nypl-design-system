@@ -1,0 +1,804 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
+<div
+  className="css-aq1pyb"
+  id="basic-form-field}"
+>
+  <fieldset
+    className="css-0"
+    id="basic"
+  >
+    <legend>
+      Select the full date you want to visit NYPL
+      <div
+        className="css-0"
+      >
+        Optional
+      </div>
+    </legend>
+    <div
+      className="css-7ft6bq"
+      id="basic-form-row"
+    >
+      <div
+        className="css-aq1pyb"
+        id="basic-form-row-grandchild0"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="basic-start"
+                id="basic-start-label"
+              >
+                From
+              </label>
+              <input
+                className="chakra-input css-0"
+                disabled={false}
+                id="basic-start"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988-01-02"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-aq1pyb"
+        id="basic-form-row-grandchild1"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="basic-end"
+                id="basic-end-label"
+              >
+                To
+              </label>
+              <input
+                className="chakra-input css-0"
+                disabled={false}
+                id="basic-end"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988-02-02"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
+<div
+  className="css-aq1pyb"
+  id="no-label-form-field}"
+>
+  <fieldset
+    className="css-0"
+    id="no-label"
+  >
+    <legend>
+      Select the date you want to visit NYPL
+      <div
+        className="css-0"
+      >
+        Optional
+      </div>
+    </legend>
+    <div
+      className="css-7ft6bq"
+      id="no-label-form-row"
+    >
+      <div
+        className="css-aq1pyb"
+        id="no-label-form-row-grandchild0"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="no-label-start"
+                id="no-label-start-label"
+              >
+                From
+              </label>
+              <input
+                className="chakra-input css-0"
+                disabled={false}
+                id="no-label-start"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988-01-02"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-aq1pyb"
+        id="no-label-form-row-grandchild1"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="no-label-end"
+                id="no-label-end-label"
+              >
+                To
+              </label>
+              <input
+                className="chakra-input css-0"
+                disabled={false}
+                id="no-label-end"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988-02-02"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
+<div
+  className="css-aq1pyb"
+  id="custom-format-form-field}"
+>
+  <fieldset
+    className="css-0"
+    id="custom-format"
+  >
+    <legend>
+      Select the date you want to visit NYPL
+      <div
+        className="css-0"
+      >
+        Optional
+      </div>
+    </legend>
+    <div
+      className="css-7ft6bq"
+      id="custom-format-form-row"
+    >
+      <div
+        className="css-aq1pyb"
+        id="custom-format-form-row-grandchild0"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="custom-format-start"
+                id="custom-format-start-label"
+              >
+                From
+              </label>
+              <input
+                className="chakra-input css-0"
+                disabled={false}
+                id="custom-format-start"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988/02/01"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-aq1pyb"
+        id="custom-format-form-row-grandchild1"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="custom-format-end"
+                id="custom-format-end-label"
+              >
+                To
+              </label>
+              <input
+                className="chakra-input css-0"
+                disabled={false}
+                id="custom-format-end"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988/02/02"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
+<div
+  className="css-aq1pyb"
+  id="invalid-form-field}"
+>
+  <fieldset
+    className="css-0"
+    id="invalid"
+  >
+    <legend>
+      Select the date you want to visit NYPL
+      <div
+        className="css-0"
+      >
+        Optional
+      </div>
+    </legend>
+    <div
+      className="css-7ft6bq"
+      id="invalid-form-row"
+    >
+      <div
+        className="css-aq1pyb"
+        id="invalid-form-row-grandchild0"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="invalid-start"
+                id="invalid-start-label"
+              >
+                From
+              </label>
+              <input
+                aria-invalid={true}
+                className="chakra-input css-0"
+                disabled={false}
+                id="invalid-start"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988-01-02"
+              />
+              <div
+                aria-disabled={false}
+                className="css-0"
+              >
+                <div
+                  aria-atomic={true}
+                  aria-live="polite"
+                  className=" css-0"
+                  data-isinvalid={true}
+                  id="invalid-start-helperText"
+                >
+                  Please select a valid date.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-aq1pyb"
+        id="invalid-form-row-grandchild1"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="invalid-end"
+                id="invalid-end-label"
+              >
+                To
+              </label>
+              <input
+                aria-invalid={true}
+                className="chakra-input css-0"
+                disabled={false}
+                id="invalid-end"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988-02-02"
+              />
+              <div
+                aria-disabled={false}
+                className="css-0"
+              >
+                <div
+                  aria-atomic={true}
+                  aria-live="polite"
+                  className=" css-0"
+                  data-isinvalid={true}
+                  id="invalid-end-helperText"
+                >
+                  Please select a valid date.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="invalid-helper-text"
+    >
+      Note that the Library may be closed on Sundays.
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
+<div
+  className="css-aq1pyb"
+  id="disabled-form-field}"
+>
+  <fieldset
+    className="css-0"
+    id="disabled"
+  >
+    <legend>
+      Select the date you want to visit NYPL
+      <div
+        className="css-0"
+      >
+        Optional
+      </div>
+    </legend>
+    <div
+      className="css-7ft6bq"
+      id="disabled-form-row"
+    >
+      <div
+        className="css-aq1pyb"
+        id="disabled-form-row-grandchild0"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="disabled-start"
+                id="disabled-start-label"
+              >
+                From
+              </label>
+              <input
+                className="chakra-input css-0"
+                disabled={true}
+                id="disabled-start"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988-01-02"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-aq1pyb"
+        id="disabled-form-row-grandchild1"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <div
+              className="css-0"
+            >
+              <label
+                className="css-0"
+                htmlFor="disabled-end"
+                id="disabled-end-label"
+              >
+                To
+              </label>
+              <input
+                className="chakra-input css-0"
+                disabled={true}
+                id="disabled-end"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                required={false}
+                type="text"
+                value="1988-02-02"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="disabled-helper-text"
+    >
+      Note that the Library may be closed on Sundays.
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
+<div
+  className="css-aq1pyb"
+  id="basic-form-field}"
+>
+  <div
+    className="css-aq1pyb"
+    id="basic-start-form"
+  >
+    <div
+      className="react-datepicker-wrapper"
+    >
+      <div
+        className="react-datepicker__input-container"
+      >
+        <div
+          className="css-0"
+        >
+          <label
+            className="css-0"
+            htmlFor="basic-start"
+            id="basic-start-label"
+          >
+            Select the full date you want to visit NYPL
+            <div
+              className="css-0"
+            >
+              Optional
+            </div>
+          </label>
+          <input
+            className="chakra-input css-0"
+            disabled={false}
+            id="basic-start"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value="1988-01-02"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
+<div
+  className="css-aq1pyb"
+  id="no-label-form-field}"
+>
+  <div
+    className="css-aq1pyb"
+    id="no-label-start-form"
+  >
+    <div
+      className="react-datepicker-wrapper"
+    >
+      <div
+        className="react-datepicker__input-container"
+      >
+        <div
+          className="css-0"
+        >
+          <input
+            aria-label="Select the date you want to visit NYPL"
+            className="chakra-input css-0"
+            disabled={false}
+            id="no-label-start"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value="2021-11-03"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
+<div
+  className="css-aq1pyb"
+  id="custom-format-form-field}"
+>
+  <div
+    className="css-aq1pyb"
+    id="custom-format-start-form"
+  >
+    <div
+      className="react-datepicker-wrapper"
+    >
+      <div
+        className="react-datepicker__input-container"
+      >
+        <div
+          className="css-0"
+        >
+          <label
+            className="css-0"
+            htmlFor="custom-format-start"
+            id="custom-format-start-label"
+          >
+            Select the date you want to visit NYPL
+            <div
+              className="css-0"
+            >
+              Optional
+            </div>
+          </label>
+          <input
+            className="chakra-input css-0"
+            disabled={false}
+            id="custom-format-start"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value="1988/02/01"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
+<div
+  className="css-aq1pyb"
+  id="invalid-form-field}"
+>
+  <div
+    className="css-aq1pyb"
+    id="invalid-start-form"
+  >
+    <div
+      className="react-datepicker-wrapper"
+    >
+      <div
+        className="react-datepicker__input-container"
+      >
+        <div
+          className="css-0"
+        >
+          <label
+            className="css-0"
+            htmlFor="invalid-start"
+            id="invalid-start-label"
+          >
+            Select the date you want to visit NYPL
+            <div
+              className="css-0"
+            >
+              Optional
+            </div>
+          </label>
+          <input
+            aria-describedby="invalid-start-helperText"
+            aria-invalid={true}
+            className="chakra-input css-0"
+            disabled={false}
+            id="invalid-start"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value="1988-01-02"
+          />
+          <div
+            aria-disabled={false}
+            className="css-0"
+          >
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className=" css-0"
+              data-isinvalid={true}
+              id="invalid-start-helperText"
+            >
+              Please select a valid date.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
+<div
+  className="css-aq1pyb"
+  id="disabled-form-field}"
+>
+  <div
+    className="css-aq1pyb"
+    id="disabled-start-form"
+  >
+    <div
+      className="react-datepicker-wrapper"
+    >
+      <div
+        className="react-datepicker__input-container"
+      >
+        <div
+          className="css-0"
+        >
+          <label
+            className="css-0"
+            htmlFor="disabled-start"
+            id="disabled-start-label"
+          >
+            Select the date you want to visit NYPL
+            <div
+              className="css-0"
+            >
+              Optional
+            </div>
+          </label>
+          <input
+            aria-describedby="disabled-start-helperText"
+            className="chakra-input css-0"
+            disabled={true}
+            id="disabled-start"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value="1988-01-02"
+          />
+          <div
+            aria-disabled={true}
+            className="css-0"
+          >
+            <div
+              aria-atomic={true}
+              aria-live="off"
+              className=" css-0"
+              data-isinvalid={false}
+              id="disabled-start-helperText"
+            >
+              Note that the Library may be closed on Sundays.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
