@@ -350,3 +350,61 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
   </div>
 </div>
 `;
+
+exports[`Card Renders the UI snapshot correctly 6`] = `
+<div
+  className="chakra-linkbox css-10n1vic"
+>
+  <div
+    className="css-0"
+    id="fullclick"
+  >
+    <div
+      className="the-wrap  css-0"
+    >
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/400/200/arch"
+        />
+      </div>
+    </div>
+    <div
+      className="card-body css-0"
+    >
+      <h3
+        className="chakra-heading css-0"
+        id="heading1"
+      >
+        <a
+          className="chakra-linkbox__overlay css-1hnz6hu"
+          href="http://nypl.org"
+        >
+          The Card Heading
+        </a>
+      </h3>
+      <div
+        className="css-0"
+      >
+        middle column content
+      </div>
+      <div
+        className="css-0"
+      >
+        <button
+          className="chakra-button css-0"
+          data-testid="button"
+          id="button1"
+          onClick={[Function]}
+          type="submit"
+        >
+          Example CTA
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

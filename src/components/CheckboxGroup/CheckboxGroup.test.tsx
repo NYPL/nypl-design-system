@@ -114,7 +114,7 @@ describe("Checkbox", () => {
     // The "group" role here is for the `fieldset` element.
     expect(screen.getByRole("group")).toHaveAttribute(
       "id",
-      "checkbox-group-some-id"
+      "some-id-checkbox-group"
     );
   });
 

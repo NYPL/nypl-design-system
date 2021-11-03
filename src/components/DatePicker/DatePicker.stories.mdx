@@ -3,14 +3,14 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
-import { getCategory } from "../../utils/componentCategories";
 
+import { getCategory } from "../../utils/componentCategories";
 import DatePicker from "./DatePicker";
 import { DatePickerTypes } from "./DatePickerTypes";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("DatePicker")}
@@ -25,13 +25,11 @@ import { DatePickerTypes } from "./DatePickerTypes";
     jest: ["DatePicker.test.tsx"],
   }}
   argTypes={{
-    blockName: { table: { disable: true } },
     className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
     id: { table: { disable: true } },
-    nameTo: { table: { disable: true } },
     nameFrom: { table: { disable: true } },
-    value: { table: { disable: true } },
+    nameTo: { table: { disable: true } },
+    onChange: { table: { disable: true } },
     refTo: { table: { disable: true } },
   }}
 />
@@ -41,30 +39,37 @@ import { DatePickerTypes } from "./DatePickerTypes";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.24.0`   |
+| Latest            | `0.25.3`   |
 
 <Description of={DatePicker} />
+
+This is fully customizable to allow selectable full dates, only the month, or
+only they year as input. Initial date values and max and min date values can
+also be added through props.
 
 <Canvas withToolbar>
   <Story
     name="DatePicker"
     args={{
-      dateType: DatePickerTypes.Full,
       dateFormat: "yyyy-MM-dd",
-      dateRange: false,
-      initialDate: "1/1/2021",
-      minDate: "1/1/2021",
-      maxDate: "1/1/2022",
-      nameFrom: "visit-dates",
-      labelText: "Select the date you want to visit NYPL",
+      dateType: DatePickerTypes.Full,
       helperText: "Note that the Library may be closed on Sundays.",
       helperTextFrom: "Select start date.",
       helperTextTo: "Select end date.",
+      initialDate: "1/1/2021",
+      initialDateTo: "1/30/2021",
       invalidText: "Please select a valid date.",
+      isDateRange: false,
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: false,
+      labelText: "Select the date you want to visit NYPL",
+      maxDate: "1/1/2022",
+      minDate: "1/1/2021",
+      nameFrom: "visit-dates-from",
+      nameTo: "visit-dates-to",
+      showHelperInvalidText: true,
       showLabel: true,
-      errored: false,
-      disabled: false,
-      required: false,
       showOptReqLabel: true,
     }}
   >
@@ -76,38 +81,48 @@ import { DatePickerTypes } from "./DatePickerTypes";
 
 ## Date Range
 
-A date range can be rendered by setting the `dateRange` prop to `true`. This
+A date range can be rendered by setting the `isDateRange` prop to `true`. This
 will render two input fields with labels "From" and "To". If the component has
-an error, or if this is a required field, or if it is disabled, then both input
-elements will share the props and styling. Note that for date range types, a
-`fieldset` is used as the parent wrapper and the `labelText` is used for the
-`legend` element text.
+an error, has required fields, or if it is disabled, then both input elements
+will share the props and styling. Note that for date range types, a `fieldset`
+is used as the parent wrapper and the `labelText` is used for the `legend`
+element text.
 
 Note: In the following example, the minimum date is "1/1/2021" and the max date
-is "1/1/22". This means only values within this range are selectable from the
+is "3/1/21". This means only values within this range are selectable from the
 popup calendar.
 
 <Canvas withToolbar>
   <Story name="Date Range">
     <DatePicker
       id="date-range"
-      dateType={DatePickerTypes.Full}
       dateFormat="yyyy-MM-dd"
-      dateRange={true}
+      dateType={DatePickerTypes.Full}
       minDate="1/1/2021"
-      maxDate="1/1/2022"
+      maxDate="3/1/2021"
       labelText="Select the date range you want to visit NYPL"
-      nameFrom="visit-dates"
+      nameFrom="visit-dates-from"
+      nameTo="visit-dates-to"
       helperTextFrom="From this date."
       helperTextTo="To this date."
       helperText="Select a valid date range."
-      invalidText="Please select a valid date range."
+      invalidText="There was an error with the date range :("
       showOptReqLabel={false}
+      isDateRange
     />
   </Story>
 </Canvas>
 
-## Month Date Input
+## Calendar Types
+
+### Full Date Input
+
+By default, the `DatePicker` will display the input date value in the full
+format that contains the year, month, and day such as "2021-01-30". Although
+this is the default, it can be explicitly set through the `dateType` prop with
+value of `DatePickerTypes.Full`.
+
+### Month Date Input
 
 It's possible to select dates by skipping the day value and only selecting
 the month and the year when `dateType` is set to `DatePickerTypes.Month`. Note
@@ -118,7 +133,6 @@ that all 12 months will appear in the popup calendar with their abbreviated name
     <DatePicker
       id="month-date"
       dateType={DatePickerTypes.Month}
-      dateRange={false}
       labelText="Select the month you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
       invalidText="Please select a valid month."
@@ -126,7 +140,7 @@ that all 12 months will appear in the popup calendar with their abbreviated name
   </Story>
 </Canvas>
 
-## Year Date Input
+### Year Date Input
 
 It's possible to select dates by only the year when `dateType` is set to
 `DatePickerTypes.Year`. Note that only 12 values will appear in the popup
@@ -135,9 +149,8 @@ calendar; the four previous years, the current year, and the next seven years.
 <Canvas withToolbar>
   <Story name="Year Date Input">
     <DatePicker
-      id="month-date"
+      id="year-date"
       dateType={DatePickerTypes.Year}
-      dateRange={false}
       labelText="Select the year you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
       showOptReqLabel={false}
@@ -149,28 +162,116 @@ calendar; the four previous years, the current year, and the next seven years.
 
 ### Errored State
 
-<DatePicker
-  id="month-date"
-  dateType={DatePickerTypes.Full}
-  dateRange={true}
-  labelText="Select the year you want to visit NYPL"
-  helperText="Note that the Library may be closed on Sundays."
-  invalidText="Please select a valid year."
-  errored={true}
-  showOptReqLabel={false}
-/>
-<br />
+<Canvas>
+  <DSProvider>
+    <DatePicker
+      id="invalid-date"
+      dateType={DatePickerTypes.Full}
+      labelText="Select the year you want to visit NYPL"
+      helperText="Note that the Library may be closed on Sundays."
+      invalidText="Please select a valid date."
+      showOptReqLabel={false}
+      isInvalid
+      isDateRange
+    />
+  </DSProvider>
+</Canvas>
 
 ### Disabled State
 
-<DatePicker
-  id="month-date"
-  dateType={DatePickerTypes.Full}
-  dateRange={true}
-  labelText="Select the year you want to visit NYPL"
-  disabled={true}
-  showOptReqLabel={false}
-/>
+<Canvas>
+  <DSProvider>
+    <DatePicker
+      id="disabled-date"
+      dateType={DatePickerTypes.Full}
+      labelText="Select the year you want to visit NYPL"
+      showOptReqLabel={false}
+      isDateRange
+      isDisabled
+    />
+  </DSProvider>
+</Canvas>
+
+### Required State
+
+The "Required" or "Optional" text in the legend in the date range, or the label
+in a normal date input, can be hidden when `showOptReqLabel` is set to `false`.
+
+<Canvas>
+  <DSProvider>
+    <DatePicker
+      id="disabled-date"
+      dateType={DatePickerTypes.Full}
+      labelText="Select the year you want to visit NYPL"
+      isDateRange
+      isRequired
+    />
+  </DSProvider>
+</Canvas>
+
+## Date Inputs and Output
+
+### Initial Date Values
+
+The initial date values can be set through `initialDate` for the "From" input
+field and `initialDateTo` for the "To" input field. In the following examples,
+`initialDate` is `"12/1/21"` and `initialDateTo` is `"12/10/21"`. The
+`initialDate` and `initialDateTo` values are used in the JS `Date` function so
+they needs to be in that specific format. Note that according to the NYPL
+styleguide, we display dates as "year-month-day" by default.
+
+<Canvas>
+  <DSProvider>
+    <DatePicker
+      id="init-dates"
+      dateType={DatePickerTypes.Full}
+      labelText="Select the date you want to visit NYPL"
+      initialDate="12/1/21"
+      initialDateTo="12/10/21"
+      isDateRange
+    />
+  </DSProvider>
+</Canvas>
+
+### Date Format
+
+The display date format can be updated through the `dateFormat` prop. The
+default is set to `"yyyy-MM-dd"` based on the NYPL styleguide. This should be
+written in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
+
+<Canvas>
+  <DSProvider>
+    <DatePicker
+      id="format-date"
+      dateFormat="MM-dd-yyyy"
+      dateType={DatePickerTypes.Full}
+      labelText="Select the date you want to visit NYPL"
+      initialDate="12/1/21"
+      initialDateTo="12/10/21"
+      isDateRange
+    />
+  </DSProvider>
+</Canvas>
+
+### Max and Min Date Values
+
+The maximum and minimum date values can be set through the `maxDate` and
+`minDate` props, respectively. In this example, go back to January through
+February to see the dates that are available to select.
+
+<Canvas>
+  <DSProvider>
+    <DatePicker
+      id="max-min-dates"
+      dateFormat="MM-dd-yyyy"
+      dateType={DatePickerTypes.Full}
+      labelText="Select the date you want to visit NYPL"
+      minDate="1/1/2021"
+      maxDate="3/1/2021"
+      isDateRange
+    />
+  </DSProvider>
+</Canvas>
 
 ## Getting Date Data Values
 
@@ -178,11 +279,11 @@ calendar; the four previous years, the current year, and the next seven years.
 
 If your application uses controlled React components and the DS DatePicker must
 be controlled, you can extract the data through the `onChange` prop function.
-This will be called every time the date is updated in either the start date input
-field or the end date input field. The returned data is an object with `startDate`
-and `endDate` keys and `Date` object values.
+This will be called every time the date is updated in either the start date
+input field or the end date input field. The returned data is an object with
+`startDate` and `endDate` keys and `Date` object values.
 
-```jsx
+```tsx
 const onChange = (data) => {
   // This will return an object such as:
   // {
@@ -200,10 +301,10 @@ const onChange = (data) => {
 <DatePicker
   id="date-range"
   dateType={DatePickerTypes.Full}
-  dateRange={true}
   labelText="Select the date range you want to visit NYPL"
   invalidText="Please select a valid date range."
   onChange={onChange}
+  isDateRange
 />;
 ```
 
@@ -219,7 +320,7 @@ obtained.
 The following example is using the `register` React `ref` from the
 `react-hook-form` package.
 
-```jsx
+```tsx
 import { useFormContext } from "react-hook-form";
 // ...
 const { register, handleSubmit } = useFormContext();
@@ -244,13 +345,13 @@ const submitForm = (formData) => {
   <DatePicker
     id="date-range"
     dateType={DatePickerTypes.Full}
-    dateRange={true}
     labelText="Select the date range you want to visit NYPL"
     nameFrom="visitDateFrom"
     nameTo="visitDateTo"
     invalidText="Please select a valid date range."
     ref={register()}
     refTo={register()}
+    isDateRange
   />
 </form>;
 ```
@@ -258,21 +359,21 @@ const submitForm = (formData) => {
 The above is specific to `react-hook-form` but a similar pattern can be used
 with normal React `ref` values.
 
-```jsx
+```tsx
 const refStart = React.createRef<TextInputRefType>();
 const refEnd = React.createRef<TextInputRefType>();
 // ...
 <DatePicker
   id="date-range"
   dateType={DatePickerTypes.Full}
-  dateRange={true}
   labelText="Select the date range you want to visit NYPL"
   nameFrom="visitDateFrom"
   nameTo="visitDateTo"
   invalidText="Please select a valid date range."
   ref={refStart}
   refTo={refEnd}
-/>
+  isDateRange
+/>;
 
 // ...
 // Get the value through:
