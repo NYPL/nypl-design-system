@@ -12,5 +12,13 @@ const wrapperStyles = {
   paddingLeft: "0",
   width: "100%",
 };
+const screenreaderOnly = {
+  clip: "rect(1px, 1px, 1px, 1px)",
+  height: "1px",
+  overflow: "hidden",
+  position: "absolute !important",
+  width: "1px",
+  wordWrap: "normal",
+};
 
-export { wrapperStyles };
+export { screenreaderOnly, wrapperStyles };
