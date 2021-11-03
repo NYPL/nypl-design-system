@@ -20,7 +20,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `CheckboxGroup` component story with an "indeterminate" state example.
 - Updates the `CheckboxGroup` and `RadioGroup` components to use the `Fieldset` component.
 - Updates the `HelperErrorText` and `TextInput` components with added `additionalStyles` prop.
-- Updates to the `Button` Style Guide documentation.
+- Updates the `Button` Style Guide documentation.
+- Updates the `Iconography` Style Guide story documentation.
 
 ### Fixes
 
