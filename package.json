@@ -114,6 +114,7 @@
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.8.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "figma-api": "^1.8.0",
     "gulp": "^4.0.2",
     "gulp-scss-combine": "^1.0.0",
     "husky": "^4.2.5",
