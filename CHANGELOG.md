@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `HelperErrorText` and `TextInput` components with added `additionalStyles` prop.
 - Updates the `Button` Style Guide documentation.
 - Updates the `Iconography` Style Guide story documentation.
+- Updates the `Button` font weight to "regular".
 
 ### Fixes
 
