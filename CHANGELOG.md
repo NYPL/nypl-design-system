@@ -28,6 +28,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes nondeterministic unit test in the `DatePicker` component.
 - Version of latest `List` component release in its storybook page.
 - Adds validation to the `height` prop in the `HorizontalRule` so percentage values are not used. If a percentage value is used, the default "2px" value is set.
+- Fixes `SearchBar` mobile styling for the `Select`, `TextInput`, and `Button` components.
+- Fixes `SearchBar` focus flicker when the `Select` component is selected.
 
 ### Breaking Changes
 
