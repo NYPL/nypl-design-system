@@ -59,22 +59,6 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     title = `${name} icon`,
     type = IconTypes.Default,
   } = props;
-  const styles = useStyleConfig("Icon", {
-    align,
-    color,
-    iconRotation,
-    size,
-    variant: type,
-  });
-  const iconProps = {
-    "aria-hidden": decorative,
-    className,
-    id,
-    role: "img",
-    title,
-  };
-  let childSVG = null;
-
   // Component prop validation
   if (name && children) {
     console.warn(
@@ -87,6 +71,37 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     );
     return null;
   }
+  let finalColor = color;
+  // If the color is the default black, then we want to update it only for the
+  // following file type icons. Otherwise, update it to white.
+  switch (name) {
+    case "audio":
+    case "doc":
+    case "generic_doc":
+    case "generic_image":
+    case "pdf":
+    case "spreadsheet":
+    case "video":
+      if (color === IconColors.UiBlack) {
+        finalColor = IconColors.UiWhite;
+      }
+      break;
+  }
+  const styles = useStyleConfig("Icon", {
+    align,
+    color: finalColor,
+    iconRotation,
+    size,
+    variant: type,
+  });
+  const iconProps = {
+    "aria-hidden": decorative,
+    className,
+    id,
+    role: "img",
+    title,
+  };
+  let childSVG = null;
 
   // The user wants to render an existing icon. Load the icon and render it
   // as a component through Chakra's Icon component. Otherwise, we're going to
