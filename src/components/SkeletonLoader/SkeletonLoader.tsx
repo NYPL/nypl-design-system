@@ -60,6 +60,7 @@ export default function SkeletonLoader(
   const styles = useMultiStyleConfig("SkeletonLoader", {
     border,
     imageAspectRatio,
+    showImage,
     variant: layout,
   });
 
@@ -71,9 +72,14 @@ export default function SkeletonLoader(
   const getSkeletonElements = (type, size = 1, lastWidth = "80%") => {
     return new Array(size).fill(null).map((_, i) => {
       const width = i === size - 1 ? lastWidth : "100%";
+      const marginBottomValue =
+        i === size - 1 && type === "content" ? "0" : null;
       return (
         <ChakraSkeleton key={`${type}-${i}`} width={width}>
-          <Box __css={styles[type]} />
+          <Box
+            __css={styles[type]}
+            style={{ marginBottom: marginBottomValue }}
+          />
         </ChakraSkeleton>
       );
     });

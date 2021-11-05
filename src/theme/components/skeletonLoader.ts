@@ -11,15 +11,13 @@ const borderRules = {
   padding: "s",
 };
 const imagePaddingBottomStyles = {
-  default: "100%",
   landscape: "50%",
-  portrait: "200%",
+  portrait: "133%",
   square: "100%",
 };
 const imageRowHeightStyles = {
-  default: "0",
   landscape: "110px",
-  portrait: "440px",
+  portrait: "294px",
   square: "220px",
 };
 // NYPL's skeleton loader component.
@@ -41,6 +39,7 @@ const SkeletonLoader = {
       image: {
         ...element,
         boxSizing: "border-box",
+        flexShrink: "0",
         height: "0",
         overflow: "hidden",
         paddingBottom: imagePaddingBottomStyles[imageAspectRatio],
@@ -68,17 +67,19 @@ const SkeletonLoader = {
     };
   },
   variants: {
-    row: ({ imageAspectRatio }) => ({
+    row: ({ imageAspectRatio, showImage }) => ({
+      alignItems: "flex-start",
       display: { md: "flex" },
-      section: {
-        marginRight: { md: "m" },
-      },
       image: {
         overflow: { md: "visible" },
         paddingBottom: { md: "0" },
         position: { md: "relative" },
         width: { md: "220px" },
         height: { md: imageRowHeightStyles[imageAspectRatio] },
+      },
+      container: {
+        marginLeft: showImage ? { md: "m" } : null,
+        marginTop: { md: "0" },
       },
       button: {
         margin: { md: "0" },
