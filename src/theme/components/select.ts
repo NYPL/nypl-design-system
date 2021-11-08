@@ -37,8 +37,11 @@ const Select = {
     searchbar: {
       select: {
         flex: "1 1 20%",
-        borderRight: "none",
-        borderRightRadius: "none",
+        borderRightColor: { md: "transparent" },
+        borderRightRadius: { md: "none" },
+        _hover: {
+          borderRightColor: { md: "transparent" },
+        },
       },
     },
   },
