@@ -32,6 +32,7 @@ import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import Radio from "./components/radio";
 import SearchBar from "./components/searchBar";
+import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
@@ -95,6 +96,8 @@ const theme = extendTheme({
     Pagination,
     Radio,
     SearchBar,
+    Skeleton,
+    SkeletonLoader,
     StatusBadge,
     Tabs,
     ...TemplateStyles,

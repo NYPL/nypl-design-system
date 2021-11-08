@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import SkeletonLoader from "./SkeletonLoader";
 import {
@@ -16,189 +17,108 @@ describe("SkeletonLoader Accessibility", () => {
 });
 
 describe("SkeletonLoader", () => {
-  let container;
+  it("renders default layout", () => {
+    const { container } = render(
+      <SkeletonLoader className="skeleton-loader" />
+    );
 
-  describe("layout", () => {
-    it("renders default layout", () => {
-      const utils = render(<SkeletonLoader />);
-      container = utils.container;
-
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(container.querySelector(".skeleton-loader")).toHaveAttribute(
-        "class",
-        "skeleton-loader skeleton-loader--column "
-      );
-      expect(container.querySelector(".skeleton-loader")).not.toHaveAttribute(
-        "class",
-        "skeleton-loader skeleton-loader--portrait "
-      );
-    });
-
-    it("renders column layout", () => {
-      const utils = render(
-        <SkeletonLoader layout={SkeletonLoaderLayouts.Column} />
-      );
-      container = utils.container;
-
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader--column")
-      ).toBeInTheDocument();
-    });
-
-    it("renders row layout", () => {
-      const utils = render(
-        <SkeletonLoader layout={SkeletonLoaderLayouts.Row} />
-      );
-      container = utils.container;
-
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader--row")
-      ).toBeInTheDocument();
-    });
+    expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
   });
 
-  describe("UI elements", () => {
-    it("renders default elements", () => {
-      const utils = render(<SkeletonLoader />);
-      container = utils.container;
+  it("renders in the column or row layout", () => {
+    const { container, rerender } = render(
+      <SkeletonLoader layout={SkeletonLoaderLayouts.Column} />
+    );
 
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-image")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-heading")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-content")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-button")
-      ).not.toBeInTheDocument();
-    });
+    expect(container.querySelector(".column")).toBeInTheDocument();
 
-    it("renders without image", () => {
-      const utils = render(<SkeletonLoader showImage={false} />);
-      container = utils.container;
-
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-image")
-      ).not.toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-heading")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-content")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-button")
-      ).not.toBeInTheDocument();
-    });
-
-    it("renders without heading", () => {
-      const utils = render(<SkeletonLoader showHeading={false} />);
-      container = utils.container;
-
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-image")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-heading")
-      ).not.toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-content")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-button")
-      ).not.toBeInTheDocument();
-    });
-
-    it("renders without content", () => {
-      const utils = render(<SkeletonLoader showContent={false} />);
-      container = utils.container;
-
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-image")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-heading")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-content")
-      ).not.toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-button")
-      ).not.toBeInTheDocument();
-    });
-
-    it("renders with button", () => {
-      const utils = render(<SkeletonLoader showButton={true} />);
-      container = utils.container;
-
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-image")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-heading")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-content")
-      ).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-button")
-      ).toBeInTheDocument();
-    });
-
-    it("renders with border", () => {
-      const utils = render(<SkeletonLoader border />);
-      container = utils.container;
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader--border")
-      ).toBeInTheDocument();
-    });
+    rerender(<SkeletonLoader layout={SkeletonLoaderLayouts.Row} />);
+    expect(container.querySelector(".row")).toBeInTheDocument();
   });
 
-  describe("image aspect ratio", () => {
-    it("renders square image", () => {
-      const utils = render(
-        <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Square} />
-      );
-      container = utils.container;
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-image--square")
-      ).toBeInTheDocument();
-    });
+  it("renders default elements", () => {
+    const { container } = render(<SkeletonLoader />);
 
-    it("renders portrait image", () => {
-      const utils = render(
-        <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Portrait} />
-      );
-      container = utils.container;
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-image--portrait")
-      ).toBeInTheDocument();
-    });
+    // By default, the `SkeletonLoader` renders one image, one heading, and
+    // three content elements.
+    expect(container.querySelectorAll(".chakra-skeleton")).toHaveLength(5);
+  });
 
-    it("renders landscape image", () => {
-      const utils = render(
+  it("renders without image", () => {
+    const { container } = render(<SkeletonLoader showImage={false} />);
+
+    // Only one image is rendered by default.
+    expect(container.querySelectorAll(".chakra-skeleton")).toHaveLength(4);
+  });
+
+  it("renders without heading", () => {
+    const { container } = render(<SkeletonLoader showHeading={false} />);
+
+    // Only one heading is rendered by default.
+    expect(container.querySelectorAll(".chakra-skeleton")).toHaveLength(4);
+  });
+
+  it("renders without content", () => {
+    const { container } = render(<SkeletonLoader showContent={false} />);
+
+    // Three content placeholders are rendered by default.
+    expect(container.querySelectorAll(".chakra-skeleton")).toHaveLength(2);
+  });
+
+  it("renders with button", () => {
+    const { container } = render(<SkeletonLoader showButton={true} />);
+
+    // Only one button is rendered by default.
+    expect(container.querySelectorAll(".chakra-skeleton")).toHaveLength(6);
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const basic = renderer.create(<SkeletonLoader />).toJSON();
+    const rowLayout = renderer
+      .create(<SkeletonLoader layout={SkeletonLoaderLayouts.Row} />)
+      .toJSON();
+    const columnLayout = renderer
+      .create(<SkeletonLoader layout={SkeletonLoaderLayouts.Column} />)
+      .toJSON();
+    const noImage = renderer
+      .create(<SkeletonLoader showImage={false} />)
+      .toJSON();
+    const noHeading = renderer
+      .create(<SkeletonLoader showHeading={false} />)
+      .toJSON();
+    const noContent = renderer
+      .create(<SkeletonLoader showContent={false} />)
+      .toJSON();
+    const withButton = renderer
+      .create(<SkeletonLoader showButton={true} />)
+      .toJSON();
+    const landscape = renderer
+      .create(
         <SkeletonLoader
           imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
         />
-      );
-      container = utils.container;
-      expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
-      expect(
-        container.querySelector(".skeleton-loader-image--landscape")
-      ).toBeInTheDocument();
-    });
+      )
+      .toJSON();
+    const portrait = renderer
+      .create(
+        <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Portrait} />
+      )
+      .toJSON();
+    const square = renderer
+      .create(
+        <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Square} />
+      )
+      .toJSON();
+
+    expect(basic).toMatchSnapshot();
+    expect(rowLayout).toMatchSnapshot();
+    expect(columnLayout).toMatchSnapshot();
+    expect(noImage).toMatchSnapshot();
+    expect(noHeading).toMatchSnapshot();
+    expect(noContent).toMatchSnapshot();
+    expect(withButton).toMatchSnapshot();
+    expect(landscape).toMatchSnapshot();
+    expect(portrait).toMatchSnapshot();
+    expect(square).toMatchSnapshot();
   });
 });

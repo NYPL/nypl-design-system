@@ -3,18 +3,18 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { action } from "@storybook/addon-actions";
 
+import { getCategory } from "../../utils/componentCategories";
 import SkeletonLoader from "./SkeletonLoader";
 import {
   SkeletonLoaderLayouts,
   SkeletonLoaderImageRatios,
 } from "./SkeletonLoaderTypes";
-import { action } from "@storybook/addon-actions";
-import { getCategory } from "../../utils/componentCategories";
+import SimpleGrid from "../Grid/SimpleGrid";
 
 <Meta
   title={getCategory("SkeletonLoader")}
@@ -29,33 +29,15 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["SkeletonLoader.test.tsx"],
   }}
   argTypes={{
-    attributes: { table: { disable: true } },
     className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
-    layout: {
-      table: { defaultValue: { summary: "column" } },
-    },
-    showImage: {
-      table: { defaultValue: { summary: "true" } },
-    },
-    showHeading: {
-      table: { defaultValue: { summary: "true" } },
-    },
-    showContent: {
-      table: { defaultValue: { summary: "true" } },
-    },
-    showButton: {
-      table: { defaultValue: { summary: "false" } },
-    },
-    headingSize: {
-      table: { defaultValue: { summary: "1" } },
-    },
-    contentSize: {
-      table: { defaultValue: { summary: "3" } },
-    },
-    imageAspectRatio: {
-      table: { defaultValue: { summary: "square" } },
-    },
+    contentSize: { table: { defaultValue: { summary: "3" } } },
+    headingSize: { table: { defaultValue: { summary: "1" } } },
+    imageAspectRatio: { table: { defaultValue: { summary: "square" } } },
+    layout: { table: { defaultValue: { summary: "column" } } },
+    showButton: { table: { defaultValue: { summary: "false" } } },
+    showContent: { table: { defaultValue: { summary: "true" } } },
+    showHeading: { table: { defaultValue: { summary: "true" } } },
+    showImage: { table: { defaultValue: { summary: "true" } } },
   }}
 />
 
@@ -64,41 +46,34 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.17.3`   |
-| Latest            | `0.23.4`   |
+| Latest            | `0.25.3`   |
 
 <Description of={SkeletonLoader} />
 
-The `SkeletonLoader` component renders a placeholder to be used while dynamic
-content is loading. The `layout`, `width` and placeholder elements within the
-`SkeletonLoader` can be customized.
+The `layout`, `width`, and placeholder elements within the `SkeletonLoader` can
+be customized.
 
-Please note that the initial rendering below has the `width` prop set to `300px`.
-The default value is `100%`.
+Please note that the initial rendering below has the `width` prop set to `300px`
+to better view the example. The default value is `100%`.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
-    name="SkeletonLoader"
+    name="Basic with Props"
     args={{
       width: "300px",
     }}
   >
     {(args) => <SkeletonLoader {...args} />}
   </Story>
-</Preview>
+</Canvas>
 
-<ArgsTable story="SkeletonLoader" />
+<ArgsTable story="Basic with Props" />
 
 # Card Placeholders in a Grid
 
-<Preview>
+<Canvas>
   <Story name="Placeholders in a Grid">
-    <div
-      style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(3, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={3}>
       <SkeletonLoader
         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
         border
@@ -123,26 +98,20 @@ The default value is `100%`.
         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
         border
       />
-    </div>
+    </SimpleGrid>
   </Story>
-</Preview>
+</Canvas>
 
 # Text Placeholders in a List
 
-<Preview>
+<Canvas>
   <Story name="Placeholders in a List">
-    <div
-      style={{
-        display: "grid",
-        gap: "2rem",
-        gridTemplateColumns: "repeat(1, 1fr)",
-      }}
-    >
+    <SimpleGrid columns={1}>
       <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
       <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
       <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
       <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
       <SkeletonLoader layout={SkeletonLoaderLayouts.Row} showImage={false} />
-    </div>
+    </SimpleGrid>
   </Story>
-</Preview>
+</Canvas>
