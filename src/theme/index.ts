@@ -37,6 +37,7 @@ import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
+import Toggle from "./components/toggle";
 import VideoPlayer from "./components/videoPlayer";
 
 /**
@@ -100,6 +101,7 @@ const theme = extendTheme({
     ...TemplateStyles,
     Text,
     TextInput,
+    ...Toggle,
     VideoPlayer,
   },
   // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by

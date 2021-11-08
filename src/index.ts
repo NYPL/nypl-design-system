@@ -107,6 +107,7 @@ export {
   TextInputRefType,
 } from "./components/TextInput/TextInput";
 export { TextInputTypes } from "./components/TextInput/TextInputTypes";
+export { default as Toggle } from "./components/Toggle/Toggle";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {

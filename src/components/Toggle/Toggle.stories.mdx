@@ -1,0 +1,180 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { HStack, VStack, Grid } from "@chakra-ui/react";
+import Heading from "../Heading/Heading";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import Toggle from "./Toggle";
+import { ToggleSizes } from "./ToggleSizes";
+
+<Meta
+  title={getCategory("Toggle")}
+  component={Toggle}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=31581%3A302",
+    },
+    jest: ["Toggle.test.tsx"],
+  }}
+  argTypes={{
+    className: { table: { disable: true } },
+  }}
+/>
+
+# Toggle
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.3`   |
+| Latest            | `0.25.3`   |
+
+<Description of={Toggle} />
+
+The Toggle component is used as an alternative for the Checkbox component and returns a boolean response. Like the Checkbox component, the Toggle component can display a label to the right of the toggle and helper/error text below the toggle.
+
+## Best Practices
+
+Toggle components are commonly used for “on/off” switches to perform binary actions that occur immediately after a user “flips the switch.”
+
+The Toggle component label should clarify the action being performed. Labels should be short and to the point, often three words or less.
+
+<Canvas>
+  <Story
+    name="Toggle"
+    args={{
+      labelText: "Test Label",
+      size: "lg",
+      defaultChecked: false,
+      helperText: "This is the helper text!",
+      id: "",
+      invalidText: "",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: false,
+    }}
+  >
+    {(args) => <Toggle {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Toggle" />
+
+## Sizes
+
+<Canvas>
+  <DSProvider>
+    <HStack>
+      <VStack>
+        <Toggle size={ToggleSizes.Small} defaultChecked={true} labelText="On" />
+        <Toggle size={ToggleSizes.Small} labelText="Off" />
+      </VStack>
+      <VStack>
+        <Toggle size={ToggleSizes.Large} defaultChecked={true} labelText="On" />
+        <Toggle size={ToggleSizes.Large} labelText="Off" />
+      </VStack>
+    </HStack>
+  </DSProvider>
+</Canvas>
+
+## Controlled Toggle
+
+Note that the `isChecked` property in this example is set to `true` and clicking
+on it won't change the toggle; the `isChecked` prop must now be controlled
+and removed manually by the parent component that controls this state.
+
+<Canvas>
+  <DSProvider>
+    <HStack>
+      <Toggle isChecked={true} labelText="Controlled Toggle" />
+    </HStack>
+  </DSProvider>
+</Canvas>
+
+## Browser States
+
+<Canvas>
+  <DSProvider>
+    <Grid templateColumns="repeat(4, 1fr)">
+      <Box>
+        <VStack>
+          <Heading level={3}>Default</Heading>
+          <Toggle
+            size={ToggleSizes.Large}
+            defaultChecked={true}
+            labelText="On"
+          />
+          <Toggle size={ToggleSizes.Large} labelText="Off" />
+        </VStack>
+      </Box>
+      <Box>
+        <VStack>
+          <Heading level={3}>Focus</Heading>
+          <Toggle
+            size={ToggleSizes.Large}
+            defaultChecked={true}
+            labelText="On"
+          />
+          <Toggle size={ToggleSizes.Large} labelText="Off" />
+        </VStack>
+      </Box>
+      <Box>
+        <VStack>
+          <Heading level={3}>Disabled</Heading>
+          <Toggle
+            size={ToggleSizes.Large}
+            defaultChecked={true}
+            isDisabled={true}
+            labelText="On"
+          />
+          <Toggle size={ToggleSizes.Large} labelText="Off" isDisabled={true} />
+        </VStack>
+      </Box>
+      <Box>
+        <VStack>
+          <Heading level={3}>Error</Heading>
+          <Toggle
+            size={ToggleSizes.Large}
+            defaultChecked={true}
+            labelText="On"
+            isInvalid={true}
+          />
+          <Toggle size={ToggleSizes.Large} labelText="Off" isInvalid={true} />
+        </VStack>
+      </Box>
+    </Grid>
+  </DSProvider>
+</Canvas>
+
+## Layouts
+
+<Canvas>
+  <DSProvider>
+    <Box>
+      <Heading level={3}>Grouped</Heading>
+      <VStack>
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} labelText="On" />
+      </VStack>
+    </Box>
+    <Box>
+      <Heading level={3}>With Helper Text</Heading>
+      <Toggle
+        defaultChecked={true}
+        labelText="On"
+        helperText="Component Helper Text"
+      />
+    </Box>
+  </DSProvider>
+</Canvas>

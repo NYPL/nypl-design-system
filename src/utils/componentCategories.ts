@@ -53,6 +53,7 @@ const categories = {
       "Slider",
       "Textarea",
       "TextInput",
+      "Toggle",
     ],
   },
   layout: {

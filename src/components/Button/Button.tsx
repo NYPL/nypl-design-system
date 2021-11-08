@@ -80,7 +80,6 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
   }
 
   styles = useStyleConfig("Button", { variant });
-
   return (
     <ChakraButton
       id={id}

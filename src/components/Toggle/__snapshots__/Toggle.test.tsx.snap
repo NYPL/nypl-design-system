@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle Renders the UI snapshot correctly 1`] = `
+<div
+  className="css-70qvj9"
+>
+  <label
+    className="chakra-switch css-r74jfy"
+    onClick={[Function]}
+  >
+    <input
+      aria-disabled={false}
+      aria-invalid={false}
+      aria-label="Test Label"
+      checked={false}
+      className="chakra-switch__input"
+      disabled={false}
+      id="inputID"
+      name="default"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      required={false}
+      style={
+        Object {
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
+          "height": "1px",
+          "margin": "-1px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "position": "absolute",
+          "whiteSpace": "nowrap",
+          "width": "1px",
+        }
+      }
+      type="checkbox"
+    />
+    <span
+      aria-hidden={true}
+      className="chakra-switch__track css-14qxnv8"
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+    >
+      <span
+        className="chakra-switch__thumb css-0"
+      />
+    </span>
+  </label>
+  <div
+    className="css-0"
+  >
+    <label
+      className="chakra-form__label css-uvho5g"
+      htmlFor="inputID"
+    >
+      Test Label
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Toggle Renders the UI snapshot correctly 2`] = `
+<div
+  className="css-70qvj9"
+>
+  <label
+    className="chakra-switch css-r74jfy"
+    data-checked=""
+    onClick={[Function]}
+  >
+    <input
+      aria-disabled={false}
+      aria-invalid={false}
+      aria-label="Test Label"
+      checked={true}
+      className="chakra-switch__input"
+      disabled={false}
+      id="Toggle-checked"
+      name="default"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      required={false}
+      style={
+        Object {
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
+          "height": "1px",
+          "margin": "-1px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "position": "absolute",
+          "whiteSpace": "nowrap",
+          "width": "1px",
+        }
+      }
+      type="checkbox"
+    />
+    <span
+      aria-hidden={true}
+      className="chakra-switch__track css-14qxnv8"
+      data-checked=""
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+    >
+      <span
+        className="chakra-switch__thumb css-0"
+        data-checked=""
+      />
+    </span>
+  </label>
+  <div
+    className="css-0"
+  >
+    <label
+      className="chakra-form__label css-uvho5g"
+      htmlFor="Toggle-checked"
+    >
+      Test Label
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Toggle Renders the UI snapshot correctly 3`] = `
+<div
+  className="css-70qvj9"
+>
+  <label
+    className="chakra-switch css-r74jfy"
+    data-invalid=""
+    onClick={[Function]}
+  >
+    <input
+      aria-disabled={false}
+      aria-invalid={true}
+      aria-label="Test Label"
+      checked={false}
+      className="chakra-switch__input"
+      disabled={false}
+      id="Toggle-invalid"
+      name="default"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      required={false}
+      style={
+        Object {
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
+          "height": "1px",
+          "margin": "-1px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "position": "absolute",
+          "whiteSpace": "nowrap",
+          "width": "1px",
+        }
+      }
+      type="checkbox"
+    />
+    <span
+      aria-hidden={true}
+      className="chakra-switch__track css-14qxnv8"
+      data-invalid=""
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+    >
+      <span
+        className="chakra-switch__thumb css-0"
+      />
+    </span>
+  </label>
+  <div
+    className="css-0"
+  >
+    <label
+      className="chakra-form__label css-uvho5g"
+      htmlFor="Toggle-invalid"
+    >
+      Test Label
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Toggle Renders the UI snapshot correctly 4`] = `
+<div
+  className="css-70qvj9"
+>
+  <label
+    className="chakra-switch css-r74jfy"
+    data-disabled=""
+    onClick={[Function]}
+  >
+    <input
+      aria-disabled={true}
+      aria-invalid={false}
+      aria-label="Test Label"
+      checked={false}
+      className="chakra-switch__input"
+      disabled={true}
+      id="Toggle-disabled"
+      name="default"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      required={false}
+      style={
+        Object {
+          "border": "0px",
+          "clip": "rect(0px, 0px, 0px, 0px)",
+          "height": "1px",
+          "margin": "-1px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "position": "absolute",
+          "whiteSpace": "nowrap",
+          "width": "1px",
+        }
+      }
+      type="checkbox"
+    />
+    <span
+      aria-hidden={true}
+      className="chakra-switch__track css-14qxnv8"
+      data-disabled=""
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+    >
+      <span
+        className="chakra-switch__thumb css-0"
+      />
+    </span>
+  </label>
+  <div
+    className="css-0"
+  >
+    <label
+      className="chakra-form__label css-uvho5g"
+      htmlFor="Toggle-disabled"
+    >
+      Test Label
+    </label>
+  </div>
+</div>
+`;

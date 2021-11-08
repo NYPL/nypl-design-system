@@ -16,7 +16,7 @@ const helperTextMargin = {
   marginTop: "xs",
   marginBottom: "0",
 };
-// Used in `Checkbox` and `Radio`.
+// Used in `Checkbox`, `Radio` and `Toggle`.
 const checkboxRadioLabelStyles = {
   userSelect: "none",
   fontSize: "0",
