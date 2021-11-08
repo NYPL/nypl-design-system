@@ -140,7 +140,6 @@ export default function Notification(props: NotificationProps) {
         decorative={false}
         name={IconNames.Close}
         size={IconSizes.Large}
-        additionalStyles={styles.dismissibleIcon}
       />
     </Button>
   );
