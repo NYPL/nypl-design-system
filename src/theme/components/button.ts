@@ -97,6 +97,7 @@ const callout = {
 const searchBar = {
   ...primary,
   borderLeftRadius: "none",
+  borderRightRadius: { base: "none", md: "sm" },
   lineHeight: "1.75",
 };
 
