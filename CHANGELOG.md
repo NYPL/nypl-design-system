@@ -44,6 +44,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
 - Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
 - Composes the DS `DatePicker` component with Chakra. Adds more tests, documentation, and examples. This component now uses the `Fieldset` component for the date range type, and better `Form` components for layout. Prop name changes: `dateRange` is now `isDateRange` and `required` is now `isRequired`. BEM related props `modifiers` and `blockname` have been removed. The "Required"/"Optional" text in the date range legend can now be hidden with the `showOptReqLabel` prop.
+- Composes the DS `SkeletonLoader` with Chakra's `Skeleton` component. BEM related prop `modifiers` has been removed. Chakra's default `Skeleton` styles have been updated with NYPL's theme.
 
 ## 0.25.2 (October 28, 2021)
 
