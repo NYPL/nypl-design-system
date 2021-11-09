@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import accessibility_full from "../../../icons/svg/accessibility_full.svg";
 import accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
+import action_check_circle from "../../../icons/svg/action_check_circle.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import brooklyn from "../../../icons/svg/brooklyn.svg";
 import check from "../../../icons/svg/check.svg";
@@ -49,6 +50,7 @@ import utility_search from "../../../icons/svg/search.svg";
 export default {
   accessibility_full,
   accessibility_partial,
+  action_check_circle,
   arrow,
   brooklyn,
   check,

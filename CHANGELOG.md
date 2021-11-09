@@ -13,7 +13,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `ImageRatios`, `ImageSizes`, and `ImageTypes` enums.
 - Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
 - Adds the ability to make an entire `Card` component clickable with Chakra's `LinkBox` and `LinkOverlay` components. Links in the `CardActions` component can still be accessed in this state by clicking with the mouse or tabbing and pressing "enter".
-- Adds new file type SVG files to use in the `Icon` component: Audio, Doc, GenericDoc, GenericImage, PDF, Spreadsheet, Video.
+- Adds new file type SVG files to use in the `Icon` component: Audio, Doc, GenericDoc, Image, PDF, Spreadsheet, Video.
+- Adds `ActionCheckCircle` SVG file to use in the `Icon` component.
 
 ### Changes
 
