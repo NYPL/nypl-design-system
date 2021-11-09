@@ -52,6 +52,8 @@ const TextInput = {
       flex: "1 1 80%",
       input: {
         borderRadius: "none",
+        borderTopLeftRadius: { base: "sm", md: "none" },
+        borderTopRightRadius: { base: "sm", md: "none" },
       },
     },
   },
