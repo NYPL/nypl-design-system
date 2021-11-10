@@ -113,7 +113,7 @@ describe("Form", () => {
   //   const formRow = form.firstChild;
   //   expect(form).toBeInTheDocument();
   //   expect(formRow).toHaveStyle({
-  //     "grid-gap": "var(--chakra-space-xs)",
+  //     "grid-gap": "var(--nypl-space-xs)",
   //   });
   // });
 });

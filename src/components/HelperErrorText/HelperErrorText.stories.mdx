@@ -1,0 +1,124 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import HelperErrorText from "./HelperErrorText";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("HelperErrorText")}
+  component={HelperErrorText}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "",
+    },
+    jest: ["HelperErrorText.test.tsx"],
+  }}
+  argTypes={{
+    ariaAtomic: { table: { disable: true } },
+    children: { table: { disable: true } },
+    className: { table: { disable: true } },
+    id: { table: { disable: true } },
+  }}
+/>
+
+# HelperErrorText
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.0.10`   |
+| Latest            | `0.25.3`   |
+
+<Description of={HelperErrorText} />
+
+<Canvas withToolbar>
+  <Story
+    name="Basic with Props"
+    args={{
+      ariaLive: "polite",
+      isInvalid: false,
+    }}
+  >
+    {(args) => (
+      <HelperErrorText {...args}>
+        {args.isInvalid
+          ? "This is the error text :("
+          : "This is the helper text!"}
+      </HelperErrorText>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic with Props" />
+
+## With HTML Children
+
+The `HelperErrorText` component can take any React component or HTML element as
+its children.
+
+<Canvas>
+  <Story name="With HTML Children">
+    <HelperErrorText>
+      If you're unsure of your size, please view the{" "}
+      <a href="#sizing-chart">Sizing Chart</a>.
+    </HelperErrorText>
+  </Story>
+</Canvas>
+
+## Invalid State
+
+Set the `isInvalid` prop to `true` to render the passed text in the
+NYPL "invalid" styling.
+
+<Canvas>
+  <Story name="Invalid State">
+    <HelperErrorText isInvalid>This is the error text :(</HelperErrorText>
+  </Story>
+</Canvas>
+
+## With Aria Props
+
+In the "invalid" state when `isInvalid` is set to true, the rendered text can be
+presented to screen readers if `ariaAtomic` and `ariaLive` are set appropriately.
+
+### ariaAtomic
+
+The `ariaAtomic` prop sets the `aria-atomic` attribute; `true` by default. This
+allows the entire DOM element to be presented to assistive technologies. When it
+is set to `false`, only additionals or removals will be read by assistive
+technologies.
+
+### ariaLive
+
+The `ariaLive` prop sets the `aria-live` attribute; `polite` by default in the
+"invalid" state and `off` otherwise. This sets the priority of when the text in
+this component should be read to users by assistive technologies. The `off` value
+indicates that the content should not be presented, `polite` that it will be
+announced at the next available time slot, and `assertive` that it should be
+announced immediately.
+
+<Canvas>
+  <Story
+    name="With Aria Props"
+    args={{
+      ariaAtomic: true,
+      ariaLive: "polite",
+      isInvalid: true,
+    }}
+  >
+    {(args) => (
+      <HelperErrorText {...args}>
+        Only invalid text can be read to screen readers with the appropriate
+        aria-atomic and aria-live props.
+      </HelperErrorText>
+    )}
+  </Story>
+</Canvas>

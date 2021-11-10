@@ -31,7 +31,6 @@ const input = {
 const TextInput = {
   parts: ["helper", "input", "textarea"],
   baseStyle: {
-    marginBottom: "xs",
     helper: {
       ...helperTextMargin,
     },
@@ -53,6 +52,8 @@ const TextInput = {
       flex: "1 1 80%",
       input: {
         borderRadius: "none",
+        borderTopLeftRadius: { base: "sm", md: "none" },
+        borderTopRightRadius: { base: "sm", md: "none" },
       },
     },
   },

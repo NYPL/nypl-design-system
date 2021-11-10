@@ -14,6 +14,8 @@ import {
 import iconSvgs from "./IconSvgs";
 
 export interface IconProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Aligns the icon. */
   align?: IconAlign;
   /** className that appears in addition to "icon" */
@@ -31,6 +33,10 @@ export interface IconProps {
   name?: IconNames | LogoNames;
   /** Sets the icon size. */
   size?: IconSizes;
+  /** For accessibility purposes, the text passed in the `title` prop gets
+   * rendered in a `title` element in the SVG. This descriptive text is not
+   * visible but is needed for screenreaders to describe the graphic. */
+  title?: string;
   /** Sets the icon variant type. */
   type?: IconTypes;
 }
@@ -40,6 +46,7 @@ export interface IconProps {
  */
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
+    additionalStyles = {},
     align = "none",
     children,
     className,
@@ -49,6 +56,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     id = generateUUID(),
     name,
     size = IconSizes.Medium,
+    title = `${name} icon`,
     type = IconTypes.Default,
   } = props;
   const styles = useStyleConfig("Icon", {
@@ -63,6 +71,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     className,
     id,
     role: "img",
+    title,
   };
   let childSVG = null;
 
@@ -84,7 +93,13 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   // render the SVG child with NYPL-theme styling.
   if (name) {
     const SvgComponent: any = iconSvgs[name];
-    return <ChakraIcon as={SvgComponent} {...iconProps} __css={styles} />;
+    return (
+      <ChakraIcon
+        as={SvgComponent}
+        {...iconProps}
+        __css={{ ...styles, ...additionalStyles }}
+      />
+    );
   }
 
   // If no `name` prop was passed, we expect a child SVG element to be passed.

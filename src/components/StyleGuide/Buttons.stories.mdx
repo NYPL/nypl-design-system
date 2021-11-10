@@ -6,18 +6,19 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { ButtonGroup } from "@chakra-ui/react";
 
-import { getCategory } from "../../utils/componentCategories";
-import Button, { ButtonGroup } from "../Button/Button";
+import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import {
+  IconAlign,
   IconNames,
   IconRotationTypes,
   IconSizes,
-  IconAlign,
 } from "../Icons/IconTypes";
 import getCSSVariable from "../../helpers/getCSSVariable";
+import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 <Meta
@@ -34,7 +35,19 @@ import DSProvider from "../../theme/provider";
 
 # Buttons
 
-Use the NYPL Design System [Button](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/form-elements-button--basic) component to render form buttons.
+| Table of Contents                              |
+| ---------------------------------------------- |
+| 1. [General Information](#general-information) |
+| 2. [Guidelines](#guidelines)                   |
+| 3. [Button Groups](#button-groups)             |
+| 4. [Button Types](#button-types)               |
+| 5. [Patterns](#patterns)                       |
+| 6. [Figma Reference](#figma-reference)         |
+
+## General Information
+
+Use the NYPL Design System [Button](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/form-elements-button--basic)
+component to render form buttons.
 
 ```jsx
 import { Button, ButtonTypes } from "@nypl/design-system-react-components";
@@ -42,51 +55,35 @@ import { Button, ButtonTypes } from "@nypl/design-system-react-components";
 <Button buttonType={ButtonTypes.Primary}>Button Text</Button>;
 ```
 
-## Style Guide Topics
-
-For information about using the `Button` component, please see below.
-
-- [General Guidelines](#general-guidelines)
-- [Spacing](#spacing)
-- [Button Types](#button-types)
-- [Patterns](#patterns)
-- [Figma Reference](#figma-reference)
-
-## General Guidelines
+## Guidelines
 
 - Button text is optional.
 - Button text should be title case.
 - Button icon is optional.
 - Buttons may have an icon on either the left or the right.
-- Buttons by default are blue. However, Donation buttons are red.
-- Buttons used for Back to Top actions have a Secondary button style with an arrow icon pointing up.
-- When buttons are used in a set (where the user can move forward or backward), the `Primary` button is on the right and the `Secondary` button on the left (i.e. cancel = secondary, submit = primary).
+- Buttons by default are blue. However, Donation callout buttons are red.
+- Buttons used for Back to Top actions have a Secondary button style with an
+  arrow icon pointing up.
+- When buttons are used in a group, they should be wrapped in a `ButtonGroup`.
+- When buttons are used in a group where the user can move forward or backward,
+  the `Primary` button is on the right and the `Secondary` button on the left
+  (i.e. cancel = secondary, submit = primary).
 
-## Spacing
+## Button Groups
 
-Buttons should use `--space-xs` (0.5rem) for spacing in situations where multiple buttons are aligned in horizontal or vertical layouts. Buttons should use `--space-l` (2rem) for all other spacing situations.
+When `Button` components are displayed in a group, use the `ButtonGroup`
+component to handle the spacing and layout. The `ButtonGroup` component will use
+`--nypl-space-xs` (0.5rem) for spacing in horizontal group layouts.
+
+Standalone `Button` components and the `ButtonGroup` component should use
+`--nypl-space-l` (2rem) for spacing between all other UI elements. This spacing
+can be achieved by using the `Form` component to wrap the `Button`s.
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
-        Button Text
-      </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
+      <Button buttonType={ButtonTypes.Primary}>Button Text</Button>
+      <Button buttonType={ButtonTypes.Primary}>
         <Icon
           name={IconNames.Search}
           size={IconSizes.Small}
@@ -94,27 +91,10 @@ Buttons should use `--space-xs` (0.5rem) for spacing in situations where multipl
         />
         Button Text
       </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
+      <Button buttonType={ButtonTypes.Primary}>
         <Icon name={IconNames.Close} size={IconSizes.Medium} />
       </Button>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            backgroundColor: getCSSVariable("--section-books-and-more-primary"),
-            marginRight: getCSSVariable("--space-xs"),
-          },
-        }}
-      >
-        Button Text
-      </Button>
+      <Button buttonType={ButtonTypes.Callout}>Donate</Button>
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
@@ -130,15 +110,19 @@ Buttons should use `--space-xs` (0.5rem) for spacing in situations where multipl
 
 ## Button Types
 
-The `buttonType` prop should be used to render various forms of the button component.
+The `buttonType` prop should be used to render various forms of the button
+component. Note that the `SearchBar` type is only used internally in the
+`SearchBar` component.
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
       <Button buttonType={ButtonTypes.Primary}>Primary Button</Button>
       <Button buttonType={ButtonTypes.Secondary}>Secondary Button</Button>
+      <Button buttonType={ButtonTypes.Callout}>Callout Button</Button>
       <Button buttonType={ButtonTypes.Pill}>Pill Button</Button>
       <Button buttonType={ButtonTypes.Link}>Link Button</Button>
+      <Button buttonType={ButtonTypes.SearchBar}>SearchBar Button</Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -154,6 +138,11 @@ The `buttonType` prop should be used to render various forms of the button compo
 - often paired with a Primary button
 - Visual Treatment: rectangular, outlined
 
+### ButtonTypes.Callout
+
+- used for call to actions such as donation buttons
+- Visual Treatment: rectangular, NYPL red background
+
 ### ButtonTypes.Pill
 
 - used for equally weighted actions
@@ -165,24 +154,26 @@ The `buttonType` prop should be used to render various forms of the button compo
 - used for equally weighted actions
 - Visual Treatment: text link with underline
 
+### ButtonTypes.SearchBar
+
+- used internally in the `SearchBar` component for visual flow when it is next
+  to the `TextInput` component
+- Visual Treatment: rectangular, filled, no border radius on the left side
+
 ## Patterns
 
-Buttons are blue by default but should be red when it is intended as a call out.
-The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include an up arrow icon.
+- Buttons are blue by default.
+- Buttons that are intended as a call out (i.e. Donation buttons) should be set
+  as `ButtonTypes.Callout`.
+- The "Back to Top" button must be set as `ButtonTypes.Secondary` and must
+  include an up arrow icon.
+- Previous and Next buttons should be set as `ButtonTypes.Secondary` and be
+  wrapped in a `ButtonGroup`.
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button
-        buttonType={ButtonTypes.Primary}
-        attributes={{
-          style: {
-            backgroundColor: getCSSVariable("--section-books-and-more-primary"),
-          },
-        }}
-      >
-        Donate to this library
-      </Button>
+      <Button buttonType={ButtonTypes.Callout}>Donate to this library</Button>
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
@@ -190,6 +181,24 @@ The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include a
           iconRotation={IconRotationTypes.Rotate180}
           size={IconSizes.Small}
           align={IconAlign.Right}
+        />
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary}>
+        <Icon
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate90}
+          align={IconAlign.Left}
+          size={IconSizes.Small}
+        />
+        Previous
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary}>
+        Next
+        <Icon
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate270}
+          align={IconAlign.Right}
+          size={IconSizes.Small}
         />
       </Button>
     </ButtonGroup>
@@ -200,4 +209,4 @@ The "Back to Top" button must be of `ButtonTypes` `Secondary` and must include a
 
 For more styling information, please refer to the Figma Main file.
 
-https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298
+- https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298

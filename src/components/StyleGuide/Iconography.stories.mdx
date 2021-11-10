@@ -6,6 +6,7 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { Stack } from "@chakra-ui/react";
 
 import { getCategory } from "../../utils/componentCategories";
 import Icon from "../Icons/Icon";
@@ -31,71 +32,64 @@ import DSProvider from "../../theme/provider";
 
 # Iconography
 
-Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) component to render and control icons and NYPL logos as `<svg>` elements within consuming apps.
+| Table of Contents                              |
+| ---------------------------------------------- |
+| 1. [General Information](#general-information) |
+| 2. [Icon Examples](#icon-examples)             |
+| 3. [Icon Sizes](#icon-sizes)                   |
+| 4. [Icon Colors](#icon-colors)                 |
+| 5. [Development Notes](#development-notes)     |
+| 6. [Figma Reference](#figma-reference)         |
+
+## General Information
+
+Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
+component to render and control icons and NYPL logos as `<svg>` elements within
+consuming apps.
 
 The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
 
-## Style Guide Topics
-
-- [Icon Examples](#icon-examples)
-- [Icon Sizes](#icon-sizes)
-- [Icon Colors](#icon-colors)
-- [Development Notes](#development-notes)
-- [Figma Reference](#figma-reference)
-
 ## Icon Examples
 
-The graphic of the `Icon` component is handled through the `IconNames` and `LogoNames` enums. To see all graphic options for `Icon`, please refer to the [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props) Storybook page.
+The graphic of the `Icon` component is handled through the `IconNames` and
+`LogoNames` enums. To see all graphic options for `Icon`, please refer to the
+[Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
+Storybook page.
 
 <Canvas>
   <DSProvider>
-    <span style={{ marginRight: "1rem" }}>
+    <Stack spacing="s" direction="row">
       <Icon
         decorative
         size={IconSizes.ExtraExtraExtraLarge}
         name={IconNames.Check}
-        style={{ marginRight: "1rem" }}
       />
-    </span>
-    <span style={{ marginRight: "1rem" }}>
       <Icon
         decorative
         size={IconSizes.ExtraExtraExtraLarge}
         name={IconNames.Close}
-        style={{ marginRight: "1rem" }}
       />
-    </span>
-    <span style={{ marginRight: "1rem" }}>
       <Icon
         decorative
         size={IconSizes.ExtraExtraExtraLarge}
         name={IconNames.ErrorOutline}
-        style={{ marginRight: "1rem" }}
       />
-    </span>
-    <span style={{ marginRight: "1rem" }}>
       <Icon
         decorative
         size={IconSizes.ExtraExtraExtraLarge}
         name={IconNames.SpeakerNotes}
-        style={{ marginRight: "1rem" }}
       />
-    </span>
-    <span style={{ marginRight: "1rem" }}>
       <Icon
         decorative
         size={IconSizes.ExtraExtraExtraLarge}
         name={LogoNames.LogoNypl}
-        style={{ marginRight: "1rem" }}
       />
-    </span>
-    <span style={{ marginRight: "1rem" }}>
       <Icon
         decorative
         size={IconSizes.ExtraExtraExtraLarge}
         name={LogoNames.LogoBrooklyn}
       />
-    </span>
+    </Stack>
   </DSProvider>
 </Canvas>
 
@@ -114,88 +108,88 @@ The size of the `Icon` component is handled through the `IconSizes` enum.
 
 <Canvas>
   <DSProvider>
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon size={IconSizes.Small} name={IconNames.Check} />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon size={IconSizes.Medium} name={IconNames.Check} />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon size={IconSizes.Large} name={IconNames.Check} />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon size={IconSizes.ExtraLarge} name={IconNames.Check} />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon size={IconSizes.ExtraExtraLarge} name={IconNames.Check} />
-      </span>
-      <span style={{ marginRight: "1rem" }}>
-        <Icon size={IconSizes.ExtraExtraExtraLarge} name={IconNames.Check} />
-      </span>
-    </div>
+    <Stack spacing="s" direction="row" alignItems="center">
+      <Icon size={IconSizes.Small} name={IconNames.Check} />
+      <Icon size={IconSizes.Medium} name={IconNames.Check} />
+      <Icon size={IconSizes.Large} name={IconNames.Check} />
+      <Icon size={IconSizes.ExtraLarge} name={IconNames.Check} />
+      <Icon size={IconSizes.ExtraExtraLarge} name={IconNames.Check} />
+      <Icon size={IconSizes.ExtraExtraExtraLarge} name={IconNames.Check} />
+    </Stack>
   </DSProvider>
 </Canvas>
 
-| IconSizes Enum Value             | CSS Value         | CSS Variable  |
-| -------------------------------- | ----------------- | ------------- |
-| `IconSizes.Small`                | `0.875rem` (14px) | n/a           |
-| `IconSizes.Medium`               | `1.125rem` (18px) | n/a           |
-| `IconSizes.Large`                | `1.5rem` (24px)   | `--space-m`   |
-| `IconSizes.ExtraLarge`           | `2rem` (32px)     | `--space-l`   |
-| `IconSizes.ExtraExtraLarge`      | `3rem` (48px)     | `--space-xl`  |
-| `IconSizes.ExtraExtraExtraLarge` | `4rem` (64px)     | `--space-xxl` |
+| IconSizes Enum Value             | CSS Value         | CSS Variable       |
+| -------------------------------- | ----------------- | ------------------ |
+| `IconSizes.Small`                | `0.875rem` (14px) | n/a                |
+| `IconSizes.Medium`               | `1.125rem` (18px) | n/a                |
+| `IconSizes.Large`                | `1.5rem` (24px)   | `--nypl-space-m`   |
+| `IconSizes.ExtraLarge`           | `2rem` (32px)     | `--nypl-space-l`   |
+| `IconSizes.ExtraExtraLarge`      | `3rem` (48px)     | `--nypl-space-xl`  |
+| `IconSizes.ExtraExtraExtraLarge` | `4rem` (64px)     | `--nypl-space-xxl` |
 
 ## Icon Colors
 
-The color of the `Icon` component is handled through the `IconColors` enum. Icons in NYPL projects should always be rendered with one color.
+The color of the `Icon` component is handled through the `IconColors` enum.
+Icons in NYPL projects should always be rendered with one color.
 
 <Canvas>
   <DSProvider>
-    <Icon size={IconSizes.ExtraExtraExtraLarge} name={IconNames.Check} />
-    <Icon
-      name={IconNames.Check}
-      size={IconSizes.ExtraExtraExtraLarge}
-      color={IconColors.BrandPrimary}
-    />
-    <Icon
-      name={IconNames.Check}
-      size={IconSizes.ExtraExtraExtraLarge}
-      color={IconColors.SectionResearchPrimary}
-    />
-    <Icon
-      name={IconNames.Check}
-      size={IconSizes.ExtraExtraExtraLarge}
-      color={IconColors.SectionResearchLibrarySchwartzman}
-    />
-    <Icon
-      name={IconNames.Check}
-      size={IconSizes.ExtraExtraExtraLarge}
-      color={IconColors.SectionResearchLibrarySchomburg}
-    />
+    <Stack spacing="s" direction="row">
+      <Icon size={IconSizes.ExtraExtraExtraLarge} name={IconNames.Check} />
+      <Icon
+        name={IconNames.Check}
+        size={IconSizes.ExtraExtraExtraLarge}
+        color={IconColors.BrandPrimary}
+      />
+      <Icon
+        name={IconNames.Check}
+        size={IconSizes.ExtraExtraExtraLarge}
+        color={IconColors.SectionResearchPrimary}
+      />
+      <Icon
+        name={IconNames.Check}
+        size={IconSizes.ExtraExtraExtraLarge}
+        color={IconColors.SectionResearchLibrarySchwartzman}
+      />
+      <Icon
+        name={IconNames.Check}
+        size={IconSizes.ExtraExtraExtraLarge}
+        color={IconColors.SectionResearchLibrarySchomburg}
+      />
+    </Stack>
   </DSProvider>
 </Canvas>
 
-| IconColors Enum Value                          | CSS Variable                             |
-| ---------------------------------------------- | ---------------------------------------- |
-| `IconColors.UiBlack`                           | `--ui-black`                             |
-| `IconColors.UiWhite`                           | `--ui-white`                             |
-| `IconColors.BrandPrimary`                      | `--brand-primary`                        |
-| `IconColors.BrandSecondary`                    | `--brand-secondary`                      |
-| `IconColors.SectionWhatsOnPrimary`             | `--section-whats-on-primary`             |
-| `IconColors.SectionBooksAndMorePrimary`        | `--section-books-and-more-primary`       |
-| `IconColors.SectionResearchPrimary`            | `--section-research-primary`             |
-| `IconColors.SectionResearchSecondary`          | `--section-research-secondary`           |
-| `IconColors.SectionLocationsPrimary`           | `--section-locations-primary`            |
-| `IconColors.SectionResearchLibraryLpa`         | `--section-research-library-lpa`         |
-| `IconColors.SectionResearchLibrarySchomburg`   | `--section-research-library-schomburg`   |
-| `IconColors.SectionResearchLibrarySchwartzman` | `--section-research-library-schwartzman` |
+| IconColors Enum Value                          | CSS Variable                                         |
+| ---------------------------------------------- | ---------------------------------------------------- |
+| `IconColors.UiBlack`                           | `--nypl-colors-ui-black`                             |
+| `IconColors.UiWhite`                           | `--nypl-colors-ui-white`                             |
+| `IconColors.BrandPrimary`                      | `--nypl-colors-brand-primary`                        |
+| `IconColors.BrandSecondary`                    | `--nypl-colors-brand-secondary`                      |
+| `IconColors.SectionWhatsOnPrimary`             | `--nypl-colors-section-whats-on-primary`             |
+| `IconColors.SectionBooksAndMorePrimary`        | `--nypl-colors-section-books-and-more-primary`       |
+| `IconColors.SectionResearchPrimary`            | `--nypl-colors-section-research-primary`             |
+| `IconColors.SectionResearchSecondary`          | `--nypl-colors-section-research-secondary`           |
+| `IconColors.SectionLocationsPrimary`           | `--nypl-colors-section-locations-primary`            |
+| `IconColors.SectionResearchLibraryLpa`         | `--nypl-colors-section-research-library-lpa`         |
+| `IconColors.SectionResearchLibrarySchomburg`   | `--nypl-colors-section-research-library-schomburg`   |
+| `IconColors.SectionResearchLibrarySchwartzman` | `--nypl-colors-section-research-library-schwartzman` |
 
 ## Development Notes
 
-Icons have been added to the Icon component as they have been needed within NYPL development project, so not all of the [NYPL icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945) and [NYPL Brand](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007) and [NYPL UI](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=14989%3A37) colors are currently available through the DS Icon component. If your project requires an icon or color that is not currently available in the Icon component, please inform your project manager or reach out directly to the NYPL Design System team.
+Icons have been added to the Icon component as they have been needed within NYPL
+development project, so not all of the [NYPL icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945)
+and [NYPL Brand](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
+and [NYPL UI](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=14989%3A37)
+colors are currently available through the DS Icon component. If your project
+requires an icon or color that is not currently available in the Icon component,
+please inform your project manager or reach out directly to the NYPL Design
+System team.
 
 ## Figma Reference
+
+For additional spacing information, please refer to the Figma Main file.
 
 - [NYPL Icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945)
 - [NYPL Brand Colors](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)

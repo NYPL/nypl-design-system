@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import VideoPlayer from "./VideoPlayer";
 import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
@@ -26,9 +27,7 @@ describe("VideoPlayer", () => {
     });
 
     it("Renders VideoPlayer container", () => {
-      expect(
-        utils.container.querySelector(".video-player")
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("video-player-component")).toBeInTheDocument();
     });
 
     it("Renders VideoPlayer iframe", () => {
@@ -45,18 +44,11 @@ describe("VideoPlayer", () => {
 
   describe("Vimeo player", () => {
     const videoId = "474719268";
-    let utils;
 
     beforeEach(() => {
       utils = render(
         <VideoPlayer videoType={VideoPlayerTypes.Vimeo} videoId={videoId} />
       );
-    });
-
-    it("Renders VideoPlayer container", () => {
-      expect(
-        utils.container.querySelector(".video-player")
-      ).toBeInTheDocument();
     });
 
     it("Renders VideoPlayer iframe", () => {
@@ -97,6 +89,22 @@ describe("VideoPlayer", () => {
     it("Renders HelperErrorText component", () => {
       expect(screen.getByText("Video Player helper text.")).toBeInTheDocument();
     });
+
+    it("does not render the helper text", () => {
+      utils.rerender(
+        <VideoPlayer
+          videoType={VideoPlayerTypes.YouTube}
+          videoId={videoId}
+          headingText="Video Player Heading"
+          descriptionText="Video Player description text."
+          helperText="Video Player helper text."
+          showHelperInvalidText={false}
+        />
+      );
+      expect(
+        screen.queryByText("Video Player helper text.")
+      ).not.toBeInTheDocument();
+    });
   });
 
   describe("custom iframe title", () => {
@@ -112,64 +120,57 @@ describe("VideoPlayer", () => {
     });
   });
 
-  describe("aspect ratio", () => {
-    it("Renders with 4:3 aspect ratio", () => {
-      const utils = render(
-        <VideoPlayer
-          videoType={VideoPlayerTypes.Vimeo}
-          videoId="474719268"
-          aspectRatio={VideoPlayerAspectRatios.FourByThree}
-        />
-      );
-      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
-        "class",
-        "video-player video-player--four-by-three "
-      );
-    });
-
-    it("Renders with 16:9 aspect ratio", () => {
-      const utils = render(
-        <VideoPlayer
-          videoType={VideoPlayerTypes.Vimeo}
-          videoId="474719268"
-          aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
-        />
-      );
-      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
-        "class",
-        "video-player video-player--sixteen-by-nine "
-      );
-    });
-
-    it("Renders with 1:1 aspect ratio", () => {
-      const utils = render(
-        <VideoPlayer
-          videoType={VideoPlayerTypes.Vimeo}
-          videoId="474719268"
-          aspectRatio={VideoPlayerAspectRatios.Square}
-        />
-      );
-
-      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
-        "class",
-        "video-player video-player--square "
-      );
-    });
-  });
-
   describe("prop validation", () => {
     it("Throws error if videoId not formatted properly", () => {
-      const utils = render(
+      render(
         <VideoPlayer
           videoType={VideoPlayerTypes.Vimeo}
           videoId="http://vimeo.com/474719268"
           aspectRatio={VideoPlayerAspectRatios.FourByThree}
         />
       );
-      expect(utils.container.querySelector(".video-player")).toHaveAttribute(
-        "class",
-        "video-player video-player--four-by-three video-player--errored "
-      );
+      expect(
+        screen.getByText(
+          "This video player has not been configured properly. Please contact the site administrator."
+        )
+      ).toBeInTheDocument();
     });
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const videoPlayerWithoutText = renderer
+      .create(
+        <VideoPlayer
+          id="video-player-without-text"
+          videoId="474719268"
+          videoType={VideoPlayerTypes.Vimeo}
+        />
+      )
+      .toJSON();
+    const videoPlayerWithText = renderer
+      .create(
+        <VideoPlayer
+          descriptionText="VideoPlayer description"
+          headingText="VideoPlayer Heading"
+          id="video-player-with-text"
+          helperText="VideoPlayer helper test."
+          videoId="474719268"
+          videoType={VideoPlayerTypes.Vimeo}
+        />
+      )
+      .toJSON();
+    const videoPlayerError = renderer
+      .create(
+        <VideoPlayer
+          id="video-player-error"
+          videoId="https://vimeo.com/474719268"
+          videoType={VideoPlayerTypes.Vimeo}
+        />
+      )
+      .toJSON();
+
+    expect(videoPlayerWithoutText).toMatchSnapshot();
+    expect(videoPlayerWithText).toMatchSnapshot();
+    expect(videoPlayerError).toMatchSnapshot();
   });
 });

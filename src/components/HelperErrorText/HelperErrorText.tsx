@@ -1,24 +1,29 @@
 import * as React from "react";
-import bem from "../../utils/bem";
+import { Box, useStyleConfig } from "@chakra-ui/react";
+
+import generateUUID from "../../helpers/generateUUID";
+
+export type AriaLiveValues = "assertive" | "off" | "polite";
 
 interface HelperErrorTextProps {
-  /** Added prop when HelperText is errored */
-  ariaLive?: "polite" | "off" | "assertive";
-  /** Added prop when HelperText is errored */
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
+  /** Aria attribute. When true, assistive technologies will
+   * read the entire DOM element. When false, only changes (additionals or
+   * removals) will be read. True by default. */
   ariaAtomic?: boolean;
-  /** Additional attributes passed to <HelperErrorText> */
-  attributes?: { [key: string]: any };
-
-  /** Additional className to add to the helperErrorText */
+  /** Aria attribute only used in the invalid state to read error text. This
+   * indicates the priority of the text and when it should be presented to users
+   * using screen readers; "off" indicates that the content should not be presented,
+   * "polite" that it will be announced at the next available time slot, and
+   * "assertive" that it should be announced immediately. "polite" by default. */
+  ariaLive?: AriaLiveValues;
+  /** Additional className to add. */
   className?: string;
-  /** BlockName for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
-  blockName?: string;
-  /** unique ID for helper */
+  /** Unique ID for accessibility purposes. */
   id?: string;
-  /** Toggles between helper and error styling */
-  isError: boolean;
-  /** Modifiers array for use with BEM. See how to work with modifiers and BEM here: http://getbem.com/introduction/ */
-  modifiers?: string[];
+  /** Toggles between helper and invalid styling. */
+  isInvalid?: boolean;
 }
 
 /**
@@ -28,36 +33,29 @@ export default function HelperErrorText(
   props: React.PropsWithChildren<HelperErrorTextProps>
 ) {
   const {
-    attributes,
-    id,
-    blockName,
-    isError,
-    ariaLive = "polite",
+    additionalStyles = {},
     ariaAtomic = true,
+    ariaLive = "polite",
+    children,
+    className = "",
+    id = generateUUID(),
+    isInvalid = false,
   } = props;
-
-  const baseClass = "helper-text";
-  const modifiers = [];
-  let announceAriaLive = false;
-
-  if (isError) {
-    modifiers.push("error");
-    announceAriaLive = true;
-  }
-
-  if (props.modifiers) {
-    modifiers.push(...props.modifiers);
-  }
+  // Only announce the text in the invalid state.
+  const announceAriaLive = isInvalid;
+  const styles = useStyleConfig("HelperErrorText", { isInvalid });
+  const finalStyles = { ...styles, ...additionalStyles };
 
   return (
-    <div
+    <Box
       id={id}
-      className={bem(baseClass, modifiers, blockName)}
-      aria-live={announceAriaLive ? ariaLive : "off"}
+      className={className}
       aria-atomic={ariaAtomic}
-      {...attributes}
+      data-isinvalid={isInvalid}
+      aria-live={announceAriaLive ? ariaLive : "off"}
+      __css={finalStyles}
     >
-      {props.children}
-    </div>
+      {children}
+    </Box>
   );
 }

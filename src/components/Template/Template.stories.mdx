@@ -22,6 +22,7 @@ import Placeholder from "../Placeholder/Placeholder";
 import Hero from "../Hero/Hero";
 import { HeroTypes } from "../Hero/HeroTypes";
 import Image from "../Image/Image";
+import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Heading from "../Heading/Heading";
@@ -35,13 +36,7 @@ import Form, { FormRow, FormField } from "../Form/Form";
 import TextInput from "../TextInput/TextInput";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
-import Card, {
-  CardImage,
-  CardHeading,
-  CardContent,
-  CardActions,
-} from "../Card/Card";
-import { CardImageRatios, CardImageSizes } from "../Card/CardTypes";
+import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
 import Accordion from "../Accordion/Accordion";
 import { faqContent } from "../Accordion/Accordion.stories.mdx";
 import { NotificationTypes } from "../Notification/NotificationTypes";
@@ -452,17 +447,20 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
       </TemplateHeader>
       <TemplateContent sidebar="right">
         <TemplateContentTop>
-          <Notification notificationType={NotificationTypes.Announcement}>
-            <NotificationHeading>Announcement Notification</NotificationHeading>
-            <NotificationContent>
-              This is an "announcement" Notification with a heading. Cras mattis
-              consectetur purus sit amet fermentum. Maecenas faucibus mollis
-              interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-              eros. Cum sociis natoque penatibus et magnis dis parturient
-              montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue
-              laoreet rutrum faucibus dolor auctor.
-            </NotificationContent>
-          </Notification>
+          <Notification
+            notificationType={NotificationTypes.Announcement}
+            notificationHeading="Announcement Notification"
+            notificationContent={
+              <>
+                This is an "announcement" Notification with a heading. Cras
+                mattis consectetur purus sit amet fermentum. Maecenas faucibus
+                mollis interdum. Morbi leo risus, porta ac consectetur ac,
+                vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus. Vivamus sagittis
+                lacus vel augue laoreet rutrum faucibus dolor auctor.
+              </>
+            }
+          />
         </TemplateContentTop>
         <TemplateContentPrimary>
           <p>This is the main content!</p>
@@ -506,8 +504,8 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
             center
             imageSrc="https://placeimg.com/400/200/animals"
             imageAlt="Alt text"
-            imageAspectRatio={CardImageRatios.Square}
-            imageSize={CardImageSizes.Small}
+            imageAspectRatio={ImageRatios.Square}
+            imageSize={ImageSizes.Small}
           >
             <CardHeading level={HeadingLevels.Three} id="heading1">
               Small Animal Image
@@ -527,7 +525,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           id="custom-card"
           imageAlt="Alt text"
           imageSrc="https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
-          imageAspectRatio={CardImageRatios.SixteenByNine}
+          imageAspectRatio={ImageRatios.SixteenByNine}
           layout="horizontal"
           backgroundColor="#616161"
           foregroundColor="#FFF"

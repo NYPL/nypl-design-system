@@ -11,6 +11,7 @@ import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
 import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
 import Radio from "../Radio/Radio";
+import Fieldset from "../Fieldset/Fieldset";
 
 export interface RadioGroupProps {
   /** Any child node passed to the component. */
@@ -19,12 +20,12 @@ export interface RadioGroupProps {
   className?: string;
   /** Populates the initial value of the input */
   defaultValue?: string;
-  /** Optional string to populate the HelperErrorText for error state */
-  invalidText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Optional string to populate the HelperErrorText for error state */
+  invalidText?: string;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
   /** Adds the 'aria-invalid' attribute to the input and
@@ -43,6 +44,8 @@ export interface RadioGroupProps {
   onChange?: (value: string) => void;
   /** Whether or not to display "Required"/"Optional" in the label text. */
   optReqFlag?: boolean;
+  /** Offers the ability to hide the helper/invalid text. */
+  showHelperInvalidText?: boolean;
   /** Offers the ability to show the group's legend onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
@@ -59,9 +62,9 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       children,
       className = "",
       defaultValue,
-      invalidText,
       helperText,
       id = generateUUID(),
+      invalidText,
       isDisabled = false,
       isInvalid = false,
       isRequired = false,
@@ -70,6 +73,7 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       name,
       onChange = onChangeDefault,
       optReqFlag = true,
+      showHelperInvalidText = true,
       showLabel = true,
     } = props;
     const footnote = isInvalid ? invalidText : helperText;
@@ -114,39 +118,35 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       }
     });
 
-    // Get the Chakra-based styles for all the custom elements in this component.
-    const styles = useMultiStyleConfig("CustomRadioGroup", {});
+    // Get the Chakra-based styles for the custom elements in this component.
+    const styles = useMultiStyleConfig("RadioGroup", {});
 
     return (
-      <Box
-        as="fieldset"
+      <Fieldset
         id={`radio-group-${id}`}
         className={className}
-        __css={styles}
+        isLegendHidden={!showLabel}
+        legendText={labelText}
+        optReqFlag={optReqFlag}
       >
-        <legend className={showLabel ? "" : "sr-only"}>
-          <span>{labelText}</span>
-          {optReqFlag && (
-            <Box as="span" __css={styles.required}>
-              {isRequired ? "Required" : "Optional"}
-            </Box>
-          )}
-        </legend>
         <Stack
           direction={[layout]}
           spacing={spacingProp}
           ref={ref}
           aria-label={!showLabel ? labelText : null}
           {...radioGroupProps}
+          sx={styles.stack}
         >
           {newChildren}
         </Stack>
-        {footnote && (
+        {footnote && showHelperInvalidText && (
           <Box __css={styles.helper}>
-            <HelperErrorText isError={isInvalid}>{footnote}</HelperErrorText>
+            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
+              {footnote}
+            </HelperErrorText>
           </Box>
         )}
-      </Box>
+      </Fieldset>
     );
   }
 );

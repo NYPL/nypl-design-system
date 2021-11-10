@@ -10,6 +10,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 | 2. [DSProvider](#dsprovider)        |
 | 3. [Components](#components)        |
 | 4. [Styling](#styling)              |
+| 5. [Hooks](#hooks)                  |
 | 5. [Testing](#testing)              |
 
 ## Why Chakra UI?
@@ -37,19 +38,23 @@ We recommend to read Chakra's own [documentation](https://chakra-ui.com/docs/get
 to get up to speed on it. This file will provide information on how it is used
 in the DS but we rely on Chakra's documentation.
 
+If you need help updating to a newer version of the NYPL Design System, check out
+our [Chakra Migration Guide](https://github.com/NYPL/nypl-design-system/blob/development/CHAKRA_MIGRATION_GUIDE.md).
+
 ## DSProvider
 
-While the Chakra UI integration into the DS is a work-in-progress, there is one
-necessary step consuming applications need to take for component styles to
-properly render. Consuming applications need to wrap all the DS components with
-a simple provider component. Fortunately, this only needs to be done once at
-the top level of the consuming application.
+In order to use DS components in a consuming application, there is a necessary
+step that must be done for component styles to properly render. Consuming
+applications need to wrap all the DS components with a simple provider
+component. Fortunately, this only needs to be done once at the top level of the
+consuming application.
 
 Once the following is completed, DS components that internally use Chakra UI
 will render styles properly. Internally, the `DSProvider` is built on top of
-Chakra's `ChakraProvider` with NYPL's custom theme.
+Chakra's `ChakraProvider` component with NYPL's custom theme as input. This sets
+up the style context to propogate through all the children nodes in the DOM tree.
 
-```jsx
+```tsx
 // your main application file
 import { DSProvider } from "@nypl/design-system-react-components";
 
@@ -76,7 +81,7 @@ appropriately. Unfortunately, this only works within the `Story` component.
 When rendering components in documentation examples within a `Canvas` component,
 wrap the elements in the `DSProvider` component.
 
-```jsx
+```tsx
 // These buttons are not a part of a "story" but still appear only
 // in the documentation.
 <Canvas>
@@ -91,12 +96,12 @@ wrap the elements in the `DSProvider` component.
 
 ## Components
 
-The current work-in-progress is to use Chakra components to compose DS
-components that align directly or to compose DS-specific components with Chakra.
-For example, both the DS and Chakra have a `Button` component so we will use
-Chakra's `Button` component to compose the DS `Button` component. However, the
-DS has a `Hero` component that is not already built by Chakra. In this case,
-the DS `Hero` component will internally use `Chakra` components.
+Although Chakra is integrated into the DS repo, we are still working to compose
+DS components with Chakra components or patterns. For example, both the DS and
+Chakra have a `Button` component so we will use Chakra's `Button` component to
+compose the DS `Button` component. However, the DS has a `Hero` component that
+is not already built by Chakra. In this case, the DS `Hero` component will
+internally use `Chakra` components such as `Box`.
 
 ### Components Composed with Chakra
 
@@ -111,14 +116,14 @@ components that internally are composed with Chakra components.
 
 Components built from Chakra rename the component with the `Chakra` name prefix.
 
-```jsx
+```tsx
 import { Tabs as ChakraTabs, useStyleConfig } from "@chakra-ui/react";
 ```
 
 In this example, the `ChakraTabs` component is returned with NYPL specific
 functionality, styles, and other requirements.
 
-```jsx
+```tsx
 function Tabs(props) {
   // ...
   const styles = useStyleConfig("Tabs", { variant: props.tabsType });
@@ -136,12 +141,13 @@ function Tabs(props) {
 
 #### Patterns
 
-The NYPL DS uses the [CSS BEM](http://getbem.com/introduction/) pattern to structure
-and write CSS. We are moving away from this and re-writing SCSS classes into
-Javascript objects that work with Chakra's theme. Instead of creating a variant
-for a component with a class name, now the `type` prop is used. Internally, the
-`type` prop will be mapped to a Chakra theme variant that will provide all the
-necessary styles.
+The NYPL DS uses the [CSS BEM](http://getbem.com/introduction/) pattern to
+structure and write CSS, but it is slowly being phased out. We are moving away
+from this and re-writing SCSS classes into Javascript objects that work with
+Chakra's theme. Instead of creating a variant for a component with a class name,
+now different props or internal logic are used to get the appropriate variant.
+Internally, the right variant will be mapped to a Chakra theme variant that will
+provide all the necessary styles.
 
 For the `Button` component, for example, we would convert a SCSS class rule such
 as `.button-outline` to a Javascript object (more on this in the [Anatomy of a
@@ -152,25 +158,32 @@ Component Styling Object](#anatomy-of-a-component-styling-object) section).
 Some components are directly exported from Chakra. These components can be found
 in the `/src/index.ts` file. Note that not _all_ Chakra components are re-exported
 because we want to limit what developers should use in consuming applications.
+They include:
+
+- `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`
 
 Note: These components are harder to have snapshot tests for because, internally,
 these components autogenerate ids and class names on every new render. We can't
 override them so snapshot tests will fail.
 
+Update: Newer Chakra UI versions have mostly fixed this issue. Still, since
+Chakra components have already been tested, we don't necessarily want or need
+to test them ourselves.
+
 ## Styling
 
 As mentioned in the [Components composed with Chakra](#components-composed-with-chakra)
-section, we are moving away from using the BEM structure to using Javascript objects
-to extend Chakra's theme.
+section, we are moving away from using the BEM structure to using Javascript
+objects to extend Chakra's theme.
 
 The NYPL DS' theme file can be found at `src/theme/index.ts`. This creates a new
 theme that extends Chakra's theme and is set in the `DSProvider` component. Note
 that the example below is the general structure of the `theme` object but the DS
 `theme` object has values already set so it may look different. You would generally
-only work and add new object values in the `components` attribute for new
+only work and add new object values in the `components` obejct key for new
 components and their theme or variants.
 
-```jsx
+```ts
 const theme = extendTheme({
   styles: { ... },
   breakpoints: { ... },
@@ -191,7 +204,7 @@ For in-depth information, read Chakra's [Component Style documentation](https://
 Component theme files can be found in the `src/theme/components/` directory.
 Here is an example using the `Button` component.
 
-```jsx
+```ts
 // The basic structure for all component style objects.
 const Button = {
   baseStyle: {},
@@ -204,24 +217,26 @@ const Button = {
 A current variant class rule can be converted to a Javascript object and go in
 the `variants` object as in the following example.
 
-```jsx
+```scss
 // Button.scss
 // This is the "Secondary" variant.
 .button--outline {
   @include button-base;
 
-  background-color: var(--ui-white);
-  border: 1px solid var(--ui-gray-light-cool);
+  background-color: var(--nypl-colors-ui-white);
+  border: 1px solid var(--nypl-colors-ui-gray-light-cool);
   color: inherit;
 
   &:hover {
-    background-color: var(--ui-gray-xx-light-cool);
+    background-color: var(--nypl-colors-ui-gray-xx-light-cool);
   }
 }
+```
 
-// Button.ts
+```ts
+// button.ts
 const Button = {
-  baseStyles: { ... },
+  baseStyle: { ... },
   sizes: { ... },
   variants: {
     secondary: {
@@ -241,13 +256,82 @@ const Button = {
 
 Now this variant can be rendered:
 
-```jsx
+```tsx
 <Button buttonType={ButtonTypes.Secondary}>Press me</Button>
 ```
 
 ### Breakpoints
 
-TODO:
+There are currently five (5) breakpoint values used in the DS:
+
+| Key Name | EM/PX value |
+| -------- | ----------- |
+| sm       | 20em/320px  |
+| md       | 38em/600px  |
+| lg       | 60em/960px  |
+| xl       | 80em/1280px |
+| 2xl      | 96em/1536px |
+
+There are two ways to set breakpoint values for a style rule: the array method
+and the object method. We prefer the object method and recommend to use the
+object method since it is easier to read and readily know what values take
+effect at defined breakpoint values. Note that the Chakra `"base"` key value is
+the same as `"sm"`.
+
+#### Object Method
+
+We recommend and follow this pattern in the DS. As an example, let's say we want
+to increase the width of the `Button` component as the device width increases.
+We start at value "100px" and increase by "50px" at every breakpoint. In the
+`button.ts` style file, we can define it as in the example below:
+
+```ts
+// button.ts
+const Button = {
+  baseStyle: {
+    width: {
+      base: "100px",
+      md: "150px",
+      lg: "200px",
+      xl: "250px",
+      "2xl": "300px",
+    },
+  },
+  // ...
+};
+```
+
+You do not have to define every breakpoint. If you only want to change the width
+of the `Button` at the `lg` breakpoint, it can be defined as:
+
+```ts
+// button.ts
+const Button = {
+  baseStyle: {
+    width: {
+      base: "100px",
+      lg: "200px",
+    },
+  },
+  // ...
+};
+```
+
+#### Array Method
+
+We do not recommend this pattern because it is harder to read and implicit on
+breakpoint values. Following the same example as the one above, the width of the
+`Button` component can be updated wiht all five values in an array:
+
+```ts
+// button.ts
+const Button = {
+  baseStyle: {
+    width: ["100px", "150px", "200px", "250px", "300px"],
+  },
+  // ...
+};
+```
 
 ### Colors
 
@@ -255,7 +339,7 @@ All available colors can be found in `src/theme/foundations/colors.ts`. Chakra
 autogenerates the `colors` object into CSS variables. We will rely on these
 variables rather than creating our own.
 
-```jsx
+```tsx
 const colors: Colors = {
   // ui fills
   ui: {
@@ -280,17 +364,13 @@ const colors: Colors = {
 
 In the shorten object example above, the following will be generated by Chakra:
 
-| Theme object value                     | CSS variable                                 |
-| -------------------------------------- | -------------------------------------------- |
-| `colors.ui.focus`                      | `--chakra-colors-ui-focus`                   |
-| `colors.ui.link.primary`               | `--chakra-colors-ui-link-primary`            |
-| `colors.ui.link.secondary`             | `--chakra-colors-ui-link-secondary`          |
-| `colors.section["whats-on"].primary`   | `--chakra-colors-section-whats-on-primary`   |
-| `colors.section["whats-on"].secondary` | `--chakra-colors-section-whats-on-secondary` |
-
-The current prefix is `--chakra` but we expect to update that soon. DS specified
-CSS variables are still exported but we will remove those in favor of the CSS
-variables provided by Chakra for ease of use.
+| Theme object value                     | CSS variable                               |
+| -------------------------------------- | ------------------------------------------ |
+| `colors.ui.focus`                      | `--nypl-colors-ui-focus`                   |
+| `colors.ui.link.primary`               | `--nypl-colors-ui-link-primary`            |
+| `colors.ui.link.secondary`             | `--nypl-colors-ui-link-secondary`          |
+| `colors.section["whats-on"].primary`   | `--nypl-colors-section-whats-on-primary`   |
+| `colors.section["whats-on"].secondary` | `--nypl-colors-section-whats-on-secondary` |
 
 Note: while each Chakra color has number range values from 50 to 900 (such as
 `red.400`, `blue.600`, etc) and each one is based on the color coming from
@@ -301,16 +381,16 @@ DS' Figma documentation, we recommend NOT to use them.
 All the spacing values can be found in the `src/theme/foundations/spacing.ts`
 file. While Chakra provides many values, only use the eight DS defined values.
 
-| Chakra Value | DS Variable |
-| ------------ | ----------- |
-| 1            | --space-xxs |
-| 2            | --space-xs  |
-| 4            | --space-s   |
-| 6            | --space-m   |
-| 8            | --space-l   |
-| 12           | --space-xl  |
-| 16           | --space-xxl |
-| 24           | --space-xxl |
+| NYPL name Value | Chakra Value | DS Variable       |
+| --------------- | ------------ | ----------------- |
+| xxs             | 1            | --nypl-space-xxs  |
+| xs              | 2            | --nypl-space-xs   |
+| s               | 4            | --nypl-space-s    |
+| m               | 6            | --nypl-space-m    |
+| l               | 8            | --nypl-space-l    |
+| xl              | 12           | --nypl-space-xl   |
+| xxl             | 16           | --nypl-space-xxl  |
+| xxxl            | 24           | --nypl-space-xxxl |
 
 For example, to make all `button`s have a `padding: 8px 16px` value:
 
@@ -318,8 +398,8 @@ For example, to make all `button`s have a `padding: 8px 16px` value:
 // src/theme/components/button.ts
 const Button = {
   baseStyle: {
-    py: 2, // var(--space-xs) which results in a value of 8px or 0.5rem
-    px: 4, // var(--space-s) which results in a value of 16px or 1rem
+    py: "xs", // var(--nypl-space-xs) which results in a value of 8px or 0.5rem.
+    px: "s", // var(--nypl-space-s) which results in a value of 16px or 1rem.
     // ... other styles
   },
   sizes: { ... },
@@ -334,8 +414,109 @@ All typography values can be found in the `src/theme/foundations/typography.ts`
 file. These values declare the font family, font sizes, and font weights to use
 for all text.
 
+## Hooks
+
+The following hooks are available to use and can be imported from
+`@nypl/design-system-react-components`.
+
+### useNYPLTheme
+
+If your application does not use CSS or SCSS files and you want to write
+CSS-in-JS styles in your React components, the `useNYPLTheme` hook will provide
+you with NYPL-specific style values. This hook depends on the `DSProvider`
+component and if the function is used outside of this wrapper component, then
+the theme object will be empty.
+
+After importing and rendering the `DSProvider` wrapper component, as explained
+in the [DSProvider](#dsprovider) section, your children components can use this
+hook function.
+
+```tsx
+import { useNYPLTheme } from "@nypl/design-system-react-components";
+// ...
+
+const theme = useNYPLTheme();
+```
+
+The `theme` variable will be a JS object with style values discussed in the
+sections above. This will allow you to use NYPL-specific styles in your
+components through CSS-in-JS.
+
+```ts
+// theme:
+{
+  breakpoints: { ... },
+  colors: {
+    brand: { ... },
+    section: { ... },
+    transparent: { ... },
+    ui: { ... },
+  },
+  fontSizes: { ... },
+  fontWeights: { ... },
+  fonts: { ... },
+  radii: { ... },
+  space: { ... },
+}
+```
+
+#### Usage
+
+_Note: more patterns will be added._
+
+1. NYPL DS Components
+
+All DS components _should_ be used with their current styles. If a DS component
+needs an updated style, first contact the Design System and UX teams about this
+update. If you really _need_ to update a style and there is no available
+variant, then you can add styles directly to the `additionalStyles` prop. At the
+moment, not all DS components have this prop or feature.
+
+For example, if the `Heading` component should render the text in NYPL's green
+color used for "success primary" and add a bold font weight, then you can do
+the following:
+
+```tsx
+const theme = useNYPLTheme();
+
+// ...
+return (
+  <div>
+    <Heading
+      level={2}
+      additionalStyles={{
+        color: theme.colors.ui.sucess.primary,
+        fontWeight: theme.fontWeights.bold,
+      }}
+    >
+      Get a Digital Library Card Today in a Few Easy Steps
+    </Heading>
+
+    {/* Other components */}
+  </div>
+);
+```
+
+Of course, you can destructure the `theme` object to only get the object keys
+you need for your component (this is a general example). Log the object to the
+console to see all the available styles.
+
+2. HTML Components
+
+Use the `style` attribute in HTML components to add inline styles.
+
+```tsx
+<p style={{ color: theme.colors.ui.success.primary }}>
+  If you are 13 or older and live, work, attend school, or pay property taxes in
+  New York State, you can get a free digital library card right now using this
+  online form. Visitors to New York State can also use this form to apply for a
+  temporary card.
+</p>
+```
+
 ## Testing
 
 Do not re-test Chakra components that are re-exported since they are already
-tested in the `@chakra-ui/react` package. We do expect all new components composed
-from Chakra to have tests for functionality and styling (such as snapshots).
+tested in the `@chakra-ui/react` package. We do expect all new components
+composed from Chakra to have tests for functionality and styling
+(such as snapshots).

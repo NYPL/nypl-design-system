@@ -7,10 +7,9 @@ import {
 } from "@storybook/addon-docs/blocks";
 import Accordion from "./Accordion";
 import { withDesign } from "storybook-addon-designs";
-import { listRenderer as ListStory } from "../List/List.stories.tsx";
-import { ListTypes } from "../List/ListTypes";
 import Card, { CardHeading, CardContent } from "../Card/Card";
-import { CardImageRatios, CardLayouts } from "../Card/CardTypes";
+import { CardLayouts } from "../Card/CardTypes";
+import { ImageRatios } from "../Image/ImageTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import { Source } from "@storybook/addon-docs/blocks";
 import ReactDOMServer from "react-dom/server";
@@ -75,7 +74,7 @@ necessary icon, Chakra components, and styles.
                 center
                 imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
                 imageAlt="Alt text"
-                imageAspectRatio={CardImageRatios.TwoByOne}
+                imageAspectRatio={ImageRatios.TwoByOne}
               >
                 <CardHeading level={HeadingLevels.Four} id="heading1">
                   Tom Nook
@@ -104,7 +103,7 @@ const contentData = [
         center
         imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Tom Nook
@@ -137,7 +136,7 @@ export const faqContent = [
         center
         imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Tom Nook
@@ -157,7 +156,7 @@ export const faqContent = [
         center
         imageSrc="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Isabelle
@@ -179,7 +178,7 @@ export const faqContent = [
         center
         imageSrc="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           K.K. Slider
@@ -216,7 +215,7 @@ export const faqContent = [
         center
         imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Tom Nook
@@ -236,7 +235,7 @@ export const faqContent = [
         center
         imageSrc="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Isabelle
@@ -258,7 +257,7 @@ export const faqContent = [
         center
         imageSrc="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
-        imageAspectRatio={CardImageRatios.TwoByOne}
+        imageAspectRatio={ImageRatios.TwoByOne}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           K.K. Slider

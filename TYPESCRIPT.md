@@ -33,7 +33,7 @@ Resources:
 
 The following is a full example of an `enum` variable used to declare the `displaySize` component prop.
 
-```jsx
+```tsx
 // A string enum
 export enum HeadingDisplaySizes {
   Primary = "primary",
@@ -58,12 +58,12 @@ export default function Heading(props: React.PropsWithChildren<HeadingProps>) {
 
 Component usage in a consuming application that uses Typescript:
 
-```jsx
+```tsx
 // No errors:
 <Heading
   id="h1"
   level={HeadingLevels.One}
-  text={"Heading with Secondary displaySize"}
+  text="Heading with Secondary displaySize"
   displaySize={HeadingDisplaySizes.Secondary}
 />
 
@@ -73,18 +73,18 @@ Component usage in a consuming application that uses Typescript:
 <Heading
   id="h1"
   level={HeadingLevels.One}
-  text={"Heading with Secondary displaySize"}
+  text="Heading with Secondary displaySize"
   displaySize="secondary"
 />
 ```
 
 If the consuming application does not use Typescript, then the following won't throw an error. Also, because Typescript doesn't run in MDX files, the following will also not throw an error in MDX Storybook documentation files. Make sure to write documentation properly.
 
-```jsx
+```tsx
 <Heading
   id="h1"
   level={1}
-  text={"Heading with Secondary displaySize"}
+  text="Heading with Secondary displaySize"
   displaySize="secondary"
 />
 ```
@@ -93,7 +93,7 @@ If the consuming application does not use Typescript, then the following won't t
 
 Another way the `displaySize` can be implemented is through a `type`. This gives us the same Typescript prop type validation but is less explicit. For the time being, we want to write explicit prop values to make it easier to debug on non-Typescript applications that import the NYPL Design System.
 
-```jsx
+```tsx
 export type HeadingDisplaySizes =
   | "primary"
   | "secondary"

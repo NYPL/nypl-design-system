@@ -13,45 +13,50 @@ describe("HorizontalRule Accessibility", () => {
 });
 
 describe("HorizontalRule", () => {
-  it("Renders the UI snapshot correctly", () => {
-    const tree = renderer.create(<HorizontalRule />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("Renders HorizontalRule component", () => {
+  it("renders HorizontalRule component", () => {
     render(<HorizontalRule />);
     expect(screen.getByRole("separator")).toBeInTheDocument();
   });
 
-  it("Renders with proper custom class", () => {
+  it("renders with proper custom class", () => {
     render(<HorizontalRule className="custom-hr" />);
-    expect(screen.getByRole("separator")).toHaveAttribute(
-      "class",
-      "horizontal-rule custom-hr"
+    const hrClass = screen.getByRole("separator").getAttribute("class");
+    expect(hrClass).toContain("custom-hr");
+  });
+
+  it("renders with proper custom class", () => {
+    const warn = jest.spyOn(console, "warn");
+    const { rerender } = render(
+      <HorizontalRule className="custom-hr" height="20px" />
+    );
+    expect(warn).not.toHaveBeenCalledWith(
+      "`HorizontalRule`: For the `height` prop, use a whole number, a `px` " +
+        "value, a `em` value, or a `rem` value. Using the default of 2px."
+    );
+
+    rerender(<HorizontalRule className="custom-hr" height="20%" />);
+    expect(warn).toHaveBeenCalledWith(
+      "`HorizontalRule`: For the `height` prop, use a whole number, a `px` " +
+        "value, a `em` value, or a `rem` value. Using the default of 2px."
     );
   });
 
-  it("Renders with correct width and height values", () => {
-    render(
-      <HorizontalRule className="custom-hr" width="720px" height="5rem" />
-    );
-
-    expect(screen.getByRole("separator")).toHaveAttribute(
-      "style",
-      "width: 720px; height: 5rem;"
-    );
-  });
-
-  it("Renders with correct width and height values", () => {
-    render(<HorizontalRule className="custom-hr" width="80%" align="left" />);
-
-    expect(screen.getByRole("separator")).toHaveAttribute(
-      "style",
-      "width: 80%; height: 2px;"
-    );
-    expect(screen.getByRole("separator")).toHaveAttribute(
-      "class",
-      "horizontal-rule horizontal-rule--left custom-hr"
-    );
+  it("renders the UI snapshot correctly", () => {
+    const basic = renderer.create(<HorizontalRule />).toJSON();
+    const updatedHeight = renderer
+      .create(<HorizontalRule height="5rem" />)
+      .toJSON();
+    const updatedWidth = renderer
+      .create(<HorizontalRule width="720px" />)
+      .toJSON();
+    const alignLeft = renderer.create(<HorizontalRule align="left" />).toJSON();
+    const alignRight = renderer
+      .create(<HorizontalRule align="right" />)
+      .toJSON();
+    expect(basic).toMatchSnapshot();
+    expect(updatedHeight).toMatchSnapshot();
+    expect(updatedWidth).toMatchSnapshot();
+    expect(alignLeft).toMatchSnapshot();
+    expect(alignRight).toMatchSnapshot();
   });
 });

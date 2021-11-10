@@ -18,6 +18,9 @@ const useCarouselStyles = (slidesCount = 0, slideWidth = 100) => {
   const nextSlide = () => {
     setCurrentSlide((slide) => (slide === slidesCount - 1 ? 0 : slide + 1));
   };
+  const goToStart = () => {
+    setCurrentSlide(0);
+  };
   // Updates the left margin for the carousel so the elements can
   // slide inside the container.
   const carouselStyle = {
@@ -25,7 +28,7 @@ const useCarouselStyles = (slidesCount = 0, slideWidth = 100) => {
     marginLeft: `-${currentSlide * slideWidth}%`,
   };
 
-  return { prevSlide, nextSlide, carouselStyle };
+  return { prevSlide, nextSlide, carouselStyle, goToStart };
 };
 
 export default useCarouselStyles;

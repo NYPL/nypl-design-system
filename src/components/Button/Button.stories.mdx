@@ -6,14 +6,15 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { ButtonGroup } from "@chakra-ui/react";
 
-import Button, { ButtonGroup } from "./Button";
+import Button from "./Button";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import {
+  IconAlign,
   IconNames,
   IconRotationTypes,
-  IconAlign,
   IconSizes,
 } from "../Icons/IconTypes";
 import getCSSVariable from "../../helpers/getCSSVariable";
@@ -39,7 +40,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.0`   |
+| Latest            | `0.25.3`   |
 
 <Description of={Button} />
 
@@ -48,11 +49,13 @@ that can be rendered.
 
 - `ButtonTypes.Primary` is used for actions that move the user forward.
 - `ButtonTypes.Secondary` is used for actions that move the user back, such as cancellations.
+- `ButtonTypes.Callout` is used for call to action text such as "Donate".
 - `ButtonTypes.Pill` is used for equally weighted actions within cards and always in a set.
 - `ButtonTypes.Link` is used for equally weighted actions in a text based list.
+- `ButtonTypes.SearchBar` is a variant only used in the `SearchBar` component.
 
-When one and only one `Icon` component is passed inside a `Button` component,
-it will automatically be configured to use the `"icon-only"` type.
+When one and only one `Icon` component is passed inside a `Button` component with
+no text, it will automatically be configured to use the `"iconOnly"` type.
 
 <Canvas withToolbar>
   <Story name="Basic">{(args) => <Button {...args}>Button Text</Button>}</Story>

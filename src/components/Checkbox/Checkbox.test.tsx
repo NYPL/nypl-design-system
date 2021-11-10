@@ -63,7 +63,7 @@ describe("Checkbox", () => {
         id="inputID"
         labelText="Test Label"
         helperText="This is the helper text."
-        errorText="This is the error text :("
+        invalidText="This is the error text :("
       />
     );
     expect(screen.getByText("This is the helper text.")).toBeVisible();
@@ -77,7 +77,7 @@ describe("Checkbox", () => {
         labelText="Test Label"
         isInvalid
         helperText="This is the helper text."
-        errorText="This is the error text :("
+        invalidText="This is the error text :("
       />
     );
     expect(screen.getByText("This is the error text :(")).toBeVisible();
@@ -107,6 +107,22 @@ describe("Checkbox", () => {
       />
     );
     expect(screen.getByRole("checkbox")).toHaveAttribute("checked");
+  });
+
+  it("Sets the 'indeterminate' state", () => {
+    const { container, rerender } = render(
+      <Checkbox id="inputID" labelText="Test Label" isChecked />
+    );
+    expect(
+      container.querySelector(".chakra-checkbox__control")
+    ).not.toHaveAttribute("data-indeterminate");
+
+    rerender(
+      <Checkbox id="inputID" labelText="Test Label" isChecked isIndeterminate />
+    );
+    expect(
+      container.querySelector(".chakra-checkbox__control")
+    ).toHaveAttribute("data-indeterminate");
   });
 
   it("Sets the 'disabled' attribute", () => {
@@ -139,10 +155,28 @@ describe("Checkbox", () => {
         id="inputID-attributes"
         labelText="onChange test"
         showLabel={true}
+        invalidText="This is the error text!"
         isInvalid
       />
     );
     expect(screen.getByRole("checkbox")).toHaveAttribute("aria-invalid");
+    expect(screen.getByText("This is the error text!")).toBeInTheDocument();
+  });
+
+  it("does not render the error text when 'isInvalid' is true but 'showHelperInvalidText' is false", () => {
+    render(
+      <Checkbox
+        id="inputID-attributes"
+        labelText="onChange test"
+        showLabel={true}
+        showHelperInvalidText={false}
+        isInvalid
+      />
+    );
+    expect(screen.getByRole("checkbox")).toHaveAttribute("aria-invalid");
+    expect(
+      screen.queryByText("This is the error text!")
+    ).not.toBeInTheDocument();
   });
 
   it("Changing the value calls the onChange handler", () => {
@@ -170,6 +204,16 @@ describe("Checkbox", () => {
         <Checkbox id="checkbox-checked" labelText="Test Label" isChecked />
       )
       .toJSON();
+    const isIndeterminate = renderer
+      .create(
+        <Checkbox
+          id="checkbox-checked"
+          labelText="Test Label"
+          isChecked
+          isIndeterminate
+        />
+      )
+      .toJSON();
     const isRequired = renderer
       .create(
         <Checkbox id="checkbox-required" labelText="Test Label" isRequired />
@@ -188,6 +232,7 @@ describe("Checkbox", () => {
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
+    expect(isIndeterminate).toMatchSnapshot();
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();

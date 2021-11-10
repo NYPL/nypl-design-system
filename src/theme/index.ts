@@ -11,24 +11,36 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
+import Card from "./components/card";
 import Checkbox from "./components/checkbox";
-import CustomCheckboxGroup from "./components/customCheckboxGroup";
-import CustomRadioGroup from "./components/customRadioGroup";
+import ComponentWrapper from "./components/componentWrapper";
+import CheckboxGroup from "./components/checkboxGroup";
+import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
+import DatePicker from "./components/datePicker";
+import Fieldset from "./components/fieldset";
 import Heading from "./components/heading";
 import FilterBar from "./components/filterBar";
 import MultiSelect from "./components/multiSelect";
+import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
+import HorizontalRule from "./components/horizontalRule";
 import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
+import List from "./components/list";
+import NotificationStyles from "./components/notification";
+import Pagination from "./components/pagination";
 import Radio from "./components/radio";
+import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
+import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
+import VideoPlayer from "./components/videoPlayer";
 
 /**
  * See Chakra default theme for shape of theme object:
@@ -64,17 +76,30 @@ const theme = extendTheme({
     Accordion,
     Breadcrumb,
     Button,
+    ...Card,
     Checkbox,
-    CustomCheckboxGroup,
-    CustomRadioGroup,
+    CheckboxGroup,
+    ComponentWrapper,
+    CustomImage,
+    CustomImageWrapper,
     CustomSelect,
+    DatePicker,
+    Fieldset,
     Heading,
+    HelperErrorText,
     Hero,
+    HorizontalRule,
     Icon,
     Label,
     Link,
+    List,
+    ...NotificationStyles,
+    Pagination,
     Radio,
+    RadioGroup,
     SearchBar,
+    Skeleton,
+    SkeletonLoader,
     StatusBadge,
     Tabs,
     FilterBar,
@@ -82,13 +107,13 @@ const theme = extendTheme({
     ...TemplateStyles,
     Text,
     TextInput,
+    VideoPlayer,
   },
-  // Chakra prefixes its own CSS variables with `--chakra` by default but this
-  // can be updated to be anything we want. This can be "nypl" to have the
-  // `--nypl` prefix or even "" to have no prefix.
-  // config: {
-  //   cssVarPrefix: "nypl",
-  // },
+  // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by
+  // Chakra. By default, Chakra prefixes its own CSS variables with `--chakra`.
+  config: {
+    cssVarPrefix: "nypl",
+  },
 });
 
 export default theme;

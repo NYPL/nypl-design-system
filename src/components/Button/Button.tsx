@@ -1,17 +1,14 @@
 import * as React from "react";
-import {
-  Button as ChakraButton,
-  ButtonGroup,
-  useStyleConfig,
-} from "@chakra-ui/react";
+import { Button as ChakraButton, useStyleConfig } from "@chakra-ui/react";
 
-import bem from "../../utils/bem";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 
 type ButtonElementType = "submit" | "button" | "reset";
 
 interface ButtonProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Additional attributes passed to the button */
   attributes?: { [key: string]: any };
   /** The kind of button assigned through the `ButtonTypes` enum  */
@@ -51,6 +48,7 @@ const Button = React.forwardRef<
   React.PropsWithChildren<ButtonProps>
 >((props, ref?) => {
   const {
+    additionalStyles = {},
     attributes,
     buttonType,
     children,
@@ -61,7 +59,6 @@ const Button = React.forwardRef<
     onClick,
     type = "button",
   } = props;
-  const baseClass = "button";
   const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
   let childCount = 0;
   let hasIcon = false;
@@ -81,7 +78,7 @@ const Button = React.forwardRef<
   });
 
   if (childCount === 1 && hasIcon) {
-    variant = "icon-only";
+    variant = "iconOnly";
   } else {
     variant = getVariant(buttonType);
   }
@@ -92,10 +89,11 @@ const Button = React.forwardRef<
     <ChakraButton
       ref={ref}
       id={id}
-      className={bem(baseClass, [], "", [className])}
+      data-testid="button"
+      className={className}
       type={type}
       disabled={disabled}
-      __css={styles}
+      __css={{ ...styles, ...additionalStyles }}
       {...attributes}
       {...btnCallback}
     >
@@ -104,5 +102,4 @@ const Button = React.forwardRef<
   );
 });
 
-export { ButtonGroup };
 export default Button;
