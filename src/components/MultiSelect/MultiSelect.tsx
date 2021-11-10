@@ -10,7 +10,6 @@ import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
 import {
   Box,
   ListItem,
-  Stack,
   UnorderedList,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -32,8 +31,6 @@ export interface MultiSelectProps {
   onClearMultiSelect?: () => void;
   /** Not used? */
   onMenuClick?: () => void;
-  /** Controls the display of the save and clear buttons on multiselect. */
-  showCtaButtons: boolean;
 }
 
 function MultiSelect({
@@ -42,9 +39,6 @@ function MultiSelect({
   items,
   handleOnSelectedItemChange,
   selectedItems,
-  onSaveMultiSelect,
-  onClearMultiSelect,
-  showCtaButtons,
 }: MultiSelectProps) {
   const {
     isOpen,
@@ -52,7 +46,6 @@ function MultiSelect({
     getMenuProps,
     highlightedIndex,
     getItemProps,
-    //openMenu,
   } = useSelect({
     items,
     // Downshift's internal state for handling keyboard and mouse events.
@@ -66,16 +59,8 @@ function MultiSelect({
             ...changes,
             isOpen: true, // Keep menu open after selection.
             highlightedIndex: state.highlightedIndex,
-            //circularNavigation: true,
+            circularNavigation: true,
           };
-
-        // This allows you to access the cta buttons, but then also keeps menu open on blur...
-        /*case useSelect.stateChangeTypes.MenuBlur:
-          return {
-            ...changes,
-            isOpen: true, // Keep menu open after selection.
-          };
-        */
         default:
           return changes;
       }
@@ -185,28 +170,6 @@ function MultiSelect({
               </ListItem>
             ))}
         </UnorderedList>
-        {isOpen && showCtaButtons && (
-          <Stack direction="row" spacing={4} justify="flex-end">
-            <Button
-              buttonType={ButtonTypes.Link}
-              id={`multiselect-button-clear-${id}`}
-              mouseDown={false}
-              type="button"
-              onClick={onClearMultiSelect}
-            >
-              Clear
-            </Button>
-            <Button
-              buttonType={ButtonTypes.Primary}
-              id={`multiselect-button-save-${id}`}
-              mouseDown={false}
-              type="button"
-              onClick={onSaveMultiSelect}
-            >
-              Apply Filters
-            </Button>
-          </Stack>
-        )}
       </Box>
     </Box>
   );
