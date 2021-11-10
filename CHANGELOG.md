@@ -21,7 +21,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Checkbox` component with an "indeterminate" state through the `isIndeterminate` prop.
 - Updates the `CheckboxGroup` component story with an "indeterminate" state example.
 - Updates the `CheckboxGroup` and `RadioGroup` components to use the `Fieldset` component.
-- Updates the `CheckboxGroup` and `RadioGroup` components to use "fit-content" for their form input elements' width value.
 - Updates the `HelperErrorText` and `TextInput` components with added `additionalStyles` prop.
 - Updates the `Button` Style Guide documentation.
 - Updates the `Iconography` Style Guide story documentation.
