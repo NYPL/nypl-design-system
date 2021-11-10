@@ -3,7 +3,7 @@
 
 /// Mixin - Clearfix.
 /// Adds clearfix based on http://bourbon.io/docs/#clearfix
-/// use example =   @include clearfix
+/// use example = @include clearfix
 
 @mixin clearfix {
   &::after {
@@ -32,7 +32,7 @@
   $outer-container-break: $breakpoint-small,
   $v-margin: 0,
   $v-padding: 0,
-  $h-padding: var(--space)
+  $h-padding: var(--nypl-space-s)
 ) {
   margin: #{$v-margin} auto;
   max-width: #{$container-max-width};
@@ -41,12 +41,12 @@
 }
 
 .container {
-  @include space-inset-s;
+  padding: var(--nypl-space-s);
 }
 
 /// Use the breakout mixin for elements that should be edge-to-edge
 /// Even when a parent container uses the wrapper mixin
-@mixin breakout($v-padding: var(--space)) {
+@mixin breakout($v-padding: var(--nypl-space-s)) {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
 }
@@ -59,6 +59,17 @@
   position: absolute !important;
   width: 1px;
   word-wrap: normal;
+}
+
+// Focus state mixin
+@mixin focus-outline($darkBackground: false) {
+  outline: 2px solid var(--nypl-colors-ui-focus);
+  outline-offset: 2px;
+  z-index: 9999;
+
+  @if $darkBackground {
+    outline-color: var(--nypl-colors-ui-white);
+  }
 }
 
 //Convert pixel values to rem

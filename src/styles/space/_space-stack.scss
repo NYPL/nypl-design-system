@@ -1,12 +1,12 @@
 /**
- * --space-xxs: calc(--space / 4);   //  4px
- * --space-xs: calc(--space / 2);    //  8px
- * --space-s: calc(--space * 1);     // 16px
- * --space-m: calc(--space * 1.5);   // 24px
- * --space-l: calc(--space * 2);     // 32px
- * --space-xl: calc(--space * 3);    // 48px
- * --space-xxl: calc(--space * 4);   // 64px
- * --space-xxxl: -calc(-space * 6);  // 96px
+ * --nypl-space-xxs: --nypl-space-s / 4   //  4px or 0.25rem
+ * --nypl-space-xs: --nypl-space-s / 2    //  8px or 0.5rem
+ * --nypl-space-s: --nypl-space-s * 1;    // 16px or 1rem
+ * --nypl-space-m: --nypl-space-s * 1.5;  // 24px or 1.5rem
+ * --nypl-space-l: --nypl-space-s * 2;    // 32px or 2rem
+ * --nypl-space-xl: --nypl-space-s * 3;   // 48px or 3rem
+ * --nypl-space-xxl: --nypl-space-s * 4;  // 64px or 4rem
+ * --nypl-space-xxxl: --nypl-space-s * 6; // 96px or 6rem
  */
 
 @mixin space-stack-none {
