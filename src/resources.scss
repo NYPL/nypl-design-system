@@ -1,6 +1,6 @@
 // Resources to export as sass mixins
-@import "./styles/03-space/space-inline.scss";
-@import "./styles/03-space/space-inset.scss";
-@import "./styles/03-space/space-stack.scss";
-@import "./styles/base/02-breakpoints.scss";
-@import "./styles/base/03-mixins.scss";
+@import "./styles/base/_01-breakpoints.scss";
+@import "./styles/base/_02-mixins.scss";
+@import "./styles/space/_space-inline.scss";
+@import "./styles/space/_space-inset.scss";
+@import "./styles/space/_space-stack.scss";
