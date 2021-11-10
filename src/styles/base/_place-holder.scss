@@ -2,13 +2,13 @@
   --color-place-holder: var(--nypl-colors-ui-gray-light-cool);
 
   margin-bottom: var(--nypl-space-l);
-  @include breakpoint($breakpoint-large) {
+  @include breakpoint($nypl-breakpoint-large) {
     margin-bottom: var(--nypl-space-xl);
   }
 
   &--full {
     margin-bottom: var(--nypl-space-xxl);
-    @include breakpoint($breakpoint-large) {
+    @include breakpoint($nypl-breakpoint-large) {
       margin-bottom: var(--nypl-space-xxxl);
     }
   }

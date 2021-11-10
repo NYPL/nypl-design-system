@@ -29,7 +29,7 @@
 /// Outer container mixin for large screens
 @mixin wrapper(
   $container-max-width: $max-width,
-  $outer-container-break: $breakpoint-small,
+  $outer-container-break: $nypl-breakpoint-small,
   $v-margin: 0,
   $v-padding: 0,
   $h-padding: var(--nypl-space-s)
