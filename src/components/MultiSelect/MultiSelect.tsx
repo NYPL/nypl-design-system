@@ -52,6 +52,7 @@ function MultiSelect({
     getMenuProps,
     highlightedIndex,
     getItemProps,
+    //openMenu,
   } = useSelect({
     items,
     // Downshift's internal state for handling keyboard and mouse events.
@@ -61,14 +62,20 @@ function MultiSelect({
         case useSelect.stateChangeTypes.MenuKeyDownEnter:
         case useSelect.stateChangeTypes.MenuKeyDownSpaceButton:
         case useSelect.stateChangeTypes.ItemClick:
-          // This allows you to access the cta buttons, but then also keeps menu open on blur...
-          //case useSelect.stateChangeTypes.MenuBlur:
           return {
             ...changes,
             isOpen: true, // Keep menu open after selection.
             highlightedIndex: state.highlightedIndex,
             //circularNavigation: true,
           };
+
+        // This allows you to access the cta buttons, but then also keeps menu open on blur...
+        /*case useSelect.stateChangeTypes.MenuBlur:
+          return {
+            ...changes,
+            isOpen: true, // Keep menu open after selection.
+          };
+        */
         default:
           return changes;
       }
