@@ -20,12 +20,12 @@ export interface RadioGroupProps {
   className?: string;
   /** Populates the initial value of the input */
   defaultValue?: string;
-  /** Optional string to populate the HelperErrorText for error state */
-  invalidText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Optional string to populate the HelperErrorText for error state */
+  invalidText?: string;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
   /** Adds the 'aria-invalid' attribute to the input and
@@ -118,8 +118,8 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       }
     });
 
-    // Get the Chakra-based styles for all the custom elements in this component.
-    const styles = useMultiStyleConfig("CustomRadioGroup", {});
+    // Get the Chakra-based styles for the custom elements in this component.
+    const styles = useMultiStyleConfig("RadioGroup", {});
 
     return (
       <Fieldset
@@ -135,11 +135,12 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
           ref={ref}
           aria-label={!showLabel ? labelText : null}
           {...radioGroupProps}
+          sx={styles.stack}
         >
           {newChildren}
         </Stack>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles}>
+          <Box __css={styles.helper}>
             <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
               {footnote}
             </HelperErrorText>

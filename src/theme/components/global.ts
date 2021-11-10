@@ -47,7 +47,7 @@ const checkboxRadioHelperStyle = {
     fontStyle: "italic",
   },
 };
-// Used in `Label` and `Fieldset`:
+// Used in `Label` and `Fieldset`.
 const labelLegendText = {
   alignItems: "baseline",
   width: "100%",
@@ -62,12 +62,21 @@ const labelLegendText = {
     fontSize: "-1",
   },
 };
+const checkboxRadioGroupStyles = {
+  helper: {
+    marginTop: "s",
+  },
+  stack: {
+    width: "fit-content",
+  },
+};
 
 export {
   activeFocus,
-  checkboxRadioLabelStyles,
   checkboxRadioControlSize,
+  checkboxRadioGroupStyles,
   checkboxRadioHelperStyle,
+  checkboxRadioLabelStyles,
   helperTextMargin,
   labelLegendText,
 };
