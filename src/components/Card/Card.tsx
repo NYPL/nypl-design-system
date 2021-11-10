@@ -185,6 +185,14 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
 
+  const styles = useMultiStyleConfig("Card", {
+    border,
+    center,
+    hasImage,
+    imageAtEnd,
+    layout,
+  });
+
   React.Children.map(children, (child: React.ReactElement, key) => {
     if (child.type === CardHeading || child.props.mdxType === "CardHeading") {
       // If the child is a `CardHeading` component, then we add the
@@ -201,6 +209,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
           child.props.children
         );
       const elem = React.cloneElement(child, {
+        additionalStyles: styles.heading,
         key,
         center,
         // Override the child text with the potential `CardLinkOverlay`.
@@ -218,14 +227,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       const elem = React.cloneElement(child, { key, center, layout });
       cardContents.push(elem);
     }
-  });
-
-  const styles = useMultiStyleConfig("Card", {
-    border,
-    center,
-    hasImage,
-    imageAtEnd,
-    layout,
   });
 
   return (
