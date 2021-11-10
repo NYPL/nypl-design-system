@@ -30,7 +30,7 @@ const getBodyPaddingStyles = ({ border, hasImage, imageAtEnd, isRow }) => {
   return bodyPadding;
 };
 const Card = {
-  parts: ["content"],
+  parts: ["body", "heading"],
   baseStyle: (props) => {
     const { border, center, hasImage, imageAtEnd, layout } = props;
     const isRow = layout === "row";
@@ -70,6 +70,9 @@ const Card = {
       display: "flex",
       flexFlow: "column wrap",
       textAlign: center ? "center" : null,
+      heading: {
+        marginBottom: "xs",
+      },
       body: {
         display: { md: "block" },
         flexFlow: { md: "row nowrap" },
@@ -104,7 +107,7 @@ const CardActions = {
         }
       : {};
     return {
-      marginBottom: "s",
+      marginBottom: "xs",
       columnGap: "var(--nypl-space-xs)",
       display: "flex",
       _last: {
@@ -120,7 +123,7 @@ const CardActions = {
 
 const CardContent = {
   baseStyle: {
-    marginBottom: "s",
+    marginBottom: "xs",
     _last: {
       marginBottom: "0",
     },
@@ -151,7 +154,9 @@ const CardImage = {
             },
             ...size,
           }
-        : {};
+        : {
+            marginBottom: "xs",
+          };
     const imageAtEndStyles = imageAtEnd
       ? {
           marginBottom: "0",
