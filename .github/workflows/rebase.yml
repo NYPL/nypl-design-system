@@ -9,7 +9,7 @@ jobs:
       - name: Changelog Reminder
         uses: peterjgrainger/action-changelog-reminder@v1.3.0
         with:
-          changelog_regex: "/CHANGELOG.md/"
+          changelog_regex: "CHANGELOG.md"
           customPrMessage: "Your pull request is missing a changelog—was that intentional?"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

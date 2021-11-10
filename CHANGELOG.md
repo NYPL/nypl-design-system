@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Updates the Github Action for the changelog reminder.
 - Updates the `Checkbox` component with an "indeterminate" state through the `isIndeterminate` prop.
 - Updates the `CheckboxGroup` component story with an "indeterminate" state example.
 - Updates the `CheckboxGroup` and `RadioGroup` components to use the `Fieldset` component.
@@ -37,7 +38,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Breaking Changes
 
-- Updates the Github Action for the changelog reminder.
 - Updates the `Notification` component to fix the custom icon alignment.
 - Adds the `title` prop to the `Icon` component to render a `title` HTML element for accessible SVG icons.
 - Updates the default font size of the `Button` component to `"-1"` (14px) for all variants except the `Link` variant. Removes the `bem` function from internal use and makes it clearer that the `ButtonGroup` Chakra component is exported in the Design System.
