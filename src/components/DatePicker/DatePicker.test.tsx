@@ -44,7 +44,7 @@ describe("DatePicker Accessibility", () => {
   });
 });
 
-describe.skip("DatePicker", () => {
+describe("DatePicker", () => {
   const todaysDate = new Date();
   /** Returns today's year, month, and day values. */
   const getTodaysValues = () => {
