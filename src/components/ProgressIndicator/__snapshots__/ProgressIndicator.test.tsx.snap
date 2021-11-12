@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+  id="c62026ef-05e0-4bd9-af26-e844a3f051ea"
+>
+  <label
+    className="css-0"
+    id="c62026ef-05e0-4bd9-af26-e844a3f051ea-label"
+  >
+    Linear
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+    >
+      <div
+        aria-label={null}
+        aria-labelledby="c62026ef-05e0-4bd9-af26-e844a3f051ea-label"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="css-1jy0d03"
+        role="progressbar"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      50
+      %
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+  id="a2024041-f8e6-4a87-b126-ef25cc67e6ee"
+>
+  <div
+    aria-label={null}
+    aria-labelledby="a2024041-f8e6-4a87-b126-ef25cc67e6ee-label"
+    aria-valuemax={100}
+    aria-valuemin={0}
+    aria-valuenow={50}
+    className="chakra-progress css-120wkjd"
+    role="progressbar"
+  >
+    <svg
+      className="css-kn46u7"
+      viewBox="0 0 100 100"
+    >
+      <circle
+        className="chakra-progress__track css-1bhxzgy"
+        cx={50}
+        cy={50}
+        r={42}
+        strokeWidth="10px"
+      />
+      <circle
+        className="chakra-progress__indicator css-5hfhx0"
+        cx={50}
+        cy={50}
+        r={42}
+        strokeDasharray="132 132"
+        strokeDashoffset={66}
+        strokeWidth="10px"
+      />
+    </svg>
+    <div
+      className="css-f1j64i"
+    >
+      50
+      %
+    </div>
+  </div>
+  <label
+    className="css-0"
+    id="a2024041-f8e6-4a87-b126-ef25cc67e6ee-label"
+  >
+    Circular
+  </label>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
+<div
+  className="css-0"
+  id="a8cda155-261d-414a-aad4-6022feb02870"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+    >
+      <div
+        aria-label="Linear"
+        aria-labelledby={null}
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="css-1jy0d03"
+        role="progressbar"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
+<div
+  className="css-0"
+  id="99d3dbed-c7e0-422e-b38c-484f97deca50"
+>
+  <div
+    aria-label="Circular"
+    aria-labelledby={null}
+    aria-valuemax={100}
+    aria-valuemin={0}
+    aria-valuenow={50}
+    className="chakra-progress css-120wkjd"
+    role="progressbar"
+  >
+    <svg
+      className="css-kn46u7"
+      viewBox="0 0 100 100"
+    >
+      <circle
+        className="chakra-progress__track css-1bhxzgy"
+        cx={50}
+        cy={50}
+        r={42}
+        strokeWidth="10px"
+      />
+      <circle
+        className="chakra-progress__indicator css-5hfhx0"
+        cx={50}
+        cy={50}
+        r={42}
+        strokeDasharray="132 132"
+        strokeDashoffset={66}
+        strokeWidth="10px"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
+<div
+  className="css-0"
+  id="a4e8c2d7-9deb-4f48-a963-f92aae249f13"
+>
+  <label
+    className="css-0"
+    id="a4e8c2d7-9deb-4f48-a963-f92aae249f13-label"
+  >
+    Linear
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+    >
+      <div
+        aria-label={null}
+        aria-labelledby="a4e8c2d7-9deb-4f48-a963-f92aae249f13-label"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        className="css-1demtxk"
+        data-indeterminate=""
+        role="progressbar"
+        style={
+          Object {
+            "width": "0%",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
+<div
+  className="css-0"
+  id="07f33d0b-48f5-4ea2-84bc-aab1d4b752ad"
+>
+  <div
+    aria-label={null}
+    aria-labelledby="07f33d0b-48f5-4ea2-84bc-aab1d4b752ad-label"
+    aria-valuemax={100}
+    aria-valuemin={0}
+    className="chakra-progress css-120wkjd"
+    data-indeterminate=""
+    role="progressbar"
+  >
+    <svg
+      className="css-jf70f3"
+      viewBox="0 0 100 100"
+    >
+      <circle
+        className="chakra-progress__track css-1bhxzgy"
+        cx={50}
+        cy={50}
+        r={42}
+        strokeWidth="10px"
+      />
+      <circle
+        className="chakra-progress__indicator css-tueqm1"
+        cx={50}
+        cy={50}
+        r={42}
+        strokeWidth="10px"
+      />
+    </svg>
+  </div>
+  <label
+    className="css-0"
+    id="07f33d0b-48f5-4ea2-84bc-aab1d4b752ad-label"
+  >
+    Circular
+  </label>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
+<div
+  className="css-0"
+  id="c792ff6f-b489-4ce5-966f-00be288ce0cb"
+>
+  <label
+    className="css-0"
+    id="c792ff6f-b489-4ce5-966f-00be288ce0cb-label"
+  >
+    Linear
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+    >
+      <div
+        aria-label={null}
+        aria-labelledby="c792ff6f-b489-4ce5-966f-00be288ce0cb-label"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="css-1jy0d03"
+        role="progressbar"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      50
+      %
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
+<div
+  className="css-0"
+  id="894d395e-e6a9-4a15-a395-5dd3a1200749"
+>
+  <div
+    aria-label={null}
+    aria-labelledby="894d395e-e6a9-4a15-a395-5dd3a1200749-label"
+    aria-valuemax={100}
+    aria-valuemin={0}
+    aria-valuenow={50}
+    className="chakra-progress css-120wkjd"
+    role="progressbar"
+  >
+    <svg
+      className="css-kn46u7"
+      viewBox="0 0 100 100"
+    >
+      <circle
+        className="chakra-progress__track css-1bhxzgy"
+        cx={50}
+        cy={50}
+        r={42}
+        strokeWidth="10px"
+      />
+      <circle
+        className="chakra-progress__indicator css-5hfhx0"
+        cx={50}
+        cy={50}
+        r={42}
+        strokeDasharray="132 132"
+        strokeDashoffset={66}
+        strokeWidth="10px"
+      />
+    </svg>
+    <div
+      className="css-f1j64i"
+    >
+      50
+      %
+    </div>
+  </div>
+  <label
+    className="css-0"
+    id="894d395e-e6a9-4a15-a395-5dd3a1200749-label"
+  >
+    Circular
+  </label>
+</div>
+`;
