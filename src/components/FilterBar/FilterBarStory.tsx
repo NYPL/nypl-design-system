@@ -114,21 +114,11 @@ function FilterBarStory(args: any) {
     });
   }
 
-  /*function onClearMultiSelect(multiSelectId: string) {
-
-  }
-  */
-
-  //console.log(selectedItems);
-
   return (
     <FilterBar
       {...args}
       id={args.id}
-      //label={label}
       isModalOpen={args.isModalOpen}
-      //onClickMobileFiltersButton={() => setIsModalOpen(true)}
-      //onClickGoBack={() => setIsModalOpen(false)}
       isMobile={args.isMobile /*? isMobile : false*/}
       selectedItems={selectedItems}
       onClearSelectedItems={null}
@@ -138,7 +128,6 @@ function FilterBarStory(args: any) {
         return (
           <MultiSelect
             key={multiSelect.id}
-            //{...args}
             id={multiSelect.id}
             label={multiSelect.label}
             items={multiSelect.items}
@@ -146,11 +135,6 @@ function FilterBarStory(args: any) {
               onSelectedItemChange(selectedItem.id, multiSelect.id)
             }
             selectedItems={selectedItems}
-            //onClearMultiSelect={() => onClearMultiSelect(group.id)}
-            //onSaveMultiSelect={onSaveMultiSelect}
-            //onMenuClick={() => onMenuClick(group.id)}
-            //selectedmultiSelectIds={selectedmultiSelectIds}
-            showCtaButtons={true}
           />
         );
       })}

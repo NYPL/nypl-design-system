@@ -16,9 +16,13 @@ const MultiSelect = {
     },
     menuButton: {
       width: "100%",
+      minWidth: {
+        base: "100%",
+        md: "175px",
+      },
       justifyContent: "space-between",
     },
-    menu: {
+    menuWrapper: {
       position: {
         md: "absolute",
       },
@@ -33,7 +37,7 @@ const MultiSelect = {
       border: "1px solid #000",
       padding: "1rem 1rem 1.5rem 1rem",
     },
-    menuInner: {
+    menu: {
       maxHeight: {
         base: "100%",
         md: "285px",
@@ -44,12 +48,11 @@ const MultiSelect = {
       overflowY: {
         base: "auto",
       },
-    },
-    ctaButtonsContainer: {
-      display: "flex",
-      justifyContent: "space-between",
-      float: "right",
-      paddingTop: "0.5em",
+      // @TODO we need important here to override a focus style coming from
+      // focus.scss file.
+      _focus: {
+        outline: "0px !important",
+      },
     },
   },
 };

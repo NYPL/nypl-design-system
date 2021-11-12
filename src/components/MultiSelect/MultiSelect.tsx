@@ -4,7 +4,7 @@ import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
 import Icon from "./../Icons/Icon";
 import { IconNames, IconSizes } from "./../Icons/IconTypes";
-import { useSelect /*, UseSelectProps */ } from "downshift";
+import { useSelect } from "downshift";
 import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
 
 import {
@@ -22,9 +22,14 @@ export interface MultiSelectProps {
   /** The items to be rendered in the multiselect. */
   items: MultiSelectItem[];
   /** Handler for onChange of checkbox, for controlled MultiSelect. */
-  handleOnSelectedItemChange: any;
+  handleOnSelectedItemChange: (
+    selectedItem: MultiSelectItem,
+    id: string
+  ) => void;
   /** The selected items (items that were checked by user). */
   selectedItems: SelectedItems;
+
+  // @TODO these aren't used anymore.
   /** Handler for save button of multiselect. */
   onSaveMultiSelect?: () => void;
   /** Handler for clear/reset button of multiselect. */
@@ -59,7 +64,6 @@ function MultiSelect({
             ...changes,
             isOpen: true, // Keep menu open after selection.
             highlightedIndex: state.highlightedIndex,
-            circularNavigation: true,
           };
         default:
           return changes;
@@ -121,21 +125,21 @@ function MultiSelect({
         }}
         {...getToggleButtonProps()}
       >
-        <span>{getButtonLabel(id)}</span>
+        <span style={{ paddingRight: "10px" }}>{getButtonLabel(id)}</span>
         <Icon
           name={IconNames[iconType]}
           decorative={true}
           size={IconSizes.Small}
         />
       </Button>
-      <Box __css={styles.menu} {...(!isOpen && { display: "none" })}>
+      <Box __css={styles.menuWrapper} {...(!isOpen && { display: "none" })}>
         <UnorderedList
           styleType="none"
           marginInlineStart="0"
           {...getMenuProps()}
           // @FIX This prevents the menu from closing when checkbox or label is clicked.
           onClick={(e) => e.preventDefault()}
-          __css={styles.menuInner}
+          __css={styles.menu}
         >
           {isOpen &&
             items.map((item: MultiSelectItem, index: number) => (

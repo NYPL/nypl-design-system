@@ -48,8 +48,7 @@ function FilterBar({
   // Sets the label of the filters button.
   function setFilterButtonLabel(selectedItems: SelectedItems) {
     let allItems = [];
-    // @ts-ignore
-    for (let [key, value] of Object.entries(selectedItems)) {
+    for (let [_, value] of Object.entries(selectedItems)) {
       value.items.map((item) => {
         allItems.push(item);
       });
@@ -62,8 +61,6 @@ function FilterBar({
       {isMobile ? (
         <Box __css={styles.inner}>
           <Button
-            //id="search-filters__mobile-filters-button"
-            //className={"filterBarButtonMobile"}
             onClick={onClickMobileFiltersButton}
             buttonType={ButtonTypes.Secondary}
             type="button"
@@ -75,8 +72,6 @@ function FilterBar({
               <Box __css={styles.ctaContainer}>
                 <Button
                   buttonType={ButtonTypes.Link}
-                  //className={"ctaClearButtonMobile"}
-                  //id={"multiselect-button-goback"}
                   mouseDown={false}
                   type="button"
                   onClick={onClickGoBack}
@@ -90,7 +85,6 @@ function FilterBar({
                 </Button>
                 <Button
                   buttonType={ButtonTypes.Primary}
-                  //id={`multiselect-button-save`}
                   mouseDown={false}
                   type="button"
                   onClick={onSaveSelectedItems}
@@ -98,16 +92,11 @@ function FilterBar({
                   Show Results
                 </Button>
               </Box>
-              <div className={"multiSelectsContainerMobile"}>
-                <Heading
-                  //id="search-filters__mobile-heading"
-                  level={3}
-                  text="Filters"
-                />
+              <Box>
+                <Heading level={3} text="Filters" />
                 {children}
                 {Object.keys(selectedItems).length > 0 && (
                   <Button
-                    //id="mobile-clear-all-button"
                     attributes={{
                       ...styles.clearFilters,
                     }}
@@ -119,18 +108,13 @@ function FilterBar({
                     Clear all filters
                   </Button>
                 )}
-              </div>
+              </Box>
             </Modal>
           )}
         </Box>
       ) : (
         <Box __css={styles.inner}>
-          <Heading
-            //id="search-filters--heading"
-            //className={"filterBarHeading"}
-            level={2}
-            text={label}
-          />
+          <Heading level={2} text={label} />
           <Stack direction="row" spacing={2}>
             {children}
           </Stack>

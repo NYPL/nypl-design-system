@@ -13,15 +13,6 @@ const FilterBar = {
       display: "flex",
       justifyContent: "space-between",
     },
-    /*multiSelectsContainerDesktop: {
-      display: "flex",
-      flexDirection: "row",
-      paddingTop: 2, // --space-m
-      paddingBottom: 0,
-      paddingRight: 0,
-      paddingLeft: 0,
-    },
-    */
     clearFilters: {
       margin: "0 auto",
     },
