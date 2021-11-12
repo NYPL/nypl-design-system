@@ -3,11 +3,11 @@
 exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
 <div
   className="css-0"
-  id="c62026ef-05e0-4bd9-af26-e844a3f051ea"
+  id="linearBasic"
 >
   <label
     className="css-0"
-    id="c62026ef-05e0-4bd9-af26-e844a3f051ea-label"
+    id="linearBasic-label"
   >
     Linear
   </label>
@@ -19,7 +19,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
     >
       <div
         aria-label={null}
-        aria-labelledby="c62026ef-05e0-4bd9-af26-e844a3f051ea-label"
+        aria-labelledby="linearBasic-label"
         aria-valuemax={100}
         aria-valuemin={0}
         aria-valuenow={50}
@@ -45,11 +45,11 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
 <div
   className="css-0"
-  id="a2024041-f8e6-4a87-b126-ef25cc67e6ee"
+  id="circularBasic"
 >
   <div
     aria-label={null}
-    aria-labelledby="a2024041-f8e6-4a87-b126-ef25cc67e6ee-label"
+    aria-labelledby="circularBasic-label"
     aria-valuemax={100}
     aria-valuemin={0}
     aria-valuenow={50}
@@ -86,7 +86,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
   </div>
   <label
     className="css-0"
-    id="a2024041-f8e6-4a87-b126-ef25cc67e6ee-label"
+    id="circularBasic-label"
   >
     Circular
   </label>
@@ -96,7 +96,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
 <div
   className="css-0"
-  id="a8cda155-261d-414a-aad4-6022feb02870"
+  id="linearNoLabel"
 >
   <div
     className="css-0"
@@ -126,7 +126,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
 <div
   className="css-0"
-  id="99d3dbed-c7e0-422e-b38c-484f97deca50"
+  id="circularNoLabel"
 >
   <div
     aria-label="Circular"
@@ -165,11 +165,11 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
 <div
   className="css-0"
-  id="a4e8c2d7-9deb-4f48-a963-f92aae249f13"
+  id="linearIndeterminate"
 >
   <label
     className="css-0"
-    id="a4e8c2d7-9deb-4f48-a963-f92aae249f13-label"
+    id="linearIndeterminate-label"
   >
     Linear
   </label>
@@ -181,7 +181,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
     >
       <div
         aria-label={null}
-        aria-labelledby="a4e8c2d7-9deb-4f48-a963-f92aae249f13-label"
+        aria-labelledby="linearIndeterminate-label"
         aria-valuemax={100}
         aria-valuemin={0}
         className="css-1demtxk"
@@ -201,11 +201,11 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
 <div
   className="css-0"
-  id="07f33d0b-48f5-4ea2-84bc-aab1d4b752ad"
+  id="circularIndeterminate"
 >
   <div
     aria-label={null}
-    aria-labelledby="07f33d0b-48f5-4ea2-84bc-aab1d4b752ad-label"
+    aria-labelledby="circularIndeterminate-label"
     aria-valuemax={100}
     aria-valuemin={0}
     className="chakra-progress css-120wkjd"
@@ -234,7 +234,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
   </div>
   <label
     className="css-0"
-    id="07f33d0b-48f5-4ea2-84bc-aab1d4b752ad-label"
+    id="circularIndeterminate-label"
   >
     Circular
   </label>
@@ -244,11 +244,11 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
 <div
   className="css-0"
-  id="c792ff6f-b489-4ce5-966f-00be288ce0cb"
+  id="linearDarkMode"
 >
   <label
     className="css-0"
-    id="c792ff6f-b489-4ce5-966f-00be288ce0cb-label"
+    id="linearDarkMode-label"
   >
     Linear
   </label>
@@ -260,7 +260,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
     >
       <div
         aria-label={null}
-        aria-labelledby="c792ff6f-b489-4ce5-966f-00be288ce0cb-label"
+        aria-labelledby="linearDarkMode-label"
         aria-valuemax={100}
         aria-valuemin={0}
         aria-valuenow={50}
@@ -286,11 +286,11 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
 <div
   className="css-0"
-  id="894d395e-e6a9-4a15-a395-5dd3a1200749"
+  id="circularDarkMode"
 >
   <div
     aria-label={null}
-    aria-labelledby="894d395e-e6a9-4a15-a395-5dd3a1200749-label"
+    aria-labelledby="circularDarkMode-label"
     aria-valuemax={100}
     aria-valuemin={0}
     aria-valuenow={50}
@@ -327,7 +327,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
   </div>
   <label
     className="css-0"
-    id="894d395e-e6a9-4a15-a395-5dd3a1200749-label"
+    id="circularDarkMode-label"
   >
     Circular
   </label>

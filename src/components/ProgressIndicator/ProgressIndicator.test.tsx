@@ -135,11 +135,14 @@ describe("ProgressIndicator", () => {
 
   it("Renders the UI snapshot correctly", () => {
     const linearBasic = renderer
-      .create(<ProgressIndicator labelText="Linear" value={50} />)
+      .create(
+        <ProgressIndicator id="linearBasic" labelText="Linear" value={50} />
+      )
       .toJSON();
     const circularBasic = renderer
       .create(
         <ProgressIndicator
+          id="circularBasic"
           labelText="Circular"
           value={50}
           indicatorType={ProgressIndicatorTypes.Circular}
@@ -148,12 +151,18 @@ describe("ProgressIndicator", () => {
       .toJSON();
     const linearNoLabel = renderer
       .create(
-        <ProgressIndicator labelText="Linear" value={50} showLabel={false} />
+        <ProgressIndicator
+          id="linearNoLabel"
+          labelText="Linear"
+          value={50}
+          showLabel={false}
+        />
       )
       .toJSON();
     const circularNoLabel = renderer
       .create(
         <ProgressIndicator
+          id="circularNoLabel"
           labelText="Circular"
           value={50}
           indicatorType={ProgressIndicatorTypes.Circular}
@@ -163,12 +172,18 @@ describe("ProgressIndicator", () => {
       .toJSON();
     const linearIndeterminate = renderer
       .create(
-        <ProgressIndicator labelText="Linear" value={50} isIndeterminate />
+        <ProgressIndicator
+          id="linearIndeterminate"
+          labelText="Linear"
+          value={50}
+          isIndeterminate
+        />
       )
       .toJSON();
     const circularIndeterminate = renderer
       .create(
         <ProgressIndicator
+          id="circularIndeterminate"
           labelText="Circular"
           value={50}
           indicatorType={ProgressIndicatorTypes.Circular}
@@ -177,11 +192,19 @@ describe("ProgressIndicator", () => {
       )
       .toJSON();
     const linearDarkMode = renderer
-      .create(<ProgressIndicator labelText="Linear" value={50} darkMode />)
+      .create(
+        <ProgressIndicator
+          id="linearDarkMode"
+          labelText="Linear"
+          value={50}
+          darkMode
+        />
+      )
       .toJSON();
     const circularDarkMode = renderer
       .create(
         <ProgressIndicator
+          id="circularDarkMode"
           labelText="Circular"
           value={50}
           indicatorType={ProgressIndicatorTypes.Circular}
