@@ -1,11 +1,8 @@
 import React from "react";
-import Button from "./../Button/Button";
-import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
-import Icon from "./../Icons/Icon";
-import { IconNames, IconSizes } from "./../Icons/IconTypes";
 import { useSelect } from "downshift";
 import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
+import MultiSelectMenuButton from "./MultiSelectMenuButton";
 
 import {
   Box,
@@ -80,19 +77,6 @@ function MultiSelect({
   // @ts-ignore
   const iconType = isOpen ? "Minus" : "Plus";
 
-  // Sets the ListBoxMenuButton label, including a count of selected items.
-  function getButtonLabel(id: string) {
-    let buttonLabel = label;
-    if (
-      selectedItems !== undefined &&
-      selectedItems[id] !== undefined &&
-      selectedItems[id].items.length > 0
-    ) {
-      buttonLabel = `${label} (${selectedItems[id].items.length})`;
-    }
-    return buttonLabel;
-  }
-
   function setFilterCheckedProp(multiSelectId: string, itemId: string) {
     let checked = false;
     if (selectedItems[multiSelectId] !== undefined) {
@@ -118,20 +102,13 @@ function MultiSelect({
 
   return (
     <Box id={id} __css={styles.container}>
-      <Button
-        buttonType={ButtonTypes.Secondary}
-        attributes={{
-          ...styles.menuButton,
-        }}
+      <MultiSelectMenuButton
+        id={id}
+        label={label}
+        isOpen={isOpen}
+        selectedItems={selectedItems}
         {...getToggleButtonProps()}
-      >
-        <span style={{ paddingRight: "10px" }}>{getButtonLabel(id)}</span>
-        <Icon
-          name={IconNames[iconType]}
-          decorative={true}
-          size={IconSizes.Small}
-        />
-      </Button>
+      />
       <Box __css={styles.menuWrapper} {...(!isOpen && { display: "none" })}>
         <UnorderedList
           styleType="none"
