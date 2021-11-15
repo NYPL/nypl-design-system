@@ -1,0 +1,71 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import { getCategory } from "../../utils/componentCategories";
+import Slider from "./Slider";
+
+<Meta
+  title={getCategory("Slider")}
+  component={Slider}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36889%3A25871",
+    },
+    jest: ["Slider.test.tsx"],
+  }}
+  argTypes={{
+    id: { table: { disable: true } },
+    name: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+  }}
+/>
+
+# Slider
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.4`   |
+| Latest            | `0.25.4`   |
+
+<Description of={Slider} />
+
+<Canvas withToolbar>
+  <Story
+    name="Basic with Props"
+    args={{
+      defaultValue: 50,
+      helperText: "yay",
+      invalidText: "damn",
+      isDisabled: false,
+      isInvalid: false,
+      isRangeSlider: true,
+      isRequired: false,
+      labelText: "Label",
+      max: 100,
+      min: 0,
+      optReqFlag: true,
+      showBoxes: true,
+      showHelperInvalidText: true,
+      showLabel: true,
+      step: 1,
+    }}
+  >
+    {(args) => (
+      <Slider
+        {...args}
+        defaultValue={args.isRangeSlider ? [25, 75] : args.defaultValue}
+      />
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic with Props" />

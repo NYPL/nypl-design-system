@@ -38,8 +38,8 @@
     "stylelint": "stylelint \"**/*.scss\""
   },
   "dependencies": {
-    "@chakra-ui/react": "1.6.8",
-    "@chakra-ui/system": "1.7.3",
+    "@chakra-ui/react": "1.7.1",
+    "@chakra-ui/system": "1.8.1",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mdx-js/react": "^1.6.22",

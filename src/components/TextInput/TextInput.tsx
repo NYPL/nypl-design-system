@@ -59,6 +59,7 @@ export interface InputProps {
   value?: string;
   /** The variant to display. */
   variantType?: TextInputVariants;
+  defaultValue?: string;
 }
 
 /**
@@ -93,6 +94,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       type = TextInputTypes.text,
       value,
       variantType = TextInputVariants.Default,
+      defaultValue,
     } = props;
     const styles = useMultiStyleConfig("TextInput", { variant: variantType });
     const finalStyles = { ...styles, ...additionalStyles };
@@ -140,6 +142,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
           isRequired,
           isInvalid,
           placeholder,
+          defaultValue,
           onChange,
           ref,
           ...attributes,
