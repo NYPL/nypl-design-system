@@ -41,10 +41,9 @@ const Switch = {
     },
     error: {
       track: {
-        // TODO: replace with correct color
-        bg: "ui.error.secondary",
+        bg: "red.200",
         _checked: {
-          bg: "ui.error.primary",
+          bg: "red.500",
         },
       },
     },
