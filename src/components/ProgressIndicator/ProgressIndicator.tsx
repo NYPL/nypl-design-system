@@ -95,11 +95,7 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
               )}
           </ChakraCircularProgress>
           {showLabel && size !== ProgressIndicatorSizes.Small && (
-            <Label
-              id={`${id}-label`}
-              htmlFor={id}
-              // additionalStyles={styles.circularLabel}
-            >
+            <Label id={`${id}-label`} htmlFor={id}>
               {labelText}
             </Label>
           )}
