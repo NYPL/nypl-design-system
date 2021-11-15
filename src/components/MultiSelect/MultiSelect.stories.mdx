@@ -9,11 +9,11 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 import { HStack } from "@chakra-ui/react";
-
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import MultiSelect from "./MultiSelect";
 import MultiSelectStory from "./MultiSelectStory";
+import MultiSelectDialogStory from "./MultiSelectDialogStory";
 
 <Meta
   title={getCategory("MultiSelect")}
@@ -57,3 +57,17 @@ This component renders a MultiSelect.
 </Canvas>
 
 <ArgsTable story="MultiSelect" />
+
+<Canvas withToolbar>
+  <Story
+    name="MultiSelectDialog"
+    args={{
+      id: "group1",
+      label: "Subject Specialities Dialog",
+    }}
+  >
+    {(args) => <MultiSelectDialogStory {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="MultiSelectDialog" />

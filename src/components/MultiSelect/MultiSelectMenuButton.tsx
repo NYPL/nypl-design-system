@@ -10,17 +10,17 @@ export interface MultiSelectMenuButtonProps {
   label: string;
   isOpen: boolean;
   selectedItems: any;
+  onMenuToggle?: any;
 }
 
 const MultiSelectMenuButton = React.forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
 >((props, ref?) => {
-  const { id, label, isOpen, selectedItems } = props;
-
+  const { id, label, isOpen, onMenuToggle, selectedItems } = props;
   const styles = useMultiStyleConfig("MultiSelect", {});
-  // @ts-ignore
   const iconType = isOpen ? "Minus" : "Plus";
+
   // Sets the ListBoxMenuButton label, including a count of selected items.
   function getButtonLabel(id: string) {
     let buttonLabel = label;
@@ -34,13 +34,25 @@ const MultiSelectMenuButton = React.forwardRef<
     return buttonLabel;
   }
 
+  /*function hasSelectedItems() {
+    if (
+      (selectedItems[id] !== undefined && selectedItems[id].items.length) ||
+      isOpen
+    ) {
+      return true;
+    }
+    return false;
+  }
+  */
+
   return (
     <Button
       ref={ref}
-      buttonType={ButtonTypes.Secondary}
       attributes={{
         ...styles.menuButton,
       }}
+      buttonType={ButtonTypes.Secondary}
+      onClick={onMenuToggle}
       {...props}
     >
       <span style={{ paddingRight: "10px" }}>{getButtonLabel(id)}</span>

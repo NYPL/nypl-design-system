@@ -54,6 +54,9 @@ const MultiSelect = {
         outline: "0px !important",
       },
     },
+    childrenContainer: {
+      paddingLeft: "1.2em",
+    },
   },
 };
 

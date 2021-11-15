@@ -25,14 +25,6 @@ export interface MultiSelectProps {
   ) => void;
   /** The selected items (items that were checked by user). */
   selectedItems: SelectedItems;
-
-  // @TODO these aren't used anymore.
-  /** Handler for save button of multiselect. */
-  onSaveMultiSelect?: () => void;
-  /** Handler for clear/reset button of multiselect. */
-  onClearMultiSelect?: () => void;
-  /** Not used? */
-  onMenuClick?: () => void;
 }
 
 function MultiSelect({
@@ -74,8 +66,6 @@ function MultiSelect({
   });
 
   const styles = useMultiStyleConfig("MultiSelect", {});
-  // @ts-ignore
-  const iconType = isOpen ? "Minus" : "Plus";
 
   function setFilterCheckedProp(multiSelectId: string, itemId: string) {
     let checked = false;
@@ -88,17 +78,6 @@ function MultiSelect({
     }
     return checked;
   }
-
-  /*function hasSelectedItems() {
-    if (
-      (selectedItems[id] !== undefined && selectedItems[id].items.length) ||
-      isOpen
-    ) {
-      return true;
-    }
-    return false;
-  }
-  */
 
   return (
     <Box id={id} __css={styles.container}>
@@ -138,15 +117,8 @@ function MultiSelect({
                   labelText={item.name}
                   showLabel={true}
                   name={item.name}
-                  // @TODO Remove the conditional? Component is unuseable without it.
-                  {...(handleOnSelectedItemChange !== undefined
-                    ? {
-                        isChecked: setFilterCheckedProp(id, item.id) || false,
-                        onChange: () => null,
-                      }
-                    : {
-                        defaultIsChecked: false,
-                      })}
+                  isChecked={setFilterCheckedProp(id, item.id) || false}
+                  onChange={() => null}
                 />
               </ListItem>
             ))}
