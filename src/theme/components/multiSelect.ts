@@ -35,9 +35,12 @@ const MultiSelect = {
       boxSizing: "border-box",
       background: "white",
       border: "1px solid #000",
-      padding: "1rem 1rem 1.5rem 1rem",
+      paddingX: "xs",
+      paddingY: "s",
+      paddingBottom: "m",
     },
     menu: {
+      paddingX: "xs",
       maxHeight: {
         base: "100%",
         md: "285px",
@@ -55,7 +58,7 @@ const MultiSelect = {
       },
     },
     childrenContainer: {
-      paddingLeft: "1.2em",
+      paddingLeft: "m",
     },
   },
 };
