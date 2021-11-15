@@ -6,7 +6,7 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
-import { Box, VStack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 import ProgressIndicator from "./ProgressIndicator";
 import {
@@ -15,6 +15,8 @@ import {
 } from "./ProgressIndicatorTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import SimpleGrid from "../Grid/SimpleGrid";
+import { GridGaps } from "../Grid/GridTypes";
 
 <Meta
   title={getCategory("ProgressIndicator")}
@@ -122,12 +124,14 @@ through the `ProgressIndicatorSizes.Small` value.
 
 <Canvas>
   <DSProvider>
-    <ProgressIndicator labelText="Default 8px size" value={50} />
-    <ProgressIndicator
-      labelText="Small 4px size"
-      size={ProgressIndicatorSizes.Small}
-      value={50}
-    />
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+      <ProgressIndicator labelText="Default 8px size" value={50} />
+      <ProgressIndicator
+        labelText="Small 4px size"
+        size={ProgressIndicatorSizes.Small}
+        value={50}
+      />
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -140,7 +144,7 @@ percentage will not displayed.
 
 <Canvas>
   <DSProvider>
-    <VStack spacing={6} align="left">
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
         labelText="Default 48px size"
         indicatorType={ProgressIndicatorTypes.Circular}
@@ -152,7 +156,7 @@ percentage will not displayed.
         size={ProgressIndicatorSizes.Small}
         value={50}
       />
-    </VStack>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -168,7 +172,7 @@ the progress element to provide a description of the progress for screen readers
 
 <Canvas>
   <DSProvider>
-    <VStack spacing={6} align="left">
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
         labelText="This label will be added through aria-label"
         value={50}
@@ -180,7 +184,7 @@ the progress element to provide a description of the progress for screen readers
         value={50}
         showLabel={false}
       />
-    </VStack>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -192,7 +196,7 @@ exact value or progress of the task is unknown.
 
 <Canvas>
   <DSProvider>
-    <VStack spacing={6} align="left">
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
         labelText="Indeterminate state"
         isIndeterminate
@@ -204,7 +208,7 @@ exact value or progress of the task is unknown.
         isIndeterminate
         value={50}
       />
-    </VStack>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -218,7 +222,7 @@ Note: the background is manually set to better showcase the `darkMode` prop.
 <Canvas>
   <DSProvider>
     <Box bg="black" w="100%" h="200px" p="20px">
-      <VStack spacing={6} align="left">
+      <SimpleGrid columns={1} gap={GridGaps.Medium}>
         <ProgressIndicator labelText="Dark Mode" value={50} darkMode />
         <ProgressIndicator
           labelText="Dark Mode"
@@ -226,7 +230,7 @@ Note: the background is manually set to better showcase the `darkMode` prop.
           value={50}
           darkMode
         />
-      </VStack>
+      </SimpleGrid>
     </Box>
   </DSProvider>
 </Canvas>
@@ -249,14 +253,14 @@ function ProgressIndicatorExample() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <VStack spacing={6} align="left">
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator labelText="Progress example" value={value} />
       <ProgressIndicator
         labelText="Progress example"
         indicatorType={ProgressIndicatorTypes.Circular}
         value={value}
       />
-    </VStack>
+    </SimpleGrid>
   );
 }
 ```
@@ -270,14 +274,14 @@ export function ProgressIndicatorExample() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <VStack spacing={6} align="left">
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator labelText="Progress example" value={value} />
       <ProgressIndicator
         labelText="Progress example"
         indicatorType={ProgressIndicatorTypes.Circular}
         value={value}
       />
-    </VStack>
+    </SimpleGrid>
   );
 }
 

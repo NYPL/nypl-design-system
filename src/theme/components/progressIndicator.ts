@@ -8,13 +8,9 @@ const ProgressIndicator = {
     "linearContainer",
     "linearPercentage",
   ],
-  baseStyle: ({ darkMode, isIndeterminate, size }) => {
+  baseStyle: ({ darkMode, size }) => {
     return {
       color: darkMode ? "ui.white" : "ui.black",
-      label: {
-        display: "block",
-        fontWeight: "bold",
-      },
       circular: {
         // Note: we have to target the SVG HTMl elements in order
         // to override the default styles.
@@ -32,8 +28,11 @@ const ProgressIndicator = {
           },
         },
       },
-      circularLabel: {
-        marginTop: "xs",
+      circularContainer: {
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        width: "fit-content",
       },
       linear: {
         // Hard to target this specific element without using
@@ -51,7 +50,6 @@ const ProgressIndicator = {
       linearContainer: {
         display: "flex",
         alignItems: "center",
-        marginTop: isIndeterminate ? "xs" : null,
       },
       linearPercentage: {
         padding: "0 var(--nypl-space-xs)",

@@ -12,6 +12,7 @@ import {
   ProgressIndicatorTypes,
 } from "./ProgressIndicatorTypes";
 import generateUUID from "../../helpers/generateUUID";
+import Label from "../Label/Label";
 
 export interface ProgressIndicatorProps {
   /** Flag to render the component in a dark background. */
@@ -54,7 +55,6 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
   } = props;
   const styles = useMultiStyleConfig("ProgressIndicator", {
     darkMode,
-    isIndeterminate,
     size,
   });
   let finalValue = value;
@@ -65,6 +65,7 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
     finalValue = 0;
   }
   const progressProps = {
+    id,
     // If the label is visually shown, associate it with the progress indicator.
     // Otherwise, the `aria-label` will be added.
     ["aria-label"]: showLabel ? null : labelText,
@@ -83,7 +84,7 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
         progressProps["aria-label"] = labelText;
       }
       return (
-        <>
+        <Box __css={styles.circularContainer}>
           <ChakraCircularProgress {...progressProps} sx={styles.circular}>
             {showLabel &&
               !isIndeterminate &&
@@ -94,20 +95,24 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
               )}
           </ChakraCircularProgress>
           {showLabel && size !== ProgressIndicatorSizes.Small && (
-            <Box as="label" id={`${id}-label`} __css={styles.circularLabel}>
+            <Label
+              id={`${id}-label`}
+              htmlFor={id}
+              // additionalStyles={styles.circularLabel}
+            >
               {labelText}
-            </Box>
+            </Label>
           )}
-        </>
+        </Box>
       );
     }
     // The Linear progress indicator is the default.
     return (
       <>
         {showLabel && (
-          <Box as="label" id={`${id}-label`}>
+          <Label id={`${id}-label`} htmlFor={id}>
             {labelText}
-          </Box>
+          </Label>
         )}
         <Box __css={styles.linearContainer}>
           <ChakraProgress {...progressProps} sx={styles.linear} />
@@ -119,11 +124,7 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
     );
   };
 
-  return (
-    <Box id={id} __css={styles}>
-      {progressComponent(indicatorType)}
-    </Box>
-  );
+  return <Box __css={styles}>{progressComponent(indicatorType)}</Box>;
 };
 
 export default ProgressIndicator;
