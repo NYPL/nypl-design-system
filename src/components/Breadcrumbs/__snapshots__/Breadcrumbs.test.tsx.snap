@@ -87,7 +87,6 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
       <span
         aria-current="page"
         className="chakra-breadcrumb__link css-0"
-        href="#string3"
       >
         <span
           className="breadcrumb-label"
