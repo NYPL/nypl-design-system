@@ -33,7 +33,7 @@ import Radio from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
-import Slider from "./components/slider";
+import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
@@ -99,7 +99,7 @@ const theme = extendTheme({
     SearchBar,
     Skeleton,
     SkeletonLoader,
-    Slider,
+    CustomSlider,
     StatusBadge,
     Tabs,
     ...TemplateStyles,

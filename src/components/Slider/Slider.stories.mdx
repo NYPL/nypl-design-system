@@ -7,8 +7,13 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
 import Slider from "./Slider";
+import SimpleGrid from "../Grid/SimpleGrid";
+import { GridGaps } from "../Grid/GridTypes";
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Slider")}
@@ -23,6 +28,7 @@ import Slider from "./Slider";
     jest: ["Slider.test.tsx"],
   }}
   argTypes={{
+    className: { table: { disable: true } },
     id: { table: { disable: true } },
     name: { table: { disable: true } },
     onChange: { table: { disable: true } },
@@ -38,34 +44,460 @@ import Slider from "./Slider";
 
 <Description of={Slider} />
 
+The text input component doubles as a display for the slider's current value.
+For this type of component, the `value` prop must be a single number.
+
 <Canvas withToolbar>
   <Story
-    name="Basic with Props"
+    name="Slider with Props"
     args={{
       defaultValue: 50,
-      helperText: "yay",
-      invalidText: "damn",
+      helperText: "Pass in a value from the min 0 to the max 100 values.",
+      invalidText: "Oh no this is an error :(",
       isDisabled: false,
       isInvalid: false,
-      isRangeSlider: true,
+      isRangeSlider: false,
       isRequired: false,
-      labelText: "Label",
+      labelText: "Slider label",
       max: 100,
       min: 0,
       optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
+      showValues: true,
       step: 1,
     }}
+    argTypes={{
+      defaultValue: { table: { disable: true } },
+      isRangeSlider: { table: { disable: true } },
+    }}
   >
-    {(args) => (
-      <Slider
-        {...args}
-        defaultValue={args.isRangeSlider ? [25, 75] : args.defaultValue}
-      />
-    )}
+    {(args) => <Slider {...args} />}
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Props" />
+<ArgsTable story="Slider with Props" />
+
+## Range Slider
+
+The text input components double as displays for the slider's current
+minimum and maximum value. For this type of component, the `value` prop must
+be an array of two numbers. This signifies the starting and ending values of
+the range slider.
+
+<Canvas withToolbar>
+  <Story
+    name="Range Slider with Props"
+    args={{
+      defaultValue: [25, 75],
+      helperText: "Pass in a value from the min 0 to the max 100 values.",
+      invalidText: "Oh no this is an error :(",
+      isDisabled: false,
+      isInvalid: false,
+      isRangeSlider: true,
+      isRequired: false,
+      labelText: "Range Slider label",
+      max: 100,
+      min: 0,
+      optReqFlag: true,
+      showBoxes: true,
+      showHelperInvalidText: true,
+      showLabel: true,
+      showValues: true,
+      step: 1,
+    }}
+    argTypes={{
+      defaultValue: { table: { disable: true } },
+      isRangeSlider: { table: { disable: true } },
+    }}
+  >
+    {(args) => <Slider {...args} />}
+  </Story>
+</Canvas>
+
+### Single Slider States
+
+Note: In the following examples, the "Required"/"Optional" text in the label is
+hidden by setting the `optReqFlag` prop to false.
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-single-default"
+      level={HeadingLevels.Four}
+      text="Default State"
+    />
+    <Slider
+      defaultValue={50}
+      optReqFlag={false}
+      helperText="Component helper text."
+      invalidText="Component error text :("
+      labelText="Label"
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-single-errored"
+      level={HeadingLevels.Four}
+      text="Errored State"
+    />
+    <Slider
+      defaultValue={50}
+      optReqFlag={false}
+      helperText="Component helper text."
+      invalidText="Component error text :("
+      labelText="Label"
+      isInvalid
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-single-disabled"
+      level={HeadingLevels.Four}
+      text="Disabled State"
+    />
+    <Slider
+      defaultValue={50}
+      optReqFlag={false}
+      helperText="Component helper text."
+      invalidText="Component error text :("
+      labelText="Label"
+      isDisabled
+    />
+  </DSProvider>
+</Canvas>
+
+### Range Slider States
+
+To enable the Range Slider, set the `isRangeSlider` prop to true.
+
+Note: In the following examples, the "Required"/"Optional" text in the label is
+hidden by setting the `optReqFlag` prop to false.
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-range-default"
+      level={HeadingLevels.Four}
+      text="Default State"
+    />
+    <Slider
+      defaultValue={[25, 75]}
+      optReqFlag={false}
+      helperText="Component helper text."
+      invalidText="Component error text :("
+      labelText="Label"
+      isRangeSlider
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-range-errored"
+      level={HeadingLevels.Four}
+      text="Errored State"
+    />
+    <SimpleGrid columns={1} gap={GridGaps.Large}>
+      <Slider
+        defaultValue={[25, 75]}
+        optReqFlag={false}
+        helperText="Component helper text."
+        invalidText="Component error text :("
+        labelText="Label"
+        isRangeSlider
+        isInvalid
+      />
+      <p>
+        Note: The slider does not allow the starting thumb to go past the ending
+        thumb. Likewise, it also does not allow the ending thumb to go below the
+        starting thumb. However, it's possible to set incorrect values directly
+        into both of the text inputs. For example, if you enter 80 in the first
+        text input box and 20 in the second input box, it will automatically go
+        into the invalid state. In the following example, the default values are
+        already set to 80 and 20 *just* to showcase this error.
+      </p>
+      <Slider
+        defaultValue={[80, 20]}
+        optReqFlag={false}
+        helperText="Component helper text."
+        invalidText="Component error text :("
+        labelText="Label"
+        isRangeSlider
+      />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-range-disabled"
+      level={HeadingLevels.Four}
+      text="Disabled State"
+    />
+    <Slider
+      defaultValue={[25, 75]}
+      optReqFlag={false}
+      helperText="Component helper text."
+      invalidText="Component error text :("
+      labelText="Label"
+      isRangeSlider
+      isDisabled
+    />
+  </DSProvider>
+</Canvas>
+
+### Single Slider Variants
+
+In the following example, the min/max values and the current value text
+input are hidden.
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-single-labels"
+      level={HeadingLevels.Four}
+      text="With and Without Component Labels"
+    />
+    <SimpleGrid columns={1} gap={GridGaps.ExtraLarge}>
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        showValues={false}
+        showBoxes={false}
+      />
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        showValues={false}
+        showBoxes={false}
+        isRequired
+      />
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        optReqFlag={false}
+        showValues={false}
+        showBoxes={false}
+      />
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        optReqFlag={false}
+        showHelperInvalidText={false}
+        showValues={false}
+        showBoxes={false}
+      />
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        optReqFlag={false}
+        showValues={false}
+        showBoxes={false}
+        showLabel={false}
+      />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+For the following examples, all labels are hidden.
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-single-labels-inputs"
+      level={HeadingLevels.Four}
+      text="With and Without Internal Inputs and Labels"
+    />
+    <SimpleGrid columns={1} gap={GridGaps.ExtraLarge}>
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        showHelperInvalidText={false}
+        showLabel={false}
+      />
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        showHelperInvalidText={false}
+        showLabel={false}
+        showBoxes={false}
+      />
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        showHelperInvalidText={false}
+        showLabel={false}
+        showValues={false}
+      />
+      <Slider
+        defaultValue={50}
+        helperText="Component helper text."
+        labelText="Label"
+        showHelperInvalidText={false}
+        showLabel={false}
+        showValues={false}
+        showBoxes={false}
+      />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+### Range Slider with Adjusted Handles
+
+In the following examples, all the labels are hidden.
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1} gap={GridGaps.ExtraLarge}>
+      <Slider
+        defaultValue={[15, 75]}
+        helperText="Component helper text."
+        labelText="Label"
+        showHelperInvalidText={false}
+        showLabel={false}
+        isRangeSlider
+      />
+      <Slider
+        defaultValue={[15, 75]}
+        helperText="Component helper text."
+        labelText="Label"
+        showHelperInvalidText={false}
+        showLabel={false}
+        showBoxes={false}
+        isRangeSlider
+      />
+      <Slider
+        defaultValue={[15, 75]}
+        helperText="Component helper text."
+        labelText="Label"
+        showHelperInvalidText={false}
+        showLabel={false}
+        showValues={false}
+        isRangeSlider
+      />
+      <Slider
+        defaultValue={[15, 75]}
+        helperText="Component helper text."
+        labelText="Label"
+        showHelperInvalidText={false}
+        showLabel={false}
+        showValues={false}
+        showBoxes={false}
+        isRangeSlider
+      />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+### Get Data Values
+
+Pass a callback function to the `onChange` prop to get the current number value
+of the `Slider` component or an array of two numbers when it is a range slider.
+Internally, the `Slider` component handles the state of the current selected
+value or values. Once the value(s) is updated, the `onChange` callback will be
+called and the values will be passed.
+
+#### Single Slider Value
+
+Open up the browser's developer console to see the value of the `Slider`
+after updating it.
+
+```tsx
+// Typescript example:
+function SliderExample() {
+  const onChange = (newValue: number) => {
+    console.log(`The single Slider updated value is: ${newValue}`);
+  };
+  return (
+    <Slider
+      helperText="Component helper text."
+      labelText="Label"
+      onChange={onChange}
+    />
+  );
+}
+```
+
+export function SliderExample() {
+  const onChange = (newValue) => {
+    console.log(`The single Slider updated value is: ${newValue}`);
+  };
+  return (
+    <Slider
+      helperText="Component helper text."
+      labelText="Label"
+      onChange={onChange}
+    />
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <SliderExample />
+  </DSProvider>
+</Canvas>
+
+#### Range Slider Values
+
+Open up the browser's developer console to see the values of the `Slider`
+after updating it in the `isRangeSlider` state.
+
+```tsx
+// Typescript example:
+function RangeSliderExample() {
+  const onChange = (newValue: number[]) => {
+    const [start, end] = newValue;
+    console.log(`The Range Slider updated start value is: ${start}`);
+    console.log(`The Range Slider updated end value is: ${end}`);
+  };
+  return (
+    <Slider
+      helperText="Component helper text."
+      labelText="Label"
+      onChange={onChange}
+      isRangeSlider
+    />
+  );
+}
+```
+
+export function RangeSliderExample() {
+  const onChange = (newValue) => {
+    const [start, end] = newValue;
+    console.log(`The Range Slider updated start value is: ${start}`);
+    console.log(`The Range Slider updated end value is: ${end}`);
+  };
+  return (
+    <Slider
+      defaultValue={[15, 75]}
+      helperText="Component helper text."
+      labelText="Label"
+      onChange={onChange}
+      isRangeSlider
+    />
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <RangeSliderExample />
+  </DSProvider>
+</Canvas>
