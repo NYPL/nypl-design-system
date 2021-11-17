@@ -59,6 +59,7 @@ export interface InputProps {
   value?: string;
   /** The variant to display. */
   variantType?: TextInputVariants;
+  /** The starting value of the input field. */
   defaultValue?: string;
 }
 

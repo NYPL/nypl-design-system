@@ -27,6 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Button` Style Guide documentation.
 - Updates the `Iconography` Style Guide story documentation.
 - Updates the `Button` font weight to "regular".
+- Updates the `TextInput` component to now have a `defaultValue` prop.
 
 ### Fixes
 
