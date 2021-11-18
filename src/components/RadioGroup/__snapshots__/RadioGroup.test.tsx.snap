@@ -5,17 +5,13 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
   className=" css-0"
   id="radio-group-column"
 >
-  <legend
-    className=""
-  >
-    <span>
-      column
-    </span>
-    <span
+  <legend>
+    column
+    <div
       className="css-0"
     >
       Optional
-    </span>
+    </div>
   </legend>
   <div
     aria-label={null}
@@ -125,17 +121,13 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
   className=" css-0"
   id="radio-group-row"
 >
-  <legend
-    className=""
-  >
-    <span>
-      row
-    </span>
-    <span
+  <legend>
+    row
+    <div
       className="css-0"
     >
       Optional
-    </span>
+    </div>
   </legend>
   <div
     aria-label={null}
@@ -245,17 +237,13 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
   className=" css-0"
   id="radio-group-noLabel"
 >
-  <legend
-    className="sr-only"
-  >
-    <span>
-      no label
-    </span>
-    <span
+  <legend>
+    no label
+    <div
       className="css-0"
     >
       Optional
-    </span>
+    </div>
   </legend>
   <div
     aria-label="no label"
@@ -365,17 +353,13 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
   className=" css-0"
   id="radio-group-helperText"
 >
-  <legend
-    className=""
-  >
-    <span>
-      helperText
-    </span>
-    <span
+  <legend>
+    helperText
+    <div
       className="css-0"
     >
       Optional
-    </span>
+    </div>
   </legend>
   <div
     aria-label={null}
@@ -498,17 +482,13 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
   className=" css-0"
   id="radio-group-invalidText"
 >
-  <legend
-    className=""
-  >
-    <span>
-      invalidText
-    </span>
-    <span
+  <legend>
+    invalidText
+    <div
       className="css-0"
     >
       Optional
-    </span>
+    </div>
   </legend>
   <div
     aria-label={null}
@@ -618,12 +598,8 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
   className=" css-0"
   id="radio-group-optReq"
 >
-  <legend
-    className=""
-  >
-    <span>
-      no optional or required label
-    </span>
+  <legend>
+    no optional or required label
   </legend>
   <div
     aria-label={null}
@@ -733,17 +709,13 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
   className=" css-0"
   id="radio-group-required"
 >
-  <legend
-    className=""
-  >
-    <span>
-      required
-    </span>
-    <span
+  <legend>
+    required
+    <div
       className="css-0"
     >
-      Required
-    </span>
+      Optional
+    </div>
   </legend>
   <div
     aria-label={null}
@@ -855,17 +827,13 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
   className=" css-0"
   id="radio-group-invalid"
 >
-  <legend
-    className=""
-  >
-    <span>
-      invalid
-    </span>
-    <span
+  <legend>
+    invalid
+    <div
       className="css-0"
     >
       Optional
-    </span>
+    </div>
   </legend>
   <div
     aria-label={null}
@@ -981,17 +949,13 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
   className=" css-0"
   id="radio-group-disabled"
 >
-  <legend
-    className=""
-  >
-    <span>
-      disabled
-    </span>
-    <span
+  <legend>
+    disabled
+    <div
       className="css-0"
     >
       Optional
-    </span>
+    </div>
   </legend>
   <div
     aria-label={null}

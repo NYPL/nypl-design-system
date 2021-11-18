@@ -23,7 +23,6 @@ describe("Button Accessibility", () => {
 
 describe("Button", () => {
   let onClick;
-  let container;
   let rerender;
 
   beforeEach(() => {
@@ -33,7 +32,6 @@ describe("Button", () => {
         Submit
       </Button>
     );
-    container = utils.container;
     rerender = utils.rerender;
   });
 
@@ -45,10 +43,6 @@ describe("Button", () => {
 
   it("optionally renders a component", () => {
     expect(screen.getByText("Submit")).toBeInTheDocument();
-  });
-
-  it("has 'button' class", () => {
-    expect(container.querySelector(".button")).toBeInTheDocument();
   });
 
   it("optionally calls the onClick on mouseDown instead of on click", () => {
@@ -100,7 +94,7 @@ describe("padding for icon only button", () => {
         />
       </Button>
     );
-    expect(container.querySelector(".button svg")).toBeInTheDocument();
+    expect(container.querySelector("button svg")).toBeInTheDocument();
   });
 });
 

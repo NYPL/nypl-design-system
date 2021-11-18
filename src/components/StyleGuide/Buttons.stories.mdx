@@ -6,18 +6,19 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
+import { ButtonGroup } from "@chakra-ui/react";
 
-import { getCategory } from "../../utils/componentCategories";
-import Button, { ButtonGroup } from "../Button/Button";
+import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
 import {
+  IconAlign,
   IconNames,
   IconRotationTypes,
   IconSizes,
-  IconAlign,
 } from "../Icons/IconTypes";
 import getCSSVariable from "../../helpers/getCSSVariable";
+import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 <Meta
@@ -45,7 +46,8 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Use the NYPL Design System [Button](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/form-elements-button--basic) component to render form buttons.
+Use the NYPL Design System [Button](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/form-elements-button--basic)
+component to render form buttons.
 
 ```jsx
 import { Button, ButtonTypes } from "@nypl/design-system-react-components";
@@ -59,15 +61,23 @@ import { Button, ButtonTypes } from "@nypl/design-system-react-components";
 - Button text should be title case.
 - Button icon is optional.
 - Buttons may have an icon on either the left or the right.
-- Buttons by default are blue. However, Donation buttons are red.
-- Buttons used for Back to Top actions have a Secondary button style with an arrow icon pointing up.
-- When buttons are used in a set (where the user can move forward or backward), the `Primary` button is on the right and the `Secondary` button on the left (i.e. cancel = secondary, submit = primary).
+- Buttons by default are blue. However, Donation callout buttons are red.
+- Buttons used for Back to Top actions have a Secondary button style with an
+  arrow icon pointing up.
+- When buttons are used in a group, they should be wrapped in a `ButtonGroup`.
+- When buttons are used in a group where the user can move forward or backward,
+  the `Primary` button is on the right and the `Secondary` button on the left
+  (i.e. cancel = secondary, submit = primary).
 
 ## Button Groups
 
-When `Button` components are displayed in a group, use the `ButtonGroup` component to handle the spacing and layout. The `ButtonGroup` component will use `--nypl-space-xs` (0.5rem) for spacing in horizontal group layouts.
+When `Button` components are displayed in a group, use the `ButtonGroup`
+component to handle the spacing and layout. The `ButtonGroup` component will use
+`--nypl-space-xs` (0.5rem) for spacing in horizontal group layouts.
 
-Standalone `Button` components and the `ButtonGroup` component should use `--nypl-space-l` (2rem) for spacing between all other UI elements. This spacing can be achieved by using the `Form` component.
+Standalone `Button` components and the `ButtonGroup` component should use
+`--nypl-space-l` (2rem) for spacing between all other UI elements. This spacing
+can be achieved by using the `Form` component to wrap the `Button`s.
 
 <Canvas>
   <DSProvider>
@@ -84,7 +94,7 @@ Standalone `Button` components and the `ButtonGroup` component should use `--nyp
       <Button buttonType={ButtonTypes.Primary}>
         <Icon name={IconNames.Close} size={IconSizes.Medium} />
       </Button>
-      <Button buttonType={ButtonTypes.Callout}>Button Text</Button>
+      <Button buttonType={ButtonTypes.Callout}>Donate</Button>
       <Button buttonType={ButtonTypes.Secondary}>
         Back to Top
         <Icon
@@ -100,15 +110,19 @@ Standalone `Button` components and the `ButtonGroup` component should use `--nyp
 
 ## Button Types
 
-The `buttonType` prop should be used to render various forms of the button component.
+The `buttonType` prop should be used to render various forms of the button
+component. Note that the `SearchBar` type is only used internally in the
+`SearchBar` component.
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
       <Button buttonType={ButtonTypes.Primary}>Primary Button</Button>
       <Button buttonType={ButtonTypes.Secondary}>Secondary Button</Button>
+      <Button buttonType={ButtonTypes.Callout}>Callout Button</Button>
       <Button buttonType={ButtonTypes.Pill}>Pill Button</Button>
       <Button buttonType={ButtonTypes.Link}>Link Button</Button>
+      <Button buttonType={ButtonTypes.SearchBar}>SearchBar Button</Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -124,6 +138,11 @@ The `buttonType` prop should be used to render various forms of the button compo
 - often paired with a Primary button
 - Visual Treatment: rectangular, outlined
 
+### ButtonTypes.Callout
+
+- used for call to actions such as donation buttons
+- Visual Treatment: rectangular, NYPL red background
+
 ### ButtonTypes.Pill
 
 - used for equally weighted actions
@@ -135,11 +154,21 @@ The `buttonType` prop should be used to render various forms of the button compo
 - used for equally weighted actions
 - Visual Treatment: text link with underline
 
+### ButtonTypes.SearchBar
+
+- used internally in the `SearchBar` component for visual flow when it is next
+  to the `TextInput` component
+- Visual Treatment: rectangular, filled, no border radius on the left side
+
 ## Patterns
 
 - Buttons are blue by default.
-- Buttons that are intended as a call out (i.e. Donation buttons) shoud be set as `ButtonTypes.Callout`.
-- The "Back to Top" button must be set as `ButtonTypes.Secondary` and must include an up arrow icon.
+- Buttons that are intended as a call out (i.e. Donation buttons) should be set
+  as `ButtonTypes.Callout`.
+- The "Back to Top" button must be set as `ButtonTypes.Secondary` and must
+  include an up arrow icon.
+- Previous and Next buttons should be set as `ButtonTypes.Secondary` and be
+  wrapped in a `ButtonGroup`.
 
 <Canvas>
   <DSProvider>
@@ -152,6 +181,24 @@ The `buttonType` prop should be used to render various forms of the button compo
           iconRotation={IconRotationTypes.Rotate180}
           size={IconSizes.Small}
           align={IconAlign.Right}
+        />
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary}>
+        <Icon
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate90}
+          align={IconAlign.Left}
+          size={IconSizes.Small}
+        />
+        Previous
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary}>
+        Next
+        <Icon
+          name={IconNames.Arrow}
+          iconRotation={IconRotationTypes.Rotate270}
+          align={IconAlign.Right}
+          size={IconSizes.Small}
         />
       </Button>
     </ButtonGroup>

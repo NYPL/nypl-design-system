@@ -39,7 +39,7 @@ import Checkbox from "../Checkbox/Checkbox";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.3`   |
 
 <Description of={CheckboxGroup} />
 
@@ -48,8 +48,8 @@ import Checkbox from "../Checkbox/Checkbox";
     name="CheckboxGroup"
     args={{
       defaultValue: ["4"],
-      invalidText: "This is the error text :(",
       helperText: "This is the helper text for the full group.",
+      invalidText: "This is the error text :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
@@ -57,6 +57,7 @@ import Checkbox from "../Checkbox/Checkbox";
       layout: CheckboxGroupLayoutTypes.Column,
       name: "checkbox-story",
       optReqFlag: true,
+      showHelperInvalidText: true,
       showLabel: true,
     }}
   >
@@ -140,6 +141,85 @@ a row.
       <Checkbox value="4" labelText="Checkbox 4" />
       <Checkbox value="5" labelText="Checkbox 5" />
     </CheckboxGroup>
+  </DSProvider>
+</Canvas>
+
+## Indeterminate Example
+
+The "indeterminate" state can be used when a group of checkboxes are not all
+checked or unchecked. In the following example, if only one child checkebox is
+checked, the parent checkbox will be in the "indeterminate" state. Once both
+children are checked, the parent will be in the "checked" state.
+
+The following working example can be used in your application to keep track of
+the checked and indeterminate states - taken and modified from Chakra's
+[Checkbox](https://chakra-ui.com/docs/form/checkbox#indeterminate) documentation.
+Note that this example is specifically using NYPL DS `Checkbox` and
+`CheckboxGroup` components.
+
+```tsx
+export function IndeterminateExample() {
+  const [checkedItems, setCheckedItems] = React.useState([false, false]);
+  const allChecked = checkedItems.every(Boolean);
+  const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+  return (
+    <CheckboxGroup
+      labelText="Indeterminate Example"
+      name="indeterminate-example"
+    >
+      <Checkbox
+        isChecked={allChecked}
+        isIndeterminate={isIndeterminate}
+        onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
+        labelText="Parent Checkbox"
+      />
+      <Checkbox
+        isChecked={checkedItems[0]}
+        onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
+        labelText="Child Checkbox 1"
+      />
+      <Checkbox
+        isChecked={checkedItems[1]}
+        onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
+        labelText="Child Checkbox 2"
+      />
+    </CheckboxGroup>
+  );
+}
+```
+
+export function IndeterminateExample() {
+  const [checkedItems, setCheckedItems] = React.useState([false, false]);
+  const allChecked = checkedItems.every(Boolean);
+  const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+  return (
+    <CheckboxGroup
+      labelText="Indeterminate Example"
+      name="indeterminate-example"
+    >
+      <Checkbox
+        isChecked={allChecked}
+        isIndeterminate={isIndeterminate}
+        onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
+        labelText="Parent Checkbox"
+      />
+      <Checkbox
+        isChecked={checkedItems[0]}
+        onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
+        labelText="Child Checkbox 1"
+      />
+      <Checkbox
+        isChecked={checkedItems[1]}
+        onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
+        labelText="Child Checkbox 2"
+      />
+    </CheckboxGroup>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <IndeterminateExample />
   </DSProvider>
 </Canvas>
 

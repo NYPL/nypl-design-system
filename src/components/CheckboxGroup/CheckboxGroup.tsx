@@ -1,8 +1,8 @@
 import * as React from "react";
 import {
   Box,
-  Stack,
   CheckboxGroup as ChakraCheckboxGroup,
+  Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
@@ -11,18 +11,19 @@ import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
 import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
 import Checkbox from "../Checkbox/Checkbox";
+import Fieldset from "../Fieldset/Fieldset";
 
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
   /** Populates the initial value of the input */
   defaultValue?: string[];
-  /** Optional string to populate the HelperErrorText for error state */
-  invalidText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Optional string to populate the HelperErrorText for error state */
+  invalidText?: string;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
   /** A`dds the 'aria-invalid' attribute to the input and
@@ -113,19 +114,16 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       }
     });
 
-    // Get the Chakra-based styles for all the custom elements in this component.
-    const styles = useMultiStyleConfig("CustomCheckboxGroup", {});
+    // Get the Chakra-based styles for the custom elements in this component.
+    const styles = useMultiStyleConfig("CheckboxGroup", {});
 
     return (
-      <Box as="fieldset" id={`checkbox-group-${id}`} __css={styles}>
-        <legend className={showLabel ? "" : "sr-only"}>
-          <span>{labelText}</span>
-          {optReqFlag && (
-            <Box as="span" __css={styles.required}>
-              {isRequired ? "Required" : "Optional"}
-            </Box>
-          )}
-        </legend>
+      <Fieldset
+        id={`${id}-checkbox-group`}
+        isLegendHidden={!showLabel}
+        legendText={labelText}
+        optReqFlag={optReqFlag}
+      >
         <ChakraCheckboxGroup {...checkboxProps}>
           <Stack
             id={id}
@@ -134,6 +132,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
             spacing={spacingProp}
             ref={ref}
             aria-label={!showLabel ? labelText : null}
+            sx={styles.stack}
           >
             {newChildren}
           </Stack>
@@ -145,7 +144,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
             </HelperErrorText>
           </Box>
         )}
-      </Box>
+      </Fieldset>
     );
   }
 );

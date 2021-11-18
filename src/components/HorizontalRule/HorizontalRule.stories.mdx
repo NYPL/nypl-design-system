@@ -34,12 +34,14 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.0`   |
-| Latest            | `0.25.2`   |
+| Latest            | `0.25.3`   |
 
 <Description of={HorizontalRule} />
 
 The `HorizontalRule` component renders a basic `<hr>` element. The `height`,
-`width`, and `align` props can be customized.
+`width`, and `align` props can be customized. For the `height` prop, use a whole
+number, a `px` value, a `em` value, or a `rem` value. Otherwise, the default
+value of "2px" will be used.
 
 <Preview withToolbar>
   <Story name="HorizontalRule">{(args) => <HorizontalRule {...args} />}</Story>
