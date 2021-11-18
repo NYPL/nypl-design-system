@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `ProgressIndicator` component.
+
 ### Changes
 
 - Updates the organization of SCSS files by deleting some files and combining others.
