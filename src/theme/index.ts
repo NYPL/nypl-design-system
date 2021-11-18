@@ -30,6 +30,7 @@ import Link from "./components/link";
 import List from "./components/list";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
+import ProgressIndicator from "./components/progressIndicator";
 import Radio from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
@@ -95,6 +96,7 @@ const theme = extendTheme({
     List,
     ...NotificationStyles,
     Pagination,
+    ProgressIndicator,
     Radio,
     RadioGroup,
     SearchBar,
