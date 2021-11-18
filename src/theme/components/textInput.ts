@@ -1,4 +1,5 @@
 import { activeFocus, helperTextMargin } from "./global";
+import { screenreaderOnly } from "./globalMixins";
 
 const input = {
   border: "1px solid",
@@ -29,7 +30,7 @@ const input = {
 };
 
 const TextInput = {
-  parts: ["helper", "input", "textarea"],
+  parts: ["helper", "textarea"],
   baseStyle: {
     helper: {
       ...helperTextMargin,
@@ -42,6 +43,11 @@ const TextInput = {
     },
   },
   variants: {
+    file: {
+      input: {
+        ...screenreaderOnly,
+      },
+    },
     searchBar: {
       flex: "1 1 80%",
       input: {

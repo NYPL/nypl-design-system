@@ -12,6 +12,7 @@ import {
   TextInputVariants,
 } from "./TextInputTypes";
 import Label from "../Label/Label";
+import { VisualLabelType } from "../Label/LabelTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 
@@ -22,6 +23,7 @@ export interface InputProps {
   attributes?: { [key: string]: any };
   /** A class name for the TextInput parent div. */
   className?: string;
+  fileProps?: { [key: string]: any };
   /** Populates the HelperErrorText for the standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -78,6 +80,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       additionalStyles = {},
       attributes = {},
       className,
+      fileProps = {},
       helperText,
       id = generateUUID(),
       invalidText,
@@ -94,7 +97,14 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       value,
       variantType = TextInputVariants.Default,
     } = props;
-    const styles = useMultiStyleConfig("TextInput", { variant: variantType });
+    const isFileType = type === TextInputTypes.File;
+    let finalVariantType = variantType;
+    if (isFileType) {
+      finalVariantType = TextInputVariants.File;
+    }
+    const styles = useMultiStyleConfig("TextInput", {
+      variant: finalVariantType,
+    });
     const finalStyles = { ...styles, ...additionalStyles };
     const isTextArea = type === TextInputTypes.textarea;
     const isHidden = type === TextInputTypes.hidden;
@@ -147,7 +157,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     // For `input` and `textarea`, all attributes are the same but `input`
     // also needs `type` and `value` to render correctly.
     if (!isTextArea) {
-      options = { type, value, ...options } as any;
+      options = { type, value, ...fileProps, ...options } as any;
       fieldOutput = <ChakraInput {...options} __css={finalStyles.input} />;
     } else {
       fieldOutput = (
@@ -161,9 +171,10 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       <Box __css={finalStyles} className={className}>
         {labelText && showLabel && !isHidden && (
           <Label
+            id={`${id}-label`}
             htmlFor={id}
             optReqFlag={showOptReqLabel && optReqFlag}
-            id={`${id}-label`}
+            visualType={isFileType && VisualLabelType.Button}
           >
             {labelText}
           </Label>

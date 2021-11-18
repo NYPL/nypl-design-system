@@ -1,8 +1,8 @@
 // HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 export enum TextInputTypes {
   email = "email",
+  File = "file",
   hidden = "hidden",
-  // eslint-disable-next-line id-blacklist
   number = "number",
   password = "password",
   text = "text",
@@ -14,7 +14,6 @@ export enum TextInputTypes {
 export enum TextInputFormats {
   email = "jdoe@domain.com",
   hidden = "",
-  // eslint-disable-next-line id-blacklist
   number = "",
   password = "",
   text = "",
@@ -25,6 +24,7 @@ export enum TextInputFormats {
 
 export enum TextInputVariants {
   Default = "default",
+  File = "file",
   SearchBar = "searchBar",
   SearchBarSelect = "searchBarSelect",
 }

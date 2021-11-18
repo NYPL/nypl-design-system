@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
+import { VisualLabelType } from "./LabelTypes";
 
 type optReqFlagType = "Required" | "Optional" | "" | undefined;
 
@@ -14,6 +15,8 @@ interface LabelProps {
   id?: string;
   /** Displays "Required" or "Optional" string alongside the label */
   optReqFlag?: optReqFlagType;
+  /** The visual type of label. */
+  visualType?: VisualLabelType;
 }
 
 /**
@@ -26,8 +29,9 @@ function Label(props: React.PropsWithChildren<LabelProps>) {
     htmlFor,
     id = generateUUID(),
     optReqFlag,
+    visualType = VisualLabelType.Default,
   } = props;
-  const styles = useMultiStyleConfig("Label", {});
+  const styles = useMultiStyleConfig("Label", { variant: visualType });
 
   return (
     <Box

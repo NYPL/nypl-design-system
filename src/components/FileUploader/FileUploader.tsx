@@ -4,6 +4,8 @@ import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 import generateUUID from "../../helpers/generateUUID";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
+import TextInput from "../TextInput/TextInput";
+import { TextInputTypes } from "../TextInput/TextInputTypes";
 
 interface FileFormats {
   [key: string]: string;
@@ -68,6 +70,27 @@ export default function FileUploader(
   const footnote = isInvalid ? invalidText : helperText;
   const styles = useMultiStyleConfig("FileUploader", {});
 
+  const fileChangedHandler = (event) => {
+    console.log("files", event.target.files);
+    console.log("files", event.target.value);
+    // let file_size = event.target.files[0].size;
+  };
+
+  // input.addEventListener('change', (event) => {
+  //   const target = event.target
+  //     if (target.files && target.files[0]) {
+
+  //       /*Maximum allowed size in bytes
+  //         5MB Example
+  //         Change first operand(multiplier) for your needs*/
+  //       const maxAllowedSize = 5 * 1024 * 1024;
+  //       if (target.files[0].size > maxAllowedSize) {
+  //         // Here you can ask your users to load correct file
+  //          target.value = ''
+  //       }
+  //   }
+  // })
+
   return (
     <Box className={className} __css={styles}>
       {showLabel && (
@@ -79,6 +102,28 @@ export default function FileUploader(
           {labelText}
         </Label>
       )}
+
+      <TextInput
+        id={`${id}-something`}
+        onChange={fileChangedHandler}
+        // value={value}
+        labelText="Add Files"
+        isDisabled={isDisabled}
+        isRequired={isRequired}
+        isInvalid={isInvalid}
+        helperText={helperText}
+        invalidText={invalidText}
+        type={TextInputTypes.File}
+        showHelperInvalidText={false}
+        showOptReqLabel={false}
+        fileProps={{
+          accept: formatsAllowed,
+          multiple,
+        }}
+        // ref={dsRef || ref}
+        // attributes={{ ...attributes, onClick }}
+        // additionalStyles={styles.textInput}
+      />
 
       {footnote && showHelperInvalidText && (
         <Box __css={styles.helper}>
