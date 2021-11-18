@@ -1,12 +1,12 @@
 .card-edition {
-  @include space-stack-s;
+  margin-bottom: var(--nypl-space-s);
 
   align-items: flex-start;
-  border: 1px solid var(--ui-gray-light-cool);
+  border: 1px solid var(--nypl-colors-ui-gray-light-cool);
   border-radius: 5px;
   display: flex;
   flex-flow: column wrap;
-  padding: var(--space) var(--space-l);
+  padding: var(--nypl-space-s) var(--nypl-space-l);
 
   &__heading,
   &__footer {
@@ -25,14 +25,14 @@
   }
 
   &__columns + &__footer {
-    margin-top: var(--space-xs);
+    margin-top: var(--nypl-space-xs);
   }
 
   &__image {
-    @include space-stack-s;
+    margin-bottom: var(--nypl-space-s);
 
     align-items: center;
-    background-color: var(--ui-gray-x-light-cool);
+    background-color: var(--nypl-colors-ui-gray-x-light-cool);
     display: flex;
     flex: 0 0 150px;
     height: 150px;
@@ -44,8 +44,8 @@
     }
 
     @include breakpoint($breakpoint-medium) {
-      @include space-stack-none;
-      @include space-inline-s;
+      margin-bottom: 0;
+      margin-right: var(--nypl-space-s);
 
       align-self: center;
       width: 150px;
@@ -53,13 +53,13 @@
   }
 
   &__content {
-    @include space-stack-s;
+    margin-bottom: var(--nypl-space-s);
 
     flex: 1 1;
 
     @include breakpoint($breakpoint-medium) {
-      @include space-inline-s;
-      @include space-stack-none;
+      margin-right: var(--nypl-space-s);
+      margin-bottom: 0;
     }
   }
 
@@ -67,31 +67,30 @@
     flex: 0 1 20%;
 
     @include breakpoint($breakpoint-medium) {
-      @include space-inline-s;
+      margin-right: var(--nypl-space-s);
     }
   }
 
   &__content + &__ctas {
-    @include space-inline-s;
+    margin-right: var(--nypl-space-s);
   }
 }
 
 // Stories-only styles
 .sb-show-main {
   .var-docs {
-    padding: 0 0 var(--space) 0;
+    padding: 0 0 var(--nypl-space-s) 0;
   }
 
   .example-card-edition {
     .card__content {
       > * {
-        @include space-stack-xxs;
+        margin-bottom: var(--nypl-space-xxs);
       }
     }
 
     .book__callout {
-      // formerly imported with @include heading-xs;
-      font-size: var(--font-size-1);
+      font-size: var(--nypl-fontSizes-1);
       font-weight: 400;
       line-height: 1.15;
       margin: 0 0 0.5em;
@@ -123,12 +122,12 @@
       }
 
       > * {
-        @include space-stack-xxs;
+        margin-bottom: var(--nypl-space-xxs);
       }
     }
 
     .book__filetype {
-      @include space-stack-s;
+      margin-bottom: var(--nypl-space-s);
     }
 
     .book__description {

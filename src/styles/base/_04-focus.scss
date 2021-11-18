@@ -1,14 +1,3 @@
-// Focus state mixin
-@mixin focus-outline($darkBackground: false) {
-  outline: 2px solid var(--ui-focus);
-  outline-offset: 2px;
-  z-index: 9999;
-
-  @if $darkBackground {
-    outline-color: var(--ui-white);
-  }
-}
-
 // Apply :focus behavior to focusable elements only (For IE 11)
 .nypl-ds {
   input,
@@ -30,8 +19,4 @@
       @include focus-outline;
     }
   }
-}
-
-.focus {
-  @include focus-outline;
 }
