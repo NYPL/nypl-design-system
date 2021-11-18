@@ -21,7 +21,7 @@ const Notification = {
       container: {
         margin: "auto",
         width: "100%",
-        maxWidth: "var(--breakpoint-large)",
+        maxWidth: "var(--nypl-breakpoint-large)",
       },
       dismissibleButton: {
         border: "none",

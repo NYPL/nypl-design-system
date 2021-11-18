@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the organization of SCSS files by deleting some files and combining others.
 
+### Breaking Changes
+
+- Updates the breakpoint CSS variable names by adding the `--nypl` prefix and the SCSS variables by adding the `$nypl` prefix. Updates references throughout the codebase.
+
 ## 0.25.3 (November 18, 2021)
 
 ### Adds
