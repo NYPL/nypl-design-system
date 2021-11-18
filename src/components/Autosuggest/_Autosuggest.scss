@@ -25,11 +25,11 @@
 }
 
 .react-autosuggest__suggestions-container--open {
-  background-color: var(--ui-white);
+  background-color: var(--nypl-colors-ui-white);
   display: block;
   font-weight: 300;
   margin-top: -6px; // accounts for the focus ring on the input
-  outline: 1px solid var(--ui-gray-light-cool);
+  outline: 1px solid var(--nypl-colors-ui-gray-light-cool);
   position: absolute;
   width: 100%;
   z-index: 2;
@@ -43,13 +43,13 @@
 
 .react-autosuggest__suggestion {
   cursor: pointer;
-  padding: var(--space-xs);
+  padding: var(--nypl-space-xs);
 }
 
 .react-autosuggest__suggestion--highlighted {
-  background-color: var(--ui-gray-light-cool);
+  background-color: var(--nypl-colors-ui-gray-light-cool);
 }
 
 .auto-suggest-bottom {
-  padding: var(--space-xs);
+  padding: var(--nypl-space-xs);
 }

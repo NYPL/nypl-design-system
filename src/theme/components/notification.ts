@@ -13,7 +13,7 @@ const Notification = {
       bg,
       display: "flex",
       fontSize: "-1",
-      padding: "var(--space) var(--space-l)",
+      padding: "var(--nypl-space-s) var(--nypl-space-l)",
       position: "relative",
       textAlign: centered ? "center" : null,
       borderRadius: noMargin ? "0" : "4px",
@@ -21,7 +21,7 @@ const Notification = {
       container: {
         margin: "auto",
         width: "100%",
-        maxWidth: "var(--breakpoint-large)",
+        maxWidth: "var(--nypl-breakpoint-large)",
       },
       dismissibleButton: {
         border: "none",
@@ -54,7 +54,9 @@ const NotificationContent = {
     justifyContent: "center",
     content: {
       width: "100%",
-      paddingLeft: alignText ? "calc(var(--space-m) + var(--space-s))" : null,
+      paddingLeft: alignText
+        ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
+        : null,
       color:
         notificationType === NotificationTypes.Warning
           ? "brand.primary"
