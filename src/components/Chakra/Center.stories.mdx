@@ -3,6 +3,7 @@ import { Box, Center, Square, Circle, HStack } from "@chakra-ui/react";
 
 import { getCategory } from "../../utils/componentCategories";
 import Image from "../Image/Image";
+import { ImageSizes } from "../Image/ImageTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconColors, IconSizes } from "../Icons/IconTypes";
 import DSProvider from "../../theme/provider";
@@ -15,7 +16,8 @@ import DSProvider from "../../theme/provider";
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
 
-Note: This needs the use of the `DSProvider` component. See the [README](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)
+Note: This needs the use of the `DSProvider` component. See the
+[README](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)
 for more information.
 
 These components are directly exported from Chakra UI. The `Center`, `Circle`,
@@ -30,7 +32,7 @@ guide on the Chakra UI site.
   <Story
     name="Center, Circle, Square"
     args={{
-      p: "5",
+      padding: "s",
       bg: "var(--nypl-colors-brand-primary)",
       color: "var(--nypl-colors-ui-white)",
     }}
@@ -39,8 +41,7 @@ guide on the Chakra UI site.
       <Box>
         Some text at the beginning.
         <Center {...args}>
-          So when I look up at the stars, I just wonder...what will they all
-          become someday?
+          This text is centered inside a `Center` component.
         </Center>
         Some text at the end.
       </Box>
@@ -50,15 +51,20 @@ guide on the Chakra UI site.
 
 <Canvas>
   <DSProvider>
-    <Center>
-      <Image src="https://placeimg.com/300/400/arch" alt="Centered Image" />
+    <Center border="1px solid" borderColor="var(--nypl-colors-ui-gray-medium)">
+      <Image
+        src="https://placeimg.com/300/400/arch"
+        alt="Centered Image"
+        imageSize={ImageSizes.Medium}
+      />
     </Center>
   </DSProvider>
 </Canvas>
 
 ## Circle
 
-Similar to `Center` but is always a circle!
+This component is similar to the `Center` component but it is always rendered as
+a circle.
 
 <Canvas>
   <DSProvider>
@@ -83,7 +89,8 @@ Similar to `Center` but is always a circle!
 
 ## Square
 
-Similar to `Center` but always has equal height and width.
+This component is similar to the `Circle` component but always has equal height
+and width.
 
 <Canvas>
   <DSProvider>
