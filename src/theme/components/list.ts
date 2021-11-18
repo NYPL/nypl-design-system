@@ -41,13 +41,13 @@ const List = {
         borderTop: "3px solid",
         borderColor: "section.research.primary",
         margin: "0",
-        padding: "var(--space-xs) 0 0",
+        padding: "var(--nypl-space-xs) 0 0",
       },
       dl: {
         display: "grid",
         gridTemplateColumns: { base: "100%", md: "max(250px) 1fr" },
         gridTemplateRows: "1fr",
-        margin: "var(--space-xs) 0 0",
+        margin: "var(--nypl-space-xs) 0 0",
       },
       dt: {
         borderTop: "1px solid",

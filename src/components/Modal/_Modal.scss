@@ -5,9 +5,9 @@
 }
 
 .modal {
-  @include space-inset-s;
+  padding: var(--nypl-space-s);
 
-  background-color: var(--ui-gray-x-light-warm);
+  background-color: var(--nypl-colors-ui-gray-x-light-warm);
   height: 100vh;
   left: 0;
   overflow-y: auto;

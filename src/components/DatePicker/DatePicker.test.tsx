@@ -383,6 +383,7 @@ describe("DatePicker", () => {
           <DatePicker
             id="no-label"
             labelText="Select the date you want to visit NYPL"
+            initialDate="1/2/1988"
             showLabel={false}
           />
         )
