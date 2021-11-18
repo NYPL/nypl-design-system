@@ -16,13 +16,10 @@ export interface MultiSelectProps {
   id: string;
   /** The label of the multiSelect. */
   label: string;
-  /** The items to be rendered in the multiselect. */
+  /** The items to be rendered in the multiselect as options. */
   items: MultiSelectItem[];
-  /** Handler for onChange of checkbox, for controlled MultiSelect. */
-  handleOnSelectedItemChange: (
-    selectedItem: MultiSelectItem,
-    id: string
-  ) => void;
+  /** The action to perform for downshift's onSelectedItemChange function. */
+  onChange: (selectedItem: MultiSelectItem, id: string) => void;
   /** The selected items (items that were checked by user). */
   selectedItems: SelectedItems;
 }
@@ -31,7 +28,7 @@ function MultiSelect({
   id,
   label,
   items,
-  handleOnSelectedItemChange,
+  onChange,
   selectedItems,
 }: MultiSelectProps) {
   const {
@@ -61,28 +58,16 @@ function MultiSelect({
     // @ts-ignore
     selectedItem: selectedItems,
     onSelectedItemChange: ({ selectedItem }) => {
-      handleOnSelectedItemChange(selectedItem, id);
+      onChange(selectedItem, id);
     },
   });
 
   const styles = useMultiStyleConfig("MultiSelect", {});
 
-  function setFilterCheckedProp(multiSelectId: string, itemId: string) {
-    let checked = false;
-    if (selectedItems[multiSelectId] !== undefined) {
-      // @ts-ignore
-      checked = selectedItems[multiSelectId].items.find(
-        // @ts-ignore
-        (filter: string) => filter === itemId
-      );
-    }
-    return checked;
-  }
-
   return (
     <Box id={id} __css={styles.container}>
       <MultiSelectMenuButton
-        id={id}
+        multiSelectId={id}
         label={label}
         isOpen={isOpen}
         selectedItems={selectedItems}
@@ -117,7 +102,14 @@ function MultiSelect({
                   labelText={item.name}
                   showLabel={true}
                   name={item.name}
-                  isChecked={setFilterCheckedProp(id, item.id) || false}
+                  isChecked={
+                    selectedItems[id]?.items.find(
+                      // @ts-ignore
+                      (selectedItemId: string) => selectedItemId === item.id
+                    )
+                      ? true
+                      : false
+                  }
                   onChange={() => null}
                 />
               </ListItem>

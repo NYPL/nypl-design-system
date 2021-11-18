@@ -18,14 +18,18 @@ export interface MultiSelectProps {
   id: string;
   /** The label of the multiSelect. */
   label: string;
-  /** The open status of the multiselect menu */
+  /** The open status of the multiselect menu. */
   isOpen?: boolean;
+  /** Whether the multiselect is in mobile mode or not. */
+  isMobile?: boolean;
   /** The action to perform for the multiselect menu toggle button. */
   onMenuToggle?: React.MouseEventHandler<HTMLButtonElement>;
-  /** The items to be rendered in the multiselect. */
+  /** The items to be rendered in the multiselect as options. */
   items: MultiSelectItem[];
-  /** The action to perform on the checkbox's onChange function  */
+  /** The action to perform on the checkbox's onChange function.  */
   onChange: React.ChangeEventHandler<HTMLInputElement>;
+  /** %he action to perform for a mixed state checkbox (parent checkbox). */
+  onMixedStateChange?: React.ChangeEventHandler<HTMLInputElement>;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** The action to perform for save/apply button of multiselect. */
@@ -39,7 +43,9 @@ function MultiSelectDialog({
   label,
   items,
   isOpen,
+  isMobile,
   onChange,
+  onMixedStateChange,
   selectedItems,
   onMenuToggle,
   onApply,
@@ -47,28 +53,89 @@ function MultiSelectDialog({
 }: MultiSelectProps) {
   const styles = useMultiStyleConfig("MultiSelect", {});
 
-  function setFilterCheckedProp(multiSelectId: string, itemId: string) {
-    let checked = false;
-    if (selectedItems[multiSelectId] !== undefined) {
-      // @ts-ignore
-      checked = selectedItems[multiSelectId].items.find(
+  /*function setIsCheckedProp(multiSelectId: string, itemId: string) {
+    if (
+      selectedItems[multiSelectId] !== undefined &&
+      selectedItems[multiSelectId].items.find(
         // @ts-ignore
         (filter: string) => filter === itemId
-      );
+      )
+    ) {
+      return true;
     }
-    return checked;
+    return false;
+  }
+  */
+
+  function isAllChecked(multiSelectId: string, item: MultiSelectItem): boolean {
+    let childIds = [];
+    item.children.map((childItem) => {
+      childIds.push(childItem.id);
+    });
+    if (
+      selectedItems[multiSelectId] !== undefined &&
+      childIds.every((childItem) =>
+        selectedItems[multiSelectId].items.includes(childItem)
+      )
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  function isIndeterminate(multiSelectId: string, item: MultiSelectItem) {
+    let childIds = [];
+    item.children.map((childItem) => {
+      childIds.push(childItem.id);
+    });
+    if (
+      selectedItems[multiSelectId] !== undefined &&
+      childIds.some((childItem) =>
+        selectedItems[multiSelectId].items.includes(childItem)
+      ) &&
+      !isAllChecked(multiSelectId, item)
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  // Helper function to get the child items and allow consuming app to get this data.
+  // @TODO you actually don't need this technically, you're just using the items
+  // from the data array that are passed in. You can get this directly inside
+  // the consuming component...
+  function onMixedStateChangeHelper(item: MultiSelectItem) {
+    // Build an array of child items.
+    let childIds = [];
+    item.children.map((childItem: MultiSelectItem) => {
+      childIds.push(childItem.id);
+    });
+
+    // This is the prop passed into the component that returns the child item ids.
+    // @ts-ignore
+    onMixedStateChange(childIds);
+  }
+
+  function focusLockDisabled(): boolean {
+    if (isMobile) {
+      return true;
+    }
+    if (!isOpen) {
+      return false;
+    }
+    return false;
   }
 
   return (
     <Box id={id} __css={styles.container}>
       <MultiSelectMenuButton
-        id={id}
+        multiSelectId={id}
         label={label}
         isOpen={isOpen}
         selectedItems={selectedItems}
         onMenuToggle={onMenuToggle}
       />
-      <FocusLock disabled={!isOpen}>
+      <FocusLock disabled={focusLockDisabled()}>
         <Box
           role="dialog"
           __css={styles.menuWrapper}
@@ -89,8 +156,9 @@ function MultiSelectDialog({
                         labelText={item.name}
                         showLabel={true}
                         name={item.name}
-                        isChecked={setFilterCheckedProp(id, item.id) || false}
-                        onChange={onChange}
+                        isChecked={isAllChecked(id, item) || false}
+                        isIndeterminate={isIndeterminate(id, item) || false}
+                        onChange={() => onMixedStateChangeHelper(item)}
                       />
                       <UnorderedList
                         styleType="none"
@@ -106,8 +174,13 @@ function MultiSelectDialog({
                                 showLabel={true}
                                 name={childItem.name}
                                 isChecked={
-                                  setFilterCheckedProp(id, childItem.id) ||
-                                  false
+                                  selectedItems[id]?.items.find(
+                                    // @ts-ignore
+                                    (selectedItemId: string) =>
+                                      selectedItemId === childItem.id
+                                  )
+                                    ? true
+                                    : false
                                 }
                                 onChange={onChange}
                               />
@@ -122,14 +195,21 @@ function MultiSelectDialog({
                       labelText={item.name}
                       showLabel={true}
                       name={item.name}
-                      isChecked={setFilterCheckedProp(id, item.id) || false}
+                      isChecked={
+                        selectedItems[id]?.items.find(
+                          // @ts-ignore
+                          (selectedItemId: string) => selectedItemId === item.id
+                        )
+                          ? true
+                          : false
+                      }
                       onChange={onChange}
                     />
                   )}
                 </ListItem>
               ))}
           </UnorderedList>
-          {isOpen && (
+          {isOpen && !isMobile && (
             <Stack direction="row" spacing={4} justify="flex-end">
               <Button
                 buttonType={ButtonTypes.Link}

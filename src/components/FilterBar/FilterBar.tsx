@@ -13,21 +13,21 @@ export interface FilterBarProps {
   id: string;
   /** The label of the FilterBar. */
   label: string;
-  /**  */
+  /** Whether the FilterBar modal is open or closed. */
   isModalOpen: boolean;
-  /**  */
+  /** The action to perform on the "filters" button onClick function. */
+  onModalToggle: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /** Whether the FilterBar is in mobile mode or not. */
   isMobile: boolean;
   /** The selected items (items that were checked by user). */
-  selectedItems: SelectedItems;
-  /** Handler for the mobile filters button. */
-  onClickMobileFiltersButton: () => void;
-  /** Handler for the mobile go back button. */
-  onClickGoBack: () => void;
-  /** Handler for the mobile clear selected items button. */
-  onClearSelectedItems: () => void;
-  /** Handler for the mobile clear save button. */
-  onSaveSelectedItems: () => void;
-  /** Children compenents */
+  selectedItems?: SelectedItems;
+  /** The onClick callback function for the go back button. */
+  onGoBack: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /** The onClick callback function for the clear filters button. */
+  onClear: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /** The onClick callback function for the apply filters button. */
+  onApply: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  /** Children compenents passed into the FilterBar. */
   children: React.ReactNode;
 }
 
@@ -35,18 +35,18 @@ function FilterBar({
   id,
   label,
   isModalOpen,
-  onClickMobileFiltersButton,
-  onClickGoBack,
+  onModalToggle,
   isMobile,
   selectedItems,
-  onClearSelectedItems,
-  onSaveSelectedItems,
+  onGoBack,
+  onClear,
+  onApply,
   children,
 }: FilterBarProps) {
   const styles = useMultiStyleConfig("FilterBar", {});
 
   // Sets the label of the filters button.
-  function setFilterButtonLabel(selectedItems: SelectedItems) {
+  function getFilterButtonLabel(selectedItems: SelectedItems) {
     let allItems = [];
     for (let [_, value] of Object.entries(selectedItems)) {
       value.items.map((item) => {
@@ -61,11 +61,11 @@ function FilterBar({
       {isMobile ? (
         <Box __css={styles.inner}>
           <Button
-            onClick={onClickMobileFiltersButton}
+            onClick={onModalToggle}
             buttonType={ButtonTypes.Secondary}
             type="button"
           >
-            {setFilterButtonLabel(selectedItems)}
+            {getFilterButtonLabel(selectedItems)}
           </Button>
           {isModalOpen && (
             <Modal>
@@ -74,7 +74,7 @@ function FilterBar({
                   buttonType={ButtonTypes.Link}
                   mouseDown={false}
                   type="button"
-                  onClick={onClickGoBack}
+                  onClick={onGoBack}
                 >
                   <Icon
                     decorative
@@ -87,7 +87,7 @@ function FilterBar({
                   buttonType={ButtonTypes.Primary}
                   mouseDown={false}
                   type="button"
-                  onClick={onSaveSelectedItems}
+                  onClick={onApply}
                 >
                   Show Results
                 </Button>
@@ -103,7 +103,7 @@ function FilterBar({
                     type="submit"
                     buttonType={ButtonTypes.Link}
                     mouseDown={false}
-                    onClick={onClearSelectedItems}
+                    onClick={onClear}
                   >
                     Clear all filters
                   </Button>

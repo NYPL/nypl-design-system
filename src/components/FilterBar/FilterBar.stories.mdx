@@ -12,7 +12,7 @@ import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import FilterBar from "./FilterBar";
 import MultiSelect from "./../MultiSelect/MultiSelect";
-import FilterBarStory from "./FilterBarStory";
+import * as stories from "./FilterBar.stories.tsx";
 
 <Meta
   title={getCategory("FilterBar")}
@@ -69,11 +69,10 @@ This component renders a FilterBar.
       label: "Filter By:",
       isModalOpen: false,
       isMobile: false,
-      //selectedItems: {},
     }}
   >
     {(args) => (
-      <FilterBarStory
+      <stories.FilterBarWithMultiSelects
         {...args}
         id="filter-bar-multiselect"
         label="Filter By:"
@@ -83,3 +82,25 @@ This component renders a FilterBar.
 </Canvas>
 
 <ArgsTable story="FilterBar With MultiSelect" />
+
+<Canvas>
+  <Story
+    name="FilterBar With MultiSelect Dialogs"
+    args={{
+      id: "filter-bar-with-multiselects-dialog",
+      label: "Filter By:",
+      isModalOpen: false,
+      isMobile: false,
+    }}
+  >
+    {(args) => (
+      <stories.FilterBarWithMultiDialogs
+        {...args}
+        id="filter-bar-multiselect"
+        label="Filter By:"
+      />
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="FilterBar With MultiSelect Dialogs" />

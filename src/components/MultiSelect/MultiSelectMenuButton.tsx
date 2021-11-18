@@ -4,34 +4,35 @@ import { ButtonTypes } from "./../Button/ButtonTypes";
 import Icon from "./../Icons/Icon";
 import { IconNames, IconSizes } from "./../Icons/IconTypes";
 import { useMultiStyleConfig } from "@chakra-ui/react";
+import { SelectedItems } from "./MultiSelectTypes";
 
 export interface MultiSelectMenuButtonProps {
-  id: string;
+  /** The id of the multiSelect using this button. */
+  multiSelectId: string;
+  /** The label of the multiSelect using this button. */
   label: string;
+  /** The open status of the multiselect menu. */
   isOpen: boolean;
-  selectedItems: any;
-  onMenuToggle?: any;
+  /** The selected items state (items that were checked by user). */
+  selectedItems: SelectedItems;
+  /** The callback function for the menu toggle. */
+  onMenuToggle?: (event: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 const MultiSelectMenuButton = React.forwardRef<
   HTMLButtonElement,
   MultiSelectMenuButtonProps
 >((props, ref?) => {
-  const { id, label, isOpen, onMenuToggle, selectedItems } = props;
+  const { multiSelectId, label, isOpen, onMenuToggle, selectedItems } = props;
   const styles = useMultiStyleConfig("MultiSelect", {});
   const iconType = isOpen ? "Minus" : "Plus";
 
   // Sets the ListBoxMenuButton label, including a count of selected items.
-  function getButtonLabel(id: string) {
-    let buttonLabel = label;
-    if (
-      selectedItems !== undefined &&
-      selectedItems[id] !== undefined &&
-      selectedItems[id].items.length > 0
-    ) {
-      buttonLabel = `${label} (${selectedItems[id].items.length})`;
+  function getButtonLabel(multiSelectId: string) {
+    if (selectedItems[multiSelectId]?.items.length > 0) {
+      return `${label} (${selectedItems[multiSelectId].items.length})`;
     }
-    return buttonLabel;
+    return label;
   }
 
   /*function hasSelectedItems() {
@@ -42,6 +43,8 @@ const MultiSelectMenuButton = React.forwardRef<
       return true;
     }
     return false;
+
+    // Background color is #e0e0e0
   }
   */
 
@@ -55,7 +58,9 @@ const MultiSelectMenuButton = React.forwardRef<
       onClick={onMenuToggle}
       {...props}
     >
-      <span style={{ paddingRight: "10px" }}>{getButtonLabel(id)}</span>
+      <span style={{ paddingRight: "10px" }}>
+        {getButtonLabel(multiSelectId)}
+      </span>
       <Icon
         name={IconNames[iconType]}
         decorative={true}
