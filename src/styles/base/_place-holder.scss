@@ -1,8 +1,19 @@
 .placeholder {
-  --color-place-holder: var(--ui-gray-light-cool);
+  --color-place-holder: var(--nypl-colors-ui-gray-light-cool);
 
-  @include space-stack-page;
-  @include space-inset-s;
+  margin-bottom: var(--nypl-space-l);
+  @include breakpoint($nypl-breakpoint-large) {
+    margin-bottom: var(--nypl-space-xl);
+  }
+
+  &--full {
+    margin-bottom: var(--nypl-space-xxl);
+    @include breakpoint($nypl-breakpoint-large) {
+      margin-bottom: var(--nypl-space-xxxl);
+    }
+  }
+
+  padding: var(--nypl-space-s);
 
   align-items: center;
   border: 4px dashed var(--color-place-holder);

@@ -7,6 +7,7 @@ import {
   VideoPlayerTypes,
   VideoPlayerAspectRatios,
 } from "../VideoPlayer/VideoPlayerTypes";
+import DSProvider from "../../theme/provider";
 
 <Meta title={getCategory("Box")} component={Box} />
 
@@ -43,11 +44,13 @@ guide on the Chakra UI site.
 ## With VideoPlayer Component Example
 
 <Canvas>
-  <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
-    <VideoPlayer
-      videoId="nm-dD2tx6bk"
-      videoType={VideoPlayerTypes.YouTube}
-      aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
-    />
-  </Box>
+  <DSProvider>
+    <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
+      <VideoPlayer
+        videoId="nm-dD2tx6bk"
+        videoType={VideoPlayerTypes.YouTube}
+        aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
+      />
+    </Box>
+  </DSProvider>
 </Canvas>
