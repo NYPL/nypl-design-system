@@ -35,6 +35,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes styling issues for the `Notification` dismissible button.
 - Fixes `SearchBar` mobile styling for the `Select`, `TextInput`, and `Button` components.
 - Fixes `SearchBar` focus flicker when the `Select` component is selected.
+- Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
 
 ### Breaking Changes
 
