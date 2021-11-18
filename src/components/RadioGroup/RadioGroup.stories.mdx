@@ -3,7 +3,6 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
@@ -43,7 +42,7 @@ import Radio from "../Radio/Radio";
 
 <Description of={RadioGroup} />
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="RadioGroup"
     args={{
@@ -69,7 +68,7 @@ import Radio from "../Radio/Radio";
       </RadioGroup>
     )}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="RadioGroup" />
 
