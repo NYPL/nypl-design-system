@@ -71,9 +71,9 @@ The CSS custom properties are defined on the :root pseudo-class and should be im
 
 ## Using NYPL Design Tokens in Javascript
 
-If you would like to use CSS-in-JS styles in your React components, the `useNYPLTheme` hook will provide you with NYPL design token values. The hook depends on the `DSProvider` component and will not work properly outside of the DSProvider wrapper component.
+If you would like to use CSS-in-JS styles in your React components, the `useNYPLTheme` hook will provide you with NYPL design token values. The hook depends on the `DSProvider` component and will not work properly outside of the `DSProvider` wrapper component.
 
-After importing and implementing the `DSProvider` wrapper component, as explained in the `DSProvider` section of the DS Storybook document, your children components can use this hook function.
+After importing and implementing the `DSProvider` wrapper component, as explained in the `DSProvider` section of the [DS Chakra UI](?path=/story/chakra-ui--page#dsprovider) document, your children components can use this hook function.
 
 ```tsx
 import { useNYPLTheme } from "@nypl/design-system-react-components";
@@ -102,9 +102,9 @@ The theme variable will be a javascript object containing the NYPL design token 
 
 #### Using in DS Components
 
-The general rule of thumb is that DS components and the available variants should be used with the styles as they are shown in Storybook, but there may be rare times when a component does require a modification. That said, if a DS component does need an updated style, first contact the Design System and UX teams about this update.
+The general rule of thumb is that DS components and the available variants should be used with the styles and variants as they are shown in Storybook, but there may be rare times when a component does require a modification. That said, if a DS component does need an updated style, first contact the Design System and UX teams about this update.
 
-If you receive approval to make a change in a consuming app, then you can add styles directly to the `additionalStyles` prop. For example, if the Heading component should render the text in NYPL's green color used for "success primary" and add a bold font weight, then you can do the following:
+If you receive approval to make a change in a consuming app, then you can add styles directly to the `additionalStyles` prop. For example, if the `Heading` component needs to render text in NYPL's "success primary" green color and add a bold font weight, then you can do the following:
 
 ```tsx
 const theme = useNYPLTheme();
@@ -129,7 +129,7 @@ IMPORTANT: At the moment, not all DS components have this prop or feature.
 
 #### Using in HTML Components
 
-For styling standard HTML elements, use the style attribute to add inline styles.
+For styling standard HTML elements, use the `style` attribute to add inline styles.
 
 ```html
 <p style={{ color: theme.colors.ui.success.primary }}>
@@ -151,3 +151,20 @@ const CustomButton = styled.button`
 ```
 
 ## NYPL Design Token Categories
+
+The DS design tokens are broken into the following categories:
+
+- [breakpoints](?path=/story/documentation-style-guide-breakpoints--page)
+- [colors](?path=/story/documentation-style-guide-colors--page)
+  - brand
+  - section
+  - transparent
+  - ui
+- radii
+- [spacing](?path=/story/documentation-style-guide-spacing--page)
+- [typography](?path=/story/documentation-style-guide-typography--page)
+  - font families
+  - font sizes
+  - font weights
+
+For details related to a specific category, please refer to the corresponding section in the Style Guide available in the DS Storybook.
