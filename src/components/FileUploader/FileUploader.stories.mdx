@@ -1,0 +1,95 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import FileUploader from "./FileUploader";
+import SimpleGrid from "../Grid/SimpleGrid";
+import { GridGaps } from "../Grid/GridTypes";
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("FileUploader")}
+  component={FileUploader}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "",
+    },
+    jest: ["FileUploader.test.tsx"],
+  }}
+  argTypes={{
+    className: { table: { disable: true } },
+    id: { table: { disable: true } },
+    name: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+  }}
+/>
+
+# FileUploader
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.4`   |
+| Latest            | `0.25.4`   |
+
+<Description of={FileUploader} />
+
+<Canvas withToolbar>
+  <Story
+    name="Basic with Props"
+    args={{
+      formatsAllowed: ["image/png", "image/jpeg"],
+      helperText: "Pass in a value from the min 0 to the max 100 values.",
+      invalidText: "Oh no this is an error :(",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: false,
+      labelText: "FileUploader label",
+      maxFileSize: 100,
+      multiple: false,
+      optReqFlag: true,
+      showHelperInvalidText: true,
+      showLabel: true,
+    }}
+  >
+    {(args) => <FileUploader {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic with Props" />
+
+### Update me
+
+<Canvas>
+  <DSProvider>
+    <FileUploader />
+  </DSProvider>
+</Canvas>
+
+#### FileUploader Values
+
+```tsx
+// Typescript example:
+function FileUploaderExample() {
+  return <p>update</p>;
+}
+```
+
+export function FileUploaderExample() {
+  return <p>update</p>;
+}
+
+<Canvas>
+  <DSProvider>
+    <FileUploaderExample />
+  </DSProvider>
+</Canvas>
