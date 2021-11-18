@@ -842,6 +842,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
   >
     <label
       className="chakra-radio css-78joka"
+      data-invalid=""
     >
       <input
         aria-invalid={true}
@@ -892,6 +893,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     </label>
     <label
       className="chakra-radio css-78joka"
+      data-invalid=""
     >
       <input
         aria-invalid={true}
@@ -964,6 +966,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
   >
     <label
       className="chakra-radio css-78joka"
+      data-disabled=""
     >
       <input
         aria-disabled={true}
@@ -1014,6 +1017,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     </label>
     <label
       className="chakra-radio css-78joka"
+      data-disabled=""
     >
       <input
         aria-disabled={true}

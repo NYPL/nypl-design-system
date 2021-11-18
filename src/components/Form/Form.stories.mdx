@@ -3,7 +3,6 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
@@ -57,7 +56,7 @@ The `Form` component renders a standard `<form>` element and should be used to h
 
 `FormRow` should be used as a parent of multiple `FormField` components when you need to render multiple input components in a horizontal row.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="Form"
     args={{
@@ -187,7 +186,7 @@ The `Form` component renders a standard `<form>` element and should be used to h
       </Form>
     )}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Form" />
 
@@ -254,7 +253,7 @@ By default, the `Form` component will handle the NYPL spacing around form input 
 
 Below are the spacing variants available with the `FormSpacing` enum.
 
-<Preview>
+<Canvas>
   <Story
     name="Spacing Variants"
     args={{
@@ -263,7 +262,7 @@ Below are the spacing variants available with the `FormSpacing` enum.
   >
     {getForms(sizes)}
   </Story>
-</Preview>
+</Canvas>
 
 ## Example Code
 
