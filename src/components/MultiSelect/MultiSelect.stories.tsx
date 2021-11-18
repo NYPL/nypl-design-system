@@ -111,7 +111,8 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
 
 export const MultiSelectDialogStory: Story<MultiSelectDialogProps> = (args) => {
   const [selectedItems, setSelectedItems] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
+  const [openMultiSelectId, setOpenMultiSelectId] = useState(null);
+  const isOpen = openMultiSelectId === args.id;
 
   function handleChange(multiSelectId: string, itemId: string) {
     let itemIds;
@@ -174,7 +175,11 @@ export const MultiSelectDialogStory: Story<MultiSelectDialogProps> = (args) => {
       items={items}
       isOpen={isOpen}
       onMenuToggle={() => {
-        setIsOpen(!isOpen);
+        if (openMultiSelectId === args.id) {
+          setOpenMultiSelectId(null);
+        } else {
+          setOpenMultiSelectId(args.id);
+        }
       }}
       selectedItems={selectedItems}
       onChange={(e) => handleChange(args.id, e.target.id)}
@@ -182,11 +187,11 @@ export const MultiSelectDialogStory: Story<MultiSelectDialogProps> = (args) => {
         handleMixedStateChange(args.id, childItems);
       }}
       onApply={() => {
-        setIsOpen(false);
+        setOpenMultiSelectId(null);
       }}
       onClear={() => {
         setSelectedItems({});
-        setIsOpen(false);
+        setOpenMultiSelectId(null);
       }}
     />
   );

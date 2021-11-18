@@ -53,20 +53,6 @@ function MultiSelectDialog({
 }: MultiSelectProps) {
   const styles = useMultiStyleConfig("MultiSelect", {});
 
-  /*function setIsCheckedProp(multiSelectId: string, itemId: string) {
-    if (
-      selectedItems[multiSelectId] !== undefined &&
-      selectedItems[multiSelectId].items.find(
-        // @ts-ignore
-        (filter: string) => filter === itemId
-      )
-    ) {
-      return true;
-    }
-    return false;
-  }
-  */
-
   function isAllChecked(multiSelectId: string, item: MultiSelectItem): boolean {
     let childIds = [];
     item.children.map((childItem) => {
