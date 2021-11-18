@@ -5,4 +5,5 @@ export enum ButtonTypes {
   Pill = "pill",
   Link = "link",
   SearchBar = "searchBar",
+  NoBrand = "noBrand",
 }

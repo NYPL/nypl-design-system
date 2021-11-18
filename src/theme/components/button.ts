@@ -29,7 +29,7 @@ const baseStyle = {
   },
 };
 // Styles for different visual variants:
-// primary, secondary, link, pill, iconOnly, callout
+// primary, secondary, link, pill, iconOnly, callout, searchbar, noBrand
 const primary = {
   bg: "ui.link.primary",
   minWidth: "none",
@@ -100,11 +100,19 @@ const searchBar = {
   borderRightRadius: { base: "none", md: "sm" },
   lineHeight: "1.75",
 };
+const noBrand = {
+  ...primary,
+  bg: "ui.black",
+  color: "ui.white",
+  _hover: {
+    bg: "ui.black",
+    opacity: "0.8",
+  },
+};
 
 const Button = {
   baseStyle,
   // Available variants:
-  // primary, secondary, link, pill, iconOnly, searchBar
   variants: {
     primary,
     secondary,
@@ -113,6 +121,7 @@ const Button = {
     iconOnly,
     callout,
     searchBar,
+    noBrand,
   },
   // Default values
   defaultProps: {

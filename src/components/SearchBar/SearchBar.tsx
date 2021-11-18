@@ -133,7 +133,7 @@ export default function SearchBar(props: SearchBarProps) {
       buttonType={ButtonTypes.SearchBar}
       type="submit"
       onClick={buttonOnClick}
-      disabled={isDisabled}
+      isDisabled={isDisabled}
     >
       <Icon
         name={IconNames.Search}
