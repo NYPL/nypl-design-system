@@ -10,12 +10,28 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `ProgressIndicator` component.
+- Adds the `ButtonTypes.NoBrand` variant to the `Button` component.
+
+### Changes
+
+- Updates the organization of SCSS files by deleting some files and combining others.
+- Updates `@chakra-ui/react` to version 1.7.1 and `@chakra-ui/system` to version 1.8.1.
+
+### Breaking Changes
+
+- Updates the breakpoint CSS variable names by adding the `--nypl` prefix and the SCSS variables by adding the `$nypl` prefix. Updates references throughout the codebase.
+- Changes the `Button`'s `disabled` prop to `isDisabled`.
+
+## 0.25.3 (November 18, 2021)
+
+### Adds
+
 - Adds the `ImageRatios`, `ImageSizes`, and `ImageTypes` enums.
 - Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
 - Adds the ability to make an entire `Card` component clickable with Chakra's `LinkBox` and `LinkOverlay` components. Links in the `CardActions` component can still be accessed in this state by clicking with the mouse or tabbing and pressing "enter".
 - Adds new file type SVG files to use in the `Icon` component: Audio, Doc, GenericDoc, Image, PDF, Spreadsheet, Video.
 - Adds `ActionCheckCircle` SVG file to use in the `Icon` component.
-- Adds the `ButtonTypes.NoBrand` variant to the `Button` component.
 
 ### Changes
 
@@ -48,7 +64,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
 - Composes the DS `DatePicker` component with Chakra. Adds more tests, documentation, and examples. This component now uses the `Fieldset` component for the date range type, and better `Form` components for layout. Prop name changes: `dateRange` is now `isDateRange` and `required` is now `isRequired`. BEM related props `modifiers` and `blockname` have been removed. The "Required"/"Optional" text in the date range legend can now be hidden with the `showOptReqLabel` prop.
 - Composes the DS `SkeletonLoader` with Chakra's `Skeleton` component. BEM related prop `modifiers` has been removed. Chakra's default `Skeleton` styles have been updated with NYPL's theme.
-- Changes the `Button`'s `disabled` prop to `isDisabled`.
+- Removes deprecated CSS variables. Now the DS repo only uses the CSS variables exposed by Chakra that contain the `--nypl` prefix.
 
 ## 0.25.2 (October 28, 2021)
 
