@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the organization of SCSS files by deleting some files and combining others.
+
+## 0.25.3 (November 18, 2021)
+
 ### Adds
 
 - Adds the `ImageRatios`, `ImageSizes`, and `ImageTypes` enums.
@@ -26,7 +32,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Button` Style Guide documentation.
 - Updates the `Iconography` Style Guide story documentation.
 - Updates the `Button` font weight to "regular".
-- Updates the organization of SCSS files by deleting some files and combining others.
 
 ### Fixes
 
