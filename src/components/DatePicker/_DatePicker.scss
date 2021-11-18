@@ -1,76 +1,42 @@
-fieldset {
-  legend {
-    @include space-stack-xs;
-
-    font-size: 14px;
-    font-weight: var(--font-weight-medium);
+// Styles needed to override `react-datepicker` plugin styles.
+.date-picker-calendar {
+  // Make sure the width is enough to fit 12 selectable years.
+  .react-datepicker__year-wrapper {
+    max-width: 220px;
   }
 
-  &.date-picker {
-    @include fieldset-reset;
-  }
-
-  .label,
-  .label__required-helper {
-    font-size: var(--font-size--2);
-    font-weight: var(--font-weight-regular);
-    margin-bottom: 0;
-  }
-}
-
-.date-picker {
-  .sr-only {
-    @include screenreader-only();
-  }
-
-  .form .form-row,
-  .form-field {
-    margin-bottom: 0;
-  }
-
-  .react-datepicker-wrapper {
-    width: 100%;
-  }
-
-  .date-picker-calendar {
-    // Make sure the width is enough to fit 12 selectable years
-    .react-datepicker__year-wrapper {
-      max-width: 220px;
+  // Moving away from React DatePickers default blue color theme:
+  .react-datepicker__year,
+  .react-datepicker__month,
+  .react-datepicker__day {
+    // For currently selected ranges
+    &--in-range.react-datepicker__day--in-range {
+      opacity: 0.5;
     }
 
-    // Moving away from React DatePickers default blue color theme:
-    .react-datepicker__year,
-    .react-datepicker__month,
-    .react-datepicker__day {
-      // For currently selected ranges
-      &--in-range.react-datepicker__day--in-range {
-        opacity: 0.5;
-      }
-
-      // For ranges about to be selected
-      &-text--keyboard-selected,
-      &--keyboard-selected,
-      &--in-range,
-      &--in-selecting-range {
-        background-color: $black;
-        border-radius: 0;
-        color: $white;
-        opacity: 0.3;
-      }
-
-      // Selected states
-      &-text--selected,
-      &--selected {
-        background-color: $black;
-        border-radius: 0;
-        color: $white;
-        opacity: 1;
-      }
+    // For ranges about to be selected.
+    &-text--keyboard-selected,
+    &--keyboard-selected,
+    &--in-range,
+    &--in-selecting-range {
+      background-color: $black;
+      border-radius: 0;
+      color: $white;
+      opacity: 0.3;
     }
 
-    // Shift the traingle to the left
-    .react-datepicker__triangle {
-      transform: translate(32px, 0px) !important;
+    // Selected states.
+    &-text--selected,
+    &--selected {
+      background-color: $black;
+      border-radius: 0;
+      color: $white;
+      opacity: 1;
     }
+  }
+
+  // Shift the triangle to the left.
+  .react-datepicker__triangle {
+    transform: translate(32px, 0px) !important;
   }
 }

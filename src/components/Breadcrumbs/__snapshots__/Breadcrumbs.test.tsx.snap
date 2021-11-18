@@ -42,6 +42,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
           focusable={false}
           id="breadcrumbs-test__backarrow"
           role="img"
+          title="arrow icon"
           viewBox="0 0 24 24"
         >
           <g

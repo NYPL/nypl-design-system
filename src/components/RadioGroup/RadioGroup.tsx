@@ -11,6 +11,7 @@ import generateUUID from "../../helpers/generateUUID";
 import { spacing } from "../../theme/foundations/spacing";
 import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
 import Radio from "../Radio/Radio";
+import Fieldset from "../Fieldset/Fieldset";
 
 export interface RadioGroupProps {
   /** Any child node passed to the component. */
@@ -19,12 +20,12 @@ export interface RadioGroupProps {
   className?: string;
   /** Populates the initial value of the input */
   defaultValue?: string;
-  /** Optional string to populate the HelperErrorText for error state */
-  invalidText?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Optional string to populate the HelperErrorText for error state */
+  invalidText?: string;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
   /** Adds the 'aria-invalid' attribute to the input and
@@ -117,30 +118,24 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       }
     });
 
-    // Get the Chakra-based styles for all the custom elements in this component.
-    const styles = useMultiStyleConfig("CustomRadioGroup", {});
+    // Get the Chakra-based styles for the custom elements in this component.
+    const styles = useMultiStyleConfig("RadioGroup", {});
 
     return (
-      <Box
-        as="fieldset"
+      <Fieldset
         id={`radio-group-${id}`}
         className={className}
-        __css={styles}
+        isLegendHidden={!showLabel}
+        legendText={labelText}
+        optReqFlag={optReqFlag}
       >
-        <legend className={showLabel ? "" : "sr-only"}>
-          <span>{labelText}</span>
-          {optReqFlag && (
-            <Box as="span" __css={styles.required}>
-              {isRequired ? "Required" : "Optional"}
-            </Box>
-          )}
-        </legend>
         <Stack
           direction={[layout]}
           spacing={spacingProp}
           ref={ref}
           aria-label={!showLabel ? labelText : null}
           {...radioGroupProps}
+          sx={styles.stack}
         >
           {newChildren}
         </Stack>
@@ -151,7 +146,7 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
             </HelperErrorText>
           </Box>
         )}
-      </Box>
+      </Fieldset>
     );
   }
 );

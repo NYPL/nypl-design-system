@@ -11,11 +11,14 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
+import Card from "./components/card";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
-import CustomCheckboxGroup from "./components/customCheckboxGroup";
-import CustomRadioGroup from "./components/customRadioGroup";
+import CheckboxGroup from "./components/checkboxGroup";
+import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
+import DatePicker from "./components/datePicker";
+import Fieldset from "./components/fieldset";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
@@ -25,8 +28,11 @@ import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
 import NotificationStyles from "./components/notification";
+import Pagination from "./components/pagination";
 import Radio from "./components/radio";
+import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
+import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
@@ -68,11 +74,15 @@ const theme = extendTheme({
     Accordion,
     Breadcrumb,
     Button,
+    ...Card,
     Checkbox,
+    CheckboxGroup,
     ComponentWrapper,
-    CustomCheckboxGroup,
-    CustomRadioGroup,
+    CustomImage,
+    CustomImageWrapper,
     CustomSelect,
+    DatePicker,
+    Fieldset,
     Heading,
     HelperErrorText,
     Hero,
@@ -82,8 +92,12 @@ const theme = extendTheme({
     Link,
     List,
     ...NotificationStyles,
+    Pagination,
     Radio,
+    RadioGroup,
     SearchBar,
+    Skeleton,
+    SkeletonLoader,
     StatusBadge,
     Tabs,
     ...TemplateStyles,

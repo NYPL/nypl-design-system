@@ -42,17 +42,10 @@
 @import "./styles/base/_card-grid";
 @import "./styles/base/_place-holder";
 @import "./styles/base/_typography";
-@import "./components/Button/_Button.scss";
 @import "./components/Input/_Input.scss";
 @import "./components/Autosuggest/_Autosuggest.scss";
 
-fieldset {
-  .sr-only {
-    @include screenreader-only();
-  }
-}
-
-// Copied over from Label.scss
+// Used in `Input.tsx`
 .fieldset {
   @include fieldset-reset;
 }
@@ -63,10 +56,6 @@ fieldset {
 }
 
 // Order not important
-@import "./components/Card/_Card.scss";
 @import "./components/CardEdition/_CardEdition.scss";
 @import "./components/DatePicker/_DatePicker.scss";
-@import "./components/Image/_Image.scss";
 @import "./components/Modal/_Modal.scss";
-@import "./components/Pagination/_Pagination.scss";
-@import "./components/SkeletonLoader/_SkeletonLoader.scss";

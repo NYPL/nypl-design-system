@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
+<nav
+  aria-label="Pagination"
+  className="css-0"
+  id="firstPage"
+  role="navigation"
+>
+  <ul
+    className="css-0"
+    id="firstPage-list"
+  >
+    <li>
+      <a
+        aria-current="page"
+        aria-label="Page 1"
+        className="css-1858g8z"
+        href="page=1"
+        id="firstPage-1"
+      >
+        1
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 2"
+        className="css-0"
+        href="page=2"
+        id="firstPage-2"
+      >
+        2
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 3"
+        className="css-0"
+        href="page=3"
+        id="firstPage-3"
+      >
+        3
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 4"
+        className="css-0"
+        href="page=4"
+        id="firstPage-4"
+      >
+        4
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 5"
+        className="css-0"
+        href="page=5"
+        id="firstPage-5"
+      >
+        5
+      </a>
+    </li>
+    <li>
+      ...
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 10"
+        className="css-0"
+        href="page=10"
+        id="firstPage-10"
+      >
+        10
+      </a>
+    </li>
+    <li>
+      <a
+        aria-label="Next page"
+        className="css-0"
+        href="page=2"
+        id="firstPage-Next"
+      >
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
+<nav
+  aria-label="Pagination"
+  className="css-0"
+  id="lastPage"
+  role="navigation"
+>
+  <ul
+    className="css-0"
+    id="lastPage-list"
+  >
+    <li>
+      <a
+        aria-label="Previous page"
+        className="css-0"
+        href="page=9"
+        id="lastPage-Previous"
+      >
+        Previous
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 1"
+        className="css-0"
+        href="page=1"
+        id="lastPage-1"
+      >
+        1
+      </a>
+    </li>
+    <li>
+      ...
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 6"
+        className="css-0"
+        href="page=6"
+        id="lastPage-6"
+      >
+        6
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 7"
+        className="css-0"
+        href="page=7"
+        id="lastPage-7"
+      >
+        7
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 8"
+        className="css-0"
+        href="page=8"
+        id="lastPage-8"
+      >
+        8
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 9"
+        className="css-0"
+        href="page=9"
+        id="lastPage-9"
+      >
+        9
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current="page"
+        aria-label="Page 10"
+        className="css-1858g8z"
+        href="page=10"
+        id="lastPage-10"
+      >
+        10
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
+<nav
+  aria-label="Pagination"
+  className="css-0"
+  id="middlePage"
+  role="navigation"
+>
+  <ul
+    className="css-0"
+    id="middlePage-list"
+  >
+    <li>
+      <a
+        aria-label="Previous page"
+        className="css-0"
+        href="page=4"
+        id="middlePage-Previous"
+      >
+        Previous
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 1"
+        className="css-0"
+        href="page=1"
+        id="middlePage-1"
+      >
+        1
+      </a>
+    </li>
+    <li>
+      ...
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 4"
+        className="css-0"
+        href="page=4"
+        id="middlePage-4"
+      >
+        4
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current="page"
+        aria-label="Page 5"
+        className="css-1858g8z"
+        href="page=5"
+        id="middlePage-5"
+      >
+        5
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 6"
+        className="css-0"
+        href="page=6"
+        id="middlePage-6"
+      >
+        6
+      </a>
+    </li>
+    <li>
+      ...
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 10"
+        className="css-0"
+        href="page=10"
+        id="middlePage-10"
+      >
+        10
+      </a>
+    </li>
+    <li>
+      <a
+        aria-label="Next page"
+        className="css-0"
+        href="page=6"
+        id="middlePage-Next"
+      >
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

@@ -8,6 +8,48 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.3 (November 18, 2021)
+
+### Adds
+
+- Adds the `ImageRatios`, `ImageSizes`, and `ImageTypes` enums.
+- Composes the DS `Fieldset` component with Chakra. This always renders a `legend` element as its first child but it can be optionally hidden from the screen.
+- Adds the ability to make an entire `Card` component clickable with Chakra's `LinkBox` and `LinkOverlay` components. Links in the `CardActions` component can still be accessed in this state by clicking with the mouse or tabbing and pressing "enter".
+- Adds new file type SVG files to use in the `Icon` component: Audio, Doc, GenericDoc, Image, PDF, Spreadsheet, Video.
+- Adds `ActionCheckCircle` SVG file to use in the `Icon` component.
+
+### Changes
+
+- Updates the Github Action for the changelog reminder.
+- Updates the `Checkbox` component with an "indeterminate" state through the `isIndeterminate` prop.
+- Updates the `CheckboxGroup` component story with an "indeterminate" state example.
+- Updates the `CheckboxGroup` and `RadioGroup` components to use the `Fieldset` component.
+- Updates the `HelperErrorText` and `TextInput` components with added `additionalStyles` prop.
+- Updates the `Button` Style Guide documentation.
+- Updates the `Iconography` Style Guide story documentation.
+- Updates the `Button` font weight to "regular".
+
+### Fixes
+
+- Fixes nondeterministic unit test in the `DatePicker` component.
+- Version of latest `List` component release in its storybook page.
+- Adds validation to the `height` prop in the `HorizontalRule` so percentage values are not used. If a percentage value is used, the default "2px" value is set.
+- Fixes styling issues for the `Notification` dismissible button.
+- Fixes `SearchBar` mobile styling for the `Select`, `TextInput`, and `Button` components.
+- Fixes `SearchBar` focus flicker when the `Select` component is selected.
+
+### Breaking Changes
+
+- Updates the `Notification` component to fix the custom icon alignment.
+- Adds the `title` prop to the `Icon` component to render a `title` HTML element for accessible SVG icons.
+- Updates the default font size of the `Button` component to `"-1"` (14px) for all variants except the `Link` variant. Removes the `bem` function from internal use and makes it clearer that the `ButtonGroup` Chakra component is exported in the Design System.
+- Updates the `errorText` prop to `invalidText` for the `Checkbox` component.
+- Composes the DS `Pagination` component with Chakra. Removes the BEM-related props and updates the `currentPage` prop to `initialPage`. The current selected page is now kept in state inside the `Pagination` component and returned to the user through `getPageHref` or `onPageChange`. This also adds better aria attributes to the list inside the `Pagination` component.
+- Composes the DS `Image` component with Chakra styling and updates all `Image` references in other DS components. The `attributes` prop and the BEM related props `blockname` and `modifiers` have been removed. Adds the following new props: `additionalStyles`, `component`, `imageAspectRatio`, `imageSize`, `imageType`.
+- Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
+- Composes the DS `DatePicker` component with Chakra. Adds more tests, documentation, and examples. This component now uses the `Fieldset` component for the date range type, and better `Form` components for layout. Prop name changes: `dateRange` is now `isDateRange` and `required` is now `isRequired`. BEM related props `modifiers` and `blockname` have been removed. The "Required"/"Optional" text in the date range legend can now be hidden with the `showOptReqLabel` prop.
+- Composes the DS `SkeletonLoader` with Chakra's `Skeleton` component. BEM related prop `modifiers` has been removed. Chakra's default `Skeleton` styles have been updated with NYPL's theme.
+
 ## 0.25.2 (October 28, 2021)
 
 ### Adds
