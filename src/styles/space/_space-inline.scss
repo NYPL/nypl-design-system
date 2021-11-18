@@ -1,11 +1,11 @@
 /**
- * $space-xxs: $space / 4;   //  4px
- * $space-xs: $space / 2;    //  8px
- * $space-s: $space * 1;     // 16px
- * $space-m: $space * 1.5;   // 24px
- * $space-l: $space * 2;     // 32px
- * $space-xl: $space * 3;    // 48px
- * $space-xxl: $space * 4;   // 64px
+ * --nypl-space-xxs: --nypl-space-s / 4  //  4px or 0.25rem
+ * --nypl-space-xs: --nypl-space-s / 2   //  8px or 0.5rem
+ * --nypl-space-s: --nypl-space-s * 1;   // 16px or 1rem
+ * --nypl-space-m: --nypl-space * 1.5;   // 24px or 1.5rem
+ * --nypl-space-l: --nypl-space * 2;     // 32px or 2rem
+ * --nypl-space-xl: --nypl-space * 3;    // 48px or 3rem
+ * --nypl-space-xxl: --nypl-space * 4;   // 64px or 4rem
  */
 
 @mixin space-inline-none {
@@ -13,31 +13,31 @@
 }
 
 @mixin space-inline-xxs {
-  margin-right: var(--space-xxs);
+  margin-right: var(--nypl-space-xxs);
 }
 
 @mixin space-inline-xs {
-  margin-right: var(--space-xs);
+  margin-right: var(--nypl-space-xs);
 }
 
 @mixin space-inline-s {
-  margin-right: var(--space-s);
+  margin-right: var(--nypl-space-s);
 }
 
 @mixin space-inline-m {
-  margin-right: var(--space-m);
+  margin-right: var(--nypl-space-m);
 }
 
 @mixin space-inline-l {
-  margin-right: var(--space-l);
+  margin-right: var(--nypl-space-l);
 }
 
 @mixin space-inline-xl {
-  margin-right: var(--space-xl);
+  margin-right: var(--nypl-space-xl);
 }
 
 @mixin space-inline-xxl {
-  margin-right: var(--space-xxl);
+  margin-right: var(--nypl-space-xxl);
 }
 
 @mixin get-space-inline($id) {

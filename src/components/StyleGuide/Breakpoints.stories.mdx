@@ -28,20 +28,34 @@ import { getCategory } from "../../utils/componentCategories";
 
 The DS adheres to four global breakpoints for responsive layouts and typography.
 
-- Desktop: 1280px
-- Tablet Landscape: 960px
-- Tablet Portrait: 600px
 - Mobile: 320px
+- Tablet Portrait: 600px
+- Tablet Landscape: 960px
+- Desktop: 1280px
 
 ## CSS Variables
 
 The following CSS variables are available through the DS.
 
+```scss
+--nypl-breakpoint-small: 320px;
+--nypl-breakpoint-medium: 600px;
+--nypl-breakpoint-large: 960px;
+--nypl-breakpoint-xl: 1280px;
 ```
---breakpoint-xl: 1280px;
---breakpoint-large: 960px;
---breakpoint-medium: 600px;
---breakpoint-small: 320px;
+
+## SCSS Variables
+
+If you are using SCSS and imported the NYPL Design System `/dist/resources.scss`
+file, then you can use the following SCSS variables in your media queries or
+SCSS `breakpoint` function (if used).
+
+```scss
+$nypl-breakpoint-small: 320px;
+$nypl-breakpoint-medium: 600px;
+$nypl-breakpoint-large: 960px;
+$nypl-breakpoint-xl: 1280px;
+$nypl-max-width: $nypl-breakpoint-xl;
 ```
 
 ## Figma Reference

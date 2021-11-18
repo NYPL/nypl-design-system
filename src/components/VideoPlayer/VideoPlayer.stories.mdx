@@ -3,7 +3,6 @@ import {
   Story,
   Canvas,
   ArgsTable,
-  Preview,
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
@@ -46,7 +45,7 @@ The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player
 
 The `aspectRatio` prop is used to control the sizing of the space allotted for the video rendering. Ultimately, the `aspectRatio` prop should be set to match the aspect ratio of the video that is being rendered. The default aspect ratio is `16:9`.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story
     name="VideoPlayer"
     args={{
@@ -72,7 +71,7 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
       />
     )}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="VideoPlayer" />
 

@@ -1,0 +1,292 @@
+import {
+  Meta,
+  Story,
+  ArgsTable,
+  Canvas,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+import { Box } from "@chakra-ui/react";
+
+import ProgressIndicator from "./ProgressIndicator";
+import {
+  ProgressIndicatorSizes,
+  ProgressIndicatorTypes,
+} from "./ProgressIndicatorTypes";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import SimpleGrid from "../Grid/SimpleGrid";
+import { GridGaps } from "../Grid/GridTypes";
+
+<Meta
+  title={getCategory("ProgressIndicator")}
+  component={ProgressIndicator}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=37638%3A23842",
+    },
+    jest: ["ProgressIndicator.test.tsx"],
+  }}
+  argTypes={{
+    id: { table: { disable: true } },
+  }}
+/>
+
+# ProgressIndicator
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.4`   |
+| Latest            | `0.25.4`   |
+
+<Description of={ProgressIndicator} />
+
+<Canvas withToolbar>
+  <Story
+    name="Basic with props"
+    args={{
+      darkMode: false,
+      indicatorType: ProgressIndicatorTypes.Linear,
+      isIndeterminate: false,
+      labelText: "Progress",
+      showLabel: true,
+      size: ProgressIndicatorSizes.Default,
+      value: 50,
+    }}
+  >
+    {(args) => <ProgressIndicator {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic with props" />
+
+## Linear Type
+
+Progress bars are preferred in vertically narrow areas such as tables, cards,
+dialogs, etc.
+
+<Canvas>
+  <Story
+    name="Linear Type"
+    args={{
+      darkMode: false,
+      indicatorType: ProgressIndicatorTypes.Linear,
+      isIndeterminate: false,
+      labelText: "Linear Progress Type",
+      showLabel: true,
+      size: ProgressIndicatorSizes.Default,
+      value: 50,
+    }}
+    argTypes={{
+      indicatorType: { table: { disable: true } },
+    }}
+  >
+    {(args) => <ProgressIndicator {...args} />}
+  </Story>
+</Canvas>
+
+## Circular Type
+
+The circular progress type is preferred for large content areas and for
+full-screen loading. Set the `indicatorType` prop to
+`ProgressIndicatorTypes.Circular` for this type.
+
+<Canvas>
+  <Story
+    name="Circular Type"
+    args={{
+      darkMode: false,
+      indicatorType: ProgressIndicatorTypes.Circular,
+      isIndeterminate: false,
+      labelText: "Circular Progress Type",
+      showLabel: true,
+      size: ProgressIndicatorSizes.Default,
+      value: 50,
+    }}
+    argTypes={{
+      indicatorType: { table: { disable: true } },
+    }}
+  >
+    {(args) => <ProgressIndicator {...args} />}
+  </Story>
+</Canvas>
+
+### Sizing
+
+The starting height for the progress bar is 4px on mobile and 8px for desktop.
+The `size` prop can be used to optionally set the height to 4px for desktop
+through the `ProgressIndicatorSizes.Small` value.
+
+`size={ProgressIndicatorSizes.Small}`
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+      <ProgressIndicator labelText="Default 8px size" value={50} />
+      <ProgressIndicator
+        labelText="Small 4px size"
+        size={ProgressIndicatorSizes.Small}
+        value={50}
+      />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+The starting size for the circular progress is 48px and can be made smaller to
+24px with the `size` prop. The small 24px size can be used for inline local
+changes in content. Note that in the small size, the label text and the
+percentage will not displayed.
+
+`size={ProgressIndicatorSizes.Small}`
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+      <ProgressIndicator
+        labelText="Default 48px size"
+        indicatorType={ProgressIndicatorTypes.Circular}
+        value={50}
+      />
+      <ProgressIndicator
+        labelText="Small 24px size"
+        indicatorType={ProgressIndicatorTypes.Circular}
+        size={ProgressIndicatorSizes.Small}
+        value={50}
+      />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+### Labels
+
+The `labelText` value and the `value` percentage are displayed by default. They
+can be hidden through the `showLabel` prop.
+
+`showLabel={false}`
+
+Accessibility Note: when `showLabel` is false, the `aria-label` prop is set in
+the progress element to provide a description of the progress for screen readers.
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+      <ProgressIndicator
+        labelText="This label will be added through aria-label"
+        value={50}
+        showLabel={false}
+      />
+      <ProgressIndicator
+        labelText="This label will be added through aria-label"
+        indicatorType={ProgressIndicatorTypes.Circular}
+        value={50}
+        showLabel={false}
+      />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+### Indeterminate State
+
+When the `isIndeterminate` prop is set to true, the `value` prop is ignored and
+the state is set to an animated indeterminate state. This is often used when the
+exact value or progress of the task is unknown.
+
+<Canvas>
+  <DSProvider>
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+      <ProgressIndicator
+        labelText="Indeterminate state"
+        isIndeterminate
+        value={50}
+      />
+      <ProgressIndicator
+        labelText="Indeterminate state"
+        indicatorType={ProgressIndicatorTypes.Circular}
+        isIndeterminate
+        value={50}
+      />
+    </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+### Dark Mode
+
+When in "dark mode", set the `darkMode` prop to true. This will render the
+progress bar and the label text in white for better contrast.
+
+Note: the background is manually set to better showcase the `darkMode` prop.
+
+<Canvas>
+  <DSProvider>
+    <Box bg="black" w="100%" h="200px" p="20px">
+      <SimpleGrid columns={1} gap={GridGaps.Medium}>
+        <ProgressIndicator labelText="Dark Mode" value={50} darkMode />
+        <ProgressIndicator
+          labelText="Dark Mode"
+          indicatorType={ProgressIndicatorTypes.Circular}
+          value={50}
+          darkMode
+        />
+      </SimpleGrid>
+    </Box>
+  </DSProvider>
+</Canvas>
+
+### Example
+
+In the following example, we are setting the `value` prop based on a timer that
+increases the value every second by 10. Once it reaches 100, it resets to 0.
+This is a very simple example using `React.useState` to manage the state but in
+a real application the value would come from a data source or server.
+
+```tsx
+// Example code
+function ProgressIndicatorExample() {
+  const [value, setValue] = React.useState(0);
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((value) => (value === 100 ? 0 : value + 10));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+      <ProgressIndicator labelText="Progress example" value={value} />
+      <ProgressIndicator
+        labelText="Progress example"
+        indicatorType={ProgressIndicatorTypes.Circular}
+        value={value}
+      />
+    </SimpleGrid>
+  );
+}
+```
+
+export function ProgressIndicatorExample() {
+  const [value, setValue] = React.useState(0);
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((value) => (value === 100 ? 0 : value + 10));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+      <ProgressIndicator labelText="Progress example" value={value} />
+      <ProgressIndicator
+        labelText="Progress example"
+        indicatorType={ProgressIndicatorTypes.Circular}
+        value={value}
+      />
+    </SimpleGrid>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <ProgressIndicatorExample />
+  </DSProvider>
+</Canvas>
