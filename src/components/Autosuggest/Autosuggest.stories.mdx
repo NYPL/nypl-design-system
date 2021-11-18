@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
 import Autosuggest from "react-autosuggest";
 import * as stories from "./Autosuggest.stories.tsx";
 import { getCategory } from "../../utils/componentCategories";
@@ -19,9 +19,9 @@ every input element. Since the suggestion dropdown will appear on top of page co
 we've added a min-height to make it easier to see the dropdown. This is for demonstration
 purposes only and you will not need to do this in your application.
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="Basic" story={stories.AutosuggestLibrary} />
-</Preview>
+</Canvas>
 
 ## With custom icons
 
