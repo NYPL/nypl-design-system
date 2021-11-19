@@ -3,6 +3,7 @@ import MultiSelect, { MultiSelectProps } from "./MultiSelect";
 import MultiSelectDialog, {
   MultiSelectProps as MultiSelectDialogProps,
 } from "./MultiSelectDialog";
+import { MultiSelectItem } from "./MultiSelectTypes";
 import { Story } from "@storybook/react/types-6-0";
 
 // @TODO export this, so FilterBar story can use it.
@@ -141,9 +142,17 @@ export const MultiSelectDialogStory: Story<MultiSelectDialogProps> = (args) => {
     });
   }
 
-  function handleMixedStateChange(multiSelectId: string, childItems: string[]) {
-    // @TODO
+  function handleMixedStateChange(parentId: string) {
+    const multiSelectId = args.id;
     // Build an array of child items.
+    let childItems = [];
+    items.map((item) => {
+      if (item.id === parentId) {
+        item.children.map((childItem: MultiSelectItem) => {
+          childItems.push(childItem.id);
+        });
+      }
+    });
 
     let newItems;
     // Some selected items for group already exist in state.
@@ -186,8 +195,8 @@ export const MultiSelectDialogStory: Story<MultiSelectDialogProps> = (args) => {
       }}
       selectedItems={selectedItems}
       onChange={(e) => handleChange(args.id, e.target.id)}
-      onMixedStateChange={(childItems: string[]) => {
-        handleMixedStateChange(args.id, childItems);
+      onMixedStateChange={(e) => {
+        handleMixedStateChange(e.target.id);
       }}
       onApply={() => {
         setOpenMultiSelectId(null);

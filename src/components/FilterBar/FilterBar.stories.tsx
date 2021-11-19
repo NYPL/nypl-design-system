@@ -3,6 +3,7 @@ import { Story } from "@storybook/react/types-6-0";
 import FilterBar, { FilterBarProps } from "./FilterBar";
 import MultiSelect, { MultiSelectProps } from "../MultiSelect/MultiSelect";
 import MultiSelectDialog from "../MultiSelect/MultiSelectDialog";
+import { MultiSelectItem } from "../MultiSelect/MultiSelectTypes";
 
 const multiSelects = [
   {
@@ -28,6 +29,91 @@ const multiSelects = [
       {
         id: "fashion",
         name: "Fashion",
+      },
+      {
+        id: "business",
+        name: "Business",
+      },
+      {
+        id: "advertising",
+        name: "Advertising",
+      },
+      {
+        id: "government_and_law",
+        name: "Government and Law",
+      },
+      {
+        id: "civil_rights",
+        name: "Civil Rights",
+      },
+      {
+        id: "history",
+        name: "History",
+      },
+      {
+        id: "atlases",
+        name: "Atlases",
+      },
+      {
+        id: "cartography",
+        name: "Cartography",
+      },
+      {
+        id: "geology",
+        name: "Geology",
+      },
+    ],
+  },
+  {
+    id: "coding",
+    label: "Coding Languages",
+    items: [
+      {
+        id: "php",
+        name: "PHP",
+      },
+      {
+        id: "ruby",
+        name: "Ruby",
+      },
+      {
+        id: "javascript",
+        name: "Javascript",
+      },
+    ],
+  },
+];
+
+const multiSelectsWithChildren = [
+  {
+    id: "subject",
+    label: "Subjects",
+    items: [
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: "art_history",
+        name: "Art History",
+      },
+      {
+        id: "design",
+        name: "Design",
+        children: [
+          {
+            id: "fashion",
+            name: "Fashion",
+          },
+          {
+            id: "ux",
+            name: "UX",
+          },
+        ],
       },
       {
         id: "business",
@@ -183,7 +269,32 @@ export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
     });
   }
 
-  function handleMixedStateChange(multiSelectId: string, childItems: string[]) {
+  function handleMixedStateChange(multiSelectId: string, parentId: string) {
+    // Build an array of child items.
+    let childItems = [];
+    const currentMultiSelect = multiSelectsWithChildren.filter(
+      (multiSelect) => multiSelect.id === multiSelectId
+    );
+    const currentMultiSelectItems = currentMultiSelect[0].items.filter(
+      (item) => item.id === parentId
+    );
+    currentMultiSelectItems[0].children.map((childItem: MultiSelectItem) => {
+      childItems.push(childItem.id);
+    });
+
+    /*multiSelectsWithChildren.map((multiSelect) => {
+      if (multiSelect.id === multiSelectId) {
+        multiSelect.items.map((item) => {
+          if (item.id === parentId) {
+            item.children.map((childItem: MultiSelectItem) => {
+              childItems.push(childItem.id);
+            });
+          }
+        });
+      }
+    });
+    */
+
     let newItems;
     // Some selected items for group already exist in state.
     if (selectedItems[multiSelectId] !== undefined) {
@@ -223,7 +334,7 @@ export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
       onClear={() => setSelectedItems({})}
       onApply={() => setIsModalOpen(false)}
     >
-      {multiSelects.map((multiSelect: any) => {
+      {multiSelectsWithChildren.map((multiSelect: any) => {
         return (
           <MultiSelectDialog
             key={multiSelect.id}
@@ -235,8 +346,8 @@ export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
             onMenuToggle={() => handleMenuToggle(multiSelect.id)}
             selectedItems={selectedItems}
             onChange={(e) => handleChange(multiSelect.id, e.target.id)}
-            onMixedStateChange={(childItems: string[]) => {
-              handleMixedStateChange(multiSelect.id, childItems);
+            onMixedStateChange={(e) => {
+              handleMixedStateChange(multiSelect.id, e.target.id);
             }}
             onApply={() => {
               setOpenMultiSelectId(null);

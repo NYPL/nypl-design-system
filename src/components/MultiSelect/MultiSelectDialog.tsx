@@ -30,7 +30,8 @@ export interface MultiSelectProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
   // @TODO this is wrong, fix.
-  onMixedStateChange?: (childItems: string[]) => void;
+  //onMixedStateChange?: (childItems: string[]) => void;
+  onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** The action to perform for save/apply button of multiselect. */
@@ -99,22 +100,6 @@ function MultiSelectDialog({
     return false;
   }
 
-  // Helper function to get the child items and allow consuming app to get this data.
-  // @TODO you actually don't need this technically, you're just using the items
-  // from the data array that are passed in. You can get this directly inside
-  // the consuming component...
-  function onMixedStateChangeHelper(item: MultiSelectItem) {
-    // Build an array of child items.
-    let childIds = [];
-    item.children.map((childItem: MultiSelectItem) => {
-      childIds.push(childItem.id);
-    });
-
-    // This is the prop passed into the component that returns the child item ids.
-    // @ts-ignore
-    onMixedStateChange(childIds);
-  }
-
   function focusLockDisabled(): boolean {
     if (isMobile) {
       return true;
@@ -156,13 +141,13 @@ function MultiSelectDialog({
                         showLabel={true}
                         name={item.name}
                         // If onMixedStateChange is not passed as a prop, handle
-                        // the parent checkbox as a regular checkbox.
+                        // the parent checkbox as a regular checkbox using onChange
                         {...(onMixedStateChange !== undefined
                           ? {
                               isChecked: isAllChecked(id, item) || false,
                               isIndeterminate:
                                 isIndeterminate(id, item) || false,
-                              onChange: () => onMixedStateChangeHelper(item),
+                              onChange: onMixedStateChange,
                             }
                           : {
                               isChecked: isChecked(id, item.id) || false,
