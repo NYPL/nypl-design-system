@@ -19,18 +19,18 @@
     &--keyboard-selected,
     &--in-range,
     &--in-selecting-range {
-      background-color: $black;
+      background-color: var(--nypl-colors-ui-black);
       border-radius: 0;
-      color: $white;
+      color: var(--nypl-colors-ui-white);
       opacity: 0.3;
     }
 
     // Selected states.
     &-text--selected,
     &--selected {
-      background-color: $black;
+      background-color: var(--nypl-colors-ui-black);
       border-radius: 0;
-      color: $white;
+      color: var(--nypl-colors-ui-white);
       opacity: 1;
     }
   }

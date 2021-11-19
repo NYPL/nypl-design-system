@@ -1,0 +1,357 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="linearBasic"
+    id="linearBasic-label"
+  >
+    Linear
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+      id="linearBasic"
+    >
+      <div
+        aria-label={null}
+        aria-labelledby="linearBasic-label"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="css-1jy0d03"
+        role="progressbar"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      50
+      %
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-label={null}
+      aria-labelledby="circularBasic-label"
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={50}
+      className="chakra-progress css-120wkjd"
+      id="circularBasic"
+      role="progressbar"
+    >
+      <svg
+        className="css-kn46u7"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          className="chakra-progress__track css-1bhxzgy"
+          cx={50}
+          cy={50}
+          r={42}
+          strokeWidth="10px"
+        />
+        <circle
+          className="chakra-progress__indicator css-5hfhx0"
+          cx={50}
+          cy={50}
+          r={42}
+          strokeDasharray="132 132"
+          strokeDashoffset={66}
+          strokeWidth="10px"
+        />
+      </svg>
+      <div
+        className="css-f1j64i"
+      >
+        50
+        %
+      </div>
+    </div>
+    <label
+      className="css-0"
+      htmlFor="circularBasic"
+      id="circularBasic-label"
+    >
+      Circular
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+      id="linearNoLabel"
+    >
+      <div
+        aria-label="Linear"
+        aria-labelledby={null}
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="css-1jy0d03"
+        role="progressbar"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-label="Circular"
+      aria-labelledby={null}
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={50}
+      className="chakra-progress css-120wkjd"
+      id="circularNoLabel"
+      role="progressbar"
+    >
+      <svg
+        className="css-kn46u7"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          className="chakra-progress__track css-1bhxzgy"
+          cx={50}
+          cy={50}
+          r={42}
+          strokeWidth="10px"
+        />
+        <circle
+          className="chakra-progress__indicator css-5hfhx0"
+          cx={50}
+          cy={50}
+          r={42}
+          strokeDasharray="132 132"
+          strokeDashoffset={66}
+          strokeWidth="10px"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="linearIndeterminate"
+    id="linearIndeterminate-label"
+  >
+    Linear
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+      id="linearIndeterminate"
+    >
+      <div
+        aria-label={null}
+        aria-labelledby="linearIndeterminate-label"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        className="css-1demtxk"
+        data-indeterminate=""
+        role="progressbar"
+        style={
+          Object {
+            "width": "0%",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-label={null}
+      aria-labelledby="circularIndeterminate-label"
+      aria-valuemax={100}
+      aria-valuemin={0}
+      className="chakra-progress css-120wkjd"
+      data-indeterminate=""
+      id="circularIndeterminate"
+      role="progressbar"
+    >
+      <svg
+        className="css-jf70f3"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          className="chakra-progress__track css-1bhxzgy"
+          cx={50}
+          cy={50}
+          r={42}
+          strokeWidth="10px"
+        />
+        <circle
+          className="chakra-progress__indicator css-tueqm1"
+          cx={50}
+          cy={50}
+          r={42}
+          strokeWidth="10px"
+        />
+      </svg>
+    </div>
+    <label
+      className="css-0"
+      htmlFor="circularIndeterminate"
+      id="circularIndeterminate-label"
+    >
+      Circular
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="linearDarkMode"
+    id="linearDarkMode-label"
+  >
+    Linear
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+      id="linearDarkMode"
+    >
+      <div
+        aria-label={null}
+        aria-labelledby="linearDarkMode-label"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="css-1jy0d03"
+        role="progressbar"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      50
+      %
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-label={null}
+      aria-labelledby="circularDarkMode-label"
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={50}
+      className="chakra-progress css-120wkjd"
+      id="circularDarkMode"
+      role="progressbar"
+    >
+      <svg
+        className="css-kn46u7"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          className="chakra-progress__track css-1bhxzgy"
+          cx={50}
+          cy={50}
+          r={42}
+          strokeWidth="10px"
+        />
+        <circle
+          className="chakra-progress__indicator css-5hfhx0"
+          cx={50}
+          cy={50}
+          r={42}
+          strokeDasharray="132 132"
+          strokeDashoffset={66}
+          strokeWidth="10px"
+        />
+      </svg>
+      <div
+        className="css-f1j64i"
+      >
+        50
+        %
+      </div>
+    </div>
+    <label
+      className="css-0"
+      htmlFor="circularDarkMode"
+      id="circularDarkMode-label"
+    >
+      Circular
+    </label>
+  </div>
+</div>
+`;
