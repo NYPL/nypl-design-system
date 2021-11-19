@@ -16,17 +16,17 @@ export interface FilterBarProps {
   /** Whether the FilterBar modal is open or closed. */
   isModalOpen: boolean;
   /** The action to perform on the "filters" button onClick function. */
-  onModalToggle: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  onModalToggle: () => void;
   /** Whether the FilterBar is in mobile mode or not. */
   isMobile: boolean;
   /** The selected items (items that were checked by user). */
   selectedItems?: SelectedItems;
   /** The onClick callback function for the go back button. */
-  onGoBack: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  onGoBack: () => void;
   /** The onClick callback function for the clear filters button. */
-  onClear: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  onClear: () => void;
   /** The onClick callback function for the apply filters button. */
-  onApply: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  onApply: () => void;
   /** Children compenents passed into the FilterBar. */
   children: React.ReactNode;
 }

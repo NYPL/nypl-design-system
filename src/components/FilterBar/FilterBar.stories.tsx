@@ -143,6 +143,7 @@ export const FilterBarWithMultiSelects: Story<FilterBarProps> = (args) => {
 };
 
 export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [openMultiSelectId, setOpenMultiSelectId] = useState(null);
   const [selectedItems, setSelectedItems] = useState({});
 
@@ -214,11 +215,13 @@ export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
     <FilterBar
       {...args}
       id={args.id}
-      isModalOpen={args.isModalOpen}
+      isModalOpen={isModalOpen}
+      onModalToggle={() => setIsModalOpen(true)}
       isMobile={args.isMobile}
       selectedItems={selectedItems}
-      onClear={null}
-      onApply={null}
+      onGoBack={() => setIsModalOpen(false)}
+      onClear={() => setSelectedItems({})}
+      onApply={() => setIsModalOpen(false)}
     >
       {multiSelects.map((multiSelect: any) => {
         return (

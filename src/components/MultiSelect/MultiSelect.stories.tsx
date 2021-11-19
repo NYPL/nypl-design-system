@@ -142,6 +142,9 @@ export const MultiSelectDialogStory: Story<MultiSelectDialogProps> = (args) => {
   }
 
   function handleMixedStateChange(multiSelectId: string, childItems: string[]) {
+    // @TODO
+    // Build an array of child items.
+
     let newItems;
     // Some selected items for group already exist in state.
     if (selectedItems[multiSelectId] !== undefined) {

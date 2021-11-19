@@ -16,7 +16,7 @@ export interface MultiSelectMenuButtonProps {
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** The callback function for the menu toggle. */
-  onMenuToggle?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  onMenuToggle?: () => void;
 }
 
 const MultiSelectMenuButton = React.forwardRef<

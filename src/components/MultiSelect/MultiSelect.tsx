@@ -1,15 +1,14 @@
 import React from "react";
-import Checkbox from "./../Checkbox/Checkbox";
-import { useSelect } from "downshift";
-import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
-import MultiSelectMenuButton from "./MultiSelectMenuButton";
-
 import {
   Box,
   ListItem,
   UnorderedList,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import Checkbox from "./../Checkbox/Checkbox";
+import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
+import MultiSelectMenuButton from "./MultiSelectMenuButton";
+import { useSelect } from "downshift";
 
 export interface MultiSelectProps {
   /** The id of the multiSelect. */

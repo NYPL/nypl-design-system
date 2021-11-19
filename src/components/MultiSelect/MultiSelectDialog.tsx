@@ -23,13 +23,14 @@ export interface MultiSelectProps {
   /** Whether the multiselect is in mobile mode or not. */
   isMobile?: boolean;
   /** The action to perform for the multiselect menu toggle button. */
-  onMenuToggle?: React.MouseEventHandler<HTMLButtonElement>;
+  onMenuToggle?: () => void;
   /** The items to be rendered in the multiselect as options. */
   items: MultiSelectItem[];
   /** The action to perform on the checkbox's onChange function.  */
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  /** %he action to perform for a mixed state checkbox (parent checkbox). */
-  onMixedStateChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** The action to perform for a mixed state checkbox (parent checkbox). */
+  // @TODO this is wrong, fix.
+  onMixedStateChange?: (childItems: string[]) => void;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** The action to perform for save/apply button of multiselect. */
@@ -52,6 +53,18 @@ function MultiSelectDialog({
   onClear,
 }: MultiSelectProps) {
   const styles = useMultiStyleConfig("MultiSelect", {});
+
+  function isChecked(multiSelectId: string, itemId: string) {
+    if (
+      selectedItems[multiSelectId]?.items.find(
+        // @ts-ignore
+        (selectedItemId: string) => selectedItemId === itemId
+      )
+    ) {
+      return true;
+    }
+    return false;
+  }
 
   function isAllChecked(multiSelectId: string, item: MultiSelectItem): boolean {
     let childIds = [];
@@ -134,7 +147,7 @@ function MultiSelectDialog({
           >
             {isOpen &&
               items.map((item: MultiSelectItem) => (
-                <ListItem py={1}>
+                <ListItem key={item.id} py={1}>
                   {item.children ? (
                     <>
                       <Checkbox
@@ -142,9 +155,19 @@ function MultiSelectDialog({
                         labelText={item.name}
                         showLabel={true}
                         name={item.name}
-                        isChecked={isAllChecked(id, item) || false}
-                        isIndeterminate={isIndeterminate(id, item) || false}
-                        onChange={() => onMixedStateChangeHelper(item)}
+                        // If onMixedStateChange is not passed as a prop, handle
+                        // the parent checkbox as a regular checkbox.
+                        {...(onMixedStateChange !== undefined
+                          ? {
+                              isChecked: isAllChecked(id, item) || false,
+                              isIndeterminate:
+                                isIndeterminate(id, item) || false,
+                              onChange: () => onMixedStateChangeHelper(item),
+                            }
+                          : {
+                              isChecked: isChecked(id, item.id) || false,
+                              onChange: onChange,
+                            })}
                       />
                       <UnorderedList
                         styleType="none"
@@ -159,15 +182,7 @@ function MultiSelectDialog({
                                 labelText={childItem.name}
                                 showLabel={true}
                                 name={childItem.name}
-                                isChecked={
-                                  selectedItems[id]?.items.find(
-                                    // @ts-ignore
-                                    (selectedItemId: string) =>
-                                      selectedItemId === childItem.id
-                                  )
-                                    ? true
-                                    : false
-                                }
+                                isChecked={isChecked(id, childItem.id) || false}
                                 onChange={onChange}
                               />
                             </ListItem>
@@ -181,14 +196,7 @@ function MultiSelectDialog({
                       labelText={item.name}
                       showLabel={true}
                       name={item.name}
-                      isChecked={
-                        selectedItems[id]?.items.find(
-                          // @ts-ignore
-                          (selectedItemId: string) => selectedItemId === item.id
-                        )
-                          ? true
-                          : false
-                      }
+                      isChecked={isChecked(id, item.id) || false}
                       onChange={onChange}
                     />
                   )}
