@@ -8,6 +8,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import FileUploader from "./FileUploader";
+import { FileFormats, AllFileFormats } from "./FileUploaderFormats";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { GridGaps } from "../Grid/GridTypes";
 import Heading from "../Heading/Heading";
@@ -47,14 +48,13 @@ import DSProvider from "../../theme/provider";
   <Story
     name="Basic with Props"
     args={{
-      formatsAllowed: ["image/png", "image/jpeg"],
       helperText: "Pass in a value from the min 0 to the max 100 values.",
       invalidText: "Oh no this is an error :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "FileUploader label",
-      maxFileSize: 100,
+      maxFileSize: 1,
       multiple: true,
       optReqFlag: false,
       showHelperInvalidText: true,

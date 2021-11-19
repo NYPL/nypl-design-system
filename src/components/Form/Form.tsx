@@ -20,6 +20,8 @@ export interface FormProps {
   className?: string;
   /** Optional ID that other components can cross reference */
   id?: string;
+  /** Sets the `enctype` attribute to "multipart/form-data" for file uploads. */
+  isFileUploader?: boolean;
   /** Optional form `method` attribute */
   method?: "get" | "post";
   /** Optional spacing size; if omitted, the default `large` (2rem / 32px) spacing will be used; ```IMPORTANT: for general form layout, this prop should not be used``` */
@@ -61,6 +63,7 @@ export default function Form(props: React.ComponentProps<"form"> & FormProps) {
     children,
     className,
     id = generateUUID(),
+    isFileUploader = false,
     method,
     spacing,
   } = props;
@@ -71,6 +74,8 @@ export default function Form(props: React.ComponentProps<"form"> & FormProps) {
   method &&
     (method === "get" || method === "post") &&
     (attributes["method"] = method);
+
+  isFileUploader && (attributes["enctype"] = "multipart/form-data");
 
   const alteredChildren = React.Children.map(
     children,
