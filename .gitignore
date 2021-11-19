@@ -3,7 +3,6 @@
 .cache
 node_modules
 dependencyGraph.json
-public
 .DS_Store
 lib
 dist
