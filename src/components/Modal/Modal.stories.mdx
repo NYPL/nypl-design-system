@@ -3,7 +3,7 @@ import {
   Meta,
   Story,
   ArgsTable,
-  Preview,
+  Canvas,
   Description,
 } from "@storybook/addon-docs/blocks";
 import Modal from "./Modal";
@@ -118,11 +118,11 @@ export const ModalStory = (args) => {
   );
 };
 
-<Preview withToolbar>
+<Canvas withToolbar>
   <Story name="Basic" args={{ open: false }}>
     {(args) => <ModalStory {...args} />}
   </Story>
-</Preview>
+</Canvas>
 
 <ArgsTable story="Basic" />
 
