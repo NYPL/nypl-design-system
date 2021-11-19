@@ -20,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
+- Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
 
 ### Breaking Changes
 
