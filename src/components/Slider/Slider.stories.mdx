@@ -81,10 +81,10 @@ For this type of component, the `value` prop must be a single number.
 
 ## Range Slider
 
-The text input components double as displays for the slider's current
-minimum and maximum value. For this type of component, the `value` prop must
-be an array of two numbers. This signifies the starting and ending values of
-the range slider.
+Set `isRangeSlider` to `true` to create a range slider. The text input
+components double as displays for the slider's current minimum and maximum
+value. For this type of component, the `value` prop must be an array of two
+numbers. This signifies the starting and ending values of the range slider.
 
 <Canvas withToolbar>
   <Story
@@ -115,6 +115,8 @@ the range slider.
     {(args) => <Slider {...args} />}
   </Story>
 </Canvas>
+
+<ArgsTable story="Range Slider with Props" />
 
 ### Single Slider States
 

@@ -67,6 +67,10 @@ const CustomSlider = {
         // Thumb doesn't have an _invalid state...
         // so we manually do it through the props.
         borderColor: baseColor,
+        boxShadow: "none",
+        _active: {
+          transform: "translateY(-50%) scale(1.0)",
+        },
       },
     };
   },

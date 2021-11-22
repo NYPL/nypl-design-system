@@ -22,6 +22,8 @@ export interface InputProps {
   attributes?: { [key: string]: any };
   /** A class name for the TextInput parent div. */
   className?: string;
+  /** The starting value of the input field. */
+  defaultValue?: string;
   /** Populates the HelperErrorText for the standard state */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -61,8 +63,6 @@ export interface InputProps {
   value?: string;
   /** The variant to display. */
   variantType?: TextInputVariants;
-  /** The starting value of the input field. */
-  defaultValue?: string;
 }
 
 /**
@@ -82,6 +82,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       additionalStyles = {},
       attributes = {},
       className,
+      defaultValue,
       helperText,
       id = generateUUID(),
       invalidText,
@@ -98,7 +99,6 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       type = TextInputTypes.text,
       value,
       variantType = TextInputVariants.Default,
-      defaultValue,
     } = props;
     const styles = useMultiStyleConfig("TextInput", { variant: variantType });
     const finalStyles = { ...styles, ...additionalStyles };
