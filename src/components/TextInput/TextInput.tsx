@@ -39,7 +39,7 @@ export interface InputProps {
   /** Provides text for a `Label` component if `showLabel` is set to true;
    * populates an `aria-label` attribute if `showLabel` is set to false. */
   labelText: string;
-  /** The name prop indicates into which form group this input belongs to. */
+  /** Used to reference the input element in forms. */
   name?: string;
   /** The action to perform on the `input`/`textarea`'s onChange function  */
   onChange?: (
