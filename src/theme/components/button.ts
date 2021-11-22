@@ -105,8 +105,7 @@ const noBrand = {
   bg: "ui.black",
   color: "ui.white",
   _hover: {
-    bg: "ui.black",
-    opacity: "0.8",
+    bg: "ui.gray.xdark",
   },
 };
 
