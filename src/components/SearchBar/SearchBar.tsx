@@ -20,7 +20,14 @@ interface SelectProps {
 }
 interface TextInputProps {
   labelText: string;
+  name: string;
+  onChange?: (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => void;
   placeholder: string;
+  value?: string;
 }
 
 export interface SearchBarProps {
@@ -117,12 +124,15 @@ export default function SearchBar(props: SearchBarProps) {
       id={generateUUID()}
       labelText={textInputProps?.labelText}
       placeholder={textInputProps?.placeholder}
+      onChange={textInputProps?.onChange}
+      name={textInputProps?.name}
       type={TextInputTypes.text}
       variantType={
         selectElem
           ? TextInputVariants.SearchBarSelect
           : TextInputVariants.SearchBar
       }
+      value={textInputProps?.value}
       {...stateProps}
     />
   );

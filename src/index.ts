@@ -16,6 +16,7 @@ export {
 } from "@chakra-ui/react";
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
+export { ColorVariants } from "./components/Breadcrumbs/BreadcrumbsTypes";
 export { default as Button } from "./components/Button/Button";
 export { ButtonTypes } from "./components/Button/ButtonTypes";
 export {
@@ -32,6 +33,7 @@ export { CheckboxGroupLayoutTypes } from "./components/CheckboxGroup/CheckboxGro
 export { default as DatePicker } from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as DSProvider } from "./theme/provider";
+export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { FormSpacing } from "./components/Form/FormTypes";
 export { GridGaps } from "./components/Grid/GridTypes";
@@ -46,11 +48,13 @@ export { HeroTypes } from "./components/Hero/HeroTypes";
 export { default as HorizontalRule } from "./components/HorizontalRule/HorizontalRule";
 export { default as Icon } from "./components/Icons/Icon";
 export {
-  IconNames,
-  LogoNames,
-  IconRotationTypes,
+  IconAlign,
   IconColors,
+  IconNames,
+  IconRotationTypes,
   IconSizes,
+  IconTypes,
+  LogoNames,
 } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
 export {
@@ -73,14 +77,15 @@ export { default as Radio } from "./components/Radio/Radio";
 export { default as RadioGroup } from "./components/RadioGroup/RadioGroup";
 export { RadioGroupLayoutTypes } from "./components/RadioGroup/RadioGroupLayoutTypes";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
+export { default as Select } from "./components/Select/Select";
 export { default as SimpleGrid } from "./components/Grid/SimpleGrid";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export {
   SkeletonLoaderImageRatios,
   SkeletonLoaderLayouts,
 } from "./components/SkeletonLoader/SkeletonLoaderTypes";
-export { default as Select } from "./components/Select/Select";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
+export { StatusBadgeTypes } from "./components/StatusBadge/StatusBadgeTypes";
 export {
   Tabs,
   TabList,
@@ -88,8 +93,6 @@ export {
   TabPanels,
   TabPanel,
 } from "./components/Tabs/Tabs";
-export { default as Text } from "./components/Text/Text";
-export { TextDisplaySizes } from "./components/Text/TextTypes";
 export {
   TemplateAppContainer,
   Template,
@@ -101,7 +104,8 @@ export {
   TemplateContentSidebar,
   TemplateFooter,
 } from "./components/Template/Template";
-
+export { default as Text } from "./components/Text/Text";
+export { TextDisplaySizes } from "./components/Text/TextTypes";
 export {
   default as TextInput,
   TextInputRefType,
