@@ -58,12 +58,12 @@ To assist with CSS scope isolation, all of the CSS custom properties created by 
 The CSS custom properties are defined on the :root pseudo-class and should be implemented using standard CSS custom properties conventions.
 
 ```css
-/* property declaration */
+/* Property Declaration in the DS */
 :root {
   --nypl-colors-brand-primary: #c60917;
 }
 
-/* property usage */
+/* Property Usage in Your Application */
 .custom-button {
   background: var(--nypl-colors-brand-primary);
 }
@@ -115,7 +115,7 @@ return (
     <Heading
       level={2}
       additionalStyles={{
-        color: theme.colors.ui.sucess.primary,
+        color: theme.colors.ui.success.primary,
         fontWeight: theme.fontWeights.bold,
       }}
     >
