@@ -1,26 +1,25 @@
 import * as React from "react";
-import { Box, useMultiStyleConfig, VStack } from "@chakra-ui/react";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import TextInput from "../TextInput/TextInput";
 import { TextInputTypes } from "../TextInput/TextInputTypes";
-import Icon from "../Icons/Icon";
-import { IconColors, IconNames, IconSizes } from "../Icons/IconTypes";
 import {
   FileFormats,
   AllFileFormats,
   AllFileFormatsType,
-  mapFormatToSVG,
 } from "./FileUploaderFormats";
-import ProgressIndicator from "../ProgressIndicator/ProgressIndicator";
-import {
-  ProgressIndicatorSizes,
-  ProgressIndicatorTypes,
-} from "../ProgressIndicator/ProgressIndicatorTypes";
-import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
+import FileDisplay from "../FileDisplay/FileDisplay";
+import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
+
+// We want extra attributes for the File type.
+export interface DSFile extends File {
+  isInvalid?: boolean;
+  invalidText?: string;
+}
 
 export interface FileUploaderProps {
   /** Additional class name for the FileUploader component. */
@@ -30,6 +29,7 @@ export interface FileUploaderProps {
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  isUploading?: boolean;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: string;
@@ -43,7 +43,8 @@ export interface FileUploaderProps {
   multiple?: boolean;
   /** The name prop indicates into which form this component belongs to. */
   name?: string;
-  onChange?: () => void;
+  onChange?: (files: DSFile[]) => void;
+  onDelete?: (file: DSFile) => void;
   /** Whether or not to display the "Required"/"Optional" text in the label text. */
   optReqFlag?: boolean;
   /** Offers the ability to hide the helper/invalid text. */
@@ -51,7 +52,6 @@ export interface FileUploaderProps {
   /** Offers the ability to show the label onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
-  isUploading?: boolean;
 }
 
 /**
@@ -61,8 +61,8 @@ export default function FileUploader(
   props: React.PropsWithChildren<FileUploaderProps>
 ) {
   const {
-    className,
     accept = AllFileFormats,
+    className,
     helperText,
     id = generateUUID(),
     invalidText,
@@ -71,15 +71,16 @@ export default function FileUploader(
     isRequired = false,
     labelText,
     maxFileSize = 1,
-    multiple,
+    multiple = false,
     name,
     onChange,
+    onDelete,
     optReqFlag = true,
     showHelperInvalidText = true,
     showLabel = true,
     isUploading = false,
   } = props;
-  const [files, setFiles] = React.useState<File[]>([]);
+  const [files, setFiles] = React.useState<DSFile[]>([]);
   // Default 1MB
   const maxAllowedSize = maxFileSize * 1024 * 1024;
   const finalAccept = accept.join(",");
@@ -87,69 +88,73 @@ export default function FileUploader(
   const footnote = isInvalid ? invalidText : helperText;
   const styles = useMultiStyleConfig("FileUploader", {});
 
-  function validFileType(file) {
+  function validFileType(file: DSFile) {
     return finalAccept.includes(file.type);
   }
   const fileChangedHandler = (event) => {
-    const currentFiles = [];
+    // Are there already files and we are uploading new ones?
+    const reUpload = files.length > 0;
+    const currentFiles = files.splice(0);
     const unvalidatedFiles = [...event.target.files];
+
     if (unvalidatedFiles.length > 0) {
       unvalidatedFiles.forEach((file) => {
+        // If the file is already uploaded, don't add it again.
+        if (currentFiles.find((f) => f.name === file.name)) {
+          console.warn(
+            `File ${file.name} is already added for upload process.`
+          );
+          return;
+        }
         // also check for file size
         if (!validFileType(file)) {
-          file["isInvalid"] = true;
-          file["invalidFileType"] = true;
+          file.isInvalid = true;
+          file.invalidText = "File not supported";
         }
         if (file.size > maxAllowedSize) {
-          file["isInvalid"] = true;
-          file["invalidFileSize"] = true;
+          file.isInvalid = true;
+          file.invalidText = `File is too large. Over ${maxFileSize}MB.`;
         }
         currentFiles.push(file);
       });
+      // By default, the browser alphabetizes the initial list of files uploaded
+      // but not when new files are added. If there were already files and we
+      // are adding new ones, let's alphabetize the files to display.
+      if (reUpload) {
+        // Files initially
+        currentFiles.sort((file1, file2) => {
+          if (file1.name < file2.name) {
+            return -1;
+          }
+          if (file1.name > file2.name) {
+            return 1;
+          }
+          return 0;
+        });
+      }
       setFiles(currentFiles);
+      onChange && onChange(currentFiles);
     }
   };
 
-  const getProperIcon = (file: File) => {
-    if (isUploading) {
-      return (
-        <ProgressIndicator
-          labelText="uploading"
-          showLabel={false}
-          indicatorType={ProgressIndicatorTypes.Circular}
-          size={ProgressIndicatorSizes.Small}
-          isIndeterminate
-        />
-      );
-    }
-    if ((file as any).isInvalid) {
-      return (
-        <Icon name={IconNames.ErrorOutline} color={IconColors.BrandPrimary} />
-      );
-    }
-    return (
-      <Button
-        buttonType={ButtonTypes.Link}
-        onClick={() => {
-          console.log("click!");
-        }}
-        additionalStyles={{
-          bg: "var(--nypl-colors-ui-gray-light-cool)",
-          svg: {
-            marginTop: "0",
-          },
-          _hover: { bg: "var(--nypl-colors-ui-gray-light-cool)" },
-        }}
-      >
-        <Icon
-          id={`${file.name}-close-button`}
-          decorative={false}
-          name={IconNames.Close}
-          size={IconSizes.Large}
-        />
-      </Button>
-    );
+  const deleteFile = (deleteFile) => {
+    // Find file in files array and remove it
+    const newFiles = files.filter((file) => file.name !== deleteFile.name);
+    setFiles(newFiles);
+    // Return the file to the parent component if `onDelete` is defined.
+    onDelete && onDelete(deleteFile);
   };
+
+  const filesToDisplay = () =>
+    files.length > 0 &&
+    files.map((file) => (
+      <FileDisplay
+        key={file.name}
+        file={file}
+        isUploading={isUploading}
+        onDelete={deleteFile}
+      />
+    ));
 
   return (
     <Box className={className} __css={styles}>
@@ -172,6 +177,7 @@ export default function FileUploader(
         isInvalid={isInvalid}
         helperText={helperText}
         invalidText={invalidText}
+        name={name}
         type={TextInputTypes.File}
         showHelperInvalidText={false}
         showOptReqLabel={false}
@@ -188,56 +194,15 @@ export default function FileUploader(
           </HelperErrorText>
         </Box>
       )}
-      <VStack gap="s" align="left" __css={{ width: "330px" }}>
-        {files.length > 0 &&
-          files.map((file) => {
-            const fileFormat = mapFormatToSVG(file.type);
-            return (
-              <Box key={file.name}>
-                <Box
-                  __css={{
-                    marginTop: "15px",
-                    padding: "5px",
-                    paddingBottom: "0px",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    bg: "var(--nypl-colors-ui-gray-light-cool)",
-                  }}
-                >
-                  <Icon
-                    id={`${id}-${file.name}`}
-                    name={fileFormat}
-                    size={IconSizes.Large}
-                  />
-                  <Box
-                    __css={{
-                      marginLeft: "10px",
-                      width: "200px",
-                      display: "inline-block",
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                    }}
-                  >
-                    {file.name}
-                  </Box>
-                  {getProperIcon(file)}
-                </Box>
-                {(file as any).isInvalid && (
-                  <HelperErrorText
-                    id={`${id}-helperText`}
-                    isInvalid={(file as any).isInvalid}
-                  >
-                    {(file as any).invalidFileType && "File not supported"}
-                    {(file as any).invalidFileSize &&
-                      `File is too large. Over ${maxFileSize}MB.`}
-                  </HelperErrorText>
-                )}
-              </Box>
-            );
-          })}
-      </VStack>
+
+      {files.length > 0 && (
+        <List
+          additionalStyles={styles.list}
+          type={ListTypes.Unordered}
+          listItems={filesToDisplay()}
+          noStyling
+        />
+      )}
     </Box>
   );
 }

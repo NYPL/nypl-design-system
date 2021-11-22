@@ -19,6 +19,7 @@ import { CustomImage, CustomImageWrapper } from "./components/image";
 import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
+import FileDisplay from "./components/fileDisplay";
 import FileUploader from "./components/fileUploader";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
@@ -85,6 +86,7 @@ const theme = extendTheme({
     CustomSelect,
     DatePicker,
     Fieldset,
+    FileDisplay,
     FileUploader,
     Heading,
     HelperErrorText,

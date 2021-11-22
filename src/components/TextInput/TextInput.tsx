@@ -39,6 +39,8 @@ export interface InputProps {
   /** Provides text for a `Label` component if `showLabel` is set to true;
    * populates an `aria-label` attribute if `showLabel` is set to false. */
   labelText: string;
+  /** The name prop indicates into which form group this input belongs to. */
+  name?: string;
   /** The action to perform on the `input`/`textarea`'s onChange function  */
   onChange?: (
     event:
@@ -88,6 +90,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       isInvalid = false,
       isRequired = false,
       labelText,
+      name,
       onChange,
       placeholder,
       showHelperInvalidText = true,
@@ -142,15 +145,16 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
 
     // When the type is "hidden", the input element needs fewer attributes.
     options = isHidden
-      ? { id, "aria-hidden": isHidden, onChange, ref }
+      ? { id, "aria-hidden": isHidden, name, onChange, ref }
       : {
           id,
           "aria-required": isRequired,
           isDisabled,
           isRequired,
           isInvalid,
-          placeholder,
+          name,
           onChange,
+          placeholder,
           ref,
           ...attributes,
         };

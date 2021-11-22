@@ -1,0 +1,198 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { Box, VStack } from "@chakra-ui/react";
+
+import FileDisplay from "./FileDisplay";
+import List from "../List/List";
+import { ListTypes } from "../List/ListTypes";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+
+<Meta
+  title={getCategory("FileDisplay")}
+  component={FileDisplay}
+  argTypes={{
+    file: { table: { disable: true } },
+    id: { table: { disable: true } },
+    onDelete: { table: { disable: true } },
+  }}
+/>
+
+# FileDisplay
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.4`   |
+| Latest            | `0.25.4`   |
+
+<Description of={FileDisplay} />
+
+Displays a browser's file information based on the native [File API](https://developer.mozilla.org/en-US/docs/Web/API/File)
+extended with two additional properties: `isInvalid` and `invalidText`. Click on
+the closing "X" button to log the file name through the `onDelete` callback function.
+
+```ts
+// Example of a word document file:
+{
+  lastModified: 1630682593722,
+  lastModifiedDate: Tue Jun 01 2021 14:27:50 GMT-0400 (Eastern Daylight Time) {}
+  name: "WordProcessor.doc",
+  size: 1072442,
+  type: "application/msword",
+}
+
+// Example of an invalid word document file:
+{
+  lastModified: 1630682593722,
+  lastModifiedDate: Tue Jun 01 2021 14:27:50 GMT-0400 (Eastern Daylight Time) {}
+  name: "WordProcessor.doc",
+  size: 1072442,
+  type: "application/msword",
+  isInvalid: true,
+  invalidText: "File is too large. Over 1MB.",
+}
+```
+
+export const files = {
+  wordProcessor: {
+    lastModified: 1630682593722,
+    name: "WordProcessor.doc",
+    size: 1072442,
+    type: ".doc",
+  },
+  eBook: {
+    lastModified: 1630682593722,
+    name: "eBook.epub",
+    size: 1072442,
+    type: ".epub",
+  },
+  spreadsheet: {
+    lastModified: 1630682593722,
+    name: "spreadsheet.xls",
+    size: 1072442,
+    type: ".xls",
+  },
+  plainText: {
+    lastModified: 1630682593722,
+    name: "plainText.txt",
+    size: 1072442,
+    type: ".txt",
+  },
+  pdf: {
+    lastModified: 1630682593722,
+    name: "PDF.pdf",
+    size: 1072442,
+    type: ".pdf",
+  },
+  images: {
+    lastModified: 1630682593722,
+    name: "images.jpeg",
+    size: 1072442,
+    type: "image/jpeg",
+  },
+  audio: {
+    lastModified: 1630682593722,
+    name: "audio.mp3",
+    size: 1072442,
+    type: ".mp3",
+  },
+  video: {
+    lastModified: 1630682593722,
+    name: "video.mp4",
+    size: 1072442,
+    type: ".mp4",
+  },
+  aVerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrylongFileName: {
+    lastModified: 1630682593722,
+    name: "aVerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrylongFileName.jpeg",
+    size: 1072442,
+    type: "image/jpeg",
+  },
+  fileTooBig: {
+    invalidText: "File is too large. Over 1MB.",
+    isInvalid: true,
+    lastModified: 1630682593722,
+    name: "fileTooBig.jpeg",
+    size: 1072442,
+    type: "image/jpeg",
+  },
+  notSupportedFileType: {
+    invalidText: "File not supported.",
+    isInvalid: true,
+    lastModified: 1630682593722,
+    name: "notSupportedFileType.jpeg",
+    size: 1072442,
+    type: "image/jpeg",
+  },
+};
+export const onDelete = (file) => {
+  console.log(`The file to delete is: ${file.name}`);
+};
+
+<Canvas withToolbar>
+  <Story
+    name="Basic with Props"
+    args={{
+      fileType: "wordProcessor",
+      isUploading: false,
+      onDelete,
+    }}
+    argTypes={{
+      fileType: {
+        control: {
+          type: "select",
+        },
+        options: Object.keys(files).map((value) => value),
+      },
+    }}
+  >
+    {(args) => (
+      <Box __css={{ width: "350px" }}>
+        <FileDisplay {...args} file={files[args.fileType]} />
+      </Box>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic with Props" />
+
+### Variations based on file type
+
+```jsx
+// Example
+const onDelete = (file) => {
+  console.log(`The file to delete is: ${file.name}`);
+};
+const filesArray = Object.keys(files).map((keyName) => (
+  <FileDisplay key={keyName} file={files[keyName]} onDelete={onDelete} />
+));
+
+return (
+  <List
+    additionalStyles={{ li: { marginTop: "s" } }}
+    type={ListTypes.Unordered}
+    listItems={filesArray}
+    noStyling
+  />
+);
+```
+
+export const filesArray = Object.keys(files).map((keyName) => (
+  <FileDisplay key={keyName} file={files[keyName]} onDelete={onDelete} />
+));
+
+<Canvas>
+  <DSProvider>
+    <List
+      additionalStyles={{ width: "fit-content", li: { marginTop: "s" } }}
+      type={ListTypes.Unordered}
+      listItems={filesArray}
+      noStyling
+    />
+  </DSProvider>
+</Canvas>

@@ -48,7 +48,7 @@ import DSProvider from "../../theme/provider";
   <Story
     name="Basic with Props"
     args={{
-      helperText: "Pass in a value from the min 0 to the max 100 values.",
+      helperText: "Upload files here.",
       invalidText: "Oh no this is an error :(",
       isDisabled: false,
       isInvalid: false,
@@ -67,25 +67,57 @@ import DSProvider from "../../theme/provider";
 
 <ArgsTable story="Basic with Props" />
 
-### Update me
-
-<Canvas>
-  <DSProvider>
-    <FileUploader />
-  </DSProvider>
-</Canvas>
-
 #### FileUploader Values
 
 ```tsx
 // Typescript example:
-function FileUploaderExample() {
-  return <p>update</p>;
+export function FileUploaderExample() {
+  const onChange = (files: DSFile[]) => {
+    console.log("Called `onChange`.");
+    for (const file of files) {
+      console.log("File to upload:", file);
+    }
+  };
+  const onDelete = (file: DSFile) => {
+    console.log("Called `onDelete`.");
+    console.log("File to delete:", file);
+  };
+  return (
+    <FileUploader
+      helperText="Upload files here."
+      invalidText="Oh no this is an error :("
+      labelText="FileUploader label"
+      multiple={true}
+      optReqFlag={false}
+      onChange={onChange}
+      onDelete={onDelete}
+    />
+  );
 }
 ```
 
 export function FileUploaderExample() {
-  return <p>update</p>;
+  const onChange = (files) => {
+    console.log("Called `onChange`.");
+    for (const file of files) {
+      console.log("File to upload:", file);
+    }
+  };
+  const onDelete = (file) => {
+    console.log("Called `onDelete`.");
+    console.log("File to delete:", file);
+  };
+  return (
+    <FileUploader
+      helperText="Upload files here."
+      invalidText="Oh no this is an error :("
+      labelText="FileUploader label"
+      multiple={true}
+      optReqFlag={false}
+      onChange={onChange}
+      onDelete={onDelete}
+    />
+  );
 }
 
 <Canvas>
