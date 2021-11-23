@@ -139,6 +139,7 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     // Never show the label or helper text for the `TextInput` component.
     showHelperInvalidText: false,
     showLabel: false,
+    step,
     type: TextInputTypes.number,
   };
   /**
