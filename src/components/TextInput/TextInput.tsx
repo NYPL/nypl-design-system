@@ -23,6 +23,8 @@ export interface InputProps {
   attributes?: { [key: string]: any };
   /** A class name for the TextInput parent div. */
   className?: string;
+  /** The starting value of the input field. */
+  defaultValue?: string;
   fileProps?: { [key: string]: any };
   /** Populates the HelperErrorText for the standard state */
   helperText?: string;
@@ -57,6 +59,8 @@ export interface InputProps {
   /** Offers the ability to show the "Required"/"Optional" label onscreen or
    * hide it. True by default. */
   showOptReqLabel?: boolean;
+  /** The amount to increase or decrease when using the number type. */
+  step?: number;
   /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
@@ -82,6 +86,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       additionalStyles = {},
       attributes = {},
       className,
+      defaultValue,
       fileProps = {},
       helperText,
       id = generateUUID(),
@@ -96,6 +101,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       showHelperInvalidText = true,
       showLabel = true,
       showOptReqLabel = true,
+      step = 1,
       type = TextInputTypes.text,
       value,
       variantType = TextInputVariants.Default,
@@ -147,8 +153,9 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     options = isHidden
       ? { id, "aria-hidden": isHidden, name, onChange, ref }
       : {
-          id,
           "aria-required": isRequired,
+          defaultValue,
+          id,
           isDisabled,
           isRequired,
           isInvalid,
@@ -156,6 +163,8 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
           onChange,
           placeholder,
           ref,
+          // The `step` attribute is useful for the number type.
+          step: type === TextInputTypes.number ? step : null,
           ...attributes,
         };
     // For `input` and `textarea`, all attributes are the same but `input`

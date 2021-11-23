@@ -113,6 +113,7 @@ const categories = {
       "Breakpoints",
       "Buttons",
       "Colors",
+      "Design Tokens",
       "Forms",
       "Iconography",
       "Spacing",

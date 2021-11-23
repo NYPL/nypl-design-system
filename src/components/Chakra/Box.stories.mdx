@@ -17,7 +17,8 @@ import DSProvider from "../../theme/provider";
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
 
-Note: This needs the use of the `DSProvider` component. See the [README](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)
+Note: This needs the use of the `DSProvider` component. See the
+[README](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page#dsprovider)
 for more information.
 
 This component is directly exported from Chakra UI. The `Box` is a simple and
@@ -31,17 +32,12 @@ guide on the Chakra UI site.
   <Story
     name="Box"
     args={{
-      p: "5",
+      padding: "s",
       bg: "var(--nypl-colors-brand-primary)",
       color: "white",
     }}
   >
-    {(args) => (
-      <Box {...args}>
-        So when I look up at the stars, I just wonder...what will they all
-        become someday?
-      </Box>
-    )}
+    {(args) => <Box {...args}>This text is inside a `Box` component.</Box>}
   </Story>
 </Canvas>
 
@@ -49,7 +45,7 @@ guide on the Chakra UI site.
 
 <Canvas>
   <DSProvider>
-    <Box borderWidth="3px" padding="6" borderRadius="lg" overflow="hidden">
+    <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
       <VideoPlayer
         videoId="nm-dD2tx6bk"
         videoType={VideoPlayerTypes.YouTube}
