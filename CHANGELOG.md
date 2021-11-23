@@ -25,6 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 - Updates the breakpoint CSS variable names by adding the `--nypl` prefix and the SCSS variables by adding the `$nypl` prefix. Updates references throughout the codebase.
+- Updates npm packages in `package.json`. Removes `cpy-cli`, `react-uid`, `react-is`, `stylelint` and related packages, and `ts-loader` (already added through TSDX). Updates other packages such as `sass-loader`, `prettier`, `jest`, `jest-axe`, and the majority of Storybook addon packages.
 
 ## 0.25.3 (November 18, 2021)
 
