@@ -11,11 +11,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `ProgressIndicator` component.
+- Adds documentation for using `NYPL Design Tokens`.
+- Adds the `ActionLaunch` icon to the `Icon` component.
+- Adds the DS `Slider` component based on the Chakra `Slider` and `RangeSlider` components.
+- Adds the `ButtonTypes.NoBrand` variant to the `Button` component.
 
 ### Changes
 
 - Updates the organization of SCSS files by deleting some files and combining others.
 - Updates `@chakra-ui/react` to version 1.7.1 and `@chakra-ui/system` to version 1.8.1.
+- Updates the `TextInput` component to now have `defaultValue` and `step` props.
 
 ### Fixes
 
@@ -25,6 +30,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Breaking Changes
 
 - Updates the breakpoint CSS variable names by adding the `--nypl` prefix and the SCSS variables by adding the `$nypl` prefix. Updates references throughout the codebase.
+- Changes the `Button`'s `disabled` prop to `isDisabled`.
 
 ## 0.25.3 (November 18, 2021)
 
