@@ -11,6 +11,7 @@ export enum TextInputTypes {
   url = "url",
 }
 
+// Only used internally in `TextInput`.
 export enum TextInputFormats {
   email = "jdoe@domain.com",
   hidden = "",
@@ -23,6 +24,7 @@ export enum TextInputFormats {
   url = "https://domain.com",
 }
 
+// Only used internally in `TextInput` and `SearchBar`.
 export enum TextInputVariants {
   Default = "default",
   SearchBar = "searchBar",
