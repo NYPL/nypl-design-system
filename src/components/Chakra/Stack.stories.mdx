@@ -4,8 +4,7 @@ import { Box, Stack, HStack, VStack, Circle } from "@chakra-ui/react";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import Icon from "../Icons/Icon";
-import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
-import Radio from "../Radio/Radio";
+import { IconNames, IconSizes } from "../Icons/IconTypes";
 
 <Meta title={getCategory("Stack, HStack, VStack")} component={Stack} />
 
@@ -15,7 +14,8 @@ import Radio from "../Radio/Radio";
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
 
-Note: This needs the use of the `DSProvider` component. See the [README](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)
+Note: This needs the use of the `DSProvider` component. See the
+[README](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page#dsprovider)
 for more information.
 
 These components are directly exported from Chakra UI. The `Stack`, `HStack`,
@@ -25,17 +25,21 @@ with spacing between them.
 All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
 guide on the Chakra UI site.
 
+In all the following examples, Design System `Icon` components are wrapped in
+Chakra's `Circle` component.
+
 ## Stack
 
-The `Stack` component is the most flexible component because it can stack elements
-both horizontally and vertically through the `direction` prop.
+The `Stack` component is the most flexible component because it can stack
+elements both horizontally and vertically through the `direction` prop and the
+`"row"` and `"column"` values, respectively.
 
 <Canvas>
   <Story
     name="Stack, HStack, VStack"
     args={{
       direction: "column",
-      spacing: "10px",
+      spacing: "s",
     }}
     argTypes={{
       direction: {
@@ -64,30 +68,43 @@ both horizontally and vertically through the `direction` prop.
 
 ## HStack
 
-Stacks components horizontally.
+Stacks components horizontally. This is the same as the `Stack` component with
+a `direction` value of `"row"`.
 
 <Canvas>
   <DSProvider>
-    <HStack>
-      <Radio checked labelText="Tom Nook" name="testChecked" />
-      <Radio labelText="Timmy" name="testChecked" />
-      <Radio labelText="Tommy" name="testChecked" />
-      <Radio labelText="Celeste" name="testChecked" />
+    <HStack spacing="s">
+      <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+        <Icon name={IconNames.ErrorFilled} size={IconSizes.Large} />
+      </Circle>
+      <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+        <Icon name={IconNames.ErrorOutline} size={IconSizes.Large} />
+      </Circle>
+      <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+        <Icon name={IconNames.Check} size={IconSizes.Large} />
+      </Circle>
     </HStack>
   </DSProvider>
 </Canvas>
 
 ## VStack
 
-Stacks components vertically.
+Stacks components vertically. This is the same as the `Stack` component with
+a `direction` value of `"column"`.Pass in a value to the `align` prop to align
+all the elements in the stack.
 
 <Canvas>
   <DSProvider>
-    <VStack>
-      <Radio isChecked labelText="Tom Nook" name="testChecked" />
-      <Radio labelText="Timmy" name="testChecked" />
-      <Radio labelText="Tommy" name="testChecked" />
-      <Radio labelText="Celeste" name="testChecked" />
+    <VStack align="left" spacing="s">
+      <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+        <Icon name={IconNames.ErrorFilled} size={IconSizes.Large} />
+      </Circle>
+      <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+        <Icon name={IconNames.ErrorOutline} size={IconSizes.Large} />
+      </Circle>
+      <Circle size="50px" borderColor="ui.black" borderWidth="1px">
+        <Icon name={IconNames.Check} size={IconSizes.Large} />
+      </Circle>
     </VStack>
   </DSProvider>
 </Canvas>

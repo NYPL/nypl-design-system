@@ -72,7 +72,7 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
  * renders an `Image` component but with overriding styles specific to the
  * `Card` component.
  */
-export function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
+function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
   const {
     alt,
     center,
@@ -130,7 +130,7 @@ export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
  * component to the entire `Card` component. This works together with the
  * `CardLinkOverlay` component to provide a clickable overlay.
  */
-export function CardLinkBox({
+function CardLinkBox({
   children,
   mainActionLink,
 }: React.PropsWithChildren<CardLinkBoxProps>) {
@@ -148,7 +148,7 @@ export function CardLinkBox({
  * the `Card` component while still allowing links in the `CardActions` to be
  * clickable.
  */
-export function CardLinkOverlay({
+function CardLinkOverlay({
   children,
   mainActionLink,
 }: React.PropsWithChildren<CardLinkBoxProps>) {

@@ -12,11 +12,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `ProgressIndicator` component.
 - Adds documentation for using `NYPL Design Tokens`.
+- Adds the `ActionLaunch` icon to the `Icon` component.
 
 ### Changes
 
 - Updates the organization of SCSS files by deleting some files and combining others.
 - Updates `@chakra-ui/react` to version 1.7.1 and `@chakra-ui/system` to version 1.8.1.
+
+### Fixes
+
+- Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
+- Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
 
 ### Breaking Changes
 
