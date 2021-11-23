@@ -8,23 +8,23 @@ name: CI
 on: push
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    env:
-      CI: true
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: Cache and install node modules
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
-      - name: Lint
-        run: npm run lint
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     CI: true
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Use Node.js 12.x
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 12.x
+  #     - name: Cache and install node modules
+  #       uses: bahmutov/npm-install@v1
+  #       with:
+  #         useLockFile: false
+  #     - name: Lint
+  #         run: npm run lint
 
   typecheck:
     name: Typecheck
