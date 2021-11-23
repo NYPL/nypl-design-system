@@ -1,0 +1,1946 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="defaultRangeSlider-textInput-start"
+    id="defaultRangeSlider-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-oihlfv"
+    >
+      <input
+        aria-label="Range slider start value"
+        className="chakra-input css-0"
+        disabled={false}
+        id="defaultRangeSlider-textInput-start"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="25"
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      id="slider-root-defaultRangeSlider"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-defaultRangeSlider"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          id="slider-filled-track-defaultRangeSlider"
+          style={
+            Object {
+              "left": "25%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-labelledby="defaultRangeSlider-label"
+        aria-orientation="horizontal"
+        aria-valuemax={75}
+        aria-valuemin={0}
+        aria-valuenow={25}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-defaultRangeSlider-0"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(25% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <div
+        aria-labelledby="defaultRangeSlider-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={25}
+        aria-valuenow={75}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-defaultRangeSlider-1"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(75% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-label="Range slider end value"
+        className="chakra-input css-0"
+        disabled={false}
+        id="defaultRangeSlider-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="75"
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="defaultRangeSlider-helperText"
+    >
+      Component helper text.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="errored-textInput-start"
+    id="errored-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-oihlfv"
+    >
+      <input
+        aria-invalid={true}
+        aria-label="Range slider start value - There is an error related to this field."
+        className="chakra-input css-0"
+        disabled={false}
+        id="errored-textInput-start"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="25"
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      id="slider-root-errored"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-errored"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          id="slider-filled-track-errored"
+          style={
+            Object {
+              "left": "25%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-labelledby="errored-label"
+        aria-orientation="horizontal"
+        aria-valuemax={75}
+        aria-valuemin={0}
+        aria-valuenow={25}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-errored-0"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(25% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <div
+        aria-labelledby="errored-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={25}
+        aria-valuenow={75}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-errored-1"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(75% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-invalid={true}
+        aria-label="Range slider end value - There is an error related to this field."
+        className="chakra-input css-0"
+        disabled={false}
+        id="errored-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="75"
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className=" css-0"
+      data-isinvalid={true}
+      id="errored-helperText"
+    >
+      Component error text :(
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="required-textInput-start"
+    id="required-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Required
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-oihlfv"
+    >
+      <input
+        aria-label="Range slider start value"
+        aria-required={true}
+        className="chakra-input css-0"
+        disabled={false}
+        id="required-textInput-start"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={true}
+        step={1}
+        type="number"
+        value="25"
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      id="slider-root-required"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-required"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          id="slider-filled-track-required"
+          style={
+            Object {
+              "left": "25%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-labelledby="required-label"
+        aria-orientation="horizontal"
+        aria-valuemax={75}
+        aria-valuemin={0}
+        aria-valuenow={25}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-required-0"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(25% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <div
+        aria-labelledby="required-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={25}
+        aria-valuenow={75}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-required-1"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(75% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-label="Range slider end value"
+        aria-required={true}
+        className="chakra-input css-0"
+        disabled={false}
+        id="required-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={true}
+        step={1}
+        type="number"
+        value="75"
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="required-helperText"
+    >
+      Component helper text.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="disabled-textInput-start"
+    id="disabled-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-oihlfv"
+    >
+      <input
+        aria-label="Range slider start value"
+        className="chakra-input css-0"
+        disabled={true}
+        id="disabled-textInput-start"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="25"
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      aria-disabled={true}
+      className="chakra-slider css-0"
+      id="slider-root-disabled"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        data-disabled=""
+        id="slider-track-disabled"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          id="slider-filled-track-disabled"
+          style={
+            Object {
+              "left": "25%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-disabled={true}
+        aria-labelledby="disabled-label"
+        aria-orientation="horizontal"
+        aria-valuemax={75}
+        aria-valuemin={0}
+        aria-valuenow={25}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-disabled-0"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(25% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+      />
+      <div
+        aria-disabled={true}
+        aria-labelledby="disabled-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={25}
+        aria-valuenow={75}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-disabled-1"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(75% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-label="Range slider end value"
+        className="chakra-input css-0"
+        disabled={true}
+        id="disabled-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="75"
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="disabled-helperText"
+    >
+      Component helper text.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-oihlfv"
+    >
+      <input
+        aria-label="Range slider start value"
+        className="chakra-input css-0"
+        disabled={false}
+        id="noLabels-textInput-start"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="25"
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      id="slider-root-noLabels"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-noLabels"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          id="slider-filled-track-noLabels"
+          style={
+            Object {
+              "left": "25%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label="Label minimum value"
+        aria-orientation="horizontal"
+        aria-valuemax={75}
+        aria-valuemin={0}
+        aria-valuenow={25}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-noLabels-0"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(25% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <div
+        aria-label="Label maximum value"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={25}
+        aria-valuenow={75}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-noLabels-1"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(75% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-label="Range slider end value"
+        className="chakra-input css-0"
+        disabled={false}
+        id="noLabels-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="75"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="noVisibleValues-textInput-start"
+    id="noVisibleValues-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="chakra-slider css-0"
+      id="slider-root-noVisibleValues"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-noVisibleValues"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          id="slider-filled-track-noVisibleValues"
+          style={
+            Object {
+              "left": "25%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-labelledby="noVisibleValues-label"
+        aria-orientation="horizontal"
+        aria-valuemax={75}
+        aria-valuemin={0}
+        aria-valuenow={25}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-noVisibleValues-0"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(25% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <div
+        aria-labelledby="noVisibleValues-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={25}
+        aria-valuenow={75}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-noVisibleValues-1"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(75% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="noVisibleValues-helperText"
+    >
+      Component helper text.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="chakra-slider css-0"
+      id="slider-root-onlySlider"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-onlySlider"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          id="slider-filled-track-onlySlider"
+          style={
+            Object {
+              "left": "25%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label="Label minimum value"
+        aria-orientation="horizontal"
+        aria-valuemax={75}
+        aria-valuemin={0}
+        aria-valuenow={25}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-onlySlider-0"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(25% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <div
+        aria-label="Label maximum value"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={25}
+        aria-valuenow={75}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-onlySlider-1"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(75% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="defaultSlider-textInput-end"
+    id="defaultSlider-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-defaultSlider"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label={null}
+        aria-labelledby="defaultSlider-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-defaultSlider"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-label="Range slider end value"
+        className="chakra-input css-0"
+        disabled={false}
+        id="defaultSlider-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="50"
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="defaultSlider-helperText"
+    >
+      Component helper text.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="errored-textInput-end"
+    id="errored-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-errored"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label={null}
+        aria-labelledby="errored-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-errored"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-invalid={true}
+        aria-label="Range slider end value - There is an error related to this field."
+        className="chakra-input css-0"
+        disabled={false}
+        id="errored-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="50"
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className=" css-0"
+      data-isinvalid={true}
+      id="errored-helperText"
+    >
+      Component error text :(
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="required-textInput-end"
+    id="required-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Required
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-required"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label={null}
+        aria-labelledby="required-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-required"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-label="Range slider end value"
+        aria-required={true}
+        className="chakra-input css-0"
+        disabled={false}
+        id="required-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={true}
+        step={1}
+        type="number"
+        value="50"
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="required-helperText"
+    >
+      Component helper text.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="disabled-textInput-end"
+    id="disabled-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      aria-disabled={true}
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        data-disabled=""
+        id="slider-track-disabled"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-disabled={true}
+        aria-label={null}
+        aria-labelledby="disabled-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-disabled"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-label="Range slider end value"
+        className="chakra-input css-0"
+        disabled={true}
+        id="disabled-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="50"
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="disabled-helperText"
+    >
+      Component helper text.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-noLabels"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label="Label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-noLabels"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1g047oq"
+    >
+      <input
+        aria-label="Range slider end value"
+        className="chakra-input css-0"
+        disabled={false}
+        id="noLabels-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="50"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
+<div
+  className="css-0"
+>
+  <label
+    className="css-0"
+    htmlFor="noVisibleValues-textInput-end"
+    id="noVisibleValues-label"
+  >
+    Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-noVisibleValues"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label={null}
+        aria-labelledby="noVisibleValues-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-noVisibleValues"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="noVisibleValues-helperText"
+    >
+      Component helper text.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 7`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-onlySlider"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label="Label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-onlySlider"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+  </div>
+</div>
+`;
