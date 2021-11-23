@@ -123,6 +123,7 @@ component. Note that the `SearchBar` type is only used internally in the
       <Button buttonType={ButtonTypes.Pill}>Pill Button</Button>
       <Button buttonType={ButtonTypes.Link}>Link Button</Button>
       <Button buttonType={ButtonTypes.SearchBar}>SearchBar Button</Button>
+      <Button buttonType={ButtonTypes.NoBrand}>NoBrand Button</Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -160,6 +161,11 @@ component. Note that the `SearchBar` type is only used internally in the
   to the `TextInput` component
 - Visual Treatment: rectangular, filled, no border radius on the left side
 
+### ButtonTypes.NoBrand
+
+- used in cases where there is no brand color
+- Visual Treatment: rectangular, filled with a black background
+
 ## Patterns
 
 - Buttons are blue by default.
@@ -169,6 +175,8 @@ component. Note that the `SearchBar` type is only used internally in the
   include an up arrow icon.
 - Previous and Next buttons should be set as `ButtonTypes.Secondary` and be
   wrapped in a `ButtonGroup`.
+- Only use the `ButtonTypes.NoBrand` style where there is no brand color. _This
+  should be rarely used._
 
 <Canvas>
   <DSProvider>
