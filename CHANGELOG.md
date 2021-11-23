@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `ProgressIndicator` component.
+- Adds documentation for using `NYPL Design Tokens`.
+- Adds the `ActionLaunch` icon to the `Icon` component.
 
 ### Changes
 
