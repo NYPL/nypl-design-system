@@ -3,6 +3,8 @@ import { Button as ChakraButton, useStyleConfig } from "@chakra-ui/react";
 
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
+import { getVariant } from "../../utils/utils";
+import generateUUID from "../../helpers/generateUUID";
 
 type ButtonElementType = "submit" | "button" | "reset";
 
@@ -13,35 +15,24 @@ interface ButtonProps {
   attributes?: { [key: string]: any };
   /** The kind of button assigned through the `ButtonTypes` enum  */
   buttonType?: ButtonTypes;
-  /** Additional className for use with BEM. See how to work with blockNames and BEM here: http://getbem.com/introduction/ */
+  /** Additional className to use. */
   className?: string;
-  /** Adds 'disabled' property to the button */
-  disabled?: boolean;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Trigger the Button's action through the `mouseDown` event handler instead of `onClick`. `false` by default. */
+  /** Adds 'disabled' property to the button */
+  isDisabled?: boolean;
+  /** Trigger the Button's action through the `mouseDown` event handler instead
+   * of `onClick`. `false` by default. */
   mouseDown?: boolean;
   /** The action to perform on the `<button>`'s onClick function */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  /** The html button attribute */
+  /** The HTML button type attribute. */
   type?: ButtonElementType;
 }
 
-// Used to map between ButtonTypes enum values and Chakra variant options.
-const variantMap = {};
-for (const type in ButtonTypes) {
-  variantMap[ButtonTypes[type]] = ButtonTypes[type];
-}
-
 /**
- * Map the ButtonType to the Button Chakra theme variant object. If a wrong
- * value is passed (typically in non-Typescript scenarios), then the default
- * is the "primary" variant.
+ * Renders a simple `button` element with custom variant styles.
  */
-const getVariant = (buttonType) =>
-  variantMap[buttonType] || ButtonTypes.Primary;
-
-/** Renders a simple `button` element with custom classes and modifiers. */
 function Button(props: React.PropsWithChildren<ButtonProps>) {
   const {
     additionalStyles = {},
@@ -49,8 +40,8 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
     buttonType,
     children,
     className = "",
-    disabled,
-    id,
+    isDisabled,
+    id = generateUUID(),
     mouseDown = false,
     onClick,
     type = "button",
@@ -59,7 +50,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
   let childCount = 0;
   let hasIcon = false;
   let variant;
-  let styles;
+  let styles = {};
 
   React.Children.map(children, (child: React.ReactElement) => {
     childCount++;
@@ -76,7 +67,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
   if (childCount === 1 && hasIcon) {
     variant = "iconOnly";
   } else {
-    variant = getVariant(buttonType);
+    variant = getVariant(buttonType, ButtonTypes, ButtonTypes.Primary);
   }
 
   styles = useStyleConfig("Button", { variant });
@@ -87,7 +78,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
       data-testid="button"
       className={className}
       type={type}
-      disabled={disabled}
+      isDisabled={isDisabled}
       __css={{ ...styles, ...additionalStyles }}
       {...attributes}
       {...btnCallback}
