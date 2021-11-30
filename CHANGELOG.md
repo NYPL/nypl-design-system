@@ -32,6 +32,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the breakpoint CSS variable names by adding the `--nypl` prefix and the SCSS variables by adding the `$nypl` prefix. Updates references throughout the codebase.
 - Changes the `Button`'s `disabled` prop to `isDisabled`.
 
+### Deprecates
+
+- Deprecates the `Input` component. The `Input` component will be removed from the NYPL Design System React Library in the first release of January 2022.
+
 ## 0.25.3 (November 18, 2021)
 
 ### Adds

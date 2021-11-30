@@ -19,7 +19,7 @@ const categories = {
   },
   deprecated: {
     title: "Components/Deprecated",
-    components: [],
+    components: ["Input"],
   },
   feedback: {
     title: "Components/Feedback",
@@ -43,7 +43,6 @@ const categories = {
       "Fieldset",
       "FileUploader",
       "Form",
-      "Input",
       "Label",
       "NumberInput",
       "Radio",
