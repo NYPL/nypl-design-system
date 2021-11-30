@@ -35,6 +35,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Deprecates
 
 - Deprecates the `Input` component. The `Input` component will be removed from the NYPL Design System React Library in the first release of January 2022.
+- Deprecates the `CardEdition` component. The `CardEdition` component will be removed from the NYPL Design System React Library in the first release of January 2022.
 
 ## 0.25.3 (November 18, 2021)
 

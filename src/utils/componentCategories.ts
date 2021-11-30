@@ -3,7 +3,7 @@
 const categories = {
   basicContent: {
     title: "Components/Basic Elements",
-    components: ["Card", "CardEdition", "Hero", "Promo", "Sponsor", "Table"],
+    components: ["Card", "Hero", "Promo", "Sponsor", "Table"],
   },
   contentDisplay: {
     title: "Components/Content Display",
@@ -19,7 +19,7 @@ const categories = {
   },
   deprecated: {
     title: "Components/Deprecated",
-    components: ["Input"],
+    components: ["CardEdition", "Input"],
   },
   feedback: {
     title: "Components/Feedback",
