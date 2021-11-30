@@ -23,10 +23,11 @@ import DSProvider from "../../theme/provider";
     jest: ["HelperErrorText.test.tsx"],
   }}
   argTypes={{
-    ariaAtomic: { table: { disable: true } },
+    additionalStyles: { control: { type: null } },
+    ariaAtomic: { control: { type: null } },
     children: { table: { disable: true } },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
+    className: { control: { type: null } },
+    id: { control: { type: null } },
   }}
 />
 
@@ -41,10 +42,27 @@ import DSProvider from "../../theme/provider";
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Props"
+    name="Basic with Controls"
     args={{
       ariaLive: "polite",
       isInvalid: false,
+    }}
+    argTypes={{
+      ariaAtomic: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
+      ariaLive: {
+        table: {
+          defaultValue: { summary: "polite" },
+        },
+      },
+      isInvalid: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
     }}
   >
     {(args) => (
@@ -57,7 +75,7 @@ import DSProvider from "../../theme/provider";
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Props" />
+<ArgsTable story="Basic with Controls" />
 
 ## With HTML Children
 

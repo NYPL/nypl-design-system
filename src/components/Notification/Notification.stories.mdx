@@ -5,20 +5,21 @@ import {
   ArgsTable,
   Preview,
   Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Notification from "./Notification";
 import { NotificationTypes } from "./NotificationTypes";
 import Icon from "../Icons/Icon";
-import {
-  IconSizes,
-  IconColors,
-  IconNames,
-  IconAlign,
-} from "../Icons/IconTypes";
+import { IconColors, IconNames } from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  NotificationTypes,
+  "NotificationTypes"
+);
 
 <Meta
   title={getCategory("Notification")}
@@ -31,6 +32,11 @@ import DSProvider from "../../theme/provider";
         "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A812",
     },
     jest: ["Notification.test.tsx"],
+  }}
+  argTypes={{
+    className: { control: { type: null } },
+    id: { control: { type: null } },
+    icon: { control: { type: null } },
   }}
 />
 
@@ -52,32 +58,59 @@ within a parent element.
 
 <Canvas>
   <Story
-    name="Notification Props"
+    name="Notification with Controls"
     args={{
       id: "basic-notification",
-      centered: true,
+      centered: false,
       notificationHeading: "Notification Heading",
-      notificationContent: (
-        <>
-          Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
-          mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum
-          at eros. Cum sociis natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet
-          rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-          nisi erat porttitor ligula.
-        </>
-      ),
+      notificationContent:
+        "Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus" +
+        "mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum" +
+        "at eros. Cum sociis natoque penatibus et magnis dis parturient montes," +
+        "nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet" +
+        "rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus," +
+        "nisi erat porttitor ligula.",
+      notificationType: "NotificationTypes.Standard",
+    }}
+    argTypes={{
+      centered: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      dismissible: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      noMargin: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      notificationType: {
+        control: {
+          type: "select",
+        },
+        table: {
+          defaultValue: { summary: "NotificationTypes.Standard" },
+        },
+        options: enumValues.options,
+      },
     }}
   >
     {(args) => (
       <div style={{ border: "1px solid #ccc" }}>
-        <Notification {...args} />
+        <Notification
+          {...args}
+          notificationType={enumValues.getValue(args.notificationType)}
+        />
       </div>
     )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Notification Props" />
+<ArgsTable story="Notification with Controls" />
 
 ## Variants
 
