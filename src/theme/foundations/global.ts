@@ -7,12 +7,14 @@
 const global = {
   // styles for the `body` element
   body: {
+    boxSizing: "border-box",
     bg: "ui.white",
     color: "ui.black",
     fontFamily: "body",
-    fontSize: 0,
+    fontSize: "0",
     fontWeight: "300",
     lineHeight: "1.5",
+    overflowX: "hidden",
   },
   // styles for the `a` element
   a: {
@@ -20,6 +22,9 @@ const global = {
   },
   svg: {
     display: "inline",
+  },
+  p: {
+    margin: "0 0 var(--nypl-space-s",
   },
 };
 

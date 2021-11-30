@@ -9,28 +9,28 @@ const getBodyPaddingStyles = ({ border, hasImage, imageAtEnd, isRow }) => {
   if (border) {
     bodyPadding = "s";
     if (hasImage) {
-      bodyPadding = "0 var(--space-s) var(--space-s)";
+      bodyPadding = "0 var(--nypl-space-s) var(--nypl-space-s)";
     }
   }
   if (isRow && border) {
-    bodyPadding = "var(--space-s)";
+    bodyPadding = "var(--nypl-space-s)";
   }
   if (isRow && border && hasImage) {
     bodyPadding = {
-      base: "0 var(--space-s) var(--space-s)",
-      md: "var(--space-s) var(--space-s) var(--space-s) 0",
+      base: "0 var(--nypl-space-s) var(--nypl-space-s)",
+      md: "var(--nypl-space-s) var(--nypl-space-s) var(--nypl-space-s) 0",
     };
     if (imageAtEnd) {
       bodyPadding = {
-        base: "var(--space-s) var(--space-s) 0",
-        md: "var(--space-s) 0 var(--space-s) var(--space-s)",
+        base: "var(--nypl-space-s) var(--nypl-space-s) 0",
+        md: "var(--nypl-space-s) 0 var(--nypl-space-s) var(--nypl-space-s)",
       };
     }
   }
   return bodyPadding;
 };
 const Card = {
-  parts: ["content"],
+  parts: ["body", "heading"],
   baseStyle: (props) => {
     const { border, center, hasImage, imageAtEnd, layout } = props;
     const isRow = layout === "row";
@@ -70,6 +70,9 @@ const Card = {
       display: "flex",
       flexFlow: "column wrap",
       textAlign: center ? "center" : null,
+      heading: {
+        marginBottom: "xs",
+      },
       body: {
         display: { md: "block" },
         flexFlow: { md: "row nowrap" },
@@ -104,8 +107,8 @@ const CardActions = {
         }
       : {};
     return {
-      marginBottom: "s",
-      columnGap: "var(--space-xs)",
+      marginBottom: "xs",
+      columnGap: "var(--nypl-space-xs)",
       display: "flex",
       _last: {
         marginBottom: "0",
@@ -120,7 +123,7 @@ const CardActions = {
 
 const CardContent = {
   baseStyle: {
-    marginBottom: "s",
+    marginBottom: "xs",
     _last: {
       marginBottom: "0",
     },
@@ -144,12 +147,16 @@ const CardImage = {
             textAlign: "left",
             alignItems: center ? "center" : null,
             margin: {
-              base: imageAtEnd ? "var(--space-m) 0 0" : null,
-              md: imageAtEnd ? "0 0 0 var(--space-m)" : "0 var(--space-m) 0 0",
+              base: imageAtEnd ? "var(--nypl-space-m) 0 0" : null,
+              md: imageAtEnd
+                ? "0 0 0 var(--nypl-space-m)"
+                : "0 var(--nypl-space-m) 0 0",
             },
             ...size,
           }
-        : {};
+        : {
+            marginBottom: "xs",
+          };
     const imageAtEndStyles = imageAtEnd
       ? {
           marginBottom: "0",

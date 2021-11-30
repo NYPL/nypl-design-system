@@ -14,9 +14,8 @@ import Button from "./components/button";
 import Card from "./components/card";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
-import CustomCheckboxGroup from "./components/customCheckboxGroup";
+import CheckboxGroup from "./components/checkboxGroup";
 import { CustomImage, CustomImageWrapper } from "./components/image";
-import CustomRadioGroup from "./components/customRadioGroup";
 import CustomSelect from "./components/select";
 import DatePicker from "./components/datePicker";
 import Fieldset from "./components/fieldset";
@@ -30,8 +29,12 @@ import Link from "./components/link";
 import List from "./components/list";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
+import ProgressIndicator from "./components/progressIndicator";
 import Radio from "./components/radio";
+import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
+import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
+import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
@@ -76,11 +79,10 @@ const theme = extendTheme({
     Button,
     ...Card,
     Checkbox,
+    CheckboxGroup,
     ComponentWrapper,
-    CustomCheckboxGroup,
     CustomImage,
     CustomImageWrapper,
-    CustomRadioGroup,
     CustomSelect,
     DatePicker,
     Fieldset,
@@ -94,8 +96,13 @@ const theme = extendTheme({
     List,
     ...NotificationStyles,
     Pagination,
+    ProgressIndicator,
     Radio,
+    RadioGroup,
     SearchBar,
+    Skeleton,
+    SkeletonLoader,
+    CustomSlider,
     StatusBadge,
     Tabs,
     ...TemplateStyles,

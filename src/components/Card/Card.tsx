@@ -72,7 +72,7 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
  * renders an `Image` component but with overriding styles specific to the
  * `Card` component.
  */
-export function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
+function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
   const {
     alt,
     center,
@@ -130,7 +130,7 @@ export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
  * component to the entire `Card` component. This works together with the
  * `CardLinkOverlay` component to provide a clickable overlay.
  */
-export function CardLinkBox({
+function CardLinkBox({
   children,
   mainActionLink,
 }: React.PropsWithChildren<CardLinkBoxProps>) {
@@ -148,7 +148,7 @@ export function CardLinkBox({
  * the `Card` component while still allowing links in the `CardActions` to be
  * clickable.
  */
-export function CardLinkOverlay({
+function CardLinkOverlay({
   children,
   mainActionLink,
 }: React.PropsWithChildren<CardLinkBoxProps>) {
@@ -185,6 +185,14 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
 
+  const styles = useMultiStyleConfig("Card", {
+    border,
+    center,
+    hasImage,
+    imageAtEnd,
+    layout,
+  });
+
   React.Children.map(children, (child: React.ReactElement, key) => {
     if (child.type === CardHeading || child.props.mdxType === "CardHeading") {
       // If the child is a `CardHeading` component, then we add the
@@ -201,6 +209,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
           child.props.children
         );
       const elem = React.cloneElement(child, {
+        additionalStyles: styles.heading,
         key,
         center,
         // Override the child text with the potential `CardLinkOverlay`.
@@ -218,14 +227,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       const elem = React.cloneElement(child, { key, center, layout });
       cardContents.push(elem);
     }
-  });
-
-  const styles = useMultiStyleConfig("Card", {
-    border,
-    center,
-    hasImage,
-    imageAtEnd,
-    layout,
   });
 
   return (

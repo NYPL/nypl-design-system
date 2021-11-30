@@ -1,11 +1,20 @@
 /* eslint-disable camelcase */
 import accessibility_full from "../../../icons/svg/accessibility_full.svg";
 import accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
+import action_check_circle from "../../../icons/svg/action_check_circle.svg";
+import action_launch from "../../../icons/svg/action_launch.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import brooklyn from "../../../icons/svg/brooklyn.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
 import close from "../../../icons/svg/close.svg";
+import file_type_audio from "../../../icons/svg/file_type_audio.svg";
+import file_type_doc from "../../../icons/svg/file_type_doc.svg";
+import file_type_generic_doc from "../../../icons/svg/file_type_generic_doc.svg";
+import file_type_image from "../../../icons/svg/file_type_image.svg";
+import file_type_pdf from "../../../icons/svg/file_type_pdf.svg";
+import file_type_spreadsheet from "../../../icons/svg/file_type_spreadsheet.svg";
+import file_type_video from "../../../icons/svg/file_type_video.svg";
 import download from "../../../icons/svg/download.svg";
 import error_filled from "../../../icons/svg/error_filled.svg";
 import error_outline from "../../../icons/svg/error_outline.svg";
@@ -42,6 +51,8 @@ import utility_search from "../../../icons/svg/search.svg";
 export default {
   accessibility_full,
   accessibility_partial,
+  action_check_circle,
+  action_launch,
   arrow,
   brooklyn,
   check,
@@ -50,6 +61,13 @@ export default {
   download,
   error_filled,
   error_outline,
+  file_type_audio,
+  file_type_doc,
+  file_type_generic_doc,
+  file_type_image,
+  file_type_pdf,
+  file_type_spreadsheet,
+  file_type_video,
   headset,
   logo_brooklyn,
   logo_nypl,

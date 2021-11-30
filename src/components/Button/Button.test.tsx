@@ -107,6 +107,13 @@ describe("Button Snapshot", () => {
         </Button>
       )
       .toJSON();
+    const disabled = renderer
+      .create(
+        <Button id="button" onClick={jest.fn()} isDisabled>
+          Disabled
+        </Button>
+      )
+      .toJSON();
     const secondary = renderer
       .create(
         <Button
@@ -154,12 +161,25 @@ describe("Button Snapshot", () => {
         </Button>
       )
       .toJSON();
+    const noBrand = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          buttonType={ButtonTypes.NoBrand}
+        >
+          NoBrand
+        </Button>
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
+    expect(disabled).toMatchSnapshot();
     expect(secondary).toMatchSnapshot();
     expect(callout).toMatchSnapshot();
     expect(pill).toMatchSnapshot();
     expect(link).toMatchSnapshot();
     expect(searchBar).toMatchSnapshot();
+    expect(noBrand).toMatchSnapshot();
   });
 });

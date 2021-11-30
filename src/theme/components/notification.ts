@@ -1,7 +1,7 @@
 import { NotificationTypes } from "../../components/Notification/NotificationTypes";
 
 const Notification = {
-  parts: ["container", "dismissibleButton", "dismissibleIcon", "icon"],
+  parts: ["container", "dismissibleButton", "icon"],
   baseStyle: ({ centered, noMargin, notificationType }) => {
     let bg = "ui.status.primary";
     if (notificationType === NotificationTypes.Announcement) {
@@ -13,7 +13,7 @@ const Notification = {
       bg,
       display: "flex",
       fontSize: "-1",
-      padding: "var(--space) var(--space-l)",
+      padding: "var(--nypl-space-s) var(--nypl-space-l)",
       position: "relative",
       textAlign: centered ? "center" : null,
       borderRadius: noMargin ? "0" : "4px",
@@ -21,27 +21,23 @@ const Notification = {
       container: {
         margin: "auto",
         width: "100%",
-        maxWidth: "var(--breakpoint-large)",
+        maxWidth: "var(--nypl-breakpoint-large)",
       },
       dismissibleButton: {
+        border: "none",
         alignItems: "center",
         bgColor: "inherit",
         color: "ui.black",
         display: "flex",
-        height: { base: "var(--space-l)", lg: "var(--space-m)" },
-        width: { base: "var(--space-l)", lg: "var(--space-m)" },
-        padding: "0",
+        height: "32px",
+        width: "32px",
+        minWidth: "0",
         position: "absolute",
-        right: "xs",
-        top: "xs",
+        right: "0",
+        top: "0",
         _hover: {
           bg: "inherit",
         },
-      },
-      dismissibleIcon: {
-        height: "var(--space-m)",
-        marginRight: "0",
-        width: "var(--space-m)",
       },
       icon: {
         flexShrink: "0",
@@ -58,7 +54,9 @@ const NotificationContent = {
     justifyContent: "center",
     content: {
       width: "100%",
-      paddingLeft: alignText ? "calc(var(--space-m) + var(--space-s))" : null,
+      paddingLeft: alignText
+        ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
+        : null,
       color:
         notificationType === NotificationTypes.Warning
           ? "brand.primary"
