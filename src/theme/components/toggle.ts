@@ -1,19 +1,20 @@
 import { helperTextMargin } from "./global";
 
-// Style object for the Checkbox's label
+// Style object for the Toggle's label
 const baseStyleLabel = {
-  fontSize: "sm",
+  fontSize: -1,
   marginBottom: "0",
   marginLeft: "xs",
 };
 
-// Style object for the Checkbox's helper text
+// Style object for the Toggle's helper text
 const baseStyleHelper = {
   ...helperTextMargin,
   marginLeft: "xs",
 };
 
 const baseStyle = {
+  alignItems: "center",
   label: baseStyleLabel,
   helper: baseStyleHelper,
 };
@@ -23,34 +24,30 @@ const Switch = {
     opacity: 0.4,
     track: {
       p: "4px",
-    },
-  },
-  variants: {
-    standard: {
-      track: {
-        _checked: {
-          bg: "ui.link.primary",
-          opacity: 1,
-        },
+      _checked: {
+        bg: "ui.link.primary",
+        opacity: 1,
       },
-    },
-    disabled: {
-      track: {
+      _invalid: {
+        border: "1px solid",
+        borderColor: "ui.error.primary",
+        bg: "inherit",
+      },
+      _disabled: {
         bg: "ui.gray.medium",
+        _checked: {
+          opacity: 0.4,
+        },
       },
     },
-    error: {
-      track: {
-        bg: "red.200",
-        _checked: {
-          bg: "red.500",
-        },
+    thumb: {
+      _disabled: {
+        bg: "ui.error.primary",
       },
     },
   },
   defaultProps: {
     colorScheme: "white",
-    variant: "standard",
   },
 };
 

@@ -6,8 +6,9 @@ import {
   Description,
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
-import { HStack, VStack, Grid } from "@chakra-ui/react";
+import { HStack, VStack, Grid, Box } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
+import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import Toggle from "./Toggle";
@@ -26,6 +27,7 @@ import { ToggleSizes } from "./ToggleSizes";
     jest: ["Toggle.test.tsx"],
   }}
   argTypes={{
+    id: { table: { disable: true } },
     className: { table: { disable: true } },
   }}
 />
@@ -55,7 +57,6 @@ The Toggle component label should clarify the action being performed. Labels sho
       size: "lg",
       defaultChecked: false,
       helperText: "This is the helper text!",
-      id: "",
       invalidText: "",
       isDisabled: false,
       isInvalid: false,
@@ -87,17 +88,25 @@ The Toggle component label should clarify the action being performed. Labels sho
 
 ## Controlled Toggle
 
-Note that the `isChecked` property in this example is set to `true` and clicking
-on it won't change the toggle; the `isChecked` prop must now be controlled
-and removed manually by the parent component that controls this state.
+Note that the `isChecked` property in this example is set to `true`. Clicking
+on it won't change the toggle; The `isChecked` prop must now be controlled
+and removed manually by the parent component that controls this state. The
+`onChange` function will be called every time the `isChecked` prop changes.
 
-<Canvas>
-  <DSProvider>
-    <HStack>
-      <Toggle isChecked={true} labelText="Controlled Toggle" />
-    </HStack>
-  </DSProvider>
-</Canvas>
+<!--
+```jsx
+const isChecked = true;
+const onChange = (e) => {
+  // This will return the value through the event object.
+  console.log(e.target.value);
+};
+
+<Toggle
+  isChecked={isChecked}
+  onChange={onChange}
+  labelText="Controlled Toggle"
+/>;
+``` -->
 
 ## Browser States
 
@@ -158,23 +167,25 @@ and removed manually by the parent component that controls this state.
 
 <Canvas>
   <DSProvider>
-    <Box>
-      <Heading level={3}>Grouped</Heading>
-      <VStack>
-        <Toggle defaultChecked={true} labelText="On" />
-        <Toggle defaultChecked={true} labelText="On" />
-        <Toggle defaultChecked={true} labelText="On" />
-        <Toggle defaultChecked={true} labelText="On" />
-        <Toggle defaultChecked={true} labelText="On" />
-      </VStack>
-    </Box>
-    <Box>
-      <Heading level={3}>With Helper Text</Heading>
-      <Toggle
-        defaultChecked={true}
-        labelText="On"
-        helperText="Component Helper Text"
-      />
-    </Box>
+    <SimpleGrid columns="2">
+      <Box>
+        <Heading level={3}>Grouped</Heading>
+        <VStack align="left" spacing="s">
+          <Toggle defaultChecked={true} labelText="On" />
+          <Toggle defaultChecked={true} labelText="On" />
+          <Toggle defaultChecked={true} labelText="On" />
+          <Toggle defaultChecked={true} labelText="On" />
+          <Toggle defaultChecked={true} labelText="On" />
+        </VStack>
+      </Box>
+      <Box>
+        <Heading level={3}>With Helper Text</Heading>
+        <Toggle
+          defaultChecked={true}
+          labelText="On"
+          helperText="Component Helper Text"
+        />
+      </Box>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>

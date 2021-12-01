@@ -1,7 +1,6 @@
 import * as React from "react";
 import {
   Box,
-  FormLabel,
   Switch,
   useMultiStyleConfig,
   useStyleConfig,
@@ -9,6 +8,7 @@ import {
 import generateUUID from "../../helpers/generateUUID";
 import { ToggleSizes } from "./ToggleSizes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import Label from "../Label/Label";
 
 export interface ToggleProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -52,6 +52,9 @@ export const onChangeDefault = () => {
   return;
 };
 
+/**
+ * Component that renders Chakra's `Switch` component along with NYPL defaults.
+ */
 const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
   (props, ref?) => {
     const {
@@ -66,24 +69,19 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
       isRequired = false,
       labelText,
       name,
+      onChange = onChangeDefault,
       size = ToggleSizes.Large,
     } = props;
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
-    const onChange = props.onChange || onChangeDefault;
     const styles = useMultiStyleConfig("Toggle", {});
     const switchStyles = useStyleConfig("Switch");
     ariaAttributes["aria-label"] =
       labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-    const variant = isDisabled ? "disabled" : isInvalid ? "error" : "standard";
 
     return (
       <>
-        <Box
-          display="flex"
-          alignItems="center"
-          __css={{ ...styles, ...additionalStyles }}
-        >
+        <Box display="flex" __css={{ ...styles, ...additionalStyles }}>
           <Switch
             id={id}
             name={name || "default"}
@@ -92,7 +90,6 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
             isRequired={isRequired}
             ref={ref}
             size={size}
-            variant={variant}
             {...(isChecked !== undefined
               ? {
                   isChecked,
@@ -105,13 +102,13 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
             __css={switchStyles}
           />
           <Box __css={styles.label}>
-            <FormLabel htmlFor={id}>{labelText}</FormLabel>
+            <Label htmlFor={id}>{labelText}</Label>
           </Box>
         </Box>
-        {(invalidText || helperText) && (
+        {footnote && (
           <Box __css={styles.helper}>
             <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
-              {isInvalid ? invalidText : helperText}
+              {footnote}
             </HelperErrorText>
           </Box>
         )}
