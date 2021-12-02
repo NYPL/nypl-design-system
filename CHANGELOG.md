@@ -21,12 +21,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the organization of SCSS files by deleting some files and combining others.
 - Updates `@chakra-ui/react` to version 1.7.1 and `@chakra-ui/system` to version 1.8.1.
 - Updates the `TextInput` component to now have `defaultValue` and `step` props.
+- Removes the Storybook "Knobs" addon.
 - Updates the margin for labels in the `DatePicker` component when it is in the "date range" state.
 
 ### Fixes
 
 - Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
 - Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
+- Fixes `DatePicker` component unit tests.
 
 ### Breaking Changes
 
