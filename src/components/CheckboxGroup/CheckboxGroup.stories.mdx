@@ -4,14 +4,20 @@ import {
   Canvas,
   ArgsTable,
   Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "./CheckboxGroup";
 import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
-import Checkbox from "../Checkbox/Checkbox";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  CheckboxGroupLayoutTypes,
+  "CheckboxGroupLayoutTypes"
+);
 
 <Meta
   title={getCategory("CheckboxGroup")}
@@ -27,10 +33,10 @@ import Checkbox from "../Checkbox/Checkbox";
   }}
   argTypes={{
     children: { table: { disable: true } },
-    defaultValue: { table: { disable: true } },
-    id: { table: { disable: true } },
-    name: { table: { disable: true } },
-    onChange: { table: { disable: true } },
+    defaultValue: { control: false },
+    id: { control: false },
+    name: { control: false },
+    onChange: { control: false },
   }}
 />
 
@@ -54,15 +60,56 @@ import Checkbox from "../Checkbox/Checkbox";
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Checkbox Group",
-      layout: CheckboxGroupLayoutTypes.Column,
+      layout: "CheckboxGroupLayoutTypes.Column",
       name: "checkbox-story",
       optReqFlag: true,
       showHelperInvalidText: true,
       showLabel: true,
     }}
+    argTypes={{
+      isDisabled: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      isInvalid: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      isRequired: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      layout: {
+        control: {
+          type: "select",
+        },
+        table: {
+          defaultValue: { summary: "CheckboxGroupLayoutTypes.Column" },
+        },
+        options: enumValues.options,
+      },
+      optReqFlag: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
+      showHelperInvalidText: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
+      showLabel: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
+    }}
   >
     {(args) => (
-      <CheckboxGroup {...args}>
+      <CheckboxGroup {...args} layout={enumValues.getValue(args.layout)}>
         <Checkbox value="2" labelText="Checkbox 2" />
         <Checkbox value="3" labelText="Checkbox 3" />
         <Checkbox value="4" labelText="Checkbox 4" />

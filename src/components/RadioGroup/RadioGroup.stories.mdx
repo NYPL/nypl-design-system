@@ -4,14 +4,20 @@ import {
   Canvas,
   ArgsTable,
   Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+import Radio from "../Radio/Radio";
 import RadioGroup, { onChangeDefault } from "./RadioGroup";
 import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
-import Radio from "../Radio/Radio";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  RadioGroupLayoutTypes,
+  "RadioGroupLayoutTypes"
+);
 
 <Meta
   title={getCategory("RadioGroup")}
@@ -27,9 +33,9 @@ import Radio from "../Radio/Radio";
   }}
   argTypes={{
     children: { table: { disable: true } },
-    className: { table: { disable: true } },
-    onChange: { table: { disable: true } },
-    id: { table: { disable: true } },
+    className: { control: false },
+    id: { control: false },
+    onChange: { control: false },
   }}
 />
 
@@ -47,20 +53,61 @@ import Radio from "../Radio/Radio";
     name="RadioGroup"
     args={{
       defaultValue: "4",
-      invalidText: "error!",
       helperText: "This is the helper text for the full group.",
+      invalidText: "error!",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Radio Group",
-      layout: RadioGroupLayoutTypes.Column,
+      layout: "RadioGroupLayoutTypes.Column",
       name: "radio-story",
       optReqFlag: true,
       showLabel: true,
     }}
+    argTypes={{
+      isDisabled: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      isInvalid: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      isRequired: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      layout: {
+        control: {
+          type: "select",
+        },
+        table: {
+          defaultValue: { summary: "RadioGroupLayoutTypes.Column" },
+        },
+        options: enumValues.options,
+      },
+      optReqFlag: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
+      showHelperInvalidText: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
+      showLabel: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
+    }}
   >
     {(args) => (
-      <RadioGroup {...args}>
+      <RadioGroup {...args} layout={enumValues.getValue(args.layout)}>
         <Radio value="2" labelText="Radio 2" />
         <Radio value="3" labelText="Radio 3" />
         <Radio value="4" labelText="Radio 4" />

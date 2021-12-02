@@ -6,7 +6,7 @@ import Icon from "../Icons/Icon";
 import { getVariant } from "../../utils/utils";
 import generateUUID from "../../helpers/generateUUID";
 
-type ButtonElementType = "submit" | "button" | "reset";
+export type ButtonElementType = "submit" | "button" | "reset";
 
 interface ButtonProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -40,7 +40,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
     buttonType,
     children,
     className = "",
-    isDisabled,
+    isDisabled = false,
     id = generateUUID(),
     mouseDown = false,
     onClick,

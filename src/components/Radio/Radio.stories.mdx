@@ -1,3 +1,4 @@
+import { HStack } from "@chakra-ui/react";
 import {
   Meta,
   Story,
@@ -6,11 +7,10 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { HStack } from "@chakra-ui/react";
 
+import Radio from "./Radio";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import Radio from "./Radio";
 
 <Meta
   title={getCategory("Radio")}
@@ -25,10 +25,10 @@ import Radio from "./Radio";
     jest: ["Radio.test.tsx"],
   }}
   argTypes={{
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
-    isChecked: { table: { disable: true } },
-    onChange: { table: { disable: true } },
+    className: { control: false },
+    id: { control: false },
+    isChecked: { control: false },
+    onChange: { control: false },
   }}
 />
 
@@ -50,16 +50,43 @@ component will handle all the states and data management.
   <Story
     name="Radio"
     args={{
-      labelText: "Test Label",
-      showLabel: true,
-      id: "test_id",
-      name: "test_name",
-      value: "1",
-      isDisabled: false,
-      isRequired: false,
-      isInvalid: false,
       helperText: "This is the helper text!",
+      id: "test_id",
       invalidText: "This is the error text :(",
+      isDisabled: false,
+      isInvalid: false,
+      isRequired: false,
+      labelText: "Test Label",
+      name: "test_name",
+      showLabel: true,
+      value: "1",
+    }}
+    argTypes={{
+      isDisabled: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      isInvalid: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      isRequired: {
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
+      showHelperInvalidText: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
+      showLabel: {
+        table: {
+          defaultValue: { summary: true },
+        },
+      },
     }}
   >
     {(args) => <Radio {...args} />}

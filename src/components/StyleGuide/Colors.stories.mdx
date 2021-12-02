@@ -9,7 +9,6 @@ import { withDesign } from "storybook-addon-designs";
 
 import ColorCard from "./ColorCard";
 import DSProvider from "../../theme/provider";
-import getCSSVariable from "../../helpers/getCSSVariable";
 import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
@@ -73,7 +72,6 @@ export const cssVars = {
 };
 
 export const makeColorCard = function (key) {
-  // const cssValue = getCSSVariable(key);
   const cssValue = `var(${key})`;
   const card = (
     <ColorCard backgroundColor={cssValue} colorName={key} key={key} />
