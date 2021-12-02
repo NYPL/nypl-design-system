@@ -21,7 +21,6 @@ describe("Toggle", () => {
 
   beforeEach(() => {
     changeHandler = jest.fn();
-    generateUUIDSpy = jest.spyOn(generateUUID, "default");
   });
 
   it("Renders with a Toggle input and label", () => {
@@ -65,9 +64,10 @@ describe("Toggle", () => {
   });
 
   it("Calls the UUID generation function if no id prop value is passed", () => {
+    generateUUIDSpy = jest.spyOn(generateUUID, "default");
     expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
     render(<Toggle labelText="Test Label" />);
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
+    expect(generateUUIDSpy).toHaveBeenCalledTimes(2);
   });
 
   it("Sets the 'checked' attribute", () => {
