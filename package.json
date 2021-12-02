@@ -86,7 +86,6 @@
     "@storybook/addon-essentials": "^6.3.2",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-jest": "^6.3.6",
-    "@storybook/addon-knobs": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-queryparams": "6.2.9",
     "@storybook/addons": "^6.3.2",
