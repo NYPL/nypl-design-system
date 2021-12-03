@@ -22,14 +22,15 @@ interface BaseProps {
   notificationType?: NotificationTypes;
 }
 
-export interface NotificationProps extends BaseProps {
+type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
+type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
+
+export interface NotificationProps extends BasePropsWithoutAlignText {
   /** Additional `className` to add.  */
   className?: string;
   /** Optional prop to control whether a `Notification` can be dismissed
    * (closed) by a user. */
   dismissible?: boolean;
-  /** Optional custom `Icon` that will override the default `Icon`. */
-  icon?: JSX.Element;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional prop to control the margin around the `Notification` component. */
@@ -43,7 +44,9 @@ export interface NotificationProps extends BaseProps {
 /**
  * NotificationHeading child-component.
  */
-export function NotificationHeading(props: React.PropsWithChildren<BaseProps>) {
+export function NotificationHeading(
+  props: React.PropsWithChildren<BasePropsWithoutAlignText>
+) {
   const { centered, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationHeading", {
     centered,
@@ -62,7 +65,9 @@ export function NotificationHeading(props: React.PropsWithChildren<BaseProps>) {
 /**
  * NotificationContent child-component.
  */
-export function NotificationContent(props: React.PropsWithChildren<BaseProps>) {
+export function NotificationContent(
+  props: React.PropsWithChildren<BasePropsWithoutCentered>
+) {
   const { alignText, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationContent", {
     alignText,
