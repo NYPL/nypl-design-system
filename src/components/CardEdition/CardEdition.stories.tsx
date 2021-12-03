@@ -1,6 +1,5 @@
 import * as React from "react";
 import { action } from "@storybook/addon-actions";
-import { text, boolean, select } from "@storybook/addon-knobs";
 
 import CardEdition from "./CardEdition";
 import Heading from "../Heading/Heading";
@@ -24,10 +23,6 @@ export default {
   component: CardEdition,
 };
 
-let showCTAs, showImage, showHeader, showFooter;
-
-const headerLevels = [1, 2, 3, 4, 5, 6];
-
 const imageRatios = {
   "1x1": "https://placeimg.com/100/100/animals",
   "2x1": "https://placeimg.com/200/100/animals",
@@ -39,48 +34,23 @@ const imageRatios = {
 
 export const cardEdition = () => (
   <>
-    {boolean("Show Header", true) ? (showHeader = true) : (showHeader = false)}
-    {boolean("Show Image", true) ? (showImage = true) : (showImage = false)}
-    {boolean("Show CTAs", true) ? (showCTAs = true) : (showCTAs = false)}
-    {boolean("Show Footer", true) ? (showFooter = true) : (showFooter = false)}
     <CardEdition
       id="cardID"
-      heading={
-        showHeader ? (
-          <Heading
-            level={select("Header Level", headerLevels, headerLevels[2])}
-            id="heading1"
-            text={text("Header Content", "Optional Header")}
-          />
-        ) : (
-          false
-        )
-      }
-      image={
-        showImage ? (
-          <Image
-            src={select("Image Ratio", imageRatios, imageRatios[2])}
-            alt={""}
-          />
-        ) : null
-      }
+      heading={<Heading level={2} id="heading1" text="Header Content" />}
+      image={<Image src={imageRatios[2]} alt="" />}
       ctas={
-        showCTAs ? (
-          <Button
-            onClick={action("clicked")}
-            id="button1"
-            buttonType={ButtonTypes.Primary}
-            type="submit"
-          >
-            {text("CTA Button Text: ", "Example CTA")}
-          </Button>
-        ) : null
+        <Button
+          onClick={action("clicked")}
+          id="button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          CTA Button Text
+        </Button>
       }
-      footer={
-        showFooter ? <>{text("Footer content: ", "Optional footer")}</> : null
-      }
+      footer={<>Footer content: </>}
     >
-      {text("Card Content: ", "Middle column content")}
+      Card Content:
     </CardEdition>
   </>
 );
@@ -90,8 +60,7 @@ cardEdition.storyName = "CardEdition";
 cardEdition.parameters = {
   design: {
     type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+    url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
   },
 };
 
@@ -117,7 +86,7 @@ export const ExampleCardEdition = () => (
       <Heading
         level={HeadingLevels.Two}
         id="heading1"
-        text={"The Year of Magical Thinking"}
+        text="The Year of Magical Thinking"
       />
       <div className="book__callout">A portrait of loss and grief</div>
       <div>
@@ -148,7 +117,6 @@ ExampleCardEdition.storyName = "Example Card Edition";
 ExampleCardEdition.parameters = {
   design: {
     type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+    url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
   },
 };

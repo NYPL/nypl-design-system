@@ -6,8 +6,6 @@ import Label from "../Label/Label";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
-// eslint-disable-next-line id-blacklist
-import { text, boolean, select, number } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import { getCategory } from "../../utils/componentCategories";
 
@@ -16,47 +14,24 @@ export default {
   component: Input,
 };
 
-let showLabel, showHelperText;
-
 export const input = () => (
   <>
-    {boolean("Show Label", true) ? (showLabel = true) : (showLabel = false)}
-    {showLabel && (
-      <Label
-        htmlFor="inputID"
-        optReqFlag={select(
-          "Optional/Required Flag",
-          ["Required", "Optional", ""],
-          "Required"
-        )}
-        id={"label"}
-      >
-        {text("Input Label", "Choose your islander name: ")}
-      </Label>
-    )}
+    <Label htmlFor="inputID" optReqFlag="Required" id={"label"}>
+      Choose your islander name:
+    </Label>
     <Input
       id="inputID"
       ariaLabel="Input Label"
       ariaLabelledBy={"helperText"}
-      required={boolean("Input Required", false)}
-      placeholder={text("Input Placeholder", "CoolPerson99")}
-      type={select("Input Type", InputTypes, InputTypes.text)}
-      disabled={boolean("Disabled", false)}
+      required={false}
+      placeholder="CoolPerson99"
+      type={InputTypes.text}
+      disabled={false}
     ></Input>
-    {boolean("Show Helper Text", true)
-      ? (showHelperText = true)
-      : (showHelperText = false)}
-    {showHelperText && (
-      <HelperErrorText
-        isInvalid={boolean("Helper Text Errored", false)}
-        id={"helperText"}
-      >
-        {text(
-          "Helper Text Content",
-          "Once you pick a name for your islander it cannot be changed, so choose wisely!"
-        )}
-      </HelperErrorText>
-    )}
+    <HelperErrorText isInvalid={false} id={"helperText"}>
+      Once you pick a name for your islander it cannot be changed, so choose
+      wisely!
+    </HelperErrorText>
   </>
 );
 
@@ -64,8 +39,7 @@ input.storyName = "Input";
 input.parameters = {
   design: {
     type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+    url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
   },
   jest: ["Input.test.tsx"],
 };
@@ -74,12 +48,7 @@ let groupErrored;
 
 export const inputGroup = () => (
   <fieldset className="fieldset">
-    {boolean("Input Group Errored", false)
-      ? (groupErrored = true)
-      : (groupErrored = false)}
-    <legend className="legend">
-      {text("Input Group Label", "Construction Time Request Form: ")}
-    </legend>
+    <legend className="legend">Construction Time Request Form:</legend>
     <div className="input-group">
       <div style={{ flex: "1" }}>
         <Label htmlFor="input1" id={"label1"}>
@@ -87,17 +56,13 @@ export const inputGroup = () => (
         </Label>
         <Input
           id="input1"
-          ariaLabelledBy={
-            groupErrored
-              ? "helperText1 sharedHelperText label1"
-              : "helperText1 label1"
-          }
+          ariaLabelledBy="helperText1 sharedHelperText label1"
           errored={groupErrored ? true : false}
           required={true}
           type={InputTypes.text}
         ></Input>
         <HelperErrorText isInvalid={false} id={"helperText1"}>
-          {text("Input 1 Helper Text", "E.g., 10am")}
+          "E.g., 10am"
         </HelperErrorText>
       </div>
 
@@ -112,23 +77,15 @@ export const inputGroup = () => (
               ? "helperText2 sharedHelperText label2"
               : "helperText2 label2"
           }
-          errored={groupErrored ? true : false}
+          errored={false}
           required={true}
           type={InputTypes.text}
         ></Input>
         <HelperErrorText isInvalid={false} id={"helperText2"}>
-          {text("Input 2 Helper Text", "E.g., 11am")}
+          E.g., 11am
         </HelperErrorText>
       </div>
     </div>
-    {groupErrored && (
-      <HelperErrorText isInvalid={true} id={"sharedHelperText"}>
-        {text(
-          "Additional Error Text",
-          "Sorry villager! Those times are not available right now."
-        )}
-      </HelperErrorText>
-    )}
     <Button
       onClick={action("clicked")}
       id="button"
@@ -144,8 +101,7 @@ inputGroup.storyName = "Input Group";
 inputGroup.parameters = {
   design: {
     type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+    url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
   },
   jest: ["Input.test.tsx"],
 };
@@ -165,8 +121,8 @@ export const inputAttributes = () => (
       attributes={{
         onBlur: action("onBlur"),
         onChange: action("onChange"),
-        maxLength: number("maxLength", 10),
-        tabIndex: number("tabIndex", 0),
+        maxLength: 10,
+        tabIndex: 0,
       }}
     ></Input>
     <HelperErrorText isInvalid={false} id="helperText-attrs">
