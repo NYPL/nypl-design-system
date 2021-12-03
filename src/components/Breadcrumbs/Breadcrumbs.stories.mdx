@@ -28,15 +28,15 @@ export const enumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10766%3A1031",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10766%3A1031",
     },
     jest: ["Breadcrumbs.test.tsx"],
   }}
   argTypes={{
+    additionalStyles: { control: false },
+    breadcrumbsData: { control: false },
     className: { control: false },
     id: { control: false },
-    breadcrumbsData: { control: false },
   }}
 />
 
@@ -45,7 +45,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.3`    |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.4`   |
 
 <Description of={Breadcrumbs} />
 
@@ -94,8 +94,7 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
         },
         {
           url: "#",
-          text:
-            "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component Under the Right Circumstances",
+          text: "Great-Grandchild with the Longest Name That Will Wrap onto the Second Line of the Breadcrumb Component Under the Right Circumstances",
         },
       ]}
     />
