@@ -195,10 +195,13 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
         ...textInputSharedProps,
       },
     };
+    const updatedLabel = !isRangeSlider
+      ? labelText
+      : `${labelText} - ${type} value`;
     return (
       <TextInput
         id={`${id}-textInput-${type}`}
-        labelText={`Range slider ${type} value`}
+        labelText={updatedLabel}
         additionalStyles={{
           ...styles.textInput,
           // Specific margins for each text input to
@@ -220,7 +223,7 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
         // Both slider thumbs need values and should be in an array.
         aria-label={
           !showLabel
-            ? [`${labelText} minimum value`, `${labelText} maximum value`]
+            ? [`${labelText} - start value`, `${labelText} - end value`]
             : null
         }
         // Both slider thumbs need values and should be in an array,
@@ -262,7 +265,12 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
           // We can't target the slider thumbs since those are divs and we
           // should link the label somewhere. So either target the first
           // input box in a `RangeSlider` or the only input box in a `Slider`.
-          htmlFor={`${id}-textInput-${isRangeSlider ? "start" : "end"}`}
+          // When the input fields are not visible, remove this attribute.
+          htmlFor={
+            showBoxes
+              ? `${id}-textInput-${isRangeSlider ? "start" : "end"}`
+              : null
+          }
           optReqFlag={optReqFlag && optReqText}
         >
           {labelText}
