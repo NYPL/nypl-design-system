@@ -1,10 +1,10 @@
 import { Box } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 
 import Label from "./Label";
@@ -41,9 +41,7 @@ import { getCategory } from "../../utils/componentCategories";
     }}
     argTypes={{
       optReqFlag: {
-        control: {
-          type: "select",
-        },
+        control: { type: "select" },
         options: ["Required", "Optional", ""],
       },
       text: {

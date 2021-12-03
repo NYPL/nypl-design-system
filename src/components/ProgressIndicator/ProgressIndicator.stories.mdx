@@ -1,20 +1,20 @@
 import { Box } from "@chakra-ui/react";
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
-} from "@storybook/addon-docs/blocks";
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import { GridGaps } from "../Grid/GridTypes";
 import ProgressIndicator from "./ProgressIndicator";
 import {
   ProgressIndicatorSizes,
   ProgressIndicatorTypes,
 } from "./ProgressIndicatorTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
-import { GridGaps } from "../Grid/GridTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -56,7 +56,7 @@ export const typesEnumValues = getStorybookEnumValues(
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Controls"
+    name="ProgressIndicator with Controls"
     args={{
       darkMode: false,
       indicatorType: "ProgressIndicatorTypes.Linear",
@@ -68,42 +68,26 @@ export const typesEnumValues = getStorybookEnumValues(
     }}
     argTypes={{
       darkMode: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       indicatorType: {
-        control: {
-          type: "radio",
-        },
-        table: {
-          defaultValue: { summary: "ProgressIndicatorTypes.Linear" },
-        },
+        control: { type: "radio" },
+        table: { defaultValue: { summary: "ProgressIndicatorTypes.Linear" } },
         options: typesEnumValues.options,
       },
       isIndeterminate: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       showLabel: {
-        table: {
-          defaultValue: { summary: true },
-        },
+        table: { defaultValue: { summary: true } },
       },
       size: {
-        control: {
-          type: "radio",
-        },
-        table: {
-          defaultValue: { summary: "ProgressIndicatorSizes.Default" },
-        },
+        control: { type: "radio" },
+        table: { defaultValue: { summary: "ProgressIndicatorSizes.Default" } },
         options: sizesEnumValues.options,
       },
       value: {
-        table: {
-          defaultValue: { summary: 0 },
-        },
+        table: { defaultValue: { summary: 0 } },
       },
     }}
   >
@@ -117,7 +101,7 @@ export const typesEnumValues = getStorybookEnumValues(
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Controls" />
+<ArgsTable story="ProgressIndicator with Controls" />
 
 ## Linear Type
 

@@ -47,7 +47,7 @@ export interface IconProps {
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
     additionalStyles = {},
-    align = "none",
+    align = IconAlign.None,
     children,
     className,
     color = IconColors.UiBlack,

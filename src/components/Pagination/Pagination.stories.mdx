@@ -1,12 +1,13 @@
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
-} from "@storybook/addon-docs/blocks";
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 import { withQuery } from "@storybook/addon-queryparams";
+
 import Pagination from "./Pagination";
 import * as stories from "./Pagination.stories.tsx";
 import { getCategory } from "../../utils/componentCategories";
@@ -24,9 +25,10 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Pagination.test.tsx"],
   }}
   argTypes={{
-    id: { table: { disable: true } },
-    getPageHref: { table: { disable: true } },
-    onPageChange: { table: { disable: true } },
+    className: { control: false },
+    getPageHref: { control: false },
+    id: { control: false },
+    onPageChange: { control: false },
   }}
 />
 
@@ -71,6 +73,9 @@ const getPageHref = (selectedPage: number) => {
     args={{
       initialPage: 1,
       pageCount: 10,
+    }}
+    argTypes={{
+      initialPage: { table: { defaultValue: { summary: 1 } } },
     }}
   >
     {(args) => stories.PaginationGetPageHref(args)}

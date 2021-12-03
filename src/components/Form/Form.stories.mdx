@@ -1,28 +1,28 @@
 import { action } from "@storybook/addon-actions";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import Form, { FormRow, FormField } from "./Form";
-import { FormSpacing } from "./FormTypes";
-import TextInput from "../TextInput/TextInput";
-import Radio from "../Radio/Radio";
-import RadioGroup from "../RadioGroup/RadioGroup";
+import Button from "../Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
-import Label from "../Label/Label";
-import Button from "../Button/Button";
-import Select from "../Select/Select";
+import DatePicker from "../DatePicker/DatePicker";
+import { DatePickerTypes } from "../DatePicker/DatePickerTypes";
+import Form, { FormRow, FormField } from "./Form";
+import { FormSpacing } from "./FormTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
-import DatePicker from "../DatePicker/DatePicker";
-import { DatePickerTypes } from "../DatePicker/DatePickerTypes";
+import Label from "../Label/Label";
+import Radio from "../Radio/Radio";
+import RadioGroup from "../RadioGroup/RadioGroup";
+import Select from "../Select/Select";
+import TextInput from "../TextInput/TextInput";
 import { getCategory } from "../../utils/componentCategories";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -72,18 +72,12 @@ The `Form` component renders a standard `<form>` element and should be used to h
     }}
     argTypes={{
       method: {
-        control: {
-          type: "radio",
-        },
+        control: { type: "radio" },
         options: ["get", "post"],
       },
       spacing: {
-        control: {
-          type: "select",
-        },
-        table: {
-          defaultValue: { summary: "FormSpacing.Large" },
-        },
+        control: { type: "select" },
+        table: { defaultValue: { summary: "FormSpacing.Large" } },
         options: enumValues.options,
       },
     }}

@@ -32,6 +32,7 @@ export const getVariant = (variant, collection, fallback = null) => {
  * Given an enum object and its name, this will return (1) an array `options`
  * of all values with the enum name as the prefix, and (2) a function that
  * returns the correct enum value given a string from the `options` array.
+ * @NOTE this is only used for Storybook documentation.
  */
 export const getStorybookEnumValues = (enumObject, name) => {
   const options = Object.keys(enumObject).map((key) => `${name}.${key}`);

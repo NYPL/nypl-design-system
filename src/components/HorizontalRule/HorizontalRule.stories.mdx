@@ -1,14 +1,14 @@
+import { action } from "@storybook/addon-actions";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import HorizontalRule from "./HorizontalRule";
-import { action } from "@storybook/addon-actions";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -24,7 +24,7 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["HorizontalRule.test.tsx"],
   }}
   argTypes={{
-    className: { table: { disable: true } },
+    className: { control: false },
   }}
 />
 
@@ -43,7 +43,15 @@ number, a `px` value, a `em` value, or a `rem` value. Otherwise, the default
 value of "2px" will be used.
 
 <Canvas withToolbar>
-  <Story name="HorizontalRule">{(args) => <HorizontalRule {...args} />}</Story>
+  <Story
+    name="HorizontalRule"
+    argTypes={{
+      height: { table: { defaultValue: { summary: "2px" } } },
+      width: { table: { defaultValue: { summary: "auto" } } },
+    }}
+  >
+    {(args) => <HorizontalRule {...args} />}
+  </Story>
 </Canvas>
 
 <ArgsTable story="HorizontalRule" />

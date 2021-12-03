@@ -1,10 +1,10 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import HelperErrorText from "./HelperErrorText";
@@ -42,26 +42,20 @@ import DSProvider from "../../theme/provider";
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Controls"
+    name="HelperErrorText with Controls"
     args={{
       ariaLive: "polite",
       isInvalid: false,
     }}
     argTypes={{
       ariaAtomic: {
-        table: {
-          defaultValue: { summary: true },
-        },
+        table: { defaultValue: { summary: true } },
       },
       ariaLive: {
-        table: {
-          defaultValue: { summary: "polite" },
-        },
+        table: { defaultValue: { summary: "polite" } },
       },
       isInvalid: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
     }}
   >
@@ -75,7 +69,7 @@ import DSProvider from "../../theme/provider";
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Controls" />
+<ArgsTable story="HelperErrorText with Controls" />
 
 ## With HTML Children
 

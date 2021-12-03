@@ -1,9 +1,9 @@
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
+  Meta,
+  Story,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
@@ -25,16 +25,16 @@ import DSProvider from "../../theme/provider";
     jest: ["SearchBar.test.tsx"],
   }}
   argTypes={{
-    action: { table: { disable: true } },
-    ariaLabel: { table: { disable: true } },
-    buttonOnClick: { table: { disable: true } },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
-    method: { table: { disable: true } },
-    onSubmit: { table: { disable: true } },
-    selectProps: { table: { disable: true } },
-    textInputProps: { table: { disable: true } },
-    textInputElement: { table: { disable: true } },
+    action: { control: false },
+    ariaLabel: { control: false },
+    buttonOnClick: { control: false },
+    className: { control: false },
+    id: { control: false },
+    method: { control: false },
+    onSubmit: { control: false },
+    selectProps: { control: false },
+    textInputProps: { control: false },
+    textInputElement: { control: false },
   }}
 />
 
@@ -71,20 +71,41 @@ export const optionsGroup = [
 
 <Canvas withToolbar>
   <Story
-    name="Basic"
+    name="SearchBar with Controls"
     args={{
-      showHelperText: true,
-      showSelect: true,
+      helperErrorText: "Search for items in Animal Crossing New Horizons",
       invalidText: "Could not find the item :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
-      helperErrorText: "Search for items in Animal Crossing New Horizons",
+      labelText: "SearchBar Label",
+      onSubmit: () => {},
+      showHelperText: true,
+      showSelect: true,
+    }}
+    argTypes={{
+      buttonOnClick: {
+        table: { defaultValue: { summary: "null" } },
+      },
+      isDisabled: {
+        table: { defaultValue: { summary: false } },
+      },
+      isInvalid: {
+        table: { defaultValue: { summary: false } },
+      },
+      isRequired: {
+        table: { defaultValue: { summary: false } },
+      },
+      showHelperText: {
+        description: "Only used for Storybook",
+      },
+      showSelect: {
+        description: "Only used for Storybook",
+      },
     }}
   >
     {(args) => (
       <SearchBar
-        onSubmit={() => {}}
         {...args}
         selectProps={
           args.showSelect && {
@@ -104,7 +125,7 @@ export const optionsGroup = [
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic" />
+<ArgsTable story="SearchBar with Controls" />
 
 ## Component Props
 

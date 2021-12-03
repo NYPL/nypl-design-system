@@ -1,16 +1,20 @@
+import { VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { VStack } from "@chakra-ui/react";
 import Select from "./Select";
+import { SelectTypes } from "./SelectTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(SelectTypes, "SelectTypes");
 
 <Meta
   title={getCategory("Select")}
@@ -26,10 +30,11 @@ import DSProvider from "../../theme/provider";
   }}
   argTypes={{
     children: { table: { disable: true } },
-    id: { table: { disable: true } },
-    name: { table: { disable: true } },
-    onChange: { table: { disable: true } },
-    value: { table: { disable: true } },
+    id: { control: false },
+    name: { control: false },
+    onChange: { control: false },
+    type: { control: false },
+    value: { control: false },
   }}
 />
 
@@ -63,7 +68,7 @@ elements, but the select options _need_ to be child `<option>` HTML elements.
 
 <Canvas withToolbar>
   <Story
-    name="Select"
+    name="Select with Controls"
     args={{
       helperText: "This is the helper text.",
       invalidText: "This is the error text :(",
@@ -74,6 +79,30 @@ elements, but the select options _need_ to be child `<option>` HTML elements.
       name: "color",
       showLabel: true,
       showOptReqLabel: true,
+      type: SelectTypes.Default,
+    }}
+    argTypes={{
+      isDisabled: {
+        table: { defaultValue: { summary: false } },
+      },
+      isInvalid: {
+        table: { defaultValue: { summary: false } },
+      },
+      isRequired: {
+        table: { defaultValue: { summary: false } },
+      },
+      showHelperInvalidText: {
+        table: { defaultValue: { summary: true } },
+      },
+      showLabel: {
+        table: { defaultValue: { summary: true } },
+      },
+      showOptReqLabel: {
+        table: { defaultValue: { summary: true } },
+      },
+      type: {
+        table: { defaultValue: { summary: "SelectTypes.Default" } },
+      },
     }}
   >
     {(args) => (
@@ -88,7 +117,7 @@ elements, but the select options _need_ to be child `<option>` HTML elements.
   </Story>
 </Canvas>
 
-<ArgsTable story="Select" />
+<ArgsTable story="Select with Controls" />
 
 ## Labelling Variations
 

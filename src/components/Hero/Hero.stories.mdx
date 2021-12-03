@@ -1,18 +1,18 @@
 import { Box, VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Hero from "./Hero";
 import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
 import Image from "../Image/Image";
-import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -76,12 +76,8 @@ descriptive text and images.
     }}
     argTypes={{
       heroType: {
-        control: {
-          type: "select",
-        },
-        table: {
-          defaultValue: { summary: "HeroTypes.Primary" },
-        },
+        control: { type: "select" },
+        table: { defaultValue: { summary: "HeroTypes.Primary" } },
         options: enumValues.options,
       },
     }}

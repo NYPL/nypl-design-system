@@ -1,17 +1,16 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Preview,
-  Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import Notification from "./Notification";
-import { NotificationTypes } from "./NotificationTypes";
 import Icon from "../Icons/Icon";
 import { IconColors, IconNames } from "../Icons/IconTypes";
+import Notification from "./Notification";
+import { NotificationTypes } from "./NotificationTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -74,27 +73,17 @@ within a parent element.
     }}
     argTypes={{
       centered: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       dismissible: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       noMargin: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       notificationType: {
-        control: {
-          type: "select",
-        },
-        table: {
-          defaultValue: { summary: "NotificationTypes.Standard" },
-        },
+        control: { type: "select" },
+        table: { defaultValue: { summary: "NotificationTypes.Standard" } },
         options: enumValues.options,
       },
     }}

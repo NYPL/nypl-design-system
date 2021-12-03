@@ -1,10 +1,10 @@
 import { HStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
@@ -63,29 +63,19 @@ component will handle all the states and data management.
     }}
     argTypes={{
       isDisabled: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       isInvalid: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       isRequired: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       showHelperInvalidText: {
-        table: {
-          defaultValue: { summary: true },
-        },
+        table: { defaultValue: { summary: true } },
       },
       showLabel: {
-        table: {
-          defaultValue: { summary: true },
-        },
+        table: { defaultValue: { summary: true } },
       },
     }}
   >

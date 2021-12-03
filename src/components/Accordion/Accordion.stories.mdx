@@ -1,18 +1,18 @@
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
-} from "@storybook/addon-docs/blocks";
-import Accordion from "./Accordion";
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import ReactDOMServer from "react-dom/server";
 import { withDesign } from "storybook-addon-designs";
+
+import Accordion from "./Accordion";
 import Card, { CardHeading, CardContent } from "../Card/Card";
 import { CardLayouts } from "../Card/CardTypes";
-import { ImageRatios } from "../Image/ImageTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
-import { Source } from "@storybook/addon-docs/blocks";
-import ReactDOMServer from "react-dom/server";
+import { ImageRatios } from "../Image/ImageTypes";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -28,8 +28,8 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Accordion.test.tsx"],
   }}
   argTypes={{
-    contentData: { table: { disable: true } },
-    id: { table: { disable: true } },
+    contentData: { control: false },
+    id: { control: false },
   }}
 />
 
@@ -57,9 +57,8 @@ necessary icon, Chakra components, and styles.
 
 <Canvas withToolbar>
   <Story
-    name="Basic"
+    name="Accordion with Controls"
     args={{
-      isDefaultOpen: false,
       contentData: [
         {
           label: "Tom Nook",
@@ -83,6 +82,10 @@ necessary icon, Chakra components, and styles.
           ),
         },
       ],
+      isDefaultOpen: false,
+    }}
+    argTypes={{
+      isDefaultOpen: { table: { defaultValue: { summary: false } } },
     }}
   >
     {(args) => <Accordion {...args} />}
@@ -119,7 +122,7 @@ const contentData = [
 <Accordion contentData={contentData} />
 ```
 
-<ArgsTable story="Basic" />
+<ArgsTable story="Accordion with Controls" />
 
 ## FAQ example
 

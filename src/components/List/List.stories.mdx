@@ -1,10 +1,10 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
@@ -15,6 +15,9 @@ import { LinkTypes } from "../Link/LinkTypes";
 import List from "./List";
 import { ListTypes } from "./ListTypes";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
 
 <Meta
   title={getCategory("List")}
@@ -29,16 +32,11 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["List.test.tsx"],
   }}
   argTypes={{
+    additionalStyles: { control: false },
     children: { table: { disable: true } },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
-    listItems: { table: { disable: true } },
-    type: {
-      control: {
-        type: "radio",
-      },
-      options: Object.keys(ListTypes),
-    },
+    className: { control: false },
+    id: { control: false },
+    listItems: { control: false },
   }}
 />
 
@@ -118,17 +116,26 @@ export const definitions = [
 
 <Canvas withToolbar>
   <Story
-    name="List"
+    name="List with Controls"
     args={{
       id: "nypl-list",
       noStyling: false,
       title: "Middle-Earth Peoples",
-      type: ListTypes.Unordered,
+      type: "ListTypes.Unordered",
+    }}
+    argTypes={{
+      inline: { table: { defaultValue: { summary: false } } },
+      noStyling: { table: { defaultValue: { summary: false } } },
+      type: {
+        control: { type: "select" },
+        options: enumValues.options,
+        table: { defaultValue: { summary: "ListTypes.Unordered" } },
+      },
     }}
   >
     {(args) => (
-      <List {...args} type={ListTypes[args.type]}>
-        {ListTypes[args.type] !== ListTypes.Definition
+      <List {...args} type={enumValues.getValue(args.type)}>
+        {args.type !== "ListTypes.Definition"
           ? itemGroups.map((item, i) => <li key={i}>{item}</li>)
           : definitions.map((item, i) => [
               <dt key={`dt_${i}`}>{item.term}</dt>,
@@ -139,7 +146,7 @@ export const definitions = [
   </Story>
 </Canvas>
 
-<ArgsTable story="List" />
+<ArgsTable story="List with Controls" />
 
 ## Definition List
 
@@ -163,7 +170,9 @@ This type of list renders `dt` and `dd` elements.
       title: "Middle-Earth Peoples",
     }}
     argTypes={{
-      type: { table: { disable: true } },
+      inline: { control: false },
+      noStyling: { control: false },
+      type: { control: false },
     }}
     parameters={{
       design: {
@@ -196,6 +205,8 @@ An example with HTML elements inside of the `dd` elements.
       title: "Details",
     }}
     argTypes={{
+      inline: { control: false },
+      noStyling: { control: false },
       type: { table: { disable: true } },
     }}
     parameters={{
@@ -330,7 +341,9 @@ const fishDefinitions = [
       title: "Animal Crossing Fish",
     }}
     argTypes={{
-      type: { table: { disable: true } },
+      inline: { control: false },
+      noStyling: { control: false },
+      type: { control: false },
     }}
   >
     {(args) => <List {...args} type={ListTypes.Definition} />}

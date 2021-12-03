@@ -1,9 +1,9 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
@@ -80,58 +80,36 @@ also be added through props.
     }}
     argTypes={{
       dateFormat: {
-        table: {
-          defaultValue: { summary: "yyyy-MM-dd" },
-        },
+        table: { defaultValue: { summary: "yyyy-MM-dd" } },
       },
       dateType: {
-        control: {
-          type: "select",
-        },
-        table: {
-          defaultValue: { summary: "DatePickerTypes.Full" },
-        },
+        control: { type: "select" },
+        table: { defaultValue: { summary: "DatePickerTypes.Full" } },
         options: enumValues.options,
       },
       isDateRange: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       isDisabled: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       isInvalid: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       isRequired: {
-        table: {
-          defaultValue: { summary: false },
-        },
+        table: { defaultValue: { summary: false } },
       },
       labelText: {
-        table: {
-          defaultValue: { summary: "From" },
-        },
+        table: { defaultValue: { summary: "From" } },
       },
       showHelperInvalidText: {
-        table: {
-          defaultValue: { summary: true },
-        },
+        table: { defaultValue: { summary: true } },
       },
       showLabel: {
-        table: {
-          defaultValue: { summary: true },
-        },
+        table: { defaultValue: { summary: true } },
       },
       showOptReqLabel: {
-        table: {
-          defaultValue: { summary: true },
-        },
+        table: { defaultValue: { summary: true } },
       },
     }}
   >

@@ -1,10 +1,10 @@
 import { VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
@@ -35,12 +35,8 @@ export const enumValues = getStorybookEnumValues(
     className: { control: false },
     id: { control: false },
     level: {
-      control: {
-        type: "select",
-      },
-      table: {
-        defaultValue: { summary: "StatusBadgeTypes.Low" },
-      },
+      control: { type: "select" },
+      table: { defaultValue: { summary: "StatusBadgeTypes.Low" } },
       options: enumValues.options,
     },
     text: {
@@ -60,7 +56,7 @@ export const enumValues = getStorybookEnumValues(
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Controls"
+    name="StatusBadge with Controls"
     args={{ level: "StatusBadgeTypes.Low", text: "Registration Required" }}
   >
     {(args) => (
@@ -71,7 +67,7 @@ export const enumValues = getStorybookEnumValues(
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Controls" />
+<ArgsTable story="StatusBadge with Controls" />
 
 ## Patterns
 

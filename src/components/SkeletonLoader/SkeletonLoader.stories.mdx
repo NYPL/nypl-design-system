@@ -1,19 +1,19 @@
 import { action } from "@storybook/addon-actions";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import SimpleGrid from "../Grid/SimpleGrid";
 import SkeletonLoader from "./SkeletonLoader";
 import {
   SkeletonLoaderImageRatios,
   SkeletonLoaderLayouts,
 } from "./SkeletonLoaderTypes";
-import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import { getStorybookEnumValues } from "../../utils/utils";
 
@@ -60,7 +60,7 @@ to better view the example. The default value is `100%`.
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Controls"
+    name="SkeletonLoader with Controls"
     args={{
       imageAspectRatio: "SkeletonLoaderImageRatios.Square",
       layout: "SkeletonLoaderLayouts.Column",
@@ -70,18 +70,14 @@ to better view the example. The default value is `100%`.
       contentSize: { table: { defaultValue: { summary: "3" } } },
       headingSize: { table: { defaultValue: { summary: "1" } } },
       imageAspectRatio: {
-        control: {
-          type: "select",
-        },
+        control: { type: "select" },
         table: {
           defaultValue: { summary: "SkeletonLoaderImageRatios.Square" },
         },
         options: imageRatiosEnumValues.options,
       },
       layout: {
-        table: {
-          defaultValue: { summary: "SkeletonLoaderLayouts.Column" },
-        },
+        table: { defaultValue: { summary: "SkeletonLoaderLayouts.Column" } },
         options: layoutsEnumValues.options,
       },
       showButton: { table: { defaultValue: { summary: "false" } } },
@@ -100,7 +96,7 @@ to better view the example. The default value is `100%`.
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Controls" />
+<ArgsTable story="SkeletonLoader with Controls" />
 
 # Card Placeholders in a Grid
 

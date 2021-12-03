@@ -1,17 +1,25 @@
+import { VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { VStack } from "@chakra-ui/react";
 
+import Heading from "../Heading/Heading";
 import Image from "./Image";
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
-import Heading from "../Heading/Heading";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const ratiosEnumValues = getStorybookEnumValues(
+  ImageRatios,
+  "ImageRatios"
+);
+export const sizesEnumValues = getStorybookEnumValues(ImageSizes, "ImageSizes");
+export const typesEnumValues = getStorybookEnumValues(ImageTypes, "ImageTypes");
 
 <Meta
   title={getCategory("Image")}
@@ -26,9 +34,21 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Image.test.tsx"],
   }}
   argTypes={{
-    alt: { table: { disable: true } },
-    className: { table: { disable: true } },
-    component: { table: { disable: true } },
+    additionalStyles: { control: false },
+    alt: {
+      control: false,
+      description:
+        "Alternate text description of the image. Needed for accessibility purposes.",
+    },
+    className: {
+      control: false,
+      description: "Additional class name for the component to use.",
+    },
+    component: { control: false },
+    src: {
+      description:
+        "The src attribute is required, and contains the path to the image you want to embed.",
+    },
   }}
 />
 
@@ -48,22 +68,46 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Canvas>
   <Story
-    name="Image Props"
+    name="Image with Controls"
     args={{
       alt: "Alt text",
-      imageAspectRatio: ImageRatios.TwoByOne,
+      imageAspectRatio: "ImageRatios.TwoByOne",
       imageCaption: "Image caption",
       imageCredit: "Image credit",
-      imageSize: ImageSizes.Medium,
-      imageType: ImageTypes.Default,
+      imageSize: "ImageSizes.Medium",
+      imageType: "ImageTypes.Default",
       src: "https://placeimg.com/400/300/animals",
     }}
+    argTypes={{
+      imageAspectRatio: {
+        control: { type: "select" },
+        table: { defaultValue: { summary: "ImageRatios.Original" } },
+        options: ratiosEnumValues.options,
+      },
+      imageSize: {
+        control: { type: "select" },
+        table: { defaultValue: { summary: "ImageSizes.Default" } },
+        options: sizesEnumValues.options,
+      },
+      imageType: {
+        control: { type: "select" },
+        table: { defaultValue: { summary: "ImageTypes.Default" } },
+        options: typesEnumValues.options,
+      },
+    }}
   >
-    {(args) => <Image {...args} />}
+    {(args) => (
+      <Image
+        {...args}
+        imageAspectRatio={ratiosEnumValues.getValue(args.imageAspectRatio)}
+        imageSize={sizesEnumValues.getValue(args.imageSize)}
+        imageType={typesEnumValues.getValue(args.imageType)}
+      />
+    )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Image Props" />
+<ArgsTable story="Image with Controls" />
 
 ## Image Figure
 

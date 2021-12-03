@@ -1,19 +1,25 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs from "./Breadcrumbs";
 import { ColorVariants } from "./BreadcrumbsTypes";
-import DSProvider from "../../theme/provider";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Link from "../Link/Link";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  ColorVariants,
+  "ColorVariants"
+);
 
 <Meta
   title={getCategory("Breadcrumbs")}
@@ -28,8 +34,9 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Breadcrumbs.test.tsx"],
   }}
   argTypes={{
-    id: { table: { disable: true } },
-    className: { table: { disable: true } },
+    className: { control: false },
+    id: { control: false },
+    breadcrumbsData: { control: false },
   }}
 />
 
@@ -46,7 +53,7 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
 
 <Canvas withToolbar>
   <Story
-    name="Breadcrumbs Props"
+    name="Breadcrumbs with Controls"
     args={{
       breadcrumbsData: [
         { url: "#", text: "Parent" },
@@ -55,12 +62,23 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
       ],
       id: "init-breadcrumbs",
     }}
+    argTypes={{
+      colorVariant: {
+        control: { type: "select" },
+        options: enumValues.options,
+      },
+    }}
   >
-    {(args) => <Breadcrumbs {...args} />}
+    {(args) => (
+      <Breadcrumbs
+        {...args}
+        colorVariant={enumValues.getValue(args.colorVariant)}
+      />
+    )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Breadcrumbs Props" />
+<ArgsTable story="Breadcrumbs with Controls" />
 
 ### Long Titles
 

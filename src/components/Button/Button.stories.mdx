@@ -1,10 +1,10 @@
 import { ButtonGroup, VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
@@ -70,51 +70,33 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Controls"
+    name="Button with Controls"
     args={{
       buttonText: "Button Text",
-      buttonType: "ButtonType.Primary",
+      buttonType: "ButtonTypes.Primary",
       displayIcon: false,
       displayIconLeft: true,
       iconType: IconNames.Search,
       type: "button",
     }}
     argTypes={{
-      buttonText: {
-        description: "Only used for Storybook",
-      },
+      buttonText: { description: "Only used for Storybook" },
       buttonType: {
-        control: {
-          type: "select",
-        },
-        table: {
-          defaultValue: { summary: "ButtonType.Primary" },
-        },
+        control: { type: "select" },
+        table: { defaultValue: { summary: "ButtonType.Primary" } },
         options: enumValues.options,
       },
-      displayIcon: {
-        description: "Only used for Storybook.",
-      },
+      displayIcon: { description: "Only used for Storybook." },
       displayIconLeft: {
         description: "Move the icon left or right. Only used for Storybook.",
       },
       iconType: {
-        control: {
-          type: "select",
-        },
+        control: { type: "select" },
         options: Object.values(IconNames).map((value) => value),
         description: "Select the icon. Only used for Storybook.",
       },
-      isDisabled: {
-        table: {
-          defaultValue: { summary: false },
-        },
-      },
-      mouseDown: {
-        table: {
-          defaultValue: { summary: false },
-        },
-      },
+      isDisabled: { table: { defaultValue: { summary: false } } },
+      mouseDown: { table: { defaultValue: { summary: false } } },
     }}
   >
     {(args) => (
@@ -139,7 +121,7 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Controls" />
+<ArgsTable story="Button with Controls" />
 
 ## Button Groups
 

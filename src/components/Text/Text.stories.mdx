@@ -1,14 +1,21 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Text from "./Text";
+import { TextDisplaySizes } from "./TextTypes";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  TextDisplaySizes,
+  "TextDisplaySizes"
+);
 
 <Meta
   title={getCategory("Text")}
@@ -22,8 +29,8 @@ import { getCategory } from "../../utils/componentCategories";
     },
   }}
   argTypes={{
-    displaySize: { table: { disable: false } },
-    className: { table: { disable: true } },
+    className: { control: false },
+    displaySize: { control: false },
   }}
 />
 
@@ -39,10 +46,25 @@ import { getCategory } from "../../utils/componentCategories";
 The `Text` component renders a basic `<p>` element. As its name indicates, the `displaySize` prop controls the size of the text rendered in the component.
 
 <Canvas withToolbar>
-  <Story name="Text" args={{}}>
+  <Story
+    name="Text"
+    args={{
+      displaySize: "TextDisplaySizes.Default",
+    }}
+    argTypes={{
+      displaySize: {
+        control: { type: "select" },
+        options: enumValues.options,
+        table: { defaultValue: { summary: "TextDisplaySizes.Default" } },
+      },
+      isBold: { table: { defaultValue: { summary: false } } },
+      isItalic: { table: { defaultValue: { summary: false } } },
+      noSpace: { table: { defaultValue: { summary: false } } },
+    }}
+  >
     {(args) => (
       <>
-        <Text {...args}>
+        <Text {...args} displaySize={enumValues.getValue(args.displaySize)}>
           Animal Crossing[a] is a social simulation video game series developed
           and published by Nintendo. The series was conceptualized and created
           by Katsuya Eguchi and Hisashi Nogami. In Animal Crossing, the player
@@ -52,7 +74,7 @@ The `Text` component renders a basic `<p>` element. As its name indicates, the `
           open-ended gameplay and use of the video game console's internal clock
           and calendar to simulate real passage of time.
         </Text>
-        <Text {...args}>
+        <Text {...args} displaySize={enumValues.getValue(args.displaySize)}>
           Since its initial release in 2001, five Animal Crossing games have
           been released worldwide, one each for the Nintendo 64/iQue Player
           (enhanced and reissued for the GameCube), Nintendo DS, Wii, Nintendo

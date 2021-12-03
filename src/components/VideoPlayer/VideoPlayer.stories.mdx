@@ -1,17 +1,27 @@
+import { action } from "@storybook/addon-actions";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import DSProvider from "../../theme/provider";
 import VideoPlayer from "./VideoPlayer";
-import { VideoPlayerTypes } from "./VideoPlayerTypes";
-import { action } from "@storybook/addon-actions";
+import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const ratiosEnumValues = getStorybookEnumValues(
+  VideoPlayerAspectRatios,
+  "VideoPlayerAspectRatios"
+);
+export const typesEnumValues = getStorybookEnumValues(
+  VideoPlayerTypes,
+  "VideoPlayerTypes"
+);
 
 <Meta
   title={getCategory("VideoPlayer")}
@@ -26,9 +36,9 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["VideoPlayer.test.tsx"],
   }}
   argTypes={{
-    attributes: { table: { disable: true } },
-    className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
+    attributes: { control: false },
+    className: { control: false },
+    id: { control: false },
   }}
 />
 
@@ -49,25 +59,39 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
   <Story
     name="VideoPlayer"
     args={{
-      videoType: VideoPlayerTypes.Vimeo,
-      videoId: "",
-      headingText: "NYPL Video",
+      aspectRatio: "VideoPlayerAspectRatios.FourByThree",
       descriptionText:
         "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+      headingText: "NYPL Video",
       helperText:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+      videoId: "",
+      videoType: "VideoPlayerTypes.Vimeo",
+    }}
+    argTypes={{
+      aspectRatio: {
+        control: { type: "select" },
+        options: ratiosEnumValues.options,
+      },
+      showHelperInvalidText: {
+        table: { defaultValue: { summary: true } },
+      },
+      videoType: {
+        control: { type: "select" },
+        options: typesEnumValues.options,
+      },
     }}
   >
     {(args) => (
       <VideoPlayer
         {...args}
-        videoType={args.videoType}
+        aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
         videoId={
-          args.videoType === "vimeo"
+          args.videoType === "VideoPlayerTypes.Vimeo"
             ? args.videoId || "474719268"
             : args.videoId || "nm-dD2tx6bk"
         }
-        aspectRatio={args.aspectRatio}
+        videoType={typesEnumValues.getValue(args.videoType)}
       />
     )}
   </Story>

@@ -1,17 +1,23 @@
+import { VStack } from "@chakra-ui/react";
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
-} from "@storybook/addon-docs/blocks";
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { VStack } from "@chakra-ui/react";
 
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  TextInputTypes,
+  "TextInputTypes"
+);
 
 <Meta
   title={getCategory("TextInput")}
@@ -26,10 +32,10 @@ import DSProvider from "../../theme/provider";
     jest: ["TextInput.test.tsx"],
   }}
   argTypes={{
-    attributes: { table: { disable: true } },
-    id: { table: { disable: true } },
-    onChange: { table: { disable: true } },
-    value: { table: { disable: true } },
+    attributes: { control: false },
+    id: { control: false },
+    onChange: { control: false },
+    value: { control: false },
   }}
 />
 
@@ -50,7 +56,7 @@ is left blank, a value will be generated for you.
 
 <Canvas withToolbar>
   <Story
-    name="TextInput"
+    name="TextInput with Controls"
     args={{
       helperText: "Choose wisely.",
       id: "myTextInput",
@@ -62,14 +68,32 @@ is left blank, a value will be generated for you.
       placeholder: "e.g. blue, green, etc.",
       showLabel: true,
       showOptReqLabel: true,
-      type: TextInputTypes.text,
+      type: "TextInputTypes.text",
+    }}
+    argTypes={{
+      isDisabled: { table: { defaultValue: { summary: false } } },
+      isInvalid: { table: { defaultValue: { summary: false } } },
+      isRequired: { table: { defaultValue: { summary: false } } },
+      showHelperInvalidText: { table: { defaultValue: { summary: true } } },
+      showLabel: { table: { defaultValue: { summary: true } } },
+      showOptReqLabel: { table: { defaultValue: { summary: true } } },
+      step: { table: { defaultValue: { summary: 1 } } },
+      type: {
+        control: { type: "select" },
+        table: { defaultValue: { summary: "TextInputTypes.text" } },
+        options: enumValues.options,
+      },
+      variantType: {
+        control: false,
+        table: { defaultValue: { summary: "TextInputVariants.Default" } },
+      },
     }}
   >
-    {(args) => <TextInput {...args} />}
+    {(args) => <TextInput {...args} type={enumValues.getValue(args.type)} />}
   </Story>
 </Canvas>
 
-<ArgsTable story="TextInput" />
+<ArgsTable story="TextInput with Controls" />
 
 ## Labelling Variations
 
@@ -160,6 +184,10 @@ variations described above are available for the `textarea` option.
       showLabel: true,
       showOptReqLabel: true,
       type: TextInputTypes.textarea,
+    }}
+    argTypes={{
+      type: { control: false },
+      variantType: { control: false },
     }}
   >
     {(args) => <TextInput {...args} />}
