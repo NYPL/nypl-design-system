@@ -92,7 +92,7 @@ const SkeletonLoader = {
 const fade = () =>
   keyframes({
     from: { opacity: 0.9 },
-    ["50%"]: { opacity: 0.7 },
+    "50%": { opacity: 0.7 },
     to: { opacity: 0.9 },
   });
 // Overriding Chakra's Skeleton animation.
