@@ -487,11 +487,11 @@ describe("Slider", () => {
       expect(screen.queryByText(/Label/i)).not.toBeInTheDocument();
       expect(screen.getAllByRole("slider")[0]).toHaveAttribute(
         "aria-label",
-        "Custom Label minimum value"
+        "Custom Label - start value"
       );
       expect(screen.getAllByRole("slider")[1]).toHaveAttribute(
         "aria-label",
-        "Custom Label maximum value"
+        "Custom Label - end value"
       );
     });
 
