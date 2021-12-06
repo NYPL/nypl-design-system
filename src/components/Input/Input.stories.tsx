@@ -39,8 +39,7 @@ input.storyName = "Input";
 input.parameters = {
   design: {
     type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+    url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
   },
   jest: ["Input.test.tsx"],
 };
@@ -102,8 +101,7 @@ inputGroup.storyName = "Input Group";
 inputGroup.parameters = {
   design: {
     type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+    url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
   },
   jest: ["Input.test.tsx"],
 };
