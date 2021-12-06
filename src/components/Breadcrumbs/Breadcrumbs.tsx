@@ -23,6 +23,8 @@ export interface BreadcrumbsDataProps {
 }
 
 export interface BreadcrumbProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
   /** className you can add in addition to 'input' */
@@ -64,6 +66,7 @@ const getElementsFromData = (data, breadcrumbsID) => {
 
 function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
   const {
+    additionalStyles = {},
     breadcrumbsData,
     className,
     colorVariant,
@@ -78,10 +81,11 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
   }
 
   const styles = useStyleConfig("Breadcrumb", { variant });
+  const finalStyles = { ...styles, ...additionalStyles };
   const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
 
   return (
-    <ChakraBreadcrumb className={className} __css={styles} id={id}>
+    <ChakraBreadcrumb className={className} __css={finalStyles} id={id}>
       {breadcrumbItems}
     </ChakraBreadcrumb>
   );
