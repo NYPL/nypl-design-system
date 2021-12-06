@@ -60,8 +60,7 @@ cardEdition.storyName = "CardEdition";
 cardEdition.parameters = {
   design: {
     type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+    url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
   },
 };
 
@@ -118,7 +117,6 @@ ExampleCardEdition.storyName = "Example Card Edition";
 ExampleCardEdition.parameters = {
   design: {
     type: "figma",
-    url:
-      "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
+    url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17167%3A58131",
   },
 };
