@@ -31,6 +31,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
 - Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
 - Fixes `DatePicker` component unit tests.
+- Removes the `showLabel` prop from the `SearchBar` component to prevent confusion. Labels for the `Select` and `TextInput` components are never shown but are added through the `aria-label` attribute.
 
 ### Breaking Changes
 
