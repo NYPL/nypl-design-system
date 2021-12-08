@@ -1,5 +1,5 @@
 .placeholder {
-  --color-place-holder: var(--nypl-colors-ui-gray-light-cool);
+  --color-place-holder: var(--nypl-colors-ui-gray-dark);
 
   margin-bottom: var(--nypl-space-l);
   @include breakpoint($nypl-breakpoint-large) {
