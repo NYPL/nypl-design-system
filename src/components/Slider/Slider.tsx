@@ -97,8 +97,9 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     showValues = true,
     step = 1,
   } = props;
-  const [currentValue, setCurrentValue] =
-    React.useState<typeof defaultValue>(defaultValue);
+  const [currentValue, setCurrentValue] = React.useState<typeof defaultValue>(
+    defaultValue
+  );
   let finalIsInvalid = isInvalid;
   // In the Range Slider, if the first value is bigger than the second value,
   // then set the invalid state.
