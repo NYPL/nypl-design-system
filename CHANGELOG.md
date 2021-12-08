@@ -12,7 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `ProgressIndicator` component.
 - Adds documentation for using `NYPL Design Tokens`.
-- Adds the `ActionLaunch` icon to the `Icon` component.
+- Adds the `ActionHelpDefault`, `ActionHelpOutline` and `ActionLaunch` icons to the `Icon` component.
 - Adds the DS `Slider` component based on the Chakra `Slider` and `RangeSlider` components.
 - Adds the `ButtonTypes.NoBrand` variant to the `Button` component.
 - Adds the `additionalStyles` prop to the `Breadcrumbs` component.

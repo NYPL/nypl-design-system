@@ -50,6 +50,8 @@ export enum IconNames {
   AccessibilityFull = "accessibility_full",
   AccessibilityPartial = "accessibility_partial",
   ActionCheckCircle = "action_check_circle",
+  ActionHelpDefault = "action_help_default",
+  ActionHelpOutline = "action_help_outline",
   ActionLaunch = "action_launch",
   Arrow = "arrow",
   Check = "check",
