@@ -25,12 +25,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Latest Version` number for `Image`, `Notification` and `Pagination` components.
 - Removes the Storybook "Knobs" addon.
 - Updates the margin for labels in the `DatePicker` component when it is in the "date range" state.
+- Updates the `Tabs` component to comply with linting rules -- no functional or visual changes were made.
+- Removes the `alignText` prop from the `Notification` component. Storybook was incorrectly displaying `alignText` as an available prop.
 
 ### Fixes
 
 - Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
 - Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
 - Fixes `DatePicker` component unit tests.
+- Fixes the Github Actions `CI / Lint` task by pinning the Typescript version.
 - Removes the `showLabel` prop from the `SearchBar` component to prevent confusion. Labels for the `Select` and `TextInput` components are never shown but are added through the `aria-label` attribute.
 
 ### Breaking Changes
