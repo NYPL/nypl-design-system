@@ -11,7 +11,7 @@ import { NotificationTypes } from "./NotificationTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 interface BaseProps {
-  /** Optional prop to control text alignment of the `Notification` content */
+  /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
   /** Optional prop to control horizontal alignment of the `Notification` content */
   centered?: boolean;
@@ -22,7 +22,12 @@ interface BaseProps {
   notificationType?: NotificationTypes;
 }
 
-export interface NotificationProps extends BaseProps {
+// Used for `NotificationHeading` and `Notification`
+type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
+// Used for `NotificationContent`
+type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
+
+export interface NotificationProps extends BasePropsWithoutAlignText {
   /** Additional `className` to add.  */
   className?: string;
   /** Optional prop to control whether a `Notification` can be dismissed
@@ -43,7 +48,9 @@ export interface NotificationProps extends BaseProps {
 /**
  * NotificationHeading child-component.
  */
-export function NotificationHeading(props: React.PropsWithChildren<BaseProps>) {
+export function NotificationHeading(
+  props: React.PropsWithChildren<BasePropsWithoutAlignText>
+) {
   const { centered, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationHeading", {
     centered,
@@ -62,7 +69,9 @@ export function NotificationHeading(props: React.PropsWithChildren<BaseProps>) {
 /**
  * NotificationContent child-component.
  */
-export function NotificationContent(props: React.PropsWithChildren<BaseProps>) {
+export function NotificationContent(
+  props: React.PropsWithChildren<BasePropsWithoutCentered>
+) {
   const { alignText, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationContent", {
     alignText,

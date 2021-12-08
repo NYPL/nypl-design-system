@@ -19,11 +19,11 @@ Storybook documentation
 | 2.                | [Developing with NPM Link](#developing-with-npm-link)                               |
 | 3.                | [Using the Design System in Your Product](#using-the-design-system-in-your-product) |
 | 4.                | [Using Chakra UI Components](#using-chakra-ui-components)                           |
-| 5.                | [CDN](#cdn)                                                                         |
-| 6.                | [Accessibility Product Requirements](#accessibility-product-requirements)           |
-| 7.                | [Storybook](#storybook)                                                             |
-| 8.                | [Typescript Usage](#typescript-usage)                                               |
-| 9.                | [Unit Testing](#unit-testing)                                                       |
+| 5.                | [Storybook](#storybook)                                                             |
+| 6.                | [Typescript Usage](#typescript-usage)                                               |
+| 7.                | [Unit Testing](#unit-testing)                                                       |
+| 8.                | [Accessibility](#accessibility)                                                     |
+| 9.                | [CDN](#cdn)                                                                         |
 
 ## Contributing Quickstart
 
@@ -52,6 +52,12 @@ You can now edit styles or templates in the `src` directory, and they will autom
 Information about active maintainers, how we run reviews, and more can be found in our wiki page for [Contributing to the Design System](https://github.com/NYPL/nypl-design-system/wiki/Contributing-to-the-React-Library).
 
 Follow the [contribution document](/.github/CONTRIBUTING.md) to follow git branching convetions, component creation and update guidelines, testing methodoly, and documentation guidelines.
+
+### Node Version
+
+We recommend using Node version 12.22.x since the DS has some issues with versions higher than 12.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 12.x.
+
+If you are using `nvm`, the local `.nvmrc` file can be use to set your local Node version with the `nvm use` command (will be set to `12.22.x`).
 
 ## Developing with NPM Link
 
@@ -220,12 +226,6 @@ If you need to reference a particular version you can do do by including the ver
 
 You can check out a working Codepen with unpkg [here](https://codepen.io/edwinguzman/pen/ExmXGKx).
 
-## Accessibility Product Requirements
-
-The NYPL Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
-
-NYPL's Metronome instance is currently password protected. For access to Metronome, please contact NYPL's UX team or Design System team.
-
 ## Storybook
 
 The NYPL Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). For your convenience, the NYPL Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
@@ -366,3 +366,39 @@ Each snapshot file also includes a link to its [Jest Snapshot documentation](htt
 Through the [`@storybook/addon-jest`](https://www.npmjs.com/package/@storybook/addon-jest) plugin, we can see a component's suite of unit tests right Storybook. In the "Addons" panel, a "Test" tab will display all the tests for the current component and whether they pass or fail.
 
 After writing new tests, run `npm run test:generate-output` to create a new JSON file that is used by Storybook. This JSON file contains all the test suites for all the components and Storybook picks this up and automatically combines a component with its relevant unit tests. Make sure to commit this file although new builds on Github Pages will recreate this file for the production Storybook instance.
+
+## Accessibility
+
+### Development and Storybook
+
+The NYPL Design System is built with accessibility in mind. By using Chakra UI as our foundational base, the custom DS components built with Chakra have accessibility concerns already implemented. On top of built-in accessible elements, DS components internally work to link labels with input elements, to add correct `aria-*` attributes, to visually hide text but still associate it with the correct element for titles and descriptions, to auto-generate a random `id` attribute if none was passed, and much more.
+
+We make use of:
+
+- `eslint-plugin-jsx-a11y` for finding accessibility errors through linting and through IDE environments.
+- `jest-axe` for running [`axe-core`](https://github.com/dequelabs/axe-core) on _every_ component's unit test file. This is part of the automated tests that run in Github Actions through the `npm test` command.
+- `@storybook/addon-a11y` for real-time accessibility testing in the browser through Storybook. _Every_ component has a tab that displays violations, passes, and incomplete checks performed by `axe-core`.
+
+If applicable, DS components have section(s) on accessibility in their Storybook documentation. For example, in the `Slider`'s [Storybook file](/src/components/Slider/Slider.stories.mdx), there are two "Accessibility" sections for each of the two `Slider` types, "single" and "range". This gives an explanation on additional changes we made to make the combination of elements in the `Slider` component accessible.
+
+### Product Requirements
+
+The NYPL Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
+
+NYPL's Metronome instance is currently password protected. For access to Metronome, please contact NYPL's UX team or Design System team.
+
+## CDN
+
+You can also use the Design System styles in your project through the `unpkg` CDN:
+
+```jsx
+<link href="https://unpkg.com/@nypl/design-system-react-components/dist/styles.css">
+```
+
+If you need to reference a particular version you can do do by including the version number in the URL:
+
+```jsx
+<link href="https://unpkg.com/@nypl/design-system-react-components@0.9.1/dist/styles.css">
+```
+
+You can check out a working Codepen with unpkg [here](https://codepen.io/edwinguzman/pen/ExmXGKx).

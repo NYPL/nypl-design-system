@@ -58,9 +58,6 @@ export interface SearchBarProps {
   onSubmit: (event: React.FormEvent) => void;
   /** Required props to render a `Select` element. */
   selectProps?: SelectProps | undefined;
-  /** Will be used to visually display the label text for this
-   * `SearchBar` component. False by default. */
-  showLabel?: boolean;
   /** Custom input element to render instead of a `TextInput` element. */
   textInputElement?: JSX.Element;
   /** Required props to render a `TextInput` element. */
