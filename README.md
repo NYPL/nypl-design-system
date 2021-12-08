@@ -53,6 +53,12 @@ Information about active maintainers, how we run reviews, and more can be found 
 
 Follow the [contribution document](/.github/CONTRIBUTING.md) to follow git branching convetions, component creation and update guidelines, testing methodoly, and documentation guidelines.
 
+### Node Version
+
+We recommend using Node version 12.22.x since the DS has some issues with versions higher than 12.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 12.x.
+
+If you are using `nvm`, the local `.nvmrc` file can be use to set your local Node version with the `nvm use` command (will be set to `12.22.x`).
+
 ## Developing with NPM Link
 
 To develop with a local version of the Design System:
