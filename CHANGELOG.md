@@ -25,6 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Latest Version` number for `Image`, `Notification` and `Pagination` components.
 - Removes the Storybook "Knobs" addon.
 - Updates the margin for labels in the `DatePicker` component when it is in the "date range" state.
+- Updates the `Tabs` component to comply with linting rules -- no functional or visual changes were made.
 
 ### Fixes
 
