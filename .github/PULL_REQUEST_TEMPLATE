@@ -1,11 +1,18 @@
 Fixes JIRA ticket xxx
 
 ## This PR does the following:
+
 -
 
 ## How has this been tested?
 
 <!--- Please describe in detail how you tested your changes. -->
+
+## Accessibility concerns or updates
+
+<!--- Describe any accessibility concerns or updates that were made that should be known. -->
+
+-
 
 ### Checklist:
 
@@ -13,6 +20,7 @@ Fixes JIRA ticket xxx
 <!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
 
 - [ ] I have updated the Storybook documentation accordingly.
+- [ ] I have added relevant accessibility documentation for this pull request.
 - [ ] All new and existing tests passed.
 
 ### Front End Review:
