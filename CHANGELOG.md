@@ -34,6 +34,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
 - Fixes `DatePicker` component unit tests.
 - Fixes the Github Actions `CI / Lint` task by pinning the Typescript version.
+- Removes the `showLabel` prop from the `SearchBar` component to prevent confusion. Labels for the `Select` and `TextInput` components are never shown but are added through the `aria-label` attribute.
 
 ### Breaking Changes
 
