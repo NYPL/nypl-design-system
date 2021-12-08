@@ -26,6 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the Storybook "Knobs" addon.
 - Updates the margin for labels in the `DatePicker` component when it is in the "date range" state.
 - Updates the `Tabs` component to comply with linting rules -- no functional or visual changes were made.
+- Removes the `alignText` prop from the `Notification` component. Storybook was incorrectly displaying `alignText` as an available prop.
 
 ### Fixes
 
