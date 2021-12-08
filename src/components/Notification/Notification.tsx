@@ -11,7 +11,7 @@ import { NotificationTypes } from "./NotificationTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 interface BaseProps {
-  /** Optional prop to control text alignment of the `Notification` content */
+  /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
   /** Optional prop to control horizontal alignment of the `Notification` content */
   centered?: boolean;
@@ -22,7 +22,9 @@ interface BaseProps {
   notificationType?: NotificationTypes;
 }
 
+// Used for `NotificationHeading` and `Notification`
 type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
+// Used for `NotificationContent`
 type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
 
 export interface NotificationProps extends BasePropsWithoutAlignText {
