@@ -41,7 +41,30 @@ export const typesEnumValues = getStorybookEnumValues(
     jest: ["ProgressIndicator.test.tsx"],
   }}
   argTypes={{
+    darkMode: {
+      table: { defaultValue: { summary: false } },
+    },
     id: { control: false },
+    indicatorType: {
+      control: { type: "radio" },
+      table: { defaultValue: { summary: "ProgressIndicatorTypes.Linear" } },
+      options: typesEnumValues.options,
+    },
+    isIndeterminate: {
+      table: { defaultValue: { summary: false } },
+    },
+    labelText: {},
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    size: {
+      control: { type: "radio" },
+      table: { defaultValue: { summary: "ProgressIndicatorSizes.Default" } },
+      options: sizesEnumValues.options,
+    },
+    value: {
+      table: { defaultValue: { summary: 0 } },
+    },
   }}
 />
 
@@ -66,30 +89,6 @@ export const typesEnumValues = getStorybookEnumValues(
       size: "ProgressIndicatorSizes.Default",
       value: 50,
     }}
-    argTypes={{
-      darkMode: {
-        table: { defaultValue: { summary: false } },
-      },
-      indicatorType: {
-        control: { type: "radio" },
-        table: { defaultValue: { summary: "ProgressIndicatorTypes.Linear" } },
-        options: typesEnumValues.options,
-      },
-      isIndeterminate: {
-        table: { defaultValue: { summary: false } },
-      },
-      showLabel: {
-        table: { defaultValue: { summary: true } },
-      },
-      size: {
-        control: { type: "radio" },
-        table: { defaultValue: { summary: "ProgressIndicatorSizes.Default" } },
-        options: sizesEnumValues.options,
-      },
-      value: {
-        table: { defaultValue: { summary: 0 } },
-      },
-    }}
   >
     {(args) => (
       <ProgressIndicator
@@ -111,20 +110,15 @@ dialogs, etc.
 <Canvas>
   <Story
     name="Linear Type"
-    args={{
-      darkMode: false,
-      indicatorType: ProgressIndicatorTypes.Linear,
-      isIndeterminate: false,
-      labelText: "Linear Progress Type",
-      showLabel: true,
-      size: ProgressIndicatorSizes.Default,
-      value: 50,
-    }}
     argTypes={{
       indicatorType: { table: { disable: true } },
     }}
   >
-    {(args) => <ProgressIndicator {...args} />}
+    <ProgressIndicator
+      indicatorType={ProgressIndicatorTypes.Linear}
+      labelText="Linear Progress Type"
+      value={50}
+    />
   </Story>
 </Canvas>
 
@@ -137,20 +131,15 @@ full-screen loading. Set the `indicatorType` prop to
 <Canvas>
   <Story
     name="Circular Type"
-    args={{
-      darkMode: false,
-      indicatorType: ProgressIndicatorTypes.Circular,
-      isIndeterminate: false,
-      labelText: "Circular Progress Type",
-      showLabel: true,
-      size: ProgressIndicatorSizes.Default,
-      value: 50,
-    }}
     argTypes={{
       indicatorType: { table: { disable: true } },
     }}
   >
-    {(args) => <ProgressIndicator {...args} />}
+    <ProgressIndicator
+      indicatorType={ProgressIndicatorTypes.Circular}
+      labelText="Linear Progress Type"
+      value={50}
+    />
   </Story>
 </Canvas>
 

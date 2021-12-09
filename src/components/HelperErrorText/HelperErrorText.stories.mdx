@@ -24,10 +24,19 @@ import DSProvider from "../../theme/provider";
   }}
   argTypes={{
     additionalStyles: { control: false },
-    ariaAtomic: { control: false },
+    ariaAtomic: {
+      control: false,
+      table: { defaultValue: { summary: true } },
+    },
+    ariaLive: {
+      table: { defaultValue: { summary: "polite" } },
+    },
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
   }}
 />
 
@@ -46,17 +55,6 @@ import DSProvider from "../../theme/provider";
     args={{
       ariaLive: "polite",
       isInvalid: false,
-    }}
-    argTypes={{
-      ariaAtomic: {
-        table: { defaultValue: { summary: true } },
-      },
-      ariaLive: {
-        table: { defaultValue: { summary: "polite" } },
-      },
-      isInvalid: {
-        table: { defaultValue: { summary: false } },
-      },
     }}
   >
     {(args) => (
@@ -119,7 +117,7 @@ announced immediately.
 
 <Canvas>
   <Story
-    name="With Aria Props"
+    name="With Aria Controls"
     args={{
       ariaAtomic: true,
       ariaLive: "polite",

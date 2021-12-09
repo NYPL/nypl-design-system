@@ -34,9 +34,37 @@ export const enumValues = getStorybookEnumValues(
   argTypes={{
     children: { table: { disable: true } },
     defaultValue: { control: false },
+    helperText: {},
     id: { control: false },
+    invalidText: {},
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    key: { table: { disable: true } },
+    labelText: {},
+    layout: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "CheckboxGroupLayoutTypes.Column" } },
+      options: enumValues.options,
+    },
     name: { control: false },
     onChange: { control: false },
+    optReqFlag: {
+      table: { defaultValue: { summary: true } },
+    },
+    ref: { table: { disable: true } },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
   }}
 />
 
@@ -65,31 +93,6 @@ export const enumValues = getStorybookEnumValues(
       optReqFlag: true,
       showHelperInvalidText: true,
       showLabel: true,
-    }}
-    argTypes={{
-      isDisabled: {
-        table: { defaultValue: { summary: false } },
-      },
-      isInvalid: {
-        table: { defaultValue: { summary: false } },
-      },
-      isRequired: {
-        table: { defaultValue: { summary: false } },
-      },
-      layout: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "CheckboxGroupLayoutTypes.Column" } },
-        options: enumValues.options,
-      },
-      optReqFlag: {
-        table: { defaultValue: { summary: true } },
-      },
-      showHelperInvalidText: {
-        table: { defaultValue: { summary: true } },
-      },
-      showLabel: {
-        table: { defaultValue: { summary: true } },
-      },
     }}
   >
     {(args) => (

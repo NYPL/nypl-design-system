@@ -33,8 +33,14 @@ export const enumValues = getStorybookEnumValues(HeroTypes, "HeroTypes");
   }}
   argTypes={{
     backgroundColor: { control: false },
+    backgroundImageSrc: {},
     foregroundColor: { control: false },
     heading: { control: false },
+    heroType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "HeroTypes.Primary" } },
+      options: enumValues.options,
+    },
     image: { control: false },
     locationDetails: { control: false },
     subHeaderText: { control: false },
@@ -73,13 +79,6 @@ descriptive text and images.
     name="Hero with Controls"
     args={{
       heroType: "HeroTypes.Primary",
-    }}
-    argTypes={{
-      heroType: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "HeroTypes.Primary" } },
-        options: enumValues.options,
-      },
     }}
   >
     {(args) =>

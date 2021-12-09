@@ -39,7 +39,26 @@ export const layoutsEnumValues = getStorybookEnumValues(
     jest: ["SkeletonLoader.test.tsx"],
   }}
   argTypes={{
+    border: {},
     className: { control: false },
+    contentSize: { table: { defaultValue: { summary: "3" } } },
+    headingSize: { table: { defaultValue: { summary: "1" } } },
+    imageAspectRatio: {
+      control: { type: "select" },
+      table: {
+        defaultValue: { summary: "SkeletonLoaderImageRatios.Square" },
+      },
+      options: imageRatiosEnumValues.options,
+    },
+    layout: {
+      table: { defaultValue: { summary: "SkeletonLoaderLayouts.Column" } },
+      options: layoutsEnumValues.options,
+    },
+    showButton: { table: { defaultValue: { summary: "false" } } },
+    showContent: { table: { defaultValue: { summary: "true" } } },
+    showHeading: { table: { defaultValue: { summary: "true" } } },
+    showImage: { table: { defaultValue: { summary: "true" } } },
+    width: {},
   }}
 />
 
@@ -65,25 +84,6 @@ to better view the example. The default value is `100%`.
       imageAspectRatio: "SkeletonLoaderImageRatios.Square",
       layout: "SkeletonLoaderLayouts.Column",
       width: "300px",
-    }}
-    argTypes={{
-      contentSize: { table: { defaultValue: { summary: "3" } } },
-      headingSize: { table: { defaultValue: { summary: "1" } } },
-      imageAspectRatio: {
-        control: { type: "select" },
-        table: {
-          defaultValue: { summary: "SkeletonLoaderImageRatios.Square" },
-        },
-        options: imageRatiosEnumValues.options,
-      },
-      layout: {
-        table: { defaultValue: { summary: "SkeletonLoaderLayouts.Column" } },
-        options: layoutsEnumValues.options,
-      },
-      showButton: { table: { defaultValue: { summary: "false" } } },
-      showContent: { table: { defaultValue: { summary: "true" } } },
-      showHeading: { table: { defaultValue: { summary: "true" } } },
-      showImage: { table: { defaultValue: { summary: "true" } } },
     }}
   >
     {(args) => (

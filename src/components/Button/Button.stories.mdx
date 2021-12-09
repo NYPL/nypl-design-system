@@ -30,16 +30,35 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
   parameters={{
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
     },
     jest: ["Button.test.tsx"],
   }}
   argTypes={{
     additionalStyles: { control: false },
     attributes: { control: false },
+    buttonText: { description: "Only used for Storybook" },
+    buttonType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ButtonType.Primary" } },
+      options: enumValues.options,
+    },
     className: { control: false },
+    displayIcon: { description: "Only used for Storybook." },
+    displayIconLeft: {
+      description: "Move the icon left or right. Only used for Storybook.",
+    },
+    iconType: {
+      control: { type: "select" },
+      options: Object.values(IconNames).map((value) => value),
+      description: "Select the icon. Only used for Storybook.",
+    },
     id: { control: false },
+    isDisabled: { table: { defaultValue: { summary: false } } },
+    mouseDown: { table: { defaultValue: { summary: false } } },
     onClick: { control: false },
+    type: {},
   }}
 />
 
@@ -77,25 +96,6 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
       displayIconLeft: true,
       iconType: IconNames.Search,
       type: "button",
-    }}
-    argTypes={{
-      buttonText: { description: "Only used for Storybook" },
-      buttonType: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "ButtonType.Primary" } },
-        options: enumValues.options,
-      },
-      displayIcon: { description: "Only used for Storybook." },
-      displayIconLeft: {
-        description: "Move the icon left or right. Only used for Storybook.",
-      },
-      iconType: {
-        control: { type: "select" },
-        options: Object.values(IconNames).map((value) => value),
-        description: "Select the icon. Only used for Storybook.",
-      },
-      isDisabled: { table: { defaultValue: { summary: false } } },
-      mouseDown: { table: { defaultValue: { summary: false } } },
     }}
   >
     {(args) => (

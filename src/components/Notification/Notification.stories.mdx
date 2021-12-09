@@ -33,9 +33,25 @@ export const enumValues = getStorybookEnumValues(
     jest: ["Notification.test.tsx"],
   }}
   argTypes={{
+    centered: {
+      table: { defaultValue: { summary: false } },
+    },
     className: { control: false },
-    id: { control: false },
+    dismissible: {
+      table: { defaultValue: { summary: false } },
+    },
     icon: { control: false },
+    id: { control: false },
+    noMargin: {
+      table: { defaultValue: { summary: false } },
+    },
+    notificationHeading: {},
+    notificationContent: {},
+    notificationType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "NotificationTypes.Standard" } },
+      options: enumValues.options,
+    },
   }}
 />
 
@@ -59,8 +75,8 @@ within a parent element.
   <Story
     name="Notification with Controls"
     args={{
-      id: "basic-notification",
       centered: false,
+      id: "basic-notification",
       notificationHeading: "Notification Heading",
       notificationContent:
         "Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus" +
@@ -70,22 +86,6 @@ within a parent element.
         "rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus," +
         "nisi erat porttitor ligula.",
       notificationType: "NotificationTypes.Standard",
-    }}
-    argTypes={{
-      centered: {
-        table: { defaultValue: { summary: false } },
-      },
-      dismissible: {
-        table: { defaultValue: { summary: false } },
-      },
-      noMargin: {
-        table: { defaultValue: { summary: false } },
-      },
-      notificationType: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "NotificationTypes.Standard" } },
-        options: enumValues.options,
-      },
     }}
   >
     {(args) => (
@@ -222,25 +222,22 @@ The default icon can be overridden by using the `icon` prop to pass a custom `Ic
 
 <Canvas>
   <Story name="Custom Icons">
-    {(args) => (
-      <Notification
-        icon={
-          <Icon
-            name={IconNames.Check}
-            color={IconColors.SectionResearchSecondary}
-          />
-        }
-        notificationHeading="Custom Icon"
-        notificationContent={
-          <>
-            This is a Notification with a custom icon. Cras mattis consectetur
-            purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
-            leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </>
-        }
-      />
-    )}
+    <Notification
+      icon={
+        <Icon
+          name={IconNames.Check}
+          color={IconColors.SectionResearchSecondary}
+        />
+      }
+      notificationHeading="Custom Icon"
+      notificationContent={
+        <>
+          This is a Notification with a custom icon. Cras mattis consectetur
+          purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi leo
+          risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
+          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </>
+      }
+    />
   </Story>
 </Canvas>

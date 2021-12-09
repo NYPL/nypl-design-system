@@ -27,9 +27,34 @@ import DSProvider from "../../theme/provider";
   }}
   argTypes={{
     className: { control: false },
+    helperText: {},
     id: { control: false },
+    invalidText: {},
     isChecked: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isIndeterminate: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    key: { table: { disable: true } },
+    labelText: {},
+    name: {},
     onChange: { control: false },
+    ref: { table: { disable: true } },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: false } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: false } },
+    },
+    value: {},
   }}
 />
 
@@ -61,26 +86,6 @@ cause an accessibility violation if none is present.
       showHelperInvalidText: true,
       showLabel: true,
       value: "1",
-    }}
-    argTypes={{
-      isDisabled: {
-        table: { defaultValue: { summary: false } },
-      },
-      isIndeterminate: {
-        table: { defaultValue: { summary: false } },
-      },
-      isInvalid: {
-        table: { defaultValue: { summary: false } },
-      },
-      isRequired: {
-        table: { defaultValue: { summary: false } },
-      },
-      showHelperInvalidText: {
-        table: { defaultValue: { summary: false } },
-      },
-      showLabel: {
-        table: { defaultValue: { summary: false } },
-      },
     }}
   >
     {(args) => <Checkbox {...args} />}

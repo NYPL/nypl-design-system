@@ -52,10 +52,40 @@ export const cardLayoutsEnumValues = getStorybookEnumValues(
   }}
   argTypes={{
     backgroundColor: { control: { type: "color" } },
+    border: {
+      table: { defaultValue: { summary: false } },
+    },
+    center: {
+      table: { defaultValue: { summary: false } },
+    },
     className: { control: false },
     foregroundColor: { control: { type: "color" } },
     id: { control: false },
+    imageAlt: {
+      table: { defaultValue: { summary: "" } },
+    },
+    imageAspectRatio: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageRatios.Square" } },
+      options: imageRatiosEnumValues.options,
+    },
+    imageAtEnd: {
+      table: { defaultValue: { summary: false } },
+    },
     imageComponent: { control: false },
+    imageSize: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageSizes.Default" } },
+      options: imageSizesEnumValues.options,
+    },
+    imageSrc: {
+      table: { defaultValue: { summary: "" } },
+    },
+    layout: {
+      control: { type: "radio" },
+      table: { defaultValue: { summary: "CardLayouts.Column" } },
+      options: cardLayoutsEnumValues.options,
+    },
   }}
 />
 
@@ -68,19 +98,29 @@ export const cardLayoutsEnumValues = getStorybookEnumValues(
 
 <Description of={Card} />
 
-The `Card` component is viewed as a contained, stand-alone element. It is highly configurable and composable. It can be shown with or without an image and the content area is composed using Card-specific child components: `CardHeading`, `CardActions` and `CardContent`. These child components can be arranged in any order and each child component may be used multiple times within the content area. Although a `Card` is a self-contained unit, `Card` components are often grouped together and displayed in some type of grid layout.
+The `Card` component is viewed as a contained, stand-alone element. It is highly
+configurable and composable. It can be shown with or without an image and the
+content area is composed using Card-specific child components: `CardHeading`,
+`CardActions` and `CardContent`. These child components can be arranged in any
+order and each child component may be used multiple times within the content area.
+Although a `Card` is a self-contained unit, `Card` components are often grouped
+together and displayed in some type of grid layout.
 
 #### CardHeading
 
-The `CardHeading` component mirrors the standard DS `Heading` component and accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/heading--heading-props).
+The `CardHeading` component mirrors the standard DS `Heading` component and
+accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/components-typography-styles-heading--heading-props).
 
 #### CardActions
 
-The `CardActions` component is used to display "call to action" (CTA) buttons and links for the card. The DS `Button` and `Link` components should be passed as children into the `CardActions` component.
+The `CardActions` component is used to display "call to action" (CTA) buttons
+and links for the card. The DS `Button` and `Link` components should be passed
+as children into the `CardActions` component.
 
 #### CardContent
 
-The `CardContent` component should be used to display all content other than headings and CTAs.
+The `CardContent` component should be used to display all content other than
+headings and CTAs.
 
 <Canvas withToolbar>
   <Story
@@ -95,32 +135,6 @@ The `CardContent` component should be used to display all content other than hea
       imageSize: "ImageSizes.Default",
       imageSrc: "https://placeimg.com/400/300/animals",
       layout: "CardLayouts.Row",
-    }}
-    argTypes={{
-      border: {
-        table: { defaultValue: { summary: false } },
-      },
-      center: {
-        table: { defaultValue: { summary: false } },
-      },
-      imageAspectRatio: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "ImageRatios.Square" } },
-        options: imageRatiosEnumValues.options,
-      },
-      imageAtEnd: {
-        table: { defaultValue: { summary: false } },
-      },
-      imageSize: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "ImageSizes.Default" } },
-        options: imageSizesEnumValues.options,
-      },
-      layout: {
-        control: { type: "radio" },
-        table: { defaultValue: { summary: "CardLayouts.Column" } },
-        options: cardLayoutsEnumValues.options,
-      },
     }}
   >
     {(args) => (
@@ -576,7 +590,8 @@ prop to override the default width.
 
 ## Custom Image Component
 
-Instead of passing a path for the `imageSrc` prop, you can pass a custom image component in using the `imageComponent` prop.
+Instead of passing a path for the `imageSrc` prop, you can pass a custom image
+component in using the `imageComponent` prop.
 
 <Canvas withToolbar>
   <Story name="Custom Image Component">
