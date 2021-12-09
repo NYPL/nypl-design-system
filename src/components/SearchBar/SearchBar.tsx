@@ -20,7 +20,14 @@ interface SelectProps {
 }
 interface TextInputProps {
   labelText: string;
+  name: string;
+  onChange?: (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => void;
   placeholder: string;
+  value?: string;
 }
 
 export interface SearchBarProps {
@@ -51,9 +58,6 @@ export interface SearchBarProps {
   onSubmit: (event: React.FormEvent) => void;
   /** Required props to render a `Select` element. */
   selectProps?: SelectProps | undefined;
-  /** Will be used to visually display the label text for this
-   * `SearchBar` component. False by default. */
-  showLabel?: boolean;
   /** Custom input element to render instead of a `TextInput` element. */
   textInputElement?: JSX.Element;
   /** Required props to render a `TextInput` element. */
@@ -117,12 +121,15 @@ export default function SearchBar(props: SearchBarProps) {
       id={generateUUID()}
       labelText={textInputProps?.labelText}
       placeholder={textInputProps?.placeholder}
+      onChange={textInputProps?.onChange}
+      name={textInputProps?.name}
       type={TextInputTypes.text}
       variantType={
         selectElem
           ? TextInputVariants.SearchBarSelect
           : TextInputVariants.SearchBar
       }
+      value={textInputProps?.value}
       {...stateProps}
     />
   );
@@ -133,7 +140,7 @@ export default function SearchBar(props: SearchBarProps) {
       buttonType={ButtonTypes.SearchBar}
       type="submit"
       onClick={buttonOnClick}
-      disabled={isDisabled}
+      isDisabled={isDisabled}
     >
       <Icon
         name={IconNames.Search}

@@ -19,12 +19,13 @@ const optionsGroup = [
   "Villagers",
 ];
 const selectProps = {
-  name: "nhItemSearch",
+  name: "selectName",
   labelText: "Select a category",
   optionsData: optionsGroup,
 };
 const textInputProps = {
   labelText: "Item Search",
+  name: "textInputName",
   placeholder: "Item Search",
 };
 const helperErrorText = "Search for items in Animal Crossing New Horizons";

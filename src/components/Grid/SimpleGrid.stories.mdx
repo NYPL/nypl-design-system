@@ -161,6 +161,7 @@ for (const icon in IconNames) {
   const iname = `Example icon: ${IconNames[icon]}`;
   const iconRender = (
     <Icon
+      key={icon}
       name={IconNames[icon]}
       size={IconSizes.ExtraExtraExtraLarge}
       titleText={iname}

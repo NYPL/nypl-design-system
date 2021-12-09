@@ -29,10 +29,12 @@ import Link from "./components/link";
 import List from "./components/list";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
+import ProgressIndicator from "./components/progressIndicator";
 import Radio from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
+import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
@@ -93,11 +95,13 @@ const theme = extendTheme({
     List,
     ...NotificationStyles,
     Pagination,
+    ProgressIndicator,
     Radio,
     RadioGroup,
     SearchBar,
     Skeleton,
     SkeletonLoader,
+    CustomSlider,
     StatusBadge,
     Tabs,
     ...TemplateStyles,

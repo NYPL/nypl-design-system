@@ -43,7 +43,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.3`   |
+| Latest            | `0.25.4`   |
 
 <Description of={SearchBar} />
 
@@ -55,6 +55,9 @@ based on the required props.
 
 The `Select` dropdown narrows the search within a specific category, typically
 title or author. Toggle the `Select` through the Controls.
+
+Note: The labels for the `Select` and `TextInput` components are not visible but
+aria-labels are used to make these children components accessible.
 
 export const optionsGroup = [
   "Art",
@@ -73,13 +76,13 @@ export const optionsGroup = [
   <Story
     name="Basic"
     args={{
-      showHelperText: true,
-      showSelect: true,
+      helperErrorText: "Search for items in Animal Crossing New Horizons",
       invalidText: "Could not find the item :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
-      helperErrorText: "Search for items in Animal Crossing New Horizons",
+      showHelperText: true,
+      showSelect: true,
     }}
   >
     {(args) => (
@@ -88,13 +91,14 @@ export const optionsGroup = [
         {...args}
         selectProps={
           args.showSelect && {
-            name: "nhItemSearch",
             labelText: "Select a category",
+            name: "selectName",
             optionsData: optionsGroup,
           }
         }
         textInputProps={{
           labelText: "Item Search",
+          name: "textInputName",
           placeholder: "Item Search",
         }}
         helperErrorText={args.showHelperText && args.helperErrorText}
@@ -132,14 +136,19 @@ const selectProps = {
 ### TextInput Component
 
 To render the `TextInput` component, an object must be passed to the
-`textInputProps` prop. It _must_ include `labelText` and `placeholder`
+`textInputProps` prop. It _must_ include `labelText`, `name`, and `placeholder`
 properties. The `labelText` value won't be rendered but will be used for its
-`aria-label` attribute.
+`aria-label` attribute. Optional values to pass include `onChange` and `value`.
 
 ```
 const textInputProps = {
   labelText: "Item Search",
+  name: "textInputName",
+  onChange: (event) => {
+    console.log(event.target.value);
+  },
   placeholder: "Item Search",
+  value: "Horizon"
 };
 
 // ...
@@ -207,8 +216,8 @@ precedence.
   <Story
     name="Search Autocomplete"
     args={{
-      isInvalid: false,
       isDisabled: false,
+      isInvalid: false,
       isRequired: false,
     }}
   >
@@ -242,9 +251,10 @@ handle the error state yourself.
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
+        name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperErrorText="Sorry, we can't find that item!"
+      helperErrorText="This is the helper text!"
       invalidText="Could not find the item :("
       isInvalid
     />
@@ -263,10 +273,100 @@ handle the disabled state yourself.
       obSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
+        name: "textInputName",
         placeholder: "Item Search",
       }}
       helperErrorText="Reason for disabled state."
       isDisabled
     />
+  </DSProvider>
+</Canvas>
+
+### TextInput and onSubmit Values
+
+_NOTE: open the browser console to see the values logged in the example below._
+
+It is possible to get certain values from the `SearchBar` component by passing
+callback functions as props.
+
+The keyword value in the `TextInput` component can be accessed by passing a
+function to the `onChange` property in the `textInputProp` prop. This is useful
+for validating the keyword the user entered.
+
+To get values when the form is submitted, you must:
+
+- pass values for the `name` property in the `selectProps` and `textInputProps`
+  prop objects.
+- get the values returned in the `onSubmit` callback function.
+
+In the following example, the `name` for the `Select` is "selectName" and the
+`name` for the `TextInput` is "textInputName". The `onSubmit` function can get
+the submitted values through the `event` object. In the example below, the
+values can be retrieved as `event.target.selectName.value` and
+`event.target.textInputName.value`.
+
+```tsx
+function SearchBarValueExample() {
+  const textInputOnChange = (event) => {
+    console.log(`onChange TextInput value: ${event.target.value}`);
+  };
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(`onSubmit Select value: ${event.target.searchName.value}`);
+    console.log(`onSubmit TextInput value ${event.target.textInputName.value}`);
+  };
+  return (
+    <SearchBar
+      onSubmit={onSubmit}
+      selectProps={{
+        labelText: "Select a category",
+        name: "selectName",
+        optionsData: optionsGroup,
+      }}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        onChange: textInputOnChange,
+        placeholder: "Item Search",
+      }}
+      helperErrorText="Search for an item"
+      invalidText="Could not find the item :("
+    />
+  );
+}
+```
+
+export function SearchBarValueExample() {
+  const textInputOnChange = (event) => {
+    console.log(`onChange TextInput value: ${event.target.value}`);
+  };
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(`onSubmit Select value: ${event.target.selectName.value}`);
+    console.log(`onSubmit TextInput value ${event.target.textInputName.value}`);
+  };
+  return (
+    <SearchBar
+      onSubmit={onSubmit}
+      selectProps={{
+        labelText: "Select a category",
+        name: "selectName",
+        optionsData: optionsGroup,
+      }}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        onChange: textInputOnChange,
+        placeholder: "Item Search",
+      }}
+      helperErrorText="Search for an item"
+      invalidText="Could not find the item :("
+    />
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <SearchBarValueExample />
   </DSProvider>
 </Canvas>
