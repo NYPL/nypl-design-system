@@ -73,6 +73,7 @@ export { default as Modal } from "./components/Modal/Modal";
 export { default as Notification } from "./components/Notification/Notification";
 export { NotificationTypes } from "./components/Notification/NotificationTypes";
 export { default as Pagination } from "./components/Pagination/Pagination";
+export { default as ProgressIndicator } from "./components/ProgressIndicator/ProgressIndicator";
 export { default as Radio } from "./components/Radio/Radio";
 export { default as RadioGroup } from "./components/RadioGroup/RadioGroup";
 export { RadioGroupLayoutTypes } from "./components/RadioGroup/RadioGroupLayoutTypes";
@@ -84,6 +85,7 @@ export {
   SkeletonLoaderImageRatios,
   SkeletonLoaderLayouts,
 } from "./components/SkeletonLoader/SkeletonLoaderTypes";
+export { default as Slider } from "./components/Slider/Slider";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export { StatusBadgeTypes } from "./components/StatusBadge/StatusBadgeTypes";
 export {
