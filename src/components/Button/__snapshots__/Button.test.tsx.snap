@@ -16,11 +16,12 @@ exports[`Button Snapshot Renders the UI snapshot correctly 2`] = `
 <button
   className="chakra-button css-0"
   data-testid="button"
+  disabled={true}
   id="button"
   onClick={[MockFunction]}
   type="button"
 >
-  Seconday
+  Disabled
 </button>
 `;
 
@@ -32,7 +33,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 3`] = `
   onClick={[MockFunction]}
   type="button"
 >
-  Callout
+  Seconday
 </button>
 `;
 
@@ -44,7 +45,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 4`] = `
   onClick={[MockFunction]}
   type="button"
 >
-  Pill
+  Callout
 </button>
 `;
 
@@ -56,7 +57,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 5`] = `
   onClick={[MockFunction]}
   type="button"
 >
-  Link
+  Pill
 </button>
 `;
 
@@ -68,6 +69,30 @@ exports[`Button Snapshot Renders the UI snapshot correctly 6`] = `
   onClick={[MockFunction]}
   type="button"
 >
+  Link
+</button>
+`;
+
+exports[`Button Snapshot Renders the UI snapshot correctly 7`] = `
+<button
+  className="chakra-button css-0"
+  data-testid="button"
+  id="button"
+  onClick={[MockFunction]}
+  type="button"
+>
   SearchBar
+</button>
+`;
+
+exports[`Button Snapshot Renders the UI snapshot correctly 8`] = `
+<button
+  className="chakra-button css-0"
+  data-testid="button"
+  id="button"
+  onClick={[MockFunction]}
+  type="button"
+>
+  NoBrand
 </button>
 `;

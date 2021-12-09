@@ -8,6 +8,47 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.4 (December 9, 2021)
+
+### Adds
+
+- Adds the `ProgressIndicator` component.
+- Adds documentation for using `NYPL Design Tokens`.
+- Adds the `ActionHelpDefault`, `ActionHelpOutline` and `ActionLaunch` icons to the `Icon` component.
+- Adds the DS `Slider` component based on the Chakra `Slider` and `RangeSlider` components.
+- Adds the `ButtonTypes.NoBrand` variant to the `Button` component.
+- Adds the `additionalStyles` prop to the `Breadcrumbs` component.
+
+### Changes
+
+- Updates the organization of SCSS files by deleting some files and combining others.
+- Updates `@chakra-ui/react` to version 1.7.1 and `@chakra-ui/system` to version 1.8.1.
+- Updates the `TextInput` component to now have `defaultValue` and `step` props.
+- Updates `Latest Version` number for `Image`, `Notification` and `Pagination` components.
+- Removes the Storybook "Knobs" addon.
+- Updates the margin for labels in the `DatePicker` component when it is in the "date range" state.
+- Updates the `DatePicker` component to have proper form spacing when in the "date range" state.
+- Updates the `Tabs` component to comply with linting rules -- no functional or visual changes were made.
+- Removes the `alignText` prop from the `Notification` component. Storybook was incorrectly displaying `alignText` as an available prop.
+
+### Fixes
+
+- Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
+- Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
+- Fixes `DatePicker` component unit tests.
+- Removes the `showLabel` prop from the `SearchBar` component to prevent confusion. Labels for the `Select` and `TextInput` components are never shown but are added through the `aria-label` attribute.
+
+### Breaking Changes
+
+- Updates the breakpoint CSS variable names by adding the `--nypl` prefix and the SCSS variables by adding the `$nypl` prefix. Updates references throughout the codebase.
+- Changes the `Button`'s `disabled` prop to `isDisabled`.
+- Updates npm packages in `package.json`. Removes `cpy-cli`, `react-uid`, `react-is`, `stylelint` and related packages, and `ts-loader` (already added through TSDX). Updates other packages such as `sass-loader`, `prettier`, `jest`, `jest-axe`, and the majority of Storybook addon packages.
+
+### Deprecates
+
+- Deprecates the `Input` component. The `Input` component will be removed from the NYPL Design System React Library in the first release of January 2022.
+- Deprecates the `CardEdition` component. The `CardEdition` component will be removed from the NYPL Design System React Library in the first release of January 2022.
+
 ## 0.25.3 (November 18, 2021)
 
 ### Adds
@@ -49,6 +90,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Composes the DS `Card` component with Chakra. BEM related props `modifiers` and `blockname` have been removed. Replaces the `CardImageRatios` with `ImageRatios`. Removes the `CardImageSizes` enum.
 - Composes the DS `DatePicker` component with Chakra. Adds more tests, documentation, and examples. This component now uses the `Fieldset` component for the date range type, and better `Form` components for layout. Prop name changes: `dateRange` is now `isDateRange` and `required` is now `isRequired`. BEM related props `modifiers` and `blockname` have been removed. The "Required"/"Optional" text in the date range legend can now be hidden with the `showOptReqLabel` prop.
 - Composes the DS `SkeletonLoader` with Chakra's `Skeleton` component. BEM related prop `modifiers` has been removed. Chakra's default `Skeleton` styles have been updated with NYPL's theme.
+- Removes deprecated CSS variables. Now the DS repo only uses the CSS variables exposed by Chakra that contain the `--nypl` prefix.
 
 ## 0.25.2 (October 28, 2021)
 

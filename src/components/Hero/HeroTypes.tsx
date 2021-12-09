@@ -10,6 +10,7 @@ export enum HeroTypes {
   FiftyFifty = "fiftyfifty",
 }
 
+// Only used for internal purposes.
 export const HeroSecondaryTypes = [
   HeroTypes.Secondary,
   HeroTypes.SecondaryBooksAndMore,

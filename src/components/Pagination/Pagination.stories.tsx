@@ -23,8 +23,7 @@ export const PaginationGetPageHref: Story<PaginationProps> = (args) => {
   // Passing this function into `Pagination` makes the URL to change
   // and refreshes the page.
   const getPageHref = (selectedPage) => {
-    const currentStoryId = urlParams.get("id");
-    return `${location.origin}?path=/story/${currentStoryId}&page=${selectedPage}`;
+    return `${location.href}&page=${selectedPage}`;
   };
 
   return (

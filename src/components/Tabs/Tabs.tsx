@@ -1,11 +1,11 @@
 import * as React from "react";
 import {
   Box,
-  Tabs as ChakraTabs,
-  TabList,
   Tab,
+  TabList,
   TabPanels,
   TabPanel,
+  Tabs as ChakraTabs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
@@ -63,7 +63,7 @@ const getElementsFromContentData = (data, useHash) => {
         "needed, consider other navigational patterns."
     );
   }
-  data.map((tab, index) => {
+  data.forEach((tab, index) => {
     let tempPanel;
     // For URL hash enabled tabs, we need to add a custom `onClick` to handle the URL hash.
     const tempTab = (
@@ -108,7 +108,7 @@ const getElementsFromChildren = (children) => {
     return {};
   }
 
-  children.map((child) => {
+  children.forEach((child) => {
     if (child.type === TabList || child.props.mdxType === "TabList") {
       tabs.push(child);
 
@@ -170,7 +170,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
     if (windowDimensions.width > 600) {
       goToStart();
     }
-  }, [windowDimensions.width]);
+  }, [goToStart, windowDimensions.width]);
   const previousButton = (
     <Button
       buttonType={ButtonTypes.Primary}
