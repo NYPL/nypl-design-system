@@ -56,6 +56,9 @@ based on the required props.
 The `Select` dropdown narrows the search within a specific category, typically
 title or author. Toggle the `Select` through the Controls.
 
+Note: The labels for the `Select` and `TextInput` components are not visible but
+aria-labels are used to make these children components accessible.
+
 export const optionsGroup = [
   "Art",
   "Bushes",
@@ -109,8 +112,8 @@ export const optionsGroup = [
         {...args}
         selectProps={
           args.showSelect && {
-            name: "selectName",
             labelText: "Select a category",
+            name: "selectName",
             optionsData: optionsGroup,
           }
         }
@@ -234,8 +237,8 @@ precedence.
   <Story
     name="Search Autocomplete"
     args={{
-      isInvalid: false,
       isDisabled: false,
+      isInvalid: false,
       isRequired: false,
     }}
   >
@@ -337,14 +340,14 @@ function SearchBarValueExample() {
     <SearchBar
       onSubmit={onSubmit}
       selectProps={{
-        name: "selectName",
         labelText: "Select a category",
+        name: "selectName",
         optionsData: optionsGroup,
       }}
       textInputProps={{
         labelText: "Item Search",
-        onChange: textInputOnChange,
         name: "textInputName",
+        onChange: textInputOnChange,
         placeholder: "Item Search",
       }}
       helperErrorText="Search for an item"
@@ -367,14 +370,14 @@ export function SearchBarValueExample() {
     <SearchBar
       onSubmit={onSubmit}
       selectProps={{
-        name: "selectName",
         labelText: "Select a category",
+        name: "selectName",
         optionsData: optionsGroup,
       }}
       textInputProps={{
         labelText: "Item Search",
-        onChange: textInputOnChange,
         name: "textInputName",
+        onChange: textInputOnChange,
         placeholder: "Item Search",
       }}
       helperErrorText="Search for an item"

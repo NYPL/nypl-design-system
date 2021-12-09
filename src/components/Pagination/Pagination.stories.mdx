@@ -19,7 +19,8 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
     },
     jest: ["Pagination.test.tsx"],
   }}
@@ -61,7 +62,8 @@ named anything but you have to pick up the value in the wrapper component.
 ```tsx
 // Example in a search results page.
 const getPageHref = (selectedPage: number) => {
-  // This should be updated for your router system, if any.
+  // This should be updated for your router system, if any, including the
+  // base or origin URL.
   return `${location.origin}?q=celeste&page=${selectedPage}`;
 };
 ```
