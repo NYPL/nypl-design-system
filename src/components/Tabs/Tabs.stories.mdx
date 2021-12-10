@@ -18,16 +18,21 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26464",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26464",
     },
     jest: ["Tabs.test.tsx"],
   }}
   argTypes={{
     children: { table: { disable: true } },
     contentData: { control: false },
+    defaultIndex: {
+      table: { defaultValue: { summary: 0 } },
+    },
     id: { control: false },
     onChange: { control: false },
+    useHash: {
+      table: { defaultValue: { summary: false } },
+    },
   }}
 />
 
@@ -92,15 +97,9 @@ export const animalCrossing = [
     args={{
       contentData: animalCrossing,
       defaultIndex: 0,
+      id: "tabs-id",
+      onChange: undefined,
       useHash: false,
-    }}
-    argTypes={{
-      defaultIndex: {
-        table: { defaultValue: { summary: 0 } },
-      },
-      useHash: {
-        table: { defaultValue: { summary: false } },
-      },
     }}
   >
     {(args) => <Tabs {...args} />}

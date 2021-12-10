@@ -28,15 +28,23 @@ export const levelsEnumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
     jest: ["Heading.test.tsx"],
   }}
   argTypes={{
     additionalStyles: { control: false },
     className: { control: false },
+    displaySize: {
+      control: { type: "select" },
+      options: sizesEnumValues.options,
+    },
     id: { control: false },
+    level: {
+      control: { type: "select" },
+      options: levelsEnumValues.options,
+      table: { defaultValue: { summary: "HeadingLevels.Two" } },
+    },
   }}
 />
 
@@ -57,20 +65,14 @@ semantic elements can be overwritten using the `displaySize` prop.
   <Story
     name="Heading with Controls"
     args={{
-      id: "default-heading",
+      additionalStyles: undefined,
+      className: undefined,
+      displaySize: undefined,
+      id: "heading-id",
       level: "HeadingLevels.Two",
       text: "Default Heading",
-    }}
-    argTypes={{
-      displaySize: {
-        control: { type: "select" },
-        options: sizesEnumValues.options,
-      },
-      level: {
-        control: { type: "select" },
-        options: levelsEnumValues.options,
-        table: { defaultValue: { summary: "HeadingLevels.Two" } },
-      },
+      url: undefined,
+      urlClass: undefined,
     }}
   >
     {(args) => (

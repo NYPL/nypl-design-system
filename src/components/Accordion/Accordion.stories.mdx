@@ -22,14 +22,14 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
     },
     jest: ["Accordion.test.tsx"],
   }}
   argTypes={{
     contentData: { control: false },
     id: { control: false },
+    isDefaultOpen: { table: { defaultValue: { summary: false } } },
   }}
 />
 
@@ -82,10 +82,8 @@ necessary icon, Chakra components, and styles.
           ),
         },
       ],
+      id: "accordion-id",
       isDefaultOpen: false,
-    }}
-    argTypes={{
-      isDefaultOpen: { table: { defaultValue: { summary: false } } },
     }}
   >
     {(args) => <Accordion {...args} />}

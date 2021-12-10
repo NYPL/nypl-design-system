@@ -22,8 +22,7 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36889%3A25871",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36889%3A25871",
     },
     jest: ["Slider.test.tsx"],
   }}
@@ -88,8 +87,10 @@ For this type of component, the `value` prop must be a single number.
   <Story
     name="Slider with Controls"
     args={{
+      className: undefined,
       defaultValue: 50,
       helperText: "Pass in a value from the min 0 to the max 100 values.",
+      id: "slider-id",
       invalidText: "Oh no this is an error :(",
       isDisabled: false,
       isInvalid: false,
@@ -98,6 +99,8 @@ For this type of component, the `value` prop must be a single number.
       labelText: "Slider label",
       max: 100,
       min: 0,
+      name: undefined,
+      onChange: undefined,
       optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
@@ -142,8 +145,10 @@ numbers. This signifies the starting and ending values of the range slider.
   <Story
     name="Range Slider with Props"
     args={{
+      className: undefined,
       defaultValue: [25, 75],
       helperText: "Pass in a value from the min 0 to the max 100 values.",
+      id: "slider-range-id",
       invalidText: "Oh no this is an error :(",
       isDisabled: false,
       isInvalid: false,
@@ -152,6 +157,8 @@ numbers. This signifies the starting and ending values of the range slider.
       labelText: "Range Slider label",
       max: 100,
       min: 0,
+      name: undefined,
+      onChange: undefined,
       optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
@@ -171,8 +178,6 @@ numbers. This signifies the starting and ending values of the range slider.
     {(args) => <Slider {...args} />}
   </Story>
 </Canvas>
-
-<ArgsTable story="Range Slider with Props" />
 
 ### Accessibility
 

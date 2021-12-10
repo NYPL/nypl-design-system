@@ -23,17 +23,39 @@ export const enumValues = getStorybookEnumValues(SelectTypes, "SelectTypes");
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
     },
     jest: ["Select.test.tsx"],
   }}
   argTypes={{
     children: { table: { disable: true } },
     id: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
     name: { control: false },
+    key: { table: { disable: true } },
     onChange: { control: false },
-    type: { control: false },
+    ref: { table: { disable: true } },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showOptReqLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    type: {
+      control: false,
+      table: { defaultValue: { summary: "SelectTypes.Default" } },
+    },
     value: { control: false },
   }}
 />
@@ -70,39 +92,21 @@ elements, but the select options _need_ to be child `<option>` HTML elements.
   <Story
     name="Select with Controls"
     args={{
+      className: undefined,
       helperText: "This is the helper text.",
+      id: "select-id",
       invalidText: "This is the error text :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "What is your favorite color?",
       name: "color",
+      onChange: undefined,
+      showHelperInvalidText: undefined,
       showLabel: true,
       showOptReqLabel: true,
       type: SelectTypes.Default,
-    }}
-    argTypes={{
-      isDisabled: {
-        table: { defaultValue: { summary: false } },
-      },
-      isInvalid: {
-        table: { defaultValue: { summary: false } },
-      },
-      isRequired: {
-        table: { defaultValue: { summary: false } },
-      },
-      showHelperInvalidText: {
-        table: { defaultValue: { summary: true } },
-      },
-      showLabel: {
-        table: { defaultValue: { summary: true } },
-      },
-      showOptReqLabel: {
-        table: { defaultValue: { summary: true } },
-      },
-      type: {
-        table: { defaultValue: { summary: "SelectTypes.Default" } },
-      },
+      value: undefined,
     }}
   >
     {(args) => (

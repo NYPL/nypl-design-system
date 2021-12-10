@@ -19,6 +19,13 @@ import { getCategory } from "../../utils/componentCategories";
   argTypes={{
     className: { control: false },
     id: { control: false },
+    optReqFlag: {
+      control: { type: "select" },
+      options: ["Required", "Optional", ""],
+    },
+    text: {
+      description: "Only used for Storybook",
+    },
   }}
 />
 
@@ -35,18 +42,11 @@ import { getCategory } from "../../utils/componentCategories";
   <Story
     name="Label with Controls"
     args={{
+      className: undefined,
       htmlFor: "id-of-input-element",
+      id: "label-id",
       optReqFlag: "Required",
       text: "A label for a villager.",
-    }}
-    argTypes={{
-      optReqFlag: {
-        control: { type: "select" },
-        options: ["Required", "Optional", ""],
-      },
-      text: {
-        description: "Only used for Storybook",
-      },
     }}
   >
     {(args) => <Label {...args}>{args.text}</Label>}

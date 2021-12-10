@@ -19,8 +19,7 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
     },
     jest: ["Pagination.test.tsx"],
   }}
@@ -28,6 +27,7 @@ import { getCategory } from "../../utils/componentCategories";
     className: { control: false },
     getPageHref: { control: false },
     id: { control: false },
+    initialPage: { table: { defaultValue: { summary: 1 } } },
     onPageChange: { control: false },
   }}
 />
@@ -72,11 +72,12 @@ const getPageHref = (selectedPage: number) => {
   <Story
     name="Pagination with URL Updates"
     args={{
+      className: undefined,
+      getPageHref: undefined,
+      id: "pagination-id",
       initialPage: 1,
+      onPageChange: undefined,
       pageCount: 10,
-    }}
-    argTypes={{
-      initialPage: { table: { defaultValue: { summary: 1 } } },
     }}
   >
     {(args) => stories.PaginationGetPageHref(args)}
@@ -108,7 +109,11 @@ const onPageChange = (currentPage: number) => {
   <Story
     name="Pagination with Unchanging URL"
     args={{
+      className: undefined,
+      getPageHref: undefined,
+      id: "pagination-id-2",
       initialPage: 7,
+      onPageChange: undefined,
       pageCount: 100,
     }}
   >

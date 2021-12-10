@@ -26,14 +26,12 @@ export const enumValues = getStorybookEnumValues(HeroTypes, "HeroTypes");
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A5314",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A5314",
     },
     jest: ["Hero.test.tsx"],
   }}
   argTypes={{
     backgroundColor: { control: false },
-    backgroundImageSrc: {},
     foregroundColor: { control: false },
     heading: { control: false },
     heroType: {
@@ -78,7 +76,14 @@ descriptive text and images.
   <Story
     name="Hero with Controls"
     args={{
+      backgroundColor: undefined,
+      backgroundImageSrc: undefined,
+      foregroundColor: undefined,
+      heading: undefined,
       heroType: "HeroTypes.Primary",
+      image: undefined,
+      locationDetails: undefined,
+      subHeaderText: undefined,
     }}
   >
     {(args) =>

@@ -20,6 +20,7 @@ import { getCategory } from "../../utils/componentCategories";
     className: { control: false },
     id: { control: false },
     modifiers: { control: false },
+    open: { description: "Only used in Storybook." },
   }}
   parameters={{
     jest: ["Modal.test.tsx"],
@@ -126,9 +127,12 @@ export const ModalStory = (args) => {
 <Canvas withToolbar>
   <Story
     name="Modal"
-    args={{ open: false }}
-    argTypes={{
-      open: { description: "Used only in Storybook." },
+    args={{
+      blockName: undefined,
+      className: undefined,
+      id: "modal-id",
+      modifiers: undefined,
+      open: false,
     }}
   >
     {(args) => <ModalStory {...args} />}

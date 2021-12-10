@@ -10,11 +10,12 @@ import { withDesign } from "storybook-addon-designs";
 import Icon from "./Icon";
 import {
   IconAlign,
-  IconNames,
-  LogoNames,
   IconColors,
-  IconSizes,
+  IconNames,
   IconRotationTypes,
+  IconSizes,
+  IconTypes,
+  LogoNames,
 } from "./IconTypes";
 import iconSvgs from "./IconSvgs";
 import List from "../List/List";
@@ -41,16 +42,46 @@ export const rotationEnumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A3945",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A3945",
     },
     jest: ["Icon.test.tsx"],
   }}
   argTypes={{
+    align: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "IconAlign.None" } },
+      options: alignEnumValues.options,
+    },
     children: { table: { disable: true } },
     className: { control: false },
+    color: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "IconColors.UiBlack" } },
+      options: colorsEnumValues.options,
+    },
+    iconRotation: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "IconRotationTypes.Rotate0" } },
+      options: rotationEnumValues.options,
+    },
     id: { control: false },
-    type: { control: false },
+    name: {
+      control: { type: "select" },
+      options: namesEnumValues.options,
+    },
+    size: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "IconSizes.Medium" } },
+      options: sizesEnumValues.options,
+    },
+    title: {
+      control: false,
+      table: { defaultValue: { summary: "`${name} icon`" } },
+    },
+    type: {
+      control: false,
+      table: { defaultValue: { summary: "IconTypes.Default" } },
+    },
   }}
 />
 
@@ -67,38 +98,17 @@ export const rotationEnumValues = getStorybookEnumValues(
   <Story
     name="Icon with Controls"
     args={{
+      additionalStyles: undefined,
       align: "IconAlign.None",
+      className: undefined,
       color: "IconColors.UiBlack",
       decorative: true,
       iconRotation: "IconRotationTypes.Rotate0",
+      id: "icon-id",
       name: "IconNames.Check",
       size: "IconSizes.ExtraLarge",
-    }}
-    argTypes={{
-      align: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "IconAlign.None" } },
-        options: alignEnumValues.options,
-      },
-      color: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "IconColors.UiBlack" } },
-        options: colorsEnumValues.options,
-      },
-      iconRotation: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "IconRotationTypes.Rotate0" } },
-        options: rotationEnumValues.options,
-      },
-      name: {
-        control: { type: "select" },
-        options: namesEnumValues.options,
-      },
-      size: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "IconSizes.Medium" } },
-        options: sizesEnumValues.options,
-      },
+      title: undefined,
+      type: IconTypes.Default,
     }}
   >
     {(args) => (

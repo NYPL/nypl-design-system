@@ -9,7 +9,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import TextInput from "./TextInput";
-import { TextInputTypes } from "./TextInputTypes";
+import { TextInputTypes, TextInputVariants } from "./TextInputTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -26,16 +26,33 @@ export const enumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
     jest: ["TextInput.test.tsx"],
   }}
   argTypes={{
     attributes: { control: false },
     id: { control: false },
+    isDisabled: { table: { defaultValue: { summary: false } } },
+    isInvalid: { table: { defaultValue: { summary: false } } },
+    isRequired: { table: { defaultValue: { summary: false } } },
+    key: { table: { disable: true } },
     onChange: { control: false },
+    ref: { table: { disable: true } },
+    showHelperInvalidText: { table: { defaultValue: { summary: true } } },
+    showLabel: { table: { defaultValue: { summary: true } } },
+    showOptReqLabel: { table: { defaultValue: { summary: true } } },
+    step: { table: { defaultValue: { summary: 1 } } },
+    type: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "TextInputTypes.text" } },
+      options: enumValues.options,
+    },
     value: { control: false },
+    variantType: {
+      control: false,
+      table: { defaultValue: { summary: "TextInputVariants.Default" } },
+    },
   }}
 />
 
@@ -58,35 +75,27 @@ is left blank, a value will be generated for you.
   <Story
     name="TextInput with Controls"
     args={{
+      additionalStyles: undefined,
+      attributes: undefined,
+      className: undefined,
+      defaultValue: undefined,
       helperText: "Choose wisely.",
-      id: "myTextInput",
+      id: "textInput-id",
       invalidText: "This is error text :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: true,
       labelText: "What is your favorite color?",
+      name: undefined,
+      onChange: undefined,
       placeholder: "e.g. blue, green, etc.",
+      showHelperInvalidText: true,
       showLabel: true,
       showOptReqLabel: true,
+      step: 1,
       type: "TextInputTypes.text",
-    }}
-    argTypes={{
-      isDisabled: { table: { defaultValue: { summary: false } } },
-      isInvalid: { table: { defaultValue: { summary: false } } },
-      isRequired: { table: { defaultValue: { summary: false } } },
-      showHelperInvalidText: { table: { defaultValue: { summary: true } } },
-      showLabel: { table: { defaultValue: { summary: true } } },
-      showOptReqLabel: { table: { defaultValue: { summary: true } } },
-      step: { table: { defaultValue: { summary: 1 } } },
-      type: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "TextInputTypes.text" } },
-        options: enumValues.options,
-      },
-      variantType: {
-        control: false,
-        table: { defaultValue: { summary: "TextInputVariants.Default" } },
-      },
+      value: undefined,
+      variantType: TextInputVariants.Default,
     }}
   >
     {(args) => <TextInput {...args} type={enumValues.getValue(args.type)} />}

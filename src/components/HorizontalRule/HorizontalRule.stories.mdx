@@ -18,13 +18,14 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
     },
     jest: ["HorizontalRule.test.tsx"],
   }}
   argTypes={{
     className: { control: false },
+    height: { table: { defaultValue: { summary: "2px" } } },
+    width: { table: { defaultValue: { summary: "auto" } } },
   }}
 />
 
@@ -43,15 +44,7 @@ number, a `px` value, a `em` value, or a `rem` value. Otherwise, the default
 value of "2px" will be used.
 
 <Canvas withToolbar>
-  <Story
-    name="HorizontalRule"
-    argTypes={{
-      height: { table: { defaultValue: { summary: "2px" } } },
-      width: { table: { defaultValue: { summary: "auto" } } },
-    }}
-  >
-    {(args) => <HorizontalRule {...args} />}
-  </Story>
+  <Story name="HorizontalRule">{(args) => <HorizontalRule {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="HorizontalRule" />

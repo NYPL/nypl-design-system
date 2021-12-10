@@ -29,8 +29,7 @@ export const enumValues = getStorybookEnumValues(LinkTypes, "LinkTypes");
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36854%3A24387",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36854%3A24387",
     },
     jest: ["Link.test.tsx"],
   }}
@@ -38,8 +37,11 @@ export const enumValues = getStorybookEnumValues(LinkTypes, "LinkTypes");
     additionalStyles: { control: false },
     attributes: { control: false },
     children: { table: { disable: true } },
+    key: { table: { disable: true } },
+    ref: { table: { disable: true } },
     type: {
       control: { type: "select" },
+      table: { defaultValue: { summary: "LinkTypes.Default" } },
       options: enumValues.options,
     },
   }}
@@ -58,6 +60,7 @@ export const enumValues = getStorybookEnumValues(LinkTypes, "LinkTypes");
   <Story
     name="Link with Controls"
     args={{
+      additionalStyles: undefined,
       attributes: {
         rel: "nofollow",
         onClick: (e) => e.preventDefault(),
@@ -66,13 +69,6 @@ export const enumValues = getStorybookEnumValues(LinkTypes, "LinkTypes");
       href: "https://nypl.org",
       id: "nypl-link",
       type: "LinkTypes.Action",
-    }}
-    argTypes={{
-      type: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "LinkTypes.Default" } },
-        options: enumValues.options,
-      },
     }}
   >
     {(args) => (

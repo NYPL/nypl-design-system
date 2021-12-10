@@ -36,13 +36,22 @@ export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
     },
     jest: ["Form.test.tsx"],
   }}
   argTypes={{
+    action: { control: false },
     id: { control: false },
+    method: {
+      control: { type: "radio" },
+      options: ["get", "post"],
+    },
+    spacing: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "FormSpacing.Large" } },
+      options: enumValues.options,
+    },
   }}
 />
 
@@ -66,20 +75,10 @@ The `Form` component renders a standard `<form>` element and should be used to h
     name="Form with Controls"
     args={{
       action: "/end/point",
-      id: "custom-form-id",
+      className: undefined,
+      id: "form-id",
       method: "get",
       spacing: "FormSpacing.Large",
-    }}
-    argTypes={{
-      method: {
-        control: { type: "radio" },
-        options: ["get", "post"],
-      },
-      spacing: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "FormSpacing.Large" } },
-        options: enumValues.options,
-      },
     }}
   >
     {(args) => (

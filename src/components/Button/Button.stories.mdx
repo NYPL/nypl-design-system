@@ -30,8 +30,7 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
     },
     jest: ["Button.test.tsx"],
   }}
@@ -58,7 +57,6 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
     isDisabled: { table: { defaultValue: { summary: false } } },
     mouseDown: { table: { defaultValue: { summary: false } } },
     onClick: { control: false },
-    type: {},
   }}
 />
 
@@ -90,11 +88,18 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
   <Story
     name="Button with Controls"
     args={{
+      additionalStyles: undefined,
+      attributes: undefined,
       buttonText: "Button Text",
       buttonType: "ButtonTypes.Primary",
+      className: undefined,
       displayIcon: false,
       displayIconLeft: true,
       iconType: IconNames.Search,
+      id: "button-id",
+      isDisabled: false,
+      mouseDown: undefined,
+      onClick: undefined,
       type: "button",
     }}
   >

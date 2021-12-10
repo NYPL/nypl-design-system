@@ -44,6 +44,21 @@ export const typesEnumValues = getStorybookEnumValues(ImageTypes, "ImageTypes");
       description: "Additional class name for the component to use.",
     },
     component: { control: false },
+    imageAspectRatio: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageRatios.Original" } },
+      options: ratiosEnumValues.options,
+    },
+    imageSize: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageSizes.Default" } },
+      options: sizesEnumValues.options,
+    },
+    imageType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageTypes.Default" } },
+      options: typesEnumValues.options,
+    },
     src: {
       description:
         "The src attribute is required, and contains the path to the image you want to embed.",
@@ -69,30 +84,16 @@ export const typesEnumValues = getStorybookEnumValues(ImageTypes, "ImageTypes");
   <Story
     name="Image with Controls"
     args={{
+      additionalStyles: undefined,
       alt: "Alt text",
+      className: undefined,
+      component: undefined,
       imageAspectRatio: "ImageRatios.TwoByOne",
       imageCaption: "Image caption",
       imageCredit: "Image credit",
       imageSize: "ImageSizes.Medium",
       imageType: "ImageTypes.Default",
       src: "https://placeimg.com/400/300/animals",
-    }}
-    argTypes={{
-      imageAspectRatio: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "ImageRatios.Original" } },
-        options: ratiosEnumValues.options,
-      },
-      imageSize: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "ImageSizes.Default" } },
-        options: sizesEnumValues.options,
-      },
-      imageType: {
-        control: { type: "select" },
-        table: { defaultValue: { summary: "ImageTypes.Default" } },
-        options: typesEnumValues.options,
-      },
     }}
   >
     {(args) => (

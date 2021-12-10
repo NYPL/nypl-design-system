@@ -19,8 +19,7 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A742",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A742",
     },
     jest: ["Radio.test.tsx"],
   }}
@@ -28,7 +27,24 @@ import DSProvider from "../../theme/provider";
     className: { control: false },
     id: { control: false },
     isChecked: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    key: { table: { disable: true } },
     onChange: { control: false },
+    ref: { table: { disable: true } },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
   }}
 />
 
@@ -50,33 +66,20 @@ component will handle all the states and data management.
   <Story
     name="Radio"
     args={{
+      className: undefined,
       helperText: "This is the helper text!",
-      id: "test_id",
+      id: "radio-id",
       invalidText: "This is the error text :(",
+      isChecked: undefined,
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Test Label",
       name: "test_name",
+      onChange: undefined,
+      showHelperInvalidText: true,
       showLabel: true,
       value: "1",
-    }}
-    argTypes={{
-      isDisabled: {
-        table: { defaultValue: { summary: false } },
-      },
-      isInvalid: {
-        table: { defaultValue: { summary: false } },
-      },
-      isRequired: {
-        table: { defaultValue: { summary: false } },
-      },
-      showHelperInvalidText: {
-        table: { defaultValue: { summary: true } },
-      },
-      showLabel: {
-        table: { defaultValue: { summary: true } },
-      },
     }}
   >
     {(args) => <Radio {...args} />}

@@ -30,15 +30,24 @@ export const typesEnumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A3680",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A3680",
     },
     jest: ["VideoPlayer.test.tsx"],
   }}
   argTypes={{
-    attributes: { control: false },
+    aspectRatio: {
+      control: { type: "select" },
+      options: ratiosEnumValues.options,
+    },
     className: { control: false },
     id: { control: false },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    videoType: {
+      control: { type: "select" },
+      options: typesEnumValues.options,
+    },
   }}
 />
 
@@ -60,26 +69,17 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
     name="VideoPlayer"
     args={{
       aspectRatio: "VideoPlayerAspectRatios.FourByThree",
+      className: undefined,
       descriptionText:
         "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
       headingText: "NYPL Video",
       helperText:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+      id: "videoPlayer-id",
+      iframeTitle: undefined,
+      showHelperInvalidText: true,
       videoId: "",
       videoType: "VideoPlayerTypes.Vimeo",
-    }}
-    argTypes={{
-      aspectRatio: {
-        control: { type: "select" },
-        options: ratiosEnumValues.options,
-      },
-      showHelperInvalidText: {
-        table: { defaultValue: { summary: true } },
-      },
-      videoType: {
-        control: { type: "select" },
-        options: typesEnumValues.options,
-      },
     }}
   >
     {(args) => (

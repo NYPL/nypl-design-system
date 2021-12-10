@@ -33,13 +33,11 @@ export const layoutsEnumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17219%3A7",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17219%3A7",
     },
     jest: ["SkeletonLoader.test.tsx"],
   }}
   argTypes={{
-    border: {},
     className: { control: false },
     contentSize: { table: { defaultValue: { summary: "3" } } },
     headingSize: { table: { defaultValue: { summary: "1" } } },
@@ -58,7 +56,6 @@ export const layoutsEnumValues = getStorybookEnumValues(
     showContent: { table: { defaultValue: { summary: "true" } } },
     showHeading: { table: { defaultValue: { summary: "true" } } },
     showImage: { table: { defaultValue: { summary: "true" } } },
-    width: {},
   }}
 />
 
@@ -81,8 +78,16 @@ to better view the example. The default value is `100%`.
   <Story
     name="SkeletonLoader with Controls"
     args={{
+      border: false,
+      className: undefined,
+      contentSize: 3,
+      headingSize: 1,
       imageAspectRatio: "SkeletonLoaderImageRatios.Square",
       layout: "SkeletonLoaderLayouts.Column",
+      showButton: false,
+      showContent: true,
+      showHeading: true,
+      showImage: true,
       width: "300px",
     }}
   >

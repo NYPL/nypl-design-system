@@ -27,8 +27,7 @@ export const enumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A812",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A812",
     },
     jest: ["Notification.test.tsx"],
   }}
@@ -45,8 +44,6 @@ export const enumValues = getStorybookEnumValues(
     noMargin: {
       table: { defaultValue: { summary: false } },
     },
-    notificationHeading: {},
-    notificationContent: {},
     notificationType: {
       control: { type: "select" },
       table: { defaultValue: { summary: "NotificationTypes.Standard" } },
@@ -76,7 +73,11 @@ within a parent element.
     name="Notification with Controls"
     args={{
       centered: false,
-      id: "basic-notification",
+      className: undefined,
+      dismissible: false,
+      icon: undefined,
+      id: "notification-id",
+      noMargin: false,
       notificationHeading: "Notification Heading",
       notificationContent:
         "Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus" +

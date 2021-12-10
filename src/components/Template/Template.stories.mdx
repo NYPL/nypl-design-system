@@ -49,8 +49,7 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
     },
   }}
 />
@@ -164,7 +163,7 @@ import {
     </TemplateBreakout>
   </TemplateHeader>
 
-  <TemplateContent>
+  <TemplateContent sidebar="...">
     <TemplateContentTop>
       // ...
     </TemplateContentTop>
@@ -185,6 +184,15 @@ import {
     name="Template Children Components"
     args={{
       sidebar: "left",
+    }}
+    argTypes={{
+      breakout: { table: { disable: true } },
+      contentPrimary: { table: { disable: true } },
+      contentSidebar: { table: { disable: true } },
+      contentTop: { table: { disable: true } },
+      footer: { table: { disable: true } },
+      header: { table: { disable: true } },
+      sidebar: { description: "Only used in Storybook." },
     }}
   >
     {(args) => (

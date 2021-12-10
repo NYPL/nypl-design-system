@@ -45,8 +45,7 @@ export const cardLayoutsEnumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A25747",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A25747",
     },
     jest: ["Card.test.tsx"],
   }}
@@ -126,15 +125,20 @@ headings and CTAs.
   <Story
     name="Card with Controls"
     args={{
+      backgroundColor: undefined,
       border: false,
       center: false,
-      id: "custom-card",
+      className: undefined,
+      foregroundColor: undefined,
+      id: "card-id",
       imageAlt: "Alt text",
       imageAspectRatio: "ImageRatios.Square",
       imageAtEnd: false,
+      imageComponent: undefined,
       imageSize: "ImageSizes.Default",
       imageSrc: "https://placeimg.com/400/300/animals",
       layout: "CardLayouts.Row",
+      mainActionLink: undefined,
     }}
   >
     {(args) => (

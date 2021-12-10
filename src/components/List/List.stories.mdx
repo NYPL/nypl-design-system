@@ -26,8 +26,7 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=16115%3A304",
     },
     jest: ["List.test.tsx"],
   }}
@@ -36,7 +35,14 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
+    inline: { table: { defaultValue: { summary: false } } },
     listItems: { control: false },
+    noStyling: { table: { defaultValue: { summary: false } } },
+    type: {
+      control: { type: "select" },
+      options: enumValues.options,
+      table: { defaultValue: { summary: "ListTypes.Unordered" } },
+    },
   }}
 />
 
@@ -118,19 +124,14 @@ export const definitions = [
   <Story
     name="List with Controls"
     args={{
+      additionalStyles: undefined,
+      className: undefined,
       id: "nypl-list",
+      inline: false,
+      listItems: undefined,
       noStyling: false,
       title: "Middle-Earth Peoples",
       type: "ListTypes.Unordered",
-    }}
-    argTypes={{
-      inline: { table: { defaultValue: { summary: false } } },
-      noStyling: { table: { defaultValue: { summary: false } } },
-      type: {
-        control: { type: "select" },
-        options: enumValues.options,
-        table: { defaultValue: { summary: "ListTypes.Unordered" } },
-      },
     }}
   >
     {(args) => (
@@ -177,8 +178,7 @@ This type of list renders `dt` and `dd` elements.
     parameters={{
       design: {
         type: "figma",
-        url:
-          "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
+        url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
       },
     }}
   >
@@ -212,8 +212,7 @@ An example with HTML elements inside of the `dd` elements.
     parameters={{
       design: {
         type: "figma",
-        url:
-          "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
+        url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
       },
     }}
   >

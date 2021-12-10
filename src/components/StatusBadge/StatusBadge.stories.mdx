@@ -26,8 +26,7 @@ export const enumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11256%3A0",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11256%3A0",
     },
     jest: ["StatusBadge.test.tsx"],
   }}
@@ -57,7 +56,12 @@ export const enumValues = getStorybookEnumValues(
 <Canvas withToolbar>
   <Story
     name="StatusBadge"
-    args={{ level: "StatusBadgeTypes.Low", text: "Registration Required" }}
+    args={{
+      className: undefined,
+      id: "statusBadge-id",
+      level: "StatusBadgeTypes.Low",
+      text: "Registration Required",
+    }}
   >
     {(args) => (
       <StatusBadge level={enumValues.getValue(args.level)}>

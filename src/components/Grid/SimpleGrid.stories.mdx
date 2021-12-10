@@ -34,8 +34,7 @@ export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26613",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26613",
     },
     jest: ["SimpleGrid.test.tsx"],
   }}
@@ -43,9 +42,12 @@ export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
     className: { control: false },
     columns: {
       control: { min: 2, type: "number" },
-      table: { defaultValue: { summary: 3 } },
     },
-    gap: { table: { defaultValue: { summary: "GridGaps.Large" } } },
+    gap: {
+      control: { type: "select" },
+      options: enumValues.options,
+      table: { defaultValue: { summary: "GridGaps.Large" } },
+    },
     id: { control: false },
   }}
 />
@@ -66,13 +68,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
 <Canvas withToolbar>
   <Story
     name="SimpleGrid with Controls"
-    args={{ gap: "GridGaps.Large" }}
-    argTypes={{
-      gap: {
-        control: { type: "select" },
-        options: enumValues.options,
-        table: { defaultValue: { summary: "GridGaps.Large" } },
-      },
+    args={{
+      className: undefined,
+      columns: undefined,
+      gap: "GridGaps.Large",
+      id: "simpleGrid-id",
     }}
   >
     {(args) => (

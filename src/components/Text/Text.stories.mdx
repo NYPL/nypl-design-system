@@ -24,13 +24,19 @@ export const enumValues = getStorybookEnumValues(
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10733%3A56919",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10733%3A56919",
     },
   }}
   argTypes={{
     className: { control: false },
-    displaySize: { control: false },
+    displaySize: {
+      control: { type: "select" },
+      options: enumValues.options,
+      table: { defaultValue: { summary: "TextDisplaySizes.Default" } },
+    },
+    isBold: { table: { defaultValue: { summary: false } } },
+    isItalic: { table: { defaultValue: { summary: false } } },
+    noSpace: { table: { defaultValue: { summary: false } } },
   }}
 />
 
@@ -49,17 +55,11 @@ The `Text` component renders a basic `<p>` element. As its name indicates, the `
   <Story
     name="Text"
     args={{
+      className: undefined,
       displaySize: "TextDisplaySizes.Default",
-    }}
-    argTypes={{
-      displaySize: {
-        control: { type: "select" },
-        options: enumValues.options,
-        table: { defaultValue: { summary: "TextDisplaySizes.Default" } },
-      },
-      isBold: { table: { defaultValue: { summary: false } } },
-      isItalic: { table: { defaultValue: { summary: false } } },
-      noSpace: { table: { defaultValue: { summary: false } } },
+      isBold: false,
+      isItalic: false,
+      noSpace: false,
     }}
   >
     {(args) => (

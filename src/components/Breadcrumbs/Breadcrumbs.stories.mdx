@@ -36,6 +36,10 @@ export const enumValues = getStorybookEnumValues(
     additionalStyles: { control: false },
     breadcrumbsData: { control: false },
     className: { control: false },
+    colorVariant: {
+      control: { type: "select" },
+      options: enumValues.options,
+    },
     id: { control: false },
   }}
 />
@@ -55,18 +59,15 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
   <Story
     name="Breadcrumbs with Controls"
     args={{
+      additionalStyles: undefined,
       breadcrumbsData: [
         { url: "#", text: "Parent" },
         { url: "#", text: "Child" },
         { url: "#", text: "Grandchild" },
       ],
-      id: "init-breadcrumbs",
-    }}
-    argTypes={{
-      colorVariant: {
-        control: { type: "select" },
-        options: enumValues.options,
-      },
+      className: undefined,
+      colorVariant: undefined,
+      id: "breadcrumbs-id",
     }}
   >
     {(args) => (

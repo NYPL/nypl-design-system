@@ -19,22 +19,39 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
     },
     jest: ["SearchBar.test.tsx"],
   }}
   argTypes={{
     action: { control: false },
     ariaLabel: { control: false },
-    buttonOnClick: { control: false },
+    buttonOnClick: {
+      control: false,
+      table: { defaultValue: { summary: "null" } },
+    },
     className: { control: false },
     id: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
     method: { control: false },
     onSubmit: { control: false },
     selectProps: { control: false },
-    textInputProps: { control: false },
+    showHelperText: {
+      description: "Only used for Storybook",
+    },
+    showSelect: {
+      description: "Only used for Storybook",
+    },
     textInputElement: { control: false },
+    textInputProps: { control: false },
   }}
 />
 
@@ -76,35 +93,23 @@ export const optionsGroup = [
   <Story
     name="SearchBar with Controls"
     args={{
+      action: undefined,
+      buttonOnClick: undefined,
+      className: undefined,
       helperErrorText: "Search for items in Animal Crossing New Horizons",
+      id: "searchBar-id",
       invalidText: "Could not find the item :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "SearchBar Label",
+      method: undefined,
       onSubmit: () => {},
+      selectProps: undefined,
       showHelperText: true,
       showSelect: true,
-    }}
-    argTypes={{
-      buttonOnClick: {
-        table: { defaultValue: { summary: "null" } },
-      },
-      isDisabled: {
-        table: { defaultValue: { summary: false } },
-      },
-      isInvalid: {
-        table: { defaultValue: { summary: false } },
-      },
-      isRequired: {
-        table: { defaultValue: { summary: false } },
-      },
-      showHelperText: {
-        description: "Only used for Storybook",
-      },
-      showSelect: {
-        description: "Only used for Storybook",
-      },
+      textInputElement: undefined,
+      textInputProps: undefined,
     }}
   >
     {(args) => (
