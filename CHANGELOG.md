@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.5 (December 9, 2021)
+
+### Fixes
+
+- Updates the Github Action for the Github Pages deployment to use node 12 instead of the default node 16. This caused issues since we now set the node engine to `<=12.22`.
+
+## 0.25.4 (December 9, 2021)
+
 ### Adds
 
 - Adds the `ProgressIndicator` component.
@@ -34,7 +42,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
 - Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
 - Fixes `DatePicker` component unit tests.
-- Fixes the Github Actions `CI / Lint` task by pinning the Typescript version.
 - Removes the `showLabel` prop from the `SearchBar` component to prevent confusion. Labels for the `Select` and `TextInput` components are never shown but are added through the `aria-label` attribute.
 
 ### Breaking Changes
