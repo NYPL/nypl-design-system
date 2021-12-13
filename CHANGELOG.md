@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the bottom margin on labels and legends for form components.
+
 ## 0.25.5 (December 9, 2021)
 
 ### Fixes
