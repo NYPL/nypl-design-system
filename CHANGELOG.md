@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds export statements for `ProgressIndicator` and `Slider` components to `index.ts`.
+- Adds `Blogs` variant to `Breadcrumbs` component.
+
 ### Changes
 
 - Adds "(Required)" text to the placeholder in the `SearchBar` component when `isRequired` is true.
