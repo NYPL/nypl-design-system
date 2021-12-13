@@ -41,6 +41,15 @@ describe("Breadcrumbs Snapshot", () => {
         />
       )
       .toJSON();
+    const breadcrumbsBlogsVariant = renderer
+      .create(
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          colorVariant={ColorVariants.Blogs}
+          id="breadcrumbs-test"
+        />
+      )
+      .toJSON();
     const breadcrumbsAdditionalStyles = renderer
       .create(
         <Breadcrumbs
@@ -55,6 +64,7 @@ describe("Breadcrumbs Snapshot", () => {
 
     expect(breadcrumbsSnapshot).toMatchSnapshot();
     expect(breadcrumbsVariantColor).toMatchSnapshot();
+    expect(breadcrumbsBlogsVariant).toMatchSnapshot();
     expect(breadcrumbsAdditionalStyles).toMatchSnapshot();
   });
 });
