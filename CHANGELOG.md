@@ -10,27 +10,55 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds export statements for `ProgressIndicator` and `Slider` components to `index.ts`.
+- Adds `Blogs` variant to `Breadcrumbs` component.
+
+## 0.25.5 (December 9, 2021)
+
+### Fixes
+
+- Updates the Github Action for the Github Pages deployment to use node 12 instead of the default node 16. This caused issues since we now set the node engine to `<=12.22`.
+
+## 0.25.4 (December 9, 2021)
+
+### Adds
+
 - Adds the `ProgressIndicator` component.
 - Adds documentation for using `NYPL Design Tokens`.
-- Adds the `ActionLaunch` icon to the `Icon` component.
+- Adds the `ActionHelpDefault`, `ActionHelpOutline` and `ActionLaunch` icons to the `Icon` component.
 - Adds the DS `Slider` component based on the Chakra `Slider` and `RangeSlider` components.
 - Adds the `ButtonTypes.NoBrand` variant to the `Button` component.
+- Adds the `additionalStyles` prop to the `Breadcrumbs` component.
 
 ### Changes
 
 - Updates the organization of SCSS files by deleting some files and combining others.
 - Updates `@chakra-ui/react` to version 1.7.1 and `@chakra-ui/system` to version 1.8.1.
 - Updates the `TextInput` component to now have `defaultValue` and `step` props.
+- Updates `Latest Version` number for `Image`, `Notification` and `Pagination` components.
+- Removes the Storybook "Knobs" addon.
+- Updates the margin for labels in the `DatePicker` component when it is in the "date range" state.
+- Updates the `DatePicker` component to have proper form spacing when in the "date range" state.
+- Updates the `Tabs` component to comply with linting rules -- no functional or visual changes were made.
+- Removes the `alignText` prop from the `Notification` component. Storybook was incorrectly displaying `alignText` as an available prop.
 
 ### Fixes
 
 - Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
 - Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
+- Fixes `DatePicker` component unit tests.
+- Removes the `showLabel` prop from the `SearchBar` component to prevent confusion. Labels for the `Select` and `TextInput` components are never shown but are added through the `aria-label` attribute.
 
 ### Breaking Changes
 
 - Updates the breakpoint CSS variable names by adding the `--nypl` prefix and the SCSS variables by adding the `$nypl` prefix. Updates references throughout the codebase.
 - Changes the `Button`'s `disabled` prop to `isDisabled`.
+- Updates npm packages in `package.json`. Removes `cpy-cli`, `react-uid`, `react-is`, `stylelint` and related packages, and `ts-loader` (already added through TSDX). Updates other packages such as `sass-loader`, `prettier`, `jest`, `jest-axe`, and the majority of Storybook addon packages.
+
+### Deprecates
+
+- Deprecates the `Input` component. The `Input` component will be removed from the NYPL Design System React Library in the first release of January 2022.
+- Deprecates the `CardEdition` component. The `CardEdition` component will be removed from the NYPL Design System React Library in the first release of January 2022.
 
 ## 0.25.3 (November 18, 2021)
 

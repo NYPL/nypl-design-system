@@ -68,8 +68,8 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
     id,
     // If the label is visually shown, associate it with the progress indicator.
     // Otherwise, the `aria-label` will be added.
-    ["aria-label"]: showLabel ? null : labelText,
-    ["aria-labelledby"]: showLabel ? `${id}-label` : null,
+    "aria-label": showLabel ? null : labelText,
+    "aria-labelledby": showLabel ? `${id}-label` : null,
     // If `isIndeterminate` is true, then it overrides the `value` prop.
     isIndeterminate: isIndeterminate || null,
     value: isIndeterminate ? null : finalValue,

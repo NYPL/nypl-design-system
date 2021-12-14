@@ -78,6 +78,17 @@ For this type of component, the `value` prop must be a single number.
 
 <ArgsTable story="Slider with Props" />
 
+### Accessibility
+
+Chakra's `Slider` component is accessible and, as recommended, we pass in an
+`aria-label` to their `Slider` component. On top of that, the DS `Slider`
+component's `<label>` points to the `<input>` element which shows the current
+value. This `input` element also has its own `aria-label`. When the input box
+is hidden, the `for` attribute in the `label` element is removed.
+
+Note that Chakra handles its single slider thumb aria attributes: `aria-valuemin`,
+`aria-valuemax`, `aria-valuenow`, and `aria-orientation`.
+
 ## Range Slider
 
 Set `isRangeSlider` to `true` to create a range slider. The text input
@@ -116,6 +127,19 @@ numbers. This signifies the starting and ending values of the range slider.
 </Canvas>
 
 <ArgsTable story="Range Slider with Props" />
+
+### Accessibility
+
+Chakra's `RangeSlider` component is accessible and, as recommended, we pass in
+two `aria-label`s to their `RangeSlider` component. The syntax is different than
+the expected standard string; the `RangeSlider` expect `aria-label` to be an array
+of two strings. On top of this, the DS `Slider`'s `<label>` element, when in the
+`isRangeSlider` state, points to the _first_ `<input>` element which shows the
+current _start_ value. These two `input` elements also have their own `aria-label`s.
+When the input boxes are hidden, the `for` attribute in the `label` element is removed.
+
+Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
+`aria-valuemax`, `aria-valuenow`, and `aria-orientation`.
 
 ### Single Slider States
 
