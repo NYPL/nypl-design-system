@@ -21,8 +21,7 @@ import { ToggleSizes } from "./ToggleSizes";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=31581%3A302",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=31581%3A302",
     },
     jest: ["Toggle.test.tsx"],
   }}
@@ -93,7 +92,6 @@ on it won't change the toggle; The `isChecked` prop must now be controlled
 and removed manually by the parent component that controls this state. The
 `onChange` function will be called every time the `isChecked` prop changes.
 
-<!--
 ```jsx
 const isChecked = true;
 const onChange = (e) => {
@@ -101,32 +99,29 @@ const onChange = (e) => {
   console.log(e.target.value);
 };
 
-<Toggle
-  isChecked={isChecked}
-  onChange={onChange}
-  labelText="Controlled Toggle"
-/>;
-``` -->
+<Toggle isChecked={true} onChange={onChange} labelText="Controlled Toggle" />;
+```
+
+<Canvas>
+  <DSProvider>
+    <Toggle
+      isChecked={true}
+      onChange={(e) => {
+        console.log(e.target.value);
+      }}
+      labelText="Controlled Toggle"
+    />
+  </DSProvider>
+</Canvas>
 
 ## Browser States
 
 <Canvas>
   <DSProvider>
-    <Grid templateColumns="repeat(4, 1fr)">
+    <SimpleGrid columns="3">
       <Box>
         <VStack>
           <Heading level={3}>Default</Heading>
-          <Toggle
-            size={ToggleSizes.Large}
-            defaultChecked={true}
-            labelText="On"
-          />
-          <Toggle size={ToggleSizes.Large} labelText="Off" />
-        </VStack>
-      </Box>
-      <Box>
-        <VStack>
-          <Heading level={3}>Focus</Heading>
           <Toggle
             size={ToggleSizes.Large}
             defaultChecked={true}
@@ -159,7 +154,7 @@ const onChange = (e) => {
           <Toggle size={ToggleSizes.Large} labelText="Off" isInvalid={true} />
         </VStack>
       </Box>
-    </Grid>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 

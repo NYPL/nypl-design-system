@@ -54,13 +54,7 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
   <div
     className="css-0"
   >
-    <label
-      className="css-0"
-      htmlFor="inputID"
-      id="1d339194-fba6-46e5-85db-922870837686"
-    >
-      Test Label
-    </label>
+    Test Label
   </div>
 </div>
 `;
@@ -122,13 +116,7 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
   <div
     className="css-0"
   >
-    <label
-      className="css-0"
-      htmlFor="Toggle-checked"
-      id="80fec6e1-e293-431e-8f17-6faf327317d0"
-    >
-      Test Label
-    </label>
+    Test Label
   </div>
 </div>
 `;
@@ -189,13 +177,7 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
   <div
     className="css-0"
   >
-    <label
-      className="css-0"
-      htmlFor="Toggle-invalid"
-      id="f54e63c0-3c56-4e68-a243-e6df131cecb4"
-    >
-      Test Label
-    </label>
+    Test Label
   </div>
 </div>
 `;
@@ -256,13 +238,7 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
   <div
     className="css-0"
   >
-    <label
-      className="css-0"
-      htmlFor="Toggle-disabled"
-      id="84086e8f-138e-41c1-831a-3c3d8d40b3ac"
-    >
-      Test Label
-    </label>
+    Test Label
   </div>
 </div>
 `;

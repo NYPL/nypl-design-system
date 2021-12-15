@@ -8,7 +8,6 @@ import {
 import generateUUID from "../../helpers/generateUUID";
 import { ToggleSizes } from "./ToggleSizes";
 import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import Label from "../Label/Label";
 
 export interface ToggleProps {
   /** Optionally pass in additional Chakra-based styles. */
