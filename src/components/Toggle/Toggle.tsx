@@ -80,7 +80,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
 
     return (
       <>
-        <Box display="flex" __css={{ ...styles, ...additionalStyles }}>
+        <Box __css={{ ...styles, ...additionalStyles }}>
           <Switch
             id={id}
             name={name || "default"}
@@ -99,8 +99,9 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
                 })}
             {...ariaAttributes}
             __css={switchStyles}
-          />
-          <Box __css={styles.label}>{labelText}</Box>
+          >
+            {labelText}
+          </Switch>
         </Box>
         {footnote && (
           <Box __css={styles.helper}>

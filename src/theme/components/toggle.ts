@@ -1,22 +1,11 @@
 import { helperTextMargin } from "./global";
 
-// Style object for the Toggle's label
-const baseStyleLabel = {
-  fontSize: -1,
-  marginBottom: "0",
-  marginLeft: "xs",
-};
-
-// Style object for the Toggle's helper text
-const baseStyleHelper = {
-  ...helperTextMargin,
-  marginLeft: "xs",
-};
-
 const baseStyle = {
-  alignItems: "center",
-  label: baseStyleLabel,
-  helper: baseStyleHelper,
+  label: { display: "flex", alignItems: "center" },
+  helper: {
+    ...helperTextMargin,
+    marginLeft: "xs",
+  },
 };
 
 const Switch = {
@@ -49,6 +38,7 @@ const Switch = {
         zIndex: "9999",
       },
     },
+    label: { fontSize: -1, marginLeft: "xs" },
     thumb: {
       _disabled: {
         bg: "ui.error.primary",

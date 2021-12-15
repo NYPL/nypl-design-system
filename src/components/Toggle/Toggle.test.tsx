@@ -103,7 +103,7 @@ describe("Toggle", () => {
     ).not.toBeInTheDocument();
   });
 
-  it.only("Changing the value calls the onChange handler", () => {
+  it("Changing the value calls the onChange handler", () => {
     const utils = render(
       <Toggle
         id="onChangeTest"

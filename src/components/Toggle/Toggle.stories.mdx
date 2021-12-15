@@ -26,8 +26,8 @@ import { ToggleSizes } from "./ToggleSizes";
     jest: ["Toggle.test.tsx"],
   }}
   argTypes={{
-    id: { table: { disable: true } },
-    className: { table: { disable: true } },
+    id: { control: false },
+    className: { control: false },
   }}
 />
 
@@ -119,41 +119,31 @@ const onChange = (e) => {
 <Canvas>
   <DSProvider>
     <SimpleGrid columns="3">
-      <Box>
-        <VStack>
-          <Heading level={3}>Default</Heading>
-          <Toggle
-            size={ToggleSizes.Large}
-            defaultChecked={true}
-            labelText="On"
-          />
-          <Toggle size={ToggleSizes.Large} labelText="Off" />
-        </VStack>
-      </Box>
-      <Box>
-        <VStack>
-          <Heading level={3}>Disabled</Heading>
-          <Toggle
-            size={ToggleSizes.Large}
-            defaultChecked={true}
-            isDisabled={true}
-            labelText="On"
-          />
-          <Toggle size={ToggleSizes.Large} labelText="Off" isDisabled={true} />
-        </VStack>
-      </Box>
-      <Box>
-        <VStack>
-          <Heading level={3}>Error</Heading>
-          <Toggle
-            size={ToggleSizes.Large}
-            defaultChecked={true}
-            labelText="On"
-            isInvalid={true}
-          />
-          <Toggle size={ToggleSizes.Large} labelText="Off" isInvalid={true} />
-        </VStack>
-      </Box>
+      <VStack align="left" spacing="s">
+        <Heading level={3}>Default</Heading>
+        <Toggle size={ToggleSizes.Large} defaultChecked={true} labelText="On" />
+        <Toggle size={ToggleSizes.Large} labelText="Off" />
+      </VStack>
+      <VStack align="left" spacing="s">
+        <Heading level={3}>Disabled</Heading>
+        <Toggle
+          size={ToggleSizes.Large}
+          defaultChecked={true}
+          isDisabled={true}
+          labelText="On"
+        />
+        <Toggle size={ToggleSizes.Large} labelText="Off" isDisabled={true} />
+      </VStack>
+      <VStack align="left" spacing="s">
+        <Heading level={3}>Error</Heading>
+        <Toggle
+          size={ToggleSizes.Large}
+          defaultChecked={true}
+          labelText="On"
+          isInvalid={true}
+        />
+        <Toggle size={ToggleSizes.Large} labelText="Off" isInvalid={true} />
+      </VStack>
     </SimpleGrid>
   </DSProvider>
 </Canvas>
@@ -163,24 +153,22 @@ const onChange = (e) => {
 <Canvas>
   <DSProvider>
     <SimpleGrid columns="2">
-      <Box>
+      <VStack align="left" spacing="s">
         <Heading level={3}>Grouped</Heading>
-        <VStack align="left" spacing="s">
-          <Toggle defaultChecked={true} labelText="On" />
-          <Toggle defaultChecked={true} labelText="On" />
-          <Toggle defaultChecked={true} labelText="On" />
-          <Toggle defaultChecked={true} labelText="On" />
-          <Toggle defaultChecked={true} labelText="On" />
-        </VStack>
-      </Box>
-      <Box>
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} labelText="On" />
+      </VStack>
+      <VStack align="left" spacing="s">
         <Heading level={3}>With Helper Text</Heading>
         <Toggle
           defaultChecked={true}
           labelText="On"
           helperText="Component Helper Text"
         />
-      </Box>
+      </VStack>
     </SimpleGrid>
   </DSProvider>
 </Canvas>
