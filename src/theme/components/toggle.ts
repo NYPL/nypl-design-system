@@ -32,12 +32,21 @@ const Switch = {
         border: "1px solid",
         borderColor: "ui.error.primary",
         bg: "inherit",
+        "> span": {
+          bg: "ui.error.primary",
+        },
       },
       _disabled: {
         bg: "ui.gray.medium",
         _checked: {
           opacity: 0.4,
         },
+      },
+      _focus: {
+        outline: "2px solid",
+        outlineColor: "ui.focus",
+        outlineOffset: "2px",
+        zIndex: "9999",
       },
     },
     thumb: {
@@ -52,7 +61,7 @@ const Switch = {
 };
 
 const Toggle = {
-  parts: ["helper", "switch"],
+  parts: ["helper"],
   baseStyle,
   // Default values
   defaultProps: {

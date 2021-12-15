@@ -101,9 +101,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
             {...ariaAttributes}
             __css={switchStyles}
           />
-          <Box __css={styles.label}>
-            <Label htmlFor={id}>{labelText}</Label>
-          </Box>
+          <Box __css={styles.label}>{labelText}</Box>
         </Box>
         {footnote && (
           <Box __css={styles.helper}>
