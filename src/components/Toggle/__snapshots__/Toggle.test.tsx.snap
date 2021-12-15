@@ -2,7 +2,7 @@
 
 exports[`Toggle Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-k008qs"
+  className="css-0"
 >
   <label
     className="chakra-switch css-u8kezd"
@@ -50,18 +50,20 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
         className="chakra-switch__thumb css-0"
       />
     </span>
+    <span
+      className="chakra-switch__label css-1y8kf23"
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      Test Label
+    </span>
   </label>
-  <div
-    className="css-0"
-  >
-    Test Label
-  </div>
 </div>
 `;
 
 exports[`Toggle Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-k008qs"
+  className="css-0"
 >
   <label
     className="chakra-switch css-u8kezd"
@@ -112,18 +114,21 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
         data-checked=""
       />
     </span>
+    <span
+      className="chakra-switch__label css-1y8kf23"
+      data-checked=""
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      Test Label
+    </span>
   </label>
-  <div
-    className="css-0"
-  >
-    Test Label
-  </div>
 </div>
 `;
 
 exports[`Toggle Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-k008qs"
+  className="css-0"
 >
   <label
     className="chakra-switch css-u8kezd"
@@ -173,18 +178,21 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
         className="chakra-switch__thumb css-0"
       />
     </span>
+    <span
+      className="chakra-switch__label css-1y8kf23"
+      data-invalid=""
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      Test Label
+    </span>
   </label>
-  <div
-    className="css-0"
-  >
-    Test Label
-  </div>
 </div>
 `;
 
 exports[`Toggle Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-k008qs"
+  className="css-0"
 >
   <label
     className="chakra-switch css-u8kezd"
@@ -234,11 +242,14 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
         className="chakra-switch__thumb css-0"
       />
     </span>
+    <span
+      className="chakra-switch__label css-1y8kf23"
+      data-disabled=""
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      Test Label
+    </span>
   </label>
-  <div
-    className="css-0"
-  >
-    Test Label
-  </div>
 </div>
 `;
