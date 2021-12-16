@@ -1,4 +1,13 @@
 // Variant styling
+const blogs = {
+  bg: "section.blogs.secondary",
+  color: "ui.black",
+  a: {
+    _hover: {
+      color: "ui.gray.xdark",
+    },
+  },
+};
 const booksAndMore = {
   bg: "section.books-and-more.secondary",
 };
@@ -67,6 +76,7 @@ const Breadcrumb = {
   },
   // Available variants:
   variants: {
+    blogs,
     booksAndMore,
     locations,
     research,
