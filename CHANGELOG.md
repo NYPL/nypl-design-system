@@ -15,7 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
-- Updates the bottom margin on labels and legends for form components.
+- Reduces the bottom margin on labels and legends for form components from "16px" to "8px", or "s" to "sx" in Chakra-theme variables.
 
 ## 0.25.5 (December 9, 2021)
 
