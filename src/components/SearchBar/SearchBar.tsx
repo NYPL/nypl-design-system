@@ -99,6 +99,9 @@ export default function SearchBar(props: SearchBarProps) {
   const ariaDescribedby = helperErrorTextID;
   const footnote = isInvalid ? invalidText : helperErrorText;
   const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
+  const textInputPlaceholder = `${textInputProps?.placeholder} ${
+    isRequired ? "(Required)" : ""
+  }`;
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
@@ -120,7 +123,7 @@ export default function SearchBar(props: SearchBarProps) {
     <TextInput
       id={generateUUID()}
       labelText={textInputProps?.labelText}
-      placeholder={textInputProps?.placeholder}
+      placeholder={textInputPlaceholder}
       onChange={textInputProps?.onChange}
       name={textInputProps?.name}
       type={TextInputTypes.text}
