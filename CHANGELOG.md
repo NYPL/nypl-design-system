@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the background color for the `Locations` variant in the `Breadcrumbs` component from `section.locations.secondary` to `section.locations.primary`.
+
 ## 0.25.6 (December 16, 2021)
 
 ### Adds
