@@ -14,7 +14,7 @@
     "src"
   ],
   "engines": {
-    "node": ">10 <=12.22"
+    "node": ">10"
   },
   "author": "NYPL",
   "license": "Apache-2.0",

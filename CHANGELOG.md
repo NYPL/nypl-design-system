@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Adds "(Required)" text to the placeholder in the `SearchBar` component when `isRequired` is true.
+- Removes `<=12.22` from node engine in `package.json` to reduce installation issues.
 
 ## 0.25.5 (December 9, 2021)
 
