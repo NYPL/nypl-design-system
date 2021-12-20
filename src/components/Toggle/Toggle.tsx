@@ -58,10 +58,10 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
   (props, ref?) => {
     const {
       additionalStyles = {},
-      invalidText,
       defaultChecked = false,
       helperText,
       id = generateUUID(),
+      invalidText,
       isChecked,
       isDisabled = false,
       isInvalid = false,
@@ -88,7 +88,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
             isInvalid={isInvalid}
             isRequired={isRequired}
             ref={ref}
-            size={size}
+            size={size === ToggleSizes.Large ? "lg" : "sm"}
             {...(isChecked !== undefined
               ? {
                   isChecked,

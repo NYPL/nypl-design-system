@@ -42,7 +42,7 @@ import { ToggleSizes } from "./ToggleSizes";
 
 The Toggle component is used as an alternative for the Checkbox component and returns a boolean response. Like the Checkbox component, the Toggle component can display a label to the right of the toggle and helper/error text below the toggle.
 
-## Best Practices
+### Best Practices
 
 Toggle components are commonly used for “on/off” switches to perform binary actions that occur immediately after a user “flips the switch.”
 
@@ -72,16 +72,18 @@ The Toggle component label should clarify the action being performed. Labels sho
 
 <Canvas>
   <DSProvider>
-    <HStack>
-      <VStack>
-        <Toggle size={ToggleSizes.Small} defaultChecked={true} labelText="On" />
-        <Toggle size={ToggleSizes.Small} labelText="Off" />
-      </VStack>
-      <VStack>
+    <SimpleGrid columns="2">
+      <VStack align="left" spacing="s">
+        <Heading level={3}>Large</Heading>
         <Toggle size={ToggleSizes.Large} defaultChecked={true} labelText="On" />
         <Toggle size={ToggleSizes.Large} labelText="Off" />
       </VStack>
-    </HStack>
+      <VStack align="left" spacing="s">
+        <Heading level={3}>Small</Heading>
+        <Toggle size={ToggleSizes.Small} defaultChecked={true} labelText="On" />
+        <Toggle size={ToggleSizes.Small} labelText="Off" />
+      </VStack>
+    </SimpleGrid>
   </DSProvider>
 </Canvas>
 

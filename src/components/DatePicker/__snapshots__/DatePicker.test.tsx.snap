@@ -587,6 +587,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
             onClick={[Function]}
             onFocus={[Function]}
             required={false}
+            step={null}
             type="text"
             value="1988-01-02"
           />
@@ -625,6 +626,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
             onClick={[Function]}
             onFocus={[Function]}
             required={false}
+            step={null}
             type="text"
             value="1988-01-02"
           />
@@ -674,6 +676,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
             onClick={[Function]}
             onFocus={[Function]}
             required={false}
+            step={null}
             type="text"
             value="1988/02/01"
           />
@@ -725,6 +728,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             onClick={[Function]}
             onFocus={[Function]}
             required={false}
+            step={null}
             type="text"
             value="1988-01-02"
           />
@@ -789,6 +793,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             onClick={[Function]}
             onFocus={[Function]}
             required={false}
+            step={null}
             type="text"
             value="1988-01-02"
           />

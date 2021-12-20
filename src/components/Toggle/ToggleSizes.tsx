@@ -1,4 +1,4 @@
 export enum ToggleSizes {
-  Large = "lg",
-  Small = "sm",
+  Large = "large",
+  Small = "small",
 }

@@ -368,7 +368,7 @@ describe("DatePicker", () => {
     // Note: Have to add an initial date so that the snapshot tests always
     // pass. Otherwise, it'll use the _current_ date which changes
     // based on the day it is tested and is not what we want.
-    it.skip("renders the UI snapshot correctly", () => {
+    it("renders the UI snapshot correctly", () => {
       const basic = renderer
         .create(
           <DatePicker
@@ -543,7 +543,7 @@ describe("DatePicker", () => {
     // Note: Have to add initial dates so that the snapshot tests always
     // pass. Otherwise, it'll use the _current_ date which changes
     // based on the day it is tested and is not what we want.
-    it.skip("renders the UI snapshot correctly", () => {
+    it("renders the UI snapshot correctly", () => {
       const basic = renderer
         .create(
           <DatePicker
