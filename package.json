@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.25.5",
+  "version": "0.25.6",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "src"
   ],
   "engines": {
-    "node": ">10 <=12.22"
+    "node": ">10"
   },
   "author": "NYPL",
   "license": "Apache-2.0",
