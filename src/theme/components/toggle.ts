@@ -13,12 +13,14 @@ const Switch = {
     opacity: 0.4,
     track: {
       p: "4px",
+      border: "1px solid",
+      borderColor: "ui.gray.medium",
       _checked: {
+        borderColor: "ui.link.primary",
         bg: "ui.link.primary",
         opacity: 1,
       },
       _invalid: {
-        border: "1px solid",
         borderColor: "ui.error.primary",
         bg: "inherit",
         "> span": {
@@ -26,6 +28,7 @@ const Switch = {
         },
       },
       _disabled: {
+        borderColor: "ui.gray.medium",
         bg: "ui.gray.medium",
         _checked: {
           opacity: 0.4,
