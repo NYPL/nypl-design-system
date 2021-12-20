@@ -63,6 +63,25 @@ describe("VideoPlayer", () => {
     });
   });
 
+  describe("using embedCode prop", () => {
+    const embedCode = `<iframe src="https://player.vimeo.com/video/421404144?h=5467db7edd" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+
+    beforeEach(() => {
+      utils = render(<VideoPlayer embedCode={embedCode} />);
+    });
+
+    it("Renders custom embed code", () => {
+      expect(screen.getByTitle("Video player")).toBeInTheDocument();
+    });
+
+    it("Renders Vimeo video", () => {
+      expect(screen.getByTitle("Video player")).toHaveAttribute(
+        "src",
+        `https://player.vimeo.com/video/421404144?h=5467db7edd`
+      );
+    });
+  });
+
   describe("text elements", () => {
     beforeEach(() => {
       utils = render(
@@ -159,6 +178,17 @@ describe("VideoPlayer", () => {
         />
       )
       .toJSON();
+    const videoPlayerUsingEmbedCode = renderer
+      .create(
+        <VideoPlayer
+          descriptionText="VideoPlayer description"
+          embedCode="<iframe src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>"
+          headingText="VideoPlayer Heading"
+          id="video-player-with-text"
+          helperText="VideoPlayer helper test."
+        />
+      )
+      .toJSON();
     const videoPlayerError = renderer
       .create(
         <VideoPlayer
@@ -171,6 +201,7 @@ describe("VideoPlayer", () => {
 
     expect(videoPlayerWithoutText).toMatchSnapshot();
     expect(videoPlayerWithText).toMatchSnapshot();
+    expect(videoPlayerUsingEmbedCode).toMatchSnapshot();
     expect(videoPlayerError).toMatchSnapshot();
   });
 });
