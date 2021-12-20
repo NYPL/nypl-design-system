@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.7 (December 20, 2021)
+
 ### Fixes
 
 - Removes `<=12.22` from node engine in `package.json` to reduce installation issues.
