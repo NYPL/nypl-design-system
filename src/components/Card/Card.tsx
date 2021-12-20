@@ -178,6 +178,9 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     mainActionLink,
   } = props;
   const hasImage = imageSrc || imageComponent;
+  const finalImageAspectRatio = imageComponent
+    ? ImageRatios.Original
+    : imageAspectRatio;
   const customColors = {};
   const cardContents = [];
   let cardHeadingCount = 0;
@@ -245,7 +248,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
             component={imageComponent}
             alt={imageAlt}
             imageSize={imageSize}
-            imageAspectRatio={imageAspectRatio}
+            imageAspectRatio={finalImageAspectRatio}
             imageAtEnd={imageAtEnd}
             layout={layout}
           />
