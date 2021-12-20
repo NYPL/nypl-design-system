@@ -69,6 +69,7 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
     src,
   } = props;
   const useImageWrapper = imageAspectRatio !== ImageRatios.Original;
+  console.log("useImageWrapper", useImageWrapper);
   const styles = useMultiStyleConfig("CustomImage", {
     variant: imageType,
     size: imageSize,
@@ -77,25 +78,27 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
   if (alt && alt.length > 300) {
     throw new Error("Alt Text must be less than 300 characters");
   }
-
+  console.log("component", component);
   const imageComponent: JSX.Element = component ? (
     component
   ) : (
     <Box as="img" src={src} alt={alt} __css={styles.img} />
   );
-  const finalImage = useImageWrapper ? (
-    <ImageWrapper
-      className={className}
-      imageAspectRatio={imageAspectRatio}
-      imageSize={imageSize}
-      additionalStyles={additionalStyles}
-    >
-      {imageComponent}
-    </ImageWrapper>
-  ) : (
-    imageComponent
-  );
-
+  console.log("imageComponent", imageComponent);
+  const finalImage =
+    useImageWrapper && !component ? (
+      <ImageWrapper
+        className={className}
+        imageAspectRatio={imageAspectRatio}
+        imageSize={imageSize}
+        additionalStyles={additionalStyles}
+      >
+        {imageComponent}
+      </ImageWrapper>
+    ) : (
+      imageComponent
+    );
+  console.log("finalImage", finalImage);
   return imageCaption || imageCredit ? (
     <Box as="figure" __css={styles.figure}>
       {finalImage}
