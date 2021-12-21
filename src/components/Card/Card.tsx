@@ -232,7 +232,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     }
   });
 
-  console.log("finalImageAspectRatio", finalImageAspectRatio);
   return (
     <CardLinkBox mainActionLink={mainActionLink}>
       <Box
