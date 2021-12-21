@@ -74,6 +74,10 @@ export { default as Notification } from "./components/Notification/Notification"
 export { NotificationTypes } from "./components/Notification/NotificationTypes";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export { default as ProgressIndicator } from "./components/ProgressIndicator/ProgressIndicator";
+export {
+  ProgressIndicatorSizes,
+  ProgressIndicatorTypes,
+} from "./components/ProgressIndicator/ProgressIndicatorTypes";
 export { default as Radio } from "./components/Radio/Radio";
 export { default as RadioGroup } from "./components/RadioGroup/RadioGroup";
 export { RadioGroupLayoutTypes } from "./components/RadioGroup/RadioGroupLayoutTypes";
