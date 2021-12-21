@@ -86,6 +86,7 @@ function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
   // Additional styles to add to the `Image` component.
   const styles = useStyleConfig("CardImage", {
     center,
+    imageAspectRatio,
     imageAtEnd,
     imageSize,
     layout,
@@ -232,7 +233,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     }
   });
 
-  console.log("finalImageAspectRatio", finalImageAspectRatio);
   return (
     <CardLinkBox mainActionLink={mainActionLink}>
       <Box
