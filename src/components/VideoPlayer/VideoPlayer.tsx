@@ -57,11 +57,14 @@ export default function VideoPlayer(
       ? `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`
       : `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
 
-  const iFramTitleEmbedCode = iframeTitle ? `${iframeTitle}` : `Video player`;
+  const iFrameTitleEmbedCode = iframeTitle ? `${iframeTitle}` : `Video player`;
 
   const embedCodeFinal =
     embedCode && embedCode.includes("<iframe") && !embedCode.includes("title=")
-      ? embedCode.replace(`<iframe `, `<iframe title="${iFramTitleEmbedCode}" `)
+      ? embedCode.replace(
+          `<iframe `,
+          `<iframe title="${iFrameTitleEmbedCode}" `
+        )
       : embedCode;
 
   const errorMessage =
@@ -120,7 +123,9 @@ export default function VideoPlayer(
     : getVariant(aspectRatio, VideoPlayerAspectRatios);
   const styles = useMultiStyleConfig("VideoPlayer", { variant });
 
-  const embedElement = (
+  const embedElement = embedCodeFinal ? (
+    <span dangerouslySetInnerHTML={{ __html: embedCodeFinal }} />
+  ) : (
     <Box
       as="iframe"
       src={videoSrc}
@@ -148,13 +153,7 @@ export default function VideoPlayer(
           helperText={helperText && showHelperInvalidText ? helperText : null}
           id={`${id}-componentWrapper`}
         >
-          <Box __css={styles.inside}>
-            {embedCodeFinal ? (
-              <span dangerouslySetInnerHTML={{ __html: embedCodeFinal }} />
-            ) : (
-              embedElement
-            )}
-          </Box>
+          <Box __css={styles.inside}>{embedElement}</Box>
         </ComponentWrapper>
       )}
     </Box>

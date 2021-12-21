@@ -65,20 +65,41 @@ describe("VideoPlayer", () => {
 
   describe("using embedCode prop", () => {
     const embedCode = `<iframe src="https://player.vimeo.com/video/421404144?h=5467db7edd" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
-
-    beforeEach(() => {
-      utils = render(<VideoPlayer embedCode={embedCode} />);
-    });
+    const embedCodeWithTitle = `<iframe title="Pre-Existing iFrame Title" src="https://player.vimeo.com/video/421404144?h=5467db7edd" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
 
     it("Renders custom embed code", () => {
+      render(<VideoPlayer embedCode={embedCode} />);
       expect(screen.getByTitle("Video player")).toBeInTheDocument();
-    });
-
-    it("Renders Vimeo video", () => {
       expect(screen.getByTitle("Video player")).toHaveAttribute(
         "src",
         `https://player.vimeo.com/video/421404144?h=5467db7edd`
       );
+    });
+
+    it("Renders custom embed code with custom iframe title", () => {
+      render(
+        <VideoPlayer embedCode={embedCode} iframeTitle="Custom iFrame Title" />
+      );
+      expect(screen.getByTitle("Custom iFrame Title")).toBeInTheDocument();
+    });
+
+    it("Renders custom embed code with pre-existing title", () => {
+      render(<VideoPlayer embedCode={embedCodeWithTitle} />);
+      expect(
+        screen.getByTitle("Pre-Existing iFrame Title")
+      ).toBeInTheDocument();
+    });
+
+    it("Renders custom embed code with pre-existing title and ignores `iframeTitle` prop", () => {
+      render(
+        <VideoPlayer
+          embedCode={embedCodeWithTitle}
+          iframeTitle="Custom iFrame Title"
+        />
+      );
+      expect(
+        screen.getByTitle("Pre-Existing iFrame Title")
+      ).toBeInTheDocument();
     });
   });
 
@@ -140,7 +161,7 @@ describe("VideoPlayer", () => {
   });
 
   describe("prop validation", () => {
-    it("Throws error if videoId not formatted properly", () => {
+    it("Throws error if the videoId prop not is formatted properly", () => {
       render(
         <VideoPlayer
           videoType={VideoPlayerTypes.Vimeo}
@@ -153,6 +174,56 @@ describe("VideoPlayer", () => {
           "This video player has not been configured properly. Please contact the site administrator."
         )
       ).toBeInTheDocument();
+    });
+
+    it("Throws appropriate error if VideoPlayer props are not configured properly", () => {
+      const warn = jest.spyOn(console, "warn");
+
+      render(<VideoPlayer />);
+      expect(warn).toHaveBeenCalledWith(
+        "VideoPlayer requires either the `embedCode` prop or both the `videoType` and `videoId` props."
+      );
+
+      render(<VideoPlayer videoId="http://vimeo.com/474719268" />);
+      expect(warn).toHaveBeenCalledWith(
+        "VideoPlayer also requires the `videoType` prop. You have only set the `videoId` prop."
+      );
+
+      render(<VideoPlayer videoType={VideoPlayerTypes.Vimeo} />);
+      expect(warn).toHaveBeenCalledWith(
+        "VideoPlayer also requires the `videoId` prop. You have only set the `videoType` prop."
+      );
+
+      render(
+        <VideoPlayer
+          embedCode="<iframe src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>"
+          videoType={VideoPlayerTypes.Vimeo}
+          videoId="http://vimeo.com/474719268"
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "VideoPlayer can accept the `embedCode` prop or the `videoType` and `videoId` props. You have set both."
+      );
+
+      render(
+        <VideoPlayer
+          embedCode="<iframe src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>"
+          videoType={VideoPlayerTypes.Vimeo}
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "VideoPlayer can accept the `embedCode` prop or the `videoType` and `videoId` props. You have set both."
+      );
+
+      render(
+        <VideoPlayer
+          embedCode="<iframe src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>"
+          videoId="http://vimeo.com/474719268"
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "VideoPlayer can accept the `embedCode` prop or the `videoType` and `videoId` props. You have set both."
+      );
     });
   });
 

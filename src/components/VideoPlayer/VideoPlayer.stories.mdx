@@ -41,7 +41,7 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={VideoPlayer} />
 
-The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires the `embedCode` prop or both the `videoType` and `videoId` props. The component will not function properly is you try to set all of them.
+The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires the `embedCode` prop or both the `videoType` and `videoId` props. The component will not function properly if you try to set all of them.
 
 You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to enter the full video URL as the `videoId` value.
 
@@ -84,15 +84,46 @@ https://www.youtube.com/watch?v=[VIDEO_ID]
 https://www.youtube.com/watch?v=nm-dD2tx6bk
 ```
 
+## Example Embed Code Snippets
+
+The examples below are shown with precise HTML formatting. However, often the embed code snippets provided by 3rd party video services are delivered as one long string.
+
+### Vimeo
+
+```html
+<iframe
+  src="https://player.vimeo.com/video/421404144?h=5467db7edd"
+  width="640"
+  height="360"
+  frameborder="0"
+  allow="autoplay; fullscreen; picture-in-picture"
+  allowfullscreen
+></iframe>
+```
+
+### YouTube
+
+```html
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/nm-dD2tx6bk"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+```
+
 ## Errored
 
 If the necessary props are not passed to the `VideoPlayer` component, the component UI will display an error message.
 
 <Canvas>
   <DSProvider>
-    {/* <VideoPlayer
+    <VideoPlayer
       type={VideoPlayerTypes.Vimeo}
       videoId="https://vimeo.com/474719268"
-    /> */}
+    />
   </DSProvider>
 </Canvas>
