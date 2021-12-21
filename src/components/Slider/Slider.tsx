@@ -97,7 +97,12 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     showValues = true,
     step = 1,
   } = props;
-  const finalDevaultValue = isRangeSlider ? [0, 0] : defaultValue;
+  // For the RangeSlider, if the defaultValue is not an array, then we set
+  // the defaultValue to an array with the min and max values.
+  const rangeSliderDefault =
+    typeof defaultValue === "number" ? [min, max] : defaultValue;
+  // We need to set the default value correctly for both types of sliders.
+  const finalDevaultValue = isRangeSlider ? rangeSliderDefault : defaultValue;
   const [currentValue, setCurrentValue] =
     React.useState<typeof defaultValue>(finalDevaultValue);
   let finalIsInvalid = isInvalid;
