@@ -8,6 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Removes wrapper divs around custom image elements used in the `Card` component. Also passes the aspect ratio as `ImageRatios.Original` when the custom image element is passed to the `Card` component.
+
+## 0.25.7 (December 20, 2021)
+
+### Fixes
+
+- Removes `<=12.22` from node engine in `package.json` to reduce installation issues.
+
+## 0.25.6 (December 16, 2021)
+
 ### Adds
 
 - Adds export statements for `ProgressIndicator` and `Slider` components to `index.ts`.
