@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Changes category for `Table` component from `Basic Elements` to `Page Layout`.
+
 ## 0.25.7 (December 20, 2021)
 
 ### Fixes
