@@ -438,7 +438,8 @@ Pass a callback function to the `onChange` prop to get the current number value
 of the `Slider` component or an array of two numbers when it is a range slider.
 Internally, the `Slider` component handles the state of the current selected
 value or values. Once the value(s) is updated, the `onChange` callback will be
-called and the values will be passed.
+called and the values will be passed. If no `onChange` callback is provided,
+you won't be able to get the updated value(s) of the `Slider` component.
 
 #### Single Slider Value
 
