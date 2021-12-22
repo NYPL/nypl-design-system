@@ -185,6 +185,12 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   const cardContents = [];
   let cardHeadingCount = 0;
 
+  if (imageComponent && imageAspectRatio !== ImageRatios.Square) {
+    console.warn(
+      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+    );
+  }
+
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
 
