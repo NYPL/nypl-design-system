@@ -12,20 +12,22 @@ export interface VideoPlayerProps {
   className?: string;
   /** Optional string to set the text for a video description */
   descriptionText?: string;
+  /** Optional string to set a code snippet provided by YouTube or Vimeo; the `videoPlayer` component will accept the `embedCode` prop or the `videoId` and `videoType` props */
+  embedCode?: string;
   /** Optional string to set the text for a `Heading` component */
   headingText?: string;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Optional title to be added to the `<iframe>` element for improved accessibility; this title should describe in a few words the content of the video; if omitted, a generic title will be added */
+  /** Optional title to be added to the `<iframe>` element for improved accessibility; this title should describe in a few words the content of the video; if omitted, a generic title will be added; if a `title` attribute is already present in the `embedCode` prop, this prop will be ignored */
   iframeTitle?: string;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Required YouTube or Vimeo video ID. This value can be pulled from a video's YouTube or Vimeo URL. */
-  videoId: string;
+  videoId?: string;
   /** Required. Used to specify which video service is being used. */
-  videoType: VideoPlayerTypes;
+  videoType?: VideoPlayerTypes;
 }
 
 export default function VideoPlayer(
@@ -35,6 +37,7 @@ export default function VideoPlayer(
     aspectRatio,
     className,
     descriptionText,
+    embedCode,
     headingText,
     helperText,
     id = generateUUID(),
@@ -54,29 +57,64 @@ export default function VideoPlayer(
       ? `https://player.vimeo.com/video/${videoId}?autoplay=0&loop=0`
       : `https://www.youtube.com/embed/${videoId}?disablekb=1&autoplay=0&fs=1&modestbranding=0`;
 
+  const iFrameTitleEmbedCode = iframeTitle ? `${iframeTitle}` : `Video player`;
+
+  const embedCodeFinal =
+    embedCode && embedCode.includes("<iframe") && !embedCode.includes("title=")
+      ? embedCode.replace(
+          `<iframe `,
+          `<iframe title="${iFrameTitleEmbedCode}" `
+        )
+      : embedCode;
+
   const errorMessage =
     "<strong>Error:</strong> This video player has not been configured properly. Please contact the site administrator.";
 
   let isInvalid = false;
-  if (!videoType && !videoId) {
-    console.warn("VideoPlayer requires the `videoType` and `videoId` props");
+  if (!embedCodeFinal && !videoType && !videoId) {
+    console.warn(
+      "VideoPlayer requires either the `embedCode` prop or both the `videoType` and `videoId` props."
+    );
     isInvalid = true;
-  } else if (!videoType) {
-    console.warn("VideoPlayer requires the `videoType` prop");
+  } else if (!embedCodeFinal && !videoType) {
+    console.warn(
+      "VideoPlayer also requires the `videoType` prop. You have only set the `videoId` prop."
+    );
     isInvalid = true;
-  } else if (!videoId) {
-    console.warn("VideoPlayer requires the `videoId` prop");
+  } else if (!embedCodeFinal && !videoId) {
+    console.warn(
+      "VideoPlayer also requires the `videoId` prop. You have only set the `videoType` prop."
+    );
+    isInvalid = true;
+  } else if (embedCodeFinal && (videoType || videoId)) {
+    console.warn(
+      "VideoPlayer can accept the `embedCode` prop or the `videoType` and `videoId` props. You have set both."
+    );
     isInvalid = true;
   }
 
   if (
-    videoId.includes("://") ||
-    videoId.includes("http") ||
-    videoId.includes(".") ||
-    videoId.includes("youtube") ||
-    videoId.includes("vimeo")
+    videoId &&
+    (videoId.includes("://") ||
+      videoId.includes("http") ||
+      videoId.includes(".") ||
+      videoId.includes("youtube") ||
+      videoId.includes("vimeo"))
   ) {
-    console.warn("VideoPlayer `videoId` prop is not configured properly");
+    console.warn("The VideoPlayer `videoId` prop is not configured properly.");
+    isInvalid = true;
+  }
+
+  if (
+    embedCodeFinal &&
+    ((!embedCodeFinal.includes("vimeo.com") &&
+      !embedCodeFinal.includes("youtube.com")) ||
+      !embedCodeFinal.includes("<iframe") ||
+      !embedCodeFinal.includes("</iframe"))
+  ) {
+    console.warn(
+      "The VideoPlayer `embedCode` prop is not configured properly."
+    );
     isInvalid = true;
   }
 
@@ -85,7 +123,9 @@ export default function VideoPlayer(
     : getVariant(aspectRatio, VideoPlayerAspectRatios);
   const styles = useMultiStyleConfig("VideoPlayer", { variant });
 
-  const embedCode = (
+  const embedElement = embedCodeFinal ? (
+    <span dangerouslySetInnerHTML={{ __html: embedCodeFinal }} />
+  ) : (
     <Box
       as="iframe"
       src={videoSrc}
@@ -113,7 +153,7 @@ export default function VideoPlayer(
           helperText={helperText && showHelperInvalidText ? helperText : null}
           id={`${id}-componentWrapper`}
         >
-          <Box __css={styles.inside}>{embedCode}</Box>
+          <Box __css={styles.inside}>{embedElement}</Box>
         </ComponentWrapper>
       )}
     </Box>
