@@ -59,7 +59,8 @@ named anything but you have to pick up the value in the wrapper component.
 ```tsx
 // Example in a search results page.
 const getPageHref = (selectedPage: number) => {
-  // This should be updated for your router system, if any.
+  // This should be updated for your router system, if any, including the
+  // base or origin URL.
   return `${location.origin}?q=celeste&page=${selectedPage}`;
 };
 ```
