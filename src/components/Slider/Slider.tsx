@@ -97,9 +97,14 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     showValues = true,
     step = 1,
   } = props;
-  const [currentValue, setCurrentValue] = React.useState<typeof defaultValue>(
-    defaultValue
-  );
+  // For the RangeSlider, if the defaultValue is not an array, then we set
+  // the defaultValue to an array with the min and max values.
+  const rangeSliderDefault =
+    typeof defaultValue === "number" ? [min, max] : defaultValue;
+  // We need to set the default value correctly for both types of sliders.
+  const finalDevaultValue = isRangeSlider ? rangeSliderDefault : defaultValue;
+  const [currentValue, setCurrentValue] =
+    React.useState<typeof defaultValue>(finalDevaultValue);
   let finalIsInvalid = isInvalid;
   // In the Range Slider, if the first value is bigger than the second value,
   // then set the invalid state.
@@ -127,7 +132,7 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     onChange: (val) => setCurrentValue(val),
     // Call the passed in `onChange` function prop to get the
     // *final* value once a user stops dragging the slider.
-    onChangeEnd: (val) => onChange(val),
+    onChangeEnd: (val) => onChange && onChange(val),
     step,
   };
   // Props that the two `TextInput` components use.
