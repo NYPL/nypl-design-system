@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `embedCode` prop to `VideoPlayer` component.
 - Adds export statements for `ProgressIndicatorSizes` and `ProgressIndicatorTypes` enums to `index.ts`.
 - Adds `AlertNotificationImportant` icon to `Icon` component.
 
