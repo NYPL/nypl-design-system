@@ -14,6 +14,13 @@ import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 
+export const imageBlockStyles = {
+  margin: "auto",
+  maxWidth: "360px",
+  textAlign: "center",
+  width: "100%",
+};
+
 <Meta
   title={getCategory("Image")}
   component={Image}
@@ -172,8 +179,8 @@ in an element with a fixed width value.
 
 <Canvas>
   <Story name="Image Aspect Ratios">
-    <VStack spacing="xl" maxWidth="360px" margin="auto">
-      <div style={{ textAlign: "center", width: "100%" }}>
+    <SimpleGrid columns={1}>
+      <div style={imageBlockStyles}>
         <Heading id="fourbythree" text="ImageRatios.FourByThree" />
         <Image
           alt="Alt text"
@@ -181,7 +188,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/300/animals"
         />
       </div>
-      <div style={{ textAlign: "center", width: "100%" }}>
+      <div style={imageBlockStyles}>
         <Heading id="onebytwo" text="ImageRatios.OneByTwo" />
         <Image
           alt="Alt text"
@@ -189,7 +196,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/300/animals"
         />
       </div>
-      <div style={{ textAlign: "center", width: "100%" }}>
+      <div style={imageBlockStyles}>
         <Heading id="original" text="ImageRatios.Original" />
         <Image
           alt="Alt text"
@@ -197,7 +204,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/300/animals"
         />
       </div>
-      <div style={{ textAlign: "center", width: "100%" }}>
+      <div style={imageBlockStyles}>
         <Heading id="sixteenbynine" text="ImageRatios.SixteenByNine" />
         <Image
           alt="Alt text"
@@ -205,7 +212,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/300/animals"
         />
       </div>
-      <div style={{ textAlign: "center", width: "100%" }}>
+      <div style={imageBlockStyles}>
         <Heading id="square" text="ImageRatios.Square" />
         <Image
           alt="Alt text"
@@ -213,7 +220,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/300/animals"
         />
       </div>
-      <div style={{ textAlign: "center", width: "100%" }}>
+      <div style={imageBlockStyles}>
         <Heading id="threebyfour" text="ImageRatios.ThreeByFour" />
         <Image
           alt="Alt text"
@@ -221,7 +228,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/300/animals"
         />
       </div>
-      <div style={{ textAlign: "center", width: "100%" }}>
+      <div style={imageBlockStyles}>
         <Heading id="threebytwo" text="ImageRatios.ThreeByTwo" />
         <Image
           alt="Alt text"
@@ -229,7 +236,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/300/animals"
         />
       </div>
-      <div style={{ textAlign: "center", width: "100%" }}>
+      <div style={imageBlockStyles}>
         <Heading id="twobyone" text="ImageRatios.TwoByOne" />
         <Image
           alt="Alt text"
@@ -237,7 +244,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/300/animals"
         />
       </div>
-    </VStack>
+    </SimpleGrid>
   </Story>
 </Canvas>
 
@@ -251,8 +258,8 @@ in an element with a fixed width value.
 
 <Canvas>
   <Story name="Image Types">
-    <VStack spacing="xl" maxWidth="360px" margin="auto">
-      <div style={{ textAlign: "center", width: "100%" }}>
+    <SimpleGrid columns={1}>
+      <div style={imageBlockStyles}>
         <Heading id="default" text="ImageTypes.Default" />
         <Image
           alt="Alt text"
@@ -261,7 +268,7 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/400/animals"
         />
       </div>
-      <div style={{ textAlign: "center", width: "100%" }}>
+      <div style={imageBlockStyles}>
         <Heading id="circle" text="ImageTypes.Circle" />
         <Image
           alt="Alt text"
@@ -270,6 +277,6 @@ in an element with a fixed width value.
           src="https://placeimg.com/400/400/animals"
         />
       </div>
-    </VStack>
+    </SimpleGrid>
   </Story>
 </Canvas>

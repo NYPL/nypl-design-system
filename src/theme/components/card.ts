@@ -139,11 +139,6 @@ const CardImage = {
     const layoutStyles =
       layout === "row"
         ? {
-            // display: "flex",
-            // flexFlow: {
-            //   base: "column nowrap",
-            //   md: "row",
-            // },
             flex: { md: "0 0 225px" },
             maxWidth: { base: "100%", md: "50%" },
             textAlign: "left",

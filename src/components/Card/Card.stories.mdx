@@ -344,7 +344,40 @@ prop to override the default width.
     <SimpleGrid columns={1}>
       <Card
         layout={CardLayouts.Row}
-        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.ExtraExtraSmall}
+      >
+        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+          Extra Extra Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+          Max-Width: 64px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.ExtraSmall}
+      >
+        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+          Extra Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+          Max-Width: 96px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
@@ -362,7 +395,6 @@ prop to override the default width.
       </Card>
       <Card
         layout={CardLayouts.Row}
-        center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
@@ -381,7 +413,6 @@ prop to override the default width.
       </Card>
       <Card
         layout={CardLayouts.Row}
-        center
         imageSrc="https://placeimg.com/400/250/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
@@ -401,7 +432,6 @@ prop to override the default width.
       </Card>
       <Card
         layout={CardLayouts.Row}
-        center
         imageSrc="https://placeimg.com/450/250/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
