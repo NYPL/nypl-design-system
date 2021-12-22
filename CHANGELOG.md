@@ -12,6 +12,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `embedCode` prop to `VideoPlayer` component.
 - Adds export statements for `ProgressIndicatorSizes` and `ProgressIndicatorTypes` enums to `index.ts`.
+- Adds `ExtraSmall` and `ExtraExtraSmall` size variants to the `Image` component.
+- Adds `ExtraSmall` and `ExtraExtraSmall` size variants for `CardImage` in the `Card` component.
 - Adds `AlertNotificationImportant` icon to `Icon` component.
 
 ### Changes
