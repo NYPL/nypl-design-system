@@ -49,7 +49,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.3`    |
-| Latest            | `0.25.4`   |
+| Latest            | `0.25.6`   |
 
 <Description of={Breadcrumbs} />
 
@@ -110,12 +110,12 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
   <Story
     name="Color Variations"
     args={{
-      colorVariant: ColorVariants.BooksAndMore,
+      colorVariant: ColorVariants.Blogs,
     }}
   >
     {(args) => (
       <>
-        <Heading level={HeadingLevels.Three}>Books and More</Heading>
+        <Heading level={HeadingLevels.Three}>Blogs</Heading>
         <Breadcrumbs
           breadcrumbsData={[
             { url: "#", text: "Parent" },
@@ -130,6 +130,23 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
       </>
     )}
   </Story>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading level={HeadingLevels.Three}>Books and More</Heading>
+    <Breadcrumbs
+      breadcrumbsData={[
+        { url: "#", text: "Parent" },
+        { url: "#", text: "Child" },
+        {
+          url: "#",
+          text: "Grandchild",
+        },
+      ]}
+      colorVariant={ColorVariants.BooksAndMore}
+    />
+  </DSProvider>
 </Canvas>
 
 <Canvas>
