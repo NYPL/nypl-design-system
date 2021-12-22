@@ -86,7 +86,6 @@ function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
   // Additional styles to add to the `Image` component.
   const styles = useStyleConfig("CardImage", {
     center,
-    imageAspectRatio,
     imageAtEnd,
     imageSize,
     layout,

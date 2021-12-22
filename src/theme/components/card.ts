@@ -131,7 +131,7 @@ const CardContent = {
 };
 
 const CardImage = {
-  baseStyle: ({ center, imageAspectRatio, imageAtEnd, imageSize, layout }) => {
+  baseStyle: ({ center, imageAtEnd, imageSize, layout }) => {
     // These sizes are only for the "row" layout.
     const size = imageSizes[imageSize] || {};
     const layoutStyles =
@@ -164,14 +164,11 @@ const CardImage = {
           order: "2",
         }
       : {};
-    return imageAspectRatio === "original"
-      ? {
-          marginBottom: "xs",
-        }
-      : {
-          ...imageAtEndStyles,
-          ...layoutStyles,
-        };
+
+    return {
+      ...imageAtEndStyles,
+      ...layoutStyles,
+    };
   },
 };
 
