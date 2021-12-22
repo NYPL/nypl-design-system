@@ -11,11 +11,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds export statements for `ProgressIndicatorSizes` and `ProgressIndicatorTypes` enums to `index.ts`.
+- Adds `AlertNotificationImportant` icon to `Icon` component.
 
 ### Changes
 
 - Changes category for `Table` component from `Basic Elements` to `Page Layout`.
 - Updates the background color for the `Locations` variant in the `Breadcrumbs` component from `section.locations.secondary` to `section.locations.primary`.
+- Updates the `Notification` component to show the `AlertNotificationImportant` icon for the `Standard` variant.
 
 ## 0.25.7 (December 20, 2021)
 
