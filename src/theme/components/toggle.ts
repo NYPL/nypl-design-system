@@ -1,7 +1,7 @@
 import { helperTextMargin } from "./global";
 
 const baseStyle = {
-  label: { display: "flex", alignItems: "center" },
+  label: { display: "flex", alignItems: "center", width: "fit-content" },
   helper: {
     ...helperTextMargin,
     marginLeft: "xs",
