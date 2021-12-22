@@ -1,4 +1,6 @@
 const imageSizes = {
+  xxsmall: { flex: { base: "0 0 100%", md: "0 0 64px" }, width: "100%" },
+  xsmall: { flex: { md: "0 0 96px" } },
   small: { flex: { md: "0 0 165px" } },
   medium: { flex: { md: "0 0 225px" } },
   large: { flex: { md: "0 0 360px" } },
@@ -137,11 +139,11 @@ const CardImage = {
     const layoutStyles =
       layout === "row"
         ? {
-            display: "flex",
-            flexFlow: {
-              base: "column nowrap",
-              md: "row",
-            },
+            // display: "flex",
+            // flexFlow: {
+            //   base: "column nowrap",
+            //   md: "row",
+            // },
             flex: { md: "0 0 225px" },
             maxWidth: { base: "100%", md: "50%" },
             textAlign: "left",
@@ -152,10 +154,12 @@ const CardImage = {
                 ? "0 0 0 var(--nypl-space-m)"
                 : "0 var(--nypl-space-m) 0 0",
             },
+            width: { base: "100%", md: null },
             ...size,
           }
         : {
             marginBottom: "xs",
+            width: "100%",
           };
     const imageAtEndStyles = imageAtEnd
       ? {
