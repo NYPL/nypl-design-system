@@ -1,15 +1,16 @@
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
-import { FormRow, FormField } from "../Form/Form";
 import { DatePickerTypes } from "./DatePickerTypes";
+import Fieldset from "../Fieldset/Fieldset";
+import { FormRow, FormField } from "../Form/Form";
+import { FormSpacing } from "../Form/FormTypes";
+import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
-import Fieldset from "../Fieldset/Fieldset";
 import { useMultiStyleConfig } from "@chakra-ui/system";
 
 // The object shape for the DatePicker's start and end date state values.
@@ -214,7 +215,9 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
   children,
 }) =>
   isDateRange ? (
-    <FormRow id={`${id}-form-row`}>{children}</FormRow>
+    <FormRow id={`${id}-form-row`} gap={FormSpacing.ExtraSmall}>
+      {children}
+    </FormRow>
   ) : (
     <>{children}</>
   );

@@ -99,6 +99,7 @@ const LibraryExample = ({ renderInputComponent }) => {
   const renderSuggestion = (suggestion) => <span>{suggestion.label}</span>;
   // Autosuggest will pass through all these props to the Input component.
   const inputProps = {
+    "aria-label": "Home Library",
     placeholder: "Type a library name",
     value,
     onChange,

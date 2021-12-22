@@ -294,6 +294,26 @@ describe("Slider", () => {
       expect(input).toHaveValue(100);
     });
 
+    it("doesn't crash if no onChange callback function is passed", () => {
+      let currentValue = 0;
+      render(
+        <Slider
+          defaultValue={50}
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          labelText="Label"
+        />
+      );
+
+      const input = screen.getByRole("spinbutton");
+      fireEvent.change(input, {
+        target: { value: "42" },
+      });
+      // While we change the slider input value, since there is no onChange
+      // function, there is no way to update this local `currentValue` variable.
+      expect(currentValue).toEqual(0);
+    });
+
     it("gets the current value through the onChange callback function", () => {
       let currentValue = 0;
       function onChange(value) {
@@ -493,6 +513,21 @@ describe("Slider", () => {
         "aria-label",
         "Custom Label - end value"
       );
+    });
+
+    it("renders with min and max values as the default values if no `defaultValue` array is passed", () => {
+      render(
+        <Slider
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          isRangeSlider
+          labelText="Label"
+          max={80}
+          min={30}
+        />
+      );
+      expect(screen.getByText("30")).toBeInTheDocument();
+      expect(screen.getByText("80")).toBeInTheDocument();
     });
 
     it("renders the invalid state if the start and end values are wrong", () => {
