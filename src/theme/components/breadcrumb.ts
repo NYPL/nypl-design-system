@@ -12,7 +12,7 @@ const booksAndMore = {
   bg: "section.books-and-more.secondary",
 };
 const locations = {
-  bg: "section.locations.secondary",
+  bg: "section.locations.primary",
 };
 const research = {
   bg: "section.research.secondary",
