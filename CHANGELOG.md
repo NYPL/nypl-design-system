@@ -18,6 +18,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Changes category for `Table` component from `Basic Elements` to `Page Layout`.
 - Updates the background color for the `Locations` variant in the `Breadcrumbs` component from `section.locations.secondary` to `section.locations.primary`.
 - Updates the `Notification` component to show the `AlertNotificationImportant` icon for the `Standard` variant.
+- Reduces the bottom margin on labels and legends for form components from "16px" to "8px", or "s" to "sx" in Chakra-theme variables.
+
+### Fixes
+
+- Fixes two bugs in the `Slider`: (1) unable to call the `onChange` function when it is not passed, and (2) fixing the default array value for the range slider so it mounts properly.
 
 ## 0.25.7 (December 20, 2021)
 
