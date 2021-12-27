@@ -54,6 +54,7 @@ export function NotificationHeading(
   const { centered, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationHeading", {
     centered,
+    icon,
     notificationType,
   });
   return (
@@ -75,6 +76,7 @@ export function NotificationContent(
   const { alignText, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationContent", {
     alignText,
+    icon,
     notificationType,
   });
   return (
