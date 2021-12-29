@@ -15,6 +15,7 @@ import { SelectTypes } from "../Select/SelectTypes";
 // Internal interfaces that are used only for `SearchBar` props.
 interface SelectProps {
   labelText: string;
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   name: string;
   optionsData: string[];
 }
@@ -38,7 +39,7 @@ export interface SearchBarProps {
   /** A class name for the `form` element. */
   className?: string;
   /** The text to display below the form in a `HelperErrorText` component. */
-  helperErrorText?: string;
+  helperErrorText?: JSX.Element | string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
