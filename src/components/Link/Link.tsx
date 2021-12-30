@@ -27,7 +27,7 @@ export interface LinkProps {
  * Renders the `Link` children components with a direction arrow icon based
  * on the `Backwards` or `Forwards` `LinkTypes` type.
  */
-function getWithDirectionIcon(children, type: LinkTypes) {
+function getWithDirectionIcon(children, type: LinkTypes, linkId) {
   let iconRotation;
   let iconAlign;
   let icon = null;
@@ -42,12 +42,15 @@ function getWithDirectionIcon(children, type: LinkTypes) {
     iconAlign = IconAlign.Right;
   }
 
+  const iconId = `${linkId}-icon`;
+
   icon = (
     <Icon
-      name={IconNames.Arrow}
       align={iconAlign}
-      iconRotation={iconRotation}
       className="more-link"
+      iconRotation={iconRotation}
+      id={iconId}
+      name={IconNames.Arrow}
     />
   );
 
@@ -60,12 +63,14 @@ function getWithDirectionIcon(children, type: LinkTypes) {
   );
 }
 
-function getExternalIcon(children) {
+function getExternalIcon(children, linkId) {
+  const iconId = `${linkId}-icon`;
   const icon = (
     <Icon
-      name={IconNames.ActionLaunch}
       align={IconAlign.Right}
       className="more-link"
+      id={iconId}
+      name={IconNames.ActionLaunch}
     />
   );
 
@@ -123,8 +128,8 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
       ((type === LinkTypes.Forwards || type === LinkTypes.Backwards) &&
-        getWithDirectionIcon(children, type)) ||
-      (type === LinkTypes.External && getExternalIcon(children)) ||
+        getWithDirectionIcon(children, type, id)) ||
+      (type === LinkTypes.External && getExternalIcon(children, id)) ||
       children;
 
     const rel = type === LinkTypes.External ? "noopen" : null;
