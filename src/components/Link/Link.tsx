@@ -150,8 +150,8 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           className,
           ...linkProps,
           ...childProps,
-          rel,
           ref,
+          rel,
           target,
         },
         [childrenToClone.props.children]
@@ -161,8 +161,8 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         <Box
           as="a"
           className={className}
-          rel={rel}
           ref={ref}
+          rel={rel}
           target={target}
           {...linkProps}
           __css={{ ...style, ...additionalStyles }}
