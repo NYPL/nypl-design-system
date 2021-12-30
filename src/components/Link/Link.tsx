@@ -60,6 +60,23 @@ function getWithDirectionIcon(children, type: LinkTypes) {
   );
 }
 
+function getExternalIcon(children) {
+  const icon = (
+    <Icon
+      name={IconNames.ActionLaunch}
+      align={IconAlign.Right}
+      className="more-link"
+    />
+  );
+
+  return (
+    <>
+      {children}
+      {icon}
+    </>
+  );
+}
+
 /**
  * A component that uses an `href` prop or a child anchor element, to create
  * an anchor element with added styling and conventions.
@@ -93,19 +110,25 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     if (
       type === LinkTypes.Action ||
       type === LinkTypes.Forwards ||
-      type === LinkTypes.Backwards
+      type === LinkTypes.Backwards ||
+      type === LinkTypes.External
     ) {
       variant = "moreLink";
     } else if (type === LinkTypes.Button) {
       variant = "button";
     }
     const style = useStyleConfig("Link", { variant });
-    // Render with specific direction arrows only if the type
-    // is Forwards or Backwards.
+    // Render with specific direction arrows if the type is
+    // Forwards or Backwards.  Or render with the launch icon
+    // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
-      type === LinkTypes.Forwards || type === LinkTypes.Backwards
-        ? getWithDirectionIcon(children, type)
-        : children;
+      ((type === LinkTypes.Forwards || type === LinkTypes.Backwards) &&
+        getWithDirectionIcon(children, type)) ||
+      (type === LinkTypes.External && getExternalIcon(children)) ||
+      children;
+
+    const rel = type === LinkTypes.External ? "noopen" : null;
+    const target = type === LinkTypes.External ? "_blank" : null;
 
     if (!href) {
       // React Types error makes this fail:
@@ -122,7 +145,9 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           className,
           ...linkProps,
           ...childProps,
+          rel,
           ref,
+          target,
         },
         [childrenToClone.props.children]
       );
@@ -131,7 +156,9 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         <Box
           as="a"
           className={className}
+          rel={rel}
           ref={ref}
+          target={target}
           {...linkProps}
           __css={{ ...style, ...additionalStyles }}
         >
