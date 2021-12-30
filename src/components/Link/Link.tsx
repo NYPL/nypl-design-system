@@ -132,7 +132,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       (type === LinkTypes.External && getExternalIcon(children, id)) ||
       children;
 
-    const rel = type === LinkTypes.External ? "noopen" : null;
+    const rel = type === LinkTypes.External ? "nofollow" : null;
     const target = type === LinkTypes.External ? "_blank" : null;
 
     if (!href) {
