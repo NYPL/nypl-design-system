@@ -42,10 +42,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds export statements for `ProgressIndicator` and `Slider` components to `index.ts`.
 - Adds `Blogs` variant to `Breadcrumbs` component.
+- Adds the `placeholder` prop to the `Select` component.
 
 ### Changes
 
 - Adds "(Required)" text to the placeholder in the `SearchBar` component when `isRequired` is true.
+
+### Fixes
+
+- Updates the `Select` component's controlled state so that an initial empty `value` prop is acceptable.
 
 ## 0.25.5 (December 9, 2021)
 
