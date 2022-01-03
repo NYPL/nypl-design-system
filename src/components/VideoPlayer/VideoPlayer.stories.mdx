@@ -44,6 +44,10 @@ export const typesEnumValues = getStorybookEnumValues(
     showHelperInvalidText: {
       table: { defaultValue: { summary: true } },
     },
+    useEmbed: {
+      description:
+        "Only used in Storybook. If `true`, set the `embedCode` prop. If `false`, set both the `videoType` and `videoId` props.",
+    },
     videoType: {
       control: { type: "select" },
       options: typesEnumValues.options,
@@ -56,11 +60,13 @@ export const typesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.2`   |
+| Latest            | `0.25.8`   |
 
 <Description of={VideoPlayer} />
 
-The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires both the `videoType` and `videoId` props. You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to enter the full video URL as the `videoId` value.
+The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires the `embedCode` prop or both the `videoType` and `videoId` props. The component will not function properly if you try to set all of them.
+
+You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to enter the full video URL as the `videoId` value.
 
 The `aspectRatio` prop is used to control the sizing of the space allotted for the video rendering. Ultimately, the `aspectRatio` prop should be set to match the aspect ratio of the video that is being rendered. The default aspect ratio is `16:9`.
 
@@ -72,26 +78,33 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
       className: undefined,
       descriptionText:
         "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+      embedCode: `<iframe src="https://player.vimeo.com/video/421404144?h=5467db7edd" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`,
       headingText: "NYPL Video",
       helperText:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
       id: "videoPlayer-id",
       iframeTitle: undefined,
       showHelperInvalidText: true,
-      videoId: "",
+      useEmbed: true,
+      videoId: "474719268",
       videoType: "VideoPlayerTypes.Vimeo",
     }}
   >
     {(args) => (
       <VideoPlayer
         {...args}
-        aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
-        videoId={
-          args.videoType === "VideoPlayerTypes.Vimeo"
-            ? args.videoId || "474719268"
-            : args.videoId || "nm-dD2tx6bk"
+        embedCode={args.useEmbed && args.embedCode}
+        aspectRatio={
+          !args.useEmbed && ratiosEnumValues.getValue(args.aspectRatio)
         }
-        videoType={typesEnumValues.getValue(args.videoType)}
+        videoId={
+          !args.useEmbed
+            ? args.videoType === "VideoPlayerTypes.Vimeo"
+              ? args.videoId || "474719268"
+              : args.videoId || "nm-dD2tx6bk"
+            : undefined
+        }
+        videoType={!args.useEmbed && typesEnumValues.getValue(args.videoType)}
       />
     )}
   </Story>
@@ -118,6 +131,37 @@ https://www.youtube.com/watch?v=[VIDEO_ID]
 https://www.youtube.com/watch?v=nm-dD2tx6bk
 ```
 
+## Example Embed Code Snippets
+
+The examples below are shown with precise HTML formatting. However, often the embed code snippets provided by 3rd party video services are delivered as one long string.
+
+### Vimeo
+
+```html
+<iframe
+  src="https://player.vimeo.com/video/421404144?h=5467db7edd"
+  width="640"
+  height="360"
+  frameborder="0"
+  allow="autoplay; fullscreen; picture-in-picture"
+  allowfullscreen
+></iframe>
+```
+
+### YouTube
+
+```html
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/nm-dD2tx6bk"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+```
+
 ## Errored
 
 If the necessary props are not passed to the `VideoPlayer` component, the component UI will display an error message.
@@ -125,8 +169,8 @@ If the necessary props are not passed to the `VideoPlayer` component, the compon
 <Canvas>
   <DSProvider>
     <VideoPlayer
-      type={VideoPlayerTypes.Vimeo}
       videoId="https://vimeo.com/474719268"
+      videoType={VideoPlayerTypes.Vimeo}
     />
   </DSProvider>
 </Canvas>
