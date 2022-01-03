@@ -14,6 +14,8 @@ export enum ImageSizes {
   Large = "large",
   Medium = "medium",
   Small = "small",
+  ExtraSmall = "xsmall",
+  ExtraExtraSmall = "xxsmall",
 }
 
 export enum ImageTypes {

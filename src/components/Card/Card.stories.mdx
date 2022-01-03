@@ -48,7 +48,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.3`   |
+| Latest            | `0.25.8`   |
 
 <Description of={Card} />
 
@@ -235,6 +235,44 @@ prop to override the default width.
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.ExtraExtraSmall}
+      >
+        <CardHeading level={HeadingLevels.Three} id="column-heading1">
+          Extra Extra Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="column-heading2">
+          Max-Width: 64px
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <HorizontalRule />
+      <Card
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.Square}
+        imageSize={ImageSizes.ExtraSmall}
+      >
+        <CardHeading level={HeadingLevels.Three} id="column-heading1">
+          Extra Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="column-heading2">
+          Max-Width: 96px
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <HorizontalRule />
+      <Card
+        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.Square}
         imageSize={ImageSizes.Small}
       >
         <CardHeading level={HeadingLevels.Three} id="column-heading1">
@@ -315,7 +353,40 @@ prop to override the default width.
     <SimpleGrid columns={1}>
       <Card
         layout={CardLayouts.Row}
-        center
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.ExtraExtraSmall}
+      >
+        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+          Extra Extra Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+          Max-Width: 64px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
+        imageSrc="https://placeimg.com/400/200/animals"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+        imageSize={ImageSizes.ExtraSmall}
+      >
+        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+          Extra Small Image
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+          Max-Width: 96px
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        </CardContent>
+      </Card>
+      <Card
+        layout={CardLayouts.Row}
         imageSrc="https://placeimg.com/400/200/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
@@ -333,7 +404,6 @@ prop to override the default width.
       </Card>
       <Card
         layout={CardLayouts.Row}
-        center
         imageSrc="https://placeimg.com/410/210/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
@@ -352,7 +422,6 @@ prop to override the default width.
       </Card>
       <Card
         layout={CardLayouts.Row}
-        center
         imageSrc="https://placeimg.com/400/250/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
@@ -372,7 +441,6 @@ prop to override the default width.
       </Card>
       <Card
         layout={CardLayouts.Row}
-        center
         imageSrc="https://placeimg.com/450/250/animals"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
