@@ -125,18 +125,22 @@ export default function Notification(props: NotificationProps) {
         name: IconNames.SpeakerNotes,
         color: IconColors.SectionResearchSecondary,
       },
+      [NotificationTypes.Standard]: {
+        name: IconNames.AlertNotificationImportant,
+        color: IconColors.UiBlack,
+      },
       [NotificationTypes.Warning]: {
         name: IconNames.ErrorFilled,
         color: IconColors.BrandPrimary,
       },
     };
-    return notificationType !== NotificationTypes.Standard ? (
+    return (
       <Icon
         id={`${id}-notification-icon`}
         {...baseIconProps}
         {...iconProps[notificationType]}
       />
-    ) : null;
+    );
   };
   const dismissibleButton = dismissible && (
     <Button
@@ -163,9 +167,7 @@ export default function Notification(props: NotificationProps) {
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText =
-    childHeading &&
-    (!!icon || (notificationType !== NotificationTypes.Standard && !centered));
+  const alignText = childHeading && (!!icon || !centered);
   const childContent = (
     <NotificationContent
       alignText={alignText}
