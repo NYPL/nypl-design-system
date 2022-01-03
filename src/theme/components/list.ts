@@ -52,14 +52,12 @@ const List = {
       dt: {
         borderTop: "1px solid",
         borderColor: "ui.gray.light-cool",
-        fontSize: "0",
         fontWeight: "bold",
         paddingBottom: { base: "0", md: "s" },
         paddingTop: "s",
         paddingRight: { md: "m" },
       },
       dd: {
-        fontSize: "0",
         margin: "0",
         paddingBottom: "s",
         borderTop: { base: "none", md: "1px solid" },

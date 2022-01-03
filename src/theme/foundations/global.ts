@@ -11,7 +11,7 @@ const global = {
     bg: "ui.white",
     color: "ui.black",
     fontFamily: "body",
-    fontSize: "0",
+    fontSize: "text.default",
     fontWeight: "300",
     lineHeight: "1.5",
     overflowX: "hidden",

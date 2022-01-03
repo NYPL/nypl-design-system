@@ -8,7 +8,7 @@ const margins = {
 // Heading Styles
 const headings = {
   h1: {
-    fontSize: "4", // var(--nypl-fontSizes-4);
+    fontSize: "heading.primary", // var(--nypl-fontSizes-4);
     fontWeight: "light",
     letterSpacing: "0",
     lineHeight: "1.1",
@@ -16,28 +16,28 @@ const headings = {
     width: "auto",
   },
   h2: {
-    fontSize: "3", // var(--nypl-fontSizes-3);
+    fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
     fontWeight: "medium",
     lineHeight: "1.25",
     ...margins,
     width: "auto",
   },
   h3: {
-    fontSize: "2", // var(--nypl-fontSizes-2);
+    fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
     fontWeight: "medium",
     lineHeight: "1.25",
     ...margins,
     width: "auto",
   },
   h4: {
-    fontSize: "1", // var(--nypl-fontSizes-1);
+    fontSize: "heading.callout", // var(--nypl-fontSizes-1);
     fontWeight: "medium",
     lineHeight: "1.15",
     ...margins,
     width: "auto",
   },
   fallback: {
-    fontSize: "1", // var(--nypl-fontSizes-1);
+    fontSize: "heading.callout", // var(--nypl-fontSizes-1);
     fontWeight: "regular",
     lineHeight: "1.15",
     ...margins,

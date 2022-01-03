@@ -25,7 +25,7 @@ const Breadcrumb = {
   baseStyle: {
     bg: "ui.black",
     color: "ui.white",
-    fontSize: "-1",
+    fontSize: "breadcrumbs.default",
     fontWeight: "regular",
     paddingBottom: "xs",
     paddingTop: "xs",

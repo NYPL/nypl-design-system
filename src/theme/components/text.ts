@@ -1,20 +1,20 @@
 const variants = {
   default: {},
   caption: {
-    fontSize: "-1",
+    fontSize: "text.caption",
   },
   tag: {
-    fontSize: "-2",
+    fontSize: "text.tag",
   },
   mini: {
-    fontSize: "-3",
+    fontSize: "text.mini",
   },
 };
 const Text = {
   baseStyle: (props) => {
     const fontWeight = props.isBold
       ? "bold"
-      : props.variant === "tag" || props.variant === "min"
+      : props.variant === "tag" || props.variant === "mini"
       ? "regular"
       : null;
     const fontStyle = props.isItalic ? "italic" : null;
