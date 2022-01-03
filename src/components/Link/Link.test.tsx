@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Link from "./Link";
 import { LinkTypes } from "./LinkTypes";
@@ -137,6 +138,76 @@ describe("Link", () => {
         </Link>
       )
     ).toThrowError("Please pass only one child into `Link`.");
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const standard = renderer
+      .create(
+        <Link href="#passed-in-link" id="standard-link" type={LinkTypes.Action}>
+          Standard
+        </Link>
+      )
+      .toJSON();
+    const typeForwards = renderer
+      .create(
+        <Link
+          href="#passed-in-link"
+          id="forwards-link"
+          type={LinkTypes.Forwards}
+        >
+          Forwards
+        </Link>
+      )
+      .toJSON();
+    const typeBackwards = renderer
+      .create(
+        <Link
+          href="#passed-in-link"
+          id="backwards-link"
+          type={LinkTypes.Backwards}
+        >
+          Backwards
+        </Link>
+      )
+      .toJSON();
+    const typeExternal = renderer
+      .create(
+        <Link
+          href="#passed-in-link"
+          id="external-link"
+          type={LinkTypes.External}
+        >
+          External
+        </Link>
+      )
+      .toJSON();
+    const typeButton = renderer
+      .create(
+        <Link href="#passed-in-link" id="button-link" type={LinkTypes.Button}>
+          Button
+        </Link>
+      )
+      .toJSON();
+    const withIconChild = renderer
+      .create(
+        <Link href="#passed-in-link" id="icon-link" type={LinkTypes.Action}>
+          <Icon
+            align={IconAlign.Left}
+            className="more-link"
+            iconRotation={IconRotationTypes.Rotate0}
+            id="link-icon"
+            name={IconNames.Download}
+          />
+          Download
+        </Link>
+      )
+      .toJSON();
+    expect(standard).toMatchSnapshot();
+    expect(typeForwards).toMatchSnapshot();
+    expect(typeBackwards).toMatchSnapshot();
+    expect(typeExternal).toMatchSnapshot();
+    expect(typeButton).toMatchSnapshot();
+    expect(withIconChild).toMatchSnapshot();
   });
 
   // TODO:
