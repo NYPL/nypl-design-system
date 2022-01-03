@@ -23,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background color for the `Locations` variant in the `Breadcrumbs` component from `section.locations.secondary` to `section.locations.primary`.
 - Updates the `Notification` component to show the `AlertNotificationImportant` icon for the `Standard` variant.
 - Reduces the bottom margin on labels and legends for form components from "16px" to "8px", or "s" to "sx" in Chakra-theme variables.
+- Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
 
 ### Fixes
 

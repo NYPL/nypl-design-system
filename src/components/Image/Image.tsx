@@ -45,10 +45,10 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
   });
   return (
     <Box
-      __css={{ ...styles, ...additionalStyles }}
       className={`the-wrap ${className}`}
+      __css={{ ...styles, ...additionalStyles }}
     >
-      <Box __css={styles.crop} className="the-crop">
+      <Box className="the-crop" __css={styles.crop}>
         {children}
       </Box>
     </Box>
@@ -81,7 +81,12 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
   const imageComponent: JSX.Element = component ? (
     component
   ) : (
-    <Box as="img" src={src} alt={alt} __css={styles.img} />
+    <Box
+      alt={alt}
+      as="img"
+      src={src}
+      __css={{ ...styles.img, ...additionalStyles }}
+    />
   );
   const finalImage =
     useImageWrapper && !component ? (
