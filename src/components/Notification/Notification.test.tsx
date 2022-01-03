@@ -51,9 +51,9 @@ describe("Notification", () => {
     expect(screen.getByText("Notification content.")).toBeInTheDocument();
   });
 
-  it("renders without Icon", () => {
+  it("renders with an Icon", () => {
     // The Icon's role is "img".
-    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    expect(screen.queryByRole("img")).toBeInTheDocument();
   });
 
   it("renders a custom Icon component", () => {
