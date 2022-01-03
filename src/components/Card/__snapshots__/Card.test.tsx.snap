@@ -6,16 +6,20 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
   id="regularCard"
 >
   <div
-    className="the-wrap  css-0"
+    className="css-0"
   >
     <div
-      className="the-crop css-0"
+      className="the-wrap  css-0"
     >
-      <img
-        alt="Alt text"
-        className="css-0"
-        src="https://placeimg.com/400/200/arch"
-      />
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/400/200/arch"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -55,16 +59,20 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
   id="cardWithExtendedStyles"
 >
   <div
-    className="the-wrap  css-0"
+    className="css-0"
   >
     <div
-      className="the-crop css-0"
+      className="the-wrap  css-0"
     >
-      <img
-        alt="Alt text"
-        className="css-0"
-        src="https://placeimg.com/300/400/arch"
-      />
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -149,16 +157,20 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
   id="cardWithNoCTAs"
 >
   <div
-    className="the-wrap  css-0"
+    className="css-0"
   >
     <div
-      className="the-crop css-0"
+      className="the-wrap  css-0"
     >
-      <img
-        alt="Alt text"
-        className="css-0"
-        src="https://placeimg.com/300/400/arch"
-      />
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -193,16 +205,20 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
   id="cardWithNoContent"
 >
   <div
-    className="the-wrap  css-0"
+    className="css-0"
   >
     <div
-      className="the-crop css-0"
+      className="the-wrap  css-0"
     >
-      <img
-        alt="Alt text"
-        className="css-0"
-        src="https://placeimg.com/300/400/arch"
-      />
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -360,16 +376,20 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
     id="fullclick"
   >
     <div
-      className="the-wrap  css-0"
+      className="css-0"
     >
       <div
-        className="the-crop css-0"
+        className="the-wrap  css-0"
       >
-        <img
-          alt="Alt text"
-          className="css-0"
-          src="https://placeimg.com/400/200/arch"
-        />
+        <div
+          className="the-crop css-0"
+        >
+          <img
+            alt="Alt text"
+            className="css-0"
+            src="https://placeimg.com/400/200/arch"
+          />
+        </div>
       </div>
     </div>
     <div

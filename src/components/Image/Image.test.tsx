@@ -74,6 +74,14 @@ describe("Image", () => {
     const figCaption = renderer
       .create(<Image src="test.png" alt="" imageCaption="Caption" />)
       .toJSON();
+    const sizeExtraExtraSmall = renderer
+      .create(
+        <Image src="test.png" alt="" imageSize={ImageSizes.ExtraExtraSmall} />
+      )
+      .toJSON();
+    const sizeExtraSmall = renderer
+      .create(<Image src="test.png" alt="" imageSize={ImageSizes.ExtraSmall} />)
+      .toJSON();
     const sizeSmall = renderer
       .create(<Image src="test.png" alt="" imageSize={ImageSizes.Small} />)
       .toJSON();
@@ -152,6 +160,8 @@ describe("Image", () => {
       .toJSON();
     expect(basic).toMatchSnapshot();
     expect(figCaption).toMatchSnapshot();
+    expect(sizeExtraExtraSmall).toMatchSnapshot();
+    expect(sizeExtraSmall).toMatchSnapshot();
     expect(sizeSmall).toMatchSnapshot();
     expect(sizeMedium).toMatchSnapshot();
     expect(sizeLarge).toMatchSnapshot();
