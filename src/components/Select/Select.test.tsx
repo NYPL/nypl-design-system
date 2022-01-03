@@ -198,7 +198,7 @@ describe("Select", () => {
   });
 
   it("calls the onChange callback function", () => {
-    let value = "red";
+    let value = "";
     const changeCallback = (e) => {
       value = e.target.value;
     };
@@ -208,7 +208,7 @@ describe("Select", () => {
       </Select>
     );
 
-    expect(value).toEqual("red");
+    expect(value).toEqual("");
 
     fireEvent.change(screen.getByRole("combobox"), {
       target: { value: "blue" },
