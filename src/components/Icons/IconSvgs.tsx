@@ -5,6 +5,7 @@ import action_check_circle from "../../../icons/svg/action_check_circle.svg";
 import action_help_default from "../../../icons/svg/action_help_default.svg";
 import action_help_outline from "../../../icons/svg/action_help_outline.svg";
 import action_launch from "../../../icons/svg/action_launch.svg";
+import alert_notification_important from "../../../icons/svg/alert_notification_important.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import brooklyn from "../../../icons/svg/brooklyn.svg";
 import check from "../../../icons/svg/check.svg";
@@ -57,6 +58,7 @@ export default {
   action_help_default,
   action_help_outline,
   action_launch,
+  alert_notification_important,
   arrow,
   brooklyn,
   check,
