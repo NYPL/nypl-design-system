@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { withDesign } from "storybook-addon-designs";
 
+import { ImageRatios, ImageSizes, ImageTypes } from "../Image/ImageTypes";
 import StructuredContent from "./StructuredContent";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -43,11 +44,11 @@ import DSProvider from "../../theme/provider";
       <StructuredContent
         calloutContent="this is the callout"
         headingText="heading text"
-        imageAspectRatio="ImageRatios.ThreeByTwo"
+        imageAspectRatio={ImageRatios.ThreeByTwo}
         imageCaption="Image caption"
         imageCredit="Image credit"
         imagePosition="left"
-        imageSize="ImageSizes.Medium"
+        imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
         textContent="this is the text"
       />

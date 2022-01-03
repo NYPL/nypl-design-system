@@ -88,7 +88,8 @@ export default function StructuredContent(
         imageSize={imageSize}
         src={imageSrc}
       />
-      <Box _dangerouslySetInnerHTML={{ __html: textContent }} />
+      {/* <Box _dangerouslySetInnerHTML={{ __html: textContent }} /> */}
+      <Box>{textContent}</Box>
     </Box>
   );
 }
