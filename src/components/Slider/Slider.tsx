@@ -103,8 +103,9 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     typeof defaultValue === "number" ? [min, max] : defaultValue;
   // We need to set the default value correctly for both types of sliders.
   const finalDevaultValue = isRangeSlider ? rangeSliderDefault : defaultValue;
-  const [currentValue, setCurrentValue] =
-    React.useState<typeof defaultValue>(finalDevaultValue);
+  const [currentValue, setCurrentValue] = React.useState<typeof defaultValue>(
+    finalDevaultValue
+  );
   let finalIsInvalid = isInvalid;
   // In the Range Slider, if the first value is bigger than the second value,
   // then set the invalid state.

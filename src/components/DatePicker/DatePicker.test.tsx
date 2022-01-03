@@ -368,7 +368,7 @@ describe("DatePicker", () => {
     // Note: Have to add an initial date so that the snapshot tests always
     // pass. Otherwise, it'll use the _current_ date which changes
     // based on the day it is tested and is not what we want.
-    it.skip("renders the UI snapshot correctly", () => {
+    it("renders the UI snapshot correctly", () => {
       const basic = renderer
         .create(
           <DatePicker
@@ -805,10 +805,12 @@ describe("DatePicker", () => {
       const input = screen.getByLabelText(
         /Select the year you want to visit NYPL/i
       );
-      const [year] = getTodaysValues();
+      const mockYear = 2021;
 
       expect(
-        screen.queryByText(`${(year as any) - 4} - ${(year as any) + 7}`)
+        screen.queryByText(
+          `${(mockYear as any) - 4} - ${(mockYear as any) + 7}`
+        )
       ).not.toBeInTheDocument();
 
       userEvent.click(input);
@@ -817,16 +819,16 @@ describe("DatePicker", () => {
       // before the current year to seven years after the current year. For year
       // 2021, it will display 2017 - 2028.
       expect(
-        screen.getByText(`${(year as any) - 4} - ${(year as any) + 7}`)
+        screen.getByText(`${(mockYear as any) - 4} - ${(mockYear as any) + 7}`)
       ).toBeInTheDocument();
       // This calendar displays 12 years to select from.
       // It should display the four previous years from the current year.
       for (let i = 4; i > 0; i--) {
-        expect(screen.getByText((year as any) - i)).toBeInTheDocument();
+        expect(screen.getByText((mockYear as any) - i)).toBeInTheDocument();
       }
       // It should display the eight next years from the current year.
       for (let i = 0; i < 8; i++) {
-        expect(screen.getByText((year as any) + i)).toBeInTheDocument();
+        expect(screen.getByText((mockYear as any) + i)).toBeInTheDocument();
       }
     });
 
