@@ -81,7 +81,12 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
   const imageComponent: JSX.Element = component ? (
     component
   ) : (
-    <Box as="img" src={src} alt={alt} __css={styles.img} />
+    <Box
+      as="img"
+      src={src}
+      alt={alt}
+      __css={{ ...styles.img, ...additionalStyles }}
+    />
   );
   const finalImage = useImageWrapper ? (
     <ImageWrapper
@@ -97,7 +102,7 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
   );
 
   return imageCaption || imageCredit ? (
-    <Box as="figure" __css={styles.figure}>
+    <Box as="figure" __css={{ ...styles.figure, ...additionalStyles }}>
       {finalImage}
       <Box as="figcaption" __css={styles.figcaption}>
         {imageCaption && (
