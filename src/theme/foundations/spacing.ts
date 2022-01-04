@@ -22,6 +22,7 @@
  *
  * Chakra Number Value | Chakra Name value | DS Variable
  * ------------------- | ----------------- | -----------------
+ *        0.5            |         xxxs       |   --nypl-space-xxxs
  *        1            |         xxs       |   --nypl-space-xxs
  *        2            |         xs        |   --nypl-space-xs
  *        4            |         s         |   --nypl-space-s
@@ -34,6 +35,8 @@
 export const spacing = {
   px: "1px",
   0: "0",
+  // --nypl-space-xxxs = 2px
+  xxxs: "0.125rem",
   0.5: "0.125rem",
   // --nypl-space-xxs = 4px
   xxs: "0.25rem",

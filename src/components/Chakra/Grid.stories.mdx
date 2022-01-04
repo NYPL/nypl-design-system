@@ -11,6 +11,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
+| Latest            | `0.25.1`   |
 
 Note: This needs the use of the `DSProvider` component. See the
 [README](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page#dsprovider)
@@ -63,16 +64,12 @@ the `templateColumns` and `templateRows`.
       height="200px"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(5, 1fr)"
-      gap="32"
+      gap="l"
     >
-      <GridItem
-        rowSpan={2}
-        colSpan={1}
-        bg="var(--nypl-colors-ui-link-primary)"
-      />
-      <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-primary)" />
-      <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-secondary)" />
-      <GridItem colSpan={4} bg="var(--nypl-colors-ui-link-secondary)" />
+      <GridItem rowSpan={2} colSpan={1} bg="ui.link.primary" />
+      <GridItem colSpan={2} bg="ui.success.primary" />
+      <GridItem colSpan={2} bg="ui.success.secondary" />
+      <GridItem colSpan={4} bg="ui.link.secondary" />
     </Grid>
   </DSProvider>
 </Canvas>
@@ -82,11 +79,11 @@ the `templateColumns` and `templateRows`.
   height="200px"
   templateRows="repeat(2, 1fr)"
   templateColumns="repeat(5, 1fr)"
-  gap="32"
+  gap="l"
 >
-  <GridItem rowSpan={2} colSpan={1} bg="var(--nypl-colors-ui-link-primary)" />
-  <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-primary)" />
-  <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-secondary)" />
-  <GridItem colSpan={4} bg="var(--nypl-colors-ui-link-secondary)" />
+  <GridItem rowSpan={2} colSpan={1} bg="ui.link.primary" />
+  <GridItem colSpan={2} bg="ui.success.primary" />
+  <GridItem colSpan={2} bg="ui.success.secondary" />
+  <GridItem colSpan={4} bg="ui.link.secondary" />
 </Grid>
 ```

@@ -3,5 +3,6 @@ export enum LinkTypes {
   Backwards = "backwards",
   Button = "button",
   Default = "default",
+  External = "external",
   Forwards = "forwards",
 }
