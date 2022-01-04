@@ -6,8 +6,8 @@ const svgBase = {
 };
 const align = {
   none: {},
-  left: { marginRight: "xs" },
-  right: { marginLeft: "xs" },
+  left: { marginRight: "xxs" },
+  right: { marginLeft: "xxs" },
 };
 const iconRotation = {
   rotate180: {

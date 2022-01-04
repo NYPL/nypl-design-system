@@ -15,7 +15,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `ExtraSmall` and `ExtraExtraSmall` size variants to the `Image` component.
 - Adds `ExtraSmall` and `ExtraExtraSmall` size variants for `CardImage` in the `Card` component.
 - Adds `AlertNotificationImportant` icon to `Icon` component.
-- Adds `Toggle` component
+- Adds `Toggle` component.
+- Adds `xxxs` (2px) spacing option to DS design tokens.
+- Adds `external` variant to `Link` component.
 
 ### Changes
 
@@ -23,6 +25,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background color for the `Locations` variant in the `Breadcrumbs` component from `section.locations.secondary` to `section.locations.primary`.
 - Updates the `Notification` component to show the `AlertNotificationImportant` icon for the `Standard` variant.
 - Reduces the bottom margin on labels and legends for form components from "16px" to "8px", or "s" to "sx" in Chakra-theme variables.
+- Updates docs for Chakra `Grid` component to use theme object values rather than CSS variables.
+- Updates the spacing in the `Notification` component to improve the alignment of the icon and text elements.
 
 ### Fixes
 
