@@ -82,9 +82,6 @@ const NotificationHeading = {
       heading: {
         marginBottom: "0",
         marginTop: icon ? "xxxs" : "0",
-        // Using Chakra spacing value instead of NYPL-named
-        // value to get the desired spacing.
-        marginLeft: icon ? null : "10",
         color,
       },
     };

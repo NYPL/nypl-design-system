@@ -177,7 +177,7 @@ export default function Notification(props: NotificationProps) {
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText = childHeading && (!!icon || !centered);
+  const alignText = childHeading && showIcon && (!!icon || !centered);
   const childContent = (
     <NotificationContent
       alignText={alignText}
