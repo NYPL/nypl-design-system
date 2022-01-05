@@ -24,8 +24,10 @@ jobs:
         with:
           useLockFile: false
       - name: Lint
-        # temporary
-        run: npm run test
+        uses: wearerequired/lint-action@v1
+        with:
+          eslint: true
+          prettier: true
 
   typecheck:
     name: Typecheck
