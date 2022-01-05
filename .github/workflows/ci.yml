@@ -27,6 +27,7 @@ jobs:
         uses: wearerequired/lint-action@v1
         with:
           prettier: true
+          prettier_dir: src/
 
   typecheck:
     name: Typecheck
