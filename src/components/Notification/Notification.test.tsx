@@ -13,8 +13,8 @@ describe("Notification Accessibility", () => {
     const { container } = render(
       <Notification
         id="notificationID"
-        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -29,6 +29,18 @@ describe("Notification Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test without an icon", async () => {
+    const { container } = render(
+      <Notification
+        id="notificationID"
+        notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+        showIcon={false}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Notification", () => {
@@ -37,8 +49,8 @@ describe("Notification", () => {
     utils = render(
       <Notification
         id="notificationID"
-        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
       />
     );
   });
@@ -56,21 +68,34 @@ describe("Notification", () => {
     expect(screen.queryByRole("img")).toBeInTheDocument();
   });
 
-  it("renders a custom Icon component", () => {
+  it("does not render an Icon", () => {
     utils.rerender(
       <Notification
         id="notificationID"
+        notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+        showIcon={false}
+      />
+    );
+    // The Icon's role is "img".
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+  });
+
+  it("renders a custom Icon component", () => {
+    utils.rerender(
+      <Notification
         icon={
           <Icon
             id="custom-icon"
+            className="custom-icon"
+            color={IconColors.BrandPrimary}
             name={IconNames.Check}
             size={IconSizes.Large}
-            color={IconColors.BrandPrimary}
-            className="custom-icon"
           />
         }
-        notificationHeading="Notification Heading"
+        id="notificationID"
         notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
       />
     );
     expect(utils.container.querySelector(".custom-icon")).toBeInTheDocument();
@@ -80,9 +105,9 @@ describe("Notification", () => {
     utils.rerender(
       <Notification
         id="notificationID"
-        notificationType={NotificationTypes.Announcement}
-        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+        notificationType={NotificationTypes.Announcement}
       />
     );
 
@@ -96,9 +121,9 @@ describe("Notification", () => {
     utils.rerender(
       <Notification
         id="notificationID"
-        notificationType={NotificationTypes.Warning}
-        notificationHeading="Notification Heading"
         notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+        notificationType={NotificationTypes.Warning}
       />
     );
 
@@ -113,8 +138,8 @@ describe("Notification", () => {
       .create(
         <Notification
           id="notificationID1"
-          notificationHeading="Notification Heading"
           notificationContent={<>Notification content.</>}
+          notificationHeading="Notification Heading"
         />
       )
       .toJSON();
@@ -122,9 +147,9 @@ describe("Notification", () => {
       .create(
         <Notification
           id="notificationID2"
-          notificationType={NotificationTypes.Announcement}
-          notificationHeading="Notification Heading"
           notificationContent={<>Notification content.</>}
+          notificationHeading="Notification Heading"
+          notificationType={NotificationTypes.Announcement}
         />
       )
       .toJSON();
@@ -132,9 +157,9 @@ describe("Notification", () => {
       .create(
         <Notification
           id="notificationID3"
-          notificationType={NotificationTypes.Warning}
-          notificationHeading="Notification Heading"
           notificationContent={<>Notification content.</>}
+          notificationHeading="Notification Heading"
+          notificationType={NotificationTypes.Warning}
         />
       )
       .toJSON();
@@ -146,9 +171,30 @@ describe("Notification", () => {
         />
       )
       .toJSON();
+    const withoutAnIcon = renderer
+      .create(
+        <Notification
+          id="notificationID5"
+          notificationHeading="Notification Heading"
+          notificationContent={<>Notification content.</>}
+          showIcon={false}
+        />
+      )
+      .toJSON();
+    const withoutHeadingAndIcon = renderer
+      .create(
+        <Notification
+          id="notificationID6"
+          notificationContent={<>Notification content.</>}
+          showIcon={false}
+        />
+      )
+      .toJSON();
     expect(standard).toMatchSnapshot();
     expect(announcement).toMatchSnapshot();
     expect(warning).toMatchSnapshot();
     expect(withoutHeading).toMatchSnapshot();
+    expect(withoutAnIcon).toMatchSnapshot();
+    expect(withoutHeadingAndIcon).toMatchSnapshot();
   });
 });
