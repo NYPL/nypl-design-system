@@ -15,6 +15,8 @@ interface ImageWrapperProps {
 }
 
 export interface ImageProps extends ImageWrapperProps {
+  /** Optionally pass in additional Chakra-based styles only for the image. */
+  additionalImageStyles?: { [key: string]: any };
   /** Alternate text description of the image */
   alt: string;
   /** Custom image component */
@@ -57,6 +59,7 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
 
 export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
   const {
+    additionalImageStyles = {},
     additionalStyles = {},
     alt,
     className = "",
@@ -85,7 +88,7 @@ export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
       as="img"
       src={src}
       alt={alt}
-      __css={{ ...styles.img, ...additionalStyles }}
+      __css={{ ...styles.img, ...additionalImageStyles }}
     />
   );
   const finalImage = useImageWrapper ? (

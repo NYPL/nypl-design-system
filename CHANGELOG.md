@@ -15,7 +15,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `ExtraSmall` and `ExtraExtraSmall` size variants to the `Image` component.
 - Adds `ExtraSmall` and `ExtraExtraSmall` size variants for `CardImage` in the `Card` component.
 - Adds `AlertNotificationImportant` icon to `Icon` component.
-- Adds `Toggle` component
+- Adds `Toggle` component.
+- Adds the `StructuredContent` component.
+- Adds the `additionalImageStyles` prop to the `Image` component to specifically target the `img` element's style and not just the `Image`'s component wrappers.
 
 ### Changes
 

@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StructuredContent renders the UI snapshot 1`] = `
+<div
+  className="css-0"
+  id="f2afa037-1e24-425d-8a87-7110a021c90a"
+>
+  <h2
+    className="chakra-heading css-0"
+  >
+    Heading text
+  </h2>
+  <h3
+    className="chakra-heading css-0"
+  >
+    This is the callout text
+  </h3>
+  <figure
+    className="css-0"
+  >
+    <img
+      alt="Image alt text"
+      className="css-0"
+      src="https://placeimg.com/400/300/animals"
+    />
+    <figcaption
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Image caption
+      </div>
+      <div
+        className="css-0"
+      >
+        Image credit
+      </div>
+    </figcaption>
+  </figure>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`StructuredContent renders the UI snapshot 2`] = `
+<div
+  className="css-0"
+  id="2bf81043-5153-43cf-bd75-2b3d738af757"
+>
+  <h2
+    className="chakra-heading css-0"
+  >
+    Heading text
+  </h2>
+  <h3
+    className="chakra-heading css-0"
+  >
+    This is the callout text
+  </h3>
+  <figure
+    className="css-0"
+  >
+    <img
+      alt="Image alt text"
+      className="css-0"
+      src="https://placeimg.com/400/300/animals"
+    />
+    <figcaption
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Image caption
+      </div>
+      <div
+        className="css-0"
+      >
+        Image credit
+      </div>
+    </figcaption>
+  </figure>
+  <div
+    className="css-0"
+  >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt.
+      <a
+        href="http://nypl.org"
+      >
+        Porttitor eget dolor
+      </a>
+       morbi non arcu risus quis varius. Faucibus in ornare quam viverra orci sagittis.
+    </p>
+    <p>
+      Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum. Diam maecenas sed enim ut sem viverra.
+       
+      <b>
+        Diam quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.
+      </b>
+    </p>
+    <p>
+      Ornare lectus sit amet est placerat in. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.
+    </p>
+    <ul>
+      <li>
+        one
+      </li>
+      <li>
+        two
+      </li>
+      <li>
+        three
+      </li>
+      <li>
+        four
+      </li>
+    </ul>
+    <p>
+      <i>
+        Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus gravida quis blandit turpis cursus in hac. Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam ut venenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus arcu felis bibendum ut tristique. Cras semper auctor neque vitae tempus quam pellentesque. Placerat orci nulla pellentesque dignissim enim sit amet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesque dignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisi est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risus 'viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius vel' pharetra.
+      </i>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`StructuredContent renders the UI snapshot 3`] = `
+<div
+  className="css-0"
+  id="c5130183-e215-4ed3-aa4e-50493717c89c"
+>
+  <h2
+    className="chakra-heading css-0"
+  >
+    Heading text
+  </h2>
+  <h3
+    className="chakra-heading css-0"
+  >
+    This is the callout text
+  </h3>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`StructuredContent renders the UI snapshot 4`] = `
+<div
+  className="css-0"
+  id="502e3ea6-01f6-408b-b21d-05f04487bdc0"
+>
+  <h2
+    className="chakra-heading css-0"
+  >
+    Heading text
+  </h2>
+  <h3
+    className="chakra-heading css-0"
+  >
+    This is the callout text
+  </h3>
+  <img
+    alt="Image alt text"
+    className="css-0"
+    src="https://placeimg.com/400/300/animals"
+  />
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`StructuredContent renders the UI snapshot 5`] = `
+<div
+  className="css-0"
+  id="5343cc37-cf53-40e5-b9c0-b4c6ec1e9ed0"
+>
+  <h3
+    className="chakra-heading css-0"
+  >
+    This is the callout text
+  </h3>
+  <figure
+    className="css-0"
+  >
+    <img
+      alt="Image alt text"
+      className="css-0"
+      src="https://placeimg.com/400/300/animals"
+    />
+    <figcaption
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Image caption
+      </div>
+      <div
+        className="css-0"
+      >
+        Image credit
+      </div>
+    </figcaption>
+  </figure>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`StructuredContent renders the UI snapshot 6`] = `
+<div
+  className="css-0"
+  id="36ecddd7-753b-488a-945d-32549cad1333"
+>
+  <h2
+    className="chakra-heading css-0"
+  >
+    Heading text
+  </h2>
+  <figure
+    className="css-0"
+  >
+    <img
+      alt="Image alt text"
+      className="css-0"
+      src="https://placeimg.com/400/300/animals"
+    />
+    <figcaption
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Image caption
+      </div>
+      <div
+        className="css-0"
+      >
+        Image credit
+      </div>
+    </figcaption>
+  </figure>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. <a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius.Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium lectusquam id leo in. Etiam dignissim diam quis enim lobortis scelerisque fermentum.Diam maecenas sed enim ut sem viverra. <b>Diam quam nulla porttitor massaid neque. Sed faucibus turpis in eu mi.</b></p><p>Ornare lectus sit amet est placeratin. Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam sollicitudintempor id eu. Pellentesque eu tincidunt tortor aliquam nulla facilisi crasfermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiatnisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipittellus mauris a diam. Purus gravida quis blandit turpis cursus in hac.Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam utvenenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamusarcu felis bibendum ut tristique. Cras semper auctor neque vitae tempusquam pellentesque. Placerat orci nulla pellentesque dignissim enim sitamet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesquedignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisiest sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risusviverra adipiscing at. Eu augue ut lectus arcu bibendum at varius velpharetra.</i></p>",
+      }
+    }
+  />
+</div>
+`;

@@ -2,19 +2,14 @@ import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
+import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Image, { ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import { StructuredContentImagePosition } from "./StructuredContentTypes";
 import generateUUID from "../../helpers/generateUUID";
 
-export enum StructuredContentImagePosition {
-  Left = "left",
-  Right = "right",
-  Center = "center",
-}
-
 export interface StructuredContentProps {
-  calloutContent?: string | JSX.Element;
+  calloutContent?: string;
   /** Additional class name for the StructuredContent component. */
   className?: string;
   headingText?: string;
@@ -36,6 +31,7 @@ export interface StructuredContentProps {
  */
 function StructuredContentImage(props: ImageProps) {
   const {
+    additionalImageStyles,
     additionalStyles,
     alt,
     component,
@@ -47,6 +43,7 @@ function StructuredContentImage(props: ImageProps) {
   } = props;
   return (
     <Image
+      additionalImageStyles={additionalImageStyles}
       additionalStyles={additionalStyles}
       alt={alt}
       component={component}
@@ -60,7 +57,8 @@ function StructuredContentImage(props: ImageProps) {
 }
 
 /**
- * The `StructuredContent` component.
+ * The `StructuredContent` component that displays a heading, callout content,
+ * an image, and text content. All are optional except for text content.
  */
 export default function StructuredContent(
   props: React.PropsWithChildren<StructuredContentProps>
@@ -71,7 +69,7 @@ export default function StructuredContent(
     headingText,
     id = generateUUID(),
     imageAlt = "",
-    imageAspectRatio = ImageRatios.Original,
+    imageAspectRatio = ImageRatios.Square,
     imageCaption,
     imageComponent,
     imageCredit,
@@ -93,7 +91,7 @@ export default function StructuredContent(
 
   if (hasImage && !imageAlt) {
     console.warn(
-      "StructuredContent: `imageAlt` prop is required when using an image"
+      "StructuredContent: `imageAlt` prop is required when using an image."
     );
   }
 
@@ -103,11 +101,17 @@ export default function StructuredContent(
         <Heading level={HeadingLevels.Two}>{headingText}</Heading>
       )}
       {calloutContent && (
-        <Heading level={HeadingLevels.Four}>{calloutContent}</Heading>
+        <Heading
+          level={HeadingLevels.Three}
+          displaySize={HeadingDisplaySizes.Callout}
+        >
+          {calloutContent}
+        </Heading>
       )}
       {hasImage && (
         <StructuredContentImage
-          additionalStyles={styles.image}
+          additionalImageStyles={styles.image}
+          additionalStyles={styles.imageContainer}
           alt={imageAlt}
           component={imageComponent}
           imageAspectRatio={imageAspectRatio}
