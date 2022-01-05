@@ -18,10 +18,6 @@ export const ratiosEnumValues = getStorybookEnumValues(
   VideoPlayerAspectRatios,
   "VideoPlayerAspectRatios"
 );
-export const typesEnumValues = getStorybookEnumValues(
-  VideoPlayerTypes,
-  "VideoPlayerTypes"
-);
 
 <Meta
   title={getCategory("VideoPlayer")}
@@ -44,14 +40,8 @@ export const typesEnumValues = getStorybookEnumValues(
     showHelperInvalidText: {
       table: { defaultValue: { summary: true } },
     },
-    useEmbed: {
-      description:
-        "Only used in Storybook. If `true`, set the `embedCode` prop. If `false`, set both the `videoType` and `videoId` props.",
-    },
-    videoType: {
-      control: { type: "select" },
-      options: typesEnumValues.options,
-    },
+    videoId: { control: false },
+    videoType: { control: false },
   }}
 />
 
@@ -85,26 +75,15 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
       id: "videoPlayer-id",
       iframeTitle: undefined,
       showHelperInvalidText: true,
-      useEmbed: true,
-      videoId: "474719268",
-      videoType: "VideoPlayerTypes.Vimeo",
+      videoId: undefined,
+      videoType: undefined,
     }}
   >
     {(args) => (
       <VideoPlayer
         {...args}
-        embedCode={args.useEmbed && args.embedCode}
-        aspectRatio={
-          !args.useEmbed && ratiosEnumValues.getValue(args.aspectRatio)
-        }
-        videoId={
-          !args.useEmbed
-            ? args.videoType === "VideoPlayerTypes.Vimeo"
-              ? args.videoId || "474719268"
-              : args.videoId || "nm-dD2tx6bk"
-            : undefined
-        }
-        videoType={!args.useEmbed && typesEnumValues.getValue(args.videoType)}
+        embedCode={args.embedCode}
+        aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
       />
     )}
   </Story>
