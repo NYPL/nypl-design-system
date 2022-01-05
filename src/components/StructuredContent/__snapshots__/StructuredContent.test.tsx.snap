@@ -241,11 +241,11 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
 exports[`StructuredContent renders the UI snapshot 6`] = `
 <div
   className="css-0"
-  id="withoutCalloutContent"
+  id="withoutCalloutText"
 >
   <h2
     className="chakra-heading css-0"
-    id="withoutCalloutContent-heading"
+    id="withoutCalloutText-heading"
   >
     Heading text
   </h2>

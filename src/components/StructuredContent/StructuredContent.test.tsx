@@ -7,7 +7,7 @@ import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import StructuredContent from "./StructuredContent";
 import { StructuredContentImagePosition } from "./StructuredContentTypes";
 
-const htmlStringTextContent =
+const htmlStringBodyContent =
   "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
   "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
   "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
@@ -32,7 +32,7 @@ const htmlStringTextContent =
   "est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risus" +
   "viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius vel" +
   "pharetra.</i></p>";
-const htmlDOMTextContent = (
+const htmlDOMBodyContent = (
   <>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -83,7 +83,7 @@ describe("StructuredContent Accessibility", () => {
   it("passes axe accessibility for HTML string text content", async () => {
     const { container } = render(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
         imageAlt="Image alt text"
         imageAspectRatio={ImageRatios.Original}
@@ -92,7 +92,7 @@ describe("StructuredContent Accessibility", () => {
         imagePosition={StructuredContentImagePosition.Left}
         imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -101,7 +101,7 @@ describe("StructuredContent Accessibility", () => {
   it("passes axe accessibility for HTML DOM text content", async () => {
     const { container } = render(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
         imageAlt="Image alt text"
         imageAspectRatio={ImageRatios.Original}
@@ -110,7 +110,7 @@ describe("StructuredContent Accessibility", () => {
         imagePosition={StructuredContentImagePosition.Left}
         imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
-        textContent={htmlDOMTextContent}
+        bodyContent={htmlDOMBodyContent}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -119,9 +119,9 @@ describe("StructuredContent Accessibility", () => {
   it("passes axe accessibility without an image", async () => {
     const { container } = render(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -132,7 +132,7 @@ describe("StructuredContent", () => {
   it("renders two headings, an image, and body text", () => {
     render(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
         imageAlt="Image alt text"
         imageAspectRatio={ImageRatios.Original}
@@ -141,7 +141,7 @@ describe("StructuredContent", () => {
         imagePosition={StructuredContentImagePosition.Left}
         imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
     const mainHeading = screen.getByRole("heading", { level: 2 });
@@ -163,7 +163,7 @@ describe("StructuredContent", () => {
         imagePosition={StructuredContentImagePosition.Left}
         imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
     const mainHeading = screen.queryByRole("heading", { level: 2 });
@@ -178,9 +178,9 @@ describe("StructuredContent", () => {
   it("optionally renders without the image", () => {
     render(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
     const mainHeading = screen.getByRole("heading", { level: 2 });
@@ -196,7 +196,7 @@ describe("StructuredContent", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
         imageAspectRatio={ImageRatios.Original}
         imageCaption="Image caption"
@@ -204,7 +204,7 @@ describe("StructuredContent", () => {
         imagePosition={StructuredContentImagePosition.Left}
         imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
 
@@ -214,10 +214,33 @@ describe("StructuredContent", () => {
     expect(screen.getByRole("img")).toBeInTheDocument();
   });
 
+  it("logs a warning when an image is positioned center but has a size other than default", () => {
+    const warn = jest.spyOn(console, "warn");
+    const imageSize = ImageSizes.Large;
+    render(
+      <StructuredContent
+        calloutText="This is the callout text"
+        headingText="Heading text"
+        imageAspectRatio={ImageRatios.Original}
+        imageCaption="Image caption"
+        imageCredit="Image credit"
+        imagePosition={StructuredContentImagePosition.Center}
+        imageSize={imageSize}
+        imageSrc="https://placeimg.com/400/300/animals"
+        bodyContent={htmlStringBodyContent}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      `StructuredContent: image size "${imageSize}" is not supported when using the center image position.`
+    );
+    expect(screen.getByRole("img")).toBeInTheDocument();
+  });
+
   it("renders an image wrapped in figure when provided an image caption or credit", () => {
     const { rerender } = render(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
         imageAlt="Image alt text"
         imageAspectRatio={ImageRatios.Original}
@@ -226,7 +249,7 @@ describe("StructuredContent", () => {
         imagePosition={StructuredContentImagePosition.Left}
         imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -237,7 +260,7 @@ describe("StructuredContent", () => {
     // Not passing in the image's caption
     rerender(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
         imageAlt="Image alt text"
         imageAspectRatio={ImageRatios.Original}
@@ -245,7 +268,7 @@ describe("StructuredContent", () => {
         imagePosition={StructuredContentImagePosition.Left}
         imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -257,14 +280,14 @@ describe("StructuredContent", () => {
   it("renders a simple image element when no image caption or credit are provided", () => {
     render(
       <StructuredContent
-        calloutContent="This is the callout text"
+        calloutText="This is the callout text"
         headingText="Heading text"
         imageAlt="Image alt text"
         imageAspectRatio={ImageRatios.Original}
         imagePosition={StructuredContentImagePosition.Left}
         imageSize={ImageSizes.Medium}
         imageSrc="https://placeimg.com/400/300/animals"
-        textContent={htmlStringTextContent}
+        bodyContent={htmlStringBodyContent}
       />
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -277,7 +300,7 @@ describe("StructuredContent", () => {
     const withHTMLStringContent = renderer
       .create(
         <StructuredContent
-          calloutContent="This is the callout text"
+          calloutText="This is the callout text"
           headingText="Heading text"
           id="withHTMLStringContent"
           imageAlt="Image alt text"
@@ -287,14 +310,14 @@ describe("StructuredContent", () => {
           imagePosition={StructuredContentImagePosition.Left}
           imageSize={ImageSizes.Medium}
           imageSrc="https://placeimg.com/400/300/animals"
-          textContent={htmlStringTextContent}
+          bodyContent={htmlStringBodyContent}
         />
       )
       .toJSON();
     const withHTMLDOMContent = renderer
       .create(
         <StructuredContent
-          calloutContent="This is the callout text"
+          calloutText="This is the callout text"
           headingText="Heading text"
           id="withHTMLDOMContent"
           imageAlt="Image alt text"
@@ -304,24 +327,24 @@ describe("StructuredContent", () => {
           imagePosition={StructuredContentImagePosition.Left}
           imageSize={ImageSizes.Medium}
           imageSrc="https://placeimg.com/400/300/animals"
-          textContent={htmlDOMTextContent}
+          bodyContent={htmlDOMBodyContent}
         />
       )
       .toJSON();
     const withoutAnImage = renderer
       .create(
         <StructuredContent
-          calloutContent="This is the callout text"
+          calloutText="This is the callout text"
           headingText="Heading text"
           id="withoutAnImage"
-          textContent={htmlStringTextContent}
+          bodyContent={htmlStringBodyContent}
         />
       )
       .toJSON();
     const withImageWithoutCaptionOrCredit = renderer
       .create(
         <StructuredContent
-          calloutContent="This is the callout text"
+          calloutText="This is the callout text"
           headingText="Heading text"
           id="withImageWithoutCaptionOrCredit"
           imageAlt="Image alt text"
@@ -329,14 +352,14 @@ describe("StructuredContent", () => {
           imagePosition={StructuredContentImagePosition.Left}
           imageSize={ImageSizes.Medium}
           imageSrc="https://placeimg.com/400/300/animals"
-          textContent={htmlStringTextContent}
+          bodyContent={htmlStringBodyContent}
         />
       )
       .toJSON();
     const withoutHeading = renderer
       .create(
         <StructuredContent
-          calloutContent="This is the callout text"
+          calloutText="This is the callout text"
           id="withoutHeading"
           imageAlt="Image alt text"
           imageAspectRatio={ImageRatios.Original}
@@ -345,15 +368,15 @@ describe("StructuredContent", () => {
           imagePosition={StructuredContentImagePosition.Left}
           imageSize={ImageSizes.Medium}
           imageSrc="https://placeimg.com/400/300/animals"
-          textContent={htmlStringTextContent}
+          bodyContent={htmlStringBodyContent}
         />
       )
       .toJSON();
-    const withoutCalloutContent = renderer
+    const withoutCalloutText = renderer
       .create(
         <StructuredContent
           headingText="Heading text"
-          id="withoutCalloutContent"
+          id="withoutCalloutText"
           imageAlt="Image alt text"
           imageAspectRatio={ImageRatios.Original}
           imageCaption="Image caption"
@@ -361,7 +384,7 @@ describe("StructuredContent", () => {
           imagePosition={StructuredContentImagePosition.Left}
           imageSize={ImageSizes.Medium}
           imageSrc="https://placeimg.com/400/300/animals"
-          textContent={htmlStringTextContent}
+          bodyContent={htmlStringBodyContent}
         />
       )
       .toJSON();
@@ -371,6 +394,6 @@ describe("StructuredContent", () => {
     expect(withoutAnImage).toMatchSnapshot();
     expect(withImageWithoutCaptionOrCredit).toMatchSnapshot();
     expect(withoutHeading).toMatchSnapshot();
-    expect(withoutCalloutContent).toMatchSnapshot();
+    expect(withoutCalloutText).toMatchSnapshot();
   });
 });

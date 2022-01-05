@@ -1,6 +1,6 @@
 const StructuredContent = {
   parts: ["image", "imageContainer"],
-  baseStyle: ({ imagePosition }) => {
+  baseStyle: ({ imagePosition, noImageWrapper }) => {
     const styles: { maxWidth?: string } = {};
     if (imagePosition === "center") {
       styles.maxWidth = "100%";
@@ -28,6 +28,7 @@ const StructuredContent = {
         // To handle the case when the image does not have a container,
         // e.g. when there is no image caption or credit.
         float: imagePosition !== "center" ? imagePosition : undefined,
+        marginBottom: noImageWrapper ? "m" : null,
         ...styles,
       },
     };
