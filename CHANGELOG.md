@@ -16,6 +16,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `ExtraSmall` and `ExtraExtraSmall` size variants for `CardImage` in the `Card` component.
 - Adds `AlertNotificationImportant` icon to `Icon` component.
 - Adds `Toggle` component.
+- Adds `xxxs` (2px) spacing option to DS design tokens.
+- Adds `external` variant to `Link` component.
 - Adds the `StructuredContent` component.
 - Adds the `additionalImageStyles` prop to the `Image` component to specifically target the `img` element's style and not just the `Image`'s component wrappers.
 
@@ -25,6 +27,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background color for the `Locations` variant in the `Breadcrumbs` component from `section.locations.secondary` to `section.locations.primary`.
 - Updates the `Notification` component to show the `AlertNotificationImportant` icon for the `Standard` variant.
 - Reduces the bottom margin on labels and legends for form components from "16px" to "8px", or "s" to "sx" in Chakra-theme variables.
+- Updates docs for Chakra `Grid` component to use theme object values rather than CSS variables.
+- Updates the spacing in the `Notification` component to improve the alignment of the icon and text elements.
 
 ### Fixes
 
@@ -42,10 +46,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds export statements for `ProgressIndicator` and `Slider` components to `index.ts`.
 - Adds `Blogs` variant to `Breadcrumbs` component.
+- Adds the `placeholder` prop to the `Select` component.
 
 ### Changes
 
 - Adds "(Required)" text to the placeholder in the `SearchBar` component when `isRequired` is true.
+
+### Fixes
+
+- Updates the `Select` component's controlled state so that an initial empty `value` prop is acceptable.
 
 ## 0.25.5 (December 9, 2021)
 
