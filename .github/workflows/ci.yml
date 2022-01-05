@@ -24,10 +24,11 @@ jobs:
         with:
           useLockFile: false
       - name: Lint
-        uses: wearerequired/lint-action@v1
-        with:
-          prettier: true
-          prettier_dir: src/
+        run: npm run lint
+        # uses: wearerequired/lint-action@v1
+        # with:
+        #   prettier: true
+        #   prettier_dir: src/
 
   typecheck:
     name: Typecheck
