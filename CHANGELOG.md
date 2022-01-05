@@ -27,6 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Reduces the bottom margin on labels and legends for form components from "16px" to "8px", or "s" to "sx" in Chakra-theme variables.
 - Updates docs for Chakra `Grid` component to use theme object values rather than CSS variables.
 - Updates the spacing in the `Notification` component to improve the alignment of the icon and text elements.
+- Updates the `Notification` component to optionally display/hide the `Icon` in the heading or content area.
 
 ### Fixes
 
