@@ -99,6 +99,7 @@ const searchBar = {
   borderLeftRadius: "none",
   borderRightRadius: { base: "none", md: "sm" },
   lineHeight: "1.75",
+  marginBottom: "auto",
 };
 const noBrand = {
   ...primary,
