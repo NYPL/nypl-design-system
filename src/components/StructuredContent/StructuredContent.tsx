@@ -98,12 +98,15 @@ export default function StructuredContent(
   return (
     <Box id={id} className={className} __css={styles}>
       {headingText && (
-        <Heading level={HeadingLevels.Two}>{headingText}</Heading>
+        <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
+          {headingText}
+        </Heading>
       )}
       {calloutContent && (
         <Heading
-          level={HeadingLevels.Three}
           displaySize={HeadingDisplaySizes.Callout}
+          id={`${id}-callout`}
+          level={HeadingLevels.Three}
         >
           {calloutContent}
         </Heading>

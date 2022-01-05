@@ -3,15 +3,17 @@
 exports[`StructuredContent renders the UI snapshot 1`] = `
 <div
   className="css-0"
-  id="f2afa037-1e24-425d-8a87-7110a021c90a"
+  id="withHTMLStringContent"
 >
   <h2
     className="chakra-heading css-0"
+    id="withHTMLStringContent-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-0"
+    id="withHTMLStringContent-callout"
   >
     This is the callout text
   </h3>
@@ -51,15 +53,17 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
 exports[`StructuredContent renders the UI snapshot 2`] = `
 <div
   className="css-0"
-  id="2bf81043-5153-43cf-bd75-2b3d738af757"
+  id="withHTMLDOMContent"
 >
   <h2
     className="chakra-heading css-0"
+    id="withHTMLDOMContent-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-0"
+    id="withHTMLDOMContent-callout"
   >
     This is the callout text
   </h3>
@@ -134,15 +138,17 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
 exports[`StructuredContent renders the UI snapshot 3`] = `
 <div
   className="css-0"
-  id="c5130183-e215-4ed3-aa4e-50493717c89c"
+  id="withoutAnImage"
 >
   <h2
     className="chakra-heading css-0"
+    id="withoutAnImage-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-0"
+    id="withoutAnImage-callout"
   >
     This is the callout text
   </h3>
@@ -159,15 +165,17 @@ exports[`StructuredContent renders the UI snapshot 3`] = `
 exports[`StructuredContent renders the UI snapshot 4`] = `
 <div
   className="css-0"
-  id="502e3ea6-01f6-408b-b21d-05f04487bdc0"
+  id="withImageWithoutCaptionOrCredit"
 >
   <h2
     className="chakra-heading css-0"
+    id="withImageWithoutCaptionOrCredit-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-0"
+    id="withImageWithoutCaptionOrCredit-callout"
   >
     This is the callout text
   </h3>
@@ -189,10 +197,11 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
 exports[`StructuredContent renders the UI snapshot 5`] = `
 <div
   className="css-0"
-  id="5343cc37-cf53-40e5-b9c0-b4c6ec1e9ed0"
+  id="withoutHeading"
 >
   <h3
     className="chakra-heading css-0"
+    id="withoutHeading-callout"
   >
     This is the callout text
   </h3>
@@ -232,10 +241,11 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
 exports[`StructuredContent renders the UI snapshot 6`] = `
 <div
   className="css-0"
-  id="36ecddd7-753b-488a-945d-32549cad1333"
+  id="withoutCalloutContent"
 >
   <h2
     className="chakra-heading css-0"
+    id="withoutCalloutContent-heading"
   >
     Heading text
   </h2>

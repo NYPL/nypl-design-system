@@ -279,6 +279,7 @@ describe("StructuredContent", () => {
         <StructuredContent
           calloutContent="This is the callout text"
           headingText="Heading text"
+          id="withHTMLStringContent"
           imageAlt="Image alt text"
           imageAspectRatio={ImageRatios.Original}
           imageCaption="Image caption"
@@ -295,6 +296,7 @@ describe("StructuredContent", () => {
         <StructuredContent
           calloutContent="This is the callout text"
           headingText="Heading text"
+          id="withHTMLDOMContent"
           imageAlt="Image alt text"
           imageAspectRatio={ImageRatios.Original}
           imageCaption="Image caption"
@@ -311,6 +313,7 @@ describe("StructuredContent", () => {
         <StructuredContent
           calloutContent="This is the callout text"
           headingText="Heading text"
+          id="withoutAnImage"
           textContent={htmlStringTextContent}
         />
       )
@@ -320,6 +323,7 @@ describe("StructuredContent", () => {
         <StructuredContent
           calloutContent="This is the callout text"
           headingText="Heading text"
+          id="withImageWithoutCaptionOrCredit"
           imageAlt="Image alt text"
           imageAspectRatio={ImageRatios.Original}
           imagePosition={StructuredContentImagePosition.Left}
@@ -333,6 +337,7 @@ describe("StructuredContent", () => {
       .create(
         <StructuredContent
           calloutContent="This is the callout text"
+          id="withoutHeading"
           imageAlt="Image alt text"
           imageAspectRatio={ImageRatios.Original}
           imageCaption="Image caption"
@@ -348,6 +353,7 @@ describe("StructuredContent", () => {
       .create(
         <StructuredContent
           headingText="Heading text"
+          id="withoutCalloutContent"
           imageAlt="Image alt text"
           imageAspectRatio={ImageRatios.Original}
           imageCaption="Image caption"
