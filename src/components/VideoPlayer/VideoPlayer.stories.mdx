@@ -18,6 +18,10 @@ export const ratiosEnumValues = getStorybookEnumValues(
   VideoPlayerAspectRatios,
   "VideoPlayerAspectRatios"
 );
+export const typesEnumValues = getStorybookEnumValues(
+  VideoPlayerTypes,
+  "VideoPlayerTypes"
+);
 
 <Meta
   title={getCategory("VideoPlayer")}
@@ -33,6 +37,9 @@ export const ratiosEnumValues = getStorybookEnumValues(
   argTypes={{
     aspectRatio: {
       control: { type: "select" },
+      table: {
+        defaultValue: { summary: "VideoPlayerAspectRatios.SixteenByNine" },
+      },
       options: ratiosEnumValues.options,
     },
     className: { control: false },
@@ -40,8 +47,10 @@ export const ratiosEnumValues = getStorybookEnumValues(
     showHelperInvalidText: {
       table: { defaultValue: { summary: true } },
     },
-    videoId: { control: false },
-    videoType: { control: false },
+    videoType: {
+      control: { type: "select" },
+      options: typesEnumValues.options,
+    },
   }}
 />
 
@@ -82,8 +91,9 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
     {(args) => (
       <VideoPlayer
         {...args}
-        embedCode={args.embedCode}
         aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
+        embedCode={args.embedCode}
+        videoType={args.videoType && typesEnumValues.getValue(args.videoType)}
       />
     )}
   </Story>
