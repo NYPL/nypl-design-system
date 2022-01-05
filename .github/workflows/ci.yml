@@ -26,7 +26,6 @@ jobs:
       - name: Lint
         uses: wearerequired/lint-action@v1
         with:
-          eslint: true
           prettier: true
 
   typecheck:
