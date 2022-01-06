@@ -1,3 +1,11 @@
+export const baseLinkStyles = {
+  color: "ui.link.primary",
+  textDecoration: "underline",
+  _hover: {
+    color: "ui.link.secondary",
+  },
+};
+
 const variants = {
   link: {},
   disabled: {
@@ -38,13 +46,7 @@ const variants = {
   },
 };
 const Link = {
-  baseStyle: {
-    color: "ui.link.primary",
-    textDecoration: "underline",
-    _hover: {
-      color: "ui.link.secondary",
-    },
-  },
+  baseStyle: baseLinkStyles,
   variants,
 };
 

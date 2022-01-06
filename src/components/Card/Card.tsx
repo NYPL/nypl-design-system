@@ -192,6 +192,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     hasImage,
     imageAtEnd,
     layout,
+    mainActionLink,
   });
 
   React.Children.map(children, (child: React.ReactElement, key) => {

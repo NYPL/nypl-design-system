@@ -48,7 +48,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.8`   |
+| Latest            | `0.25.9`   |
 
 <Description of={Card} />
 
@@ -711,6 +711,49 @@ Instead of passing a path for the `imageSrc` prop, you can pass a custom image c
         </CardContent>
       </Card>
     </SimpleGrid>
+  </Story>
+</Canvas>
+
+## Card with Link Heading
+
+The `CardHeading` component works just like the DS `Heading` component. This
+means that a URL can be passed in the `url` prop for `CardHeading` or a `Link`
+component can be used as a child. Click on "Show code" in the example below to
+see both patterns.
+
+<Canvas>
+  <Story name="Card With Link Heading">
+    <Card
+      imageSrc="https://placeimg.com/400/200/animals"
+      imageAlt="Alt text"
+      imageAspectRatio={ImageRatios.TwoByOne}
+    >
+      <CardHeading
+        level={HeadingLevels.Three}
+        id="link-heading1"
+        url="http://nypl.org"
+      >
+        Go to NYPL home page.
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Four} id="link-heading2">
+        <>
+          Go to NYPL <Link href="http://nypl.org">home page</Link>.
+        </>
+      </CardHeading>
+      <CardContent>
+        This entire `Card` component is clickable, but the links below are still
+        accessible by tabbing through the `Card` and pressing `enter` or
+        clicking with a mouse.
+      </CardContent>
+      <CardActions>
+        <Link href="#" type={LinkTypes.Button}>
+          Button
+        </Link>
+        <Link href="#" type={LinkTypes.Forwards}>
+          Other link
+        </Link>
+      </CardActions>
+    </Card>
   </Story>
 </Canvas>
 

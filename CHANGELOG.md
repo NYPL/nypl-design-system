@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Minor change to the `Notification`'s heading component so it adds a proper id to `NotificationHeading`.
+- Updates the `Heading` component to use the DS `Link` component rather than Chakra's `Link` component.
+- Updates the style of links rendered in the `Heading` component so they are styled as standard links. The only exception is for links used in the `Card` component for the _full-click functionality_ feature. Otherwise, links in `Card` headings are styled as standard links.
+
 ## 0.25.8 (January 6, 2022)
 
 ### Adds
