@@ -54,6 +54,9 @@ export interface SearchBarProps {
   labelText: string;
   /** Adds 'method' property to the `form` element. */
   method?: string;
+  /** Sets the `Button` variant type to `ButtonTypes.NoBrand` when true;
+   * false by default which sets the type to `ButtonTypes.Primary`. */
+  noBrandButtonType?: boolean;
   /** Handler function when the form is submitted. */
   onSubmit: (event: React.FormEvent) => void;
   /** Required props to render a `Select` element. */
@@ -81,6 +84,7 @@ export default function SearchBar(props: SearchBarProps) {
     isRequired = false,
     labelText,
     method,
+    noBrandButtonType = false,
     onSubmit,
     selectProps,
     textInputElement,
@@ -102,6 +106,15 @@ export default function SearchBar(props: SearchBarProps) {
   const textInputPlaceholder = `${textInputProps?.placeholder} ${
     isRequired ? "(Required)" : ""
   }`;
+  const buttonType = noBrandButtonType
+    ? ButtonTypes.NoBrand
+    : ButtonTypes.Primary;
+  const searchBarButtonStyles = {
+    borderLeftRadius: "none",
+    borderRightRadius: { base: "none", md: "sm" },
+    lineHeight: "1.70",
+    marginBottom: "auto",
+  };
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
@@ -139,11 +152,12 @@ export default function SearchBar(props: SearchBarProps) {
   // Render the `Button` component.
   const buttonElem = (
     <Button
+      additionalStyles={searchBarButtonStyles}
+      buttonType={buttonType}
       id={generateUUID()}
-      buttonType={ButtonTypes.SearchBar}
-      type="submit"
-      onClick={buttonOnClick}
       isDisabled={isDisabled}
+      onClick={buttonOnClick}
+      type="submit"
     >
       <Icon
         name={IconNames.Search}

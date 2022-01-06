@@ -80,6 +80,7 @@ export const optionsGroup = [
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
+      noBrandButtonType: false,
       showHelperText: true,
       showSelect: true,
     }}
@@ -180,6 +181,10 @@ const textInputElement = <CustomInput {...props} />;
 A `Button` component will automatically be rendered for the `SearchBar`
 component. If you want to pass a callback function to the `Button`, use the
 `buttonOnClick` prop.
+
+It's also possible to render the `ButtonType.NoBrand` variant style when the
+`noBrandButtonType` prop is set to `true`. The `ButtonType.Primary` variant
+style is used by default.
 
 ### HelperErrorText Component
 

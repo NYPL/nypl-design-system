@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
+
+### Changes
+
+- Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
+
 ## 0.25.8 (January 6, 2022)
 
 ### Adds
