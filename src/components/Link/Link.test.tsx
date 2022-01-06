@@ -219,8 +219,9 @@ describe("Link", () => {
         <Link id="anchor-icon-link" type={LinkTypes.Action}>
           <>
             <Icon
-              name={IconNames.Check}
               align={IconAlign.Left}
+              id="link-icon"
+              name={IconNames.Check}
               size={IconSizes.Small}
             />
             <a href="#existing-anchor-tag">check link</a>
