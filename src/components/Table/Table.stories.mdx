@@ -8,6 +8,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Table from "./Table";
+import { TableCaption, Thead, Tbody, Tfoot, Tr, Th, Td, useStyleConfig } from "@chakra-ui/react";
 import DSProvider from "../../theme/provider";
 import { getCategory } from "../../utils/componentCategories";
 
@@ -42,11 +43,52 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={Table} />
 
-
 <Canvas withToolbar>
-  <Table>
-  ss
-  </Table>
+  <Story
+    name="Table"
+    args={{
+      columnHeaders: [ "First Name", "Last Name", "Nickname"],
+      tableData: [ [ "Tom", "Nook", "Tanukichi", ], [ "Isabelle", "-", "Shizue", ], [ "K.K.", "Slider", "Totakeke", ], [ "Sonny", "Resetti", "Risetto san", ], ]
+    }}
+  >
+    {(args) => (
+      <Table {...args}>
+        <TableCaption>Imperial to metric conversion factors</TableCaption>
+        <Thead>
+          <Tr>
+            <Th>To convert</Th>
+            <Th>into</Th>
+            <Th isNumeric>multiply by</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>inches</Td>
+            <Td>millimetres (mm)</Td>
+            <Td isNumeric>25.4</Td>
+          </Tr>
+          <Tr>
+            <Td>feet</Td>
+            <Td>centimetres (cm)</Td>
+            <Td isNumeric>30.48</Td>
+          </Tr>
+          <Tr>
+            <Td>yards</Td>
+            <Td>metres (m)</Td>
+            <Td isNumeric>0.91444</Td>
+          </Tr>
+        </Tbody>
+  
+        <Tfoot>
+          <Tr>
+            <Th>To convert</Th>
+            <Th>into</Th>
+            <Th isNumeric>multiply by</Th>
+          </Tr>
+        </Tfoot>
+      </Table>
+    )}
+  </Story>
 </Canvas>
 
 <ArgsTable story="Table" />

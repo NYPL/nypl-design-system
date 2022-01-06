@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Table as ChakraTable, useStyleConfig } from "@chakra-ui/react";
+import { TableDisplaySizes, TableDisplayColors } from "./TableTypes";
 
 //Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption
 
@@ -30,13 +31,13 @@ export interface TableProps {
 function Table(props: React.PropsWithChildren<TableProps>) {
   const {
     children,
-    className = "",
+    className,
     columnHeaders,
-    columnHeadersBackgroundColor = "",
-    columnHeadersTextColor,
+    columnHeadersBackgroundColor,
+    columnHeadersTextColor = TableDisplaySizes.Default,
     id,
-    useRowHeaders,
-    showRowDividers,
+    useRowHeaders = false,
+    showRowDividers = false,
     tableData,
     titleText
   } = props;
