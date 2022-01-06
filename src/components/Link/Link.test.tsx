@@ -1,16 +1,21 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import renderer from "react-test-renderer";
-
-import Link from "./Link";
-import { LinkTypes } from "./LinkTypes";
+import * as React from "react";
 import {
   BrowserRouter as Router,
   Link as ReactRouterLink,
 } from "react-router-dom";
+import renderer from "react-test-renderer";
+
+import Link from "./Link";
+import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
+import {
+  IconAlign,
+  IconNames,
+  IconRotationTypes,
+  IconSizes,
+} from "../Icons/IconTypes";
 
 describe("Link Accessibility", () => {
   it("passes axe accessibility test for children component", async () => {
@@ -121,11 +126,11 @@ describe("Link", () => {
 
   it("throws an error if text is passed but no url is passed", () => {
     expect(() => render(<Link>Test</Link>)).toThrowError(
-      "Link needs prop 'href'"
+      "`Link` needs the `href` prop."
     );
   });
 
-  it("throws an error if more than one child is passed", () => {
+  it("throws an error if more than one child element is passed", () => {
     expect(() =>
       render(
         <Link>
@@ -202,12 +207,36 @@ describe("Link", () => {
         </Link>
       )
       .toJSON();
+    const withAchorChild = renderer
+      .create(
+        <Link type={LinkTypes.Action}>
+          <a href="#existing-anchor-tag">check link</a>
+        </Link>
+      )
+      .toJSON();
+    const withAchorChildAndIcon = renderer
+      .create(
+        <Link type={LinkTypes.Action}>
+          <>
+            <Icon
+              name={IconNames.Check}
+              align={IconAlign.Left}
+              size={IconSizes.Small}
+            />
+            <a href="#existing-anchor-tag">check link</a>
+          </>
+        </Link>
+      )
+      .toJSON();
+
     expect(standard).toMatchSnapshot();
     expect(typeForwards).toMatchSnapshot();
     expect(typeBackwards).toMatchSnapshot();
     expect(typeExternal).toMatchSnapshot();
     expect(typeButton).toMatchSnapshot();
     expect(withIconChild).toMatchSnapshot();
+    expect(withAchorChild).toMatchSnapshot();
+    expect(withAchorChildAndIcon).toMatchSnapshot();
   });
 
   // TODO:

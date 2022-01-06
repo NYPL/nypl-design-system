@@ -109,7 +109,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     let variant = "link";
 
     if (typeof children === "string" && !href) {
-      throw new Error("Link needs prop 'href'");
+      throw new Error("`Link` needs the `href` prop.");
     }
 
     if (
@@ -144,17 +144,24 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       }
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
-      return React.cloneElement(
-        childrenToClone,
-        {
-          className,
-          ...linkProps,
-          ...childProps,
-          ref,
-          rel,
-          target,
-        },
-        [childrenToClone.props.children]
+      return (
+        <Box as="span" __css={style}>
+          {React.cloneElement(
+            childrenToClone,
+            {
+              className,
+              ...linkProps,
+              ...childProps,
+              ref,
+              rel,
+              target,
+              // Useful if more styles are needed for the custom
+              // anchor element or link component.
+              style: additionalStyles,
+            },
+            [childrenToClone.props.children]
+          )}
+        </Box>
       );
     } else {
       return (
