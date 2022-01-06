@@ -209,14 +209,14 @@ describe("Link", () => {
       .toJSON();
     const withAchorChild = renderer
       .create(
-        <Link type={LinkTypes.Action}>
+        <Link id="anchor-link" type={LinkTypes.Action}>
           <a href="#existing-anchor-tag">check link</a>
         </Link>
       )
       .toJSON();
     const withAchorChildAndIcon = renderer
       .create(
-        <Link type={LinkTypes.Action}>
+        <Link id="anchor-icon-link" type={LinkTypes.Action}>
           <>
             <Icon
               name={IconNames.Check}
