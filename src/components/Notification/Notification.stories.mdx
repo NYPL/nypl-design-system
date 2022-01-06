@@ -27,8 +27,7 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A812",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A812",
     },
     jest: ["Notification.test.tsx"],
   }}
@@ -39,7 +38,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.4`   |
+| Latest            | `0.25.8`   |
 
 <Description of={Notification} />
 
@@ -67,6 +66,7 @@ within a parent element.
           nisi erat porttitor ligula.
         </>
       ),
+      showIcon: true,
     }}
   >
     {(args) => (
@@ -190,6 +190,39 @@ within a parent element.
           rutrum faucibus dolor auctor.
         </>
       }
+    />
+  </DSProvider>
+</Canvas>
+
+### Without Icon
+
+The `Notification` icon can be hidden with the `showIcon` prop set to `false`.
+
+<Canvas>
+  <DSProvider>
+    <Notification
+      notificationHeading="Standard Notification without Icon"
+      notificationContent={
+        <>
+          Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+          mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum
+          at eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus.
+        </>
+      }
+      showIcon={false}
+    />
+    <Notification
+      notificationContent={
+        <>
+          This is an Standard Notification without a heading or icon. Cras
+          mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus.
+        </>
+      }
+      showIcon={false}
     />
   </DSProvider>
 </Canvas>

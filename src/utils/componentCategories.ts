@@ -3,7 +3,7 @@
 const categories = {
   basicContent: {
     title: "Components/Basic Elements",
-    components: ["Card", "Hero", "Promo", "Sponsor", "Table"],
+    components: ["Card", "Hero", "Promo", "Sponsor"],
   },
   contentDisplay: {
     title: "Components/Content Display",
@@ -52,6 +52,7 @@ const categories = {
       "Slider",
       "Textarea",
       "TextInput",
+      "Toggle",
     ],
   },
   layout: {
@@ -65,6 +66,7 @@ const categories = {
       "HorizontalRule",
       "Section",
       "SimpleGrid",
+      "Table",
       "Template",
     ],
   },

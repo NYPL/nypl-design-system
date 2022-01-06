@@ -91,14 +91,15 @@ function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
     layout,
   });
   return (
-    <Image
-      alt={alt}
-      component={component}
-      imageAspectRatio={imageAspectRatio}
-      imageSize={imageSize}
-      src={src}
-      additionalStyles={styles}
-    />
+    <Box __css={styles}>
+      <Image
+        alt={alt}
+        component={component}
+        imageAspectRatio={imageAspectRatio}
+        imageSize={imageSize}
+        src={src}
+      />
+    </Box>
   );
 }
 

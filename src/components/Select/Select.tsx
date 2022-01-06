@@ -38,6 +38,8 @@ export interface SelectProps {
   /** The callback function to get the selected value.
    * Should be passed along with `value` for controlled components. */
   onChange?: (event: React.FormEvent) => void;
+  /** Placeholder text in the select element. */
+  placeholder?: string;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the select's label onscreen or hide it. Refer
@@ -72,11 +74,12 @@ const Select = React.forwardRef<
     labelText,
     name,
     onChange,
+    placeholder,
     showHelperInvalidText = true,
     showLabel = true,
     showOptReqLabel = true,
     type = SelectTypes.Default,
-    value,
+    value = "",
   } = props;
   const ariaAttributes = {};
   const optReqFlag = isRequired ? "Required" : "Optional";
@@ -87,7 +90,7 @@ const Select = React.forwardRef<
   const footnote = isInvalid ? finalInvalidText : helperText;
   // To control the `Select` component, both `onChange` and `value`
   // must be passed.
-  const controlledProps = onChange && value ? { onChange, value } : {};
+  const controlledProps = onChange ? { onChange, value } : {};
 
   if (!showLabel) {
     ariaAttributes["aria-label"] =
@@ -126,6 +129,7 @@ const Select = React.forwardRef<
         isDisabled={isDisabled}
         isInvalid={isInvalid}
         name={name}
+        placeholder={placeholder}
         ref={ref}
         {...controlledProps}
         {...ariaAttributes}

@@ -52,6 +52,7 @@ export enum IconNames {
   ActionCheckCircle = "action_check_circle",
   ActionHelpDefault = "action_help_default",
   ActionHelpOutline = "action_help_outline",
+  AlertNotificationImportant = "alert_notification_important",
   ActionLaunch = "action_launch",
   Arrow = "arrow",
   Check = "check",
