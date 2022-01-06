@@ -1,0 +1,52 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Table from "./Table";
+import DSProvider from "../../theme/provider";
+import { getCategory } from "../../utils/componentCategories";
+
+
+<Meta
+  title={getCategory("Table")}
+  component={Table}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A547",
+    },
+    jest: ["Table.test.tsx"],
+  }}
+  argTypes={{
+    attributes: { table: { disable: true } },
+    id: { table: { disable: true } },
+    onChange: { table: { disable: true } },
+    value: { table: { disable: true } },
+  }}
+/>
+
+
+# Table
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.22.0`   |
+| Latest            | `0.25.4`   |
+
+<Description of={Table} />
+
+
+<Canvas withToolbar>
+  <Table>
+  ss
+  </Table>
+</Canvas>
+
+<ArgsTable story="Table" />
