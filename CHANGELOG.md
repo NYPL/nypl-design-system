@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
+
 ## 0.25.8 (January 6, 2022)
 
 ### Adds
