@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.8 (January 6, 2022)
+
 ### Adds
 
 - Adds `embedCode` prop to `VideoPlayer` component.
@@ -32,6 +34,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes two bugs in the `Slider`: (1) unable to call the `onChange` function when it is not passed, and (2) fixing the default array value for the range slider so it mounts properly.
+- Updates the `Select` component's controlled state so that an initial empty `value` prop is acceptable.
 
 ## 0.25.7 (December 20, 2021)
 
@@ -50,10 +53,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Adds "(Required)" text to the placeholder in the `SearchBar` component when `isRequired` is true.
-
-### Fixes
-
-- Updates the `Select` component's controlled state so that an initial empty `value` prop is acceptable.
 
 ## 0.25.5 (December 9, 2021)
 
