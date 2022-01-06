@@ -41,6 +41,8 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
   notificationContent: string | JSX.Element;
   /** Content to be rendered in a `NotificationHeading` component. */
   notificationHeading?: string;
+  /** Prop to display the `Notification` icon. Defaults to `true`. */
+  showIcon?: boolean;
 }
 
 /**
@@ -52,6 +54,7 @@ export function NotificationHeading(
   const { centered, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationHeading", {
     centered,
+    icon,
     notificationType,
   });
   return (
@@ -73,6 +76,7 @@ export function NotificationContent(
   const { alignText, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationContent", {
     alignText,
+    icon,
     notificationType,
   });
   return (
@@ -98,6 +102,7 @@ export default function Notification(props: NotificationProps) {
     notificationContent,
     notificationHeading,
     notificationType = NotificationTypes.Standard,
+    showIcon = true,
   } = props;
   const [isOpen, setIsOpen] = useState(true);
   const handleClose = () => setIsOpen(false);
@@ -105,6 +110,7 @@ export default function Notification(props: NotificationProps) {
     centered,
     noMargin,
     notificationType,
+    showIcon,
   });
   const iconElement = () => {
     const baseIconProps = {
@@ -112,6 +118,10 @@ export default function Notification(props: NotificationProps) {
       size: IconSizes.Large,
       additionalStyles: styles.icon,
     };
+    // If the icon should not display, return null.
+    if (!showIcon) {
+      return null;
+    }
     // If a custom icon is passed, add specific `Notification` styles.
     if (icon)
       return React.cloneElement(icon, {
@@ -165,7 +175,7 @@ export default function Notification(props: NotificationProps) {
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText = childHeading && (!!icon || !centered);
+  const alignText = childHeading && showIcon && (!!icon || !centered);
   const childContent = (
     <NotificationContent
       alignText={alignText}

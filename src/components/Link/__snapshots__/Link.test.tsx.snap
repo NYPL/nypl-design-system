@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders the UI snapshot correctly 1`] = `
+<a
+  className="css-0"
+  href="#passed-in-link"
+  id="standard-link"
+  rel={null}
+  target={null}
+>
+  Standard
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 2`] = `
+<a
+  className="css-0"
+  href="#passed-in-link"
+  id="forwards-link"
+  rel={null}
+  target={null}
+>
+  Forwards
+  <svg
+    aria-hidden={true}
+    className="chakra-icon more-link css-onkibi"
+    focusable={false}
+    id="forwards-link-icon"
+    role="img"
+    title="arrow icon"
+    viewBox="0 0 24 24"
+  >
+    <g
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
+      <path
+        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+        fill="currentColor"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        fill="none"
+        r="11.25"
+        strokeMiterlimit="10"
+      />
+    </g>
+  </svg>
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 3`] = `
+<a
+  className="css-0"
+  href="#passed-in-link"
+  id="backwards-link"
+  rel={null}
+  target={null}
+>
+  <svg
+    aria-hidden={true}
+    className="chakra-icon more-link css-onkibi"
+    focusable={false}
+    id="backwards-link-icon"
+    role="img"
+    title="arrow icon"
+    viewBox="0 0 24 24"
+  >
+    <g
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
+      <path
+        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+        fill="currentColor"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        fill="none"
+        r="11.25"
+        strokeMiterlimit="10"
+      />
+    </g>
+  </svg>
+  Backwards
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 4`] = `
+<a
+  className="css-0"
+  href="#passed-in-link"
+  id="external-link"
+  rel="nofollow"
+  target="_blank"
+>
+  External
+  <svg
+    aria-hidden={true}
+    className="chakra-icon more-link css-onkibi"
+    focusable={false}
+    id="external-link-icon"
+    role="img"
+    title="action_launch icon"
+    viewBox="0 0 24 24"
+  >
+    <g
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
+      <path
+        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+        fill="currentColor"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        fill="none"
+        r="11.25"
+        strokeMiterlimit="10"
+      />
+    </g>
+  </svg>
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 5`] = `
+<a
+  className="css-0"
+  href="#passed-in-link"
+  id="button-link"
+  rel={null}
+  target={null}
+>
+  Button
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 6`] = `
+<a
+  className="css-0"
+  href="#passed-in-link"
+  id="icon-link"
+  rel={null}
+  target={null}
+>
+  <svg
+    aria-hidden={true}
+    className="chakra-icon more-link css-onkibi"
+    focusable={false}
+    id="link-icon"
+    role="img"
+    title="download icon"
+    viewBox="0 0 24 24"
+  >
+    <g
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
+      <path
+        d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+        fill="currentColor"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        fill="none"
+        r="11.25"
+        strokeMiterlimit="10"
+      />
+    </g>
+  </svg>
+  Download
+</a>
+`;
