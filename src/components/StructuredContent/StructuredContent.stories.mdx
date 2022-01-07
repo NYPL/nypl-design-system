@@ -12,6 +12,20 @@ import StructuredContent from "./StructuredContent";
 import { StructuredContentImagePosition } from "./StructuredContentTypes";
 import DSProvider from "../../theme/provider";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const imageAspectRatioEnumValues = getStorybookEnumValues(
+  ImageRatios,
+  "ImageRatios"
+);
+export const imagePositionEnumValues = getStorybookEnumValues(
+  StructuredContentImagePosition,
+  "StructuredContentImagePosition"
+);
+export const imageSizeEnumValues = getStorybookEnumValues(
+  ImageSizes,
+  "ImageSizes"
+);
 
 <Meta
   title={getCategory("StructuredContent")}
@@ -27,6 +41,25 @@ import { getCategory } from "../../utils/componentCategories";
   argTypes={{
     className: { control: false },
     id: { control: false },
+    imageAspectRatio: {
+      table: {
+        defaultValue: { summary: "ImageRatios.Square" },
+      },
+      options: imageAspectRatioEnumValues.options,
+    },
+    imagePosition: {
+      table: {
+        defaultValue: { summary: "StructuredContentImagePosition.Left" },
+      },
+      options: imagePositionEnumValues.options,
+    },
+    imageSize: {
+      table: {
+        defaultValue: { summary: "ImageSizes.Medium" },
+      },
+      options: imageSizeEnumValues.options,
+    },
+    imageComponent: { control: false },
   }}
 />
 
@@ -44,13 +77,15 @@ import { getCategory } from "../../utils/componentCategories";
     name="StructuredContent with Controls"
     args={{
       calloutText: "This is the callout text",
+      className: undefined,
       headingText: "Heading text",
+      id: "structured-content",
       imageAlt: "Image alt text",
-      imageAspectRatio: ImageRatios.Original,
+      imageAspectRatio: "ImageRatios.Square",
       imageCaption: "Image caption",
       imageCredit: "Image credit",
-      imagePosition: StructuredContentImagePosition.Left,
-      imageSize: ImageSizes.Medium,
+      imagePosition: "StructuredContentImagePosition.Left",
+      imageSize: "ImageSizes.Medium",
       imageSrc: "https://placeimg.com/400/300/animals",
       bodyContent:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod" +
@@ -78,7 +113,16 @@ import { getCategory } from "../../utils/componentCategories";
         "arcu bibendum at varius vel pharetra.",
     }}
   >
-    {(args) => <StructuredContent {...args} />}
+    {(args) => (
+      <StructuredContent
+        {...args}
+        imageAspectRatio={imageAspectRatioEnumValues.getValue(
+          args.imageAspectRatio
+        )}
+        imagePosition={imagePositionEnumValues.getValue(args.imagePosition)}
+        imageSize={imageSizeEnumValues.getValue(args.imageSize)}
+      />
+    )}
   </Story>
 </Canvas>
 
