@@ -19,10 +19,8 @@ const invalid = {
 const VideoPlayer = {
   baseStyle: {
     inside: {
-      //   backgroundColor: isInvalid ? "ui.gray.light.warm" : null,
       height: "0",
       overflow: "hidden",
-      //   padding: isInvalid ? "s" : null,
       paddingBottom: "56.25%",
       position: "relative",
     },
