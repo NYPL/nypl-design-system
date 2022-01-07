@@ -1,16 +1,25 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Preview,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "./Heading";
 import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const sizesEnumValues = getStorybookEnumValues(
+  HeadingDisplaySizes,
+  "HeadingDisplaySizes"
+);
+export const levelsEnumValues = getStorybookEnumValues(
+  HeadingLevels,
+  "HeadingLevels"
+);
 
 <Meta
   title={getCategory("Heading")}
@@ -24,9 +33,18 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Heading.test.tsx"],
   }}
   argTypes={{
-    additionalStyles: { table: { disable: true } },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
+    additionalStyles: { control: false },
+    className: { control: false },
+    displaySize: {
+      control: { type: "select" },
+      options: sizesEnumValues.options,
+    },
+    id: { control: false },
+    level: {
+      control: { type: "select" },
+      options: levelsEnumValues.options,
+      table: { defaultValue: { summary: "HeadingLevels.Two" } },
+    },
   }}
 />
 
@@ -39,21 +57,35 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={Heading} />
 
-A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's text can be passed in through a `text` prop or as a child. Default styles for semantic elements can be overwritten using the `displaySize` prop.
+A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's
+text can be passed in through a `text` prop or as a child. Default styles for
+semantic elements can be overwritten using the `displaySize` prop.
 
 <Canvas withToolbar>
   <Story
-    name="Heading Props"
+    name="Heading with Controls"
     args={{
-      id: "default-heading",
+      additionalStyles: undefined,
+      className: undefined,
+      displaySize: undefined,
+      id: "heading-id",
+      level: "HeadingLevels.Two",
       text: "Default Heading",
+      url: undefined,
+      urlClass: undefined,
     }}
   >
-    {(args) => <Heading {...args} />}
+    {(args) => (
+      <Heading
+        {...args}
+        displaySize={sizesEnumValues.getValue(args.displaySize)}
+        level={levelsEnumValues.getValue(args.level)}
+      />
+    )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Heading Props" />
+<ArgsTable story="Heading with Controls" />
 
 ## Default Heading Styles
 
@@ -63,38 +95,41 @@ A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's
       <Heading
         id="heading-one"
         level={HeadingLevels.One}
-        text="<h1> Heading 1"
+        text="<h1> Heading 1 - HeadingLevels.One"
       />
       <Heading
         id="heading-two"
         level={HeadingLevels.Two}
-        text="<h2> Heading 2"
+        text="<h2> Heading 2 - HeadingLevels.Two"
       />
       <Heading
         id="heading-three"
         level={HeadingLevels.Three}
-        text="<h3> Heading 3"
+        text="<h3> Heading 3 - HeadingLevels.Three"
       />
       <Heading
         id="heading-four"
         level={HeadingLevels.Four}
-        text="<h4> Heading 4"
+        text="<h4> Heading 4 - HeadingLevels.Four"
       />
       <Heading
         id="heading-five"
         level={HeadingLevels.Five}
-        text="<h5> Heading 5"
+        text="<h5> Heading 5 - HeadingLevels.Five"
       />
       <Heading
         id="heading-six"
         level={HeadingLevels.Six}
-        text="<h6> Heading 6"
+        text="<h6> Heading 6 - HeadingLevels.Six"
       />
     </div>
   </Story>
 </Canvas>
 
 ## DisplaySize Styles
+
+Note: The `level` prop for the `Heading`s in the next example are all set to
+`level={HeadingLevels.One}`.
 
 <Canvas>
   <Story name="DisplaySize Styles">
