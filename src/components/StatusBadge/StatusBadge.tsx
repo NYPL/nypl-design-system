@@ -9,7 +9,8 @@ export interface StatusBadgeProps {
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Level of the status badge through StatusBadgeTypes. */
+  /** Level of the status badge through StatusBadgeTypes. Defaults to
+   * `StatusBadgeTypes.Low`. */
   level?: StatusBadgeTypes;
 }
 

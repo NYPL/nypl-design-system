@@ -1,20 +1,13 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Preview,
-  Description,
-} from "@storybook/addon-docs/blocks";
+import { Canvas, Meta } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import Text from "../Text/Text";
 import { TextDisplaySizes } from "../Text/TextTypes";
+import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 <Meta

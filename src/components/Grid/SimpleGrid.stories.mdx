@@ -1,13 +1,14 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import SimpleGrid from "./SimpleGrid";
+import { GridGaps } from "./GridTypes";
 import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
 import { CardLayouts } from "../Card/CardTypes";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
@@ -20,9 +21,11 @@ import {
 } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import { ImageRatios } from "../Image/ImageTypes";
-
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
 
 <Meta
   title={getCategory("SimpleGrid")}
@@ -31,32 +34,21 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26613",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26613",
     },
     jest: ["SimpleGrid.test.tsx"],
   }}
   argTypes={{
+    className: { control: false },
     columns: {
-      control: {
-        type: "number",
-        min: 2,
-      },
-      table: {
-        defaultValue: {
-          summary: 3,
-        },
-      },
+      control: { min: 2, type: "number" },
     },
     gap: {
-      table: {
-        defaultValue: {
-          summary: "l",
-        },
-      },
+      control: { type: "select" },
+      options: enumValues.options,
+      table: { defaultValue: { summary: "GridGaps.Large" } },
     },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
+    id: { control: false },
   }}
 />
 
@@ -74,9 +66,17 @@ The `SimpleGrid` component is used to render UI elements in a uniform grid layou
 The NYPL standards for the items per row in a grid is `3` for desktop, `2` for tablet and `1` for mobile. By default, the `SimpleGrid` component uses these standards and the `columns` prop is optional. If the `columns` prop is used, the tablet breakpoint will be dropped and only the mobile breakpoint (1 item per row) will be triggered.
 
 <Canvas withToolbar>
-  <Story name="SimpleGrid Props">
+  <Story
+    name="SimpleGrid with Controls"
+    args={{
+      className: undefined,
+      columns: undefined,
+      gap: "GridGaps.Large",
+      id: "simpleGrid-id",
+    }}
+  >
     {(args) => (
-      <SimpleGrid {...args}>
+      <SimpleGrid {...args} gap={enumValues.getValue(args.gap)}>
         <Card
           imageSrc="https://placeimg.com/400/220/animals"
           imageAlt="Alt text"
@@ -148,7 +148,7 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
   </Story>
 </Canvas>
 
-<ArgsTable story="SimpleGrid Props" />
+<ArgsTable story="SimpleGrid with Controls" />
 
 ## Other SimpleGrid Examples
 
