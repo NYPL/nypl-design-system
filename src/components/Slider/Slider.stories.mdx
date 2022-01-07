@@ -1,17 +1,17 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import Slider from "./Slider";
-import SimpleGrid from "../Grid/SimpleGrid";
-import { GridGaps } from "../Grid/GridTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
+import { GridGaps } from "../Grid/GridTypes";
+import SimpleGrid from "../Grid/SimpleGrid";
+import Slider from "./Slider";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -22,16 +22,52 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36889%3A25871",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36889%3A25871",
     },
     jest: ["Slider.test.tsx"],
   }}
   argTypes={{
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
-    name: { table: { disable: true } },
-    onChange: { table: { disable: true } },
+    className: { control: false },
+    defaultValue: {
+      control: false,
+      table: { defaultValue: { summary: 0 } },
+    },
+    id: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    max: {
+      table: { defaultValue: { summary: 100 } },
+    },
+    min: {
+      table: { defaultValue: { summary: 0 } },
+    },
+    name: { control: false },
+    onChange: { control: false },
+    optReqFlag: {
+      table: { defaultValue: { summary: true } },
+    },
+    showBoxes: {
+      table: { defaultValue: { summary: true } },
+    },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showValues: {
+      table: { defaultValue: { summary: true } },
+    },
+    step: {
+      table: { defaultValue: { summary: 1 } },
+    },
   }}
 />
 
@@ -49,10 +85,12 @@ For this type of component, the `value` prop must be a single number.
 
 <Canvas withToolbar>
   <Story
-    name="Slider with Props"
+    name="Slider with Controls"
     args={{
+      className: undefined,
       defaultValue: 50,
       helperText: "Pass in a value from the min 0 to the max 100 values.",
+      id: "slider-id",
       invalidText: "Oh no this is an error :(",
       isDisabled: false,
       isInvalid: false,
@@ -61,6 +99,8 @@ For this type of component, the `value` prop must be a single number.
       labelText: "Slider label",
       max: 100,
       min: 0,
+      name: undefined,
+      onChange: undefined,
       optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
@@ -69,15 +109,19 @@ For this type of component, the `value` prop must be a single number.
       step: 1,
     }}
     argTypes={{
-      defaultValue: { table: { disable: true } },
-      isRangeSlider: { table: { disable: true } },
+      isRangeSlider: {
+        control: false,
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
     }}
   >
     {(args) => <Slider {...args} />}
   </Story>
 </Canvas>
 
-<ArgsTable story="Slider with Props" />
+<ArgsTable story="Slider with Controls" />
 
 ### Accessibility
 
@@ -101,8 +145,10 @@ numbers. This signifies the starting and ending values of the range slider.
   <Story
     name="Range Slider with Props"
     args={{
+      className: undefined,
       defaultValue: [25, 75],
       helperText: "Pass in a value from the min 0 to the max 100 values.",
+      id: "slider-range-id",
       invalidText: "Oh no this is an error :(",
       isDisabled: false,
       isInvalid: false,
@@ -111,6 +157,8 @@ numbers. This signifies the starting and ending values of the range slider.
       labelText: "Range Slider label",
       max: 100,
       min: 0,
+      name: undefined,
+      onChange: undefined,
       optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
@@ -119,15 +167,17 @@ numbers. This signifies the starting and ending values of the range slider.
       step: 1,
     }}
     argTypes={{
-      defaultValue: { table: { disable: true } },
-      isRangeSlider: { table: { disable: true } },
+      isRangeSlider: {
+        control: false,
+        table: {
+          defaultValue: { summary: false },
+        },
+      },
     }}
   >
     {(args) => <Slider {...args} />}
   </Story>
 </Canvas>
-
-<ArgsTable story="Range Slider with Props" />
 
 ### Accessibility
 
