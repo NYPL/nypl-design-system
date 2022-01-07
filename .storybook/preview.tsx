@@ -3,11 +3,11 @@
 import "!style-loader!css-loader!sass-loader!../src/styles.scss";
 import React from "react";
 // We also want to add MDX-style documentation here:
-import { addParameters, addDecorator } from "@storybook/react";
-import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
+import { addDecorator, addParameters } from "@storybook/react";
+import { DocsContainer, DocsPage } from "@storybook/addon-docs";
 import { withTests } from "@storybook/addon-jest";
-import DSProvider from "../src/theme/provider";
 
+import DSProvider from "../src/theme/provider";
 import results from "../.jest-test-results.json";
 
 addParameters({

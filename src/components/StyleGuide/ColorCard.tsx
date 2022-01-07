@@ -1,10 +1,9 @@
 import * as React from "react";
+
 import Card from "../Card/Card";
 import { CardLayouts } from "../Card/CardTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
-// import Text from "../Text/Text";
-// import { TextDisplaySizes } from "../Text/TextTypes";
 
 export interface ColorCardProps {
   /** backgroundColor of the color card */
