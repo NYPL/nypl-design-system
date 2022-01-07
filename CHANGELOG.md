@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Breaking Changes
+
+- Completely removes the `CardEdition` and `Input` components and related files and references.
+
 ## 0.25.8 (January 6, 2022)
 
 ### Adds
