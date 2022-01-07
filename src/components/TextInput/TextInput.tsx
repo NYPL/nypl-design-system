@@ -65,7 +65,7 @@ export interface InputProps {
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
   value?: string;
-  /** The variant to display. */
+  /** FOR INTERNAL DS USE ONLY: the input variant to display. */
   variantType?: TextInputVariants;
 }
 
