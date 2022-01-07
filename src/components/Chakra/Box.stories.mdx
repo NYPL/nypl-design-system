@@ -1,12 +1,12 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
 import { Box } from "@chakra-ui/react";
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
 
-import { getCategory } from "../../utils/componentCategories";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import {
-  VideoPlayerTypes,
   VideoPlayerAspectRatios,
+  VideoPlayerTypes,
 } from "../VideoPlayer/VideoPlayerTypes";
+import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 <Meta title={getCategory("Box")} component={Box} />

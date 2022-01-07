@@ -1,19 +1,12 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+import { Canvas, Meta } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import ColorCard from "./ColorCard";
-import DSProvider from "../../theme/provider";
-import getCSSVariable from "../../helpers/getCSSVariable";
-import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 export const cssVars = {
   brand: ["--nypl-colors-brand-primary", "--nypl-colors-brand-secondary"],
@@ -73,7 +66,6 @@ export const cssVars = {
 };
 
 export const makeColorCard = function (key) {
-  // const cssValue = getCSSVariable(key);
   const cssValue = `var(${key})`;
   const card = (
     <ColorCard backgroundColor={cssValue} colorName={key} key={key} />

@@ -1,12 +1,6 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
-import { withDesign } from "storybook-addon-designs";
 import { ButtonGroup } from "@chakra-ui/react";
+import { Canvas, Meta } from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -17,7 +11,6 @@ import {
   IconRotationTypes,
   IconSizes,
 } from "../Icons/IconTypes";
-import getCSSVariable from "../../helpers/getCSSVariable";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 

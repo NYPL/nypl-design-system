@@ -1,20 +1,30 @@
+import { action } from "@storybook/addon-actions";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { action } from "@storybook/addon-actions";
 
-import { getCategory } from "../../utils/componentCategories";
+import SimpleGrid from "../Grid/SimpleGrid";
 import SkeletonLoader from "./SkeletonLoader";
 import {
-  SkeletonLoaderLayouts,
   SkeletonLoaderImageRatios,
+  SkeletonLoaderLayouts,
 } from "./SkeletonLoaderTypes";
-import SimpleGrid from "../Grid/SimpleGrid";
+import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const imageRatiosEnumValues = getStorybookEnumValues(
+  SkeletonLoaderImageRatios,
+  "SkeletonLoaderImageRatios"
+);
+export const layoutsEnumValues = getStorybookEnumValues(
+  SkeletonLoaderLayouts,
+  "SkeletonLoaderLayouts"
+);
 
 <Meta
   title={getCategory("SkeletonLoader")}
@@ -23,17 +33,25 @@ import SimpleGrid from "../Grid/SimpleGrid";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17219%3A7",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17219%3A7",
     },
     jest: ["SkeletonLoader.test.tsx"],
   }}
   argTypes={{
-    className: { table: { disable: true } },
+    className: { control: false },
     contentSize: { table: { defaultValue: { summary: "3" } } },
     headingSize: { table: { defaultValue: { summary: "1" } } },
-    imageAspectRatio: { table: { defaultValue: { summary: "square" } } },
-    layout: { table: { defaultValue: { summary: "column" } } },
+    imageAspectRatio: {
+      control: { type: "select" },
+      table: {
+        defaultValue: { summary: "SkeletonLoaderImageRatios.Square" },
+      },
+      options: imageRatiosEnumValues.options,
+    },
+    layout: {
+      table: { defaultValue: { summary: "SkeletonLoaderLayouts.Column" } },
+      options: layoutsEnumValues.options,
+    },
     showButton: { table: { defaultValue: { summary: "false" } } },
     showContent: { table: { defaultValue: { summary: "true" } } },
     showHeading: { table: { defaultValue: { summary: "true" } } },
@@ -58,16 +76,32 @@ to better view the example. The default value is `100%`.
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Props"
+    name="SkeletonLoader with Controls"
     args={{
+      border: false,
+      className: undefined,
+      contentSize: 3,
+      headingSize: 1,
+      imageAspectRatio: "SkeletonLoaderImageRatios.Square",
+      layout: "SkeletonLoaderLayouts.Column",
+      showButton: false,
+      showContent: true,
+      showHeading: true,
+      showImage: true,
       width: "300px",
     }}
   >
-    {(args) => <SkeletonLoader {...args} />}
+    {(args) => (
+      <SkeletonLoader
+        {...args}
+        imageAspectRatio={imageRatiosEnumValues.getValue(args.imageAspectRatio)}
+        layout={layoutsEnumValues.getValue(args.layout)}
+      />
+    )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Props" />
+<ArgsTable story="SkeletonLoader with Controls" />
 
 # Card Placeholders in a Grid
 

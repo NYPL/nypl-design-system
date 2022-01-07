@@ -6,25 +6,25 @@ import Icon from "../Icons/Icon";
 import { getVariant } from "../../utils/utils";
 import generateUUID from "../../helpers/generateUUID";
 
-type ButtonElementType = "submit" | "button" | "reset";
+export type ButtonElementType = "submit" | "button" | "reset";
 
 interface ButtonProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
-  /** Additional attributes passed to the button */
+  /** Additional attributes passed to the button. */
   attributes?: { [key: string]: any };
-  /** The kind of button assigned through the `ButtonTypes` enum  */
+  /** The kind of button assigned through the `ButtonTypes` enum. */
   buttonType?: ButtonTypes;
   /** Additional className to use. */
   className?: string;
-  /** ID that other components can cross reference for accessibility purposes */
+  /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** Adds 'disabled' property to the button */
+  /** Adds 'disabled' property to the button. */
   isDisabled?: boolean;
   /** Trigger the Button's action through the `mouseDown` event handler instead
    * of `onClick`. `false` by default. */
   mouseDown?: boolean;
-  /** The action to perform on the `<button>`'s onClick function */
+  /** The action to perform on the `<button>`'s onClick function. */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** The HTML button type attribute. */
   type?: ButtonElementType;
@@ -40,8 +40,8 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
     buttonType,
     children,
     className = "",
-    isDisabled,
     id = generateUUID(),
+    isDisabled = false,
     mouseDown = false,
     onClick,
     type = "button",
