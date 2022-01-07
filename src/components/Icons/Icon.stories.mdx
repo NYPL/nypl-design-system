@@ -1,25 +1,39 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Icon from "./Icon";
 import {
   IconAlign,
-  IconNames,
-  LogoNames,
   IconColors,
-  IconSizes,
+  IconNames,
   IconRotationTypes,
+  IconSizes,
+  IconTypes,
+  LogoNames,
 } from "./IconTypes";
 import iconSvgs from "./IconSvgs";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const alignEnumValues = getStorybookEnumValues(IconAlign, "IconAlign");
+export const namesEnumValues = getStorybookEnumValues(IconNames, "IconNames");
+export const colorsEnumValues = getStorybookEnumValues(
+  IconColors,
+  "IconColors"
+);
+export const sizesEnumValues = getStorybookEnumValues(IconSizes, "IconSizes");
+export const rotationEnumValues = getStorybookEnumValues(
+  IconRotationTypes,
+  "IconRotationTypes"
+);
 
 <Meta
   title={getCategory("Icon")}
@@ -28,15 +42,46 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A3945",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A3945",
     },
     jest: ["Icon.test.tsx"],
   }}
   argTypes={{
+    align: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "IconAlign.None" } },
+      options: alignEnumValues.options,
+    },
     children: { table: { disable: true } },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
+    className: { control: false },
+    color: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "IconColors.UiBlack" } },
+      options: colorsEnumValues.options,
+    },
+    iconRotation: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "IconRotationTypes.Rotate0" } },
+      options: rotationEnumValues.options,
+    },
+    id: { control: false },
+    name: {
+      control: { type: "select" },
+      options: namesEnumValues.options,
+    },
+    size: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "IconSizes.Medium" } },
+      options: sizesEnumValues.options,
+    },
+    title: {
+      control: false,
+      table: { defaultValue: { summary: "`${name} icon`" } },
+    },
+    type: {
+      control: false,
+      table: { defaultValue: { summary: "IconTypes.Default" } },
+    },
   }}
 />
 
@@ -51,62 +96,35 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Canvas withToolbar>
   <Story
-    name="Icon Props Control"
+    name="Icon with Controls"
     args={{
-      align: "None",
-      color: "UiBlack",
+      additionalStyles: undefined,
+      align: "IconAlign.None",
+      className: undefined,
+      color: "IconColors.UiBlack",
       decorative: true,
-      iconRotation: "Rotate0",
-      name: "Check",
-      size: "ExtraLarge",
-    }}
-    argTypes={{
-      align: {
-        control: {
-          type: "select",
-        },
-        options: Object.keys(IconAlign),
-      },
-      color: {
-        control: {
-          type: "select",
-        },
-        options: Object.keys(IconColors),
-      },
-      iconRotation: {
-        control: {
-          type: "select",
-        },
-        options: Object.keys(IconRotationTypes),
-      },
-      name: {
-        control: {
-          type: "select",
-        },
-        options: Object.keys(IconNames),
-      },
-      size: {
-        control: {
-          type: "select",
-        },
-        options: Object.keys(IconSizes),
-      },
+      iconRotation: "IconRotationTypes.Rotate0",
+      id: "icon-id",
+      name: "IconNames.Check",
+      size: "IconSizes.ExtraLarge",
+      title: undefined,
+      type: IconTypes.Default,
     }}
   >
     {(args) => (
       <Icon
-        align={IconAlign[args.align]}
-        color={IconColors[args.color]}
-        iconRotation={IconRotationTypes[args.iconRotation]}
-        name={IconNames[args.name]}
-        size={IconSizes[args.size]}
+        align={alignEnumValues.getValue(args.align)}
+        color={colorsEnumValues.getValue(args.color)}
+        iconRotation={rotationEnumValues.getValue(args.iconRotation)}
+        name={namesEnumValues.getValue(args.name)}
+        size={sizesEnumValues.getValue(args.size)}
         title={args.title}
       />
     )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Icon Props Control" />
+<ArgsTable story="Icon with Controls" />
 
 export const iconRow = (icon, iconType = IconNames, opts = {}) => {
   // We'll use this setup function to render all the icons in a list item.
@@ -152,17 +170,22 @@ export const rotations = [];
 export const colors = [];
 export const sizes = [];
 for (const icon in IconNames) {
-  icons.push(iconRow(icon, IconNames));
+  icons.push(iconRow(icon, IconNames, { displayValue: `IconNames.${icon}` }));
 }
 for (const logo in LogoNames) {
-  logos.push(iconRow(logo, LogoNames, { iconSize: IconSizes.ExtraLarge }));
+  logos.push(
+    iconRow(logo, LogoNames, {
+      iconSize: IconSizes.ExtraLarge,
+      displayValue: `IconLogos.${logo}`,
+    })
+  );
 }
 for (const iconRotation in IconRotationTypes) {
   rotations.push(
     iconRow("Arrow", IconNames, {
       size: IconSizes.Large,
       iconRotation: IconRotationTypes[iconRotation],
-      displayValue: iconRotation,
+      displayValue: `IconRotationTypes.${iconRotation}`,
     })
   );
 }
@@ -170,7 +193,7 @@ for (const iconColor in IconColors) {
   colors.push(
     iconRow("Download", IconNames, {
       color: IconColors[iconColor],
-      displayValue: iconColor,
+      displayValue: `IconColors.${iconColor}`,
     })
   );
 }
@@ -178,7 +201,7 @@ for (const iconSize in IconSizes) {
   sizes.push(
     iconRow("Arrow", IconNames, {
       size: IconSizes[iconSize],
-      displayValue: iconSize,
+      displayValue: `IconSizes.${iconSize}`,
     })
   );
 }

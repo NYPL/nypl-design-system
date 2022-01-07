@@ -6,14 +6,14 @@ import { getVariant } from "../../utils/utils";
 export interface TextProps {
   /** Additional class name to render in the `Text` component. */
   className?: string;
+  /** Optional prop to control the text styling */
+  displaySize?: TextDisplaySizes;
   /** Optional prop used to show bolded text */
   isBold?: boolean;
   /** Optional prop used to show itlicized text */
   isItalic?: boolean;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
-  /** Optional prop to control the text styling */
-  displaySize?: TextDisplaySizes;
 }
 
 function Text(props: React.PropsWithChildren<TextProps>) {

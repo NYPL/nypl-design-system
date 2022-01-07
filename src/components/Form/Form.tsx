@@ -62,7 +62,7 @@ export default function Form(props: React.ComponentProps<"form"> & FormProps) {
     className,
     id = generateUUID(),
     method,
-    spacing,
+    spacing = FormSpacing.Large,
   } = props;
 
   let attributes = {};

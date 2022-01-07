@@ -1,14 +1,14 @@
+import { ButtonGroup, VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { ButtonGroup } from "@chakra-ui/react";
 
-import Button from "./Button";
+import Button, { ButtonElementType } from "./Button";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import {
@@ -17,9 +17,11 @@ import {
   IconRotationTypes,
   IconSizes,
 } from "../Icons/IconTypes";
-import getCSSVariable from "../../helpers/getCSSVariable";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
 
 <Meta
   title={getCategory("Button")}
@@ -31,6 +33,30 @@ import DSProvider from "../../theme/provider";
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
     },
     jest: ["Button.test.tsx"],
+  }}
+  argTypes={{
+    additionalStyles: { control: false },
+    attributes: { control: false },
+    buttonText: { description: "Only used for Storybook" },
+    buttonType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ButtonType.Primary" } },
+      options: enumValues.options,
+    },
+    className: { control: false },
+    displayIcon: { description: "Only used for Storybook." },
+    displayIconLeft: {
+      description: "Move the icon left or right. Only used for Storybook.",
+    },
+    iconType: {
+      control: { type: "select" },
+      options: Object.values(IconNames).map((value) => value),
+      description: "Select the icon. Only used for Storybook.",
+    },
+    id: { control: false },
+    isDisabled: { table: { defaultValue: { summary: false } } },
+    mouseDown: { table: { defaultValue: { summary: false } } },
+    onClick: { control: false },
   }}
 />
 
@@ -59,16 +85,53 @@ When one and only one `Icon` component is passed inside a `Button` component wit
 no text, it will automatically be configured to use the `"iconOnly"` type.
 
 <Canvas withToolbar>
-  <Story name="Basic">{(args) => <Button {...args}>Button Text</Button>}</Story>
+  <Story
+    name="Button with Controls"
+    args={{
+      additionalStyles: undefined,
+      attributes: undefined,
+      buttonText: "Button Text",
+      buttonType: "ButtonTypes.Primary",
+      className: undefined,
+      displayIcon: false,
+      displayIconLeft: true,
+      iconType: IconNames.Search,
+      id: "button-id",
+      isDisabled: false,
+      mouseDown: undefined,
+      onClick: undefined,
+      type: "button",
+    }}
+  >
+    {(args) => (
+      <Button {...args} buttonType={enumValues.getValue(args.buttonType)}>
+        {args.displayIcon && args.displayIconLeft && (
+          <Icon
+            name={args.iconType}
+            align={IconAlign.Left}
+            size={IconSizes.Small}
+          />
+        )}
+        {args.buttonText}
+        {args.displayIcon && !args.displayIconLeft && (
+          <Icon
+            name={args.iconType}
+            align={IconAlign.Right}
+            size={IconSizes.Small}
+          />
+        )}
+      </Button>
+    )}
+  </Story>
 </Canvas>
 
-<ArgsTable story="Basic" />
+<ArgsTable story="Button with Controls" />
 
 ## Button Groups
 
 Primary and secondary buttons should be grouped like in the following example.
 The `ButtonGroup` component, which is directly exported from Chakra UI, should
-be used to wrap the `Button` cmoponent.
+be used to wrap the `Button` component.
 
 <Canvas>
   <Story name="Button Groups">
@@ -83,45 +146,28 @@ be used to wrap the `Button` cmoponent.
 
 The `Icon` component collaborates great with the `Button` component. Check out
 [`src/components/Icons/IconTypes`](https://github.com/NYPL/nypl-design-system/blob/development/src/components/Icons/IconTypes.tsx)
-to see the full list of icon and logo names that can be rendered. Use the
-Controls for this Story section to preview a `Button` with the selected icon.
+to see the full list of icon and logo names that can be rendered.
 
 <Canvas>
-  <Story
-    name="With Icon"
-    args={{
-      displayLeft: true,
-      buttonText: "Button Text",
-      iconType: IconNames.Search,
-    }}
-    argTypes={{
-      iconType: {
-        control: {
-          type: "select",
-        },
-        options: Object.values(IconNames).map((value) => value),
-      },
-    }}
-  >
-    {(args) => (
-      <Button {...args}>
-        {args.displayLeft && (
-          <Icon
-            name={args.iconType}
-            align={IconAlign.Left}
-            size={IconSizes.Small}
-          />
-        )}
-        {args.buttonText}
-        {!args.displayLeft && (
-          <Icon
-            name={args.iconType}
-            align={IconAlign.Right}
-            size={IconSizes.Small}
-          />
-        )}
+  <Story name="With Icon">
+    <VStack align="left" width="150px">
+      <Button>
+        <Icon
+          name={IconNames.Search}
+          align={IconAlign.Left}
+          size={IconSizes.Small}
+        />
+        Button Text
       </Button>
-    )}
+      <Button>
+        Button Text
+        <Icon
+          name={IconNames.Search}
+          align={IconAlign.Right}
+          size={IconSizes.Small}
+        />
+      </Button>
+    </VStack>
   </Story>
 </Canvas>
 

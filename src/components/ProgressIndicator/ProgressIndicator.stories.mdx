@@ -1,22 +1,32 @@
+import { Box } from "@chakra-ui/react";
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
-} from "@storybook/addon-docs/blocks";
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { Box } from "@chakra-ui/react";
 
+import { GridGaps } from "../Grid/GridTypes";
 import ProgressIndicator from "./ProgressIndicator";
 import {
   ProgressIndicatorSizes,
   ProgressIndicatorTypes,
 } from "./ProgressIndicatorTypes";
+import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import SimpleGrid from "../Grid/SimpleGrid";
-import { GridGaps } from "../Grid/GridTypes";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const sizesEnumValues = getStorybookEnumValues(
+  ProgressIndicatorSizes,
+  "ProgressIndicatorSizes"
+);
+export const typesEnumValues = getStorybookEnumValues(
+  ProgressIndicatorTypes,
+  "ProgressIndicatorTypes"
+);
 
 <Meta
   title={getCategory("ProgressIndicator")}
@@ -30,7 +40,29 @@ import { GridGaps } from "../Grid/GridTypes";
     jest: ["ProgressIndicator.test.tsx"],
   }}
   argTypes={{
-    id: { table: { disable: true } },
+    darkMode: {
+      table: { defaultValue: { summary: false } },
+    },
+    id: { control: false },
+    indicatorType: {
+      control: { type: "radio" },
+      table: { defaultValue: { summary: "ProgressIndicatorTypes.Linear" } },
+      options: typesEnumValues.options,
+    },
+    isIndeterminate: {
+      table: { defaultValue: { summary: false } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    size: {
+      control: { type: "radio" },
+      table: { defaultValue: { summary: "ProgressIndicatorSizes.Default" } },
+      options: sizesEnumValues.options,
+    },
+    value: {
+      table: { defaultValue: { summary: 0 } },
+    },
   }}
 />
 
@@ -45,22 +77,29 @@ import { GridGaps } from "../Grid/GridTypes";
 
 <Canvas withToolbar>
   <Story
-    name="Basic with props"
+    name="ProgressIndicator with Controls"
     args={{
       darkMode: false,
-      indicatorType: ProgressIndicatorTypes.Linear,
+      id: "progressIndicator-id",
+      indicatorType: "ProgressIndicatorTypes.Linear",
       isIndeterminate: false,
       labelText: "Progress",
       showLabel: true,
-      size: ProgressIndicatorSizes.Default,
+      size: "ProgressIndicatorSizes.Default",
       value: 50,
     }}
   >
-    {(args) => <ProgressIndicator {...args} />}
+    {(args) => (
+      <ProgressIndicator
+        {...args}
+        indicatorType={typesEnumValues.getValue(args.indicatorType)}
+        size={sizesEnumValues.getValue(args.size)}
+      />
+    )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with props" />
+<ArgsTable story="ProgressIndicator with Controls" />
 
 ## Linear Type
 
@@ -70,20 +109,15 @@ dialogs, etc.
 <Canvas>
   <Story
     name="Linear Type"
-    args={{
-      darkMode: false,
-      indicatorType: ProgressIndicatorTypes.Linear,
-      isIndeterminate: false,
-      labelText: "Linear Progress Type",
-      showLabel: true,
-      size: ProgressIndicatorSizes.Default,
-      value: 50,
-    }}
     argTypes={{
       indicatorType: { table: { disable: true } },
     }}
   >
-    {(args) => <ProgressIndicator {...args} />}
+    <ProgressIndicator
+      indicatorType={ProgressIndicatorTypes.Linear}
+      labelText="Linear Progress Type"
+      value={50}
+    />
   </Story>
 </Canvas>
 
@@ -96,20 +130,15 @@ full-screen loading. Set the `indicatorType` prop to
 <Canvas>
   <Story
     name="Circular Type"
-    args={{
-      darkMode: false,
-      indicatorType: ProgressIndicatorTypes.Circular,
-      isIndeterminate: false,
-      labelText: "Circular Progress Type",
-      showLabel: true,
-      size: ProgressIndicatorSizes.Default,
-      value: 50,
-    }}
     argTypes={{
       indicatorType: { table: { disable: true } },
     }}
   >
-    {(args) => <ProgressIndicator {...args} />}
+    <ProgressIndicator
+      indicatorType={ProgressIndicatorTypes.Circular}
+      labelText="Linear Progress Type"
+      value={50}
+    />
   </Story>
 </Canvas>
 
@@ -145,13 +174,13 @@ percentage will not displayed.
   <DSProvider>
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
-        labelText="Default 48px size"
         indicatorType={ProgressIndicatorTypes.Circular}
+        labelText="Default 48px size"
         value={50}
       />
       <ProgressIndicator
-        labelText="Small 24px size"
         indicatorType={ProgressIndicatorTypes.Circular}
+        labelText="Small 24px size"
         size={ProgressIndicatorSizes.Small}
         value={50}
       />
@@ -174,14 +203,14 @@ the progress element to provide a description of the progress for screen readers
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
         labelText="This label will be added through aria-label"
-        value={50}
         showLabel={false}
+        value={50}
       />
       <ProgressIndicator
-        labelText="This label will be added through aria-label"
         indicatorType={ProgressIndicatorTypes.Circular}
-        value={50}
+        labelText="This label will be added through aria-label"
         showLabel={false}
+        value={50}
       />
     </SimpleGrid>
   </DSProvider>
@@ -197,14 +226,14 @@ exact value or progress of the task is unknown.
   <DSProvider>
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
-        labelText="Indeterminate state"
         isIndeterminate
+        labelText="Indeterminate state"
         value={50}
       />
       <ProgressIndicator
-        labelText="Indeterminate state"
         indicatorType={ProgressIndicatorTypes.Circular}
         isIndeterminate
+        labelText="Indeterminate state"
         value={50}
       />
     </SimpleGrid>
@@ -224,10 +253,10 @@ Note: the background is manually set to better showcase the `darkMode` prop.
       <SimpleGrid columns={1} gap={GridGaps.Medium}>
         <ProgressIndicator labelText="Dark Mode" value={50} darkMode />
         <ProgressIndicator
-          labelText="Dark Mode"
-          indicatorType={ProgressIndicatorTypes.Circular}
-          value={50}
           darkMode
+          indicatorType={ProgressIndicatorTypes.Circular}
+          labelText="Dark Mode"
+          value={50}
         />
       </SimpleGrid>
     </Box>
@@ -255,8 +284,8 @@ function ProgressIndicatorExample() {
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator labelText="Progress example" value={value} />
       <ProgressIndicator
-        labelText="Progress example"
         indicatorType={ProgressIndicatorTypes.Circular}
+        labelText="Progress example"
         value={value}
       />
     </SimpleGrid>
@@ -276,8 +305,8 @@ export function ProgressIndicatorExample() {
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator labelText="Progress example" value={value} />
       <ProgressIndicator
-        labelText="Progress example"
         indicatorType={ProgressIndicatorTypes.Circular}
+        labelText="Progress example"
         value={value}
       />
     </SimpleGrid>
