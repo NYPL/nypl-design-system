@@ -1,18 +1,10 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Preview,
-  Description,
-} from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
-import getCSSVariable from "../../helpers/getCSSVariable";
 import Card from "../Card/Card";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
+import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 <Meta
@@ -21,8 +13,7 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17249%3A13",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17249%3A13",
     },
   }}
 />
@@ -48,7 +39,6 @@ The DS spacing values are based on a root font size of `16px` (`1rem` = `16px`).
 <DSProvider>
 The following CSS variables are available through the DS.
 
-
 | Variable Name       | REM Equivalent | Pixel Equivalent | Visual Reference                                                                                              |
 | ------------------- | -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------- |
 | `--nypl-space-xxs`  | `0.25rem`      | `4px`            | <div style={{ width: "var(--nypl-space-xxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
@@ -61,7 +51,6 @@ The following CSS variables are available through the DS.
 | `--nypl-space-xxxl` | `6rem`         | `96px`           | <div style={{ width: "var(--nypl-space-xxxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
 
 </DSProvider>
-
 
 ## Section Spacing
 

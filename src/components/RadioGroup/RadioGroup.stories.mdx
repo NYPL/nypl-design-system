@@ -1,17 +1,23 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+import Radio from "../Radio/Radio";
 import RadioGroup, { onChangeDefault } from "./RadioGroup";
 import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
-import Radio from "../Radio/Radio";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  RadioGroupLayoutTypes,
+  "RadioGroupLayoutTypes"
+);
 
 <Meta
   title={getCategory("RadioGroup")}
@@ -20,16 +26,40 @@ import Radio from "../Radio/Radio";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A742",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A742",
     },
     jest: ["RadioGroup.test.tsx"],
   }}
   argTypes={{
     children: { table: { disable: true } },
-    className: { table: { disable: true } },
-    onChange: { table: { disable: true } },
-    id: { table: { disable: true } },
+    className: { control: false },
+    id: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    layout: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "RadioGroupLayoutTypes.Column" } },
+      options: enumValues.options,
+    },
+    key: { table: { disable: true } },
+    onChange: { control: false },
+    ref: { table: { disable: true } },
+    optReqFlag: {
+      table: { defaultValue: { summary: true } },
+    },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
   }}
 />
 
@@ -46,21 +76,25 @@ import Radio from "../Radio/Radio";
   <Story
     name="RadioGroup"
     args={{
+      className: undefined,
       defaultValue: "4",
-      invalidText: "error!",
       helperText: "This is the helper text for the full group.",
+      id: "radioGroup-id",
+      invalidText: "error!",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Radio Group",
-      layout: RadioGroupLayoutTypes.Column,
+      layout: "RadioGroupLayoutTypes.Column",
       name: "radio-story",
+      onChange: undefined,
       optReqFlag: true,
+      showHelperInvalidText: true,
       showLabel: true,
     }}
   >
     {(args) => (
-      <RadioGroup {...args}>
+      <RadioGroup {...args} layout={enumValues.getValue(args.layout)}>
         <Radio value="2" labelText="Radio 2" />
         <Radio value="3" labelText="Radio 3" />
         <Radio value="4" labelText="Radio 4" />
