@@ -37,7 +37,7 @@ export interface IconProps {
    * rendered in a `title` element in the SVG. This descriptive text is not
    * visible but is needed for screenreaders to describe the graphic. */
   title?: string;
-  /** Sets the icon variant type. */
+  /** FOR INTERNAL DS USE ONLY: the icon variant to display. */
   type?: IconTypes;
 }
 
@@ -47,7 +47,7 @@ export interface IconProps {
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
     additionalStyles = {},
-    align = "none",
+    align = IconAlign.None,
     children,
     className,
     color = IconColors.UiBlack,
