@@ -1,12 +1,32 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import Accordion from "../Accordion/Accordion";
+import { faqContent } from "../Accordion/Accordion.stories.mdx";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import Button from "../Button/Button";
+import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
+import Form, { FormRow, FormField } from "../Form/Form";
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+import Hero from "../Hero/Hero";
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import { HeroTypes } from "../Hero/HeroTypes";
+import Image from "../Image/Image";
+import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import Link from "../Link/Link";
+import Notification, {
+  NotificationContent,
+  NotificationHeading,
+  NotificationProps,
+} from "../Notification/Notification";
+import Placeholder from "../Placeholder/Placeholder";
 import {
   Template,
   TemplateHeader,
@@ -18,27 +38,7 @@ import {
   TemplateFooter,
   TemplateAppContainer,
 } from "./Template";
-import Placeholder from "../Placeholder/Placeholder";
-import Hero from "../Hero/Hero";
-import { HeroTypes } from "../Hero/HeroTypes";
-import Image from "../Image/Image";
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
-import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-import HorizontalRule from "../HorizontalRule/HorizontalRule";
-import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import Notification, {
-  NotificationContent,
-  NotificationHeading,
-  NotificationProps,
-} from "../Notification/Notification";
-import Form, { FormRow, FormField } from "../Form/Form";
 import TextInput from "../TextInput/TextInput";
-import Button from "../Button/Button";
-import Link from "../Link/Link";
-import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
-import Accordion from "../Accordion/Accordion";
-import { faqContent } from "../Accordion/Accordion.stories.mdx";
 import { NotificationTypes } from "../Notification/NotificationTypes";
 import { getCategory } from "../../utils/componentCategories";
 
@@ -95,31 +95,35 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
   <Story
     name="TemplateAppContainer Component"
     args={{
-      header: <Placeholder modifier="short">NYPL Header</Placeholder>,
       breakout: (
         <>
           <Placeholder modifier="short">Breadcrumbs</Placeholder>
           <Placeholder modifier="short">Hero</Placeholder>
         </>
       ),
-      sidebar: "left",
-      contentTop: <Placeholder>Content Top</Placeholder>,
-      contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
       contentPrimary: (
         <>
           <Placeholder>Main Content</Placeholder>
           <Placeholder modifier="short">More Content</Placeholder>
         </>
       ),
+      contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
+      contentTop: <Placeholder>Content Top</Placeholder>,
       footer: <Placeholder modifier="short">Footer</Placeholder>,
+      header: <Placeholder modifier="short">NYPL Header</Placeholder>,
+      sidebar: "left",
     }}
     argTypes={{
-      header: { control: false },
       breakout: { control: false },
-      contentTop: { control: false },
-      contentSidebar: { control: false },
       contentPrimary: { control: false },
+      contentSidebar: { control: false },
+      contentTop: { control: false },
       footer: { control: false },
+      header: { control: false },
+      sidebar: {
+        control: false,
+        table: { defaultValue: { summary: "none" } },
+      },
     }}
   >
     {(args) => <TemplateAppContainer {...args} />}
@@ -159,7 +163,7 @@ import {
     </TemplateBreakout>
   </TemplateHeader>
 
-  <TemplateContent>
+  <TemplateContent sidebar="...">
     <TemplateContentTop>
       // ...
     </TemplateContentTop>
@@ -188,6 +192,7 @@ import {
       contentTop: { table: { disable: true } },
       footer: { table: { disable: true } },
       header: { table: { disable: true } },
+      sidebar: { description: "Only used in Storybook." },
     }}
   >
     {(args) => (

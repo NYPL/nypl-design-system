@@ -16,7 +16,8 @@ import generateUUID from "../../helpers/generateUUID";
 interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
   center?: boolean;
-  /** Optional value to render the layout in a row or column (default). */
+  /** Optional value to render the layout in a row or column.
+   * Default is `CardLayouts.Column`. */
   layout?: CardLayouts;
 }
 
@@ -54,14 +55,15 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   /** Text description of the image; to follow best practices for accessibility,
    * this prop should not be left blank if `imageSrc` is passed. */
   imageAlt?: string;
-  /** Optional value to control the aspect ratio of the `CardIage`; default
-   * value is `square`. */
+  /** Optional value to control the aspect ratio of the `CardImage`; default
+   * value is `ImageRatios.Square`. */
   imageAspectRatio?: ImageRatios;
   /** Optional boolean value to control the position of the `CardImage`. */
   imageAtEnd?: boolean;
   /** Custom image component used in place of DS `Image` component. */
   imageComponent?: JSX.Element;
-  /** Optional value to control the size of the `CardImage`. */
+  /** Optional value to control the size of the `CardImage`. Default value is
+   * `ImageSizes.Default`. */
   imageSize?: ImageSizes;
   /** The path to the image displayed within the `Card` component. */
   imageSrc?: string;
