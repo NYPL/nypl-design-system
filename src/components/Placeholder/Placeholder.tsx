@@ -2,7 +2,7 @@ import * as React from "react";
 
 export interface PlaceholderProps {
   /** Modifier string for the classname. */
-  modifier?: string;
+  variant?: string;
 }
 
 /** Creates a gray box with an editable string for dropping in spaces
@@ -11,9 +11,7 @@ export interface PlaceholderProps {
  */
 export default function Placeholder({
   children,
-  modifier,
+  variant,
 }: React.PropsWithChildren<PlaceholderProps>) {
-  return (
-    <div className={`placeholder placeholder-${modifier}`}>{children}</div>
-  );
+  return <div className={`placeholder placeholder-${variant}`}>{children}</div>;
 }
