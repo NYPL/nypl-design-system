@@ -69,7 +69,7 @@ export { default as Link } from "./components/Link/Link";
 export { LinkTypes } from "./components/Link/LinkTypes";
 export { default as List } from "./components/List/List";
 export { ListTypes } from "./components/List/ListTypes";
-export { default as Modal } from "./components/Modal/Modal";
+export { ModalTrigger, DSModal } from "./components/Modal/Modal";
 export { default as Notification } from "./components/Notification/Notification";
 export { NotificationTypes } from "./components/Notification/NotificationTypes";
 export { default as Pagination } from "./components/Pagination/Pagination";
