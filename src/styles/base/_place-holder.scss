@@ -6,13 +6,6 @@
     margin-bottom: var(--nypl-space-xl);
   }
 
-  &--full {
-    margin-bottom: var(--nypl-space-xxl);
-    @include breakpoint($nypl-breakpoint-large) {
-      margin-bottom: var(--nypl-space-xxxl);
-    }
-  }
-
   padding: var(--nypl-space-s);
 
   align-items: center;
@@ -24,6 +17,13 @@
   line-height: 1.4;
   padding: 4rem 1rem;
   width: 100%;
+
+  &--full {
+    margin-bottom: var(--nypl-space-xxl);
+    @include breakpoint($nypl-breakpoint-large) {
+      margin-bottom: var(--nypl-space-xxxl);
+    }
+  }
 
   &--short {
     padding: 1rem 1rem;

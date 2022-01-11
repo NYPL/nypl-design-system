@@ -71,11 +71,11 @@ import { getCategory } from "../../utils/componentCategories";
 import { TemplateAppContainer } from "@nypl/design-system-react-components";
 
 <TemplateAppContainer
-  header={<Placeholder modifiers={["short"]}>NYPL Header</Placeholder>}
+  header={<Placeholder variant="short">NYPL Header</Placeholder>}
   breakout={
     <>
-      <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
-      <Placeholder modifiers={["short"]}>Hero</Placeholder>
+      <Placeholder variant="short">Breadcrumbs</Placeholder>
+      <Placeholder variant="short">Hero</Placeholder>
     </>
   }
   sidebar="left"
@@ -84,10 +84,10 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
   contentPrimary={
     <>
       <Placeholder>Main Content</Placeholder>
-      <Placeholder modifiers={["short"]}>More Content</Placeholder>
+      <Placeholder variant="short">More Content</Placeholder>
     </>
   }
-  footer={<Placeholder modifiers={["short"]}>Footer</Placeholder>}
+  footer={<Placeholder variant="short">Footer</Placeholder>}
 />;
 ```
 
@@ -97,20 +97,20 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
     args={{
       breakout: (
         <>
-          <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
-          <Placeholder modifiers={["short"]}>Hero</Placeholder>
+          <Placeholder variant="short">Breadcrumbs</Placeholder>
+          <Placeholder variant="short">Hero</Placeholder>
         </>
       ),
       contentPrimary: (
         <>
           <Placeholder>Main Content</Placeholder>
-          <Placeholder modifiers={["short"]}>More Content</Placeholder>
+          <Placeholder variant="short">More Content</Placeholder>
         </>
       ),
       contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
       contentTop: <Placeholder>Content Top</Placeholder>,
-      footer: <Placeholder modifiers={["short"]}>Footer</Placeholder>,
-      header: <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>,
+      footer: <Placeholder variant="short">Footer</Placeholder>,
+      header: <Placeholder variant="short">NYPL Header</Placeholder>,
       sidebar: "left",
     }}
     argTypes={{
@@ -198,10 +198,10 @@ import {
     {(args) => (
       <Template>
         <TemplateHeader>
-          <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>
+          <Placeholder variant="short">NYPL Header</Placeholder>
           <TemplateBreakout>
-            <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
-            <Placeholder modifiers={["short"]}>Hero</Placeholder>
+            <Placeholder variant="short">Breadcrumbs</Placeholder>
+            <Placeholder variant="short">Hero</Placeholder>
           </TemplateBreakout>
         </TemplateHeader>
         <TemplateContent sidebar={args.sidebar}>
@@ -215,7 +215,7 @@ import {
           )}
           <TemplateContentPrimary>
             <Placeholder>Main Content</Placeholder>
-            <Placeholder modifiers={["short"]}>More Content</Placeholder>
+            <Placeholder variant="short">More Content</Placeholder>
           </TemplateContentPrimary>
           {args.sidebar === "right" && (
             <TemplateContentSidebar>
@@ -224,7 +224,7 @@ import {
           )}
         </TemplateContent>
         <TemplateFooter>
-          <Placeholder modifiers={["short"]}>Footer</Placeholder>
+          <Placeholder variant="short">Footer</Placeholder>
         </TemplateFooter>
       </Template>
     )}

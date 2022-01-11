@@ -5,10 +5,6 @@
   width: 100%;
 }
 
-.react-autosuggest__input {
-  @extend .input;
-}
-
 .react-autosuggest__input--focused {
   outline: none;
 }
@@ -28,9 +24,9 @@
   background-color: var(--nypl-colors-ui-white);
   display: block;
   font-weight: 300;
-  margin-top: -6px; // accounts for the focus ring on the input
+  margin-top: 1px; // accounts for the focus ring on the input
   outline: 1px solid var(--nypl-colors-ui-gray-light-cool);
-  position: absolute;
+  position: relative;
   width: 100%;
   z-index: 2;
 }
