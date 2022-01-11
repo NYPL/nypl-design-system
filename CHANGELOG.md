@@ -13,6 +13,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Completely removes the `CardEdition` and `Input` components and related files and references.
 - Removes all references of the `BEM` CSS pattern.
 
+### Changes
+
+- Updates the `Form`, `HorizontalRule`, `Image` component by removing the native HTML attributes as props. This sets the props allowed to the list of props declared in their own files.
+
 ## 0.25.8 (January 6, 2022)
 
 ### Adds
