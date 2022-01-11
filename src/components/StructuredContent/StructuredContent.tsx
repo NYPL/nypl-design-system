@@ -48,8 +48,9 @@ export interface StructuredContentProps {
  */
 function StructuredContentImage(props: ImageProps) {
   const {
+    additionalFigureStyles,
     additionalImageStyles,
-    additionalStyles,
+    additionalWrapperStyles,
     alt,
     component,
     imageAspectRatio,
@@ -60,8 +61,9 @@ function StructuredContentImage(props: ImageProps) {
   } = props;
   return (
     <Image
+      additionalFigureStyles={additionalFigureStyles}
       additionalImageStyles={additionalImageStyles}
-      additionalStyles={additionalStyles}
+      additionalWrapperStyles={additionalWrapperStyles}
       alt={alt}
       component={component}
       imageAspectRatio={imageAspectRatio}
@@ -96,10 +98,9 @@ export default function StructuredContent(
     bodyContent,
   } = props;
   const hasImage = imageSrc || imageComponent;
-  const noImageWrapper = !imageCaption && !imageCredit;
   const styles = useMultiStyleConfig("StructuredContent", {
+    imageAspectRatio,
     imagePosition,
-    noImageWrapper,
   });
   const finalBodyContent =
     typeof bodyContent === "string" ? (
@@ -141,8 +142,9 @@ export default function StructuredContent(
       )}
       {hasImage && (
         <StructuredContentImage
+          additionalFigureStyles={styles.imageFigure}
           additionalImageStyles={styles.image}
-          additionalStyles={styles.imageContainer}
+          additionalWrapperStyles={styles.imageWrapper}
           alt={imageAlt}
           component={imageComponent}
           imageAspectRatio={imageAspectRatio}

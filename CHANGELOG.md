@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `StructuredContent` component.
+- Adds the `additionalImageStyles` and `additionalFigureStyles` props to the `Image` component to specifically target the `img` element's style and the `figure` HTML elements.
+
 ### Breaking Changes
 
 - Completely removes the `CardEdition` and `Input` components and related files and references.
@@ -16,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates the `Form`, `HorizontalRule`, `Image` component by removing the native HTML attributes as props. This sets the props allowed to the list of props declared in their own files.
+- Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
 
 ### Fixes
 
@@ -33,8 +39,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds `Toggle` component.
 - Adds `xxxs` (2px) spacing option to DS design tokens.
 - Adds `external` variant to `Link` component.
-- Adds the `StructuredContent` component.
-- Adds the `additionalImageStyles` prop to the `Image` component to specifically target the `img` element's style and not just the `Image`'s component wrappers.
 
 ### Changes
 
