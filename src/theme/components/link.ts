@@ -22,6 +22,7 @@ const variants = {
       fill: "currentColor",
     },
     _hover: {
+      color: "ui.link.secondary",
       textDecoration: "underline",
     },
   },
@@ -46,7 +47,16 @@ const variants = {
   },
 };
 const Link = {
-  baseStyle: baseLinkStyles,
+  baseStyle: {
+    ...baseLinkStyles,
+    // This is needed for custom anchor elements or link components
+    // that are passed as children to the `Link` component.
+    a: {
+      _hover: {
+        color: "ui.link.secondary",
+      },
+    },
+  },
   variants,
 };
 

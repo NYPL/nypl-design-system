@@ -8,11 +8,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Breaking Changes
+
+- Completely removes the `CardEdition` and `Input` components and related files and references.
+- Removes all references of the `BEM` CSS pattern.
+
 ### Changes
 
+- Updates the `Form`, `HorizontalRule`, `Image` component by removing the native HTML attributes as props. This sets the props allowed to the list of props declared in their own files.
 - Minor change to the `Notification`'s heading component so it adds a proper id to `NotificationHeading`.
 - Updates the `Heading` component to use the DS `Link` component rather than Chakra's `Link` component.
 - Updates the style of links rendered in the `Heading` component so they are styled as standard links. The only exception is for links used in the `Card` component for the _full-click functionality_ feature. Otherwise, links in `Card` headings are styled as standard links.
+
+### Fixes
+
+- Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
 
 ## 0.25.8 (January 6, 2022)
 
