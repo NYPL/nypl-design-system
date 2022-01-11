@@ -41,7 +41,7 @@ export function ModalTrigger({
 }: React.PropsWithChildren<ModalProps>) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalOnCloseHandler = () => {
-    onCloseHandler && onCloseHandler;
+    onCloseHandler && onCloseHandler();
     onClose();
   };
   return (
@@ -79,7 +79,7 @@ export function useModal() {
     onCloseHandler,
   }: React.PropsWithChildren<ModalProps>) {
     const finalOnCloseHandler = () => {
-      onCloseHandler && onCloseHandler;
+      onCloseHandler && onCloseHandler();
       onClose();
     };
     return (
