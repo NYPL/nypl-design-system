@@ -1,7 +1,8 @@
+import { Box } from "@chakra-ui/react";
 import * as React from "react";
+
 import { FormSpacing } from "./FormTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
-import { Box } from "@chakra-ui/react";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface FormChildProps {
@@ -54,8 +55,8 @@ export function FormField(props: React.PropsWithChildren<FormChildProps>) {
   );
 }
 
-/** main Form component */
-export default function Form(props: React.ComponentProps<"form"> & FormProps) {
+/** Main Form component */
+export default function Form(props: React.PropsWithChildren<FormProps>) {
   const {
     action,
     children,
