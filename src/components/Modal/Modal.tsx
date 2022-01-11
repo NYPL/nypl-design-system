@@ -69,7 +69,7 @@ export function ModalTrigger({
   );
 }
 
-export function DSModal() {
+export function useModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   function Modal({
     bodyContent = testBodyContent,
