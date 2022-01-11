@@ -15,11 +15,11 @@ import {
 } from "./Template";
 import Placeholder from "../Placeholder/Placeholder";
 
-const header = <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>;
+const header = <Placeholder variant="short">NYPL Header</Placeholder>;
 const breakout = (
   <>
-    <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
-    <Placeholder modifiers={["short"]}>Hero</Placeholder>
+    <Placeholder variant="short">Breadcrumbs</Placeholder>
+    <Placeholder variant="short">Hero</Placeholder>
   </>
 );
 const sidebar = "left";
@@ -28,10 +28,10 @@ const contentSidebar = <Placeholder>Left Sidebar</Placeholder>;
 const contentPrimary = (
   <>
     <Placeholder>Main Content</Placeholder>
-    <Placeholder modifiers={["short"]}>More Content</Placeholder>
+    <Placeholder variant="short">More Content</Placeholder>
   </>
 );
-const footer = <Placeholder modifiers={["short"]}>Footer</Placeholder>;
+const footer = <Placeholder variant="short">Footer</Placeholder>;
 
 describe("TemplateAppContainer accessibility", () => {
   it("passes axe accessibility test", async () => {
