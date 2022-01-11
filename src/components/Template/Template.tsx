@@ -2,13 +2,19 @@ import * as React from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
 
 export interface TemplateProps {}
+export interface TemplateFooterProps {
+  /** Flag to render an HTML footer element. True by default. */
+  renderFooterElement?: boolean;
+}
 export interface TemplateSidebarProps {
   /** Renders the `TemplateContentSidebar` component either on the left or
    * right side of the `TemplateContentPrimary` component. */
   sidebar?: "none" | "left" | "right";
 }
 export interface TemplateContentProps extends TemplateSidebarProps {}
-export interface TemplateAppContainerProps extends TemplateSidebarProps {
+export interface TemplateAppContainerProps
+  extends TemplateFooterProps,
+    TemplateSidebarProps {
   /** DOM that will be rendered in the `TemplateBreakout` component section. */
   breakout?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
@@ -152,10 +158,18 @@ const TemplateContentSidebar = (
 /**
  * This optional component should be the last child of the `Template`
  * component. This is rendered as an HTML `<footer>` element and spans the full
- * width of the page.
+ * width of the page. If an HTML `<footer>` element is already passed in a
+ * custom component, set `renderFooterElement` to `false`.
  */
-const TemplateFooter = (props: React.PropsWithChildren<TemplateProps>) => {
-  return <Box as="footer">{props.children}</Box>;
+const TemplateFooter = ({
+  children,
+  renderFooterElement = true,
+}: React.PropsWithChildren<TemplateFooterProps>) => {
+  return renderFooterElement ? (
+    <Box as="footer">{children}</Box>
+  ) : (
+    <>{children}</>
+  );
 };
 
 /**
@@ -176,6 +190,7 @@ const TemplateAppContainer = (
     footer,
     header,
     sidebar = "none",
+    renderFooterElement = true,
   } = props;
   const breakoutElem = breakout && (
     <TemplateBreakout>{breakout}</TemplateBreakout>
@@ -208,7 +223,11 @@ const TemplateAppContainer = (
 
         {sidebar === "right" && contentSidebarElem}
       </TemplateContent>
-      {footer && <TemplateFooter>{footer}</TemplateFooter>}
+      {footer && (
+        <TemplateFooter renderFooterElement={renderFooterElement}>
+          {footer}
+        </TemplateFooter>
+      )}
     </Template>
   );
 };

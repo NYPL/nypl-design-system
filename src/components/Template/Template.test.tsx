@@ -93,6 +93,24 @@ describe("TemplateAppContainer component", () => {
     expect(screen.getByText("More Content")).toBeInTheDocument();
     expect(screen.getByText("Footer")).toBeInTheDocument();
   });
+
+  it("renders only one footer in a custom footer component", () => {
+    const customFooter = <footer>Custom Footer</footer>;
+    render(
+      <TemplateAppContainer
+        header={header}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={customFooter}
+        renderFooterElement={false}
+      />
+    );
+
+    expect(screen.getAllByRole("contentinfo")).toHaveLength(1);
+  });
 });
 
 describe("Template components", () => {
