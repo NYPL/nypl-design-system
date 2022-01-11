@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates the `Form`, `HorizontalRule`, `Image` component by removing the native HTML attributes as props. This sets the props allowed to the list of props declared in their own files.
+- Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
 
 ### Fixes
 
@@ -44,7 +45,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the spacing in the `Notification` component to improve the alignment of the icon and text elements.
 - Updates the `Notification` component to optionally display/hide the `Icon` in the heading or content area.
 - Updates the `ComponentWrapper` component to allow the internal `HelperErrorText` component to get set in the invalid state. Also added tests for this component.
-- Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
 
 ### Fixes
 
