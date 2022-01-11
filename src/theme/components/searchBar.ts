@@ -1,19 +1,13 @@
 const SearchBar = {
-  parts: ["topRow"],
   baseStyle: {
-    topRow: {
-      display: "flex",
-      marginBottom: {
-        base: "xs",
-        md: "auto",
-      },
-      flexFlow: {
-        base: "column nowrap",
-        md: "row nowrap",
-      },
+    display: "flex",
+    marginBottom: {
+      base: "xs",
+      md: "auto",
     },
-    button: {
-      marginBottom: "auto",
+    flexFlow: {
+      base: "column nowrap",
+      md: "row nowrap",
     },
   },
 };

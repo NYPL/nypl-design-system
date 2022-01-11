@@ -8,8 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Breaking Changes
+
+- Completely removes the `CardEdition` and `Input` components and related files and references.
+- Removes all references of the `BEM` CSS pattern.
+
+### Changes
+
+- Updates the `Form`, `HorizontalRule`, `Image` component by removing the native HTML attributes as props. This sets the props allowed to the list of props declared in their own files.
+
 ### Fixes
 
+- Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
 - Removes wrapper divs around custom image elements used in the `Card` component. Also passes the aspect ratio as `ImageRatios.Original` when the custom image element is passed to the `Card` component.
 
 ## 0.25.8 (January 6, 2022)
@@ -34,7 +44,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates docs for Chakra `Grid` component to use theme object values rather than CSS variables.
 - Updates the spacing in the `Notification` component to improve the alignment of the icon and text elements.
 - Updates the `Notification` component to optionally display/hide the `Icon` in the heading or content area.
-- Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
+  <<<<<<< HEAD
+- # Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
+- Updates the `ComponentWrapper` component to allow the internal `HelperErrorText` component to get set in the invalid state. Also added tests for this component.
+- Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
+  > > > > > > > DSD-557/searchbar-componentwrapper
 
 ### Fixes
 

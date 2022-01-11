@@ -1,6 +1,6 @@
 // HorizontalRule
-import * as React from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
+import * as React from "react";
 
 export interface HorizontalRuleProps {
   /** Optional alignment value to align the horizontal rule to one side or the
@@ -20,9 +20,7 @@ export interface HorizontalRuleProps {
   width?: string;
 }
 
-export default function HorizontalRule(
-  props: React.ComponentProps<"hr"> & HorizontalRuleProps
-) {
+export default function HorizontalRule(props: HorizontalRuleProps) {
   const { align, className, height = "2px", width = "auto" } = props;
   const styles = useStyleConfig("HorizontalRule", { align });
   let finalHeight = height;

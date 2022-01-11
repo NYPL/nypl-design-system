@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
-import Select from "../Select/Select";
-import TextInput from "../TextInput/TextInput";
-import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Icon from "../Icons/Icon";
 import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import Select from "../Select/Select";
 import { SelectTypes } from "../Select/SelectTypes";
+import TextInput from "../TextInput/TextInput";
+import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
+import generateUUID from "../../helpers/generateUUID";
 
 // Internal interfaces that are used only for `SearchBar` props.
 interface SelectProps {
@@ -153,35 +153,33 @@ export default function SearchBar(props: SearchBarProps) {
       Search
     </Button>
   );
-  // Render the `HelperErrorText` component.
-  const helperErrorTextElem = footnote && (
-    <HelperErrorText id={helperErrorTextID} isInvalid={isInvalid}>
-      {footnote}
-    </HelperErrorText>
-  );
   // If a custom input element was passed, use that instead of the
   // `TextInput` component.
   const textInputElem = textInputElement || textInputNative;
 
   return (
-    <Box
-      as="form"
+    <ComponentWrapper
+      helperText={helperErrorText}
       id={id}
-      className={className}
-      role="search"
-      aria-label={finalAriaLabel}
-      aria-describedby={ariaDescribedby}
-      onSubmit={onSubmit}
-      method={method}
-      action={action}
-      __css={styles}
+      invalidText={invalidText}
+      isInvalid={isInvalid}
     >
-      <Box __css={styles.topRow}>
+      <Box
+        as="form"
+        id={`${id}-form`}
+        className={className}
+        role="search"
+        aria-label={finalAriaLabel}
+        aria-describedby={ariaDescribedby}
+        onSubmit={onSubmit}
+        method={method}
+        action={action}
+        __css={styles}
+      >
         {selectElem}
         {textInputElem}
         {buttonElem}
       </Box>
-      {helperErrorTextElem}
-    </Box>
+    </ComponentWrapper>
   );
 }
