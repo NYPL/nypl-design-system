@@ -1,5 +1,5 @@
-import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import * as React from "react";
 
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
@@ -57,7 +57,7 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
   );
 }
 
-export default function Image(props: React.ComponentProps<"img"> & ImageProps) {
+export default function Image(props: ImageProps) {
   const {
     additionalImageStyles = {},
     additionalStyles = {},

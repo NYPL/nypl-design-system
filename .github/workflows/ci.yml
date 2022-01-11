@@ -24,8 +24,7 @@ jobs:
         with:
           useLockFile: false
       - name: Lint
-        # temporary
-        run: npm run test
+        run: npm run lint
 
   typecheck:
     name: Typecheck
