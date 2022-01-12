@@ -313,6 +313,26 @@ handle the disabled state yourself.
   </DSProvider>
 </Canvas>
 
+### With Heading and Description Text
+
+Use the `descriptionText` and `headingText` props to render a heading and
+description above the main `SearchBar` form component.
+
+<Canvas>
+  <DSProvider>
+    <SearchBar
+      descriptionText="This is the description for this `SearchBar` instance."
+      headingText="Heading for this `SearchBar`"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  </DSProvider>
+</Canvas>
+
 ### TextInput and onSubmit Values
 
 _NOTE: open the browser console to see the values logged in the example below._

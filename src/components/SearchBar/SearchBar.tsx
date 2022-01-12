@@ -37,6 +37,10 @@ export interface SearchBarProps {
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** A class name for the `form` element. */
   className?: string;
+  /** Optional string for the SearchBar's description above the component. */
+  descriptionText?: string;
+  /** Optional string for the SearchBar's heading text above the component. */
+  headingText?: string;
   /** The text to display below the form in a `HelperErrorText` component. */
   helperErrorText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -76,6 +80,8 @@ export default function SearchBar(props: SearchBarProps) {
     action,
     buttonOnClick = null,
     className,
+    descriptionText,
+    headingText,
     helperErrorText,
     id = generateUUID(),
     invalidText,
@@ -173,6 +179,8 @@ export default function SearchBar(props: SearchBarProps) {
 
   return (
     <ComponentWrapper
+      descriptionText={descriptionText}
+      headingText={headingText}
       helperText={helperErrorText}
       id={id}
       invalidText={invalidText}

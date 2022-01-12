@@ -9,7 +9,7 @@ import Text from "../Text/Text";
 export interface ComponentWrapperProps {
   /** The UI elements that will be wrapped by this component */
   children: React.ReactNode;
-  /** Optional string to set the text for a video description */
+  /** Optional string to set the text for the component's description */
   descriptionText?: string;
   /** Optional string to set the text for a `Heading` component */
   headingText?: string;
