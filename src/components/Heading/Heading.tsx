@@ -1,13 +1,9 @@
-// MT-82, MT 225, etc
+import { Heading as ChakraHeading, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import {
-  Box,
-  Heading as ChakraHeading,
-  Link as ChakraLink,
-  useStyleConfig,
-} from "@chakra-ui/react";
 
 import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
+import Link from "../Link/Link";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface HeadingProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -46,7 +42,7 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
     additionalStyles = {},
     className,
     displaySize,
-    id,
+    id = generateUUID(),
     level = HeadingLevels.Two,
     text,
     url,
@@ -80,9 +76,9 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
 
   const contentToRender = props.children ? props.children : text;
   const content = url ? (
-    <Box as={ChakraLink} href={url} className={urlClass}>
+    <Link className={urlClass} href={url} id={`${id}-link`}>
       {contentToRender}
-    </Box>
+    </Link>
   ) : (
     contentToRender
   );
