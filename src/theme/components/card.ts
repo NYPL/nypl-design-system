@@ -34,7 +34,8 @@ const getBodyPaddingStyles = ({ border, hasImage, imageAtEnd, isRow }) => {
 const Card = {
   parts: ["body", "heading"],
   baseStyle: (props) => {
-    const { border, center, hasImage, imageAtEnd, layout } = props;
+    const { border, center, hasImage, imageAtEnd, layout, mainActionLink } =
+      props;
     const isRow = layout === "row";
     const layoutStyles = isRow
       ? {
@@ -74,6 +75,7 @@ const Card = {
       textAlign: center ? "center" : null,
       heading: {
         marginBottom: "xs",
+        a: mainActionLink ? { color: "ui.black" } : null,
       },
       body: {
         display: { md: "block" },

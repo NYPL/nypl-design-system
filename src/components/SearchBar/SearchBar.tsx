@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
-import Select from "../Select/Select";
-import TextInput from "../TextInput/TextInput";
-import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Icon from "../Icons/Icon";
 import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import Select from "../Select/Select";
 import { SelectTypes } from "../Select/SelectTypes";
+import TextInput from "../TextInput/TextInput";
+import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
+import generateUUID from "../../helpers/generateUUID";
 
 // Internal interfaces that are used only for `SearchBar` props.
 interface SelectProps {
@@ -37,6 +37,10 @@ export interface SearchBarProps {
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** A class name for the `form` element. */
   className?: string;
+  /** Optional string for the SearchBar's description above the component. */
+  descriptionText?: string;
+  /** Optional string for the SearchBar's heading text above the component. */
+  headingText?: string;
   /** The text to display below the form in a `HelperErrorText` component. */
   helperErrorText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -73,6 +77,8 @@ export default function SearchBar(props: SearchBarProps) {
     action,
     buttonOnClick = null,
     className,
+    descriptionText,
+    headingText,
     helperErrorText,
     id = generateUUID(),
     invalidText,
@@ -153,35 +159,35 @@ export default function SearchBar(props: SearchBarProps) {
       Search
     </Button>
   );
-  // Render the `HelperErrorText` component.
-  const helperErrorTextElem = footnote && (
-    <HelperErrorText id={helperErrorTextID} isInvalid={isInvalid}>
-      {footnote}
-    </HelperErrorText>
-  );
   // If a custom input element was passed, use that instead of the
   // `TextInput` component.
   const textInputElem = textInputElement || textInputNative;
 
   return (
-    <Box
-      as="form"
+    <ComponentWrapper
+      descriptionText={descriptionText}
+      headingText={headingText}
+      helperText={helperErrorText}
       id={id}
-      className={className}
-      role="search"
-      aria-label={finalAriaLabel}
-      aria-describedby={ariaDescribedby}
-      onSubmit={onSubmit}
-      method={method}
-      action={action}
-      __css={styles}
+      invalidText={invalidText}
+      isInvalid={isInvalid}
     >
-      <Box __css={styles.topRow}>
+      <Box
+        as="form"
+        id={`${id}-form`}
+        className={className}
+        role="search"
+        aria-label={finalAriaLabel}
+        aria-describedby={ariaDescribedby}
+        onSubmit={onSubmit}
+        method={method}
+        action={action}
+        __css={styles}
+      >
         {selectElem}
         {textInputElem}
         {buttonElem}
       </Box>
-      {helperErrorTextElem}
-    </Box>
+    </ComponentWrapper>
   );
 }

@@ -60,7 +60,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.6`   |
+| Latest            | `0.25.9`   |
 
 <Description of={SearchBar} />
 
@@ -304,6 +304,26 @@ handle the disabled state yourself.
       }}
       helperErrorText="Reason for disabled state."
       isDisabled
+    />
+  </DSProvider>
+</Canvas>
+
+### With Heading and Description Text
+
+Use the `descriptionText` and `headingText` props to render a heading and
+description above the main `SearchBar` form component.
+
+<Canvas>
+  <DSProvider>
+    <SearchBar
+      descriptionText="This is the description for this `SearchBar` instance."
+      headingText="Heading for this `SearchBar`"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
     />
   </DSProvider>
 </Canvas>
