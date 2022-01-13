@@ -1,10 +1,9 @@
 const StructuredContent = {
   parts: ["image", "imageFigure", "imageWrapper"],
-  baseStyle: ({ imageAspectRatio, imagePosition }) => {
+  baseStyle: ({ hasFigureImage, imageAspectRatio, imagePosition }) => {
     const styles: { maxWidth?: string } = {};
     const wrapperStyles = {
       float: imagePosition !== "center" ? imagePosition : undefined,
-      marginBottom: "m",
       marginLeft:
         imagePosition === "center"
           ? null
@@ -24,10 +23,13 @@ const StructuredContent = {
       styles.maxWidth = "100%";
     }
     return {
-      imageFigure: wrapperStyles,
-      imageWrapper: {
+      imageFigure: {
         ...wrapperStyles,
         marginBottom: "m",
+      },
+      imageWrapper: {
+        ...wrapperStyles,
+        marginBottom: !hasFigureImage ? "m" : null,
       },
       image: {
         // To handle the case when the image does not have a container,
@@ -41,7 +43,8 @@ const StructuredContent = {
           imagePosition === "left" && imageAspectRatio === "original"
             ? "m"
             : undefined,
-        marginBottom: "var(--nypl-space-m) !important",
+        marginBottom:
+          !hasFigureImage || imageAspectRatio === "original" ? "m" : null,
         ...styles,
       },
     };

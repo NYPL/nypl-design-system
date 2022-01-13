@@ -98,7 +98,9 @@ export default function StructuredContent(
     bodyContent,
   } = props;
   const hasImage = imageSrc || imageComponent;
+  const hasFigureImage = imageCaption || imageCredit;
   const styles = useMultiStyleConfig("StructuredContent", {
+    hasFigureImage,
     imageAspectRatio,
     imagePosition,
   });
