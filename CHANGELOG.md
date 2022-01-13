@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
+
 ### Breaking Changes
 
 - Completely removes the `CardEdition` and `Input` components and related files and references.
@@ -20,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Heading` component to use the DS `Link` component rather than Chakra's `Link` component.
 - Updates the style of links rendered in the `Heading` component so they are styled as standard links. The only exception is for links used in the `Card` component for the _full-click functionality_ feature. Otherwise, links in `Card` headings are styled as standard links.
 - Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
+- Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
 
 ### Fixes
 
