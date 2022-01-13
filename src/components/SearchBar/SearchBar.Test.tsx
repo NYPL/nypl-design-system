@@ -238,6 +238,37 @@ describe("SearchBar", () => {
         />
       )
       .toJSON();
+    const withHeading = renderer
+      .create(
+        <SearchBar
+          id="withHeading"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          headingText="A Heading"
+        />
+      )
+      .toJSON();
+    const withDescription = renderer
+      .create(
+        <SearchBar
+          id="withDescription"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          descriptionText="A description"
+        />
+      )
+      .toJSON();
+    const withHeadingAndDescription = renderer
+      .create(
+        <SearchBar
+          id="withHeadingAndDescription"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          headingText="A Heading"
+          descriptionText="A description"
+        />
+      )
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(withSelect).toMatchSnapshot();
@@ -245,5 +276,8 @@ describe("SearchBar", () => {
     expect(invalidState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
     expect(requiredState).toMatchSnapshot();
+    expect(withHeading).toMatchSnapshot();
+    expect(withDescription).toMatchSnapshot();
+    expect(withHeadingAndDescription).toMatchSnapshot();
   });
 });
