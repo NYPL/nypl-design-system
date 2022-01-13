@@ -81,18 +81,6 @@ exports[`Button Snapshot Renders the UI snapshot correctly 7`] = `
   onClick={[MockFunction]}
   type="button"
 >
-  SearchBar
-</button>
-`;
-
-exports[`Button Snapshot Renders the UI snapshot correctly 8`] = `
-<button
-  className="chakra-button css-0"
-  data-testid="button"
-  id="button"
-  onClick={[MockFunction]}
-  type="button"
->
   NoBrand
 </button>
 `;
