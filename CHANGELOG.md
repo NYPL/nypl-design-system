@@ -8,10 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `Logo` component.
+
 ### Breaking Changes
 
 - Completely removes the `CardEdition` and `Input` components and related files and references.
 - Removes all references of the `BEM` CSS pattern.
+- Removes all references to logos from the `Icon` component.
 
 ### Changes
 
