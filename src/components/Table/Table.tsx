@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Table as ChakraTable, useStyleConfig } from "@chakra-ui/react";
-import { TableDisplaySizes, TableDisplayColors } from "./TableTypes";
+import { Table as ChakraTable, Thead as ChakraTHeader, Tbody as ChakraTbody, Tfoot as ChakraTfoot, Tr as ChakraTRow, Th as ChakraTColumnHeader, Td as ChakraTData, TableCaption as ChakraTableCaption, useStyleConfig  } from "@chakra-ui/react";
+import { TableDisplaySizes } from "./TableTypes";
+import generateUUID from "../../helpers/generateUUID";
+type TableType = "outline" | "filled" | "flushed" | "unstyled"
 
-//Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption
 
 export interface TableProps {
   className?: string;
@@ -22,20 +23,19 @@ export interface TableProps {
   tableData?: [];
 
   titleText?: string;
-
 }
 
 //props: React.PropsWithChildren<TableProps>
 
 
 function Table(props: React.PropsWithChildren<TableProps>) {
+
   const {
-    children,
     className,
     columnHeaders,
     columnHeadersBackgroundColor,
-    columnHeadersTextColor = TableDisplaySizes.Default,
-    id,
+    columnHeadersTextColor,
+    id = generateUUID(),
     useRowHeaders = false,
     showRowDividers = false,
     tableData,
@@ -55,18 +55,31 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   });
 
 
-  if (!children) {
-    console.warn(
-      "The Text component has no children and will not render correctly."
-    );
-  }
+
+  const columnHeadersElems = columnHeaders && (
+    <ChakraTHeader>
+      <ChakraTRow>
+        {columnHeaders.map((child, i) => { return <ChakraTColumnHeader> {child} </ChakraTColumnHeader> } )}
+      </ChakraTRow>
+    </ChakraTHeader>
+  );
 
   return (
-    <ChakraTable className={className} sx={styles}>
-      {children}
+    <ChakraTable 
+      className={className} sx={styles}>
+      {columnHeadersElems}
     </ChakraTable>
   )
 }
 
+function cHeaders() {
+  const cheaders = []
+
+  columnHeaders.forEach((child) => {
+    cheaders.push(<ChakraTColumnHeader>{child}</ChakraTColumnHeader>)
+  })
+
+  return cheaders
+}
 
 export default Table;
