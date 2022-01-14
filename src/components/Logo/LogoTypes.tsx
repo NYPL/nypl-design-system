@@ -1,21 +1,7 @@
 export enum LogoColors {
+  Default = "",
   UiBlack = "ui.black",
   UiWhite = "ui.white",
-  BrandPrimary = "brand.primary",
-  BrandSecondary = "brand.secondary",
-  SectionWhatsOnPrimary = "section.whats-on.primary",
-  SectionWhatsOnSecondary = "section.whats-on.secondary",
-  SectionBooksAndMorePrimary = "section.books-and-more.primary",
-  SectionBooksAndMoreSecondary = "section.books-and-more.secondary",
-  SectionResearchPrimary = "section.research.primary",
-  SectionResearchSecondary = "section.research.secondary",
-  SectionLocationsPrimary = "section.locations.primary",
-  SectionLocationsSecondary = "section.locations.secondary",
-  SectionBlogsPrimary = "section.blogs.primary",
-  SectionBlogsSecondary = "section.blogs.secondary",
-  SectionResearchLibraryLpa = "section.research-library.lpa",
-  SectionResearchLibrarySchomburg = "section.research-library.schomburg",
-  SectionResearchLibrarySchwartzman = "section.research-library.schwartzman",
 }
 
 export enum LogoSizes {
@@ -30,18 +16,13 @@ export enum LogoSizes {
 export enum LogoNames {
   BrooklynPublicLibrary = "logo_bpl",
   LPA = "logo_lpa",
-  LPAColor = "logo_lpa_color",
   NYPL = "logo_nypl",
   NYPLLion = "logo_nypl_lion",
   NYPLLionInverted = "logo_nypl_lion_inverted",
-  NYPLNoLion = "logo_nypl_no_lion",
   QueensPublicLibrary = "logo_qpl",
-  QueensPublicLibraryAlt = "logo_qpl_horizontal",
+  QueensPublicLibraryAlt = "logo_qpl_alt",
   Schomburg = "logo_schomburg",
-  SchomburgColor = "logo_schomburg_color",
   SchomburgCircle = "logo_schomburg_circle",
-  SchomburgCircleColor = "logo_schomburg_circle_color",
   SimplyE = "logo_simplye",
-  SimplyEColor = "logo_simplye_color",
   SNFL = "logo_snfl",
 }

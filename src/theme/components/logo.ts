@@ -41,6 +41,9 @@ const Logo = {
       ...svgBase,
       fill: props.color,
       ...size[props.size],
+      path: {
+        fill: props.color,
+      },
     };
     return {
       ...allStyles,

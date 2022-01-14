@@ -87,7 +87,7 @@ describe("Logo", () => {
     const withCustomColor = renderer
       .create(
         <Logo
-          color={LogoColors.BrandPrimary}
+          color={LogoColors.UiBlack}
           id="test-logo-color"
           name={LogoNames.NYPL}
           size={LogoSizes.Large}
