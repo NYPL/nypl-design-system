@@ -20,7 +20,7 @@ const helperTextMargin = {
 const checkboxRadioLabelStyles = {
   userSelect: "none",
   fontSize: "text.default",
-  fontWeight: "light",
+  fontWeight: "text.default",
   marginBottom: "0",
   marginLeft: "xs",
   verticalAlign: "middle",
@@ -53,13 +53,13 @@ const labelLegendText = {
   width: "100%",
   marginBottom: "xs",
   fontSize: "label.default",
-  fontWeight: "medium",
+  fontWeight: "label.default",
   display: "flex",
   justifyContent: "space-between",
   helper: {
     marginLeft: "m",
-    fontWeight: "300",
     fontSize: "helper.default",
+    fontWeight: "helper.default",
   },
 };
 const checkboxRadioGroupStyles = {

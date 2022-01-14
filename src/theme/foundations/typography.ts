@@ -6,6 +6,24 @@ type Typography = {
   fontWeights: Dict;
 };
 
+const fontSizeValues = {
+  "-3": "0.625rem",
+  "-2": "0.75rem",
+  "-1": "0.875rem",
+  "0": "1rem",
+  "1": "1.125rem",
+  "2": "1.375rem",
+  "3": "1.75rem",
+  "4": "2.25rem",
+};
+
+const fontWeightValues = {
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+};
+
 const typography: Typography = {
   // Values from "src/styles/02-typography/_typeface.css"
   fonts: {
@@ -14,47 +32,75 @@ const typography: Typography = {
   },
   // Values from "src/styles/02-typography/_type-scale.css"
   fontSizes: {
-    "-3": "0.625rem",
-    "-2": "0.75rem",
-    "-1": "0.875rem",
-    "0": "1rem",
-    "1": "1.125rem",
-    "2": "1.375rem",
-    "3": "1.75rem",
-    "4": "2.25rem",
-    // name based tokens
+    // generic tokens
+    "-3": fontSizeValues["-3"],
+    "-2": fontSizeValues["-2"],
+    "-1": fontSizeValues["-1"],
+    "0": fontSizeValues["0"],
+    "1": fontSizeValues["1"],
+    "2": fontSizeValues["2"],
+    "3": fontSizeValues["3"],
+    "4": fontSizeValues["4"],
+    // specific tokens
     breadcrumbs: {
-      default: "0.875rem",
+      default: fontSizeValues["-1"],
     },
     button: {
-      default: "0.875rem",
+      default: fontSizeValues["-1"],
     },
     heading: {
-      primary: "2.25rem",
-      secondary: "1.75rem",
-      tertiary: "1.375rem",
-      callout: "1.125rem",
+      primary: fontSizeValues["4"],
+      secondary: fontSizeValues["3"],
+      tertiary: fontSizeValues["2"],
+      callout: fontSizeValues["1"],
     },
     helper: {
-      default: "0.875rem",
+      default: fontSizeValues["-1"],
     },
     label: {
-      default: "0.875rem",
-      secondary: "0.75rem",
+      default: fontSizeValues["-1"],
+      secondary: fontSizeValues["-2"],
     },
     text: {
-      default: "1rem",
-      caption: "0.875rem",
-      tag: "0.75rem",
-      mini: "0.625rem",
+      default: fontSizeValues["0"],
+      caption: fontSizeValues["-1"],
+      tag: fontSizeValues["-2"],
+      mini: fontSizeValues["-3"],
     },
   },
   // Values from "src/styles/02-typography/_type-weight.css"
   fontWeights: {
-    light: 300,
-    regular: 400,
-    medium: 500,
-    bold: 700,
+    // generic tokens
+    light: fontWeightValues["light"],
+    regular: fontWeightValues["regular"],
+    medium: fontWeightValues["medium"],
+    bold: fontWeightValues["bold"],
+    // specific tokens
+    breadcrumbs: {
+      default: fontWeightValues["regular"],
+      lastChild: fontWeightValues["bold"],
+    },
+    button: {
+      default: fontWeightValues["regular"],
+    },
+    heading: {
+      primary: fontWeightValues["light"],
+      secondary: fontWeightValues["medium"],
+      tertiary: fontWeightValues["medium"],
+      callout: fontWeightValues["medium"],
+    },
+    helper: {
+      default: fontWeightValues["light"],
+    },
+    label: {
+      default: fontWeightValues["medium"],
+    },
+    text: {
+      default: fontWeightValues["light"],
+      caption: fontWeightValues["light"],
+      tag: fontWeightValues["regular"],
+      mini: fontWeightValues["regular"],
+    },
   },
 };
 

@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
+- Adds element-specific design tokens for `fontSizes` and `fontWeights`.
 
 ### Breaking Changes
 

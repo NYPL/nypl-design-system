@@ -13,9 +13,9 @@ const variants = {
 const Text = {
   baseStyle: (props) => {
     const fontWeight = props.isBold
-      ? "bold"
-      : props.variant === "tag" || props.variant === "mini"
-      ? "regular"
+      ? props.variant === "tag" || props.variant === "mini"
+        ? "medium"
+        : "bold"
       : null;
     const fontStyle = props.isItalic ? "italic" : null;
 

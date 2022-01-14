@@ -37,7 +37,7 @@ const variants = {
     py: "xs",
     px: "xs",
     textDecoration: "none",
-    fontWeight: 500,
+    fontWeight: "button.default",
     bg: "ui.link.primary",
     _hover: {
       color: "ui.white",

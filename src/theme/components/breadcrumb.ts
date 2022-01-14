@@ -26,7 +26,7 @@ const Breadcrumb = {
     bg: "ui.black",
     color: "ui.white",
     fontSize: "breadcrumbs.default",
-    fontWeight: "regular",
+    fontWeight: "breadcrumbs.default",
     paddingBottom: "xs",
     paddingTop: "xs",
     ol: {
@@ -43,7 +43,7 @@ const Breadcrumb = {
       },
     },
     "li:last-child": {
-      fontWeight: { base: "regular", md: "bold" },
+      fontWeight: { base: "breadcrumbs.default", md: "breadcrumbs.lastChild" },
       ".chakra-breadcrumb__link": {
         _hover: {
           cursor: "default",

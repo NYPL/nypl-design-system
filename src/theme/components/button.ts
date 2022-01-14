@@ -10,7 +10,7 @@ const baseStyle = {
   px: "s",
   textDecoration: "none",
   wordWrap: "normal",
-  fontWeight: "regular",
+  fontWeight: "button.default",
   svg: {
     fill: "currentColor",
     marginTop: "xxs",

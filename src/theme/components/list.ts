@@ -52,7 +52,7 @@ const List = {
       dt: {
         borderTop: "1px solid",
         borderColor: "ui.gray.light-cool",
-        fontWeight: "bold",
+        fontWeight: "label.default",
         paddingBottom: { base: "0", md: "s" },
         paddingTop: "s",
         paddingRight: { md: "m" },

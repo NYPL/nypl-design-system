@@ -11,7 +11,7 @@ const margins = {
 const headings = {
   h1: {
     fontSize: "heading.primary", // var(--nypl-fontSizes-4);
-    fontWeight: "light",
+    fontWeight: "heading.primary",
     letterSpacing: "0",
     lineHeight: "1.1",
     ...margins,
@@ -19,27 +19,27 @@ const headings = {
   },
   h2: {
     fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
-    fontWeight: "medium",
+    fontWeight: "heading.secondary",
     lineHeight: "1.25",
     ...margins,
     width: "auto",
   },
   h3: {
     fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
-    fontWeight: "medium",
+    fontWeight: "heading.tertiary",
     lineHeight: "1.25",
     ...margins,
     width: "auto",
   },
   h4: {
     fontSize: "heading.callout", // var(--nypl-fontSizes-1);
-    fontWeight: "medium",
+    fontWeight: "heading.callout",
     lineHeight: "1.15",
     ...margins,
     width: "auto",
   },
   fallback: {
-    fontSize: "heading.callout", // var(--nypl-fontSizes-1);
+    fontSize: "1", // var(--nypl-fontSizes-1);
     fontWeight: "regular",
     lineHeight: "1.15",
     ...margins,

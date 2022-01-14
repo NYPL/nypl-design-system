@@ -12,7 +12,7 @@ const global = {
     color: "ui.black",
     fontFamily: "body",
     fontSize: "text.default",
-    fontWeight: "300",
+    fontWeight: "text.default",
     lineHeight: "1.5",
     overflowX: "hidden",
   },
