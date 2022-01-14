@@ -238,6 +238,19 @@ describe("SearchBar", () => {
         />
       )
       .toJSON();
+    const noBrandButtonType = renderer
+      .create(
+        <SearchBar
+          id="noBrandButtonType"
+          isDisabled
+          isRequired
+          labelText="searchbar"
+          noBrandButtonType={true}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+        />
+      )
+      .toJSON();
     const withHeading = renderer
       .create(
         <SearchBar
@@ -276,6 +289,7 @@ describe("SearchBar", () => {
     expect(invalidState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
     expect(requiredState).toMatchSnapshot();
+    expect(noBrandButtonType).toMatchSnapshot();
     expect(withHeading).toMatchSnapshot();
     expect(withDescription).toMatchSnapshot();
     expect(withHeadingAndDescription).toMatchSnapshot();

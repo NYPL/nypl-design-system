@@ -4,6 +4,5 @@ export enum ButtonTypes {
   Callout = "callout",
   Pill = "pill",
   Link = "link",
-  SearchBar = "searchBar",
   NoBrand = "noBrand",
 }
