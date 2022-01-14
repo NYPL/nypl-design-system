@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading renders the UI snapshot correctly 1`] = `
+<h1
+  className="chakra-heading css-0"
+  id="basic"
+>
+  Heading text
+</h1>
+`;
+
+exports[`Heading renders the UI snapshot correctly 2`] = `
+<h1
+  className="chakra-heading css-0"
+  id="basicWithChildText"
+>
+  Heading text
+</h1>
+`;
+
+exports[`Heading renders the UI snapshot correctly 3`] = `
+<h1
+  className="chakra-heading css-0"
+  id="customDisplaySize"
+>
+  Heading with Secondary displaySize
+</h1>
+`;
+
+exports[`Heading renders the UI snapshot correctly 4`] = `
+<h6
+  className="chakra-heading css-0"
+  id="otherLevel"
+>
+  Heading level six
+</h6>
+`;
+
+exports[`Heading renders the UI snapshot correctly 5`] = `
+<h1
+  className="chakra-heading css-0"
+  id="withLink"
+>
+  <a
+    className="css-0"
+    href="fake-url"
+    id="withLink-link"
+    rel={null}
+    target={null}
+  >
+    Heading text is a link
+  </a>
+</h1>
+`;
+
+exports[`Heading renders the UI snapshot correctly 6`] = `
+<h1
+  className="chakra-heading css-0"
+  id="withCustomLink"
+>
+  Part of the heading text is
+  <a
+    className="custom-link"
+    href="fake-url"
+  >
+    <span>
+      a link
+    </span>
+  </a>
+</h1>
+`;

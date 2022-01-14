@@ -35,6 +35,10 @@ module.exports = {
   typescript: {
     // Type-check stories during Storybook build.
     check: true,
+    // Display the enum variable name rather than the compiled values.
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: false,
+    },
   },
   refs: {
     "@chakra-ui/react": { disable: true },

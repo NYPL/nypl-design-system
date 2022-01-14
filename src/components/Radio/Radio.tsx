@@ -11,14 +11,14 @@ import HelperErrorText from "../HelperErrorText/HelperErrorText";
 export interface RadioProps {
   /** Additional class name. */
   className?: string;
-  /** Optional string to populate the HelperErrorText for the error state
-   * when `isInvalid` is true.
-   */
-  invalidText?: string;
   /** Optional string to populate the HelperErrorText for the standard state. */
   helperText?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Optional string to populate the HelperErrorText for the error state
+   * when `isInvalid` is true.
+   */
+  invalidText?: string;
   /** When using the Radio as a "controlled" form element, you can specify the
    * `Radio`'s checked state using this prop. You must also pass an onChange prop.
    * Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Chakra UI" />
 
@@ -141,9 +141,7 @@ function Tabs(props) {
 
 #### Patterns
 
-The NYPL DS uses the [CSS BEM](http://getbem.com/introduction/) pattern to
-structure and write CSS, but it is slowly being phased out. We are moving away
-from this and re-writing SCSS classes into Javascript objects that work with
+We are writing CSS style object rules into Javascript objects that work with
 Chakra's theme. Instead of creating a variant for a component with a class name,
 now different props or internal logic are used to get the appropriate variant.
 Internally, the right variant will be mapped to a Chakra theme variant that will
@@ -172,16 +170,15 @@ to test them ourselves.
 
 ## Styling
 
-As mentioned in the [Components composed with Chakra](#components-composed-with-chakra)
-section, we are moving away from using the BEM structure to using Javascript
-objects to extend Chakra's theme.
-
 The NYPL DS' theme file can be found at `src/theme/index.ts`. This creates a new
 theme that extends Chakra's theme and is set in the `DSProvider` component. Note
 that the example below is the general structure of the `theme` object but the DS
 `theme` object has values already set so it may look different. You would generally
 only work and add new object values in the `components` obejct key for new
 components and their theme or variants.
+
+_Note_: There are some SCSS files used to style third party plugins and to
+generate SCSS mixins.
 
 ```ts
 const theme = extendTheme({

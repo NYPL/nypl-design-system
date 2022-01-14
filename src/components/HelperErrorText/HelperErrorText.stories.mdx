@@ -1,10 +1,10 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import HelperErrorText from "./HelperErrorText";
@@ -23,10 +23,20 @@ import DSProvider from "../../theme/provider";
     jest: ["HelperErrorText.test.tsx"],
   }}
   argTypes={{
-    ariaAtomic: { table: { disable: true } },
+    additionalStyles: { control: false },
+    ariaAtomic: {
+      control: false,
+      table: { defaultValue: { summary: true } },
+    },
+    ariaLive: {
+      table: { defaultValue: { summary: "polite" } },
+    },
     children: { table: { disable: true } },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
+    className: { control: false },
+    id: { control: false },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
   }}
 />
 
@@ -41,9 +51,13 @@ import DSProvider from "../../theme/provider";
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Props"
+    name="HelperErrorText with Controls"
     args={{
+      additionalStyles: undefined,
+      ariaAtomic: undefined,
       ariaLive: "polite",
+      className: undefined,
+      id: "helperErrorText-id",
       isInvalid: false,
     }}
   >
@@ -57,7 +71,7 @@ import DSProvider from "../../theme/provider";
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Props" />
+<ArgsTable story="HelperErrorText with Controls" />
 
 ## With HTML Children
 
@@ -107,7 +121,7 @@ announced immediately.
 
 <Canvas>
   <Story
-    name="With Aria Props"
+    name="With Aria Controls"
     args={{
       ariaAtomic: true,
       ariaLive: "polite",

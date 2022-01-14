@@ -1,11 +1,11 @@
+import { Box } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
-import { Box } from "@chakra-ui/react";
+} from "@storybook/addon-docs";
 
 import Label from "./Label";
 import { getCategory } from "../../utils/componentCategories";
@@ -17,8 +17,15 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Label.test.tsx"],
   }}
   argTypes={{
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
+    className: { control: false },
+    id: { control: false },
+    optReqFlag: {
+      control: { type: "select" },
+      options: ["Required", "Optional", ""],
+    },
+    text: {
+      description: "Only used for Storybook",
+    },
   }}
 />
 
@@ -33,26 +40,20 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Canvas>
   <Story
-    name="Label"
+    name="Label with Controls"
     args={{
-      text: "A label for a villager.",
-      optReqFlag: "Required",
+      className: undefined,
       htmlFor: "id-of-input-element",
-    }}
-    argTypes={{
-      optReqFlag: {
-        control: {
-          type: "select",
-        },
-        options: ["Required", "Optional", ""],
-      },
+      id: "label-id",
+      optReqFlag: "Required",
+      text: "A label for a villager.",
     }}
   >
     {(args) => <Label {...args}>{args.text}</Label>}
   </Story>
 </Canvas>
 
-<ArgsTable story="Label" />
+<ArgsTable story="Label with Controls" />
 
 ## Required/Optional helper text
 

@@ -1,3 +1,5 @@
+import { baseLinkStyles } from "./link";
+
 const margins = {
   marginTop: "0",
   marginLeft: "0",
@@ -61,9 +63,9 @@ const variants = {
 
 const Heading = {
   baseStyle: {
-    a: {
-      color: "ui.black",
-    },
+    // This is to help target custom anchor elements
+    // passed as children to the Heading component.
+    a: baseLinkStyles,
   },
   // Available variants:
   // h1, h2, h3, h4, h5, h6,

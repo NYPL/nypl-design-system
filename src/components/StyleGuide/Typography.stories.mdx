@@ -1,20 +1,13 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Preview,
-  Description,
-} from "@storybook/addon-docs/blocks";
+import { Canvas, Meta } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import Text from "../Text/Text";
 import { TextDisplaySizes } from "../Text/TextTypes";
+import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 <Meta
@@ -23,8 +16,7 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
   }}
 />
@@ -66,7 +58,6 @@ Use the NYPL Design System [Heading](/docs/components-typography-styles-heading-
 #### Heading Display Sizes
 
 <DSProvider>
-
 
 Each heading level has a default style and size, but those styles can be overridden using the `displaySize` prop. The display sizes are separate from semantic elements and may be used to override the default size and styling of the semantic HTML heading elements. For example, the `h1` element has the `Primary` style applied by default, but a new style can be applied through the `displaySize` prop. Any `displaySize` style can be applied to any `Heading` element.
 
@@ -112,7 +103,6 @@ Each heading level has a default style and size, but those styles can be overrid
 
 </DSProvider>
 
-
 ## Text Component
 
 Use the NYPL Design System [Text](/docs/components-typography-styles-text--text) component to render a standard HTML `<p>` tag. The Text component is generally used for body copy, captions and secondary captions.
@@ -131,7 +121,6 @@ Use the NYPL Design System [Text](/docs/components-typography-styles-text--text)
 ### Text Display Sizes
 
 <DSProvider>
-
 
 The `displaySize` prop can be used to render a specific style from the DS default text styles.
 
@@ -171,7 +160,6 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 | `line-height` | `1.5`      | n/a                          | n/a             |
 
 </DSProvider>
-
 
 ## Font Family
 
