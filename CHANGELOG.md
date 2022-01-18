@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
+- Adds the `StructuredContent` component.
+- Adds the `additionalImageStyles` and `additionalFigureStyles` props to the `Image` component to specifically target the `img` element's style and the `figure` HTML elements.
+
 ### Breaking Changes
 
 - Completely removes the `CardEdition` and `Input` components and related files and references.
@@ -16,6 +22,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates the `Form`, `HorizontalRule`, `Image` component by removing the native HTML attributes as props. This sets the props allowed to the list of props declared in their own files.
+- Minor change to the `Notification`'s heading component so it adds a proper id to `NotificationHeading`.
+- Updates the `Heading` component to use the DS `Link` component rather than Chakra's `Link` component.
+- Updates the style of links rendered in the `Heading` component so they are styled as standard links. The only exception is for links used in the `Card` component for the _full-click functionality_ feature. Otherwise, links in `Card` headings are styled as standard links.
+- Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
+- Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
+- Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
 
 ### Fixes
 
@@ -43,6 +55,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates docs for Chakra `Grid` component to use theme object values rather than CSS variables.
 - Updates the spacing in the `Notification` component to improve the alignment of the icon and text elements.
 - Updates the `Notification` component to optionally display/hide the `Icon` in the heading or content area.
+- Updates the `ComponentWrapper` component to allow the internal `HelperErrorText` component to get set in the invalid state. Also added tests for this component.
 
 ### Fixes
 

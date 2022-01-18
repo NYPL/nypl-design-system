@@ -59,7 +59,7 @@ const categories = {
   layout: {
     title: "Components/Page Layout",
     components: [
-      "BasicPageSection",
+      "StructuredContent",
       "ContentSwitcher",
       "Footer",
       "Grid",

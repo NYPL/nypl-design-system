@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+>
+  <h2
+    className="chakra-heading css-0"
+    id="id-heading"
+  >
+    heading text
+  </h2>
+  <p
+    className="chakra-text css-0"
+  >
+    description text
+  </p>
+  <div>
+    children elements
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      data-isinvalid={false}
+      id="id-helperText"
+    >
+      helper text
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
+<div
+  className="css-0"
+>
+  <div>
+    children elements
+  </div>
+</div>
+`;
+
+exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
+<div
+  className="css-0"
+>
+  <h2
+    className="chakra-heading css-0"
+    id="id-heading"
+  >
+    heading text
+  </h2>
+  <p
+    className="chakra-text css-0"
+  >
+    description text
+  </p>
+  <div>
+    children elements
+  </div>
+  <div
+    className="css-0"
+  >
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className=" css-0"
+      data-isinvalid={true}
+      id="id-helperText"
+    >
+      invalid text
+    </div>
+  </div>
+</div>
+`;

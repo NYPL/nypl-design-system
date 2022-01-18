@@ -17,6 +17,8 @@ interface BaseProps {
   centered?: boolean;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Optional prop to control the coloring of the `Notification` text and the
    * visibility of an applicable icon. */
   notificationType?: NotificationTypes;
@@ -35,6 +37,8 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
   dismissible?: boolean;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** Optional custom `Icon` that will override the default `Icon`. */
+  icon?: JSX.Element;
   /** Optional prop to control the margin around the `Notification` component. */
   noMargin?: boolean;
   /** Content to be rendered in a `NotificationContent` component. */
@@ -51,7 +55,7 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
 export function NotificationHeading(
   props: React.PropsWithChildren<BasePropsWithoutAlignText>
 ) {
-  const { centered, children, icon, notificationType } = props;
+  const { centered, children, icon, id, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationHeading", {
     centered,
     icon,
@@ -60,7 +64,11 @@ export function NotificationHeading(
   return (
     <Box as="header" __css={styles}>
       {icon}
-      <Heading level={HeadingLevels.Four} additionalStyles={styles.heading}>
+      <Heading
+        additionalStyles={styles.heading}
+        id={`${id}-heading`}
+        level={HeadingLevels.Four}
+      >
         {children}
       </Heading>
     </Box>
@@ -169,6 +177,7 @@ export default function Notification(props: NotificationProps) {
     <NotificationHeading
       centered={centered}
       icon={iconElem}
+      id={id}
       notificationType={notificationType}
     >
       {notificationHeading}

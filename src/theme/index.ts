@@ -38,6 +38,7 @@ import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
+import StructuredContent from "./components/structuredContent";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
@@ -108,6 +109,7 @@ const theme = extendTheme({
     SkeletonLoader,
     CustomSlider,
     StatusBadge,
+    StructuredContent,
     Tabs,
     ...TemplateStyles,
     Text,
