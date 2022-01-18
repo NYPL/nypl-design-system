@@ -48,7 +48,9 @@ import { getCategory } from "../../utils/componentCategories";
     name="Table"
     args={{
       columnHeaders: ["First Name", "Last Name", "Nickname"],
-      tableData: [ ["Tom", "Nook", "Tanukichi", ], [ "Isabelle", "-", "Shizue", ], [ "K.K.", "Slider", "Totakeke", ], [ "Sonny", "Resetti", "Risetto san", ], ]
+      tableData: [ ["Tom", "Nook", "Tanukichi", ], [ "Isabelle", "-", "Shizue", ], [ "K.K.", "Slider", "Totakeke", ], [ "Sonny", "Resetti", "Risetto san", ], ],
+      useRowHeaders: true,
+      showRowDividers: true,
     }}
   >
     {(args) => (
