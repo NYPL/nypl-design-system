@@ -92,12 +92,12 @@ describe("Card", () => {
   );
   const cardWithExtendedStyles = (
     <Card
-      id="cardWithExtendedStyles"
       className="edition-card"
-      imageSrc="https://placeimg.com/300/400/arch"
+      id="cardWithExtendedStyles"
       imageAlt="Alt text"
+      imageSrc="https://placeimg.com/300/400/arch"
     >
-      <CardHeading level={HeadingLevels.Two} id="editioncardheading1">
+      <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -114,10 +114,10 @@ describe("Card", () => {
         </Link>
         <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
-            id="icon-cardWithExtendedStyles"
-            name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
+            id="icon-cardWithExtendedStyles"
+            name={IconNames.Download}
           />
           Download
         </Link>
@@ -126,12 +126,12 @@ describe("Card", () => {
   );
   const cardWithNoCTAs = (
     <Card
-      id="cardWithNoCTAs"
       className="edition-card"
-      imageSrc="https://placeimg.com/300/400/arch"
+      id="cardWithNoCTAs"
       imageAlt="Alt text"
+      imageSrc="https://placeimg.com/300/400/arch"
     >
-      <CardHeading level={HeadingLevels.Two} id="editioncardheading1">
+      <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -143,14 +143,14 @@ describe("Card", () => {
   );
   const cardWithNoContent = (
     <Card
-      id="cardWithNoContent"
       className="edition-card"
-      imageSrc="https://placeimg.com/300/400/arch"
+      id="cardWithNoContent"
       imageAlt="Alt text"
+      imageSrc="https://placeimg.com/300/400/arch"
     >
       <CardHeading
-        level={HeadingLevels.Two}
         id="editioncardheading1"
+        level={HeadingLevels.Two}
         url="#edition-link"
       >
         The Card Heading
@@ -161,10 +161,10 @@ describe("Card", () => {
         </Link>
         <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
-            id="icon-cardWithNoContent"
-            name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
+            id="icon-cardWithNoContent"
+            name={IconNames.Download}
           />
           Download
         </Link>
@@ -174,8 +174,8 @@ describe("Card", () => {
   const cardWithNoImage = (
     <Card id="cardWithNoImage" className="edition-card">
       <CardHeading
-        level={HeadingLevels.Two}
         id="editioncardheading1"
+        level={HeadingLevels.Two}
         url="#edition-link"
       >
         The Card Heading
@@ -187,10 +187,10 @@ describe("Card", () => {
         </Link>
         <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
-            id="icon-cardWithNoImage"
-            name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
+            id="icon-cardWithNoImage"
+            name={IconNames.Download}
           />
           Download
         </Link>
@@ -200,8 +200,8 @@ describe("Card", () => {
   const cardFullClick = () => (
     <Card
       id="fullclick"
-      imageSrc="https://placeimg.com/400/200/arch"
       imageAlt="Alt text"
+      imageSrc="https://placeimg.com/400/200/arch"
       mainActionLink="http://nypl.org"
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
@@ -210,9 +210,9 @@ describe("Card", () => {
       <CardContent>middle column content</CardContent>
       <CardActions>
         <Button
-          onClick={() => {}}
-          id="button1"
           buttonType={ButtonTypes.Primary}
+          id="button1"
+          onClick={() => {}}
           type="submit"
         >
           Example CTA
@@ -296,6 +296,7 @@ describe("Card", () => {
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
     const withNoImage = renderer.create(cardWithNoImage).toJSON();
     const withFullClick = renderer.create(cardFullClick()).toJSON();
+
     expect(regular).toMatchSnapshot();
     expect(withExtendedStyles).toMatchSnapshot();
     expect(withNoCTAs).toMatchSnapshot();

@@ -28,7 +28,6 @@ describe("getStorybookEnumValues", () => {
       "ButtonTypes.Callout",
       "ButtonTypes.Pill",
       "ButtonTypes.Link",
-      "ButtonTypes.SearchBar",
       "ButtonTypes.NoBrand",
     ]);
   });
