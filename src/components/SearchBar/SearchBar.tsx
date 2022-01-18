@@ -37,6 +37,10 @@ export interface SearchBarProps {
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** A class name for the `form` element. */
   className?: string;
+  /** Optional string for the SearchBar's description above the component. */
+  descriptionText?: string;
+  /** Optional string for the SearchBar's heading text above the component. */
+  headingText?: string;
   /** The text to display below the form in a `HelperErrorText` component. */
   helperErrorText?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -54,6 +58,9 @@ export interface SearchBarProps {
   labelText: string;
   /** Adds 'method' property to the `form` element. */
   method?: string;
+  /** Sets the `Button` variant type to `ButtonTypes.NoBrand` when true;
+   * false by default which sets the type to `ButtonTypes.Primary`. */
+  noBrandButtonType?: boolean;
   /** Handler function when the form is submitted. */
   onSubmit: (event: React.FormEvent) => void;
   /** Required props to render a `Select` element. */
@@ -73,6 +80,8 @@ export default function SearchBar(props: SearchBarProps) {
     action,
     buttonOnClick = null,
     className,
+    descriptionText,
+    headingText,
     helperErrorText,
     id = generateUUID(),
     invalidText,
@@ -81,6 +90,7 @@ export default function SearchBar(props: SearchBarProps) {
     isRequired = false,
     labelText,
     method,
+    noBrandButtonType = false,
     onSubmit,
     selectProps,
     textInputElement,
@@ -102,6 +112,15 @@ export default function SearchBar(props: SearchBarProps) {
   const textInputPlaceholder = `${textInputProps?.placeholder} ${
     isRequired ? "(Required)" : ""
   }`;
+  const buttonType = noBrandButtonType
+    ? ButtonTypes.NoBrand
+    : ButtonTypes.Primary;
+  const searchBarButtonStyles = {
+    borderLeftRadius: "none",
+    borderRightRadius: { base: "none", md: "sm" },
+    lineHeight: "1.70",
+    marginBottom: "auto",
+  };
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
@@ -139,11 +158,12 @@ export default function SearchBar(props: SearchBarProps) {
   // Render the `Button` component.
   const buttonElem = (
     <Button
+      additionalStyles={searchBarButtonStyles}
+      buttonType={buttonType}
       id={generateUUID()}
-      buttonType={ButtonTypes.SearchBar}
-      type="submit"
-      onClick={buttonOnClick}
       isDisabled={isDisabled}
+      onClick={buttonOnClick}
+      type="submit"
     >
       <Icon
         name={IconNames.Search}
@@ -159,6 +179,8 @@ export default function SearchBar(props: SearchBarProps) {
 
   return (
     <ComponentWrapper
+      descriptionText={descriptionText}
+      headingText={headingText}
       helperText={helperErrorText}
       id={id}
       invalidText={invalidText}

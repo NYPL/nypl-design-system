@@ -94,13 +94,6 @@ const callout = {
     bg: "brand.secondary",
   },
 };
-const searchBar = {
-  ...primary,
-  borderLeftRadius: "none",
-  borderRightRadius: { base: "none", md: "sm" },
-  lineHeight: "1.75",
-  marginBottom: "auto",
-};
 const noBrand = {
   ...primary,
   bg: "ui.black",
@@ -120,7 +113,6 @@ const Button = {
     pill,
     iconOnly,
     callout,
-    searchBar,
     noBrand,
   },
   // Default values
