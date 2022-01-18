@@ -214,29 +214,6 @@ describe("StructuredContent", () => {
     expect(screen.getByRole("img")).toBeInTheDocument();
   });
 
-  it("logs a warning when an image is positioned center but has a size other than default", () => {
-    const warn = jest.spyOn(console, "warn");
-    const imageSize = ImageSizes.Large;
-    render(
-      <StructuredContent
-        calloutText="This is the callout text"
-        headingText="Heading text"
-        imageAspectRatio={ImageRatios.Original}
-        imageCaption="Image caption"
-        imageCredit="Image credit"
-        imagePosition={StructuredContentImagePosition.Center}
-        imageSize={imageSize}
-        imageSrc="https://placeimg.com/400/300/animals"
-        bodyContent={htmlStringBodyContent}
-      />
-    );
-
-    expect(warn).toHaveBeenCalledWith(
-      `StructuredContent: image size "${imageSize}" is not supported when using the center image position.`
-    );
-    expect(screen.getByRole("img")).toBeInTheDocument();
-  });
-
   it("renders an image wrapped in figure when provided an image caption or credit", () => {
     const { rerender } = render(
       <StructuredContent

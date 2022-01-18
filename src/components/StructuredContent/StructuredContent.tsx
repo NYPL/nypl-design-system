@@ -117,15 +117,6 @@ export default function StructuredContent(
     );
   }
 
-  if (
-    imagePosition === StructuredContentImagePosition.Center &&
-    imageSize !== ImageSizes.Default
-  ) {
-    console.warn(
-      `StructuredContent: image size "${imageSize}" is not supported when using the center image position.`
-    );
-  }
-
   return (
     <Box id={id} className={className} __css={styles}>
       {headingText && (
