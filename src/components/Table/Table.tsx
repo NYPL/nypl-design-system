@@ -64,21 +64,29 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     </ChakraTHeader>
   );
 
+
+  const tableBodyElems = tableData && (
+    <ChakraTbody>
+        {tableData.map((child, index) => { return <ChakraTRow>  {child.map ((tbody, i) => <ChakraTData> {tbody} </ChakraTData> ) } </ChakraTRow> }) }
+    </ChakraTbody>
+  );
+
+
   return (
     <ChakraTable 
       className={className} sx={styles}>
       {columnHeadersElems}
+      {tableBodyElems}
     </ChakraTable>
   )
 }
 
-function cHeaders() {
-  const cheaders = []
+function TableBody() {
+  const body = []
 
-  columnHeaders.forEach((child) => {
+  body.forEach((child) => {
     cheaders.push(<ChakraTColumnHeader>{child}</ChakraTColumnHeader>)
   })
-
   return cheaders
 }
 
