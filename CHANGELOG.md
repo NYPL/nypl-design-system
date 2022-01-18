@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
+- Adds the `StructuredContent` component.
+- Adds the `additionalImageStyles` and `additionalFigureStyles` props to the `Image` component to specifically target the `img` element's style and the `figure` HTML elements.
 
 ### Breaking Changes
 
@@ -25,6 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the style of links rendered in the `Heading` component so they are styled as standard links. The only exception is for links used in the `Card` component for the _full-click functionality_ feature. Otherwise, links in `Card` headings are styled as standard links.
 - Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
 - Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
+- Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
 
 ### Fixes
 
