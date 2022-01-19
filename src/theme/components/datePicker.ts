@@ -7,7 +7,7 @@ const DatePicker = {
   baseStyle: {
     subLabels: {
       label: {
-        fontSize: "12px",
+        fontSize: "label.secondary",
         marginBottom: "0",
       },
     },
