@@ -12,7 +12,7 @@ const Notification = {
     return {
       bg,
       display: "flex",
-      fontSize: "-1",
+      fontSize: "-1", // slightly smaller than the default size
       padding: "var(--nypl-space-s) var(--nypl-space-l)",
       position: "relative",
       textAlign: centered ? "center" : null,

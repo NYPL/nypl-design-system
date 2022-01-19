@@ -10,7 +10,7 @@ const baseStyle = {
   px: "s",
   textDecoration: "none",
   wordWrap: "normal",
-  fontWeight: "regular",
+  fontWeight: "button.default",
   svg: {
     fill: "currentColor",
     marginTop: "xxs",
@@ -34,14 +34,14 @@ const primary = {
   bg: "ui.link.primary",
   minWidth: "none",
   height: "none",
-  fontSize: "-1",
+  fontSize: "button.default",
 };
 const secondary = {
   bg: "ui.white",
   border: "1px solid",
   borderColor: "ui.gray.light-cool",
   color: "inherit",
-  fontSize: "-1",
+  fontSize: "button.default",
   _hover: {
     bg: "ui.gray.xx-light-cool",
   },
@@ -68,7 +68,7 @@ const pill = {
   py: "xs",
   paddingInlineStart: "m",
   paddingInlineEnd: "m",
-  fontSize: "-1",
+  fontSize: "button.default",
   _hover: {
     bg: "ui.gray.xx-light-cool",
   },
@@ -86,7 +86,7 @@ const iconOnly = {
 };
 const callout = {
   bg: "brand.primary",
-  fontSize: "-1",
+  fontSize: "button.default",
   _hover: {
     bg: "brand.secondary",
   },
