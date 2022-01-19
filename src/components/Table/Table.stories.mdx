@@ -30,6 +30,8 @@ import { getCategory } from "../../utils/componentCategories";
     id: { table: { disable: true } },
     onChange: { table: { disable: true } },
     value: { table: { disable: true } },
+    columnHeadersBackgroundColor: { control: { type: "color" } },
+    columnHeadersTextColor: {control: {type: "color"}},
   }}
 />
 
@@ -55,7 +57,6 @@ import { getCategory } from "../../utils/componentCategories";
   >
     {(args) => (
       <Table {...args}>
-        
       </Table>
     )}
   </Story>

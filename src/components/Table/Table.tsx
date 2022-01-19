@@ -1,8 +1,16 @@
 import * as React from "react";
-import { Table as ChakraTable, Thead as ChakraTHeader, Tbody as ChakraTbody, Tfoot as ChakraTfoot, Tr as ChakraTRow, Th as ChakraTColumnHeader, Td as ChakraTData, TableCaption as ChakraTableCaption, useStyleConfig  } from "@chakra-ui/react";
+import { Box, Table as ChakraTable, Thead as ChakraTHeader, Tbody as ChakraTbody, Tfoot as ChakraTfoot, Tr as ChakraTRow, Th as ChakraTColumnHeader, Td as ChakraTData, TableCaption as ChakraTableCaption, useStyleConfig  } from "@chakra-ui/react";
 import { TableDisplaySizes } from "./TableTypes";
 import generateUUID from "../../helpers/generateUUID";
+import Label from "../Label/Label";
+
 type TableType = "outline" | "filled" | "flushed" | "unstyled"
+export enum TableTypes {
+  tableRow = "Tr",
+  tableHeader = "Th",
+  tableData = "Td",
+}
+
 
 
 export interface TableProps {
@@ -36,8 +44,8 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
     id = generateUUID(),
-    useRowHeaders = false,
-    showRowDividers = false,
+    useRowHeaders,
+    showRowDividers = true,
     tableData,
     titleText
   } = props;
@@ -51,43 +59,42 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     useRowHeaders,
     showRowDividers,
     tableData,
-    titleText
+    titleText,
+    TableTypes
   });
 
+  const customColors = {};
 
+  columnHeadersBackgroundColor && (customColors["background"] = columnHeadersBackgroundColor);
+  columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
 
   const columnHeadersElems = columnHeaders && (
     <ChakraTHeader>
-      <ChakraTRow>
-        {columnHeaders.map((child, i) => { return <ChakraTColumnHeader> {child} </ChakraTColumnHeader> } )}
+      <ChakraTRow __css={{
+          ...styles,
+          ...customColors,
+        }}>
+        {columnHeaders.map((child, i) => { return <ChakraTColumnHeader style={{ background: customColors["background"], color: customColors["color"] }} > {child} </ChakraTColumnHeader> } )}
       </ChakraTRow>
     </ChakraTHeader>
   );
 
-
-  const tableBodyElems = tableData && (
+  const tableBodyElems = showRowDividers && tableData && (
     <ChakraTbody>
-        {tableData.map((child, index) => { return <ChakraTRow>  {child.map ((tbody, i) => <ChakraTData> {tbody} </ChakraTData> ) } </ChakraTRow> }) }
+      {tableData.map((child, index) => { return <ChakraTRow>  {child.map ((tbody, i) => <ChakraTData> {tbody} </ChakraTData> ) } </ChakraTRow> }) }
     </ChakraTbody>
   );
 
-
   return (
-    <ChakraTable 
-      className={className} sx={styles}>
-      {columnHeadersElems}
-      {tableBodyElems}
-    </ChakraTable>
+    <Box>
+      <Label id={`${id}-title`} htmlFor={id} > {titleText} </Label>
+      <ChakraTable colorScheme='teal'
+        className={className} sx={styles}>
+        {columnHeadersElems}
+        {tableBodyElems}
+      </ChakraTable>
+    </Box>
   )
 }
-
-function TableBody() {
-  const body = []
-
-  body.forEach((child) => {
-    cheaders.push(<ChakraTColumnHeader>{child}</ChakraTColumnHeader>)
-  })
-  return cheaders
-}
-
 export default Table;
+
