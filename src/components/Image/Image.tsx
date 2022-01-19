@@ -5,7 +5,7 @@ import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
 interface ImageWrapperProps {
   /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
+  additionalWrapperStyles?: { [key: string]: any };
   /** ClassName you can add in addition to 'image' */
   className?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
@@ -15,6 +15,10 @@ interface ImageWrapperProps {
 }
 
 export interface ImageProps extends ImageWrapperProps {
+  /** Optionally pass in additional Chakra-based styles only for the figure. */
+  additionalFigureStyles?: { [key: string]: any };
+  /** Optionally pass in additional Chakra-based styles only for the image. */
+  additionalImageStyles?: { [key: string]: any };
   /** Alternate text description of the image */
   alt: string;
   /** Custom image component */
@@ -33,7 +37,7 @@ export interface ImageProps extends ImageWrapperProps {
 
 function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
   const {
-    additionalStyles = {},
+    additionalWrapperStyles = {},
     className = "",
     children,
     imageAspectRatio = ImageRatios.Original,
@@ -45,7 +49,7 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
   });
   return (
     <Box
-      __css={{ ...styles, ...additionalStyles }}
+      __css={{ ...styles, ...additionalWrapperStyles }}
       className={`the-wrap ${className}`}
     >
       <Box __css={styles.crop} className="the-crop">
@@ -57,7 +61,9 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
 
 export default function Image(props: ImageProps) {
   const {
-    additionalStyles = {},
+    additionalFigureStyles = {},
+    additionalImageStyles = {},
+    additionalWrapperStyles = {},
     alt,
     className = "",
     component,
@@ -81,14 +87,19 @@ export default function Image(props: ImageProps) {
   const imageComponent: JSX.Element = component ? (
     component
   ) : (
-    <Box as="img" src={src} alt={alt} __css={styles.img} />
+    <Box
+      as="img"
+      src={src}
+      alt={alt}
+      __css={{ ...styles.img, ...additionalImageStyles }}
+    />
   );
   const finalImage = useImageWrapper ? (
     <ImageWrapper
       className={className}
       imageAspectRatio={imageAspectRatio}
       imageSize={imageSize}
-      additionalStyles={additionalStyles}
+      additionalWrapperStyles={additionalWrapperStyles}
     >
       {imageComponent}
     </ImageWrapper>
@@ -97,7 +108,7 @@ export default function Image(props: ImageProps) {
   );
 
   return imageCaption || imageCredit ? (
-    <Box as="figure" __css={styles.figure}>
+    <Box as="figure" __css={{ ...styles.figure, ...additionalFigureStyles }}>
       {finalImage}
       <Box as="figcaption" __css={styles.figcaption}>
         {imageCaption && (
