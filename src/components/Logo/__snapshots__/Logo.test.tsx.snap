@@ -7,7 +7,7 @@ exports[`Logo renders the UI snapshot correctly 1`] = `
   focusable={false}
   id="test-logo"
   role="img"
-  title="logo_nypl logo"
+  title="logo_nypl_full_black logo"
   viewBox="0 0 24 24"
 >
   <g
@@ -40,9 +40,9 @@ exports[`Logo renders the UI snapshot correctly 2`] = `
   aria-hidden={false}
   className="chakra-icon css-onkibi"
   focusable={false}
-  id="test-logo-color"
+  id="test-logo-size"
   role="img"
-  title="logo_nypl logo"
+  title="logo_nypl_full_black logo"
   viewBox="0 0 24 24"
 >
   <g

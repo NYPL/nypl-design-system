@@ -8,7 +8,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Logo from "./Logo";
-import { LogoColors, LogoNames, LogoSizes } from "./LogoTypes";
+import { LogoNames, LogoSizes } from "./LogoTypes";
 import logoSvgs from "./LogoSvgs";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
@@ -19,10 +19,6 @@ import { getCategory } from "../../utils/componentCategories";
 import { getStorybookEnumValues } from "../../utils/utils";
 
 export const namesEnumValues = getStorybookEnumValues(LogoNames, "LogoNames");
-export const colorsEnumValues = getStorybookEnumValues(
-  LogoColors,
-  "LogoColors"
-);
 export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
 
 <Meta
@@ -39,11 +35,6 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
   argTypes={{
     children: { table: { disable: true } },
     className: { control: false },
-    color: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "LogoColors.UiBlack" } },
-      options: colorsEnumValues.options,
-    },
     id: { control: false },
     name: {
       control: { type: "select" },
@@ -76,44 +67,48 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
     args={{
       additionalStyles: undefined,
       className: undefined,
-      color: "LogoColors.UiBlack",
       decorative: true,
       id: "logo-id",
-      name: "LogoNames.NYPL",
+      name: "LogoNames.NYPLBlack",
       size: "LogoSizes.Large",
       title: undefined,
     }}
   >
     {(args) => (
-      <Logo
-        additionalStyles={
-          args.color === "LogoColors.UiWhite"
-            ? { background: "ui.gray.xdark", padding: "16px" }
+      <div
+        style={
+          args.name.indexOf("White") !== -1
+            ? {
+                backgroundColor: "var(--nypl-colors-ui-gray-xdark)",
+                display: "inline-block",
+                padding: "var(--nypl-space-l)",
+              }
             : undefined
         }
-        color={colorsEnumValues.getValue(args.color)}
-        name={namesEnumValues.getValue(args.name)}
-        size={sizesEnumValues.getValue(args.size)}
-        title={args.title}
-      />
+      >
+        <Logo
+          name={namesEnumValues.getValue(args.name)}
+          size={sizesEnumValues.getValue(args.size)}
+          title={args.title}
+        />
+      </div>
     )}
   </Story>
 </Canvas>
 
 <ArgsTable story="Logo with Controls" />
 
-export const iconRow = (icon, opts = {}) => {
-  // We'll use this setup function to render all the icons in a list item.
-  // Some icons display better with a dark background.
+export const logoRow = (logo, opts = {}) => {
+  // We'll use this setup function to render all the logos in a list item.
+  // Some logos display better with a dark background.
   const styles = { textAlign: "center" };
-  const {
-    size = LogoSizes.Large,
-    color = LogoColors.UiBlack,
-    displayValue,
-  } = opts;
-  let key = icon;
-  if (color !== LogoColors.UiBlack) {
-    key += `-${color}`;
+  const { size = LogoSizes.Large, displayValue } = opts;
+  let key = logo;
+  if (logo.indexOf("White") !== -1) {
+    styles.backgroundColor = "var(--nypl-colors-ui-gray-xdark)";
+    styles.paddingBottom = "32px";
+    styles.paddingTop = "32px";
+    styles.color = "var(--nypl-colors-ui-white)";
   }
   if (size !== LogoSizes.Large) {
     key += `-${size}`;
@@ -121,63 +116,68 @@ export const iconRow = (icon, opts = {}) => {
   return (
     <div style={styles} key={key}>
       <Heading level={HeadingLevels.Four}>{displayValue}</Heading>
-      <Logo name={LogoNames[icon]} size={size} color={color} />
+      <Logo name={LogoNames[logo]} size={size} />
     </div>
   );
 };
 export const logos = [];
-export const colors = [];
 export const sizes = [];
 for (const logo in LogoNames) {
-  logos.push(iconRow(logo, { displayValue: `LogoNames.${logo}` }));
+  logos.push(logoRow(logo, { displayValue: `LogoNames.${logo}` }));
 }
 for (const logoSize in LogoSizes) {
   sizes.push(
-    iconRow("NYPL", {
+    logoRow("NYPLBlack", {
       displayValue: `LogoSizes.${logoSize}`,
       size: LogoSizes[logoSize],
     })
   );
 }
 
-export const allIconsType = (list) => (
+export const allLogosGrid = (list) => (
   <SimpleGrid columns={1}>{list}</SimpleGrid>
 );
 
 ## Accessibility
 
 For accessibility purposes, every DS `Logo` will render the `svg` element with
-its logo name in the `title` element. The default text in the `title` element
+its `svg` file name in the `title` element. The default text in the `title` element
 is the logo's code name. Pass in better descriptive text in the `title` prop
 when using the `Logo` component in your application. This will give screenreaders
 a better descriptive title for the `svg` graphic.
 
-## All Display Icons
+## All Logos
 
-The following icons are for generic purposes. All the available icon names can
-be found in the `IconNames` enum in `src/components/Icons/IconTypes.tsx`.
+The `Logo` component contains the logos most commonly used by are listed available
+logos are listed in the `LogoNames` enum in `src/components/Logos/LogoTypes.tsx`.
+
+If you feel a necessary logo should be added to the `Logo` component, please reach out
+to the DS team.
 
 <Canvas withToolbar>
-  <Story name="All Display Icons">{allIconsType(logos)}</Story>
+  <Story name="All Logos">{allLogosGrid(logos)}</Story>
 </Canvas>
 
-## IconSizes Types
+## Logo Sizes
 
-Update an SVG icon by passing a `size` prop with a value from `IconSizes`.
-The `IconSizes` enum can be found in`src/components/Icons/IconTypes.tsx`.
+Update the size of the `Logo` component by passing the `size` prop with a value from
+`LogoSizes`. The `LogoSizes` enum can be found in`src/components/Logo/LogoTypes.tsx`.
+
+Note: `LogoSizes.Default` sets the width to `100%` and the logo will expand to
+fill the full width of the parent element.
 
 ```jsx
 // Example
-<Icon name={IconNames.Clock} size={IconSizes.ExtraExtraLarge} />
+<Logo name={LogoNames.NYPLBlack} size={LogoSizes.Large} />
 ```
 
 <Canvas>
-  <Story name="Sizes Types">{allIconsType(sizes)}</Story>
+  <Story name="Logo Sizes">{allLogosGrid(sizes)}</Story>
 </Canvas>
 
 ## Custom Logos
 
-If you'd like to pass a custom svg to your application, you can pass it a
+If you'd like to pass a custom `svg` to your application, you can pass it a
 child to the `Logo` component.
 
 ```jsx
@@ -199,7 +199,6 @@ child to the `Logo` component.
   <Story
     name="Custom Logos"
     args={{
-      color: LogoColors.UiBlack,
       size: LogoSizes.Large,
     }}
   >

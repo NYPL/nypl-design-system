@@ -2,7 +2,7 @@ import * as React from "react";
 import { Icon as ChakraIcon, Box, useStyleConfig } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
-import { LogoColors, LogoNames, LogoSizes } from "./LogoTypes";
+import { LogoNames, LogoSizes } from "./LogoTypes";
 import logoSvgs from "./LogoSvgs";
 
 export interface LogoProps {
@@ -10,8 +10,6 @@ export interface LogoProps {
   additionalStyles?: { [key: string]: any };
   /** Optional className that will be added to the parent element */
   className?: string;
-  /** Overrides default logo color (black). */
-  color?: LogoColors;
   /** Logos designated as decorative will be ignored by screenreaders. False
    * by default. */
   decorative?: boolean;
@@ -28,14 +26,14 @@ export interface LogoProps {
 }
 
 /**
- * Renders SVG-based logos that commonly used by the New York Public Library.  Plase note that the overall color of a `color` logo can not be changed.
+ * The `Logo` component renders SVG-based logos and color variants that are
+ * commonly used by the New York Public Library.
  */
 export default function Logo(props: React.PropsWithChildren<LogoProps>) {
   const {
     additionalStyles = {},
     children,
     className,
-    color = LogoColors.UiBlack,
     decorative = false,
     id = generateUUID(),
     name,
@@ -43,7 +41,6 @@ export default function Logo(props: React.PropsWithChildren<LogoProps>) {
     title = `${name} logo`,
   } = props;
   const styles = useStyleConfig("Logo", {
-    color,
     size,
   });
   const logoProps = {

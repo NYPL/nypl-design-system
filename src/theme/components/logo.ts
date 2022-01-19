@@ -1,6 +1,6 @@
 const svgBase = {
   display: "inline-block",
-  fill: "currentColor",
+  // fill: "currentColor",
   height: "auto",
   width: "100%",
 };
@@ -39,11 +39,11 @@ const Logo = {
   baseStyle: (props) => {
     const allStyles = {
       ...svgBase,
-      fill: props.color,
+      // fill: props.color,
       ...size[props.size],
-      path: {
-        fill: props.color,
-      },
+      // path: {
+      //   fill: props.color,
+      // },
     };
     return {
       ...allStyles,

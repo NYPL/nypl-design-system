@@ -4,11 +4,11 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Logo from "./Logo";
-import { LogoColors, LogoNames, LogoSizes } from "./LogoTypes";
+import { LogoNames, LogoSizes } from "./LogoTypes";
 
 describe("Logo Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<Logo name={LogoNames.NYPL} />);
+    const { container } = render(<Logo name={LogoNames.NYPLBlack} />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -17,7 +17,7 @@ describe("Logo", () => {
   it("consoles a warning if both name and children are passed to Logo", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Logo name={LogoNames.NYPL}>
+      <Logo name={LogoNames.NYPLBlack}>
         <svg viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg">
           <path
             fillRule="evenodd"
@@ -41,7 +41,7 @@ describe("Logo", () => {
   });
 
   it("renders a logo based on the logo `name` prop", () => {
-    const { container } = render(<Logo name={LogoNames.NYPL} />);
+    const { container } = render(<Logo name={LogoNames.NYPLBlack} />);
     expect(container.querySelector("svg")).toBeInTheDocument();
   });
 
@@ -50,13 +50,13 @@ describe("Logo", () => {
   // In order to test this, we can check the `title` attribute in the svg
   // element itself. Inspect the `Logo` in Storybook to see the `title` element.
   it("renders a title element", () => {
-    const { container, rerender } = render(<Logo name={LogoNames.NYPL} />);
+    const { container, rerender } = render(<Logo name={LogoNames.NYPLBlack} />);
     expect(container.querySelector("svg")).toHaveAttribute(
       "title",
-      "logo_nypl logo"
+      "logo_nypl_full_black logo"
     );
 
-    rerender(<Logo name={LogoNames.NYPL} title="title content" />);
+    rerender(<Logo name={LogoNames.NYPLBlack} title="title content" />);
     expect(container.querySelector("svg")).toHaveAttribute(
       "title",
       "title content"
@@ -80,22 +80,19 @@ describe("Logo", () => {
 
   it("renders the UI snapshot correctly", () => {
     const standard = renderer
-      .create(
-        <Logo id="test-logo" name={LogoNames.NYPL} size={LogoSizes.Large} />
-      )
+      .create(<Logo id="test-logo" name={LogoNames.NYPLBlack} />)
       .toJSON();
-    const withCustomColor = renderer
+    const withCustomSize = renderer
       .create(
         <Logo
-          color={LogoColors.UiBlack}
-          id="test-logo-color"
-          name={LogoNames.NYPL}
+          id="test-logo-size"
+          name={LogoNames.NYPLBlack}
           size={LogoSizes.Large}
         />
       )
       .toJSON();
 
     expect(standard).toMatchSnapshot();
-    expect(withCustomColor).toMatchSnapshot();
+    expect(withCustomSize).toMatchSnapshot();
   });
 });
