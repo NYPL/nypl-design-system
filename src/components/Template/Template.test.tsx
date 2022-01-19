@@ -111,6 +111,26 @@ describe("TemplateAppContainer component", () => {
 
     expect(screen.getAllByRole("contentinfo")).toHaveLength(1);
   });
+
+  it("consoles a warning when a footer element was passed without setting `renderFooterElement` to false", () => {
+    const warn = jest.spyOn(console, "warn");
+    const customFooter = <footer>Custom Footer</footer>;
+    render(
+      <TemplateAppContainer
+        header={header}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={customFooter}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "`TemplateFooter`: An HTML `footer` element was passed in. Set " +
+        "`renderFooterElement` to `false` to avoid nested HTML `footer` elements."
+    );
+  });
 });
 
 describe("Template components", () => {

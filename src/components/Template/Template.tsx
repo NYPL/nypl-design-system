@@ -165,11 +165,22 @@ const TemplateFooter = ({
   children,
   renderFooterElement = true,
 }: React.PropsWithChildren<TemplateFooterProps>) => {
-  return renderFooterElement ? (
-    <Box as="footer">{children}</Box>
-  ) : (
-    <>{children}</>
-  );
+  let footerElement = <>{children}</>;
+
+  // The user wants to render the `footer` HTML element.
+  if (renderFooterElement) {
+    // But give a warning if one was passed.
+    React.Children.map(children, (child: React.ReactElement) => {
+      if (child?.type === "footer" || child?.props?.mdxType === "footer") {
+        console.warn(
+          "`TemplateFooter`: An HTML `footer` element was passed in. Set " +
+            "`renderFooterElement` to `false` to avoid nested HTML `footer` elements."
+        );
+      }
+    });
+    footerElement = <Box as="footer">{children}</Box>;
+  }
+  return footerElement;
 };
 
 /**
