@@ -1,0 +1,427 @@
+import {
+  ArgsTable,
+  Canvas,
+  Description,
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import { ImageRatios, ImageSizes, ImageTypes } from "../Image/ImageTypes";
+import StructuredContent from "./StructuredContent";
+import { StructuredContentImagePosition } from "./StructuredContentTypes";
+import DSProvider from "../../theme/provider";
+import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const imageAspectRatioEnumValues = getStorybookEnumValues(
+  ImageRatios,
+  "ImageRatios"
+);
+export const imagePositionEnumValues = getStorybookEnumValues(
+  StructuredContentImagePosition,
+  "StructuredContentImagePosition"
+);
+export const imageSizeEnumValues = getStorybookEnumValues(
+  ImageSizes,
+  "ImageSizes"
+);
+
+<Meta
+  title={getCategory("StructuredContent")}
+  component={StructuredContent}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36818%3A24923",
+    },
+    jest: ["StructuredContent.test.tsx"],
+  }}
+  argTypes={{
+    className: { control: false },
+    id: { control: false },
+    imageAspectRatio: {
+      table: {
+        defaultValue: { summary: "ImageRatios.Square" },
+      },
+      options: imageAspectRatioEnumValues.options,
+    },
+    imagePosition: {
+      table: {
+        defaultValue: { summary: "StructuredContentImagePosition.Left" },
+      },
+      options: imagePositionEnumValues.options,
+    },
+    imageSize: {
+      table: {
+        defaultValue: { summary: "ImageSizes.Medium" },
+      },
+      options: imageSizeEnumValues.options,
+    },
+    imageComponent: { control: false },
+  }}
+/>
+
+# StructuredContent
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.9`   |
+| Latest            | `0.25.9`   |
+
+<Description of={StructuredContent} />
+
+<Canvas withToolbar>
+  <Story
+    name="StructuredContent with Controls"
+    args={{
+      calloutText: "This is the callout text",
+      className: undefined,
+      headingText: "Heading text",
+      id: "structured-content",
+      imageAlt: "Image alt text",
+      imageAspectRatio: "ImageRatios.Square",
+      imageCaption: "Image caption",
+      imageCredit: "Image credit",
+      imagePosition: "StructuredContentImagePosition.Left",
+      imageSize: "ImageSizes.Medium",
+      imageSrc: "https://placeimg.com/400/300/animals",
+      bodyContent:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod" +
+        " tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa" +
+        " placerat duis ultricies lacus sed turpis tincidunt. Porttitor eget " +
+        "dolor morbi non arcu risus quis varius. Faucibus in ornare quam viverra" +
+        " orci sagittis. Nisl vel pretium lectus quam id leo in. Etiam dignissim" +
+        " diam quis enim lobortis scelerisque fermentum. Diam maecenas sed enim" +
+        " ut sem viverra. Diam quam nulla porttitor massa id neque. Sed " +
+        "faucibus turpis in eu mi. Ornare lectus sit amet est placerat in. " +
+        "Quis blandit turpis cursus in. Aliquam ut porttitor leo a diam " +
+        "sollicitudin tempor id eu. Pellentesque eu tincidunt tortor aliquam " +
+        "nulla facilisi cras fermentum. Porttitor leo a diam sollicitudin " +
+        "tempor id eu nisl nunc. Feugiat nisl pretium fusce id velit ut tortor. " +
+        "Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus " +
+        "gravida quis blandit turpis cursus in hac. Morbi tempus iaculis urna id " +
+        "volutpat. Lectus nulla at volutpat diam ut venenatis. Donec ac odio " +
+        "tempor orci dapibus ultrices in iaculis. Dui vivamus arcu felis " +
+        "bibendum ut tristique. Cras semper auctor neque vitae tempus quam " +
+        "pellentesque. Placerat orci nulla pellentesque dignissim enim sit " +
+        "amet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla " +
+        "pellentesque dignissim. Suspendisse faucibus interdum posuere lorem. " +
+        "Nullam non nisi est sit. Turpis egestas integer eget aliquet nibh " +
+        "praesent. Tortor at risus viverra adipiscing at. Eu augue ut lectus " +
+        "arcu bibendum at varius vel pharetra.",
+    }}
+  >
+    {(args) => (
+      <StructuredContent
+        {...args}
+        imageAspectRatio={imageAspectRatioEnumValues.getValue(
+          args.imageAspectRatio
+        )}
+        imagePosition={imagePositionEnumValues.getValue(args.imagePosition)}
+        imageSize={imageSizeEnumValues.getValue(args.imageSize)}
+      />
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="StructuredContent with Controls" />
+
+## With HTML String Text Content
+
+The following body content is passed as a string to the `bodyContent` prop. It
+includes HTML tags in the string.
+
+<Canvas>
+  <Story name="With HTMl String Text Content">
+    <StructuredContent
+      calloutText="This is the callout text"
+      headingText="Heading text"
+      imageAlt="Image alt text"
+      imageAspectRatio={ImageRatios.Original}
+      imageCaption="Image caption"
+      imageCredit="Image credit"
+      imagePosition={StructuredContentImagePosition.Left}
+      imageSize={ImageSizes.Medium}
+      imageSrc="https://placeimg.com/400/300/animals"
+      bodyContent={
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+        "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
+        "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
+        "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+        "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
+        "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
+        "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi. " +
+        "</b></p><p>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
+        "cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. " +
+        "Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. " +
+        "Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat" +
+        "nisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin " +
+        "tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li>" +
+        "<li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipit" +
+        "tellus mauris a diam. Purus gravida quis blandit turpis cursus in hac." +
+        "Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam ut" +
+        "venenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus" +
+        "arcu felis bibendum ut tristique. Cras semper auctor neque vitae tempus" +
+        "quam pellentesque. Placerat orci nulla pellentesque dignissim enim sit" +
+        "amet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesque" +
+        "dignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisi" +
+        "est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risus" +
+        "viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius vel" +
+        "pharetra.</i></p>"
+      }
+    />
+  </Story>
+</Canvas>
+
+## With HTML Element Text Content
+
+The following content is passed as HTML DOM elements to the `bodyContent` prop.
+
+<Canvas>
+  <Story name="With HTML Element Text Content">
+    <StructuredContent
+      calloutText="This is the callout text"
+      headingText="Heading text"
+      imageAlt="Image alt text"
+      imageAspectRatio={ImageRatios.Original}
+      imageCaption="Image caption"
+      imageCredit="Image credit"
+      imagePosition={StructuredContentImagePosition.Left}
+      imageSize={ImageSizes.Medium}
+      imageSrc="https://placeimg.com/400/300/animals"
+      bodyContent={
+        <>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Pellentesque massa placerat duis ultricies lacus sed turpis
+            tincidunt. <a href="#">Porttitor eget dolor</a> morbi non arcu risus
+            quis varius. Faucibus in ornare quam viverra orci sagittis.
+          </p>
+          <p>
+            Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis
+            enim lobortis scelerisque fermentum. Diam maecenas sed enim ut sem
+            viverra.{" "}
+            <b>
+              Diam quam nulla porttitor massa id neque. Sed faucibus turpis in
+              eu mi.
+            </b>
+          </p>
+          <p>
+            Ornare lectus sit amet est placerat in. Quis blandit turpis cursus
+            in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu.
+            Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
+            fermentum. Porttitor leo a diam sollicitudin tempor id eu nisl nunc.
+            Feugiat nisl pretium fusce id velit ut tortor. Porttitor leo a diam
+            sollicitudin tempor id eu nisl nunc.
+          </p>
+          <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+          </ul>
+          <p>
+            <i>
+              Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
+              gravida quis blandit turpis cursus in hac. Morbi tempus iaculis
+              urna id volutpat. Lectus nulla at volutpat diam ut venenatis.
+              Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus
+              arcu felis bibendum ut tristique. Cras semper auctor neque vitae
+              tempus quam pellentesque. Placerat orci nulla pellentesque
+              dignissim enim sit amet. Feugiat pretium nibh ipsum consequat.
+              Placerat orci nulla pellentesque dignissim. Suspendisse faucibus
+              interdum posuere lorem. Nullam non nisi est sit. Turpis egestas
+              integer eget aliquet nibh praesent. Tortor at risus 'viverra
+              adipiscing at. Eu augue ut lectus arcu bibendum at varius vel'
+              pharetra.
+            </i>
+          </p>
+        </>
+      }
+    />
+  </Story>
+</Canvas>
+
+## Examples
+
+The following has two `StructuredContent` components. The first one has an image
+but no callout content. The second component does not have an image.
+
+<Canvas>
+  <DSProvider>
+    <StructuredContent
+      headingText="Heading text"
+      imageAlt="Image alt text"
+      imageAspectRatio={ImageRatios.Original}
+      imageCaption="Image caption"
+      imageCredit="Image credit"
+      imagePosition={StructuredContentImagePosition.Left}
+      imageSize={ImageSizes.Medium}
+      imageSrc="https://placeimg.com/400/300/animals"
+      bodyContent={
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+        "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
+        "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
+        "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+        "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
+        "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
+        "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi. " +
+        "</b></p><p>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
+        "cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. " +
+        "Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. " +
+        "Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat" +
+        "nisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin " +
+        "tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li>" +
+        "<li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipit" +
+        "tellus mauris a diam. Purus gravida quis blandit turpis cursus in hac." +
+        "Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam ut" +
+        "venenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus" +
+        "arcu felis bibendum ut tristique. Cras semper auctor neque vitae tempus" +
+        "quam pellentesque. Placerat orci nulla pellentesque dignissim enim sit" +
+        "amet. Feugiat pretium nibh ipsum consequat. Placerat orci nulla pellentesque" +
+        "dignissim. Suspendisse faucibus interdum posuere lorem. Nullam non nisi" +
+        "est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at risus" +
+        "viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius vel" +
+        "pharetra.</i></p>"
+      }
+    />
+    <StructuredContent
+      calloutText="This is the callout text"
+      headingText="Heading text"
+      bodyContent={
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+        "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
+        "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
+        "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+        "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
+        "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
+        "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.</b></p>"
+      }
+    />
+  </DSProvider>
+</Canvas>
+
+The following has three `StructuredContent` components. The first one only has
+the callout content. The second has no callout content but an image and text content.
+The third one does not contain an image.
+
+<Canvas>
+  <DSProvider>
+    <StructuredContent
+      calloutText="This is the callout text"
+      headingText="Heading text"
+    />
+    <StructuredContent
+      headingText="Heading text"
+      imageAlt="Image alt text"
+      imageAspectRatio={ImageRatios.Original}
+      imageCaption="Image caption"
+      imageCredit="Image credit"
+      imagePosition={StructuredContentImagePosition.Left}
+      imageSize={ImageSizes.Medium}
+      imageSrc="https://placeimg.com/400/300/animals"
+      bodyContent={
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+        "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
+        "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
+        "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+        "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
+        "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
+        "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi. " +
+        "</b></p><p>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
+        "cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. " +
+        "Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. " +
+        "Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl " +
+        "pretium fusce id velit ut tortor. </p><p><i>Mauris nunc congue nisi " +
+        "vitae suscipit tellus mauris a diam. Purus gravida quis blandit turpis " +
+        "cursus in hac. Morbi tempus iaculis urna id volutpat. Lectus nulla at " +
+        "volutpat diam ut venenatis. Donec ac odio tempor orci dapibus ultrices " +
+        "in iaculis. Dui vivamus arcu felis bibendum ut tristique. Cras semper " +
+        "auctor neque vitae tempus quam pellentesque. Placerat orci nulla " +
+        "pellentesque dignissim enim sit amet. Feugiat pretium nibh ipsum " +
+        "consequat. Placerat orci nulla pellentesque dignissim. Suspendisse " +
+        "faucibus interdum posuere lorem. Nullam non nisi est sit. Turpis " +
+        "egestas integer eget aliquet nibh praesent. Tortor at risus viverra " +
+        "sadipiscing at. Eu augue ut lectus arcu bibendum at varius vel" +
+        "pharetra.</i></p>"
+      }
+    />
+    <StructuredContent
+      calloutText="This is the callout text"
+      headingText="Heading text"
+      bodyContent={
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
+        "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
+        "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+        "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
+        "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
+        "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.</b></p>"
+      }
+    />
+  </DSProvider>
+</Canvas>
+
+The following has two `StructuredContent` components. The first one only displays
+text content. The second one has a callout content and image spanning full width.
+
+<Canvas>
+  <DSProvider>
+    <StructuredContent
+      bodyContent={
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
+        "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
+        "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+        "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
+        "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
+        "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.</b></p>"
+      }
+    />
+    <StructuredContent
+      calloutText="This is the callout text"
+      headingText="Heading text"
+      imageAlt="Image alt text"
+      imageAspectRatio={ImageRatios.Original}
+      imagePosition={StructuredContentImagePosition.Center}
+      imageSize={ImageSizes.Medium}
+      imageSrc="https://placeimg.com/400/300/animals"
+      bodyContent={
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
+        "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
+        "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+        "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
+        "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
+        "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi. " +
+        "</b></p><p>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
+        "cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. " +
+        "Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. " +
+        "Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl " +
+        "pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin " +
+        "tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li>" +
+        "<li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipit" +
+        "tellus mauris a diam. Purus gravida quis blandit turpis cursus in hac." +
+        "Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam ut" +
+        "venenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui " +
+        "vivamus arcu felis bibendum ut tristique. Cras semper auctor neque " +
+        "vitae tempus quam pellentesque. Placerat orci nulla pellentesque " +
+        "dignissim enim sit amet. Feugiat pretium nibh ipsum consequat. " +
+        "Placerat orci nulla pellentesque dignissim. Suspendisse faucibus " +
+        "interdum posuere lorem. Nullam non nisi est sit. Turpis egestas " +
+        "integer eget aliquet nibh praesent. Tortor at risus viverra adipiscing " +
+        "at. Eu augue ut lectus arcu bibendum at varius vel pharetra.</i></p>"
+      }
+    />
+  </DSProvider>
+</Canvas>
