@@ -44,11 +44,11 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   columnHeadersBackgroundColor && (customColors["backgroundColor"] = columnHeadersBackgroundColor);
   columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
 
-  const styles = useMultiStyleConfig("CustomTable", { showRowDividers, useRowHeaders });
+  const styles = useMultiStyleConfig("CustomTable", { showRowDividers, useRowHeaders, columnHeadersTextColor });
 
   const columnHeadersElems = columnHeaders && (
     <ChakraTHead>
-      <ChakraTr>{columnHeaders.map((child, i) => { return <ChakraTh sx={customColors} >{child}</ChakraTh> } )}</ChakraTr>
+      <ChakraTr>{columnHeaders.map((child, i) => { return <ChakraTh sx={customColors} > {child} </ChakraTh> } )}</ChakraTr>
     </ChakraTHead>
   );
 
