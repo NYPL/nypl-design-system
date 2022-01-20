@@ -36,6 +36,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
+- Allows the `TemplateAppContainer` and `TemplateFooter` components to use the `renderFooterElement` prop. This is `true` by default so it renders an HTML `footer` element. If a custom footer component that renders its own HTML `<footer>` must be used, then setting `renderFooterElement` to false will not render two nested `footer` elements.
 - Fixes the Storybook `level` prop value for the `Heading` component so it updates the component.
 
 ## 0.25.8 (January 6, 2022)
