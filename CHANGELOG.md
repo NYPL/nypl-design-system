@@ -31,6 +31,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
 - Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
 - Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
+- Updates the label text style in the disabled state of the `Toggle` component.
 
 ### Fixes
 
