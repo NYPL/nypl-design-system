@@ -15,7 +15,6 @@ import {
   IconRotationTypes,
   IconSizes,
   IconTypes,
-  LogoNames,
 } from "./IconTypes";
 import iconSvgs from "./IconSvgs";
 import List from "../List/List";
@@ -165,20 +164,11 @@ export const iconRow = (icon, iconType = IconNames, opts = {}) => {
   );
 };
 export const icons = [];
-export const logos = [];
 export const rotations = [];
 export const colors = [];
 export const sizes = [];
 for (const icon in IconNames) {
   icons.push(iconRow(icon, IconNames, { displayValue: `IconNames.${icon}` }));
-}
-for (const logo in LogoNames) {
-  logos.push(
-    iconRow(logo, LogoNames, {
-      iconSize: IconSizes.ExtraLarge,
-      displayValue: `IconLogos.${logo}`,
-    })
-  );
 }
 for (const iconRotation in IconRotationTypes) {
   rotations.push(
@@ -263,23 +253,11 @@ The `IconSizes` enum can be found in`src/components/Icons/IconTypes.tsx`.
 
 ## All Display Icons
 
-The following icons are for generic purposes. All the available logo names can
+The following icons are for generic purposes. All the available icon names can
 be found in the `IconNames` enum in `src/components/Icons/IconTypes.tsx`.
 
 <Canvas withToolbar>
   <Story name="All Display Icons">{allIconsType(icons)}</Story>
-</Canvas>
-
-## All Logo Icons
-
-_Note: this is a work in progress_
-
-The following icons are meant to be used for logos for different libraries
-and products. All the available logo names can
-be found in the `LogoNames` enum in `src/components/Icons/IconTypes.tsx`.
-
-<Canvas withToolbar>
-  <Story name="All Logo Icons">{allIconsType(logos)}</Story>
 </Canvas>
 
 ## Custom Icons

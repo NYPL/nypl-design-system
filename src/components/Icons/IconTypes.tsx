@@ -78,27 +78,3 @@ export enum IconNames {
   UtilityHamburger = "utility_hamburger",
   UtilitySearch = "utility_search",
 }
-
-export enum LogoNames {
-  Brooklyn = "brooklyn",
-  LogoBrooklyn = "logo_brooklyn",
-  LogoNypl = "logo_nypl",
-  LogoNyplNegative = "logo_nypl_negative",
-  LogoQueens = "logo_queens",
-  LpaNegative = "lpa_negative",
-  LpaPositive = "lpa_positive",
-  NyplCircleNegative = "nypl_circle_negative",
-  NyplCirclePositive = "nypl_circle_positive",
-  NyplFullLockUpNegative = "nypl_full_lock_up_negative",
-  NyplFullLockUp = "nypl_full_lock_up",
-  NyplNoLionNegative = "nypl_no_lion_negative",
-  NyplNoLionPositive = "nypl_no_lion_positive",
-  QueensLong = "queens_long",
-  QueensStacked = "queens_stacked",
-  SchomburgCircle = "schomburg_circle",
-  SchomburgPositive = "schomburg_positive",
-  SimplyeBlack = "simplye_black",
-  SimplyeColor = "simplye_color",
-  SnflNegative = "snfl_negative",
-  SnflPositive = "snfl_positive",
-}

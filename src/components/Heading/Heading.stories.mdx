@@ -78,7 +78,9 @@ semantic elements can be overwritten using the `displaySize` prop.
     {(args) => (
       <Heading
         {...args}
-        displaySize={sizesEnumValues.getValue(args.displaySize)}
+        displaySize={
+          args.displaySize && sizesEnumValues.getValue(args.displaySize)
+        }
         level={levelsEnumValues.getValue(args.level)}
       />
     )}
