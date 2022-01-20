@@ -13,6 +13,15 @@ const baseStyle = ({ showRowDividers, useRowHeaders, columnHeadersTextColor }) =
     fontSize: "sm",
   },
 
+  caption: {
+    captionSide: "top",
+    textAlign: "left",
+    fontSize: "md",
+    color: '#1a1a1a',
+    textTransform: "capitalize",
+    fontWeight: "bold",
+  }
+
 });
 
 const CustomTable = {
