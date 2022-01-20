@@ -3,7 +3,7 @@ const StatusBadge = {
     borderRadius: "base",
     color: "ui.black",
     display: "block",
-    fontSize: "-1",
+    fontSize: "-1", // slightly smaller than the default size
     fontStyle: "italic",
     py: "xxs",
     px: "xs",

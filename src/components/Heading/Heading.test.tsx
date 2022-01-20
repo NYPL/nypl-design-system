@@ -32,6 +32,11 @@ describe("Heading", () => {
     expect(screen.getByText("Heading 2")).toBeInTheDocument();
   });
 
+  it("renders the default level two if no `level` prop is passed", () => {
+    render(<Heading id="h2">Heading 2</Heading>);
+    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
+  });
+
   // TODO: check that header children are links
   // it("Throws error when invalid heading is passed as child", () => {
   //   expect(() => render(<Heading id="h1" level={HeadingLevels.Three}><span>oh no</span></Heading>))
@@ -86,15 +91,9 @@ describe("Heading", () => {
     );
   });
 
-  it("throws an error when an invalid heading number passed", () => {
-    expect(() =>
-      render(<Heading id="h1" level={9} text="Heading 9" />)
-    ).toThrow("Heading only supports levels 1-6");
-  });
-
   it("throws error when neither child nor text is passed", () => {
-    expect(() => render(<Heading id="h1" level={9} />)).toThrow(
-      "Heading only supports levels 1-6"
+    expect(() => render(<Heading id="h1" level={HeadingLevels.One} />)).toThrow(
+      "Heading has no children, please pass prop: text"
     );
   });
 
