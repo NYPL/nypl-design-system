@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `Logo` component.
 - Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
 - Adds element-specific design tokens for `fontSizes` and `fontWeights`.
 - Adds the `StructuredContent` component.
@@ -19,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Completely removes the `CardEdition` and `Input` components and related files and references.
 - Removes all references of the `BEM` CSS pattern.
+- Removes all references to logos from the `Icon` component.
 
 ### Changes
 
@@ -29,6 +31,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
 - Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
 - Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
+- Updates the label text style in the disabled state of the `Toggle` component.
 
 ### Fixes
 
