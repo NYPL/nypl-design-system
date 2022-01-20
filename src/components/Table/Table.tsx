@@ -6,22 +6,31 @@ import Label from "../Label/Label";
 
 
 export interface TableProps {
+  /** Additional class name for the `Table` component. */
   className?: string;
 
+  /** Array of string values used to populate the 'Table' column headers. */
   columnHeaders?: []
 
+  /** Hex value to set the background color of the column headers. */
   columnHeadersBackgroundColor?: string;
 
+  /** Hex value to set the text color of the column headers. */
   columnHeadersTextColor?: string;
 
+  /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
 
+  /** If true, the first cell of each row in the Table component will be visually styled as a header.  The default value is false */
   useRowHeaders?: boolean;
 
+  /** If true, a border will be displayed between each row in the Table component.  The default value is false. */
   showRowDividers?: boolean;
 
+  /** Two-dimensional array used to populate the table rows. */
   tableData?: [];
 
+  /** Display's a Table title element. */
   titleText?: string;
 }
 
@@ -41,6 +50,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   } = props;
 
   const customColors = {};
+
   columnHeadersBackgroundColor && (customColors["backgroundColor"] = columnHeadersBackgroundColor);
   columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
 
@@ -58,8 +68,8 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     } else {
       return <ChakraTd> {tbody} </ChakraTd>
     }
-  }
-
+  };
+  
   const tableBodyElems = tableData && (
     <ChakraTbody> 
       {tableData.map((child, index) => {  return <ChakraTr>{ child.map((tbody, i) => { return tableBody({tbody, i}) } ) }</ChakraTr> }) }
@@ -69,8 +79,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   return (
     <Box>
       <Label id={`${id}-title`} htmlFor={id} > {titleText} </Label>
-      <ChakraTable sx={styles}
-        className={className}>
+      <ChakraTable sx={styles} className={className}>
         {columnHeadersElems}
         {tableBodyElems}
       </ChakraTable>
@@ -79,4 +88,3 @@ function Table(props: React.PropsWithChildren<TableProps>) {
 }
 
 export default Table;
-
