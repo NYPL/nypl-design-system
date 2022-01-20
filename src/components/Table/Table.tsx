@@ -1,9 +1,6 @@
 import * as React from "react";
 import { Box, Table as ChakraTable, Thead as ChakraTHead, Tbody as ChakraTbody, Tr as ChakraTr, Th as ChakraTh, Td as ChakraTd, TableCaption as ChakraTableCaption, useMultiStyleConfig  } from "@chakra-ui/react";
 import generateUUID from "../../helpers/generateUUID";
-import Label from "../Label/Label";
-
-
 
 export interface TableProps {
   /** Additional class name for the `Table` component. */
@@ -62,8 +59,8 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     </ChakraTHead>
   );
 
-  const tableBody =  ({tbody, index}) => {
-    if (useRowHeaders && index == 0) {
+  const tableBody =  ({tbody, i}) => {
+    if (useRowHeaders && i == 0) {
       // The first cell of each row in the Table component will be visually styled as a header.
       return <ChakraTd style={{fontWeight: "bold"}}> {tbody} </ChakraTd>
     } else {
@@ -79,7 +76,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
 
   return (
     <Box>
-      <ChakraTable sx={styles} className={className}>
+      <ChakraTable id={id} sx={styles} className={className}>
         <ChakraTableCaption> {titleText} </ChakraTableCaption>
         {columnHeadersElems}
         {tableBodyElems}
