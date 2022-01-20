@@ -3,6 +3,7 @@ import * as React from "react";
 
 import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
 import Link from "../Link/Link";
+import { getVariant } from "../../utils/utils";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface HeadingProps {
@@ -10,32 +11,36 @@ export interface HeadingProps {
   additionalStyles?: { [key: string]: any };
   /** Optional className that appears in addition to `heading` */
   className?: string;
-  /** Optional size used to override the default styles of the semantic HTML `<h>` elements */
+  /** Optional size used to override the default styles of the semantic HTM
+   * `<h>` elements */
   displaySize?: HeadingDisplaySizes;
   /** Optional ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed, `Heading` will default to `<h2>` */
+  /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
+   * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
   /** Inner text of the `<h*>` element */
   text?: string;
-  /** Optional URL that header points to; when `url` prop is passed to `Heading`, a child `<a>` element is created and the heading text becomes an active link */
+  /** Optional URL that header points to; when `url` prop is passed to
+   * `Heading`, a child `<a>` element is created and the heading text becomes
+   * an active link */
   url?: string;
   /** Optional className for the URL when the `url` prop is passed */
   urlClass?: string;
 }
 
-// Used to map between ButtonTypes enum values and Chakra variant options.
-const variantMap = {};
-for (const type in HeadingDisplaySizes) {
-  variantMap[HeadingDisplaySizes[type]] = HeadingDisplaySizes[type];
-}
-
-/**
- * Map the HeadingDisplaySizes to the Heading Chakra theme variant object. If a wrong
- * value is passed (typically in non-Typescript scenarios), then the default
- * is "null" and displaySize is not envoked.
- */
-const getVariant = (displaySize) => variantMap[displaySize] || null;
+/** Map the word heading level to the number heading level. The default is 2. */
+const getMappedLevel = (level = HeadingLevels.Two) => {
+  const levelMap = {
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+  };
+  return levelMap[level] || 2;
+};
 
 function Heading(props: React.PropsWithChildren<HeadingProps>) {
   const {
@@ -48,16 +53,15 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
     url,
     urlClass,
   } = props;
-  const variant = displaySize ? getVariant(displaySize) : `h${level}`;
+  const finalLevel = getMappedLevel(level);
+  const variant = displaySize
+    ? getVariant(displaySize, HeadingDisplaySizes)
+    : `h${finalLevel}`;
   const styles = useStyleConfig("Heading", { variant });
   // Combine native base styles with any additional styles.
   // This is used in the `Hero` and `Notification` components.
   const finalStyles = { ...styles, ...additionalStyles };
-  const asHeading: any = `h${level}`;
-
-  if (level < 1 || level > 6) {
-    throw new Error("Heading only supports levels 1-6");
-  }
+  const asHeading: any = `h${finalLevel}`;
 
   if (!props.children && !text) {
     throw new Error("Heading has no children, please pass prop: text");
