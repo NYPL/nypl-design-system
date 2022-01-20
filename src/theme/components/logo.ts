@@ -1,6 +1,5 @@
 const svgBase = {
   display: "inline-block",
-  // fill: "currentColor",
   height: "auto",
   width: "100%",
 };
@@ -39,16 +38,12 @@ const Logo = {
   baseStyle: (props) => {
     const allStyles = {
       ...svgBase,
-      // fill: props.color,
       ...size[props.size],
-      // path: {
-      //   fill: props.color,
-      // },
     };
     return {
       ...allStyles,
       // We still want to style any custom SVG element that was
-      // passed to the `Icon` component.
+      // passed to the `Logo` component.
       svg: {
         ...allStyles,
       },
