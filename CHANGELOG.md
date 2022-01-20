@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `Logo` component.
 - Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
 - Adds element-specific design tokens for `fontSizes` and `fontWeights`.
 - Adds the `StructuredContent` component.
@@ -19,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Completely removes the `CardEdition` and `Input` components and related files and references.
 - Removes all references of the `BEM` CSS pattern.
+- Removes all references to logos from the `Icon` component.
 
 ### Changes
 
