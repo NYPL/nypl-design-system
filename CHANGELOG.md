@@ -10,7 +10,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `Logo` component.
 - Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
+- Adds element-specific design tokens for `fontSizes` and `fontWeights`.
 - Adds the `StructuredContent` component.
 - Adds the `additionalImageStyles` and `additionalFigureStyles` props to the `Image` component to specifically target the `img` element's style and the `figure` HTML elements.
 
@@ -18,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Completely removes the `CardEdition` and `Input` components and related files and references.
 - Removes all references of the `BEM` CSS pattern.
+- Removes all references to logos from the `Icon` component.
 
 ### Changes
 
@@ -28,10 +31,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
 - Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
 - Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
+- Updates the label text style in the disabled state of the `Toggle` component.
 
 ### Fixes
 
 - Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
+- Allows the `TemplateAppContainer` and `TemplateFooter` components to use the `renderFooterElement` prop. This is `true` by default so it renders an HTML `footer` element. If a custom footer component that renders its own HTML `<footer>` must be used, then setting `renderFooterElement` to false will not render two nested `footer` elements.
+- Fixes the Storybook `level` prop value for the `Heading` component so it updates the component.
 
 ## 0.25.8 (January 6, 2022)
 

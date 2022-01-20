@@ -65,6 +65,9 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={TemplateAppContainer} />
 
+If you have a custom `Footer` component that _already_ renders an HTML `<footer>`
+element, set `renderFooterElement` to false so only one `<footer>` element is rendered.
+
 <b>This is the recommended way to render an app page template.</b>
 
 ```jsx
@@ -112,6 +115,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       footer: <Placeholder variant="short">Footer</Placeholder>,
       header: <Placeholder variant="short">NYPL Header</Placeholder>,
       sidebar: "left",
+      renderFooterElement: true,
     }}
     argTypes={{
       breakout: { control: false },

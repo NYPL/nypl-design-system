@@ -3,12 +3,7 @@ import { Canvas, Meta } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Icon from "../Icons/Icon";
-import {
-  IconColors,
-  IconSizes,
-  IconNames,
-  LogoNames,
-} from "../Icons/IconTypes";
+import { IconColors, IconSizes, IconNames } from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -37,16 +32,14 @@ import DSProvider from "../../theme/provider";
 ## General Information
 
 Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
-component to render and control icons and NYPL logos as `<svg>` elements within
-consuming apps.
+component to render and control icons as `<svg>` elements within consuming apps.
 
 The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
 
 ## Icon Examples
 
-The graphic of the `Icon` component is handled through the `IconNames` and
-`LogoNames` enums. To see all graphic options for `Icon`, please refer to the
-[Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
+The graphic of the `Icon` component is handled through the `IconNames` enum. To see all graphic options
+for `Icon`, please refer to the [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
 Storybook page.
 
 <Canvas>
@@ -72,16 +65,6 @@ Storybook page.
         size={IconSizes.ExtraExtraExtraLarge}
         name={IconNames.SpeakerNotes}
       />
-      <Icon
-        decorative
-        size={IconSizes.ExtraExtraExtraLarge}
-        name={LogoNames.LogoNypl}
-      />
-      <Icon
-        decorative
-        size={IconSizes.ExtraExtraExtraLarge}
-        name={LogoNames.LogoBrooklyn}
-      />
     </Stack>
   </DSProvider>
 </Canvas>
@@ -92,8 +75,6 @@ Storybook page.
 | `IconNames.Close`              |
 | `IconNames.ErrorOutline`       |
 | `IconNames.SpeakerNotes`       |
-| `LogoNames.LogoNypl`           |
-| `LogoNames.LogoBrooklyn`       |
 
 ## Icon Sizes
 

@@ -94,7 +94,7 @@ const sizes = {
       borderRadius: "sm",
     },
     // Controls the font-size of the label only.
-    label: { fontSize: "md" },
+    label: { fontSize: "text.default" },
   },
 };
 
