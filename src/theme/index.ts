@@ -37,6 +37,7 @@ import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
 import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import Tabs from "./components/tabs";
+import CustomTable from "./components/customTable";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
@@ -105,6 +106,7 @@ const theme = extendTheme({
     CustomSlider,
     StatusBadge,
     Tabs,
+    CustomTable,
     ...TemplateStyles,
     Text,
     TextInput,
