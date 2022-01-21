@@ -1,14 +1,14 @@
+import { action } from "@storybook/addon-actions";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import HorizontalRule from "./HorizontalRule";
-import { action } from "@storybook/addon-actions";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -18,13 +18,14 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=19659%3A0",
     },
     jest: ["HorizontalRule.test.tsx"],
   }}
   argTypes={{
-    className: { table: { disable: true } },
+    className: { control: false },
+    height: { table: { defaultValue: { summary: "2px" } } },
+    width: { table: { defaultValue: { summary: "auto" } } },
   }}
 />
 

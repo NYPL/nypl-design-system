@@ -1,12 +1,6 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
-import { withDesign } from "storybook-addon-designs";
 import { ButtonGroup } from "@chakra-ui/react";
+import { Canvas, Meta } from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -17,7 +11,6 @@ import {
   IconRotationTypes,
   IconSizes,
 } from "../Icons/IconTypes";
-import getCSSVariable from "../../helpers/getCSSVariable";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -110,8 +103,7 @@ can be achieved by using the `Form` component to wrap the `Button`s.
 ## Button Types
 
 The `buttonType` prop should be used to render various forms of the button
-component. Note that the `SearchBar` type is only used internally in the
-`SearchBar` component.
+component.
 
 <Canvas>
   <DSProvider>
@@ -121,7 +113,6 @@ component. Note that the `SearchBar` type is only used internally in the
       <Button buttonType={ButtonTypes.Callout}>Callout Button</Button>
       <Button buttonType={ButtonTypes.Pill}>Pill Button</Button>
       <Button buttonType={ButtonTypes.Link}>Link Button</Button>
-      <Button buttonType={ButtonTypes.SearchBar}>SearchBar Button</Button>
       <Button buttonType={ButtonTypes.NoBrand}>NoBrand Button</Button>
     </ButtonGroup>
   </DSProvider>
@@ -153,12 +144,6 @@ component. Note that the `SearchBar` type is only used internally in the
 
 - used for equally weighted actions
 - Visual Treatment: text link with underline
-
-### ButtonTypes.SearchBar
-
-- used internally in the `SearchBar` component for visual flow when it is next
-  to the `TextInput` component
-- Visual Treatment: rectangular, filled, no border radius on the left side
 
 ### ButtonTypes.NoBrand
 

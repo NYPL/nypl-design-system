@@ -26,7 +26,6 @@ export {
   CardHeading,
 } from "./components/Card/Card";
 export { CardLayouts } from "./components/Card/CardTypes";
-export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
 export { CheckboxGroupLayoutTypes } from "./components/CheckboxGroup/CheckboxGroupLayoutTypes";
@@ -54,7 +53,6 @@ export {
   IconRotationTypes,
   IconSizes,
   IconTypes,
-  LogoNames,
 } from "./components/Icons/IconTypes";
 export { default as Image } from "./components/Image/Image";
 export {
@@ -62,13 +60,13 @@ export {
   ImageSizes,
   ImageTypes,
 } from "./components/Image/ImageTypes";
-export { default as Input } from "./components/Input/Input";
-export { InputTypes } from "./components/Input/InputTypes";
 export { default as Label } from "./components/Label/Label";
 export { default as Link } from "./components/Link/Link";
 export { LinkTypes } from "./components/Link/LinkTypes";
 export { default as List } from "./components/List/List";
 export { ListTypes } from "./components/List/ListTypes";
+export { default as Logo } from "./components/Logo/Logo";
+export { LogoColors, LogoNames, LogoSizes } from "./components/Logo/LogoTypes";
 export { default as Modal } from "./components/Modal/Modal";
 export { default as Notification } from "./components/Notification/Notification";
 export { NotificationTypes } from "./components/Notification/NotificationTypes";
@@ -92,6 +90,7 @@ export {
 export { default as Slider } from "./components/Slider/Slider";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export { StatusBadgeTypes } from "./components/StatusBadge/StatusBadgeTypes";
+export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
 export {
   Tabs,
   TabList,

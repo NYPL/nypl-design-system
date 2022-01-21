@@ -96,7 +96,7 @@ const CustomImage = {
     },
     captionWrappers: {
       marginBottom: "xxs",
-      fontSize: "-1",
+      fontSize: "text.caption",
     },
   }),
 };

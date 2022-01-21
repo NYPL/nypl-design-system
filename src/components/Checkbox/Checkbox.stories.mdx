@@ -1,17 +1,17 @@
+import { HStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { HStack } from "@chakra-ui/react";
 
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
 import Checkbox from "./Checkbox";
 import { onChangeDefault } from "./Checkbox";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
 
 <Meta
   title={getCategory("Checkbox")}
@@ -20,16 +20,35 @@ import { onChangeDefault } from "./Checkbox";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
     },
     jest: ["Checkbox.test.tsx"],
   }}
   argTypes={{
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
-    isChecked: { table: { disable: true } },
-    onChange: { table: { disable: true } },
+    className: { control: false },
+    id: { control: false },
+    isChecked: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isIndeterminate: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    key: { table: { disable: true } },
+    onChange: { control: false },
+    ref: { table: { disable: true } },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: false } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: false } },
+    },
   }}
 />
 
@@ -49,15 +68,18 @@ cause an accessibility violation if none is present.
   <Story
     name="Checkbox"
     args={{
+      className: undefined,
       helperText: "This is the helper text!",
-      id: "test_id",
+      id: "checkbox_id",
       invalidText: "This is the error text :(",
+      isChecked: undefined,
       isDisabled: false,
       isIndeterminate: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Test Label",
       name: "test_name",
+      onChange: undefined,
       showHelperInvalidText: true,
       showLabel: true,
       value: "1",
