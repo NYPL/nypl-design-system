@@ -32,12 +32,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
 - Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
 - Updates the label text style in the disabled state of the `Toggle` component.
+- Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
 
 ### Fixes
 
 - Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
 - Allows the `TemplateAppContainer` and `TemplateFooter` components to use the `renderFooterElement` prop. This is `true` by default so it renders an HTML `footer` element. If a custom footer component that renders its own HTML `<footer>` must be used, then setting `renderFooterElement` to false will not render two nested `footer` elements.
 - Fixes the Storybook `level` prop value for the `Heading` component so it updates the component.
+- Removes wrapper divs around custom image elements used in the `Card` component. Also passes the aspect ratio as `ImageRatios.Original` when the custom image element is passed to the `Card` component.
 
 ## 0.25.8 (January 6, 2022)
 

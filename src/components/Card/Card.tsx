@@ -181,9 +181,18 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     mainActionLink,
   } = props;
   const hasImage = imageSrc || imageComponent;
+  const finalImageAspectRatio = imageComponent
+    ? ImageRatios.Original
+    : imageAspectRatio;
   const customColors = {};
   const cardContents = [];
   let cardHeadingCount = 0;
+
+  if (imageComponent && imageAspectRatio !== ImageRatios.Square) {
+    console.warn(
+      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+    );
+  }
 
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
@@ -249,7 +258,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
             component={imageComponent}
             alt={imageAlt}
             imageSize={imageSize}
-            imageAspectRatio={imageAspectRatio}
+            imageAspectRatio={finalImageAspectRatio}
             imageAtEnd={imageAtEnd}
             layout={layout}
           />

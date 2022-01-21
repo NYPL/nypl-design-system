@@ -49,10 +49,10 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
   });
   return (
     <Box
-      __css={{ ...styles, ...additionalWrapperStyles }}
       className={`the-wrap ${className}`}
+      __css={{ ...styles, ...additionalWrapperStyles }}
     >
-      <Box __css={styles.crop} className="the-crop">
+      <Box className="the-crop" __css={styles.crop}>
         {children}
       </Box>
     </Box>
