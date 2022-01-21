@@ -74,10 +74,14 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     </ChakraTbody>
   );
 
+  const tableCaption = titleText && (
+    <ChakraTableCaption> {titleText} </ChakraTableCaption>
+  )
+
   return (
     <Box>
       <ChakraTable id={id} sx={styles} className={className}>
-        <ChakraTableCaption> {titleText} </ChakraTableCaption>
+        {tableCaption}
         {columnHeadersElems}
         {tableBodyElems}
       </ChakraTable>

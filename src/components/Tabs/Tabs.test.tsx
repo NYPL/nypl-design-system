@@ -208,7 +208,7 @@ describe("Tabs", () => {
     expect(selectedIndex).toEqual(1);
   });
 
-  it("should throw warning when both the 'data' probp and children are passed", () => {
+  it("should throw warning when both the 'data' prop and children are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Tabs contentData={animalCrossing}>
