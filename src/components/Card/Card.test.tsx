@@ -3,14 +3,16 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import Card, { CardHeading, CardContent, CardActions } from "./Card";
-import Link from "../Link/Link";
-import { LinkTypes } from "../Link/LinkTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import Card, { CardHeading, CardContent, CardActions } from "./Card";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
+import { ImageRatios } from "../Image/ImageTypes";
 
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -220,6 +222,18 @@ describe("Card", () => {
       </CardActions>
     </Card>
   );
+  const cardImageComponentAndRatio = () => (
+    <Card
+      id="fullclick"
+      imageComponent={<Image alt="" src="https://placeimg.com/400/200/arch" />}
+      imageAspectRatio={ImageRatios.ThreeByTwo}
+    >
+      <CardHeading level={HeadingLevels.Three} id="heading1">
+        The Card Heading
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
+    </Card>
+  );
   let container;
 
   it("renders a Card with a header, image, content, and CTAs", () => {
@@ -286,6 +300,14 @@ describe("Card", () => {
     expect(screen.getAllByRole("link")[0]).toHaveAttribute(
       "href",
       "http://nypl.org"
+    );
+  });
+
+  it("Logs a warning when both `imageComponent` and `imageAspectRatio` are passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(cardImageComponentAndRatio());
+    expect(warn).toHaveBeenCalledWith(
+      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
     );
   });
 
