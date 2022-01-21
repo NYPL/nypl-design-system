@@ -7,6 +7,7 @@ const baseStyle = ({ showRowDividers, useRowHeaders, columnHeadersTextColor }) =
     fontSize: 'sm',
     color: columnHeadersTextColor ? columnHeadersTextColor : '#1a1a1a',
   },
+  
   td: {
     border: showRowDividers ? undefined : 'none',
     borderBottom: showRowDividers ? undefined : '0px',
@@ -21,7 +22,6 @@ const baseStyle = ({ showRowDividers, useRowHeaders, columnHeadersTextColor }) =
     textTransform: "capitalize",
     fontWeight: "bold",
   }
-
 });
 
 const CustomTable = {
