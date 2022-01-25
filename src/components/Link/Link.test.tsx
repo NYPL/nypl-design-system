@@ -1,15 +1,21 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-
-import Link from "./Link";
-import { LinkTypes } from "./LinkTypes";
+import * as React from "react";
 import {
   BrowserRouter as Router,
   Link as ReactRouterLink,
 } from "react-router-dom";
+import renderer from "react-test-renderer";
+
+import Link from "./Link";
+import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
+import {
+  IconAlign,
+  IconNames,
+  IconRotationTypes,
+  IconSizes,
+} from "../Icons/IconTypes";
 
 describe("Link Accessibility", () => {
   it("passes axe accessibility test for children component", async () => {
@@ -120,11 +126,11 @@ describe("Link", () => {
 
   it("throws an error if text is passed but no url is passed", () => {
     expect(() => render(<Link>Test</Link>)).toThrowError(
-      "Link needs prop 'href'"
+      "`Link` needs the `href` prop."
     );
   });
 
-  it("throws an error if more than one child is passed", () => {
+  it("throws an error if more than one child element is passed", () => {
     expect(() =>
       render(
         <Link>
@@ -137,6 +143,101 @@ describe("Link", () => {
         </Link>
       )
     ).toThrowError("Please pass only one child into `Link`.");
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const standard = renderer
+      .create(
+        <Link href="#passed-in-link" id="standard-link" type={LinkTypes.Action}>
+          Standard
+        </Link>
+      )
+      .toJSON();
+    const typeForwards = renderer
+      .create(
+        <Link
+          href="#passed-in-link"
+          id="forwards-link"
+          type={LinkTypes.Forwards}
+        >
+          Forwards
+        </Link>
+      )
+      .toJSON();
+    const typeBackwards = renderer
+      .create(
+        <Link
+          href="#passed-in-link"
+          id="backwards-link"
+          type={LinkTypes.Backwards}
+        >
+          Backwards
+        </Link>
+      )
+      .toJSON();
+    const typeExternal = renderer
+      .create(
+        <Link
+          href="#passed-in-link"
+          id="external-link"
+          type={LinkTypes.External}
+        >
+          External
+        </Link>
+      )
+      .toJSON();
+    const typeButton = renderer
+      .create(
+        <Link href="#passed-in-link" id="button-link" type={LinkTypes.Button}>
+          Button
+        </Link>
+      )
+      .toJSON();
+    const withIconChild = renderer
+      .create(
+        <Link href="#passed-in-link" id="icon-link" type={LinkTypes.Action}>
+          <Icon
+            align={IconAlign.Left}
+            className="more-link"
+            iconRotation={IconRotationTypes.Rotate0}
+            id="link-icon"
+            name={IconNames.Download}
+          />
+          Download
+        </Link>
+      )
+      .toJSON();
+    const withAchorChild = renderer
+      .create(
+        <Link id="anchor-link" type={LinkTypes.Action}>
+          <a href="#existing-anchor-tag">check link</a>
+        </Link>
+      )
+      .toJSON();
+    const withAchorChildAndIcon = renderer
+      .create(
+        <Link id="anchor-icon-link" type={LinkTypes.Action}>
+          <>
+            <Icon
+              align={IconAlign.Left}
+              id="link-icon"
+              name={IconNames.Check}
+              size={IconSizes.Small}
+            />
+            <a href="#existing-anchor-tag">check link</a>
+          </>
+        </Link>
+      )
+      .toJSON();
+
+    expect(standard).toMatchSnapshot();
+    expect(typeForwards).toMatchSnapshot();
+    expect(typeBackwards).toMatchSnapshot();
+    expect(typeExternal).toMatchSnapshot();
+    expect(typeButton).toMatchSnapshot();
+    expect(withIconChild).toMatchSnapshot();
+    expect(withAchorChild).toMatchSnapshot();
+    expect(withAchorChildAndIcon).toMatchSnapshot();
   });
 
   // TODO:

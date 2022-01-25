@@ -34,7 +34,8 @@ const getBodyPaddingStyles = ({ border, hasImage, imageAtEnd, isRow }) => {
 const Card = {
   parts: ["body", "heading"],
   baseStyle: (props) => {
-    const { border, center, hasImage, imageAtEnd, layout } = props;
+    const { border, center, hasImage, imageAtEnd, layout, mainActionLink } =
+      props;
     const isRow = layout === "row";
     const layoutStyles = isRow
       ? {
@@ -74,6 +75,7 @@ const Card = {
       textAlign: center ? "center" : null,
       heading: {
         marginBottom: "xs",
+        a: mainActionLink ? { color: "ui.black" } : null,
       },
       body: {
         display: { md: "block" },
@@ -135,7 +137,7 @@ const CardContent = {
 };
 
 const CardImage = {
-  baseStyle: ({ center, imageSize, imageAtEnd, layout }) => {
+  baseStyle: ({ center, imageAtEnd, imageSize, layout }) => {
     // These sizes are only for the "row" layout.
     const size = imageSizes[imageSize] || {};
     const layoutStyles =
@@ -165,6 +167,7 @@ const CardImage = {
           order: "2",
         }
       : {};
+
     return {
       ...imageAtEndStyles,
       ...layoutStyles,

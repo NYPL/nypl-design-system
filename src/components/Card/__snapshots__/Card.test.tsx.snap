@@ -104,6 +104,8 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         className="css-0"
         href="online"
         id="link-online"
+        rel={null}
+        target={null}
       >
         Read Online
       </a>
@@ -111,6 +113,8 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         className="css-0"
         href="#url"
         id="link-icon"
+        rel={null}
+        target={null}
       >
         <svg
           aria-hidden={true}
@@ -229,8 +233,11 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       id="editioncardheading1"
     >
       <a
-        className="chakra-link css-1xdhyk6"
+        className="css-0"
         href="#edition-link"
+        id="editioncardheading1-link"
+        rel={null}
+        target={null}
       >
         The Card Heading
       </a>
@@ -242,6 +249,8 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         className="css-0"
         href="online"
         id="link-online"
+        rel={null}
+        target={null}
       >
         Read Online
       </a>
@@ -249,6 +258,8 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         className="css-0"
         href="#url"
         id="link-icon"
+        rel={null}
+        target={null}
       >
         <svg
           aria-hidden={true}
@@ -302,8 +313,11 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       id="editioncardheading1"
     >
       <a
-        className="chakra-link css-1xdhyk6"
+        className="css-0"
         href="#edition-link"
+        id="editioncardheading1-link"
+        rel={null}
+        target={null}
       >
         The Card Heading
       </a>
@@ -320,6 +334,8 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         className="css-0"
         href="online"
         id="link-online"
+        rel={null}
+        target={null}
       >
         Read Online
       </a>
@@ -327,6 +343,8 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         className="css-0"
         href="#url"
         id="link-icon"
+        rel={null}
+        target={null}
       >
         <svg
           aria-hidden={true}

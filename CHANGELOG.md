@@ -10,12 +10,49 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `Logo` component.
+- Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
+- Adds element-specific design tokens for `fontSizes` and `fontWeights`.
+- Adds the `StructuredContent` component.
+- Adds the `additionalImageStyles` and `additionalFigureStyles` props to the `Image` component to specifically target the `img` element's style and the `figure` HTML elements.
+
+### Breaking Changes
+
+- Completely removes the `CardEdition` and `Input` components and related files and references.
+- Removes all references of the `BEM` CSS pattern.
+- Removes all references to logos from the `Icon` component.
+
+### Changes
+
+- Updates the `Form`, `HorizontalRule`, `Image` component by removing the native HTML attributes as props. This sets the props allowed to the list of props declared in their own files.
+- Minor change to the `Notification`'s heading component so it adds a proper id to `NotificationHeading`.
+- Updates the `Heading` component to use the DS `Link` component rather than Chakra's `Link` component.
+- Updates the style of links rendered in the `Heading` component so they are styled as standard links. The only exception is for links used in the `Card` component for the _full-click functionality_ feature. Otherwise, links in `Card` headings are styled as standard links.
+- Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
+- Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
+- Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
+- Updates the label text style in the disabled state of the `Toggle` component.
+- Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
+
+### Fixes
+
+- Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
+- Allows the `TemplateAppContainer` and `TemplateFooter` components to use the `renderFooterElement` prop. This is `true` by default so it renders an HTML `footer` element. If a custom footer component that renders its own HTML `<footer>` must be used, then setting `renderFooterElement` to false will not render two nested `footer` elements.
+- Fixes the Storybook `level` prop value for the `Heading` component so it updates the component.
+- Removes wrapper divs around custom image elements used in the `Card` component. Also passes the aspect ratio as `ImageRatios.Original` when the custom image element is passed to the `Card` component.
+
+## 0.25.8 (January 6, 2022)
+
+### Adds
+
 - Adds `embedCode` prop to `VideoPlayer` component.
 - Adds export statements for `ProgressIndicatorSizes` and `ProgressIndicatorTypes` enums to `index.ts`.
 - Adds `ExtraSmall` and `ExtraExtraSmall` size variants to the `Image` component.
 - Adds `ExtraSmall` and `ExtraExtraSmall` size variants for `CardImage` in the `Card` component.
 - Adds `AlertNotificationImportant` icon to `Icon` component.
-- Adds `Toggle` component
+- Adds `Toggle` component.
+- Adds `xxxs` (2px) spacing option to DS design tokens.
+- Adds `external` variant to `Link` component.
 
 ### Changes
 
@@ -23,10 +60,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background color for the `Locations` variant in the `Breadcrumbs` component from `section.locations.secondary` to `section.locations.primary`.
 - Updates the `Notification` component to show the `AlertNotificationImportant` icon for the `Standard` variant.
 - Reduces the bottom margin on labels and legends for form components from "16px" to "8px", or "s" to "sx" in Chakra-theme variables.
+- Updates docs for Chakra `Grid` component to use theme object values rather than CSS variables.
+- Updates the spacing in the `Notification` component to improve the alignment of the icon and text elements.
+- Updates the `Notification` component to optionally display/hide the `Icon` in the heading or content area.
+- Updates the `ComponentWrapper` component to allow the internal `HelperErrorText` component to get set in the invalid state. Also added tests for this component.
 
 ### Fixes
 
 - Fixes two bugs in the `Slider`: (1) unable to call the `onChange` function when it is not passed, and (2) fixing the default array value for the range slider so it mounts properly.
+- Updates the `Select` component's controlled state so that an initial empty `value` prop is acceptable.
 
 ## 0.25.7 (December 20, 2021)
 
@@ -40,6 +82,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds export statements for `ProgressIndicator` and `Slider` components to `index.ts`.
 - Adds `Blogs` variant to `Breadcrumbs` component.
+- Adds the `placeholder` prop to the `Select` component.
 
 ### Changes
 

@@ -1,16 +1,22 @@
+import { VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { VStack } from "@chakra-ui/react";
+import Button from "../Button/Button";
+import Form from "../Form/Form";
 import Select from "./Select";
+import { SelectTypes } from "./SelectTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(SelectTypes, "SelectTypes");
 
 <Meta
   title={getCategory("Select")}
@@ -19,17 +25,40 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11895%3A549",
     },
     jest: ["Select.test.tsx"],
   }}
   argTypes={{
     children: { table: { disable: true } },
-    id: { table: { disable: true } },
-    name: { table: { disable: true } },
-    onChange: { table: { disable: true } },
-    value: { table: { disable: true } },
+    id: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    name: { control: false },
+    key: { table: { disable: true } },
+    onChange: { control: false },
+    ref: { table: { disable: true } },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showOptReqLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    type: {
+      control: false,
+      table: { defaultValue: { summary: "SelectTypes.Default" } },
+    },
+    value: { control: false },
   }}
 />
 
@@ -38,7 +67,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.7.0`    |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.8`   |
 
 <Description of={Select} />
 
@@ -63,17 +92,23 @@ elements, but the select options _need_ to be child `<option>` HTML elements.
 
 <Canvas withToolbar>
   <Story
-    name="Select"
+    name="Select with Controls"
     args={{
+      className: undefined,
       helperText: "This is the helper text.",
+      id: "select-id",
       invalidText: "This is the error text :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "What is your favorite color?",
       name: "color",
+      onChange: undefined,
+      showHelperInvalidText: undefined,
       showLabel: true,
       showOptReqLabel: true,
+      type: SelectTypes.Default,
+      value: undefined,
     }}
   >
     {(args) => (
@@ -88,7 +123,7 @@ elements, but the select options _need_ to be child `<option>` HTML elements.
   </Story>
 </Canvas>
 
-<ArgsTable story="Select" />
+<ArgsTable story="Select with Controls" />
 
 ## Labelling Variations
 
@@ -102,8 +137,8 @@ text within the `label` element.
   <Story name="Labelling Variations">
     <VStack align="stretch" spacing={8}>
       <Select
-        labelText="What is your favorite color?"
         helperText="Display the label"
+        labelText="What is your favorite color?"
         name="color"
       >
         <option value="red">Red</option>
@@ -113,8 +148,8 @@ text within the `label` element.
         <option value="white">White</option>
       </Select>
       <Select
-        labelText="What is your favorite color?"
         helperText="Do not display the label"
+        labelText="What is your favorite color?"
         name="color"
         showLabel={false}
       >
@@ -125,10 +160,10 @@ text within the `label` element.
         <option value="white">White</option>
       </Select>
       <Select
-        labelText="What is your favorite color?"
         helperText="Display the Required/Optional text"
-        name="color"
         isRequired
+        labelText="What is your favorite color?"
+        name="color"
       >
         <option value="red">Red</option>
         <option value="green">Green</option>
@@ -137,11 +172,11 @@ text within the `label` element.
         <option value="white">White</option>
       </Select>
       <Select
-        labelText="What is your favorite color?"
         helperText="Do not display the Required/Optional text"
+        isRequired
+        labelText="What is your favorite color?"
         name="color"
         showOptReqLabel={false}
-        isRequired
       >
         <option value="red">Red</option>
         <option value="green">Green</option>
@@ -158,11 +193,11 @@ text within the `label` element.
 <Canvas>
   <DSProvider>
     <Select
-      labelText="What is your favorite color?"
       helperText="This is the helper text."
       invalidText="This is the error text :("
-      name="color"
       isInvalid
+      labelText="What is your favorite color?"
+      name="color"
     >
       <option value="red">Red</option>
       <option value="green">Green</option>
@@ -178,11 +213,11 @@ text within the `label` element.
 <Canvas>
   <DSProvider>
     <Select
-      labelText="What is your favorite color?"
       helperText="This is the helper text."
       invalidText="This is the error text :("
-      name="color"
       isDisabled
+      labelText="What is your favorite color?"
+      name="color"
     >
       <option value="red">Red</option>
       <option value="green">Green</option>
@@ -198,57 +233,133 @@ text within the `label` element.
 ### Controlled Component using `value` and `onChange` props
 
 If your application uses controlled React components and the DS `Select`
-component must be controlled, you can control and extract the data through the
+component must be controlled, you can pass and extract the value through the
 `value` and `onChange` props. This will be called every time a new `option`
 value is selected.
 
-```jsx
-const value = "red";
-const onChange = (e) => {
-  // This will return the value selected through the event object.
-  console.log(e.target.value);
-};
-// ...
+Try it out: open up the browser's console to see new values being logged on
+each change.
 
-<Select
-  labelText="What is your favorite color?"
-  helperText="This is the helper text."
-  name="color"
-  value={value}
-  onChange={onChange}
->
-  <option value="red">Red</option>
-  <option value="green">Green</option>
-  <option value="blue">Blue</option>
-  <option value="black">Black</option>
-  <option value="white">White</option>
-</Select>;
+```jsx
+export function SelectControlledExample() {
+  const [value, setValue] = React.useState();
+  const onChange = (e) => {
+    // This will return the value selected through the event object.
+    console.log(e.target.value);
+    setValue(e.target.value);
+  };
+  return (
+    <Select
+      helperText="This is the helper text."
+      labelText="What is your favorite color?"
+      name="color"
+      onChange={onChange}
+      value={value}
+    >
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+    </Select>
+  );
+}
 ```
+
+export function SelectControlledExample() {
+  const [value, setValue] = React.useState();
+  const onChange = (e) => {
+    // This will return the value selected through the event object.
+    console.log("Controlled value:", e.target.value);
+    setValue(e.target.value);
+  };
+  return (
+    <Select
+      helperText="This is the helper text."
+      labelText="What is your favorite color?"
+      name="color"
+      onChange={onChange}
+      value={value}
+    >
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+    </Select>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <SelectControlledExample />
+  </DSProvider>
+</Canvas>
 
 ### Uncontrolled Component using `ref`s
 
 If your application uses uncontrolled components, you can pass a React `ref`
-prop to the DS Select component to get the selected value from the DOM.
+prop to the DS Select component to get the selected value from the DOM. Note
+that this example uses a `Form` and a `Button` to submit the form, only then
+will the value be available.
+
+Try it out: open up the browser's console to see new values being logged on
+each change.
 
 ```jsx
-const selectRef = React.createRef<HTMLSelectElement>();
-// ...
-<Select
-  labelText="What is your favorite color?"
-  helperText="This is the helper text."
-  name="color"
->
-  <option value="red">Red</option>
-  <option value="green">Green</option>
-  <option value="blue">Blue</option>
-  <option value="black">Black</option>
-  <option value="white">White</option>
-</Select>
-
-// ...
-// Get the value through:
-const onSubmit = () => {
-  // ...
-  const selectValue = selectRef.current.value;
-};
+export function SelectUncontrolledExample() {
+  const selectRef = React.createRef();
+  const onSubmit = () => {
+    const selectValue = selectRef.current.value;
+    console.log("Using uncontrolled ref:", selectValue);
+  };
+  return (
+    <Form>
+      <Select
+        helperText="This is the helper text."
+        labelText="What is your favorite color?"
+        name="color"
+        ref={selectRef}
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Button onClick={onSubmit}>Submit</Button>
+    </Form>
+  );
+}
 ```
+
+export function SelectUncontrolledExample() {
+  const selectRef = React.createRef();
+  const onSubmit = () => {
+    const selectValue = selectRef.current.value;
+    console.log("Using uncontrolled ref:", selectValue);
+  };
+  return (
+    <Form>
+      <Select
+        helperText="This is the helper text."
+        labelText="What is your favorite color?"
+        name="color"
+        ref={selectRef}
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Button onClick={onSubmit}>Submit</Button>
+    </Form>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <SelectUncontrolledExample />
+  </DSProvider>
+</Canvas>

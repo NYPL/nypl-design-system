@@ -1,18 +1,25 @@
+import { HStack, VStack, Grid, Box } from "@chakra-ui/react";
 import {
   Meta,
   Story,
   Canvas,
   ArgsTable,
   Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { HStack, VStack, Grid, Box } from "@chakra-ui/react";
+
 import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
 import Toggle from "./Toggle";
 import { ToggleSizes } from "./ToggleSizes";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const sizeEnumValues = getStorybookEnumValues(
+  ToggleSizes,
+  "ToggleSizes"
+);
 
 <Meta
   title={getCategory("Toggle")}
@@ -26,8 +33,20 @@ import { ToggleSizes } from "./ToggleSizes";
     jest: ["Toggle.test.tsx"],
   }}
   argTypes={{
+    additionalStyles: { control: false },
+    defaultChecked: { control: false },
     id: { control: false },
-    className: { control: false },
+    key: { table: { disable: true } },
+    name: { control: false },
+    onChange: { control: false },
+    ref: { table: { disable: true } },
+    size: {
+      control: {
+        type: "select",
+        table: { defaultValue: { summary: "ToggleSizes.Large" } },
+        options: sizeEnumValues.options,
+      },
+    },
   }}
 />
 
@@ -52,17 +71,22 @@ The Toggle component label should clarify the action being performed. Labels sho
   <Story
     name="Toggle"
     args={{
-      labelText: "Test Label",
-      size: "large",
+      additionalStyles: undefined,
       defaultChecked: false,
       helperText: "This is the helper text!",
+      id: "toggle-1",
       invalidText: "",
+      isChecked: undefined,
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
+      labelText: "Test Label",
+      name: "toggle-1",
+      onChange: undefined,
+      size: "ToogleSizes.Large",
     }}
   >
-    {(args) => <Toggle {...args} />}
+    {(args) => <Toggle {...args} size={sizeEnumValues.getValue(args.size)} />}
   </Story>
 </Canvas>
 

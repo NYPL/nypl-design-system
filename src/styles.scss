@@ -20,11 +20,7 @@
 @import "./styles/space/_space-inset";
 @import "./styles/space/_space-stack";
 
-// Legacy/deprecated components:
-@import "./components/CardEdition/_CardEdition.scss";
-@import "./components/Input/_Input.scss";
-
 // Components.
-@import "./components/Autosuggest/_Autosuggest.scss"; // Depends on _Input.scss
+@import "./components/Autosuggest/_Autosuggest.scss";
 @import "./components/DatePicker/_DatePicker.scss";
 @import "./components/Modal/_Modal.scss";

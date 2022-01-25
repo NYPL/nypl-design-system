@@ -12,7 +12,7 @@ const Notification = {
     return {
       bg,
       display: "flex",
-      fontSize: "-1",
+      fontSize: "-1", // slightly smaller than the default size
       padding: "var(--nypl-space-s) var(--nypl-space-l)",
       position: "relative",
       textAlign: centered ? "center" : null,
@@ -49,25 +49,26 @@ const Notification = {
 
 const NotificationContent = {
   parts: ["content"],
-  baseStyle: ({ alignText, notificationType }) => ({
+  baseStyle: ({ alignText, icon, notificationType }) => ({
     display: "flex",
     justifyContent: "center",
     content: {
-      width: "100%",
-      paddingLeft: alignText
-        ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
-        : null,
       color:
         notificationType === NotificationTypes.Warning
           ? "brand.primary"
           : "currentColor",
+      marginTop: icon ? "xxxs" : "0",
+      paddingLeft: alignText
+        ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
+        : null,
+      width: "100%",
     },
   }),
 };
 
 const NotificationHeading = {
   parts: ["heading"],
-  baseStyle: ({ centered, notificationType }) => {
+  baseStyle: ({ centered, icon, notificationType }) => {
     let color = "ui.black";
     if (notificationType === NotificationTypes.Announcement) {
       color = "section.research.secondary";
@@ -80,6 +81,7 @@ const NotificationHeading = {
       justifyContent: centered ? "center" : null,
       heading: {
         marginBottom: "0",
+        marginTop: icon ? "xxxs" : "0",
         color,
       },
     };

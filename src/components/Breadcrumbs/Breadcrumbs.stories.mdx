@@ -1,19 +1,25 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs from "./Breadcrumbs";
 import { ColorVariants } from "./BreadcrumbsTypes";
-import DSProvider from "../../theme/provider";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Link from "../Link/Link";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  ColorVariants,
+  "ColorVariants"
+);
 
 <Meta
   title={getCategory("Breadcrumbs")}
@@ -28,8 +34,13 @@ import { getCategory } from "../../utils/componentCategories";
   }}
   argTypes={{
     additionalStyles: { control: false },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
+    breadcrumbsData: { control: false },
+    className: { control: false },
+    colorVariant: {
+      control: { type: "select" },
+      options: enumValues.options,
+    },
+    id: { control: false },
   }}
 />
 
@@ -38,7 +49,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.3`    |
-| Latest            | `0.25.6`   |
+| Latest            | `0.25.8`   |
 
 <Description of={Breadcrumbs} />
 
@@ -46,21 +57,29 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
 
 <Canvas withToolbar>
   <Story
-    name="Breadcrumbs Props"
+    name="Breadcrumbs with Controls"
     args={{
+      additionalStyles: undefined,
       breadcrumbsData: [
         { url: "#", text: "Parent" },
         { url: "#", text: "Child" },
         { url: "#", text: "Grandchild" },
       ],
-      id: "init-breadcrumbs",
+      className: undefined,
+      colorVariant: undefined,
+      id: "breadcrumbs-id",
     }}
   >
-    {(args) => <Breadcrumbs {...args} />}
+    {(args) => (
+      <Breadcrumbs
+        {...args}
+        colorVariant={enumValues.getValue(args.colorVariant)}
+      />
+    )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Breadcrumbs Props" />
+<ArgsTable story="Breadcrumbs with Controls" />
 
 ### Long Titles
 

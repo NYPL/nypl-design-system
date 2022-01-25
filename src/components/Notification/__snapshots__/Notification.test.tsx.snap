@@ -46,6 +46,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
       </svg>
       <h4
         className="chakra-heading css-0"
+        id="notificationID1-heading"
       >
         Notification Heading
       </h4>
@@ -109,6 +110,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
       </svg>
       <h4
         className="chakra-heading css-0"
+        id="notificationID2-heading"
       >
         Notification Heading
       </h4>
@@ -172,6 +174,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
       </svg>
       <h4
         className="chakra-heading css-0"
+        id="notificationID3-heading"
       >
         Notification Heading
       </h4>
@@ -233,6 +236,60 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
           />
         </g>
       </svg>
+      <div
+        className="css-0"
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Notification renders the UI snapshot correctly 5`] = `
+<aside
+  className="css-0"
+  data-type="standard"
+  id="notificationID5"
+>
+  <div
+    className="css-0"
+  >
+    <header
+      className="css-0"
+    >
+      <h4
+        className="chakra-heading css-0"
+        id="notificationID5-heading"
+      >
+        Notification Heading
+      </h4>
+    </header>
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-0"
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Notification renders the UI snapshot correctly 6`] = `
+<aside
+  className="css-0"
+  data-type="standard"
+  id="notificationID6"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
       <div
         className="css-0"
       >
