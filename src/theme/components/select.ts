@@ -1,6 +1,7 @@
 import { activeFocus, helperTextMargin } from "./global";
 
 const select = {
+  backgroundColor: "ui.white",
   borderRadius: "sm",
   borderColor: "ui.gray.medium",
   paddingTop: "xs",
