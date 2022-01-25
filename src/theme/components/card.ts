@@ -126,6 +126,8 @@ const CardActions = {
 const CardContent = {
   baseStyle: {
     marginBottom: "xs",
+    width: "100%",
+    flex: 1,
     _last: {
       marginBottom: "0",
     },

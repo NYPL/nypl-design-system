@@ -30,7 +30,10 @@ export { default as CardEdition } from "./components/CardEdition/CardEdition";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
 export { CheckboxGroupLayoutTypes } from "./components/CheckboxGroup/CheckboxGroupLayoutTypes";
-export { default as DatePicker } from "./components/DatePicker/DatePicker";
+export {
+  default as DatePicker,
+  FullDateType,
+} from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as DSProvider } from "./theme/provider";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
