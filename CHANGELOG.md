@@ -33,6 +33,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
 - Updates the label text style in the disabled state of the `Toggle` component.
 - Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
+- Updates the `TextInput` component to use a white background for `static`, `error` and `focus` states.
 
 ### Fixes
 
