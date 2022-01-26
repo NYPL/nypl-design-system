@@ -96,7 +96,7 @@ export const optionsGroup = [
       action: undefined,
       buttonOnClick: undefined,
       className: undefined,
-      helperErrorText: "Search for items in Animal Crossing New Horizons",
+      helperText: "Search for items in Animal Crossing New Horizons",
       id: "searchBar-id",
       invalidText: "Could not find the item :(",
       isDisabled: false,
@@ -128,7 +128,7 @@ export const optionsGroup = [
           name: "textInputName",
           placeholder: "Item Search",
         }}
-        helperErrorText={args.showHelperText && args.helperErrorText}
+        helperText={args.showHelperText && args.helperText}
       />
     )}
   </Story>
@@ -215,20 +215,47 @@ style is used by default.
 
 ### HelperErrorText Component
 
-To render the `HelperErrorText` component, pass a string value to the
-`helperErrorText` prop. For the invalid state when `isInvalid` is true, pass the
-error string in the `invalidText` prop.
+To render the `HelperErrorText` component, pass a string or HTML to the
+`helperText` prop. For the invalid state when `isInvalid` is true, pass the
+error string or HTML in the `invalidText` prop.
 
 ```
-const helperErrorText = "";
+const helperText = "";
 
 // ...
 <SearchBar
   onSubmit={() => {}}
-  helperErrorText="Search for items in Animal Crossing New Horizons"
+  helperText="Search for items in <b>Animal Crossing New Horizons</b>."
   // ...
 />
 ```
+
+<Canvas>
+  <DSProvider>
+    <SearchBar
+      descriptionText="The helper text below contains HTML in a string."
+      helperText="Search for items in <b>Animal Crossing New Horizons</b>."
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+    <br />
+    <SearchBar
+      descriptionText="The invalid text below contains HTML in a string."
+      isInvalid
+      invalidText="Could <b>not</b> find the item <b>:(</b>"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  </DSProvider>
+</Canvas>
 
 ## Search Autocomplete
 
@@ -257,7 +284,7 @@ precedence.
         <SearchBar
           onSubmit={() => {}}
           textInputElement={stories.SearchBarExample()}
-          helperErrorText="Select your home library. Start by typing the name of the library. Try 'ba'."
+          helperText="Select your home library. Start by typing the name of the library. Try 'ba'."
           {...args}
         />
       </div>
@@ -285,7 +312,7 @@ handle the error state yourself.
         name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperErrorText="This is the helper text!"
+      helperText="This is the helper text!"
       invalidText="Could not find the item :("
       isInvalid
     />
@@ -307,7 +334,7 @@ handle the disabled state yourself.
         name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperErrorText="Reason for disabled state."
+      helperText="Reason for disabled state."
       isDisabled
     />
   </DSProvider>
@@ -380,7 +407,7 @@ function SearchBarValueExample() {
         onChange: textInputOnChange,
         placeholder: "Item Search",
       }}
-      helperErrorText="Search for an item"
+      helperText="Search for an item"
       invalidText="Could not find the item :("
     />
   );
@@ -410,7 +437,7 @@ export function SearchBarValueExample() {
         onChange: textInputOnChange,
         placeholder: "Item Search",
       }}
-      helperErrorText="Search for an item"
+      helperText="Search for an item"
       invalidText="Could not find the item :("
     />
   );

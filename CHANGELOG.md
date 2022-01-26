@@ -21,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Completely removes the `CardEdition` and `Input` components and related files and references.
 - Removes all references of the `BEM` CSS pattern.
 - Removes all references to logos from the `Icon` component.
+- Removes passing in text to the `HelperErrorText` component as children. Now, the `text` prop is used to render its text.
 
 ### Changes
 
@@ -33,6 +34,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
 - Updates the label text style in the disabled state of the `Toggle` component.
 - Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
+- Updates the `HelperErrorText` component to allow HTML to be passed in as a string or HTML.
+- Updates how the `HelperErrorText` component renders text in the following components: `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, `VideoPlayer`.
 
 ### Fixes
 
