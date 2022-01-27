@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, Table as ChakraTable, Thead as ChakraTHead, Tbody as ChakraTbody, Tr as ChakraTr, Th as ChakraTh, Td as ChakraTd, TableCaption as ChakraTableCaption, useMultiStyleConfig  } from "@chakra-ui/react";
 import generateUUID from "../../helpers/generateUUID";
 
+
 export interface TableProps {
   /** Additional class name for the `Table` component. */
   className?: string;
@@ -25,7 +26,7 @@ export interface TableProps {
   showRowDividers?: boolean;
 
   /** Two-dimensional array used to populate the table rows. */
-  tableData?: [];
+  tableData?: string[][];
 
   /** Display's a `Table` title element. */
   titleText?: string;
@@ -51,15 +52,15 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   columnHeadersBackgroundColor && (customColors["backgroundColor"] = columnHeadersBackgroundColor);
   columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
 
-  const styles = useMultiStyleConfig("CustomTable", { showRowDividers, useRowHeaders, columnHeadersTextColor });
+  const styles = useMultiStyleConfig("CustomTable", { showRowDividers, columnHeadersTextColor });
 
   const columnHeadersElems = columnHeaders && (
     <ChakraTHead>
-      <ChakraTr>{columnHeaders.map((child, i) => { return <ChakraTh sx={customColors} > {child} </ChakraTh> } )}</ChakraTr>
+      <ChakraTr>{columnHeaders.map((child) => { return <ChakraTh sx={customColors} > {child} </ChakraTh> })}</ChakraTr>
     </ChakraTHead>
   );
 
-  const tableBody =  ({tbody, i}) => {
+  const tableBody = ({tbody, i}) => {
     if (useRowHeaders && i == 0) {
       // The first cell of each row in the Table component will be visually styled as a header.
       return <ChakraTd style={{fontWeight: "bold"}}> {tbody} </ChakraTd>
@@ -69,8 +70,8 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   };
 
   const tableBodyElems = tableData && (
-    <ChakraTbody> 
-      {tableData.map((child, index) => {  return <ChakraTr>{ child.map((tbody, i) => { return tableBody({tbody, i}) } ) }</ChakraTr> }) }
+    <ChakraTbody>
+      {tableData.map((data) => { return <ChakraTr>{ data.map((tbody, i) => { return tableBody({tbody, i})}) }</ChakraTr> }) }
     </ChakraTbody>
   );
 
@@ -90,3 +91,4 @@ function Table(props: React.PropsWithChildren<TableProps>) {
 }
 
 export default Table;
+

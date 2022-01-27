@@ -1,4 +1,4 @@
-const baseStyle = ({ showRowDividers, useRowHeaders, columnHeadersTextColor }) => ({
+const baseStyle = ({ showRowDividers, columnHeadersTextColor }) => ({
   th: {
     border: showRowDividers ? undefined : 'none',
     borderBottom: showRowDividers ? undefined : '0px',
