@@ -1,5 +1,5 @@
 import * as React from "react";
-import { 
+import {
   Box,
   Table as ChakraTable,
   Thead as ChakraTHead,
@@ -8,7 +8,7 @@ import {
   Th as ChakraTh,
   Td as ChakraTd,
   TableCaption as ChakraTableCaption,
-  useMultiStyleConfig  
+  useMultiStyleConfig,
 } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
@@ -18,7 +18,7 @@ export interface TableProps {
   className?: string;
 
   /** Array of string values used to populate the `Table` column headers. */
-  columnHeaders?: []
+  columnHeaders?: [];
 
   /** Hex value to set the background color of the column headers. */
   columnHeadersBackgroundColor?: string;
@@ -42,9 +42,7 @@ export interface TableProps {
   titleText?: string;
 }
 
-
 function Table(props: React.PropsWithChildren<TableProps>) {
-
   const {
     className,
     columnHeaders,
@@ -54,40 +52,56 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     useRowHeaders,
     showRowDividers = true,
     tableData,
-    titleText
+    titleText,
   } = props;
 
   const customColors = {};
 
-  columnHeadersBackgroundColor && (customColors["backgroundColor"] = columnHeadersBackgroundColor);
+  columnHeadersBackgroundColor &&
+    (customColors["backgroundColor"] = columnHeadersBackgroundColor);
   columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
 
-  const styles = useMultiStyleConfig("CustomTable", { showRowDividers, columnHeadersTextColor });
+  const styles = useMultiStyleConfig("CustomTable", {
+    showRowDividers,
+    columnHeadersTextColor,
+  });
 
   const columnHeadersElems = columnHeaders && (
     <ChakraTHead>
-      <ChakraTr>{columnHeaders.map((child) => { return <ChakraTh sx={customColors} > {child} </ChakraTh> })}</ChakraTr>
+      <ChakraTr>
+        {columnHeaders.map((child) => {
+          return <ChakraTh sx={customColors}> {child} </ChakraTh>;
+        })}
+      </ChakraTr>
     </ChakraTHead>
   );
 
-  const tableBody = ({tbody, i}) => {
-    if (useRowHeaders && i == 0) {
+  const tableBody = ({ tbody, i }) => {
+    if (useRowHeaders && i === 0) {
       // The first cell of each row in the Table component will be visually styled as a header.
-      return <ChakraTd style={{fontWeight: "bold"}}> {tbody} </ChakraTd>
+      return <ChakraTd style={{ fontWeight: "bold" }}> {tbody} </ChakraTd>;
     } else {
-      return <ChakraTd> {tbody} </ChakraTd>
+      return <ChakraTd> {tbody} </ChakraTd>;
     }
   };
 
   const tableBodyElems = tableData && (
     <ChakraTbody>
-      {tableData.map((data) => { return <ChakraTr>{ data.map((tbody, i) => { return tableBody({tbody, i})}) }</ChakraTr> }) }
+      {tableData.map((data) => {
+        return (
+          <ChakraTr>
+            {data.map((tbody, i) => {
+              return tableBody({ tbody, i });
+            })}
+          </ChakraTr>
+        );
+      })}
     </ChakraTbody>
   );
 
   const tableCaption = titleText && (
     <ChakraTableCaption> {titleText} </ChakraTableCaption>
-  )
+  );
 
   return (
     <Box>
@@ -97,8 +111,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
         {tableBodyElems}
       </ChakraTable>
     </Box>
-  )
+  );
 }
 
 export default Table;
-

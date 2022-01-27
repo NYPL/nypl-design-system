@@ -7,21 +7,19 @@ const baseStyle = ({ showRowDividers, columnHeadersTextColor }) => ({
     fontSize: "sm",
     color: columnHeadersTextColor ? columnHeadersTextColor : "#1a1a1a",
   },
-  
   td: {
     border: showRowDividers ? undefined : "none",
     borderBottom: showRowDividers ? undefined : "0px",
     fontSize: "sm",
   },
-
   caption: {
     captionSide: "top",
     textAlign: "left",
     fontSize: "md",
-    color: '#1a1a1a',
+    color: "#1a1a1a",
     textTransform: "capitalize",
     fontWeight: "bold",
-  }
+  },
 });
 
 const CustomTable = {

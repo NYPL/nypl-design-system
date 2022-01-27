@@ -1,19 +1,46 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
-import { Table, Thead, Tbody, Tr, Th, Td, TableCaption,} from '@chakra-ui/react'
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+} from "@chakra-ui/react";
 
+export const columnHeaders = [
+  "First Name",
+  "Last Name",
+  "Nick Name",
+  "Address1",
+  "City",
+  "Zipcode",
+  "State",
+];
 
-export const columnHeaders = ["First Name", "Last Name", "Nick Name", "Address1", "City", "Zipcode", "State"]
-
-export const tableData = [ ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY" ], [ "Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"], [ "K.K.", "Slider", "Totakeke", "Niper Place", "New York", "98765", "NY"], [ "Sonny", "Resetti", "Risetto san", "Village Road", "New York", "09873", "NY" ] ]
+export const tableData = [
+  ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY"],
+  ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"],
+  ["K.K.", "Slider", "Totakeke", "Niper Place", "New York", "98765", "NY"],
+  [
+    "Sonny",
+    "Resetti",
+    "Risetto san",
+    "Village Road",
+    "New York",
+    "09873",
+    "NY",
+  ],
+];
 
 describe("Table Accessibility", () => {
-
   it("passes axe accessibility test with the columnHeaders prop", async () => {
     const { container } = render(<Table contentData={columnHeaders} />);
     expect(await axe(container)).toHaveNoViolations();
-    console.log(container)
+    console.log(container);
   });
 
   it("passes axe accessibility test with empty columnHeaders prop", async () => {
