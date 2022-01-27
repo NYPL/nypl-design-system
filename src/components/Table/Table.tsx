@@ -1,7 +1,17 @@
 import * as React from "react";
-import { Box, Table as ChakraTable, Thead as ChakraTHead, Tbody as ChakraTbody, Tr as ChakraTr, Th as ChakraTh, Td as ChakraTd, TableCaption as ChakraTableCaption, useMultiStyleConfig  } from "@chakra-ui/react";
-import generateUUID from "../../helpers/generateUUID";
+import { 
+  Box,
+  Table as ChakraTable,
+  Thead as ChakraTHead,
+  Tbody as ChakraTbody,
+  Tr as ChakraTr,
+  Th as ChakraTh,
+  Td as ChakraTd,
+  TableCaption as ChakraTableCaption,
+  useMultiStyleConfig  
+} from "@chakra-ui/react";
 
+import generateUUID from "../../helpers/generateUUID";
 
 export interface TableProps {
   /** Additional class name for the `Table` component. */
