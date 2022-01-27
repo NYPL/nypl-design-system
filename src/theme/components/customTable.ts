@@ -1,16 +1,16 @@
 const baseStyle = ({ showRowDividers, columnHeadersTextColor }) => ({
   th: {
-    border: showRowDividers ? undefined : 'none',
-    borderBottom: showRowDividers ? undefined : '0px',
+    border: showRowDividers ? undefined : "none",
+    borderBottom: showRowDividers ? undefined : "0px",
     fontWeight: "bold",
     textTransform: "capitalize",
-    fontSize: 'sm',
-    color: columnHeadersTextColor ? columnHeadersTextColor : '#1a1a1a',
+    fontSize: "sm",
+    color: columnHeadersTextColor ? columnHeadersTextColor : "#1a1a1a",
   },
   
   td: {
-    border: showRowDividers ? undefined : 'none',
-    borderBottom: showRowDividers ? undefined : '0px',
+    border: showRowDividers ? undefined : "none",
+    borderBottom: showRowDividers ? undefined : "0px",
     fontSize: "sm",
   },
 
