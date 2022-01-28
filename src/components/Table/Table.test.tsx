@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import Table from "./Table";
 
@@ -30,7 +30,9 @@ export const tableData = [
 
 describe("Table Accessibility", () => {
   it("passes axe accessibility test with the columnHeaders prop", async () => {
-    const { container } = render(<Table tableData={tableData} columnHeaders={columnHeaders} />);
+    const { container } = render(
+      <Table tableData={tableData} columnHeaders={columnHeaders} />
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -44,5 +46,14 @@ describe("Table Accessibility", () => {
       <Table tableData={tableData} columnHeaders={columnHeaders} />
     );
     expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("Table", () => {
+  it("Renders table data", () => {
+    render(<Table tableData={tableData} columnHeaders={columnHeaders} />);
+    expect(screen.getByText("Tom")).toBeInTheDocument();
+    expect(screen.getByText("First Name")).toBeInTheDocument();
+    expect(screen.getByText("Village Road")).toBeInTheDocument();
   });
 });
