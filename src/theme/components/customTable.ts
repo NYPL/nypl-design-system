@@ -16,7 +16,7 @@ const baseStyle = ({
     border: showRowDividers ? undefined : "none",
     borderBottom: showRowDividers ? undefined : "0px",
     _first: {
-      fontWeight: useRowHeaders ? "bold" : "",
+      fontWeight: useRowHeaders ? "bold" : undefined,
     },
   },
   caption: {

@@ -29,9 +29,9 @@ export const tableData = [
 ];
 
 describe("Table Accessibility", () => {
-  it("passes axe accessibility test with the columnHeaders prop", async () => {
+  it("passes axe accessibility test with the columnHeaders and tableData prop", async () => {
     const { container } = render(
-      <Table tableData={tableData} columnHeaders={columnHeaders} />
+      <Table columnHeaders={columnHeaders} tableData={tableData} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -41,12 +41,6 @@ describe("Table Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("passes axe accessibility test with children components", async () => {
-    const { container } = render(
-      <Table tableData={tableData} columnHeaders={columnHeaders} />
-    );
-    expect(await axe(container)).toHaveNoViolations();
-  });
 });
 
 describe("Table", () => {

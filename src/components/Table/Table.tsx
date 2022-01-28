@@ -24,12 +24,12 @@ export interface TableProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** If true, the first cell of each row in the `Table` component will be visually styled as a header.  The default value is false */
-  useRowHeaders?: boolean;
+  useRowHeaders?: false;
   /** If true, a border will be displayed between each row in the `Table` component.  The default value is false. */
-  showRowDividers?: boolean;
+  showRowDividers?: false;
   /** Two-dimensional array used to populate the table rows. */
   tableData: string[][];
-  /** Display's a `Table` title element. */
+  /** Displays `Table` title element. */
   titleText?: string;
 }
 
@@ -41,7 +41,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     columnHeadersTextColor,
     id = generateUUID(),
     useRowHeaders,
-    showRowDividers = true,
+    showRowDividers,
     tableData,
     titleText,
   } = props;
@@ -72,10 +72,10 @@ function Table(props: React.PropsWithChildren<TableProps>) {
 
   const tableBodyElems = tableData && (
     <ChakraTbody>
-      {tableData.map((data, index) => (
+      {tableData.map((row, index) => (
         <ChakraTr key={index}>
-          {data.map((tbody, key) => (
-            <ChakraTd key={key}>{tbody}</ChakraTd>
+          {row.map((column, key) => (
+            <ChakraTd key={key}>{column}</ChakraTd>
           ))}
         </ChakraTr>
       ))}
@@ -92,7 +92,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
       {columnHeadersElems}
       {tableBodyElems}
     </ChakraTable>
-  );
+  )
 }
 
 export default Table;
