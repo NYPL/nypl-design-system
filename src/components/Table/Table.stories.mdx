@@ -8,7 +8,6 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Table from "./Table";
-import { TableCaption, Thead, Tbody, Tfoot, Tr, Th, Td, useStyleConfig } from "@chakra-ui/react";
 import DSProvider from "../../theme/provider";
 import { getCategory } from "../../utils/componentCategories";
 
@@ -27,10 +26,10 @@ import { getCategory } from "../../utils/componentCategories";
   }}
   argTypes={{
     columnHeaders: [],
-    tableData: [ ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY" ], [ "Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"], [ "K.K.", "Slider", "Totakeke", "Niper Place", "New York", "98765", "NY"], [ "Sonny", "Resetti", "Risetto san", "Village Road", "New York", "09873", "NY" ], ],
-    id: { table: { disable: true } },
     columnHeadersBackgroundColor: { control: { type: "color" } },
     columnHeadersTextColor: {control: {type: "color"}},
+    id: {control: false},
+    tableData: { control: false },
   }}
 />
 
