@@ -16,7 +16,7 @@ export interface TableProps {
   /** Additional class name for the `Table` component. */
   className?: string;
   /** Array of string values used to populate the `Table` column headers. */
-  columnHeaders?: [];
+  columnHeaders?: string[];
   /** Hex value to set the background color of the column headers. */
   columnHeadersBackgroundColor?: string;
   /** Hex value to set the text color of the column headers. */

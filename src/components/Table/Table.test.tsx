@@ -30,17 +30,12 @@ export const tableData = [
 
 describe("Table Accessibility", () => {
   it("passes axe accessibility test with the columnHeaders prop", async () => {
-    const { container } = render(<Table contentData={columnHeaders} />);
+    const { container } = render(<Table tableData={tableData} columnHeaders={columnHeaders} />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("passes axe accessibility test with empty columnHeaders prop", async () => {
-    const { container } = render(<Table contentData={[]} />);
-    expect(await axe(container)).toHaveNoViolations();
-  });
-
-  it("passes axe accessibility test with empty tableData prop", async () => {
-    const { container } = render(<Table contentData={tableData} />);
+  it("passes axe accessibility test with tableData prop", async () => {
+    const { container } = render(<Table tableData={tableData} />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
