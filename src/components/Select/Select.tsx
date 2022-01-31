@@ -5,23 +5,25 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import Label from "../Label/Label";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
+import { IconNames, IconSizes } from "../Icons/IconTypes";
+import Label from "../Label/Label";
 import { SelectTypes } from "./SelectTypes";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface SelectProps {
   /** A class name for the `div` parent element. */
   className?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the `disabled` and `aria-disabled` attributes to the select when true */
   isDisabled?: boolean;
   /** Adds the `aria-invalid` attribute to the select when true. This also makes
@@ -87,7 +89,9 @@ const Select = React.forwardRef<
   const finalInvalidText = invalidText
     ? invalidText
     : "There is an error related to this field.";
-  const footnote = isInvalid ? finalInvalidText : helperText;
+  const footnote: HelperErrorTextType = isInvalid
+    ? finalInvalidText
+    : helperText;
   // To control the `Select` component, both `onChange` and `value`
   // must be passed.
   const controlledProps = onChange ? { onChange, value } : {};
@@ -140,9 +144,11 @@ const Select = React.forwardRef<
       </ChakraSelect>
       {footnote && showHelperInvalidText && (
         <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText isInvalid={isInvalid} id={id + `-helperText`}>
-            {footnote}
-          </HelperErrorText>
+          <HelperErrorText
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         </Box>
       )}
     </Box>

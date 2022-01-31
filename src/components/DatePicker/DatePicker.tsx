@@ -5,7 +5,9 @@ import { DatePickerTypes } from "./DatePickerTypes";
 import Fieldset from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
 import { FormSpacing } from "../Form/FormTypes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import TextInput, {
   InputProps,
   TextInputRefType,
@@ -74,7 +76,7 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   /** DatePicker date types that can be rendered. */
   dateType?: DatePickerTypes;
   /** Populates the `HelperErrorText` component in this component. */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** Populates the `HelperErrorText` component in the "From" `TextInput` component. */
   helperTextFrom?: string;
   /** Populates the `HelperErrorText` component in the "To" `TextInput` component. */
@@ -86,7 +88,7 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   initialDateTo?: string;
   /** Populates the `HelperErrorText` error state for both "From"
    * and "To" input components. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' property to the input element(s). */
   isDisabled?: boolean;
   /** Adds 'isInvalid' styling. */
@@ -415,9 +417,11 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
           )}
         </DateRangeRow>
         {helperText && isDateRange && showHelperInvalidText && (
-          <HelperErrorText id={`${id}-helper-text`} isInvalid={false}>
-            {helperText}
-          </HelperErrorText>
+          <HelperErrorText
+            id={`${id}-helper-text`}
+            isInvalid={false}
+            text={helperText}
+          />
         )}
       </DatePickerWrapper>
     );
