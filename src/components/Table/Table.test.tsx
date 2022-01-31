@@ -43,10 +43,18 @@ describe("Table Accessibility", () => {
 });
 
 describe("Table", () => {
+  const warn = jest.spyOn(console, "warn");
   it("Renders table data", () => {
     render(<Table tableData={tableData} columnHeaders={columnHeaders} />);
     expect(screen.getByText("Tom")).toBeInTheDocument();
     expect(screen.getByText("First Name")).toBeInTheDocument();
     expect(screen.getByText("Village Road")).toBeInTheDocument();
+  });
+
+  it("tableData prop is empty array", async () => {
+    render(<Table tableData={[]} />);
+    expect(warn).toHaveBeenCalledWith(
+      "Table data should be two dimensional array."
+    );
   });
 });
