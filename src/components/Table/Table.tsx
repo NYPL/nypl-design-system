@@ -24,9 +24,9 @@ export interface TableProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** If true, the first cell of each row in the `Table` component will be visually styled as a header.  The default value is false */
-  useRowHeaders?: false;
+  useRowHeaders?: boolean;
   /** If true, a border will be displayed between each row in the `Table` component.  The default value is false. */
-  showRowDividers?: false;
+  showRowDividers?: boolean;
   /** Two-dimensional array used to populate the table rows. */
   tableData: string[][];
   /** Displays `Table` title element. */
@@ -40,8 +40,8 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
     id = generateUUID(),
-    useRowHeaders,
-    showRowDividers,
+    useRowHeaders = false,
+    showRowDividers = false,
     tableData,
     titleText,
   } = props;
@@ -71,23 +71,26 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   );
 
   const tableBodyElems = () => {
-    if (tableData && tableData[0][1]) {
-      return (
-        <ChakraTbody>
-          {tableData.map((row, index) => (
-            <ChakraTr key={index}>
-              {row.map((column, key) => (
-                <ChakraTd key={key}>{column}</ChakraTd>
-              ))}
-            </ChakraTr>
-          ))}
-        </ChakraTbody>
-      );
-    } else if (!tableData[0][1]) {
-      console.warn(
-        `Table data should be two dimensional array. Eg [ ['Tom', 'Nook'], ['test', 'test']`
-      );
+    /** tableData value should be array and two dimensional */
+    if (
+      !Array.isArray(tableData) ||
+      (tableData.length && tableData[0][1] === "o")
+    ) {
+      console.warn(`Table data should be two dimensional array.`);
+      return null;
     }
+
+    return (
+      <ChakraTbody>
+        {tableData.map((row, index) => (
+          <ChakraTr key={index}>
+            {row.map((column, key) => (
+              <ChakraTd key={key}>{column}</ChakraTd>
+            ))}
+          </ChakraTr>
+        ))}
+      </ChakraTbody>
+    );
   };
 
   const tableCaption = titleText && (
