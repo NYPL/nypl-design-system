@@ -40,7 +40,6 @@ describe("Table Accessibility", () => {
     const { container } = render(<Table tableData={tableData} />);
     expect(await axe(container)).toHaveNoViolations();
   });
-
 });
 
 describe("Table", () => {

@@ -70,17 +70,25 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     </ChakraTHead>
   );
 
-  const tableBodyElems = tableData && (
-    <ChakraTbody>
-      {tableData.map((row, index) => (
-        <ChakraTr key={index}>
-          {row.map((column, key) => (
-            <ChakraTd key={key}>{column}</ChakraTd>
+  const tableBodyElems = () => {
+    if (tableData && tableData[0][1]) {
+      return (
+        <ChakraTbody>
+          {tableData.map((row, index) => (
+            <ChakraTr key={index}>
+              {row.map((column, key) => (
+                <ChakraTd key={key}>{column}</ChakraTd>
+              ))}
+            </ChakraTr>
           ))}
-        </ChakraTr>
-      ))}
-    </ChakraTbody>
-  );
+        </ChakraTbody>
+      );
+    } else if (!tableData[0][1]) {
+      console.warn(
+        `Table data should be two dimensional array. Eg [ ['Tom', 'Nook'], ['test', 'test']`
+      );
+    }
+  };
 
   const tableCaption = titleText && (
     <ChakraTableCaption>{titleText}</ChakraTableCaption>
@@ -90,9 +98,9 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     <ChakraTable id={id} sx={styles} className={className}>
       {tableCaption}
       {columnHeadersElems}
-      {tableBodyElems}
+      {tableBodyElems()}
     </ChakraTable>
-  )
+  );
 }
 
 export default Table;
