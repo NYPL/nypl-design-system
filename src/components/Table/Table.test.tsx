@@ -43,7 +43,6 @@ describe("Table Accessibility", () => {
 });
 
 describe("Table", () => {
-  const warn = jest.spyOn(console, "warn");
   it("Renders table data", () => {
     render(<Table tableData={tableData} columnHeaders={columnHeaders} />);
     expect(screen.getByText("Tom")).toBeInTheDocument();
@@ -51,7 +50,8 @@ describe("Table", () => {
     expect(screen.getByText("Village Road")).toBeInTheDocument();
   });
 
-  it("tableData prop is empty array", async () => {
+  it("logs a warning when the `tableData` prop is an empty array", async () => {
+    const warn = jest.spyOn(console, "warn");
     render(<Table tableData={[]} />);
     expect(warn).toHaveBeenCalledWith(
       "Table data should be two dimensional array."
