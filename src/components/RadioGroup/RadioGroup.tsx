@@ -1,17 +1,19 @@
-import * as React from "react";
 import {
   Box,
   Stack,
   useMultiStyleConfig,
   useRadioGroup,
 } from "@chakra-ui/react";
+import * as React from "react";
 
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
-import { spacing } from "../../theme/foundations/spacing";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
-import Radio from "../Radio/Radio";
 import Fieldset from "../Fieldset/Fieldset";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
+import { spacing } from "../../theme/foundations/spacing";
+import Radio from "../Radio/Radio";
+import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface RadioGroupProps {
   /** Any child node passed to the component. */
@@ -21,11 +23,11 @@ export interface RadioGroupProps {
   /** Populates the initial value of the input */
   defaultValue?: string;
   /** Optional string to populate the HelperErrorText for standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the HelperErrorText for error state */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
   /** Adds the 'aria-invalid' attribute to the input and
@@ -76,7 +78,7 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
       showHelperInvalidText = true,
       showLabel = true,
     } = props;
-    const footnote = isInvalid ? invalidText : helperText;
+    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const spacingProp =
       layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
     const newChildren = [];
@@ -141,9 +143,11 @@ const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
         </Stack>
         {footnote && showHelperInvalidText && (
           <Box __css={styles.helper}>
-            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
-              {footnote}
-            </HelperErrorText>
+            <HelperErrorText
+              id={`${id}-helperErrorText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
           </Box>
         )}
       </Fieldset>
