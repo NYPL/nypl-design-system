@@ -71,10 +71,11 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   );
 
   const tableBodyElems = () => {
-    /** tableData value should be array and two dimensional */
+    /** tableData value should be two dimensional array */
     if (
       !Array.isArray(tableData) ||
-      (tableData.length && tableData[0][1] === "o")
+      tableData.length <= 0 ||
+      tableData[0].constructor !== Array
     ) {
       console.warn(`Table data should be two dimensional array.`);
       return null;
