@@ -163,3 +163,17 @@ If the necessary props are not passed to the `VideoPlayer` component, the compon
     />
   </DSProvider>
 </Canvas>
+
+## HTML in Helper Text
+
+It's possible to include HTML in the `helperText` prop.
+
+<Canvas>
+  <DSProvider>
+    <VideoPlayer
+      helperText="This helper text <b>contains HTML</b>."
+      videoId="474719268"
+      videoType={VideoPlayerTypes.Vimeo}
+    />
+  </DSProvider>
+</Canvas>

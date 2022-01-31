@@ -1,9 +1,10 @@
-import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import * as React from "react";
 
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
 import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
 import Select from "../Select/Select";
@@ -42,12 +43,12 @@ export interface SearchBarProps {
   /** Optional string for the SearchBar's heading text above the component. */
   headingText?: string;
   /** The text to display below the form in a `HelperErrorText` component. */
-  helperErrorText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Sets children form components in the disabled state. */
   isDisabled?: boolean;
   /** Sets children form components in the error state. */
@@ -82,7 +83,7 @@ export default function SearchBar(props: SearchBarProps) {
     className,
     descriptionText,
     headingText,
-    helperErrorText,
+    helperText,
     id = generateUUID(),
     invalidText,
     isDisabled = false,
@@ -107,7 +108,7 @@ export default function SearchBar(props: SearchBarProps) {
   };
   const helperErrorTextID = generateUUID();
   const ariaDescribedby = helperErrorTextID;
-  const footnote = isInvalid ? invalidText : helperErrorText;
+  const footnote = isInvalid ? invalidText : helperText;
   const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
   const textInputPlaceholder = `${textInputProps?.placeholder} ${
     isRequired ? "(Required)" : ""
@@ -181,7 +182,7 @@ export default function SearchBar(props: SearchBarProps) {
     <ComponentWrapper
       descriptionText={descriptionText}
       headingText={headingText}
-      helperText={helperErrorText}
+      helperText={helperText}
       id={id}
       invalidText={invalidText}
       isInvalid={isInvalid}
