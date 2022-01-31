@@ -54,7 +54,6 @@ function Table(props: React.PropsWithChildren<TableProps>) {
 
   const styles = useMultiStyleConfig("CustomTable", {
     showRowDividers,
-    useRowHeaders,
     columnHeadersTextColor,
   });
 
@@ -62,7 +61,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     <ChakraTHead>
       <ChakraTr>
         {columnHeaders.map((child, key) => (
-          <ChakraTh key={key} sx={customColors}>
+          <ChakraTh scope="col" key={key} sx={customColors}>
             {child}
           </ChakraTh>
         ))}
@@ -85,9 +84,15 @@ function Table(props: React.PropsWithChildren<TableProps>) {
       <ChakraTbody>
         {tableData.map((row, index) => (
           <ChakraTr key={index}>
-            {row.map((column, key) => (
-              <ChakraTd key={key}>{column}</ChakraTd>
-            ))}
+            {row.map((column, key) =>
+              key === 0 && useRowHeaders ? (
+                <ChakraTh scope="row" key={key}>
+                  {column}
+                </ChakraTh>
+              ) : (
+                <ChakraTd key={key}>{column}</ChakraTd>
+              )
+            )}
           </ChakraTr>
         ))}
       </ChakraTbody>
