@@ -4,6 +4,7 @@ import { Box, useStyleConfig } from "@chakra-ui/react";
 import generateUUID from "../../helpers/generateUUID";
 
 export type AriaLiveValues = "assertive" | "off" | "polite";
+export type HelperErrorTextType = string | JSX.Element;
 
 interface HelperErrorTextProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -24,38 +25,37 @@ interface HelperErrorTextProps {
   id?: string;
   /** Toggles between helper and invalid styling. */
   isInvalid?: boolean;
+  /** The text to display. */
+  text: HelperErrorTextType;
 }
 
 /**
  * Helper or Error text for forms
  */
-export default function HelperErrorText(
-  props: React.PropsWithChildren<HelperErrorTextProps>
-) {
-  const {
-    additionalStyles = {},
-    ariaAtomic = true,
-    ariaLive = "polite",
-    children,
-    className = "",
-    id = generateUUID(),
-    isInvalid = false,
-  } = props;
+export default function HelperErrorText({
+  additionalStyles = {},
+  ariaAtomic = true,
+  ariaLive = "polite",
+  className = "",
+  id = generateUUID(),
+  isInvalid = false,
+  text,
+}: HelperErrorTextProps) {
   // Only announce the text in the invalid state.
   const announceAriaLive = isInvalid;
   const styles = useStyleConfig("HelperErrorText", { isInvalid });
   const finalStyles = { ...styles, ...additionalStyles };
-
-  return (
-    <Box
-      id={id}
-      className={className}
-      aria-atomic={ariaAtomic}
-      data-isinvalid={isInvalid}
-      aria-live={announceAriaLive ? ariaLive : "off"}
-      __css={finalStyles}
-    >
-      {children}
-    </Box>
+  const props = {
+    "aria-atomic": ariaAtomic,
+    "aria-live": announceAriaLive ? ariaLive : "off",
+    className,
+    "data-isinvalid": isInvalid,
+    id,
+    __css: finalStyles,
+  };
+  return typeof text === "string" ? (
+    <Box {...props} dangerouslySetInnerHTML={{ __html: text }} />
+  ) : (
+    <Box {...props}>{text}</Box>
   );
 }
