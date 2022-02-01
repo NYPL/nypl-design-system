@@ -23,7 +23,7 @@ const baseStyle = ({ showRowDividers, columnHeadersTextColor }) => ({
     fontSize: "heading.secondary",
     color: "ui.black",
     textTransform: "capitalize",
-    fontWeight: "bold",
+    fontWeight: 500,
   },
 });
 
