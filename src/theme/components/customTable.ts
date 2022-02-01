@@ -1,21 +1,37 @@
-const baseStyle = ({ showRowDividers, columnHeadersTextColor }) => ({
+const baseStyle = ({
+  columnHeadersTextColor,
+  showRowDividers,
+  useRowHeaders,
+}) => ({
   th: {
     border: showRowDividers ? undefined : "none",
     borderBottom: showRowDividers ? undefined : "0px",
-    fontWeight: "bold",
-    textTransform: "capitalize",
-    fontSize: "0",
     color: columnHeadersTextColor ? columnHeadersTextColor : "ui.black",
-    paddingLeft: showRowDividers ? "m" : "0",
-    paddingRight: showRowDividers ? "m" : "0",
+    fontSize: "0",
+    fontWeight: "bold",
     letterSpacing: "0",
+    paddingLeft: 0,
+    paddingRight: "m",
+    textTransform: "capitalize",
+    _first: {
+      paddingLeft: showRowDividers ? "m" : null,
+    },
+    _last: {
+      paddingRight: showRowDividers ? "m" : "0",
+    },
   },
   td: {
-    letterSpacing: "0",
     border: showRowDividers ? undefined : "none",
     borderBottom: showRowDividers ? undefined : "0px",
-    paddingLeft: showRowDividers ? "m" : "0",
-    paddingRight: showRowDividers ? "m" : "0",
+    letterSpacing: "0",
+    paddingLeft: 0,
+    paddingRight: "m",
+    _first: {
+      paddingLeft: showRowDividers && !useRowHeaders ? "m" : null,
+    },
+    _last: {
+      paddingRight: showRowDividers ? "m" : "0",
+    },
   },
   caption: {
     captionSide: "top",

@@ -53,8 +53,9 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   columnHeadersTextColor && (customColors["color"] = columnHeadersTextColor);
 
   const styles = useMultiStyleConfig("CustomTable", {
-    showRowDividers,
     columnHeadersTextColor,
+    showRowDividers,
+    useRowHeaders,
   });
 
   const columnHeadersElems = columnHeaders && (
