@@ -20,8 +20,8 @@ const baseStyle = ({ showRowDividers, columnHeadersTextColor }) => ({
   caption: {
     captionSide: "top",
     textAlign: "left",
-    fontSize: "0",
-    color: "ui.gray.medium",
+    fontSize: "heading.secondary",
+    color: "ui.black",
     textTransform: "capitalize",
     fontWeight: "bold",
   },
