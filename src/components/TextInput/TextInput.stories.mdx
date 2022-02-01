@@ -173,6 +173,36 @@ text within the `label` element.
   </DSProvider>
 </Canvas>
 
+## HTML in Helper Text
+
+HTML can be passed into the `helperText` prop as a string or HTML.
+
+```jsx
+helperText="Choose <b>wisely!</b>"
+// or
+helperText={<>Choose <b>wisely!</b></>}
+```
+
+<Canvas>
+  <DSProvider>
+    <TextInput
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
+      helperText="Choose <b>wisely!</b>"
+    />
+    <br />
+    <TextInput
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
+      helperText={
+        <>
+          Choose <b>wisely!</b>
+        </>
+      }
+    />
+  </DSProvider>
+</Canvas>
+
 ## Textarea
 
 The TextInput component includes a multiline `textarea` form field. To render a

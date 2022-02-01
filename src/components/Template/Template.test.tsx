@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import {
   Template,
@@ -158,5 +159,26 @@ describe("Template components", () => {
     expect(screen.getByText("Main Content")).toBeInTheDocument();
     expect(screen.getByText("More Content")).toBeInTheDocument();
     expect(screen.getByText("Footer")).toBeInTheDocument();
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const basic = renderer
+      .create(
+        <Template>
+          <TemplateHeader>
+            {header}
+            <TemplateBreakout>{breakout}</TemplateBreakout>
+          </TemplateHeader>
+          <TemplateContent sidebar={sidebar}>
+            <TemplateContentTop>{contentTop}</TemplateContentTop>
+            <TemplateContentSidebar>{contentSidebar}</TemplateContentSidebar>
+            <TemplateContentPrimary>{contentPrimary}</TemplateContentPrimary>
+          </TemplateContent>
+          <TemplateFooter>{footer}</TemplateFooter>
+        </Template>
+      )
+      .toJSON();
+
+    expect(basic).toMatchSnapshot();
   });
 });

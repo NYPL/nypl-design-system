@@ -6,12 +6,14 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
-import { spacing } from "../../theme/foundations/spacing";
-import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
 import Checkbox from "../Checkbox/Checkbox";
+import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
 import Fieldset from "../Fieldset/Fieldset";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
+import { spacing } from "../../theme/foundations/spacing";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
@@ -19,11 +21,11 @@ export interface CheckboxGroupProps {
   /** Populates the initial value of the input */
   defaultValue?: string[];
   /** Optional string to populate the HelperErrorText for standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the HelperErrorText for error state */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
   /** A`dds the 'aria-invalid' attribute to the input and
@@ -76,7 +78,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       showHelperInvalidText = true,
       showLabel = true,
     } = props;
-    const footnote = isInvalid ? invalidText : helperText;
+    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const spacingProp =
       layout === CheckboxGroupLayoutTypes.Column ? spacing.s : spacing.l;
     const newChildren = [];
@@ -139,9 +141,11 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
         </ChakraCheckboxGroup>
         {footnote && showHelperInvalidText && (
           <Box __css={styles.helper}>
-            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
-              {footnote}
-            </HelperErrorText>
+            <HelperErrorText
+              id={`${id}-helperErrorText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
           </Box>
         )}
       </Fieldset>
