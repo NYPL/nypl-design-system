@@ -1,0 +1,90 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs/blocks";
+import { withDesign } from "storybook-addon-designs";
+
+import Table from "./Table";
+import DSProvider from "../../theme/provider";
+import { getCategory } from "../../utils/componentCategories";
+
+<Description of={Table} />
+
+The `Table` component is used to organize and display tabular data in rows and columns.
+
+<Meta
+  title={getCategory("Table")}
+  component={Table}
+  decorators={[withDesign]}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=46780%3A27675",
+    },
+    jest: ["Table.test.tsx"],
+  }}
+  argTypes={{
+    columnHeaders: [],
+    columnHeadersBackgroundColor: { control: { type: "color" } },
+    columnHeadersTextColor: { control: { type: "color" } },
+    id: { control: false },
+    tableData: { control: false },
+  }}
+/>
+
+# Table
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.25.9`   |
+| Latest            | `0.25.9`   |
+
+<Description of={Table} />
+
+<Canvas withToolbar>
+  <Story
+    name="Table"
+    args={{
+      columnHeaders: [
+        "First Name",
+        "Last Name",
+        "Nick Name",
+        "Address1",
+        "City",
+        "Zipcode",
+        "State",
+      ],
+      tableData: [
+        ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY"],
+        ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"],
+        [
+          "K.K.",
+          "Slider",
+          "Totakeke",
+          "Niper Place",
+          "New York",
+          "98765",
+          "NY",
+        ],
+        [
+          "Sonny",
+          "Resetti",
+          "Risetto san",
+          "Village Road",
+          "New York",
+          "09873",
+          "NY",
+        ],
+      ],
+      useRowHeaders: false,
+      showRowDividers: false,
+    }}
+  >
+    {(args) => <Table {...args}></Table>}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Table" />

@@ -126,3 +126,4 @@ export {
   VideoPlayerAspectRatios,
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayerTypes";
+export { default as Table } from "./components/Table/Table";

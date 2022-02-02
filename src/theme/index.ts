@@ -41,6 +41,7 @@ import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
 import Tabs from "./components/tabs";
+import CustomTable from "./components/customTable";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
@@ -90,6 +91,7 @@ const theme = extendTheme({
     CustomSelect,
     DatePicker,
     Fieldset,
+    FilterBar,
     Heading,
     HelperErrorText,
     Hero,
@@ -99,6 +101,7 @@ const theme = extendTheme({
     Link,
     List,
     Logo,
+    MultiSelect,
     ...NotificationStyles,
     Pagination,
     ProgressIndicator,
@@ -111,8 +114,7 @@ const theme = extendTheme({
     StatusBadge,
     StructuredContent,
     Tabs,
-    FilterBar,
-    MultiSelect,
+    CustomTable,
     ...TemplateStyles,
     Text,
     TextInput,
