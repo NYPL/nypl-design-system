@@ -118,11 +118,14 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Custom helper text",
+        }
+      }
       data-isinvalid={false}
       id="myTextInput-helperText"
-    >
-      Custom helper text
-    </div>
+    />
   </div>
 </div>
 `;
@@ -164,11 +167,14 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
       aria-atomic={true}
       aria-live="polite"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "There is an error related to this field.",
+        }
+      }
       data-isinvalid={true}
       id="myTextInput-helperText"
-    >
-      There is an error related to this field.
-    </div>
+    />
   </div>
 </div>
 `;
