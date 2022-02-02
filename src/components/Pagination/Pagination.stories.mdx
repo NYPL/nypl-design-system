@@ -1,12 +1,13 @@
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
-} from "@storybook/addon-docs/blocks";
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 import { withQuery } from "@storybook/addon-queryparams";
+
 import Pagination from "./Pagination";
 import * as stories from "./Pagination.stories.tsx";
 import { getCategory } from "../../utils/componentCategories";
@@ -18,15 +19,16 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=17226%3A932",
     },
     jest: ["Pagination.test.tsx"],
   }}
   argTypes={{
-    id: { table: { disable: true } },
-    getPageHref: { table: { disable: true } },
-    onPageChange: { table: { disable: true } },
+    className: { control: false },
+    getPageHref: { control: false },
+    id: { control: false },
+    initialPage: { table: { defaultValue: { summary: 1 } } },
+    onPageChange: { control: false },
   }}
 />
 
@@ -35,7 +37,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.25.2`   |
+| Latest            | `0.25.3`   |
 
 <Description of={Pagination} />
 
@@ -60,7 +62,8 @@ named anything but you have to pick up the value in the wrapper component.
 ```tsx
 // Example in a search results page.
 const getPageHref = (selectedPage: number) => {
-  // This should be updated for your router system, if any.
+  // This should be updated for your router system, if any, including the
+  // base or origin URL.
   return `${location.origin}?q=celeste&page=${selectedPage}`;
 };
 ```
@@ -69,7 +72,11 @@ const getPageHref = (selectedPage: number) => {
   <Story
     name="Pagination with URL Updates"
     args={{
+      className: undefined,
+      getPageHref: undefined,
+      id: "pagination-id",
       initialPage: 1,
+      onPageChange: undefined,
       pageCount: 10,
     }}
   >
@@ -102,7 +109,11 @@ const onPageChange = (currentPage: number) => {
   <Story
     name="Pagination with Unchanging URL"
     args={{
+      className: undefined,
+      getPageHref: undefined,
+      id: "pagination-id-2",
       initialPage: 7,
+      onPageChange: undefined,
       pageCount: 100,
     }}
   >

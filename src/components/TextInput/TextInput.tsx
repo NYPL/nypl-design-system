@@ -12,7 +12,9 @@ import {
   TextInputVariants,
 } from "./TextInputTypes";
 import Label from "../Label/Label";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface InputProps {
@@ -22,12 +24,14 @@ export interface InputProps {
   attributes?: { [key: string]: any };
   /** A class name for the TextInput parent div. */
   className?: string;
+  /** The starting value of the input field. */
+  defaultValue?: string;
   /** Populates the HelperErrorText for the standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Populates the HelperErrorText for the error state */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the `disabled` and `aria-disabled` prop to the input when true */
   isDisabled?: boolean;
   /** Adds errored styling to the input/textarea and helper text elements */
@@ -37,6 +41,8 @@ export interface InputProps {
   /** Provides text for a `Label` component if `showLabel` is set to true;
    * populates an `aria-label` attribute if `showLabel` is set to false. */
   labelText: string;
+  /** Used to reference the input element in forms. */
+  name?: string;
   /** The action to perform on the `input`/`textarea`'s onChange function  */
   onChange?: (
     event:
@@ -53,11 +59,13 @@ export interface InputProps {
   /** Offers the ability to show the "Required"/"Optional" label onscreen or
    * hide it. True by default. */
   showOptReqLabel?: boolean;
+  /** The amount to increase or decrease when using the number type. */
+  step?: number;
   /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
   value?: string;
-  /** The variant to display. */
+  /** FOR INTERNAL DS USE ONLY: the input variant to display. */
   variantType?: TextInputVariants;
 }
 
@@ -78,6 +86,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       additionalStyles = {},
       attributes = {},
       className,
+      defaultValue,
       helperText,
       id = generateUUID(),
       invalidText,
@@ -85,11 +94,13 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       isInvalid = false,
       isRequired = false,
       labelText,
+      name,
       onChange,
       placeholder,
       showHelperInvalidText = true,
       showLabel = true,
       showOptReqLabel = true,
+      step = 1,
       type = TextInputTypes.text,
       value,
       variantType = TextInputVariants.Default,
@@ -102,7 +113,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     const finalInvalidText = invalidText
       ? invalidText
       : "There is an error related to this field.";
-    let footnote: string | React.ReactNode = isInvalid
+    let footnote: HelperErrorTextType = isInvalid
       ? finalInvalidText
       : helperText;
     let fieldOutput;
@@ -132,16 +143,20 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
 
     // When the type is "hidden", the input element needs fewer attributes.
     options = isHidden
-      ? { id, "aria-hidden": isHidden, onChange, ref }
+      ? { id, "aria-hidden": isHidden, name, onChange, ref }
       : {
-          id,
           "aria-required": isRequired,
+          defaultValue,
+          id,
           isDisabled,
           isRequired,
           isInvalid,
           placeholder,
+          name,
           onChange,
           ref,
+          // The `step` attribute is useful for the number type.
+          step: type === TextInputTypes.number ? step : null,
           ...attributes,
         };
     // For `input` and `textarea`, all attributes are the same but `input`
@@ -171,9 +186,11 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
         {fieldOutput}
         {footnote && showHelperInvalidText && !isHidden && (
           <Box __css={finalStyles.helper} aria-disabled={isDisabled}>
-            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
-              {footnote}
-            </HelperErrorText>
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
           </Box>
         )}
       </Box>

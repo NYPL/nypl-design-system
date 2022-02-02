@@ -1,12 +1,32 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import Accordion from "../Accordion/Accordion";
+import { faqContent } from "../Accordion/Accordion.stories.mdx";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import Button from "../Button/Button";
+import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
+import Form, { FormRow, FormField } from "../Form/Form";
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+import Hero from "../Hero/Hero";
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import { HeroTypes } from "../Hero/HeroTypes";
+import Image from "../Image/Image";
+import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import Link from "../Link/Link";
+import Notification, {
+  NotificationContent,
+  NotificationHeading,
+  NotificationProps,
+} from "../Notification/Notification";
+import Placeholder from "../Placeholder/Placeholder";
 import {
   Template,
   TemplateHeader,
@@ -18,27 +38,7 @@ import {
   TemplateFooter,
   TemplateAppContainer,
 } from "./Template";
-import Placeholder from "../Placeholder/Placeholder";
-import Hero from "../Hero/Hero";
-import { HeroTypes } from "../Hero/HeroTypes";
-import Image from "../Image/Image";
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
-import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-import HorizontalRule from "../HorizontalRule/HorizontalRule";
-import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import Notification, {
-  NotificationContent,
-  NotificationHeading,
-  NotificationProps,
-} from "../Notification/Notification";
-import Form, { FormRow, FormField } from "../Form/Form";
 import TextInput from "../TextInput/TextInput";
-import Button from "../Button/Button";
-import Link from "../Link/Link";
-import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
-import Accordion from "../Accordion/Accordion";
-import { faqContent } from "../Accordion/Accordion.stories.mdx";
 import { NotificationTypes } from "../Notification/NotificationTypes";
 import { getCategory } from "../../utils/componentCategories";
 
@@ -49,8 +49,7 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
     },
   }}
 />
@@ -66,17 +65,20 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Description of={TemplateAppContainer} />
 
+If you have a custom `Footer` component that _already_ renders an HTML `<footer>`
+element, set `renderFooterElement` to false so only one `<footer>` element is rendered.
+
 <b>This is the recommended way to render an app page template.</b>
 
 ```jsx
 import { TemplateAppContainer } from "@nypl/design-system-react-components";
 
 <TemplateAppContainer
-  header={<Placeholder modifiers={["short"]}>NYPL Header</Placeholder>}
+  header={<Placeholder variant="short">NYPL Header</Placeholder>}
   breakout={
     <>
-      <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
-      <Placeholder modifiers={["short"]}>Hero</Placeholder>
+      <Placeholder variant="short">Breadcrumbs</Placeholder>
+      <Placeholder variant="short">Hero</Placeholder>
     </>
   }
   sidebar="left"
@@ -85,10 +87,10 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
   contentPrimary={
     <>
       <Placeholder>Main Content</Placeholder>
-      <Placeholder modifiers={["short"]}>More Content</Placeholder>
+      <Placeholder variant="short">More Content</Placeholder>
     </>
   }
-  footer={<Placeholder modifiers={["short"]}>Footer</Placeholder>}
+  footer={<Placeholder variant="short">Footer</Placeholder>}
 />;
 ```
 
@@ -96,31 +98,36 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
   <Story
     name="TemplateAppContainer Component"
     args={{
-      header: <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>,
       breakout: (
         <>
-          <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
-          <Placeholder modifiers={["short"]}>Hero</Placeholder>
+          <Placeholder variant="short">Breadcrumbs</Placeholder>
+          <Placeholder variant="short">Hero</Placeholder>
         </>
       ),
-      sidebar: "left",
-      contentTop: <Placeholder>Content Top</Placeholder>,
-      contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
       contentPrimary: (
         <>
           <Placeholder>Main Content</Placeholder>
-          <Placeholder modifiers={["short"]}>More Content</Placeholder>
+          <Placeholder variant="short">More Content</Placeholder>
         </>
       ),
-      footer: <Placeholder modifiers={["short"]}>Footer</Placeholder>,
+      contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
+      contentTop: <Placeholder>Content Top</Placeholder>,
+      footer: <Placeholder variant="short">Footer</Placeholder>,
+      header: <Placeholder variant="short">NYPL Header</Placeholder>,
+      sidebar: "left",
+      renderFooterElement: true,
     }}
     argTypes={{
-      header: { control: false },
       breakout: { control: false },
-      contentTop: { control: false },
-      contentSidebar: { control: false },
       contentPrimary: { control: false },
+      contentSidebar: { control: false },
+      contentTop: { control: false },
       footer: { control: false },
+      header: { control: false },
+      sidebar: {
+        control: false,
+        table: { defaultValue: { summary: "none" } },
+      },
     }}
   >
     {(args) => <TemplateAppContainer {...args} />}
@@ -160,7 +167,7 @@ import {
     </TemplateBreakout>
   </TemplateHeader>
 
-  <TemplateContent>
+  <TemplateContent sidebar="...">
     <TemplateContentTop>
       // ...
     </TemplateContentTop>
@@ -189,15 +196,16 @@ import {
       contentTop: { table: { disable: true } },
       footer: { table: { disable: true } },
       header: { table: { disable: true } },
+      sidebar: { description: "Only used in Storybook." },
     }}
   >
     {(args) => (
       <Template>
         <TemplateHeader>
-          <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>
+          <Placeholder variant="short">NYPL Header</Placeholder>
           <TemplateBreakout>
-            <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
-            <Placeholder modifiers={["short"]}>Hero</Placeholder>
+            <Placeholder variant="short">Breadcrumbs</Placeholder>
+            <Placeholder variant="short">Hero</Placeholder>
           </TemplateBreakout>
         </TemplateHeader>
         <TemplateContent sidebar={args.sidebar}>
@@ -211,7 +219,7 @@ import {
           )}
           <TemplateContentPrimary>
             <Placeholder>Main Content</Placeholder>
-            <Placeholder modifiers={["short"]}>More Content</Placeholder>
+            <Placeholder variant="short">More Content</Placeholder>
           </TemplateContentPrimary>
           {args.sidebar === "right" && (
             <TemplateContentSidebar>
@@ -220,7 +228,7 @@ import {
           )}
         </TemplateContent>
         <TemplateFooter>
-          <Placeholder modifiers={["short"]}>Footer</Placeholder>
+          <Placeholder variant="short">Footer</Placeholder>
         </TemplateFooter>
       </Template>
     )}
@@ -507,10 +515,10 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
             imageAspectRatio={ImageRatios.Square}
             imageSize={ImageSizes.Small}
           >
-            <CardHeading level={HeadingLevels.Three} id="heading1">
+            <CardHeading level={HeadingLevels.Two} id="heading1">
               Small Animal Image
             </CardHeading>
-            <CardHeading level={HeadingLevels.Five} id="heading2">
+            <CardHeading level={HeadingLevels.Three} id="heading2">
               Animal info
             </CardHeading>
             <CardContent>
@@ -530,7 +538,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           backgroundColor="#616161"
           foregroundColor="#FFF"
         >
-          <CardHeading id="heading1" level={2}>
+          <CardHeading id="heading1-footer" level={HeadingLevels.Two}>
             Footer
           </CardHeading>
           <CardContent>
@@ -542,25 +550,25 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           </CardContent>
           <CardActions>
             <Link
-              href="javascript:void(0);"
               attributes={{
                 style: { color: "#FFF", textDecoration: "underline" },
               }}
+              href="#"
             >
               Facebook
             </Link>
             ,<Link
-              href="javascript:void(0);"
               attributes={{
                 style: { color: "#FFF", textDecoration: "underline" },
               }}
+              href="#"
             >
               Instagram
             </Link>,<Link
-              href="javascript:void(0);"
               attributes={{
                 style: { color: "#FFF", textDecoration: "underline" },
               }}
+              href="#"
             >
               Twitter
             </Link>

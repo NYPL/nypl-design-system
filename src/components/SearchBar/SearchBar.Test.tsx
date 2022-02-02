@@ -19,28 +19,29 @@ const optionsGroup = [
   "Villagers",
 ];
 const selectProps = {
-  name: "nhItemSearch",
+  name: "selectName",
   labelText: "Select a category",
   optionsData: optionsGroup,
 };
 const textInputProps = {
   labelText: "Item Search",
+  name: "textInputName",
   placeholder: "Item Search",
 };
-const helperErrorText = "Search for items in Animal Crossing New Horizons";
+const helperText = "Search for items in Animal Crossing New Horizons";
 const invalidText = "Could not find the item :(";
 
 describe("SearchBar Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <SearchBar
+        helperText={helperText}
         id="id"
+        invalidText={invalidText}
         labelText="Searchbar"
         onSubmit={jest.fn()}
         selectProps={selectProps}
         textInputProps={textInputProps}
-        helperErrorText={helperErrorText}
-        invalidText={invalidText}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -54,11 +55,11 @@ describe("SearchBar", () => {
   it("renders the basic form", () => {
     render(
       <SearchBar
+        helperText={helperText}
         id="id"
         labelText="searchbar"
         onSubmit={searchBarSubmit}
         textInputProps={textInputProps}
-        helperErrorText={helperErrorText}
       />
     );
     expect(screen.getByRole("search")).toBeInTheDocument();
@@ -73,12 +74,12 @@ describe("SearchBar", () => {
   it("renders an optional Select component", () => {
     render(
       <SearchBar
+        helperText={helperText}
         id="id"
         labelText="searchbar"
         onSubmit={searchBarSubmit}
         selectProps={selectProps}
         textInputProps={textInputProps}
-        helperErrorText={helperErrorText}
       />
     );
     expect(screen.getByRole("combobox")).toBeInTheDocument();
@@ -88,31 +89,31 @@ describe("SearchBar", () => {
   it("renders the invalid text in the invalid state", () => {
     render(
       <SearchBar
+        helperText={helperText}
         id="id"
+        invalidText={invalidText}
+        isInvalid
         labelText="searchbar"
         onSubmit={searchBarSubmit}
         selectProps={selectProps}
         textInputProps={textInputProps}
-        helperErrorText={helperErrorText}
-        invalidText={invalidText}
-        isInvalid
       />
     );
     expect(screen.getByText(invalidText)).toBeInTheDocument();
-    expect(screen.queryByText(helperErrorText)).not.toBeInTheDocument();
+    expect(screen.queryByText(helperText)).not.toBeInTheDocument();
   });
 
   it("does not render the default invalid text from the Select or TextInput components", () => {
     render(
       <SearchBar
+        helperText={helperText}
         id="id"
+        invalidText={invalidText}
+        isInvalid
         labelText="searchbar"
         onSubmit={searchBarSubmit}
         selectProps={selectProps}
         textInputProps={textInputProps}
-        helperErrorText={helperErrorText}
-        invalidText={invalidText}
-        isInvalid
       />
     );
     expect(
@@ -123,12 +124,12 @@ describe("SearchBar", () => {
   it("calls the callback function on submit ", () => {
     render(
       <SearchBar
-        labelText="searchBar"
+        helperText={helperText}
         id="id"
+        labelText="searchBar"
         onSubmit={searchBarSubmit}
         selectProps={selectProps}
         textInputProps={textInputProps}
-        helperErrorText={helperErrorText}
       />
     );
     expect(searchBarSubmit).toHaveBeenCalledTimes(0);
@@ -138,34 +139,65 @@ describe("SearchBar", () => {
     expect(buttonCallback).toHaveBeenCalledTimes(1);
   });
 
+  it("Renders 'required' in the placeholder text", () => {
+    const { rerender } = render(
+      <SearchBar
+        id="requiredState"
+        isDisabled
+        isRequired
+        labelText="searchbar"
+        onSubmit={jest.fn()}
+        textInputProps={textInputProps}
+      />
+    );
+
+    expect(
+      screen.getByPlaceholderText("Item Search (Required)")
+    ).not.toBeInTheDocument();
+
+    rerender(
+      <SearchBar
+        id="requiredState"
+        isDisabled
+        isRequired
+        labelText="searchbar"
+        onSubmit={jest.fn()}
+        textInputProps={textInputProps}
+      />
+    );
+    expect(
+      screen.getByPlaceholderText("Item Search (Required)")
+    ).toBeInTheDocument();
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const basic = renderer
       .create(
         <SearchBar
-          id="id"
+          helperText={helperText}
+          id="basic"
           labelText="searchbar"
           onSubmit={jest.fn()}
           textInputProps={textInputProps}
-          helperErrorText={helperErrorText}
         />
       )
       .toJSON();
     const withSelect = renderer
       .create(
         <SearchBar
-          id="id"
+          helperText={helperText}
+          id="withSelect"
           labelText="searchbar"
           onSubmit={jest.fn()}
           selectProps={selectProps}
           textInputProps={textInputProps}
-          helperErrorText={helperErrorText}
         />
       )
       .toJSON();
     const withoutHelperText = renderer
       .create(
         <SearchBar
-          id="id"
+          id="withoutHelperText"
           labelText="searchbar"
           onSubmit={jest.fn()}
           textInputProps={textInputProps}
@@ -175,22 +207,78 @@ describe("SearchBar", () => {
     const invalidState = renderer
       .create(
         <SearchBar
-          id="id"
+          id="invalidState"
+          isInvalid
           labelText="searchbar"
           onSubmit={jest.fn()}
           textInputProps={textInputProps}
-          isInvalid
         />
       )
       .toJSON();
     const disabledState = renderer
       .create(
         <SearchBar
-          id="id"
+          id="disabledState"
+          isDisabled
           labelText="searchbar"
           onSubmit={jest.fn()}
           textInputProps={textInputProps}
+        />
+      )
+      .toJSON();
+    const requiredState = renderer
+      .create(
+        <SearchBar
+          id="requiredState"
           isDisabled
+          isRequired
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+        />
+      )
+      .toJSON();
+    const noBrandButtonType = renderer
+      .create(
+        <SearchBar
+          id="noBrandButtonType"
+          isDisabled
+          isRequired
+          labelText="searchbar"
+          noBrandButtonType={true}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+        />
+      )
+      .toJSON();
+    const withHeading = renderer
+      .create(
+        <SearchBar
+          id="withHeading"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          headingText="A Heading"
+        />
+      )
+      .toJSON();
+    const withDescription = renderer
+      .create(
+        <SearchBar
+          id="withDescription"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          descriptionText="A description"
+        />
+      )
+      .toJSON();
+    const withHeadingAndDescription = renderer
+      .create(
+        <SearchBar
+          id="withHeadingAndDescription"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          headingText="A Heading"
+          descriptionText="A description"
         />
       )
       .toJSON();
@@ -200,5 +288,10 @@ describe("SearchBar", () => {
     expect(withoutHelperText).toMatchSnapshot();
     expect(invalidState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
+    expect(requiredState).toMatchSnapshot();
+    expect(noBrandButtonType).toMatchSnapshot();
+    expect(withHeading).toMatchSnapshot();
+    expect(withDescription).toMatchSnapshot();
+    expect(withHeadingAndDescription).toMatchSnapshot();
   });
 });

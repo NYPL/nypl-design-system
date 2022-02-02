@@ -1,17 +1,33 @@
+import { VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { VStack } from "@chakra-ui/react";
 
+import Heading from "../Heading/Heading";
 import Image from "./Image";
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
-import Heading from "../Heading/Heading";
+import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const ratiosEnumValues = getStorybookEnumValues(
+  ImageRatios,
+  "ImageRatios"
+);
+export const sizesEnumValues = getStorybookEnumValues(ImageSizes, "ImageSizes");
+export const typesEnumValues = getStorybookEnumValues(ImageTypes, "ImageTypes");
+
+export const imageBlockStyles = {
+  margin: "auto",
+  maxWidth: "360px",
+  textAlign: "center",
+  width: "100%",
+};
 
 <Meta
   title={getCategory("Image")}
@@ -20,15 +36,43 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11896%3A45379",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11896%3A45379",
     },
     jest: ["Image.test.tsx"],
   }}
   argTypes={{
-    alt: { table: { disable: true } },
-    className: { table: { disable: true } },
-    component: { table: { disable: true } },
+    additionalFigureStyles: { control: false },
+    additionalImageStyles: { control: false },
+    additionalWrapperStyles: { control: false },
+    alt: {
+      control: false,
+      description:
+        "Alternate text description of the image. Needed for accessibility purposes.",
+    },
+    className: {
+      control: false,
+      description: "Additional class name for the component to use.",
+    },
+    component: { control: false },
+    imageAspectRatio: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageRatios.Original" } },
+      options: ratiosEnumValues.options,
+    },
+    imageSize: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageSizes.Default" } },
+      options: sizesEnumValues.options,
+    },
+    imageType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageTypes.Default" } },
+      options: typesEnumValues.options,
+    },
+    src: {
+      description:
+        "The src attribute is required, and contains the path to the image you want to embed.",
+    },
   }}
 />
 
@@ -37,7 +81,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.6`    |
-| Latest            | `0.25.2`   |
+| Latest            | `0.25.9`   |
 
 <Description of={Image} />
 
@@ -48,22 +92,34 @@ import { getCategory } from "../../utils/componentCategories";
 
 <Canvas>
   <Story
-    name="Image Props"
+    name="Image with Controls"
     args={{
+      additionalFigureStyles: undefined,
+      additionalImageStyles: undefined,
+      additionalWrapperStyles: undefined,
       alt: "Alt text",
-      imageAspectRatio: ImageRatios.TwoByOne,
+      className: undefined,
+      component: undefined,
+      imageAspectRatio: "ImageRatios.TwoByOne",
       imageCaption: "Image caption",
       imageCredit: "Image credit",
-      imageSize: ImageSizes.Medium,
-      imageType: ImageTypes.Default,
+      imageSize: "ImageSizes.Medium",
+      imageType: "ImageTypes.Default",
       src: "https://placeimg.com/400/300/animals",
     }}
   >
-    {(args) => <Image {...args} />}
+    {(args) => (
+      <Image
+        {...args}
+        imageAspectRatio={ratiosEnumValues.getValue(args.imageAspectRatio)}
+        imageSize={sizesEnumValues.getValue(args.imageSize)}
+        imageType={typesEnumValues.getValue(args.imageType)}
+      />
+    )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Image Props" />
+<ArgsTable story="Image with Controls" />
 
 ## Image Figure
 
@@ -103,28 +159,61 @@ Use the `ImageSizes` prop to set the desired size.
 
 <Canvas>
   <Story name="Image Sizes">
-    <VStack spacing="xs">
-      <Heading id="Small" text="ImageSizes.Small" />
-      <Image
-        alt="Alt text"
-        imageSize={ImageSizes.Small}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="Medium" text="ImageSizes.Medium" />
-      <Image
-        alt="Alt text"
-        imageSize={ImageSizes.Medium}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="Large" text="ImageSizes.Large" />
-      <Image
-        alt="Alt text"
-        imageSize={ImageSizes.Large}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="Default" text="ImageSizes.Default" />
-      <Image alt="Alt text" src="https://placeimg.com/400/300/animals" />
-    </VStack>
+    <SimpleGrid columns={1}>
+      <div style={{ textAlign: "center" }}>
+        <Heading id="ExtraExtraSmall" text="ImageSizes.ExtraExtraSmall" />
+        <Image
+          alt="Alt text"
+          imageCaption="64px"
+          imageSize={ImageSizes.ExtraExtraSmall}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <Heading id="ExtraSmall" text="ImageSizes.ExtraSmall" />
+        <Image
+          alt="Alt text"
+          imageCaption="96px"
+          imageSize={ImageSizes.ExtraSmall}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <Heading id="Small" text="ImageSizes.Small" />
+        <Image
+          alt="Alt text"
+          imageCaption="165px"
+          imageSize={ImageSizes.Small}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <Heading id="Medium" text="ImageSizes.Medium" />
+        <Image
+          alt="Alt text"
+          imageCaption="225px"
+          imageSize={ImageSizes.Medium}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <Heading id="Large" text="ImageSizes.Large" />
+        <Image
+          alt="Alt text"
+          imageCaption="360px"
+          imageSize={ImageSizes.Large}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <Heading id="Default" text="ImageSizes.Default" />
+        <Image
+          alt="Alt text"
+          imageCaption="100%"
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+    </SimpleGrid>
   </Story>
 </Canvas>
 
@@ -138,56 +227,72 @@ in an element with a fixed width value.
 
 <Canvas>
   <Story name="Image Aspect Ratios">
-    <VStack spacing="xs" maxWidth="360px" margin="auto">
-      <Heading id="fourbythree" text="ImageRatios.FourByThree" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.FourByThree}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="onebytwo" text="ImageRatios.OneByTwo" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.OneByTwo}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="original" text="ImageRatios.Original" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.Original}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="sixteenbynine" text="ImageRatios.SixteenByNine" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.SixteenByNine}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="square" text="ImageRatios.Square" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="threebyfour" text="ImageRatios.ThreeByFour" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.ThreeByFour}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="threebytwo" text="ImageRatios.ThreeByTwo" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.ThreeByTwo}
-        src="https://placeimg.com/400/300/animals"
-      />
-      <Heading id="twobyone" text="ImageRatios.TwoByOne" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        src="https://placeimg.com/400/300/animals"
-      />
-    </VStack>
+    <SimpleGrid columns={1}>
+      <div style={imageBlockStyles}>
+        <Heading id="fourbythree" text="ImageRatios.FourByThree" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.FourByThree}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={imageBlockStyles}>
+        <Heading id="onebytwo" text="ImageRatios.OneByTwo" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.OneByTwo}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={imageBlockStyles}>
+        <Heading id="original" text="ImageRatios.Original" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.Original}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={imageBlockStyles}>
+        <Heading id="sixteenbynine" text="ImageRatios.SixteenByNine" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.SixteenByNine}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={imageBlockStyles}>
+        <Heading id="square" text="ImageRatios.Square" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.Square}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={imageBlockStyles}>
+        <Heading id="threebyfour" text="ImageRatios.ThreeByFour" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.ThreeByFour}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={imageBlockStyles}>
+        <Heading id="threebytwo" text="ImageRatios.ThreeByTwo" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.ThreeByTwo}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+      <div style={imageBlockStyles}>
+        <Heading id="twobyone" text="ImageRatios.TwoByOne" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.TwoByOne}
+          src="https://placeimg.com/400/300/animals"
+        />
+      </div>
+    </SimpleGrid>
   </Story>
 </Canvas>
 
@@ -201,21 +306,25 @@ in an element with a fixed width value.
 
 <Canvas>
   <Story name="Image Types">
-    <VStack spacing="xs" maxWidth="360px" margin="auto">
-      <Heading id="default" text="ImageTypes.Default" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        imageType={ImageTypes.Default}
-        src="https://placeimg.com/400/400/animals"
-      />
-      <Heading id="circle" text="ImageTypes.Circle" />
-      <Image
-        alt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        imageType={ImageTypes.Circle}
-        src="https://placeimg.com/400/400/animals"
-      />
-    </VStack>
+    <SimpleGrid columns={1}>
+      <div style={imageBlockStyles}>
+        <Heading id="default" text="ImageTypes.Default" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.Square}
+          imageType={ImageTypes.Default}
+          src="https://placeimg.com/400/400/animals"
+        />
+      </div>
+      <div style={imageBlockStyles}>
+        <Heading id="circle" text="ImageTypes.Circle" />
+        <Image
+          alt="Alt text"
+          imageAspectRatio={ImageRatios.Square}
+          imageType={ImageTypes.Circle}
+          src="https://placeimg.com/400/400/animals"
+        />
+      </div>
+    </SimpleGrid>
   </Story>
 </Canvas>

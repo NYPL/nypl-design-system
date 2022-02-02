@@ -1,17 +1,27 @@
+import { action } from "@storybook/addon-actions";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import DSProvider from "../../theme/provider";
 import VideoPlayer from "./VideoPlayer";
-import { VideoPlayerTypes } from "./VideoPlayerTypes";
-import { action } from "@storybook/addon-actions";
+import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
 import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const ratiosEnumValues = getStorybookEnumValues(
+  VideoPlayerAspectRatios,
+  "VideoPlayerAspectRatios"
+);
+export const typesEnumValues = getStorybookEnumValues(
+  VideoPlayerTypes,
+  "VideoPlayerTypes"
+);
 
 <Meta
   title={getCategory("VideoPlayer")}
@@ -20,15 +30,27 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A3680",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A3680",
     },
     jest: ["VideoPlayer.test.tsx"],
   }}
   argTypes={{
-    attributes: { table: { disable: true } },
-    className: { table: { disable: true } },
-    modifiers: { table: { disable: true } },
+    aspectRatio: {
+      control: { type: "select" },
+      table: {
+        defaultValue: { summary: "VideoPlayerAspectRatios.SixteenByNine" },
+      },
+      options: ratiosEnumValues.options,
+    },
+    className: { control: false },
+    id: { control: false },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    videoType: {
+      control: { type: "select" },
+      options: typesEnumValues.options,
+    },
   }}
 />
 
@@ -37,11 +59,13 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.2`   |
+| Latest            | `0.25.8`   |
 
 <Description of={VideoPlayer} />
 
-The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires both the `videoType` and `videoId` props. You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to enter the full video URL as the `videoId` value.
+The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires the `embedCode` prop or both the `videoType` and `videoId` props. The component will not function properly if you try to set all of them.
+
+You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to enter the full video URL as the `videoId` value.
 
 The `aspectRatio` prop is used to control the sizing of the space allotted for the video rendering. Ultimately, the `aspectRatio` prop should be set to match the aspect ratio of the video that is being rendered. The default aspect ratio is `16:9`.
 
@@ -49,25 +73,27 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
   <Story
     name="VideoPlayer"
     args={{
-      videoType: VideoPlayerTypes.Vimeo,
-      videoId: "",
-      headingText: "NYPL Video",
+      aspectRatio: "VideoPlayerAspectRatios.SixteenByNine",
+      className: undefined,
       descriptionText:
         "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+      embedCode: `<iframe src="https://player.vimeo.com/video/421404144?h=5467db7edd" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`,
+      headingText: "NYPL Video",
       helperText:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+      id: "videoPlayer-id",
+      iframeTitle: undefined,
+      showHelperInvalidText: true,
+      videoId: undefined,
+      videoType: undefined,
     }}
   >
     {(args) => (
       <VideoPlayer
         {...args}
-        videoType={args.videoType}
-        videoId={
-          args.videoType === "vimeo"
-            ? args.videoId || "474719268"
-            : args.videoId || "nm-dD2tx6bk"
-        }
-        aspectRatio={args.aspectRatio}
+        aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
+        embedCode={args.embedCode}
+        videoType={args.videoType && typesEnumValues.getValue(args.videoType)}
       />
     )}
   </Story>
@@ -94,6 +120,37 @@ https://www.youtube.com/watch?v=[VIDEO_ID]
 https://www.youtube.com/watch?v=nm-dD2tx6bk
 ```
 
+## Example Embed Code Snippets
+
+The examples below are shown with precise HTML formatting. However, often the embed code snippets provided by 3rd party video services are delivered as one long string.
+
+### Vimeo
+
+```html
+<iframe
+  src="https://player.vimeo.com/video/421404144?h=5467db7edd"
+  width="640"
+  height="360"
+  frameborder="0"
+  allow="autoplay; fullscreen; picture-in-picture"
+  allowfullscreen
+></iframe>
+```
+
+### YouTube
+
+```html
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/nm-dD2tx6bk"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+```
+
 ## Errored
 
 If the necessary props are not passed to the `VideoPlayer` component, the component UI will display an error message.
@@ -101,8 +158,22 @@ If the necessary props are not passed to the `VideoPlayer` component, the compon
 <Canvas>
   <DSProvider>
     <VideoPlayer
-      type={VideoPlayerTypes.Vimeo}
       videoId="https://vimeo.com/474719268"
+      videoType={VideoPlayerTypes.Vimeo}
+    />
+  </DSProvider>
+</Canvas>
+
+## HTML in Helper Text
+
+It's possible to include HTML in the `helperText` prop.
+
+<Canvas>
+  <DSProvider>
+    <VideoPlayer
+      helperText="This helper text <b>contains HTML</b>."
+      videoId="474719268"
+      videoType={VideoPlayerTypes.Vimeo}
     />
   </DSProvider>
 </Canvas>

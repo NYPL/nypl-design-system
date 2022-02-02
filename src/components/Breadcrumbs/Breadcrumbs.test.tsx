@@ -4,6 +4,7 @@ import renderer from "react-test-renderer";
 import { axe } from "jest-axe";
 
 import Breadcrumbs from "./Breadcrumbs";
+import { ColorVariants } from "./BreadcrumbsTypes";
 
 describe("Breadcrumbs Accessibility", () => {
   const breadcrumbsData = [
@@ -31,8 +32,50 @@ describe("Breadcrumbs Snapshot", () => {
         <Breadcrumbs id="breadcrumbs-test" breadcrumbsData={breadcrumbsData} />
       )
       .toJSON();
+    const breadcrumbsVariantColor = renderer
+      .create(
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          colorVariant={ColorVariants.BooksAndMore}
+          id="breadcrumbs-test"
+        />
+      )
+      .toJSON();
+    const breadcrumbsBlogsVariant = renderer
+      .create(
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          colorVariant={ColorVariants.Blogs}
+          id="breadcrumbs-test"
+        />
+      )
+      .toJSON();
+    const breadcrumbsLocationsVariant = renderer
+      .create(
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          colorVariant={ColorVariants.Blogs}
+          id="breadcrumbs-test"
+        />
+      )
+      .toJSON();
+    const breadcrumbsAdditionalStyles = renderer
+      .create(
+        <Breadcrumbs
+          additionalStyles={{
+            bg: "var(--nypl-colors-ui-error-primary)",
+          }}
+          breadcrumbsData={breadcrumbsData}
+          id="breadcrumbs-test"
+        />
+      )
+      .toJSON();
 
     expect(breadcrumbsSnapshot).toMatchSnapshot();
+    expect(breadcrumbsVariantColor).toMatchSnapshot();
+    expect(breadcrumbsBlogsVariant).toMatchSnapshot();
+    expect(breadcrumbsLocationsVariant).toMatchSnapshot();
+    expect(breadcrumbsAdditionalStyles).toMatchSnapshot();
   });
 });
 

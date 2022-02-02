@@ -12,6 +12,14 @@ const imageSizes = {
   default: {
     maxWidth: "100%",
   },
+  xxsmall: {
+    ...sideMarginsAuto,
+    maxWidth: "64px",
+  },
+  xsmall: {
+    ...sideMarginsAuto,
+    maxWidth: "96px",
+  },
   small: {
     ...sideMarginsAuto,
     maxWidth: "165px",
@@ -88,7 +96,7 @@ const CustomImage = {
     },
     captionWrappers: {
       marginBottom: "xxs",
-      fontSize: "-1",
+      fontSize: "text.caption",
     },
   }),
 };

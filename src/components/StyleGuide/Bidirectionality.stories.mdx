@@ -1,8 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import { Canvas, Meta } from "@storybook/addon-docs";
 
 import SearchBar from "../SearchBar/SearchBar";
-import Input from "../Input/Input";
-import { InputTypes } from "../Input/InputTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes, IconAlign } from "../Icons/IconTypes";
 import Button from "../Button/Button";
@@ -119,29 +117,16 @@ won't hurt.
 <Canvas>
   <DSProvider>
     <div style={{ width: "400px" }}>
-      <SearchBar>
-        <Input
-          ariaLabelledBy="button-ex1"
-          id="input-ex1"
-          placeholder="Item Search"
-          required={true}
-          type={InputTypes.text}
-          attributes={{
-            ["aria-describedby"]: "error-helperText-ex1",
-          }}
-        />
-        <Button buttonType={ButtonTypes.Primary} id="button-ex1" type="submit">
-          <Icon
-            name={IconNames.Search}
-            size={IconSizes.Small}
-            align={IconAlign.Left}
-          />
-          Search
-        </Button>
-      </SearchBar>
-      <HelperErrorText id="error-helperText-ex1">
-        Use a keyword or phrase to search!
-      </HelperErrorText>
+      <SearchBar
+        helperText="Use a keyword or phrase to search!"
+        id="example1"
+        isRequired
+        textInputProps={{
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        }}
+      />
     </div>
   </DSProvider>
 </Canvas>
@@ -153,33 +138,16 @@ block to see its code implementation.
   <DSProvider>
     <div dir="rtl">
       <div style={{ width: "400px" }}>
-        <SearchBar>
-          <Input
-            ariaLabelledBy="button-ex2"
-            id="input-ex2"
-            placeholder="البحث عن عنصر"
-            required={true}
-            type={InputTypes.text}
-            attributes={{
-              ["aria-describedby"]: "error-helperText-ex2",
-            }}
-          />
-          <Button
-            buttonType={ButtonTypes.Primary}
-            id="button-ex2"
-            type="submit"
-          >
-            <Icon
-              name={IconNames.Search}
-              size={IconSizes.Small}
-              align={IconAlign.Left}
-            />
-            يبحث
-          </Button>
-        </SearchBar>
-        <HelperErrorText id="error-helperText-ex2">
-          استخدم كلمة رئيسية أو عبارة للبحث!
-        </HelperErrorText>
+        <SearchBar
+          helperText="استخدم كلمة رئيسية أو عبارة للبحث!"
+          id="example2"
+          isRequired
+          textInputProps={{
+            labelText: "Item Search",
+            name: "textInputName",
+            placeholder: "Item Search",
+          }}
+        />
       </div>
     </div>
   </DSProvider>
@@ -192,33 +160,16 @@ block to see its code implementation.
   <DSProvider>
     <div style={{ direction: "rtl" }}>
       <div style={{ width: "400px" }}>
-        <SearchBar>
-          <Input
-            ariaLabelledBy="button-ex3"
-            id="input-ex3"
-            placeholder="البحث عن عنصر"
-            required={true}
-            type={InputTypes.text}
-            attributes={{
-              ["aria-describedby"]: "error-helperText-ex3",
-            }}
-          />
-          <Button
-            buttonType={ButtonTypes.Primary}
-            id="button-ex3"
-            type="submit"
-          >
-            <Icon
-              name={IconNames.Search}
-              size={IconSizes.Small}
-              align={IconAlign.Left}
-            />
-            يبحث
-          </Button>
-        </SearchBar>
-        <HelperErrorText id="error-helperText-ex3">
-          استخدم كلمة رئيسية أو عبارة للبحث!
-        </HelperErrorText>
+        <SearchBar
+          helperText="استخدم كلمة رئيسية أو عبارة للبحث!"
+          id="example3"
+          isRequired
+          textInputProps={{
+            labelText: "Item Search",
+            name: "textInputName",
+            placeholder: "Item Search",
+          }}
+        />
       </div>
     </div>
   </DSProvider>
@@ -248,10 +199,8 @@ help reduce any visual mistakes.
           />
           Search
         </Button>
-      </div>
-      <div style={{ width: "300px" }}>
-        A RTL button:
         <div dir="rtl">
+          An RTL button:
           <Button
             buttonType={ButtonTypes.Primary}
             id="button-ex5"

@@ -64,17 +64,71 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
         aria-atomic={true}
         aria-live="off"
         className=" css-0"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "VideoPlayer helper test.",
+          }
+        }
         data-isinvalid={false}
         id="video-player-with-text-componentWrapper-helperText"
-      >
-        VideoPlayer helper test.
-      </div>
+      />
     </div>
   </div>
 </div>
 `;
 
 exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
+<div
+  className="css-0"
+  data-testid="video-player-component"
+  id="video-player-with-text"
+>
+  <div
+    className="css-0"
+  >
+    <h2
+      className="chakra-heading css-0"
+      id="video-player-with-text-componentWrapper-heading"
+    >
+      VideoPlayer Heading
+    </h2>
+    <p
+      className="chakra-text css-0"
+    >
+      VideoPlayer description
+    </p>
+    <div
+      className="css-0"
+    >
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<iframe title=\\"Video player\\" src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>",
+          }
+        }
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      <div
+        aria-atomic={true}
+        aria-live="off"
+        className=" css-0"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "VideoPlayer helper test.",
+          }
+        }
+        data-isinvalid={false}
+        id="video-player-with-text-componentWrapper-helperText"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
 <div
   className="css-0"
   data-testid="video-player-component"

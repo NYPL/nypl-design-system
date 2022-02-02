@@ -1,6 +1,6 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import { Box } from "@chakra-ui/react";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -11,14 +11,19 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
+| Latest            | `0.25.1`   |
 
-Note: This needs the use of the `DSProvider` component. See the [README](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your-product)
+Note: This needs the use of the `DSProvider` component. See the
+[README](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/chakra-ui--page#dsprovider)
 for more information.
 
-This component is directly exported from Chakra UI. The `Grid` component is useful for grid layouts and offers more complexity and formatting options than the DS `SimpleGrid` component. `Grid` is `Box` with `display: grid` and it comes with helpful style shorthand. It renders a `div` element.
+This component is directly exported from Chakra UI. The `Grid` component is
+useful for grid layouts and offers more complexity and formatting options than
+the DS `SimpleGrid` component. `Grid` is `Box` with `display: grid` and it comes
+with helpful style shorthand. It renders a `div` element.
 
-Details about available props and related child components can be found on the [Grid component](https://chakra-ui.com/docs/layout/grid)
-page on the Chakra UI site.
+Details about available props and related child components can be found on the
+[Grid component](https://chakra-ui.com/docs/layout/grid) page on the Chakra UI site.
 
 <Canvas>
   <Story
@@ -47,38 +52,38 @@ page on the Chakra UI site.
 
 ## Complex Layouts with Grid Child Components
 
-In some layouts, you may need certain grid items to span a specific amount of columns or rows instead of an even distribution. To achieve this, you need to pass the `colSpan` prop to the `GridItem` component to span across columns and also pass the `rowSpan` component to span across rows. You also need to specify the `templateColumns` and `templateRows`.
+In some layouts, you may need certain grid items to span a specific amount of
+columns or rows instead of an even distribution. To achieve this, you need to
+pass the `colSpan` prop to the `GridItem` component to span across columns and
+also pass the `rowSpan` component to span across rows. You also need to specify
+the `templateColumns` and `templateRows`.
 
 <Canvas>
   <DSProvider>
     <Grid
-      h="200px"
+      height="200px"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(5, 1fr)"
-      gap="32"
+      gap="l"
     >
-      <GridItem
-        rowSpan={2}
-        colSpan={1}
-        bg="var(--nypl-colors-ui-link-primary)"
-      />
-      <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-primary)" />
-      <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-secondary)" />
-      <GridItem colSpan={4} bg="var(--nypl-colors-ui-link-secondary)" />
+      <GridItem rowSpan={2} colSpan={1} bg="ui.link.primary" />
+      <GridItem colSpan={2} bg="ui.success.primary" />
+      <GridItem colSpan={2} bg="ui.success.secondary" />
+      <GridItem colSpan={4} bg="ui.link.secondary" />
     </Grid>
   </DSProvider>
 </Canvas>
 
 ```jsx
 <Grid
-  h="200px"
+  height="200px"
   templateRows="repeat(2, 1fr)"
   templateColumns="repeat(5, 1fr)"
-  gap="32"
+  gap="l"
 >
-  <GridItem rowSpan={2} colSpan={1} bg="var(--nypl-colors-ui-link-primary)" />
-  <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-primary)" />
-  <GridItem colSpan={2} bg="var(--nypl-colors-ui-success-secondary)" />
-  <GridItem colSpan={4} bg="var(--nypl-colors-ui-link-secondary)" />
+  <GridItem rowSpan={2} colSpan={1} bg="ui.link.primary" />
+  <GridItem colSpan={2} bg="ui.success.primary" />
+  <GridItem colSpan={2} bg="ui.success.secondary" />
+  <GridItem colSpan={4} bg="ui.link.secondary" />
 </Grid>
 ```

@@ -11,18 +11,25 @@ import { NotificationTypes } from "./NotificationTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 interface BaseProps {
-  /** Optional prop to control text alignment of the `Notification` content */
+  /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
   /** Optional prop to control horizontal alignment of the `Notification` content */
   centered?: boolean;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
   /** Optional prop to control the coloring of the `Notification` text and the
    * visibility of an applicable icon. */
   notificationType?: NotificationTypes;
 }
 
-export interface NotificationProps extends BaseProps {
+// Used for `NotificationHeading` and `Notification`
+type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
+// Used for `NotificationContent`
+type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
+
+export interface NotificationProps extends BasePropsWithoutAlignText {
   /** Additional `className` to add.  */
   className?: string;
   /** Optional prop to control whether a `Notification` can be dismissed
@@ -30,29 +37,36 @@ export interface NotificationProps extends BaseProps {
   dismissible?: boolean;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional prop to control the margin around the `Notification` component. */
   noMargin?: boolean;
   /** Content to be rendered in a `NotificationContent` component. */
   notificationContent: string | JSX.Element;
   /** Content to be rendered in a `NotificationHeading` component. */
   notificationHeading?: string;
+  /** Prop to display the `Notification` icon. Defaults to `true`. */
+  showIcon?: boolean;
 }
 
 /**
  * NotificationHeading child-component.
  */
-export function NotificationHeading(props: React.PropsWithChildren<BaseProps>) {
-  const { centered, children, icon, notificationType } = props;
+export function NotificationHeading(
+  props: React.PropsWithChildren<BasePropsWithoutAlignText>
+) {
+  const { centered, children, icon, id, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationHeading", {
     centered,
+    icon,
     notificationType,
   });
   return (
     <Box as="header" __css={styles}>
       {icon}
-      <Heading level={HeadingLevels.Four} additionalStyles={styles.heading}>
+      <Heading
+        additionalStyles={styles.heading}
+        id={`${id}-heading`}
+        level={HeadingLevels.Four}
+      >
         {children}
       </Heading>
     </Box>
@@ -62,10 +76,13 @@ export function NotificationHeading(props: React.PropsWithChildren<BaseProps>) {
 /**
  * NotificationContent child-component.
  */
-export function NotificationContent(props: React.PropsWithChildren<BaseProps>) {
+export function NotificationContent(
+  props: React.PropsWithChildren<BasePropsWithoutCentered>
+) {
   const { alignText, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationContent", {
     alignText,
+    icon,
     notificationType,
   });
   return (
@@ -91,6 +108,7 @@ export default function Notification(props: NotificationProps) {
     notificationContent,
     notificationHeading,
     notificationType = NotificationTypes.Standard,
+    showIcon = true,
   } = props;
   const [isOpen, setIsOpen] = useState(true);
   const handleClose = () => setIsOpen(false);
@@ -98,6 +116,7 @@ export default function Notification(props: NotificationProps) {
     centered,
     noMargin,
     notificationType,
+    showIcon,
   });
   const iconElement = () => {
     const baseIconProps = {
@@ -105,6 +124,10 @@ export default function Notification(props: NotificationProps) {
       size: IconSizes.Large,
       additionalStyles: styles.icon,
     };
+    // If the icon should not display, return null.
+    if (!showIcon) {
+      return null;
+    }
     // If a custom icon is passed, add specific `Notification` styles.
     if (icon)
       return React.cloneElement(icon, {
@@ -116,18 +139,22 @@ export default function Notification(props: NotificationProps) {
         name: IconNames.SpeakerNotes,
         color: IconColors.SectionResearchSecondary,
       },
+      [NotificationTypes.Standard]: {
+        name: IconNames.AlertNotificationImportant,
+        color: IconColors.UiBlack,
+      },
       [NotificationTypes.Warning]: {
         name: IconNames.ErrorFilled,
         color: IconColors.BrandPrimary,
       },
     };
-    return notificationType !== NotificationTypes.Standard ? (
+    return (
       <Icon
         id={`${id}-notification-icon`}
         {...baseIconProps}
         {...iconProps[notificationType]}
       />
-    ) : null;
+    );
   };
   const dismissibleButton = dismissible && (
     <Button
@@ -148,15 +175,14 @@ export default function Notification(props: NotificationProps) {
     <NotificationHeading
       centered={centered}
       icon={iconElem}
+      id={id}
       notificationType={notificationType}
     >
       {notificationHeading}
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText =
-    childHeading &&
-    (!!icon || (notificationType !== NotificationTypes.Standard && !centered));
+  const alignText = childHeading && showIcon && (!!icon || !centered);
   const childContent = (
     <NotificationContent
       alignText={alignText}

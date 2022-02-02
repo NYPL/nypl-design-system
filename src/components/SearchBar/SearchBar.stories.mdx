@@ -1,10 +1,10 @@
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
-} from "@storybook/addon-docs/blocks";
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import SearchBar from "./SearchBar";
@@ -19,22 +19,39 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
     },
     jest: ["SearchBar.test.tsx"],
   }}
   argTypes={{
-    action: { table: { disable: true } },
-    ariaLabel: { table: { disable: true } },
-    buttonOnClick: { table: { disable: true } },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
-    method: { table: { disable: true } },
-    onSubmit: { table: { disable: true } },
-    selectProps: { table: { disable: true } },
-    textInputProps: { table: { disable: true } },
-    textInputElement: { table: { disable: true } },
+    action: { control: false },
+    ariaLabel: { control: false },
+    buttonOnClick: {
+      control: false,
+      table: { defaultValue: { summary: "null" } },
+    },
+    className: { control: false },
+    id: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    method: { control: false },
+    onSubmit: { control: false },
+    selectProps: { control: false },
+    showHelperText: {
+      description: "Only used for Storybook",
+    },
+    showSelect: {
+      description: "Only used for Storybook",
+    },
+    textInputElement: { control: false },
+    textInputProps: { control: false },
   }}
 />
 
@@ -43,7 +60,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.3`   |
+| Latest            | `0.25.9`   |
 
 <Description of={SearchBar} />
 
@@ -55,6 +72,9 @@ based on the required props.
 
 The `Select` dropdown narrows the search within a specific category, typically
 title or author. Toggle the `Select` through the Controls.
+
+Note: The labels for the `Select` and `TextInput` components are not visible but
+aria-labels are used to make these children components accessible.
 
 export const optionsGroup = [
   "Art",
@@ -71,39 +91,50 @@ export const optionsGroup = [
 
 <Canvas withToolbar>
   <Story
-    name="Basic"
+    name="SearchBar with Controls"
     args={{
-      showHelperText: true,
-      showSelect: true,
+      action: undefined,
+      buttonOnClick: undefined,
+      className: undefined,
+      helperText: "Search for items in Animal Crossing New Horizons",
+      id: "searchBar-id",
       invalidText: "Could not find the item :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
-      helperErrorText: "Search for items in Animal Crossing New Horizons",
+      labelText: "SearchBar Label",
+      method: undefined,
+      noBrandButtonType: false,
+      onSubmit: () => {},
+      selectProps: undefined,
+      showHelperText: true,
+      showSelect: true,
+      textInputElement: undefined,
+      textInputProps: undefined,
     }}
   >
     {(args) => (
       <SearchBar
-        onSubmit={() => {}}
         {...args}
         selectProps={
           args.showSelect && {
-            name: "nhItemSearch",
             labelText: "Select a category",
+            name: "selectName",
             optionsData: optionsGroup,
           }
         }
         textInputProps={{
           labelText: "Item Search",
+          name: "textInputName",
           placeholder: "Item Search",
         }}
-        helperErrorText={args.showHelperText && args.helperErrorText}
+        helperText={args.showHelperText && args.helperText}
       />
     )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic" />
+<ArgsTable story="SearchBar with Controls" />
 
 ## Component Props
 
@@ -132,14 +163,19 @@ const selectProps = {
 ### TextInput Component
 
 To render the `TextInput` component, an object must be passed to the
-`textInputProps` prop. It _must_ include `labelText` and `placeholder`
+`textInputProps` prop. It _must_ include `labelText`, `name`, and `placeholder`
 properties. The `labelText` value won't be rendered but will be used for its
-`aria-label` attribute.
+`aria-label` attribute. Optional values to pass include `onChange` and `value`.
 
 ```
 const textInputProps = {
   labelText: "Item Search",
+  name: "textInputName",
+  onChange: (event) => {
+    console.log(event.target.value);
+  },
   placeholder: "Item Search",
+  value: "Horizon"
 };
 
 // ...
@@ -173,22 +209,53 @@ A `Button` component will automatically be rendered for the `SearchBar`
 component. If you want to pass a callback function to the `Button`, use the
 `buttonOnClick` prop.
 
+It's also possible to render the `ButtonType.NoBrand` variant style when the
+`noBrandButtonType` prop is set to `true`. The `ButtonType.Primary` variant
+style is used by default.
+
 ### HelperErrorText Component
 
-To render the `HelperErrorText` component, pass a string value to the
-`helperErrorText` prop. For the invalid state when `isInvalid` is true, pass the
-error string in the `invalidText` prop.
+To render the `HelperErrorText` component, pass a string or HTML to the
+`helperText` prop. For the invalid state when `isInvalid` is true, pass the
+error string or HTML in the `invalidText` prop.
 
 ```
-const helperErrorText = "";
+const helperText = "";
 
 // ...
 <SearchBar
   onSubmit={() => {}}
-  helperErrorText="Search for items in Animal Crossing New Horizons"
+  helperText="Search for items in <b>Animal Crossing New Horizons</b>."
   // ...
 />
 ```
+
+<Canvas>
+  <DSProvider>
+    <SearchBar
+      descriptionText="The helper text below contains HTML in a string."
+      helperText="Search for items in <b>Animal Crossing New Horizons</b>."
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+    <br />
+    <SearchBar
+      descriptionText="The invalid text below contains HTML in a string."
+      isInvalid
+      invalidText="Could <b>not</b> find the item <b>:(</b>"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  </DSProvider>
+</Canvas>
 
 ## Search Autocomplete
 
@@ -207,8 +274,8 @@ precedence.
   <Story
     name="Search Autocomplete"
     args={{
-      isInvalid: false,
       isDisabled: false,
+      isInvalid: false,
       isRequired: false,
     }}
   >
@@ -217,7 +284,7 @@ precedence.
         <SearchBar
           onSubmit={() => {}}
           textInputElement={stories.SearchBarExample()}
-          helperErrorText="Select your home library. Start by typing the name of the library. Try 'ba'."
+          helperText="Select your home library. Start by typing the name of the library. Try 'ba'."
           {...args}
         />
       </div>
@@ -242,9 +309,10 @@ handle the error state yourself.
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
+        name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperErrorText="Sorry, we can't find that item!"
+      helperText="This is the helper text!"
       invalidText="Could not find the item :("
       isInvalid
     />
@@ -260,13 +328,123 @@ handle the disabled state yourself.
 <Canvas>
   <DSProvider>
     <SearchBar
-      obSubmit={() => {}}
+      onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
+        name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperErrorText="Reason for disabled state."
+      helperText="Reason for disabled state."
       isDisabled
     />
+  </DSProvider>
+</Canvas>
+
+### With Heading and Description Text
+
+Use the `descriptionText` and `headingText` props to render a heading and
+description above the main `SearchBar` form component.
+
+<Canvas>
+  <DSProvider>
+    <SearchBar
+      descriptionText="This is the description for this `SearchBar` instance."
+      headingText="Heading for this `SearchBar`"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  </DSProvider>
+</Canvas>
+
+### TextInput and onSubmit Values
+
+_NOTE: open the browser console to see the values logged in the example below._
+
+It is possible to get certain values from the `SearchBar` component by passing
+callback functions as props.
+
+The keyword value in the `TextInput` component can be accessed by passing a
+function to the `onChange` property in the `textInputProp` prop. This is useful
+for validating the keyword the user entered.
+
+To get values when the form is submitted, you must:
+
+- pass values for the `name` property in the `selectProps` and `textInputProps`
+  prop objects.
+- get the values returned in the `onSubmit` callback function.
+
+In the following example, the `name` for the `Select` is "selectName" and the
+`name` for the `TextInput` is "textInputName". The `onSubmit` function can get
+the submitted values through the `event` object. In the example below, the
+values can be retrieved as `event.target.selectName.value` and
+`event.target.textInputName.value`.
+
+```tsx
+function SearchBarValueExample() {
+  const textInputOnChange = (event) => {
+    console.log(`onChange TextInput value: ${event.target.value}`);
+  };
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(`onSubmit Select value: ${event.target.selectName.value}`);
+    console.log(`onSubmit TextInput value ${event.target.textInputName.value}`);
+  };
+  return (
+    <SearchBar
+      onSubmit={onSubmit}
+      selectProps={{
+        labelText: "Select a category",
+        name: "selectName",
+        optionsData: optionsGroup,
+      }}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        onChange: textInputOnChange,
+        placeholder: "Item Search",
+      }}
+      helperText="Search for an item"
+      invalidText="Could not find the item :("
+    />
+  );
+}
+```
+
+export function SearchBarValueExample() {
+  const textInputOnChange = (event) => {
+    console.log(`onChange TextInput value: ${event.target.value}`);
+  };
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(`onSubmit Select value: ${event.target.selectName.value}`);
+    console.log(`onSubmit TextInput value ${event.target.textInputName.value}`);
+  };
+  return (
+    <SearchBar
+      onSubmit={onSubmit}
+      selectProps={{
+        labelText: "Select a category",
+        name: "selectName",
+        optionsData: optionsGroup,
+      }}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        onChange: textInputOnChange,
+        placeholder: "Item Search",
+      }}
+      helperText="Search for an item"
+      invalidText="Could not find the item :("
+    />
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <SearchBarValueExample />
   </DSProvider>
 </Canvas>

@@ -1,18 +1,18 @@
 import {
-  Meta,
-  Story,
   ArgsTable,
   Canvas,
   Description,
-} from "@storybook/addon-docs/blocks";
-import Accordion from "./Accordion";
+  Meta,
+  Story,
+} from "@storybook/addon-docs";
+import ReactDOMServer from "react-dom/server";
 import { withDesign } from "storybook-addon-designs";
+
+import Accordion from "./Accordion";
 import Card, { CardHeading, CardContent } from "../Card/Card";
 import { CardLayouts } from "../Card/CardTypes";
-import { ImageRatios } from "../Image/ImageTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
-import { Source } from "@storybook/addon-docs/blocks";
-import ReactDOMServer from "react-dom/server";
+import { ImageRatios } from "../Image/ImageTypes";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -22,14 +22,14 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10734%3A2520",
     },
     jest: ["Accordion.test.tsx"],
   }}
   argTypes={{
-    contentData: { table: { disable: true } },
-    id: { table: { disable: true } },
+    contentData: { control: false },
+    id: { control: false },
+    isDefaultOpen: { table: { defaultValue: { summary: false } } },
   }}
 />
 
@@ -57,9 +57,8 @@ necessary icon, Chakra components, and styles.
 
 <Canvas withToolbar>
   <Story
-    name="Basic"
+    name="Accordion with Controls"
     args={{
-      isDefaultOpen: false,
       contentData: [
         {
           label: "Tom Nook",
@@ -83,6 +82,8 @@ necessary icon, Chakra components, and styles.
           ),
         },
       ],
+      id: "accordion-id",
+      isDefaultOpen: false,
     }}
   >
     {(args) => <Accordion {...args} />}
@@ -119,7 +120,7 @@ const contentData = [
 <Accordion contentData={contentData} />
 ```
 
-<ArgsTable story="Basic" />
+<ArgsTable story="Accordion with Controls" />
 
 ## FAQ example
 
@@ -134,7 +135,7 @@ export const faqContent = [
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="heading1-tom">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -154,7 +155,7 @@ export const faqContent = [
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="heading1-isabelle">
           Isabelle
         </CardHeading>
         <CardContent>
@@ -176,7 +177,7 @@ export const faqContent = [
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="heading1-kkslider">
           K.K. Slider
         </CardHeading>
         <CardContent>
@@ -213,7 +214,7 @@ export const faqContent = [
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="heading1-tom">
           Tom Nook
         </CardHeading>
         <CardContent>
@@ -233,7 +234,7 @@ export const faqContent = [
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="heading1-isabelle">
           Isabelle
         </CardHeading>
         <CardContent>
@@ -255,7 +256,7 @@ export const faqContent = [
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
       >
-        <CardHeading level={HeadingLevels.Four} id="heading1">
+        <CardHeading level={HeadingLevels.Four} id="heading1-kkslider">
           K.K. Slider
         </CardHeading>
         <CardContent>

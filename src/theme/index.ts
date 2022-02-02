@@ -29,6 +29,7 @@ import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
 import List from "./components/list";
+import Logo from "./components/logo";
 import NotificationStyles from "./components/notification";
 import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
@@ -36,11 +37,14 @@ import Radio from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
+import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
+import StructuredContent from "./components/structuredContent";
 import Tabs from "./components/tabs";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
+import Toggle from "./components/toggle";
 import VideoPlayer from "./components/videoPlayer";
 
 /**
@@ -94,6 +98,7 @@ const theme = extendTheme({
     Label,
     Link,
     List,
+    Logo,
     ...NotificationStyles,
     Pagination,
     ProgressIndicator,
@@ -102,13 +107,16 @@ const theme = extendTheme({
     SearchBar,
     Skeleton,
     SkeletonLoader,
+    CustomSlider,
     StatusBadge,
+    StructuredContent,
     Tabs,
     FilterBar,
     MultiSelect,
     ...TemplateStyles,
     Text,
     TextInput,
+    ...Toggle,
     VideoPlayer,
   },
   // Use `cssVarPrefix` to set the prefix used on the CSS vars produced by

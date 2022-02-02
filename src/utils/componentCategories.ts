@@ -3,7 +3,7 @@
 const categories = {
   basicContent: {
     title: "Components/Basic Elements",
-    components: ["Card", "CardEdition", "Hero", "Promo", "Sponsor", "Table"],
+    components: ["Card", "Hero", "Promo", "Sponsor"],
   },
   contentDisplay: {
     title: "Components/Content Display",
@@ -19,7 +19,7 @@ const categories = {
   },
   deprecated: {
     title: "Components/Deprecated",
-    components: [],
+    components: ["CardEdition", "Input"],
   },
   feedback: {
     title: "Components/Feedback",
@@ -44,7 +44,6 @@ const categories = {
       "FileUploader",
       "FilterBar",
       "Form",
-      "Input",
       "Label",
       "MultiSelect",
       "NumberInput",
@@ -55,12 +54,13 @@ const categories = {
       "Slider",
       "Textarea",
       "TextInput",
+      "Toggle",
     ],
   },
   layout: {
     title: "Components/Page Layout",
     components: [
-      "BasicPageSection",
+      "StructuredContent",
       "ContentSwitcher",
       "Footer",
       "Grid",
@@ -68,6 +68,7 @@ const categories = {
       "HorizontalRule",
       "Section",
       "SimpleGrid",
+      "Table",
       "Template",
     ],
   },
@@ -114,6 +115,7 @@ const categories = {
       "Breakpoints",
       "Buttons",
       "Colors",
+      "Design Tokens",
       "Forms",
       "Iconography",
       "Spacing",

@@ -6,16 +6,20 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
   id="regularCard"
 >
   <div
-    className="the-wrap  css-0"
+    className="css-0"
   >
     <div
-      className="the-crop css-0"
+      className="the-wrap  css-0"
     >
-      <img
-        alt="Alt text"
-        className="css-0"
-        src="https://placeimg.com/400/200/arch"
-      />
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/400/200/arch"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -55,16 +59,20 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
   id="cardWithExtendedStyles"
 >
   <div
-    className="the-wrap  css-0"
+    className="css-0"
   >
     <div
-      className="the-crop css-0"
+      className="the-wrap  css-0"
     >
-      <img
-        alt="Alt text"
-        className="css-0"
-        src="https://placeimg.com/300/400/arch"
-      />
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -96,6 +104,8 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         className="css-0"
         href="online"
         id="link-online"
+        rel={null}
+        target={null}
       >
         Read Online
       </a>
@@ -103,6 +113,8 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         className="css-0"
         href="#url"
         id="link-icon"
+        rel={null}
+        target={null}
       >
         <svg
           aria-hidden={true}
@@ -149,16 +161,20 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
   id="cardWithNoCTAs"
 >
   <div
-    className="the-wrap  css-0"
+    className="css-0"
   >
     <div
-      className="the-crop css-0"
+      className="the-wrap  css-0"
     >
-      <img
-        alt="Alt text"
-        className="css-0"
-        src="https://placeimg.com/300/400/arch"
-      />
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -193,16 +209,20 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
   id="cardWithNoContent"
 >
   <div
-    className="the-wrap  css-0"
+    className="css-0"
   >
     <div
-      className="the-crop css-0"
+      className="the-wrap  css-0"
     >
-      <img
-        alt="Alt text"
-        className="css-0"
-        src="https://placeimg.com/300/400/arch"
-      />
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/300/400/arch"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -213,8 +233,11 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       id="editioncardheading1"
     >
       <a
-        className="chakra-link css-1xdhyk6"
+        className="css-0"
         href="#edition-link"
+        id="editioncardheading1-link"
+        rel={null}
+        target={null}
       >
         The Card Heading
       </a>
@@ -226,6 +249,8 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         className="css-0"
         href="online"
         id="link-online"
+        rel={null}
+        target={null}
       >
         Read Online
       </a>
@@ -233,6 +258,8 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         className="css-0"
         href="#url"
         id="link-icon"
+        rel={null}
+        target={null}
       >
         <svg
           aria-hidden={true}
@@ -286,8 +313,11 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       id="editioncardheading1"
     >
       <a
-        className="chakra-link css-1xdhyk6"
+        className="css-0"
         href="#edition-link"
+        id="editioncardheading1-link"
+        rel={null}
+        target={null}
       >
         The Card Heading
       </a>
@@ -304,6 +334,8 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         className="css-0"
         href="online"
         id="link-online"
+        rel={null}
+        target={null}
       >
         Read Online
       </a>
@@ -311,6 +343,8 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         className="css-0"
         href="#url"
         id="link-icon"
+        rel={null}
+        target={null}
       >
         <svg
           aria-hidden={true}
@@ -360,16 +394,20 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
     id="fullclick"
   >
     <div
-      className="the-wrap  css-0"
+      className="css-0"
     >
       <div
-        className="the-crop css-0"
+        className="the-wrap  css-0"
       >
-        <img
-          alt="Alt text"
-          className="css-0"
-          src="https://placeimg.com/400/200/arch"
-        />
+        <div
+          className="the-crop css-0"
+        >
+          <img
+            alt="Alt text"
+            className="css-0"
+            src="https://placeimg.com/400/200/arch"
+          />
+        </div>
       </div>
     </div>
     <div

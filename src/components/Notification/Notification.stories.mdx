@@ -1,24 +1,24 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Preview,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import Icon from "../Icons/Icon";
+import { IconColors, IconNames } from "../Icons/IconTypes";
 import Notification from "./Notification";
 import { NotificationTypes } from "./NotificationTypes";
-import Icon from "../Icons/Icon";
-import {
-  IconSizes,
-  IconColors,
-  IconNames,
-  IconAlign,
-} from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  NotificationTypes,
+  "NotificationTypes"
+);
 
 <Meta
   title={getCategory("Notification")}
@@ -27,10 +27,28 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A812",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A812",
     },
     jest: ["Notification.test.tsx"],
+  }}
+  argTypes={{
+    centered: {
+      table: { defaultValue: { summary: false } },
+    },
+    className: { control: false },
+    dismissible: {
+      table: { defaultValue: { summary: false } },
+    },
+    icon: { control: false },
+    id: { control: false },
+    noMargin: {
+      table: { defaultValue: { summary: false } },
+    },
+    notificationType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "NotificationTypes.Standard" } },
+      options: enumValues.options,
+    },
   }}
 />
 
@@ -39,7 +57,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.2`   |
+| Latest            | `0.25.9`   |
 
 <Description of={Notification} />
 
@@ -52,10 +70,14 @@ within a parent element.
 
 <Canvas>
   <Story
-    name="Notification Props"
+    name="Notification with Controls"
     args={{
-      id: "basic-notification",
-      centered: true,
+      centered: false,
+      className: undefined,
+      dismissible: false,
+      icon: undefined,
+      id: "notification-id",
+      noMargin: false,
       notificationHeading: "Notification Heading",
       notificationContent: (
         <>
@@ -67,17 +89,21 @@ within a parent element.
           nisi erat porttitor ligula.
         </>
       ),
+      showIcon: true,
     }}
   >
     {(args) => (
       <div style={{ border: "1px solid #ccc" }}>
-        <Notification {...args} />
+        <Notification
+          {...args}
+          notificationType={enumValues.getValue(args.notificationType)}
+        />
       </div>
     )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Notification Props" />
+<ArgsTable story="Notification with Controls" />
 
 ## Variants
 
@@ -194,31 +220,61 @@ within a parent element.
   </DSProvider>
 </Canvas>
 
+### Without Icon
+
+The `Notification` icon can be hidden with the `showIcon` prop set to `false`.
+
+<Canvas>
+  <DSProvider>
+    <Notification
+      notificationHeading="Standard Notification without Icon"
+      notificationContent={
+        <>
+          Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+          mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum
+          at eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus.
+        </>
+      }
+      showIcon={false}
+    />
+    <Notification
+      notificationContent={
+        <>
+          This is an Standard Notification without a heading or icon. Cras
+          mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus.
+        </>
+      }
+      showIcon={false}
+    />
+  </DSProvider>
+</Canvas>
+
 ## Custom Icon
 
 The default icon can be overridden by using the `icon` prop to pass a custom `Icon` component.
 
 <Canvas>
   <Story name="Custom Icons">
-    {(args) => (
-      <Notification
-        icon={
-          <Icon
-            name={IconNames.Check}
-            color={IconColors.SectionResearchSecondary}
-          />
-        }
-        notificationHeading="Custom Icon"
-        notificationContent={
-          <>
-            This is a Notification with a custom icon. Cras mattis consectetur
-            purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi
-            leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur
-            ridiculus mus.
-          </>
-        }
-      />
-    )}
+    <Notification
+      icon={
+        <Icon
+          name={IconNames.Check}
+          color={IconColors.SectionResearchSecondary}
+        />
+      }
+      notificationHeading="Custom Icon"
+      notificationContent={
+        <>
+          This is a Notification with a custom icon. Cras mattis consectetur
+          purus sit amet fermentum. Maecenas faucibus mollis interdum. Morbi leo
+          risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque
+          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </>
+      }
+    />
   </Story>
 </Canvas>

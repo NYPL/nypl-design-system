@@ -16,7 +16,8 @@ import generateUUID from "../../helpers/generateUUID";
 interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
   center?: boolean;
-  /** Optional value to render the layout in a row or column (default). */
+  /** Optional value to render the layout in a row or column.
+   * Default is `CardLayouts.Column`. */
   layout?: CardLayouts;
 }
 
@@ -54,14 +55,15 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   /** Text description of the image; to follow best practices for accessibility,
    * this prop should not be left blank if `imageSrc` is passed. */
   imageAlt?: string;
-  /** Optional value to control the aspect ratio of the `CardIage`; default
-   * value is `square`. */
+  /** Optional value to control the aspect ratio of the `CardImage`; default
+   * value is `ImageRatios.Square`. */
   imageAspectRatio?: ImageRatios;
   /** Optional boolean value to control the position of the `CardImage`. */
   imageAtEnd?: boolean;
   /** Custom image component used in place of DS `Image` component. */
   imageComponent?: JSX.Element;
-  /** Optional value to control the size of the `CardImage`. */
+  /** Optional value to control the size of the `CardImage`. Default value is
+   * `ImageSizes.Default`. */
   imageSize?: ImageSizes;
   /** The path to the image displayed within the `Card` component. */
   imageSrc?: string;
@@ -72,7 +74,7 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
  * renders an `Image` component but with overriding styles specific to the
  * `Card` component.
  */
-export function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
+function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
   const {
     alt,
     center,
@@ -91,14 +93,15 @@ export function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
     layout,
   });
   return (
-    <Image
-      alt={alt}
-      component={component}
-      imageAspectRatio={imageAspectRatio}
-      imageSize={imageSize}
-      src={src}
-      additionalStyles={styles}
-    />
+    <Box __css={styles}>
+      <Image
+        alt={alt}
+        component={component}
+        imageAspectRatio={imageAspectRatio}
+        imageSize={imageSize}
+        src={src}
+      />
+    </Box>
   );
 }
 
@@ -130,7 +133,7 @@ export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
  * component to the entire `Card` component. This works together with the
  * `CardLinkOverlay` component to provide a clickable overlay.
  */
-export function CardLinkBox({
+function CardLinkBox({
   children,
   mainActionLink,
 }: React.PropsWithChildren<CardLinkBoxProps>) {
@@ -148,7 +151,7 @@ export function CardLinkBox({
  * the `Card` component while still allowing links in the `CardActions` to be
  * clickable.
  */
-export function CardLinkOverlay({
+function CardLinkOverlay({
   children,
   mainActionLink,
 }: React.PropsWithChildren<CardLinkBoxProps>) {
@@ -178,9 +181,18 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     mainActionLink,
   } = props;
   const hasImage = imageSrc || imageComponent;
+  const finalImageAspectRatio = imageComponent
+    ? ImageRatios.Original
+    : imageAspectRatio;
   const customColors = {};
   const cardContents = [];
   let cardHeadingCount = 0;
+
+  if (imageComponent && imageAspectRatio !== ImageRatios.Square) {
+    console.warn(
+      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+    );
+  }
 
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
@@ -191,6 +203,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     hasImage,
     imageAtEnd,
     layout,
+    mainActionLink,
   });
 
   React.Children.map(children, (child: React.ReactElement, key) => {
@@ -245,7 +258,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
             component={imageComponent}
             alt={imageAlt}
             imageSize={imageSize}
-            imageAspectRatio={imageAspectRatio}
+            imageAspectRatio={finalImageAspectRatio}
             imageAtEnd={imageAtEnd}
             layout={layout}
           />

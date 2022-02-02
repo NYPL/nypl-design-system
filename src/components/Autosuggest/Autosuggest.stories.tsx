@@ -3,10 +3,7 @@ import React, { useState } from "react";
 import Autosuggest from "react-autosuggest";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/IconTypes";
-import Label from "../Label/Label";
-import Input from "../Input/Input";
-import { InputTypes } from "../Input/InputTypes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import TextInput from "../TextInput/TextInput";
 
 /**
  * StoryWrapper
@@ -21,29 +18,16 @@ const libraryRenderInputComponent = (
   inputProps: React.HTMLProps<HTMLInputElement>
 ) => {
   return (
-    <>
-      <Label
-        htmlFor="library-autosuggest"
-        id="library-autosuggest-label"
-        optReqFlag={"Required"}
-      >
-        Home Library
-      </Label>
-      <HelperErrorText id="id-helperText" isInvalid={false}>
-        Select your home library. Start by typing the name of the library. Try{" "}
-        {'"'}ba{'"'}.
-      </HelperErrorText>
-      <Input
-        type={InputTypes.text}
-        id="library-autosuggest"
-        aria-required={true}
-        aria-labelledby="library-autosuggest-label id-helperText"
-        attributes={{
-          name: "homeLibraryName",
-          ...inputProps,
-        }}
-      />
-    </>
+    <TextInput
+      attributes={{
+        ...inputProps,
+      }}
+      id="library-autosuggest"
+      isRequired
+      labelText="Home Library"
+      name="homeLibraryName"
+      helperText="Select your home library. Start by typing the name of the library. Try 'ba'."
+    />
   );
 };
 
@@ -99,6 +83,7 @@ const LibraryExample = ({ renderInputComponent }) => {
   const renderSuggestion = (suggestion) => <span>{suggestion.label}</span>;
   // Autosuggest will pass through all these props to the Input component.
   const inputProps = {
+    "aria-label": "Home Library",
     placeholder: "Type a library name",
     value,
     onChange,
@@ -147,20 +132,14 @@ const FishExample = () => {
   ];
   const renderInputComponent = (inputProps) => {
     return (
-      <>
-        <Label htmlFor="input-fish-autosuggest" id="fish-autosuggest-label">
-          Fish in Animal Crossing
-        </Label>
-        <Input
-          type={InputTypes.text}
-          id="input-fish-autosuggest"
-          aria-required={false}
-          attributes={{
-            name: "favoriteFish",
-            ...inputProps,
-          }}
-        />
-      </>
+      <TextInput
+        attributes={{
+          ...inputProps,
+        }}
+        id="library-fish-autosuggest"
+        labelText="Fish in Animal Crossing"
+        name="favoriteFish"
+      />
     );
   };
   const onChange = (_: any, { newValue }) => setValue(newValue);
@@ -217,16 +196,14 @@ const searchBarRenderInputComponent = (
   inputProps: React.HTMLProps<HTMLInputElement>
 ) => {
   return (
-    <Input
-      type={InputTypes.text}
-      id="autosuggest-searchBar"
-      aria-required={true}
-      ariaLabelledBy="autosuggest-button"
+    <TextInput
       attributes={{
-        name: "homeLibraryName",
-        "aria-describedby": "autosuggest-helperText",
         ...inputProps,
       }}
+      id="autosuggest-searchBar"
+      isRequired
+      labelText="home library"
+      name="homeLibraryName"
     />
   );
 };

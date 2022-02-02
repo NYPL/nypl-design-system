@@ -1,15 +1,18 @@
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
-import { FormRow, FormField } from "../Form/Form";
 import { DatePickerTypes } from "./DatePickerTypes";
+import Fieldset from "../Fieldset/Fieldset";
+import { FormRow, FormField } from "../Form/Form";
+import { FormSpacing } from "../Form/FormTypes";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
-import Fieldset from "../Fieldset/Fieldset";
 import { useMultiStyleConfig } from "@chakra-ui/system";
 
 // The object shape for the DatePicker's start and end date state values.
@@ -73,7 +76,7 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   /** DatePicker date types that can be rendered. */
   dateType?: DatePickerTypes;
   /** Populates the `HelperErrorText` component in this component. */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** Populates the `HelperErrorText` component in the "From" `TextInput` component. */
   helperTextFrom?: string;
   /** Populates the `HelperErrorText` component in the "To" `TextInput` component. */
@@ -85,7 +88,7 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   initialDateTo?: string;
   /** Populates the `HelperErrorText` error state for both "From"
    * and "To" input components. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' property to the input element(s). */
   isDisabled?: boolean;
   /** Adds 'isInvalid' styling. */
@@ -214,7 +217,9 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
   children,
 }) =>
   isDateRange ? (
-    <FormRow id={`${id}-form-row`}>{children}</FormRow>
+    <FormRow id={`${id}-form-row`} gap={FormSpacing.ExtraSmall}>
+      {children}
+    </FormRow>
   ) : (
     <>{children}</>
   );
@@ -412,9 +417,11 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
           )}
         </DateRangeRow>
         {helperText && isDateRange && showHelperInvalidText && (
-          <HelperErrorText id={`${id}-helper-text`} isInvalid={false}>
-            {helperText}
-          </HelperErrorText>
+          <HelperErrorText
+            id={`${id}-helper-text`}
+            isInvalid={false}
+            text={helperText}
+          />
         )}
       </DatePickerWrapper>
     );

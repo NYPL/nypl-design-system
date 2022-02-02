@@ -27,7 +27,7 @@ export interface LinkProps {
  * Renders the `Link` children components with a direction arrow icon based
  * on the `Backwards` or `Forwards` `LinkTypes` type.
  */
-function getWithDirectionIcon(children, type: LinkTypes) {
+function getWithDirectionIcon(children, type: LinkTypes, linkId) {
   let iconRotation;
   let iconAlign;
   let icon = null;
@@ -42,12 +42,15 @@ function getWithDirectionIcon(children, type: LinkTypes) {
     iconAlign = IconAlign.Right;
   }
 
+  const iconId = `${linkId}-icon`;
+
   icon = (
     <Icon
-      name={IconNames.Arrow}
       align={iconAlign}
-      iconRotation={iconRotation}
       className="more-link"
+      iconRotation={iconRotation}
+      id={iconId}
+      name={IconNames.Arrow}
     />
   );
 
@@ -56,6 +59,25 @@ function getWithDirectionIcon(children, type: LinkTypes) {
       {type === LinkTypes.Backwards && icon}
       {children}
       {type === LinkTypes.Forwards && icon}
+    </>
+  );
+}
+
+function getExternalIcon(children, linkId) {
+  const iconId = `${linkId}-icon`;
+  const icon = (
+    <Icon
+      align={IconAlign.Right}
+      className="more-link"
+      id={iconId}
+      name={IconNames.ActionLaunch}
+    />
+  );
+
+  return (
+    <>
+      {children}
+      {icon}
     </>
   );
 }
@@ -87,25 +109,31 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     let variant = "link";
 
     if (typeof children === "string" && !href) {
-      throw new Error("Link needs prop 'href'");
+      throw new Error("`Link` needs the `href` prop.");
     }
 
     if (
       type === LinkTypes.Action ||
       type === LinkTypes.Forwards ||
-      type === LinkTypes.Backwards
+      type === LinkTypes.Backwards ||
+      type === LinkTypes.External
     ) {
       variant = "moreLink";
     } else if (type === LinkTypes.Button) {
       variant = "button";
     }
     const style = useStyleConfig("Link", { variant });
-    // Render with specific direction arrows only if the type
-    // is Forwards or Backwards.
+    // Render with specific direction arrows if the type is
+    // Forwards or Backwards.  Or render with the launch icon
+    // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
-      type === LinkTypes.Forwards || type === LinkTypes.Backwards
-        ? getWithDirectionIcon(children, type)
-        : children;
+      ((type === LinkTypes.Forwards || type === LinkTypes.Backwards) &&
+        getWithDirectionIcon(children, type, id)) ||
+      (type === LinkTypes.External && getExternalIcon(children, id)) ||
+      children;
+
+    const rel = type === LinkTypes.External ? "nofollow" : null;
+    const target = type === LinkTypes.External ? "_blank" : null;
 
     if (!href) {
       // React Types error makes this fail:
@@ -116,15 +144,24 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       }
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
-      return React.cloneElement(
-        childrenToClone,
-        {
-          className,
-          ...linkProps,
-          ...childProps,
-          ref,
-        },
-        [childrenToClone.props.children]
+      return (
+        <Box as="span" __css={style}>
+          {React.cloneElement(
+            childrenToClone,
+            {
+              className,
+              ...linkProps,
+              ...childProps,
+              ref,
+              rel,
+              target,
+              // Useful if more styles are needed for the custom
+              // anchor element or link component.
+              style: additionalStyles,
+            },
+            [childrenToClone.props.children]
+          )}
+        </Box>
       );
     } else {
       return (
@@ -132,6 +169,8 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           as="a"
           className={className}
           ref={ref}
+          rel={rel}
+          target={target}
           {...linkProps}
           __css={{ ...style, ...additionalStyles }}
         >

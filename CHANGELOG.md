@@ -10,16 +10,137 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `Logo` component.
+- Adds the `noBrandButtonType` boolean prop to the `SearchBar` component to render the `NoBrand` `Button` variant style.
+- Adds element-specific design tokens for `fontSizes` and `fontWeights`.
+- Adds the `StructuredContent` component.
+- Adds the `additionalImageStyles` and `additionalFigureStyles` props to the `Image` component to specifically target the `img` element's style and the `figure` HTML elements.
+
+### Breaking Changes
+
+- Completely removes the `CardEdition` and `Input` components and related files and references.
+- Removes all references of the `BEM` CSS pattern.
+- Removes all references to logos from the `Icon` component.
+- Removes passing in text to the `HelperErrorText` component as children. Now, the `text` prop is used to render its text.
+- Renames the `SearchBar`'s `helperErrorText` prop to `helperText` to be consistent with other components.
+
+### Changes
+
+- Updates the `Form`, `HorizontalRule`, `Image` component by removing the native HTML attributes as props. This sets the props allowed to the list of props declared in their own files.
+- Minor change to the `Notification`'s heading component so it adds a proper id to `NotificationHeading`.
+- Updates the `Heading` component to use the DS `Link` component rather than Chakra's `Link` component.
+- Updates the style of links rendered in the `Heading` component so they are styled as standard links. The only exception is for links used in the `Card` component for the _full-click functionality_ feature. Otherwise, links in `Card` headings are styled as standard links.
+- Updates the `SearchBar` component to now be implemented with the `ComponentWrapper` component.
+- Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
+- Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
+- Updates the label text style in the disabled state of the `Toggle` component.
+- Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
+- Updates the `TextInput` component to use a white background for `static`, `error` and `focus` states.
+- Updates `Select` component to use a white background for `static`, `error` and `focus` states.
+- Updates the `Template` component to use `s` (16px) spacing on the left and right sides of the main content area.
+- Updates the `HelperErrorText` component to allow HTML to be passed in as a string or HTML.
+- Updates how the `HelperErrorText` component renders text in the following components: `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, `VideoPlayer`.
+
+### Fixes
+
+- Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
+- Allows the `TemplateAppContainer` and `TemplateFooter` components to use the `renderFooterElement` prop. This is `true` by default so it renders an HTML `footer` element. If a custom footer component that renders its own HTML `<footer>` must be used, then setting `renderFooterElement` to false will not render two nested `footer` elements.
+- Fixes the Storybook `level` prop value for the `Heading` component so it updates the component.
+- Removes wrapper divs around custom image elements used in the `Card` component. Also passes the aspect ratio as `ImageRatios.Original` when the custom image element is passed to the `Card` component.
+
+## 0.25.8 (January 6, 2022)
+
+### Adds
+
+- Adds `embedCode` prop to `VideoPlayer` component.
+- Adds export statements for `ProgressIndicatorSizes` and `ProgressIndicatorTypes` enums to `index.ts`.
+- Adds `ExtraSmall` and `ExtraExtraSmall` size variants to the `Image` component.
+- Adds `ExtraSmall` and `ExtraExtraSmall` size variants for `CardImage` in the `Card` component.
+- Adds `AlertNotificationImportant` icon to `Icon` component.
+- Adds `Toggle` component.
+- Adds `xxxs` (2px) spacing option to DS design tokens.
+- Adds `external` variant to `Link` component.
+
+### Changes
+
+- Changes category for `Table` component from `Basic Elements` to `Page Layout`.
+- Updates the background color for the `Locations` variant in the `Breadcrumbs` component from `section.locations.secondary` to `section.locations.primary`.
+- Updates the `Notification` component to show the `AlertNotificationImportant` icon for the `Standard` variant.
+- Reduces the bottom margin on labels and legends for form components from "16px" to "8px", or "s" to "sx" in Chakra-theme variables.
+- Updates docs for Chakra `Grid` component to use theme object values rather than CSS variables.
+- Updates the spacing in the `Notification` component to improve the alignment of the icon and text elements.
+- Updates the `Notification` component to optionally display/hide the `Icon` in the heading or content area.
+- Updates the `ComponentWrapper` component to allow the internal `HelperErrorText` component to get set in the invalid state. Also added tests for this component.
+
+### Fixes
+
+- Fixes two bugs in the `Slider`: (1) unable to call the `onChange` function when it is not passed, and (2) fixing the default array value for the range slider so it mounts properly.
+- Updates the `Select` component's controlled state so that an initial empty `value` prop is acceptable.
+
+## 0.25.7 (December 20, 2021)
+
+### Fixes
+
+- Removes `<=12.22` from node engine in `package.json` to reduce installation issues.
+
+## 0.25.6 (December 16, 2021)
+
+### Adds
+
+- Adds export statements for `ProgressIndicator` and `Slider` components to `index.ts`.
+- Adds `Blogs` variant to `Breadcrumbs` component.
+- Adds the `placeholder` prop to the `Select` component.
+
+### Changes
+
+- Adds "(Required)" text to the placeholder in the `SearchBar` component when `isRequired` is true.
+
+## 0.25.5 (December 9, 2021)
+
+### Fixes
+
+- Updates the Github Action for the Github Pages deployment to use node 12 instead of the default node 16. This caused issues since we now set the node engine to `<=12.22`.
+
+## 0.25.4 (December 9, 2021)
+
+### Adds
+
 - Adds the `ProgressIndicator` component.
+- Adds documentation for using `NYPL Design Tokens`.
+- Adds the `ActionHelpDefault`, `ActionHelpOutline` and `ActionLaunch` icons to the `Icon` component.
+- Adds the DS `Slider` component based on the Chakra `Slider` and `RangeSlider` components.
+- Adds the `ButtonTypes.NoBrand` variant to the `Button` component.
+- Adds the `additionalStyles` prop to the `Breadcrumbs` component.
 
 ### Changes
 
 - Updates the organization of SCSS files by deleting some files and combining others.
 - Updates `@chakra-ui/react` to version 1.7.1 and `@chakra-ui/system` to version 1.8.1.
+- Updates the `TextInput` component to now have `defaultValue` and `step` props.
+- Updates `Latest Version` number for `Image`, `Notification` and `Pagination` components.
+- Removes the Storybook "Knobs" addon.
+- Updates the margin for labels in the `DatePicker` component when it is in the "date range" state.
+- Updates the `DatePicker` component to have proper form spacing when in the "date range" state.
+- Updates the `Tabs` component to comply with linting rules -- no functional or visual changes were made.
+- Removes the `alignText` prop from the `Notification` component. Storybook was incorrectly displaying `alignText` as an available prop.
+
+### Fixes
+
+- Exports components and variables that were initially missed when they were added: `ColorVariants`, `Fieldset`, `IconAlign`, `StatusBadgeTypes`,
+- Fixes `SearchBar` by passing necessary props down to its `TextInput` through the `textInputProps` prop.
+- Fixes `DatePicker` component unit tests.
+- Removes the `showLabel` prop from the `SearchBar` component to prevent confusion. Labels for the `Select` and `TextInput` components are never shown but are added through the `aria-label` attribute.
 
 ### Breaking Changes
 
 - Updates the breakpoint CSS variable names by adding the `--nypl` prefix and the SCSS variables by adding the `$nypl` prefix. Updates references throughout the codebase.
+- Changes the `Button`'s `disabled` prop to `isDisabled`.
+- Updates npm packages in `package.json`. Removes `cpy-cli`, `react-uid`, `react-is`, `stylelint` and related packages, and `ts-loader` (already added through TSDX). Updates other packages such as `sass-loader`, `prettier`, `jest`, `jest-axe`, and the majority of Storybook addon packages.
+
+### Deprecates
+
+- Deprecates the `Input` component. The `Input` component will be removed from the NYPL Design System React Library in the first release of January 2022.
+- Deprecates the `CardEdition` component. The `CardEdition` component will be removed from the NYPL Design System React Library in the first release of January 2022.
 
 ## 0.25.3 (November 18, 2021)
 

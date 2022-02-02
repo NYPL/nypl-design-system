@@ -1,9 +1,18 @@
 // Variant styling
+const blogs = {
+  bg: "section.blogs.secondary",
+  color: "ui.black",
+  a: {
+    _hover: {
+      color: "ui.gray.xdark",
+    },
+  },
+};
 const booksAndMore = {
   bg: "section.books-and-more.secondary",
 };
 const locations = {
-  bg: "section.locations.secondary",
+  bg: "section.locations.primary",
 };
 const research = {
   bg: "section.research.secondary",
@@ -16,8 +25,8 @@ const Breadcrumb = {
   baseStyle: {
     bg: "ui.black",
     color: "ui.white",
-    fontSize: "-1",
-    fontWeight: "regular",
+    fontSize: "breadcrumbs.default",
+    fontWeight: "breadcrumbs.default",
     paddingBottom: "xs",
     paddingTop: "xs",
     ol: {
@@ -34,7 +43,7 @@ const Breadcrumb = {
       },
     },
     "li:last-child": {
-      fontWeight: { base: "regular", md: "bold" },
+      fontWeight: { base: "breadcrumbs.default", md: "breadcrumbs.lastChild" },
       ".chakra-breadcrumb__link": {
         _hover: {
           cursor: "default",
@@ -67,6 +76,7 @@ const Breadcrumb = {
   },
   // Available variants:
   variants: {
+    blogs,
     booksAndMore,
     locations,
     research,

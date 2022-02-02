@@ -1,4 +1,6 @@
 const imageSizes = {
+  xxsmall: { flex: { base: "0 0 100%", md: "0 0 64px" }, width: "100%" },
+  xsmall: { flex: { md: "0 0 96px" } },
   small: { flex: { md: "0 0 165px" } },
   medium: { flex: { md: "0 0 225px" } },
   large: { flex: { md: "0 0 360px" } },
@@ -32,7 +34,8 @@ const getBodyPaddingStyles = ({ border, hasImage, imageAtEnd, isRow }) => {
 const Card = {
   parts: ["body", "heading"],
   baseStyle: (props) => {
-    const { border, center, hasImage, imageAtEnd, layout } = props;
+    const { border, center, hasImage, imageAtEnd, layout, mainActionLink } =
+      props;
     const isRow = layout === "row";
     const layoutStyles = isRow
       ? {
@@ -72,6 +75,7 @@ const Card = {
       textAlign: center ? "center" : null,
       heading: {
         marginBottom: "xs",
+        a: mainActionLink ? { color: "ui.black" } : null,
       },
       body: {
         display: { md: "block" },
@@ -131,17 +135,12 @@ const CardContent = {
 };
 
 const CardImage = {
-  baseStyle: ({ center, imageSize, imageAtEnd, layout }) => {
+  baseStyle: ({ center, imageAtEnd, imageSize, layout }) => {
     // These sizes are only for the "row" layout.
     const size = imageSizes[imageSize] || {};
     const layoutStyles =
       layout === "row"
         ? {
-            display: "flex",
-            flexFlow: {
-              base: "column nowrap",
-              md: "row",
-            },
             flex: { md: "0 0 225px" },
             maxWidth: { base: "100%", md: "50%" },
             textAlign: "left",
@@ -152,10 +151,12 @@ const CardImage = {
                 ? "0 0 0 var(--nypl-space-m)"
                 : "0 var(--nypl-space-m) 0 0",
             },
+            width: { base: "100%", md: null },
             ...size,
           }
         : {
             marginBottom: "xs",
+            width: "100%",
           };
     const imageAtEndStyles = imageAtEnd
       ? {
@@ -164,6 +165,7 @@ const CardImage = {
           order: "2",
         }
       : {};
+
     return {
       ...imageAtEndStyles,
       ...layoutStyles,

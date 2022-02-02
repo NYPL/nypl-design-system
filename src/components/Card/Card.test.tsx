@@ -3,14 +3,16 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import Card, { CardHeading, CardContent, CardActions } from "./Card";
-import Link from "../Link/Link";
-import { LinkTypes } from "../Link/LinkTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import Card, { CardHeading, CardContent, CardActions } from "./Card";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
+import { LinkTypes } from "../Link/LinkTypes";
+import { ImageRatios } from "../Image/ImageTypes";
 
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -92,12 +94,12 @@ describe("Card", () => {
   );
   const cardWithExtendedStyles = (
     <Card
-      id="cardWithExtendedStyles"
       className="edition-card"
-      imageSrc="https://placeimg.com/300/400/arch"
+      id="cardWithExtendedStyles"
       imageAlt="Alt text"
+      imageSrc="https://placeimg.com/300/400/arch"
     >
-      <CardHeading level={HeadingLevels.Two} id="editioncardheading1">
+      <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -114,10 +116,10 @@ describe("Card", () => {
         </Link>
         <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
-            id="icon-cardWithExtendedStyles"
-            name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
+            id="icon-cardWithExtendedStyles"
+            name={IconNames.Download}
           />
           Download
         </Link>
@@ -126,12 +128,12 @@ describe("Card", () => {
   );
   const cardWithNoCTAs = (
     <Card
-      id="cardWithNoCTAs"
       className="edition-card"
-      imageSrc="https://placeimg.com/300/400/arch"
+      id="cardWithNoCTAs"
       imageAlt="Alt text"
+      imageSrc="https://placeimg.com/300/400/arch"
     >
-      <CardHeading level={HeadingLevels.Two} id="editioncardheading1">
+      <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -143,14 +145,14 @@ describe("Card", () => {
   );
   const cardWithNoContent = (
     <Card
-      id="cardWithNoContent"
       className="edition-card"
-      imageSrc="https://placeimg.com/300/400/arch"
+      id="cardWithNoContent"
       imageAlt="Alt text"
+      imageSrc="https://placeimg.com/300/400/arch"
     >
       <CardHeading
-        level={HeadingLevels.Two}
         id="editioncardheading1"
+        level={HeadingLevels.Two}
         url="#edition-link"
       >
         The Card Heading
@@ -161,10 +163,10 @@ describe("Card", () => {
         </Link>
         <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
-            id="icon-cardWithNoContent"
-            name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
+            id="icon-cardWithNoContent"
+            name={IconNames.Download}
           />
           Download
         </Link>
@@ -174,8 +176,8 @@ describe("Card", () => {
   const cardWithNoImage = (
     <Card id="cardWithNoImage" className="edition-card">
       <CardHeading
-        level={HeadingLevels.Two}
         id="editioncardheading1"
+        level={HeadingLevels.Two}
         url="#edition-link"
       >
         The Card Heading
@@ -187,10 +189,10 @@ describe("Card", () => {
         </Link>
         <Link id="link-icon" href="#url" type={LinkTypes.Action}>
           <Icon
-            id="icon-cardWithNoImage"
-            name={IconNames.Download}
             align={IconAlign.Left}
             iconRotation={IconRotationTypes.Rotate0}
+            id="icon-cardWithNoImage"
+            name={IconNames.Download}
           />
           Download
         </Link>
@@ -200,8 +202,8 @@ describe("Card", () => {
   const cardFullClick = () => (
     <Card
       id="fullclick"
-      imageSrc="https://placeimg.com/400/200/arch"
       imageAlt="Alt text"
+      imageSrc="https://placeimg.com/400/200/arch"
       mainActionLink="http://nypl.org"
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
@@ -210,14 +212,26 @@ describe("Card", () => {
       <CardContent>middle column content</CardContent>
       <CardActions>
         <Button
-          onClick={() => {}}
-          id="button1"
           buttonType={ButtonTypes.Primary}
+          id="button1"
+          onClick={() => {}}
           type="submit"
         >
           Example CTA
         </Button>
       </CardActions>
+    </Card>
+  );
+  const cardImageComponentAndRatio = () => (
+    <Card
+      id="fullclick"
+      imageComponent={<Image alt="" src="https://placeimg.com/400/200/arch" />}
+      imageAspectRatio={ImageRatios.ThreeByTwo}
+    >
+      <CardHeading level={HeadingLevels.Three} id="heading1">
+        The Card Heading
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
     </Card>
   );
   let container;
@@ -289,6 +303,14 @@ describe("Card", () => {
     );
   });
 
+  it("Logs a warning when both `imageComponent` and `imageAspectRatio` are passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(cardImageComponentAndRatio());
+    expect(warn).toHaveBeenCalledWith(
+      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const regular = renderer.create(regularCard).toJSON();
     const withExtendedStyles = renderer.create(cardWithExtendedStyles).toJSON();
@@ -296,6 +318,7 @@ describe("Card", () => {
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
     const withNoImage = renderer.create(cardWithNoImage).toJSON();
     const withFullClick = renderer.create(cardFullClick()).toJSON();
+
     expect(regular).toMatchSnapshot();
     expect(withExtendedStyles).toMatchSnapshot();
     expect(withNoCTAs).toMatchSnapshot();

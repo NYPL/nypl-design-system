@@ -5,23 +5,25 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import Label from "../Label/Label";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
+import { IconNames, IconSizes } from "../Icons/IconTypes";
+import Label from "../Label/Label";
 import { SelectTypes } from "./SelectTypes";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface SelectProps {
   /** A class name for the `div` parent element. */
   className?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the `disabled` and `aria-disabled` attributes to the select when true */
   isDisabled?: boolean;
   /** Adds the `aria-invalid` attribute to the select when true. This also makes
@@ -38,6 +40,8 @@ export interface SelectProps {
   /** The callback function to get the selected value.
    * Should be passed along with `value` for controlled components. */
   onChange?: (event: React.FormEvent) => void;
+  /** Placeholder text in the select element. */
+  placeholder?: string;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the select's label onscreen or hide it. Refer
@@ -72,11 +76,12 @@ const Select = React.forwardRef<
     labelText,
     name,
     onChange,
+    placeholder,
     showHelperInvalidText = true,
     showLabel = true,
     showOptReqLabel = true,
     type = SelectTypes.Default,
-    value,
+    value = "",
   } = props;
   const ariaAttributes = {};
   const optReqFlag = isRequired ? "Required" : "Optional";
@@ -84,10 +89,12 @@ const Select = React.forwardRef<
   const finalInvalidText = invalidText
     ? invalidText
     : "There is an error related to this field.";
-  const footnote = isInvalid ? finalInvalidText : helperText;
+  const footnote: HelperErrorTextType = isInvalid
+    ? finalInvalidText
+    : helperText;
   // To control the `Select` component, both `onChange` and `value`
   // must be passed.
-  const controlledProps = onChange && value ? { onChange, value } : {};
+  const controlledProps = onChange ? { onChange, value } : {};
 
   if (!showLabel) {
     ariaAttributes["aria-label"] =
@@ -126,6 +133,7 @@ const Select = React.forwardRef<
         isDisabled={isDisabled}
         isInvalid={isInvalid}
         name={name}
+        placeholder={placeholder}
         ref={ref}
         {...controlledProps}
         {...ariaAttributes}
@@ -136,9 +144,11 @@ const Select = React.forwardRef<
       </ChakraSelect>
       {footnote && showHelperInvalidText && (
         <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText isInvalid={isInvalid} id={id + `-helperText`}>
-            {footnote}
-          </HelperErrorText>
+          <HelperErrorText
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         </Box>
       )}
     </Box>
