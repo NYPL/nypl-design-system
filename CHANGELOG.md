@@ -35,6 +35,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
 - Updates the label text style in the disabled state of the `Toggle` component.
 - Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
+- Updates `Select` component to use a white background for `static`, `error` and `focus` states.
 - Updates the `Template` component to use `s` (16px) spacing on the left and right sides of the main content area.
 - Updates the `HelperErrorText` component to allow HTML to be passed in as a string or HTML.
 - Updates how the `HelperErrorText` component renders text in the following components: `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, `VideoPlayer`.
