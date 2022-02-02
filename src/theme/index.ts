@@ -39,6 +39,7 @@ import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
 import Tabs from "./components/tabs";
+import CustomTable from "./components/customTable";
 import TemplateStyles from "./components/template";
 import Text from "./components/text";
 import TextInput from "./components/textInput";
@@ -109,6 +110,7 @@ const theme = extendTheme({
     StatusBadge,
     StructuredContent,
     Tabs,
+    CustomTable,
     ...TemplateStyles,
     Text,
     TextInput,

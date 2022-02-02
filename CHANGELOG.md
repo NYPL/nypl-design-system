@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds element-specific design tokens for `fontSizes` and `fontWeights`.
 - Adds the `StructuredContent` component.
 - Adds the `additionalImageStyles` and `additionalFigureStyles` props to the `Image` component to specifically target the `img` element's style and the `figure` HTML elements.
+- Adds the `Table` component.
 
 ### Breaking Changes
 
