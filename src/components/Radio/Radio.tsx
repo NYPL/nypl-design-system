@@ -5,20 +5,22 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
 
 export interface RadioProps {
   /** Additional class name. */
   className?: string;
   /** Optional string to populate the HelperErrorText for the standard state. */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true.
    */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** When using the Radio as a "controlled" form element, you can specify the
    * `Radio`'s checked state using this prop. You must also pass an onChange prop.
    * Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
@@ -100,9 +102,11 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
       </ChakraRadio>
       {footnote && showHelperInvalidText && (
         <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
-            {footnote}
-          </HelperErrorText>
+          <HelperErrorText
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         </Box>
       )}
     </>
