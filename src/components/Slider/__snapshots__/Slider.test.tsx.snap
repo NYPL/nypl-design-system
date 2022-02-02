@@ -168,11 +168,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
       data-isinvalid={false}
       id="defaultRangeSlider-helperText"
-    >
-      Component helper text.
-    </div>
+    />
   </div>
 </div>
 `;
@@ -347,11 +350,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
       aria-atomic={true}
       aria-live="polite"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component error text :(",
+        }
+      }
       data-isinvalid={true}
       id="errored-helperText"
-    >
-      Component error text :(
-    </div>
+    />
   </div>
 </div>
 `;
@@ -526,11 +532,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
       data-isinvalid={false}
       id="required-helperText"
-    >
-      Component helper text.
-    </div>
+    />
   </div>
 </div>
 `;
@@ -705,11 +714,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
       data-isinvalid={false}
       id="disabled-helperText"
-    >
-      Component helper text.
-    </div>
+    />
   </div>
 </div>
 `;
@@ -986,11 +998,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
       data-isinvalid={false}
       id="noVisibleValues-helperText"
-    >
-      Component helper text.
-    </div>
+    />
   </div>
 </div>
 `;
@@ -1226,11 +1241,14 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
       data-isinvalid={false}
       id="defaultSlider-helperText"
-    >
-      Component helper text.
-    </div>
+    />
   </div>
 </div>
 `;
@@ -1363,11 +1381,14 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
       aria-atomic={true}
       aria-live="polite"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component error text :(",
+        }
+      }
       data-isinvalid={true}
       id="errored-helperText"
-    >
-      Component error text :(
-    </div>
+    />
   </div>
 </div>
 `;
@@ -1500,11 +1521,14 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
       data-isinvalid={false}
       id="required-helperText"
-    >
-      Component helper text.
-    </div>
+    />
   </div>
 </div>
 `;
@@ -1638,11 +1662,14 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
       data-isinvalid={false}
       id="disabled-helperText"
-    >
-      Component helper text.
-    </div>
+    />
   </div>
 </div>
 `;
@@ -1855,11 +1882,14 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Component helper text.",
+        }
+      }
       data-isinvalid={false}
       id="noVisibleValues-helperText"
-    >
-      Component helper text.
-    </div>
+    />
   </div>
 </div>
 `;
