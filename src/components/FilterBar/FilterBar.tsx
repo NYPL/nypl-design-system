@@ -2,6 +2,7 @@ import React from "react";
 import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Heading from "./../Heading/Heading";
+import { HeadingLevels } from "./../Heading/HeadingTypes";
 import Icon from "./../Icons/Icon";
 import { IconRotationTypes, IconSizes } from "./../Icons/IconTypes";
 import Modal from "./../Modal/Modal";
@@ -93,7 +94,7 @@ function FilterBar({
                 </Button>
               </Box>
               <Box>
-                <Heading level={3} text="Filters" />
+                <Heading level={HeadingLevels.Three} text="Filters" />
                 {children}
                 {Object.keys(selectedItems).length > 0 && (
                   <Button
@@ -114,7 +115,7 @@ function FilterBar({
         </Box>
       ) : (
         <Box __css={styles.inner}>
-          <Heading level={2} text={label} />
+          <Heading level={HeadingLevels.Two} text={label} />
           <Stack direction="row" spacing={2}>
             {children}
           </Stack>
