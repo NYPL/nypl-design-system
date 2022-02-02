@@ -2,6 +2,7 @@ import { activeFocus, helperTextMargin } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
 const input = {
+  bgColor: "ui.white",
   border: "1px solid",
   borderColor: "ui.gray.medium",
   borderRadius: "sm",

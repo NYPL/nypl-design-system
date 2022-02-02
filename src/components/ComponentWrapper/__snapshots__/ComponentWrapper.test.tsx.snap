@@ -25,11 +25,14 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
       aria-atomic={true}
       aria-live="off"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "helper text",
+        }
+      }
       data-isinvalid={false}
       id="id-helperText"
-    >
-      helper text
-    </div>
+    />
   </div>
 </div>
 `;
@@ -69,11 +72,14 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
       aria-atomic={true}
       aria-live="polite"
       className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "invalid text",
+        }
+      }
       data-isinvalid={true}
       id="id-helperText"
-    >
-      invalid text
-    </div>
+    />
   </div>
 </div>
 `;

@@ -91,6 +91,7 @@ export { default as Slider } from "./components/Slider/Slider";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export { StatusBadgeTypes } from "./components/StatusBadge/StatusBadgeTypes";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
+export { StructuredContentImagePosition } from "./components/StructuredContent/StructuredContentTypes";
 export {
   Tabs,
   TabList,
@@ -124,3 +125,4 @@ export {
   VideoPlayerAspectRatios,
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayerTypes";
+export { default as Table } from "./components/Table/Table";

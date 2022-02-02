@@ -13,7 +13,9 @@ import {
 } from "./TextInputTypes";
 import Label from "../Label/Label";
 import { VisualLabelType } from "../Label/LabelTypes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface InputProps {
@@ -27,11 +29,11 @@ export interface InputProps {
   defaultValue?: string;
   fileProps?: { [key: string]: any };
   /** Populates the HelperErrorText for the standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Populates the HelperErrorText for the error state */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the `disabled` and `aria-disabled` prop to the input when true */
   isDisabled?: boolean;
   /** Adds errored styling to the input/textarea and helper text elements */
@@ -121,7 +123,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     const finalInvalidText = invalidText
       ? invalidText
       : "There is an error related to this field.";
-    let footnote: string | React.ReactNode = isInvalid
+    let footnote: HelperErrorTextType = isInvalid
       ? finalInvalidText
       : helperText;
     let fieldOutput;
@@ -195,9 +197,11 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
         {fieldOutput}
         {footnote && showHelperInvalidText && !isHidden && (
           <Box __css={finalStyles.helper} aria-disabled={isDisabled}>
-            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
-              {footnote}
-            </HelperErrorText>
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
           </Box>
         )}
       </Box>

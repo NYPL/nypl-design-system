@@ -15,12 +15,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds element-specific design tokens for `fontSizes` and `fontWeights`.
 - Adds the `StructuredContent` component.
 - Adds the `additionalImageStyles` and `additionalFigureStyles` props to the `Image` component to specifically target the `img` element's style and the `figure` HTML elements.
+- Adds the `Table` component.
 
 ### Breaking Changes
 
 - Completely removes the `CardEdition` and `Input` components and related files and references.
 - Removes all references of the `BEM` CSS pattern.
 - Removes all references to logos from the `Icon` component.
+- Removes passing in text to the `HelperErrorText` component as children. Now, the `text` prop is used to render its text.
+- Renames the `SearchBar`'s `helperErrorText` prop to `helperText` to be consistent with other components.
 
 ### Changes
 
@@ -32,12 +35,19 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the `ButtonTypes.SearchBar` variant style for the `Button` component. The style object is now set and passed directly to the `Button` component in the `SearchBar` component through the `additionalStyles` prop.
 - Renames `additionalStyles` prop to `additionalWrapperStyles` in the `Image` Component.
 - Updates the label text style in the disabled state of the `Toggle` component.
+- Updates the `Card` component so it gives a bottom margin to the `Image` component when the `imageAspectRatio` prop is set to `ImageRatios.Original`.
+- Updates the `TextInput` component to use a white background for `static`, `error` and `focus` states.
+- Updates `Select` component to use a white background for `static`, `error` and `focus` states.
+- Updates the `Template` component to use `s` (16px) spacing on the left and right sides of the main content area.
+- Updates the `HelperErrorText` component to allow HTML to be passed in as a string or HTML.
+- Updates how the `HelperErrorText` component renders text in the following components: `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, `VideoPlayer`.
 
 ### Fixes
 
 - Fixes the styling of custom anchor elements when passed as a child in the `Link` component.
 - Allows the `TemplateAppContainer` and `TemplateFooter` components to use the `renderFooterElement` prop. This is `true` by default so it renders an HTML `footer` element. If a custom footer component that renders its own HTML `<footer>` must be used, then setting `renderFooterElement` to false will not render two nested `footer` elements.
 - Fixes the Storybook `level` prop value for the `Heading` component so it updates the component.
+- Removes wrapper divs around custom image elements used in the `Card` component. Also passes the aspect ratio as `ImageRatios.Original` when the custom image element is passed to the `Card` component.
 
 ## 0.25.8 (January 6, 2022)
 
@@ -131,7 +141,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Deprecates
 
 - Deprecates the `Input` component. The `Input` component will be removed from the NYPL Design System React Library in the first release of January 2022.
-- Deprecates the `CardEdition` component. The `CardEdition` component will be removed from the NYPL Design System React Library in the first release of January 2022.
+- Deprecates the `CardEdition` component. The `CardEdition` component will be removed from the NYPL Design System React Library in the first release of January 2022.
 
 ## 0.25.3 (November 18, 2021)
 

@@ -1,13 +1,16 @@
-import * as React from "react";
 import {
   Box,
   Switch,
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import generateUUID from "../../helpers/generateUUID";
+import * as React from "react";
+
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import { ToggleSizes } from "./ToggleSizes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import generateUUID from "../../helpers/generateUUID";
 
 export interface ToggleProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -16,12 +19,12 @@ export interface ToggleProps {
    *   If true, the toggle will be initially set to the "on" position. */
   defaultChecked?: boolean;
   /** Optional string to populate the HelperErrorText for standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** When using the Toggle as a "controlled" form element, you can specify
    * the Toggle's checked state using this prop.
    * Learn more about controlled and uncontrolled form fields:
@@ -71,7 +74,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
       onChange = onChangeDefault,
       size = ToggleSizes.Large,
     } = props;
-    const footnote = isInvalid ? invalidText : helperText;
+    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
     const styles = useMultiStyleConfig("Toggle", {});
     const switchStyles = useStyleConfig("Switch");
@@ -105,9 +108,11 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
         </Box>
         {footnote && (
           <Box __css={styles.helper}>
-            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
-              {footnote}
-            </HelperErrorText>
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
           </Box>
         )}
       </>
