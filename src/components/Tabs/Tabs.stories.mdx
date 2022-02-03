@@ -1,10 +1,10 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
@@ -18,17 +18,21 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26464",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26464",
     },
     jest: ["Tabs.test.tsx"],
   }}
   argTypes={{
     children: { table: { disable: true } },
-    id: { table: { disable: true } },
-    className: { table: { disable: true } },
-    data: { table: { disable: true } },
-    onChange: { table: { disable: true } },
+    contentData: { control: false },
+    defaultIndex: {
+      table: { defaultValue: { summary: 0 } },
+    },
+    id: { control: false },
+    onChange: { control: false },
+    useHash: {
+      table: { defaultValue: { summary: false } },
+    },
   }}
 />
 
@@ -89,18 +93,20 @@ export const animalCrossing = [
 
 <Canvas withToolbar>
   <Story
-    name="Basic with props"
+    name="Tabs with Controls"
     args={{
-      defaultIndex: 0,
-      useHash: false,
       contentData: animalCrossing,
+      defaultIndex: 0,
+      id: "tabs-id",
+      onChange: undefined,
+      useHash: false,
     }}
   >
     {(args) => <Tabs {...args} />}
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with props" />
+<ArgsTable story="Tabs with Controls" />
 
 ## Composing with a Data Object
 

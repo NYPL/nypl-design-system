@@ -31,9 +31,9 @@ export interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const {
     className,
-    initialPage = 1,
     getPageHref,
     id = generateUUID(),
+    initialPage = 1,
     onPageChange = () => {},
     pageCount,
   } = props;

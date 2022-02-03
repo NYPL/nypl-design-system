@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Heading from "./Heading";
 import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
@@ -15,12 +16,13 @@ describe("Heading Accessibility", () => {
 });
 
 describe("Heading", () => {
-  it("Shows heading", () => {
+  it("renders and HTML heading element with the correct level", () => {
     render(<Heading id="h1" level={HeadingLevels.One} text="Heading 1" />);
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
     expect(screen.getByText("Heading 1")).toBeInTheDocument();
   });
-  it("Can pass heading content as child", () => {
+
+  it("can pass heading content as child", () => {
     render(
       <Heading id="h1" level={HeadingLevels.Two}>
         Heading 2
@@ -30,13 +32,18 @@ describe("Heading", () => {
     expect(screen.getByText("Heading 2")).toBeInTheDocument();
   });
 
+  it("renders the default level two if no `level` prop is passed", () => {
+    render(<Heading id="h2">Heading 2</Heading>);
+    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
+  });
+
   // TODO: check that header children are links
   // it("Throws error when invalid heading is passed as child", () => {
   //   expect(() => render(<Heading id="h1" level={HeadingLevels.Three}><span>oh no</span></Heading>))
   //   .to.throw("Headings can only be plain text or bold");
   // });
 
-  it("Can pass heading content as child span", () => {
+  it("can pass a span element as a child", () => {
     render(
       <Heading id="h1" level={HeadingLevels.One}>
         <span>
@@ -47,7 +54,7 @@ describe("Heading", () => {
     expect(screen.getByText(/Text/i)).toBeInTheDocument();
   });
 
-  it("uses child when both child and the text prop are passed", () => {
+  it("prioritizes the child when both child and the text prop are passed", () => {
     render(
       <Heading id="h1" level={HeadingLevels.One} text="prop text">
         child text
@@ -56,20 +63,20 @@ describe("Heading", () => {
     expect(screen.getByText("child text")).toBeInTheDocument();
   });
 
-  it("Has <a> tag when passed URL", () => {
+  it("renders an anchor element when the `url` prop is passed", () => {
     render(
       <Heading
         id="h1"
         level={HeadingLevels.One}
-        url="fake-url"
         text="Heading 1"
+        url="fake-url"
       />
     );
 
     expect(screen.getByRole("link")).toBeInTheDocument();
   });
 
-  it("<a> has class when passed urlClass", () => {
+  it("adds the `urlClass` prop to the anchor element as its class name", () => {
     render(
       <Heading
         id="h1"
@@ -84,19 +91,13 @@ describe("Heading", () => {
     );
   });
 
-  it("Throws error when invalid heading number passed", () => {
-    expect(() =>
-      render(<Heading id="h1" level={9} text="Heading 9" />)
-    ).toThrow("Heading only supports levels 1-6");
-  });
-
-  it("Throws error when neither child nor text is passed", () => {
-    expect(() => render(<Heading id="h1" level={9} />)).toThrow(
-      "Heading only supports levels 1-6"
+  it("throws error when neither child nor text is passed", () => {
+    expect(() => render(<Heading id="h1" level={HeadingLevels.One} />)).toThrow(
+      "Heading has no children, please pass prop: text"
     );
   });
 
-  it("Throws error when heading with many children is passed", () => {
+  it("throws error when heading with many children is passed", () => {
     expect(() =>
       render(
         <Heading id="h1" level={HeadingLevels.Four}>
@@ -107,7 +108,7 @@ describe("Heading", () => {
     ).toThrow("Please only pass one child into Heading, got span, span");
   });
 
-  it("Uses custom display size", () => {
+  it("uses custom display size", () => {
     render(
       <Heading
         id="h1"
@@ -119,5 +120,68 @@ describe("Heading", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveStyle({
       "font-size": "2em",
     });
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const basic = renderer
+      .create(
+        <Heading id="basic" level={HeadingLevels.One} text="Heading text" />
+      )
+      .toJSON();
+    const basicWithChildText = renderer
+      .create(
+        <Heading id="basicWithChildText" level={HeadingLevels.One}>
+          Heading text
+        </Heading>
+      )
+      .toJSON();
+    const customDisplaySize = renderer
+      .create(
+        <Heading
+          id="customDisplaySize"
+          level={HeadingLevels.One}
+          text="Heading with Secondary displaySize"
+          displaySize={HeadingDisplaySizes.Secondary}
+        />
+      )
+      .toJSON();
+    const otherLevel = renderer
+      .create(
+        <Heading
+          id="otherLevel"
+          level={HeadingLevels.Six}
+          text="Heading level six"
+        />
+      )
+      .toJSON();
+    const withLink = renderer
+      .create(
+        <Heading
+          id="withLink"
+          level={HeadingLevels.One}
+          text="Heading text is a link"
+          url="fake-url"
+        />
+      )
+      .toJSON();
+    const withCustomLink = renderer
+      .create(
+        <Heading id="withCustomLink" level={HeadingLevels.One}>
+          <>
+            Part of the heading text is
+            <a href="fake-url" className="custom-link">
+              <span>a link</span>
+            </a>
+          </>
+        </Heading>
+      )
+      .toJSON();
+
+    expect(basic).toMatchSnapshot();
+    expect(basicWithChildText).toMatchSnapshot();
+    expect(customDisplaySize).toMatchSnapshot();
+    expect(otherLevel).toMatchSnapshot();
+    expect(withLink).toMatchSnapshot();
+    expect(withCustomLink).toMatchSnapshot();
   });
 });

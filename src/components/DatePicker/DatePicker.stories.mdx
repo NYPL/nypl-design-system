@@ -1,16 +1,22 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
 import DatePicker from "./DatePicker";
 import { DatePickerTypes } from "./DatePickerTypes";
+import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  DatePickerTypes,
+  "DatePickerTypes"
+);
 
 <Meta
   title={getCategory("DatePicker")}
@@ -19,18 +25,51 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11689%3A0",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11689%3A0",
     },
     jest: ["DatePicker.test.tsx"],
   }}
   argTypes={{
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
-    nameFrom: { table: { disable: true } },
-    nameTo: { table: { disable: true } },
-    onChange: { table: { disable: true } },
-    refTo: { table: { disable: true } },
+    className: { control: false },
+    dateFormat: {
+      table: { defaultValue: { summary: "yyyy-MM-dd" } },
+    },
+    dateType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "DatePickerTypes.Full" } },
+      options: enumValues.options,
+    },
+    id: { control: false },
+    isDateRange: {
+      table: { defaultValue: { summary: false } },
+    },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    key: { table: { disable: true } },
+    labelText: {
+      table: { defaultValue: { summary: "From" } },
+    },
+    nameFrom: { control: false },
+    nameTo: { control: false },
+    onChange: { control: false },
+    ref: { table: { disable: true } },
+    refTo: { control: false },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showOptReqLabel: {
+      table: { defaultValue: { summary: true } },
+    },
   }}
 />
 
@@ -39,7 +78,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.3`   |
+| Latest            | `0.25.9`   |
 
 <Description of={DatePicker} />
 
@@ -49,13 +88,15 @@ also be added through props.
 
 <Canvas withToolbar>
   <Story
-    name="DatePicker"
+    name="DatePicker with Controls"
     args={{
+      className: undefined,
       dateFormat: "yyyy-MM-dd",
-      dateType: DatePickerTypes.Full,
+      dateType: "DatePickerTypes.Full",
       helperText: "Note that the Library may be closed on Sundays.",
       helperTextFrom: "Select start date.",
       helperTextTo: "Select end date.",
+      id: "datePicker-id",
       initialDate: "1/1/2021",
       initialDateTo: "1/30/2021",
       invalidText: "Please select a valid date.",
@@ -68,16 +109,20 @@ also be added through props.
       minDate: "1/1/2021",
       nameFrom: "visit-dates-from",
       nameTo: "visit-dates-to",
+      onChange: undefined,
+      refTo: undefined,
       showHelperInvalidText: true,
       showLabel: true,
       showOptReqLabel: true,
     }}
   >
-    {(args) => <DatePicker id="visit-dates" {...args} />}
+    {(args) => (
+      <DatePicker {...args} dateType={enumValues.getValue(args.dateType)} />
+    )}
   </Story>
 </Canvas>
 
-<ArgsTable story="DatePicker" />
+<ArgsTable story="DatePicker with Controls" />
 
 ## Date Range
 

@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.25.8",
+  "version": "0.25.9",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -116,7 +116,6 @@
     "jest": "27.3.1",
     "jest-axe": "5.0.1",
     "jsdom": "15.2.1",
-    "node-sass": "4.14.1",
     "node-sass-glob-importer": "5.3.2",
     "normalize.css": "8.0.1",
     "postcss": "8.3.6",

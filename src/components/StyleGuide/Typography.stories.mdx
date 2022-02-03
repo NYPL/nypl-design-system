@@ -1,20 +1,13 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Preview,
-  Description,
-} from "@storybook/addon-docs/blocks";
+import { Canvas, Meta } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
 import Heading from "../Heading/Heading";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import Text from "../Text/Text";
 import { TextDisplaySizes } from "../Text/TextTypes";
+import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
 <Meta
@@ -23,8 +16,7 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
     },
   }}
 />
@@ -67,51 +59,49 @@ Use the NYPL Design System [Heading](/docs/components-typography-styles-heading-
 
 <DSProvider>
 
-
 Each heading level has a default style and size, but those styles can be overridden using the `displaySize` prop. The display sizes are separate from semantic elements and may be used to override the default size and styling of the semantic HTML heading elements. For example, the `h1` element has the `Primary` style applied by default, but a new style can be applied through the `displaySize` prop. Any `displaySize` style can be applied to any `Heading` element.
 
 <Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Primary}>
   Primary Heading
 </Heading>
 
-| CSS Attribute | Value     | CSS Variable               |
-| ------------- | --------- | -------------------------- |
-| `font-size`   | `2.25rem` | `--nypl-fontSizes-4`       |
-| `font-weight` | `300`     | `--nypl-fontWeights-light` |
-| `line-height` | `1.1`     | n/a                        |
+|                 | Value     | JS Theme Object                 | CSS Variable                                           |
+| --------------- | --------- | ------------------------------- | ------------------------------------------------------ |
+| **Font Size**   | `2.25rem` | `fontSize: "heading.primary"`   | `font-size: var(--nypl-fontSizes-heading-primary)`     |
+| **Font Weight** | `300`     | `fontWeight: "heading.primary"` | `font-weight: var(--nypl-fontWeights-heading-primary)` |
+| **Line Height** | `1.1`     | n/a                             | n/a                                                    |
 
 <Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Secondary}>
   Secondary Heading
 </Heading>
 
-| CSS Attribute | Value     | CSS Variable                |
-| ------------- | --------- | --------------------------- |
-| `font-size`   | `1.75rem` | `--nypl-fontSizes-3`        |
-| `font-weight` | `500`     | `--nypl-fontWeights-medium` |
-| `line-height` | `1.25`    | n/a                         |
+|                 | Value     | JS Theme Object                   | CSS Variable                                             |
+| --------------- | --------- | --------------------------------- | -------------------------------------------------------- |
+| **Font Size**   | `1.75rem` | `fontSize: "heading.secondary"`   | `font-size: var(--nypl-fontSizes-heading-secondary)`     |
+| **Font Weight** | `500`     | `fontWeight: "heading.secondary"` | `font-weight: var(--nypl-fontWeights-heading-secondary)` |
+| **Line Height** | `1.25`    | n/a                               | n/a                                                      |
 
 <Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Tertiary}>
   Tertiary Heading
 </Heading>
 
-| CSS Attribute | Value      | CSS Variable                |
-| ------------- | ---------- | --------------------------- |
-| `font-size`   | `1.375rem` | `--nypl-fontSizes-2`        |
-| `font-weight` | `500`      | `--nypl-fontWeights-medium` |
-| `line-height` | `1.25`     | n/a                         |
+|                 | Value      | JS Theme Object                  | CSS Variable                                            |
+| --------------- | ---------- | -------------------------------- | ------------------------------------------------------- |
+| **Font Size**   | `1.375rem` | `fontSize: "heading.tertiary"`   | `font-size: var(--nypl-fontSizes-heading-tertiary)`     |
+| **Font Weight** | `500`      | `fontWeight: "heading.tertiary"` | `font-weight: var(--nypl-fontWeights-heading-tertiary)` |
+| **Line Height** | `1.25`     | n/a                              | n/a                                                     |
 
 <Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Callout}>
   Callout Heading
 </Heading>
 
-| CSS Attribute | Value     | CSS Variable                 |
-| ------------- | --------- | ---------------------------- |
-| `font-size`   | `1.25rem` | `--nypl-fontSizes-1`         |
-| `font-weight` | `400`     | `--nypl-fontWeights-regular` |
-| `line-height` | `1.25`    | n/a                          |
+|                 | Value     | JS Theme Object                 | CSS Variable                                           |
+| --------------- | --------- | ------------------------------- | ------------------------------------------------------ |
+| **Font Size**   | `1.25rem` | `fontSize: "heading.callout"`   | `font-size: var(--nypl-fontSizes-heading-callout)`     |
+| **Font Weight** | `500`     | `fontWeight: "heading.callout"` | `font-weight: var(--nypl-fontWeights-heading-callout)` |
+| **Line Height** | `1.25`    | n/a                             | n/a                                                    |
 
 </DSProvider>
-
 
 ## Text Component
 
@@ -132,7 +122,6 @@ Use the NYPL Design System [Text](/docs/components-typography-styles-text--text)
 
 <DSProvider>
 
-
 The `displaySize` prop can be used to render a specific style from the DS default text styles.
 
 - [Typography: Body Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
@@ -140,38 +129,37 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 
 <Text displaySize={TextDisplaySizes.Default}>Default</Text>
 
-| CSS Attribute | Value  | CSS Variable               |
-| ------------- | ------ | -------------------------- |
-| `font-size`   | `1rem` | `--nypl-fontSizes-0`       |
-| `font-weight` | `300`  | `--nypl-fontWeights-light` |
-| `line-height` | `1.5`  | n/a                        |
+|                 | Value  | JS Theme Object              | CSS Variable                                        |
+| --------------- | ------ | ---------------------------- | --------------------------------------------------- |
+| **Font Size**   | `1rem` | `fontSize: "text.default"`   | `font-size: var(--nypl-fontSizes-text-default)`     |
+| **Font Weight** | `300`  | `fontWeight: "text.default"` | `font-weight: var(--nypl-fontWeights-text-default)` |
+| **Line Height** | `1.5`  | `fontWeight: 1.5`            | `font-weight: 1.5`                                  |
 
 <Text displaySize={TextDisplaySizes.Caption}>Caption</Text>
 
-| CSS Attribute | Value      | CSS Variable               |
-| ------------- | ---------- | -------------------------- |
-| `font-size`   | `0.875rem` | `--nypl-fontSizes--1`      |
-| `font-weight` | `300`      | `--nypl-fontWeights-light` |
-| `line-height` | `1.25`     | n/a                        |
+|                 | Value      | JS Theme Object              | CSS Variable                                        |
+| --------------- | ---------- | ---------------------------- | --------------------------------------------------- |
+| **Font Size**   | `0.875rem` | `fontSize: "text.caption"`   | `font-size: var(--nypl-fontSizes-text-caption)`     |
+| **Font Weight** | `300`      | `fontWeight: "text.caption"` | `font-weight: var(--nypl-fontWeights-text-caption)` |
+| **Line Height** | `1.25`     | `fontWeight: 1.25`           | `font-weight: 1.25`                                 |
 
 <Text displaySize={TextDisplaySizes.Tag}>Tag</Text>
 
-| CSS Attribute | Value     | CSS Variable                 |
-| ------------- | --------- | ---------------------------- |
-| `font-size`   | `0.75rem` | `--nypl-fontSizes--2`        |
-| `font-weight` | `400`     | `--nypl-fontWeights-regular` |
-| `line-height` | `1.5`     | n/a                          |
+|                 | Value     | JS Theme Object          | CSS Variable                                    |
+| --------------- | --------- | ------------------------ | ----------------------------------------------- |
+| **Font Size**   | `0.75rem` | `fontSize: "text.tag"`   | `font-size: var(--nypl-fontSizes-text-tag)`     |
+| **Font Weight** | `400`     | `fontWeight: "text.tag"` | `font-weight: var(--nypl-fontWeights-text-tag)` |
+| **Line Height** | `1.5`     | `fontWeight: 1.5`        | `font-weight: 1.5`                              |
 
 <Text displaySize={TextDisplaySizes.Mini}>Mini</Text>
 
-| CSS Attribute | Value      | CSS Variable                 |
-| ------------- | ---------- | ---------------------------- |
-| `font-size`   | `0.625rem` | `--nypl-fontSizes--3`        |
-| `font-weight` | `400`      | `--nypl-fontWeights-regular` |
-| `line-height` | `1.5`      | n/a                          |
+|                 | Value      | JS Theme Object           | CSS Variable                                     |
+| --------------- | ---------- | ------------------------- | ------------------------------------------------ |
+| **Font Size**   | `0.625rem` | `fontSize: "text.mini"`   | `font-size: var(--nypl-fontSizes-text-mini)`     |
+| **Font Weight** | `400`      | `fontWeight: "text.mini"` | `font-weight: var(--nypl-fontWeights-text-mini)` |
+| **Line Height** | `1.5`      | `fontWeight: 1.5`         | `font-weight: 1.5`                               |
 
 </DSProvider>
-
 
 ## Font Family
 
@@ -225,7 +213,7 @@ The DS uses four font weights to render text. The default font-weight is 300.
         fontFamily: "var(--nypl-fonts-body)",
       }}
     >
-      Light / 300
+      Light / 300 (default)
     </p>
     <p
       style={{
@@ -257,14 +245,14 @@ The DS uses four font weights to render text. The default font-weight is 300.
   </>
 </Canvas>
 
-The following CSS variables are available through the DS.
+The following design tokens are available through the DS.
 
-```
---nypl-fontWeights-light: 300; /* default */
---nypl-fontWeights-regular: 400;
---nypl-fontWeights-medium: 500;
---nypl-fontWeights-bold: 700;
-```
+|             | Value | JS Theme Object         | CSS Variable                                   |
+| ----------- | ----- | ----------------------- | ---------------------------------------------- |
+| **Light**   | `300` | `fontWeight: "light"`   | `font-weight: var(--nypl-fontWeights-light)`   |
+| **Regular** | `400` | `fontWeight: "regular"` | `font-weight: var(--nypl-fontWeights-regular)` |
+| **Medium**  | `500` | `fontWeight: "medium"`  | `font-weight: var(--nypl-fontWeights-medium)`  |
+| **Bold**    | `700` | `fontWeight: "bold"`    | `font-weight: var(--nypl-fontWeights-bold)`    |
 
 ## Font Sizes
 
@@ -302,7 +290,7 @@ Font sizing is based on a root font size of 16px (1rem = 16px).
         fontWeight: "var(--nypl-fontWeights-light)",
       }}
     >
-      Font size 0
+      Font size 0 (default)
     </p>
     <p
       style={{
@@ -339,18 +327,18 @@ Font sizing is based on a root font size of 16px (1rem = 16px).
   </>
 </Canvas>
 
-The following CSS variables are available through the DS.
+The following font size design tokens are available through the DS.
 
-```
---nypl-fontSizes--3: 0.625rem;
---nypl-fontSizes--2: 0.75rem;
---nypl-fontSizes--1: 0.875rem;
---nypl-fontSizes-0: 1rem; /* default */
---nypl-fontSizes-1: 1.125rem;
---nypl-fontSizes-2: 1.375rem;
---nypl-fontSizes-3: 1.75rem;
---nypl-fontSizes-4: 2.25rem;
-```
+|        | Value      | JS Theme Object  | CSS Variable                          |
+| ------ | ---------- | ---------------- | ------------------------------------- |
+| **-3** | `0.625rem` | `fontSize: "-3"` | `font-size: var(--nypl-fontSizes--3)` |
+| **-2** | `0.75rem`  | `fontSize: "-2"` | `font-size: var(--nypl-fontSizes--2)` |
+| **-1** | `0.875rem` | `fontSize: "-1"` | `font-size: var(--nypl-fontSizes--1)` |
+| **0**  | `1rem`     | `fontSize: "0"`  | `font-size: var(--nypl-fontSizes-0)`  |
+| **1**  | `1.125rem` | `fontSize: "1"`  | `font-size: var(--nypl-fontSizes-1)`  |
+| **2**  | `1.375rem` | `fontSize: "2"`  | `font-size: var(--nypl-fontSizes-2)`  |
+| **3**  | `1.75rem`  | `fontSize: "3"`  | `font-size: var(--nypl-fontSizes-3)`  |
+| **4**  | `2.25rem`  | `fontSize: "4"`  | `font-size: var(--nypl-fontSizes-4)`  |
 
 ## Text Case
 

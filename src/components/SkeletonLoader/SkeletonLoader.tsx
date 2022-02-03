@@ -15,13 +15,17 @@ export interface SkeletonLoaderProps {
   border?: boolean;
   /** Additional class name for the Skeleton component. */
   className?: string;
-  /** Optional numeric value to control the number of lines for content placeholder; default value is `3`. */
+  /** Optional numeric value to control the number of lines for content
+   * placeholder; default value is `3`. */
   contentSize?: number;
-  /** Optional numeric value to control the number of lines for heading placeholder; default value is `1`. */
+  /** Optional numeric value to control the number of lines for heading
+   * placeholder; default value is `1`. */
   headingSize?: number;
-  /** Optional value to control the aspect ratio of the image placeholder; default value is `square`. */
+  /** Optional value to control the aspect ratio of the image placeholder;
+   * default value is `SkeletonLoaderImageRatios.Square`. */
   imageAspectRatio?: SkeletonLoaderImageRatios;
-  /** Optional value to control the position of the image placeholder; default value is `column`. */
+  /** Optional value to control the position of the image placeholder;
+   * default value is `SkeletonLoaderLayouts.Column`. */
   layout?: SkeletonLoaderLayouts;
   /** Optional boolean value to control visibility of button placeholder. */
   showButton?: boolean;
