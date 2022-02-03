@@ -1,17 +1,23 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { getCategory } from "../../utils/componentCategories";
-import DSProvider from "../../theme/provider";
+import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "./CheckboxGroup";
 import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
-import Checkbox from "../Checkbox/Checkbox";
+import { getCategory } from "../../utils/componentCategories";
+import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(
+  CheckboxGroupLayoutTypes,
+  "CheckboxGroupLayoutTypes"
+);
 
 <Meta
   title={getCategory("CheckboxGroup")}
@@ -20,17 +26,41 @@ import Checkbox from "../Checkbox/Checkbox";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=11895%3A658",
     },
     jest: ["CheckboxGroup.test.tsx"],
   }}
   argTypes={{
     children: { table: { disable: true } },
-    defaultValue: { table: { disable: true } },
-    id: { table: { disable: true } },
-    name: { table: { disable: true } },
-    onChange: { table: { disable: true } },
+    defaultValue: { control: false },
+    id: { control: false },
+    isDisabled: {
+      table: { defaultValue: { summary: false } },
+    },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
+    isRequired: {
+      table: { defaultValue: { summary: false } },
+    },
+    key: { table: { disable: true } },
+    layout: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "CheckboxGroupLayoutTypes.Column" } },
+      options: enumValues.options,
+    },
+    name: { control: false },
+    onChange: { control: false },
+    optReqFlag: {
+      table: { defaultValue: { summary: true } },
+    },
+    ref: { table: { disable: true } },
+    showHelperInvalidText: {
+      table: { defaultValue: { summary: true } },
+    },
+    showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
   }}
 />
 
@@ -39,7 +69,7 @@ import Checkbox from "../Checkbox/Checkbox";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.25.3`   |
+| Latest            | `0.25.9`   |
 
 <Description of={CheckboxGroup} />
 
@@ -49,20 +79,22 @@ import Checkbox from "../Checkbox/Checkbox";
     args={{
       defaultValue: ["4"],
       helperText: "This is the helper text for the full group.",
+      id: "checkboxGroup-id",
       invalidText: "This is the error text :(",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Checkbox Group",
-      layout: CheckboxGroupLayoutTypes.Column,
+      layout: "CheckboxGroupLayoutTypes.Column",
       name: "checkbox-story",
+      onChange: undefined,
       optReqFlag: true,
       showHelperInvalidText: true,
       showLabel: true,
     }}
   >
     {(args) => (
-      <CheckboxGroup {...args}>
+      <CheckboxGroup {...args} layout={enumValues.getValue(args.layout)}>
         <Checkbox value="2" labelText="Checkbox 2" />
         <Checkbox value="3" labelText="Checkbox 3" />
         <Checkbox value="4" labelText="Checkbox 4" />

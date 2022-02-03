@@ -12,24 +12,24 @@ const Switch = {
   baseStyle: {
     opacity: 0.4,
     track: {
-      p: "4px",
       border: "1px solid",
       borderColor: "ui.gray.medium",
+      p: "4px",
       _checked: {
-        borderColor: "ui.link.primary",
         bg: "ui.link.primary",
+        borderColor: "ui.link.primary",
         opacity: 1,
       },
       _invalid: {
-        borderColor: "ui.error.primary",
         bg: "inherit",
+        borderColor: "ui.error.primary",
         "> span": {
           bg: "ui.error.primary",
         },
       },
       _disabled: {
-        borderColor: "ui.gray.medium",
         bg: "ui.gray.medium",
+        borderColor: "ui.gray.medium",
         _checked: {
           opacity: 0.4,
         },
@@ -41,7 +41,11 @@ const Switch = {
         zIndex: "9999",
       },
     },
-    label: { fontSize: -1, marginLeft: "xs" },
+    label: {
+      fontSize: "label.default",
+      marginLeft: "xs",
+      _disabled: { fontStyle: "italic" },
+    },
     thumb: {
       _disabled: {
         bg: "ui.error.primary",

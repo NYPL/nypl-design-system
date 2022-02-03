@@ -1,16 +1,17 @@
-import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import * as React from "react";
 
-import generateUUID from "../../helpers/generateUUID";
-import Select from "../Select/Select";
-import TextInput from "../TextInput/TextInput";
-import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
 import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import Select from "../Select/Select";
 import { SelectTypes } from "../Select/SelectTypes";
+import TextInput from "../TextInput/TextInput";
+import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
+import generateUUID from "../../helpers/generateUUID";
 
 // Internal interfaces that are used only for `SearchBar` props.
 interface SelectProps {
@@ -37,13 +38,17 @@ export interface SearchBarProps {
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** A class name for the `form` element. */
   className?: string;
+  /** Optional string for the SearchBar's description above the component. */
+  descriptionText?: string;
+  /** Optional string for the SearchBar's heading text above the component. */
+  headingText?: string;
   /** The text to display below the form in a `HelperErrorText` component. */
-  helperErrorText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Sets children form components in the disabled state. */
   isDisabled?: boolean;
   /** Sets children form components in the error state. */
@@ -54,6 +59,9 @@ export interface SearchBarProps {
   labelText: string;
   /** Adds 'method' property to the `form` element. */
   method?: string;
+  /** Sets the `Button` variant type to `ButtonTypes.NoBrand` when true;
+   * false by default which sets the type to `ButtonTypes.Primary`. */
+  noBrandButtonType?: boolean;
   /** Handler function when the form is submitted. */
   onSubmit: (event: React.FormEvent) => void;
   /** Required props to render a `Select` element. */
@@ -73,7 +81,9 @@ export default function SearchBar(props: SearchBarProps) {
     action,
     buttonOnClick = null,
     className,
-    helperErrorText,
+    descriptionText,
+    headingText,
+    helperText,
     id = generateUUID(),
     invalidText,
     isDisabled = false,
@@ -81,6 +91,7 @@ export default function SearchBar(props: SearchBarProps) {
     isRequired = false,
     labelText,
     method,
+    noBrandButtonType = false,
     onSubmit,
     selectProps,
     textInputElement,
@@ -97,11 +108,20 @@ export default function SearchBar(props: SearchBarProps) {
   };
   const helperErrorTextID = generateUUID();
   const ariaDescribedby = helperErrorTextID;
-  const footnote = isInvalid ? invalidText : helperErrorText;
+  const footnote = isInvalid ? invalidText : helperText;
   const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
   const textInputPlaceholder = `${textInputProps?.placeholder} ${
     isRequired ? "(Required)" : ""
   }`;
+  const buttonType = noBrandButtonType
+    ? ButtonTypes.NoBrand
+    : ButtonTypes.Primary;
+  const searchBarButtonStyles = {
+    borderLeftRadius: "none",
+    borderRightRadius: { base: "none", md: "sm" },
+    lineHeight: "1.70",
+    marginBottom: "auto",
+  };
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
@@ -139,11 +159,12 @@ export default function SearchBar(props: SearchBarProps) {
   // Render the `Button` component.
   const buttonElem = (
     <Button
+      additionalStyles={searchBarButtonStyles}
+      buttonType={buttonType}
       id={generateUUID()}
-      buttonType={ButtonTypes.SearchBar}
-      type="submit"
-      onClick={buttonOnClick}
       isDisabled={isDisabled}
+      onClick={buttonOnClick}
+      type="submit"
     >
       <Icon
         name={IconNames.Search}
@@ -153,35 +174,35 @@ export default function SearchBar(props: SearchBarProps) {
       Search
     </Button>
   );
-  // Render the `HelperErrorText` component.
-  const helperErrorTextElem = footnote && (
-    <HelperErrorText id={helperErrorTextID} isInvalid={isInvalid}>
-      {footnote}
-    </HelperErrorText>
-  );
   // If a custom input element was passed, use that instead of the
   // `TextInput` component.
   const textInputElem = textInputElement || textInputNative;
 
   return (
-    <Box
-      as="form"
+    <ComponentWrapper
+      descriptionText={descriptionText}
+      headingText={headingText}
+      helperText={helperText}
       id={id}
-      className={className}
-      role="search"
-      aria-label={finalAriaLabel}
-      aria-describedby={ariaDescribedby}
-      onSubmit={onSubmit}
-      method={method}
-      action={action}
-      __css={styles}
+      invalidText={invalidText}
+      isInvalid={isInvalid}
     >
-      <Box __css={styles.topRow}>
+      <Box
+        as="form"
+        id={`${id}-form`}
+        className={className}
+        role="search"
+        aria-label={finalAriaLabel}
+        aria-describedby={ariaDescribedby}
+        onSubmit={onSubmit}
+        method={method}
+        action={action}
+        __css={styles}
+      >
         {selectElem}
         {textInputElem}
         {buttonElem}
       </Box>
-      {helperErrorTextElem}
-    </Box>
+    </ComponentWrapper>
   );
 }

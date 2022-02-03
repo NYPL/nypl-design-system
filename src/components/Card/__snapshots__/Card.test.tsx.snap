@@ -233,8 +233,11 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       id="editioncardheading1"
     >
       <a
-        className="chakra-link css-1xdhyk6"
+        className="css-0"
         href="#edition-link"
+        id="editioncardheading1-link"
+        rel={null}
+        target={null}
       >
         The Card Heading
       </a>
@@ -310,8 +313,11 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       id="editioncardheading1"
     >
       <a
-        className="chakra-link css-1xdhyk6"
+        className="css-0"
         href="#edition-link"
+        id="editioncardheading1-link"
+        rel={null}
+        target={null}
       >
         The Card Heading
       </a>

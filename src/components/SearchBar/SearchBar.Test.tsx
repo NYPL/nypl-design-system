@@ -28,14 +28,14 @@ const textInputProps = {
   name: "textInputName",
   placeholder: "Item Search",
 };
-const helperErrorText = "Search for items in Animal Crossing New Horizons";
+const helperText = "Search for items in Animal Crossing New Horizons";
 const invalidText = "Could not find the item :(";
 
 describe("SearchBar Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <SearchBar
-        helperErrorText={helperErrorText}
+        helperText={helperText}
         id="id"
         invalidText={invalidText}
         labelText="Searchbar"
@@ -55,7 +55,7 @@ describe("SearchBar", () => {
   it("renders the basic form", () => {
     render(
       <SearchBar
-        helperErrorText={helperErrorText}
+        helperText={helperText}
         id="id"
         labelText="searchbar"
         onSubmit={searchBarSubmit}
@@ -74,7 +74,7 @@ describe("SearchBar", () => {
   it("renders an optional Select component", () => {
     render(
       <SearchBar
-        helperErrorText={helperErrorText}
+        helperText={helperText}
         id="id"
         labelText="searchbar"
         onSubmit={searchBarSubmit}
@@ -89,7 +89,7 @@ describe("SearchBar", () => {
   it("renders the invalid text in the invalid state", () => {
     render(
       <SearchBar
-        helperErrorText={helperErrorText}
+        helperText={helperText}
         id="id"
         invalidText={invalidText}
         isInvalid
@@ -100,13 +100,13 @@ describe("SearchBar", () => {
       />
     );
     expect(screen.getByText(invalidText)).toBeInTheDocument();
-    expect(screen.queryByText(helperErrorText)).not.toBeInTheDocument();
+    expect(screen.queryByText(helperText)).not.toBeInTheDocument();
   });
 
   it("does not render the default invalid text from the Select or TextInput components", () => {
     render(
       <SearchBar
-        helperErrorText={helperErrorText}
+        helperText={helperText}
         id="id"
         invalidText={invalidText}
         isInvalid
@@ -124,7 +124,7 @@ describe("SearchBar", () => {
   it("calls the callback function on submit ", () => {
     render(
       <SearchBar
-        helperErrorText={helperErrorText}
+        helperText={helperText}
         id="id"
         labelText="searchBar"
         onSubmit={searchBarSubmit}
@@ -174,7 +174,7 @@ describe("SearchBar", () => {
     const basic = renderer
       .create(
         <SearchBar
-          helperErrorText={helperErrorText}
+          helperText={helperText}
           id="basic"
           labelText="searchbar"
           onSubmit={jest.fn()}
@@ -185,7 +185,7 @@ describe("SearchBar", () => {
     const withSelect = renderer
       .create(
         <SearchBar
-          helperErrorText={helperErrorText}
+          helperText={helperText}
           id="withSelect"
           labelText="searchbar"
           onSubmit={jest.fn()}
@@ -238,6 +238,50 @@ describe("SearchBar", () => {
         />
       )
       .toJSON();
+    const noBrandButtonType = renderer
+      .create(
+        <SearchBar
+          id="noBrandButtonType"
+          isDisabled
+          isRequired
+          labelText="searchbar"
+          noBrandButtonType={true}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+        />
+      )
+      .toJSON();
+    const withHeading = renderer
+      .create(
+        <SearchBar
+          id="withHeading"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          headingText="A Heading"
+        />
+      )
+      .toJSON();
+    const withDescription = renderer
+      .create(
+        <SearchBar
+          id="withDescription"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          descriptionText="A description"
+        />
+      )
+      .toJSON();
+    const withHeadingAndDescription = renderer
+      .create(
+        <SearchBar
+          id="withHeadingAndDescription"
+          labelText="searchbar"
+          onSubmit={jest.fn()}
+          headingText="A Heading"
+          descriptionText="A description"
+        />
+      )
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(withSelect).toMatchSnapshot();
@@ -245,5 +289,9 @@ describe("SearchBar", () => {
     expect(invalidState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
     expect(requiredState).toMatchSnapshot();
+    expect(noBrandButtonType).toMatchSnapshot();
+    expect(withHeading).toMatchSnapshot();
+    expect(withDescription).toMatchSnapshot();
+    expect(withHeadingAndDescription).toMatchSnapshot();
   });
 });

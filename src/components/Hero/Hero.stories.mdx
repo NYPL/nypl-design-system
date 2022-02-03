@@ -1,20 +1,23 @@
+import { Box, VStack } from "@chakra-ui/react";
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { Box, VStack } from "@chakra-ui/react";
 
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Hero from "./Hero";
 import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
 import Image from "../Image/Image";
-import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const enumValues = getStorybookEnumValues(HeroTypes, "HeroTypes");
 
 <Meta
   title={getCategory("Hero")}
@@ -23,18 +26,22 @@ import DSProvider from "../../theme/provider";
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A5314",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10968%3A5314",
     },
     jest: ["Hero.test.tsx"],
   }}
   argTypes={{
-    backgroundColor: { table: { disable: true } },
-    foregroundColor: { table: { disable: true } },
-    heading: { table: { disable: true } },
-    image: { table: { disable: true } },
-    locationDetails: { table: { disable: true } },
-    subHeaderText: { table: { disable: true } },
+    backgroundColor: { control: false },
+    foregroundColor: { control: false },
+    heading: { control: false },
+    heroType: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "HeroTypes.Primary" } },
+      options: enumValues.options,
+    },
+    image: { control: false },
+    locationDetails: { control: false },
+    subHeaderText: { control: false },
   }}
 />
 
@@ -67,76 +74,88 @@ descriptive text and images.
 
 <Canvas withToolbar>
   <Story
-    name="Hero Props"
+    name="Hero with Controls"
     args={{
-      heroType: HeroTypes.Campaign,
+      backgroundColor: undefined,
+      backgroundImageSrc: undefined,
+      foregroundColor: undefined,
+      heading: undefined,
+      heroType: "HeroTypes.Primary",
+      image: undefined,
+      locationDetails: undefined,
+      subHeaderText: undefined,
     }}
   >
     {(args) =>
-      (args.heroType === HeroTypes.Primary && (
+      (args.heroType === "HeroTypes.Primary" && (
         <Hero
           {...args}
+          backgroundImageSrc="https://placeimg.com/2400/800/nature"
           heading={
             <Heading level={HeadingLevels.One} id="1" text="Hero Primary" />
           }
+          heroType={enumValues.getValue(args.heroType)}
           subHeaderText="Example Subtitle"
-          backgroundImageSrc="https://placeimg.com/2400/800/nature"
         />
       )) ||
-      (HeroSecondaryTypes.includes(args.heroType) && (
+      (HeroSecondaryTypes.includes(enumValues.getValue(args.heroType)) && (
         <div className="nypl--books-and-more">
           <Hero
             {...args}
             heading={
               <Heading level={HeadingLevels.One} id="1" text="Hero Secondary" />
             }
-            subHeaderText={secondarySubHeaderText}
+            heroType={enumValues.getValue(args.heroType)}
             image={image}
+            subHeaderText={secondarySubHeaderText}
           />
         </div>
       )) ||
-      (args.heroType === HeroTypes.Tertiary && (
+      (args.heroType === "HeroTypes.Tertiary" && (
         <Hero
           {...args}
           heading={
             <Heading level={HeadingLevels.One} id="1" text="Hero Tertiary" />
           }
+          heroType={enumValues.getValue(args.heroType)}
           subHeaderText={otherSubHeaderText}
         />
       )) ||
-      (args.heroType === HeroTypes.Campaign && (
+      (args.heroType === "HeroTypes.Campaign" && (
         <Hero
           {...args}
+          backgroundImageSrc="https://placeimg.com/2400/800/nature"
           heading={
             <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
           }
-          subHeaderText={otherSubHeaderText}
-          backgroundImageSrc="https://placeimg.com/2400/800/nature"
+          heroType={enumValues.getValue(args.heroType)}
           image={
             <Image
               src="https://placeimg.com/800/400/animals"
               alt="Image example"
             />
           }
+          subHeaderText={otherSubHeaderText}
         />
       )) ||
-      (args.heroType === HeroTypes.FiftyFifty && (
+      (args.heroType === "HeroTypes.FiftyFifty" && (
         <Hero
           {...args}
-          subHeaderText={otherSubHeaderText}
+          heroType={enumValues.getValue(args.heroType)}
           image={
             <Image
               src="https://placeimg.com/600/200/animals"
               alt="Image example"
             />
           }
+          subHeaderText={otherSubHeaderText}
         />
       ))
     }
   </Story>
 </Canvas>
 
-<ArgsTable story="Hero Props" />
+<ArgsTable story="Hero with Controls" />
 
 ## Color Variations for Secondary Hero
 
@@ -159,12 +178,12 @@ parent wrapper's CSS class name for background color updates. Now, the proper
   <Story name="Color Variations for Secondary Hero">
     <VStack spacing={10} align="stretch">
       <Heading
+        id="books-heading"
         level={HeadingLevels.Two}
         text="HeroTypes.SecondaryBooksAndMore"
-        id="books-heading"
       />
       <Hero
-        heroType={HeroTypes.SecondaryBooksAndMore}
+        image={image}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -172,16 +191,16 @@ parent wrapper's CSS class name for background color updates. Now, the proper
             text="Books and More"
           />
         }
+        heroType={HeroTypes.SecondaryBooksAndMore}
         subHeaderText={secondarySubHeaderText}
-        image={image}
       />
       <Heading
+        id="location-heading"
         level={HeadingLevels.Two}
         text="HeroTypes.SecondaryLocations"
-        id="location-heading"
       />
       <Hero
-        heroType={HeroTypes.SecondaryLocations}
+        image={image}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -189,16 +208,16 @@ parent wrapper's CSS class name for background color updates. Now, the proper
             text="Locations"
           />
         }
+        heroType={HeroTypes.SecondaryLocations}
         subHeaderText={secondarySubHeaderText}
-        image={image}
       />
       <Heading
+        id="research-heading"
         level={HeadingLevels.Two}
         text="HeroTypes.SecondaryResearch"
-        id="research-heading"
       />
       <Hero
-        heroType={HeroTypes.SecondaryResearch}
+        image={image}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -206,16 +225,15 @@ parent wrapper's CSS class name for background color updates. Now, the proper
             text="Research"
           />
         }
+        heroType={HeroTypes.SecondaryResearch}
         subHeaderText={secondarySubHeaderText}
-        image={image}
       />
       <Heading
+        id="whats-on-heading"
         level={HeadingLevels.Two}
         text="HeroTypes.SecondaryWhatsOn"
-        id="whats-on-heading"
       />
       <Hero
-        heroType={HeroTypes.SecondaryWhatsOn}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -223,8 +241,9 @@ parent wrapper's CSS class name for background color updates. Now, the proper
             text="What's On"
           />
         }
-        subHeaderText={secondarySubHeaderText}
+        heroType={HeroTypes.SecondaryWhatsOn}
         image={image}
+        subHeaderText={secondarySubHeaderText}
       />
     </VStack>
   </Story>
@@ -237,7 +256,7 @@ parent wrapper's CSS class name for background color updates. Now, the proper
     <VStack spacing={10} align="stretch">
       <Heading level={HeadingLevels.Two} text="Primary" id="primary-heading" />
       <Hero
-        heroType={HeroTypes.Primary}
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -245,16 +264,15 @@ parent wrapper's CSS class name for background color updates. Now, the proper
             text="Hero Primary"
           />
         }
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        heroType={HeroTypes.Primary}
       />
       <Heading
+        id="secondary-heading"
         level={HeadingLevels.Two}
         text="Secondary"
-        id="secondary-heading"
       />
       <div className="nypl--locations">
         <Hero
-          heroType={HeroTypes.Secondary}
           heading={
             <Heading
               level={HeadingLevels.One}
@@ -262,17 +280,17 @@ parent wrapper's CSS class name for background color updates. Now, the proper
               text="Hero Secondary"
             />
           }
-          subHeaderText={secondarySubHeaderText}
+          heroType={HeroTypes.Secondary}
           image={image}
+          subHeaderText={secondarySubHeaderText}
         />
       </div>
       <Heading
+        id="tertiary-heading"
         level={HeadingLevels.Two}
         text="Tertiary"
-        id="tertiary-heading"
       />
       <Hero
-        heroType={HeroTypes.Tertiary}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -280,10 +298,10 @@ parent wrapper's CSS class name for background color updates. Now, the proper
             text="Hero Tertiary with Sub-Header"
           />
         }
+        heroType={HeroTypes.Tertiary}
         subHeaderText={otherSubHeaderText}
       />
       <Hero
-        heroType={HeroTypes.Tertiary}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -291,13 +309,15 @@ parent wrapper's CSS class name for background color updates. Now, the proper
             text="Hero Tertiary without Sub-Header"
           />
         }
+        heroType={HeroTypes.Tertiary}
       />
       <Heading
+        id="campaign-heading"
         level={HeadingLevels.Two}
         text="Campaign"
-        id="campaign-heading"
       />
       <Hero
+        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         heroType={HeroTypes.Campaign}
         heading={
           <Heading
@@ -306,20 +326,19 @@ parent wrapper's CSS class name for background color updates. Now, the proper
             text="Hero Campaign"
           />
         }
-        subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         image={image}
+        subHeaderText={otherSubHeaderText}
       />
       <Box marginTop="30px" />
       <Heading
+        id="fiftyfifty-heading"
         level={HeadingLevels.Two}
         text="FiftyFifty"
-        id="fiftyfifty-heading"
       />
       <Hero
         heroType={HeroTypes.FiftyFifty}
-        subHeaderText={otherSubHeaderText}
         image={image}
+        subHeaderText={otherSubHeaderText}
       />
     </VStack>
   </DSProvider>

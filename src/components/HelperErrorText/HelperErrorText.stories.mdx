@@ -1,13 +1,15 @@
 import {
+  ArgsTable,
+  Canvas,
+  Description,
   Meta,
   Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import HelperErrorText from "./HelperErrorText";
+import Link from "../Link/Link";
+import Text from "../Text/Text";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -23,10 +25,20 @@ import DSProvider from "../../theme/provider";
     jest: ["HelperErrorText.test.tsx"],
   }}
   argTypes={{
-    ariaAtomic: { table: { disable: true } },
+    additionalStyles: { control: false },
+    ariaAtomic: {
+      control: false,
+      table: { defaultValue: { summary: true } },
+    },
+    ariaLive: {
+      table: { defaultValue: { summary: "polite" } },
+    },
     children: { table: { disable: true } },
-    className: { table: { disable: true } },
-    id: { table: { disable: true } },
+    className: { control: false },
+    id: { control: false },
+    isInvalid: {
+      table: { defaultValue: { summary: false } },
+    },
   }}
 />
 
@@ -35,41 +47,57 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.25.3`   |
+| Latest            | `0.25.9`   |
 
 <Description of={HelperErrorText} />
 
 <Canvas withToolbar>
   <Story
-    name="Basic with Props"
+    name="HelperErrorText with Controls"
     args={{
+      additionalStyles: undefined,
+      ariaAtomic: undefined,
       ariaLive: "polite",
+      className: undefined,
+      id: "helperErrorText-id",
       isInvalid: false,
+      text: "This is the helper text!",
     }}
   >
     {(args) => (
-      <HelperErrorText {...args}>
-        {args.isInvalid
-          ? "This is the error text :("
-          : "This is the helper text!"}
-      </HelperErrorText>
+      <HelperErrorText
+        {...args}
+        text={args.isInvalid ? "This is the error text :(" : args.text}
+      />
     )}
   </Story>
 </Canvas>
 
-<ArgsTable story="Basic with Props" />
+<ArgsTable story="HelperErrorText with Controls" />
 
 ## With HTML Children
 
-The `HelperErrorText` component can take any React component or HTML element as
-its children.
+The `HelperErrorText` component can render any React component or HTML element
+through the `text` prop.
 
 <Canvas>
   <Story name="With HTML Children">
-    <HelperErrorText>
-      If you're unsure of your size, please view the{" "}
-      <a href="#sizing-chart">Sizing Chart</a>.
-    </HelperErrorText>
+    <HelperErrorText
+      text={
+        <>
+          This first example uses an HTML anchor element for{" "}
+          <a href="#">a link</a>.
+        </>
+      }
+    />
+    <HelperErrorText
+      text={
+        <Text>
+          This second example uses DS components, such as the{" "}
+          <Link href="#">`Link`</Link> component, and the `Text` component.
+        </Text>
+      }
+    />
   </Story>
 </Canvas>
 
@@ -80,7 +108,7 @@ NYPL "invalid" styling.
 
 <Canvas>
   <Story name="Invalid State">
-    <HelperErrorText isInvalid>This is the error text :(</HelperErrorText>
+    <HelperErrorText isInvalid text="This is the error text :(" />
   </Story>
 </Canvas>
 
@@ -107,7 +135,7 @@ announced immediately.
 
 <Canvas>
   <Story
-    name="With Aria Props"
+    name="With Aria Controls"
     args={{
       ariaAtomic: true,
       ariaLive: "polite",
@@ -115,10 +143,10 @@ announced immediately.
     }}
   >
     {(args) => (
-      <HelperErrorText {...args}>
-        Only invalid text can be read to screen readers with the appropriate
-        aria-atomic and aria-live props.
-      </HelperErrorText>
+      <HelperErrorText
+        {...args}
+        text="Only invalid text can be read to screen readers with the appropriate aria-atomic and aria-live props."
+      />
     )}
   </Story>
 </Canvas>

@@ -1,23 +1,26 @@
-import * as React from "react";
 import {
   Box,
   Checkbox as ChakraCheckbox,
   Icon,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import * as React from "react";
+
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface CheckboxProps {
   /** className you can add in addition to 'input' */
   className?: string;
   /** Optional string to populate the HelperErrorText for standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** When using the Checkbox as a "controlled" form element, you can specify
    * the Checkbox's checked state using this prop.
    * Learn more about controlled and uncontrolled form fields:
@@ -89,7 +92,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       value,
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
-    const footnote = isInvalid ? invalidText : helperText;
+    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
     const onChange = props.onChange || onChangeDefault;
     // Use Chakra's default indeterminate icon.
@@ -130,9 +133,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         </ChakraCheckbox>
         {footnote && showHelperInvalidText && (
           <Box __css={styles.helper}>
-            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
-              {footnote}
-            </HelperErrorText>
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
           </Box>
         )}
       </>

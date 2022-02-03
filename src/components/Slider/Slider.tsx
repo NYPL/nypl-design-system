@@ -14,7 +14,9 @@ import {
 
 import generateUUID from "../../helpers/generateUUID";
 import Label from "../Label/Label";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
 import TextInput from "../TextInput/TextInput";
 import { TextInputTypes } from "../TextInput/TextInputTypes";
 
@@ -26,12 +28,12 @@ export interface SliderProps {
    */
   defaultValue?: number | number[];
   /** Optional string to populate the HelperErrorText for standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' state to the slider and text input(s) when true. */
   isDisabled?: boolean;
   /** Adds the 'invalid' state to the slider and text input(s) when true. */
@@ -103,9 +105,8 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     typeof defaultValue === "number" ? [min, max] : defaultValue;
   // We need to set the default value correctly for both types of sliders.
   const finalDevaultValue = isRangeSlider ? rangeSliderDefault : defaultValue;
-  const [currentValue, setCurrentValue] = React.useState<typeof defaultValue>(
-    finalDevaultValue
-  );
+  const [currentValue, setCurrentValue] =
+    React.useState<typeof defaultValue>(finalDevaultValue);
   let finalIsInvalid = isInvalid;
   // In the Range Slider, if the first value is bigger than the second value,
   // then set the invalid state.
@@ -113,7 +114,9 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     finalIsInvalid = true;
   }
   const optReqText = isRequired ? "Required" : "Optional";
-  const footnote = finalIsInvalid ? invalidText : helperText;
+  const footnote: HelperErrorTextType = finalIsInvalid
+    ? invalidText
+    : helperText;
   const styles = useMultiStyleConfig("CustomSlider", {
     isDisabled,
     isInvalid: finalIsInvalid,
@@ -299,9 +302,11 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
 
       {footnote && showHelperInvalidText && (
         <Box __css={styles.helper}>
-          <HelperErrorText id={`${id}-helperText`} isInvalid={finalIsInvalid}>
-            {footnote}
-          </HelperErrorText>
+          <HelperErrorText
+            id={`${id}-helperText`}
+            isInvalid={finalIsInvalid}
+            text={footnote}
+          />
         </Box>
       )}
     </Box>

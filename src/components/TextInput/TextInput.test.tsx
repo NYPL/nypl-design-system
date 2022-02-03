@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import TextInput from "./TextInput";
@@ -366,5 +367,100 @@ describe("Textarea element type", () => {
 
   it("renders label with label text", () => {
     expect(screen.getByLabelText(/Custom textarea Label/i)).toBeInTheDocument();
+  });
+});
+
+describe("UI Snapshots", () => {
+  it("renders the text input UI snapshot correctly", () => {
+    const required = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const optional = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const hiddenLabelText = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          showLabel={false}
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const withHelperText = renderer
+      .create(
+        <TextInput
+          helperText="Custom helper text"
+          id="myTextInput"
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const errorState = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isInvalid
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const disabledState = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isDisabled
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+
+    expect(required).toMatchSnapshot();
+    expect(optional).toMatchSnapshot();
+    expect(hiddenLabelText).toMatchSnapshot();
+    expect(withHelperText).toMatchSnapshot();
+    expect(errorState).toMatchSnapshot();
+    expect(disabledState).toMatchSnapshot();
+  });
+  it("renders the textarea UI snapshot correctly", () => {
+    const basicTextarea = renderer
+      .create(
+        <TextInput
+          id="myTextarea"
+          labelText="Custom textarea Label"
+          placeholder="Textarea Placeholder"
+          type={TextInputTypes.textarea}
+        />
+      )
+      .toJSON();
+
+    expect(basicTextarea).toMatchSnapshot();
   });
 });

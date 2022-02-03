@@ -9,7 +9,6 @@ import {
   IconRotationTypes,
   IconSizes,
   IconTypes,
-  LogoNames,
 } from "./IconTypes";
 import iconSvgs from "./IconSvgs";
 
@@ -18,7 +17,7 @@ export interface IconProps {
   additionalStyles?: { [key: string]: any };
   /** Aligns the icon. */
   align?: IconAlign;
-  /** className that appears in addition to "icon" */
+  /** Optional className that will be added to the parent element */
   className?: string;
   /** Overrides default icon color (black). */
   color?: IconColors;
@@ -30,14 +29,14 @@ export interface IconProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** The name of the icon you want to use. */
-  name?: IconNames | LogoNames;
+  name?: IconNames;
   /** Sets the icon size. */
   size?: IconSizes;
   /** For accessibility purposes, the text passed in the `title` prop gets
    * rendered in a `title` element in the SVG. This descriptive text is not
    * visible but is needed for screenreaders to describe the graphic. */
   title?: string;
-  /** Sets the icon variant type. */
+  /** FOR INTERNAL DS USE ONLY: the icon variant to display. */
   type?: IconTypes;
 }
 
@@ -47,7 +46,7 @@ export interface IconProps {
 export default function Icon(props: React.PropsWithChildren<IconProps>) {
   const {
     additionalStyles = {},
-    align = "none",
+    align = IconAlign.None,
     children,
     className,
     color = IconColors.UiBlack,

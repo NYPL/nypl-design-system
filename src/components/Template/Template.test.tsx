@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import {
   Template,
@@ -15,11 +16,11 @@ import {
 } from "./Template";
 import Placeholder from "../Placeholder/Placeholder";
 
-const header = <Placeholder modifiers={["short"]}>NYPL Header</Placeholder>;
+const header = <Placeholder variant="short">NYPL Header</Placeholder>;
 const breakout = (
   <>
-    <Placeholder modifiers={["short"]}>Breadcrumbs</Placeholder>
-    <Placeholder modifiers={["short"]}>Hero</Placeholder>
+    <Placeholder variant="short">Breadcrumbs</Placeholder>
+    <Placeholder variant="short">Hero</Placeholder>
   </>
 );
 const sidebar = "left";
@@ -28,10 +29,10 @@ const contentSidebar = <Placeholder>Left Sidebar</Placeholder>;
 const contentPrimary = (
   <>
     <Placeholder>Main Content</Placeholder>
-    <Placeholder modifiers={["short"]}>More Content</Placeholder>
+    <Placeholder variant="short">More Content</Placeholder>
   </>
 );
-const footer = <Placeholder modifiers={["short"]}>Footer</Placeholder>;
+const footer = <Placeholder variant="short">Footer</Placeholder>;
 
 describe("TemplateAppContainer accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -93,6 +94,44 @@ describe("TemplateAppContainer component", () => {
     expect(screen.getByText("More Content")).toBeInTheDocument();
     expect(screen.getByText("Footer")).toBeInTheDocument();
   });
+
+  it("renders only one footer in a custom footer component", () => {
+    const customFooter = <footer>Custom Footer</footer>;
+    render(
+      <TemplateAppContainer
+        header={header}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={customFooter}
+        renderFooterElement={false}
+      />
+    );
+
+    expect(screen.getAllByRole("contentinfo")).toHaveLength(1);
+  });
+
+  it("consoles a warning when a footer element was passed without setting `renderFooterElement` to false", () => {
+    const warn = jest.spyOn(console, "warn");
+    const customFooter = <footer>Custom Footer</footer>;
+    render(
+      <TemplateAppContainer
+        header={header}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={customFooter}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "`TemplateFooter`: An HTML `footer` element was passed in. Set " +
+        "`renderFooterElement` to `false` to avoid nested HTML `footer` elements."
+    );
+  });
 });
 
 describe("Template components", () => {
@@ -120,5 +159,26 @@ describe("Template components", () => {
     expect(screen.getByText("Main Content")).toBeInTheDocument();
     expect(screen.getByText("More Content")).toBeInTheDocument();
     expect(screen.getByText("Footer")).toBeInTheDocument();
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const basic = renderer
+      .create(
+        <Template>
+          <TemplateHeader>
+            {header}
+            <TemplateBreakout>{breakout}</TemplateBreakout>
+          </TemplateHeader>
+          <TemplateContent sidebar={sidebar}>
+            <TemplateContentTop>{contentTop}</TemplateContentTop>
+            <TemplateContentSidebar>{contentSidebar}</TemplateContentSidebar>
+            <TemplateContentPrimary>{contentPrimary}</TemplateContentPrimary>
+          </TemplateContent>
+          <TemplateFooter>{footer}</TemplateFooter>
+        </Template>
+      )
+      .toJSON();
+
+    expect(basic).toMatchSnapshot();
   });
 });
