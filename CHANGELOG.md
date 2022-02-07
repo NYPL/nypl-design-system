@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixing `Breadcrumbs` related logging issue with a CSS pseudo-selector and setting the `aria-label` to "Breadcrumbs". Adding an accessibility test that should fail when more than one `Breadcrumbs` component is rendered on a page since that landmark should only be rendered once on a web page.
+
 ## 0.25.9 (February 3, 2022)
 
 ### Adds
