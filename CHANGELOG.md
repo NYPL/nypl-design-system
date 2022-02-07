@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Adds snapshot tests for the `Tabs` component and better checks to warn the user that the `Tabs` is missing data if data wasn't passed as props or children.
+
+### Fixes
+
+- Fixes auto-generated `id`s in the `Tabs` component.
+
 ## 0.25.9 (February 3, 2022)
 
 ### Adds

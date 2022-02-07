@@ -17,6 +17,12 @@ import Button from "../Button/Button";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
 import useWindowSize from "../../hooks/useWindowSize";
 
+// Internal interface used for renders `Tabs` tab and panel
+// elements, either from data or from children.
+interface TabPanelProps {
+  tabs: React.ReactNode[] | React.ReactNode;
+  panels: React.ReactNode[] | React.ReactNode;
+}
 // The general shape of the data object for each Tab.
 export interface TabsContentDataProps {
   label: string;
@@ -49,18 +55,18 @@ const onClickHash = (tabHash) => {
  * This returns an object with `Tab` and `TabPanel` components to rendered in
  * `TabList` and `TabPanels` components respectively.
  */
-const getElementsFromContentData = (data, useHash) => {
+const getElementsFromContentData = (data, useHash): TabPanelProps => {
   const tabs = [];
   const panels = [];
 
   if (!data?.length) {
-    return {};
+    return { tabs: [], panels: [] };
   }
 
   if (data?.length > 6) {
     console.warn(
-      "We recommend to use no more than six tabs. If more than six tabs are " +
-        "needed, consider other navigational patterns."
+      "Tabs: We recommend to use no more than six tabs. If more than six tabs " +
+        "are needed, consider other navigational patterns."
     );
   }
   data.forEach((tab, index) => {
@@ -78,8 +84,8 @@ const getElementsFromContentData = (data, useHash) => {
     if (typeof tab.content === "string") {
       tempPanel = (
         <TabPanel
-          key={index}
           dangerouslySetInnerHTML={{ __html: tab.content }}
+          key={index}
         />
       );
     } else {
@@ -100,12 +106,12 @@ const getElementsFromContentData = (data, useHash) => {
  * This returns an object with `TabList` and `TabPanels` components to help format
  * the DOM when building up the `Tabs` component using child component.
  */
-const getElementsFromChildren = (children) => {
+const getElementsFromChildren = (children): TabPanelProps => {
   const tabs = [];
   const panels = [];
 
   if (!children?.length) {
-    return {};
+    return { tabs: [], panels: [] };
   }
 
   children.forEach((child) => {
@@ -115,8 +121,8 @@ const getElementsFromChildren = (children) => {
       const childTabs = React.Children.count(child.props.children);
       if (childTabs > 6) {
         console.warn(
-          "We recommend to use no more than six tabs. If more than six tabs are " +
-            "needed, consider other navigational patterns."
+          "Tabs: We recommend to use no more than six tabs. If more than six " +
+            "tabs are needed, consider other navigational patterns."
         );
       }
     }
@@ -149,9 +155,14 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const mediumTabWidth = 40;
   const [tabWidth, setTabWidth] = React.useState(initTabWidth);
   const windowDimensions = useWindowSize();
-  const { tabs, panels } = contentData
+  const { tabs, panels }: any = contentData
     ? getElementsFromContentData(contentData, useHash)
     : getElementsFromChildren(children);
+
+  if (!tabs.length || !panels.length) {
+    console.warn("Tabs: Pass data in the `data` props or as children.");
+  }
+
   // `tabs` is an array for the children component approach but an object for
   // the `contentData` prop approach. We need to get the right props key value
   // to set the carousel's length.
@@ -173,34 +184,38 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   }, [goToStart, windowDimensions.width]);
   const previousButton = (
     <Button
-      buttonType={ButtonTypes.Primary}
       attributes={{
         "aria-label": "Previous",
         ...styles.buttonArrows,
         left: "0",
       }}
+      buttonType={ButtonTypes.Primary}
+      id={`tabs-previous-${id}`}
       onClick={prevSlide}
     >
       <Icon
-        name={IconNames.Arrow}
         iconRotation={IconRotationTypes.Rotate90}
+        id={`tabs-previous-icon-${id}`}
+        name={IconNames.Arrow}
         size={IconSizes.Small}
       />
     </Button>
   );
   const nextButton = (
     <Button
-      buttonType={ButtonTypes.Primary}
       attributes={{
         "aria-label": "Next",
         ...styles.buttonArrows,
         right: "0",
       }}
+      buttonType={ButtonTypes.Primary}
+      id={`tabs-next-${id}`}
       onClick={nextSlide}
     >
       <Icon
-        name={IconNames.Arrow}
         iconRotation={IconRotationTypes.Rotate270}
+        id={`tabs-next-icon-${id}`}
+        name={IconNames.Arrow}
         size={IconSizes.Small}
       />
     </Button>
@@ -208,18 +223,18 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
 
   if (children && contentData?.length) {
     console.warn(
-      "Only pass children or data in the `data` props but not both."
+      "Tabs: Only pass children or data in the `data` props but not both."
     );
   }
 
   return (
     <ChakraTabs
-      id={id}
-      onChange={onChange}
       defaultIndex={defaultIndex}
-      variant="enclosed"
+      id={id}
       // The following lazy loads each panel whenever it is needed.
       isLazy
+      onChange={onChange}
+      variant="enclosed"
     >
       <Box
         __css={styles.tablistWrapper}
