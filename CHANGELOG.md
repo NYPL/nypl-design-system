@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes and removes bad console logs from the `Pagination` and `List` components.
+
 ## 0.25.9 (February 3, 2022)
 
 ### Adds
