@@ -35,7 +35,11 @@ export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
     children,
     (child: React.ReactElement, i) => {
       if (!child) return null;
-      return React.cloneElement(child, { id: `${id}-grandchild${i}` });
+      if (child.type === FormField || child.props.mdxType === "FormField") {
+        return React.cloneElement(child, { id: `${id}-grandchild${i}` });
+      }
+      console.warn("FormRow children must be `FormField` components.");
+      return null;
     }
   );
   return (
@@ -88,7 +92,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
       {...attributes}
       className={className}
     >
-      <SimpleGrid columns={1} gap={spacing} id={id + "-parent"}>
+      <SimpleGrid columns={1} gap={spacing} id={`${id}-parent`}>
         {alteredChildren}
       </SimpleGrid>
     </Box>

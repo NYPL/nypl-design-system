@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Form` component to warn developers when a child component in the `FormRow` component _is not_ a `FormField`.
+
 ## 0.25.9 (February 3, 2022)
 
 ### Adds

@@ -12,6 +12,19 @@ describe("Form Accessibility", () => {
     const { container } = render(<Form />);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test for the full hierachy", async () => {
+    const { container } = render(
+      <Form>
+        <FormRow>
+          <FormField>Form Field 1</FormField>
+          <FormField>Form Field 2</FormField>
+          <FormField>Form Field 3</FormField>
+        </FormRow>
+      </Form>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Form Snapshot", () => {
@@ -99,6 +112,65 @@ describe("Form", () => {
     expect(form).toBeInTheDocument();
     expect(form).toHaveAttribute("action", "/end/point");
     expect(form).toHaveAttribute("method", "get");
+  });
+
+  it("passes down the `Form`'s id down to its children", () => {
+    const { container } = render(
+      <Form id="formId">
+        <FormRow>
+          <FormField>
+            <TextInput labelText="Input Field" />
+          </FormField>
+          <FormField>
+            <TextInput labelText="Input Field" />
+          </FormField>
+        </FormRow>
+        <FormRow>
+          <FormField>
+            <TextInput labelText="Input Field" />
+          </FormField>
+          <FormField>
+            <TextInput labelText="Input Field" />
+          </FormField>
+        </FormRow>
+      </Form>
+    );
+
+    expect(container.querySelector("#formId")).toBeInTheDocument();
+    // The first `FormRow` adds "child0" to its id
+    expect(container.querySelector("#formId-child0")).toBeInTheDocument();
+    // The first `FormRow`'s first `FormField` adds "grandchild0" to its id
+    expect(
+      container.querySelector("#formId-child0-grandchild0")
+    ).toBeInTheDocument();
+    // The first `FormRow`'s second `FormField` adds "grandchild1" to its id
+    expect(
+      container.querySelector("#formId-child0-grandchild1")
+    ).toBeInTheDocument();
+    // The second `FormRow` adds "child1" to its id
+    expect(container.querySelector("#formId-child1")).toBeInTheDocument();
+    // The second `FormRow`'s first `FormField` adds "grandchild0" to its id
+    expect(
+      container.querySelector("#formId-child1-grandchild0")
+    ).toBeInTheDocument();
+    // The second `FormRow`'s second `FormField` adds "grandchild1" to its id
+    expect(
+      container.querySelector("#formId-child1-grandchild1")
+    ).toBeInTheDocument();
+  });
+
+  it("logs a warning if a child of `FormRow` is not a `FormField`", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Form>
+        <FormRow>
+          <div>Not a FormField</div>
+        </FormRow>
+      </Form>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "FormRow children must be `FormField` components."
+    );
   });
 
   // TO DO: There's somethign weird about checking for the "grid-gap" style.

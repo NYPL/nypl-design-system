@@ -60,15 +60,31 @@ export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.10`  |
 
 <Description of={Form} />
 
-The `Form` component renders a standard `<form>` element and should be used to handle layout and spacing for child input fields. `FormRow` and `FormField` components should be used to build the `<form>` struture and to arrange input fields as needed.
+The `Form` component renders a standard `<form>` element and should be used to
+handle layout and spacing for child input fields. `FormRow` and `FormField`
+components should be used to build the `<form>` structure and to arrange input
+fields as needed.
 
-`FormField` should be used as a parent for all input components from the DS (`Button`, `Select`, `TextInput`, etc.).
+```jsx
+<Form>
+  <FormRow>
+    <FormField>{/* ... */}</FormField>
+  </FormRow>
+  <FormRow>
+    <FormField>{/* ... */}</FormField>
+  </FormRow>
+</Form>
+```
 
-`FormRow` should be used as a parent of multiple `FormField` components when you need to render multiple input components in a horizontal row.
+`FormField` should be used as a parent for all input components from the DS
+(`Button`, `Select`, `TextInput`, etc.).
+
+`FormRow` should be used as a parent of multiple `FormField` components when you
+need to render multiple input components in a horizontal row.
 
 <Canvas withToolbar>
   <Story
