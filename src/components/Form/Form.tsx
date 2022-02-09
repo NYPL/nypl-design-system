@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import * as React from "react";
 
-import { FormSpacing } from "./FormTypes";
+import { FormGaps } from "./FormTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
 import generateUUID from "../../helpers/generateUUID";
 
@@ -11,7 +11,7 @@ interface FormBaseProps {
   /** Optional spacing size; if omitted, the default `large` (2rem / 32px)
    * spacing will be used; ```IMPORTANT: for general form layout, this prop
    * should not be used``` */
-  gap?: FormSpacing;
+  gap?: FormGaps;
   /** ID that other components can cross reference (internal use) */
   id?: string;
 }
@@ -65,7 +65,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     className,
     id = generateUUID(),
     method,
-    gap = FormSpacing.Large,
+    gap = FormGaps.Large,
   } = props;
 
   let attributes = {};

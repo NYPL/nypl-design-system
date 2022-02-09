@@ -4,7 +4,7 @@ import ReactDatePicker from "react-datepicker";
 import { DatePickerTypes } from "./DatePickerTypes";
 import Fieldset from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
-import { FormSpacing } from "../Form/FormTypes";
+import { FormGaps } from "../Form/FormTypes";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
@@ -216,7 +216,7 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
   children,
 }) =>
   isDateRange ? (
-    <FormRow id={`${id}-form-row`} gap={FormSpacing.ExtraSmall}>
+    <FormRow id={`${id}-form-row`} gap={FormGaps.ExtraSmall}>
       {children}
     </FormRow>
   ) : (

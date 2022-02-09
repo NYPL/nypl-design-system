@@ -14,7 +14,7 @@ import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import DatePicker from "../DatePicker/DatePicker";
 import { DatePickerTypes } from "../DatePicker/DatePickerTypes";
 import Form, { FormRow, FormField } from "./Form";
-import { FormSpacing } from "./FormTypes";
+import { FormGaps } from "./FormTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
@@ -27,7 +27,7 @@ import { getCategory } from "../../utils/componentCategories";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getStorybookEnumValues } from "../../utils/utils";
 
-export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
+export const enumValues = getStorybookEnumValues(FormGaps, "FormGaps");
 
 <Meta
   title={getCategory("Form")}
@@ -49,7 +49,7 @@ export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
     },
     gap: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "FormSpacing.Large" } },
+      table: { defaultValue: { summary: "FormGaps.Large" } },
       options: enumValues.options,
     },
   }}
@@ -94,7 +94,7 @@ need to render multiple input components in a horizontal row.
       className: undefined,
       id: "form-id",
       method: "get",
-      gap: "FormSpacing.Large",
+      gap: "FormGaps.Large",
     }}
   >
     {(args) => (
@@ -266,8 +266,8 @@ export const formRow = (nameString, size) => {
   );
 };
 export const sizes = [];
-for (const formSpacing in FormSpacing) {
-  sizes.push(formRow(`FormSpacing.${formSpacing}`, FormSpacing[formSpacing]));
+for (const FormGaps in FormGaps) {
+  sizes.push(formRow(`FormGaps.${FormGaps}`, FormGaps[FormGaps]));
 }
 export const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 
@@ -277,7 +277,7 @@ variable `--nypl-space-l` (2rem / 32px).
 
 **IMPORTANT:** The default spacing should not be overwritten without a very good reason.
 
-Below are the spacing variants available with the `FormSpacing` enum.
+Below are the spacing variants available with the `FormGaps` enum.
 
 <Canvas>
   <Story
@@ -295,7 +295,7 @@ Below are the spacing variants available with the `FormSpacing` enum.
 <Story name="Example Code" />
 
 ```jsx
-<Form action="/end/point" method="get" gap={FormSpacing.Large}>
+<Form action="/end/point" method="get" gap={FormGaps.Large}>
   <FormField>
     <TextInput
       labelText="Username"

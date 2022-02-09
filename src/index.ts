@@ -37,7 +37,7 @@ export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as DSProvider } from "./theme/provider";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
-export { FormSpacing } from "./components/Form/FormTypes";
+export { FormGaps } from "./components/Form/FormTypes";
 export { GridGaps } from "./components/Grid/GridTypes";
 export { default as Heading } from "./components/Heading/Heading";
 export {

@@ -4,7 +4,7 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Form, { FormRow, FormField } from "./Form";
-// import { FormSpacing } from "./FormTypes";
+// import { FormGaps } from "./FormTypes";
 import TextInput from "../TextInput/TextInput";
 
 describe("Form Accessibility", () => {
@@ -177,7 +177,7 @@ describe("Form", () => {
   // Other styles can be validated, but "grid-gap" is being ellusive.
   // it("Renders a <form> element with spacing variant applied", () => {
   //   render(
-  //     <Form gap={FormSpacing.ExtraSmall}>
+  //     <Form gap={FormGaps.ExtraSmall}>
   //       <FormRow />
   //     </Form>
   //   );

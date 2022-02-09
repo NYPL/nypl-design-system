@@ -1,3 +1,3 @@
-import { GridGaps as FormSpacing } from "../Grid/GridTypes";
+import { GridGaps as FormGaps } from "../Grid/GridTypes";
 
-export { FormSpacing };
+export { FormGaps };
