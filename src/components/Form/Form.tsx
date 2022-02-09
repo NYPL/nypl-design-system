@@ -5,26 +5,24 @@ import { FormSpacing } from "./FormTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
 import generateUUID from "../../helpers/generateUUID";
 
-export interface FormChildProps {
-  /** className to be applied to FormRow */
+interface FormBaseProps {
+  /** className to be applied to FormRow, FormField, and Form */
   className?: string;
-  /** Spacing size (internal use) */
+  /** Optional spacing size; if omitted, the default `large` (2rem / 32px)
+   * spacing will be used; ```IMPORTANT: for general form layout, this prop
+   * should not be used``` */
   gap?: FormSpacing;
   /** ID that other components can cross reference (internal use) */
   id?: string;
 }
 
-export interface FormProps {
+export interface FormChildProps extends FormBaseProps {}
+
+export interface FormProps extends FormBaseProps {
   /** Optional form `action` attribute */
   action?: string;
-  /** Optional className you can add in addition to `form` */
-  className?: string;
-  /** Optional ID that other components can cross reference */
-  id?: string;
   /** Optional form `method` attribute */
   method?: "get" | "post";
-  /** Optional spacing size; if omitted, the default `large` (2rem / 32px) spacing will be used; ```IMPORTANT: for general form layout, this prop should not be used``` */
-  spacing?: FormSpacing;
 }
 
 /** FormRow child-component */
@@ -67,7 +65,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     className,
     id = generateUUID(),
     method,
-    spacing = FormSpacing.Large,
+    gap = FormSpacing.Large,
   } = props;
 
   let attributes = {};
@@ -80,7 +78,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
   const alteredChildren = React.Children.map(
     children,
     (child: React.ReactElement, i) => {
-      return React.cloneElement(child, { gap: spacing, id: `${id}-child${i}` });
+      return React.cloneElement(child, { gap, id: `${id}-child${i}` });
     }
   );
 
@@ -92,7 +90,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
       {...attributes}
       className={className}
     >
-      <SimpleGrid columns={1} gap={spacing} id={`${id}-parent`}>
+      <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
         {alteredChildren}
       </SimpleGrid>
     </Box>

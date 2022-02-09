@@ -177,7 +177,7 @@ describe("Form", () => {
   // Other styles can be validated, but "grid-gap" is being ellusive.
   // it("Renders a <form> element with spacing variant applied", () => {
   //   render(
-  //     <Form spacing={FormSpacing.ExtraSmall}>
+  //     <Form gap={FormSpacing.ExtraSmall}>
   //       <FormRow />
   //     </Form>
   //   );

@@ -8,9 +8,23 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Updates
+### Breaking Changes
 
+- Renames the `Form` component's `"spacing"` prop to `"gap"` to be consistent with the `FormRow` and `FormField` components.
+
+### Changes
+
+- Passes an `onChange` prop to the `Select` component inside the `SearchBar` through its `selectProps` prop.
+- Adds snapshot tests for the `Tabs` component and better checks to warn the user that the `Tabs` is missing data if data wasn't passed as props or children.
 - Updates the `Form` component to warn developers when a child component in the `FormRow` component _is not_ a `FormField`.
+
+### Fixes
+
+- Fixes `id` propagation issues in the `SearchBar` component and its children DS components.
+- Fixing `Breadcrumbs` related logging issue with a CSS pseudo-selector and setting the `aria-label` to "Breadcrumbs". Adding an accessibility test that should fail when more than one `Breadcrumbs` component is rendered on a page since that landmark should only be rendered once on a web page.
+- Exports the `FullDateType` interface related to the `DatePicker` component.
+- Fixes and removes bad console logs from the `Pagination` and `List` components.
+- Fixes auto-generated `id`s in the `Tabs` component.
 
 ## 0.25.9 (February 3, 2022)
 
