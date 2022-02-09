@@ -16,8 +16,7 @@ import generateUUID from "../../helpers/generateUUID";
 import { useMultiStyleConfig } from "@chakra-ui/system";
 
 // The object shape for the DatePicker's start and end date state values.
-// Internal use only.
-interface FullDateType {
+export interface FullDateType {
   /** Date object that gets returned for the onChange
    * function only for date ranges. */
   endDate?: Date;
