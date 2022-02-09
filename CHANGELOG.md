@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Passes an `onChange` prop to the `Select` component inside the `SearchBar` through its `selectProps` prop.
+
+### Fixes
+
+- Fixes `id` propagation issues in the `SearchBar` component and its children DS components.
+
 ## 0.25.9 (February 3, 2022)
 
 ### Adds

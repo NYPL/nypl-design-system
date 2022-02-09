@@ -60,7 +60,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.9`   |
+| Latest            | `0.25.10`  |
 
 <Description of={SearchBar} />
 
@@ -142,14 +142,17 @@ export const optionsGroup = [
 
 To render an optional `Select` component, an object must be passed to the
 `selectProps` prop. It _must_ include `name`, `labelText`, and `optionsData`
-properties. The `labelText` value won't be rendered but will be used for its
-`aria-label` attribute.
+properties. The `onChange` property is optional. The `labelText` value won't be
+rendered but will be used for its `aria-label` attribute.
 
 ```
 const selectProps = {
   name: "select-form-name",
   labelText: "Select a category",
   optionsData: optionsGroup,
+  onChange: (event) => {
+    console.log(event.target.value);
+  },
 };
 
 // ...
@@ -165,7 +168,7 @@ const selectProps = {
 To render the `TextInput` component, an object must be passed to the
 `textInputProps` prop. It _must_ include `labelText`, `name`, and `placeholder`
 properties. The `labelText` value won't be rendered but will be used for its
-`aria-label` attribute. Optional values to pass include `onChange` and `value`.
+`aria-label` attribute. Optional properties to pass include `onChange` and `value`.
 
 ```
 const textInputProps = {
