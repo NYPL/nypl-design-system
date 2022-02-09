@@ -17,7 +17,7 @@ import Button from "../Button/Button";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
 import useWindowSize from "../../hooks/useWindowSize";
 
-// Internal interface used for renders `Tabs` tab and panel
+// Internal interface used for rendering `Tabs` tab and panel
 // elements, either from data or from children.
 interface TabPanelProps {
   tabs: React.ReactNode[] | React.ReactNode;
