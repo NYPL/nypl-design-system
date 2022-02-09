@@ -2,7 +2,7 @@
 
 exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
 <nav
-  aria-label="breadcrumb"
+  aria-label="Breadcrumb"
   className="chakra-breadcrumb css-0"
   id="breadcrumbs-test"
 >
@@ -101,7 +101,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
 
 exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
 <nav
-  aria-label="breadcrumb"
+  aria-label="Breadcrumb"
   className="chakra-breadcrumb css-0"
   id="breadcrumbs-test"
 >
@@ -200,7 +200,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
 
 exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
 <nav
-  aria-label="breadcrumb"
+  aria-label="Breadcrumb"
   className="chakra-breadcrumb css-0"
   id="breadcrumbs-test"
 >
@@ -299,7 +299,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
 
 exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
 <nav
-  aria-label="breadcrumb"
+  aria-label="Breadcrumb"
   className="chakra-breadcrumb css-0"
   id="breadcrumbs-test"
 >
@@ -398,7 +398,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
 
 exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
 <nav
-  aria-label="breadcrumb"
+  aria-label="Breadcrumb"
   className="chakra-breadcrumb css-1f2fw9u"
   id="breadcrumbs-test"
 >
