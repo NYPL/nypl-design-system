@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes `id` propagation issues in the `SearchBar` component and its children DS components.
 - Fixing `Breadcrumbs` related logging issue with a CSS pseudo-selector and setting the `aria-label` to "Breadcrumbs". Adding an accessibility test that should fail when more than one `Breadcrumbs` component is rendered on a page since that landmark should only be rendered once on a web page.
 - Exports the `FullDateType` interface related to the `DatePicker` component.
+- Fixes and removes bad console logs from the `Pagination` and `List` components.
 
 ## 0.25.9 (February 3, 2022)
 
