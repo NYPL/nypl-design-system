@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Passes an `onChange` prop to the `Select` component inside the `SearchBar` through its `selectProps` prop.
 - Adds snapshot tests for the `Tabs` component and better checks to warn the user that the `Tabs` is missing data if data wasn't passed as props or children.
+- Adds an `aria-label` attribute to the `Notification` component to use with its `aside` HTML landmark element. Added an "Accessibility" section in the `Notification` Storybook page to note that this component should not be used within a `header` or `footer` HTML landmark element.
 
 ### Fixes
 

@@ -30,6 +30,8 @@ type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
 
 export interface NotificationProps extends BasePropsWithoutAlignText {
+  /** Label used to describe the `Notification`'s aside HTML element. */
+  ariaLabel?: string;
   /** Additional `className` to add.  */
   className?: string;
   /** Optional prop to control whether a `Notification` can be dismissed
@@ -99,6 +101,7 @@ export function NotificationContent(
  */
 export default function Notification(props: NotificationProps) {
   const {
+    ariaLabel,
     centered = false,
     className,
     dismissible = false,
@@ -199,11 +202,12 @@ export default function Notification(props: NotificationProps) {
   }
   return (
     <Box
+      aria-label={ariaLabel}
       as="aside"
-      id={id}
       className={className}
-      __css={styles}
       data-type={notificationType}
+      id={id}
+      __css={styles}
     >
       <Box __css={styles.container}>
         {childHeading}

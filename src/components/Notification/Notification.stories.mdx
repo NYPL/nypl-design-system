@@ -57,7 +57,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.9`   |
+| Latest            | `0.25.10`  |
 
 <Description of={Notification} />
 
@@ -72,6 +72,7 @@ within a parent element.
   <Story
     name="Notification with Controls"
     args={{
+      ariaLabel: "Notification label",
       centered: false,
       className: undefined,
       dismissible: false,
@@ -104,6 +105,15 @@ within a parent element.
 </Canvas>
 
 <ArgsTable story="Notification with Controls" />
+
+## Accessibility
+
+The `Notification` component renders with an HTML `aside` element as its wrapper.
+This is an HTML landmark element that is similar to adding an attribute of
+`role="complementary"`. For accessibility purposes, landmark elements should not
+be rendered inside other landmark elements such as the `header` and `footer`
+landmark elements. Adding a `Notification` component inside an HTML `main` landmark
+element is acceptable.
 
 ## Variants
 

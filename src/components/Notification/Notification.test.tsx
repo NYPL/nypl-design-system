@@ -48,6 +48,7 @@ describe("Notification", () => {
   beforeEach(() => {
     utils = render(
       <Notification
+        ariaLabel="Notification label"
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
@@ -130,6 +131,13 @@ describe("Notification", () => {
     expect(utils.container.querySelector("aside")).toHaveAttribute(
       "data-type",
       "warning"
+    );
+  });
+
+  it("renders with an aria-label attribute", () => {
+    expect(screen.getByRole("complementary")).toHaveAttribute(
+      "aria-label",
+      "Notification label"
     );
   });
 
