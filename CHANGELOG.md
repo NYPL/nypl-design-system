@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Passes an `onChange` prop to the `Select` component inside the `SearchBar` through its `selectProps` prop.
 - Adds snapshot tests for the `Tabs` component and better checks to warn the user that the `Tabs` is missing data if data wasn't passed as props or children.
 - Updates the `Form` component to warn developers when a child component in the `FormRow` component _is not_ a `FormField`.
+- Adds an `onSubmit` prop to the `Form` component.
 
 ### Fixes
 

@@ -3,7 +3,6 @@
 exports[`Form Snapshot Renders the UI snapshot correctly 1`] = `
 <form
   aria-label="form"
-  className="css-0"
   id="snapshot-form"
 >
   <div
