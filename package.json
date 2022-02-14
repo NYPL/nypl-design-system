@@ -28,7 +28,7 @@
     "test:watch": "tsdx test - --watch",
     "test:generate-output": "tsdx test --json --outputFile=.jest-test-results.json  || true",
     "lint": "tsdx lint",
-    "prepare": "husky install",
+    "prepare": "npm run build && husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "generate-sass-resources": "gulp",
