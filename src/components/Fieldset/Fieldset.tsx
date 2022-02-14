@@ -2,8 +2,6 @@ import React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 interface FieldsetProps {
-  /** Children to render. Typically form-related components are used. */
-  children: React.ReactNode;
   /** Additional class name to add. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -24,7 +22,7 @@ interface FieldsetProps {
  * A wrapper component that renders a `fieldset` element along with a `legend`
  * element as its first child. Commonly used to wrap form components.
  */
-const Fieldset: React.FC<FieldsetProps> = ({
+const Fieldset = ({
   children,
   className,
   id,
@@ -32,7 +30,7 @@ const Fieldset: React.FC<FieldsetProps> = ({
   isRequired = false,
   legendText,
   optReqFlag = true,
-}) => {
+}: React.PropsWithChildren<FieldsetProps>) => {
   const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
   return (
     <Box as="fieldset" id={id} __css={styles} className={className}>
