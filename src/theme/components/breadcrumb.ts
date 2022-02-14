@@ -67,7 +67,7 @@ const Breadcrumb = {
         marginInlineStart: "xxs",
       },
     },
-    "li:nth-last-child(2)": {
+    "li:nth-last-of-type(2)": {
       display: "inline-block",
       span: {
         display: { base: "none", md: "inline" },
