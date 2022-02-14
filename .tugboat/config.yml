@@ -1,11 +1,9 @@
 services:
   node:
-    image: tugboatqa/httpd
+    image: tugboatqa/node:14
     commands:
       build:
         - apt-get update
-        - apt-get install nodejs
-        - apt-get install npm
         - npm install
         - npm run prebuild:storybook && npm run build-storybook
         - ln -snf "${TUGBOAT_ROOT}/storybook-static" "${DOCROOT}"
