@@ -26,6 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports the `FullDateType` interface related to the `DatePicker` component.
 - Fixes and removes bad console logs from the `Pagination` and `List` components.
 - Fixes auto-generated `id`s in the `Tabs` component.
+- Fixes `Card` component bugs for the `CardContent` layout and for passing styles to the `CardHeading` correctly.
 
 ## 0.25.9 (February 3, 2022)
 
