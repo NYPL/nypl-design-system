@@ -2,13 +2,13 @@
 
 exports[`HorizontalRule renders the UI snapshot correctly 1`] = `
 <hr
-  className="css-ili6fu"
+  className="css-1bhbd2a"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 2`] = `
 <hr
-  className="css-1pwp4fu"
+  className="css-154goob"
 />
 `;
 
@@ -20,12 +20,12 @@ exports[`HorizontalRule renders the UI snapshot correctly 3`] = `
 
 exports[`HorizontalRule renders the UI snapshot correctly 4`] = `
 <hr
-  className="css-ili6fu"
+  className="css-1bhbd2a"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 5`] = `
 <hr
-  className="css-ili6fu"
+  className="css-1bhbd2a"
 />
 `;
