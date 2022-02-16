@@ -34,6 +34,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removed the following packages: `postcss`, `pretty-quick`.
 - Added `@chakra-ui/react`, `@chakra-ui/system`, `@emotion/react`, `@emotion/styled`, and `framer-motion` as "peerDependencies".
 - Updates the node version in Github Action workflows from Node v12 to Node v14.
+- Updates how `/dist/resources.scss` is created through gulp.
 
 ## 0.25.9 (February 3, 2022)
 
