@@ -1,26 +1,15 @@
-// What we might expect users to pass for the color "white". This is
-// temporary until we have a better color contrast checker.
-const whiteColors = [
-  "#fff",
-  "#ffffff",
-  "#FFF",
-  "#FFFFFF",
-  "white",
-  "var(--nypl-colors-ui-white)",
-];
 const baseStyle = ({
   columnHeadersTextColor,
   showRowDividers,
   useRowHeaders,
 }) => ({
-  // Just so we don't let row headers to display as white. Only the
-  // thead should have white text color with any color background.
+  // Headers `th` can be rendered as the first cell in every row through the
+  // `useRowHeaders`. Whereas the header `th` in the `thead` can be rendered
+  // with a custom color, the row header `th` in the `tbody` should always
+  // have text color black.
   tbody: {
     th: {
-      color:
-        useRowHeaders && whiteColors.includes(columnHeadersTextColor)
-          ? "var(--nypl-colors-ui-black)"
-          : columnHeadersTextColor,
+      color: "var(--nypl-colors-ui-black)",
     },
   },
   th: {
@@ -55,11 +44,13 @@ const baseStyle = ({
   },
   caption: {
     captionSide: "top",
-    textAlign: "left",
-    fontSize: "heading.secondary",
     color: "ui.black",
-    textTransform: "capitalize",
+    fontSize: "heading.secondary",
     fontWeight: "heading.secondary",
+    margin: "0",
+    marginBottom: "s",
+    padding: "0",
+    textAlign: "left",
   },
 });
 
