@@ -50,7 +50,7 @@ const Template = (props: React.PropsWithChildren<TemplateProps>) => {
 /**
  * This optional component should be the first child of the `Template`
  * component. This is rendered as an HTML `<header>` element. If an HTML
- * `<header>` element is already passed in a custom component as the childre,
+ * `<header>` element is already passed in a custom component as the children,
  * set `renderFooterElement` to `false`. Otherwise, the parent wrapper will
  * render an HTML `<header>` element.
  */
