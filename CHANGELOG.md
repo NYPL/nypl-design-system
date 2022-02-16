@@ -32,7 +32,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the following packages: multiple `@storybook/...` packages, `autoprefixer`, `eslint-plugin-storybook`, `husky`, `lint-staged`, `semantic-release-slack-bot`, `storybook-addon-designs`.
 - Removed the following packages: `postcss`, `pretty-quick`.
-- Added `@chakra-ui/react` and `@chakra-ui/system` as "peerDependencies".
+- Added `@chakra-ui/react`, `@chakra-ui/system`, `@emotion/react`, `@emotion/styled`, and `framer-motion` as "peerDependencies".
 - Updates the node version in Github Action workflows from Node v12 to Node v14.
 
 ## 0.25.9 (February 3, 2022)
