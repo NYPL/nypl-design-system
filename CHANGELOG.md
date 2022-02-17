@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Exports Chakra's `Flex` and `Spacer` components.
+
 ### Breaking Changes
 
 - Renames the `Form` component's `"spacing"` prop to `"gap"` to be consistent with the `FormRow` and `FormField` components.
@@ -18,6 +22,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Passes an `onChange` prop to the `Select` component inside the `SearchBar` through its `selectProps` prop.
 - Adds snapshot tests for the `Tabs` component and better checks to warn the user that the `Tabs` is missing data if data wasn't passed as props or children.
 - Updates the `Form` component to warn developers when a child component in the `FormRow` component _is not_ a `FormField`.
+- Adds an `onSubmit` prop to the `Form` component.
+- Adds the `renderHeaderElement` prop to the `TemplateAppContainer` component. This prop is used to control whether the `TemplateAppContainer` component should render its own `<header>` HTML element through its `header` prop, or let the user pass in their own component that renders the `<header>` HTML element.
+- Updates the `Fieldset` and `RadioGroup` so the `children` prop is declared through `React.PropsWithChildren` rather than in their respective prop interfaces.
 - Adds an `aria-label` attribute to the `Notification` component to use with its `aside` HTML landmark element. Added an "Accessibility" section in the `Notification` Storybook page to note that this component should not be used within a `header` or `footer` HTML landmark element.
 
 ### Fixes
@@ -27,6 +34,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports the `FullDateType` interface related to the `DatePicker` component.
 - Fixes and removes bad console logs from the `Pagination` and `List` components.
 - Fixes auto-generated `id`s in the `Tabs` component.
+- Fixes the Figma link for the `Hero` component.
+- Fixes `Card` component bug for passing styles to the `CardHeading` correctly.
+- Fixes the `Table` component so that a custom header text color of white does not visually hide row headers on a white background.
+
+### Updates
+
+- Updates the following packages: multiple `@storybook/...` packages, `autoprefixer`, `eslint-plugin-storybook`, `husky`, `lint-staged`, `semantic-release-slack-bot`, `storybook-addon-designs`.
+- Removed the following packages: `postcss`, `pretty-quick`.
+- Added `@chakra-ui/react`, `@chakra-ui/system`, `@emotion/react`, `@emotion/styled`, and `framer-motion` as "peerDependencies".
+- Updates the node version in Github Action workflows from Node v12 to Node v14.
+- Updates how `/dist/resources.scss` is created through gulp.
 
 ## 0.25.9 (February 3, 2022)
 
@@ -63,6 +81,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Template` component to use `s` (16px) spacing on the left and right sides of the main content area.
 - Updates the `HelperErrorText` component to allow HTML to be passed in as a string or HTML.
 - Updates how the `HelperErrorText` component renders text in the following components: `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, `VideoPlayer`.
+- Updates the `HorizontalRule` component to use "100%" as the default value for the `width` prop.
 
 ### Fixes
 

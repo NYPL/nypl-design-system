@@ -59,14 +59,19 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.3.6`    |
-| Latest            | `0.25.9`   |
+| Latest            | `0.25.10`  |
 
 ## TemplateAppContainer Component
 
 <Description of={TemplateAppContainer} />
 
-If you have a custom `Footer` component that _already_ renders an HTML `<footer>`
-element, set `renderFooterElement` to false so only one `<footer>` element is rendered.
+If you have a custom `Header` component that _already_ renders an HTML `<header>`
+element, set `renderHeaderElement` to false so only one `<header>` element is
+rendered.
+
+Likewise, f you have a custom `Footer` component that _already_ renders an HTML
+`<footer>` element, set `renderFooterElement` to false so only one `<footer>`
+element is rendered.
 
 <b>This is the recommended way to render an app page template.</b>
 
@@ -116,6 +121,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       header: <Placeholder variant="short">NYPL Header</Placeholder>,
       sidebar: "left",
       renderFooterElement: true,
+      renderHeaderElement: true,
     }}
     argTypes={{
       breakout: { control: false },

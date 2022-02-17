@@ -16,12 +16,12 @@ export interface HorizontalRuleProps {
   height?: string;
   /** Optional width value. This value should be entered with the same
    * formatting as a CSS width attribute (ex. `50%`, `640px`, `20rem`). If
-   * omitted, the horizontal rule will have a default width of "auto". */
+   * omitted, the horizontal rule will have a default width of "100%". */
   width?: string;
 }
 
 export default function HorizontalRule(props: HorizontalRuleProps) {
-  const { align, className, height = "2px", width = "auto" } = props;
+  const { align, className, height = "2px", width = "100%" } = props;
   const styles = useStyleConfig("HorizontalRule", { align });
   let finalHeight = height;
 
