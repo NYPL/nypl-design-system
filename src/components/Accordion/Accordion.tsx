@@ -29,9 +29,9 @@ export interface AccordionProps {
  * Get the minus or plus icon depending on whether the accordion
  * is open or closed.
  */
-const getIcon = (isExpanded = false) => {
+const getIcon = (isExpanded = false, index) => {
   const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
-  return <Icon id={`${id}-icon`} name={iconName} size={IconSizes.Small} />;
+  return <Icon id={`${index}-icon`} name={iconName} size={IconSizes.Small} />;
 };
 
 /**
@@ -49,23 +49,29 @@ const getElementsFromContentData = (data = []) => {
     const panel =
       typeof content.panel === "string" ? (
         <AccordionPanel
+          id={`${content.label}-panel`}
           key={index}
           dangerouslySetInnerHTML={{ __html: content.panel }}
         />
       ) : (
-        <AccordionPanel key={index}>{content.panel}</AccordionPanel>
+        <AccordionPanel id={`${content.label}-panel`} key={index}>
+          {content.panel}
+        </AccordionPanel>
       );
 
     return (
-      <AccordionItem key={index}>
+      <AccordionItem id={`${content.label}-item`} key={index}>
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => (
           <>
-            <AccordionButton padding={multiplePadding}>
+            <AccordionButton
+              id={`${content.label}-button`}
+              padding={multiplePadding}
+            >
               <Box flex="1" textAlign="left">
                 {content.label}
               </Box>
-              {getIcon(isExpanded)}
+              {getIcon(isExpanded, index)}
             </AccordionButton>
             {panel}
           </>
