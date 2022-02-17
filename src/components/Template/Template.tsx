@@ -20,6 +20,9 @@ export interface TemplateAppContainerProps
   extends TemplateFooterProps,
     TemplateHeaderProps,
     TemplateSidebarProps {
+  /** DOM that will be rendered before the rest of the components in
+   * `TemplateAppContainer` and immediately before the `TemplateHeader` component. */
+  aboveHeader?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateBreakout` component section. */
   breakout?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
@@ -45,6 +48,16 @@ const Template = (props: React.PropsWithChildren<TemplateProps>) => {
       {props.children}
     </Box>
   );
+};
+
+/**
+ * This optional component renders its children from edge-to-edge and should
+ * be used for alerts or notifications that are typically site-wide. This must
+ * be rendered immediately before the `TemplateHeader` component.
+ */
+const TemplateAboveHeader = (props: React.PropsWithChildren<TemplateProps>) => {
+  const styles = useStyleConfig("TemplateBreakout", {});
+  return <Box __css={styles}>{props.children}</Box>;
 };
 
 /**
@@ -221,6 +234,7 @@ const TemplateAppContainer = (
   props: React.PropsWithChildren<TemplateAppContainerProps>
 ) => {
   const {
+    aboveHeader,
     breakout,
     contentPrimary,
     contentSidebar,
@@ -231,6 +245,9 @@ const TemplateAppContainer = (
     renderFooterElement = true,
     renderHeaderElement = true,
   } = props;
+  const aboveHeaderElem = aboveHeader && (
+    <TemplateAboveHeader>{aboveHeader}</TemplateAboveHeader>
+  );
   const breakoutElem = breakout && (
     <TemplateBreakout>{breakout}</TemplateBreakout>
   );
@@ -245,6 +262,7 @@ const TemplateAppContainer = (
   );
   return (
     <Template>
+      {aboveHeaderElem}
       {(header || breakoutElem) && (
         <TemplateHeader renderHeaderElement={renderHeaderElement}>
           {header}
@@ -274,6 +292,7 @@ const TemplateAppContainer = (
 export {
   TemplateAppContainer,
   Template,
+  TemplateAboveHeader,
   TemplateHeader,
   TemplateBreakout,
   TemplateContent,

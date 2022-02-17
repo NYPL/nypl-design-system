@@ -107,6 +107,7 @@ export {
 export {
   TemplateAppContainer,
   Template,
+  TemplateAboveHeader,
   TemplateHeader,
   TemplateBreakout,
   TemplateContent,
