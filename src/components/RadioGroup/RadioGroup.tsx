@@ -16,8 +16,6 @@ import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface RadioGroupProps {
-  /** Any child node passed to the component. */
-  children: React.ReactNode;
   /** Additional class name. */
   className?: string;
   /** Populates the initial value of the input */
@@ -58,101 +56,102 @@ export const onChangeDefault = () => {
   return;
 };
 
-const RadioGroup = React.forwardRef<HTMLInputElement, RadioGroupProps>(
-  (props, ref?) => {
-    const {
-      children,
-      className = "",
-      defaultValue,
-      helperText,
-      id = generateUUID(),
-      invalidText,
-      isDisabled = false,
-      isInvalid = false,
-      isRequired = false,
-      labelText,
-      layout = RadioGroupLayoutTypes.Column,
-      name,
-      onChange = onChangeDefault,
-      optReqFlag = true,
-      showHelperInvalidText = true,
-      showLabel = true,
-    } = props;
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-    const spacingProp =
-      layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
-    const newChildren = [];
+const RadioGroup = React.forwardRef<
+  HTMLInputElement,
+  React.PropsWithChildren<RadioGroupProps>
+>((props, ref?) => {
+  const {
+    children,
+    className = "",
+    defaultValue,
+    helperText,
+    id = generateUUID(),
+    invalidText,
+    isDisabled = false,
+    isInvalid = false,
+    isRequired = false,
+    labelText,
+    layout = RadioGroupLayoutTypes.Column,
+    name,
+    onChange = onChangeDefault,
+    optReqFlag = true,
+    showHelperInvalidText = true,
+    showLabel = true,
+  } = props;
+  const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
+  const spacingProp =
+    layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
+  const newChildren = [];
 
-    // Use Chakra's RadioGroup hook to set and get the proper props
-    // or the custom components.
-    const { getRootProps, getRadioProps } = useRadioGroup({
-      name,
-      defaultValue,
-      onChange,
-    });
-    const radioGroupProps = getRootProps();
+  // Use Chakra's RadioGroup hook to set and get the proper props
+  // or the custom components.
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name,
+    defaultValue,
+    onChange,
+  });
+  const radioGroupProps = getRootProps();
 
-    // Go through the Radio children and update them as needed.
-    React.Children.map(children, (child: React.ReactElement, i) => {
-      if (child.type !== Radio) {
-        // Special case for Storybook MDX documentation.
-        if (child.props.mdxType && child.props.mdxType === "Radio") {
-          noop();
-        } else {
-          console.warn(
-            "Only `Radio` components are allowed inside the `RadioGroup` component."
-          );
-        }
-      }
-
-      const chakraRadioProps = getRadioProps({
-        value: child.props.value,
-      } as any);
-
-      if (child !== undefined && child !== null) {
-        const newProps = { key: i, isDisabled, isInvalid, isRequired };
-        if (child.props.value === defaultValue) {
-          newProps["checked"] = true;
-        }
-        newChildren.push(
-          React.cloneElement(child, { ...newProps, ...chakraRadioProps })
+  // Go through the Radio children and update them as needed.
+  React.Children.map(children, (child: React.ReactElement, i) => {
+    if (child.type !== Radio) {
+      // Special case for Storybook MDX documentation.
+      if (child.props.mdxType && child.props.mdxType === "Radio") {
+        noop();
+      } else {
+        console.warn(
+          "Only `Radio` components are allowed inside the `RadioGroup` component."
         );
       }
-    });
+    }
 
-    // Get the Chakra-based styles for the custom elements in this component.
-    const styles = useMultiStyleConfig("RadioGroup", {});
+    const chakraRadioProps = getRadioProps({
+      value: child.props.value,
+    } as any);
 
-    return (
-      <Fieldset
-        id={`radio-group-${id}`}
-        className={className}
-        isLegendHidden={!showLabel}
-        legendText={labelText}
-        optReqFlag={optReqFlag}
+    if (child !== undefined && child !== null) {
+      const newProps = { key: i, isDisabled, isInvalid, isRequired };
+      if (child.props.value === defaultValue) {
+        newProps["checked"] = true;
+      }
+      newChildren.push(
+        React.cloneElement(child, { ...newProps, ...chakraRadioProps })
+      );
+    }
+  });
+
+  // Get the Chakra-based styles for the custom elements in this component.
+  const styles = useMultiStyleConfig("RadioGroup", {});
+
+  return (
+    <Fieldset
+      className={className}
+      id={`radio-group-${id}`}
+      isLegendHidden={!showLabel}
+      legendText={labelText}
+      optReqFlag={optReqFlag}
+    >
+      <Stack
+        aria-label={!showLabel ? labelText : null}
+        direction={[layout]}
+        spacing={spacingProp}
+        ref={ref}
+        {...radioGroupProps}
+        sx={styles.stack}
       >
-        <Stack
-          direction={[layout]}
-          spacing={spacingProp}
-          ref={ref}
-          aria-label={!showLabel ? labelText : null}
-          {...radioGroupProps}
-          sx={styles.stack}
-        >
-          {newChildren}
-        </Stack>
-        {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
-            <HelperErrorText
-              id={`${id}-helperErrorText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          </Box>
-        )}
-      </Fieldset>
-    );
-  }
-);
+        {newChildren}
+      </Stack>
+      {footnote && showHelperInvalidText && (
+        <Box __css={styles.helper}>
+          <HelperErrorText
+            id={`${id}-helperErrorText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
+        </Box>
+      )}
+    </Fieldset>
+  );
+});
 
 export default RadioGroup;

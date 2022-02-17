@@ -95,6 +95,45 @@ describe("TemplateAppContainer component", () => {
     expect(screen.getByText("Footer")).toBeInTheDocument();
   });
 
+  it("renders only one header in a custom header component", () => {
+    const customHeader = <header>Custom header</header>;
+    render(
+      <TemplateAppContainer
+        header={customHeader}
+        renderHeaderElement={false}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={footer}
+      />
+    );
+
+    // The `<header>` HTML element has the same meaning as `role="banner"`.
+    expect(screen.getAllByRole("banner")).toHaveLength(1);
+  });
+
+  it("consoles a warning when a header element was passed without setting `renderHeaderElement` to false", () => {
+    const warn = jest.spyOn(console, "warn");
+    const customHeader = <header>Custom header</header>;
+    render(
+      <TemplateAppContainer
+        header={customHeader}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={footer}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "`TemplateHeader`: An HTML `header` element was passed in. Set " +
+        "`renderHeaderElement` to `false` to avoid nested HTML `header` elements."
+    );
+  });
+
   it("renders only one footer in a custom footer component", () => {
     const customFooter = <footer>Custom Footer</footer>;
     render(
