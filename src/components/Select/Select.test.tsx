@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Select from "./Select";
 
@@ -254,5 +255,101 @@ describe("Select", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
     );
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
+
+    const primary = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {siblings.map((sibling) => (
+            <option>{sibling}</option>
+          ))}
+        </Select>
+      )
+      .toJSON();
+    const disabled = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          isDisabled
+        >
+          {siblings.map((sibling) => (
+            <option>{sibling}</option>
+          ))}
+        </Select>
+      )
+      .toJSON();
+    const withInvalidText = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          isInvalid
+          invalidText="Tom doesn't count as a sibling :(."
+        >
+          {siblings.map((sibling) => (
+            <option>{sibling}</option>
+          ))}
+        </Select>
+      )
+      .toJSON();
+    const withHelperText = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          helperText="Remember, Logan will judge you no matter who you pick."
+        >
+          {siblings.map((sibling) => (
+            <option>{sibling}</option>
+          ))}
+        </Select>
+      )
+      .toJSON();
+    const required = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          isRequired
+        >
+          {siblings.map((sibling) => (
+            <option>{sibling}</option>
+          ))}
+        </Select>
+      )
+      .toJSON();
+    const hasOnChange = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          onChange={jest.fn()}
+        >
+          {siblings.map((sibling) => (
+            <option>{sibling}</option>
+          ))}
+        </Select>
+      )
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
+    expect(disabled).toMatchSnapshot();
+    expect(withInvalidText).toMatchSnapshot();
+    expect(withHelperText).toMatchSnapshot();
+    expect(required).toMatchSnapshot();
+    expect(hasOnChange).toMatchSnapshot();
   });
 });
