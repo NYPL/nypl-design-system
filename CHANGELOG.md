@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Exports Chakra's `Flex` and `Spacer` components.
+
 ### Breaking Changes
 
 - Renames the `Form` component's `"spacing"` prop to `"gap"` to be consistent with the `FormRow` and `FormField` components.
