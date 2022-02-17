@@ -31,6 +31,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes auto-generated `id`s in the `Tabs` component.
 - Fixes the Figma link for the `Hero` component.
 - Fixes `Card` component bug for passing styles to the `CardHeading` correctly.
+- Fixes the `Table` component so that a custom header text color of white does not visually hide row headers on a white background.
 
 ### Updates
 
