@@ -277,12 +277,12 @@ describe("Select", () => {
       .create(
         <Select
           id="select"
+          isDisabled
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
-          isDisabled
         >
           {siblings.map((sibling) => (
-            <option>{sibling}</option>
+            <option key={sibling}>{sibling}</option>
           ))}
         </Select>
       )
@@ -291,13 +291,13 @@ describe("Select", () => {
       .create(
         <Select
           id="select"
+          invalidText="Tom doesn't count as a sibling :(."
+          isInvalid
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
-          isInvalid
-          invalidText="Tom doesn't count as a sibling :(."
         >
           {siblings.map((sibling) => (
-            <option>{sibling}</option>
+            <option key={sibling}>{sibling}</option>
           ))}
         </Select>
       )
@@ -305,13 +305,13 @@ describe("Select", () => {
     const withHelperText = renderer
       .create(
         <Select
+          helperText="Remember, Logan will judge you no matter who you pick."
           id="select"
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
-          helperText="Remember, Logan will judge you no matter who you pick."
         >
           {siblings.map((sibling) => (
-            <option>{sibling}</option>
+            <option key={sibling}>{sibling}</option>
           ))}
         </Select>
       )
@@ -320,12 +320,12 @@ describe("Select", () => {
       .create(
         <Select
           id="select"
+          isRequired
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
-          isRequired
         >
           {siblings.map((sibling) => (
-            <option>{sibling}</option>
+            <option key={sibling}>{sibling}</option>
           ))}
         </Select>
       )
@@ -339,7 +339,7 @@ describe("Select", () => {
           onChange={jest.fn()}
         >
           {siblings.map((sibling) => (
-            <option>{sibling}</option>
+            <option key={sibling}>{sibling}</option>
           ))}
         </Select>
       )
