@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
@@ -171,6 +171,23 @@ describe("Form", () => {
     expect(warn).toHaveBeenCalledWith(
       "FormRow children must be `FormField` components."
     );
+  });
+
+  it("calls the onSubmit function", () => {
+    const onSubmit = jest.fn();
+    render(
+      <Form onSubmit={onSubmit}>
+        <FormRow>
+          <FormField>
+            <TextInput labelText="Input Field" />
+          </FormField>
+        </FormRow>
+      </Form>
+    );
+    const form = screen.getByRole("form");
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+    fireEvent.submit(form);
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
   // TO DO: There's somethign weird about checking for the "grid-gap" style.
