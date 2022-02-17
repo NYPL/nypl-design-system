@@ -260,6 +260,8 @@ describe("Select", () => {
   it("Renders the UI snapshot correctly", () => {
     const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
 
+    const options = siblings.map((sibling) => <option>{sibling}</option>);
+
     const primary = renderer
       .create(
         <Select
@@ -267,9 +269,7 @@ describe("Select", () => {
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
         >
-          {siblings.map((sibling) => (
-            <option>{sibling}</option>
-          ))}
+          {options}
         </Select>
       )
       .toJSON();
@@ -281,9 +281,7 @@ describe("Select", () => {
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
         >
-          {siblings.map((sibling) => (
-            <option key={sibling}>{sibling}</option>
-          ))}
+          {options}
         </Select>
       )
       .toJSON();
@@ -296,9 +294,7 @@ describe("Select", () => {
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
         >
-          {siblings.map((sibling) => (
-            <option key={sibling}>{sibling}</option>
-          ))}
+          {options}
         </Select>
       )
       .toJSON();
@@ -310,9 +306,7 @@ describe("Select", () => {
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
         >
-          {siblings.map((sibling) => (
-            <option key={sibling}>{sibling}</option>
-          ))}
+          {options}
         </Select>
       )
       .toJSON();
@@ -324,9 +318,7 @@ describe("Select", () => {
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
         >
-          {siblings.map((sibling) => (
-            <option key={sibling}>{sibling}</option>
-          ))}
+          {options}
         </Select>
       )
       .toJSON();
@@ -338,9 +330,7 @@ describe("Select", () => {
           name="succession-sibling"
           onChange={jest.fn()}
         >
-          {siblings.map((sibling) => (
-            <option key={sibling}>{sibling}</option>
-          ))}
+          {options}
         </Select>
       )
       .toJSON();
