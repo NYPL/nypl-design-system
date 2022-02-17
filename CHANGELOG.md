@@ -28,6 +28,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports the `FullDateType` interface related to the `DatePicker` component.
 - Fixes and removes bad console logs from the `Pagination` and `List` components.
 - Fixes auto-generated `id`s in the `Tabs` component.
+- Fixes the Figma link for the `Hero` component.
 
 ## 0.25.9 (February 3, 2022)
 
@@ -64,6 +65,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Template` component to use `s` (16px) spacing on the left and right sides of the main content area.
 - Updates the `HelperErrorText` component to allow HTML to be passed in as a string or HTML.
 - Updates how the `HelperErrorText` component renders text in the following components: `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, `VideoPlayer`.
+- Updates the `HorizontalRule` component to use "100%" as the default value for the `width` prop.
 
 ### Fixes
 
