@@ -1,6 +1,7 @@
 *.log
 .DS_Store
 .cache
+.eslintcache
 node_modules
 dependencyGraph.json
 .DS_Store
