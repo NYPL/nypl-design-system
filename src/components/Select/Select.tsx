@@ -137,7 +137,7 @@ const Select = React.forwardRef<
         ref={ref}
         {...controlledProps}
         {...ariaAttributes}
-        icon={<Icon name={IconNames.Arrow} size={IconSizes.Medium} />}
+        icon={<Icon id={id} name={IconNames.Arrow} size={IconSizes.Medium} />}
         __css={styles.select}
       >
         {children}
