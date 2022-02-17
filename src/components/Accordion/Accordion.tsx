@@ -31,7 +31,7 @@ export interface AccordionProps {
  */
 const getIcon = (isExpanded = false) => {
   const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
-  return <Icon name={iconName} size={IconSizes.Small} />;
+  return <Icon id={`${id}-icon`} name={iconName} size={IconSizes.Small} />;
 };
 
 /**
