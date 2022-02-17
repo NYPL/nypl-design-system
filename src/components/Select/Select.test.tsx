@@ -260,7 +260,9 @@ describe("Select", () => {
   it("Renders the UI snapshot correctly", () => {
     const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
 
-    const options = siblings.map((sibling) => <option>{sibling}</option>);
+    const options = siblings.map((sibling) => (
+      <option key={sibling}>{sibling}</option>
+    ));
 
     const primary = renderer
       .create(
