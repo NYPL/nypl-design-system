@@ -20,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Form` component to warn developers when a child component in the `FormRow` component _is not_ a `FormField`.
 - Adds an `onSubmit` prop to the `Form` component.
 - Adds the `renderHeaderElement` prop to the `TemplateAppContainer` component. This prop is used to control whether the `TemplateAppContainer` component should render its own `<header>` HTML element through its `header` prop, or let the user pass in their own component that renders the `<header>` HTML element.
+- Updates the `Fieldset` and `RadioGroup` so the `children` prop is declared through `React.PropsWithChildren` rather than in their respective prop interfaces.
 
 ### Fixes
 
@@ -29,6 +30,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes and removes bad console logs from the `Pagination` and `List` components.
 - Fixes auto-generated `id`s in the `Tabs` component.
 - Fixes the Figma link for the `Hero` component.
+
+### Updates
+
+- Updates the following packages: multiple `@storybook/...` packages, `autoprefixer`, `eslint-plugin-storybook`, `husky`, `lint-staged`, `semantic-release-slack-bot`, `storybook-addon-designs`.
+- Removed the following packages: `postcss`, `pretty-quick`.
+- Added `@chakra-ui/react`, `@chakra-ui/system`, `@emotion/react`, `@emotion/styled`, and `framer-motion` as "peerDependencies".
+- Updates the node version in Github Action workflows from Node v12 to Node v14.
+- Updates how `/dist/resources.scss` is created through gulp.
 
 ## 0.25.9 (February 3, 2022)
 
