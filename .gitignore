@@ -7,3 +7,4 @@ dependencyGraph.json
 lib
 dist
 .vscode
+.eslintcache
