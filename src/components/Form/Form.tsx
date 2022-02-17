@@ -1,30 +1,29 @@
-import { Box } from "@chakra-ui/react";
 import * as React from "react";
 
-import { FormSpacing } from "./FormTypes";
+import { FormGaps } from "./FormTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
 import generateUUID from "../../helpers/generateUUID";
 
-export interface FormChildProps {
-  /** className to be applied to FormRow */
+interface FormBaseProps {
+  /** className to be applied to FormRow, FormField, and Form */
   className?: string;
-  /** Spacing size (internal use) */
-  gap?: FormSpacing;
+  /** Optional spacing size; if omitted, the default `large` (2rem / 32px)
+   * spacing will be used; ```IMPORTANT: for general form layout, this prop
+   * should not be used``` */
+  gap?: FormGaps;
   /** ID that other components can cross reference (internal use) */
   id?: string;
 }
 
-export interface FormProps {
+export interface FormChildProps extends FormBaseProps {}
+
+export interface FormProps extends FormBaseProps {
   /** Optional form `action` attribute */
   action?: string;
-  /** Optional className you can add in addition to `form` */
-  className?: string;
-  /** Optional ID that other components can cross reference */
-  id?: string;
   /** Optional form `method` attribute */
   method?: "get" | "post";
-  /** Optional spacing size; if omitted, the default `large` (2rem / 32px) spacing will be used; ```IMPORTANT: for general form layout, this prop should not be used``` */
-  spacing?: FormSpacing;
+  /** Function to call for the `onSubmit` form event. */
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 /** FormRow child-component */
@@ -35,7 +34,11 @@ export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
     children,
     (child: React.ReactElement, i) => {
       if (!child) return null;
-      return React.cloneElement(child, { id: `${id}-grandchild${i}` });
+      if (child.type === FormField || child.props.mdxType === "FormField") {
+        return React.cloneElement(child, { id: `${id}-grandchild${i}` });
+      }
+      console.warn("FormRow children must be `FormField` components.");
+      return null;
     }
   );
   return (
@@ -61,9 +64,10 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     action,
     children,
     className,
+    gap = FormGaps.Large,
     id = generateUUID(),
     method,
-    spacing = FormSpacing.Large,
+    onSubmit,
   } = props;
 
   let attributes = {};
@@ -76,21 +80,21 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
   const alteredChildren = React.Children.map(
     children,
     (child: React.ReactElement, i) => {
-      return React.cloneElement(child, { gap: spacing, id: `${id}-child${i}` });
+      return React.cloneElement(child, { gap, id: `${id}-child${i}` });
     }
   );
 
   return (
-    <Box
-      as="form"
+    <form
       aria-label="form"
-      id={id}
-      {...attributes}
       className={className}
+      id={id}
+      onSubmit={onSubmit}
+      {...attributes}
     >
-      <SimpleGrid columns={1} gap={spacing} id={id + "-parent"}>
+      <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
         {alteredChildren}
       </SimpleGrid>
-    </Box>
+    </form>
   );
 }

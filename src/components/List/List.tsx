@@ -98,7 +98,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
    */
   const checkListChildrenError = (listType: ListTypes) => {
     React.Children.map(children, (child: React.ReactElement) => {
-      if (child?.type !== "li" && child?.props?.mdxType !== "li") {
+      if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
         console.warn(
           `Direct children of \`List\` (${listType}) should be \`<li>\`s.`
         );

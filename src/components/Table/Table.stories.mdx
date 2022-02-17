@@ -4,16 +4,12 @@ import {
   Canvas,
   ArgsTable,
   Description,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
 import Table from "./Table";
 import DSProvider from "../../theme/provider";
 import { getCategory } from "../../utils/componentCategories";
-
-<Description of={Table} />
-
-The `Table` component is used to organize and display tabular data in rows and columns.
 
 <Meta
   title={getCategory("Table")}
@@ -22,45 +18,148 @@ The `Table` component is used to organize and display tabular data in rows and c
   parameters={{
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=46780%3A27675",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=46780%3A27675",
     },
     jest: ["Table.test.tsx"],
   }}
   argTypes={{
-    columnHeaders: [],
+    columnHeaders: { control: { disable: true } },
     columnHeadersBackgroundColor: { control: { type: "color" } },
-    columnHeadersTextColor: {control: {type: "color"}},
-    id: {control: false},
+    columnHeadersTextColor: { control: { type: "color" } },
+    id: { control: false },
     tableData: { control: false },
   }}
 />
-
 
 # Table
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `0.25.9`   |
+| Latest            | `0.25.10`  |
 
 <Description of={Table} />
+
+export const columnHeaders = [
+  "First Name",
+  "Last Name",
+  "Nick Name",
+  "Address1",
+  "City",
+  "State",
+  "Zipcode",
+];
+export const tableData = [
+  ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "NY", "23458"],
+  ["Isabelle", "-", "Shizue", "Walnut Street", "New York", "NY", "23458"],
+  ["K.K.", "Slider", "Totakeke", "Niper Place", "New York", "NY", "98765"],
+  [
+    "Sonny",
+    "Resetti",
+    "Risetto san",
+    "Village Road",
+    "New York",
+    "NY",
+    "09873",
+  ],
+];
 
 <Canvas withToolbar>
   <Story
     name="Table"
     args={{
-      columnHeaders: ["First Name", "Last Name", "Nick Name", "Address1", "City", "Zipcode", "State"],
-      tableData: [ ["Tom", "Nook", "Tanukichi", "Main Street", "New York", "23458", "NY" ], [ "Isabelle", "-", "Shizue", "Walnut Street", "New York", "23458", "NY"], [ "K.K.", "Slider", "Totakeke", "Niper Place", "New York", "98765", "NY"], [ "Sonny", "Resetti", "Risetto san", "Village Road", "New York", "09873", "NY" ], ],
-      useRowHeaders: false,
+      className: undefined,
+      columnHeaders,
+      columnHeadersBackgroundColor: undefined,
+      columnHeadersTextColor: undefined,
+      id: undefined,
       showRowDividers: false,
+      tableData,
+      titleText: undefined,
+      useRowHeaders: false,
     }}
   >
-    {(args) => (
-      <Table {...args}>
-      </Table>
-    )}
+    {(args) => <Table {...args}></Table>}
   </Story>
 </Canvas>
 
 <ArgsTable story="Table" />
+
+## Accessibility
+
+- The HTML for the `Table` element is structured with proper semantic use of the
+  `table`, `caption`, `thead`, `tbody`, `tr`, and `td` HTML elements.
+- When titles are added through the `titleText` prop, the `caption` element will
+  be rendered on the page.
+- The first row and/or the first cell in a `tr` row can be headers. Each `th`
+  header cell has an appropriate scope attribute set to either `scope="col"` or
+  `scope="row"`. For example, every `th` cell in a `thead` `tr` row will have
+  `scope="col"`. Every `th` cell in a `tbody` `tr` row will have `scope="row"`.
+  These headers are visually different from the data. Use the `useRowHeaders`
+  prop to render the first cell in every row as a header.
+
+## With a title
+
+Use the `titleText` prop to add a title to the table.
+
+<Canvas>
+  <DSProvider>
+    <Table
+      columnHeaders={columnHeaders}
+      id="title-table"
+      tableData={tableData}
+      titleText="Table with a title"
+    />
+  </DSProvider>
+</Canvas>
+
+## With Row Dividers
+
+Use the `showRowDividers` prop to render a divider between each row.
+
+<Canvas>
+  <DSProvider>
+    <Table
+      columnHeaders={columnHeaders}
+      id="showRowDividers-table"
+      showRowDividers
+      tableData={tableData}
+    />
+  </DSProvider>
+</Canvas>
+
+## With Row Headers
+
+Use the `useRowHeaders` prop to render the first cell in every row as a header.
+Notice that they turn bold.
+
+<Canvas>
+  <DSProvider>
+    <Table
+      columnHeaders={columnHeaders}
+      id="rowHeaders-table"
+      tableData={tableData}
+      useRowHeaders
+    />
+  </DSProvider>
+</Canvas>
+
+## With Custom Header Colors
+
+It's possible to customize the header colors by using the `columnHeadersBackgroundColor`
+and `columnHeadersTextColor` props. Note that the colors need to have sufficient
+color contrast.
+
+<Canvas>
+  <DSProvider>
+    <Table
+      columnHeaders={columnHeaders}
+      columnHeadersBackgroundColor="var(--nypl-colors-ui-link-secondary)"
+      columnHeadersTextColor="var(--nypl-colors-ui-white)"
+      id="rowHeaders-table"
+      showRowDividers
+      tableData={tableData}
+      useRowHeaders
+    />
+  </DSProvider>
+</Canvas>
