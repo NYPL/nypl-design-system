@@ -30,6 +30,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes and removes bad console logs from the `Pagination` and `List` components.
 - Fixes auto-generated `id`s in the `Tabs` component.
 - Fixes the Figma link for the `Hero` component.
+- Fixes `Card` component bug for passing styles to the `CardHeading` correctly.
 
 ### Updates
 
