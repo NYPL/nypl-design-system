@@ -1,13 +1,14 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
-import { HeadingLevels } from "../Heading/HeadingTypes";
+import userEvent from "@testing-library/user-event";
+
 import Accordion from "./Accordion";
 import Card, { CardContent, CardHeading } from "../Card/Card";
-import { ImageRatios } from "../Image/ImageTypes";
 import { CardLayouts } from "../Card/CardTypes";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+import { ImageRatios } from "../Image/ImageTypes";
 
 describe("Accordion Accessibility", () => {
   it("passes axe accessibility test for one item", async () => {

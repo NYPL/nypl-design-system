@@ -9,11 +9,11 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-Gerry Kellman-item"
+      aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-ubg1nw"
       disabled={false}
-      id="accordion-button-Gerry Kellman-item"
+      id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -69,9 +69,9 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
       }
     >
       <div
-        aria-labelledby="accordion-button-Gerry Kellman-item"
+        aria-labelledby="accordion-button-accordian-item-0"
         className="chakra-accordion__panel css-0"
-        id="accordion-panel-Gerry Kellman-item"
+        id="accordion-panel-accordian-item-0"
         role="region"
       >
         <div
@@ -130,11 +130,11 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-Gerry Kellman-item"
+      aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-ubg1nw"
       disabled={false}
-      id="accordion-button-Gerry Kellman-item"
+      id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -190,9 +190,9 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
       }
     >
       <div
-        aria-labelledby="accordion-button-Gerry Kellman-item"
+        aria-labelledby="accordion-button-accordian-item-0"
         className="chakra-accordion__panel css-0"
-        id="accordion-panel-Gerry Kellman-item"
+        id="accordion-panel-accordian-item-0"
         role="region"
       >
         <div
