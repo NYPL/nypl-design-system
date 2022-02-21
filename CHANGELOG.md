@@ -27,6 +27,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Fieldset` and `RadioGroup` so the `children` prop is declared through `React.PropsWithChildren` rather than in their respective prop interfaces.
 - Passes an `id` to the `Icon` in the `Select` component.
 - Adds snapshot tests for the `Select` componnet.
+- Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
+- Updates font size to "14px" for `TextInput` component.
 
 ### Fixes
 

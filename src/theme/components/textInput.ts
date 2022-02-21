@@ -5,6 +5,7 @@ const input = {
   border: "1px solid",
   borderColor: "ui.gray.medium",
   borderRadius: "sm",
+  fontSize: "text.caption",
   py: "xs",
   px: "s",
   _hover: {
