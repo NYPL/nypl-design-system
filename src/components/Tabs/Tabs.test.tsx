@@ -1,7 +1,8 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 
@@ -208,7 +209,15 @@ describe("Tabs", () => {
     expect(selectedIndex).toEqual(1);
   });
 
-  it("should throw warning when both the 'data' prop and children are passed", () => {
+  it("should throw a warning when no data is passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Tabs />);
+    expect(warn).toHaveBeenCalledWith(
+      "Tabs: Pass data in the `data` props or as children."
+    );
+  });
+
+  it("should throw a warning when both the 'data' prop and children are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Tabs contentData={animalCrossing}>
@@ -238,11 +247,11 @@ describe("Tabs", () => {
       </Tabs>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Only pass children or data in the `data` props but not both."
+      "Tabs: Only pass children or data in the `data` props but not both."
     );
   });
 
-  it("should throw warning when more than six object tabs are passed", () => {
+  it("should throw a warning when more than six object tabs are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Tabs
@@ -258,7 +267,14 @@ describe("Tabs", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "We recommend to use no more than six tabs. If more than six tabs are needed, consider other navigational patterns."
+      "Tabs: We recommend to use no more than six tabs. If more than six tabs are needed, consider other navigational patterns."
     );
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const basic = renderer
+      .create(<Tabs contentData={animalCrossing} id="basic" />)
+      .toJSON();
+    expect(basic).toMatchSnapshot();
   });
 });

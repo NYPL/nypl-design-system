@@ -6,8 +6,6 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
-import { ColorVariants } from "./BreadcrumbsTypes";
 import Icon from "../Icons/Icon";
 import {
   IconNames,
@@ -15,6 +13,8 @@ import {
   IconSizes,
   IconTypes,
 } from "../Icons/IconTypes";
+import generateUUID from "../../helpers/generateUUID";
+import { ColorVariants } from "./BreadcrumbsTypes";
 import { getVariant } from "../../utils/utils";
 
 export interface BreadcrumbsDataProps {
@@ -83,9 +83,15 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
   const styles = useStyleConfig("Breadcrumb", { variant });
   const finalStyles = { ...styles, ...additionalStyles };
   const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
+  const ariaAttrs = { "aria-label": "Breadcrumb" };
 
   return (
-    <ChakraBreadcrumb className={className} __css={finalStyles} id={id}>
+    <ChakraBreadcrumb
+      className={className}
+      id={id}
+      {...ariaAttrs}
+      __css={finalStyles}
+    >
       {breadcrumbItems}
     </ChakraBreadcrumb>
   );
