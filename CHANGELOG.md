@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.10 (February 22, 2022)
+
 ### Adds
 
 - Exports Chakra's `Flex` and `Spacer` components.
