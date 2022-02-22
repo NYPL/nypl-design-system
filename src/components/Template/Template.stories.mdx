@@ -50,7 +50,7 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26688",
     },
   }}
 />
@@ -70,9 +70,15 @@ If you have a custom `Header` component that _already_ renders an HTML `<header>
 element, set `renderHeaderElement` to false so only one `<header>` element is
 rendered.
 
-Likewise, f you have a custom `Footer` component that _already_ renders an HTML
+Likewise, if you have a custom `Footer` component that _already_ renders an HTML
 `<footer>` element, set `renderFooterElement` to false so only one `<footer>`
 element is rendered.
+
+If you need to render an alert or notification at the top of the page with an
+`aside` HTML element or HTML element with the `role="complementary"` attribute,
+then pass that alert or notification component to the `aboveHeader` prop. These
+elements should _not_ be rendered in the `header` HTML section since that's an
+accessibility violation.
 
 <b>This is the recommended way to render an app page template.</b>
 

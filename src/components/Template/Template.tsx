@@ -53,7 +53,10 @@ const Template = (props: React.PropsWithChildren<TemplateProps>) => {
 /**
  * This optional component renders its children from edge-to-edge and should
  * be used for alerts or notifications that are typically site-wide. This must
- * be rendered immediately before the `TemplateHeader` component.
+ * be rendered immediately before the `TemplateHeader` component. This is meant
+ * for components that render an `aside` HTML element or HTML element with the
+ * `role="complementary"` attribute. These elements should *not* be rendered
+ * in the `header` HTML section since that's an accessibility violation.
  */
 const TemplateAboveHeader = (props: React.PropsWithChildren<TemplateProps>) => {
   const styles = useStyleConfig("TemplateBreakout", {});
