@@ -29,9 +29,15 @@ export interface AccordionProps {
  * Get the minus or plus icon depending on whether the accordion
  * is open or closed.
  */
-const getIcon = (isExpanded = false) => {
+const getIcon = (isExpanded = false, index, id) => {
   const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
-  return <Icon name={iconName} size={IconSizes.Small} />;
+  return (
+    <Icon
+      id={`accordion-${id}-icon-${index}`}
+      name={iconName}
+      size={IconSizes.Small}
+    />
+  );
 };
 
 /**
@@ -39,7 +45,7 @@ const getIcon = (isExpanded = false) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromContentData = (data = []) => {
+const getElementsFromContentData = (data = [], id) => {
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const multiplePadding = data?.length > 1 ? 4 : null;
@@ -49,23 +55,29 @@ const getElementsFromContentData = (data = []) => {
     const panel =
       typeof content.panel === "string" ? (
         <AccordionPanel
+          id={`${id}-panel-${index}`}
           key={index}
           dangerouslySetInnerHTML={{ __html: content.panel }}
         />
       ) : (
-        <AccordionPanel key={index}>{content.panel}</AccordionPanel>
+        <AccordionPanel id={`${id}-panel-${index}`} key={index}>
+          {content.panel}
+        </AccordionPanel>
       );
 
     return (
-      <AccordionItem key={index}>
+      <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => (
           <>
-            <AccordionButton padding={multiplePadding}>
+            <AccordionButton
+              id={`${id}-button-${index}`}
+              padding={multiplePadding}
+            >
               <Box flex="1" textAlign="left">
                 {content.label}
               </Box>
-              {getIcon(isExpanded)}
+              {getIcon(isExpanded, index, id)}
             </AccordionButton>
             {panel}
           </>
@@ -86,7 +98,7 @@ function Accordion(props: React.PropsWithChildren<AccordionProps>) {
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
     <ChakraAccordion id={id} defaultIndex={[openFirstAccordion]} allowMultiple>
-      {getElementsFromContentData(contentData)}
+      {getElementsFromContentData(contentData, id)}
     </ChakraAccordion>
   );
 }

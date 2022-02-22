@@ -14,7 +14,7 @@ import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import DatePicker from "../DatePicker/DatePicker";
 import { DatePickerTypes } from "../DatePicker/DatePickerTypes";
 import Form, { FormRow, FormField } from "./Form";
-import { FormSpacing } from "./FormTypes";
+import { FormGaps } from "./FormTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
@@ -27,7 +27,7 @@ import { getCategory } from "../../utils/componentCategories";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getStorybookEnumValues } from "../../utils/utils";
 
-export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
+export const enumValues = getStorybookEnumValues(FormGaps, "FormGaps");
 
 <Meta
   title={getCategory("Form")}
@@ -47,9 +47,9 @@ export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
       control: { type: "radio" },
       options: ["get", "post"],
     },
-    spacing: {
+    gap: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "FormSpacing.Large" } },
+      table: { defaultValue: { summary: "FormGaps.Large" } },
       options: enumValues.options,
     },
   }}
@@ -60,15 +60,31 @@ export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.1`   |
+| Latest            | `0.25.10`  |
 
 <Description of={Form} />
 
-The `Form` component renders a standard `<form>` element and should be used to handle layout and spacing for child input fields. `FormRow` and `FormField` components should be used to build the `<form>` struture and to arrange input fields as needed.
+The `Form` component renders a standard `<form>` element and should be used to
+handle layout and spacing for child input fields. `FormRow` and `FormField`
+components should be used to build the `<form>` structure and to arrange input
+fields as needed.
 
-`FormField` should be used as a parent for all input components from the DS (`Button`, `Select`, `TextInput`, etc.).
+```jsx
+<Form>
+  <FormRow>
+    <FormField>{/* ... */}</FormField>
+  </FormRow>
+  <FormRow>
+    <FormField>{/* ... */}</FormField>
+  </FormRow>
+</Form>
+```
 
-`FormRow` should be used as a parent of multiple `FormField` components when you need to render multiple input components in a horizontal row.
+`FormField` should be used as a parent for all input components from the DS
+(`Button`, `Select`, `TextInput`, etc.).
+
+`FormRow` should be used as a parent of multiple `FormField` components when you
+need to render multiple input components in a horizontal row.
 
 <Canvas withToolbar>
   <Story
@@ -78,11 +94,11 @@ The `Form` component renders a standard `<form>` element and should be used to h
       className: undefined,
       id: "form-id",
       method: "get",
-      spacing: "FormSpacing.Large",
+      gap: "FormGaps.Large",
     }}
   >
     {(args) => (
-      <Form {...args} spacing={enumValues.getValue(args.spacing)}>
+      <Form {...args} gap={enumValues.getValue(args.gap)}>
         <FormRow>
           <FormField>
             <TextInput
@@ -205,7 +221,7 @@ export const formRow = (nameString, size) => {
   return (
     <li key={size}>
       <Heading level={HeadingLevels.Three}>{labelText}</Heading>
-      <Form spacing={size}>
+      <Form gap={size}>
         <FormRow>
           <FormField>
             <Select
@@ -250,16 +266,18 @@ export const formRow = (nameString, size) => {
   );
 };
 export const sizes = [];
-for (const formSpacing in FormSpacing) {
-  sizes.push(formRow(`FormSpacing.${formSpacing}`, FormSpacing[formSpacing]));
+for (const FormGaps in FormGaps) {
+  sizes.push(formRow(`FormGaps.${FormGaps}`, FormGaps[FormGaps]));
 }
 export const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 
-By default, the `Form` component will handle the NYPL spacing around form input elements. The default spacing value is `large`, which corresponds to the CSS variable `--nypl-space-l` (2rem / 32px).
+By default, the `Form` component will handle the NYPL spacing around form input
+elements. The default spacing value is `large`, which corresponds to the CSS
+variable `--nypl-space-l` (2rem / 32px).
 
 **IMPORTANT:** The default spacing should not be overwritten without a very good reason.
 
-Below are the spacing variants available with the `FormSpacing` enum.
+Below are the spacing variants available with the `FormGaps` enum.
 
 <Canvas>
   <Story
@@ -277,7 +295,7 @@ Below are the spacing variants available with the `FormSpacing` enum.
 <Story name="Example Code" />
 
 ```jsx
-<Form action="/end/point" method="get" spacing={FormSpacing.Large}>
+<Form action="/end/point" method="get" gap={FormGaps.Large}>
   <FormField>
     <TextInput
       labelText="Username"

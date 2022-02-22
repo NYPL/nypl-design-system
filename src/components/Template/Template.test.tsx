@@ -5,6 +5,7 @@ import renderer from "react-test-renderer";
 
 import {
   Template,
+  TemplateAboveHeader,
   TemplateHeader,
   TemplateBreakout,
   TemplateContent,
@@ -16,6 +17,7 @@ import {
 } from "./Template";
 import Placeholder from "../Placeholder/Placeholder";
 
+const aboveHeader = <Placeholder variant="short">Above Header</Placeholder>;
 const header = <Placeholder variant="short">NYPL Header</Placeholder>;
 const breakout = (
   <>
@@ -38,6 +40,7 @@ describe("TemplateAppContainer accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <TemplateAppContainer
+        aboveHeader={aboveHeader}
         header={header}
         breakout={breakout}
         sidebar={sidebar}
@@ -55,6 +58,7 @@ describe("Template components accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <Template>
+        <TemplateAboveHeader>{aboveHeader}</TemplateAboveHeader>
         <TemplateHeader>
           {header}
           <TemplateBreakout>{breakout}</TemplateBreakout>
@@ -75,6 +79,7 @@ describe("TemplateAppContainer component", () => {
   it("renders each section", () => {
     render(
       <TemplateAppContainer
+        aboveHeader={aboveHeader}
         header={header}
         breakout={breakout}
         sidebar={sidebar}
@@ -84,7 +89,7 @@ describe("TemplateAppContainer component", () => {
         footer={footer}
       />
     );
-
+    expect(screen.getByText("Above Header")).toBeInTheDocument();
     expect(screen.getByText("NYPL Header")).toBeInTheDocument();
     expect(screen.getByText("Breadcrumbs")).toBeInTheDocument();
     expect(screen.getByText("Hero")).toBeInTheDocument();
@@ -93,6 +98,45 @@ describe("TemplateAppContainer component", () => {
     expect(screen.getByText("Main Content")).toBeInTheDocument();
     expect(screen.getByText("More Content")).toBeInTheDocument();
     expect(screen.getByText("Footer")).toBeInTheDocument();
+  });
+
+  it("renders only one header in a custom header component", () => {
+    const customHeader = <header>Custom header</header>;
+    render(
+      <TemplateAppContainer
+        header={customHeader}
+        renderHeaderElement={false}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={footer}
+      />
+    );
+
+    // The `<header>` HTML element has the same meaning as `role="banner"`.
+    expect(screen.getAllByRole("banner")).toHaveLength(1);
+  });
+
+  it("consoles a warning when a header element was passed without setting `renderHeaderElement` to false", () => {
+    const warn = jest.spyOn(console, "warn");
+    const customHeader = <header>Custom header</header>;
+    render(
+      <TemplateAppContainer
+        header={customHeader}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={footer}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "`TemplateHeader`: An HTML `header` element was passed in. Set " +
+        "`renderHeaderElement` to `false` to avoid nested HTML `header` elements."
+    );
   });
 
   it("renders only one footer in a custom footer component", () => {
@@ -138,6 +182,7 @@ describe("Template components", () => {
   it("renders each section", () => {
     render(
       <Template>
+        <TemplateAboveHeader>{aboveHeader}</TemplateAboveHeader>
         <TemplateHeader>
           {header}
           <TemplateBreakout>{breakout}</TemplateBreakout>
@@ -151,6 +196,7 @@ describe("Template components", () => {
       </Template>
     );
 
+    expect(screen.getByText("Above Header")).toBeInTheDocument();
     expect(screen.getByText("NYPL Header")).toBeInTheDocument();
     expect(screen.getByText("Breadcrumbs")).toBeInTheDocument();
     expect(screen.getByText("Hero")).toBeInTheDocument();
@@ -162,9 +208,10 @@ describe("Template components", () => {
   });
 
   it("Renders the UI snapshot correctly", () => {
-    const basic = renderer
+    const templateComponents = renderer
       .create(
         <Template>
+          <TemplateAboveHeader>{aboveHeader}</TemplateAboveHeader>
           <TemplateHeader>
             {header}
             <TemplateBreakout>{breakout}</TemplateBreakout>
@@ -178,7 +225,22 @@ describe("Template components", () => {
         </Template>
       )
       .toJSON();
+    const singleComponent = renderer
+      .create(
+        <TemplateAppContainer
+          aboveHeader={aboveHeader}
+          header={header}
+          breakout={breakout}
+          sidebar={sidebar}
+          contentTop={contentTop}
+          contentSidebar={contentSidebar}
+          contentPrimary={contentPrimary}
+          footer={footer}
+        />
+      )
+      .toJSON();
 
-    expect(basic).toMatchSnapshot();
+    expect(templateComponents).toMatchSnapshot();
+    expect(singleComponent).toMatchSnapshot();
   });
 });

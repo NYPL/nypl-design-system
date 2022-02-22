@@ -34,7 +34,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     getPageHref,
     id = generateUUID(),
     initialPage = 1,
-    onPageChange = () => {},
+    onPageChange,
     pageCount,
   } = props;
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
@@ -63,7 +63,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     e.preventDefault && e.preventDefault();
     if (currentPage === selectedPage) return;
     setCurrentPage(selectedPage);
-    onPageChange(selectedPage);
+    onPageChange && onPageChange(selectedPage);
   };
   // Select the previous page.
   const previousPage = (e: Event) => {
