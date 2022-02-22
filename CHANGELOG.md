@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Exports Chakra's `Flex` and `Spacer` components.
+- Adds `TemplateAboveHeader` component in the set of "template" components.
+- Adds the `aboveHeader` prop to the `TemplateAppContainer` component to render a `TemplateAboveHeader` component immediately before the `TemplateHeader` component.
 
 ### Breaking Changes
 
