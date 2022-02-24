@@ -19,6 +19,8 @@ export enum LogoNames {
   LPAColor = "logo_lpa_color",
   LPABlack = "logo_lpa_black",
   LPAWhite = "logo_lpa_white",
+  MyLibraryNYCBlack = "logo_mln_black",
+  MyLibraryNYCWhite = "logo_mln_white",
   NYPLBlack = "logo_nypl_full_black",
   NYPLWhite = "logo_nypl_full_white",
   NYPLLionBlack = "logo_nypl_lion_black",
@@ -39,4 +41,6 @@ export enum LogoNames {
   SimplyEWhite = "logo_simplye_white",
   SNFLBlack = "logo_snfl_black",
   SNFLWhite = "logo_snfl_white",
+  TreasuresColor = "logo_treasures_color",
+  TreasuresColorNegative = "logo_treasures_color_negative",
 }

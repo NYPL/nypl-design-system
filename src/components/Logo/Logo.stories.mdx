@@ -77,7 +77,8 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
     {(args) => (
       <div
         style={
-          args.name.indexOf("White") !== -1
+          args.name.indexOf("White") !== -1 ||
+          args.name.indexOf("Negative") !== -1
             ? {
                 backgroundColor: "var(--nypl-colors-ui-gray-xdark)",
                 display: "inline-block",
@@ -105,7 +106,7 @@ export const logoRow = (logo, opts = {}) => {
   const styles = { textAlign: "center" };
   const { size = LogoSizes.Large, displayValue } = opts;
   let key = logo;
-  if (logo.indexOf("White") !== -1) {
+  if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
     styles.backgroundColor = "var(--nypl-colors-ui-gray-xdark)";
     styles.color = "var(--nypl-colors-ui-white)";
     styles.paddingBottom = "var(--nypl-space-l)";

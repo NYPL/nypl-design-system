@@ -4,6 +4,8 @@ import logo_bpl_white from "../../../icons/svg/logo_bpl_white.svg";
 import logo_lpa_color from "../../../icons/svg/logo_lpa_color.svg";
 import logo_lpa_black from "../../../icons/svg/logo_lpa_black.svg";
 import logo_lpa_white from "../../../icons/svg/logo_lpa_white.svg";
+import logo_mln_black from "../../../icons/svg/logo_mln_black.svg";
+import logo_mln_white from "../../../icons/svg/logo_mln_white.svg";
 import logo_nypl_full_black from "../../../icons/svg/logo_nypl_full_black.svg";
 import logo_nypl_full_white from "../../../icons/svg/logo_nypl_full_white.svg";
 import logo_nypl_lion_black from "../../../icons/svg/logo_nypl_lion_black.svg";
@@ -24,6 +26,8 @@ import logo_simplye_white from "../../../icons/svg/logo_simplye_white.svg";
 import logo_simplye_color from "../../../icons/svg/logo_simplye_color.svg";
 import logo_snfl_black from "../../../icons/svg/logo_snfl_black.svg";
 import logo_snfl_white from "../../../icons/svg/logo_snfl_white.svg";
+import logo_treasures_color from "../../../icons/svg/logo_treasures_color.svg";
+import logo_treasures_color_negative from "../../../icons/svg/logo_treasures_color_negative.svg";
 
 export default {
   logo_bpl_black,
@@ -31,6 +35,8 @@ export default {
   logo_lpa_black,
   logo_lpa_color,
   logo_lpa_white,
+  logo_mln_black,
+  logo_mln_white,
   logo_nypl_full_black,
   logo_nypl_full_white,
   logo_nypl_lion_black,
@@ -51,4 +57,6 @@ export default {
   logo_simplye_color,
   logo_snfl_black,
   logo_snfl_white,
+  logo_treasures_color,
+  logo_treasures_color_negative,
 };
