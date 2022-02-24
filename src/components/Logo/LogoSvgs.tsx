@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 import logo_bpl_black from "../../../icons/svg/logo_bpl_black.svg";
 import logo_bpl_white from "../../../icons/svg/logo_bpl_white.svg";
+import logo_clever_color from "../../../icons/svg/logo_clever_color.svg";
+import logo_clever_white from "../../../icons/svg/logo_clever_white.svg";
 import logo_lpa_color from "../../../icons/svg/logo_lpa_color.svg";
 import logo_lpa_black from "../../../icons/svg/logo_lpa_black.svg";
 import logo_lpa_white from "../../../icons/svg/logo_lpa_white.svg";
@@ -32,6 +34,8 @@ import logo_treasures_color_negative from "../../../icons/svg/logo_treasures_col
 export default {
   logo_bpl_black,
   logo_bpl_white,
+  logo_clever_color,
+  logo_clever_white,
   logo_lpa_black,
   logo_lpa_color,
   logo_lpa_white,

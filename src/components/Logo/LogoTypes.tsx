@@ -16,6 +16,8 @@ export enum LogoSizes {
 export enum LogoNames {
   BrooklynPublicLibraryBlack = "logo_bpl_black",
   BrooklynPublicLibraryWhite = "logo_bpl_white",
+  CleverColor = "logo_clever_color",
+  CleverWhite = "logo_clever_white",
   LPAColor = "logo_lpa_color",
   LPABlack = "logo_lpa_black",
   LPAWhite = "logo_lpa_white",
