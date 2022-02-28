@@ -55,7 +55,7 @@ const typography: Typography = {
       callout: fontSizeValues["1"],
     },
     helper: {
-      default: fontSizeValues["-1"],
+      default: fontSizeValues["-2"],
     },
     label: {
       default: fontSizeValues["-1"],
