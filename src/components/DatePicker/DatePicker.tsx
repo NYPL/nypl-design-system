@@ -8,12 +8,13 @@ import { FormGaps } from "../Form/FormTypes";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
+import { helperTextMargin } from "../../theme/components/global";
 import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
 import generateUUID from "../../helpers/generateUUID";
-import { useMultiStyleConfig } from "@chakra-ui/system";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {
@@ -416,11 +417,13 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
           )}
         </DateRangeRow>
         {helperText && isDateRange && showHelperInvalidText && (
-          <HelperErrorText
-            id={`${id}-helper-text`}
-            isInvalid={false}
-            text={helperText}
-          />
+          <Box __css={helperTextMargin}>
+            <HelperErrorText
+              id={`${id}-helper-text`}
+              isInvalid={false}
+              text={helperText}
+            />
+          </Box>
         )}
       </DatePickerWrapper>
     );

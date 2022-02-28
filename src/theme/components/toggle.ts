@@ -4,7 +4,7 @@ const baseStyle = {
   label: { display: "flex", alignItems: "center", width: "fit-content" },
   helper: {
     ...helperTextMargin,
-    marginLeft: "xs",
+    marginLeft: "xxs",
   },
 };
 
