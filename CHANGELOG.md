@@ -38,6 +38,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds snapshot tests for the `Select` componnet.
 - Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
 - Updates font size to "14px" for `TextInput` component.
+- Updates `List` component styling for inline.
 
 ### Fixes
 
