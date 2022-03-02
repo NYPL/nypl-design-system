@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports Chakra's `Flex` and `Spacer` components.
 - Adds `TemplateAboveHeader` component in the set of "template" components.
 - Adds the `aboveHeader` prop to the `TemplateAppContainer` component to render a `TemplateAboveHeader` component immediately before the `TemplateHeader` component.
+- Adds the `additionalStyles` prop to the `Select` component.
 
 ### Breaking Changes
 
@@ -38,6 +39,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds snapshot tests for the `Select` componnet.
 - Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
 - Updates font size to "14px" for `TextInput` component.
+- Updates the bottom margin of the `Select` in the `SearchBar` so that the helper text has standard gap between the main form components and itself.
 
 ### Fixes
 
