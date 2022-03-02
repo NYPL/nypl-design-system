@@ -3,19 +3,29 @@ const StructuredContent = {
   baseStyle: ({ hasFigureImage, imageAspectRatio, imagePosition }) => {
     const styles: { maxWidth?: string } = {};
     const wrapperStyles = {
-      float: imagePosition !== "center" ? imagePosition : undefined,
-      marginLeft:
+      float: [
+        "none",
+        "none",
+        imagePosition !== "center" ? imagePosition : undefined,
+      ],
+      marginLeft: [
+        "auto",
+        "auto",
         imagePosition === "center"
           ? null
           : imagePosition === "left"
           ? "0"
           : "m",
-      marginRight:
+      ],
+      marginRight: [
+        "auto",
+        "auto",
         imagePosition === "center"
           ? null
           : imagePosition === "left"
           ? "m"
           : "0",
+      ],
       width: imagePosition !== "center" ? "100%" : undefined,
       ...styles,
     };
@@ -34,15 +44,25 @@ const StructuredContent = {
       image: {
         // To handle the case when the image does not have a container,
         // e.g. when there is no image caption or credit.
-        float: imagePosition !== "center" ? imagePosition : undefined,
-        marginLeft:
+        float: [
+          "none",
+          "none",
+          imagePosition !== "center" ? imagePosition : undefined,
+        ],
+        marginLeft: [
+          "auto",
+          "auto",
           imagePosition === "right" && imageAspectRatio === "original"
             ? "m"
             : undefined,
-        marginRight:
+        ],
+        marginRight: [
+          "auto",
+          "auto",
           imagePosition === "left" && imageAspectRatio === "original"
             ? "m"
             : undefined,
+        ],
         marginBottom:
           !hasFigureImage || imageAspectRatio === "original" ? "m" : null,
         ...styles,

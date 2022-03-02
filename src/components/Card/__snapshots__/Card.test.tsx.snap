@@ -418,7 +418,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
         id="heading1"
       >
         <a
-          className="chakra-linkbox__overlay css-1hnz6hu"
+          className="chakra-linkbox__overlay css-kvj8dg"
           href="http://nypl.org"
         >
           The Card Heading
