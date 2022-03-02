@@ -57,7 +57,7 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `0.25.9`   |
+| Latest            | `0.25.10`  |
 
 <Description of={Logo} />
 
@@ -77,11 +77,13 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
     {(args) => (
       <div
         style={
-          args.name.indexOf("White") !== -1
+          args.name.indexOf("White") !== -1 ||
+          args.name.indexOf("Negative") !== -1
             ? {
                 backgroundColor: "var(--nypl-colors-ui-gray-xdark)",
                 display: "inline-block",
                 padding: "var(--nypl-space-l)",
+                width: "100%",
               }
             : undefined
         }
@@ -104,11 +106,11 @@ export const logoRow = (logo, opts = {}) => {
   const styles = { textAlign: "center" };
   const { size = LogoSizes.Large, displayValue } = opts;
   let key = logo;
-  if (logo.indexOf("White") !== -1) {
+  if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
     styles.backgroundColor = "var(--nypl-colors-ui-gray-xdark)";
-    styles.paddingBottom = "32px";
-    styles.paddingTop = "32px";
     styles.color = "var(--nypl-colors-ui-white)";
+    styles.paddingBottom = "var(--nypl-space-l)";
+    styles.paddingTop = "var(--nypl-space-l)";
   }
   if (size !== LogoSizes.Large) {
     key += `-${size}`;

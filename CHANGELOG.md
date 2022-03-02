@@ -8,9 +8,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Logo` component to include new variants for `BPL`, `Clever`, `LPA`, `MLN`, `QPL`, `Schomburg`, `SimplyE` and `Treasures`.
+
+## 0.25.10 (February 22, 2022)
+
 ### Adds
 
 - Exports Chakra's `Flex` and `Spacer` components.
+- Adds `TemplateAboveHeader` component in the set of "template" components.
+- Adds the `aboveHeader` prop to the `TemplateAppContainer` component to render a `TemplateAboveHeader` component immediately before the `TemplateHeader` component.
 
 ### Breaking Changes
 
@@ -25,6 +33,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds an `onSubmit` prop to the `Form` component.
 - Adds the `renderHeaderElement` prop to the `TemplateAppContainer` component. This prop is used to control whether the `TemplateAppContainer` component should render its own `<header>` HTML element through its `header` prop, or let the user pass in their own component that renders the `<header>` HTML element.
 - Updates the `Fieldset` and `RadioGroup` so the `children` prop is declared through `React.PropsWithChildren` rather than in their respective prop interfaces.
+- Adds snapshot tests for the `Accordion` component, as well as `id` props to the components within the `Accordion` so snapshot tests pass.
+- Passes an `id` to the `Icon` in the `Select` component.
+- Adds snapshot tests for the `Select` componnet.
+- Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
+- Updates font size to "14px" for `TextInput` component.
 - Adds an `aria-label` attribute to the `Notification` component to use with its `aside` HTML landmark element. Added an "Accessibility" section in the `Notification` Storybook page to note that this component should not be used within a `header` or `footer` HTML landmark element.
 
 ### Fixes
