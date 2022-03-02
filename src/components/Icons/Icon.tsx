@@ -82,7 +82,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     return null;
   } else if (!name && !children) {
     console.warn(
-      "Pass an icon `name` prop or an SVG child to `Icon` to ensure an icon appears."
+      "Icon: Pass an icon `name` prop or an SVG child to ensure an icon appears."
     );
     return null;
   }

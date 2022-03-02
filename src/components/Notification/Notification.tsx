@@ -117,15 +117,15 @@ export default function Notification(props: NotificationProps) {
   const handleClose = () => setIsOpen(false);
   const styles = useMultiStyleConfig("Notification", {
     centered,
+    dismissible,
     noMargin,
     notificationType,
-    showIcon,
   });
   const iconElement = () => {
     const baseIconProps = {
+      additionalStyles: styles.icon,
       decorative: false,
       size: IconSizes.Large,
-      additionalStyles: styles.icon,
     };
     // If the icon should not display, return null.
     if (!showIcon) {
@@ -139,16 +139,19 @@ export default function Notification(props: NotificationProps) {
       });
     const iconProps = {
       [NotificationTypes.Announcement]: {
-        name: IconNames.SpeakerNotes,
         color: IconColors.SectionResearchSecondary,
+        name: IconNames.SpeakerNotes,
+        title: "Notification announcement icon",
       },
       [NotificationTypes.Standard]: {
-        name: IconNames.AlertNotificationImportant,
         color: IconColors.UiBlack,
+        name: IconNames.AlertNotificationImportant,
+        title: "Notification standard icon",
       },
       [NotificationTypes.Warning]: {
-        name: IconNames.ErrorFilled,
         color: IconColors.BrandPrimary,
+        name: IconNames.ErrorFilled,
+        title: "Notification warning icon",
       },
     };
     return (
@@ -166,10 +169,11 @@ export default function Notification(props: NotificationProps) {
       additionalStyles={styles.dismissibleButton}
     >
       <Icon
-        id={`${id}-notification-dismissible-icon`}
         decorative={false}
+        id={`${id}-notification-dismissible-icon`}
         name={IconNames.Close}
         size={IconSizes.Large}
+        title="Notification close icon"
       />
     </Button>
   );
