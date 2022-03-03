@@ -41,6 +41,18 @@ describe("Notification Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test for the dismissible type", async () => {
+    const { container } = render(
+      <Notification
+        dismissible
+        id="notificationID"
+        notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Notification", () => {
@@ -48,6 +60,7 @@ describe("Notification", () => {
   beforeEach(() => {
     utils = render(
       <Notification
+        ariaLabel="Notification label"
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
@@ -133,7 +146,31 @@ describe("Notification", () => {
     );
   });
 
-  it("renders the UI snapshot correctly", () => {
+  it("renders with an aria-label attribute", () => {
+    expect(screen.getByRole("complementary")).toHaveAttribute(
+      "aria-label",
+      "Notification label"
+    );
+  });
+
+  it("renders a dismissible icon", () => {
+    utils.rerender(
+      <Notification
+        dismissible
+        id="notificationID"
+        notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+        notificationType={NotificationTypes.Standard}
+      />
+    );
+    const icons = screen.queryAllByRole("img");
+
+    expect(icons).toHaveLength(2);
+    expect(screen.getByTitle("Notification standard icon")).toBeInTheDocument();
+    expect(screen.getByTitle("Notification close icon")).toBeInTheDocument();
+  });
+
+  it.skip("renders the UI snapshot correctly", () => {
     const standard = renderer
       .create(
         <Notification
@@ -190,11 +227,22 @@ describe("Notification", () => {
         />
       )
       .toJSON();
+    const dismissible = renderer
+      .create(
+        <Notification
+          dismissible
+          id="notificationID7"
+          notificationContent={<>Notification content.</>}
+        />
+      )
+      .toJSON();
+
     expect(standard).toMatchSnapshot();
     expect(announcement).toMatchSnapshot();
     expect(warning).toMatchSnapshot();
     expect(withoutHeading).toMatchSnapshot();
     expect(withoutAnIcon).toMatchSnapshot();
     expect(withoutHeadingAndIcon).toMatchSnapshot();
+    expect(dismissible).toMatchSnapshot();
   });
 });

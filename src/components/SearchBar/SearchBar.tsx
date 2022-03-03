@@ -97,7 +97,7 @@ export default function SearchBar(props: SearchBarProps) {
     textInputElement,
     textInputProps,
   } = props;
-  const styles = useMultiStyleConfig("SearchBar", { hasSelect: selectProps });
+  const styles = useMultiStyleConfig("SearchBar", {});
   const stateProps = {
     helperText: "",
     isDisabled,
@@ -123,6 +123,7 @@ export default function SearchBar(props: SearchBarProps) {
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
+      additionalStyles={styles.select}
       id={`searchbar-select-${id}`}
       labelText={selectProps?.labelText}
       name={selectProps?.name}

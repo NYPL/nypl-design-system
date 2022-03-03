@@ -13,7 +13,7 @@ const activeFocus = {
 };
 // Used in `Select` and `TextInput`.
 const helperTextMargin = {
-  marginTop: "xs",
+  marginTop: "xxs",
   marginBottom: "0",
 };
 // Used in `Checkbox` and `Radio`.
