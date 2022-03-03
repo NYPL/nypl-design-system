@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import * as React from "react";
 
 import { FormGaps } from "./FormTypes";
@@ -29,6 +28,8 @@ export interface FormProps extends FormBaseProps {
   isFileUploader?: boolean;
   /** Optional form `method` attribute */
   method?: "get" | "post";
+  /** Function to call for the `onSubmit` form event. */
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 /** FormRow child-component */
@@ -69,10 +70,11 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     action,
     children,
     className,
+    gap = FormGaps.Large,
     id = generateUUID(),
     isFileUploader = false,
     method,
-    gap = FormGaps.Large,
+    onSubmit,
   } = props;
 
   let attributes = {};
@@ -92,16 +94,16 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
   );
 
   return (
-    <Box
-      as="form"
+    <form
       aria-label="form"
-      id={id}
-      {...attributes}
       className={className}
+      id={id}
+      onSubmit={onSubmit}
+      {...attributes}
     >
       <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
         {alteredChildren}
       </SimpleGrid>
-    </Box>
+    </form>
   );
 }

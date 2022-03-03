@@ -29,6 +29,7 @@ import Notification, {
 import Placeholder from "../Placeholder/Placeholder";
 import {
   Template,
+  TemplateAboveHeader,
   TemplateHeader,
   TemplateBreakout,
   TemplateContent,
@@ -49,7 +50,7 @@ import { getCategory } from "../../utils/componentCategories";
   parameters={{
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11982%3A47778",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=36835%3A26688",
     },
   }}
 />
@@ -59,14 +60,25 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.3.6`    |
-| Latest            | `0.25.9`   |
+| Latest            | `0.25.10`  |
 
 ## TemplateAppContainer Component
 
 <Description of={TemplateAppContainer} />
 
-If you have a custom `Footer` component that _already_ renders an HTML `<footer>`
-element, set `renderFooterElement` to false so only one `<footer>` element is rendered.
+If you have a custom `Header` component that _already_ renders an HTML `<header>`
+element, set `renderHeaderElement` to false so only one `<header>` element is
+rendered.
+
+Likewise, if you have a custom `Footer` component that _already_ renders an HTML
+`<footer>` element, set `renderFooterElement` to false so only one `<footer>`
+element is rendered.
+
+If you need to render an alert or notification at the top of the page with an
+`aside` HTML element or HTML element with the `role="complementary"` attribute,
+then pass that alert or notification component to the `aboveHeader` prop. These
+elements should _not_ be rendered in the `header` HTML section since that's an
+accessibility violation.
 
 <b>This is the recommended way to render an app page template.</b>
 
@@ -74,6 +86,7 @@ element, set `renderFooterElement` to false so only one `<footer>` element is re
 import { TemplateAppContainer } from "@nypl/design-system-react-components";
 
 <TemplateAppContainer
+  aboveHeader={<Placeholder variant="short">Above Header</Placeholder>}
   header={<Placeholder variant="short">NYPL Header</Placeholder>}
   breakout={
     <>
@@ -98,6 +111,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
   <Story
     name="TemplateAppContainer Component"
     args={{
+      aboveHeader: <Placeholder variant="short">Above Header</Placeholder>,
       breakout: (
         <>
           <Placeholder variant="short">Breadcrumbs</Placeholder>
@@ -116,8 +130,10 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       header: <Placeholder variant="short">NYPL Header</Placeholder>,
       sidebar: "left",
       renderFooterElement: true,
+      renderHeaderElement: true,
     }}
     argTypes={{
+      aboveHeader: { control: false },
       breakout: { control: false },
       contentPrimary: { control: false },
       contentSidebar: { control: false },
@@ -149,6 +165,7 @@ Basic "template" components structure:
 ```
 import {
   Template,
+  TemplateAboveHeader,
   TemplateHeader,
   TemplateBreakout,
   TemplateContent,
@@ -160,6 +177,9 @@ import {
 
 
 <Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
   <TemplateHeader>
     // ...
     <TemplateBreakout>
@@ -190,6 +210,7 @@ import {
       sidebar: "left",
     }}
     argTypes={{
+      aboveHeader: { table: { disable: true } },
       breakout: { table: { disable: true } },
       contentPrimary: { table: { disable: true } },
       contentSidebar: { table: { disable: true } },
@@ -201,6 +222,9 @@ import {
   >
     {(args) => (
       <Template>
+        <TemplateAboveHeader>
+          <Placeholder variant="short">Above Header</Placeholder>
+        </TemplateAboveHeader>
         <TemplateHeader>
           <Placeholder variant="short">NYPL Header</Placeholder>
           <TemplateBreakout>
@@ -242,6 +266,7 @@ import {
 The components consist of:
 
 - `Template`
+- `TemplateAboveHeader`
 - `TemplateHeader`
 - `TemplateBreakout`
 - `TemplateContent`
@@ -260,10 +285,25 @@ The components consist of:
 
 <Description of={Template} />
 
+#### TemplateAboveHeader
+
+```
+<Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
+<Template>
+```
+
+<Description of={TemplateAboveHeader} />
+
 #### TemplateHeader
 
 ```
 <Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
   <TemplateHeader>
     // ...
   </TemplateHeader>
@@ -276,6 +316,9 @@ The components consist of:
 
 ```
 <Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
   <TemplateHeader>
     <TemplateBreakout>
       // ...
@@ -303,6 +346,9 @@ The components consist of:
 
 ```
 <Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
   <TemplateHeader>...</TemplateHeader>
   <TemplateContent>
     <TemplateContentTop>
@@ -318,6 +364,9 @@ The components consist of:
 
 ```
 <Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
   <TemplateHeader>...</TemplateHeader>
   <TemplateContent>
     <TemplateContentPrimary>
@@ -333,6 +382,9 @@ The components consist of:
 
 ```
 <Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
   <TemplateHeader>...</TemplateHeader>
   <TemplateContent sidebar="right">
     <TemplateContentPrimary>
@@ -345,6 +397,9 @@ The components consist of:
 <Template>
 
 <Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
   <TemplateHeader>...</TemplateHeader>
   <TemplateContent sidebar="left">
     <TemplateContentSidebar>
@@ -363,6 +418,9 @@ The components consist of:
 
 ```
 <Template>
+  <TemplateAboveHeader>
+    // ...
+  </TemplateAboveHeader>
   <TemplateHeader>
     // ...
   </TemplateHeader>
@@ -425,6 +483,23 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
 <Canvas>
   <Story name="Full Example with Template Children Components">
     <Template>
+      <TemplateAboveHeader>
+        <Notification
+          notificationType={NotificationTypes.Standard}
+          notificationHeading="Standard Notification"
+          notificationContent={
+            <>
+              This is an "announcement" Notification with a heading. Cras mattis
+              consectetur purus sit amet fermentum. Maecenas faucibus mollis
+              interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+              eros. Cum sociis natoque penatibus et magnis dis parturient
+              montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue
+              laoreet rutrum faucibus dolor auctor.
+            </>
+          }
+          showIcon={false}
+        />
+      </TemplateAboveHeader>
       <TemplateHeader>
         <TemplateBreakout>
           <Breadcrumbs

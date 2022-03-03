@@ -1,6 +1,8 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
+
 import Table from "./Table";
 
 export const columnHeaders = [
@@ -43,10 +45,30 @@ describe("Table Accessibility", () => {
 });
 
 describe("Table", () => {
-  it("Renders table data", () => {
-    render(<Table tableData={tableData} columnHeaders={columnHeaders} />);
-    expect(screen.getByText("Tom")).toBeInTheDocument();
+  it("renders a caption", () => {
+    render(<Table tableData={tableData} titleText="this is the caption" />);
+    expect(screen.getByText("this is the caption")).toBeInTheDocument();
+  });
+
+  it("renders a table header", () => {
+    render(
+      <Table
+        columnHeaders={columnHeaders}
+        tableData={tableData}
+        titleText="this is the caption"
+      />
+    );
+
     expect(screen.getByText("First Name")).toBeInTheDocument();
+    expect(screen.getByText("Last Name")).toBeInTheDocument();
+    expect(screen.getByText("Nick Name")).toBeInTheDocument();
+  });
+
+  it("renders table data", () => {
+    render(<Table tableData={tableData} columnHeaders={columnHeaders} />);
+
+    expect(screen.getByText("Tom")).toBeInTheDocument();
+    expect(screen.getByText("Nook")).toBeInTheDocument();
     expect(screen.getByText("Village Road")).toBeInTheDocument();
   });
 
@@ -54,7 +76,62 @@ describe("Table", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Table tableData={[]} />);
     expect(warn).toHaveBeenCalledWith(
-      "Table data should be two dimensional array."
+      "Table: data should be two dimensional array."
     );
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const basic = renderer
+      .create(<Table id="basic" tableData={tableData} />)
+      .toJSON();
+    const withCaption = renderer
+      .create(
+        <Table
+          id="withCaption"
+          tableData={tableData}
+          titleText="this is the caption"
+        />
+      )
+      .toJSON();
+    const withHeaders = renderer
+      .create(
+        <Table
+          columnHeaders={columnHeaders}
+          id="withHeaders"
+          tableData={tableData}
+          titleText="this is the caption"
+        />
+      )
+      .toJSON();
+    const withRowHeaders = renderer
+      .create(
+        <Table
+          columnHeaders={columnHeaders}
+          id="withHeaders"
+          tableData={tableData}
+          titleText="this is the caption"
+          useRowHeaders
+        />
+      )
+      .toJSON();
+    const withCustomHeaderColors = renderer
+      .create(
+        <Table
+          columnHeadersBackgroundColor="var(--nypl-colors-ui-link-primary)"
+          columnHeadersTextColor="var(--nypl-colors-ui-white)"
+          columnHeaders={columnHeaders}
+          id="withHeaders"
+          tableData={tableData}
+          titleText="this is the caption"
+          useRowHeaders
+        />
+      )
+      .toJSON();
+
+    expect(basic).toMatchSnapshot();
+    expect(withCaption).toMatchSnapshot();
+    expect(withHeaders).toMatchSnapshot();
+    expect(withRowHeaders).toMatchSnapshot();
+    expect(withCustomHeaderColors).toMatchSnapshot();
   });
 });

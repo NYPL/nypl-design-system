@@ -35,9 +35,6 @@ export default function FileDisplay(
     isUploading = false,
     onDelete,
   } = props;
-  if (!file) {
-    return;
-  }
   const styles = useMultiStyleConfig("FileDisplay", {});
   const fileFormat = fileFormatSVG(file.type);
   const getProperIcon = (file: DSFile) => {
@@ -77,6 +74,9 @@ export default function FileDisplay(
       </Button>
     );
   };
+  if (!file) {
+    return;
+  }
 
   return (
     <Box key={file.name}>
@@ -97,12 +97,11 @@ export default function FileDisplay(
 
       {file.isInvalid && file.invalidText && (
         <HelperErrorText
+          additionalStyles={styles.helper}
           id={`${id}-helperText`}
           isInvalid={file.isInvalid}
-          additionalStyles={styles.helper}
-        >
-          {file.invalidText}
-        </HelperErrorText>
+          text={file.invalidText}
+        />
       )}
     </Box>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable id-blacklist */
 // HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 export enum TextInputTypes {
   email = "email",

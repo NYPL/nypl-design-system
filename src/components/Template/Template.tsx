@@ -2,6 +2,10 @@ import * as React from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
 
 export interface TemplateProps {}
+export interface TemplateHeaderProps {
+  /** Flag to render an HTML header element. True by default. */
+  renderHeaderElement?: boolean;
+}
 export interface TemplateFooterProps {
   /** Flag to render an HTML footer element. True by default. */
   renderFooterElement?: boolean;
@@ -14,7 +18,11 @@ export interface TemplateSidebarProps {
 export interface TemplateContentProps extends TemplateSidebarProps {}
 export interface TemplateAppContainerProps
   extends TemplateFooterProps,
+    TemplateHeaderProps,
     TemplateSidebarProps {
+  /** DOM that will be rendered before the rest of the components in
+   * `TemplateAppContainer` and immediately before the `TemplateHeader` component. */
+  aboveHeader?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateBreakout` component section. */
   breakout?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
@@ -43,16 +51,51 @@ const Template = (props: React.PropsWithChildren<TemplateProps>) => {
 };
 
 /**
- * This optional component should be the first child of the `Template`
- * component. This is rendered as an HTML `<header>` element.
+ * This optional component renders its children from edge-to-edge and should
+ * be used for alerts or notifications that are typically site-wide. This must
+ * be rendered immediately before the `TemplateHeader` component. This is meant
+ * for components that render an `aside` HTML element or HTML element with the
+ * `role="complementary"` attribute. These elements should *not* be rendered
+ * in the `header` HTML section since that's an accessibility violation.
  */
-const TemplateHeader = (props: React.PropsWithChildren<TemplateProps>) => {
+const TemplateAboveHeader = (props: React.PropsWithChildren<TemplateProps>) => {
+  const styles = useStyleConfig("TemplateBreakout", {});
+  return <Box __css={styles}>{props.children}</Box>;
+};
+
+/**
+ * This optional component should be the first child of the `Template`
+ * component. This is rendered as an HTML `<header>` element. If an HTML
+ * `<header>` element is already passed in a custom component as the children,
+ * set `renderFooterElement` to `false`. Otherwise, the parent wrapper will
+ * render an HTML `<header>` element.
+ */
+const TemplateHeader = ({
+  children,
+  renderHeaderElement = true,
+}: React.PropsWithChildren<TemplateHeaderProps>) => {
   const styles = useStyleConfig("TemplateHeader", {});
-  return (
-    <Box as="header" __css={styles}>
-      {props.children}
-    </Box>
-  );
+  let headerElement = <Box __css={styles}>{children}</Box>;
+
+  // The user wants to render the `header` HTML element.
+  if (renderHeaderElement) {
+    // But if they passed in a component that renders an HTML `<header>`,
+    // then log a warning.
+    React.Children.map(children, (child: React.ReactElement) => {
+      if (child?.type === "header" || child?.props?.mdxType === "header") {
+        console.warn(
+          "`TemplateHeader`: An HTML `header` element was passed in. Set " +
+            "`renderHeaderElement` to `false` to avoid nested HTML `header` elements."
+        );
+      }
+    });
+    headerElement = (
+      <Box as="header" __css={styles}>
+        {children}
+      </Box>
+    );
+  }
+  return headerElement;
 };
 
 /**
@@ -194,6 +237,7 @@ const TemplateAppContainer = (
   props: React.PropsWithChildren<TemplateAppContainerProps>
 ) => {
   const {
+    aboveHeader,
     breakout,
     contentPrimary,
     contentSidebar,
@@ -202,7 +246,11 @@ const TemplateAppContainer = (
     header,
     sidebar = "none",
     renderFooterElement = true,
+    renderHeaderElement = true,
   } = props;
+  const aboveHeaderElem = aboveHeader && (
+    <TemplateAboveHeader>{aboveHeader}</TemplateAboveHeader>
+  );
   const breakoutElem = breakout && (
     <TemplateBreakout>{breakout}</TemplateBreakout>
   );
@@ -217,8 +265,9 @@ const TemplateAppContainer = (
   );
   return (
     <Template>
+      {aboveHeaderElem}
       {(header || breakoutElem) && (
-        <TemplateHeader>
+        <TemplateHeader renderHeaderElement={renderHeaderElement}>
           {header}
           {breakoutElem}
         </TemplateHeader>
@@ -246,6 +295,7 @@ const TemplateAppContainer = (
 export {
   TemplateAppContainer,
   Template,
+  TemplateAboveHeader,
   TemplateHeader,
   TemplateBreakout,
   TemplateContent,
