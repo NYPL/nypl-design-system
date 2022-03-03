@@ -97,8 +97,8 @@ const getElementsFromContentData = (data, useHash): TabPanelProps => {
   });
 
   return {
-    tabs: <TabList>{tabs}</TabList>,
-    panels: <TabPanels>{panels}</TabPanels>,
+    tabs: [<TabList key="list">{tabs}</TabList>],
+    panels: [<TabPanels key="panels">{panels}</TabPanels>],
   };
 };
 
@@ -159,7 +159,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
     ? getElementsFromContentData(contentData, useHash)
     : getElementsFromChildren(children);
 
-  if (!tabs.length || !panels.length) {
+  if (tabs.length === 0 || panels.length === 0) {
     console.warn("Tabs: Pass data in the `data` props or as children.");
   }
 

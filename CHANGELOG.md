@@ -44,6 +44,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates a log message in the `Icon` component to be more descriptive.
 - Updates the bottom margin of the `Select` in the `SearchBar` so that the helper text has standard gap between the main form components and itself.
 - Updates the mobile styles for the image in the `StructuredContent` component.
+- Updates how `TabList` and `TabPanels` are returned in the `Tabs` component so no false log messages are consoled.
 
 ### Fixes
 
