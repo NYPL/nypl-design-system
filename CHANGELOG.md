@@ -38,6 +38,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds snapshot tests for the `Select` componnet.
 - Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
 - Updates font size to "14px" for `TextInput` component.
+- Adds an `aria-label` attribute to the `Notification` component to use with its `aside` HTML landmark element. Added an "Accessibility" section in the `Notification` Storybook page to note that this component should not be used within a `header` or `footer` HTML landmark element.
+- Updates the `Notification` component to handle link color inside the content area, better styling for centering and the dismissible variation, and updated background color for the "Announcement" and "Warning" types.
+- Updates a log message in the `Icon` component to be more descriptive.
 
 ### Fixes
 
