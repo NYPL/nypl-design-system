@@ -2,31 +2,34 @@ import { NotificationTypes } from "../../components/Notification/NotificationTyp
 
 const Notification = {
   parts: ["container", "dismissibleButton", "icon"],
-  baseStyle: ({ centered, noMargin, notificationType }) => {
+  baseStyle: ({ centered, dismissible, noMargin, notificationType }) => {
     let bg = "ui.status.primary";
-    if (notificationType === NotificationTypes.Announcement) {
-      bg = "ui.gray.light-cool";
-    } else if (notificationType === NotificationTypes.Warning) {
-      bg = "ui.gray.xx-light-cool";
+    if (
+      notificationType === NotificationTypes.Announcement ||
+      notificationType === NotificationTypes.Warning
+    ) {
+      bg = "ui.gray.x-light-cool";
     }
     return {
       bg,
       display: "flex",
       fontSize: "-1", // slightly smaller than the default size
-      padding: "var(--nypl-space-s) var(--nypl-space-l)",
       position: "relative",
       textAlign: centered ? "center" : null,
       borderRadius: noMargin ? "0" : "4px",
       margin: noMargin ? "0" : "s",
       container: {
         margin: "auto",
+        maxWidth: "var(--nypl-breakpoint-xl)",
+        padding: "s",
+        paddingRight: dismissible ? "l" : null,
+        paddingLeft: centered && dismissible ? "l" : null,
         width: "100%",
-        maxWidth: "var(--nypl-breakpoint-large)",
       },
       dismissibleButton: {
         border: "none",
-        alignItems: "center",
         bgColor: "inherit",
+        alignItems: "center",
         color: "ui.black",
         display: "flex",
         height: "32px",
@@ -62,6 +65,13 @@ const NotificationContent = {
         ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
         : null,
       width: "100%",
+      // Links should always be black and underlined.
+      a: {
+        color: "ui.black",
+        _hover: {
+          color: "ui.black",
+        },
+      },
     },
   }),
 };

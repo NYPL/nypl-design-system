@@ -8,10 +8,10 @@ const List = {
     padding: noStyling ? "0" : null,
     display: inline ? "flex" : null,
     li: {
-      marginRight: inline ? "xs" : null,
+      marginRight: inline ? "m" : null,
       listStyleType: inline ? "none" : null,
       _notFirst: {
-        marginTop: "xxs",
+        marginTop: inline ? null : "xxs",
       },
     },
   }),
