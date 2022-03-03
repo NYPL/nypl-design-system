@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports Chakra's `Flex` and `Spacer` components.
 - Adds `TemplateAboveHeader` component in the set of "template" components.
 - Adds the `aboveHeader` prop to the `TemplateAppContainer` component to render a `TemplateAboveHeader` component immediately before the `TemplateHeader` component.
+- Adds the `additionalStyles` prop to the `Select` component.
 
 ### Breaking Changes
 
@@ -38,6 +39,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds snapshot tests for the `Select` componnet.
 - Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
 - Updates font size to "14px" for `TextInput` component.
+- Adds an `aria-label` attribute to the `Notification` component to use with its `aside` HTML landmark element. Added an "Accessibility" section in the `Notification` Storybook page to note that this component should not be used within a `header` or `footer` HTML landmark element.
+- Updates the `Notification` component to handle link color inside the content area, better styling for centering and the dismissible variation, and updated background color for the "Announcement" and "Warning" types.
+- Updates a log message in the `Icon` component to be more descriptive.
+- Updates the bottom margin of the `Select` in the `SearchBar` so that the helper text has standard gap between the main form components and itself.
+- Updates the mobile styles for the image in the `StructuredContent` component.
+- Updates how `TabList` and `TabPanels` are returned in the `Tabs` component so no false log messages are consoled.
 - Updates `List` component styling for inline.
 - Updates the prop type for the "Definition" `List` type so DOM elements can be passed in the definition.
 

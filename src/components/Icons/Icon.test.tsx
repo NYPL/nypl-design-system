@@ -35,7 +35,7 @@ describe("Icon", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Icon />);
     expect(warn).toHaveBeenCalledWith(
-      "Pass an icon `name` prop or an SVG child to `Icon` to ensure an icon appears."
+      "Icon: Pass an icon `name` prop or an SVG child to ensure an icon appears."
     );
   });
 
