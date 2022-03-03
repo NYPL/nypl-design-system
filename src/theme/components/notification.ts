@@ -14,17 +14,17 @@ const Notification = {
       bg,
       display: "flex",
       fontSize: "-1", // slightly smaller than the default size
-      padding: "var(--nypl-space-s)",
-      paddingRight: dismissible ? "var(--nypl-space-l)" : null,
-      paddingLeft: centered && dismissible ? "var(--nypl-space-l)" : null,
       position: "relative",
       textAlign: centered ? "center" : null,
       borderRadius: noMargin ? "0" : "4px",
       margin: noMargin ? "0" : "s",
       container: {
         margin: "auto",
-        width: "100%",
         maxWidth: "var(--nypl-breakpoint-xl)",
+        padding: "s",
+        paddingRight: dismissible ? "l" : null,
+        paddingLeft: centered && dismissible ? "l" : null,
+        width: "100%",
       },
       dismissibleButton: {
         border: "none",
@@ -68,6 +68,9 @@ const NotificationContent = {
       // Links should always be black and underlined.
       a: {
         color: "ui.black",
+        _hover: {
+          color: "ui.black",
+        },
       },
     },
   }),
