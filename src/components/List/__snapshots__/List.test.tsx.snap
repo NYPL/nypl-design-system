@@ -96,7 +96,9 @@ exports[`List Renders the UI snapshot correctly 5`] = `
       Mahi-mahi
     </dt>
     <dd>
-      The mahi-mahi is an ocean fish known...
+      <p>
+        The mahi-mahi is an ocean fish known...
+      </p>
     </dd>
     <dt>
       Golden trout
