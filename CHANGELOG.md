@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.11 (March 3, 2022)
+
 ### Updates
 
 - Updates the `Logo` component to include new variants for `BPL`, `Clever`, `LPA`, `MLN`, `QPL`, `Schomburg`, `SimplyE` and `Treasures`.
