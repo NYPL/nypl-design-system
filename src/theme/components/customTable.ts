@@ -3,6 +3,15 @@ const baseStyle = ({
   showRowDividers,
   useRowHeaders,
 }) => ({
+  // Headers `th` can be rendered as the first cell in every row through the
+  // `useRowHeaders`. Whereas the header `th` in the `thead` can be rendered
+  // with a custom color, the row header `th` in the `tbody` should always
+  // have text color black.
+  tbody: {
+    th: {
+      color: "var(--nypl-colors-ui-black)",
+    },
+  },
   th: {
     border: showRowDividers ? undefined : "none",
     borderBottom: showRowDividers ? undefined : "0px",
@@ -35,11 +44,15 @@ const baseStyle = ({
   },
   caption: {
     captionSide: "top",
-    textAlign: "left",
-    fontSize: "heading.secondary",
     color: "ui.black",
-    textTransform: "capitalize",
+    fontSize: "heading.secondary",
     fontWeight: "heading.secondary",
+    marginBottom: "s",
+    marginLeft: "0",
+    marginRight: "0",
+    marginTop: "0",
+    padding: "0",
+    textAlign: "left",
   },
 });
 

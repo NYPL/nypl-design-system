@@ -1,13 +1,19 @@
 "use strict";
 
 var gulp = require("gulp");
-var sass = require("gulp-scss-combine");
+var concat = require("gulp-concat");
 
 gulp.task("default", mergeSass);
 
 function mergeSass(done) {
   return gulp
-    .src("src/resources.scss") // Reads all files in src
-    .pipe(sass()) // Serves to remove @import statements from the output
+    .src([
+      "src/styles/base/_01-breakpoints.scss",
+      "src/styles/base/_02-mixins.scss",
+      "src/styles/space/_space-inline.scss",
+      "src/styles/space/_space-inset.scss",
+      "src/styles/space/_space-stack.scss",
+    ]) // Reads all files in src
+    .pipe(concat("resources.scss"))
     .pipe(gulp.dest("./dist")); // Writes the file to root
 }

@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.25.9",
+  "version": "0.25.10",
   "description": "Design System React Components",
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
     "test:watch": "tsdx test - --watch",
     "test:generate-output": "tsdx test --json --outputFile=.jest-test-results.json  || true",
     "lint": "tsdx lint",
-    "prepare": "npm run build",
+    "prepare": "npm run build && husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "generate-sass-resources": "gulp",
@@ -36,26 +36,9 @@
     "build-storybook": "npm run prebuild:storybook && build-storybook -c .storybook -o ./storybook-static",
     "prebuild:storybook": "npm run test:generate-output"
   },
-  "dependencies": {
-    "@chakra-ui/react": "1.7.1",
-    "@chakra-ui/system": "1.8.1",
-    "@emotion/react": "11.4.1",
-    "@emotion/styled": "11.3.0",
-    "framer-motion": "4.1.17",
-    "he": "1.2.0",
-    "react-datepicker": "4.1.1",
-    "system-font-css": "2.0.2",
-    "typescript": "4.3.5",
-    "uuid": "8.3.2"
-  },
-  "peerDependencies": {
-    "react": ">=16.13.0",
-    "react-dom": ">=16.13.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+  "lint-staged": {
+    "*.{jsx,ts,tsx}": "eslint src --ext=jsx,ts,tsx --cache --fix",
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   },
   "prettier": {
     "printWidth": 80,
@@ -73,19 +56,40 @@
       "limit": "300 KB"
     }
   ],
+  "dependencies": {
+    "@chakra-ui/react": ">=1.7.1",
+    "@chakra-ui/system": ">=1.8.1",
+    "@emotion/react": "11.4.1",
+    "@emotion/styled": "11.3.0",
+    "framer-motion": "4.1.17",
+    "he": "1.2.0",
+    "react-datepicker": "4.1.1",
+    "system-font-css": "2.0.2",
+    "typescript": "4.3.5",
+    "uuid": "8.3.2"
+  },
+  "peerDependencies": {
+    "@chakra-ui/react": ">=1.7.1",
+    "@chakra-ui/system": ">=1.8.1",
+    "@emotion/react": ">=11.4.1",
+    "@emotion/styled": ">=11.3.0",
+    "framer-motion": ">=4.1.17",
+    "react": ">=16.13.0",
+    "react-dom": ">=16.13.0"
+  },
   "devDependencies": {
     "@babel/core": "7.14.6",
     "@mdx-js/react": "1.6.22",
     "@size-limit/preset-small-lib": "5.0.1",
-    "@storybook/addon-a11y": "6.4.8",
-    "@storybook/addon-actions": "6.4.8",
-    "@storybook/addon-docs": "6.4.8",
-    "@storybook/addon-essentials": "6.4.8",
-    "@storybook/addon-jest": "6.4.8",
-    "@storybook/addon-links": "6.4.8",
+    "@storybook/addon-a11y": "6.4.19",
+    "@storybook/addon-actions": "6.4.19",
+    "@storybook/addon-docs": "6.4.19",
+    "@storybook/addon-essentials": "6.4.19",
+    "@storybook/addon-jest": "6.4.19",
+    "@storybook/addon-links": "6.4.19",
     "@storybook/addon-queryparams": "6.2.9",
-    "@storybook/addons": "6.4.8",
-    "@storybook/react": "6.4.8",
+    "@storybook/addons": "6.4.19",
+    "@storybook/react": "6.4.19",
     "@svgr/rollup": "5.5.0",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "5.14.1",
@@ -100,7 +104,7 @@
     "@types/testing-library__jest-dom": "5.14.1",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
-    "autoprefixer": "9.8.6",
+    "autoprefixer": "9.8.8",
     "babel-loader": "8.2.2",
     "breakpoint-sass": "2.7.1",
     "css-loader": "5.2.7",
@@ -109,18 +113,18 @@
     "eslint-config-react-app": "6.0.0",
     "eslint-plugin-flowtype": "5.8.2",
     "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-storybook": "^0.5.6",
     "gulp": "4.0.2",
-    "gulp-scss-combine": "1.0.0",
-    "husky": "4.2.5",
+    "gulp-concat": "^2.6.1",
+    "husky": "^7.0.4",
     "import-glob-loader": "1.1.0",
     "jest": "27.3.1",
     "jest-axe": "5.0.1",
     "jsdom": "15.2.1",
+    "lint-staged": "10.5.4",
     "node-sass-glob-importer": "5.3.2",
     "normalize.css": "8.0.1",
-    "postcss": "8.3.6",
     "prettier": "2.4.1",
-    "pretty-quick": "3.1.1",
     "react": "16.14.0",
     "react-autosuggest": "10.0.2",
     "react-docgen-typescript-loader": "3.1.0",
@@ -133,7 +137,7 @@
     "sass-loader": "10.0.0",
     "semantic-release-slack-bot": "2.1.0",
     "size-limit": "5.0.1",
-    "storybook-addon-designs": "6.2.0",
+    "storybook-addon-designs": "6.2.1",
     "style-loader": "2.0.0",
     "ts-jest": "27.0.4",
     "tsdx": "0.14.1",

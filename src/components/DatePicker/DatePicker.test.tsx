@@ -9,7 +9,7 @@ import { DatePickerTypes } from "./DatePickerTypes";
 import { TextInputRefType } from "../TextInput/TextInput";
 
 /** This adds a "0" padding for date values under "10". */
-const str_pad = (n) => String("0" + n).slice(-2);
+const strPad = (n) => String("0" + n).slice(-2);
 const monthArray = [
   "January",
   "February",
@@ -49,8 +49,8 @@ describe("DatePicker", () => {
   /** Returns today's year, month, and day values. */
   const getTodaysValues = () => {
     const year = todaysDate.getFullYear();
-    const month = str_pad(todaysDate.getMonth() + 1);
-    const day = str_pad(todaysDate.getDate());
+    const month = strPad(todaysDate.getMonth() + 1);
+    const day = strPad(todaysDate.getDate());
     return [year, month, day];
   };
   /** Returns today's date in string format based on the DatePicker type. */
@@ -328,9 +328,9 @@ describe("DatePicker", () => {
       expect(screen.getByDisplayValue(newDayValue)).toBeInTheDocument();
 
       const { startDate } = dateObject;
-      const valueFromOnChange = `${startDate.getFullYear()}-${str_pad(
+      const valueFromOnChange = `${startDate.getFullYear()}-${strPad(
         startDate.getMonth() + 1
-      )}-${str_pad(startDate.getDate())}`;
+      )}-${strPad(startDate.getDate())}`;
       expect(newDayValue).toEqual(valueFromOnChange);
     });
 
@@ -724,7 +724,7 @@ describe("DatePicker", () => {
       // We are two months ahead but still selecting the midmonth day.
       userEvent.click(screen.getByText(midMonthDay));
       // So only the month should change accordingly.
-      const newMonthValue = `${newDayValue.substr(0, 5)}${str_pad(
+      const newMonthValue = `${newDayValue.substr(0, 5)}${strPad(
         "10"
       )}${newDayValue.substr(7)}`;
       expect(screen.getByDisplayValue(newMonthValue)).toBeInTheDocument();

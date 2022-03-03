@@ -433,17 +433,21 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       </div>
     </div>
     <div
-      aria-atomic={true}
-      aria-live="off"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Note that the Library may be closed on Sundays.",
+      className="css-fjhuh4"
+    >
+      <div
+        aria-atomic={true}
+        aria-live="off"
+        className=" css-0"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Note that the Library may be closed on Sundays.",
+          }
         }
-      }
-      data-isinvalid={false}
-      id="invalid-helper-text"
-    />
+        data-isinvalid={false}
+        id="invalid-helper-text"
+      />
+    </div>
   </fieldset>
 </div>
 `;
@@ -545,17 +549,21 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       </div>
     </div>
     <div
-      aria-atomic={true}
-      aria-live="off"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Note that the Library may be closed on Sundays.",
+      className="css-fjhuh4"
+    >
+      <div
+        aria-atomic={true}
+        aria-live="off"
+        className=" css-0"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Note that the Library may be closed on Sundays.",
+          }
         }
-      }
-      data-isinvalid={false}
-      id="disabled-helper-text"
-    />
+        data-isinvalid={false}
+        id="disabled-helper-text"
+      />
+    </div>
   </fieldset>
 </div>
 `;

@@ -93,6 +93,7 @@ const categories = {
     title: "Chakra/Layout",
     components: [
       "Box",
+      "Flex",
       "Grid",
       "Center, Circle, Square",
       "Stack, HStack, VStack",

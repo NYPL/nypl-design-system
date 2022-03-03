@@ -1,4 +1,5 @@
 const SearchBar = {
+  parts: ["select"],
   baseStyle: {
     display: "flex",
     marginBottom: {
@@ -8,6 +9,9 @@ const SearchBar = {
     flexFlow: {
       base: "column nowrap",
       md: "row nowrap",
+    },
+    select: {
+      marginBottom: "0",
     },
   },
 };
