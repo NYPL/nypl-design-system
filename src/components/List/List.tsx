@@ -8,7 +8,7 @@ import generateUUID from "../../helpers/generateUUID";
 
 interface DefinitionProps {
   term: string;
-  definition: string;
+  definition: string | JSX.Element;
 }
 export interface ListProps {
   /** Optionally pass in additional Chakra-based styles. */
