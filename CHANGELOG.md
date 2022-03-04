@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Notification`'s icons to be decorative by default.
+
+### Fixes
+
+- Updates the alignment of the `Notifications`'s dismissible icon.
+
 ## 0.25.11 (March 3, 2022)
 
 ### Updates
