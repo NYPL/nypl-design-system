@@ -120,8 +120,8 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
   const styles = useMultiStyleConfig("CustomSlider", {
     isDisabled,
     isInvalid: finalIsInvalid,
-    isRangeSlider,
     showBoxes,
+    showValues,
   });
   // Props that the `Slider` and `RangeSlider` Chakra
   // components both use.
@@ -138,6 +138,9 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     // *final* value once a user stops dragging the slider.
     onChangeEnd: (val) => onChange && onChange(val),
     step,
+    // Additional margins so slider thumbs don't overflow past the
+    // edge when the value boxes or min/max values are hidden.
+    sx: styles.sliderContainer,
   };
   // Props that the two `TextInput` components use.
   const textInputSharedProps = {
