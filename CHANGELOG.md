@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
+- Updates the `SearchBar`'s `textInputProps` prop objetc to not require the `placeholder` property.
+
 ## 0.25.11 (March 3, 2022)
 
 ### Updates
