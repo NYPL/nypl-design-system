@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Removes the margin from the global `.nypl p` CSS rule.
+
+### Fixes
+
+- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
+
 ## 0.25.11 (March 3, 2022)
 
 ### Updates

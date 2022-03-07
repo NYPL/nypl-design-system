@@ -24,7 +24,8 @@ const global = {
     display: "inline",
   },
   p: {
-    margin: "0 0 var(--nypl-space-s",
+    margin: "0",
+    marginBottom: "s",
   },
 };
 

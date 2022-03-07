@@ -1,3 +1,7 @@
+const topBottomMargin = {
+  marginTop: "s",
+  marginBottom: "s",
+};
 const List = {
   baseStyle: ({ inline, noStyling }) => ({
     // Browser automatically applies margin, so by default we unset it.
@@ -17,6 +21,7 @@ const List = {
   }),
   variants: {
     ul: ({ noStyling }) => ({
+      ...topBottomMargin,
       listStyle: "none",
       li: {
         _before: {
@@ -33,6 +38,7 @@ const List = {
         },
       },
     }),
+    ol: topBottomMargin,
     dl: {
       borderBottom: "1px solid",
       borderColor: "ui.gray.light-cool",
