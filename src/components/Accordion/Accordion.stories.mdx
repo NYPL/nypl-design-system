@@ -10,9 +10,9 @@ import { withDesign } from "storybook-addon-designs";
 
 import Accordion from "./Accordion";
 import Card, { CardHeading, CardContent } from "../Card/Card";
-import { CardLayouts } from "../Card/CardTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import { ImageRatios } from "../Image/ImageTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -27,7 +27,7 @@ import { getCategory } from "../../utils/componentCategories";
     jest: ["Accordion.test.tsx"],
   }}
   argTypes={{
-    contentData: { control: false },
+    accordionData: { control: false },
     id: { control: false },
     isDefaultOpen: { table: { defaultValue: { summary: false } } },
   }}
@@ -38,7 +38,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.25.10`  |
+| Latest            | `0.25.12`  |
 
 <Description of={Accordion} />
 
@@ -59,16 +59,16 @@ necessary icon, Chakra components, and styles.
   <Story
     name="Accordion with Controls"
     args={{
-      contentData: [
+      accordionData: [
         {
           label: "Tom Nook",
           panel: (
             <Card
-              layout={CardLayouts.Row}
-              center
+              layout={LayoutTypes.Row}
               imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
               imageAlt="Alt text"
               imageAspectRatio={ImageRatios.TwoByOne}
+              isCentered
             >
               <CardHeading level={HeadingLevels.Four} id="heading1">
                 Tom Nook
@@ -91,16 +91,16 @@ necessary icon, Chakra components, and styles.
 </Canvas>
 
 ```jsx
-const contentData = [
+const accordionData = [
   {
     label: "Tom Nook",
     panel: (
       <Card
-        layout={CardLayouts.Row}
-        center
+        layout={LayoutTypes.Row}
         imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
+        isCentered
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Tom Nook
@@ -117,7 +117,7 @@ const contentData = [
 
 ...
 
-<Accordion contentData={contentData} />
+<Accordion accordionData={accordionData} />
 ```
 
 <ArgsTable story="Accordion with Controls" />
@@ -129,11 +129,11 @@ export const faqContent = [
     label: "Tom Nook",
     panel: (
       <Card
-        layout={CardLayouts.Row}
-        center
+        layout={LayoutTypes.Row}
         imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
+        isCentered
       >
         <CardHeading level={HeadingLevels.Four} id="heading1-tom">
           Tom Nook
@@ -149,11 +149,11 @@ export const faqContent = [
     label: "Isabelle",
     panel: (
       <Card
-        layout={CardLayouts.Row}
-        center
+        layout={LayoutTypes.Row}
         imageSrc="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
+        isCentered
       >
         <CardHeading level={HeadingLevels.Four} id="heading1-isabelle">
           Isabelle
@@ -171,11 +171,11 @@ export const faqContent = [
     label: "K.K. Slider",
     panel: (
       <Card
-        layout={CardLayouts.Row}
-        center
+        layout={LayoutTypes.Row}
         imageSrc="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
+        isCentered
       >
         <CardHeading level={HeadingLevels.Four} id="heading1-kkslider">
           K.K. Slider
@@ -194,11 +194,11 @@ export const faqContent = [
 ];
 
 Building out FAQ-like accordions happens automatically when there are more than
-one object in the array passed into the `contentData` prop.
+one object in the array passed into the `accordionData` prop.
 
 <Canvas withToolbar>
   <Story name="FAQ">
-    <Accordion contentData={faqContent} />
+    <Accordion accordionData={faqContent} />
   </Story>
 </Canvas>
 
@@ -208,11 +208,11 @@ export const faqContent = [
     label: "Tom Nook",
     panel: (
       <Card
-        layout={CardLayouts.Row}
-        center
+        layout={LayoutTypes.Row}
         imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
+        isCentered
       >
         <CardHeading level={HeadingLevels.Four} id="heading1-tom">
           Tom Nook
@@ -228,11 +228,11 @@ export const faqContent = [
     label: "Isabelle",
     panel: (
       <Card
-        layout={CardLayouts.Row}
-        center
+        layout={LayoutTypes.Row}
         imageSrc="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
+        isCentered
       >
         <CardHeading level={HeadingLevels.Four} id="heading1-isabelle">
           Isabelle
@@ -250,11 +250,11 @@ export const faqContent = [
     label: "K.K. Slider",
     panel: (
       <Card
-        layout={CardLayouts.Row}
-        center
+        layout={LayoutTypes.Row}
         imageSrc="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
         imageAlt="Alt text"
         imageAspectRatio={ImageRatios.TwoByOne}
+        isCentered
       >
         <CardHeading level={HeadingLevels.Four} id="heading1-kkslider">
           K.K. Slider
@@ -274,5 +274,5 @@ export const faqContent = [
 
 ...
 
-<Accordion contentData={faqContent} />
+<Accordion accordionData={faqContent} />
 ```

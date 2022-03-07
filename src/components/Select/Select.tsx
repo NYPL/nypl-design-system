@@ -44,6 +44,8 @@ export interface SelectProps {
   onChange?: (event: React.FormEvent) => void;
   /** Placeholder text in the select element. */
   placeholder?: string;
+  /** The variant to display. */
+  selectType?: SelectTypes;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the select's label onscreen or hide it. Refer
@@ -51,8 +53,6 @@ export interface SelectProps {
   showLabel?: boolean;
   /** Whether or not to display the "Required"/"Optional" text in the label text. */
   showOptReqLabel?: boolean;
-  /** The variant to display. */
-  type?: SelectTypes;
   /** The value of the selected option.
    * Should be passed along with `onChange` for controlled components. */
   value?: string;
@@ -83,12 +83,12 @@ const Select = React.forwardRef<
     showHelperInvalidText = true,
     showLabel = true,
     showOptReqLabel = true,
-    type = SelectTypes.Default,
+    selectType = SelectTypes.Default,
     value = "",
   } = props;
   const ariaAttributes = {};
   const optReqFlag = isRequired ? "Required" : "Optional";
-  const styles = useMultiStyleConfig("CustomSelect", { variant: type });
+  const styles = useMultiStyleConfig("CustomSelect", { variant: selectType });
   const finalInvalidText = invalidText
     ? invalidText
     : "There is an error related to this field.";

@@ -8,6 +8,38 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Created new `LayoutTypes` enum for row and column layouts.
+
+### Removals
+
+- Removes the `CardLayouts`, `CheckboxGroupLayoutTypes`, `RadioGroupLayoutTypes`, and `SkeletonLoaderLayouts` enums.
+- Removes the `CardTypes.tsx`,` CheckboxGroupLayoutTypes.tsx`, and `RadioGroupLayoutTypes.tsx` files.
+
+### Updates
+
+- Renames the `Accordion` prop `contentData` to `accordionData`.
+- Renames the `Breadcrumbs` prop `colorVariant` to `breadcrumbsType`.
+- Renames the `Card` prop `center` to `isCentered`.
+- Updates the `Card` prop `layout` to use the `LayoutTypes` enum instead of `CardLayouts`.
+- Updates the `CheckboxGroup` prop `layout` to use the `LayoutTypes` enum instead of `CheckboxGroupLayoutTypes`.
+- Renames the `Heading` prop `displaySize` to `size.
+- Renames the `HeadingDisplaySizes` enum to `HeadingSizes.
+- Renames the `Hero` prop `image` to `imageComponent`.
+- Renames the `Image` prop `imageSize` to `size`.
+- Renames the `Notification` prop `centered` to `isCentered`.
+- Updates the `RadioGroup` prop `layout` to use the `LayoutTypes` enum instead of `RadioGroupLayoutTypes`.
+- Internal updates to the `SearchBar` component based on updates from the `Select` and `TextInput` components.
+- Renames the `Select` prop `type` to `selectType`.
+- Updates the `SkeletonLoader` prop `layout` to use the `LayoutTypes` enum instead of `SkeletonLoaderLayouts`.
+- Renames the `StructuredContentImage` prop `imageSize` to `size` (this component is based on the `Image` component).
+- Internal updates to the `StructuredContent` component based on updates from the `Image` and `Heading` components.
+- Renames the `Tabs` prop `contentData` to `tabsData`.
+- Renames the `Text` prop `displaySize` to `size`.
+- Renames the `TextInput` prop `variant` to `textInputType`.
+- Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`.
+
 ## 0.25.11 (March 3, 2022)
 
 ### Updates

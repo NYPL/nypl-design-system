@@ -24,7 +24,7 @@ export interface HeroProps {
    * `Hero` types; Note: `image` can only be used in conjunction with
    * `backgroundImageSrc` for CAMPAIGN the `Hero` type.
    * Note: not all `Hero` variations utilize this prop. */
-  image?: JSX.Element;
+  imageComponent?: JSX.Element;
   /** Optional details area that contains location data.
    * Note: not all `Hero` variations utilize this prop. */
   locationDetails?: JSX.Element;
@@ -52,7 +52,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     foregroundColor,
     heading,
     heroType,
-    image,
+    imageComponent,
     locationDetails,
     subHeaderText,
   } = props;
@@ -71,7 +71,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
         `Warning: it is recommended to use the "backgroundImageSrc" prop for PRIMARY hero.`
       );
     }
-    if (image) {
+    if (imageComponent) {
       console.warn(
         `Warning: the "image" prop has been passed, but PRIMARY hero will not use it.`
       );
@@ -86,10 +86,16 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       `Warning: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
     );
   }
-  if (heroType === HeroTypes.Tertiary && (backgroundImageSrc || image)) {
+  if (
+    heroType === HeroTypes.Tertiary &&
+    (backgroundImageSrc || imageComponent)
+  ) {
     console.warn(`Warning: TERTIARY hero will not use any of the image props.`);
   }
-  if (heroType === HeroTypes.Campaign && (!backgroundImageSrc || !image)) {
+  if (
+    heroType === HeroTypes.Campaign &&
+    (!backgroundImageSrc || !imageComponent)
+  ) {
     console.warn(
       `Warning: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
     );
@@ -129,7 +135,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   const childrenToRender =
     heroType === HeroTypes.Campaign ? (
       <>
-        {image}
+        {imageComponent}
         <Box __css={styles.interior}>
           {finalHeading}
           {subHeaderText}
@@ -139,7 +145,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       <>
         {heroType !== HeroTypes.Primary &&
           heroType !== HeroTypes.Tertiary &&
-          image}
+          imageComponent}
         {finalHeading}
         {heroType === HeroTypes.Tertiary && subHeaderText ? (
           <p>{subHeaderText}</p>

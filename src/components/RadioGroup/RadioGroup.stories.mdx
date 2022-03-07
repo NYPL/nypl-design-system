@@ -9,15 +9,12 @@ import { withDesign } from "storybook-addon-designs";
 
 import Radio from "../Radio/Radio";
 import RadioGroup, { onChangeDefault } from "./RadioGroup";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
 
-export const enumValues = getStorybookEnumValues(
-  RadioGroupLayoutTypes,
-  "RadioGroupLayoutTypes"
-);
+export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 
 <Meta
   title={getCategory("RadioGroup")}
@@ -45,7 +42,7 @@ export const enumValues = getStorybookEnumValues(
     },
     layout: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "RadioGroupLayoutTypes.Column" } },
+      table: { defaultValue: { summary: "LayoutTypes.Column" } },
       options: enumValues.options,
     },
     key: { table: { disable: true } },
@@ -68,7 +65,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.0`   |
-| Latest            | `0.25.10`  |
+| Latest            | `0.25.12`  |
 
 <Description of={RadioGroup} />
 
@@ -85,7 +82,7 @@ export const enumValues = getStorybookEnumValues(
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Radio Group",
-      layout: "RadioGroupLayoutTypes.Column",
+      layout: "LayoutTypes.Column",
       name: "radio-story",
       onChange: undefined,
       optReqFlag: true,
@@ -127,7 +124,7 @@ a row.
     <RadioGroup
       labelText="Row"
       name="row-example"
-      layout={RadioGroupLayoutTypes.Row}
+      layout={LayoutTypes.Row}
       optReqFlag={false}
     >
       <Radio value="2" labelText="Radio 2" />

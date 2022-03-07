@@ -75,21 +75,19 @@ describe("Image", () => {
       .create(<Image src="test.png" alt="" imageCaption="Caption" />)
       .toJSON();
     const sizeExtraExtraSmall = renderer
-      .create(
-        <Image src="test.png" alt="" imageSize={ImageSizes.ExtraExtraSmall} />
-      )
+      .create(<Image src="test.png" alt="" size={ImageSizes.ExtraExtraSmall} />)
       .toJSON();
     const sizeExtraSmall = renderer
-      .create(<Image src="test.png" alt="" imageSize={ImageSizes.ExtraSmall} />)
+      .create(<Image src="test.png" alt="" size={ImageSizes.ExtraSmall} />)
       .toJSON();
     const sizeSmall = renderer
-      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Small} />)
+      .create(<Image src="test.png" alt="" size={ImageSizes.Small} />)
       .toJSON();
     const sizeMedium = renderer
-      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Medium} />)
+      .create(<Image src="test.png" alt="" size={ImageSizes.Medium} />)
       .toJSON();
     const sizeLarge = renderer
-      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Large} />)
+      .create(<Image src="test.png" alt="" size={ImageSizes.Large} />)
       .toJSON();
     const ratioFourByThree = renderer
       .create(
@@ -153,7 +151,7 @@ describe("Image", () => {
           src="test.png"
           alt=""
           imageAspectRatio={ImageRatios.Square}
-          imageSize={ImageSizes.Small}
+          size={ImageSizes.Small}
           imageType={ImageTypes.Circle}
         />
       )

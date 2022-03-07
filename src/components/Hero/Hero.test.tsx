@@ -19,7 +19,7 @@ export const subHeaderText = (
 );
 export const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
-export const image = (
+export const imageComponent = (
   <Image src="https://placeimg.com/800/400/animals" alt="Image example" />
 );
 
@@ -55,7 +55,7 @@ describe("Hero", () => {
             />
           }
           subHeaderText={subHeaderText}
-          image={image}
+          imageComponent={imageComponent}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -91,7 +91,7 @@ describe("Hero", () => {
           }
           subHeaderText={otherSubHeaderText}
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          image={image}
+          imageComponent={imageComponent}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -102,7 +102,7 @@ describe("Hero", () => {
         <Hero
           heroType={HeroTypes.FiftyFifty}
           subHeaderText={otherSubHeaderText}
-          image={image}
+          imageComponent={imageComponent}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -145,7 +145,7 @@ describe("Hero", () => {
           />
         }
         subHeaderText={subHeaderText}
-        image={image}
+        imageComponent={imageComponent}
       />
     );
 
@@ -191,7 +191,7 @@ describe("Hero", () => {
         }
         subHeaderText={otherSubHeaderText}
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        image={image}
+        imageComponent={imageComponent}
       />
     );
 
@@ -213,7 +213,7 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.FiftyFifty}
         subHeaderText={otherSubHeaderText}
-        image={image}
+        imageComponent={imageComponent}
       />
     );
 
@@ -251,7 +251,7 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.FiftyFifty}
         subHeaderText={otherSubHeaderText}
-        image={image}
+        imageComponent={imageComponent}
         foregroundColor="#123456"
         backgroundColor="#654321"
       />
@@ -273,7 +273,7 @@ describe("Hero", () => {
           />
         }
         subHeaderText={subHeaderText}
-        image={image}
+        imageComponent={imageComponent}
         foregroundColor="#123456"
         backgroundColor="#654321"
       />
@@ -306,7 +306,7 @@ describe("Hero", () => {
         heroType={HeroTypes.Primary}
         heading={heading}
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        image={image}
+        imageComponent={imageComponent}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -328,7 +328,7 @@ describe("Hero", () => {
         heroType={HeroTypes.Secondary}
         heading={heading}
         subHeaderText={subHeaderText}
-        image={image}
+        imageComponent={imageComponent}
         locationDetails={<>Some location details.</>}
       />
     );
@@ -341,7 +341,7 @@ describe("Hero", () => {
         heroType={HeroTypes.Secondary}
         heading={heading}
         subHeaderText={subHeaderText}
-        image={image}
+        imageComponent={imageComponent}
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
       />
     );
@@ -354,7 +354,7 @@ describe("Hero", () => {
         heroType={HeroTypes.Secondary}
         heading={heading}
         subHeaderText={subHeaderText}
-        image={image}
+        imageComponent={imageComponent}
         foregroundColor="#123456"
         backgroundColor="#654321"
       />
@@ -390,7 +390,7 @@ describe("Hero", () => {
         heroType={HeroTypes.Tertiary}
         heading={heading}
         subHeaderText={otherSubHeaderText}
-        image={image}
+        imageComponent={imageComponent}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -425,7 +425,7 @@ describe("Hero", () => {
         heading={heading}
         subHeaderText={otherSubHeaderText}
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        image={image}
+        imageComponent={imageComponent}
         locationDetails={<>Some location details.</>}
       />
     );
@@ -438,7 +438,7 @@ describe("Hero", () => {
         heroType={HeroTypes.Campaign}
         heading={heading}
         subHeaderText={otherSubHeaderText}
-        image={image}
+        imageComponent={imageComponent}
         locationDetails={<>Some location details.</>}
       />
     );
@@ -466,7 +466,7 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.FiftyFifty}
         subHeaderText={otherSubHeaderText}
-        image={image}
+        imageComponent={imageComponent}
         locationDetails={<>Some location details.</>}
       />
     );
@@ -478,7 +478,7 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.FiftyFifty}
         subHeaderText={otherSubHeaderText}
-        image={image}
+        imageComponent={imageComponent}
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
       />
     );
@@ -516,7 +516,7 @@ describe("Hero", () => {
             />
           }
           subHeaderText={subHeaderText}
-          image={image}
+          imageComponent={imageComponent}
         />
       )
       .toJSON();
@@ -532,7 +532,7 @@ describe("Hero", () => {
             />
           }
           subHeaderText={subHeaderText}
-          image={image}
+          imageComponent={imageComponent}
         />
       )
       .toJSON();
@@ -548,7 +548,7 @@ describe("Hero", () => {
             />
           }
           subHeaderText={subHeaderText}
-          image={image}
+          imageComponent={imageComponent}
         />
       )
       .toJSON();
@@ -564,7 +564,7 @@ describe("Hero", () => {
             />
           }
           subHeaderText={subHeaderText}
-          image={image}
+          imageComponent={imageComponent}
         />
       )
       .toJSON();
@@ -580,7 +580,7 @@ describe("Hero", () => {
             />
           }
           subHeaderText={subHeaderText}
-          image={image}
+          imageComponent={imageComponent}
         />
       )
       .toJSON();
@@ -597,7 +597,7 @@ describe("Hero", () => {
           }
           subHeaderText={otherSubHeaderText}
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          image={image}
+          imageComponent={imageComponent}
         />
       )
       .toJSON();
@@ -621,7 +621,7 @@ describe("Hero", () => {
         <Hero
           heroType={HeroTypes.FiftyFifty}
           subHeaderText={otherSubHeaderText}
-          image={image}
+          imageComponent={imageComponent}
         />
       )
       .toJSON();

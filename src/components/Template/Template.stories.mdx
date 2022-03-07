@@ -547,7 +547,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
         </TemplateContentTop>
         <TemplateContentPrimary>
           <p>This is the main content!</p>
-          <Accordion contentData={faqContent} />
+          <Accordion accordionData={faqContent} />
           <HorizontalRule />
           <p>Fill out the form!</p>
           <Form action="/end/point">
@@ -584,11 +584,11 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
         <TemplateContentSidebar>
           <p>Sidebar information in a `Card` component.</p>
           <Card
-            center
             imageSrc="https://placeimg.com/400/200/animals"
             imageAlt="Alt text"
             imageAspectRatio={ImageRatios.Square}
             imageSize={ImageSizes.Small}
+            isCentered
           >
             <CardHeading level={HeadingLevels.Two} id="heading1">
               Small Animal Image

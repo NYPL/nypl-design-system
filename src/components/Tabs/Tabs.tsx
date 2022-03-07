@@ -24,20 +24,20 @@ interface TabPanelProps {
   panels: React.ReactNode[] | React.ReactNode;
 }
 // The general shape of the data object for each Tab.
-export interface TabsContentDataProps {
+export interface TabsDataProps {
   label: string;
   content: string | React.ReactNode;
 }
 
 export interface TabsProps {
-  /** Array of data to display */
-  contentData?: TabsContentDataProps[];
   /** The index of the tab to display for controlled situations. */
   defaultIndex?: number;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** The callback function invoked on every tab change event. */
   onChange?: (index: number) => any;
+  /** Array of data to display */
+  tabsData?: TabsDataProps[];
   /** Render a hash in the url for each tab. Only available when data is
    * passed through the `data` props. */
   useHash?: boolean;
@@ -55,7 +55,7 @@ const onClickHash = (tabHash) => {
  * This returns an object with `Tab` and `TabPanel` components to rendered in
  * `TabList` and `TabPanels` components respectively.
  */
-const getElementsFromContentData = (data, useHash): TabPanelProps => {
+const getElementsFromData = (data, useHash): TabPanelProps => {
   const tabs = [];
   const panels = [];
 
@@ -142,10 +142,10 @@ const getElementsFromChildren = (children): TabPanelProps => {
 function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const {
     children,
-    contentData,
     defaultIndex = 0,
     id = generateUUID(),
     onChange,
+    tabsData,
     useHash = false,
   } = props;
   const styles = useMultiStyleConfig("Tabs", {});
@@ -155,8 +155,8 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const mediumTabWidth = 40;
   const [tabWidth, setTabWidth] = React.useState(initTabWidth);
   const windowDimensions = useWindowSize();
-  const { tabs, panels }: any = contentData
-    ? getElementsFromContentData(contentData, useHash)
+  const { tabs, panels }: any = tabsData
+    ? getElementsFromData(tabsData, useHash)
     : getElementsFromChildren(children);
 
   if (tabs.length === 0 || panels.length === 0) {
@@ -164,7 +164,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   }
 
   // `tabs` is an array for the children component approach but an object for
-  // the `contentData` prop approach. We need to get the right props key value
+  // the `tabsData` prop approach. We need to get the right props key value
   // to set the carousel's length.
   const tabProps = tabs[0] ? tabs[0]?.props : (tabs as any).props;
   const { prevSlide, nextSlide, carouselStyle, goToStart } = useCarouselStyles(
@@ -221,7 +221,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
     </Button>
   );
 
-  if (children && contentData?.length) {
+  if (children && tabsData?.length) {
     console.warn(
       "Tabs: Only pass children or data in the `data` props but not both."
     );

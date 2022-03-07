@@ -1,13 +1,13 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import * as generateUUID from "../../helpers/generateUUID";
 import CheckboxGroup from "./CheckboxGroup";
 import Checkbox from "../Checkbox/Checkbox";
-import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
-import userEvent from "@testing-library/user-event";
+import { LayoutTypes } from "../../helpers/enums";
 
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility", async () => {
@@ -248,7 +248,7 @@ describe("Checkbox", () => {
           labelText="row"
           name="row"
           id="row"
-          layout={CheckboxGroupLayoutTypes.Row}
+          layout={LayoutTypes.Row}
         >
           <Checkbox value="2" labelText="Checkbox 2" />
           <Checkbox value="3" labelText="Checkbox 3" />

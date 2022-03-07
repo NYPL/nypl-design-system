@@ -9,7 +9,7 @@ import * as React from "react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import { ToggleSizes } from "./ToggleSizes";
+import { ToggleSizes } from "./ToggleTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface ToggleProps {

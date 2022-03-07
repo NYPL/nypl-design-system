@@ -1,13 +1,13 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 // import * as generateUUID from "../../helpers/generateUUID";
 import RadioGroup from "./RadioGroup";
 import Radio from "../Radio/Radio";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
-import userEvent from "@testing-library/user-event";
+import { LayoutTypes } from "../../helpers/enums";
 
 describe("Radio Accessibility", () => {
   it("passes axe accessibility", async () => {
@@ -233,7 +233,7 @@ describe("Radio Button", () => {
           labelText="row"
           name="row"
           id="row"
-          layout={RadioGroupLayoutTypes.Row}
+          layout={LayoutTypes.Row}
         >
           <Radio value="2" labelText="Radio 2" id="radio-2" />
           <Radio value="3" labelText="Radio 3" id="radio-3" />

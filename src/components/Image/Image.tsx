@@ -11,7 +11,7 @@ interface ImageWrapperProps {
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
   imageAspectRatio?: ImageRatios;
   /** Optional value to control the size of the image */
-  imageSize?: ImageSizes;
+  size?: ImageSizes;
 }
 
 export interface ImageProps extends ImageWrapperProps {
@@ -27,8 +27,6 @@ export interface ImageProps extends ImageWrapperProps {
   imageCaption?: string;
   /** Adding will wrap the image in a <figure> */
   imageCredit?: string;
-  /** Optional value to control the size of the image */
-  imageSize?: ImageSizes;
   /** Optional value for the image type */
   imageType?: ImageTypes;
   /** The src attribute is required, and contains the path to the image you want to embed. */
@@ -41,11 +39,11 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
     className = "",
     children,
     imageAspectRatio = ImageRatios.Original,
-    imageSize = ImageSizes.Default,
+    size = ImageSizes.Default,
   } = props;
   const styles = useMultiStyleConfig("CustomImageWrapper", {
     ratio: imageAspectRatio,
-    size: imageSize,
+    size,
   });
   return (
     <Box
@@ -70,14 +68,14 @@ export default function Image(props: ImageProps) {
     imageAspectRatio = ImageRatios.Original,
     imageCaption,
     imageCredit,
-    imageSize = ImageSizes.Default,
+    size = ImageSizes.Default,
     imageType = ImageTypes.Default,
     src,
   } = props;
   const useImageWrapper = imageAspectRatio !== ImageRatios.Original;
   const styles = useMultiStyleConfig("CustomImage", {
     variant: imageType,
-    size: imageSize,
+    size,
   });
 
   if (alt && alt.length > 300) {
@@ -98,7 +96,7 @@ export default function Image(props: ImageProps) {
     <ImageWrapper
       className={className}
       imageAspectRatio={imageAspectRatio}
-      imageSize={imageSize}
+      size={size}
       additionalWrapperStyles={additionalWrapperStyles}
     >
       {imageComponent}

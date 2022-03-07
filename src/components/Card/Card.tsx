@@ -7,7 +7,7 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 
-import { CardLayouts } from "./CardTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import Heading from "../Heading/Heading";
 import Image, { ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
@@ -15,10 +15,10 @@ import generateUUID from "../../helpers/generateUUID";
 
 interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
-  center?: boolean;
+  isCentered?: boolean;
   /** Optional value to render the layout in a row or column.
-   * Default is `CardLayouts.Column`. */
-  layout?: CardLayouts;
+   * Default is `LayoutTypes.Column`. */
+  layout?: LayoutTypes;
 }
 
 interface CardLinkBoxProps {
@@ -77,19 +77,19 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
 function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
   const {
     alt,
-    center,
     component,
-    imageSize,
     imageAspectRatio,
-    src,
     imageAtEnd,
+    isCentered,
     layout,
+    size,
+    src,
   } = props;
   // Additional styles to add to the `Image` component.
   const styles = useStyleConfig("CardImage", {
-    center,
     imageAtEnd,
-    imageSize,
+    imageSize: size,
+    isCentered,
     layout,
   });
   return (
@@ -98,7 +98,7 @@ function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
         alt={alt}
         component={component}
         imageAspectRatio={imageAspectRatio}
-        imageSize={imageSize}
+        size={size}
         src={src}
       />
     </Box>
@@ -117,12 +117,12 @@ export function CardContent(props: React.PropsWithChildren<{}>) {
 
 // CardActions child-component
 export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
-  const { bottomBorder, children, topBorder, center, layout } = props;
+  const { bottomBorder, children, isCentered, layout, topBorder } = props;
   const styles = useStyleConfig("CardActions", {
     bottomBorder,
-    topBorder,
-    center,
+    isCentered,
     layout,
+    topBorder,
   });
 
   return children && <Box __css={styles}>{children}</Box>;
@@ -166,7 +166,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   const {
     backgroundColor,
     border,
-    center = false,
     children,
     className,
     foregroundColor,
@@ -177,7 +176,8 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     imageComponent,
     imageSize = ImageSizes.Default,
     imageSrc,
-    layout = CardLayouts.Column,
+    isCentered = false,
+    layout = LayoutTypes.Column,
     mainActionLink,
   } = props;
   const hasImage = imageSrc || imageComponent;
@@ -199,9 +199,9 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
 
   const styles = useMultiStyleConfig("Card", {
     border,
-    center,
     hasImage,
     imageAtEnd,
+    isCentered,
     layout,
     mainActionLink,
   });
@@ -227,7 +227,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
           ...child.props.additionalStyles,
         },
         key,
-        center,
+        isCentered,
         // Override the child text with the potential `CardLinkOverlay`.
         children: newChildren,
         layout,
@@ -240,7 +240,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       child.type === CardActions ||
       child.props.mdxType === "CardActions"
     ) {
-      const elem = React.cloneElement(child, { key, center, layout });
+      const elem = React.cloneElement(child, { key, isCentered, layout });
       cardContents.push(elem);
     }
   });
@@ -257,13 +257,13 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       >
         {hasImage && (
           <CardImage
-            src={imageSrc ? imageSrc : null}
-            component={imageComponent}
             alt={imageAlt}
-            imageSize={imageSize}
+            component={imageComponent}
             imageAspectRatio={finalImageAspectRatio}
             imageAtEnd={imageAtEnd}
             layout={layout}
+            size={imageSize}
+            src={imageSrc ? imageSrc : null}
           />
         )}
         <Box className="card-body" __css={styles.body}>

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Heading from "../Heading/Heading";
-import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
+import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Image, { ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import { StructuredContentImagePosition } from "./StructuredContentTypes";
@@ -56,7 +56,7 @@ function StructuredContentImage(props: ImageProps) {
     imageAspectRatio,
     imageCaption,
     imageCredit,
-    imageSize,
+    size,
     src,
   } = props;
   return (
@@ -67,7 +67,7 @@ function StructuredContentImage(props: ImageProps) {
       alt={alt}
       component={component}
       imageAspectRatio={imageAspectRatio}
-      imageSize={imageSize}
+      size={size}
       imageCaption={imageCaption}
       imageCredit={imageCredit}
       src={src}
@@ -126,9 +126,9 @@ export default function StructuredContent(
       )}
       {calloutText && (
         <Heading
-          displaySize={HeadingDisplaySizes.Callout}
           id={`${id}-callout`}
           level={HeadingLevels.Three}
+          size={HeadingSizes.Callout}
         >
           {calloutText}
         </Heading>
@@ -143,7 +143,7 @@ export default function StructuredContent(
           imageAspectRatio={imageAspectRatio}
           imageCaption={imageCaption}
           imageCredit={imageCredit}
-          imageSize={imageSize}
+          size={imageSize}
           src={imageSrc ? imageSrc : null}
         />
       )}
