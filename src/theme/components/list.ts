@@ -1,7 +1,5 @@
-const topBottomMargin = {
-  marginTop: "s",
-  marginBottom: "s",
-};
+import { textMargin } from "./global";
+
 const List = {
   baseStyle: ({ inline, noStyling }) => ({
     // Browser automatically applies margin, so by default we unset it.
@@ -21,7 +19,7 @@ const List = {
   }),
   variants: {
     ul: ({ noStyling }) => ({
-      ...topBottomMargin,
+      ...textMargin,
       listStyle: "none",
       li: {
         _before: {
@@ -38,7 +36,7 @@ const List = {
         },
       },
     }),
-    ol: topBottomMargin,
+    ol: textMargin,
     dl: {
       borderBottom: "1px solid",
       borderColor: "ui.gray.light-cool",
