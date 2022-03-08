@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
+- Moves the base styles from the SCSS global file to the Chakra theme global JS object.
+
 ## 0.25.11 (March 3, 2022)
 
 ### Updates

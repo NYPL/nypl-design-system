@@ -11,8 +11,7 @@ const select = {
   _hover: {
     borderColor: "ui.gray.medium",
   },
-  _active: activeFocus,
-  _focus: activeFocus,
+  _active: activeFocus(),
   _disabled: {
     color: "ui.gray.xdark",
     bg: "ui.gray.xx-light-cool",
