@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
+
 ## 0.25.11 (March 3, 2022)
 
 ### Updates
