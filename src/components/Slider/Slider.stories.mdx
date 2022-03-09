@@ -78,14 +78,14 @@ import DSProvider from "../../theme/provider";
 | Added             | `0.25.4`   |
 | Latest            | `0.25.10`  |
 
-| Table of Contents                      |
-| -------------------------------------- |
-| 1. [Overview](#overview)               |
-| 2. [Component Props](#component-props) |
-| 3. [Accessibility](#accessibility)     |
-| 4. [RangeSlider](#range-slider)        |
-| 5. [Examples](#examples)               |
-| 6. [Get Data Values](#get-data-values) |
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [RangeSlider](#range-slider)
+- [Examples](#examples)
+- [Get Input Values](#get-input-values)
 
 ## Overview
 
@@ -93,6 +93,8 @@ import DSProvider from "../../theme/provider";
 
 The text input component doubles as a display for the slider's current value.
 For this type of component, the `value` prop must be a single number.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -132,8 +134,6 @@ For this type of component, the `value` prop must be a single number.
   </Story>
 </Canvas>
 
-## Component Props
-
 <ArgsTable story="Slider with Controls" />
 
 ## Accessibility
@@ -165,7 +165,7 @@ is hidden, the `for` attribute in the `label` element is removed.
 Note that Chakra handles its single slider thumb aria attributes: `aria-valuemin`,
 `aria-valuemax`, `aria-valuenow`, and `aria-orientation`.
 
-## Range Slider
+## RangeSlider with Controls
 
 Set `isRangeSlider` to `true` to create a range slider. The text input
 components double as displays for the slider's current minimum and maximum
@@ -174,7 +174,7 @@ numbers. This signifies the starting and ending values of the range slider.
 
 <Canvas withToolbar>
   <Story
-    name="Range Slider with Props"
+    name="RangeSlider with Controls"
     args={{
       className: undefined,
       defaultValue: [25, 75],

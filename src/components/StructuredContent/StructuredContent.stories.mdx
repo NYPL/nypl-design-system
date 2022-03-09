@@ -70,7 +70,20 @@ export const imageSizeEnumValues = getStorybookEnumValues(
 | Added             | `0.25.9`   |
 | Latest            | `0.25.11`  |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [With HTML String Text Content](#with-html-string-text-content)
+- [With HTML Element Text Content](#with-html-element-text-content)
+- [Examples](#examples)
+
+## Overview
+
 <Description of={StructuredContent} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -127,6 +140,13 @@ export const imageSizeEnumValues = getStorybookEnumValues(
 </Canvas>
 
 <ArgsTable story="StructuredContent with Controls" />
+
+## Accessibility
+
+- Containers should allow font-size to be scaled to 200% without content overlapping.
+- Images should have descriptive (but not too lengthy) alt text.
+- Headings levels should not be skipped. Meaning, a `<h2>` should not be followed by a `<h4>`.
+- Any links or text with colors should have a 4.5:1 contrast ratio.
 
 ## With HTML String Text Content
 
