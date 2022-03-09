@@ -78,6 +78,17 @@ import DSProvider from "../../theme/provider";
 | Added             | `0.25.4`   |
 | Latest            | `0.25.10`  |
 
+| Table of Contents                      |
+| -------------------------------------- |
+| 1. [Overview](#overview)               |
+| 2. [Component Props](#component-props) |
+| 3. [Accessibility](#accessibility)     |
+| 4. [RangeSlider](#range-slider)        |
+| 5. [Examples](#examples)               |
+| 6. [Get Data Values](#get-data-values) |
+
+## Overview
+
 <Description of={Slider} />
 
 The text input component doubles as a display for the slider's current value.
@@ -121,9 +132,29 @@ For this type of component, the `value` prop must be a single number.
   </Story>
 </Canvas>
 
+## Component Props
+
 <ArgsTable story="Slider with Controls" />
 
-### Accessibility
+## Accessibility
+
+- UI component should be accessible via keyboard. In addition to the text fields,
+  a keyboard user should be able to tab to the blue circle and then with left and
+  right arrows increase or decrease the value.
+- The color contrast between foreground color and background color should be
+  4.5:1 contrast ratio.
+- If text size is 200%, the button should scale with text so there is no overlap.
+- A `Slider` is an input component, so it should have a label. A `Slider` without a
+  label is ambiguous and not accessible.
+
+Resources:
+
+- [W3C WAI-Aria Practices - Slider](https://www.w3.org/TR/wai-aria-practices-1.1/#slider)
+- [W3C WAI-Aria Practices - Slider (Multi-Thumb)](https://www.w3.org/TR/wai-aria-practices-1.1/#slidertwothumb)
+- [Chakra Slider](https://chakra-ui.com/docs/components/form/slider)
+- [Chakra RangeSlider](https://chakra-ui.com/docs/components/form/range-slider)
+
+### Slider Accessibility Implementation
 
 Chakra's `Slider` component is accessible and, as recommended, we pass in an
 `aria-label` to their `Slider` component. On top of that, the DS `Slider`
@@ -179,7 +210,7 @@ numbers. This signifies the starting and ending values of the range slider.
   </Story>
 </Canvas>
 
-### Accessibility
+### RangeSlider Accessibility Implementation
 
 Chakra's `RangeSlider` component is accessible and, as recommended, we pass in
 two `aria-label`s to their `RangeSlider` component. The syntax is different than
@@ -191,6 +222,8 @@ When the input boxes are hidden, the `for` attribute in the `label` element is r
 
 Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
 `aria-valuemax`, `aria-valuenow`, and `aria-orientation`.
+
+## Examples
 
 ### Single Slider States
 
@@ -483,7 +516,7 @@ In the following examples, all the labels are hidden.
   </DSProvider>
 </Canvas>
 
-### Get Data Values
+## Get Data Values
 
 Pass a callback function to the `onChange` prop to get the current number value
 of the `Slider` component or an array of two numbers when it is a range slider.
@@ -492,7 +525,7 @@ value or values. Once the value(s) is updated, the `onChange` callback will be
 called and the values will be passed. If no `onChange` callback is provided,
 you won't be able to get the updated value(s) of the `Slider` component.
 
-#### Single Slider Value
+### Single Slider Value
 
 Open up the browser's developer console to see the value of the `Slider`
 after updating it.
@@ -532,7 +565,7 @@ export function SliderExample() {
   </DSProvider>
 </Canvas>
 
-#### Range Slider Values
+### Range Slider Values
 
 Open up the browser's developer console to see the values of the `Slider`
 after updating it in the `isRangeSlider` state.
