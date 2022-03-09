@@ -8,19 +8,11 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
   <div
     className="css-0"
   >
-    <div
-      className="the-wrap  css-0"
-    >
-      <div
-        className="the-crop css-0"
-      >
-        <img
-          alt="Alt text"
-          className="css-0"
-          src="https://placeimg.com/400/200/arch"
-        />
-      </div>
-    </div>
+    <img
+      alt="Alt text"
+      className="css-0"
+      src="https://placeimg.com/400/200/arch"
+    />
   </div>
   <div
     className="card-body css-0"
@@ -61,19 +53,11 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
   <div
     className="css-0"
   >
-    <div
-      className="the-wrap  css-0"
-    >
-      <div
-        className="the-crop css-0"
-      >
-        <img
-          alt="Alt text"
-          className="css-0"
-          src="https://placeimg.com/300/400/arch"
-        />
-      </div>
-    </div>
+    <img
+      alt="Alt text"
+      className="css-0"
+      src="https://placeimg.com/300/400/arch"
+    />
   </div>
   <div
     className="card-body css-0"
@@ -163,19 +147,11 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
   <div
     className="css-0"
   >
-    <div
-      className="the-wrap  css-0"
-    >
-      <div
-        className="the-crop css-0"
-      >
-        <img
-          alt="Alt text"
-          className="css-0"
-          src="https://placeimg.com/300/400/arch"
-        />
-      </div>
-    </div>
+    <img
+      alt="Alt text"
+      className="css-0"
+      src="https://placeimg.com/300/400/arch"
+    />
   </div>
   <div
     className="card-body css-0"
@@ -211,19 +187,11 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
   <div
     className="css-0"
   >
-    <div
-      className="the-wrap  css-0"
-    >
-      <div
-        className="the-crop css-0"
-      >
-        <img
-          alt="Alt text"
-          className="css-0"
-          src="https://placeimg.com/300/400/arch"
-        />
-      </div>
-    </div>
+    <img
+      alt="Alt text"
+      className="css-0"
+      src="https://placeimg.com/300/400/arch"
+    />
   </div>
   <div
     className="card-body css-0"
@@ -396,19 +364,11 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
     <div
       className="css-0"
     >
-      <div
-        className="the-wrap  css-0"
-      >
-        <div
-          className="the-crop css-0"
-        >
-          <img
-            alt="Alt text"
-            className="css-0"
-            src="https://placeimg.com/400/200/arch"
-          />
-        </div>
-      </div>
+      <img
+        alt="Alt text"
+        className="css-0"
+        src="https://placeimg.com/400/200/arch"
+      />
     </div>
     <div
       className="card-body css-0"

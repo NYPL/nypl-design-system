@@ -78,9 +78,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
     {(args) => (
       <SimpleGrid {...args} gap={enumValues.getValue(args.gap)}>
         <Card
-          imageSrc="https://placeimg.com/400/220/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/220/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -89,9 +91,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/220/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/220/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -100,9 +104,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/240/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/240/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -111,9 +117,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/260/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/260/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -122,9 +130,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/320/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/320/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -133,9 +143,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/300/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/300/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -214,9 +226,11 @@ This example is rendering horizontal `Card` components with the `columns` prop s
     <SimpleGrid columns={1}>
       <Card
         border
-        imageSrc="https://placeimg.com/400/200/animals"
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.FourByThree}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: ImageRatios.FourByThree,
+          src: "https://placeimg.com/400/200/animals",
+        }}
         isCentered
         layout={LayoutTypes.Row}
       >
@@ -231,9 +245,11 @@ This example is rendering horizontal `Card` components with the `columns` prop s
       </Card>
       <Card
         border
-        imageSrc="https://placeimg.com/410/210/animals"
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.FourByThree}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: ImageRatios.FourByThree,
+          src: "https://placeimg.com/410/210/animals",
+        }}
         isCentered
         layout={LayoutTypes.Row}
       >
@@ -248,9 +264,11 @@ This example is rendering horizontal `Card` components with the `columns` prop s
       </Card>
       <Card
         border
-        imageSrc="https://placeimg.com/320/320/animals"
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.FourByThree}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: ImageRatios.FourByThree,
+          src: "https://placeimg.com/320/320/animals",
+        }}
         isCentered
         layout={LayoutTypes.Row}
       >

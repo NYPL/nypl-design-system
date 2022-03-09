@@ -26,6 +26,29 @@ interface CardLinkBoxProps {
   mainActionLink?: string;
 }
 
+// Used internally only for the `imageProps` prop for the `Card` component.
+interface CardImageProps {
+  /** Text description of the image; to follow best practices for accessibility,
+   * this prop should not be left blank if `imageSrc` is passed. */
+  alt?: string;
+  /** Optional value to control the aspect ratio of the `CardImage`; default
+   * value is `ImageRatios.Square`. */
+  aspectRatio?: ImageRatios;
+  /** Optional value to render as a caption for the internal `CardImage` component. */
+  caption?: string;
+  /** Custom image component used in place of DS `Image` component. */
+  component?: JSX.Element;
+  /** Optional value to render as a credit for the internal `CardImage` component. */
+  credit?: string;
+  /** Optional boolean value to control the position of the `CardImage`. */
+  isAtEnd?: boolean;
+  /** Optional value to control the size of the `CardImage`. Default value is
+   * `ImageSizes.Default`. */
+  size?: ImageSizes;
+  /** The path to the image displayed within the `Card` component. */
+  src?: string;
+}
+
 interface CardActionsProps extends CardBaseProps {
   /** Optional boolean value to control visibility of border on the bottom edge
    * of the card actions element */
@@ -35,9 +58,10 @@ interface CardActionsProps extends CardBaseProps {
   topBorder?: boolean;
 }
 
-interface CardImageProps extends CardBaseProps, ImageProps {
+/** Used only internally for the `CardImage` component. */
+interface CardImageComponentProps extends CardBaseProps, ImageProps {
   /** Optional boolean value to control the position of the `CardImage`. */
-  imageAtEnd?: boolean;
+  isAtEnd?: boolean;
 }
 
 export interface CardProps extends CardBaseProps, CardLinkBoxProps {
@@ -52,21 +76,8 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   foregroundColor?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** Text description of the image; to follow best practices for accessibility,
-   * this prop should not be left blank if `imageSrc` is passed. */
-  imageAlt?: string;
-  /** Optional value to control the aspect ratio of the `CardImage`; default
-   * value is `ImageRatios.Square`. */
-  imageAspectRatio?: ImageRatios;
-  /** Optional boolean value to control the position of the `CardImage`. */
-  imageAtEnd?: boolean;
-  /** Custom image component used in place of DS `Image` component. */
-  imageComponent?: JSX.Element;
-  /** Optional value to control the size of the `CardImage`. Default value is
-   * `ImageSizes.Default`. */
-  imageSize?: ImageSizes;
-  /** The path to the image displayed within the `Card` component. */
-  imageSrc?: string;
+  /** Object used to create and render the `Image` component. */
+  imageProps?: CardImageProps;
 }
 
 /**
@@ -74,12 +85,16 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
  * renders an `Image` component but with overriding styles specific to the
  * `Card` component.
  */
-function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
+function CardImage(
+  props: React.ComponentProps<"img"> & CardImageComponentProps
+) {
   const {
     alt,
+    aspectRatio,
+    caption,
     component,
-    imageAspectRatio,
-    imageAtEnd,
+    credit,
+    isAtEnd,
     isCentered,
     layout,
     size,
@@ -87,17 +102,19 @@ function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
   } = props;
   // Additional styles to add to the `Image` component.
   const styles = useStyleConfig("CardImage", {
-    imageAtEnd,
-    imageSize: size,
+    imageIsAtEnd: isAtEnd,
     isCentered,
+    size,
     layout,
   });
   return (
     <Box __css={styles}>
       <Image
         alt={alt}
+        caption={caption}
         component={component}
-        imageAspectRatio={imageAspectRatio}
+        credit={credit}
+        aspectRatio={aspectRatio}
         size={size}
         src={src}
       />
@@ -170,25 +187,29 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     className,
     foregroundColor,
     id = generateUUID(),
-    imageAlt = "",
-    imageAspectRatio = ImageRatios.Square,
-    imageAtEnd,
-    imageComponent,
-    imageSize = ImageSizes.Default,
-    imageSrc,
+    imageProps = {
+      alt: "",
+      aspectRatio: ImageRatios.Square,
+      caption: undefined,
+      component: undefined,
+      credit: undefined,
+      isAtEnd: false,
+      size: ImageSizes.Default,
+      src: "",
+    },
     isCentered = false,
     layout = LayoutTypes.Column,
     mainActionLink,
   } = props;
-  const hasImage = imageSrc || imageComponent;
-  const finalImageAspectRatio = imageComponent
+  const hasImage = imageProps.src || imageProps.component;
+  const finalImageAspectRatio = imageProps.component
     ? ImageRatios.Original
-    : imageAspectRatio;
+    : imageProps.aspectRatio;
   const customColors = {};
   const cardContents = [];
   let cardHeadingCount = 0;
 
-  if (imageComponent && imageAspectRatio !== ImageRatios.Square) {
+  if (imageProps.component && imageProps.aspectRatio !== ImageRatios.Square) {
     console.warn(
       "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
     );
@@ -200,7 +221,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   const styles = useMultiStyleConfig("Card", {
     border,
     hasImage,
-    imageAtEnd,
+    imageIsAtEnd: imageProps.isAtEnd,
     isCentered,
     layout,
     mainActionLink,
@@ -257,13 +278,15 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       >
         {hasImage && (
           <CardImage
-            alt={imageAlt}
-            component={imageComponent}
-            imageAspectRatio={finalImageAspectRatio}
-            imageAtEnd={imageAtEnd}
+            alt={imageProps.alt}
+            aspectRatio={finalImageAspectRatio}
+            caption={imageProps.caption}
+            component={imageProps.component}
+            credit={imageProps.credit}
+            isAtEnd={imageProps.isAtEnd}
             layout={layout}
-            size={imageSize}
-            src={imageSrc ? imageSrc : null}
+            size={imageProps.size}
+            src={imageProps.src ? imageProps.src : null}
           />
         )}
         <Box className="card-body" __css={styles.body}>

@@ -40,6 +40,10 @@ const size = {
     height: "var(--nypl-space-m)",
     width: "var(--nypl-space-m)",
   },
+  default: {
+    height: "1.125rem",
+    width: "1.125rem",
+  },
   medium: {
     height: "1.125rem",
     width: "1.125rem",

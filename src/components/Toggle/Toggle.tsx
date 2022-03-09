@@ -72,7 +72,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
       labelText,
       name,
       onChange = onChangeDefault,
-      size = ToggleSizes.Large,
+      size = ToggleSizes.Default,
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
@@ -91,7 +91,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
             isInvalid={isInvalid}
             isRequired={isRequired}
             ref={ref}
-            size={size === ToggleSizes.Large ? "lg" : "sm"}
+            size={size === ToggleSizes.Default ? "lg" : "sm"}
             {...(isChecked !== undefined
               ? {
                   isChecked,

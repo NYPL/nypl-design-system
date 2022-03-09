@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Created new `LayoutTypes` enum for row and column layouts.
+- Adds the value "Default" to the `IconSizes` enum.
 
 ### Removals
 
@@ -38,7 +39,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Renames the `Tabs` prop `contentData` to `tabsData`.
 - Renames the `Text` prop `displaySize` to `size`.
 - Renames the `TextInput` prop `variant` to `textInputType`.
-- Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`.
+- Updates the `Card` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, isAtEnd, size, and src.
+- Updates the `Hero` prop `image` to `imageAlt` and `imageSrc`. Internally, an `Image` component is created.
+- Renames the `Image` component props `imageAspectRatio` to `aspectRatio`, `imageCaption` to `caption`, and `imageCredit` to `credit`.
+- Updates the `StructuredContent` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, position, size, and src.
+- Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`. Updates the values from `Large` and `Small` to `Default` and `Small`.
+- Minor update to the logic for the `ProgressIndicator` sizing prop and styles.
 
 ## 0.25.11 (March 3, 2022)
 

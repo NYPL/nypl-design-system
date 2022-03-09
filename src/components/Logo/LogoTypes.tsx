@@ -5,12 +5,12 @@ export enum LogoColors {
 }
 
 export enum LogoSizes {
+  Default = "default",
   ExtraExtraSmall = "xxsmall",
   ExtraSmall = "xsmall",
   Small = "small",
   Medium = "medium",
   Large = "large",
-  Default = "default",
 }
 
 export enum LogoNames {

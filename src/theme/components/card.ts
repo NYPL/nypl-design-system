@@ -6,7 +6,7 @@ const imageSizes = {
   large: { flex: { md: "0 0 360px" } },
 };
 // This is complicated and can be refactored later...
-const getBodyPaddingStyles = ({ border, hasImage, imageAtEnd, isRow }) => {
+const getBodyPaddingStyles = ({ border, hasImage, imageIsAtEnd, isRow }) => {
   let bodyPadding = null;
   if (border) {
     bodyPadding = "s";
@@ -22,7 +22,7 @@ const getBodyPaddingStyles = ({ border, hasImage, imageAtEnd, isRow }) => {
       base: "0 var(--nypl-space-s) var(--nypl-space-s)",
       md: "var(--nypl-space-s) var(--nypl-space-s) var(--nypl-space-s) 0",
     };
-    if (imageAtEnd) {
+    if (imageIsAtEnd) {
       bodyPadding = {
         base: "var(--nypl-space-s) var(--nypl-space-s) 0",
         md: "var(--nypl-space-s) 0 var(--nypl-space-s) var(--nypl-space-s)",
@@ -34,7 +34,7 @@ const getBodyPaddingStyles = ({ border, hasImage, imageAtEnd, isRow }) => {
 const Card = {
   parts: ["body", "heading"],
   baseStyle: (props) => {
-    const { border, center, hasImage, imageAtEnd, layout, mainActionLink } =
+    const { border, center, hasImage, imageIsAtEnd, layout, mainActionLink } =
       props;
     const isRow = layout === "row";
     const layoutStyles = isRow
@@ -58,7 +58,7 @@ const Card = {
     const bodyPadding = getBodyPaddingStyles({
       border,
       hasImage,
-      imageAtEnd,
+      imageIsAtEnd,
       isRow,
     });
     let bodyMargin = null;
@@ -135,9 +135,9 @@ const CardContent = {
 };
 
 const CardImage = {
-  baseStyle: ({ center, imageAtEnd, imageSize, layout }) => {
+  baseStyle: ({ center, imageIsAtEnd, size, layout }) => {
     // These sizes are only for the "row" layout.
-    const size = imageSizes[imageSize] || {};
+    const imageSize = imageSizes[size] || {};
     const layoutStyles =
       layout === "row"
         ? {
@@ -146,19 +146,19 @@ const CardImage = {
             textAlign: "left",
             alignItems: center ? "center" : null,
             margin: {
-              base: imageAtEnd ? "var(--nypl-space-m) 0 0" : null,
-              md: imageAtEnd
+              base: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
+              md: imageIsAtEnd
                 ? "0 0 0 var(--nypl-space-m)"
                 : "0 var(--nypl-space-m) 0 0",
             },
             width: { base: "100%", md: null },
-            ...size,
+            ...imageSize,
           }
         : {
             marginBottom: "xs",
             width: "100%",
           };
-    const imageAtEndStyles = imageAtEnd
+    const imageIsAtEndStyles = imageIsAtEnd
       ? {
           marginBottom: "0",
           marginTop: "s",
@@ -167,7 +167,7 @@ const CardImage = {
       : {};
 
     return {
-      ...imageAtEndStyles,
+      ...imageIsAtEndStyles,
       ...layoutStyles,
     };
   },

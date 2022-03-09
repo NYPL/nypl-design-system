@@ -19,8 +19,10 @@ describe("Card Accessibility", () => {
     const { container } = render(
       <Card
         id="cardID"
-        imageSrc="https://placeimg.com/400/200/arch"
-        imageAlt="Alt text"
+        imageProps={{
+          alt: "Alt text",
+          src: "https://placeimg.com/400/200/arch",
+        }}
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
           The Card Heading
@@ -45,8 +47,10 @@ describe("Card Accessibility", () => {
     const { container } = render(
       <Card
         id="cardID"
-        imageSrc="https://placeimg.com/400/200/arch"
-        imageAlt="Alt text"
+        imageProps={{
+          alt: "Alt text",
+          src: "https://placeimg.com/400/200/arch",
+        }}
         mainActionLink="http://nypl.org"
       >
         <CardHeading level={HeadingLevels.Three} id="heading1">
@@ -73,8 +77,10 @@ describe("Card", () => {
   const regularCard = (
     <Card
       id="regularCard"
-      imageSrc="https://placeimg.com/400/200/arch"
-      imageAlt="Alt text"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
         The Card Heading
@@ -96,8 +102,10 @@ describe("Card", () => {
     <Card
       className="edition-card"
       id="cardWithExtendedStyles"
-      imageAlt="Alt text"
-      imageSrc="https://placeimg.com/300/400/arch"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/300/400/arch",
+      }}
     >
       <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
         The Card Heading
@@ -130,8 +138,10 @@ describe("Card", () => {
     <Card
       className="edition-card"
       id="cardWithNoCTAs"
-      imageAlt="Alt text"
-      imageSrc="https://placeimg.com/300/400/arch"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/300/400/arch",
+      }}
     >
       <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
         The Card Heading
@@ -147,8 +157,10 @@ describe("Card", () => {
     <Card
       className="edition-card"
       id="cardWithNoContent"
-      imageAlt="Alt text"
-      imageSrc="https://placeimg.com/300/400/arch"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/300/400/arch",
+      }}
     >
       <CardHeading
         id="editioncardheading1"
@@ -202,8 +214,10 @@ describe("Card", () => {
   const cardFullClick = () => (
     <Card
       id="fullclick"
-      imageAlt="Alt text"
-      imageSrc="https://placeimg.com/400/200/arch"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
       mainActionLink="http://nypl.org"
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
@@ -225,8 +239,10 @@ describe("Card", () => {
   const cardImageComponentAndRatio = () => (
     <Card
       id="fullclick"
-      imageComponent={<Image alt="" src="https://placeimg.com/400/200/arch" />}
-      imageAspectRatio={ImageRatios.ThreeByTwo}
+      imageProps={{
+        aspectRatio: ImageRatios.ThreeByTwo,
+        component: <Image alt="" src="https://placeimg.com/400/200/arch" />,
+      }}
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
         The Card Heading

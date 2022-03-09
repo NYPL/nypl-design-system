@@ -9,7 +9,7 @@ interface ImageWrapperProps {
   /** ClassName you can add in addition to 'image' */
   className?: string;
   /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
-  imageAspectRatio?: ImageRatios;
+  aspectRatio?: ImageRatios;
   /** Optional value to control the size of the image */
   size?: ImageSizes;
 }
@@ -21,12 +21,12 @@ export interface ImageProps extends ImageWrapperProps {
   additionalImageStyles?: { [key: string]: any };
   /** Alternate text description of the image */
   alt: string;
+  /** Adding will wrap the image in a <figure> */
+  caption?: string;
   /** Custom image component */
   component?: JSX.Element | null;
   /** Adding will wrap the image in a <figure> */
-  imageCaption?: string;
-  /** Adding will wrap the image in a <figure> */
-  imageCredit?: string;
+  credit?: string;
   /** Optional value for the image type */
   imageType?: ImageTypes;
   /** The src attribute is required, and contains the path to the image you want to embed. */
@@ -38,11 +38,11 @@ function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
     additionalWrapperStyles = {},
     className = "",
     children,
-    imageAspectRatio = ImageRatios.Original,
+    aspectRatio = ImageRatios.Original,
     size = ImageSizes.Default,
   } = props;
   const styles = useMultiStyleConfig("CustomImageWrapper", {
-    ratio: imageAspectRatio,
+    ratio: aspectRatio,
     size,
   });
   return (
@@ -63,16 +63,16 @@ export default function Image(props: ImageProps) {
     additionalImageStyles = {},
     additionalWrapperStyles = {},
     alt,
+    aspectRatio = ImageRatios.Original,
+    caption,
     className = "",
     component,
-    imageAspectRatio = ImageRatios.Original,
-    imageCaption,
-    imageCredit,
-    size = ImageSizes.Default,
+    credit,
     imageType = ImageTypes.Default,
+    size = ImageSizes.Default,
     src,
   } = props;
-  const useImageWrapper = imageAspectRatio !== ImageRatios.Original;
+  const useImageWrapper = aspectRatio !== ImageRatios.Original;
   const styles = useMultiStyleConfig("CustomImage", {
     variant: imageType,
     size,
@@ -94,10 +94,10 @@ export default function Image(props: ImageProps) {
   );
   const finalImage = useImageWrapper ? (
     <ImageWrapper
-      className={className}
-      imageAspectRatio={imageAspectRatio}
-      size={size}
       additionalWrapperStyles={additionalWrapperStyles}
+      aspectRatio={aspectRatio}
+      className={className}
+      size={size}
     >
       {imageComponent}
     </ImageWrapper>
@@ -105,14 +105,12 @@ export default function Image(props: ImageProps) {
     imageComponent
   );
 
-  return imageCaption || imageCredit ? (
+  return caption || credit ? (
     <Box as="figure" __css={{ ...styles.figure, ...additionalFigureStyles }}>
       {finalImage}
       <Box as="figcaption" __css={styles.figcaption}>
-        {imageCaption && (
-          <Box __css={styles.captionWrappers}>{imageCaption}</Box>
-        )}
-        {imageCredit && <Box __css={styles.captionWrappers}>{imageCredit}</Box>}
+        {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
+        {credit && <Box __css={styles.captionWrappers}>{credit}</Box>}
       </Box>
     </Box>
   ) : (

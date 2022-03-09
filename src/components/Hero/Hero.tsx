@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
+import Image from "../Image/Image";
 
 export interface HeroProps {
   /** Optional hex color value used to override the default background
@@ -20,11 +21,14 @@ export interface HeroProps {
   heading?: JSX.Element;
   /** Used to control how the `Hero` component will be rendered. */
   heroType?: HeroTypes;
-  /** Optional `Image` component used for SECONDARY, FIFTYFIFTY and CAMPAIGN
-   * `Hero` types; Note: `image` can only be used in conjunction with
-   * `backgroundImageSrc` for CAMPAIGN the `Hero` type.
+  /** Text description of the image; to follow best practices for accessibility,
+   * this prop should not be left blank if `imageSrc` is passed. */
+  imageAlt?: string;
+  /** Optional `imageSrc` used for SECONDARY, FIFTYFIFTY and CAMPAIGN
+   * `Hero` types; Note: `imageSrc` can only be used in conjunction with
+   * `backgroundImageSrc` for the CAMPAIGN `Hero` type.
    * Note: not all `Hero` variations utilize this prop. */
-  imageComponent?: JSX.Element;
+  imageSrc?: string;
   /** Optional details area that contains location data.
    * Note: not all `Hero` variations utilize this prop. */
   locationDetails?: JSX.Element;
@@ -52,7 +56,8 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     foregroundColor,
     heading,
     heroType,
-    imageComponent,
+    imageAlt,
+    imageSrc,
     locationDetails,
     subHeaderText,
   } = props;
@@ -65,44 +70,44 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
   let backgroundImageStyle = {};
   let contentBoxStyling = {};
 
+  if (imageSrc && !imageAlt) {
+    console.warn(
+      `Hero: the "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
+    );
+  }
+
   if (heroType === HeroTypes.Primary) {
     if (!backgroundImageSrc) {
       console.warn(
-        `Warning: it is recommended to use the "backgroundImageSrc" prop for PRIMARY hero.`
+        `Hero: it is recommended to use the "backgroundImageSrc" prop for the PRIMARY Hero.`
       );
     }
-    if (imageComponent) {
+    if (imageAlt && imageSrc) {
       console.warn(
-        `Warning: the "image" prop has been passed, but PRIMARY hero will not use it.`
+        `Hero: the "imageSrc" and "imageAlt" props have been passed, but the "PRIMARY" Hero will not use it.`
       );
     }
   } else if (locationDetails) {
     console.warn(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      `Hero: Please provide "locationDetails" only to PRIMARY hero.`
     );
   }
   if (HeroSecondaryTypes.includes(heroType) && backgroundImageSrc) {
     console.warn(
-      `Warning: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
+      `Hero: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
     );
   }
-  if (
-    heroType === HeroTypes.Tertiary &&
-    (backgroundImageSrc || imageComponent)
-  ) {
-    console.warn(`Warning: TERTIARY hero will not use any of the image props.`);
+  if (heroType === HeroTypes.Tertiary && (backgroundImageSrc || imageSrc)) {
+    console.warn(`Hero: TERTIARY hero will not use any of the image props.`);
   }
-  if (
-    heroType === HeroTypes.Campaign &&
-    (!backgroundImageSrc || !imageComponent)
-  ) {
+  if (heroType === HeroTypes.Campaign && (!backgroundImageSrc || !imageSrc)) {
     console.warn(
-      `Warning: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
+      `Hero: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
     );
   }
   if (heroType === HeroTypes.FiftyFifty && backgroundImageSrc) {
     console.warn(
-      `Warning: the "backgroundImageSrc" prop has been passed, but FIFTYFIFTY hero will not use it.`
+      `Hero: the "backgroundImageSrc" prop has been passed, but FIFTYFIFTY hero will not use it.`
     );
   }
 
@@ -128,14 +133,14 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     };
   } else if (foregroundColor || backgroundColor) {
     console.warn(
-      `Warning: the "foregroundColor" and/or "backgroundColor" props have been passed, but SECONDARY Hero will not use them.`
+      `Hero: the "foregroundColor" and/or "backgroundColor" props have been passed, but SECONDARY Hero will not use them.`
     );
   }
 
   const childrenToRender =
     heroType === HeroTypes.Campaign ? (
       <>
-        {imageComponent}
+        <Image alt={imageAlt} src={imageSrc} />
         <Box __css={styles.interior}>
           {finalHeading}
           {subHeaderText}
@@ -143,9 +148,9 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       </>
     ) : (
       <>
-        {heroType !== HeroTypes.Primary &&
-          heroType !== HeroTypes.Tertiary &&
-          imageComponent}
+        {heroType !== HeroTypes.Primary && heroType !== HeroTypes.Tertiary && (
+          <Image alt={imageAlt} src={imageSrc} />
+        )}
         {finalHeading}
         {heroType === HeroTypes.Tertiary && subHeaderText ? (
           <p>{subHeaderText}</p>

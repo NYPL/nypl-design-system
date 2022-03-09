@@ -14,7 +14,7 @@ describe("Image Accessibility", () => {
 
   it("passes axe accessibility for figure element wrapper", async () => {
     const { container } = render(
-      <Image src="test.png" alt="" imageCaption="This is a caption" />
+      <Image src="test.png" alt="" caption="This is a caption" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -35,28 +35,21 @@ describe("Image", () => {
   });
 
   it("renders an image wrapped in figure when provided a caption", () => {
-    render(<Image src="test.png" imageCaption="caption" alt="" />);
+    render(<Image src="test.png" caption="caption" alt="" />);
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("caption")).toBeInTheDocument();
   });
 
   it("renders an image wrapped in figure when provided an image credit", () => {
-    render(<Image src="test.png" imageCredit="credit" alt="" />);
+    render(<Image src="test.png" credit="credit" alt="" />);
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("credit")).toBeInTheDocument();
   });
 
   it("renders an image wrapped in figure with credit and caption", () => {
-    render(
-      <Image
-        src="test.png"
-        imageCaption="caption"
-        imageCredit="credit"
-        alt=""
-      />
-    );
+    render(<Image src="test.png" caption="caption" credit="credit" alt="" />);
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("caption")).toBeInTheDocument();
@@ -72,7 +65,7 @@ describe("Image", () => {
   it("Renders the UI snapshot correctly", () => {
     const basic = renderer.create(<Image src="test.png" alt="" />).toJSON();
     const figCaption = renderer
-      .create(<Image src="test.png" alt="" imageCaption="Caption" />)
+      .create(<Image src="test.png" alt="" caption="Caption" />)
       .toJSON();
     const sizeExtraExtraSmall = renderer
       .create(<Image src="test.png" alt="" size={ImageSizes.ExtraExtraSmall} />)
@@ -91,58 +84,40 @@ describe("Image", () => {
       .toJSON();
     const ratioFourByThree = renderer
       .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageAspectRatio={ImageRatios.FourByThree}
-        />
+        <Image src="test.png" alt="" aspectRatio={ImageRatios.FourByThree} />
       )
       .toJSON();
     const ratioOneByTwo = renderer
       .create(
-        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.OneByTwo} />
+        <Image src="test.png" alt="" aspectRatio={ImageRatios.OneByTwo} />
       )
       .toJSON();
     const ratioOriginal = renderer
       .create(
-        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.Original} />
+        <Image src="test.png" alt="" aspectRatio={ImageRatios.Original} />
       )
       .toJSON();
     const ratioSixteenByNine = renderer
       .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageAspectRatio={ImageRatios.SixteenByNine}
-        />
+        <Image src="test.png" alt="" aspectRatio={ImageRatios.SixteenByNine} />
       )
       .toJSON();
     const ratioSquare = renderer
-      .create(
-        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.Square} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio={ImageRatios.Square} />)
       .toJSON();
     const ratioThreeByFour = renderer
       .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageAspectRatio={ImageRatios.ThreeByFour}
-        />
+        <Image src="test.png" alt="" aspectRatio={ImageRatios.ThreeByFour} />
       )
       .toJSON();
     const ratioThreeByTwo = renderer
       .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageAspectRatio={ImageRatios.ThreeByTwo}
-        />
+        <Image src="test.png" alt="" aspectRatio={ImageRatios.ThreeByTwo} />
       )
       .toJSON();
     const ratioTwoByOne = renderer
       .create(
-        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.TwoByOne} />
+        <Image src="test.png" alt="" aspectRatio={ImageRatios.TwoByOne} />
       )
       .toJSON();
     const typeCircle = renderer
@@ -150,12 +125,13 @@ describe("Image", () => {
         <Image
           src="test.png"
           alt=""
-          imageAspectRatio={ImageRatios.Square}
+          aspectRatio={ImageRatios.Square}
           size={ImageSizes.Small}
           imageType={ImageTypes.Circle}
         />
       )
       .toJSON();
+
     expect(basic).toMatchSnapshot();
     expect(figCaption).toMatchSnapshot();
     expect(sizeExtraExtraSmall).toMatchSnapshot();

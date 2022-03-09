@@ -163,9 +163,11 @@ describe("Accordion", () => {
         panel: (
           <Card
             id="card"
-            imageAlt="Alt text"
-            imageAspectRatio={ImageRatios.TwoByOne}
-            imageSrc={`https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit`}
+            imageProps={{
+              alt: "Alt text",
+              aspectRatio: ImageRatios.TwoByOne,
+              src: "https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit",
+            }}
             isCentered
             layout={LayoutTypes.Row}
           >

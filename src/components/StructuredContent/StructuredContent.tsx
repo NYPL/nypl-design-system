@@ -8,6 +8,30 @@ import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import { StructuredContentImagePosition } from "./StructuredContentTypes";
 import generateUUID from "../../helpers/generateUUID";
 
+interface StructuredContentImageProps {
+  /** String value used to populate the `alt` attribute of the internal `Image`
+   * component's `img` element. @NOTE if an image is used, this value must be passed. */
+  alt?: string;
+  /** Optional value to control the aspect ratio of the internal `Image` component.
+   * Defaults to `ImageRatios.Square`. */
+  aspectRatio?: ImageRatios;
+  /** Optional value to render as a caption for the internal `Image` component. */
+  caption?: string;
+  /** Optional DOM element to use instead of the DS `Image` component. */
+  component?: JSX.Element;
+  /** Optional value to render as a credit for the internal `Image` component. */
+  credit?: string;
+  /** Optional value to control the positioning of the internal `Image` component.
+   * Defaults to `StructuredContentImagePosition.Left`. */
+  position?: StructuredContentImagePosition;
+  /** Optional value to control the size of the internal `Image` component.
+   * Defaults to `ImageSizes.Medium`. */
+  size?: ImageSizes;
+  /** Optional value that contains the path to an image. If omitted, the internal
+   * DS `Image` component will not render. */
+  src?: string;
+}
+
 export interface StructuredContentProps {
   /** Optional value to set the text for the callout heading text. */
   calloutText?: string;
@@ -17,27 +41,8 @@ export interface StructuredContentProps {
   headingText?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** String value used to populate the `alt` attribute of the internal `Image`
-   * component's `img` element. @NOTE if an image is used, this value must be passed. */
-  imageAlt?: string;
-  /** Optional value to control the aspect ratio of the internal `Image` component.
-   * Defaults to `ImageRatios.Square`. */
-  imageAspectRatio?: ImageRatios;
-  /** Optional value to render as a caption for the internal `Image` component. */
-  imageCaption?: string;
-  /** Optional DOM element to use instead of the DS `Image` component. */
-  imageComponent?: JSX.Element;
-  /** Optional value to render as a credit for the internal `Image` component. */
-  imageCredit?: string;
-  /** Optional value to control the positioning of the internal `Image` component.
-   * Defaults to `StructuredContentImagePosition.Left`. */
-  imagePosition?: StructuredContentImagePosition;
-  /** Optional value to control the size of the internal `Image` component.
-   * Defaults to `ImageSizes.Medium`. */
-  imageSize?: ImageSizes;
-  /** Optional value that contains the path to an image. If omitted, the internal
-   * DS `Image` component will not render. */
-  imageSrc?: string;
+  /** Object used to create and render the `Image` component. */
+  imageProps?: StructuredContentImageProps;
   /** Required value to set the text for the body content. */
   bodyContent: string | JSX.Element;
 }
@@ -52,10 +57,10 @@ function StructuredContentImage(props: ImageProps) {
     additionalImageStyles,
     additionalWrapperStyles,
     alt,
+    aspectRatio,
+    caption,
     component,
-    imageAspectRatio,
-    imageCaption,
-    imageCredit,
+    credit,
     size,
     src,
   } = props;
@@ -66,10 +71,10 @@ function StructuredContentImage(props: ImageProps) {
       additionalWrapperStyles={additionalWrapperStyles}
       alt={alt}
       component={component}
-      imageAspectRatio={imageAspectRatio}
+      aspectRatio={aspectRatio}
       size={size}
-      imageCaption={imageCaption}
-      imageCredit={imageCredit}
+      caption={caption}
+      credit={credit}
       src={src}
     />
   );
@@ -87,22 +92,24 @@ export default function StructuredContent(
     className,
     headingText,
     id = generateUUID(),
-    imageAlt = "",
-    imageAspectRatio = ImageRatios.Square,
-    imageCaption,
-    imageComponent,
-    imageCredit,
-    imagePosition = StructuredContentImagePosition.Left,
-    imageSize = ImageSizes.Medium,
-    imageSrc,
+    imageProps = {
+      alt: "",
+      aspectRatio: ImageRatios.Square,
+      caption: undefined,
+      component: undefined,
+      credit: undefined,
+      position: StructuredContentImagePosition.Left,
+      size: ImageSizes.Medium,
+      src: "",
+    },
     bodyContent,
   } = props;
-  const hasImage = imageSrc || imageComponent;
-  const hasFigureImage = imageCaption || imageCredit;
+  const hasImage = imageProps.src || imageProps.component;
+  const hasFigureImage = imageProps.caption || imageProps.credit;
   const styles = useMultiStyleConfig("StructuredContent", {
     hasFigureImage,
-    imageAspectRatio,
-    imagePosition,
+    imageAspectRatio: imageProps.aspectRatio,
+    imagePosition: imageProps.position,
   });
   const finalBodyContent =
     typeof bodyContent === "string" ? (
@@ -111,9 +118,9 @@ export default function StructuredContent(
       <Box>{bodyContent}</Box>
     );
 
-  if (hasImage && !imageAlt) {
+  if (hasImage && !imageProps.alt) {
     console.warn(
-      "StructuredContent: `imageAlt` prop is required when using an image."
+      "StructuredContent: `imageProps.alt` prop is required when using an image."
     );
   }
 
@@ -138,13 +145,13 @@ export default function StructuredContent(
           additionalFigureStyles={styles.imageFigure}
           additionalImageStyles={styles.image}
           additionalWrapperStyles={styles.imageWrapper}
-          alt={imageAlt}
-          component={imageComponent}
-          imageAspectRatio={imageAspectRatio}
-          imageCaption={imageCaption}
-          imageCredit={imageCredit}
-          size={imageSize}
-          src={imageSrc ? imageSrc : null}
+          alt={imageProps.alt}
+          component={imageProps.component}
+          aspectRatio={imageProps.aspectRatio}
+          caption={imageProps.caption}
+          credit={imageProps.credit}
+          size={imageProps.size}
+          src={imageProps.src ? imageProps.src : null}
         />
       )}
       {finalBodyContent}
