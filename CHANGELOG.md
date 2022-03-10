@@ -7,6 +7,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ========
 
 ## Prerelease
+
 ### Changes
 
 - Removes the margin from the global `.nypl p` CSS rule.
@@ -15,16 +16,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
 - Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
+- Updates the border and text styles for the `Select` component.
 
 ### Fixes
 
 - Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
 - Updates the alignment of the `Notifications`'s dismissible icon.
 - Fixes the border and padding from the `fieldset` HTML element by removing it.
-
-### Updates
-
-- Updates the border and text styles for the `Select` component.
 
 ## 0.25.11 (March 3, 2022)
 
