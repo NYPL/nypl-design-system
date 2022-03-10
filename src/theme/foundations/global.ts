@@ -1,3 +1,5 @@
+import { textMargin } from "../components/global";
+
 /**
  * These rules affect all the global elements on the `body` element of the
  * page when the `DSProvider` component is used. This means that even if the
@@ -23,9 +25,9 @@ const global = {
   svg: {
     display: "inline",
   },
-  p: {
-    margin: "0 0 var(--nypl-space-s",
-  },
+  p: textMargin,
+  ul: textMargin,
+  ol: textMargin,
 };
 
 export default global;
