@@ -11,10 +11,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Removes the margin from the global `.nypl p` CSS rule.
+- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
 
 ### Fixes
 
-- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
+- Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
 
 ## 0.25.11 (March 3, 2022)
 
