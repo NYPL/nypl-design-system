@@ -8,10 +8,23 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Updates
+### Changes
 
+- Removes the margin from the global `.nypl p` CSS rule.
+- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
+- Updates the `Notification`'s icons to be decorative by default.
+- Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
+- Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
+- Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
+- Updates the border and text styles for the `Select` component.
 - Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
 - Moves the base styles from the SCSS global file to the Chakra theme global JS object.
+
+### Fixes
+
+- Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
+- Updates the alignment of the `Notifications`'s dismissible icon.
+- Fixes the border and padding from the `fieldset` HTML element by removing it.
 
 ## 0.25.11 (March 3, 2022)
 

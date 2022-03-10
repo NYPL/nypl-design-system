@@ -3,6 +3,8 @@ import logo_bpl_black from "../../../icons/svg/logo_bpl_black.svg";
 import logo_bpl_white from "../../../icons/svg/logo_bpl_white.svg";
 import logo_clever_color from "../../../icons/svg/logo_clever_color.svg";
 import logo_clever_white from "../../../icons/svg/logo_clever_white.svg";
+import logo_firstbook_color from "../../../icons/svg/logo_firstbook_color.svg";
+import logo_firstbook_color_negative from "../../../icons/svg/logo_firstbook_color_negative.svg";
 import logo_lpa_color from "../../../icons/svg/logo_lpa_color.svg";
 import logo_lpa_black from "../../../icons/svg/logo_lpa_black.svg";
 import logo_lpa_white from "../../../icons/svg/logo_lpa_white.svg";
@@ -12,6 +14,10 @@ import logo_nypl_full_black from "../../../icons/svg/logo_nypl_full_black.svg";
 import logo_nypl_full_white from "../../../icons/svg/logo_nypl_full_white.svg";
 import logo_nypl_lion_black from "../../../icons/svg/logo_nypl_lion_black.svg";
 import logo_nypl_lion_white from "../../../icons/svg/logo_nypl_lion_white.svg";
+import logo_openebooks_color from "../../../icons/svg/logo_openebooks_color.svg";
+import logo_openebooks_negative from "../../../icons/svg/logo_openebooks_negative.svg";
+import logo_openebooks_wtext_color from "../../../icons/svg/logo_openebooks_wtext_color.svg";
+import logo_openebooks_wtext_negative from "../../../icons/svg/logo_openebooks_wtext_negative.svg";
 import logo_qpl_alt_black from "../../../icons/svg/logo_qpl_alt_black.svg";
 import logo_qpl_alt_white from "../../../icons/svg/logo_qpl_alt_white.svg";
 import logo_qpl_black from "../../../icons/svg/logo_qpl_black.svg";
@@ -36,6 +42,8 @@ export default {
   logo_bpl_white,
   logo_clever_color,
   logo_clever_white,
+  logo_firstbook_color,
+  logo_firstbook_color_negative,
   logo_lpa_black,
   logo_lpa_color,
   logo_lpa_white,
@@ -45,6 +53,10 @@ export default {
   logo_nypl_full_white,
   logo_nypl_lion_black,
   logo_nypl_lion_white,
+  logo_openebooks_color,
+  logo_openebooks_negative,
+  logo_openebooks_wtext_color,
+  logo_openebooks_wtext_negative,
   logo_qpl_alt_black,
   logo_qpl_alt_white,
   logo_qpl_black,

@@ -46,6 +46,14 @@ const checkboxRadioHelperStyle = {
     fontStyle: "italic",
   },
 };
+const checkboxRadioGroupStyles = {
+  helper: {
+    marginTop: "s",
+  },
+  stack: {
+    width: "fit-content",
+  },
+};
 // Used in `Label` and `Fieldset`.
 const labelLegendText = {
   alignItems: "baseline",
@@ -61,13 +69,10 @@ const labelLegendText = {
     fontWeight: "helper.default",
   },
 };
-const checkboxRadioGroupStyles = {
-  helper: {
-    marginTop: "s",
-  },
-  stack: {
-    width: "fit-content",
-  },
+// Used for p, ul, and ol
+const textMargin = {
+  margin: "0",
+  marginBottom: "s",
 };
 
 export {
@@ -78,4 +83,5 @@ export {
   checkboxRadioLabelStyles,
   helperTextMargin,
   labelLegendText,
+  textMargin,
 };
