@@ -38,6 +38,9 @@ const Notification = {
         position: "absolute",
         right: "0",
         top: "0",
+        svg: {
+          marginTop: "0",
+        },
         _hover: {
           bg: "inherit",
         },

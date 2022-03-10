@@ -27,7 +27,7 @@ export interface SelectProps extends BaseProps {
   optionsData: string[];
 }
 export interface TextInputProps extends BaseProps {
-  placeholder: string;
+  placeholder?: string;
   value?: string;
 }
 
@@ -108,7 +108,8 @@ export default function SearchBar(props: SearchBarProps) {
   };
   const footnote = isInvalid ? invalidText : helperText;
   const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
-  const textInputPlaceholder = `${textInputProps?.placeholder} ${
+  const inputPlaceholder = textInputProps?.placeholder || "Search terms";
+  const textInputPlaceholder = `${inputPlaceholder} ${
     isRequired ? "(Required)" : ""
   }`;
   const buttonType = noBrandButtonType

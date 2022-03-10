@@ -118,6 +118,11 @@ be rendered inside other landmark elements such as the `header` and `footer`
 landmark elements. Adding a `Notification` component inside an HTML `main` landmark
 element is acceptable.
 
+Icons rendered in the `Notification` component are decorative by default which
+means that they are hidden to screen readers. Since the "X" close icon inside the
+dismissible button is decorative and because there is no discernible text inside
+the button, an `aria-label` attribute is added to the button.
+
 ## Variants
 
 ### With NotificationHeading

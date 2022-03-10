@@ -20,6 +20,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Removes the margin from the global `.nypl p` CSS rule.
+- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
+- Updates the `Notification`'s icons to be decorative by default.
+- Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
+- Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Renames the `Accordion` prop `contentData` to `accordionData`.
 - Renames the `Breadcrumbs` prop `colorVariant` to `breadcrumbsType`.
 - Renames the `Card` prop `center` to `isCentered`.
@@ -45,6 +50,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `StructuredContent` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, position, size, and src.
 - Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`. Updates the values from `Large` and `Small` to `Default` and `Small`.
 - Minor update to the logic for the `ProgressIndicator` sizing prop and styles.
+
+### Fixes
+
+- Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
+- Updates the alignment of the `Notifications`'s dismissible icon.
+- Fixes the border and padding from the `fieldset` HTML element by removing it.
 
 ## 0.25.11 (March 3, 2022)
 
