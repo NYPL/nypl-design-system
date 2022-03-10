@@ -17,12 +17,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
 - Updates the border and text styles for the `Select` component.
+- Updates the Radio's and Checkbox's label font size to "label.default".
 
 ### Fixes
 
 - Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
 - Updates the alignment of the `Notifications`'s dismissible icon.
 - Fixes the border and padding from the `fieldset` HTML element by removing it.
+- Fixes alignment for long labels in the `Checkbox` and `Radio` components.
+- Fixes the line height for long labels in the `Toggle` component.
 
 ## 0.25.11 (March 3, 2022)
 

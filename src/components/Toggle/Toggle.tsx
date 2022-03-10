@@ -92,6 +92,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
             isRequired={isRequired}
             ref={ref}
             size={size === ToggleSizes.Large ? "lg" : "sm"}
+            lineHeight="1.5"
             {...(isChecked !== undefined
               ? {
                   isChecked,

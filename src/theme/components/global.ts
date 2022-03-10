@@ -19,11 +19,9 @@ const helperTextMargin = {
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
   userSelect: "none",
-  fontSize: "text.default",
   fontWeight: "text.default",
   marginBottom: "0",
   marginLeft: "xs",
-  verticalAlign: "middle",
   _disabled: {
     color: "ui.gray.dark",
     opacity: 1,
