@@ -8,12 +8,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Updates
+### Changes
 
+- Removes the margin from the global `.nypl p` CSS rule.
+- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
 - Updates the `Notification`'s icons to be decorative by default.
 
 ### Fixes
 
+- Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
 - Updates the alignment of the `Notifications`'s dismissible icon.
 
 ## 0.25.11 (March 3, 2022)

@@ -3,7 +3,7 @@ const staticValues = {
   marginTop: "xs",
   marginBottom: "xs",
   marginRight: "s",
-  marginLeft: "s",
+  marginLeft: "0",
 };
 const CustomSlider = {
   parts: [
@@ -12,11 +12,12 @@ const CustomSlider = {
     "leftValue",
     "rightValue",
     "textInput",
+    "sliderContainer",
     "filledTrack",
     "track",
     "thumb",
   ],
-  baseStyle: ({ isDisabled, isInvalid, isRangeSlider, showBoxes }) => {
+  baseStyle: ({ isDisabled, isInvalid, showBoxes, showValues }) => {
     let baseColor = "ui.link.primary";
     if (isInvalid) {
       baseColor = "ui.error.primary";
@@ -32,15 +33,10 @@ const CustomSlider = {
       helper: {
         marginTop: "xs",
       },
-      leftValue: {
-        ...staticValues,
-        // If the text input boxes are shown, then there already is a
-        // margin, so we can set this static value to "0". But for the
-        // single Slider, we *do* need the margin set.
-        marginLeft: showBoxes && isRangeSlider ? "0" : "s",
-      },
+      leftValue: staticValues,
       rightValue: {
         ...staticValues,
+        marginLeft: "s",
         // If the text input boxes are shown, then there already is
         // a margin, so we can set this static value to "0".
         marginRight: showBoxes ? "0" : "s",
@@ -50,6 +46,13 @@ const CustomSlider = {
         // min or max value text input.
         minWidth: "65px",
         color: isInvalid ? "ui.error.primary" : "ui.black",
+      },
+      // This is added to the container so that the slider thumbs don't
+      // overflow past the container when the value boxes or min/max values
+      // are not shown.
+      sliderContainer: {
+        marginLeft: !showValues ? "xs" : null,
+        marginRight: !showBoxes && !showValues ? "xs" : null,
       },
       // Filled track doesn't have a _disabled or _invalid state...
       // so we manually do it through the props.
