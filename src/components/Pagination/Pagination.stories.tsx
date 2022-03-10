@@ -29,7 +29,7 @@ export const PaginationGetPageHref: Story<PaginationProps> = (args) => {
   return (
     <Pagination
       pageCount={args.pageCount}
-      initialPage={computedCurrentPage || args.initialPage}
+      currentPage={computedCurrentPage || args.currentPage}
       getPageHref={getPageHref}
     />
   );
@@ -47,7 +47,7 @@ export const PaginationOnPageChange: Story<PaginationProps> = (args) => {
   return (
     <Pagination
       pageCount={args.pageCount}
-      initialPage={args.initialPage}
+      currentPage={args.currentPage}
       onPageChange={onPageChange}
     />
   );

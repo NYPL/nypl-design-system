@@ -201,15 +201,27 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
     </li>
     <li>
       <a
-        aria-current="page"
+        aria-current={null}
         aria-label="Page 10"
-        className="css-1858g8z"
+        className="css-0"
         href="page=10"
         id="lastPage-10"
         rel={null}
         target={null}
       >
         10
+      </a>
+    </li>
+    <li>
+      <a
+        aria-label="Next page"
+        className="css-0"
+        href="page=11"
+        id="lastPage-Next"
+        rel={null}
+        target={null}
+      >
+        Next
       </a>
     </li>
   </ul>

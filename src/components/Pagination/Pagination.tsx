@@ -17,7 +17,7 @@ export interface PaginationProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** The current page selected. */
-  initialPage: number;
+  currentPage: number;
   /** The callback function called when an item is selected and the current
    * page should not refresh. */
   onPageChange?: (selected: number) => void;
@@ -33,14 +33,18 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     className,
     getPageHref,
     id = generateUUID(),
-    initialPage = 1,
+    currentPage,
     onPageChange,
     pageCount,
   } = props;
-  const [currentPage, setCurrentPage] = useState<number>(initialPage);
+  const [selectedPage, setSelectedPage] = useState<number>(currentPage | 1);
   const styles = useMultiStyleConfig("Pagination", {});
   const previousPageNumber = currentPage - 1;
   const nextPageNumber = currentPage + 1;
+
+  React.useEffect(() => {
+    setSelectedPage(currentPage);
+  }, [currentPage]);
 
   // If there are 0 or 1 page, the pagination should not show.
   if (pageCount <= 1) {
@@ -59,22 +63,22 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
    * This function is only called when clicking on a link should
    * not update the URL or refresh the page.
    */
-  const selectPage = (e: Event, selectedPage: number) => {
+  const handlePageClick = (e: Event, clickedPage: number) => {
     e.preventDefault && e.preventDefault();
-    if (currentPage === selectedPage) return;
-    setCurrentPage(selectedPage);
-    onPageChange && onPageChange(selectedPage);
+    if (selectedPage === clickedPage) return;
+    setSelectedPage(clickedPage);
+    onPageChange && onPageChange(clickedPage);
   };
   // Select the previous page.
   const previousPage = (e: Event) => {
-    if (currentPage > 1) {
-      selectPage(e, previousPageNumber);
+    if (selectedPage > 1) {
+      handlePageClick(e, previousPageNumber);
     }
   };
   // Select the next page.
   const nextPage = (e: Event) => {
-    if (currentPage < pageCount) {
-      selectPage(e, nextPageNumber);
+    if (selectedPage < pageCount) {
+      handlePageClick(e, previousPageNumber);
     }
   };
   /**
@@ -87,9 +91,9 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
    *    "#" and call the `onPageChange` prop through the `onClick` callback.
    */
   const getLinkElement = (type: string, item?: number) => {
-    const isCurrentPage = currentPage === item;
+    const isSelectedPage = selectedPage === item;
     // The current page link has different styles.
-    const currentStyles = isCurrentPage
+    const currentStyles = isSelectedPage
       ? {
           color: "ui.black",
           pointerEvent: "none",
@@ -100,8 +104,8 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
         href: changeUrls ? getPageHref(item) : "#",
         attributes: {
           "aria-label": `Page ${item}`,
-          "aria-current": isCurrentPage ? "page" : null,
-          onClick: changeUrls ? undefined : (e) => selectPage(e, item),
+          "aria-current": isSelectedPage ? "page" : null,
+          onClick: changeUrls ? undefined : (e) => handlePageClick(e, item),
         },
         text: item,
       },
@@ -210,11 +214,11 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   };
 
   // Don't display the previous link when you're on the first page.
-  const previousLiLink = currentPage !== 1 && (
+  const previousLiLink = selectedPage !== 1 && (
     <li key="previous">{getLinkElement("previous")}</li>
   );
-  /// Don't display the next link when you're on the last page.
-  const nextLiLink = currentPage !== pageCount && (
+  // Don't display the next link when you're on the last page.
+  const nextLiLink = selectedPage !== pageCount && (
     <li key="next">{getLinkElement("next")}</li>
   );
 
@@ -229,7 +233,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     >
       <List type={ListTypes.Unordered} inline noStyling id={`${id}-list`}>
         {previousLiLink}
-        {getPaginationNumbers(currentPage)}
+        {getPaginationNumbers(selectedPage)}
         {nextLiLink}
       </List>
     </Box>
