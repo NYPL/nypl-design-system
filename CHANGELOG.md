@@ -25,6 +25,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Notification`'s icons to be decorative by default.
 - Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
 - Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
+- Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
+- Updates the border and text styles for the `Select` component.
 - Renames the `Accordion` prop `contentData` to `accordionData`.
 - Renames the `Breadcrumbs` prop `colorVariant` to `breadcrumbsType`.
 - Renames the `Card` prop `center` to `isCentered`.
