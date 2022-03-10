@@ -291,6 +291,21 @@ describe("Hero", () => {
     );
   });
 
+  it("logs a warning if `imageSrc` prop is passed but not `imageAlt`", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        heroType={HeroTypes.Primary}
+        imageSrc={imageSrc}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      `Hero: the "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
+    );
+  });
+
   it("renders Primary Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (

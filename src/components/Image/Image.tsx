@@ -3,6 +3,28 @@ import * as React from "react";
 
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
+// Used for components that have an `imageProps` prop.
+export interface ComponentImageProps {
+  /** String value used to populate the `alt` attribute of the internal `Image`
+   * component's `img` element. @NOTE if an image is used, this value must be passed. */
+  alt?: string;
+  /** Optional value to control the aspect ratio of the internal `Image` component.
+   * Defaults to `ImageRatios.Square`. */
+  aspectRatio?: ImageRatios;
+  /** Optional value to render as a caption for the internal `Image` component. */
+  caption?: string;
+  /** Optional DOM element to use instead of the DS `Image` component. */
+  component?: JSX.Element;
+  /** Optional value to render as a credit for the internal `Image` component. */
+  credit?: string;
+  /** Optional value to control the size of the internal `Image` component.
+   * Defaults to `ImageSizes.Medium`. */
+  size?: ImageSizes;
+  /** Optional value that contains the path to an image. If omitted, the internal
+   * DS `Image` component will not render. */
+  src?: string;
+}
+
 interface ImageWrapperProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalWrapperStyles?: { [key: string]: any };

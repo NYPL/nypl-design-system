@@ -42,7 +42,7 @@ const size = {
   },
   default: {
     height: "1.125rem",
-    width: "1.125rem",
+    width: "100%",
   },
   medium: {
     height: "1.125rem",

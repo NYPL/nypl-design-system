@@ -9,7 +9,7 @@ import {
 
 import { LayoutTypes } from "../../helpers/enums";
 import Heading from "../Heading/Heading";
-import Image, { ImageProps } from "../Image/Image";
+import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import generateUUID from "../../helpers/generateUUID";
 
@@ -27,26 +27,9 @@ interface CardLinkBoxProps {
 }
 
 // Used internally only for the `imageProps` prop for the `Card` component.
-interface CardImageProps {
-  /** Text description of the image; to follow best practices for accessibility,
-   * this prop should not be left blank if `imageSrc` is passed. */
-  alt?: string;
-  /** Optional value to control the aspect ratio of the `CardImage`; default
-   * value is `ImageRatios.Square`. */
-  aspectRatio?: ImageRatios;
-  /** Optional value to render as a caption for the internal `CardImage` component. */
-  caption?: string;
-  /** Custom image component used in place of DS `Image` component. */
-  component?: JSX.Element;
-  /** Optional value to render as a credit for the internal `CardImage` component. */
-  credit?: string;
+interface CardImageProps extends ComponentImageProps {
   /** Optional boolean value to control the position of the `CardImage`. */
   isAtEnd?: boolean;
-  /** Optional value to control the size of the `CardImage`. Default value is
-   * `ImageSizes.Default`. */
-  size?: ImageSizes;
-  /** The path to the image displayed within the `Card` component. */
-  src?: string;
 }
 
 interface CardActionsProps extends CardBaseProps {
