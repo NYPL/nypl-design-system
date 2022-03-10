@@ -77,8 +77,12 @@ describe("Notification", () => {
   });
 
   it("renders with an Icon", () => {
-    // The Icon's role is "img".
-    expect(screen.queryByRole("img")).toBeInTheDocument();
+    // Since the icon has aria-hidden set to true, we can't get it
+    // by its "img" role.
+    const icon = utils.container.querySelector(
+      "#notificationID-notification-icon"
+    );
+    expect(icon).toBeInTheDocument();
   });
 
   it("does not render an Icon", () => {
@@ -90,8 +94,10 @@ describe("Notification", () => {
         showIcon={false}
       />
     );
-    // The Icon's role is "img".
-    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    const icon = utils.container.querySelector(
+      "#notificationID-notification-icon"
+    );
+    expect(icon).not.toBeInTheDocument();
   });
 
   it("renders a custom Icon component", () => {
@@ -111,7 +117,11 @@ describe("Notification", () => {
         notificationHeading="Notification Heading"
       />
     );
-    expect(utils.container.querySelector(".custom-icon")).toBeInTheDocument();
+
+    const customIcon = utils.container.querySelector(
+      "#notificationID-custom-notification-icon"
+    );
+    expect(customIcon).toBeInTheDocument();
   });
 
   it("renders the announcement Notification type", () => {
@@ -163,14 +173,15 @@ describe("Notification", () => {
         notificationType={NotificationTypes.Standard}
       />
     );
-    const icons = screen.queryAllByRole("img");
 
-    expect(icons).toHaveLength(2);
-    expect(screen.getByTitle("Notification standard icon")).toBeInTheDocument();
+    const dismissibleIcon = utils.container.querySelector(
+      "#notificationID-dismissible-notification-icon"
+    );
+    expect(dismissibleIcon).toBeInTheDocument();
     expect(screen.getByTitle("Notification close icon")).toBeInTheDocument();
   });
 
-  it.skip("renders the UI snapshot correctly", () => {
+  it("renders the UI snapshot correctly", () => {
     const standard = renderer
       .create(
         <Notification
