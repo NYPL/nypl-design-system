@@ -13,6 +13,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the margin from the global `.nypl p` CSS rule.
 - Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
 - Updates the `Notification`'s icons to be decorative by default.
+- Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
+- Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 
 ### Fixes
 
