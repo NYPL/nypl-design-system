@@ -13,10 +13,6 @@
   // our breakout mixin. Fix identified here: https://cloudfour.com/thinks/breaking-out-with-viewport-units-and-calc/#one-big-dumb-caveat
   overflow-x: hidden;
 
-  p {
-    margin: 0 0 var(--nypl-space-s);
-  }
-
   *,
   *::after,
   *::before {
