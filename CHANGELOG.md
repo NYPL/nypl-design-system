@@ -7,10 +7,20 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ========
 
 ## Prerelease
+### Changes
 
-### Updates
-
+- Removes the margin from the global `.nypl p` CSS rule.
+- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
+- Updates the `Notification`'s icons to be decorative by default.
+- Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
+- Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
+
+### Fixes
+
+- Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
+- Updates the alignment of the `Notifications`'s dismissible icon.
+- Fixes the border and padding from the `fieldset` HTML element by removing it.
 
 ## 0.25.11 (March 3, 2022)
 
