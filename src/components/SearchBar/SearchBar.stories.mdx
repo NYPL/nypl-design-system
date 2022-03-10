@@ -60,7 +60,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.11`  |
+| Latest            | `0.25.12`  |
 
 <Description of={SearchBar} />
 
@@ -166,9 +166,9 @@ const selectProps = {
 ### TextInput Component
 
 To render the `TextInput` component, an object must be passed to the
-`textInputProps` prop. It _must_ include `labelText`, `name`, and `placeholder`
-properties. The `labelText` value won't be rendered but will be used for its
-`aria-label` attribute. Optional properties to pass include `onChange` and `value`.
+`textInputProps` prop. It _must_ include `labelText` and `name` properties. The
+`labelText` value won't be rendered but will be used for its `aria-label`
+attribute. Optional properties to pass include `onChange`, `placeholder`, and `value`.
 
 ```
 const textInputProps = {
