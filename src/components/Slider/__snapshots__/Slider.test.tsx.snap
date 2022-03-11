@@ -61,6 +61,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     >
       <div
         className="chakra-slider__track css-0"
+        data-testid="chakra-range-slider-track"
         id="slider-track-defaultRangeSlider"
         style={
           Object {
@@ -242,6 +243,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     >
       <div
         className="chakra-slider__track css-0"
+        data-testid="chakra-range-slider-track"
         id="slider-track-errored"
         style={
           Object {
@@ -424,6 +426,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     >
       <div
         className="chakra-slider__track css-0"
+        data-testid="chakra-range-slider-track"
         id="slider-track-required"
         style={
           Object {
@@ -607,6 +610,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
       <div
         className="chakra-slider__track css-0"
         data-disabled=""
+        data-testid="chakra-range-slider-track"
         id="slider-track-disabled"
         style={
           Object {
@@ -775,6 +779,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     >
       <div
         className="chakra-slider__track css-0"
+        data-testid="chakra-range-slider-track"
         id="slider-track-noLabels"
         style={
           Object {
@@ -915,6 +920,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
     >
       <div
         className="chakra-slider__track css-0"
+        data-testid="chakra-range-slider-track"
         id="slider-track-noVisibleValues"
         style={
           Object {
@@ -1035,6 +1041,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
     >
       <div
         className="chakra-slider__track css-0"
+        data-testid="chakra-range-slider-track"
         id="slider-track-onlySlider"
         style={
           Object {

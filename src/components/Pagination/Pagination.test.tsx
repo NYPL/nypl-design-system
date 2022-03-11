@@ -304,5 +304,40 @@ describe("Pagination", () => {
       userEvent.click(links[2]);
       expect(currentPage).toEqual(6);
     });
+
+    it("uses the currentPage prop to update the selected page", () => {
+      let currentPage = 1;
+      const { rerender } = render(
+        <Pagination
+          pageCount={5}
+          currentPage={currentPage}
+          getPageHref={getPageHref}
+        />
+      );
+
+      let links = screen.getAllByRole("link");
+      let page1 = links[0].getAttribute("aria-current");
+      let page2 = links[1].getAttribute("aria-current");
+      let page3 = links[2].getAttribute("aria-current");
+
+      // Only the current page has `aria-current="page"` for accessibility.
+      expect(page1).toEqual("page");
+      expect(page2).toEqual(null);
+      expect(page3).toEqual(null);
+
+      currentPage = 3;
+
+      rerender(<Pagination pageCount={5} currentPage={currentPage} />);
+
+      links = screen.getAllByRole("link");
+      // links[0] is now "Previous"
+      page1 = links[1].getAttribute("aria-current");
+      page2 = links[2].getAttribute("aria-current");
+      page3 = links[3].getAttribute("aria-current");
+
+      expect(page1).toEqual(null);
+      expect(page2).toEqual(null);
+      expect(page3).toEqual("page");
+    });
   });
 });
