@@ -16,7 +16,10 @@ export interface PaginationProps {
   getPageHref?: undefined | ((pageNumber: number) => string);
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** The current page selected. */
+  /** The current page can be used to set the initial selected page,
+   * or to change the selected page without the user explicitly requesting it –
+   * for example, if the user should be brought back to page 1 of a set of
+   * results after a new search. */
   currentPage: number;
   /** The callback function called when an item is selected and the current
    * page should not refresh. */
@@ -33,11 +36,11 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     className,
     getPageHref,
     id = generateUUID(),
-    currentPage,
+    currentPage = 1,
     onPageChange,
     pageCount,
   } = props;
-  const [selectedPage, setSelectedPage] = useState<number>(currentPage | 1);
+  const [selectedPage, setSelectedPage] = useState<number>(currentPage);
   const styles = useMultiStyleConfig("Pagination", {});
   const previousPageNumber = currentPage - 1;
   const nextPageNumber = currentPage + 1;
