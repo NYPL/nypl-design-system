@@ -16,7 +16,7 @@ export interface PaginationProps {
   getPageHref?: undefined | ((pageNumber: number) => string);
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** The current page can be used to set the initial selected page,
+  /** The currentPage can be used to set the initial selected page,
    * or to change the selected page without the user explicitly requesting it –
    * for example, if the user should be brought back to page 1 of a set of
    * results after a new search. */
