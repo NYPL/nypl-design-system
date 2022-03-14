@@ -9,8 +9,10 @@ import { withDesign } from "storybook-addon-designs";
 import { withQuery } from "@storybook/addon-queryparams";
 
 import Pagination from "./Pagination";
-import * as stories from "./Pagination.stories.tsx";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookHrefProps } from "../../utils/utils";
+
+export const hrefProps = getStorybookHrefProps(10);
 
 <Meta
   title={getCategory("Pagination")}
@@ -27,7 +29,7 @@ import { getCategory } from "../../utils/componentCategories";
     className: { control: false },
     getPageHref: { control: false },
     id: { control: false },
-    initialPage: { table: { defaultValue: { summary: 1 } } },
+    currentPage: { table: { defaultValue: { summary: 1 } } },
     onPageChange: { control: false },
   }}
 />
@@ -73,14 +75,13 @@ const getPageHref = (selectedPage: number) => {
     name="Pagination with URL Updates"
     args={{
       className: undefined,
-      getPageHref: undefined,
+      getPageHref: hrefProps.getPageHref,
       id: "pagination-id",
-      initialPage: 1,
-      onPageChange: undefined,
+      currentPage: hrefProps.computedCurrentPage || 1,
       pageCount: 10,
     }}
   >
-    {(args) => stories.PaginationGetPageHref(args)}
+    {(args) => <Pagination {...args} />}
   </Story>
 </Canvas>
 
@@ -90,7 +91,7 @@ const getPageHref = (selectedPage: number) => {
 
 It is preferred to use the `Pagination` component with the `getPageHref`
 function passed as a prop and that the URL is updated whenever a page is
-changed. However, the optional `onPageChange` prop is available in case URL
+changed. However,å the optional `onPageChange` prop is available in case URL
 updating is not desired.
 
 In the following example, the `onPageChange` function gets the current page as
@@ -110,13 +111,14 @@ const onPageChange = (currentPage: number) => {
     name="Pagination with Unchanging URL"
     args={{
       className: undefined,
-      getPageHref: undefined,
       id: "pagination-id-2",
-      initialPage: 7,
-      onPageChange: undefined,
+      currentPage: 7,
+      onPageChange: (currentPage) => {
+        console.log(`Current page: ${currentPage}`);
+      },
       pageCount: 100,
     }}
   >
-    {(args) => stories.PaginationOnPageChange(args)}
+    {(args) => <Pagination {...args} />}
   </Story>
 </Canvas>
