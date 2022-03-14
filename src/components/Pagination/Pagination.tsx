@@ -45,11 +45,15 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const previousPageNumber = currentPage - 1;
   const nextPageNumber = currentPage + 1;
 
+  console.log("currentPage -->", currentPage);
+  console.log("selectedPage -->", selectedPage);
+
   React.useEffect(() => {
+    console.log("in use effect");
     if (currentPage !== selectedPage) {
       setSelectedPage(currentPage);
     }
-  }, [currentPage]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [currentPage, selectedPage]);
 
   // If there are 0 or 1 page, the pagination should not show.
   if (pageCount <= 1) {
