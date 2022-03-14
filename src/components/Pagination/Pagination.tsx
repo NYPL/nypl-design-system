@@ -46,11 +46,10 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const nextPageNumber = currentPage + 1;
 
   React.useEffect(() => {
-    if (selectedPage !== currentPage) {
-      console.log("current page in useEffect if statement -->", currentPage);
+    if (currentPage !== selectedPage) {
       setSelectedPage(currentPage);
     }
-  }, [currentPage]);
+  }, [currentPage]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // If there are 0 or 1 page, the pagination should not show.
   if (pageCount <= 1) {
@@ -227,8 +226,6 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const nextLiLink = selectedPage !== pageCount && (
     <li key="next">{getLinkElement("next")}</li>
   );
-
-  console.log("rerendering");
 
   return (
     <Box
