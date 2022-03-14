@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
 - Updates the border and text styles for the `Select` component.
+- Replaces the `Pagination` component's `initialPage` prop with `currentPage`, a value that updates the selected page programmatically without the user explicitly requesting it.
 
 ### Fixes
 
