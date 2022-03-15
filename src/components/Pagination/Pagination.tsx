@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Link from "../Link/Link";
@@ -10,17 +10,19 @@ import generateUUID from "../../helpers/generateUUID";
 export interface PaginationProps {
   /** Additional className. */
   className?: string;
+  /** The currentPage can be used to programatically force the selected page to change
+   * without the user explicitly requesting it – for example, if the user should be
+   * brought back to the first page of a set of results after a new search. */
+  currentPage?: number;
   /** The callback function that takes a page number and returns a string
    * to use for a link's `href` attribute. This is used when the current
    * page should refresh when navigating. */
   getPageHref?: undefined | ((pageNumber: number) => string);
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** The currentPage can be used to set the initial selected page,
-   * or to change the selected page without the user explicitly requesting it –
-   * for example, if the user should be brought back to page 1 of a set of
-   * results after a new search. */
-  currentPage: number;
+  /** The initially selected page (default value is 1). If using with `getPageHref`,
+   * this value will reset with each new page refresh. */
+  initialPage?: number;
   /** The callback function called when an item is selected and the current
    * page should not refresh. */
   onPageChange?: (selected: number) => void;
@@ -34,22 +36,25 @@ export interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const {
     className,
+    currentPage,
     getPageHref,
     id = generateUUID(),
-    currentPage = 1,
+    initialPage = 1,
     onPageChange,
     pageCount,
   } = props;
-  const [selectedPage, setSelectedPage] = useState<number>(currentPage);
+  const refCurrentPage = useRef(currentPage);
+  const [selectedPage, setSelectedPage] = useState<number>(initialPage);
   const styles = useMultiStyleConfig("Pagination", {});
   const previousPageNumber = currentPage - 1;
   const nextPageNumber = currentPage + 1;
 
   React.useEffect(() => {
-    if (currentPage !== selectedPage) {
+    if (onPageChange && currentPage !== refCurrentPage.current) {
       setSelectedPage(currentPage);
+      refCurrentPage.current = currentPage;
     }
-  }, [currentPage, selectedPage]);
+  }, [currentPage, onPageChange]);
 
   // If there are 0 or 1 page, the pagination should not show.
   if (pageCount <= 1) {
@@ -57,7 +62,13 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   }
   if (getPageHref && onPageChange) {
     console.warn(
-      "Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+      "NYPL Reservoir Pagination: Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+    );
+  }
+
+  if (getPageHref && currentPage) {
+    console.warn(
+      "NYPL Reservoir Pagination: The `currentPage` prop does not work with the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
     );
   }
 
@@ -69,6 +80,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
    * not update the URL or refresh the page.
    */
   const handlePageClick = (e: Event, clickedPage: number) => {
+    console.log("clickedPage -->", clickedPage);
     e.preventDefault && e.preventDefault();
     if (selectedPage === clickedPage) return;
     setSelectedPage(clickedPage);
