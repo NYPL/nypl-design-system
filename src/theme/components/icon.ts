@@ -41,8 +41,7 @@ const size = {
     width: "var(--nypl-space-m)",
   },
   default: {
-    height: "1.125rem",
-    width: "100%",
+    width: "auto",
   },
   medium: {
     height: "1.125rem",
