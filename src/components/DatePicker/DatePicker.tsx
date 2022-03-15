@@ -1,3 +1,4 @@
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
@@ -14,7 +15,6 @@ import TextInput, {
   TextInputRefType,
 } from "../TextInput/TextInput";
 import generateUUID from "../../helpers/generateUUID";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {
@@ -227,8 +227,8 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
 /**
  * Returns a single date input field or two date input fields for a date range.
  */
-const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
-  (props, ref?) => {
+export const DatePicker = chakra(
+  React.forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
     const {
       className,
       dateFormat = "yyyy-MM-dd",
@@ -254,6 +254,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       showHelperInvalidText = true,
       showLabel = true,
       showOptReqLabel = true,
+      ...rest
     } = props;
     const styles = useMultiStyleConfig("DatePicker", {});
     const finalStyles = isDateRange ? styles : {};
@@ -406,6 +407,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
         className={className}
         isRequired={isRequired}
         showOptReqLabel={showOptReqLabel}
+        {...rest}
       >
         <DateRangeRow id={id} isDateRange={isDateRange}>
           <FormField id={`${id}-start-form`}>
@@ -427,7 +429,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
         )}
       </DatePickerWrapper>
     );
-  }
+  })
 );
 
 export default DatePicker;

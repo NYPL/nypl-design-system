@@ -1,9 +1,10 @@
-import * as React from "react";
 import {
   Box,
+  chakra,
   Radio as ChakraRadio,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import HelperErrorText, {
   HelperErrorTextType,
@@ -52,65 +53,69 @@ export interface RadioProps {
   value?: string;
 }
 
-const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
-  const {
-    className,
-    helperText,
-    id = generateUUID(),
-    invalidText,
-    isChecked,
-    isDisabled = false,
-    isInvalid = false,
-    isRequired = false,
-    labelText,
-    name,
-    onChange,
-    showHelperInvalidText = true,
-    showLabel = true,
-    value,
-  } = props;
-  const styles = useMultiStyleConfig("Radio", {});
-  const footnote = isInvalid ? invalidText : helperText;
-  const attributes = {};
+export const Radio = chakra(
+  React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
+    const {
+      className,
+      helperText,
+      id = generateUUID(),
+      invalidText,
+      isChecked,
+      isDisabled = false,
+      isInvalid = false,
+      isRequired = false,
+      labelText,
+      name,
+      onChange,
+      showHelperInvalidText = true,
+      showLabel = true,
+      value,
+      ...rest
+    } = props;
+    const styles = useMultiStyleConfig("Radio", {});
+    const footnote = isInvalid ? invalidText : helperText;
+    const attributes = {};
 
-  if (!showLabel) {
-    attributes["aria-label"] =
-      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-  } else {
-    if (footnote) {
-      attributes["aria-describedby"] = `${id}-helperText`;
+    if (!showLabel) {
+      attributes["aria-label"] =
+        labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+    } else {
+      if (footnote) {
+        attributes["aria-describedby"] = `${id}-helperText`;
+      }
     }
-  }
 
-  return (
-    <>
-      <ChakraRadio
-        className={className}
-        id={id}
-        isChecked={isChecked}
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        isRequired={isRequired}
-        name={name}
-        onChange={onChange}
-        value={value}
-        ref={ref}
-        __css={styles}
-        {...attributes}
-      >
-        {showLabel && labelText}
-      </ChakraRadio>
-      {footnote && showHelperInvalidText && (
-        <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-          />
-        </Box>
-      )}
-    </>
-  );
-});
+    return (
+      <>
+        <ChakraRadio
+          className={className}
+          id={id}
+          isChecked={isChecked}
+          isDisabled={isDisabled}
+          isInvalid={isInvalid}
+          isRequired={isRequired}
+          name={name}
+          onChange={onChange}
+          value={value}
+          ref={ref}
+          __css={styles}
+          {...attributes}
+          {...rest}
+        >
+          {showLabel && labelText}
+        </ChakraRadio>
+        {footnote && showHelperInvalidText && (
+          <Box __css={styles.helper} aria-disabled={isDisabled}>
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
+          </Box>
+        )}
+      </>
+    );
+  })
+);
 
 export default Radio;

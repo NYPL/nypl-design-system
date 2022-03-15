@@ -1,4 +1,4 @@
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import Button from "../Button/Button";
@@ -76,7 +76,7 @@ export interface SearchBarProps {
  * Renders a wrapper `form` element to be used with `Select` (optional),
  * `Input`, and `Button` components together.
  */
-export default function SearchBar(props: SearchBarProps) {
+export const SearchBar = chakra((props: SearchBarProps) => {
   const {
     action,
     buttonOnClick = null,
@@ -96,6 +96,7 @@ export default function SearchBar(props: SearchBarProps) {
     selectProps,
     textInputElement,
     textInputProps,
+    ...rest
   } = props;
   const styles = useMultiStyleConfig("SearchBar", {});
   const stateProps = {
@@ -188,6 +189,7 @@ export default function SearchBar(props: SearchBarProps) {
       id={id}
       invalidText={invalidText}
       isInvalid={isInvalid}
+      {...rest}
     >
       <Box
         as="form"
@@ -206,4 +208,6 @@ export default function SearchBar(props: SearchBarProps) {
       </Box>
     </ComponentWrapper>
   );
-}
+});
+
+export default SearchBar;

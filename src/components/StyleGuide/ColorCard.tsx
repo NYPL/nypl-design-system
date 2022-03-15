@@ -25,9 +25,9 @@ export default function ColorCard(
     <div style={{ display: "flex", alignItems: "center" }}>
       <Card
         backgroundColor={backgroundColor}
-        center
+        isBordered
+        isCentered
         layout={CardLayouts.Column}
-        border
       />
       <div style={{ marginLeft: "1rem" }}>
         <Heading level={HeadingLevels.Four}>{colorName}</Heading>

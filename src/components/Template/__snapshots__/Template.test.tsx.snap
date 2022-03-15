@@ -2,7 +2,7 @@
 
 exports[`Template components Renders the UI snapshot correctly 1`] = `
 <div
-  className="nypl-ds css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -86,7 +86,7 @@ exports[`Template components Renders the UI snapshot correctly 1`] = `
 
 exports[`Template components Renders the UI snapshot correctly 2`] = `
 <div
-  className="nypl-ds css-0"
+  className="css-1u8qly9"
 >
   <div
     className="css-0"

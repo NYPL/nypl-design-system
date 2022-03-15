@@ -1,3 +1,4 @@
+import { chakra } from "@chakra-ui/react";
 import * as React from "react";
 
 import { FormGaps } from "./FormTypes";
@@ -59,7 +60,7 @@ export function FormField(props: React.PropsWithChildren<FormChildProps>) {
 }
 
 /** Main Form component */
-export default function Form(props: React.PropsWithChildren<FormProps>) {
+export const Form = chakra((props: React.PropsWithChildren<FormProps>) => {
   const {
     action,
     children,
@@ -68,6 +69,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     id = generateUUID(),
     method,
     onSubmit,
+    ...rest
   } = props;
 
   let attributes = {};
@@ -84,6 +86,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     }
   );
 
+  //  TODO use Form
   return (
     <form
       aria-label="form"
@@ -91,10 +94,13 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
       id={id}
       onSubmit={onSubmit}
       {...attributes}
+      {...rest}
     >
       <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
         {alteredChildren}
       </SimpleGrid>
     </form>
   );
-}
+});
+
+export default Form;

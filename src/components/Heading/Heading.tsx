@@ -1,4 +1,8 @@
-import { Heading as ChakraHeading, useStyleConfig } from "@chakra-ui/react";
+import {
+  chakra,
+  Heading as ChakraHeading,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import * as React from "react";
 
 import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
@@ -42,61 +46,65 @@ const getMappedLevel = (level = HeadingLevels.Two) => {
   return levelMap[level] || 2;
 };
 
-function Heading(props: React.PropsWithChildren<HeadingProps>) {
-  const {
-    additionalStyles = {},
-    className,
-    displaySize,
-    id = generateUUID(),
-    level = HeadingLevels.Two,
-    text,
-    url,
-    urlClass,
-  } = props;
-  const finalLevel = getMappedLevel(level);
-  const variant = displaySize
-    ? getVariant(displaySize, HeadingDisplaySizes)
-    : `h${finalLevel}`;
-  const styles = useStyleConfig("Heading", { variant });
-  // Combine native base styles with any additional styles.
-  // This is used in the `Hero` and `Notification` components.
-  const finalStyles = { ...styles, ...additionalStyles };
-  const asHeading: any = `h${finalLevel}`;
+export const Heading = chakra(
+  (props: React.PropsWithChildren<HeadingProps>) => {
+    const {
+      additionalStyles = {},
+      className,
+      displaySize,
+      id = generateUUID(),
+      level = HeadingLevels.Two,
+      text,
+      url,
+      urlClass,
+      ...rest
+    } = props;
+    const finalLevel = getMappedLevel(level);
+    const variant = displaySize
+      ? getVariant(displaySize, HeadingDisplaySizes)
+      : `h${finalLevel}`;
+    const styles = useStyleConfig("Heading", { variant });
+    // Combine native base styles with any additional styles.
+    // This is used in the `Hero` and `Notification` components.
+    const finalStyles = { ...styles, ...additionalStyles };
+    const asHeading: any = `h${finalLevel}`;
 
-  if (!props.children && !text) {
-    throw new Error("Heading has no children, please pass prop: text");
-  }
+    if (!props.children && !text) {
+      throw new Error("Heading has no children, please pass prop: text");
+    }
 
-  if (React.Children.count(props.children) > 1) {
-    const children = React.Children.map(
-      props.children,
-      (child) => (child as JSX.Element).type
+    if (React.Children.count(props.children) > 1) {
+      const children = React.Children.map(
+        props.children,
+        (child) => (child as JSX.Element).type
+      );
+      // Catching the error because React's error isn't as helpful.
+      throw new Error(
+        `Please only pass one child into Heading, got ${children.join(", ")}`
+      );
+    }
+
+    const contentToRender = props.children ? props.children : text;
+    const content = url ? (
+      <Link className={urlClass} href={url} id={`${id}-link`}>
+        {contentToRender}
+      </Link>
+    ) : (
+      contentToRender
     );
-    // Catching the error because React's error isn't as helpful.
-    throw new Error(
-      `Please only pass one child into Heading, got ${children.join(", ")}`
+
+    return (
+      <ChakraHeading
+        as={asHeading}
+        className={className}
+        id={id}
+        sx={finalStyles}
+        {...rest}
+      >
+        {content}
+      </ChakraHeading>
     );
   }
-
-  const contentToRender = props.children ? props.children : text;
-  const content = url ? (
-    <Link className={urlClass} href={url} id={`${id}-link`}>
-      {contentToRender}
-    </Link>
-  ) : (
-    contentToRender
-  );
-
-  return (
-    <ChakraHeading
-      id={id}
-      as={asHeading}
-      sx={finalStyles}
-      className={className}
-    >
-      {content}
-    </ChakraHeading>
-  );
-}
+);
 
 export default Heading;

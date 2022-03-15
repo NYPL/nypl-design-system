@@ -3,19 +3,19 @@
 exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
 <nav
   aria-label="Pagination"
-  className="css-0"
+  className="css-1xdhyk6"
   id="firstPage"
   role="navigation"
 >
   <ul
-    className="css-0"
+    className="css-1xdhyk6"
     id="firstPage-list"
   >
     <li>
       <a
         aria-current="page"
         aria-label="Page 1"
-        className="css-1858g8z"
+        className="css-1eo4rk2"
         href="page=1"
         id="firstPage-1"
         rel={null}
@@ -28,7 +28,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
       <a
         aria-current={null}
         aria-label="Page 2"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=2"
         id="firstPage-2"
         rel={null}
@@ -41,7 +41,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
       <a
         aria-current={null}
         aria-label="Page 3"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=3"
         id="firstPage-3"
         rel={null}
@@ -54,7 +54,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
       <a
         aria-current={null}
         aria-label="Page 4"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=4"
         id="firstPage-4"
         rel={null}
@@ -67,7 +67,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
       <a
         aria-current={null}
         aria-label="Page 5"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=5"
         id="firstPage-5"
         rel={null}
@@ -83,7 +83,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
       <a
         aria-current={null}
         aria-label="Page 10"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=10"
         id="firstPage-10"
         rel={null}
@@ -95,7 +95,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
     <li>
       <a
         aria-label="Next page"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=2"
         id="firstPage-Next"
         rel={null}
@@ -111,18 +111,18 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
 exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
 <nav
   aria-label="Pagination"
-  className="css-0"
+  className="css-1xdhyk6"
   id="lastPage"
   role="navigation"
 >
   <ul
-    className="css-0"
+    className="css-1xdhyk6"
     id="lastPage-list"
   >
     <li>
       <a
         aria-label="Previous page"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=9"
         id="lastPage-Previous"
         rel={null}
@@ -135,7 +135,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
       <a
         aria-current={null}
         aria-label="Page 1"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=1"
         id="lastPage-1"
         rel={null}
@@ -151,7 +151,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
       <a
         aria-current={null}
         aria-label="Page 6"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=6"
         id="lastPage-6"
         rel={null}
@@ -164,7 +164,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
       <a
         aria-current={null}
         aria-label="Page 7"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=7"
         id="lastPage-7"
         rel={null}
@@ -177,7 +177,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
       <a
         aria-current={null}
         aria-label="Page 8"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=8"
         id="lastPage-8"
         rel={null}
@@ -190,7 +190,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
       <a
         aria-current={null}
         aria-label="Page 9"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=9"
         id="lastPage-9"
         rel={null}
@@ -203,7 +203,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
       <a
         aria-current="page"
         aria-label="Page 10"
-        className="css-1858g8z"
+        className="css-1eo4rk2"
         href="page=10"
         id="lastPage-10"
         rel={null}
@@ -219,18 +219,18 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
 exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
 <nav
   aria-label="Pagination"
-  className="css-0"
+  className="css-1xdhyk6"
   id="middlePage"
   role="navigation"
 >
   <ul
-    className="css-0"
+    className="css-1xdhyk6"
     id="middlePage-list"
   >
     <li>
       <a
         aria-label="Previous page"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=4"
         id="middlePage-Previous"
         rel={null}
@@ -243,7 +243,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
       <a
         aria-current={null}
         aria-label="Page 1"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=1"
         id="middlePage-1"
         rel={null}
@@ -259,7 +259,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
       <a
         aria-current={null}
         aria-label="Page 4"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=4"
         id="middlePage-4"
         rel={null}
@@ -272,7 +272,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
       <a
         aria-current="page"
         aria-label="Page 5"
-        className="css-1858g8z"
+        className="css-1eo4rk2"
         href="page=5"
         id="middlePage-5"
         rel={null}
@@ -285,7 +285,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
       <a
         aria-current={null}
         aria-label="Page 6"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=6"
         id="middlePage-6"
         rel={null}
@@ -301,7 +301,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
       <a
         aria-current={null}
         aria-label="Page 10"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=10"
         id="middlePage-10"
         rel={null}
@@ -313,7 +313,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
     <li>
       <a
         aria-label="Next page"
-        className="css-0"
+        className="css-1xdhyk6"
         href="page=6"
         id="middlePage-Next"
         rel={null}

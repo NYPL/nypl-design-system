@@ -1,5 +1,5 @@
-import * as React from "react";
 import {
+  chakra,
   Table as ChakraTable,
   TableCaption as ChakraTableCaption,
   Tbody as ChakraTbody,
@@ -9,6 +9,7 @@ import {
   Tr as ChakraTr,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import generateUUID from "../../helpers/generateUUID";
 
@@ -39,7 +40,7 @@ export interface TableProps {
  * Basic `Table` component used to organize and display tabular data in
  * rows and columns.
  */
-function Table(props: React.PropsWithChildren<TableProps>) {
+export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
   const {
     className,
     columnHeaders,
@@ -50,6 +51,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     tableData,
     titleText,
     useRowHeaders = false,
+    ...rest
   } = props;
 
   const customColors = {};
@@ -115,12 +117,12 @@ function Table(props: React.PropsWithChildren<TableProps>) {
   };
 
   return (
-    <ChakraTable id={id} sx={styles} className={className}>
+    <ChakraTable id={id} sx={styles} className={className} {...rest}>
       {tableCaption}
       {columnHeadersElems}
       {tableBodyElems()}
     </ChakraTable>
   );
-}
+});
 
 export default Table;

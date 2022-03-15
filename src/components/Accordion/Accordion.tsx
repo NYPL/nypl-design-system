@@ -1,11 +1,12 @@
-import * as React from "react";
 import {
-  Box,
   Accordion as ChakraAccordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
+  Box,
+  chakra,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
@@ -91,16 +92,26 @@ const getElementsFromContentData = (data = [], id) => {
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const { contentData, id = generateUUID(), isDefaultOpen = false } = props;
+export const Accordion = chakra((props: AccordionProps) => {
+  const {
+    contentData,
+    id = generateUUID(),
+    isDefaultOpen = false,
+    ...rest
+  } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
-    <ChakraAccordion id={id} defaultIndex={[openFirstAccordion]} allowMultiple>
+    <ChakraAccordion
+      id={id}
+      defaultIndex={[openFirstAccordion]}
+      allowMultiple
+      {...rest}
+    >
       {getElementsFromContentData(contentData, id)}
     </ChakraAccordion>
   );
-}
+});
 
 export default Accordion;

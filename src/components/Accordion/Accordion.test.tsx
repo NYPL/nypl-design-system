@@ -162,7 +162,6 @@ describe("Accordion", () => {
         label: "Gerry Kellman",
         panel: (
           <Card
-            center
             id="card"
             imageAlt="Alt text"
             imageAspectRatio={ImageRatios.TwoByOne}
@@ -190,8 +189,19 @@ describe("Accordion", () => {
         <Accordion contentData={contentData} id="accordian" isDefaultOpen />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Accordion
+          contentData={contentData}
+          id="accordian"
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(defaultOpen).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
   });
 });

@@ -71,7 +71,7 @@ exports[`Image Renders the UI snapshot correctly 7`] = `
 
 exports[`Image Renders the UI snapshot correctly 8`] = `
 <div
-  className="the-wrap  css-0"
+  className="the-wrap css-1u8qly9"
 >
   <div
     className="the-crop css-0"
@@ -87,7 +87,7 @@ exports[`Image Renders the UI snapshot correctly 8`] = `
 
 exports[`Image Renders the UI snapshot correctly 9`] = `
 <div
-  className="the-wrap  css-0"
+  className="the-wrap css-1u8qly9"
 >
   <div
     className="the-crop css-0"
@@ -111,7 +111,7 @@ exports[`Image Renders the UI snapshot correctly 10`] = `
 
 exports[`Image Renders the UI snapshot correctly 11`] = `
 <div
-  className="the-wrap  css-0"
+  className="the-wrap css-1u8qly9"
 >
   <div
     className="the-crop css-0"
@@ -127,7 +127,7 @@ exports[`Image Renders the UI snapshot correctly 11`] = `
 
 exports[`Image Renders the UI snapshot correctly 12`] = `
 <div
-  className="the-wrap  css-0"
+  className="the-wrap css-1u8qly9"
 >
   <div
     className="the-crop css-0"
@@ -143,7 +143,7 @@ exports[`Image Renders the UI snapshot correctly 12`] = `
 
 exports[`Image Renders the UI snapshot correctly 13`] = `
 <div
-  className="the-wrap  css-0"
+  className="the-wrap css-1u8qly9"
 >
   <div
     className="the-crop css-0"
@@ -159,7 +159,7 @@ exports[`Image Renders the UI snapshot correctly 13`] = `
 
 exports[`Image Renders the UI snapshot correctly 14`] = `
 <div
-  className="the-wrap  css-0"
+  className="the-wrap css-1u8qly9"
 >
   <div
     className="the-crop css-0"
@@ -175,7 +175,7 @@ exports[`Image Renders the UI snapshot correctly 14`] = `
 
 exports[`Image Renders the UI snapshot correctly 15`] = `
 <div
-  className="the-wrap  css-0"
+  className="the-wrap css-1u8qly9"
 >
   <div
     className="the-crop css-0"
@@ -191,7 +191,7 @@ exports[`Image Renders the UI snapshot correctly 15`] = `
 
 exports[`Image Renders the UI snapshot correctly 16`] = `
 <div
-  className="the-wrap  css-0"
+  className="the-wrap css-1u8qly9"
 >
   <div
     className="the-crop css-0"

@@ -2,7 +2,7 @@
 
 exports[`Heading renders the UI snapshot correctly 1`] = `
 <h1
-  className="chakra-heading css-0"
+  className="chakra-heading css-1xdhyk6"
   id="basic"
 >
   Heading text
@@ -11,7 +11,7 @@ exports[`Heading renders the UI snapshot correctly 1`] = `
 
 exports[`Heading renders the UI snapshot correctly 2`] = `
 <h1
-  className="chakra-heading css-0"
+  className="chakra-heading css-1xdhyk6"
   id="basicWithChildText"
 >
   Heading text
@@ -20,7 +20,7 @@ exports[`Heading renders the UI snapshot correctly 2`] = `
 
 exports[`Heading renders the UI snapshot correctly 3`] = `
 <h1
-  className="chakra-heading css-0"
+  className="chakra-heading css-1xdhyk6"
   id="customDisplaySize"
 >
   Heading with Secondary displaySize
@@ -29,7 +29,7 @@ exports[`Heading renders the UI snapshot correctly 3`] = `
 
 exports[`Heading renders the UI snapshot correctly 4`] = `
 <h6
-  className="chakra-heading css-0"
+  className="chakra-heading css-1xdhyk6"
   id="otherLevel"
 >
   Heading level six
@@ -38,11 +38,11 @@ exports[`Heading renders the UI snapshot correctly 4`] = `
 
 exports[`Heading renders the UI snapshot correctly 5`] = `
 <h1
-  className="chakra-heading css-0"
+  className="chakra-heading css-1xdhyk6"
   id="withLink"
 >
   <a
-    className="css-0"
+    className="css-1xdhyk6"
     href="fake-url"
     id="withLink-link"
     rel={null}
@@ -55,7 +55,7 @@ exports[`Heading renders the UI snapshot correctly 5`] = `
 
 exports[`Heading renders the UI snapshot correctly 6`] = `
 <h1
-  className="chakra-heading css-0"
+  className="chakra-heading css-1xdhyk6"
   id="withCustomLink"
 >
   Part of the heading text is

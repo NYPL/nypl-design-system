@@ -1,10 +1,11 @@
-import * as React from "react";
 import {
   Box,
+  chakra,
   CheckboxGroup as ChakraCheckboxGroup,
   Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import Checkbox from "../Checkbox/Checkbox";
 import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
@@ -59,8 +60,8 @@ const noop = () => {};
  * wrapping and associated text elements, but the checkbox input elements
  * _need_ to be child `Checkbox` components from the NYPL Design System.
  */
-const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
-  (props, ref?) => {
+export const CheckboxGroup = chakra(
+  React.forwardRef<HTMLInputElement, CheckboxGroupProps>((props, ref?) => {
     const {
       children,
       defaultValue = [],
@@ -77,6 +78,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       optReqFlag = true,
       showHelperInvalidText = true,
       showLabel = true,
+      ...rest
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const spacingProp =
@@ -126,7 +128,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
         legendText={labelText}
         optReqFlag={optReqFlag}
       >
-        <ChakraCheckboxGroup {...checkboxProps}>
+        <ChakraCheckboxGroup {...checkboxProps} {...rest}>
           <Stack
             id={id}
             data-testid="checkbox-group"
@@ -150,7 +152,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
         )}
       </Fieldset>
     );
-  }
+  })
 );
 
 export default CheckboxGroup;

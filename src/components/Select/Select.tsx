@@ -1,9 +1,10 @@
-import React from "react";
 import {
   Box,
+  chakra,
   Select as ChakraSelect,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import React from "react";
 
 import HelperErrorText, {
   HelperErrorTextType,
@@ -62,106 +63,112 @@ export interface SelectProps {
  * Component that renders Chakra's `Select` component along with an accessible
  * `Label` and optional `HelperErrorText` component.
  */
-const Select = React.forwardRef<
-  HTMLSelectElement,
-  React.PropsWithChildren<SelectProps>
->((props: React.PropsWithChildren<SelectProps>, ref?) => {
-  const {
-    additionalStyles = {},
-    children,
-    className,
-    helperText,
-    id = generateUUID(),
-    invalidText,
-    isDisabled = false,
-    isInvalid = false,
-    isRequired = false,
-    labelText,
-    name,
-    onChange,
-    placeholder,
-    showHelperInvalidText = true,
-    showLabel = true,
-    showOptReqLabel = true,
-    type = SelectTypes.Default,
-    value = "",
-  } = props;
-  const ariaAttributes = {};
-  const optReqFlag = isRequired ? "Required" : "Optional";
-  const styles = useMultiStyleConfig("CustomSelect", { variant: type });
-  const finalInvalidText = invalidText
-    ? invalidText
-    : "There is an error related to this field.";
-  const footnote: HelperErrorTextType = isInvalid
-    ? finalInvalidText
-    : helperText;
-  // To control the `Select` component, both `onChange` and `value`
-  // must be passed.
-  const controlledProps = onChange ? { onChange, value } : {};
+export const Select = chakra(
+  React.forwardRef<HTMLSelectElement, React.PropsWithChildren<SelectProps>>(
+    (props: React.PropsWithChildren<SelectProps>, ref?) => {
+      const {
+        additionalStyles = {},
+        children,
+        className,
+        helperText,
+        id = generateUUID(),
+        invalidText,
+        isDisabled = false,
+        isInvalid = false,
+        isRequired = false,
+        labelText,
+        name,
+        onChange,
+        placeholder,
+        showHelperInvalidText = true,
+        showLabel = true,
+        showOptReqLabel = true,
+        type = SelectTypes.Default,
+        value = "",
+        ...rest
+      } = props;
+      const ariaAttributes = {};
+      const optReqFlag = isRequired ? "Required" : "Optional";
+      const styles = useMultiStyleConfig("CustomSelect", { variant: type });
+      const finalInvalidText = invalidText
+        ? invalidText
+        : "There is an error related to this field.";
+      const footnote: HelperErrorTextType = isInvalid
+        ? finalInvalidText
+        : helperText;
+      // To control the `Select` component, both `onChange` and `value`
+      // must be passed.
+      const controlledProps = onChange ? { onChange, value } : {};
 
-  if (!showLabel) {
-    ariaAttributes["aria-label"] =
-      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-  } else if (helperText) {
-    ariaAttributes["aria-describedby"] = `${id}-helperText`;
-  }
+      if (!showLabel) {
+        ariaAttributes["aria-label"] =
+          labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+      } else if (helperText) {
+        ariaAttributes["aria-describedby"] = `${id}-helperText`;
+      }
 
-  if (React.Children.count(children) > 10) {
-    console.warn(
-      "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
-    );
-  }
+      if (React.Children.count(children) > 10) {
+        console.warn(
+          "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
+        );
+      }
 
-  if (React.Children.count(children) < 4) {
-    console.warn(
-      "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
-    );
-  }
+      if (React.Children.count(children) < 4) {
+        console.warn(
+          "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
+        );
+      }
 
-  return (
-    <Box className={className} __css={{ ...styles, ...additionalStyles }}>
-      {showLabel && (
-        <Label
-          id={`${id}-label`}
-          htmlFor={id}
-          optReqFlag={showOptReqLabel && optReqFlag}
+      return (
+        <Box
+          className={className}
+          __css={{ ...styles, ...additionalStyles }}
+          {...rest}
         >
-          {labelText}
-        </Label>
-      )}
-      <ChakraSelect
-        id={id}
-        variant="outline"
-        isRequired={isRequired}
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        name={name}
-        placeholder={placeholder}
-        ref={ref}
-        {...controlledProps}
-        {...ariaAttributes}
-        icon={
-          <Icon
-            id={`${id}-icon`}
-            name={IconNames.Arrow}
-            size={IconSizes.Medium}
-          />
-        }
-        __css={styles.select}
-      >
-        {children}
-      </ChakraSelect>
-      {footnote && showHelperInvalidText && (
-        <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText
-            id={`${id}-helperText`}
+          {showLabel && (
+            <Label
+              id={`${id}-label`}
+              htmlFor={id}
+              optReqFlag={showOptReqLabel && optReqFlag}
+            >
+              {labelText}
+            </Label>
+          )}
+          <ChakraSelect
+            id={id}
+            variant="outline"
+            isRequired={isRequired}
+            isDisabled={isDisabled}
             isInvalid={isInvalid}
-            text={footnote}
-          />
+            name={name}
+            placeholder={placeholder}
+            ref={ref}
+            {...controlledProps}
+            {...ariaAttributes}
+            icon={
+              <Icon
+                id={`${id}-icon`}
+                name={IconNames.Arrow}
+                size={IconSizes.Medium}
+              />
+            }
+            __css={styles.select}
+          >
+            {children}
+          </ChakraSelect>
+          {footnote && showHelperInvalidText && (
+            <Box __css={styles.helper} aria-disabled={isDisabled}>
+              <HelperErrorText
+                id={`${id}-helperText`}
+                isInvalid={isInvalid}
+                text={footnote}
+              />
+            </Box>
+          )}
         </Box>
-      )}
-    </Box>
-  );
-});
+      );
+    }
+  )
+);
 
 export default Select;

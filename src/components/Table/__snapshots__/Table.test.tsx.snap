@@ -2,7 +2,7 @@
 
 exports[`Table renders the UI snapshot correctly 1`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="basic"
   role="table"
 >
@@ -203,7 +203,7 @@ exports[`Table renders the UI snapshot correctly 1`] = `
 
 exports[`Table renders the UI snapshot correctly 2`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="withCaption"
   role="table"
 >
@@ -409,7 +409,7 @@ exports[`Table renders the UI snapshot correctly 2`] = `
 
 exports[`Table renders the UI snapshot correctly 3`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="withHeaders"
   role="table"
 >
@@ -666,7 +666,7 @@ exports[`Table renders the UI snapshot correctly 3`] = `
 
 exports[`Table renders the UI snapshot correctly 4`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="withHeaders"
   role="table"
 >
@@ -923,7 +923,7 @@ exports[`Table renders the UI snapshot correctly 4`] = `
 
 exports[`Table renders the UI snapshot correctly 5`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="withHeaders"
   role="table"
 >

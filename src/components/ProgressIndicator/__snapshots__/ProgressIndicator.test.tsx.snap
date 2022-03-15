@@ -2,10 +2,10 @@
 
 exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="linearBasic"
     id="linearBasic-label"
   >
@@ -45,7 +45,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
 
 exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -89,7 +89,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
       </div>
     </div>
     <label
-      className="css-0"
+      className="css-1xdhyk6"
       htmlFor="circularBasic"
       id="circularBasic-label"
     >
@@ -101,7 +101,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
 
 exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -131,7 +131,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
 
 exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -174,10 +174,10 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
 
 exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="linearIndeterminate"
     id="linearIndeterminate-label"
   >
@@ -211,7 +211,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
 
 exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -247,7 +247,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
       </svg>
     </div>
     <label
-      className="css-0"
+      className="css-1xdhyk6"
       htmlFor="circularIndeterminate"
       id="circularIndeterminate-label"
     >
@@ -259,10 +259,10 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
 
 exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="linearDarkMode"
     id="linearDarkMode-label"
   >
@@ -302,7 +302,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
 
 exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -346,7 +346,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
       </div>
     </div>
     <label
-      className="css-0"
+      className="css-1xdhyk6"
       htmlFor="circularDarkMode"
       id="circularDarkMode-label"
     >

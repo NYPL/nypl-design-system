@@ -1,5 +1,5 @@
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
 
@@ -45,7 +45,7 @@ for (const type in HeroTypes) {
  */
 const getVariant = (type) => variantMap[type] || HeroTypes.Primary;
 
-export default function Hero(props: React.PropsWithChildren<HeroProps>) {
+export const Hero = chakra((props: React.PropsWithChildren<HeroProps>) => {
   const {
     backgroundColor,
     backgroundImageSrc,
@@ -55,6 +55,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     image,
     locationDetails,
     subHeaderText,
+    ...rest
   } = props;
   const variant = getVariant(heroType);
   const styles = useMultiStyleConfig("Hero", { variant });
@@ -155,6 +156,7 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       data-responsive-background-image
       style={backgroundImageStyle}
       __css={styles}
+      {...rest}
     >
       <Box
         data-testid="hero-content"
@@ -166,4 +168,6 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
       {locationDetails}
     </Box>
   );
-}
+});
+
+export default Hero;

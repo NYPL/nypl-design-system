@@ -2,17 +2,17 @@
 
 exports[`StructuredContent renders the UI snapshot 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="withHTMLStringContent"
 >
   <h2
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withHTMLStringContent-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withHTMLStringContent-callout"
   >
     This is the callout text
@@ -52,17 +52,17 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
 
 exports[`StructuredContent renders the UI snapshot 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="withHTMLDOMContent"
 >
   <h2
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withHTMLDOMContent-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withHTMLDOMContent-callout"
   >
     This is the callout text
@@ -137,17 +137,17 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
 
 exports[`StructuredContent renders the UI snapshot 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="withoutAnImage"
 >
   <h2
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withoutAnImage-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withoutAnImage-callout"
   >
     This is the callout text
@@ -164,17 +164,17 @@ exports[`StructuredContent renders the UI snapshot 3`] = `
 
 exports[`StructuredContent renders the UI snapshot 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="withImageWithoutCaptionOrCredit"
 >
   <h2
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withImageWithoutCaptionOrCredit-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withImageWithoutCaptionOrCredit-callout"
   >
     This is the callout text
@@ -196,11 +196,11 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
 
 exports[`StructuredContent renders the UI snapshot 5`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="withoutHeading"
 >
   <h3
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withoutHeading-callout"
   >
     This is the callout text
@@ -240,11 +240,11 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
 
 exports[`StructuredContent renders the UI snapshot 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="withoutCalloutText"
 >
   <h2
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="withoutCalloutText-heading"
   >
     Heading text

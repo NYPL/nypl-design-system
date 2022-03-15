@@ -2,7 +2,7 @@
 
 exports[`Notification renders the UI snapshot correctly 1`] = `
 <aside
-  className="css-0"
+  className="css-1xdhyk6"
   data-type="standard"
   id="notificationID1"
 >
@@ -10,11 +10,11 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <header
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="notificationID1-notification-icon"
         role="img"
@@ -45,14 +45,14 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-0"
+        className="chakra-heading css-1xdhyk6"
         id="notificationID1-heading"
       >
         Notification Heading
       </h4>
     </header>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <div
         className="css-0"
@@ -66,7 +66,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
 
 exports[`Notification renders the UI snapshot correctly 2`] = `
 <aside
-  className="css-0"
+  className="css-1xdhyk6"
   data-type="announcement"
   id="notificationID2"
 >
@@ -74,11 +74,11 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <header
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-u7u798"
         focusable={false}
         id="notificationID2-notification-icon"
         role="img"
@@ -109,14 +109,14 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-0"
+        className="chakra-heading css-1xdhyk6"
         id="notificationID2-heading"
       >
         Notification Heading
       </h4>
     </header>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <div
         className="css-0"
@@ -130,7 +130,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
 
 exports[`Notification renders the UI snapshot correctly 3`] = `
 <aside
-  className="css-0"
+  className="css-1xdhyk6"
   data-type="warning"
   id="notificationID3"
 >
@@ -138,11 +138,11 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <header
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-zzgjc6"
         focusable={false}
         id="notificationID3-notification-icon"
         role="img"
@@ -173,14 +173,14 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
         </g>
       </svg>
       <h4
-        className="chakra-heading css-0"
+        className="chakra-heading css-1xdhyk6"
         id="notificationID3-heading"
       >
         Notification Heading
       </h4>
     </header>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <div
         className="css-0"
@@ -194,7 +194,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
 
 exports[`Notification renders the UI snapshot correctly 4`] = `
 <aside
-  className="css-0"
+  className="css-1xdhyk6"
   data-type="standard"
   id="notificationID4"
 >
@@ -202,11 +202,11 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="notificationID4-notification-icon"
         role="img"
@@ -248,7 +248,7 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
 
 exports[`Notification renders the UI snapshot correctly 5`] = `
 <aside
-  className="css-0"
+  className="css-1xdhyk6"
   data-type="standard"
   id="notificationID5"
 >
@@ -256,17 +256,17 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
     className="css-0"
   >
     <header
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <h4
-        className="chakra-heading css-0"
+        className="chakra-heading css-1xdhyk6"
         id="notificationID5-heading"
       >
         Notification Heading
       </h4>
     </header>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <div
         className="css-0"
@@ -280,7 +280,7 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
 
 exports[`Notification renders the UI snapshot correctly 6`] = `
 <aside
-  className="css-0"
+  className="css-1xdhyk6"
   data-type="standard"
   id="notificationID6"
 >
@@ -288,7 +288,7 @@ exports[`Notification renders the UI snapshot correctly 6`] = `
     className="css-0"
   >
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <div
         className="css-0"
@@ -302,7 +302,7 @@ exports[`Notification renders the UI snapshot correctly 6`] = `
 
 exports[`Notification renders the UI snapshot correctly 7`] = `
 <aside
-  className="css-0"
+  className="css-1xdhyk6"
   data-type="standard"
   id="notificationID7"
 >
@@ -310,11 +310,11 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
     className="css-0"
   >
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-q3eg3a"
         focusable={false}
         id="notificationID7-notification-icon"
         role="img"
@@ -353,7 +353,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   </div>
   <button
     aria-label="Close the notification"
-    className="chakra-button css-0"
+    className="chakra-button css-1xdhyk6"
     data-testid="button"
     id="notificationID7-notification-dismissible-button"
     onClick={[Function]}
@@ -361,7 +361,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   >
     <svg
       aria-hidden={true}
-      className="chakra-icon css-onkibi"
+      className="chakra-icon css-1grhd2q"
       focusable={false}
       id="notificationID7-dismissible-notification-icon"
       role="img"

@@ -1,5 +1,5 @@
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
 
@@ -19,13 +19,14 @@ interface LabelProps {
 /**
  * A label for form inputs. It should never be used alone.
  */
-function Label(props: React.PropsWithChildren<LabelProps>) {
+export const Label = chakra((props: React.PropsWithChildren<LabelProps>) => {
   const {
     children,
     className,
     htmlFor,
     id = generateUUID(),
     optReqFlag,
+    ...rest
   } = props;
   const styles = useMultiStyleConfig("Label", {});
 
@@ -36,11 +37,12 @@ function Label(props: React.PropsWithChildren<LabelProps>) {
       className={className}
       htmlFor={htmlFor}
       __css={styles}
+      {...rest}
     >
       {children}
       {optReqFlag && <Box __css={styles.helper}>{optReqFlag}</Box>}
     </Box>
   );
-}
+});
 
 export default Label;

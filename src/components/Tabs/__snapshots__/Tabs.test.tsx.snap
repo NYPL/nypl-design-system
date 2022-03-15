@@ -2,7 +2,7 @@
 
 exports[`Tabs renders the UI snapshot correctly 1`] = `
 <div
-  className="chakra-tabs css-0"
+  className="chakra-tabs css-1xdhyk6"
   id="basic"
 >
   <div
@@ -10,7 +10,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
   >
     <button
       aria-label="Previous"
-      className="chakra-button css-fg6w03"
+      className="chakra-button css-1fhylxi"
       data-testid="button"
       id="tabs-previous-basic"
       onClick={[Function]}
@@ -18,7 +18,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="tabs-previous-icon-basic"
         role="img"
@@ -105,7 +105,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     </div>
     <button
       aria-label="Next"
-      className="chakra-button css-1whvqek"
+      className="chakra-button css-12jygyh"
       data-testid="button"
       id="tabs-next-basic"
       onClick={[Function]}
@@ -113,7 +113,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="tabs-next-icon-basic"
         role="img"

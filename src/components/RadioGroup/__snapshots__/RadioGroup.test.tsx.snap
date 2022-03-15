@@ -2,7 +2,7 @@
 
 exports[`Radio Button renders the UI snapshot correctly 1`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-column"
 >
   <legend>
@@ -51,7 +51,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -98,7 +98,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -118,7 +118,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 2`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-row"
 >
   <legend>
@@ -167,7 +167,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -214,7 +214,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -234,7 +234,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 3`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-noLabel"
 >
   <legend>
@@ -283,7 +283,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -330,7 +330,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -350,7 +350,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 4`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-helperText"
 >
   <legend>
@@ -399,7 +399,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -446,7 +446,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -467,7 +467,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     <div
       aria-atomic={true}
       aria-live="off"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "helper text",
@@ -482,7 +482,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 5`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-invalidText"
 >
   <legend>
@@ -531,7 +531,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -578,7 +578,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -598,7 +598,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 6`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-optReq"
 >
   <legend>
@@ -642,7 +642,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -689,7 +689,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -709,7 +709,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 7`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-required"
 >
   <legend>
@@ -759,7 +759,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -807,7 +807,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -827,7 +827,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 8`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-invalid"
 >
   <legend>
@@ -878,7 +878,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         data-invalid=""
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -929,7 +929,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         data-invalid=""
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -951,7 +951,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 9`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-disabled"
 >
   <legend>
@@ -1002,7 +1002,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         data-disabled=""
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -1053,7 +1053,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         data-disabled=""
         onMouseDown={[Function]}
         onMouseEnter={[Function]}

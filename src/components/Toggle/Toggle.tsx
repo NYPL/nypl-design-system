@@ -1,5 +1,6 @@
 import {
   Box,
+  chakra,
   Switch,
   useMultiStyleConfig,
   useStyleConfig,
@@ -57,8 +58,8 @@ export const onChangeDefault = () => {
 /**
  * Component that renders Chakra's `Switch` component along with NYPL defaults.
  */
-const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
-  (props, ref?) => {
+export const Toggle = chakra(
+  React.forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
     const {
       additionalStyles = {},
       defaultChecked = false,
@@ -73,6 +74,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
       name,
       onChange = onChangeDefault,
       size = ToggleSizes.Large,
+      ...rest
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
@@ -83,7 +85,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
 
     return (
       <>
-        <Box __css={{ ...styles, ...additionalStyles }}>
+        <Box __css={{ ...styles, ...additionalStyles }} {...rest}>
           <Switch
             id={id}
             name={name || "default"}
@@ -117,7 +119,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
         )}
       </>
     );
-  }
+  })
 );
 
 export default Toggle;

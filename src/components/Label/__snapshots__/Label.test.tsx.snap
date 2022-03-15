@@ -2,7 +2,7 @@
 
 exports[`Label Renders the UI snapshot correctly 1`] = `
 <label
-  className="css-0"
+  className="css-1xdhyk6"
   htmlFor="some-input-id"
   id="label"
 >
@@ -12,7 +12,7 @@ exports[`Label Renders the UI snapshot correctly 1`] = `
 
 exports[`Label Renders the UI snapshot correctly 2`] = `
 <label
-  className="css-0"
+  className="css-1xdhyk6"
   htmlFor="some-input-id"
   id="label2"
 >
@@ -27,7 +27,7 @@ exports[`Label Renders the UI snapshot correctly 2`] = `
 
 exports[`Label Renders the UI snapshot correctly 3`] = `
 <label
-  className="css-0"
+  className="css-1xdhyk6"
   htmlFor="some-input-id"
   id="label3"
 >

@@ -23,8 +23,8 @@ const imageRowHeightStyles = {
 // NYPL's skeleton loader component.
 const SkeletonLoader = {
   parts: ["section", "image", "container", "heading", "content", "button"],
-  baseStyle: ({ border, imageAspectRatio }) => {
-    const borderStyles = border ? { ...borderRules } : {};
+  baseStyle: ({ imageAspectRatio, isBordered }) => {
+    const borderStyles = isBordered ? { ...borderRules } : {};
 
     return {
       margin: "auto",

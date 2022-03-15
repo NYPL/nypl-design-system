@@ -234,6 +234,34 @@ describe("Card", () => {
       <CardContent>middle column content</CardContent>
     </Card>
   );
+  const cardWithChakraProps = (
+    <Card
+      id="chakraProps"
+      imageSrc="https://placeimg.com/400/200/arch"
+      imageAlt="Alt text"
+      p="s"
+      color="ui.error.primary"
+    >
+      <CardHeading
+        level={HeadingLevels.Three}
+        id="heading1"
+        color="ui.error.secondary"
+      >
+        The Card Heading
+      </CardHeading>
+      <CardContent p="20px">middle column content</CardContent>
+      <CardActions m="20px">
+        <Button
+          onClick={() => {}}
+          id="button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Example CTA
+        </Button>
+      </CardActions>
+    </Card>
+  );
   let container;
 
   it("renders a Card with a header, image, content, and CTAs", () => {
@@ -318,6 +346,7 @@ describe("Card", () => {
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
     const withNoImage = renderer.create(cardWithNoImage).toJSON();
     const withFullClick = renderer.create(cardFullClick()).toJSON();
+    const withChakraProps = renderer.create(cardWithChakraProps).toJSON();
 
     expect(regular).toMatchSnapshot();
     expect(withExtendedStyles).toMatchSnapshot();
@@ -325,5 +354,6 @@ describe("Card", () => {
     expect(withNoContent).toMatchSnapshot();
     expect(withNoImage).toMatchSnapshot();
     expect(withFullClick).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
   });
 });

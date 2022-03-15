@@ -2,11 +2,11 @@
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="basic-form-field}"
 >
   <fieldset
-    className="css-0"
+    className="css-1u8qly9"
     id="basic"
   >
     <legend>
@@ -18,11 +18,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
       </div>
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-10sny6j"
       id="basic-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="basic-form-row-grandchild0"
       >
         <div
@@ -32,10 +32,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="basic-start"
                 id="basic-start-label"
               >
@@ -59,7 +59,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="basic-form-row-grandchild1"
       >
         <div
@@ -69,10 +69,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="basic-end"
                 id="basic-end-label"
               >
@@ -102,11 +102,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="no-label-form-field}"
 >
   <fieldset
-    className="css-0"
+    className="css-1u8qly9"
     id="no-label"
   >
     <legend>
@@ -118,11 +118,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
       </div>
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-10sny6j"
       id="no-label-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="no-label-form-row-grandchild0"
       >
         <div
@@ -132,10 +132,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="no-label-start"
                 id="no-label-start-label"
               >
@@ -159,7 +159,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="no-label-form-row-grandchild1"
       >
         <div
@@ -169,10 +169,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="no-label-end"
                 id="no-label-end-label"
               >
@@ -202,11 +202,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="custom-format-form-field}"
 >
   <fieldset
-    className="css-0"
+    className="css-1u8qly9"
     id="custom-format"
   >
     <legend>
@@ -218,11 +218,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
       </div>
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-10sny6j"
       id="custom-format-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="custom-format-form-row-grandchild0"
       >
         <div
@@ -232,10 +232,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="custom-format-start"
                 id="custom-format-start-label"
               >
@@ -259,7 +259,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="custom-format-form-row-grandchild1"
       >
         <div
@@ -269,10 +269,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="custom-format-end"
                 id="custom-format-end-label"
               >
@@ -302,11 +302,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="invalid-form-field}"
 >
   <fieldset
-    className="css-0"
+    className="css-1u8qly9"
     id="invalid"
   >
     <legend>
@@ -318,11 +318,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       </div>
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-10sny6j"
       id="invalid-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="invalid-form-row-grandchild0"
       >
         <div
@@ -332,10 +332,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="invalid-start"
                 id="invalid-start-label"
               >
@@ -362,7 +362,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 <div
                   aria-atomic={true}
                   aria-live="polite"
-                  className=" css-0"
+                  className="css-1xdhyk6"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "Please select a valid date.",
@@ -377,7 +377,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="invalid-form-row-grandchild1"
       >
         <div
@@ -387,10 +387,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="invalid-end"
                 id="invalid-end-label"
               >
@@ -417,7 +417,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 <div
                   aria-atomic={true}
                   aria-live="polite"
-                  className=" css-0"
+                  className="css-1xdhyk6"
                   dangerouslySetInnerHTML={
                     Object {
                       "__html": "Please select a valid date.",
@@ -438,7 +438,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       <div
         aria-atomic={true}
         aria-live="off"
-        className=" css-0"
+        className="css-1xdhyk6"
         dangerouslySetInnerHTML={
           Object {
             "__html": "Note that the Library may be closed on Sundays.",
@@ -454,11 +454,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="disabled-form-field}"
 >
   <fieldset
-    className="css-0"
+    className="css-1u8qly9"
     id="disabled"
   >
     <legend>
@@ -470,11 +470,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       </div>
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-10sny6j"
       id="disabled-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="disabled-form-row-grandchild0"
       >
         <div
@@ -484,10 +484,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="disabled-start"
                 id="disabled-start-label"
               >
@@ -511,7 +511,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-19tzxg7"
         id="disabled-form-row-grandchild1"
       >
         <div
@@ -521,10 +521,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             className="react-datepicker__input-container"
           >
             <div
-              className="css-0"
+              className="css-1xdhyk6"
             >
               <label
-                className="css-0"
+                className="css-1xdhyk6"
                 htmlFor="disabled-end"
                 id="disabled-end-label"
               >
@@ -554,7 +554,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       <div
         aria-atomic={true}
         aria-live="off"
-        className=" css-0"
+        className="css-1xdhyk6"
         dangerouslySetInnerHTML={
           Object {
             "__html": "Note that the Library may be closed on Sundays.",
@@ -570,11 +570,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="basic-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-19tzxg7"
     id="basic-start-form"
   >
     <div
@@ -584,10 +584,10 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-0"
+          className="css-1xdhyk6"
         >
           <label
-            className="css-0"
+            className="css-1xdhyk6"
             htmlFor="basic-start"
             id="basic-start-label"
           >
@@ -620,11 +620,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="no-label-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-19tzxg7"
     id="no-label-start-form"
   >
     <div
@@ -634,7 +634,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-0"
+          className="css-1xdhyk6"
         >
           <input
             aria-label="Select the date you want to visit NYPL"
@@ -659,11 +659,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="custom-format-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-19tzxg7"
     id="custom-format-start-form"
   >
     <div
@@ -673,10 +673,10 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-0"
+          className="css-1xdhyk6"
         >
           <label
-            className="css-0"
+            className="css-1xdhyk6"
             htmlFor="custom-format-start"
             id="custom-format-start-label"
           >
@@ -709,11 +709,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="invalid-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-19tzxg7"
     id="invalid-start-form"
   >
     <div
@@ -723,10 +723,10 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-0"
+          className="css-1xdhyk6"
         >
           <label
-            className="css-0"
+            className="css-1xdhyk6"
             htmlFor="invalid-start"
             id="invalid-start-label"
           >
@@ -759,7 +759,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             <div
               aria-atomic={true}
               aria-live="polite"
-              className=" css-0"
+              className="css-1xdhyk6"
               dangerouslySetInnerHTML={
                 Object {
                   "__html": "Please select a valid date.",
@@ -778,11 +778,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 <div
-  className="css-aq1pyb"
+  className="css-19tzxg7"
   id="disabled-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-19tzxg7"
     id="disabled-start-form"
   >
     <div
@@ -792,10 +792,10 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="css-0"
+          className="css-1xdhyk6"
         >
           <label
-            className="css-0"
+            className="css-1xdhyk6"
             htmlFor="disabled-start"
             id="disabled-start-label"
           >
@@ -827,7 +827,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             <div
               aria-atomic={true}
               aria-live="off"
-              className=" css-0"
+              className="css-1xdhyk6"
               dangerouslySetInnerHTML={
                 Object {
                   "__html": "Note that the Library may be closed on Sundays.",

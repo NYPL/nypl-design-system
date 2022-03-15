@@ -2,7 +2,7 @@
 
 exports[`Fieldset renders the UI snapshot correctly 1`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <legend>
     Legend Text
@@ -20,7 +20,7 @@ exports[`Fieldset renders the UI snapshot correctly 1`] = `
 
 exports[`Fieldset renders the UI snapshot correctly 2`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <legend>
     Legend Text
@@ -38,7 +38,7 @@ exports[`Fieldset renders the UI snapshot correctly 2`] = `
 
 exports[`Fieldset renders the UI snapshot correctly 3`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <legend>
     Legend Text
@@ -51,7 +51,7 @@ exports[`Fieldset renders the UI snapshot correctly 3`] = `
 
 exports[`Fieldset renders the UI snapshot correctly 4`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <legend>
     Legend Text

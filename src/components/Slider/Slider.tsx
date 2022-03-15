@@ -1,6 +1,6 @@
-import * as React from "react";
 import {
   Box,
+  chakra,
   RangeSlider as ChakraRangeSlider,
   RangeSliderTrack as ChakraRangeSliderTrack,
   RangeSliderFilledTrack as ChakraRangeSliderFilledTrack,
@@ -11,6 +11,7 @@ import {
   SliderThumb as ChakraSliderThumb,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import generateUUID from "../../helpers/generateUUID";
 import Label from "../Label/Label";
@@ -76,7 +77,7 @@ export interface SliderProps {
  * with a min and max value. The value(s) can be updated through the slider
  * thumb(s) or through the text input(s) elements.
  */
-export default function Slider(props: React.PropsWithChildren<SliderProps>) {
+export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   const {
     className,
     defaultValue = 0,
@@ -98,6 +99,7 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     showLabel = true,
     showValues = true,
     step = 1,
+    ...rest
   } = props;
   // For the RangeSlider, if the defaultValue is not an array, then we set
   // the defaultValue to an array with the min and max values.
@@ -271,7 +273,7 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
   };
 
   return (
-    <Box className={className} __css={styles}>
+    <Box className={className} __css={styles} {...rest}>
       {showLabel && (
         <Label
           id={`${id}-label`}
@@ -314,4 +316,6 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
       )}
     </Box>
   );
-}
+});
+
+export default Slider;

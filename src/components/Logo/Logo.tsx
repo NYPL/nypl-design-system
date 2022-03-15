@@ -1,5 +1,10 @@
+import {
+  Box,
+  chakra,
+  Icon as ChakraIcon,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import * as React from "react";
-import { Icon as ChakraIcon, Box, useStyleConfig } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
 import { LogoNames, LogoSizes } from "./LogoTypes";
@@ -29,7 +34,7 @@ export interface LogoProps {
  * The `Logo` component renders SVG-based logos and color variants that are
  * commonly used by the New York Public Library.
  */
-export default function Logo(props: React.PropsWithChildren<LogoProps>) {
+export const Logo = chakra((props: React.PropsWithChildren<LogoProps>) => {
   const {
     additionalStyles = {},
     children,
@@ -39,6 +44,7 @@ export default function Logo(props: React.PropsWithChildren<LogoProps>) {
     name,
     size = LogoSizes.Medium,
     title = `${name} logo`,
+    ...rest
   } = props;
   const styles = useStyleConfig("Logo", {
     size,
@@ -93,5 +99,11 @@ export default function Logo(props: React.PropsWithChildren<LogoProps>) {
     console.warn("You must pass an `svg` element to the `Logo` component.");
   }
 
-  return <Box __css={styles}>{childSVG}</Box>;
-}
+  return (
+    <Box __css={styles} {...rest}>
+      {childSVG}
+    </Box>
+  );
+});
+
+export default Logo;

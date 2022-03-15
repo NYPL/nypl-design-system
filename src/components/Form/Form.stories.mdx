@@ -266,8 +266,8 @@ export const formRow = (nameString, size) => {
   );
 };
 export const sizes = [];
-for (const FormGaps in FormGaps) {
-  sizes.push(formRow(`FormGaps.${FormGaps}`, FormGaps[FormGaps]));
+for (const formGap in FormGaps) {
+  sizes.push(formRow(`FormGaps.${formGap}`, FormGaps[formGap]));
 }
 export const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 

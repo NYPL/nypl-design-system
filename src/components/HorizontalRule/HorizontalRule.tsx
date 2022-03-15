@@ -1,5 +1,5 @@
 // HorizontalRule
-import { Box, useStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 export interface HorizontalRuleProps {
@@ -20,8 +20,8 @@ export interface HorizontalRuleProps {
   width?: string;
 }
 
-export default function HorizontalRule(props: HorizontalRuleProps) {
-  const { align, className, height = "2px", width = "100%" } = props;
+export const HorizontalRule = chakra((props: HorizontalRuleProps) => {
+  const { align, className, height = "2px", width = "100%", ...rest } = props;
   const styles = useStyleConfig("HorizontalRule", { align });
   let finalHeight = height;
 
@@ -39,5 +39,7 @@ export default function HorizontalRule(props: HorizontalRuleProps) {
     width,
   };
 
-  return <Box as="hr" className={className} __css={finalStyles} />;
-}
+  return <Box as="hr" className={className} __css={finalStyles} {...rest} />;
+});
+
+export default HorizontalRule;

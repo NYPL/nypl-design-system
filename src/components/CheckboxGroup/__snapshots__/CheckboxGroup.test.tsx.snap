@@ -2,7 +2,7 @@
 
 exports[`Checkbox renders the UI snapshot correctly 1`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="column-checkbox-group"
 >
   <legend>
@@ -20,7 +20,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     id="column"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -81,7 +81,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -147,7 +147,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 2`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="row-checkbox-group"
 >
   <legend>
@@ -165,7 +165,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     id="row"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -226,7 +226,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -292,7 +292,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 3`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="noLabel-checkbox-group"
 >
   <legend>
@@ -310,7 +310,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     id="noLabel"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -371,7 +371,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -437,7 +437,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 4`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="helperText-checkbox-group"
 >
   <legend>
@@ -455,7 +455,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     id="helperText"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -516,7 +516,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -583,7 +583,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     <div
       aria-atomic={true}
       aria-live="off"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "helper text",
@@ -598,7 +598,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 5`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="invalidText-checkbox-group"
 >
   <legend>
@@ -616,7 +616,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     id="invalidText"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -677,7 +677,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -743,7 +743,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="optReq-checkbox-group"
 >
   <legend>
@@ -756,7 +756,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     id="optReq"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -817,7 +817,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -883,7 +883,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 7`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="required-checkbox-group"
 >
   <legend>
@@ -901,7 +901,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     id="required"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -962,7 +962,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       onClick={[Function]}
     >
       <input
@@ -1028,7 +1028,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 8`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="invalid-checkbox-group"
 >
   <legend>
@@ -1046,7 +1046,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     id="invalid"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       data-invalid=""
       onClick={[Function]}
     >
@@ -1110,7 +1110,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       data-invalid=""
       onClick={[Function]}
     >
@@ -1179,7 +1179,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 9`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
   id="disabled-checkbox-group"
 >
   <legend>
@@ -1197,7 +1197,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     id="disabled"
   >
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       data-disabled=""
       onClick={[Function]}
     >
@@ -1261,7 +1261,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
       </span>
     </label>
     <label
-      className="chakra-checkbox css-1uiwwan"
+      className="chakra-checkbox css-ucw072"
       data-disabled=""
       onClick={[Function]}
     >

@@ -1,5 +1,5 @@
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import { StatusBadgeTypes } from "./StatusBadgeTypes";
 import generateUUID from "../../helpers/generateUUID";
@@ -14,24 +14,27 @@ export interface StatusBadgeProps {
   level?: StatusBadgeTypes;
 }
 
-function StatusBadge(props: React.PropsWithChildren<StatusBadgeProps>) {
-  const {
-    children,
-    className,
-    id = generateUUID(),
-    level = StatusBadgeTypes.Low,
-  } = props;
-  const styles = useStyleConfig("StatusBadge", { variant: level });
+export const StatusBadge = chakra(
+  (props: React.PropsWithChildren<StatusBadgeProps>) => {
+    const {
+      children,
+      className,
+      id = generateUUID(),
+      level = StatusBadgeTypes.Low,
+      ...rest
+    } = props;
+    const styles = useStyleConfig("StatusBadge", { variant: level });
 
-  if (!children) {
-    console.warn("Status Badge has no children.");
+    if (!children) {
+      console.warn("Status Badge has no children.");
+    }
+
+    return (
+      <Box id={id} className={className} __css={styles} {...rest}>
+        {children}
+      </Box>
+    );
   }
-
-  return (
-    <Box id={id} className={className} __css={styles}>
-      {children}
-    </Box>
-  );
-}
+);
 
 export default StatusBadge;

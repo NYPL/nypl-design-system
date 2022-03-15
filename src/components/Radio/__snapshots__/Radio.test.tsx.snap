@@ -32,7 +32,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
   />
   <span
     aria-hidden={true}
-    className="css-ssalds"
+    className="css-14wybg9"
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -81,7 +81,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
   />
   <span
     aria-hidden={true}
-    className="css-ssalds"
+    className="css-14wybg9"
     data-checked=""
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
@@ -132,7 +132,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
   />
   <span
     aria-hidden={true}
-    className="css-ssalds"
+    className="css-14wybg9"
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -182,7 +182,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
   />
   <span
     aria-hidden={true}
-    className="css-ssalds"
+    className="css-14wybg9"
     data-invalid=""
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
@@ -234,7 +234,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
   />
   <span
     aria-hidden={true}
-    className="css-ssalds"
+    className="css-14wybg9"
     data-disabled=""
     onMouseDown={[Function]}
     onMouseEnter={[Function]}

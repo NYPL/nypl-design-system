@@ -1,5 +1,5 @@
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Heading from "../Heading/Heading";
 import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
@@ -46,7 +46,7 @@ export interface StructuredContentProps {
  * Internal component used in the `StructuredContent` component
  * that renders the DS `Image` component.
  */
-function StructuredContentImage(props: ImageProps) {
+const StructuredContentImage = chakra((props: ImageProps) => {
   const {
     additionalFigureStyles,
     additionalImageStyles,
@@ -73,81 +73,84 @@ function StructuredContentImage(props: ImageProps) {
       src={src}
     />
   );
-}
+});
 
 /**
  * The `StructuredContent` component that displays a heading, callout content,
  * an image, and body content. All are optional except for body content.
  */
-export default function StructuredContent(
-  props: React.PropsWithChildren<StructuredContentProps>
-) {
-  const {
-    calloutText,
-    className,
-    headingText,
-    id = generateUUID(),
-    imageAlt = "",
-    imageAspectRatio = ImageRatios.Square,
-    imageCaption,
-    imageComponent,
-    imageCredit,
-    imagePosition = StructuredContentImagePosition.Left,
-    imageSize = ImageSizes.Medium,
-    imageSrc,
-    bodyContent,
-  } = props;
-  const hasImage = imageSrc || imageComponent;
-  const hasFigureImage = imageCaption || imageCredit;
-  const styles = useMultiStyleConfig("StructuredContent", {
-    hasFigureImage,
-    imageAspectRatio,
-    imagePosition,
-  });
-  const finalBodyContent =
-    typeof bodyContent === "string" ? (
-      <div dangerouslySetInnerHTML={{ __html: bodyContent }} />
-    ) : (
-      <Box>{bodyContent}</Box>
-    );
+export const StructuredContent = chakra(
+  (props: React.PropsWithChildren<StructuredContentProps>) => {
+    const {
+      calloutText,
+      className,
+      headingText,
+      id = generateUUID(),
+      imageAlt = "",
+      imageAspectRatio = ImageRatios.Square,
+      imageCaption,
+      imageComponent,
+      imageCredit,
+      imagePosition = StructuredContentImagePosition.Left,
+      imageSize = ImageSizes.Medium,
+      imageSrc,
+      bodyContent,
+      ...rest
+    } = props;
+    const hasImage = imageSrc || imageComponent;
+    const hasFigureImage = imageCaption || imageCredit;
+    const styles = useMultiStyleConfig("StructuredContent", {
+      hasFigureImage,
+      imageAspectRatio,
+      imagePosition,
+    });
+    const finalBodyContent =
+      typeof bodyContent === "string" ? (
+        <div dangerouslySetInnerHTML={{ __html: bodyContent }} />
+      ) : (
+        <Box>{bodyContent}</Box>
+      );
 
-  if (hasImage && !imageAlt) {
-    console.warn(
-      "StructuredContent: `imageAlt` prop is required when using an image."
+    if (hasImage && !imageAlt) {
+      console.warn(
+        "StructuredContent: `imageAlt` prop is required when using an image."
+      );
+    }
+
+    return (
+      <Box id={id} className={className} __css={styles} {...rest}>
+        {headingText && (
+          <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
+            {headingText}
+          </Heading>
+        )}
+        {calloutText && (
+          <Heading
+            displaySize={HeadingDisplaySizes.Callout}
+            id={`${id}-callout`}
+            level={HeadingLevels.Three}
+          >
+            {calloutText}
+          </Heading>
+        )}
+        {hasImage && (
+          <StructuredContentImage
+            additionalFigureStyles={styles.imageFigure}
+            additionalImageStyles={styles.image}
+            additionalWrapperStyles={styles.imageWrapper}
+            alt={imageAlt}
+            component={imageComponent}
+            imageAspectRatio={imageAspectRatio}
+            imageCaption={imageCaption}
+            imageCredit={imageCredit}
+            imageSize={imageSize}
+            src={imageSrc ? imageSrc : null}
+          />
+        )}
+        {finalBodyContent}
+      </Box>
     );
   }
+);
 
-  return (
-    <Box id={id} className={className} __css={styles}>
-      {headingText && (
-        <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
-          {headingText}
-        </Heading>
-      )}
-      {calloutText && (
-        <Heading
-          displaySize={HeadingDisplaySizes.Callout}
-          id={`${id}-callout`}
-          level={HeadingLevels.Three}
-        >
-          {calloutText}
-        </Heading>
-      )}
-      {hasImage && (
-        <StructuredContentImage
-          additionalFigureStyles={styles.imageFigure}
-          additionalImageStyles={styles.image}
-          additionalWrapperStyles={styles.imageWrapper}
-          alt={imageAlt}
-          component={imageComponent}
-          imageAspectRatio={imageAspectRatio}
-          imageCaption={imageCaption}
-          imageCredit={imageCredit}
-          imageSize={imageSize}
-          src={imageSrc ? imageSrc : null}
-        />
-      )}
-      {finalBodyContent}
-    </Box>
-  );
-}
+export default StructuredContent;

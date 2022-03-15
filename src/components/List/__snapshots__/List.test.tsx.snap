@@ -2,7 +2,7 @@
 
 exports[`List Renders the UI snapshot correctly 1`] = `
 <ul
-  className="css-0"
+  className="css-1xdhyk6"
   id="unordered"
 >
   <li>
@@ -22,7 +22,7 @@ exports[`List Renders the UI snapshot correctly 1`] = `
 
 exports[`List Renders the UI snapshot correctly 2`] = `
 <ul
-  className="css-0"
+  className="css-1xdhyk6"
   id="ordered"
 >
   <li>
@@ -42,7 +42,7 @@ exports[`List Renders the UI snapshot correctly 2`] = `
 
 exports[`List Renders the UI snapshot correctly 3`] = `
 <ol
-  className="css-0"
+  className="css-1xdhyk6"
   id="unordered-no-styling"
 >
   <li>
@@ -62,7 +62,7 @@ exports[`List Renders the UI snapshot correctly 3`] = `
 
 exports[`List Renders the UI snapshot correctly 4`] = `
 <ol
-  className="css-0"
+  className="css-1xdhyk6"
   id="ordered-no-styling"
 >
   <li>
@@ -82,11 +82,11 @@ exports[`List Renders the UI snapshot correctly 4`] = `
 
 exports[`List Renders the UI snapshot correctly 5`] = `
 <section
-  className="css-0"
+  className="css-1xdhyk6"
   id="definition"
 >
   <h2
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="definition-heading"
   >
     Animal Crossing Fish

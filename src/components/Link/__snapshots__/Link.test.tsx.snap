@@ -2,7 +2,7 @@
 
 exports[`Link renders the UI snapshot correctly 1`] = `
 <a
-  className="css-0"
+  className="css-1xdhyk6"
   href="#passed-in-link"
   id="standard-link"
   rel={null}
@@ -14,7 +14,7 @@ exports[`Link renders the UI snapshot correctly 1`] = `
 
 exports[`Link renders the UI snapshot correctly 2`] = `
 <a
-  className="css-0"
+  className="css-1xdhyk6"
   href="#passed-in-link"
   id="forwards-link"
   rel={null}
@@ -23,7 +23,7 @@ exports[`Link renders the UI snapshot correctly 2`] = `
   Forwards
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-onkibi"
+    className="chakra-icon more-link css-1grhd2q"
     focusable={false}
     id="forwards-link-icon"
     role="img"
@@ -58,7 +58,7 @@ exports[`Link renders the UI snapshot correctly 2`] = `
 
 exports[`Link renders the UI snapshot correctly 3`] = `
 <a
-  className="css-0"
+  className="css-1xdhyk6"
   href="#passed-in-link"
   id="backwards-link"
   rel={null}
@@ -66,7 +66,7 @@ exports[`Link renders the UI snapshot correctly 3`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-onkibi"
+    className="chakra-icon more-link css-1grhd2q"
     focusable={false}
     id="backwards-link-icon"
     role="img"
@@ -102,7 +102,7 @@ exports[`Link renders the UI snapshot correctly 3`] = `
 
 exports[`Link renders the UI snapshot correctly 4`] = `
 <a
-  className="css-0"
+  className="css-1xdhyk6"
   href="#passed-in-link"
   id="external-link"
   rel="nofollow"
@@ -111,7 +111,7 @@ exports[`Link renders the UI snapshot correctly 4`] = `
   External
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-onkibi"
+    className="chakra-icon more-link css-1grhd2q"
     focusable={false}
     id="external-link-icon"
     role="img"
@@ -146,7 +146,7 @@ exports[`Link renders the UI snapshot correctly 4`] = `
 
 exports[`Link renders the UI snapshot correctly 5`] = `
 <a
-  className="css-0"
+  className="css-1xdhyk6"
   href="#passed-in-link"
   id="button-link"
   rel={null}
@@ -158,7 +158,7 @@ exports[`Link renders the UI snapshot correctly 5`] = `
 
 exports[`Link renders the UI snapshot correctly 6`] = `
 <a
-  className="css-0"
+  className="css-1xdhyk6"
   href="#passed-in-link"
   id="icon-link"
   rel={null}
@@ -166,7 +166,7 @@ exports[`Link renders the UI snapshot correctly 6`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon more-link css-onkibi"
+    className="chakra-icon more-link css-1grhd2q"
     focusable={false}
     id="link-icon"
     role="img"
@@ -205,6 +205,7 @@ exports[`Link renders the UI snapshot correctly 7`] = `
   className="css-0"
 >
   <a
+    className="css-0"
     href="#existing-anchor-tag"
     id="anchor-link"
     rel={null}
@@ -222,7 +223,7 @@ exports[`Link renders the UI snapshot correctly 8`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon css-onkibi"
+    className="chakra-icon css-1grhd2q"
     focusable={false}
     id="link-icon"
     role="img"

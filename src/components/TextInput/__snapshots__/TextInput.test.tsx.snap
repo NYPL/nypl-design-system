@@ -2,10 +2,10 @@
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -33,10 +33,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -63,7 +63,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <input
     aria-label="Custom Input Label"
@@ -83,10 +83,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -117,7 +117,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     <div
       aria-atomic={true}
       aria-live="off"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Custom helper text",
@@ -132,10 +132,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -166,7 +166,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "There is an error related to this field.",
@@ -181,10 +181,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -212,10 +212,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 
 exports[`UI Snapshots renders the textarea UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="myTextarea"
     id="myTextarea-label"
   >

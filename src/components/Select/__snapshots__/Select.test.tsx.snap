@@ -2,10 +2,10 @@
 
 exports[`Select Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="select"
     id="select-label"
   >
@@ -49,7 +49,7 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon chakra-select__icon css-onkibi"
+        className="chakra-icon chakra-select__icon css-1grhd2q"
         focusable={false}
         id="select-icon"
         role="img"
@@ -86,10 +86,10 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
 
 exports[`Select Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="select"
     id="select-label"
   >
@@ -134,7 +134,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon chakra-select__icon css-onkibi"
+        className="chakra-icon chakra-select__icon css-1grhd2q"
         focusable={false}
         id="select-icon"
         role="img"
@@ -171,10 +171,10 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
 
 exports[`Select Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="select"
     id="select-label"
   >
@@ -219,7 +219,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon chakra-select__icon css-onkibi"
+        className="chakra-icon chakra-select__icon css-1grhd2q"
         focusable={false}
         id="select-icon"
         role="img"
@@ -258,7 +258,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Tom doesn't count as a sibling :(.",
@@ -273,10 +273,10 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
 
 exports[`Select Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="select"
     id="select-label"
   >
@@ -321,7 +321,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon chakra-select__icon css-onkibi"
+        className="chakra-icon chakra-select__icon css-1grhd2q"
         focusable={false}
         id="select-icon"
         role="img"
@@ -360,7 +360,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     <div
       aria-atomic={true}
       aria-live="off"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Remember, Logan will judge you no matter who you pick.",
@@ -375,10 +375,10 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
 
 exports[`Select Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="select"
     id="select-label"
   >
@@ -423,7 +423,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon chakra-select__icon css-onkibi"
+        className="chakra-icon chakra-select__icon css-1grhd2q"
         focusable={false}
         id="select-icon"
         role="img"
@@ -460,10 +460,10 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
 
 exports[`Select Renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="select"
     id="select-label"
   >
@@ -509,7 +509,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon chakra-select__icon css-onkibi"
+        className="chakra-icon chakra-select__icon css-1grhd2q"
         focusable={false}
         id="select-icon"
         role="img"
