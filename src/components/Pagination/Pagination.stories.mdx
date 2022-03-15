@@ -27,9 +27,9 @@ export const hrefProps = getStorybookHrefProps(10);
   }}
   argTypes={{
     className: { control: false },
+    currentPage: { table: { defaultValue: { summary: 1 } } },
     getPageHref: { control: false },
     id: { control: false },
-    currentPage: { table: { defaultValue: { summary: 1 } } },
     onPageChange: { control: false },
   }}
 />
@@ -39,7 +39,7 @@ export const hrefProps = getStorybookHrefProps(10);
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.25.10`  |
+| Latest            | `0.25.12`  |
 
 <Description of={Pagination} />
 
@@ -91,7 +91,7 @@ const getPageHref = (selectedPage: number) => {
 
 It is preferred to use the `Pagination` component with the `getPageHref`
 function passed as a prop and that the URL is updated whenever a page is
-changed. However,å the optional `onPageChange` prop is available in case URL
+changed. However, the optional `onPageChange` prop is available in case URL
 updating is not desired.
 
 In the following example, the `onPageChange` function gets the current page as
