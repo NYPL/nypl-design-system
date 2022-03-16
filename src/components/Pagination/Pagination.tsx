@@ -46,8 +46,8 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const refCurrentPage = useRef(currentPage);
   const [selectedPage, setSelectedPage] = useState<number>(initialPage);
   const styles = useMultiStyleConfig("Pagination", {});
-  const previousPageNumber = currentPage - 1;
-  const nextPageNumber = currentPage + 1;
+  const previousPageNumber = selectedPage - 1;
+  const nextPageNumber = selectedPage + 1;
 
   React.useEffect(() => {
     if (onPageChange && currentPage !== refCurrentPage.current) {
@@ -80,7 +80,6 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
    * not update the URL or refresh the page.
    */
   const handlePageClick = (e: Event, clickedPage: number) => {
-    console.log("clickedPage -->", clickedPage);
     e.preventDefault && e.preventDefault();
     if (selectedPage === clickedPage) return;
     setSelectedPage(clickedPage);

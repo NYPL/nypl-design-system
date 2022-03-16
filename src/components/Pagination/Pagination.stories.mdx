@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   ArgsTable,
   Canvas,
@@ -8,6 +9,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 import { withQuery } from "@storybook/addon-queryparams";
 
+import Button from "../Button/Button";
 import Pagination from "./Pagination";
 import { getCategory } from "../../utils/componentCategories";
 import { getStorybookHrefProps } from "../../utils/utils";
@@ -95,14 +97,14 @@ function passed as a prop and that the URL is updated whenever a page is
 changed. However, the optional `onPageChange` prop is available in case URL
 updating is not desired.
 
-In the following example, the `onPageChange` function gets the current page as
+In the following example, the `onPageChange` function gets the selected page as
 its only function argument. This is computed internally in the `Pagination`
 component through its own state.
 
 ```tsx
 // Example in a search results page.
-const onPageChange = (currentPage: number) => {
-  console.log(`Current page: ${currentPage}`);
+const onPageChange = (selectedPage: number) => {
+  console.log(`Current page: ${selectedPage}`);
   // Do what you need to with the `currentPage` value.
 };
 ```
@@ -114,12 +116,58 @@ const onPageChange = (currentPage: number) => {
       className: undefined,
       id: "pagination-id-2",
       initialPage: 7,
-      onPageChange: (currentPage) => {
-        console.log(`Current page: ${currentPage}`);
+      onPageChange: (selectedPage) => {
+        console.log(`Current page: ${selectedPage}`);
       },
       pageCount: 100,
     }}
   >
     {(args) => <Pagination {...args} />}
+  </Story>
+</Canvas>
+
+### Forcing a Page Change Programatically
+
+Generally, the selected page will change when a user clicks on a page number or
+the `Previous`/`Next` buttons in the component. However, there may be circumstances
+when you want to programatically change the page without the user explicitly
+requesting it (for example, if you want a user to be brought back to page 1 after
+entering a new search term). In this case, you can use the `currentPage` prop to
+force this change. Note that the `currentPage` prop only works with the unchanging
+URL `Pagination`.
+
+The following example shows that the user can be brought to page 1 without clicking
+on the `Pagination` component.
+
+<Canvas withToolbar>
+  <Story
+    name="Forcing a Page Change Programatically"
+    args={{
+      className: undefined,
+      id: "pagination-id-3",
+      initialPage: 7,
+      onPageChange: (selectedPage) => {
+        console.log(`Current page: ${selectedPage}`);
+      },
+      pageCount: 100,
+    }}
+  >
+    {(args) => {
+      const [page, setPage] = useState(args.initialPage);
+      const handleClick = () => setPage(1);
+      const handleSelection = (selectedPage) => setPage(selectedPage);
+      return (
+        <div>
+          <Pagination
+            {...args}
+            currentPage={page}
+            onPageChange={(selectedPage) => handleSelection(selectedPage)}
+          />
+          <Button type="button" buttonType="primary" onClick={handleClick}>
+            Go to Page 1
+          </Button>
+        </div>
+      );
+    }}
   </Story>
 </Canvas>
