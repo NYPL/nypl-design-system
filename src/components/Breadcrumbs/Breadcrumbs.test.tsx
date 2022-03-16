@@ -126,6 +126,15 @@ describe("Breadcrumbs Snapshot", () => {
         />
       )
       .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          id="breadcrumbs-test"
+          data-testid="testid"
+        />
+      )
+      .toJSON();
 
     expect(breadcrumbsSnapshot).toMatchSnapshot();
     expect(breadcrumbsVariantColor).toMatchSnapshot();
@@ -133,5 +142,6 @@ describe("Breadcrumbs Snapshot", () => {
     expect(breadcrumbsLocationsVariant).toMatchSnapshot();
     expect(breadcrumbsAdditionalStyles).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

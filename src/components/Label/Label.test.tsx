@@ -83,9 +83,30 @@ describe("Label", () => {
         </Label>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Label
+          id="chakra"
+          htmlFor="some-input-id"
+          p="20px"
+          color="ui.error.primary"
+        >
+          Cupcakes
+        </Label>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Label id="props" htmlFor="some-input-id" data-testid="props">
+          Cupcakes
+        </Label>
+      )
+      .toJSON();
 
     expect(simple).toMatchSnapshot();
     expect(optional).toMatchSnapshot();
     expect(required).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

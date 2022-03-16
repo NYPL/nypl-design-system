@@ -158,6 +158,13 @@ describe("Image", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(<Image src="test.png" alt="" p="20px" color="ui.error.primary" />)
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Image src="test.png" alt="" data-testid="image" />)
+      .toJSON();
+
     expect(basic).toMatchSnapshot();
     expect(figCaption).toMatchSnapshot();
     expect(sizeExtraExtraSmall).toMatchSnapshot();
@@ -174,5 +181,7 @@ describe("Image", () => {
     expect(ratioThreeByTwo).toMatchSnapshot();
     expect(ratioTwoByOne).toMatchSnapshot();
     expect(typeCircle).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

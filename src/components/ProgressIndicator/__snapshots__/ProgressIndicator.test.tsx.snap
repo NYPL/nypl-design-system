@@ -355,3 +355,90 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
   </div>
 </div>
 `;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 9`] = `
+<div
+  className="css-10g9ftz"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="chakra"
+    id="chakra-label"
+  >
+    Linear
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+      id="chakra"
+    >
+      <div
+        aria-label={null}
+        aria-labelledby="chakra-label"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="css-1jy0d03"
+        role="progressbar"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      50
+      %
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressIndicator Renders the UI snapshot correctly 10`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="props"
+    id="props-label"
+  >
+    Linear
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-kdwx3d"
+      id="props"
+    >
+      <div
+        aria-label={null}
+        aria-labelledby="props-label"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="css-1jy0d03"
+        role="progressbar"
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      50
+      %
+    </div>
+  </div>
+</div>
+`;

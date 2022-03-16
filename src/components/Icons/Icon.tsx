@@ -78,6 +78,7 @@ export const Icon = chakra(
       id,
       role: "img",
       title,
+      ...rest,
     };
     let childSVG = null;
 

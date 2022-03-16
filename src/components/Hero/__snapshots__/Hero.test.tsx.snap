@@ -305,3 +305,75 @@ exports[`Hero Renders the UI snapshot correctly 9`] = `
   </div>
 </div>
 `;
+
+exports[`Hero Renders the UI snapshot correctly 10`] = `
+<div
+  className="css-16h1ce8"
+  data-responsive-background-image={true}
+  data-testid="hero"
+  style={
+    Object {
+      "backgroundImage": "url(https://placeimg.com/1600/800/arch)",
+    }
+  }
+>
+  <div
+    className="css-0"
+    data-testid="hero-content"
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "color": undefined,
+      }
+    }
+  >
+    <h1
+      className="chakra-heading css-1xdhyk6"
+      id="chakra"
+    >
+      Hero Primary
+    </h1>
+    <div
+      className="css-0"
+    >
+      Example Subtitle
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Hero Renders the UI snapshot correctly 11`] = `
+<div
+  className="css-1xdhyk6"
+  data-responsive-background-image={true}
+  data-testid="props"
+  style={
+    Object {
+      "backgroundImage": "url(https://placeimg.com/1600/800/arch)",
+    }
+  }
+>
+  <div
+    className="css-0"
+    data-testid="hero-content"
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "color": undefined,
+      }
+    }
+  >
+    <h1
+      className="chakra-heading css-1xdhyk6"
+      id="props"
+    >
+      Hero Primary
+    </h1>
+    <div
+      className="css-0"
+    >
+      Example Subtitle
+    </div>
+  </div>
+</div>
+`;

@@ -365,6 +365,43 @@ describe("StructuredContent", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <StructuredContent
+          calloutText="This is the callout text"
+          headingText="Heading text"
+          id="withChakraProps"
+          imageAlt="Image alt text"
+          imageAspectRatio={ImageRatios.Original}
+          imageCaption="Image caption"
+          imageCredit="Image credit"
+          imagePosition={StructuredContentImagePosition.Left}
+          imageSize={ImageSizes.Medium}
+          imageSrc="https://placeimg.com/400/300/animals"
+          bodyContent={htmlStringBodyContent}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <StructuredContent
+          calloutText="This is the callout text"
+          headingText="Heading text"
+          id="withOtherProps"
+          imageAlt="Image alt text"
+          imageAspectRatio={ImageRatios.Original}
+          imageCaption="Image caption"
+          imageCredit="Image credit"
+          imagePosition={StructuredContentImagePosition.Left}
+          imageSize={ImageSizes.Medium}
+          imageSrc="https://placeimg.com/400/300/animals"
+          bodyContent={htmlStringBodyContent}
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(withHTMLStringContent).toMatchSnapshot();
     expect(withHTMLDOMContent).toMatchSnapshot();
@@ -372,5 +409,7 @@ describe("StructuredContent", () => {
     expect(withImageWithoutCaptionOrCredit).toMatchSnapshot();
     expect(withoutHeading).toMatchSnapshot();
     expect(withoutCalloutText).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

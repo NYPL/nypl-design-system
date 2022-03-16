@@ -127,8 +127,9 @@ export const CheckboxGroup = chakra(
         isLegendHidden={!showLabel}
         legendText={labelText}
         optReqFlag={optReqFlag}
+        {...rest}
       >
-        <ChakraCheckboxGroup {...checkboxProps} {...rest}>
+        <ChakraCheckboxGroup {...checkboxProps}>
           <Stack
             id={id}
             data-testid="checkbox-group"

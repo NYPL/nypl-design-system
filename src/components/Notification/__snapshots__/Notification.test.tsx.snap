@@ -394,3 +394,132 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   </button>
 </aside>
 `;
+
+exports[`Notification renders the UI snapshot correctly 8`] = `
+<aside
+  className="css-kle7zy"
+  data-type="standard"
+  id="chakra"
+>
+  <div
+    className="css-0"
+  >
+    <header
+      className="css-1xdhyk6"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-q3eg3a"
+        focusable={false}
+        id="chakra-notification-icon"
+        role="img"
+        title="Notification standard icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <h4
+        className="chakra-heading css-1xdhyk6"
+        id="chakra-heading"
+      >
+        Notification Heading
+      </h4>
+    </header>
+    <div
+      className="css-1xdhyk6"
+    >
+      <div
+        className="css-0"
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+</aside>
+`;
+
+exports[`Notification renders the UI snapshot correctly 9`] = `
+<aside
+  className="css-1xdhyk6"
+  data-testid="props"
+  data-type="standard"
+  id="props"
+>
+  <div
+    className="css-0"
+  >
+    <header
+      className="css-1xdhyk6"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-q3eg3a"
+        focusable={false}
+        id="props-notification-icon"
+        role="img"
+        title="Notification standard icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <h4
+        className="chakra-heading css-1xdhyk6"
+        id="props-heading"
+      >
+        Notification Heading
+      </h4>
+    </header>
+    <div
+      className="css-1xdhyk6"
+    >
+      <div
+        className="css-0"
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+</aside>
+`;

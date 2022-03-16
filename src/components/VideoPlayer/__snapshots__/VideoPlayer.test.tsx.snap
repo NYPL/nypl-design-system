@@ -143,3 +143,53 @@ exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
   />
 </div>
 `;
+
+exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
+<div
+  className="css-kle7zy"
+  data-testid="video-player-component"
+  id="chakra"
+>
+  <div
+    className="css-1xdhyk6"
+  >
+    <div
+      className="css-0"
+    >
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+        allowFullScreen={true}
+        className="css-0"
+        frameBorder="0"
+        src="https://player.vimeo.com/video/474719268?autoplay=0&loop=0"
+        title="Vimeo video player"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+  id="props"
+>
+  <div
+    className="css-1xdhyk6"
+  >
+    <div
+      className="css-0"
+    >
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+        allowFullScreen={true}
+        className="css-0"
+        frameBorder="0"
+        src="https://player.vimeo.com/video/474719268?autoplay=0&loop=0"
+        title="Vimeo video player"
+      />
+    </div>
+  </div>
+</div>
+`;

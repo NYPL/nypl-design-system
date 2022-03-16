@@ -66,3 +66,40 @@ exports[`Fieldset renders the UI snapshot correctly 4`] = `
   </p>
 </fieldset>
 `;
+
+exports[`Fieldset renders the UI snapshot correctly 5`] = `
+<fieldset
+  className="css-kle7zy"
+>
+  <legend>
+    Legend Text
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </legend>
+  <p>
+    Some other fields
+  </p>
+</fieldset>
+`;
+
+exports[`Fieldset renders the UI snapshot correctly 6`] = `
+<fieldset
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <legend>
+    Legend Text
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </legend>
+  <p>
+    Some other fields
+  </p>
+</fieldset>
+`;

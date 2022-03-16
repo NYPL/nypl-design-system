@@ -26,3 +26,22 @@ exports[`StatusBadge renders the UI snapshot correctly 3`] = `
   Registration Required
 </div>
 `;
+
+exports[`StatusBadge renders the UI snapshot correctly 4`] = `
+<div
+  className="css-kle7zy"
+  id="chakra"
+>
+  Registration Required
+</div>
+`;
+
+exports[`StatusBadge renders the UI snapshot correctly 5`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+  id="props"
+>
+  Registration Required
+</div>
+`;

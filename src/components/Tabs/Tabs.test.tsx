@@ -275,6 +275,24 @@ describe("Tabs", () => {
     const basic = renderer
       .create(<Tabs contentData={animalCrossing} id="basic" />)
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Tabs
+          contentData={animalCrossing}
+          id="chakra"
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Tabs contentData={animalCrossing} id="props" data-testid="props" />
+      )
+      .toJSON();
+
     expect(basic).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

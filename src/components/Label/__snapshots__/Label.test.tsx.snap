@@ -39,3 +39,24 @@ exports[`Label Renders the UI snapshot correctly 3`] = `
   </div>
 </label>
 `;
+
+exports[`Label Renders the UI snapshot correctly 4`] = `
+<label
+  className="css-kle7zy"
+  htmlFor="some-input-id"
+  id="chakra"
+>
+  Cupcakes
+</label>
+`;
+
+exports[`Label Renders the UI snapshot correctly 5`] = `
+<label
+  className="css-1xdhyk6"
+  data-testid="props"
+  htmlFor="some-input-id"
+  id="props"
+>
+  Cupcakes
+</label>
+`;

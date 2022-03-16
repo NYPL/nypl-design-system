@@ -69,3 +69,22 @@ exports[`Heading renders the UI snapshot correctly 6`] = `
   </a>
 </h1>
 `;
+
+exports[`Heading renders the UI snapshot correctly 7`] = `
+<h2
+  className="chakra-heading css-10g9ftz"
+  id="chakra"
+>
+  Heading
+</h2>
+`;
+
+exports[`Heading renders the UI snapshot correctly 8`] = `
+<h2
+  className="chakra-heading css-1xdhyk6"
+  data-testid="props"
+  id="props"
+>
+  Heading
+</h2>
+`;

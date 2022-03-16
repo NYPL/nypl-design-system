@@ -259,7 +259,6 @@ describe("Select", () => {
 
   it("Renders the UI snapshot correctly", () => {
     const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
-
     const options = siblings.map((sibling) => (
       <option key={sibling}>{sibling}</option>
     ));
@@ -336,6 +335,31 @@ describe("Select", () => {
         </Select>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Select
+          id="chakra"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          p="20px"
+          color="ui.error.primary"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Select
+          id="props"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          data-testid="props"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(disabled).toMatchSnapshot();
@@ -343,5 +367,7 @@ describe("Select", () => {
     expect(withHelperText).toMatchSnapshot();
     expect(required).toMatchSnapshot();
     expect(hasOnChange).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -41,7 +41,8 @@ export const SimpleGrid = chakra(
         {children}
       </ChakraSimpleGrid>
     );
-  }
+  },
+  { shouldForwardProp: () => true }
 );
 
 export default SimpleGrid;

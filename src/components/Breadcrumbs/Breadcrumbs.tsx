@@ -30,10 +30,10 @@ export interface BreadcrumbProps {
   breadcrumbsData: BreadcrumbsDataProps[];
   /** className you can add in addition to 'input' */
   className?: string;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Used to control how the `Hero` component will be rendered. */
   colorVariant?: ColorVariants;
+  /** ID that other components can cross reference for accessibility purposes */
+  id?: string;
 }
 
 const getElementsFromData = (data, breadcrumbsID) => {

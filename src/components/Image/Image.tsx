@@ -105,7 +105,7 @@ export const Image = chakra((props: ImageProps) => {
       imageAspectRatio={imageAspectRatio}
       imageSize={imageSize}
       additionalWrapperStyles={additionalWrapperStyles}
-      {...rest}
+      {...(imageCaption || imageCredit ? {} : rest)}
     >
       {imageComponent}
     </ImageWrapper>
@@ -114,7 +114,11 @@ export const Image = chakra((props: ImageProps) => {
   );
 
   return imageCaption || imageCredit ? (
-    <Box as="figure" __css={{ ...styles.figure, ...additionalFigureStyles }}>
+    <Box
+      as="figure"
+      __css={{ ...styles.figure, ...additionalFigureStyles }}
+      {...rest}
+    >
       {finalImage}
       <Box as="figcaption" __css={styles.figcaption}>
         {imageCaption && (

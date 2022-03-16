@@ -177,32 +177,36 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
  * for a date range we render a "fieldset".
  * @note This is only used internally for this file.
  */
-const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
-  children,
-  className,
-  id,
-  isDateRange,
-  isRequired,
-  labelText,
-  showLabel,
-  showOptReqLabel,
-}) => (
-  <FormField id={`${id}-form-field}`}>
-    {isDateRange ? (
-      <Fieldset
-        id={id}
-        className={className}
-        isLegendHidden={!showLabel}
-        legendText={labelText}
-        optReqFlag={showOptReqLabel}
-        isRequired={isRequired}
-      >
-        {children}
-      </Fieldset>
-    ) : (
-      children
-    )}
-  </FormField>
+const DatePickerWrapper: React.FC<DatePickerWrapperProps> = chakra(
+  ({
+    children,
+    className,
+    id,
+    isDateRange,
+    isRequired,
+    labelText,
+    showLabel,
+    showOptReqLabel,
+    ...rest
+  }) => (
+    <FormField id={`${id}-form-field`} {...rest}>
+      {isDateRange ? (
+        <Fieldset
+          id={id}
+          className={className}
+          isLegendHidden={!showLabel}
+          legendText={labelText}
+          optReqFlag={showOptReqLabel}
+          isRequired={isRequired}
+        >
+          {children}
+        </Fieldset>
+      ) : (
+        children
+      )}
+    </FormField>
+  ),
+  { shouldForwardProp: () => true }
 );
 
 /**
@@ -429,7 +433,8 @@ export const DatePicker = chakra(
         )}
       </DatePickerWrapper>
     );
-  })
+  }),
+  { shouldForwardProp: () => true }
 );
 
 export default DatePicker;

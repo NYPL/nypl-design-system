@@ -91,8 +91,25 @@ describe("Logo", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Logo
+          id="chakra"
+          name={LogoNames.NYPLBlack}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Logo id="props" name={LogoNames.NYPLBlack} data-testid="props" />
+      )
+      .toJSON();
 
     expect(standard).toMatchSnapshot();
     expect(withCustomSize).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -29,3 +29,16 @@ exports[`HorizontalRule renders the UI snapshot correctly 5`] = `
   className="css-mvtkpx"
 />
 `;
+
+exports[`HorizontalRule renders the UI snapshot correctly 6`] = `
+<hr
+  className="css-1pg2j4r"
+/>
+`;
+
+exports[`HorizontalRule renders the UI snapshot correctly 7`] = `
+<hr
+  className="css-mvtkpx"
+  data-testid="props"
+/>
+`;

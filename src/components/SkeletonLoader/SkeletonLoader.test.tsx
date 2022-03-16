@@ -109,6 +109,12 @@ describe("SkeletonLoader", () => {
         <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Square} />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(<SkeletonLoader p="20px" color="ui.error.primary" />)
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<SkeletonLoader data-testid="props" />)
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(rowLayout).toMatchSnapshot();
@@ -120,5 +126,7 @@ describe("SkeletonLoader", () => {
     expect(landscape).toMatchSnapshot();
     expect(portrait).toMatchSnapshot();
     expect(square).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

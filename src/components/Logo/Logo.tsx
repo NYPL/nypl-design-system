@@ -55,6 +55,7 @@ export const Logo = chakra((props: React.PropsWithChildren<LogoProps>) => {
     id,
     role: "img",
     title,
+    ...rest,
   };
   let childSVG = null;
 

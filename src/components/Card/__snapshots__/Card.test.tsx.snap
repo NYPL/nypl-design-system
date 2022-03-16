@@ -28,15 +28,12 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
     <h3
       className="chakra-heading css-1xdhyk6"
       id="heading1"
-      isCentered={false}
       layout="column"
     >
       The Card Heading
     </h3>
     <div
       className="css-1xdhyk6"
-      isCentered={false}
-      layout="column"
     >
       middle column content
     </div>
@@ -85,15 +82,12 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
     <h2
       className="chakra-heading css-1xdhyk6"
       id="editioncardheading1"
-      isCentered={false}
       layout="column"
     >
       The Card Heading
     </h2>
     <div
       className="css-1xdhyk6"
-      isCentered={false}
-      layout="column"
     >
       <div>
         Published in New York by Random House
@@ -191,15 +185,12 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
     <h2
       className="chakra-heading css-1xdhyk6"
       id="editioncardheading1"
-      isCentered={false}
       layout="column"
     >
       The Card Heading
     </h2>
     <div
       className="css-1xdhyk6"
-      isCentered={false}
-      layout="column"
     >
       <p>
         Published in New York by Random House
@@ -243,7 +234,6 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
     <h2
       className="chakra-heading css-1xdhyk6"
       id="editioncardheading1"
-      isCentered={false}
       layout="column"
     >
       <a
@@ -325,7 +315,6 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
     <h2
       className="chakra-heading css-1xdhyk6"
       id="editioncardheading1"
-      isCentered={false}
       layout="column"
     >
       <a
@@ -340,8 +329,6 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
     </h2>
     <div
       className="css-1xdhyk6"
-      isCentered={false}
-      layout="column"
     >
       middle column content
     </div>
@@ -434,7 +421,6 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
       <h3
         className="chakra-heading css-1xdhyk6"
         id="heading1"
-        isCentered={false}
         layout="column"
       >
         <a
@@ -446,8 +432,6 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
       </h3>
       <div
         className="css-1xdhyk6"
-        isCentered={false}
-        layout="column"
       >
         middle column content
       </div>
@@ -497,20 +481,74 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
     <h3
       className="chakra-heading css-1ss7kwh"
       id="heading1"
-      isCentered={false}
       layout="column"
     >
       The Card Heading
     </h3>
     <div
       className="css-1rn2qcq"
-      isCentered={false}
-      layout="column"
     >
       middle column content
     </div>
     <div
       className="css-1avkygu"
+    >
+      <button
+        className="chakra-button css-1xdhyk6"
+        data-testid="button"
+        id="button1"
+        onClick={[Function]}
+        type="submit"
+      >
+        Example CTA
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Renders the UI snapshot correctly 8`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="card-testid"
+  id="otherProps"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="the-wrap css-1u8qly9"
+    >
+      <div
+        className="the-crop css-0"
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          src="https://placeimg.com/400/200/arch"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h3
+      className="chakra-heading css-1ss7kwh"
+      id="heading1"
+      layout="column"
+    >
+      The Card Heading
+    </h3>
+    <div
+      className="css-1xdhyk6"
+      data-testid="cardcontent-testid"
+    >
+      middle column content
+    </div>
+    <div
+      className="css-1xdhyk6"
+      data-testid="cardaction-testid"
     >
       <button
         className="chakra-button css-1xdhyk6"

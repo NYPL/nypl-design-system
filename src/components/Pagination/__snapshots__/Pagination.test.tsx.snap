@@ -325,3 +325,220 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
   </ul>
 </nav>
 `;
+
+exports[`Pagination Rendering Renders the UI snapshot correctly 4`] = `
+<nav
+  aria-label="Pagination"
+  className="css-kle7zy"
+  id="chakra"
+  role="navigation"
+>
+  <ul
+    className="css-1xdhyk6"
+    id="chakra-list"
+  >
+    <li>
+      <a
+        aria-current="page"
+        aria-label="Page 1"
+        className="css-1eo4rk2"
+        href="page=1"
+        id="chakra-1"
+        rel={null}
+        target={null}
+      >
+        1
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 2"
+        className="css-1xdhyk6"
+        href="page=2"
+        id="chakra-2"
+        rel={null}
+        target={null}
+      >
+        2
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 3"
+        className="css-1xdhyk6"
+        href="page=3"
+        id="chakra-3"
+        rel={null}
+        target={null}
+      >
+        3
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 4"
+        className="css-1xdhyk6"
+        href="page=4"
+        id="chakra-4"
+        rel={null}
+        target={null}
+      >
+        4
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 5"
+        className="css-1xdhyk6"
+        href="page=5"
+        id="chakra-5"
+        rel={null}
+        target={null}
+      >
+        5
+      </a>
+    </li>
+    <li>
+      ...
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 10"
+        className="css-1xdhyk6"
+        href="page=10"
+        id="chakra-10"
+        rel={null}
+        target={null}
+      >
+        10
+      </a>
+    </li>
+    <li>
+      <a
+        aria-label="Next page"
+        className="css-1xdhyk6"
+        href="page=2"
+        id="chakra-Next"
+        rel={null}
+        target={null}
+      >
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Pagination Rendering Renders the UI snapshot correctly 5`] = `
+<nav
+  aria-label="Pagination"
+  className="css-1xdhyk6"
+  data-testid="props"
+  id="props"
+  role="navigation"
+>
+  <ul
+    className="css-1xdhyk6"
+    id="props-list"
+  >
+    <li>
+      <a
+        aria-current="page"
+        aria-label="Page 1"
+        className="css-1eo4rk2"
+        href="page=1"
+        id="props-1"
+        rel={null}
+        target={null}
+      >
+        1
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 2"
+        className="css-1xdhyk6"
+        href="page=2"
+        id="props-2"
+        rel={null}
+        target={null}
+      >
+        2
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 3"
+        className="css-1xdhyk6"
+        href="page=3"
+        id="props-3"
+        rel={null}
+        target={null}
+      >
+        3
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 4"
+        className="css-1xdhyk6"
+        href="page=4"
+        id="props-4"
+        rel={null}
+        target={null}
+      >
+        4
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 5"
+        className="css-1xdhyk6"
+        href="page=5"
+        id="props-5"
+        rel={null}
+        target={null}
+      >
+        5
+      </a>
+    </li>
+    <li>
+      ...
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        aria-label="Page 10"
+        className="css-1xdhyk6"
+        href="page=10"
+        id="props-10"
+        rel={null}
+        target={null}
+      >
+        10
+      </a>
+    </li>
+    <li>
+      <a
+        aria-label="Next page"
+        className="css-1xdhyk6"
+        href="page=2"
+        id="props-Next"
+        rel={null}
+        target={null}
+      >
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

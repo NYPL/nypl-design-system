@@ -326,6 +326,33 @@ describe("Radio Button", () => {
         </RadioGroup>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <RadioGroup
+          labelText="chakra"
+          name="chakra"
+          id="chakra"
+          p="20px"
+          color="ui.error.primary"
+        >
+          <Radio value="2" labelText="Radio 2" id="radio-2" />
+          <Radio value="3" labelText="Radio 3" id="radio-3" />
+        </RadioGroup>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <RadioGroup
+          labelText="props"
+          name="props"
+          id="props"
+          data-testid="props"
+        >
+          <Radio value="2" labelText="Radio 2" id="radio-2" />
+          <Radio value="3" labelText="Radio 3" id="radio-3" />
+        </RadioGroup>
+      )
+      .toJSON();
 
     expect(column).toMatchSnapshot();
     expect(row).toMatchSnapshot();
@@ -336,6 +363,8 @@ describe("Radio Button", () => {
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 
   it("should throw warning when a non-Radio component is used as a child", () => {

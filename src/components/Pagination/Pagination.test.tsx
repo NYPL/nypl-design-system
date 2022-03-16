@@ -197,10 +197,35 @@ describe("Pagination", () => {
           />
         )
         .toJSON();
+      const withChakraProps = renderer
+        .create(
+          <Pagination
+            id="chakra"
+            pageCount={10}
+            initialPage={1}
+            getPageHref={getPageHref}
+            p="20px"
+            color="ui.error.primary"
+          />
+        )
+        .toJSON();
+      const withOtherProps = renderer
+        .create(
+          <Pagination
+            id="props"
+            pageCount={10}
+            initialPage={1}
+            getPageHref={getPageHref}
+            data-testid="props"
+          />
+        )
+        .toJSON();
 
       expect(firstPage).toMatchSnapshot();
       expect(lastPage).toMatchSnapshot();
       expect(middlePage).toMatchSnapshot();
+      expect(withChakraProps).toMatchSnapshot();
+      expect(withOtherProps).toMatchSnapshot();
     });
   });
 

@@ -229,6 +229,25 @@ describe("Checkbox", () => {
         <Checkbox id="checkbox-disabled" labelText="Test Label" isDisabled />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Checkbox
+          id="checkbox-chakra"
+          labelText="Test Label"
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Checkbox
+          id="checkbox-props"
+          labelText="Test Label"
+          data-testid="testid"
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
@@ -236,5 +255,7 @@ describe("Checkbox", () => {
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

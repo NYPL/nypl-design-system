@@ -116,10 +116,26 @@ describe("Fieldset", () => {
         </Fieldset>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Fieldset legendText="Legend Text" p="20px" color="ui.error.primary">
+          <p>Some other fields</p>
+        </Fieldset>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Fieldset legendText="Legend Text" data-testid="props">
+          <p>Some other fields</p>
+        </Fieldset>
+      )
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(required).toMatchSnapshot();
     expect(hiddenHelperText).toMatchSnapshot();
     expect(hiddenLegend).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

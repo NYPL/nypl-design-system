@@ -441,6 +441,29 @@ describe("UI Snapshots", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <TextInput
+          id="chakra"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <TextInput
+          id="props"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(required).toMatchSnapshot();
     expect(optional).toMatchSnapshot();
@@ -448,7 +471,10 @@ describe("UI Snapshots", () => {
     expect(withHelperText).toMatchSnapshot();
     expect(errorState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
+
   it("renders the textarea UI snapshot correctly", () => {
     const basicTextarea = renderer
       .create(

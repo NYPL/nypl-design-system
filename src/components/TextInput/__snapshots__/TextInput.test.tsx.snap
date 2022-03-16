@@ -210,6 +210,67 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 </div>
 `;
 
+exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
+<div
+  className="css-kle7zy"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="chakra"
+    id="chakra-label"
+  >
+    Custom Input Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <input
+    className="chakra-input css-0"
+    disabled={false}
+    id="chakra"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={false}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="props"
+    id="props-label"
+  >
+    Custom Input Label
+    <div
+      className="css-0"
+    >
+      Optional
+    </div>
+  </label>
+  <input
+    className="chakra-input css-0"
+    disabled={false}
+    id="props"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={false}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
 exports[`UI Snapshots renders the textarea UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"

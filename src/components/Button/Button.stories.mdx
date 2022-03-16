@@ -65,7 +65,7 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.9`   |
+| Latest            | `0.26.0`   |
 
 <Description of={Button} />
 
@@ -103,7 +103,17 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
     }}
   >
     {(args) => (
-      <Button {...args} buttonType={enumValues.getValue(args.buttonType)}>
+      <Button
+        additionalStyles={args.additionalStyles}
+        attributes={args.attributes}
+        buttonType={enumValues.getValue(args.buttonType)}
+        className={args.className}
+        id={args.id}
+        isDisabled={args.isDisabled}
+        mouseDown={args.mouseDown}
+        onClick={args.onClick}
+        type={args.type}
+      >
         {args.displayIcon && args.displayIconLeft && (
           <Icon
             name={args.iconType}

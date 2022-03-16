@@ -45,9 +45,25 @@ describe("StatusBadge", () => {
         </StatusBadge>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <StatusBadge id="chakra" p="20px" color="ui.error.primary">
+          Registration Required
+        </StatusBadge>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <StatusBadge id="props" data-testid="props">
+          Registration Required
+        </StatusBadge>
+      )
+      .toJSON();
 
     expect(low).toMatchSnapshot();
     expect(medium).toMatchSnapshot();
     expect(high).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

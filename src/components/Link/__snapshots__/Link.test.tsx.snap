@@ -260,3 +260,28 @@ exports[`Link renders the UI snapshot correctly 8`] = `
   </a>
 </span>
 `;
+
+exports[`Link renders the UI snapshot correctly 9`] = `
+<a
+  className="css-kle7zy"
+  href="#passed-in-link"
+  id="chakra"
+  rel={null}
+  target={null}
+>
+  Standard
+</a>
+`;
+
+exports[`Link renders the UI snapshot correctly 10`] = `
+<a
+  className="css-1xdhyk6"
+  data-testid="props"
+  href="#passed-in-link"
+  id="props"
+  rel={null}
+  target={null}
+>
+  Standard
+</a>
+`;

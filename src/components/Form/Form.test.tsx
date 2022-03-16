@@ -40,7 +40,32 @@ describe("Form Snapshot", () => {
         </Form>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Form id="chakra" p="20px" color="ui.error.primary">
+          <FormRow>
+            <FormField>Form Field 1</FormField>
+            <FormField>Form Field 2</FormField>
+            <FormField>Form Field 3</FormField>
+          </FormRow>
+        </Form>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Form id="props" data-testid="props">
+          <FormRow>
+            <FormField>Form Field 1</FormField>
+            <FormField>Form Field 2</FormField>
+            <FormField>Form Field 3</FormField>
+          </FormRow>
+        </Form>
+      )
+      .toJSON();
+
     expect(tree).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });
 

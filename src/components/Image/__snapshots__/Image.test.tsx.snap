@@ -204,3 +204,19 @@ exports[`Image Renders the UI snapshot correctly 16`] = `
   </div>
 </div>
 `;
+
+exports[`Image Renders the UI snapshot correctly 17`] = `
+<img
+  alt=""
+  className="css-0"
+  src="test.png"
+/>
+`;
+
+exports[`Image Renders the UI snapshot correctly 18`] = `
+<img
+  alt=""
+  className="css-0"
+  src="test.png"
+/>
+`;

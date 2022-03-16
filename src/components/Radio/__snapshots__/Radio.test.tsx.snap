@@ -251,3 +251,100 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
   </span>
 </label>
 `;
+
+exports[`Radio Button renders the UI snapshot correctly 6`] = `
+<label
+  className="chakra-radio css-1pw4d56"
+>
+  <input
+    checked={false}
+    className="chakra-radio__input"
+    disabled={false}
+    id="chakra"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    required={false}
+    style={
+      Object {
+        "border": "0px",
+        "clip": "rect(0px, 0px, 0px, 0px)",
+        "height": "1px",
+        "margin": "-1px",
+        "overflow": "hidden",
+        "padding": "0px",
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": "1px",
+      }
+    }
+    type="radio"
+  />
+  <span
+    aria-hidden={true}
+    className="css-1dwi2jm"
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+  />
+  <span
+    className="chakra-radio__label css-1y8kf23"
+    onMouseDown={[Function]}
+    onTouchStart={[Function]}
+  >
+    Test Label
+  </span>
+</label>
+`;
+
+exports[`Radio Button renders the UI snapshot correctly 7`] = `
+<label
+  className="chakra-radio css-1pw4d56"
+>
+  <input
+    checked={false}
+    className="chakra-radio__input"
+    disabled={false}
+    id="props"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    required={false}
+    style={
+      Object {
+        "border": "0px",
+        "clip": "rect(0px, 0px, 0px, 0px)",
+        "height": "1px",
+        "margin": "-1px",
+        "overflow": "hidden",
+        "padding": "0px",
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": "1px",
+      }
+    }
+    type="radio"
+  />
+  <span
+    aria-hidden={true}
+    className="css-14wybg9"
+    data-testid="props"
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+  />
+  <span
+    className="chakra-radio__label css-1y8kf23"
+    onMouseDown={[Function]}
+    onTouchStart={[Function]}
+  >
+    Test Label
+  </span>
+</label>
+`;

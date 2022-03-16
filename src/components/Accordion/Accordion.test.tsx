@@ -199,9 +199,19 @@ describe("Accordion", () => {
         />
       )
       .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Accordion
+          contentData={contentData}
+          id="accordian"
+          data-testid="testid"
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(defaultOpen).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

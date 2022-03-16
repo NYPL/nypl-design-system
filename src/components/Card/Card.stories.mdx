@@ -93,7 +93,7 @@ export const cardLayoutsEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.26.0`   |
 
 <Description of={Card} />
 
@@ -161,17 +161,17 @@ headings and CTAs.
         </CardContent>
         <CardActions topBorder bottomBorder>
           <Button
-            onClick={action("clicked")}
-            id="main-button1"
             buttonType={ButtonTypes.Primary}
+            id="main-button1"
+            onClick={action("clicked")}
             type="submit"
           >
             Primary
           </Button>
           <Button
-            onClick={action("clicked")}
-            id="main-button2"
             buttonType={ButtonTypes.Secondary}
+            id="main-button2"
+            onClick={action("clicked")}
             type="submit"
           >
             Secondary

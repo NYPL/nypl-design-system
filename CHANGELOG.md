@@ -8,6 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds Chakra's "Style Props" functionality to every Reservoir component. For
+  composed components, such as the `SearchBar` component, these style props are
+  passed to wrapper element. This update also updates the snapshot tests for
+  every component.
+
 ### Changes
 
 - Removes the margin from the global `.nypl p` CSS rule.

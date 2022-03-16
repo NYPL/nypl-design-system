@@ -11,24 +11,101 @@ exports[`Form Snapshot Renders the UI snapshot correctly 1`] = `
     id="snapshot-form-parent"
   >
     <div
-      className="css-dqfxcb"
+      className="css-gz4qaq"
       id="snapshot-form-child0"
     >
       <div
-        className="css-19tzxg7"
+        className="css-hs913m"
         id="snapshot-form-child0-grandchild0"
       >
         Form Field 1
       </div>
       <div
-        className="css-19tzxg7"
+        className="css-hs913m"
         id="snapshot-form-child0-grandchild1"
       >
         Form Field 2
       </div>
       <div
-        className="css-19tzxg7"
+        className="css-hs913m"
         id="snapshot-form-child0-grandchild2"
+      >
+        Form Field 3
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form Snapshot Renders the UI snapshot correctly 2`] = `
+<form
+  aria-label="form"
+  className="css-qvgr6z"
+  color="ui.error.primary"
+  id="chakra"
+  p="20px"
+>
+  <div
+    className="css-1fk5tq5"
+    id="chakra-parent"
+  >
+    <div
+      className="css-gz4qaq"
+      id="chakra-child0"
+    >
+      <div
+        className="css-hs913m"
+        id="chakra-child0-grandchild0"
+      >
+        Form Field 1
+      </div>
+      <div
+        className="css-hs913m"
+        id="chakra-child0-grandchild1"
+      >
+        Form Field 2
+      </div>
+      <div
+        className="css-hs913m"
+        id="chakra-child0-grandchild2"
+      >
+        Form Field 3
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form Snapshot Renders the UI snapshot correctly 3`] = `
+<form
+  aria-label="form"
+  className="css-0"
+  data-testid="props"
+  id="props"
+>
+  <div
+    className="css-1fk5tq5"
+    id="props-parent"
+  >
+    <div
+      className="css-gz4qaq"
+      id="props-child0"
+    >
+      <div
+        className="css-hs913m"
+        id="props-child0-grandchild0"
+      >
+        Form Field 1
+      </div>
+      <div
+        className="css-hs913m"
+        id="props-child0-grandchild1"
+      >
+        Form Field 2
+      </div>
+      <div
+        className="css-hs913m"
+        id="props-child0-grandchild2"
       >
         Form Field 3
       </div>

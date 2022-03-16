@@ -28,79 +28,92 @@ export interface FormProps extends FormBaseProps {
 }
 
 /** FormRow child-component */
-export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
-  const { children, className, gap, id } = props;
-  const count = React.Children.count(children);
-  const alteredChildren = React.Children.map(
-    children,
-    (child: React.ReactElement, i) => {
-      if (!child) return null;
-      if (child.type === FormField || child.props.mdxType === "FormField") {
-        return React.cloneElement(child, { id: `${id}-grandchild${i}` });
+export const FormRow = chakra(
+  (props: React.PropsWithChildren<FormChildProps>) => {
+    const { children, className, gap, id, ...rest } = props;
+    const count = React.Children.count(children);
+    const alteredChildren = React.Children.map(
+      children,
+      (child: React.ReactElement, i) => {
+        if (!child) return null;
+        if (child.type === FormField || child.props.mdxType === "FormField") {
+          return React.cloneElement(child, { id: `${id}-grandchild${i}` });
+        }
+        console.warn("FormRow children must be `FormField` components.");
+        return null;
       }
-      console.warn("FormRow children must be `FormField` components.");
-      return null;
-    }
-  );
-  return (
-    <SimpleGrid columns={count} className={className} gap={gap} id={id}>
-      {alteredChildren}
-    </SimpleGrid>
-  );
-}
-
-/** FormField child-component */
-export function FormField(props: React.PropsWithChildren<FormChildProps>) {
-  const { children, className, gap, id } = props;
-  return (
-    <SimpleGrid columns={1} className={className} gap={gap} id={id}>
-      {children}
-    </SimpleGrid>
-  );
-}
-
-/** Main Form component */
-export const Form = chakra((props: React.PropsWithChildren<FormProps>) => {
-  const {
-    action,
-    children,
-    className,
-    gap = FormGaps.Large,
-    id = generateUUID(),
-    method,
-    onSubmit,
-    ...rest
-  } = props;
-
-  let attributes = {};
-  action && (attributes["action"] = action);
-
-  method &&
-    (method === "get" || method === "post") &&
-    (attributes["method"] = method);
-
-  const alteredChildren = React.Children.map(
-    children,
-    (child: React.ReactElement, i) => {
-      return React.cloneElement(child, { gap, id: `${id}-child${i}` });
-    }
-  );
-
-  //  TODO use Form
-  return (
-    <form
-      aria-label="form"
-      className={className}
-      id={id}
-      onSubmit={onSubmit}
-      {...attributes}
-      {...rest}
-    >
-      <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
+    );
+    return (
+      <SimpleGrid
+        columns={count}
+        className={className}
+        gap={gap}
+        id={id}
+        {...rest}
+      >
         {alteredChildren}
       </SimpleGrid>
-    </form>
-  );
-});
+    );
+  }
+);
+
+/** FormField child-component */
+export const FormField = chakra(
+  (props: React.PropsWithChildren<FormChildProps>) => {
+    const { children, className, gap, id, ...rest } = props;
+    return (
+      <SimpleGrid columns={1} className={className} gap={gap} id={id} {...rest}>
+        {children}
+      </SimpleGrid>
+    );
+  }
+);
+
+/** Main Form component */
+export const Form = chakra(
+  (props: React.PropsWithChildren<FormProps>) => {
+    const {
+      action,
+      children,
+      className,
+      gap = FormGaps.Large,
+      id = generateUUID(),
+      method,
+      onSubmit,
+      ...rest
+    } = props;
+
+    let attributes = {};
+    action && (attributes["action"] = action);
+
+    method &&
+      (method === "get" || method === "post") &&
+      (attributes["method"] = method);
+
+    const alteredChildren = React.Children.map(
+      children,
+      (child: React.ReactElement, i) => {
+        return React.cloneElement(child, { gap, id: `${id}-child${i}` });
+      }
+    );
+
+    //  TODO use Form
+    return (
+      <form
+        aria-label="form"
+        className={className}
+        id={id}
+        onSubmit={onSubmit}
+        {...attributes}
+        {...rest}
+      >
+        <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
+          {alteredChildren}
+        </SimpleGrid>
+      </form>
+    );
+  },
+  { shouldForwardProp: () => true }
+);
 
 export default Form;

@@ -54,10 +54,22 @@ describe("Text", () => {
         </Text>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Text p="20px" color="ui.error.primary">
+          Animal Crossing is all that!
+        </Text>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Text data-testid="props">Animal Crossing is all that!</Text>)
+      .toJSON();
 
     expect(defaultText).toMatchSnapshot();
     expect(caption).toMatchSnapshot();
     expect(tag).toMatchSnapshot();
     expect(mini).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

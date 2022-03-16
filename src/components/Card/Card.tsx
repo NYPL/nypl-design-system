@@ -244,7 +244,6 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
           ...child.props.additionalStyles,
         },
         key,
-        isCentered,
         // Override the child text with the potential `CardLinkOverlay`.
         children: newChildren,
         layout,
@@ -253,11 +252,19 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
       cardHeadingCount++;
     } else if (
       child.type === CardContent ||
-      child.props.mdxType === "CardContent" ||
+      child.props.mdxType === "CardContent"
+    ) {
+      const elem = React.cloneElement(child, { key });
+      cardContents.push(elem);
+    } else if (
       child.type === CardActions ||
       child.props.mdxType === "CardActions"
     ) {
-      const elem = React.cloneElement(child, { key, isCentered, layout });
+      const elem = React.cloneElement(child, {
+        key,
+        isCentered,
+        layout,
+      });
       cardContents.push(elem);
     }
   });

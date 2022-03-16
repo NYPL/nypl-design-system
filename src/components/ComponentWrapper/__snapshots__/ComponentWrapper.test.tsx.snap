@@ -83,3 +83,24 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
   </div>
 </div>
 `;
+
+exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
+<div
+  className="css-kle7zy"
+>
+  <div>
+    children elements
+  </div>
+</div>
+`;
+
+exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <div>
+    children elements
+  </div>
+</div>
+`;
