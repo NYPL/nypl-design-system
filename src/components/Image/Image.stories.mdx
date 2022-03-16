@@ -9,6 +9,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Image from "./Image";
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
@@ -161,7 +162,11 @@ Use the `size` prop to set the desired size with the `ImageSizes` enum.
   <Story name="Image Sizes">
     <SimpleGrid columns={1}>
       <div style={{ textAlign: "center" }}>
-        <Heading id="ExtraExtraSmall" text="ImageSizes.ExtraExtraSmall" />
+        <Heading
+          id="ExtraExtraSmall"
+          level={HeadingLevels.Four}
+          text="ImageSizes.ExtraExtraSmall"
+        />
         <Image
           alt="Alt text"
           caption="64px"
@@ -170,7 +175,11 @@ Use the `size` prop to set the desired size with the `ImageSizes` enum.
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="ExtraSmall" text="ImageSizes.ExtraSmall" />
+        <Heading
+          id="ExtraSmall"
+          level={HeadingLevels.Four}
+          text="ImageSizes.ExtraSmall"
+        />
         <Image
           alt="Alt text"
           caption="96px"
@@ -179,7 +188,11 @@ Use the `size` prop to set the desired size with the `ImageSizes` enum.
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="Small" text="ImageSizes.Small" />
+        <Heading
+          id="Small"
+          level={HeadingLevels.Four}
+          text="ImageSizes.Small"
+        />
         <Image
           alt="Alt text"
           caption="165px"
@@ -188,7 +201,11 @@ Use the `size` prop to set the desired size with the `ImageSizes` enum.
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="Medium" text="ImageSizes.Medium" />
+        <Heading
+          id="Medium"
+          level={HeadingLevels.Four}
+          text="ImageSizes.Medium"
+        />
         <Image
           alt="Alt text"
           caption="225px"
@@ -197,7 +214,11 @@ Use the `size` prop to set the desired size with the `ImageSizes` enum.
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="Large" text="ImageSizes.Large" />
+        <Heading
+          id="Large"
+          level={HeadingLevels.Four}
+          text="ImageSizes.Large"
+        />
         <Image
           alt="Alt text"
           caption="360px"
@@ -206,7 +227,11 @@ Use the `size` prop to set the desired size with the `ImageSizes` enum.
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="Default" text="ImageSizes.Default" />
+        <Heading
+          id="Default"
+          level={HeadingLevels.Four}
+          text="ImageSizes.Default"
+        />
         <Image
           alt="Alt text"
           caption="100%"
@@ -229,7 +254,11 @@ in an element with a fixed width value.
   <Story name="Image Aspect Ratios">
     <SimpleGrid columns={1}>
       <div style={imageBlockStyles}>
-        <Heading id="fourbythree" text="ImageRatios.FourByThree" />
+        <Heading
+          id="fourbythree"
+          level={HeadingLevels.Four}
+          text="ImageRatios.FourByThree"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.FourByThree}
@@ -237,7 +266,11 @@ in an element with a fixed width value.
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="onebytwo" text="ImageRatios.OneByTwo" />
+        <Heading
+          id="onebytwo"
+          level={HeadingLevels.Four}
+          text="ImageRatios.OneByTwo"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.OneByTwo}
@@ -245,7 +278,11 @@ in an element with a fixed width value.
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="original" text="ImageRatios.Original" />
+        <Heading
+          id="original"
+          level={HeadingLevels.Four}
+          text="ImageRatios.Original"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.Original}
@@ -253,7 +290,11 @@ in an element with a fixed width value.
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="sixteenbynine" text="ImageRatios.SixteenByNine" />
+        <Heading
+          id="sixteenbynine"
+          level={HeadingLevels.Four}
+          text="ImageRatios.SixteenByNine"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.SixteenByNine}
@@ -261,7 +302,11 @@ in an element with a fixed width value.
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="square" text="ImageRatios.Square" />
+        <Heading
+          id="square"
+          level={HeadingLevels.Four}
+          text="ImageRatios.Square"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.Square}
@@ -269,7 +314,11 @@ in an element with a fixed width value.
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="threebyfour" text="ImageRatios.ThreeByFour" />
+        <Heading
+          id="threebyfour"
+          level={HeadingLevels.Four}
+          text="ImageRatios.ThreeByFour"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.ThreeByFour}
@@ -277,7 +326,11 @@ in an element with a fixed width value.
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="threebytwo" text="ImageRatios.ThreeByTwo" />
+        <Heading
+          id="threebytwo"
+          level={HeadingLevels.Four}
+          text="ImageRatios.ThreeByTwo"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.ThreeByTwo}
@@ -285,7 +338,11 @@ in an element with a fixed width value.
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="twobyone" text="ImageRatios.TwoByOne" />
+        <Heading
+          id="twobyone"
+          level={HeadingLevels.Four}
+          text="ImageRatios.TwoByOne"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.TwoByOne}
@@ -308,7 +365,11 @@ in an element with a fixed width value.
   <Story name="Image Types">
     <SimpleGrid columns={1}>
       <div style={imageBlockStyles}>
-        <Heading id="default" text="ImageTypes.Default" />
+        <Heading
+          id="default"
+          level={HeadingLevels.Four}
+          text="ImageTypes.Default"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.Square}
@@ -317,7 +378,11 @@ in an element with a fixed width value.
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="circle" text="ImageTypes.Circle" />
+        <Heading
+          id="circle"
+          level={HeadingLevels.Four}
+          text="ImageTypes.Circle"
+        />
         <Image
           alt="Alt text"
           aspectRatio={ImageRatios.Square}

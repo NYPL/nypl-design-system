@@ -7,6 +7,8 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "./Icon";
 import {
   IconAlign,
@@ -89,7 +91,7 @@ export const rotationEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.11`  |
+| Latest            | `0.25.12`  |
 
 <Description of={Icon} />
 
@@ -128,7 +130,7 @@ export const rotationEnumValues = getStorybookEnumValues(
 export const iconRow = (icon, iconType = IconNames, opts = {}) => {
   // We'll use this setup function to render all the icons in a list item.
   // Some icons display better with a dark background.
-  const styles = { padding: "1rem" };
+  const styles = { display: "inline-block" };
   const {
     size = IconSizes.Large,
     iconRotation = IconRotationTypes.Rotate0,
@@ -138,6 +140,7 @@ export const iconRow = (icon, iconType = IconNames, opts = {}) => {
   let key = icon;
   if (icon.indexOf("Negative") !== -1 || color.indexOf("white") !== -1) {
     styles.backgroundColor = "#000";
+    styles.padding = "1rem";
   }
   // The following is just to fix duplicate React key issues.
   if (iconRotation !== IconRotationTypes.Rotate0) {
@@ -150,7 +153,11 @@ export const iconRow = (icon, iconType = IconNames, opts = {}) => {
     key += `-${size}`;
   }
   return (
-    <li key={key} style={{ marginBottom: "var(--nypl-space-s)" }}>
+    <li
+      key={key}
+      style={{ marginBottom: "var(--nypl-space-l)", textAlign: "center" }}
+    >
+      <Heading level={HeadingLevels.Four}>{displayValue}</Heading>
       <span style={styles}>
         <Icon
           name={iconType[icon]}
@@ -159,7 +166,6 @@ export const iconRow = (icon, iconType = IconNames, opts = {}) => {
           color={color}
         />
       </span>
-      {displayValue}
     </li>
   );
 };
@@ -168,30 +174,36 @@ export const rotations = [];
 export const colors = [];
 export const sizes = [];
 for (const icon in IconNames) {
-  icons.push(iconRow(icon, IconNames, { displayValue: `IconNames.${icon}` }));
+  icons.push(
+    iconRow(icon, IconNames, {
+      displayValue: `IconNames.${icon}`,
+      size: IconSizes.ExtraExtraLarge,
+    })
+  );
 }
 for (const iconRotation in IconRotationTypes) {
   rotations.push(
     iconRow("Arrow", IconNames, {
-      size: IconSizes.Large,
-      iconRotation: IconRotationTypes[iconRotation],
       displayValue: `IconRotationTypes.${iconRotation}`,
+      iconRotation: IconRotationTypes[iconRotation],
+      size: IconSizes.Large,
     })
   );
 }
 for (const iconColor in IconColors) {
   colors.push(
-    iconRow("Download", IconNames, {
+    iconRow("ErrorFilled", IconNames, {
       color: IconColors[iconColor],
       displayValue: `IconColors.${iconColor}`,
+      size: IconSizes.ExtraExtraLarge,
     })
   );
 }
 for (const iconSize in IconSizes) {
   sizes.push(
-    iconRow("Arrow", IconNames, {
-      size: IconSizes[iconSize],
+    iconRow("ActionCheckCircle", IconNames, {
       displayValue: `IconSizes.${iconSize}`,
+      size: IconSizes[iconSize],
     })
   );
 }
@@ -220,7 +232,7 @@ can be found in `src/components/Icons/IconTypes.tsx`.
 ```
 
 <Canvas>
-  <Story name="Rotation Types">{allIconsType(rotations)}</Story>
+  <Story name="Icon Rotation">{allIconsType(rotations)}</Story>
 </Canvas>
 
 ## IconColors Types
@@ -234,7 +246,7 @@ The `IconColors` enum can be found in `src/components/Icons/IconTypes.tsx`.
 ```
 
 <Canvas>
-  <Story name="Color Types">{allIconsType(colors)}</Story>
+  <Story name="Icon Colors">{allIconsType(colors)}</Story>
 </Canvas>
 
 ## IconSizes Types
@@ -248,7 +260,7 @@ The `IconSizes` enum can be found in`src/components/Icons/IconTypes.tsx`.
 ```
 
 <Canvas>
-  <Story name="Sizes Types">{allIconsType(sizes)}</Story>
+  <Story name="Icon Sizes">{allIconsType(sizes)}</Story>
 </Canvas>
 
 ## All Display Icons
@@ -257,7 +269,7 @@ The following icons are for generic purposes. All the available icon names can
 be found in the `IconNames` enum in `src/components/Icons/IconTypes.tsx`.
 
 <Canvas withToolbar>
-  <Story name="All Display Icons">{allIconsType(icons)}</Story>
+  <Story name="All Icons">{allIconsType(icons)}</Story>
 </Canvas>
 
 ## Custom Icons
