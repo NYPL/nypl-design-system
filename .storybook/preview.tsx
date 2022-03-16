@@ -41,5 +41,7 @@ addDecorator((StoryFn) => (
 export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: "^on.*" },
+  // Allows all props' descriptions and default values to show in
+  // Storybook's canvas addon bar.
   controls: { expanded: true },
 };
