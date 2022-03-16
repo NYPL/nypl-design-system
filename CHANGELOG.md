@@ -25,6 +25,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
 - Updates the border and text styles for the `Select` component.
+- Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
+- Renames the `Skeleton`'s `border` prop to `isBordered`.
+
+### Removals
+
+- Removes the `HorizontalRule`'s `height` and `width` props from its prop interface
+  in favor of Chakra's style props; the default values are still set for `height` and `width`.
 
 ### Fixes
 
