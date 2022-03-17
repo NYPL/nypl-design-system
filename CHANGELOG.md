@@ -23,6 +23,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the border and text styles for the `Select` component.
 - Updates the `Breadcrumbs` component to inlcude an `Education` color variant.
 - Updates the `Icon` component to include the `Education` color values.
+- Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
+- Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
+- Moves the base styles from the SCSS global file to the Chakra theme global JS object.
 
 ### Fixes
 
