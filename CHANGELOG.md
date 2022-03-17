@@ -10,10 +10,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds Chakra's "Style Props" functionality to every Reservoir component. For
-  composed components, such as the `SearchBar` component, these style props are
-  passed to wrapper element. This update also updates the snapshot tests for
-  every component.
+- Adds `Education` section colors to the color palette theme object.
+- Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.
+- Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
 - Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
 
 ### Changes
@@ -25,6 +24,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
 - Updates the border and text styles for the `Select` component.
+- Updates the `Breadcrumbs` component to inlcude an `Education` color variant.
+- Updates the `Icon` component to include the `Education` color values.
+- Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
+- Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
+- Moves the base styles from the SCSS global file to the Chakra theme global JS object.
+- Updates the Radio's and Checkbox's label font size to "label.default".
 - Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
 - Renames the `Skeleton`'s `border` prop to `isBordered`.
 
@@ -38,6 +43,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
 - Updates the alignment of the `Notifications`'s dismissible icon.
 - Fixes the border and padding from the `fieldset` HTML element by removing it.
+- Fixes alignment for long labels in the `Checkbox` and `Radio` components.
+- Fixes the line height for long labels in the `Toggle` component.
 
 ## 0.25.11 (March 3, 2022)
 

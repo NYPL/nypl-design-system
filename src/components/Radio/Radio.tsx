@@ -98,6 +98,7 @@ export const Radio = chakra(
           onChange={onChange}
           value={value}
           ref={ref}
+          alignItems="flex-start"
           __css={styles}
           {...attributes}
           {...rest}

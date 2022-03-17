@@ -1,5 +1,5 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Link from "../Link/Link";
 import List from "../List/List";
@@ -10,14 +10,18 @@ import generateUUID from "../../helpers/generateUUID";
 export interface PaginationProps {
   /** Additional className. */
   className?: string;
+  /** The currentPage can be used to programatically force the selected page to change
+   * without the user explicitly requesting it – for example, if the user should be
+   * brought back to the first page of a set of results after a new search. */
+  currentPage?: number;
   /** The callback function that takes a page number and returns a string
    * to use for a link's `href` attribute. This is used when the current
    * page should refresh when navigating. */
   getPageHref?: undefined | ((pageNumber: number) => string);
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** The current page selected. */
-  initialPage: number;
+  /** The initially selected page (default value is 1). */
+  initialPage?: number;
   /** The callback function called when an item is selected and the current
    * page should not refresh. */
   onPageChange?: (selected: number) => void;
@@ -31,6 +35,7 @@ export interface PaginationProps {
 export const Pagination = chakra((props: PaginationProps) => {
   const {
     className,
+    currentPage,
     getPageHref,
     id = generateUUID(),
     initialPage = 1,
@@ -38,10 +43,21 @@ export const Pagination = chakra((props: PaginationProps) => {
     pageCount,
     ...rest
   } = props;
-  const [currentPage, setCurrentPage] = useState<number>(initialPage);
+  const refCurrentPage = useRef(currentPage);
+  const [selectedPage, setSelectedPage] = useState<number>(initialPage);
   const styles = useMultiStyleConfig("Pagination", {});
-  const previousPageNumber = currentPage - 1;
-  const nextPageNumber = currentPage + 1;
+  const previousPageNumber = selectedPage - 1;
+  const nextPageNumber = selectedPage + 1;
+
+  // If the parent passes down a new currentPage, and an onPageChange
+  // function exists, then set the internal state – selectedPage –
+  // to the new currentPage and update the refCurrentPage with that value.
+  React.useEffect(() => {
+    if (onPageChange && currentPage !== refCurrentPage.current) {
+      setSelectedPage(currentPage);
+      refCurrentPage.current = currentPage;
+    }
+  }, [currentPage, onPageChange]);
 
   // If there are 0 or 1 page, the pagination should not show.
   if (pageCount <= 1) {
@@ -49,7 +65,13 @@ export const Pagination = chakra((props: PaginationProps) => {
   }
   if (getPageHref && onPageChange) {
     console.warn(
-      "Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+      "NYPL Reservoir Pagination: Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+    );
+  }
+
+  if (getPageHref && currentPage) {
+    console.warn(
+      "NYPL Reservoir Pagination: The `currentPage` prop does not work with the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
     );
   }
 
@@ -60,22 +82,22 @@ export const Pagination = chakra((props: PaginationProps) => {
    * This function is only called when clicking on a link should
    * not update the URL or refresh the page.
    */
-  const selectPage = (e: Event, selectedPage: number) => {
+  const handlePageClick = (e: Event, clickedPage: number) => {
     e.preventDefault && e.preventDefault();
-    if (currentPage === selectedPage) return;
-    setCurrentPage(selectedPage);
-    onPageChange && onPageChange(selectedPage);
+    if (selectedPage === clickedPage) return;
+    setSelectedPage(clickedPage);
+    onPageChange && onPageChange(clickedPage);
   };
   // Select the previous page.
   const previousPage = (e: Event) => {
-    if (currentPage > 1) {
-      selectPage(e, previousPageNumber);
+    if (selectedPage > 1) {
+      handlePageClick(e, previousPageNumber);
     }
   };
   // Select the next page.
   const nextPage = (e: Event) => {
-    if (currentPage < pageCount) {
-      selectPage(e, nextPageNumber);
+    if (selectedPage < pageCount) {
+      handlePageClick(e, previousPageNumber);
     }
   };
   /**
@@ -88,9 +110,9 @@ export const Pagination = chakra((props: PaginationProps) => {
    *    "#" and call the `onPageChange` prop through the `onClick` callback.
    */
   const getLinkElement = (type: string, item?: number) => {
-    const isCurrentPage = currentPage === item;
+    const isSelectedPage = selectedPage === item;
     // The current page link has different styles.
-    const currentStyles = isCurrentPage
+    const currentStyles = isSelectedPage
       ? {
           color: "ui.black",
           pointerEvent: "none",
@@ -101,8 +123,8 @@ export const Pagination = chakra((props: PaginationProps) => {
         href: changeUrls ? getPageHref(item) : "#",
         attributes: {
           "aria-label": `Page ${item}`,
-          "aria-current": isCurrentPage ? "page" : null,
-          onClick: changeUrls ? undefined : (e) => selectPage(e, item),
+          "aria-current": isSelectedPage ? "page" : null,
+          onClick: changeUrls ? undefined : (e) => handlePageClick(e, item),
         },
         text: item,
       },
@@ -211,11 +233,11 @@ export const Pagination = chakra((props: PaginationProps) => {
   };
 
   // Don't display the previous link when you're on the first page.
-  const previousLiLink = currentPage !== 1 && (
+  const previousLiLink = selectedPage !== 1 && (
     <li key="previous">{getLinkElement("previous")}</li>
   );
-  /// Don't display the next link when you're on the last page.
-  const nextLiLink = currentPage !== pageCount && (
+  // Don't display the next link when you're on the last page.
+  const nextLiLink = selectedPage !== pageCount && (
     <li key="next">{getLinkElement("next")}</li>
   );
 
@@ -231,7 +253,7 @@ export const Pagination = chakra((props: PaginationProps) => {
     >
       <List type={ListTypes.Unordered} inline noStyling id={`${id}-list`}>
         {previousLiLink}
-        {getPaginationNumbers(currentPage)}
+        {getPaginationNumbers(selectedPage)}
         {nextLiLink}
       </List>
     </Box>

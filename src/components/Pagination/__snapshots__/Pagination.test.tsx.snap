@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
+exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
 <nav
   aria-label="Pagination"
   className="css-1xdhyk6"
@@ -108,7 +108,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 1`] = `
 </nav>
 `;
 
-exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
+exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
 <nav
   aria-label="Pagination"
   className="css-1xdhyk6"
@@ -216,7 +216,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 2`] = `
 </nav>
 `;
 
-exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
+exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
 <nav
   aria-label="Pagination"
   className="css-1xdhyk6"
@@ -326,7 +326,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 3`] = `
 </nav>
 `;
 
-exports[`Pagination Rendering Renders the UI snapshot correctly 4`] = `
+exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
 <nav
   aria-label="Pagination"
   className="css-kle7zy"
@@ -434,7 +434,7 @@ exports[`Pagination Rendering Renders the UI snapshot correctly 4`] = `
 </nav>
 `;
 
-exports[`Pagination Rendering Renders the UI snapshot correctly 5`] = `
+exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
 <nav
   aria-label="Pagination"
   className="css-1xdhyk6"

@@ -128,6 +128,7 @@ export const Checkbox = chakra(
                 defaultIsChecked: false,
               })}
           icon={icon}
+          alignItems="flex-start"
           __css={styles}
           {...ariaAttributes}
           {...rest}

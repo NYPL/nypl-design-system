@@ -162,6 +162,23 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
 
 <Canvas>
   <DSProvider>
+    <Heading level={HeadingLevels.Three}>Education</Heading>
+    <Breadcrumbs
+      breadcrumbsData={[
+        { url: "#", text: "Parent" },
+        { url: "#", text: "Child" },
+        {
+          url: "#",
+          text: "Grandchild",
+        },
+      ]}
+      colorVariant={ColorVariants.Education}
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
     <Heading level={HeadingLevels.Three}>Locations</Heading>
     <Breadcrumbs
       breadcrumbsData={[

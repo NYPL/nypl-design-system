@@ -39,12 +39,12 @@ export interface TemplateAppContainerProps
 
 /**
  * The main top-level parent component that wraps all template-related
- * components. For backwards compatibility, this renders a `nypl-ds` CSS class.
+ * components.
  */
 const Template = chakra((props: React.PropsWithChildren<TemplateProps>) => {
   const styles = useStyleConfig("Template", {});
   return (
-    <Box __css={styles} className="nypl-ds" {...props}>
+    <Box __css={styles} {...props}>
       {props.children}
     </Box>
   );

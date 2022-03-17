@@ -10,30 +10,34 @@ import DSProvider from "../../theme/provider";
 
 export const cssVars = {
   brand: ["--nypl-colors-brand-primary", "--nypl-colors-brand-secondary"],
-  whatsOn: [
-    "--nypl-colors-section-whats-on-primary",
-    "--nypl-colors-section-whats-on-secondary",
+  blogs: [
+    "--nypl-colors-section-blogs-primary",
+    "--nypl-colors-section-blogs-secondary",
   ],
   booksAndMore: [
     "--nypl-colors-section-books-and-more-primary",
     "--nypl-colors-section-books-and-more-secondary",
   ],
-  research: [
-    "--nypl-colors-section-research-primary",
-    "--nypl-colors-section-research-secondary",
+  education: [
+    "--nypl-colors-section-education-primary",
+    "--nypl-colors-section-education-secondary",
   ],
   locations: [
     "--nypl-colors-section-locations-primary",
     "--nypl-colors-section-locations-secondary",
   ],
-  blogs: [
-    "--nypl-colors-section-blogs-primary",
-    "--nypl-colors-section-blogs-secondary",
+  research: [
+    "--nypl-colors-section-research-primary",
+    "--nypl-colors-section-research-secondary",
   ],
   researchLibraries: [
     "--nypl-colors-section-research-library-lpa",
     "--nypl-colors-section-research-library-schomburg",
     "--nypl-colors-section-research-library-schwartzman",
+  ],
+  whatsOn: [
+    "--nypl-colors-section-whats-on-primary",
+    "--nypl-colors-section-whats-on-secondary",
   ],
   ui: [
     "--nypl-colors-ui-black",
@@ -112,9 +116,9 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>What's On</Heading>
-    <p>What's On is used for Events, Exhibitions &amp; Audio Guides.</p>
-    <SimpleGrid columns={1}>{getColorCards("whatsOn")}</SimpleGrid>
+    <Heading level={HeadingLevels.Two}>Blogs</Heading>
+    <p>Blogs is used for the Blogs section.</p>
+    <SimpleGrid columns={1}>{getColorCards("blogs")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -131,9 +135,12 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>Research</Heading>
-    <p>Research is used for the Research Catalog and SCC.</p>
-    <SimpleGrid columns={1}>{getColorCards("research")}</SimpleGrid>
+    <Heading level={HeadingLevels.Two}>Education</Heading>
+    <p>
+      Education is used for the Education section front and all associated
+      sub-sections.
+    </p>
+    <SimpleGrid columns={1}>{getColorCards("education")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -150,9 +157,9 @@ Section colors are branding colors only in use at NYPL.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Two}>Blogs</Heading>
-    <p>Blogs is used for the Blogs section.</p>
-    <SimpleGrid columns={1}>{getColorCards("blogs")}</SimpleGrid>
+    <Heading level={HeadingLevels.Two}>Research</Heading>
+    <p>Research is used for the Research Catalog and SCC.</p>
+    <SimpleGrid columns={1}>{getColorCards("research")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 
@@ -161,6 +168,14 @@ Section colors are branding colors only in use at NYPL.
     <Heading level={HeadingLevels.Two}>Research Libraries</Heading>
     <p>Research libraries with specific brand colors to adhere to.</p>
     <SimpleGrid columns={1}>{getColorCards("researchLibraries")}</SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading level={HeadingLevels.Two}>What's On</Heading>
+    <p>What's On is used for Events, Exhibitions &amp; Audio Guides.</p>
+    <SimpleGrid columns={1}>{getColorCards("whatsOn")}</SimpleGrid>
   </DSProvider>
 </Canvas>
 

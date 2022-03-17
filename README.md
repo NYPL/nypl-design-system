@@ -116,17 +116,7 @@ $ npm install @nypl/design-system-react-components
 @import "~@nypl/design-system-react-components/dist/styles.css";
 ```
 
-3. Add the `nypl-ds` CSS class
-
-Some CSS rules in the Design System, such as the universal focus styling and the box-model, are namespaced to the `.nypl-ds` class. To include those in your app, add `.nypl-ds` to whichever wrapper tag makes sense in your application (e.g., `<div class="app">` or `<div class="container">`).
-
-```jsx
-<div class="app nypl-ds">
-  <!-- your code here -->
-</div>
-```
-
-4. Import the `DSProvider` component
+3. Import the `DSProvider` component
 
 In order to use DS components in a consuming application, there is a necessary step that must be done for component styles to properly render. Consuming applications need to wrap all the DS components with a simple provider component. Fortunately, this only needs to be done once at the top level of the consuming application.
 
@@ -141,7 +131,7 @@ const ApplicationContainer = (props) => {
   // ...
   return (
     <DSProvider>
-      <div className="my-app nypl-ds">
+      <div className="my-app">
         // ...
         {children}
       </div>
@@ -150,7 +140,7 @@ const ApplicationContainer = (props) => {
 };
 ```
 
-5. Use DS components!
+4. Use DS components!
 
 Consult Storybook for the list of available components and props that they require.
 
@@ -181,13 +171,11 @@ function NewComponent(props) {
 
 ### NYPL DS, NYPL Header, and NYPL Footer
 
-Please note that, if used, the NYPL Header and Footer components should be _outside_ of the `.nypl-ds` wrapper class.
-
 ```jsx
 <body>
   <NYPLHeader />
 
-  <div class="app nypl-ds">
+  <div class="app">
     <!-- your code here -->
   </div>
 
