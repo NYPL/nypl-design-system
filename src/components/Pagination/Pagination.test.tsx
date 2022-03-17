@@ -1,6 +1,4 @@
 import * as React from "react";
-// import { render, screen } from "@testing-library/react";
-
 import { render, screen, within } from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
@@ -168,7 +166,7 @@ describe("Pagination", () => {
       expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
     });
 
-    it("Renders the UI snapshot correctly", () => {
+    it("renders the UI snapshot correctly", () => {
       const firstPage = renderer
         .create(
           <Pagination
@@ -232,7 +230,7 @@ describe("Pagination", () => {
 
     // In this scenario, we need to update the current page ourselves
     // since we stay on the same page.
-    it("When page item is selected, runs the onPageChange callback", () => {
+    it("when page item is selected, runs the onPageChange callback", () => {
       const onPageChange = (page: number) => (currentPage = page);
       let currentPage = 5;
       const { rerender } = render(
@@ -336,6 +334,33 @@ describe("Pagination", () => {
       expect(page1).toEqual(null);
       expect(page2).toEqual(null);
       expect(page3).toEqual("page");
+    });
+
+    it("logs a warning if both `getPageHref` and `onPageChange` props are both passed", () => {
+      const getPageHref = (page: number) => `page=${page}`;
+      const onPageChange = (page: number) => console.log(page);
+      const warn = jest.spyOn(console, "warn");
+      render(
+        <Pagination
+          pageCount={10}
+          onPageChange={onPageChange}
+          getPageHref={getPageHref}
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir Pagination: Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+      );
+    });
+
+    it("logs a warning if both `getPageHref` and `currentPage` props are both passed", () => {
+      const getPageHref = (page: number) => `page=${page}`;
+      const warn = jest.spyOn(console, "warn");
+      render(
+        <Pagination pageCount={10} currentPage={2} getPageHref={getPageHref} />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir Pagination: The `currentPage` prop does not work with the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
+      );
     });
   });
 });

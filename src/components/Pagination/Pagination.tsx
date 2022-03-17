@@ -20,8 +20,7 @@ export interface PaginationProps {
   getPageHref?: undefined | ((pageNumber: number) => string);
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** The initially selected page (default value is 1). If using with `getPageHref`,
-   * this value will reset with each new page refresh. */
+  /** The initially selected page (default value is 1). */
   initialPage?: number;
   /** The callback function called when an item is selected and the current
    * page should not refresh. */
@@ -49,6 +48,9 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   const previousPageNumber = selectedPage - 1;
   const nextPageNumber = selectedPage + 1;
 
+  // If the parent passes down a new currentPage, and an onPageChange
+  // function exists, then set the internal state – selectedPage –
+  // to the new currentPage and update the refCurrentPage with that value.
   React.useEffect(() => {
     if (onPageChange && currentPage !== refCurrentPage.current) {
       setSelectedPage(currentPage);
