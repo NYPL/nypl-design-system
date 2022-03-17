@@ -52,7 +52,7 @@ const ApplicationComponent = (props) => {
   return (
     <DSProvider>
       <header>...</header>
-      <div className="my-app nypl-ds">
+      <div className="my-app">
         // ...
         {children}
       </div>
