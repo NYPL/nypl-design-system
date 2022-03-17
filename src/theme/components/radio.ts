@@ -67,14 +67,10 @@ const baseStyleControl = {
 };
 
 // Style object for the Radio's label
-const baseStyleLabel = {
-  ...checkboxRadioLabelStyles,
-};
+const baseStyleLabel = checkboxRadioLabelStyles;
 
 // Style object for the Radio's helper text
-const baseStyleHelper = {
-  ...checkboxRadioHelperStyle,
-};
+const baseStyleHelper = checkboxRadioHelperStyle;
 
 const baseStyle = {
   // Chakra-inserted elements in the Chakra Radio component
@@ -90,6 +86,7 @@ const sizes = {
     control: {
       ...checkboxRadioControlSize,
     },
+    label: { fontSize: "label.default" },
   },
 };
 

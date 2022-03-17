@@ -19,7 +19,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -66,7 +66,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -135,7 +135,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -182,7 +182,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -251,7 +251,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -298,7 +298,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -367,7 +367,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -414,7 +414,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -499,7 +499,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -546,7 +546,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -610,7 +610,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -657,7 +657,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         checked={false}
@@ -726,7 +726,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         aria-required={true}
@@ -774,7 +774,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
     >
       <input
         aria-required={true}
@@ -844,7 +844,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
       data-invalid=""
     >
       <input
@@ -895,7 +895,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
       data-invalid=""
     >
       <input
@@ -968,7 +968,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     role="radiogroup"
   >
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
       data-disabled=""
     >
       <input
@@ -1019,7 +1019,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
       </span>
     </label>
     <label
-      className="chakra-radio css-1pw4d56"
+      className="chakra-radio css-13p0l12"
       data-disabled=""
     >
       <input

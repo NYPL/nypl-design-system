@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `Education` section colors to the color palette theme object.
+- Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.
 - Created new `LayoutTypes` enum for row and column layouts.
 - Adds the value "Default" to the `IconSizes` enum.
 
@@ -33,6 +34,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
 - Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
 - Moves the base styles from the SCSS global file to the Chakra theme global JS object.
+- Updates the Radio's and Checkbox's label font size to "label.default".
 - Renames the `Accordion` prop `contentData` to `accordionData`.
 - Renames the `Breadcrumbs` prop `colorVariant` to `breadcrumbsType`.
 - Renames the `Card` prop `center` to `isCentered`.
@@ -64,6 +66,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
 - Updates the alignment of the `Notifications`'s dismissible icon.
 - Fixes the border and padding from the `fieldset` HTML element by removing it.
+- Fixes alignment for long labels in the `Checkbox` and `Radio` components.
+- Fixes the line height for long labels in the `Toggle` component.
 
 ## 0.25.11 (March 3, 2022)
 
