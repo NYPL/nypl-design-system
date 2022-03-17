@@ -78,7 +78,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          colorVariant={ColorVariants.Education}
+          breadcrumbsType={BreadcrumbsTypes.Education}
           id="breadcrumbs-test"
         />
       )
