@@ -164,6 +164,23 @@ the default background color is `black`.
 
 <Canvas>
   <DSProvider>
+    <Heading level={HeadingLevels.Three}>Education</Heading>
+    <Breadcrumbs
+      breadcrumbsData={[
+        { url: "#", text: "Parent" },
+        { url: "#", text: "Child" },
+        {
+          url: "#",
+          text: "Grandchild",
+        },
+      ]}
+      colorVariant={ColorVariants.Education}
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
     <Heading level={HeadingLevels.Three}>Locations</Heading>
     <Breadcrumbs
       breadcrumbsData={[

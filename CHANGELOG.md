@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `Education` section colors to the color palette theme object.
 - Created new `LayoutTypes` enum for row and column layouts.
 - Adds the value "Default" to the `IconSizes` enum.
 
@@ -18,7 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the `CardLayouts`, `CheckboxGroupLayoutTypes`, `RadioGroupLayoutTypes`, and `SkeletonLoaderLayouts` enums.
 - Removes the `CardTypes.tsx`,` CheckboxGroupLayoutTypes.tsx`, and `RadioGroupLayoutTypes.tsx` files.
 
-### Updates
+### Changes
 
 - Removes the margin from the global `.nypl p` CSS rule.
 - Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
@@ -27,6 +28,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
 - Updates the border and text styles for the `Select` component.
+- Updates the `Breadcrumbs` component to inlcude an `Education` color variant.
+- Updates the `Icon` component to include the `Education` color values.
+- Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
 - Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
 - Moves the base styles from the SCSS global file to the Chakra theme global JS object.
 - Renames the `Accordion` prop `contentData` to `accordionData`.

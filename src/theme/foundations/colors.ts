@@ -82,15 +82,26 @@ const colors: Colors = {
 
   /** Brand fills for sections on NYPL pages. */
   section: {
-    /** What's On is used for Exhibitions & Events. */
-    "whats-on": {
-      primary: "#242424",
-      secondary: "#000000",
+    /** Blogs is used for the Blogs section. */
+    blogs: {
+      primary: grayLightCool,
+      secondary: grayMedium,
     },
 
     /** Books and More is used for the Catalog, Staff Picks, Recommendations,
      * New Arrivals, and E-Book Central. */
     "books-and-more": brandObj,
+
+    /** Education is used for the Education section front and associated
+     * sub-sections. */
+    education: {
+      primary: "#1D62E6",
+      secondary: "#2540A4",
+    },
+
+    /** Locations is used for Location Finder and all branch pages with
+     * the exceptions of some research libraries. */
+    locations: brandObj,
 
     /** Research is used for the Research Catalog and SCC. */
     research: {
@@ -98,21 +109,17 @@ const colors: Colors = {
       secondary: "#006166",
     },
 
-    /** Locations is used for Location Finder and all branch pages with
-     * the exceptions of some research libraries. */
-    locations: brandObj,
-
-    /** Blogs is used for the Blogs section. */
-    blogs: {
-      primary: grayLightCool,
-      secondary: grayMedium,
-    },
-
     /** Research libraries with specific brand colors to adhere to. */
     "research-library": {
       lpa: "#005d53",
       schomburg: "#a03e31",
       schwartzman: brandSecondary,
+    },
+
+    /** What's On is used for Exhibitions & Events. */
+    "whats-on": {
+      primary: "#242424",
+      secondary: "#000000",
     },
   },
 
