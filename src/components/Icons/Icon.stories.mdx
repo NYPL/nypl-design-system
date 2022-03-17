@@ -107,7 +107,7 @@ export const rotationEnumValues = getStorybookEnumValues(
       iconRotation: "IconRotationTypes.Rotate0",
       id: "icon-id",
       name: "IconNames.Check",
-      size: "IconSizes.ExtraLarge",
+      size: "IconSizes.ExtraExtraLarge",
       title: undefined,
       type: IconTypes.Default,
     }}
@@ -130,7 +130,7 @@ export const rotationEnumValues = getStorybookEnumValues(
 export const iconRow = (icon, iconType = IconNames, opts = {}) => {
   // We'll use this setup function to render all the icons in a list item.
   // Some icons display better with a dark background.
-  const styles = { display: "inline-block" };
+  const styles = { display: "block" };
   const {
     size = IconSizes.Large,
     iconRotation = IconRotationTypes.Rotate0,
@@ -186,7 +186,7 @@ for (const iconRotation in IconRotationTypes) {
     iconRow("Arrow", IconNames, {
       displayValue: `IconRotationTypes.${iconRotation}`,
       iconRotation: IconRotationTypes[iconRotation],
-      size: IconSizes.Large,
+      size: IconSizes.ExtraExtraLarge,
     })
   );
 }
@@ -226,9 +226,16 @@ Passing an `iconRotation` prop with a value from `IconRotationTypes` allows
 the icon to be rotated when it is rendered. The `IconRotationTypes` enum
 can be found in `src/components/Icons/IconTypes.tsx`.
 
+Note: All of the examples below have been rendered with the `size` prop set to
+`IconSizes.ExtraExtraLarge`.
+
 ```jsx
 // Example
-<Icon name={IconNames.Arrow} iconRotation={IconRotationTypes.Rotate180} />
+<Icon
+  iconRotation={IconRotationTypes.Rotate180}
+  name={IconNames.Arrow}
+  size={IconSizes.ExtraExtraLarge}
+/>
 ```
 
 <Canvas>
@@ -240,9 +247,16 @@ can be found in `src/components/Icons/IconTypes.tsx`.
 Update an SVG icon by passing a `color` prop with a value from `IconColors`.
 The `IconColors` enum can be found in `src/components/Icons/IconTypes.tsx`.
 
+Note: All of the examples below have been rendered with the `size` prop set to
+`IconSizes.ExtraExtraLarge`.
+
 ```jsx
 // Example
-<Icon name={IconNames.Speaker_notes} color={IconColors.BrandPrimary} />
+<Icon
+  color={IconColors.BrandPrimary}
+  name={IconNames.ErrorFilled}
+  size={IconSizes.ExtraExtraLarge}
+/>
 ```
 
 <Canvas>
@@ -254,9 +268,12 @@ The `IconColors` enum can be found in `src/components/Icons/IconTypes.tsx`.
 Update an SVG icon by passing a `size` prop with a value from `IconSizes`.
 The `IconSizes` enum can be found in`src/components/Icons/IconTypes.tsx`.
 
+Note: `IconSizes.Default` sets the width to `100%` and the rendered icon will
+expand to fill the full width of the parent element.
+
 ```jsx
 // Example
-<Icon name={IconNames.Clock} size={IconSizes.ExtraExtraLarge} />
+<Icon name={IconNames.ActionCheckCircle} size={IconSizes.ExtraExtraLarge} />
 ```
 
 <Canvas>
@@ -267,6 +284,9 @@ The `IconSizes` enum can be found in`src/components/Icons/IconTypes.tsx`.
 
 The following icons are for generic purposes. All the available icon names can
 be found in the `IconNames` enum in `src/components/Icons/IconTypes.tsx`.
+
+Note: All of the examples below have been rendered with the `size` prop set to
+`IconSizes.ExtraExtraLarge`.
 
 <Canvas withToolbar>
   <Story name="All Icons">{allIconsType(icons)}</Story>
