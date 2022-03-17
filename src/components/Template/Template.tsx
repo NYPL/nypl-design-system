@@ -39,15 +39,11 @@ export interface TemplateAppContainerProps
 
 /**
  * The main top-level parent component that wraps all template-related
- * components. For backwards compatibility, this renders a `nypl-ds` CSS class.
+ * components.
  */
 const Template = (props: React.PropsWithChildren<TemplateProps>) => {
   const styles = useStyleConfig("Template", {});
-  return (
-    <Box __css={styles} className="nypl-ds">
-      {props.children}
-    </Box>
-  );
+  return <Box __css={styles}>{props.children}</Box>;
 };
 
 /**

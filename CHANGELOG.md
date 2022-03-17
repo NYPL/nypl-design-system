@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## Adds
+
+- Adds `Education` section colors to the color palette theme object.
+- Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.
+
 ### Changes
 
 - Removes the margin from the global `.nypl p` CSS rule.
@@ -17,6 +22,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
 - Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
 - Updates the border and text styles for the `Select` component.
+- Updates the `Breadcrumbs` component to inlcude an `Education` color variant.
+- Updates the `Icon` component to include the `Education` color values.
+- Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
+- Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
+- Moves the base styles from the SCSS global file to the Chakra theme global JS object.
 - Updates the Radio's and Checkbox's label font size to "label.default".
 
 ### Fixes
