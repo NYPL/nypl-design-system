@@ -16,8 +16,8 @@ const input = {
     color: "ui.gray.xdark",
     opacity: "1",
   },
-  _active: activeFocus,
-  _focus: activeFocus,
+  _active: activeFocus(),
+  _focus: activeFocus(),
   _placeholder: {
     color: "ui.gray.dark",
     fontStyle: "italic",
