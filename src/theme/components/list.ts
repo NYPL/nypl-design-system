@@ -1,3 +1,5 @@
+import { textMargin } from "./global";
+
 const List = {
   baseStyle: ({ inline, noStyling }) => ({
     // Browser automatically applies margin, so by default we unset it.
@@ -8,15 +10,16 @@ const List = {
     padding: noStyling ? "0" : null,
     display: inline ? "flex" : null,
     li: {
-      marginRight: inline ? "xs" : null,
+      marginRight: inline ? "m" : null,
       listStyleType: inline ? "none" : null,
       _notFirst: {
-        marginTop: "xxs",
+        marginTop: inline ? null : "xxs",
       },
     },
   }),
   variants: {
     ul: ({ noStyling }) => ({
+      ...textMargin,
       listStyle: "none",
       li: {
         _before: {
@@ -33,6 +36,7 @@ const List = {
         },
       },
     }),
+    ol: textMargin,
     dl: {
       borderBottom: "1px solid",
       borderColor: "ui.gray.light-cool",

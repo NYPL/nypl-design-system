@@ -13,12 +13,12 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <svg
-        aria-hidden={false}
+        aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
         id="notificationID1-notification-icon"
         role="img"
-        title="alert_notification_important icon"
+        title="Notification standard icon"
         viewBox="0 0 24 24"
       >
         <g
@@ -77,12 +77,12 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <svg
-        aria-hidden={false}
+        aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
         id="notificationID2-notification-icon"
         role="img"
-        title="speaker_notes icon"
+        title="Notification announcement icon"
         viewBox="0 0 24 24"
       >
         <g
@@ -141,12 +141,12 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <svg
-        aria-hidden={false}
+        aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
         id="notificationID3-notification-icon"
         role="img"
-        title="error_filled icon"
+        title="Notification warning icon"
         viewBox="0 0 24 24"
       >
         <g
@@ -205,12 +205,12 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <svg
-        aria-hidden={false}
+        aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
         id="notificationID4-notification-icon"
         role="img"
-        title="alert_notification_important icon"
+        title="Notification standard icon"
         viewBox="0 0 24 24"
       >
         <g
@@ -297,5 +297,100 @@ exports[`Notification renders the UI snapshot correctly 6`] = `
       </div>
     </div>
   </div>
+</aside>
+`;
+
+exports[`Notification renders the UI snapshot correctly 7`] = `
+<aside
+  className="css-0"
+  data-type="standard"
+  id="notificationID7"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-onkibi"
+        focusable={false}
+        id="notificationID7-notification-icon"
+        role="img"
+        title="Notification standard icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <div
+        className="css-0"
+      >
+        Notification content.
+      </div>
+    </div>
+  </div>
+  <button
+    aria-label="Close the notification"
+    className="chakra-button css-0"
+    data-testid="button"
+    id="notificationID7-notification-dismissible-button"
+    onClick={[Function]}
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-onkibi"
+      focusable={false}
+      id="notificationID7-dismissible-notification-icon"
+      role="img"
+      title="Notification close icon"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+  </button>
 </aside>
 `;
