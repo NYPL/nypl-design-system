@@ -69,14 +69,10 @@ const baseStyleControl = {
 };
 
 // Style object for the Checkbox's label
-const baseStyleLabel = {
-  ...checkboxRadioLabelStyles,
-};
+const baseStyleLabel = checkboxRadioLabelStyles;
 
 // Style object for the Checkbox's helper text
-const baseStyleHelper = {
-  ...checkboxRadioHelperStyle,
-};
+const baseStyleHelper = checkboxRadioHelperStyle;
 
 const baseStyle = {
   icon: baseStyleIcon,
@@ -94,7 +90,7 @@ const sizes = {
       borderRadius: "sm",
     },
     // Controls the font-size of the label only.
-    label: { fontSize: "text.default" },
+    label: { fontSize: "label.default" },
   },
 };
 

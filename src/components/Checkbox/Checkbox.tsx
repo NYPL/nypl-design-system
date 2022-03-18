@@ -126,6 +126,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                 defaultIsChecked: false,
               })}
           icon={icon}
+          alignItems="flex-start"
           __css={styles}
           {...ariaAttributes}
         >
