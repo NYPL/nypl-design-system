@@ -126,7 +126,6 @@ export default function Notification(props: NotificationProps) {
   const iconElement = () => {
     const baseIconProps = {
       additionalStyles: styles.icon,
-      decorative: false,
       size: IconSizes.Large,
     };
     // If the icon should not display, return null.
@@ -166,13 +165,16 @@ export default function Notification(props: NotificationProps) {
   };
   const dismissibleButton = dismissible && (
     <Button
-      buttonType={ButtonTypes.Link}
-      onClick={handleClose}
       additionalStyles={styles.dismissibleButton}
+      attributes={{
+        "aria-label": "Close the notification",
+      }}
+      buttonType={ButtonTypes.Link}
+      id={`${id}-notification-dismissible-button`}
+      onClick={handleClose}
     >
       <Icon
-        decorative={false}
-        id={`${id}-notification-dismissible-icon`}
+        id={`${id}-dismissible-notification-icon`}
         name={IconNames.Close}
         size={IconSizes.Large}
         title="Notification close icon"

@@ -10,7 +10,7 @@ const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
 const fishDefinitions = [
   {
     term: "Mahi-mahi",
-    definition: "The mahi-mahi is an ocean fish known...",
+    definition: <p>The mahi-mahi is an ocean fish known...</p>,
   },
   {
     term: "Golden trout",

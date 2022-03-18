@@ -91,7 +91,7 @@ const categories = {
     components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
   },
   chakra: {
-    title: "Chakra/Layout",
+    title: "Chakra/Chakra COmponent/Layout",
     components: [
       "Box",
       "Flex",

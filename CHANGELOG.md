@@ -8,9 +8,55 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.12 (March 18, 2022)
+
+## Adds
+
+- Adds `Education` section colors to the color palette theme object.
+- Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.
+
+### Changes
+
+- Removes the margin from the global `.nypl p` CSS rule.
+- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
+- Updates the `Notification`'s icons to be decorative by default.
+- Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
+- Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
+- Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
+- Updates the border and text styles for the `Select` component.
+- Updates the `Breadcrumbs` component to inlcude an `Education` color variant.
+- Updates the `Icon` component to include the `Education` color values.
+- Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
+- Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
+- Moves the base styles from the SCSS global file to the Chakra theme global JS object.
+- Updates the label font size for the `Radio` and `Checkbox` components to be "label.default".
+
+### Fixes
+
+- Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
+- Updates the alignment of the `Notifications`'s dismissible icon.
+- Fixes the border and padding from the `fieldset` HTML element by removing it.
+- Fixes alignment for long labels in the `Checkbox` and `Radio` components.
+- Fixes the line height for long labels in the `Toggle` component.
+
+## 0.25.11 (March 3, 2022)
+
 ### Updates
 
 - Updates the `Logo` component to include new variants for `BPL`, `Clever`, `LPA`, `MLN`, `QPL`, `Schomburg`, `SimplyE` and `Treasures`.
+- Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
+- Updates font size to "14px" for `TextInput` component.
+- Adds an `aria-label` attribute to the `Notification` component to use with its `aside` HTML landmark element. Added an "Accessibility" section in the `Notification` Storybook page to note that this component should not be used within a `header` or `footer` HTML landmark element.
+- Updates the `Notification` component to handle link color inside the content area, better styling for centering and the dismissible variation, and updated background color for the "Announcement" and "Warning" types.
+- Updates a log message in the `Icon` component to be more descriptive.
+- Updates the mobile styles for the image in the `StructuredContent` component.
+- Updates the prop type for the "Definition" `List` type so DOM elements can be passed in the definition.
+
+### Fixes
+
+- Updates the bottom margin of the `Select` in the `SearchBar` so that the helper text has standard gap between the main form components and itself.
+- Updates how `TabList` and `TabPanels` are returned in the `Tabs` component so no false log messages are consoled.
+- Updates `List` component styling for inline.
 
 ## 0.25.10 (February 22, 2022)
 
@@ -36,15 +82,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Fieldset` and `RadioGroup` so the `children` prop is declared through `React.PropsWithChildren` rather than in their respective prop interfaces.
 - Adds snapshot tests for the `Accordion` component, as well as `id` props to the components within the `Accordion` so snapshot tests pass.
 - Passes an `id` to the `Icon` in the `Select` component.
-- Adds snapshot tests for the `Select` componnet.
-- Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
-- Updates font size to "14px" for `TextInput` component.
-- Adds an `aria-label` attribute to the `Notification` component to use with its `aside` HTML landmark element. Added an "Accessibility" section in the `Notification` Storybook page to note that this component should not be used within a `header` or `footer` HTML landmark element.
-- Updates the `Notification` component to handle link color inside the content area, better styling for centering and the dismissible variation, and updated background color for the "Announcement" and "Warning" types.
-- Updates a log message in the `Icon` component to be more descriptive.
-- Updates the bottom margin of the `Select` in the `SearchBar` so that the helper text has standard gap between the main form components and itself.
-- Updates the mobile styles for the image in the `StructuredContent` component.
-- Updates how `TabList` and `TabPanels` are returned in the `Tabs` component so no false log messages are consoled.
+- Adds snapshot tests for the `Select` component.
 
 ### Fixes
 

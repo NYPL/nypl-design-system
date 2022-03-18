@@ -51,7 +51,7 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.7.0`    |
-| Latest            | `0.25.10`  |
+| Latest            | `0.25.12`  |
 
 <Description of={List} />
 
@@ -63,8 +63,15 @@ export const animalCrossingDefinitions = [
   },
   {
     term: "Golden trout",
-    definition:
-      "The golden trout is a beautifully colored fish that can only live in very clean waters. They are difficult to come across since they are found only in high mountain streams. As a side note, I find it much easier to appreciate fish that aren't such prima donnas about everything.",
+    definition: (
+      <p>
+        The golden trout is a <b>beautifully</b> colored fish that can only live
+        in very clean waters. They are difficult to come across since they are
+        found only in high mountain streams. As a side note, I find it much
+        easier to appreciate fish that aren't such prima donnas about
+        everything.
+      </p>
+    ),
   },
   {
     term: "Rainbowfish",
@@ -73,8 +80,20 @@ export const animalCrossingDefinitions = [
   },
   {
     term: "Suckerfish",
-    definition:
-      "The suckerfish is a curious fish that likes to attach itself with its sucker mouth to larger marine animals. The benefit to the suckerfish is that it gets to eat smaller parasites and dead skin off the host's body. Amusingly, some people have used suckerfish on cords to catch large turtles with the fish's own suction! I imagine this practice is the cause of some awkward conversations between fish and turtle, eh wot?",
+    definition: (
+      <p>
+        The{" "}
+        <Link href="https://animalcrossing.fandom.com/wiki/Suckerfish">
+          suckerfish
+        </Link>{" "}
+        is a curious fish that likes to attach itself with its sucker mouth to
+        larger marine animals. The benefit to the suckerfish is that it gets to
+        eat smaller parasites and dead skin off the host's body. Amusingly, some
+        people have used suckerfish on cords to catch large turtles with the
+        fish's own suction! I imagine this practice is the cause of some awkward
+        conversations between fish and turtle, eh wot?
+      </p>
+    ),
   },
 ];
 export const itemGroups = [
