@@ -69,7 +69,10 @@ const baseStyleControl = {
 };
 
 // Style object for the Checkbox's label
-const baseStyleLabel = checkboxRadioLabelStyles;
+const baseStyleLabel = {
+  ...checkboxRadioLabelStyles,
+  width: "100%",
+};
 
 // Style object for the Checkbox's helper text
 const baseStyleHelper = checkboxRadioHelperStyle;

@@ -1,3 +1,4 @@
+import { Flex, Spacer } from "@chakra-ui/react";
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
@@ -346,6 +347,39 @@ describe("Checkbox", () => {
         </CheckboxGroup>
       )
       .toJSON();
+    const withJSXCheckboxLabels = renderer
+      .create(
+        <CheckboxGroup
+          labelText="jsxLabels"
+          name="jsxLabels"
+          id="jsxLabels"
+          isFullWidth
+        >
+          <Checkbox
+            id="arts"
+            labelText={
+              <Flex>
+                <span>Arts</span>
+                <Spacer />
+                <span>4</span>
+              </Flex>
+            }
+            value="arts"
+          />
+          <Checkbox
+            id="English"
+            labelText={
+              <Flex>
+                <span>English</span>
+                <Spacer />
+                <span>23</span>
+              </Flex>
+            }
+            value="English"
+          />
+        </CheckboxGroup>
+      )
+      .toJSON();
 
     expect(column).toMatchSnapshot();
     expect(row).toMatchSnapshot();
@@ -356,6 +390,7 @@ describe("Checkbox", () => {
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(withJSXCheckboxLabels).toMatchSnapshot();
   });
 
   it("should throw warning when a non-Checkbox component is used as a child", () => {
