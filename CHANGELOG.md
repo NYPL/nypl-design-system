@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.25.12 (March 18, 2022)
+
 ## Adds
 
 - Adds `Education` section colors to the color palette theme object.
@@ -27,7 +29,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
 - Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
 - Moves the base styles from the SCSS global file to the Chakra theme global JS object.
-- Updates the Radio's and Checkbox's label font size to "label.default".
+- Updates the label font size for the `Radio` and `Checkbox` components to be "label.default".
 
 ### Fixes
 
