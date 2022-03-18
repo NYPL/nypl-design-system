@@ -10,10 +10,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds `Education` section colors to the color palette theme object.
-- Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.
 - Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
 - Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
+
+### Changes
+
+- Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
+- Renames the `Skeleton`'s `border` prop to `isBordered`.
+
+### Removals
+
+- Removes the `HorizontalRule`'s `height` and `width` props from its prop interface in favor of Chakra's style props; the default values are still set for `height` and `width`.
+
+## 0.25.12 (March 18, 2022)
+
+### Adds
+
+- Adds `Education` section colors to the color palette theme object.
+- Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.
 
 ### Changes
 
@@ -29,14 +43,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
 - Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
 - Moves the base styles from the SCSS global file to the Chakra theme global JS object.
-- Updates the Radio's and Checkbox's label font size to "label.default".
-- Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
-- Renames the `Skeleton`'s `border` prop to `isBordered`.
-
-### Removals
-
-- Removes the `HorizontalRule`'s `height` and `width` props from its prop interface
-  in favor of Chakra's style props; the default values are still set for `height` and `width`.
+- Updates the label font size for the `Radio` and `Checkbox` components to be "label.default".
 
 ### Fixes
 
