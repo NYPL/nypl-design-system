@@ -31,6 +31,10 @@ const categories = {
     title: "Components/Deprecated",
     components: ["CardEdition", "Input"],
   },
+  devguide: {
+    title: "Development Guide",
+    components: ["Autosuggest"],
+  },
   feedback: {
     title: "Components/Feedback",
     components: [
