@@ -18,7 +18,12 @@ addParameters({
   options: {
     storySort: {
       method: "alphabetical",
-      order: ["Introduction", "Components", "Documentation"],
+      order: [
+        "Introduction",
+        "Accessibility Guide",
+        "Components",
+        "Documentation",
+      ],
     },
   },
 });

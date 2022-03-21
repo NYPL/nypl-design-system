@@ -6,6 +6,7 @@ module.exports = {
   stories: [
     "../src/docs/Intro.stories.mdx",
     "../src/docs/Chakra.stories.mdx",
+    "../src/components/AccessibilityGuide/*.stories.@(tsx|mdx)",
     "../src/components/StyleGuide/*.stories.@(tsx|mdx)",
     "../src/components/**/*.stories.@(tsx|mdx)",
   ],
