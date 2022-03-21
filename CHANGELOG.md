@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes bug where the Next button in `Pagination` would navigate to the previous page.
+
 ## 0.25.12 (March 18, 2022)
 
 ## Adds
@@ -38,7 +42,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes the border and padding from the `fieldset` HTML element by removing it.
 - Fixes alignment for long labels in the `Checkbox` and `Radio` components.
 - Fixes the line height for long labels in the `Toggle` component.
-- Fixes bug where the Next button in `Pagination` would navigate to the previous page.
 
 ## 0.25.11 (March 3, 2022)
 
