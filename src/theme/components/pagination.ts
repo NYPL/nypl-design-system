@@ -9,11 +9,6 @@ const Pagination = {
       lineHeight: "1.15",
       textDecoration: "none",
     },
-    li: {
-      _first: {
-        marginTop: "xxs",
-      },
-    },
   },
 };
 
