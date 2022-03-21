@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the `Image`'s caption font size to "12px" (`text.tag`).
+
 ## 0.25.12 (March 18, 2022)
 
 ## Adds

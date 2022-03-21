@@ -85,6 +85,7 @@ const CustomImage = {
     },
     figcaption: {
       fontStyle: "italic",
+      fontSize: "text.tag",
     },
     img: {
       display: "block",
@@ -96,7 +97,6 @@ const CustomImage = {
     },
     captionWrappers: {
       marginBottom: "xxs",
-      fontSize: "text.caption",
     },
   }),
 };
