@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes bug where the Next button in `Pagination` would navigate to the previous page.
+
 ## 0.25.12 (March 18, 2022)
 
 ## Adds
