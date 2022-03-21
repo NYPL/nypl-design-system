@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## Adds
+
+- Adds a `contentId` prop to the `TemplateAppContainer` component. The default value is set to "mainContent" and will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming application.
+- Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
+
 ## 0.25.12 (March 18, 2022)
 
 ## Adds
