@@ -17,6 +17,8 @@ export interface AccordionContentDataProps {
 }
 
 export interface AccordionProps {
+  /** Background color to be passed to the AccordionButton */
+  bgColor: string;
   /** Array of data to display */
   contentData: AccordionContentDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
