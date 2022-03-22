@@ -5,12 +5,13 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
+  useStyleConfig,
 } from "@chakra-ui/react";
 
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
-
+import { ColorVariantsAccordion } from "./AccordionTypes";
 export interface AccordionContentDataProps {
   label: string;
   panel: string | React.ReactNode;
@@ -18,7 +19,7 @@ export interface AccordionContentDataProps {
 
 export interface AccordionProps {
   /** Background color to be passed to the AccordionButton */
-  bgColor: string;
+  colorVariant?: ColorVariantsAccordion;
   /** Array of data to display */
   contentData: AccordionContentDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
@@ -94,12 +95,23 @@ const getElementsFromContentData = (data = [], id) => {
  * multiple accordion items together.
  */
 function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const { contentData, id = generateUUID(), isDefaultOpen = false } = props;
+  const {
+    colorVariant = ColorVariantsAccordion.StatusNull,
+    contentData,
+    id = generateUUID(),
+    isDefaultOpen = false,
+  } = props;
+  const styles = useStyleConfig("Accordion", { variant: colorVariant });
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
-    <ChakraAccordion id={id} defaultIndex={[openFirstAccordion]} allowMultiple>
+    <ChakraAccordion
+      id={id}
+      defaultIndex={[openFirstAccordion]}
+      allowMultiple
+      __css={styles}
+    >
       {getElementsFromContentData(contentData, id)}
     </ChakraAccordion>
   );

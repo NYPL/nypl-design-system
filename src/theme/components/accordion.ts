@@ -1,14 +1,16 @@
 const containerStyles = {
   borderLeftWidth: "1px",
   borderRightWidth: "1px",
-  borderColor: "ui.gray.medium",
   width: "100%",
+  _hover: {
+    borderColor: "ui.gray.medium",
+  },
 };
 const buttonStyles = {
   border: "none",
   fontWeight: 500,
-  _hover: {
-    bg: "ui.gray.light-cool",
+  _expanded: {
+    bg: "ui.gray.light-warm",
   },
 };
 const panelStyles = {
@@ -24,6 +26,28 @@ const Accordion = {
     container: containerStyles,
     button: buttonStyles,
     panel: panelStyles,
+  },
+  variants: {
+    statusNull: {
+      button: {
+        bg: "ui.white",
+      },
+    },
+    statusDefault: {
+      button: {
+        bg: "ui.gray.light-warm",
+      },
+    },
+    statusWarning: {
+      button: {
+        bg: "ui.status.primary",
+      },
+    },
+    statusError: {
+      button: {
+        bg: "ui.status.secondary",
+      },
+    },
   },
 };
 
