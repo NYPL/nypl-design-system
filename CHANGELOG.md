@@ -8,6 +8,107 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes bug where the Next button in `Pagination` would navigate to the previous page.
+
+## 0.25.12 (March 18, 2022)
+
+## Adds
+
+- Adds `Education` section colors to the color palette theme object.
+- Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.
+
+### Changes
+
+- Removes the margin from the global `.nypl p` CSS rule.
+- Updates the top and bottom margin of the `List`'s `Unordered` and `Ordered` types.
+- Updates the `Notification`'s icons to be decorative by default.
+- Updates the default placeholder value for the `SearchBar`'s `TextInput` component.
+- Updates the `SearchBar`'s `textInputProps` prop object to not require the `placeholder` property.
+- Updates the `Logo` component to include new variants for `FirstBook` and `Open eBooks`.
+- Updates the border and text styles for the `Select` component.
+- Updates the `Breadcrumbs` component to inlcude an `Education` color variant.
+- Updates the `Icon` component to include the `Education` color values.
+- Updates the default font stack to fix a typo that was disabling `sans-serif` in the stack.
+- Removes the `.nypl-ds` CSS class from the base SCSS file, from the `TemplateAppContainer` component, from the Storybook configuration, and from the entire repo.
+- Moves the base styles from the SCSS global file to the Chakra theme global JS object.
+- Updates the label font size for the `Radio` and `Checkbox` components to be "label.default".
+
+### Fixes
+
+- Fixes the styles for the `Slider` to better accomodate the slider thumbs and the width of the container.
+- Updates the alignment of the `Notifications`'s dismissible icon.
+- Fixes the border and padding from the `fieldset` HTML element by removing it.
+- Fixes alignment for long labels in the `Checkbox` and `Radio` components.
+- Fixes the line height for long labels in the `Toggle` component.
+
+## 0.25.11 (March 3, 2022)
+
+### Updates
+
+- Updates the `Logo` component to include new variants for `BPL`, `Clever`, `LPA`, `MLN`, `QPL`, `Schomburg`, `SimplyE` and `Treasures`.
+- Updates font size to "12px" and top margin to "4px" for `HelperErrorText` component.
+- Updates font size to "14px" for `TextInput` component.
+- Adds an `aria-label` attribute to the `Notification` component to use with its `aside` HTML landmark element. Added an "Accessibility" section in the `Notification` Storybook page to note that this component should not be used within a `header` or `footer` HTML landmark element.
+- Updates the `Notification` component to handle link color inside the content area, better styling for centering and the dismissible variation, and updated background color for the "Announcement" and "Warning" types.
+- Updates a log message in the `Icon` component to be more descriptive.
+- Updates the mobile styles for the image in the `StructuredContent` component.
+- Updates the prop type for the "Definition" `List` type so DOM elements can be passed in the definition.
+
+### Fixes
+
+- Updates the bottom margin of the `Select` in the `SearchBar` so that the helper text has standard gap between the main form components and itself.
+- Updates how `TabList` and `TabPanels` are returned in the `Tabs` component so no false log messages are consoled.
+- Updates `List` component styling for inline.
+
+## 0.25.10 (February 22, 2022)
+
+### Adds
+
+- Exports Chakra's `Flex` and `Spacer` components.
+- Adds `TemplateAboveHeader` component in the set of "template" components.
+- Adds the `aboveHeader` prop to the `TemplateAppContainer` component to render a `TemplateAboveHeader` component immediately before the `TemplateHeader` component.
+- Adds the `additionalStyles` prop to the `Select` component.
+
+### Breaking Changes
+
+- Renames the `Form` component's `"spacing"` prop to `"gap"` to be consistent with the `FormRow` and `FormField` components.
+- Renames the `FormSpacing` enum to `FormGaps`.
+
+### Changes
+
+- Passes an `onChange` prop to the `Select` component inside the `SearchBar` through its `selectProps` prop.
+- Adds snapshot tests for the `Tabs` component and better checks to warn the user that the `Tabs` is missing data if data wasn't passed as props or children.
+- Updates the `Form` component to warn developers when a child component in the `FormRow` component _is not_ a `FormField`.
+- Adds an `onSubmit` prop to the `Form` component.
+- Adds the `renderHeaderElement` prop to the `TemplateAppContainer` component. This prop is used to control whether the `TemplateAppContainer` component should render its own `<header>` HTML element through its `header` prop, or let the user pass in their own component that renders the `<header>` HTML element.
+- Updates the `Fieldset` and `RadioGroup` so the `children` prop is declared through `React.PropsWithChildren` rather than in their respective prop interfaces.
+- Adds snapshot tests for the `Accordion` component, as well as `id` props to the components within the `Accordion` so snapshot tests pass.
+- Passes an `id` to the `Icon` in the `Select` component.
+- Adds snapshot tests for the `Select` component.
+
+### Fixes
+
+- Fixes `id` propagation issues in the `SearchBar` component and its children DS components.
+- Fixing `Breadcrumbs` related logging issue with a CSS pseudo-selector and setting the `aria-label` to "Breadcrumbs". Adding an accessibility test that should fail when more than one `Breadcrumbs` component is rendered on a page since that landmark should only be rendered once on a web page.
+- Exports the `FullDateType` interface related to the `DatePicker` component.
+- Fixes and removes bad console logs from the `Pagination` and `List` components.
+- Fixes auto-generated `id`s in the `Tabs` component.
+- Fixes the Figma link for the `Hero` component.
+- Fixes `Card` component bug for passing styles to the `CardHeading` correctly.
+- Fixes the `Table` component so that a custom header text color of white does not visually hide row headers on a white background.
+
+### Updates
+
+- Updates the following packages: multiple `@storybook/...` packages, `autoprefixer`, `eslint-plugin-storybook`, `husky`, `lint-staged`, `semantic-release-slack-bot`, `storybook-addon-designs`.
+- Removed the following packages: `postcss`, `pretty-quick`.
+- Added `@chakra-ui/react`, `@chakra-ui/system`, `@emotion/react`, `@emotion/styled`, and `framer-motion` as "peerDependencies".
+- Updates the node version in Github Action workflows from Node v12 to Node v14.
+- Updates how `/dist/resources.scss` is created through gulp.
+
+## 0.25.9 (February 3, 2022)
+
 ### Adds
 
 - Adds the `Logo` component.
@@ -41,6 +142,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Template` component to use `s` (16px) spacing on the left and right sides of the main content area.
 - Updates the `HelperErrorText` component to allow HTML to be passed in as a string or HTML.
 - Updates how the `HelperErrorText` component renders text in the following components: `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, `VideoPlayer`.
+- Updates the `HorizontalRule` component to use "100%" as the default value for the `width` prop.
 
 ### Fixes
 

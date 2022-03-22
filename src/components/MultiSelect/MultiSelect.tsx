@@ -85,6 +85,9 @@ function MultiSelect({
             items.map((item: MultiSelectItem, index: number) => (
               <ListItem
                 py={1}
+                // @TODO fix this, we want to pass the key prop as part of ...getItemProps but get
+                // error  Missing "key" prop for element in iterator  react/jsx-key
+                key={item.id}
                 {...getItemProps({
                   key: item.id,
                   item,

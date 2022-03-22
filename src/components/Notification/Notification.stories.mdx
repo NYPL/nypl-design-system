@@ -9,6 +9,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import Icon from "../Icons/Icon";
 import { IconColors, IconNames } from "../Icons/IconTypes";
+import Link from "../Link/Link";
 import Notification from "./Notification";
 import { NotificationTypes } from "./NotificationTypes";
 import { getCategory } from "../../utils/componentCategories";
@@ -44,6 +45,7 @@ export const enumValues = getStorybookEnumValues(
     noMargin: {
       table: { defaultValue: { summary: false } },
     },
+    notificationContent: { control: false },
     notificationType: {
       control: { type: "select" },
       table: { defaultValue: { summary: "NotificationTypes.Standard" } },
@@ -57,7 +59,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.9`   |
+| Latest            | `0.25.12`  |
 
 <Description of={Notification} />
 
@@ -72,6 +74,7 @@ within a parent element.
   <Story
     name="Notification with Controls"
     args={{
+      ariaLabel: "Notification label",
       centered: false,
       className: undefined,
       dismissible: false,
@@ -89,6 +92,7 @@ within a parent element.
           nisi erat porttitor ligula.
         </>
       ),
+      notificationType: "NotificationTypes.Standard",
       showIcon: true,
     }}
   >
@@ -104,6 +108,20 @@ within a parent element.
 </Canvas>
 
 <ArgsTable story="Notification with Controls" />
+
+## Accessibility
+
+The `Notification` component renders with an HTML `aside` element as its wrapper.
+This is an HTML landmark element that is similar to adding an attribute of
+`role="complementary"`. For accessibility purposes, landmark elements should not
+be rendered inside other landmark elements such as the `header` and `footer`
+landmark elements. Adding a `Notification` component inside an HTML `main` landmark
+element is acceptable.
+
+Icons rendered in the `Notification` component are decorative by default which
+means that they are hidden to screen readers. Since the "X" close icon inside the
+dismissible button is decorative and because there is no discernible text inside
+the button, an `aria-label` attribute is added to the button.
 
 ## Variants
 
@@ -253,6 +271,34 @@ The `Notification` icon can be hidden with the `showIcon` prop set to `false`.
   </DSProvider>
 </Canvas>
 
+### With HTML content
+
+The `notificationContent` prop can accept HTML.
+
+<Canvas>
+  <DSProvider>
+    <Notification
+      notificationHeading="Standard Notification with HTML content"
+      notificationContent={
+        <>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+            mollis interdum.
+          </p>
+          <p>
+            Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
+            <b>
+              Cum sociis natoque penatibus et magnis dis parturient montes,
+              nascetur ridiculus mus
+            </b>
+            . <Link href="#">This is a link</Link>.
+          </p>
+        </>
+      }
+    />
+  </DSProvider>
+</Canvas>
+
 ## Custom Icon
 
 The default icon can be overridden by using the `icon` prop to pass a custom `Icon` component.
@@ -275,6 +321,32 @@ The default icon can be overridden by using the `icon` prop to pass a custom `Ic
           penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </>
       }
+    />
+  </Story>
+</Canvas>
+
+## Dismissible
+
+A dismissible `Notification` component can be created by setting the
+`dismissible` prop to `true`. Once the "X" close icon on the upper right is
+clicked, the `Notification` will be removed from the DOM, therefore it only
+appears once.
+
+<Canvas>
+  <Story name="Dismissible">
+    <Notification
+      dismissible
+      notificationHeading="Dismissible Notification"
+      notificationContent={
+        <>
+          This is a dismissible Notification with an X icon. Cras mattis
+          consectetur purus sit amet fermentum. Maecenas faucibus mollis
+          interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+          eros. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus.
+        </>
+      }
+      notificationType={NotificationTypes.Announcement}
     />
   </Story>
 </Canvas>

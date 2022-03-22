@@ -28,7 +28,7 @@ const typography: Typography = {
   // Values from "src/styles/02-typography/_typeface.css"
   fonts: {
     body: "-apple-system, BlinkMacSystemFont, system-ui, sans-serif",
-    heading: "-apple-system, BlinkMacSystemFont, system-ui, sans-seri",
+    heading: "-apple-system, BlinkMacSystemFont, system-ui, sans-serif",
   },
   // Values from "src/styles/02-typography/_type-scale.css"
   fontSizes: {
@@ -55,7 +55,7 @@ const typography: Typography = {
       callout: fontSizeValues["1"],
     },
     helper: {
-      default: fontSizeValues["-1"],
+      default: fontSizeValues["-2"],
     },
     label: {
       default: fontSizeValues["-1"],

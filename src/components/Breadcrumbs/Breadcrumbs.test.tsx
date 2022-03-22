@@ -11,11 +11,26 @@ describe("Breadcrumbs Accessibility", () => {
     { url: "#string1", text: "string1" },
     { url: "#string2", text: "string2" },
   ];
+
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <Breadcrumbs breadcrumbsData={breadcrumbsData} />
     );
     expect(await axe(container)).toHaveNoViolations();
+  });
+
+  // This fails because there MUST only be one "breadcrumb" landmark item
+  // on a page. This specifically means there should be one `<nav>` element
+  // with `aria-label="Breadcrumb"`.
+  // https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html
+  it("does not pass axe accessibility test", async () => {
+    const { container } = render(
+      <>
+        <Breadcrumbs breadcrumbsData={breadcrumbsData} />
+        <Breadcrumbs breadcrumbsData={breadcrumbsData} />
+      </>
+    );
+    expect(await axe(container)).not.toHaveNoViolations();
   });
 });
 
@@ -59,6 +74,15 @@ describe("Breadcrumbs Snapshot", () => {
         />
       )
       .toJSON();
+    const breadcrumbsEducationVariant = renderer
+      .create(
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          colorVariant={ColorVariants.Education}
+          id="breadcrumbs-test"
+        />
+      )
+      .toJSON();
     const breadcrumbsAdditionalStyles = renderer
       .create(
         <Breadcrumbs
@@ -75,6 +99,7 @@ describe("Breadcrumbs Snapshot", () => {
     expect(breadcrumbsVariantColor).toMatchSnapshot();
     expect(breadcrumbsBlogsVariant).toMatchSnapshot();
     expect(breadcrumbsLocationsVariant).toMatchSnapshot();
+    expect(breadcrumbsEducationVariant).toMatchSnapshot();
     expect(breadcrumbsAdditionalStyles).toMatchSnapshot();
   });
 });

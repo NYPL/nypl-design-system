@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   ArgsTable,
   Canvas,
@@ -8,9 +9,13 @@ import {
 import { withDesign } from "storybook-addon-designs";
 import { withQuery } from "@storybook/addon-queryparams";
 
+import Button from "../Button/Button";
+import DSProvider from "../../theme/provider";
 import Pagination from "./Pagination";
-import * as stories from "./Pagination.stories.tsx";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookHrefProps } from "../../utils/utils";
+
+export const hrefProps = getStorybookHrefProps(10);
 
 <Meta
   title={getCategory("Pagination")}
@@ -25,6 +30,7 @@ import { getCategory } from "../../utils/componentCategories";
   }}
   argTypes={{
     className: { control: false },
+    currentPage: { control: false },
     getPageHref: { control: false },
     id: { control: false },
     initialPage: { table: { defaultValue: { summary: 1 } } },
@@ -37,7 +43,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.25.3`   |
+| Latest            | `0.25.12`  |
 
 <Description of={Pagination} />
 
@@ -73,14 +79,13 @@ const getPageHref = (selectedPage: number) => {
     name="Pagination with URL Updates"
     args={{
       className: undefined,
-      getPageHref: undefined,
+      getPageHref: hrefProps.getPageHref,
       id: "pagination-id",
-      initialPage: 1,
-      onPageChange: undefined,
+      initialPage: hrefProps.computedCurrentPage || 1,
       pageCount: 10,
     }}
   >
-    {(args) => stories.PaginationGetPageHref(args)}
+    {(args) => <Pagination {...args} />}
   </Story>
 </Canvas>
 
@@ -93,14 +98,14 @@ function passed as a prop and that the URL is updated whenever a page is
 changed. However, the optional `onPageChange` prop is available in case URL
 updating is not desired.
 
-In the following example, the `onPageChange` function gets the current page as
+In the following example, the `onPageChange` function gets the selected page as
 its only function argument. This is computed internally in the `Pagination`
 component through its own state.
 
 ```tsx
 // Example in a search results page.
-const onPageChange = (currentPage: number) => {
-  console.log(`Current page: ${currentPage}`);
+const onPageChange = (selectedPage: number) => {
+  console.log(`Current page: ${selectedPage}`);
   // Do what you need to with the `currentPage` value.
 };
 ```
@@ -110,13 +115,50 @@ const onPageChange = (currentPage: number) => {
     name="Pagination with Unchanging URL"
     args={{
       className: undefined,
-      getPageHref: undefined,
       id: "pagination-id-2",
       initialPage: 7,
-      onPageChange: undefined,
+      onPageChange: (selectedPage) => {
+        console.log(`Current page: ${selectedPage}`);
+      },
       pageCount: 100,
     }}
   >
-    {(args) => stories.PaginationOnPageChange(args)}
+    {(args) => <Pagination {...args} />}
   </Story>
+</Canvas>
+
+### Forcing a Page Change Programmatically
+
+There may be circumstances when you want to programmatically force the page
+number to change without the user explicitly requesting it (for example, if
+you want a user to be brought back to page 1 after entering a new search term).
+You can use the `currentPage` prop to do this. Note, the `currentPage` prop can
+only be used with the client-side, unchanging URL version of the `Pagination`
+component, and in combination with the `onPageChange` function.
+
+The following example shows that the user can be brought to page 1 without clicking
+on the `Pagination` component.
+
+export function CurrentPagePaginationExample() {
+  const [page, setPage] = useState(1);
+  const handleClick = () => setPage(1);
+  const handleSelection = (selectedPage) => setPage(selectedPage);
+  return (
+    <>
+      <Pagination
+        pageCount={10}
+        currentPage={page}
+        onPageChange={(selectedPage) => handleSelection(selectedPage)}
+      />
+      <Button type="button" buttonType="primary" onClick={handleClick}>
+        Go to Page 1
+      </Button>
+    </>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <CurrentPagePaginationExample />
+  </DSProvider>
 </Canvas>

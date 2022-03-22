@@ -13,13 +13,7 @@ import TextInput from "../TextInput/TextInput";
 import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
 import generateUUID from "../../helpers/generateUUID";
 
-// Internal interfaces that are used only for `SearchBar` props.
-interface SelectProps {
-  labelText: string;
-  name: string;
-  optionsData: string[];
-}
-interface TextInputProps {
+interface BaseProps {
   labelText: string;
   name: string;
   onChange?: (
@@ -27,7 +21,13 @@ interface TextInputProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
-  placeholder: string;
+}
+// Internal interfaces that are used only for `SearchBar` props.
+export interface SelectProps extends BaseProps {
+  optionsData: string[];
+}
+export interface TextInputProps extends BaseProps {
+  placeholder?: string;
   value?: string;
 }
 
@@ -97,7 +97,7 @@ export default function SearchBar(props: SearchBarProps) {
     textInputElement,
     textInputProps,
   } = props;
-  const styles = useMultiStyleConfig("SearchBar", { hasSelect: selectProps });
+  const styles = useMultiStyleConfig("SearchBar", {});
   const stateProps = {
     helperText: "",
     isDisabled,
@@ -106,11 +106,10 @@ export default function SearchBar(props: SearchBarProps) {
     showHelperInvalidText: false,
     showLabel: false,
   };
-  const helperErrorTextID = generateUUID();
-  const ariaDescribedby = helperErrorTextID;
   const footnote = isInvalid ? invalidText : helperText;
   const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
-  const textInputPlaceholder = `${textInputProps?.placeholder} ${
+  const inputPlaceholder = textInputProps?.placeholder || "Search terms";
+  const textInputPlaceholder = `${inputPlaceholder} ${
     isRequired ? "(Required)" : ""
   }`;
   const buttonType = noBrandButtonType
@@ -125,9 +124,11 @@ export default function SearchBar(props: SearchBarProps) {
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
-      id={generateUUID()}
-      name={selectProps?.name}
+      additionalStyles={styles.select}
+      id={`searchbar-select-${id}`}
       labelText={selectProps?.labelText}
+      name={selectProps?.name}
+      onChange={selectProps?.onChange}
       type={SelectTypes.SearchBar}
       {...stateProps}
     >
@@ -141,11 +142,11 @@ export default function SearchBar(props: SearchBarProps) {
   // Render the `TextInput` component.
   const textInputNative = textInputProps && (
     <TextInput
-      id={generateUUID()}
+      id={`searchbar-textinput-${id}`}
       labelText={textInputProps?.labelText}
-      placeholder={textInputPlaceholder}
-      onChange={textInputProps?.onChange}
       name={textInputProps?.name}
+      onChange={textInputProps?.onChange}
+      placeholder={textInputPlaceholder}
       type={TextInputTypes.text}
       variantType={
         selectElem
@@ -161,21 +162,22 @@ export default function SearchBar(props: SearchBarProps) {
     <Button
       additionalStyles={searchBarButtonStyles}
       buttonType={buttonType}
-      id={generateUUID()}
+      id={`searchbar-button-${id}`}
       isDisabled={isDisabled}
       onClick={buttonOnClick}
       type="submit"
     >
       <Icon
+        align={IconAlign.Left}
+        id={`searchbar-icon-${id}`}
         name={IconNames.Search}
         size={IconSizes.Small}
-        align={IconAlign.Left}
       />
       Search
     </Button>
   );
-  // If a custom input element was passed, use that instead of the
-  // `TextInput` component.
+  // If a custom input element was passed, use that element
+  // instead of the DS `TextInput` component.
   const textInputElem = textInputElement || textInputNative;
 
   return (
@@ -189,11 +191,10 @@ export default function SearchBar(props: SearchBarProps) {
     >
       <Box
         as="form"
-        id={`${id}-form`}
+        id={`searchbar-form-${id}`}
         className={className}
         role="search"
         aria-label={finalAriaLabel}
-        aria-describedby={ariaDescribedby}
         onSubmit={onSubmit}
         method={method}
         action={action}

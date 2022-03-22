@@ -30,6 +30,8 @@ type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
 
 export interface NotificationProps extends BasePropsWithoutAlignText {
+  /** Label used to describe the `Notification`'s aside HTML element. */
+  ariaLabel?: string;
   /** Additional `className` to add.  */
   className?: string;
   /** Optional prop to control whether a `Notification` can be dismissed
@@ -99,6 +101,7 @@ export function NotificationContent(
  */
 export default function Notification(props: NotificationProps) {
   const {
+    ariaLabel,
     centered = false,
     className,
     dismissible = false,
@@ -114,15 +117,14 @@ export default function Notification(props: NotificationProps) {
   const handleClose = () => setIsOpen(false);
   const styles = useMultiStyleConfig("Notification", {
     centered,
+    dismissible,
     noMargin,
     notificationType,
-    showIcon,
   });
   const iconElement = () => {
     const baseIconProps = {
-      decorative: false,
-      size: IconSizes.Large,
       additionalStyles: styles.icon,
+      size: IconSizes.Large,
     };
     // If the icon should not display, return null.
     if (!showIcon) {
@@ -136,16 +138,19 @@ export default function Notification(props: NotificationProps) {
       });
     const iconProps = {
       [NotificationTypes.Announcement]: {
-        name: IconNames.SpeakerNotes,
         color: IconColors.SectionResearchSecondary,
+        name: IconNames.SpeakerNotes,
+        title: "Notification announcement icon",
       },
       [NotificationTypes.Standard]: {
-        name: IconNames.AlertNotificationImportant,
         color: IconColors.UiBlack,
+        name: IconNames.AlertNotificationImportant,
+        title: "Notification standard icon",
       },
       [NotificationTypes.Warning]: {
-        name: IconNames.ErrorFilled,
         color: IconColors.BrandPrimary,
+        name: IconNames.ErrorFilled,
+        title: "Notification warning icon",
       },
     };
     return (
@@ -158,15 +163,19 @@ export default function Notification(props: NotificationProps) {
   };
   const dismissibleButton = dismissible && (
     <Button
-      buttonType={ButtonTypes.Link}
-      onClick={handleClose}
       additionalStyles={styles.dismissibleButton}
+      attributes={{
+        "aria-label": "Close the notification",
+      }}
+      buttonType={ButtonTypes.Link}
+      id={`${id}-notification-dismissible-button`}
+      onClick={handleClose}
     >
       <Icon
-        id={`${id}-notification-dismissible-icon`}
-        decorative={false}
+        id={`${id}-dismissible-notification-icon`}
         name={IconNames.Close}
         size={IconSizes.Large}
+        title="Notification close icon"
       />
     </Button>
   );
@@ -199,11 +208,12 @@ export default function Notification(props: NotificationProps) {
   }
   return (
     <Box
+      aria-label={ariaLabel}
       as="aside"
-      id={id}
       className={className}
-      __css={styles}
       data-type={notificationType}
+      id={id}
+      __css={styles}
     >
       <Box __css={styles.container}>
         {childHeading}

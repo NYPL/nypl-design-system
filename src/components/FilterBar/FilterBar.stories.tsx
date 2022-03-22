@@ -182,7 +182,7 @@ export const FilterBarWithMultiSelects: Story<FilterBarProps> = (args) => {
       itemIds = selectedItems[multiSelectId].items.slice();
       // If termId exists, remove it from the array.
       if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id != itemId);
+        itemIds = itemIds.filter((id) => id !== itemId);
       } else {
         // Add it to the array, but modify the copy, not the original.
         itemIds.push(itemId);
@@ -251,7 +251,7 @@ export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
       itemIds = selectedItems[multiSelectId].items.slice();
       // If termId exists, remove it from the array.
       if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id != itemId);
+        itemIds = itemIds.filter((id) => id !== itemId);
       } else {
         // Add it to the array, but modify the copy, not the original.
         itemIds.push(itemId);

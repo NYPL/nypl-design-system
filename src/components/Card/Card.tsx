@@ -222,7 +222,10 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
           child.props.children
         );
       const elem = React.cloneElement(child, {
-        additionalStyles: styles.heading,
+        additionalStyles: {
+          ...styles.heading,
+          ...child.props.additionalStyles,
+        },
         key,
         center,
         // Override the child text with the potential `CardLinkOverlay`.

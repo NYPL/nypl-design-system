@@ -41,6 +41,18 @@ describe("Notification Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("passes axe accessibility test for the dismissible type", async () => {
+    const { container } = render(
+      <Notification
+        dismissible
+        id="notificationID"
+        notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("Notification", () => {
@@ -48,6 +60,7 @@ describe("Notification", () => {
   beforeEach(() => {
     utils = render(
       <Notification
+        ariaLabel="Notification label"
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
@@ -64,8 +77,12 @@ describe("Notification", () => {
   });
 
   it("renders with an Icon", () => {
-    // The Icon's role is "img".
-    expect(screen.queryByRole("img")).toBeInTheDocument();
+    // Since the icon has aria-hidden set to true, we can't get it
+    // by its "img" role.
+    const icon = utils.container.querySelector(
+      "#notificationID-notification-icon"
+    );
+    expect(icon).toBeInTheDocument();
   });
 
   it("does not render an Icon", () => {
@@ -77,8 +94,10 @@ describe("Notification", () => {
         showIcon={false}
       />
     );
-    // The Icon's role is "img".
-    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    const icon = utils.container.querySelector(
+      "#notificationID-notification-icon"
+    );
+    expect(icon).not.toBeInTheDocument();
   });
 
   it("renders a custom Icon component", () => {
@@ -98,7 +117,11 @@ describe("Notification", () => {
         notificationHeading="Notification Heading"
       />
     );
-    expect(utils.container.querySelector(".custom-icon")).toBeInTheDocument();
+
+    const customIcon = utils.container.querySelector(
+      "#notificationID-custom-notification-icon"
+    );
+    expect(customIcon).toBeInTheDocument();
   });
 
   it("renders the announcement Notification type", () => {
@@ -131,6 +154,31 @@ describe("Notification", () => {
       "data-type",
       "warning"
     );
+  });
+
+  it("renders with an aria-label attribute", () => {
+    expect(screen.getByRole("complementary")).toHaveAttribute(
+      "aria-label",
+      "Notification label"
+    );
+  });
+
+  it("renders a dismissible icon", () => {
+    utils.rerender(
+      <Notification
+        dismissible
+        id="notificationID"
+        notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+        notificationType={NotificationTypes.Standard}
+      />
+    );
+
+    const dismissibleIcon = utils.container.querySelector(
+      "#notificationID-dismissible-notification-icon"
+    );
+    expect(dismissibleIcon).toBeInTheDocument();
+    expect(screen.getByTitle("Notification close icon")).toBeInTheDocument();
   });
 
   it("renders the UI snapshot correctly", () => {
@@ -190,11 +238,22 @@ describe("Notification", () => {
         />
       )
       .toJSON();
+    const dismissible = renderer
+      .create(
+        <Notification
+          dismissible
+          id="notificationID7"
+          notificationContent={<>Notification content.</>}
+        />
+      )
+      .toJSON();
+
     expect(standard).toMatchSnapshot();
     expect(announcement).toMatchSnapshot();
     expect(warning).toMatchSnapshot();
     expect(withoutHeading).toMatchSnapshot();
     expect(withoutAnIcon).toMatchSnapshot();
     expect(withoutHeadingAndIcon).toMatchSnapshot();
+    expect(dismissible).toMatchSnapshot();
   });
 });

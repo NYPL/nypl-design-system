@@ -15,6 +15,8 @@ import { SelectTypes } from "./SelectTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface SelectProps {
+  /** Optionally pass in additional Chakra-based styles. */
+  additionalStyles?: { [key: string]: any };
   /** A class name for the `div` parent element. */
   className?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
@@ -65,6 +67,7 @@ const Select = React.forwardRef<
   React.PropsWithChildren<SelectProps>
 >((props: React.PropsWithChildren<SelectProps>, ref?) => {
   const {
+    additionalStyles = {},
     children,
     className,
     helperText,
@@ -116,7 +119,7 @@ const Select = React.forwardRef<
   }
 
   return (
-    <Box className={className} __css={styles}>
+    <Box className={className} __css={{ ...styles, ...additionalStyles }}>
       {showLabel && (
         <Label
           id={`${id}-label`}
@@ -137,7 +140,13 @@ const Select = React.forwardRef<
         ref={ref}
         {...controlledProps}
         {...ariaAttributes}
-        icon={<Icon name={IconNames.Arrow} size={IconSizes.Medium} />}
+        icon={
+          <Icon
+            id={`${id}-icon`}
+            name={IconNames.Arrow}
+            size={IconSizes.Medium}
+          />
+        }
         __css={styles.select}
       >
         {children}

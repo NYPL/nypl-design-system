@@ -4,20 +4,20 @@ import ReactDatePicker from "react-datepicker";
 import { DatePickerTypes } from "./DatePickerTypes";
 import Fieldset from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
-import { FormSpacing } from "../Form/FormTypes";
+import { FormGaps } from "../Form/FormTypes";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
+import { helperTextMargin } from "../../theme/components/global";
 import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
 import generateUUID from "../../helpers/generateUUID";
-import { useMultiStyleConfig } from "@chakra-ui/system";
+import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 // The object shape for the DatePicker's start and end date state values.
-// Internal use only.
-interface FullDateType {
+export interface FullDateType {
   /** Date object that gets returned for the onChange
    * function only for date ranges. */
   endDate?: Date;
@@ -217,7 +217,7 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
   children,
 }) =>
   isDateRange ? (
-    <FormRow id={`${id}-form-row`} gap={FormSpacing.ExtraSmall}>
+    <FormRow id={`${id}-form-row`} gap={FormGaps.ExtraSmall}>
       {children}
     </FormRow>
   ) : (
@@ -417,11 +417,13 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
           )}
         </DateRangeRow>
         {helperText && isDateRange && showHelperInvalidText && (
-          <HelperErrorText
-            id={`${id}-helper-text`}
-            isInvalid={false}
-            text={helperText}
-          />
+          <Box __css={helperTextMargin}>
+            <HelperErrorText
+              id={`${id}-helper-text`}
+              isInvalid={false}
+              text={helperText}
+            />
+          </Box>
         )}
       </DatePickerWrapper>
     );

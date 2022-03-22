@@ -5,6 +5,7 @@ const input = {
   border: "1px solid",
   borderColor: "ui.gray.medium",
   borderRadius: "sm",
+  fontSize: "text.caption",
   py: "xs",
   px: "s",
   _hover: {
@@ -15,8 +16,8 @@ const input = {
     color: "ui.gray.xdark",
     opacity: "1",
   },
-  _active: activeFocus,
-  _focus: activeFocus,
+  _active: activeFocus(),
+  _focus: activeFocus(),
   _placeholder: {
     color: "ui.gray.dark",
     fontStyle: "italic",

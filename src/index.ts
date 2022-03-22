@@ -7,9 +7,11 @@ export {
   ButtonGroup,
   Center,
   Circle,
+  Flex,
   Grid,
   GridItem,
   HStack,
+  Spacer,
   Square,
   Stack,
   VStack,
@@ -29,13 +31,16 @@ export { CardLayouts } from "./components/Card/CardTypes";
 export { default as Checkbox } from "./components/Checkbox/Checkbox";
 export { default as CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
 export { CheckboxGroupLayoutTypes } from "./components/CheckboxGroup/CheckboxGroupLayoutTypes";
-export { default as DatePicker } from "./components/DatePicker/DatePicker";
+export {
+  default as DatePicker,
+  FullDateType,
+} from "./components/DatePicker/DatePicker";
 export { DatePickerTypes } from "./components/DatePicker/DatePickerTypes";
 export { default as FilterBar } from "./components/FilterBar/FilterBar";
 export { default as DSProvider } from "./theme/provider";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
-export { FormSpacing } from "./components/Form/FormTypes";
+export { FormGaps } from "./components/Form/FormTypes";
 export { GridGaps } from "./components/Grid/GridTypes";
 export { default as Heading } from "./components/Heading/Heading";
 export {
@@ -103,6 +108,7 @@ export {
 export {
   TemplateAppContainer,
   Template,
+  TemplateAboveHeader,
   TemplateHeader,
   TemplateBreakout,
   TemplateContent,

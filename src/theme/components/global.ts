@@ -4,26 +4,23 @@ export { wrapperStyles } from "./globalMixins";
 /** Reusable component styles. */
 
 // Used in `Select` and `TextInput`.
-const activeFocus = {
-  border: "1px solid",
-  borderColor: "ui.focus",
+const activeFocus = (darkMode = false) => ({
+  outline: "2px solid",
+  outlineOffset: "2px",
+  outlineColor: darkMode ? "ui.white" : "ui.focus",
   zIndex: "9999",
-  outline: "1px solid",
-  outlineColor: "ui.focus",
-};
+});
 // Used in `Select` and `TextInput`.
 const helperTextMargin = {
-  marginTop: "xs",
+  marginTop: "xxs",
   marginBottom: "0",
 };
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
   userSelect: "none",
-  fontSize: "text.default",
   fontWeight: "text.default",
   marginBottom: "0",
   marginLeft: "xs",
-  verticalAlign: "middle",
   _disabled: {
     color: "ui.gray.dark",
     opacity: 1,
@@ -47,6 +44,14 @@ const checkboxRadioHelperStyle = {
     fontStyle: "italic",
   },
 };
+const checkboxRadioGroupStyles = {
+  helper: {
+    marginTop: "s",
+  },
+  stack: {
+    width: "fit-content",
+  },
+};
 // Used in `Label` and `Fieldset`.
 const labelLegendText = {
   alignItems: "baseline",
@@ -62,13 +67,10 @@ const labelLegendText = {
     fontWeight: "helper.default",
   },
 };
-const checkboxRadioGroupStyles = {
-  helper: {
-    marginTop: "s",
-  },
-  stack: {
-    width: "fit-content",
-  },
+// Used for p, ul, and ol
+const textMargin = {
+  margin: "0",
+  marginBottom: "s",
 };
 
 export {
@@ -79,4 +81,5 @@ export {
   checkboxRadioLabelStyles,
   helperTextMargin,
   labelLegendText,
+  textMargin,
 };

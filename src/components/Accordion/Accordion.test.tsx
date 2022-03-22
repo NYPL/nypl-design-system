@@ -1,9 +1,14 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import { render, screen } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import Accordion from "./Accordion";
+import Card, { CardContent, CardHeading } from "../Card/Card";
+import { CardLayouts } from "../Card/CardTypes";
+import { HeadingLevels } from "../Heading/HeadingTypes";
+import { ImageRatios } from "../Image/ImageTypes";
 
 describe("Accordion Accessibility", () => {
   it("passes axe accessibility test for one item", async () => {
@@ -149,5 +154,44 @@ describe("Accordion", () => {
     expect(accordion1).toHaveAttribute("aria-expanded", "false");
     expect(accordion2).toHaveAttribute("aria-expanded", "true");
     expect(accordion3).toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("Renders the UI snapshot correctly", () => {
+    const contentData = [
+      {
+        label: "Gerry Kellman",
+        panel: (
+          <Card
+            center
+            id="card"
+            imageAlt="Alt text"
+            imageAspectRatio={ImageRatios.TwoByOne}
+            imageSrc={`https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit`}
+            layout={CardLayouts.Row}
+          >
+            <CardHeading id="heading1" level={HeadingLevels.Four}>
+              Gerry Kellman
+            </CardHeading>
+            <CardContent>
+              Gerri is <b>one of Logan's most trusted confidantes</b>, one who
+              serves many roles within the company. She's one of the most
+              powerful people at Waystar Royco outside of the family itself.
+            </CardContent>
+          </Card>
+        ),
+      },
+    ];
+
+    const primary = renderer
+      .create(<Accordion contentData={contentData} id="accordian" />)
+      .toJSON();
+    const defaultOpen = renderer
+      .create(
+        <Accordion contentData={contentData} id="accordian" isDefaultOpen />
+      )
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
+    expect(defaultOpen).toMatchSnapshot();
   });
 });

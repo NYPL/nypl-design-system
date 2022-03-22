@@ -9,6 +9,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import HorizontalRule from "./HorizontalRule";
+import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -25,7 +26,7 @@ import { getCategory } from "../../utils/componentCategories";
   argTypes={{
     className: { control: false },
     height: { table: { defaultValue: { summary: "2px" } } },
-    width: { table: { defaultValue: { summary: "auto" } } },
+    width: { table: { defaultValue: { summary: "100%" } } },
   }}
 />
 
@@ -34,7 +35,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.0`   |
-| Latest            | `0.25.3`   |
+| Latest            | `0.25.10`  |
 
 <Description of={HorizontalRule} />
 
