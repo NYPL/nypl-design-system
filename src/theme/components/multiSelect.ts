@@ -59,6 +59,7 @@ const MultiSelect = {
     },
     childrenContainer: {
       paddingLeft: "m",
+      marginBottom: 0,
     },
   },
 };
