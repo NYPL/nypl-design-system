@@ -22,6 +22,7 @@ addParameters({
         "Welcome",
         "Chakra UI",
         "Style Guide",
+        "Accessibility Guide",
         "Components",
         "Hooks",
         "Development Guide",

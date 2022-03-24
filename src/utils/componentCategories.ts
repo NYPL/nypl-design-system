@@ -1,6 +1,10 @@
 // NYPL Design System Component Categories
 
 const categories = {
+  accessibility: {
+    title: "Accessibility Guide",
+    components: ["Skip Navigation"],
+  },
   basicContent: {
     title: "Components/Basic Elements",
     components: ["Card", "Hero", "Promo", "Sponsor"],
