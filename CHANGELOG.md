@@ -10,7 +10,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
+- Updates Storybook's sidebar categories and documentation.
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
+
+### Fixes
+
+- Fixes bug where the Next button in `Pagination` would navigate to the previous page.
+- Fixes the alignment of the first link in the `Pagination` component.
 
 ## 0.25.12 (March 18, 2022)
 

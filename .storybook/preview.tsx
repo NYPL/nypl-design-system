@@ -18,7 +18,14 @@ addParameters({
   options: {
     storySort: {
       method: "alphabetical",
-      order: ["Introduction", "Components", "Documentation"],
+      order: [
+        "Welcome",
+        "Chakra UI",
+        "Style Guide",
+        "Components",
+        "Hooks",
+        "Development Guide",
+      ],
     },
   },
 });

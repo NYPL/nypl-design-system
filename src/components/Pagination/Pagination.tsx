@@ -96,7 +96,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   // Select the next page.
   const nextPage = (e: Event) => {
     if (selectedPage < pageCount) {
-      handlePageClick(e, previousPageNumber);
+      handlePageClick(e, nextPageNumber);
     }
   };
   /**

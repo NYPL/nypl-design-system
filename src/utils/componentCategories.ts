@@ -5,6 +5,16 @@ const categories = {
     title: "Components/Basic Elements",
     components: ["Card", "Hero", "Promo", "Sponsor"],
   },
+  chakra: {
+    title: "Components/Chakra Exports/Layout",
+    components: [
+      "Box",
+      "Flex",
+      "Grid",
+      "Center, Circle, Square",
+      "Stack, HStack, VStack",
+    ],
+  },
   contentDisplay: {
     title: "Components/Content Display",
     components: [
@@ -20,6 +30,10 @@ const categories = {
   deprecated: {
     title: "Components/Deprecated",
     components: ["CardEdition", "Input"],
+  },
+  devguide: {
+    title: "Development Guide",
+    components: ["Autosuggest"],
   },
   feedback: {
     title: "Components/Feedback",
@@ -55,6 +69,10 @@ const categories = {
       "Toggle",
     ],
   },
+  hooks: {
+    title: "Hooks",
+    components: ["useCarouselStyles", "useNYPLTheme", "useWindowSize"],
+  },
   layout: {
     title: "Components/Page Layout",
     components: [
@@ -89,26 +107,8 @@ const categories = {
     title: "Components/Navigation",
     components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
   },
-  chakra: {
-    title: "Chakra/Chakra COmponent/Layout",
-    components: [
-      "Box",
-      "Flex",
-      "Grid",
-      "Center, Circle, Square",
-      "Stack, HStack, VStack",
-    ],
-  },
-  typography: {
-    title: "Components/Typography & Styles",
-    components: ["Heading", "List", "Text"],
-  },
-  devguide: {
-    title: "Documentation/Development Guide",
-    components: ["Autosuggest"],
-  },
   styleguide: {
-    title: "Documentation/Style Guide",
+    title: "Style Guide",
     components: [
       "Bidirectionality",
       "Breakpoints",
@@ -121,6 +121,10 @@ const categories = {
       "Template Bidirectionality",
       "Typography",
     ],
+  },
+  typography: {
+    title: "Components/Typography & Styles",
+    components: ["Heading", "List", "Text"],
   },
 };
 
