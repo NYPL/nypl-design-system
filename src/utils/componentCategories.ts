@@ -124,7 +124,7 @@ const categories = {
   },
 };
 
-export const getCategory = (component) => {
+export const getCategory = (component: string) => {
   let catPath = component;
   Object.keys(categories).forEach((key) => {
     const t = categories[key].title;

@@ -1,8 +1,14 @@
+interface BaseStyleProps {
+  columnHeadersTextColor?: string;
+  showRowDividers?: boolean;
+  useRowHeaders?: boolean;
+}
+
 const baseStyle = ({
   columnHeadersTextColor,
   showRowDividers,
   useRowHeaders,
-}) => ({
+}: BaseStyleProps) => ({
   // Headers `th` can be rendered as the first cell in every row through the
   // `useRowHeaders`. Whereas the header `th` in the `thead` can be rendered
   // with a custom color, the row header `th` in the `tbody` should always

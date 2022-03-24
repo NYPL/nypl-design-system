@@ -144,7 +144,7 @@ export default function StructuredContent(
           imageCaption={imageCaption}
           imageCredit={imageCredit}
           imageSize={imageSize}
-          src={imageSrc ? imageSrc : null}
+          src={imageSrc}
         />
       )}
       {finalBodyContent}

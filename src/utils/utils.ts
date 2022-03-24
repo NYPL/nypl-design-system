@@ -34,9 +34,9 @@ export const getVariant = (variant, collection, fallback = null) => {
  * returns the correct enum value given a string from the `options` array.
  * @NOTE this is only used for Storybook documentation.
  */
-export const getStorybookEnumValues = (enumObject, name) => {
+export const getStorybookEnumValues = (enumObject: any, name: string) => {
   const options = Object.keys(enumObject).map((key) => `${name}.${key}`);
-  const getValue = (key) => {
+  const getValue = (key: string) => {
     // In case no value is passed, return the first value from the array above
     // as the default. Otherwise, remove the dot from the string and get the
     // last part to be able to get the correct enum value.
@@ -51,7 +51,7 @@ export const getStorybookEnumValues = (enumObject, name) => {
  * Pagination component, makes the URL change and refreshes the page.
  * @NOTE this is only used for Storybook documentation.
  */
-export const getStorybookHrefProps = (pageCount) => {
+export const getStorybookHrefProps = (pageCount: number) => {
   // This uses the `addon-queryparams` Storybook addon.
   const urlParams = new URLSearchParams(document.location.search);
   const pageParam = urlParams.get("page");
@@ -66,7 +66,7 @@ export const getStorybookHrefProps = (pageCount) => {
   const location = window.location;
   // Passing this function into `Pagination` makes the URL to change
   // and refreshes the page.
-  const getPageHref = (selectedPage) => {
+  const getPageHref = (selectedPage: number) => {
     return `${location.href}&page=${selectedPage}`;
   };
 

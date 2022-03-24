@@ -32,7 +32,7 @@ export interface ImageProps extends ImageWrapperProps {
   /** Optional value for the image type */
   imageType?: ImageTypes;
   /** The src attribute is required, and contains the path to the image you want to embed. */
-  src: string;
+  src?: string;
 }
 
 function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {

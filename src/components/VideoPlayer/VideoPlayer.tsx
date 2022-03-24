@@ -158,9 +158,11 @@ export default function VideoPlayer(
         <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
       ) : (
         <ComponentWrapper
-          headingText={headingText ? headingText : null}
-          descriptionText={descriptionText ? descriptionText : null}
-          helperText={helperText && showHelperInvalidText ? helperText : null}
+          headingText={headingText ? headingText : undefined}
+          descriptionText={descriptionText ? descriptionText : undefined}
+          helperText={
+            helperText && showHelperInvalidText ? helperText : undefined
+          }
           id={`${id}-componentWrapper`}
         >
           <Box __css={styles.inside}>{embedElement}</Box>
