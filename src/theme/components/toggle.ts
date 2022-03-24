@@ -1,4 +1,5 @@
 import { helperTextMargin } from "./global";
+import { cssVar } from "@chakra-ui/theme-tools";
 
 const baseStyle = {
   label: { alignItems: "start", display: "flex", width: "fit-content" },
@@ -7,16 +8,18 @@ const baseStyle = {
     marginLeft: "xxs",
   },
 };
+const $width = cssVar("switch-track-width");
+const $height = cssVar("switch-track-height");
 
 const Switch = {
-  baseStyle: ({ size }) => {
+  baseStyle: ({ size }: { size: string }) => {
     return {
       alignItems: "start",
       opacity: 0.4,
       track: {
         border: "1px solid",
         borderColor: "ui.gray.medium",
-        p: "4px",
+        p: "1px",
         _checked: {
           bg: "ui.link.primary",
           borderColor: "ui.link.primary",
@@ -55,6 +58,26 @@ const Switch = {
         },
       },
     };
+  },
+  sizes: {
+    sm: {
+      container: {
+        // Default from Chakra is:
+        // width: 1.375rem
+        // height: 0.75rem
+        [$width.variable]: "1.5rem",
+        [$height.variable]: "0.75rem",
+      },
+    },
+    lg: {
+      container: {
+        // Default from Chakra is:
+        // width: 1.375rem
+        // height: 0.75rem
+        [$width.variable]: "2.9rem",
+        [$height.variable]: "1.3rem",
+      },
+    },
   },
   defaultProps: {
     colorScheme: "white",
