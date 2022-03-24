@@ -135,23 +135,21 @@ const contentData = [
 
 ## Accessibility
 
-- Follows US Design System requirements for buttons/accordion panels (including ARIA to make clear what is expanded/collapsed.). Deviates from USDS in that user can open multiple panels. Opening one, does not collapse already expanded panel.
-- The no-JS version of the accordion will have everything expanded and organized by the headings of the buttons.
-
-Is a button element with "FAQ..." as label.
-
-- "open" icon is decorative
-- Visible focus goes around full button and full button is clickable
-- Open
-
-Is a button element with "FAQ..." as label.
-
-- "close" icon is decorative
+- Follows [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/components/accordion/)
+  guidelines:
+  - Use the `button` HTML element for screenreaders and keyboards.
+  - Use the `aria-expanded` attribute to indicate whether the `Accordion` is
+    expanded (`true`) or collapsed (`false`).
+  - Use the `aria-controls` attribute to associate the control with the panel.
+- Deviates from USWDS in that the user can open multiple panels. Opening one,
+  does not collapse already expanded panel.
+- The open and close icons are decorative (`aria-hidden` is `true`).
 - Visible focus goes around full button and full button is clickable
 
 Resources:
 
 - [W3C WAI-Aria Practices - Accordion](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion)
+- [USWDS Accordion](https://designsystem.digital.gov/components/accordion/)
 - [Chakra Accordion](https://chakra-ui.com/docs/components/disclosure/accordion)
 
 ## FAQ Example

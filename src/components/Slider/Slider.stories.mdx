@@ -83,7 +83,7 @@ import DSProvider from "../../theme/provider";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
-- [RangeSlider](#range-slider)
+- [RangeSlider](#rangeslider)
 - [Examples](#examples)
 - [Get Input Values](#get-input-values)
 
@@ -165,7 +165,7 @@ is hidden, the `for` attribute in the `label` element is removed.
 Note that Chakra handles its single slider thumb aria attributes: `aria-valuemin`,
 `aria-valuemax`, `aria-valuenow`, and `aria-orientation`.
 
-## RangeSlider with Controls
+## RangeSlider
 
 Set `isRangeSlider` to `true` to create a range slider. The text input
 components double as displays for the slider's current minimum and maximum
@@ -516,7 +516,7 @@ In the following examples, all the labels are hidden.
   </DSProvider>
 </Canvas>
 
-## Get Data Values
+## Get Input Values
 
 Pass a callback function to the `onChange` prop to get the current number value
 of the `Slider` component or an array of two numbers when it is a range slider.
