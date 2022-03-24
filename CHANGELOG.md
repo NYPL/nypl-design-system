@@ -10,11 +10,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `isFullWidth` prop to the `CheckboxGroup` component. This sets the checkbox's wrapper element to be full width for labels that need to span its container.
+- Adds the `isFullWidth` prop to the `CheckboxGroup` and `RadioGroup` components. This sets the wrapper element to be full width for labels that need to span its container.
 
 ### Changes
 
-- Updates the `Checkbox`'s `labelText` prop to accept strings and JSX Elements.
+- Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and
+  JSX Elements.
 
 ## 0.25.12 (March 18, 2022)
 

@@ -251,3 +251,64 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
   </span>
 </label>
 `;
+
+exports[`Radio Button renders the UI snapshot correctly 6`] = `
+<label
+  className="chakra-radio css-13p0l12"
+>
+  <input
+    checked={false}
+    className="chakra-radio__input"
+    disabled={false}
+    id="jsxLabel"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    required={false}
+    style={
+      Object {
+        "border": "0px",
+        "clip": "rect(0px, 0px, 0px, 0px)",
+        "height": "1px",
+        "margin": "-1px",
+        "overflow": "hidden",
+        "padding": "0px",
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": "1px",
+      }
+    }
+    type="radio"
+    value="arts"
+  />
+  <span
+    aria-hidden={true}
+    className="css-ssalds"
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+  />
+  <span
+    className="chakra-radio__label css-1y8kf23"
+    onMouseDown={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="css-k008qs"
+    >
+      <span>
+        Arts
+      </span>
+      <div
+        className="css-17xejub"
+      />
+      <span>
+        4
+      </span>
+    </div>
+  </span>
+</label>
+`;

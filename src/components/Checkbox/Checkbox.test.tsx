@@ -9,13 +9,30 @@ import Checkbox from "./Checkbox";
 import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Checkbox Accessibility", () => {
-  it("Passes axe accessibility test", async () => {
+  it("passes axe accessibility test with string label", async () => {
     const { container } = render(
       <Checkbox
         id="inputID"
         onChange={jest.fn()}
         labelText="Test Label"
         showLabel={false}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with jsx label", async () => {
+    const { container } = render(
+      <Checkbox
+        id="jsxLabel"
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+        value="arts"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
