@@ -10,7 +10,7 @@ const List = {
     padding: noStyling ? "0" : null,
     display: inline ? "flex" : null,
     li: {
-      marginRight: inline ? "m" : null,
+      marginRight: inline ? "xs" : null,
       listStyleType: inline ? "none" : null,
       _notFirst: {
         marginTop: inline ? null : "xxs",
