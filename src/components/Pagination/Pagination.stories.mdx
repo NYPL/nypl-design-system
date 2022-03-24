@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { VStack } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -43,7 +44,7 @@ export const hrefProps = getStorybookHrefProps(10);
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.25.13`  |
 
 <Description of={Pagination} />
 
@@ -144,7 +145,7 @@ export function CurrentPagePaginationExample() {
   const handleClick = () => setPage(1);
   const handleSelection = (selectedPage) => setPage(selectedPage);
   return (
-    <>
+    <VStack align="start" spacing={6}>
       <Pagination
         pageCount={10}
         currentPage={page}
@@ -153,7 +154,7 @@ export function CurrentPagePaginationExample() {
       <Button type="button" buttonType="primary" onClick={handleClick}>
         Go to Page 1
       </Button>
-    </>
+    </VStack>
   );
 }
 
