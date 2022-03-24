@@ -4,11 +4,9 @@ const toPath = (_path) => path.join(process.cwd(), _path);
 module.exports = {
   // Where are the stories?
   stories: [
-    "../src/docs/Intro.stories.mdx",
-    "../src/docs/Chakra.stories.mdx",
-    "../src/components/AccessibilityGuide/*.stories.@(tsx|mdx)",
-    "../src/components/StyleGuide/*.stories.@(tsx|mdx)",
+    "../src/docs/*.stories.mdx",
     "../src/components/**/*.stories.@(tsx|mdx)",
+    "../src/hooks/*.stories.@(tsx|mdx)",
   ],
   // Each addon is added here by either it's name in a string or an object
   // configuration for that addon.

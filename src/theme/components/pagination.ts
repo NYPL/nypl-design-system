@@ -1,7 +1,6 @@
 const Pagination = {
   parts: ["link"],
   baseStyle: {
-    marginBottom: "l",
     alignItems: "stretch",
     display: "flex",
     width: "100%",
@@ -9,10 +8,8 @@ const Pagination = {
       lineHeight: "1.15",
       textDecoration: "none",
     },
-    li: {
-      _first: {
-        marginTop: "xxs",
-      },
+    ul: {
+      marginBottom: "0",
     },
   },
 };

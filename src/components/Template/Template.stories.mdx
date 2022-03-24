@@ -84,12 +84,13 @@ then pass that alert or notification component to the `aboveHeader` prop. These
 elements should _not_ be rendered in the `header` HTML section since that's an
 accessibility violation.
 
-The `TemplateAppContainer` component renders as a `main` HTML element with a
-default "id" of `"mainContent"`. This should be used as the anchor element that
-the skip navigation link points to. As of v0.25.13, the consuming application is
-responsible for adding the skip navigation feature to the application. If your
-application is using the current NYPL Header, it already contains the skip
-navigation feature but make sure it is pointing to the correct anchor element.
+The `TemplateAppContainer` component renders a full DOM and one of the children
+is the `main` HTML element with a default "id" of `"mainContent"`. This should
+be used as the anchor element that the skip navigation link points to. As of
+v0.25.13, the consuming application is responsible for adding the skip
+navigation feature to the application. If your application is using the current
+NYPL Header, it already contains the skip navigation feature but make sure it is
+pointing to the correct anchor element.
 
 Resources
 
