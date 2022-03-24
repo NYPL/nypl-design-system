@@ -12,14 +12,13 @@ import { IconNames, IconSizes } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
 import { AccordionTypes } from "./AccordionTypes";
 export interface AccordionContentDataProps {
+  accordionType?: AccordionTypes;
   label: string;
   panel: string | React.ReactNode;
 }
 
 export interface AccordionProps {
-  /** Background color to be passed to the AccordionButton */
-  accordionType?: AccordionTypes;
-  /** Array of data to display */
+  /** Array of data to display, and an optional accordionType */
   contentData: AccordionContentDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
@@ -47,10 +46,15 @@ const getIcon = (isExpanded = false, index, id) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromContentData = (data = [], id, bgColor) => {
+const getElementsFromContentData = (data = [], id) => {
+  const colorMap = {
+    default: "ui.white",
+    warning: "ui.status.primary",
+    error: "ui.status.secondary",
+  };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
-  const multiplePadding = data?.length > 1 ? "20px" : null;
+  const multiplePadding = data?.length > 1 ? 4 : null;
 
   return data.map((content, index) => {
     // This is done to support both string and DOM element input.
@@ -75,7 +79,11 @@ const getElementsFromContentData = (data = [], id, bgColor) => {
             <AccordionButton
               id={`${id}-button-${index}`}
               padding={multiplePadding}
-              bg={bgColor}
+              bg={
+                content.accordionType
+                  ? colorMap[content.accordionType]
+                  : colorMap.default
+              }
             >
               <Box flex="1" textAlign="left">
                 {content.label}
@@ -95,23 +103,13 @@ const getElementsFromContentData = (data = [], id, bgColor) => {
  * multiple accordion items together.
  */
 function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const {
-    accordionType = AccordionTypes.Default,
-    contentData,
-    id = generateUUID(),
-    isDefaultOpen = false,
-  } = props;
-  const colorMap = {
-    default: "ui.white",
-    warning: "ui.status.primary",
-    error: "ui.status.secondary",
-  };
-  const bgColor = colorMap[accordionType];
+  const { contentData, id = generateUUID(), isDefaultOpen = false } = props;
+
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
     <ChakraAccordion id={id} defaultIndex={[openFirstAccordion]} allowMultiple>
-      {getElementsFromContentData(contentData, id, bgColor)}
+      {getElementsFromContentData(contentData, id)}
     </ChakraAccordion>
   );
 }

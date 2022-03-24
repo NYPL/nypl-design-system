@@ -9,6 +9,7 @@ import ReactDOMServer from "react-dom/server";
 import { withDesign } from "storybook-addon-designs";
 
 import Accordion from "./Accordion";
+import { AccordionTypes } from "./AccordionTypes";
 import Card, { CardHeading, CardContent } from "../Card/Card";
 import { CardLayouts } from "../Card/CardTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
@@ -61,6 +62,7 @@ necessary icon, Chakra components, and styles.
     args={{
       contentData: [
         {
+          accordionType: AccordionTypes.Default,
           label: "Tom Nook",
           panel: (
             <Card
@@ -93,6 +95,7 @@ necessary icon, Chakra components, and styles.
 ```jsx
 const contentData = [
   {
+    accordionType: AccordionTypes.Default,
     label: "Tom Nook",
     panel: (
       <Card
@@ -126,6 +129,7 @@ const contentData = [
 
 export const faqContent = [
   {
+    accordionType: AccordionTypes.Default,
     label: "Tom Nook",
     panel: (
       <Card
@@ -146,6 +150,7 @@ export const faqContent = [
     ),
   },
   {
+    accordionType: AccordionTypes.Warning,
     label: "Isabelle",
     panel: (
       <Card
@@ -168,6 +173,7 @@ export const faqContent = [
     ),
   },
   {
+    accordionType: AccordionTypes.Error,
     label: "K.K. Slider",
     panel: (
       <Card
@@ -205,6 +211,7 @@ one object in the array passed into the `contentData` prop.
 ```jsx
 export const faqContent = [
   {
+    accordionType: AccordionTypes.Default,
     label: "Tom Nook",
     panel: (
       <Card
@@ -225,6 +232,7 @@ export const faqContent = [
     ),
   },
   {
+    accordionType: AccordionTypes.Warning,
     label: "Isabelle",
     panel: (
       <Card
@@ -247,6 +255,7 @@ export const faqContent = [
     ),
   },
   {
+    accordionType: AccordionTypes.Error,
     label: "K.K. Slider",
     panel: (
       <Card
