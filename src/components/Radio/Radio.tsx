@@ -95,6 +95,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
         onChange={onChange}
         value={value}
         ref={ref}
+        alignItems="flex-start"
         __css={styles}
         {...attributes}
       >

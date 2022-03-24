@@ -217,6 +217,25 @@ describe("SearchBar", () => {
     expect(searchBarSubmit).toHaveBeenCalledTimes(1);
   });
 
+  it("renders a default placeholder", () => {
+    const textInputProps: TextInputProps = {
+      labelText: "Item Search",
+      name: "textInputName",
+    };
+
+    render(
+      <SearchBar
+        id="requiredState"
+        isDisabled
+        labelText={labelText}
+        onSubmit={jest.fn()}
+        textInputProps={textInputProps}
+      />
+    );
+
+    expect(screen.getByPlaceholderText("Search terms")).toBeInTheDocument();
+  });
+
   it("renders 'required' in the placeholder text", () => {
     const { rerender } = render(
       <SearchBar
@@ -247,8 +266,7 @@ describe("SearchBar", () => {
     ).toBeInTheDocument();
   });
 
-  // TODO: Fix the `Select` component before enabling this test
-  it.skip("renders the UI snapshot correctly", () => {
+  it("renders the UI snapshot correctly", () => {
     const basic = renderer
       .create(
         <SearchBar

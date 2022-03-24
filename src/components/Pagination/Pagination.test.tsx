@@ -11,19 +11,19 @@ describe("Pagination Accessibility", () => {
 
   it("passes axe accessibility on the first page", async () => {
     const { container } = render(
-      <Pagination pageCount={20} initialPage={1} getPageHref={getPageHref} />
+      <Pagination pageCount={20} currentPage={1} getPageHref={getPageHref} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility on a middle page", async () => {
     const { container } = render(
-      <Pagination pageCount={20} initialPage={10} getPageHref={getPageHref} />
+      <Pagination pageCount={20} currentPage={10} getPageHref={getPageHref} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility on the last page", async () => {
     const { container } = render(
-      <Pagination pageCount={20} initialPage={20} getPageHref={getPageHref} />
+      <Pagination pageCount={20} currentPage={20} getPageHref={getPageHref} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -166,7 +166,7 @@ describe("Pagination", () => {
       expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
     });
 
-    it("Renders the UI snapshot correctly", () => {
+    it("renders the UI snapshot correctly", () => {
       const firstPage = renderer
         .create(
           <Pagination
@@ -205,6 +205,31 @@ describe("Pagination", () => {
   });
 
   describe("Behavior", () => {
+    it("navigates to the appropriate page when the Next or Previous links are clicked", () => {
+      const onPageChange = (page: number) => (currentPage = page);
+      let currentPage = 3;
+
+      render(
+        <Pagination
+          pageCount={5}
+          initialPage={currentPage}
+          onPageChange={onPageChange}
+        />
+      );
+
+      let links = screen.getAllByRole("link");
+
+      // Previous link
+      userEvent.click(links[0]);
+      expect(currentPage).toEqual(2);
+
+      links = screen.getAllByRole("link");
+
+      // Next link
+      userEvent.click(links[links.length - 1]);
+      expect(currentPage).toEqual(3);
+    });
+
     it("updates the links href value when getPageHref is used", () => {
       const getPageHref = (page: number) => `?page=${page}`;
       render(
@@ -230,7 +255,7 @@ describe("Pagination", () => {
 
     // In this scenario, we need to update the current page ourselves
     // since we stay on the same page.
-    it("When page item is selected, runs the onPageChange callback", () => {
+    it("when page item is selected, runs the onPageChange callback", () => {
       const onPageChange = (page: number) => (currentPage = page);
       let currentPage = 5;
       const { rerender } = render(
@@ -303,6 +328,64 @@ describe("Pagination", () => {
       // Page 6
       userEvent.click(links[2]);
       expect(currentPage).toEqual(6);
+    });
+
+    it("uses the currentPage prop to update the selected page", () => {
+      const onPageChange = (page: number) => console.log(page);
+      const { rerender } = render(
+        <Pagination currentPage={1} onPageChange={onPageChange} pageCount={5} />
+      );
+
+      let links = screen.getAllByRole("link");
+      let page1 = links[0].getAttribute("aria-current");
+      let page2 = links[1].getAttribute("aria-current");
+      let page3 = links[2].getAttribute("aria-current");
+
+      // Only the current page has `aria-current="page"` for accessibility.
+      expect(page1).toEqual("page");
+      expect(page2).toEqual(null);
+      expect(page3).toEqual(null);
+
+      rerender(
+        <Pagination currentPage={3} onPageChange={onPageChange} pageCount={5} />
+      );
+
+      links = screen.getAllByRole("link");
+      // links[0] is now "Previous"
+      page1 = links[1].getAttribute("aria-current");
+      page2 = links[2].getAttribute("aria-current");
+      page3 = links[3].getAttribute("aria-current");
+
+      expect(page1).toEqual(null);
+      expect(page2).toEqual(null);
+      expect(page3).toEqual("page");
+    });
+
+    it("logs a warning if both `getPageHref` and `onPageChange` props are both passed", () => {
+      const getPageHref = (page: number) => `page=${page}`;
+      const onPageChange = (page: number) => console.log(page);
+      const warn = jest.spyOn(console, "warn");
+      render(
+        <Pagination
+          pageCount={10}
+          onPageChange={onPageChange}
+          getPageHref={getPageHref}
+        />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir Pagination: Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+      );
+    });
+
+    it("logs a warning if both `getPageHref` and `currentPage` props are both passed", () => {
+      const getPageHref = (page: number) => `page=${page}`;
+      const warn = jest.spyOn(console, "warn");
+      render(
+        <Pagination pageCount={10} currentPage={2} getPageHref={getPageHref} />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir Pagination: The `currentPage` prop does not work with the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
+      );
     });
   });
 });

@@ -2,7 +2,7 @@
 
 exports[`Radio Button renders the UI snapshot correctly 1`] = `
 <label
-  className="chakra-radio css-1pw4d56"
+  className="chakra-radio css-13p0l12"
 >
   <input
     checked={false}
@@ -50,7 +50,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 2`] = `
 <label
-  className="chakra-radio css-1pw4d56"
+  className="chakra-radio css-13p0l12"
   data-checked=""
 >
   <input
@@ -101,7 +101,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 3`] = `
 <label
-  className="chakra-radio css-1pw4d56"
+  className="chakra-radio css-13p0l12"
 >
   <input
     aria-required={true}
@@ -150,7 +150,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 4`] = `
 <label
-  className="chakra-radio css-1pw4d56"
+  className="chakra-radio css-13p0l12"
   data-invalid=""
 >
   <input
@@ -202,7 +202,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 5`] = `
 <label
-  className="chakra-radio css-1pw4d56"
+  className="chakra-radio css-13p0l12"
   data-disabled=""
 >
   <input

@@ -4,15 +4,15 @@ const select = {
   backgroundColor: "ui.white",
   borderRadius: "sm",
   borderColor: "ui.gray.medium",
+  fontSize: "text.caption",
   paddingTop: "xs",
   paddingRight: "xl",
   paddingBottom: "xs",
   paddingLeft: "s",
   _hover: {
-    borderColor: "ui.gray.medium",
+    borderColor: "ui.gray.dark",
   },
-  _active: activeFocus,
-  _focus: activeFocus,
+  _active: activeFocus(),
   _disabled: {
     color: "ui.gray.xdark",
     bg: "ui.gray.xx-light-cool",

@@ -1,8 +1,9 @@
+import { activeFocus } from "../components/global";
+import { textMargin } from "../components/global";
+
 /**
  * These rules affect all the global elements on the `body` element of the
- * page when the `DSProvider` component is used. This means that even if the
- * `nypl-ds` CSS class name is not used in a consuming application, these
- * rules will still take effect.
+ * page when the `DSProvider` component is used.
  */
 const global = {
   // styles for the `body` element
@@ -23,8 +24,19 @@ const global = {
   svg: {
     display: "inline",
   },
-  p: {
-    margin: "0 0 var(--nypl-space-s",
+  "button, select, input, textarea": {
+    "&:not([disabled])": {
+      _focus: activeFocus(),
+    },
+  },
+  "iframe, [href], [tabindex], [contentEditable='true']": {
+    _focus: activeFocus(),
+  },
+  p: textMargin,
+  ul: textMargin,
+  ol: textMargin,
+  "*, *::before, &::after": {
+    boxSizing: "inherit",
   },
 };
 

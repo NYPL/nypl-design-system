@@ -51,11 +51,11 @@ implementation is `dir="rtl"`.
 
 The placement of this attribute can be added at the root `<html>` element but can
 also be placed in specific DOM elements within a page to target specific page sections.
-For example, if you only want to target NYPL DS components within the `nypl-ds` class,
-the `dir` attribute can be added to that element:
+For example, if you only want to target NYPL DS components within your top-level
+`app` class, the `dir` attribute can be added to that element:
 
 ```jsx
-<div className="app nypl-ds" dir="rtl">
+<div className="app" dir="rtl">
   ...
 </div>
 ```
@@ -66,7 +66,7 @@ do the following:
 
 ```jsx
 // don't do this
-<div className="app nypl-ds" dir="rtl">
+<div className="app" dir="rtl">
   <div dir="rtl">
     <p dir="rtl">
       Some text <button dir="rtl">Button</button>
