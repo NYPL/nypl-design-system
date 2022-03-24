@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Changes
 
 - Updates Storybook's sidebar categories and documentation.
+- Updates the `Image`'s caption font size to "12px" (`text.tag`).
 
 ### Fixes
 
