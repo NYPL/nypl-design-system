@@ -12,12 +12,12 @@ const buttonStyles = {
   _expanded: {
     bg: "ui.gray.light-warm",
   },
+  _hover: {
+    bg: "ui.white",
+  },
 };
 const panelStyles = {
-  paddingTop: "xs",
-  paddingRight: "xxxl",
-  paddingLeft: "s",
-  paddingBottom: "xs",
+  padding: "s",
 };
 
 const Accordion = {
@@ -26,28 +26,6 @@ const Accordion = {
     container: containerStyles,
     button: buttonStyles,
     panel: panelStyles,
-  },
-  variants: {
-    statusNull: {
-      button: {
-        bg: "ui.white",
-      },
-    },
-    statusDefault: {
-      button: {
-        bg: "ui.gray.light-warm",
-      },
-    },
-    statusWarning: {
-      button: {
-        bg: "ui.status.primary",
-      },
-    },
-    statusError: {
-      button: {
-        bg: "ui.status.secondary",
-      },
-    },
   },
 };
 

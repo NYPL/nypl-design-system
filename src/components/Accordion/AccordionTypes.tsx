@@ -1,6 +1,5 @@
-export enum ColorVariantsAccordion {
-  StatusNull = "statusNull",
-  StatusDefault = "statusDefault",
-  StatusWarning = "statusWarning",
-  StatusError = "statusError",
+export enum AccordionTypes {
+  Default = "default",
+  Warning = "warning",
+  Error = "error",
 }

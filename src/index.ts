@@ -19,7 +19,7 @@ export {
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export { ColorVariants } from "./components/Breadcrumbs/BreadcrumbsTypes";
-export { ColorVariantsAccordion } from "./components/Accordion/AccordionTypes";
+export { AccordionTypes } from "./components/Accordion/AccordionTypes";
 export { default as Button } from "./components/Button/Button";
 export { ButtonTypes } from "./components/Button/ButtonTypes";
 export {
