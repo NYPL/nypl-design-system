@@ -49,7 +49,7 @@ const Switch = {
       label: {
         fontSize: "label.default",
         marginLeft: "xs",
-        marginTop: size === "lg" ? "6px" : null,
+        marginTop: size === "lg" ? "xxxs" : null,
         _disabled: { fontStyle: "italic" },
       },
       thumb: {
@@ -65,8 +65,8 @@ const Switch = {
         // Default from Chakra is:
         // width: 1.375rem
         // height: 0.75rem
-        [$width.variable]: "1.5rem",
-        [$height.variable]: "0.75rem",
+        [$width.variable]: "2.25rem",
+        [$height.variable]: "1rem",
       },
     },
     lg: {
@@ -74,8 +74,8 @@ const Switch = {
         // Default from Chakra is:
         // width: 1.375rem
         // height: 0.75rem
-        [$width.variable]: "2.9rem",
-        [$height.variable]: "1.3rem",
+        [$width.variable]: "3.25rem",
+        [$height.variable]: "1.5rem",
       },
     },
   },
