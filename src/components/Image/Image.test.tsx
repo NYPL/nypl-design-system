@@ -68,17 +68,10 @@ describe("Image", () => {
       .create(<Image src="test.png" alt="" caption="Caption" />)
       .toJSON();
     const figCredit = renderer
-      .create(<Image src="test.png" alt="" imageCredit="Credit" />)
+      .create(<Image src="test.png" alt="" credit="Credit" />)
       .toJSON();
     const figCaptionCredit = renderer
-      .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageCaption="Caption"
-          imageCredit="Credit"
-        />
-      )
+      .create(<Image src="test.png" alt="" caption="Caption" credit="Credit" />)
       .toJSON();
     const sizeExtraExtraSmall = renderer
       .create(<Image src="test.png" alt="" size={ImageSizes.ExtraExtraSmall} />)
