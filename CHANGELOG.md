@@ -10,13 +10,22 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
+- Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
 - Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
 - Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
 
 ### Changes
 
+- Updates Storybook's sidebar categories and documentation.
+- Updates the `Image`'s caption font size to "12px" (`text.tag`).
 - Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
 - Renames the `Skeleton`'s `border` prop to `isBordered`.
+
+### Fixes
+
+- Fixes bug where the Next button in `Pagination` would navigate to the previous page.
+- Fixes the alignment of the first link in the `Pagination` component.
 
 ### Removals
 

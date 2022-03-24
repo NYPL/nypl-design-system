@@ -230,6 +230,31 @@ describe("Pagination", () => {
   });
 
   describe("Behavior", () => {
+    it("navigates to the appropriate page when the Next or Previous links are clicked", () => {
+      const onPageChange = (page: number) => (currentPage = page);
+      let currentPage = 3;
+
+      render(
+        <Pagination
+          pageCount={5}
+          initialPage={currentPage}
+          onPageChange={onPageChange}
+        />
+      );
+
+      let links = screen.getAllByRole("link");
+
+      // Previous link
+      userEvent.click(links[0]);
+      expect(currentPage).toEqual(2);
+
+      links = screen.getAllByRole("link");
+
+      // Next link
+      userEvent.click(links[links.length - 1]);
+      expect(currentPage).toEqual(3);
+    });
+
     it("updates the links href value when getPageHref is used", () => {
       const getPageHref = (page: number) => `?page=${page}`;
       render(

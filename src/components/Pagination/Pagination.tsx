@@ -97,7 +97,7 @@ export const Pagination = chakra((props: PaginationProps) => {
   // Select the next page.
   const nextPage = (e: Event) => {
     if (selectedPage < pageCount) {
-      handlePageClick(e, previousPageNumber);
+      handlePageClick(e, nextPageNumber);
     }
   };
   /**
