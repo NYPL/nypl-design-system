@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates Storybook's sidebar categories and documentation.
+
 ### Fixes
 
 - Fixes bug where the Next button in `Pagination` would navigate to the previous page.
