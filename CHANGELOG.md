@@ -8,18 +8,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Adds
+## Adds
 
+- Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
+- Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
 - Created new `LayoutTypes` enum for row and column layouts.
 - Adds the value "Default" to the `IconSizes` enum.
 
-### Removals
-
-- Removes the `CardLayouts`, `CheckboxGroupLayoutTypes`, `RadioGroupLayoutTypes`, and `SkeletonLoaderLayouts` enums.
-- Removes the `CardTypes.tsx`,` CheckboxGroupLayoutTypes.tsx`, and `RadioGroupLayoutTypes.tsx` files.
-
 ### Changes
 
+- Updates Storybook's sidebar categories and documentation.
+- Updates the `Image`'s caption font size to "12px" (`text.tag`).
 - Renames the `Accordion` prop `contentData` to `accordionData`.
 - Renames the `Breadcrumbs` prop `colorVariant` to `breadcrumbsType`.
 - Renames the `Card` prop `center` to `isCentered`.
@@ -45,6 +44,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `StructuredContent` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, position, size, and src.
 - Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`. Updates the values from `Large` and `Small` to `Default` and `Small`.
 - Minor update to the logic for the `ProgressIndicator` sizing prop and styles.
+
+### Fixes
+
+- Fixes bug where the Next button in `Pagination` would navigate to the previous page.
+- Fixes the alignment of the first link in the `Pagination` component.
+
+### Removals
+
+- Removes the `CardLayouts`, `CheckboxGroupLayoutTypes`, `RadioGroupLayoutTypes`, and `SkeletonLoaderLayouts` enums.
+- Removes the `CardTypes.tsx`,` CheckboxGroupLayoutTypes.tsx`, and `RadioGroupLayoutTypes.tsx` files.
 
 ## 0.25.12 (March 18, 2022)
 
