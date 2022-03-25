@@ -26,12 +26,10 @@ export interface RadioProps {
    * Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
   isChecked?: boolean;
   /** Adds the 'disabled' and `aria-disabled` attributes to the input when true.
-   * This also makes the text italic and color scheme gray.
-   */
+   * This also makes the text italic and color scheme gray. */
   isDisabled?: boolean;
   /** Adds the 'aria-invalid' attribute to the input when true. This also makes
-   * the color theme "NYPL error" red for the button and text.
-   */
+   * the color theme "NYPL error" red for the button and text. */
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;

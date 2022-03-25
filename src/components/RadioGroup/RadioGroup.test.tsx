@@ -1,13 +1,13 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import * as React from "react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-// import * as generateUUID from "../../helpers/generateUUID";
-import RadioGroup from "./RadioGroup";
 import Radio from "../Radio/Radio";
+import RadioGroup from "./RadioGroup";
 import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
-import userEvent from "@testing-library/user-event";
+import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Radio Accessibility", () => {
   it("passes axe accessibility", async () => {
@@ -133,16 +133,16 @@ describe("Radio Button", () => {
 
   // TODO: Figure out why this renders twice with two different calls
   // to the render function.
-  // it("calls the UUID generation function if no id prop value is passed", () => {
-  //   const generateUUIDSpy = jest.spyOn(generateUUID, "default");
-  //   expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-  //   render(
-  //     <RadioGroup labelText="Test Label" name="test6">
-  //       <Radio value="2" labelText="Radio 2" id="radio2" />
-  //     </RadioGroup>
-  //   );
-  //   expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
-  // });
+  it("calls the UUID generation function if no id prop value is passed", () => {
+    const generateUUIDSpy = jest.spyOn(generateUUID, "default");
+    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
+    render(
+      <RadioGroup labelText="Test Label" name="test6">
+        <Radio value="2" labelText="Radio 2" id="radio2" />
+      </RadioGroup>
+    );
+    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
+  });
 
   it("sets the 'disabled' attribute for all its Radio children", () => {
     render(
