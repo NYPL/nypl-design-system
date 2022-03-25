@@ -12,6 +12,13 @@ import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import MultiSelect from "./MultiSelect";
 import * as stories from "./MultiSelect.stories.tsx";
+import { MultiSelectWidths } from "./MultiSelectTypes";
+import { getStorybookEnumValues } from "../../utils/utils";
+
+export const widthsEnumValues = getStorybookEnumValues(
+  MultiSelectWidths,
+  "MultiSelectWidths"
+);
 
 <Meta
   title={getCategory("MultiSelect")}
@@ -26,6 +33,11 @@ import * as stories from "./MultiSelect.stories.tsx";
   }}
   argTypes={{
     id: { table: { disable: true } },
+    width: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "MultiSelectWidths.Default" } },
+      options: widthsEnumValues.options,
+    },
   }}
 />
 
@@ -199,13 +211,19 @@ export default MultiSelectControlledExample;
 
 <Canvas withToolbar>
   <Story
-    name="MultiSelect"
+    name="MultiSelect With Controls"
     args={{
       id: "group1",
       label: "Subject Specialities",
+      width: "MultiSelectWidths.Default",
     }}
   >
-    {(args) => <stories.MultiSelectStory {...args} />}
+    {(args) => (
+      <stories.MultiSelectStory
+        {...args}
+        width={widthsEnumValues.getValue(args.width)}
+      />
+    )}
   </Story>
 </Canvas>
 
@@ -213,13 +231,19 @@ export default MultiSelectControlledExample;
 
 <Canvas withToolbar>
   <Story
-    name="MultiSelectDialog"
+    name="MultiSelectDialog With Controls"
     args={{
       id: "group1",
       label: "Subject Specialities Dialog",
+      width: "MultiSelectWidths.Default",
     }}
   >
-    {(args) => <stories.MultiSelectDialogStory {...args} />}
+    {(args) => (
+      <stories.MultiSelectDialogStory
+        {...args}
+        width={widthsEnumValues.getValue(args.width)}
+      />
+    )}
   </Story>
 </Canvas>
 
