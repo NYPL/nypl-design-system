@@ -1,18 +1,50 @@
+const multiSelectWidths = {
+  default: {
+    minWidth: {
+      base: "100%",
+      md: "fit-content",
+    },
+  },
+  small: {
+    minWidth: {
+      base: "100%",
+      md: "165px",
+    },
+  },
+  medium: {
+    minWidth: {
+      base: "100%",
+      md: "225px",
+    },
+  },
+  large: {
+    minWidth: {
+      base: "100%",
+      md: "360px",
+    },
+  },
+  full: {
+    minWidth: "100%",
+  },
+};
+
 const MultiSelect = {
-  baseStyle: {
-    container: {
-      width: {
-        base: "100%",
-        md: "fit-content",
-      },
-      minWidth: {
-        base: "100%",
-        md: "175px",
-      },
-      margin: {
-        base: ".75rem 0",
-        md: "0 2em 0 0",
-      },
+  parts: [
+    "menuButton",
+    "menuContainer",
+    "menu",
+    "menuChildren",
+    "selectedItemsCountButton",
+  ],
+  baseStyle: ({ width = "default" }) => ({
+    width: {
+      base: "100%",
+      md: "fit-content",
+    },
+    ...multiSelectWidths[width],
+    margin: {
+      base: ".75rem 0",
+      md: "0 2em 0 0",
     },
     menuButton: {
       width: "100%",
@@ -20,9 +52,10 @@ const MultiSelect = {
         base: "100%",
         md: "175px",
       },
+      //...multiSelectWidths[width],
       justifyContent: "space-between",
     },
-    menuWrapper: {
+    menuContainer: {
       position: {
         md: "absolute",
       },
@@ -31,6 +64,7 @@ const MultiSelect = {
         base: "100%",
         md: "275px",
       },
+      //...multiSelectWidths[width],
       // These are for active states
       boxSizing: "border-box",
       background: "white",
@@ -57,11 +91,21 @@ const MultiSelect = {
         outline: "0px !important",
       },
     },
-    childrenContainer: {
+    menuChildren: {
       paddingLeft: "m",
       marginBottom: 0,
     },
-  },
+    selectedItemsCountButton: {
+      marginRight: "xs",
+      paddingLeft: "s",
+      paddingRight: "s",
+      backgroundColor: "ui.gray.x-light-cool",
+      border: "1px",
+      borderRadius: "20px",
+      borderColor: "ui.gray.light-cool",
+      fontSize: "12px",
+    },
+  }),
 };
 
 export default MultiSelect;

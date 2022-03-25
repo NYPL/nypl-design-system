@@ -6,7 +6,11 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import Checkbox from "./../Checkbox/Checkbox";
-import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
+import {
+  MultiSelectItem,
+  SelectedItems,
+  MultiSelectWidths,
+} from "./MultiSelectTypes";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import { useSelect } from "downshift";
 
@@ -23,6 +27,8 @@ export interface MultiSelectProps {
   selectedItems: SelectedItems;
   /** The action to perform for clear/reset button of multiselect. */
   onClear?: () => void;
+  /** Enum value used to set the width for the MultiSelect component. */
+  width?: MultiSelectWidths;
 }
 
 function MultiSelect({
@@ -32,6 +38,7 @@ function MultiSelect({
   onChange,
   selectedItems,
   onClear,
+  width = MultiSelectWidths.Small,
 }: MultiSelectProps) {
   const {
     isOpen,
@@ -64,10 +71,10 @@ function MultiSelect({
     },
   });
 
-  const styles = useMultiStyleConfig("MultiSelect", {});
+  const styles = useMultiStyleConfig("MultiSelect", { width });
 
   return (
-    <Box id={id} __css={styles.container}>
+    <Box id={id} __css={styles}>
       <MultiSelectMenuButton
         multiSelectId={id}
         label={label}
@@ -76,7 +83,7 @@ function MultiSelect({
         {...getToggleButtonProps()}
         onClear={onClear}
       />
-      <Box __css={styles.menuWrapper} {...(!isOpen && { display: "none" })}>
+      <Box __css={styles.menuContainer} {...(!isOpen && { display: "none" })}>
         <UnorderedList
           styleType="none"
           marginInlineStart="0"

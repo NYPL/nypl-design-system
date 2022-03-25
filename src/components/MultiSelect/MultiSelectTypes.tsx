@@ -7,3 +7,11 @@ export interface MultiSelectItem {
 export interface SelectedItems {
   [name: string]: { items: MultiSelectItem[] };
 }
+
+export enum MultiSelectWidths {
+  Default = "default",
+  Small = "small",
+  Medium = "medium",
+  Large = "large",
+  Full = "full",
+}

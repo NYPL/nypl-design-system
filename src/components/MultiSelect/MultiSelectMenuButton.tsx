@@ -86,13 +86,7 @@ const MultiSelectMenuButton = React.forwardRef<
       {getSelectedItemsCount(multiSelectId) && (
         <Box
           as="span"
-          mr="xs"
-          paddingX="s"
-          backgroundColor="#F5F5F5"
-          border="1px"
-          borderRadius="20px"
-          borderColor="#E0E0E0"
-          fontSize="12px"
+          __css={styles.selectedItemsCountButton}
           onClick={onClear}
           onKeyPress={onKeyPress}
           role="button"

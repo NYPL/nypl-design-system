@@ -2,7 +2,11 @@ import React from "react";
 import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
-import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
+import {
+  MultiSelectItem,
+  SelectedItems,
+  MultiSelectWidths,
+} from "./MultiSelectTypes";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import {
   Box,
@@ -38,6 +42,8 @@ export interface MultiSelectProps {
   onApply?: () => void;
   /** The action to perform for clear/reset button of multiselect.. */
   onClear?: () => void;
+  /** Enum value used to set the width for the MultiSelect component. */
+  width?: MultiSelectWidths;
 }
 
 function MultiSelectDialog({
@@ -52,8 +58,9 @@ function MultiSelectDialog({
   onMenuToggle,
   onApply,
   onClear,
+  width = MultiSelectWidths.Default,
 }: MultiSelectProps) {
-  const styles = useMultiStyleConfig("MultiSelect", {});
+  const styles = useMultiStyleConfig("MultiSelect", { width });
 
   function isChecked(multiSelectId: string, itemId: string) {
     if (
@@ -83,7 +90,10 @@ function MultiSelectDialog({
     return false;
   }
 
-  function isIndeterminate(multiSelectId: string, item: MultiSelectItem) {
+  function isIndeterminate(
+    multiSelectId: string,
+    item: MultiSelectItem
+  ): boolean {
     let childIds = [];
     item.children.map((childItem) => {
       childIds.push(childItem.id);
@@ -111,7 +121,7 @@ function MultiSelectDialog({
   }
 
   return (
-    <Box id={id} __css={styles.container}>
+    <Box id={id} __css={styles}>
       <MultiSelectMenuButton
         multiSelectId={id}
         label={label}
@@ -123,7 +133,7 @@ function MultiSelectDialog({
       <FocusLock disabled={focusLockDisabled()}>
         <Box
           role="dialog"
-          __css={styles.menuWrapper}
+          __css={styles.menuContainer}
           {...(!isOpen && { display: "none" })}
         >
           <UnorderedList
@@ -158,7 +168,7 @@ function MultiSelectDialog({
                       <UnorderedList
                         styleType="none"
                         marginInlineStart="0"
-                        __css={styles.childrenContainer}
+                        __css={styles.menuChildren}
                       >
                         {item.children.map((childItem) => {
                           return (
