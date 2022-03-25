@@ -28,7 +28,7 @@ describe("Logo", () => {
       </Logo>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Logo accepts either a `name` prop or an `svg` element child. It can not accept both."
+      "NYPL Reservoir Logo: accepts either a `name` prop or an `svg` element child. It can not accept both."
     );
   });
 
@@ -36,7 +36,15 @@ describe("Logo", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Logo />);
     expect(warn).toHaveBeenCalledWith(
-      "Pass a logo `name` prop or an SVG child to `Logo` to ensure a logo appears."
+      "NYPL Reservoir Logo: pass a logo `name` prop or an SVG child to `Logo` to ensure a logo appears."
+    );
+  });
+
+  it("consoles a warning if name is not passed and a child is but it's not an SVG element", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Logo>Not an SVG</Logo>);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Logo: an `svg` element must be passed to the `Logo` component."
     );
   });
 

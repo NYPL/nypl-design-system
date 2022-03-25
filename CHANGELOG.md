@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates Storybook's sidebar categories and documentation.
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
+- Updates all the console warnings with consistent NYPL branding prefix label.
 
 ### Fixes
 

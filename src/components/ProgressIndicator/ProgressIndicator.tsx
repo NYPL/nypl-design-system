@@ -60,7 +60,7 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
   let finalValue = value;
   if (finalValue < 0 || finalValue > 100) {
     console.warn(
-      "ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
+      "NYPL Reservoir ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
     );
     finalValue = 0;
   }

@@ -88,7 +88,7 @@ const TemplateHeader = ({
     React.Children.map(children, (child: React.ReactElement) => {
       if (child?.type === "header" || child?.props?.mdxType === "header") {
         console.warn(
-          "`TemplateHeader`: An HTML `header` element was passed in. Set " +
+          "NYPL Reservoir TemplateHeader: an HTML `header` element was passed in. Set " +
             "`renderHeaderElement` to `false` to avoid nested HTML `header` elements."
         );
       }
@@ -222,7 +222,7 @@ const TemplateFooter = ({
     React.Children.map(children, (child: React.ReactElement) => {
       if (child?.type === "footer" || child?.props?.mdxType === "footer") {
         console.warn(
-          "`TemplateFooter`: An HTML `footer` element was passed in. Set " +
+          "NYPL Reservoir TemplateFooter: an HTML `footer` element was passed in. Set " +
             "`renderFooterElement` to `false` to avoid nested HTML `footer` elements."
         );
       }

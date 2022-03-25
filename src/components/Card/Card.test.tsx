@@ -307,7 +307,7 @@ describe("Card", () => {
     const warn = jest.spyOn(console, "warn");
     render(cardImageComponentAndRatio());
     expect(warn).toHaveBeenCalledWith(
-      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+      "NYPL Reservoir Card: both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
     );
   });
 

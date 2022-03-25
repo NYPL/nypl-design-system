@@ -298,7 +298,7 @@ describe("Hero", () => {
       <Hero heroType={HeroTypes.Primary} heading={heading} />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: it is recommended to use the "backgroundImageSrc" prop for PRIMARY hero.`
+      `NYPL Reservoir Hero: it is recommended to use the "backgroundImageSrc" prop for PRIMARY hero.`
     );
 
     rerender(
@@ -310,7 +310,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: the "image" prop has been passed, but PRIMARY hero will not use it.`
+      `NYPL Reservoir Hero: the "image" prop has been passed, but PRIMARY hero will not use it.`
     );
   });
 
@@ -333,7 +333,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      `NYPL Reservoir Hero: Please provide "locationDetails" only to PRIMARY hero.`
     );
 
     rerender(
@@ -346,7 +346,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
+      `NYPL Reservoir Hero: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
     );
 
     rerender(
@@ -360,7 +360,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: the "foregroundColor" and/or "backgroundColor" props have been passed, but SECONDARY Hero will not use them.`
+      `NYPL Reservoir Hero: "foregroundColor" and/or "backgroundColor" props have been passed, but SECONDARY Hero will not use them.`
     );
   });
 
@@ -382,7 +382,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      `NYPL Reservoir Hero: Please provide "locationDetails" only to PRIMARY hero.`
     );
 
     rerender(
@@ -394,7 +394,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: TERTIARY hero will not use any of the image props.`
+      `NYPL Reservoir Hero: TERTIARY hero will not use any of the image props.`
     );
 
     rerender(
@@ -406,7 +406,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: TERTIARY hero will not use any of the image props.`
+      `NYPL Reservoir Hero: TERTIARY hero will not use any of the image props.`
     );
   });
 
@@ -430,7 +430,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      `NYPL Reservoir Hero: Please provide "locationDetails" only to PRIMARY hero.`
     );
 
     rerender(
@@ -443,7 +443,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
+      `NYPL Reservoir Hero: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
     );
 
     rerender(
@@ -456,7 +456,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
+      `NYPL Reservoir Hero: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
     );
   });
 
@@ -471,7 +471,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      `NYPL Reservoir Hero: Please provide "locationDetails" only to PRIMARY hero.`
     );
 
     rerender(
@@ -483,7 +483,7 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: the "backgroundImageSrc" prop has been passed, but FIFTYFIFTY hero will not use it.`
+      `NYPL Reservoir Hero: the "backgroundImageSrc" prop has been passed, but FIFTYFIFTY hero will not use it.`
     );
   });
 

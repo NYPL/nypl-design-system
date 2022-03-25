@@ -27,7 +27,7 @@ export default function HorizontalRule(props: HorizontalRuleProps) {
 
   if (height.endsWith("%")) {
     console.warn(
-      "`HorizontalRule`: For the `height` prop, use a whole number, a `px`" +
+      "NYPL Reservoir HorizontalRule: For the `height` prop, use a whole number, a `px`" +
         " value, a `em` value, or a `rem` value. Using the default of 2px."
     );
     finalHeight = "2px";

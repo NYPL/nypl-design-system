@@ -120,7 +120,7 @@ describe("ProgressIndicator", () => {
     render(<ProgressIndicator labelText="Linear" value={-20} />);
 
     expect(warn).toHaveBeenCalledWith(
-      "ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
+      "NYPL Reservoir ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
     );
   });
 
@@ -129,7 +129,7 @@ describe("ProgressIndicator", () => {
     render(<ProgressIndicator labelText="Linear" value={150} />);
 
     expect(warn).toHaveBeenCalledWith(
-      "ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
+      "NYPL Reservoir ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
     );
   });
 

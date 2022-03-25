@@ -346,7 +346,7 @@ describe("Radio Button", () => {
       </RadioGroup>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Only `Radio` components are allowed inside the `RadioGroup` component."
+      "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside the `RadioGroup` component."
     );
   });
 });

@@ -55,12 +55,12 @@ export default function Logo(props: React.PropsWithChildren<LogoProps>) {
   // Component prop validation
   if (name && children) {
     console.warn(
-      "Logo accepts either a `name` prop or an `svg` element child. It can not accept both."
+      "NYPL Reservoir Logo: accepts either a `name` prop or an `svg` element child. It can not accept both."
     );
     return null;
   } else if (!name && !children) {
     console.warn(
-      "Pass a logo `name` prop or an SVG child to `Logo` to ensure a logo appears."
+      "NYPL Reservoir Logo: pass a logo `name` prop or an SVG child to `Logo` to ensure a logo appears."
     );
     return null;
   }
@@ -83,14 +83,16 @@ export default function Logo(props: React.PropsWithChildren<LogoProps>) {
   // Apply logo props to the SVG child.
   if (
     (children as JSX.Element).type === "svg" ||
-    (children as JSX.Element).props.type === "svg" ||
-    (children as JSX.Element).props.mdxType === "svg"
+    (children as JSX.Element).props?.type === "svg" ||
+    (children as JSX.Element).props?.mdxType === "svg"
   ) {
     childSVG = React.cloneElement(children as JSX.Element, {
       ...logoProps,
     });
   } else {
-    console.warn("You must pass an `svg` element to the `Logo` component.");
+    console.warn(
+      "NYPL Reservoir Logo: an `svg` element must be passed to the `Logo` component."
+    );
   }
 
   return <Box __css={styles}>{childSVG}</Box>;

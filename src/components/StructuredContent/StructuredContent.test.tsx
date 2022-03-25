@@ -209,7 +209,7 @@ describe("StructuredContent", () => {
     );
 
     expect(warn).toHaveBeenCalledWith(
-      "StructuredContent: `imageAlt` prop is required when using an image."
+      "NYPL Reservoir StructuredContent: `imageAlt` prop is required when using an image."
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
   });

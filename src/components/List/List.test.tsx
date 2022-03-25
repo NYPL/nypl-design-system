@@ -138,7 +138,7 @@ describe("List", () => {
       </List>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Pass in either `<li>`, `<dt>`, or `<dd>` children or use the `listItems` data prop, but don't use both."
+      "NYPL Reservoir List: pass in either `<li>`, `<dt>`, or `<dd>` children or use the `listItems` data prop, but don't use both."
     );
   });
 
@@ -146,7 +146,7 @@ describe("List", () => {
     const warn = jest.spyOn(console, "warn");
     render(<List type={ListTypes.Ordered}></List>);
     expect(warn).toHaveBeenCalledWith(
-      "Either `<li>` children or the `listItems` prop must be used."
+      "NYPL Reservoir List: either `<li>` children or the `listItems` prop must be used."
     );
   });
 
@@ -160,7 +160,7 @@ describe("List", () => {
       </List>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Direct children of `List` (ol) should be `<li>`s."
+      "NYPL Reservoir List: direct children of `List` (ol) should be `<li>`s."
     );
   });
 
@@ -174,7 +174,7 @@ describe("List", () => {
       </List>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Direct children of `List` (definition) should be `<dt>`s and `<dd>`s."
+      "NYPL Reservoir List: direct children of `List` (definition) should be `<dt>`s and `<dd>`s."
     );
   });
 
