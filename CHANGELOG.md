@@ -8,9 +8,20 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## Adds
+
+- Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
+- Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
+
+### Changes
+
+- Updates Storybook's sidebar categories and documentation.
+- Updates the `Image`'s caption font size to "12px" (`text.tag`).
+
 ### Fixes
 
 - Fixes bug where the Next button in `Pagination` would navigate to the previous page.
+- Fixes the alignment of the first link in the `Pagination` component.
 
 ## 0.25.12 (March 18, 2022)
 
