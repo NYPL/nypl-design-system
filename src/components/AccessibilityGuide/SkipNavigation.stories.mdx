@@ -1,0 +1,34 @@
+import { Meta } from "@storybook/addon-docs";
+
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta title={getCategory("Skip Navigation")} />
+
+# Skip Navigation
+
+| Table of Contents                              |
+| ---------------------------------------------- |
+| 1. [General Information](#general-information) |
+| 2. [Resources](#resources)                     |
+
+## General Information
+
+An application's "skip navigation link" is used to skip to the primary or main
+content of a page. This link is located at the top of the page and is usually
+visually hidden until a user focuses on the link. For most applications at
+NYPL, the [NYPL Header](https://github.com/NYPL/dgx-header-component) is used
+and this component already renders a skip navigation link.
+
+The link must target an existing anchor on the page and is typically the `id`
+`"#mainContent"` set on the `main` HTML element on the page. While the DS does not
+currently, as of `v0.25.13`, provide a skip navigation link, it does provide the
+anchor element for the link through the `TemplateAppContainer` component.
+
+The `TemplateAppContainer` component renders as a `main` HTML element with a
+default `id` of `"mainContent"`. This should be used as the anchor element that
+the skip navigation link points to.
+
+## Resources
+
+- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
+- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
