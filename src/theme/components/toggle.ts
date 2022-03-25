@@ -62,7 +62,7 @@ const Switch = {
   sizes: {
     sm: {
       container: {
-        // Default from Chakra is:
+        // Chakra defaults for `sm`:
         // width: 1.375rem
         // height: 0.75rem
         [$width.variable]: "2.25rem",
@@ -71,9 +71,9 @@ const Switch = {
     },
     lg: {
       container: {
-        // Default from Chakra is:
-        // width: 1.375rem
-        // height: 0.75rem
+        // Chakra defaults for `lg`:
+        // width: 2.875rem
+        // height: 1.5rem
         [$width.variable]: "3.25rem",
         [$height.variable]: "1.5rem",
       },
