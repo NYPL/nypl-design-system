@@ -106,6 +106,7 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
       onChange={(selectedItem) => {
         handleChange(args.id, selectedItem.id);
       }}
+      onClear={() => setSelectedItems({})}
     />
   );
 };

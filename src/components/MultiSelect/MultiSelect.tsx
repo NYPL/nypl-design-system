@@ -21,6 +21,8 @@ export interface MultiSelectProps {
   onChange: (selectedItem: MultiSelectItem, id: string) => void;
   /** The selected items (items that were checked by user). */
   selectedItems: SelectedItems;
+  /** The action to perform for clear/reset button of multiselect. */
+  onClear?: () => void;
 }
 
 function MultiSelect({
@@ -29,6 +31,7 @@ function MultiSelect({
   items,
   onChange,
   selectedItems,
+  onClear,
 }: MultiSelectProps) {
   const {
     isOpen,
@@ -71,6 +74,7 @@ function MultiSelect({
         isOpen={isOpen}
         selectedItems={selectedItems}
         {...getToggleButtonProps()}
+        onClear={onClear}
       />
       <Box __css={styles.menuWrapper} {...(!isOpen && { display: "none" })}>
         <UnorderedList

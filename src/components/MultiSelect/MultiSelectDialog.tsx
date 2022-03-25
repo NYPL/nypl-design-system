@@ -118,6 +118,7 @@ function MultiSelectDialog({
         isOpen={isOpen}
         selectedItems={selectedItems}
         onMenuToggle={onMenuToggle}
+        onClear={onClear}
       />
       <FocusLock disabled={focusLockDisabled()}>
         <Box
