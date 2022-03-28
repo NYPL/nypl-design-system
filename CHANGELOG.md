@@ -18,6 +18,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates Storybook's sidebar categories and documentation.
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
 - Refactors the DS `RadioGroup` component so it internally implements Chakra's `RadioGroup` component rather than the `useRadioGroup` hook. The "uncontrolled" version of Chakra's `RadioGroup` is not working and will be investigated in the future. It is recommended to use the controlled component pattern.
+- Updates the `Fieldset` component to render the "Optional"/"Required" text in the `legend` element as pseudo CSS in the `::after` rule.
+- Passes the `isRequired` prop in the `RadioGroup` and `CheckboxGroup` to the `Fieldset` wrapper component.
 
 ### Fixes
 
