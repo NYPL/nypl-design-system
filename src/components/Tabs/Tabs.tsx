@@ -47,7 +47,7 @@ export interface TabsProps {
  * An internal function used to update the hash in the URL.
  * This function is only used when `useHash` is `true`.
  */
-const onClickHash = (tabHash) => {
+const onClickHash = (tabHash: string) => {
   window.location.hash = tabHash;
 };
 
@@ -55,7 +55,10 @@ const onClickHash = (tabHash) => {
  * This returns an object with `Tab` and `TabPanel` components to rendered in
  * `TabList` and `TabPanels` components respectively.
  */
-const getElementsFromContentData = (data, useHash): TabPanelProps => {
+const getElementsFromContentData = (
+  data: TabsContentDataProps[],
+  useHash: boolean
+): TabPanelProps => {
   const tabs = [];
   const panels = [];
 
@@ -76,7 +79,7 @@ const getElementsFromContentData = (data, useHash): TabPanelProps => {
       <Tab
         fontSize={["0", null, "1"]}
         key={index}
-        onClick={useHash ? () => onClickHash(`tab${index + 1}`) : null}
+        onClick={useHash ? () => onClickHash(`tab${index + 1}`) : undefined}
       >
         {tab.label}
       </Tab>

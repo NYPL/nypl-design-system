@@ -13,6 +13,11 @@ import Image, { ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import generateUUID from "../../helpers/generateUUID";
 
+interface CustomColorProps {
+  backgroundColor?: string;
+  color?: string;
+}
+
 interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
   center?: boolean;
@@ -112,7 +117,7 @@ export const CardHeading = Heading;
 export function CardContent(props: React.PropsWithChildren<{}>) {
   const { children } = props;
   const styles = useStyleConfig("CardContent");
-  return children && <Box __css={styles}>{children}</Box>;
+  return children ? <Box __css={styles}>{children}</Box> : null;
 }
 
 // CardActions child-component
@@ -125,7 +130,7 @@ export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
     layout,
   });
 
-  return children && <Box __css={styles}>{children}</Box>;
+  return children ? <Box __css={styles}>{children}</Box> : null;
 }
 
 /**
@@ -184,8 +189,8 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   const finalImageAspectRatio = imageComponent
     ? ImageRatios.Original
     : imageAspectRatio;
-  const customColors = {};
-  const cardContents = [];
+  const customColors: CustomColorProps = {};
+  const cardContents: JSX.Element[] = [];
   let cardHeadingCount = 0;
 
   if (imageComponent && imageAspectRatio !== ImageRatios.Square) {
@@ -206,44 +211,47 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     mainActionLink,
   });
 
-  React.Children.map(children, (child: React.ReactElement, key) => {
-    if (child.type === CardHeading || child.props.mdxType === "CardHeading") {
-      // If the child is a `CardHeading` component, then we add the
-      // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
-      // This allows other links in the `CardActions` to be clickable. This is
-      // only done for the first `CardHeading` component but does not affect
-      // the full-click feature.
-      const newChildren =
-        cardHeadingCount === 0 ? (
-          <CardLinkOverlay mainActionLink={mainActionLink}>
-            {child.props.children}
-          </CardLinkOverlay>
-        ) : (
-          child.props.children
-        );
-      const elem = React.cloneElement(child, {
-        additionalStyles: {
-          ...styles.heading,
-          ...child.props.additionalStyles,
-        },
-        key,
-        center,
-        // Override the child text with the potential `CardLinkOverlay`.
-        children: newChildren,
-        layout,
-      });
-      cardContents.push(elem);
-      cardHeadingCount++;
-    } else if (
-      child.type === CardContent ||
-      child.props.mdxType === "CardContent" ||
-      child.type === CardActions ||
-      child.props.mdxType === "CardActions"
-    ) {
-      const elem = React.cloneElement(child, { key, center, layout });
-      cardContents.push(elem);
+  React.Children.map(
+    children as JSX.Element,
+    (child: React.ReactElement, key) => {
+      if (child.type === CardHeading || child.props.mdxType === "CardHeading") {
+        // If the child is a `CardHeading` component, then we add the
+        // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
+        // This allows other links in the `CardActions` to be clickable. This is
+        // only done for the first `CardHeading` component but does not affect
+        // the full-click feature.
+        const newChildren =
+          cardHeadingCount === 0 ? (
+            <CardLinkOverlay mainActionLink={mainActionLink}>
+              {child.props.children}
+            </CardLinkOverlay>
+          ) : (
+            child.props.children
+          );
+        const elem = React.cloneElement(child, {
+          additionalStyles: {
+            ...styles.heading,
+            ...child.props.additionalStyles,
+          },
+          key,
+          center,
+          // Override the child text with the potential `CardLinkOverlay`.
+          children: newChildren,
+          layout,
+        });
+        cardContents.push(elem);
+        cardHeadingCount++;
+      } else if (
+        child.type === CardContent ||
+        child.props.mdxType === "CardContent" ||
+        child.type === CardActions ||
+        child.props.mdxType === "CardActions"
+      ) {
+        const elem = React.cloneElement(child, { key, center, layout });
+        cardContents.push(elem);
+      }
     }
-  });
+  );
 
   return (
     <CardLinkBox mainActionLink={mainActionLink}>
@@ -257,7 +265,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       >
         {hasImage && (
           <CardImage
-            src={imageSrc ? imageSrc : null}
+            src={imageSrc}
             component={imageComponent}
             alt={imageAlt}
             imageSize={imageSize}

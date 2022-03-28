@@ -1,10 +1,11 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import * as React from "react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
-import * as generateUUID from "../../helpers/generateUUID";
+
 import Checkbox from "./Checkbox";
+import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Checkbox Accessibility", () => {
   it("Passes axe accessibility test", async () => {
@@ -21,8 +22,8 @@ describe("Checkbox Accessibility", () => {
 });
 
 describe("Checkbox", () => {
-  let changeHandler;
-  let generateUUIDSpy;
+  let changeHandler: jest.MockedFunction<() => void>;
+  let generateUUIDSpy: jest.SpiedFunction<() => string>;
 
   beforeEach(() => {
     changeHandler = jest.fn();

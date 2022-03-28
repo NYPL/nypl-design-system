@@ -85,7 +85,7 @@ describe("Link", () => {
     );
     expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
     expect(
-      utils.container.querySelector(".more-link").getAttribute("class")
+      utils.container.querySelector(".more-link")?.getAttribute("class")
     ).toContain("chakra-icon more-link");
   });
 
@@ -97,7 +97,7 @@ describe("Link", () => {
     );
     expect(utils.container.querySelector(".more-link")).toBeInTheDocument();
     expect(
-      utils.container.querySelector(".more-link").getAttribute("class")
+      utils.container.querySelector(".more-link")?.getAttribute("class")
     ).toContain("chakra-icon more-link");
   });
 

@@ -22,17 +22,16 @@ describe("Button Accessibility", () => {
 });
 
 describe("Button", () => {
-  let onClick;
-  let rerender;
+  let onClick: jest.MockedFunction<() => void>;
+  let utils;
 
   beforeEach(() => {
     onClick = jest.fn();
-    const utils = render(
+    utils = render(
       <Button id="button" onClick={onClick}>
         Submit
       </Button>
     );
-    rerender = utils.rerender;
   });
 
   it("calls the onClick", () => {
@@ -47,7 +46,7 @@ describe("Button", () => {
 
   it("optionally calls the onClick on mouseDown instead of on click", () => {
     expect(onClick).toHaveBeenCalledTimes(0);
-    rerender(
+    utils.rerender(
       <Button id="button5" mouseDown={true}>
         Submit
       </Button>

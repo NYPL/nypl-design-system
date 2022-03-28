@@ -35,7 +35,10 @@ export interface BreadcrumbProps {
   colorVariant?: ColorVariants;
 }
 
-const getElementsFromData = (data, breadcrumbsID) => {
+const getElementsFromData = (
+  data: BreadcrumbsDataProps[],
+  breadcrumbsID: string
+) => {
   if (!data?.length) {
     return {};
   }

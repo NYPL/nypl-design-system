@@ -27,7 +27,11 @@ export interface LinkProps {
  * Renders the `Link` children components with a direction arrow icon based
  * on the `Backwards` or `Forwards` `LinkTypes` type.
  */
-function getWithDirectionIcon(children, type: LinkTypes, linkId) {
+function getWithDirectionIcon(
+  children: JSX.Element,
+  type: LinkTypes,
+  linkId: string
+) {
   let iconRotation;
   let iconAlign;
   let icon = null;
@@ -63,7 +67,7 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
   );
 }
 
-function getExternalIcon(children, linkId) {
+function getExternalIcon(children: JSX.Element, linkId: string) {
   const iconId = `${linkId}-icon`;
   const icon = (
     <Icon
@@ -128,12 +132,13 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
       ((type === LinkTypes.Forwards || type === LinkTypes.Backwards) &&
-        getWithDirectionIcon(children, type, id)) ||
-      (type === LinkTypes.External && getExternalIcon(children, id)) ||
+        getWithDirectionIcon(children as JSX.Element, type, id)) ||
+      (type === LinkTypes.External &&
+        getExternalIcon(children as JSX.Element, id)) ||
       children;
 
-    const rel = type === LinkTypes.External ? "nofollow" : null;
-    const target = type === LinkTypes.External ? "_blank" : null;
+    const rel = type === LinkTypes.External ? "nofollow" : undefined;
+    const target = type === LinkTypes.External ? "_blank" : undefined;
 
     if (!href) {
       // React Types error makes this fail:

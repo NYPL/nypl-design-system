@@ -81,7 +81,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const spacingProp =
       layout === CheckboxGroupLayoutTypes.Column ? spacing.s : spacing.l;
-    const newChildren = [];
+    const newChildren: JSX.Element[] = [];
     const checkboxProps =
       defaultValue && onChange
         ? {
@@ -91,30 +91,33 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
         : {};
 
     // Go through the Checkbox children and update them as needed.
-    React.Children.map(children, (child: React.ReactElement, i) => {
-      if (child.type !== Checkbox) {
-        // Special case for Storybook MDX documentation.
-        if (child.props.mdxType && child.props.mdxType === "Checkbox") {
-          noop();
-        } else {
-          console.warn(
-            "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
-          );
+    React.Children.map(
+      children as JSX.Element,
+      (child: React.ReactElement, i) => {
+        if (child.type !== Checkbox) {
+          // Special case for Storybook MDX documentation.
+          if (child.props.mdxType && child.props.mdxType === "Checkbox") {
+            noop();
+          } else {
+            console.warn(
+              "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
+            );
+          }
+        }
+
+        if (child !== undefined && child !== null) {
+          const newProps = {
+            key: i,
+            id: `${id}-${i}`,
+            name,
+            isDisabled,
+            isInvalid,
+            isRequired,
+          };
+          newChildren.push(React.cloneElement(child, newProps));
         }
       }
-
-      if (child !== undefined && child !== null) {
-        const newProps = {
-          key: i,
-          id: `${id}-${i}`,
-          name,
-          isDisabled,
-          isInvalid,
-          isRequired,
-        };
-        newChildren.push(React.cloneElement(child, newProps));
-      }
-    });
+    );
 
     // Get the Chakra-based styles for the custom elements in this component.
     const styles = useMultiStyleConfig("CheckboxGroup", {});
@@ -133,7 +136,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
             direction={[layout]}
             spacing={spacingProp}
             ref={ref}
-            aria-label={!showLabel ? labelText : null}
+            aria-label={!showLabel ? labelText : undefined}
             sx={styles.stack}
           >
             {newChildren}

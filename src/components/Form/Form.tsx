@@ -31,7 +31,7 @@ export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
   const { children, className, gap, id } = props;
   const count = React.Children.count(children);
   const alteredChildren = React.Children.map(
-    children,
+    children as JSX.Element,
     (child: React.ReactElement, i) => {
       if (!child) return null;
       if (child.type === FormField || child.props.mdxType === "FormField") {
@@ -70,7 +70,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     onSubmit,
   } = props;
 
-  let attributes = {};
+  let attributes: FormProps = {};
   action && (attributes["action"] = action);
 
   method &&
@@ -78,7 +78,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     (attributes["method"] = method);
 
   const alteredChildren = React.Children.map(
-    children,
+    children as JSX.Element,
     (child: React.ReactElement, i) => {
       return React.cloneElement(child, { gap, id: `${id}-child${i}` });
     }

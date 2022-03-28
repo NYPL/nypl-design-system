@@ -119,8 +119,8 @@ describe("Checkbox", () => {
   });
 
   it("sets the next value through the onChange function", () => {
-    let newValue = [];
-    const onChange = (value) => {
+    let newValue: string[] = [];
+    const onChange = (value: string[]) => {
       newValue = value;
     };
     render(

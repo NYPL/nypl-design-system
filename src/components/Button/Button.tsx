@@ -52,13 +52,10 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
   let variant;
   let styles = {};
 
-  React.Children.map(children, (child: React.ReactElement) => {
+  React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
     childCount++;
     if (child !== undefined && child !== null) {
-      if (
-        child.type === Icon ||
-        (child.props && child.props.mdxType === "Icon")
-      ) {
+      if (child.type === Icon || child?.props?.mdxType === "Icon") {
         hasIcon = true;
       }
     }
