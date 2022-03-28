@@ -18,8 +18,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates Storybook's sidebar categories and documentation.
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
-- Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and
-  JSX Elements.
+- Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and JSX Elements.
+- Updates the `Toggle`'s internal styling for the default and small sizes.
 
 ### Fixes
 
