@@ -57,7 +57,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.25.12`  |
+| Latest            | `0.25.13`  |
 
 <Description of={Checkbox} />
 
@@ -175,5 +175,17 @@ now be controlled and removed by the parent component in order to remove this st
       invalidText="I am the error text for this Checkbox"
       isInvalid
     />
+  </DSProvider>
+</Canvas>
+
+## With JSX Element Label
+
+This is useful when you want to add dynamic content to the label or add
+a layout to the label. View the `CheckboxGroup` documentation for this
+usage.
+
+<Canvas>
+  <DSProvider>
+    <Checkbox labelText={<span>Arts</span>} name="jsxElementLabel" />
   </DSProvider>
 </Canvas>
