@@ -15,7 +15,12 @@ export interface TemplateSidebarProps {
    * right side of the `TemplateContentPrimary` component. */
   sidebar?: "none" | "left" | "right";
 }
-export interface TemplateContentProps extends TemplateSidebarProps {}
+export interface TemplateContentProps extends TemplateSidebarProps {
+  /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
+   * anchor for the application skip navigation. */
+  id?: string;
+}
+
 export interface TemplateAppContainerProps
   extends TemplateFooterProps,
     TemplateHeaderProps,
@@ -25,6 +30,9 @@ export interface TemplateAppContainerProps
   aboveHeader?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateBreakout` component section. */
   breakout?: React.ReactElement;
+  /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
+   * anchor for the application skip navigation. */
+  contentId?: string;
   /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
   contentPrimary?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateContentSidebar` component section. */
@@ -106,16 +114,18 @@ const TemplateBreakout = (props: React.PropsWithChildren<TemplateProps>) => {
 
 /**
  * This component is most useful to render content on the page. This renders an
- * HTML `<main>` element and takes a `sidebar` prop with optional "left" or
- * "right" values. This will set the correct styling needed for the
- * `TemplateContentPrimary` and `TemplateContentSidebar` components. Note that
- * `TemplateContentPrimary` and `TemplateContentSidebar` must be ordered
- * correctly as children elements for the appropriate styles to take effect.
+ * HTML `<main>` element with an id of "mainContent". The "mainContent" id should
+ * be used as the consuming application's skip navigation link. The `TemplateContent`
+ * component also takes a `sidebar` prop with optional "left" or "right" values.
+ * This will set the correct *styling* needed for the `TemplateContentPrimary`
+ * and `TemplateContentSidebar` components. Note that `TemplateContentPrimary`
+ * and `TemplateContentSidebar` must be ordered correctly as children elements
+ * for the appropriate styles to take effect.
  */
 const TemplateContent = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
-  const { sidebar = "none", children } = props;
+  const { children, id = "mainContent", sidebar = "none" } = props;
   const styles = useStyleConfig("TemplateContent", {
     variant: sidebar !== "none" ? "sidebar" : null,
   });
@@ -139,7 +149,7 @@ const TemplateContent = (
   );
 
   return (
-    <Box as="main" __css={styles}>
+    <Box as="main" id={id} __css={styles}>
       {newChildren}
     </Box>
   );
@@ -235,6 +245,7 @@ const TemplateAppContainer = (
   const {
     aboveHeader,
     breakout,
+    contentId = "mainContent",
     contentPrimary,
     contentSidebar,
     contentTop,
@@ -270,7 +281,7 @@ const TemplateAppContainer = (
       )}
       {/* Note that setting `sidebar` as a prop here affects the
        TemplateContentSidebar and TemplateContentPrimary components. */}
-      <TemplateContent sidebar={sidebar}>
+      <TemplateContent id={contentId} sidebar={sidebar}>
         {contentTopElem}
 
         {sidebar === "left" && contentSidebarElem}
