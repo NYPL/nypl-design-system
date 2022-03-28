@@ -27,6 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes the alignment of the first link in the `Pagination` component.
 - Fixes the `Breadcrumbs`' SVG arrow icon fill color for the "Blogs" variant.
 - Fixes the margin right value for list items in the `List` component for the inline style.
+- Fixes bug in the `Select` component where the SVG arrow hides when the component is focused.
 
 ## 0.25.12 (March 18, 2022)
 
