@@ -12,11 +12,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
 - Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
+- Adds the `isFullWidth` prop to the `CheckboxGroup` and `RadioGroup` components. This sets the wrapper element to be full width for labels that need to span its container.
 
 ### Changes
 
 - Updates Storybook's sidebar categories and documentation.
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
+- Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and JSX Elements.
 - Updates the `Toggle`'s internal styling for the default and small sizes.
 
 ### Fixes
