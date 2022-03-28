@@ -3,8 +3,10 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
-import * as generateUUID from "../../helpers/generateUUID";
+
 import Toggle from "./Toggle";
+import { ToggleSizes } from "./ToggleSizes";
+import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Toggle Accessibility", () => {
   it("Passes axe accessibility test", async () => {
@@ -131,10 +133,21 @@ describe("Toggle", () => {
     const isDisabled = renderer
       .create(<Toggle id="Toggle-disabled" labelText="Test Label" isDisabled />)
       .toJSON();
+    const small = renderer
+      .create(
+        <Toggle
+          id="Toggle-disabled"
+          labelText="Test Label"
+          isDisabled
+          size={ToggleSizes.Small}
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(small).toMatchSnapshot();
   });
 });
