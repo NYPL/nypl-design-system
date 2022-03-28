@@ -108,13 +108,17 @@ const Select = React.forwardRef<
 
   if (React.Children.count(children) > 10) {
     console.warn(
-      "NYPL Reservoir Select: it is recommended that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
+      "NYPL Reservoir Select: It is recommended that <select> fields have " +
+        "no more than 10 options; an auto-complete text input is a good " +
+        "alternative for 11 or more options."
     );
   }
 
   if (React.Children.count(children) < 4) {
     console.warn(
-      "NYPL Reservoir Select: it is recommended that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
+      "NYPL Reservoir Select: It is recommended that <select> fields have " +
+        "at least 4 options; a radio button group is a good alternative for " +
+        "3 or fewer options."
     );
   }
 

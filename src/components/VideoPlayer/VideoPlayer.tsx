@@ -78,27 +78,32 @@ export default function VideoPlayer(
       : embedCode;
 
   const errorMessage =
-    "<strong>Error:</strong> This video player has not been configured properly. Please contact the site administrator.";
+    "<strong>Error:</strong> This video player has not been configured " +
+    "properly. Please contact the site administrator.";
 
   let isInvalid = false;
   if (!embedCodeFinal && !videoType && !videoId) {
     console.warn(
-      "NYPL Reservoir VideoPlayer: requires either the `embedCode` prop or both the `videoType` and `videoId` props."
+      "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+        "both the `videoType` and `videoId` props; none were passed."
     );
     isInvalid = true;
   } else if (!embedCodeFinal && !videoType) {
     console.warn(
-      "NYPL Reservoir VideoPlayer: requires the `videoType` prop. Only the `videoId` prop was set."
+      "NYPL Reservoir VideoPlayer: The `videoType` prop is also required. " +
+        "Only the `videoId` prop was set."
     );
     isInvalid = true;
   } else if (!embedCodeFinal && !videoId) {
     console.warn(
-      "NYPL Reservoir VideoPlayer: requires the `videoId` prop. Only the `videoType` prop was set."
+      "NYPL Reservoir VideoPlayer: The `videoId` prop is also required. " +
+        "Only the `videoType` prop was set."
     );
     isInvalid = true;
   } else if (embedCodeFinal && (videoType || videoId)) {
     console.warn(
-      "NYPL Reservoir VideoPlayer: accepts the `embedCode` prop or the `videoType` and `videoId` props; both were set."
+      "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+        "both the `videoType` and `videoId` props; all were set."
     );
     isInvalid = true;
   }
@@ -112,7 +117,7 @@ export default function VideoPlayer(
       videoId.includes("vimeo"))
   ) {
     console.warn(
-      "NYPL Reservoir VideoPlayer: `videoId` prop is not configured properly."
+      "NYPL Reservoir VideoPlayer: The `videoId` prop is not configured properly."
     );
     isInvalid = true;
   }
@@ -125,7 +130,7 @@ export default function VideoPlayer(
       !embedCodeFinal.includes("</iframe"))
   ) {
     console.warn(
-      "NYPL Reservoir VideoPlayer: `embedCode` prop is not configured properly."
+      "NYPL Reservoir VideoPlayer: The `embedCode` prop is not configured properly."
     );
     isInvalid = true;
   }

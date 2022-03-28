@@ -98,7 +98,8 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
           noop();
         } else {
           console.warn(
-            "NYPL Reservoir CheckboxGroup: only `Checkbox` components are allowed as children."
+            "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
+              "allowed as children."
           );
         }
       }

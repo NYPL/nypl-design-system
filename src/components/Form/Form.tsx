@@ -38,7 +38,7 @@ export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
         return React.cloneElement(child, { id: `${id}-grandchild${i}` });
       }
       console.warn(
-        "NYPL Reservoir FormRow: children must be `FormField` components."
+        "NYPL Reservoir FormRow: Children must be `FormField` components."
       );
       return null;
     }

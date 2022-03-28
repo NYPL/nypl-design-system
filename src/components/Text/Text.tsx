@@ -41,7 +41,8 @@ function Text(props: React.PropsWithChildren<TextProps>) {
 
   if (!children) {
     console.warn(
-      "NYPL Reservoir Text: no children were passed and Text will not render correctly."
+      "NYPL Reservoir Text: No children were passed and the `Text` component " +
+        "will not render correctly."
     );
   }
 

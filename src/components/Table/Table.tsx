@@ -92,7 +92,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
       tableData[0].constructor !== Array
     ) {
       console.warn(
-        "NYPL Reservoir Table: data should be two dimensional array."
+        "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
       );
       return null;
     }

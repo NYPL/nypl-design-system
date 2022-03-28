@@ -81,7 +81,9 @@ export default function Image(props: ImageProps) {
   });
 
   if (alt && alt.length > 300) {
-    throw new Error("Alt Text must be less than 300 characters");
+    throw new Error(
+      "NYPL Reservoir Image: Alt text must be less than 300 characters."
+    );
   }
 
   const imageComponent: JSX.Element = component ? (

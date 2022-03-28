@@ -181,17 +181,20 @@ describe("VideoPlayer", () => {
 
       render(<VideoPlayer />);
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir VideoPlayer: requires either the `embedCode` prop or both the `videoType` and `videoId` props."
+        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+          "both the `videoType` and `videoId` props; none were passed."
       );
 
       render(<VideoPlayer videoId="http://vimeo.com/474719268" />);
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir VideoPlayer: requires the `videoType` prop. Only the `videoId` prop was set."
+        "NYPL Reservoir VideoPlayer: The `videoType` prop is also required. " +
+          "Only the `videoId` prop was set."
       );
 
       render(<VideoPlayer videoType={VideoPlayerTypes.Vimeo} />);
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir VideoPlayer: requires the `videoId` prop. Only the `videoType` prop was set."
+        "NYPL Reservoir VideoPlayer: The `videoId` prop is also required. " +
+          "Only the `videoType` prop was set."
       );
 
       render(
@@ -202,7 +205,8 @@ describe("VideoPlayer", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir VideoPlayer: accepts the `embedCode` prop or the `videoType` and `videoId` props; both were set."
+        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+          "both the `videoType` and `videoId` props; all were set."
       );
 
       render(
@@ -212,7 +216,8 @@ describe("VideoPlayer", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir VideoPlayer: accepts the `embedCode` prop or the `videoType` and `videoId` props; both were set."
+        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+          "both the `videoType` and `videoId` props; all were set."
       );
 
       render(
@@ -222,13 +227,14 @@ describe("VideoPlayer", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir VideoPlayer: accepts the `embedCode` prop or the `videoType` and `videoId` props; both were set."
+        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+          "both the `videoType` and `videoId` props; all were set."
       );
 
       const embedCode = `<iframe src="https://player./video/421404144?h=5467db7edd"></iframe>`;
       render(<VideoPlayer embedCode={embedCode} />);
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir VideoPlayer: `embedCode` prop is not configured properly."
+        "NYPL Reservoir VideoPlayer: The `embedCode` prop is not configured properly."
       );
     });
   });

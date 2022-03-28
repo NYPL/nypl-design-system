@@ -25,7 +25,7 @@ describe("StatusBadge", () => {
     const warn = jest.spyOn(console, "warn");
     render(<StatusBadge></StatusBadge>);
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir StatusBadge: no children were passed."
+      "NYPL Reservoir StatusBadge: No children were passed."
     );
   });
 

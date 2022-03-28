@@ -77,12 +77,14 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   // Component prop validation
   if (name && children) {
     console.warn(
-      "NYPL Reservoir Icon: pass in either a `name` prop or an `svg` element child, not both."
+      "NYPL Reservoir Icon: Pass in either a `name` prop or an `svg` element " +
+        "child. Do not pass both."
     );
     return null;
   } else if (!name && !children) {
     console.warn(
-      "NYPL Reservoir Icon: pass an icon `name` prop or an SVG child to ensure an icon appears."
+      "NYPL Reservoir Icon: Pass an icon `name` prop or an SVG child to " +
+        "ensure an icon appears."
     );
     return null;
   }
@@ -113,7 +115,8 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     });
   } else {
     console.warn(
-      "NYPL Reservoir Icon: an `svg` element must be passed to the `Icon` component."
+      "NYPL Reservoir Icon: An `svg` element must be passed to the `Icon` " +
+        "component as its child."
     );
   }
 

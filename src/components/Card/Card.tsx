@@ -190,7 +190,9 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
 
   if (imageComponent && imageAspectRatio !== ImageRatios.Square) {
     console.warn(
-      "NYPL Reservoir Card: both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+      "NYPL Reservoir Card: Both the `imageComponent` and `imageAspectRatio` " +
+        "props were set but `imageAspectRatio` will be ignored in favor of the " +
+        "aspect ratio on `imageComponent` prop."
     );
   }
 

@@ -46,7 +46,7 @@ function ComponentWrapper(
   // Note: Typescript warns when there are no children passed and
   // doesn't compile. This is meant to log in non-Typescript apps.
   if (!hasChildren) {
-    console.warn("NYPL Reservoir ComponentWrapper: no children were passed.");
+    console.warn("NYPL Reservoir ComponentWrapper: No children were passed.");
   }
 
   return (

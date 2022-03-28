@@ -169,7 +169,7 @@ describe("Form", () => {
       </Form>
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir FormRow: children must be `FormField` components."
+      "NYPL Reservoir FormRow: Children must be `FormField` components."
     );
   });
 

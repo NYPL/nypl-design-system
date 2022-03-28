@@ -93,7 +93,7 @@ describe("Heading", () => {
 
   it("throws error when neither child nor text is passed", () => {
     expect(() => render(<Heading id="h1" level={HeadingLevels.One} />)).toThrow(
-      "Heading has no children, please pass prop: text"
+      "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
     );
   });
 
@@ -105,7 +105,9 @@ describe("Heading", () => {
           <span>many</span>
         </Heading>
       )
-    ).toThrow("Please only pass one child into Heading, got span, span");
+    ).toThrow(
+      "NYPL Reservoir Heading: Only pass one child into Heading; got multiple children."
+    );
   });
 
   it("uses custom display size", () => {

@@ -24,7 +24,7 @@ function StatusBadge(props: React.PropsWithChildren<StatusBadgeProps>) {
   const styles = useStyleConfig("StatusBadge", { variant: level });
 
   if (!children) {
-    console.warn("NYPL Reservoir StatusBadge: no children were passed.");
+    console.warn("NYPL Reservoir StatusBadge: No children were passed.");
   }
 
   return (

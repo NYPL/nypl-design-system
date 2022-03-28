@@ -100,7 +100,8 @@ const RadioGroup = React.forwardRef<
         noop();
       } else {
         console.warn(
-          "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside the `RadioGroup` component."
+          "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
+            "inside the `RadioGroup` component."
         );
       }
     }
