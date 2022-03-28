@@ -129,6 +129,7 @@ const RadioGroup = React.forwardRef<
       className={className}
       id={`radio-group-${id}`}
       isLegendHidden={!showLabel}
+      isRequired={isRequired}
       legendText={labelText}
       optReqFlag={optReqFlag}
     >

@@ -11,11 +11,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
   >
     <legend>
       Select the full date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -111,11 +106,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
   >
     <legend>
       Select the date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -211,11 +201,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
   >
     <legend>
       Select the date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -311,11 +296,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
   >
     <legend>
       Select the date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -463,11 +443,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
   >
     <legend>
       Select the date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"

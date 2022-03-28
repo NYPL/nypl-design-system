@@ -7,11 +7,6 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
 >
   <legend>
     column
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     className="chakra-radio-group css-0"
@@ -126,11 +121,6 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
 >
   <legend>
     row
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     className="chakra-radio-group css-0"
@@ -245,11 +235,6 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
 >
   <legend>
     no label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label="no label"
@@ -365,11 +350,6 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
 >
   <legend>
     helperText
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     className="chakra-radio-group css-0"
@@ -500,11 +480,6 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
 >
   <legend>
     invalidText
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     className="chakra-radio-group css-0"
@@ -733,11 +708,6 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
 >
   <legend>
     required
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     className="chakra-radio-group css-0"
@@ -854,11 +824,6 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
 >
   <legend>
     invalid
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     className="chakra-radio-group css-0"
@@ -981,11 +946,6 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
 >
   <legend>
     disabled
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     className="chakra-radio-group css-0"

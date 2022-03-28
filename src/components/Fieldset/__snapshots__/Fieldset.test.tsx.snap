@@ -6,11 +6,6 @@ exports[`Fieldset renders the UI snapshot correctly 1`] = `
 >
   <legend>
     Legend Text
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <p>
     Some other fields
@@ -24,11 +19,6 @@ exports[`Fieldset renders the UI snapshot correctly 2`] = `
 >
   <legend>
     Legend Text
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
   </legend>
   <p>
     Some other fields
@@ -55,11 +45,6 @@ exports[`Fieldset renders the UI snapshot correctly 4`] = `
 >
   <legend>
     Legend Text
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <p>
     Some other fields

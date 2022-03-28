@@ -31,17 +31,14 @@ const Fieldset = ({
   legendText,
   optReqFlag = true,
 }: React.PropsWithChildren<FieldsetProps>) => {
-  const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
+  const styles = useMultiStyleConfig("Fieldset", {
+    isLegendHidden,
+    isRequired,
+    optReqFlag,
+  });
   return (
-    <Box as="fieldset" id={id} __css={styles} className={className}>
-      <legend>
-        {legendText}
-        {optReqFlag && (
-          <Box __css={styles.helper}>
-            {isRequired ? "Required" : "Optional"}
-          </Box>
-        )}
-      </legend>
+    <Box as="fieldset" className={className} id={id} __css={styles}>
+      <legend>{legendText}</legend>
       {children}
     </Box>
   );
