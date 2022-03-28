@@ -20,6 +20,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
 - Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and JSX Elements.
 - Updates the `Toggle`'s internal styling for the default and small sizes.
+- Updates the `CardImage`'s margin bottom in the row and column layouts for mobile to be the same.
+- Updates the `CardImage` to have width 100% on mobile regardless of size.
 
 ### Fixes
 

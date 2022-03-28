@@ -152,6 +152,7 @@ const CardImage = {
                 : "0 var(--nypl-space-m) 0 0",
             },
             width: { base: "100%", md: null },
+            marginBottom: ["xs", "xs"],
             ...size,
           }
         : {
