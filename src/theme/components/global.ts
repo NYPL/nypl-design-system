@@ -4,13 +4,12 @@ export { wrapperStyles } from "./globalMixins";
 /** Reusable component styles. */
 
 // Used in `Select` and `TextInput`.
-const activeFocus = {
-  border: "1px solid",
-  borderColor: "ui.focus",
+const activeFocus = (darkMode = false) => ({
+  outline: "2px solid",
+  outlineOffset: "2px",
+  outlineColor: darkMode ? "ui.white" : "ui.focus",
   zIndex: "9999",
-  outline: "1px solid",
-  outlineColor: "ui.focus",
-};
+});
 // Used in `Select` and `TextInput`.
 const helperTextMargin = {
   marginTop: "xxs",
@@ -19,11 +18,9 @@ const helperTextMargin = {
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
   userSelect: "none",
-  fontSize: "text.default",
   fontWeight: "text.default",
   marginBottom: "0",
   marginLeft: "xs",
-  verticalAlign: "middle",
   _disabled: {
     color: "ui.gray.dark",
     opacity: 1,

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Template components Renders the UI snapshot correctly 1`] = `
+exports[`Template components renders the UI snapshot correctly 1`] = `
 <div
-  className="nypl-ds css-0"
+  className="css-0"
 >
   <div
     className="css-0"
@@ -38,6 +38,7 @@ exports[`Template components Renders the UI snapshot correctly 1`] = `
   </header>
   <main
     className="css-0"
+    id="mainContent"
   >
     <div
       className="css-0"
@@ -84,9 +85,9 @@ exports[`Template components Renders the UI snapshot correctly 1`] = `
 </div>
 `;
 
-exports[`Template components Renders the UI snapshot correctly 2`] = `
+exports[`Template components renders the UI snapshot correctly 2`] = `
 <div
-  className="nypl-ds css-0"
+  className="css-0"
 >
   <div
     className="css-0"
@@ -122,6 +123,7 @@ exports[`Template components Renders the UI snapshot correctly 2`] = `
   </header>
   <main
     className="css-0"
+    id="mainContent"
   >
     <div
       className="css-0"
