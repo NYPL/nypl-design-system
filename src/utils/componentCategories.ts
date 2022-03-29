@@ -1,4 +1,4 @@
-// NYPL Design System Component Categories
+// Reservoir Design System Component Categories
 
 const categories = {
   accessibility: {

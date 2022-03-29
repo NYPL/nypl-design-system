@@ -1,10 +1,10 @@
-# NYPL Design System
+# Reservoir Design System
 
 ![Build Status](https://github.com/nypl/nypl-design-system/actions/workflows/ci.yml/badge.svg?branch=development)
 
 [![npm version](https://badge.fury.io/js/%40nypl%2Fdesign-system-react-components.svg)](https://badge.fury.io/js/%40nypl%2Fdesign-system-react-components)
 
-The NYPL Design System (DS) is NYPL’s open-source extensible React library for products and experiences with the accessibility as its foundation. It ships functional, stateless components with consistent NYPL styling. You can learn more about the project and its goals [on the project's wiki](https://github.com/NYPL/nypl-design-system/wiki).
+The Reservoir Design System (DS) is NYPL’s open-source extensible React library for products and experiences with the accessibility as its foundation. It ships functional, stateless components with consistent NYPL styling. You can learn more about the project and its goals [on the project's wiki](https://github.com/NYPL/nypl-design-system/wiki).
 
 _Note: This library is still in beta. Until we release the stable `1.0.0` version, we are loosely using semantic versioning._
 
@@ -185,7 +185,7 @@ function NewComponent(props) {
 
 ## Using Chakra UI Components
 
-The Chakra UI component library has been integrated into the NYPL Design System. We are still progressing towards using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
+The Chakra UI component library has been integrated into the Reservoir Design System. We are still progressing towards using Chakra components and patterns to build DS components, and therefore documentation and features are expected to change. While the implementation details of DS components will use Chakra, the DS package itself will export _some_ Chakra components.
 
 The list of re-exported Chakra components can be found in the main [index.ts](/src/index.ts) file. They include:
 
@@ -216,15 +216,15 @@ You can check out a working Codepen with unpkg [here](https://codepen.io/edwingu
 
 ## Storybook
 
-The NYPL Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). For your convenience, the NYPL Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
+The Reservoir Design System leverages Storybook to document all the React components and style guidelines. The Storybook documentation can be found [here](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the COMPONENTS section in the Storybook sidebar.
 
 ### Documentation Instances
 
-There are currently two main instances of the NYPL Design System Storybook documentation. There are also "preview" sites that are used to quickly and easily view pull request changes.
+There are currently two main instances of the Reservoir Design System Storybook documentation. There are also "preview" sites that are used to quickly and easily view pull request changes.
 
 **Production**
 
-The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). This is the main instance we use to share the latest stable release of the NYPL Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
+The production Storybook documentation is deployed to [Github Pages](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/introduction--page). This is the main instance we use to share the latest stable release of the Reservoir Design System. This documentation site is deployed through [Github Actions](/.github/workflows/gh-pages.yml) only on merges to the `release` branch.
 
 As of July, 2021, the Github Pages production site gets deployed every two weeks on the same schedule as npm releases.
 
@@ -271,11 +271,11 @@ You can then view `/storybook-static/index.html` in your browser. _Make sure not
 
 ## Typescript Usage
 
-The NYPL Design System is built with Typescript. Check out the Design System's [Typescript documentation](/TYPESCRIPT.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
+The Reservoir Design System is built with Typescript. Check out the Design System's [Typescript documentation](/TYPESCRIPT.md) for more information on why we chose to build React components in Typescript and the benefits and the gotchas we encountered.
 
 ## Unit Testing
 
-The NYPL Design System runs unit tests with Jest and React Testing Library.
+The Reservoir Design System runs unit tests with Jest and React Testing Library.
 
 To run all tests once:
 
@@ -359,7 +359,7 @@ After writing new tests, run `npm run test:generate-output` to create a new JSON
 
 ### Development and Storybook
 
-The NYPL Design System is built with accessibility in mind. By using Chakra UI as our foundational base, the custom DS components built with Chakra have accessibility concerns already implemented. On top of built-in accessible elements, DS components internally work to link labels with input elements, to add correct `aria-*` attributes, to visually hide text but still associate it with the correct element for titles and descriptions, to auto-generate a random `id` attribute if none was passed, and much more.
+The Reservoir Design System is built with accessibility in mind. By using Chakra UI as our foundational base, the custom DS components built with Chakra have accessibility concerns already implemented. On top of built-in accessible elements, DS components internally work to link labels with input elements, to add correct `aria-*` attributes, to visually hide text but still associate it with the correct element for titles and descriptions, to auto-generate a random `id` attribute if none was passed, and much more.
 
 We make use of:
 
@@ -371,7 +371,7 @@ If applicable, DS components have section(s) on accessibility in their Storybook
 
 ### Product Requirements
 
-The NYPL Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
+The Reservoir Design System provides accessible stories, but real live data can necessitate additional accessibility requirements beyond what we're committed to in our generic, extensible components. To ensure your products' final result is accessible, please adhere to the accessibility requirements put together by NYPL's accessibility coordinator on [Metronome](http://themetronome.co/).
 
 NYPL's Metronome instance is currently password protected. For access to Metronome, please contact NYPL's UX team or Design System team.
 

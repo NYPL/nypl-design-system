@@ -180,9 +180,10 @@ a row.
 
 ### Controlled Component using `name` and `onChange` props
 
-If your application uses controlled React components and the DS RadioGroup must
-be controlled, you can extract the data through the `name` and `onChange` props.
-This will be called every time a new `Radio` value is selected.
+If your application uses controlled React components and the Reservoir Design 
+System (DS) `RadioGroup` must be controlled, you can extract the data through the 
+`name` and `onChange` props. This will be called every time a new `Radio` value 
+is selected.
 
 ```jsx
 const onChange = (data) => {
@@ -208,7 +209,7 @@ const onChange = (data) => {
 ### Uncontrolled Component using `ref`s
 
 If your application uses uncontrolled components, you can pass React `ref` props
-to the DS RadioGroup component to get the selected value from the DOM.
+to the DS `RadioGroup` component to get the selected value from the DOM.
 
 The following example is using the `register` React `ref` from the
 `react-hook-form` package.
