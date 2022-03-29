@@ -48,9 +48,9 @@ const getIcon = (isExpanded = false, index, id) => {
  */
 const getElementsFromContentData = (data = [], id) => {
   const colorMap = {
-    default: "ui.white",
-    warning: "ui.status.primary",
-    error: "ui.status.secondary",
+    [AccordionTypes.Default]: "ui.white",
+    [AccordionTypes.Warning]: "ui.status.primary",
+    [AccordionTypes.Error]: "ui.status.secondary",
   };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
@@ -74,25 +74,42 @@ const getElementsFromContentData = (data = [], id) => {
     return (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
-        {({ isExpanded }) => (
-          <>
-            <AccordionButton
-              id={`${id}-button-${index}`}
-              padding={multiplePadding}
-              bg={
-                content.accordionType
-                  ? colorMap[content.accordionType]
-                  : colorMap.default
-              }
-            >
-              <Box flex="1" textAlign="left">
-                {content.label}
-              </Box>
-              {getIcon(isExpanded, index, id)}
-            </AccordionButton>
-            {panel}
-          </>
-        )}
+        {({ isExpanded }) => {
+          const bgColorByAccordionType = colorMap[content.accordionType];
+          return (
+            <>
+              <AccordionButton
+                id={`${id}-button-${index}`}
+                padding={multiplePadding}
+                bg={
+                  !content.accordionType
+                    ? colorMap.default
+                    : bgColorByAccordionType
+                }
+                _expanded={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "ui.gray.light-warm"
+                      : bgColorByAccordionType,
+                }}
+                _hover={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "transparent"
+                      : bgColorByAccordionType,
+                }}
+              >
+                <Box flex="1" textAlign="left">
+                  {content.label}
+                </Box>
+                {getIcon(isExpanded, index, id)}
+              </AccordionButton>
+              {panel}
+            </>
+          );
+        }}
       </AccordionItem>
     );
   });

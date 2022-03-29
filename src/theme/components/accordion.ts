@@ -3,23 +3,18 @@ const containerStyles = {
   borderRightWidth: "1px",
   width: "100%",
   _hover: {
-    borderLeftWidth: "1px",
-    borderRightWidth: "1px",
-    borderColor: "ui.gray.dark",
+    borderColor: "ui.gray.medium",
     // The bottom border of the accordion item being hovered
     // over is hidden beneath the top border of the following
     // sibling, so we need to grab and change that border, as well.
     "& + .chakra-accordion__item": {
-      borderTopColor: "ui.gray.dark",
+      borderTopColor: "ui.gray.medium",
     },
   },
 };
 const buttonStyles = {
   border: "none",
-  fontWeight: 500,
-  _expanded: {
-    bg: "ui.gray.light-warm",
-  },
+  fontWeight: "medium",
 };
 const panelStyles = {
   padding: "s",
