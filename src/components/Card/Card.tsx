@@ -199,12 +199,12 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   }
 
   // The `Card`'s image should always display as 100% width on mobile. To
-  // achieve this, we set the size to `ImageSizes.Large` only when the
+  // achieve this, we set the size to `ImageSizes.Default` only when the
   // viewport is less than "600px". Otherwise, we set the size to
   // the value passed in via `imageSize`.
   React.useEffect(() => {
     if (windowDimensions.width < 600) {
-      setFinalImageSize(ImageSizes.Large);
+      setFinalImageSize(ImageSizes.Default);
     } else {
       setFinalImageSize(imageSize);
     }
