@@ -28,6 +28,8 @@ export interface CheckboxGroupProps {
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
+  /** Set's the `Checkbox`s' wrapper to be full width. */
+  isFullWidth?: boolean;
   /** A`dds the 'aria-invalid' attribute to the input and
    * sets the error state when true. */
   isInvalid?: boolean;
@@ -68,6 +70,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       id = generateUUID(),
       invalidText,
       isDisabled = false,
+      isFullWidth = false,
       isInvalid = false,
       isRequired = false,
       labelText,
@@ -117,7 +120,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     });
 
     // Get the Chakra-based styles for the custom elements in this component.
-    const styles = useMultiStyleConfig("CheckboxGroup", {});
+    const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
 
     return (
       <Fieldset

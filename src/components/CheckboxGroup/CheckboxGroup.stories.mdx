@@ -1,3 +1,4 @@
+import { Flex, Spacer } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -37,6 +38,9 @@ export const enumValues = getStorybookEnumValues(
     isDisabled: {
       table: { defaultValue: { summary: false } },
     },
+    isFullWidth: {
+      table: { defaultValue: { summary: true } },
+    },
     isInvalid: {
       table: { defaultValue: { summary: false } },
     },
@@ -69,7 +73,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.25.10`  |
+| Latest            | `0.25.13`  |
 
 <Description of={CheckboxGroup} />
 
@@ -82,6 +86,7 @@ export const enumValues = getStorybookEnumValues(
       id: "checkboxGroup-id",
       invalidText: "This is the error text :(",
       isDisabled: false,
+      isFullWidth: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Checkbox Group",
@@ -172,6 +177,68 @@ a row.
       <Checkbox value="3" labelText="Checkbox 3" />
       <Checkbox value="4" labelText="Checkbox 4" />
       <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+  </DSProvider>
+</Canvas>
+
+## With JSX Element labels
+
+React elements can be passed to the `labelText` prop of the `Checkbox` component.
+This is useful if you need to pass information as part of the label. For example,
+if a `Checkbox` label needs to display how many items that option has, it can be
+displayed with the help of the `Flex` and `Spacer` components.
+
+Note: the width of `CheckboxGroup` is _not_ set to full width by default. In
+order to make this work, pass in the `isFullWidth` prop.
+
+<Canvas>
+  <DSProvider>
+    <CheckboxGroup
+      labelText="Checkbox Group"
+      name="checkbox-example"
+      optReqFlag={false}
+      isFullWidth
+    >
+      <Checkbox
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+        value="arts"
+      />
+      <Checkbox
+        labelText={
+          <Flex>
+            <span>English</span>
+            <Spacer />
+            <span>23</span>
+          </Flex>
+        }
+        value="English"
+      />
+      <Checkbox
+        labelText={
+          <Flex>
+            <span>Science</span>
+            <Spacer />
+            <span>10</span>
+          </Flex>
+        }
+        value="Science"
+      />
+      <Checkbox
+        labelText={
+          <Flex>
+            <span>Math</span>
+            <Spacer />
+            <span>3</span>
+          </Flex>
+        }
+        value="Math"
+      />
     </CheckboxGroup>
   </DSProvider>
 </Canvas>

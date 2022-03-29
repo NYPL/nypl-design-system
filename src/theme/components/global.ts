@@ -21,6 +21,7 @@ const checkboxRadioLabelStyles = {
   fontWeight: "text.default",
   marginBottom: "0",
   marginLeft: "xs",
+  width: "100%",
   _disabled: {
     color: "ui.gray.dark",
     opacity: 1,
@@ -44,14 +45,14 @@ const checkboxRadioHelperStyle = {
     fontStyle: "italic",
   },
 };
-const checkboxRadioGroupStyles = {
+const checkboxRadioGroupStyles = (isFullWidth = false) => ({
   helper: {
     marginTop: "s",
   },
   stack: {
-    width: "fit-content",
+    width: isFullWidth ? "100%" : "fit-content",
   },
-};
+});
 // Used in `Label` and `Fieldset`.
 const labelLegendText = {
   alignItems: "baseline",

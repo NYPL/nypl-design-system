@@ -41,6 +41,15 @@ import { getCategory } from "../../utils/componentCategories";
 | Added             | `0.1.0`    |
 | Latest            | `0.25.10`  |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [FAQ Example](#faq-example)
+
+## Overview
+
 <Description of={Accordion} />
 
 The `Accordion` component displays a list of high-level options that can
@@ -59,6 +68,38 @@ the necessary icon, Chakra components, and styles. Additionally, the `accordionT
 prop can be used to change the accordion button's background color. It takes a value
 from the AccordionTypes enum: AccordionTypes.Default is `ui.white`, AccordionTypes.Warning
 is `ui.status.primary`, and AccordionTypes.Error is `ui.status.secondary`.
+
+```jsx
+const contentData = [
+  {
+    label: "Tom Nook",
+    panel: (
+      <Card
+        layout={CardLayouts.Row}
+        center
+        imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+        imageAlt="Alt text"
+        imageAspectRatio={ImageRatios.TwoByOne}
+      >
+        <CardHeading level={HeadingLevels.Four} id="heading1">
+          Tom Nook
+        </CardHeading>
+        <CardContent>
+          Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
+          character in the Animal Crossing series who operates the
+          village store.
+        </CardContent>
+      </Card>
+    ),
+  },
+];
+
+...
+
+<Accordion contentData={contentData} />
+```
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -96,7 +137,7 @@ is `ui.status.primary`, and AccordionTypes.Error is `ui.status.secondary`.
   </Story>
 </Canvas>
 
-```jsx
+````jsx
 const contentData = [
   {
     accordionType: AccordionTypes.Default,
@@ -122,14 +163,28 @@ const contentData = [
   },
 ];
 
-...
-
-<Accordion contentData={contentData} />
-```
-
 <ArgsTable story="Accordion with Controls" />
 
-## FAQ example
+## Accessibility
+
+- Follows [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/components/accordion/)
+  guidelines:
+  - Use the `button` HTML element for screenreaders and keyboards.
+  - Use the `aria-expanded` attribute to indicate whether the `Accordion` is
+    expanded (`true`) or collapsed (`false`).
+  - Use the `aria-controls` attribute to associate the control with the panel.
+- Deviates from USWDS in that the user can open multiple panels. Opening one,
+  does not collapse already expanded panel.
+- The open and close icons are decorative (`aria-hidden` is `true`).
+- Visible focus goes around full button and full button is clickable
+
+Resources:
+
+- [W3C WAI-Aria Practices - Accordion](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion)
+- [USWDS Accordion](https://designsystem.digital.gov/components/accordion/)
+- [Chakra Accordion](https://chakra-ui.com/docs/components/disclosure/accordion)
+
+## FAQ Example
 
 export const faqContent = [
   {
@@ -207,7 +262,7 @@ Building out FAQ-like accordions happens automatically when there are more than
 one object in the array passed into the `contentData` prop.
 
 <Canvas withToolbar>
-  <Story name="FAQ">
+  <Story name="FAQ Example">
     <Accordion contentData={faqContent} />
   </Story>
 </Canvas>
@@ -288,4 +343,4 @@ export const faqContent = [
 ...
 
 <Accordion contentData={faqContent} />
-```
+````
