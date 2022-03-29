@@ -101,6 +101,8 @@ const contentData = [
 
 ## Component Props
 
+<ArgsTable story="Accordion with Controls" />
+
 <Canvas withToolbar>
   <Story
     name="Accordion with Controls"
@@ -137,7 +139,7 @@ const contentData = [
   </Story>
 </Canvas>
 
-````jsx
+```jsx
 const contentData = [
   {
     accordionType: AccordionTypes.Default,
@@ -154,16 +156,14 @@ const contentData = [
           Tom Nook
         </CardHeading>
         <CardContent>
-          Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
-          character in the Animal Crossing series who operates the
-          village store.
+          Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional character
+          in the Animal Crossing series who operates the village store.
         </CardContent>
       </Card>
     ),
   },
 ];
-
-<ArgsTable story="Accordion with Controls" />
+```
 
 ## Accessibility
 
@@ -343,4 +343,4 @@ export const faqContent = [
 ...
 
 <Accordion contentData={faqContent} />
-````
+```
