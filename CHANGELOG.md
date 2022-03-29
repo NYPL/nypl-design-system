@@ -12,24 +12,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
 - Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
-<<<<<<< HEAD
+  <<<<<<< HEAD
 - Adds an optional key – `accordionType` to the `Accordion`'s `contentData` prop, which allows users to switch the
   background color of the `Accordion`'s button.
-=======
+  =======
 - Adds the `isFullWidth` prop to the `CheckboxGroup` and `RadioGroup` components. This sets the wrapper element to be full width for labels that need to span its container.
->>>>>>> development
+  > > > > > > > development
 
 ### Changes
 
 - Updates Storybook's sidebar categories and documentation.
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
-<<<<<<< HEAD
+  <<<<<<< HEAD
 - Updates the `Accordion` button's background color when expanded, adds a border color when hovered over,
   and adjusts the padding.
-=======
+  =======
 - Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and JSX Elements.
 - Updates the `Toggle`'s internal styling for the default and small sizes.
->>>>>>> development
+  > > > > > > > development
 
 ### Fixes
 
