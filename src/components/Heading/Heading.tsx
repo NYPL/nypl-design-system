@@ -72,7 +72,7 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
   if (React.Children.count(props.children) > 1) {
     // Catching the error because React's error isn't as helpful.
     throw new Error(
-      "NYPL Reservoir Heading: Only pass one child into Heading; got multiple children."
+      "NYPL Reservoir Heading: Only pass one child into Heading."
     );
   }
 

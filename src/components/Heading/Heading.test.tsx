@@ -105,9 +105,7 @@ describe("Heading", () => {
           <span>many</span>
         </Heading>
       )
-    ).toThrow(
-      "NYPL Reservoir Heading: Only pass one child into Heading; got multiple children."
-    );
+    ).toThrow("NYPL Reservoir Heading: Only pass one child into Heading.");
   });
 
   it("uses custom display size", () => {

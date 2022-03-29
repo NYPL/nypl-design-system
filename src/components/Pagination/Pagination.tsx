@@ -65,7 +65,8 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   if (getPageHref && onPageChange) {
     console.warn(
       "NYPL Reservoir Pagination: Props for both `getPageHref` and " +
-        "`onPageChange` are passed. Will default to using `getPageHref`."
+        "`onPageChange` are passed. The component will default to using " +
+        "`getPageHref`."
     );
   }
 

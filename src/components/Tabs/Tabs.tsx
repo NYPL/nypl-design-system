@@ -226,7 +226,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   if (children && contentData?.length) {
     console.warn(
       "NYPL Reservoir Tabs: Only pass children or data in the `contentData` " +
-        "props but not both."
+        "prop. Do not pass both."
     );
   }
 

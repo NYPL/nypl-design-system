@@ -248,7 +248,7 @@ describe("Tabs", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Tabs: Only pass children or data in the `contentData` " +
-        "props but not both."
+        "prop. Do not pass both."
     );
   });
 

@@ -374,7 +374,8 @@ describe("Pagination", () => {
       );
       expect(warn).toHaveBeenCalledWith(
         "NYPL Reservoir Pagination: Props for both `getPageHref` and " +
-          "`onPageChange` are passed. Will default to using `getPageHref`."
+          "`onPageChange` are passed. The component will default to using " +
+          "`getPageHref`."
       );
     });
 
