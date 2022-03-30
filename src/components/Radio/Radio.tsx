@@ -1,9 +1,5 @@
 import * as React from "react";
-import {
-  Box,
-  Radio as ChakraRadio,
-  useMultiStyleConfig,
-} from "@chakra-ui/react";
+import { Radio as ChakraRadio, useMultiStyleConfig } from "@chakra-ui/react";
 
 import HelperErrorText, {
   HelperErrorTextType,
@@ -107,13 +103,12 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
         {showLabel && labelText}
       </ChakraRadio>
       {footnote && showHelperInvalidText && (
-        <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-          />
-        </Box>
+        <HelperErrorText
+          additionalStyles={styles.helperErrorText}
+          id={`${id}-helperText`}
+          isInvalid={isInvalid}
+          text={footnote}
+        />
       )}
     </>
   );

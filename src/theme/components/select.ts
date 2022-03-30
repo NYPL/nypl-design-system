@@ -1,4 +1,4 @@
-import { activeFocus, helperTextMargin } from "./global";
+import { activeFocus } from "./global";
 
 const select = {
   backgroundColor: "ui.white",
@@ -26,7 +26,7 @@ const select = {
 };
 
 const Select = {
-  parts: ["select", "helper"],
+  parts: ["select"],
   baseStyle: {
     marginBottom: "xs",
     // The backgroundColor set to "ui.white" hides the arrow SVG icon when
@@ -34,9 +34,6 @@ const Select = {
     // so we need to add specific selector.
     ".chakra-select__icon-wrapper": {
       zIndex: "9999",
-    },
-    helper: {
-      ...helperTextMargin,
     },
     select,
   },

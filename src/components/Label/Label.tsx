@@ -38,7 +38,7 @@ function Label(props: React.PropsWithChildren<LabelProps>) {
       __css={styles}
     >
       {children}
-      {optReqFlag && <Box __css={styles.helper}>{optReqFlag}</Box>}
+      {optReqFlag && <Box __css={styles.helperErrorText}>{optReqFlag}</Box>}
     </Box>
   );
 }

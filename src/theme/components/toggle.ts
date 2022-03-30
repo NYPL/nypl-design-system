@@ -1,10 +1,8 @@
-import { helperTextMargin } from "./global";
 import { cssVar } from "@chakra-ui/theme-tools";
 
 const baseStyle = {
   label: { alignItems: "start", display: "flex", width: "fit-content" },
-  helper: {
-    ...helperTextMargin,
+  helperErrorText: {
     marginLeft: "xxs",
   },
 };
@@ -85,7 +83,7 @@ const Switch = {
 };
 
 const Toggle = {
-  parts: ["helper"],
+  parts: ["helperErrorText"],
   baseStyle,
   // Default values
   defaultProps: {

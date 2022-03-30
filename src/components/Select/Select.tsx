@@ -152,13 +152,11 @@ const Select = React.forwardRef<
         {children}
       </ChakraSelect>
       {footnote && showHelperInvalidText && (
-        <Box __css={styles.helper} aria-disabled={isDisabled}>
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-          />
-        </Box>
+        <HelperErrorText
+          id={`${id}-helperText`}
+          isInvalid={isInvalid}
+          text={footnote}
+        />
       )}
     </Box>
   );

@@ -1,4 +1,4 @@
-import { activeFocus, helperTextMargin } from "./global";
+import { activeFocus } from "./global";
 
 const input = {
   bgColor: "ui.white",
@@ -31,11 +31,8 @@ const input = {
 };
 
 const TextInput = {
-  parts: ["helper", "input", "textarea"],
+  parts: ["input", "textarea"],
   baseStyle: {
-    helper: {
-      ...helperTextMargin,
-    },
     input,
     textarea: {
       ...input,

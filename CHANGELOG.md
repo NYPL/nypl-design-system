@@ -22,6 +22,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Toggle`'s internal styling for the default and small sizes.
 - Updates the `CardImage`'s margin bottom in the row and column layouts for mobile to be the same.
 - Updates the `CardImage` to have width 100% on mobile regardless of size.
+- Updates the styling for the `HelperErrorText` to be consistent for all components that use it
+- Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
 
 ### Fixes
 

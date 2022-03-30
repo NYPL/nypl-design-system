@@ -37,7 +37,7 @@ const Fieldset = ({
       <legend>
         {legendText}
         {optReqFlag && (
-          <Box __css={styles.helper}>
+          <Box __css={styles.helperErrorText}>
             {isRequired ? "Required" : "Optional"}
           </Box>
         )}
