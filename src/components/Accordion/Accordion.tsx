@@ -99,6 +99,7 @@ const getElementsFromContentData = (data = [], id) => {
                     content.accordionType === "default"
                       ? "transparent"
                       : bgColorByAccordionType,
+                  borderColor: "ui.gray.dark",
                 }}
               >
                 <Box flex="1" textAlign="left">
