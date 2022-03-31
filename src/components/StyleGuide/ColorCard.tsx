@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import Card from "../Card/Card";
-import { CardLayouts } from "../Card/CardTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
+import { LayoutTypes } from "../../helpers/enums";
 
 export interface ColorCardProps {
   /** backgroundColor of the color card */
@@ -25,9 +25,9 @@ export default function ColorCard(
     <div style={{ display: "flex", alignItems: "center" }}>
       <Card
         backgroundColor={backgroundColor}
-        center
-        layout={CardLayouts.Column}
         border
+        isCentered
+        layout={LayoutTypes.Column}
       />
       <div style={{ marginLeft: "1rem" }}>
         <Heading level={HeadingLevels.Four}>{colorName}</Heading>

@@ -1,3 +1,4 @@
+import { Flex, Spacer } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import {
   ArgsTable,
@@ -172,14 +173,51 @@ need to render multiple input components in a horizontal row.
         <FormRow>
           <FormField>
             <CheckboxGroup
+              isFullWidth
               labelText="Checkbox Group"
-              name="cbg1"
+              name="checkbox-example"
               optReqFlag={false}
             >
-              <Checkbox labelText="Checkbox 1" showLabel />
-              <Checkbox labelText="Checkbox 2" showLabel />
-              <Checkbox labelText="Checkbox 3" showLabel />
-              <Checkbox labelText="Checkbox 4" showLabel />
+              <Checkbox
+                labelText={
+                  <Flex>
+                    <span>Arts</span>
+                    <Spacer />
+                    <span>4</span>
+                  </Flex>
+                }
+                value="arts"
+              />
+              <Checkbox
+                labelText={
+                  <Flex>
+                    <span>English</span>
+                    <Spacer />
+                    <span>23</span>
+                  </Flex>
+                }
+                value="English"
+              />
+              <Checkbox
+                labelText={
+                  <Flex>
+                    <span>Science</span>
+                    <Spacer />
+                    <span>10</span>
+                  </Flex>
+                }
+                value="Science"
+              />
+              <Checkbox
+                labelText={
+                  <Flex>
+                    <span>Math</span>
+                    <Spacer />
+                    <span>3</span>
+                  </Flex>
+                }
+                value="Math"
+              />
             </CheckboxGroup>
           </FormField>
           <FormField>
@@ -192,9 +230,9 @@ need to render multiple input components in a horizontal row.
           </FormField>
           <FormField>
             <Select
+              helperText="The select field helper text."
               labelText="Select Field"
               showLabel={true}
-              helperText="The select field helper text."
             >
               <option>Option 1</option>
               <option>Option 2</option>
@@ -225,9 +263,9 @@ export const formRow = (nameString, size) => {
         <FormRow>
           <FormField>
             <Select
+              helperText="The select field helper text."
               labelText="Select Field"
               showLabel={true}
-              helperText="The select field helper text."
             >
               <option>Option 1</option>
               <option>Option 2</option>
@@ -237,9 +275,9 @@ export const formRow = (nameString, size) => {
           </FormField>
           <FormField>
             <Select
+              helperText="The select field helper text."
               labelText="Select Field"
               showLabel={true}
-              helperText="The select field helper text."
             >
               <option>Option 1</option>
               <option>Option 2</option>
@@ -249,9 +287,9 @@ export const formRow = (nameString, size) => {
           </FormField>
           <FormField>
             <Select
+              helperText="The select field helper text."
               labelText="Select Field"
               showLabel={true}
-              helperText="The select field helper text."
             >
               <option>Option 1</option>
               <option>Option 2</option>

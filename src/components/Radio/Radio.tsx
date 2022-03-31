@@ -36,7 +36,7 @@ export interface RadioProps {
   /** The radio button's label. This will serve as the text content for the
    * `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel`
    * is false. */
-  labelText: string;
+  labelText: string | JSX.Element;
   /** Used to reference the input element in forms. */
   name?: string;
   /** Should be passed along with `isChecked` for controlled components. */
@@ -72,6 +72,11 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const attributes = {};
 
   if (!showLabel) {
+    if (typeof labelText !== "string") {
+      console.warn(
+        "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
+      );
+    }
     attributes["aria-label"] =
       labelText && footnote ? `${labelText} - ${footnote}` : labelText;
   } else {
