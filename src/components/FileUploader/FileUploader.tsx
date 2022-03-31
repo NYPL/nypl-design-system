@@ -189,9 +189,11 @@ export default function FileUploader(
 
       {footnote && showHelperInvalidText && (
         <Box __css={styles.helper}>
-          <HelperErrorText id={`${id}-helperText`} isInvalid={isInvalid}>
-            {footnote}
-          </HelperErrorText>
+          <HelperErrorText
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         </Box>
       )}
 
