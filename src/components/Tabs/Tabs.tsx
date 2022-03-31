@@ -65,8 +65,8 @@ const getElementsFromContentData = (data, useHash): TabPanelProps => {
 
   if (data?.length > 6) {
     console.warn(
-      "Tabs: We recommend to use no more than six tabs. If more than six tabs " +
-        "are needed, consider other navigational patterns."
+      "NYPL Reservoir Tabs: it is recommended to use no more than six tabs. If " +
+        "more than six tabs are needed, consider other navigational patterns."
     );
   }
   data.forEach((tab, index) => {
@@ -121,8 +121,8 @@ const getElementsFromChildren = (children): TabPanelProps => {
       const childTabs = React.Children.count(child.props.children);
       if (childTabs > 6) {
         console.warn(
-          "Tabs: We recommend to use no more than six tabs. If more than six " +
-            "tabs are needed, consider other navigational patterns."
+          "NYPL Reservoir Tabs: It is recommended to use no more than six tabs. " +
+            "If more than six tabs are needed, consider other navigational patterns."
         );
       }
     }
@@ -160,7 +160,9 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
     : getElementsFromChildren(children);
 
   if (tabs.length === 0 || panels.length === 0) {
-    console.warn("Tabs: Pass data in the `data` props or as children.");
+    console.warn(
+      "NYPL Reservoir Tabs: Pass data in the `contentData` props or as children."
+    );
   }
 
   // `tabs` is an array for the children component approach but an object for
@@ -223,7 +225,8 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
 
   if (children && contentData?.length) {
     console.warn(
-      "Tabs: Only pass children or data in the `data` props but not both."
+      "NYPL Reservoir Tabs: Only pass children or data in the `contentData` " +
+        "prop. Do not pass both."
     );
   }
 

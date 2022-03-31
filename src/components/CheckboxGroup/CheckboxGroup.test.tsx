@@ -435,7 +435,8 @@ describe("Checkbox", () => {
       </CheckboxGroup>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
+      "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
+        "allowed as children."
     );
   });
 });

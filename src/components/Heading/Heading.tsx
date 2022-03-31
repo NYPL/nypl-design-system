@@ -64,17 +64,15 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
   const asHeading: any = `h${finalLevel}`;
 
   if (!props.children && !text) {
-    throw new Error("Heading has no children, please pass prop: text");
+    throw new Error(
+      "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
+    );
   }
 
   if (React.Children.count(props.children) > 1) {
-    const children = React.Children.map(
-      props.children,
-      (child) => (child as JSX.Element).type
-    );
     // Catching the error because React's error isn't as helpful.
     throw new Error(
-      `Please only pass one child into Heading, got ${children.join(", ")}`
+      "NYPL Reservoir Heading: Only pass one child into Heading."
     );
   }
 

@@ -77,19 +77,6 @@ prop, regardless of the label visibility. Additionally, while the `id` prop is
 optional, a unique `id` attribute is necessary for accessibility. If the prop
 is left blank, a value will be generated for you.
 
-The `Select` component renders all the necessary wrapping and associated text
-elements, but the select options _need_ to be child `<option>` HTML elements.
-
-```jsx
-<Select labelText="What is your favorite color?" name="color">
-  <option value="red">Red</option>
-  <option value="green">Green</option>
-  <option value="blue">Blue</option>
-  <option value="black">Black</option>
-  <option value="white">White</option>
-</Select>
-```
-
 <Canvas withToolbar>
   <Story
     name="Select with Controls"
@@ -124,6 +111,29 @@ elements, but the select options _need_ to be child `<option>` HTML elements.
 </Canvas>
 
 <ArgsTable story="Select with Controls" />
+
+## Option Elements
+
+The `Select` component renders all the necessary wrapping and associated text
+elements, but the select options _need_ to be child `<option>` HTML elements.
+
+```jsx
+<Select labelText="What is your favorite color?" name="color">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="black">Black</option>
+  <option value="white">White</option>
+</Select>
+```
+
+There are two NYPL best practices to consider when using the `Select` component
+and `option` HTML elements:
+
+- Use no more than 10 options. If more than 10 options are needed, an
+  auto-complete text input is a good alternative.
+- Use at least four options. If fewer than three options are needed, a radio
+  button group is a good alternative.
 
 ## Labelling Variations
 

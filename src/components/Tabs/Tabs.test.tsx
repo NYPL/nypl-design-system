@@ -213,7 +213,7 @@ describe("Tabs", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Tabs />);
     expect(warn).toHaveBeenCalledWith(
-      "Tabs: Pass data in the `data` props or as children."
+      "NYPL Reservoir Tabs: Pass data in the `contentData` props or as children."
     );
   });
 
@@ -247,7 +247,8 @@ describe("Tabs", () => {
       </Tabs>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Tabs: Only pass children or data in the `data` props but not both."
+      "NYPL Reservoir Tabs: Only pass children or data in the `contentData` " +
+        "prop. Do not pass both."
     );
   });
 
@@ -267,7 +268,8 @@ describe("Tabs", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "Tabs: We recommend to use no more than six tabs. If more than six tabs are needed, consider other navigational patterns."
+      "NYPL Reservoir Tabs: it is recommended to use no more than six tabs. If " +
+        "more than six tabs are needed, consider other navigational patterns."
     );
   });
 

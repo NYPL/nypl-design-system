@@ -151,8 +151,9 @@ describe("TemplateAppContainer component", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "`TemplateHeader`: An HTML `header` element was passed in. Set " +
-        "`renderHeaderElement` to `false` to avoid nested HTML `header` elements."
+      "NYPL Reservoir TemplateHeader: An HTML `header` element was passed " +
+        "in. Set `renderHeaderElement` to `false` to avoid nested HTML " +
+        "`header` elements."
     );
   });
 
@@ -189,8 +190,9 @@ describe("TemplateAppContainer component", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "`TemplateFooter`: An HTML `footer` element was passed in. Set " +
-        "`renderFooterElement` to `false` to avoid nested HTML `footer` elements."
+      "NYPL Reservoir TemplateFooter: An HTML `footer` element was passed " +
+        "in. Set `renderFooterElement` to `false` to avoid nested HTML " +
+        "`footer` elements."
     );
   });
 });

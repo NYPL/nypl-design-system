@@ -25,7 +25,8 @@ describe("Text", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Text></Text>);
     expect(warn).toHaveBeenCalledWith(
-      "The Text component has no children and will not render correctly."
+      "NYPL Reservoir Text: No children were passed and the `Text` component " +
+        "will not render correctly."
     );
   });
 
