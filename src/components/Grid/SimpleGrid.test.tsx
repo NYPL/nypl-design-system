@@ -13,9 +13,11 @@ describe("Grid Accessibility", () => {
     const { container } = render(
       <SimpleGrid>
         <Card
-          imageSrc="https://placeimg.com/500/200/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/500/200/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Two}>Card Heading</CardHeading>
           <CardContent>
@@ -24,9 +26,11 @@ describe("Grid Accessibility", () => {
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/220/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/220/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -35,9 +39,11 @@ describe("Grid Accessibility", () => {
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/240/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/240/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>

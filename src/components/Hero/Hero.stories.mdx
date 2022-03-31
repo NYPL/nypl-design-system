@@ -12,7 +12,6 @@ import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Hero from "./Hero";
 import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
-import Image from "../Image/Image";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -39,7 +38,8 @@ export const enumValues = getStorybookEnumValues(HeroTypes, "HeroTypes");
       table: { defaultValue: { summary: "HeroTypes.Primary" } },
       options: enumValues.options,
     },
-    image: { control: false },
+    imageAlt: { control: false },
+    imageSrc: { control: false },
     locationDetails: { control: false },
     subHeaderText: { control: false },
   }}
@@ -55,16 +55,15 @@ export const secondarySubHeaderText = (
 );
 export const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
-export const image = (
-  <Image src="https://placeimg.com/800/400/animals" alt="Image example" />
-);
+const imageAlt = "Image example";
+const imageSrc = "https://placeimg.com/800/400/animals";
 
 # Hero
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.2.0`    |
-| Latest            | `0.25.2`   |
+| Latest            | `0.25.12`  |
 
 ## Table of Contents
 
@@ -93,7 +92,8 @@ descriptive text and images.
       foregroundColor: undefined,
       heading: undefined,
       heroType: "HeroTypes.Primary",
-      image: undefined,
+      imageAlt: undefined,
+      imageSrc: undefined,
       locationDetails: undefined,
       subHeaderText: undefined,
     }}
@@ -118,7 +118,8 @@ descriptive text and images.
               <Heading level={HeadingLevels.One} id="1" text="Hero Secondary" />
             }
             heroType={enumValues.getValue(args.heroType)}
-            image={image}
+            imageAlt={args.imageAlt}
+            imageSrc={args.imageSrc}
             subHeaderText={secondarySubHeaderText}
           />
         </div>
@@ -141,12 +142,8 @@ descriptive text and images.
             <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
           }
           heroType={enumValues.getValue(args.heroType)}
-          image={
-            <Image
-              src="https://placeimg.com/800/400/animals"
-              alt="Image example"
-            />
-          }
+          imageAlt={args.imageAlt}
+          imageSrc={args.imageSrc}
           subHeaderText={otherSubHeaderText}
         />
       )) ||
@@ -154,12 +151,8 @@ descriptive text and images.
         <Hero
           {...args}
           heroType={enumValues.getValue(args.heroType)}
-          image={
-            <Image
-              src="https://placeimg.com/600/200/animals"
-              alt="Image example"
-            />
-          }
+          imageAlt={args.imageAlt}
+          imageSrc={args.imageSrc}
           subHeaderText={otherSubHeaderText}
         />
       ))
@@ -212,7 +205,6 @@ on the `HeroTypes` variants for the `Secondary` main variant.
         text="HeroTypes.SecondaryBooksAndMore"
       />
       <Hero
-        image={image}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -221,6 +213,8 @@ on the `HeroTypes` variants for the `Secondary` main variant.
           />
         }
         heroType={HeroTypes.SecondaryBooksAndMore}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}
       />
       <Heading
@@ -229,7 +223,6 @@ on the `HeroTypes` variants for the `Secondary` main variant.
         text="HeroTypes.SecondaryLocations"
       />
       <Hero
-        image={image}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -238,6 +231,8 @@ on the `HeroTypes` variants for the `Secondary` main variant.
           />
         }
         heroType={HeroTypes.SecondaryLocations}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}
       />
       <Heading
@@ -246,7 +241,6 @@ on the `HeroTypes` variants for the `Secondary` main variant.
         text="HeroTypes.SecondaryResearch"
       />
       <Hero
-        image={image}
         heading={
           <Heading
             level={HeadingLevels.One}
@@ -255,6 +249,8 @@ on the `HeroTypes` variants for the `Secondary` main variant.
           />
         }
         heroType={HeroTypes.SecondaryResearch}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}
       />
       <Heading
@@ -271,7 +267,8 @@ on the `HeroTypes` variants for the `Secondary` main variant.
           />
         }
         heroType={HeroTypes.SecondaryWhatsOn}
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}
       />
     </VStack>
@@ -310,7 +307,8 @@ on the `HeroTypes` variants for the `Secondary` main variant.
             />
           }
           heroType={HeroTypes.Secondary}
-          image={image}
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={secondarySubHeaderText}
         />
       </div>
@@ -355,7 +353,8 @@ on the `HeroTypes` variants for the `Secondary` main variant.
             text="Hero Campaign"
           />
         }
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
       />
       <Box marginTop="30px" />
@@ -366,7 +365,8 @@ on the `HeroTypes` variants for the `Secondary` main variant.
       />
       <Hero
         heroType={HeroTypes.FiftyFifty}
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
       />
     </VStack>
