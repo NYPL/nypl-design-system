@@ -326,12 +326,15 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
 
     if ((ref && !nameFrom) || (refTo && !nameTo)) {
       console.warn(
-        "A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
+        "NYPL Reservoir DatePicker: A `ref` or `refTo` prop was passed but " +
+          "not the equivalent `nameFrom` or `nameTo` prop."
       );
     }
     if (onChange && (ref || refTo || nameFrom || nameTo)) {
       console.warn(
-        "React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
+        "NYPL Reservoir DatePicker: A `ref`, `refTo`, `nameFrom`, or `nameTo` " +
+          "prop was passed and an `onChange` prop as well. Use whichever is best " +
+          "for your app but not both."
       );
     }
 

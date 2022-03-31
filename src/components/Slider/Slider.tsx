@@ -133,10 +133,10 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     max,
     min,
     name,
-    onChange: (val) => setCurrentValue(val),
-    // Call the passed in `onChange` function prop to get the
-    // *final* value once a user stops dragging the slider.
-    onChangeEnd: (val) => onChange && onChange(val),
+    onChange: (val) => {
+      setCurrentValue(val);
+      onChange && onChange(val);
+    },
     step,
     // Additional margins so slider thumbs don't overflow past the
     // edge when the value boxes or min/max values are hidden.
