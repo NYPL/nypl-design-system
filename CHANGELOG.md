@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
 - Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
 - Adds the `isFullWidth` prop to the `CheckboxGroup` and `RadioGroup` components. This sets the wrapper element to be full width for labels that need to span its container.
+- Adds an optional key – `accordionType` to the `Accordion`'s `contentData` prop, which allows users to switch the background color of the `Accordion`'s button.
 
 ### Changes
 
@@ -20,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
 - Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and JSX Elements.
 - Updates the `Toggle`'s internal styling for the default and small sizes.
+- Updates the `Accordion` button's background color when expanded, adds a border color when hovered over, and adjusts the padding.
 - Updates the `CardImage`'s margin bottom in the row and column layouts for mobile to be the same.
 - Updates the `CardImage` to have width 100% on mobile regardless of size.
 
@@ -30,6 +32,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes the `Breadcrumbs`' SVG arrow icon fill color for the "Blogs" variant.
 - Fixes the margin right value for list items in the `List` component for the inline style.
 - Fixes bug in the `Select` component where the SVG arrow hides when the component is focused.
+- Fixes the extra bottom spacing in the `HeroTypes.Campaign` `Hero` variant for the mobile view.
 - Fixes the `Slider` component so it doesn't cause a stack overflow client-side issue when updating the slider thumbs through the keyboard arrows. The values are now returned through Chakra's `onChange` callback instead of the `onChangeEnd` callback.
 
 ## 0.25.12 (March 18, 2022)
