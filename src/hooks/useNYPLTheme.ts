@@ -9,7 +9,7 @@ function useNYPLTheme() {
   const theme = useTheme();
   if (!theme || Object.keys(theme).length === 0) {
     console.warn(
-      "The `useNYPLTheme` hook must be used inside of `<DSProvider />`."
+      "NYPL Reservoir useNYPLTheme: hook must be used inside of `<DSProvider />`."
     );
     return {};
   }

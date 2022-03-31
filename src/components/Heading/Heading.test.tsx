@@ -4,7 +4,7 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Heading from "./Heading";
-import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
+import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 
 describe("Heading Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -93,7 +93,7 @@ describe("Heading", () => {
 
   it("throws error when neither child nor text is passed", () => {
     expect(() => render(<Heading id="h1" level={HeadingLevels.One} />)).toThrow(
-      "Heading has no children, please pass prop: text"
+      "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
     );
   });
 
@@ -105,7 +105,7 @@ describe("Heading", () => {
           <span>many</span>
         </Heading>
       )
-    ).toThrow("Please only pass one child into Heading, got span, span");
+    ).toThrow("NYPL Reservoir Heading: Only pass one child into Heading.");
   });
 
   it("uses custom display size", () => {
@@ -113,8 +113,8 @@ describe("Heading", () => {
       <Heading
         id="h1"
         level={HeadingLevels.One}
-        text="Heading with Secondary displaySize"
-        displaySize={HeadingDisplaySizes.Secondary}
+        size={HeadingSizes.Secondary}
+        text="Heading with Secondary size"
       />
     );
     expect(screen.getByRole("heading", { level: 1 })).toHaveStyle({
@@ -140,8 +140,8 @@ describe("Heading", () => {
         <Heading
           id="customDisplaySize"
           level={HeadingLevels.One}
-          text="Heading with Secondary displaySize"
-          displaySize={HeadingDisplaySizes.Secondary}
+          size={HeadingSizes.Secondary}
+          text="Heading with Secondary size"
         />
       )
       .toJSON();
