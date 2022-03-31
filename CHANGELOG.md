@@ -22,6 +22,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and JSX Elements.
 - Updates the `Toggle`'s internal styling for the default and small sizes.
 - Updates the `Accordion` button's background color when expanded, adds a border color when hovered over, and adjusts the padding.
+- Updates the `CardImage`'s margin bottom in the row and column layouts for mobile to be the same.
+- Updates the `CardImage` to have width 100% on mobile regardless of size.
 
 ### Fixes
 
