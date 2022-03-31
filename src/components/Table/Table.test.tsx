@@ -76,7 +76,7 @@ describe("Table", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Table tableData={[]} />);
     expect(warn).toHaveBeenCalledWith(
-      "Table: data should be two dimensional array."
+      "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
     );
   });
 

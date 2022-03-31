@@ -143,7 +143,7 @@ const campaign = {
   alignItems: "center",
   display: "flex",
   justifyContent: "center",
-  marginBottom: "xxl",
+  marginBottom: ["0", "0", "xxl"],
   minHeight: "300px",
   overflow: "visible",
   padding: {

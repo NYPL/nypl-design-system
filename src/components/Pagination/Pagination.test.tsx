@@ -205,6 +205,31 @@ describe("Pagination", () => {
   });
 
   describe("Behavior", () => {
+    it("navigates to the appropriate page when the Next or Previous links are clicked", () => {
+      const onPageChange = (page: number) => (currentPage = page);
+      let currentPage = 3;
+
+      render(
+        <Pagination
+          pageCount={5}
+          initialPage={currentPage}
+          onPageChange={onPageChange}
+        />
+      );
+
+      let links = screen.getAllByRole("link");
+
+      // Previous link
+      userEvent.click(links[0]);
+      expect(currentPage).toEqual(2);
+
+      links = screen.getAllByRole("link");
+
+      // Next link
+      userEvent.click(links[links.length - 1]);
+      expect(currentPage).toEqual(3);
+    });
+
     it("updates the links href value when getPageHref is used", () => {
       const getPageHref = (page: number) => `?page=${page}`;
       render(
@@ -348,7 +373,9 @@ describe("Pagination", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Pagination: Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+        "NYPL Reservoir Pagination: Props for both `getPageHref` and " +
+          "`onPageChange` are passed. The component will default to using " +
+          "`getPageHref`."
       );
     });
 
@@ -359,7 +386,8 @@ describe("Pagination", () => {
         <Pagination pageCount={10} currentPage={2} getPageHref={getPageHref} />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Pagination: The `currentPage` prop does not work with the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
+        "NYPL Reservoir Pagination: The `currentPage` prop does not work with " +
+          "the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
       );
     });
   });
