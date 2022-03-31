@@ -33,6 +33,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes the margin right value for list items in the `List` component for the inline style.
 - Fixes bug in the `Select` component where the SVG arrow hides when the component is focused.
 - Fixes the extra bottom spacing in the `HeroTypes.Campaign` `Hero` variant for the mobile view.
+- Fixes the `Slider` component so it doesn't cause a stack overflow client-side issue when updating the slider thumbs through the keyboard arrows. The values are now returned through Chakra's `onChange` callback instead of the `onChangeEnd` callback.
 
 ## 0.25.12 (March 18, 2022)
 
