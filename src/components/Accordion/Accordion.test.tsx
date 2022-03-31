@@ -9,6 +9,7 @@ import Card, { CardContent, CardHeading } from "../Card/Card";
 import { CardLayouts } from "../Card/CardTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import { ImageRatios } from "../Image/ImageTypes";
+import { AccordionTypes } from "./AccordionTypes";
 
 describe("Accordion Accessibility", () => {
   it("passes axe accessibility test for one item", async () => {
@@ -190,8 +191,32 @@ describe("Accordion", () => {
         <Accordion contentData={contentData} id="accordian" isDefaultOpen />
       )
       .toJSON();
+    const withError = renderer
+      .create(
+        <Accordion
+          contentData={[
+            { ...contentData[0], accordionType: AccordionTypes.Error },
+          ]}
+          id="accordian"
+          isDefaultOpen
+        />
+      )
+      .toJSON();
+    const withWarning = renderer
+      .create(
+        <Accordion
+          contentData={[
+            { ...contentData[0], accordionType: AccordionTypes.Warning },
+          ]}
+          id="accordian"
+          isDefaultOpen
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(defaultOpen).toMatchSnapshot();
+    expect(withError).toMatchSnapshot();
+    expect(withWarning).toMatchSnapshot();
   });
 });

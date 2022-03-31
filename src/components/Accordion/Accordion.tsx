@@ -10,14 +10,15 @@ import {
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
-
+import { AccordionTypes } from "./AccordionTypes";
 export interface AccordionContentDataProps {
+  accordionType?: AccordionTypes;
   label: string;
   panel: string | React.ReactNode;
 }
 
 export interface AccordionProps {
-  /** Array of data to display */
+  /** Array of data to display, and an optional accordionType */
   contentData: AccordionContentDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
@@ -46,6 +47,11 @@ const getIcon = (isExpanded = false, index, id) => {
  * combination that is required for the Chakra `Accordion` component.
  */
 const getElementsFromContentData = (data = [], id) => {
+  const colorMap = {
+    [AccordionTypes.Default]: "ui.white",
+    [AccordionTypes.Warning]: "ui.status.primary",
+    [AccordionTypes.Error]: "ui.status.secondary",
+  };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const multiplePadding = data?.length > 1 ? 4 : null;
@@ -68,20 +74,43 @@ const getElementsFromContentData = (data = [], id) => {
     return (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
-        {({ isExpanded }) => (
-          <>
-            <AccordionButton
-              id={`${id}-button-${index}`}
-              padding={multiplePadding}
-            >
-              <Box flex="1" textAlign="left">
-                {content.label}
-              </Box>
-              {getIcon(isExpanded, index, id)}
-            </AccordionButton>
-            {panel}
-          </>
-        )}
+        {({ isExpanded }) => {
+          const bgColorByAccordionType = colorMap[content.accordionType];
+          return (
+            <>
+              <AccordionButton
+                id={`${id}-button-${index}`}
+                padding={multiplePadding}
+                bg={
+                  !content.accordionType
+                    ? colorMap.default
+                    : bgColorByAccordionType
+                }
+                _expanded={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "ui.gray.light-warm"
+                      : bgColorByAccordionType,
+                }}
+                _hover={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "transparent"
+                      : bgColorByAccordionType,
+                  borderColor: "ui.gray.dark",
+                }}
+              >
+                <Box flex="1" textAlign="left">
+                  {content.label}
+                </Box>
+                {getIcon(isExpanded, index, id)}
+              </AccordionButton>
+              {panel}
+            </>
+          );
+        }}
       </AccordionItem>
     );
   });
