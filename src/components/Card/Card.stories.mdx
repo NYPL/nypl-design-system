@@ -95,6 +95,22 @@ export const cardLayoutsEnumValues = getStorybookEnumValues(
 | Added             | `0.24.0`   |
 | Latest            | `0.25.13`  |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Image Position](#image-position)
+- [Image Size](#image-size)
+- [Cards in a Grid](#cards-in-a-grid)
+- [Cards in a Stack](#cards-in-a-stack)
+- [Custom Image Component](#custom-image-component)
+- [Card Without Images](#card-without-images)
+- [Card With Link Heading](#card-with-link-heading)
+- [Card With Full-Click Functionality](#card-with-full-click-functionality)
+
+## Overview
+
 <Description of={Card} />
 
 The `Card` component is viewed as a contained, stand-alone element. It is highly
@@ -105,21 +121,23 @@ order and each child component may be used multiple times within the content
 area. Although a `Card` is a self-contained unit, `Card` components are often
 grouped together and displayed in some type of grid layout.
 
-#### CardHeading
+### CardHeading
 
 The `CardHeading` component mirrors the standard DS `Heading` component and
 accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/components-typography-styles-heading--heading-with-controls).
 
-#### CardActions
+### CardActions
 
 The `CardActions` component is used to display "call to action" (CTA) buttons
 and links for the card. The DS `Button` and `Link` components should be passed
 as children into the `CardActions` component.
 
-#### CardContent
+### CardContent
 
 The `CardContent` component should be used to display all content other than
 headings and CTAs.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -187,6 +205,40 @@ headings and CTAs.
 </Canvas>
 
 <ArgsTable story="Card with Controls" />
+
+## Accessibility
+
+### Headings
+
+In general, headings from `h1` through `h6` must be in sequential order in the
+DOM tree. Rendering an `h4` following an `h2` will throw an accessibility error.
+Therefore, when adding `CardHeading` components, make sure to add them in
+sequential order with the proper `level` prop.
+
+```tsx
+// Correct
+<CardHeading level={HeadingLevels.Three} id="headingthree">
+  Heading level three
+</CardHeading>
+<CardHeading level={HeadingLevels.Four} id="headingfour">
+  Heading level four
+</CardHeading>
+
+// Incorrect
+<CardHeading level={HeadingLevels.Two} id="headingtwo">
+  Heading level Two
+</CardHeading>
+<CardHeading level={HeadingLevels.Four} id="headingfour">
+  Heading level four
+</CardHeading>
+```
+
+### Full-Click Functionality
+
+Passing in a URL in the `mainActionLink` prop will make the entire `Card`
+clickable. Other links in the `CardActions` component can still be accessed by
+tabbing through and pressing "enter" or by clicking as you normally would on a
+link.
 
 ## Image Position
 
@@ -886,28 +938,3 @@ from being having the full-click functionality.
     </SimpleGrid>
   </Story>
 </Canvas>
-
-## Accessibility
-
-### Headings
-
-In general, headings from `h1` through `h6` must be in sequential order in the
-DOM tree. Rendering an `h4` following an `h2` will throw an error. Therefore,
-when adding `CardHeading` components, make sure to add them in sequential order
-with the `level` prop.
-
-```tsx
-<CardHeading level={HeadingLevels.Three} id="headingthree">
-  Heading level three
-</CardHeading>
-<CardHeading level={HeadingLevels.Four} id="headingfour">
-  Heading level four
-</CardHeading>
-```
-
-### Full-Click Functionality
-
-Passing in a URL in the `mainActionLink` prop will make the entire `Card`
-clickable. Other links in the `CardActions` component can still be accessed by
-tabbing through and pressing "enter" or by clicking as you normally would on a
-link.

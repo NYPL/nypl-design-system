@@ -66,11 +66,23 @@ export const image = (
 | Added             | `0.2.0`    |
 | Latest            | `0.25.2`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Color Variations for Secondary Hero](#color-variations-for-secondary-hero)
+- [All Variations](#all-variations)
+
+## Overview
+
 <Description of={Hero} />
 
 The `Hero` component is used to display a full width banner at the top of a page.
 The `Hero` will contain a required `h1` page title and may also include optional
 descriptive text and images.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -157,26 +169,43 @@ descriptive text and images.
 
 <ArgsTable story="Hero with Controls" />
 
+## Accessibility
+
+The `Hero` component is commonly used as a banner below the page's header and
+breadcrumbs and above the main content. This means that if the `Hero` displays
+a heading element, it should be the first on the page and an `h1` element set
+through `Heading`'s `level={HeadingLevels.One}`.
+
 ## Color Variations for Secondary Hero
 
-The background color for the title bar in "Secondary" types changes based on
-variants for the `Secondary` main variant. Before, components relied on the
-parent wrapper's CSS class name for background color updates. Now, the proper
-`HeroType` must be passed in.
+The background color for the title bar in the "Secondary" `Hero` changes based
+on the `HeroTypes` variants for the `Secondary` main variant.
 
 ```jsx
-// Before
-<div className="nypl--books-and-more">
-  <Hero {...props} />
-</div>
-
-// Now
+// Example `HeroTypes` "Secondary" variant.
 <Hero heroType={HeroTypes.SecondaryBooksAndMore} {...props} />
 ```
 
 <Canvas>
   <Story name="Color Variations for Secondary Hero">
     <VStack spacing={10} align="stretch">
+      <Heading
+        id="main-secondary-heading"
+        level={HeadingLevels.Two}
+        text="HeroTypes.Secondary"
+      />
+      <Hero
+        image={image}
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="main-secondary-hero"
+            text="Secondary"
+          />
+        }
+        heroType={HeroTypes.Secondary}
+        subHeaderText={secondarySubHeaderText}
+      />
       <Heading
         id="books-heading"
         level={HeadingLevels.Two}
