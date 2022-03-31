@@ -6,8 +6,8 @@ import renderer from "react-test-renderer";
 import Select from "./Select";
 
 const baseProps = {
-  labelText: "What is your favorite color?",
   helperText: "This is the helper text.",
+  labelText: "What is your favorite color?",
   name: "color",
 };
 const baseOptions = (

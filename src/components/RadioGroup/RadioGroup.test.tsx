@@ -1,13 +1,13 @@
 import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import * as React from "react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import RadioGroup from "./RadioGroup";
 import Radio from "../Radio/Radio";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 
 describe("Radio Accessibility", () => {
   it("passes axe accessibility with string labels", async () => {
@@ -263,7 +263,7 @@ describe("Radio Button", () => {
           labelText="row"
           name="row"
           id="row"
-          layout={RadioGroupLayoutTypes.Row}
+          layout={LayoutTypes.Row}
         >
           <Radio value="2" labelText="Radio 2" id="radio-2" />
           <Radio value="3" labelText="Radio 3" id="radio-3" />

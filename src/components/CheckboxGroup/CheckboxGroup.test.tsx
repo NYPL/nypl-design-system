@@ -1,14 +1,14 @@
 import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import * as React from "react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import * as generateUUID from "../../helpers/generateUUID";
 import CheckboxGroup from "./CheckboxGroup";
 import Checkbox from "../Checkbox/Checkbox";
-import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 
 describe("CheckboxGroup Accessibility", () => {
   it("passes axe accessibility with string labels ", async () => {
@@ -283,7 +283,7 @@ describe("Checkbox", () => {
           labelText="row"
           name="row"
           id="row"
-          layout={CheckboxGroupLayoutTypes.Row}
+          layout={LayoutTypes.Row}
         >
           <Checkbox value="2" labelText="Checkbox 2" />
           <Checkbox value="3" labelText="Checkbox 3" />

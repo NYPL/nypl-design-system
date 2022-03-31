@@ -1,7 +1,7 @@
 import { Heading as ChakraHeading, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
+import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 import Link from "../Link/Link";
 import { getVariant } from "../../utils/utils";
 import generateUUID from "../../helpers/generateUUID";
@@ -11,14 +11,14 @@ export interface HeadingProps {
   additionalStyles?: { [key: string]: any };
   /** Optional className that appears in addition to `heading` */
   className?: string;
-  /** Optional size used to override the default styles of the semantic HTM
-   * `<h>` elements */
-  displaySize?: HeadingDisplaySizes;
   /** Optional ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
    * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
+  /** Optional size used to override the default styles of the semantic HTM
+   * `<h>` elements */
+  size?: HeadingSizes;
   /** Inner text of the `<h*>` element */
   text?: string;
   /** Optional URL that header points to; when `url` prop is passed to
@@ -46,17 +46,15 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
   const {
     additionalStyles = {},
     className,
-    displaySize,
     id = generateUUID(),
     level = HeadingLevels.Two,
+    size,
     text,
     url,
     urlClass,
   } = props;
   const finalLevel = getMappedLevel(level);
-  const variant = displaySize
-    ? getVariant(displaySize, HeadingDisplaySizes)
-    : `h${finalLevel}`;
+  const variant = size ? getVariant(size, HeadingSizes) : `h${finalLevel}`;
   const styles = useStyleConfig("Heading", { variant });
   // Combine native base styles with any additional styles.
   // This is used in the `Hero` and `Notification` components.

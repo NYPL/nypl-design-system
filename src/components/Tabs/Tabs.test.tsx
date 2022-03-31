@@ -36,7 +36,7 @@ export const animalCrossing = [
 
 describe("Tabs Accessibility", () => {
   it("passes axe accessibility test with the data prop", async () => {
-    const { container } = render(<Tabs contentData={animalCrossing} />);
+    const { container } = render(<Tabs tabsData={animalCrossing} />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -121,7 +121,7 @@ describe("Tabs", () => {
   });
 
   it("renders all tabs but only one visible panel at a time with data prop", () => {
-    render(<Tabs contentData={animalCrossing} />);
+    render(<Tabs tabsData={animalCrossing} />);
     expect(getTabByName("Tom Nook")).toBeInTheDocument();
     expect(getTabByName("Isabelle")).toBeInTheDocument();
     expect(getTabByName("K.K. Slider")).toBeInTheDocument();
@@ -137,7 +137,7 @@ describe("Tabs", () => {
   });
 
   it("switches between tabs", () => {
-    render(<Tabs contentData={animalCrossing} />);
+    render(<Tabs tabsData={animalCrossing} />);
     const isabelleTab = getTabByName("Isabelle");
     const kkSliderTab = getTabByName("K.K. Slider");
 
@@ -179,7 +179,7 @@ describe("Tabs", () => {
   });
 
   it("renders the specified initial index value", () => {
-    render(<Tabs contentData={animalCrossing} defaultIndex={2} />);
+    render(<Tabs tabsData={animalCrossing} defaultIndex={2} />);
     let tomTab = getTabByName("Tom Nook");
     let isabelleTab = getTabByName("Isabelle");
     let kkSliderTab = getTabByName("K.K. Slider");
@@ -193,7 +193,7 @@ describe("Tabs", () => {
     let selectedIndex = 0;
     const onChange = (index) => (selectedIndex = index);
 
-    render(<Tabs contentData={animalCrossing} onChange={onChange} />);
+    render(<Tabs tabsData={animalCrossing} onChange={onChange} />);
 
     const tomTab = getTabByName("Tom Nook");
     const isabelleTab = getTabByName("Isabelle");
@@ -220,7 +220,7 @@ describe("Tabs", () => {
   it("should throw a warning when both the 'data' prop and children are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Tabs contentData={animalCrossing}>
+      <Tabs tabsData={animalCrossing}>
         <TabList>
           <Tab>Tom Nook</Tab>
           <Tab>Isabelle</Tab>
@@ -256,7 +256,7 @@ describe("Tabs", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Tabs
-        contentData={[
+        tabsData={[
           ...animalCrossing,
           ...[
             { label: "Another character 1", content: "Text" },
@@ -275,7 +275,7 @@ describe("Tabs", () => {
 
   it("renders the UI snapshot correctly", () => {
     const basic = renderer
-      .create(<Tabs contentData={animalCrossing} id="basic" />)
+      .create(<Tabs tabsData={animalCrossing} id="basic" />)
       .toJSON();
     expect(basic).toMatchSnapshot();
   });

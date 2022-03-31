@@ -12,7 +12,7 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import { spacing } from "../../theme/foundations/spacing";
 import Radio from "../Radio/Radio";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface RadioGroupProps {
@@ -39,7 +39,7 @@ export interface RadioGroupProps {
    * true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
   /** Renders the Radio buttons in a row or column (default). */
-  layout?: RadioGroupLayoutTypes;
+  layout?: LayoutTypes;
   /** The `name` prop indicates the form group for all the Radio children. */
   name: string;
   /** The action to perform on the `<input>`'s onChange function  */
@@ -74,7 +74,7 @@ const RadioGroup = React.forwardRef<
     isInvalid = false,
     isRequired = false,
     labelText,
-    layout = RadioGroupLayoutTypes.Column,
+    layout = LayoutTypes.Column,
     name,
     onChange = onChangeDefault,
     optReqFlag = true,
@@ -82,8 +82,7 @@ const RadioGroup = React.forwardRef<
     showLabel = true,
   } = props;
   const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-  const spacingProp =
-    layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
+  const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
   const newChildren = [];
 
   // Use Chakra's RadioGroup hook to set and get the proper props

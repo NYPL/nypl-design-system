@@ -1,4 +1,4 @@
-export enum ColorVariants {
+export enum BreadcrumbsTypes {
   Blogs = "blogs",
   BooksAndMore = "booksAndMore",
   Education = "education",

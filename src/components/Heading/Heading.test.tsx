@@ -4,7 +4,7 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Heading from "./Heading";
-import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
+import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 
 describe("Heading Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -113,8 +113,8 @@ describe("Heading", () => {
       <Heading
         id="h1"
         level={HeadingLevels.One}
-        text="Heading with Secondary displaySize"
-        displaySize={HeadingDisplaySizes.Secondary}
+        size={HeadingSizes.Secondary}
+        text="Heading with Secondary size"
       />
     );
     expect(screen.getByRole("heading", { level: 1 })).toHaveStyle({
@@ -140,8 +140,8 @@ describe("Heading", () => {
         <Heading
           id="customDisplaySize"
           level={HeadingLevels.One}
-          text="Heading with Secondary displaySize"
-          displaySize={HeadingDisplaySizes.Secondary}
+          size={HeadingSizes.Secondary}
+          text="Heading with Secondary size"
         />
       )
       .toJSON();

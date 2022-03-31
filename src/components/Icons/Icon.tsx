@@ -54,7 +54,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     iconRotation = IconRotationTypes.Rotate0,
     id = generateUUID(),
     name,
-    size = IconSizes.Medium,
+    size = IconSizes.Default,
     title = `${name} icon`,
     type = IconTypes.Default,
   } = props;

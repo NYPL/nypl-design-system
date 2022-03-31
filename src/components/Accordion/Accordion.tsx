@@ -7,11 +7,12 @@ import {
   AccordionPanel,
 } from "@chakra-ui/react";
 
+import { AccordionTypes } from "./AccordionTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
-import { AccordionTypes } from "./AccordionTypes";
-export interface AccordionContentDataProps {
+
+export interface AccordionDataProps {
   accordionType?: AccordionTypes;
   label: string;
   panel: string | React.ReactNode;
@@ -19,7 +20,7 @@ export interface AccordionContentDataProps {
 
 export interface AccordionProps {
   /** Array of data to display, and an optional accordionType */
-  contentData: AccordionContentDataProps[];
+  accordionData: AccordionDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
@@ -46,7 +47,7 @@ const getIcon = (isExpanded = false, index, id) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromContentData = (data = [], id) => {
+const getElementsFromData = (data = [], id) => {
   const colorMap = {
     [AccordionTypes.Default]: "ui.white",
     [AccordionTypes.Warning]: "ui.status.primary",
@@ -121,13 +122,13 @@ const getElementsFromContentData = (data = [], id) => {
  * multiple accordion items together.
  */
 function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const { contentData, id = generateUUID(), isDefaultOpen = false } = props;
+  const { accordionData, id = generateUUID(), isDefaultOpen = false } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
     <ChakraAccordion id={id} defaultIndex={[openFirstAccordion]} allowMultiple>
-      {getElementsFromContentData(contentData, id)}
+      {getElementsFromData(accordionData, id)}
     </ChakraAccordion>
   );
 }

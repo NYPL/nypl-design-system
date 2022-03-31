@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import { HeroTypes } from "./HeroTypes";
@@ -21,9 +20,8 @@ export const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New " +
   "York Public Library is an essential part of neighborhoods across the city. " +
   "Visit us today.";
-export const image = (
-  <Image src="https://placeimg.com/800/400/animals" alt="Image example" />
-);
+const imageAlt = "Image example";
+const imageSrc = "https://placeimg.com/800/400/animals";
 
 describe("Hero", () => {
   describe("axe accessbility tests", () => {
@@ -56,8 +54,9 @@ describe("Hero", () => {
               text="Hero Secondary"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -83,6 +82,7 @@ describe("Hero", () => {
     it("passes for type Campaign", async () => {
       const { container } = render(
         <Hero
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
           heroType={HeroTypes.Campaign}
           heading={
             <Heading
@@ -91,9 +91,9 @@ describe("Hero", () => {
               text="Hero Campaign"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
-          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          image={image}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -103,8 +103,9 @@ describe("Hero", () => {
       const { container } = render(
         <Hero
           heroType={HeroTypes.FiftyFifty}
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
-          image={image}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -146,8 +147,9 @@ describe("Hero", () => {
             text="Hero Secondary"
           />
         }
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={subHeaderText}
-        image={image}
       />
     );
 
@@ -183,6 +185,7 @@ describe("Hero", () => {
   it("renders Campaign Hero", () => {
     render(
       <Hero
+        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         heroType={HeroTypes.Campaign}
         heading={
           <Heading
@@ -191,9 +194,9 @@ describe("Hero", () => {
             text="Hero Campaign"
           />
         }
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        image={image}
       />
     );
 
@@ -214,8 +217,9 @@ describe("Hero", () => {
     render(
       <Hero
         heroType={HeroTypes.FiftyFifty}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
-        image={image}
       />
     );
 
@@ -251,11 +255,12 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        heroType={HeroTypes.FiftyFifty}
-        subHeaderText={otherSubHeaderText}
-        image={image}
-        foregroundColor="#123456"
         backgroundColor="#654321"
+        foregroundColor="#123456"
+        heroType={HeroTypes.FiftyFifty}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={otherSubHeaderText}
       />
     );
 
@@ -266,6 +271,8 @@ describe("Hero", () => {
 
     rerender(
       <Hero
+        backgroundColor="#654321"
+        foregroundColor="#123456"
         heroType={HeroTypes.Secondary}
         heading={
           <Heading
@@ -274,16 +281,30 @@ describe("Hero", () => {
             text="Hero Secondary"
           />
         }
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={subHeaderText}
-        image={image}
-        foregroundColor="#123456"
-        backgroundColor="#654321"
       />
     );
 
     expect(screen.getByTestId("hero-content")).not.toHaveAttribute(
       "style",
       "color: rgb(18, 52, 86); background-color: rgb(101, 67, 33);"
+    );
+  });
+
+  it("logs a warning if `imageSrc` prop is passed but not `imageAlt`", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        heroType={HeroTypes.Primary}
+        imageSrc={imageSrc}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      `NYPL Reservoir: The "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
     );
   });
 
@@ -306,15 +327,16 @@ describe("Hero", () => {
 
     rerender(
       <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
         heroType={HeroTypes.Primary}
         heading={heading}
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `image` prop has been passed, but the " +
-        "`HeroTypes.Primary` `heroType` variant will not use it."
+      "NYPL Reservoir Hero: The `imageSrc` and `imageAlt` props have been passed, " +
+        "but the `HeroTypes.Primary` `heroType` variant will not use it."
     );
   });
 
@@ -331,9 +353,10 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.Secondary}
         heading={heading}
-        subHeaderText={subHeaderText}
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         locationDetails={<>Some location details.</>}
+        subHeaderText={subHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -343,11 +366,12 @@ describe("Hero", () => {
 
     rerender(
       <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
         heroType={HeroTypes.Secondary}
         heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={subHeaderText}
-        image={image}
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -357,12 +381,13 @@ describe("Hero", () => {
 
     rerender(
       <Hero
+        backgroundColor="#654321"
+        foregroundColor="#123456"
         heroType={HeroTypes.Secondary}
         heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={subHeaderText}
-        image={image}
-        foregroundColor="#123456"
-        backgroundColor="#654321"
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -398,8 +423,9 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.Tertiary}
         heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
-        image={image}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -409,10 +435,10 @@ describe("Hero", () => {
 
     rerender(
       <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
         heroType={HeroTypes.Tertiary}
         heading={heading}
         subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -432,12 +458,13 @@ describe("Hero", () => {
     );
     const { rerender } = render(
       <Hero
+        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         heroType={HeroTypes.Campaign}
         heading={heading}
-        subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         locationDetails={<>Some location details.</>}
+        subHeaderText={otherSubHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -449,14 +476,15 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.Campaign}
         heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
-        image={image}
         locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use both the " +
-        "`backgroundImageSrc` and `image` props for the `HeroTypes.Campaign` " +
+        "`backgroundImageSrc` and `imageSrc` props for the `HeroTypes.Campaign` " +
         "`heroType` variant."
     );
 
@@ -471,7 +499,7 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use both the " +
-        "`backgroundImageSrc` and `image` props for the `HeroTypes.Campaign` " +
+        "`backgroundImageSrc` and `imageSrc` props for the `HeroTypes.Campaign` " +
         "`heroType` variant."
     );
   });
@@ -482,7 +510,8 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.FiftyFifty}
         subHeaderText={otherSubHeaderText}
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         locationDetails={<>Some location details.</>}
       />
     );
@@ -493,10 +522,11 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        heroType={HeroTypes.FiftyFifty}
-        subHeaderText={otherSubHeaderText}
-        image={image}
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+        heroType={HeroTypes.FiftyFifty}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={otherSubHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -533,8 +563,9 @@ describe("Hero", () => {
               text="Hero Secondary"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
@@ -549,8 +580,9 @@ describe("Hero", () => {
               text="Hero Secondary Books and More"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
@@ -565,8 +597,9 @@ describe("Hero", () => {
               text="Hero Secondary Locations"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
@@ -581,8 +614,9 @@ describe("Hero", () => {
               text="Hero Secondary"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
@@ -597,14 +631,16 @@ describe("Hero", () => {
               text="Hero Secondary What's On"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
     const campaign = renderer
       .create(
         <Hero
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
           heroType={HeroTypes.Campaign}
           heading={
             <Heading
@@ -613,9 +649,9 @@ describe("Hero", () => {
               text="Hero Campaign"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
-          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          image={image}
         />
       )
       .toJSON();
@@ -638,8 +674,9 @@ describe("Hero", () => {
       .create(
         <Hero
           heroType={HeroTypes.FiftyFifty}
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
-          image={image}
         />
       )
       .toJSON();

@@ -11,11 +11,11 @@ export enum ImageRatios {
 
 export enum ImageSizes {
   Default = "default",
-  Large = "large",
-  Medium = "medium",
-  Small = "small",
-  ExtraSmall = "xsmall",
   ExtraExtraSmall = "xxsmall",
+  ExtraSmall = "xsmall",
+  Small = "small",
+  Medium = "medium",
+  Large = "large",
 }
 
 export enum ImageTypes {

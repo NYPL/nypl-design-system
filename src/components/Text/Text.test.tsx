@@ -4,7 +4,7 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Text from "./Text";
-import { TextDisplaySizes } from "./TextTypes";
+import { TextSizes } from "./TextTypes";
 
 describe("Text Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -36,24 +36,14 @@ describe("Text", () => {
       .toJSON();
     const caption = renderer
       .create(
-        <Text displaySize={TextDisplaySizes.Caption}>
-          Animal Crossing is all that!
-        </Text>
+        <Text size={TextSizes.Caption}>Animal Crossing is all that!</Text>
       )
       .toJSON();
     const tag = renderer
-      .create(
-        <Text displaySize={TextDisplaySizes.Tag}>
-          Animal Crossing is all that!
-        </Text>
-      )
+      .create(<Text size={TextSizes.Tag}>Animal Crossing is all that!</Text>)
       .toJSON();
     const mini = renderer
-      .create(
-        <Text displaySize={TextDisplaySizes.Mini}>
-          Animal Crossing is all that!
-        </Text>
-      )
+      .create(<Text size={TextSizes.Mini}>Animal Crossing is all that!</Text>)
       .toJSON();
 
     expect(defaultText).toMatchSnapshot();

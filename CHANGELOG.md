@@ -8,12 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## Adds
+### Adds
 
 - Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
 - Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
 - Adds the `isFullWidth` prop to the `CheckboxGroup` and `RadioGroup` components. This sets the wrapper element to be full width for labels that need to span its container.
 - Adds an optional key – `accordionType` to the `Accordion`'s `contentData` prop, which allows users to switch the background color of the `Accordion`'s button.
+- Created new `LayoutTypes` enum for row and column layouts.
+- Adds the value "Default" to the `IconSizes` enum.
 
 ### Changes
 
@@ -25,6 +27,31 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `CardImage`'s margin bottom in the row and column layouts for mobile to be the same.
 - Updates the `CardImage` to have width 100% on mobile regardless of size.
 - Updates all the console warnings with consistent NYPL branding prefix label.
+- Renames the `Accordion` prop `contentData` to `accordionData`.
+- Renames the `Breadcrumbs` prop `colorVariant` to `breadcrumbsType`.
+- Renames the `Card` prop `center` to `isCentered`.
+- Updates the `Card` prop `layout` to use the `LayoutTypes` enum instead of `CardLayouts`.
+- Updates the `CheckboxGroup` prop `layout` to use the `LayoutTypes` enum instead of `CheckboxGroupLayoutTypes`.
+- Renames the `Heading` prop `displaySize` to `size.
+- Renames the `HeadingDisplaySizes` enum to `HeadingSizes.
+- Renames the `Hero` prop `image` to `imageComponent`.
+- Renames the `Image` prop `imageSize` to `size`.
+- Renames the `Notification` prop `centered` to `isCentered`.
+- Updates the `RadioGroup` prop `layout` to use the `LayoutTypes` enum instead of `RadioGroupLayoutTypes`.
+- Internal updates to the `SearchBar` component based on updates from the `Select` and `TextInput` components.
+- Renames the `Select` prop `type` to `selectType`.
+- Updates the `SkeletonLoader` prop `layout` to use the `LayoutTypes` enum instead of `SkeletonLoaderLayouts`.
+- Renames the `StructuredContentImage` prop `imageSize` to `size` (this component is based on the `Image` component).
+- Internal updates to the `StructuredContent` component based on updates from the `Image` and `Heading` components.
+- Renames the `Tabs` prop `contentData` to `tabsData`.
+- Renames the `Text` prop `displaySize` to `size`.
+- Renames the `TextInput` prop `variant` to `textInputType`.
+- Updates the `Card` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, isAtEnd, size, and src.
+- Updates the `Hero` prop `image` to `imageAlt` and `imageSrc`. Internally, an `Image` component is created.
+- Renames the `Image` component props `imageAspectRatio` to `aspectRatio`, `imageCaption` to `caption`, and `imageCredit` to `credit`.
+- Updates the `StructuredContent` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, position, size, and src.
+- Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`. Updates the values from `Large` and `Small` to `Default` and `Small`.
+- Minor update to the logic for the `ProgressIndicator` sizing prop and styles.
 
 ### Fixes
 
@@ -36,9 +63,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Fixes the extra bottom spacing in the `HeroTypes.Campaign` `Hero` variant for the mobile view.
 - Fixes the `Slider` component so it doesn't cause a stack overflow client-side issue when updating the slider thumbs through the keyboard arrows. The values are now returned through Chakra's `onChange` callback instead of the `onChangeEnd` callback.
 
+### Removals
+
+- Removes the `CardLayouts`, `CheckboxGroupLayoutTypes`, `RadioGroupLayoutTypes`, and `SkeletonLoaderLayouts` enums.
+- Removes the `CardTypes.tsx`,` CheckboxGroupLayoutTypes.tsx`, and `RadioGroupLayoutTypes.tsx` files.
+
 ## 0.25.12 (March 18, 2022)
 
-## Adds
+### Adds
 
 - Adds `Education` section colors to the color palette theme object.
 - Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.
