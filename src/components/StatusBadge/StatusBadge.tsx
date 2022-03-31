@@ -14,6 +14,10 @@ export interface StatusBadgeProps {
   level?: StatusBadgeTypes;
 }
 
+/**
+ * The `StatusBadge` component is used to display a visual badge for three
+ * different status levels.
+ */
 function StatusBadge(props: React.PropsWithChildren<StatusBadgeProps>) {
   const {
     children,
