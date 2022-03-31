@@ -97,7 +97,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.25.13`  |
 
 <Description of={Card} />
 
@@ -145,59 +145,56 @@ headings and CTAs.
       mainActionLink: undefined,
     }}
   >
-    {(args) => {
-      console.log("argS", args);
-      return (
-        <Card
-          {...args}
-          imageProps={{
-            alt: args["imageProps.alt"],
-            aspectRatio: imageRatiosEnumValues.getValue(
-              args["imageProps.aspectRatio"]
-            ),
-            component: args["imageProps.component"],
-            isAtEnd: args["imageProps.isAtEnd"],
-            size: imageSizesEnumValues.getValue(args["imageProps.size"]),
-            src: args["imageProps.src"],
-          }}
-          layout={LayoutTypesEnumValues.getValue(args.layout)}
-        >
-          <CardHeading level={HeadingLevels.Two} id="main-heading1">
-            Optional Header
-          </CardHeading>
-          <CardHeading level={HeadingLevels.Three} id="main-heading2">
-            Sollicitudin Lorem Tortor Purus Ornare
-          </CardHeading>
-          <CardContent>
-            Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-            libero, a pharetra augue. Nullam quis risus eget urna mollis ornare
-            vel eu leo. Nulla vitae elit libero, a pharetra augue.
-          </CardContent>
-          <CardActions topBorder bottomBorder>
-            <Button
-              onClick={action("clicked")}
-              id="main-button1"
-              buttonType={ButtonTypes.Primary}
-              type="submit"
-            >
-              Primary
-            </Button>
-            <Button
-              onClick={action("clicked")}
-              id="main-button2"
-              buttonType={ButtonTypes.Secondary}
-              type="submit"
-            >
-              Secondary
-            </Button>
-          </CardActions>
-          <CardActions>
-            <Link href="#">#hash1</Link>,<Link href="#">#hash2</Link>,
-            <Link href="#">#hash3</Link>
-          </CardActions>
-        </Card>
-      );
-    }}
+    {(args) => (
+      <Card
+        {...args}
+        imageProps={{
+          alt: args["imageProps.alt"],
+          aspectRatio: imageRatiosEnumValues.getValue(
+            args["imageProps.aspectRatio"]
+          ),
+          component: args["imageProps.component"],
+          isAtEnd: args["imageProps.isAtEnd"],
+          size: imageSizesEnumValues.getValue(args["imageProps.size"]),
+          src: args["imageProps.src"],
+        }}
+        layout={LayoutTypesEnumValues.getValue(args.layout)}
+      >
+        <CardHeading level={HeadingLevels.Two} id="main-heading1">
+          Optional Header
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Three} id="main-heading2">
+          Sollicitudin Lorem Tortor Purus Ornare
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nullam quis risus eget urna mollis ornare
+          vel eu leo. Nulla vitae elit libero, a pharetra augue.
+        </CardContent>
+        <CardActions topBorder bottomBorder>
+          <Button
+            onClick={action("clicked")}
+            id="main-button1"
+            buttonType={ButtonTypes.Primary}
+            type="submit"
+          >
+            Primary
+          </Button>
+          <Button
+            onClick={action("clicked")}
+            id="main-button2"
+            buttonType={ButtonTypes.Secondary}
+            type="submit"
+          >
+            Secondary
+          </Button>
+        </CardActions>
+        <CardActions>
+          <Link href="#">#hash1</Link>,<Link href="#">#hash2</Link>,
+          <Link href="#">#hash3</Link>
+        </CardActions>
+      </Card>
+    )}
   </Story>
 </Canvas>
 

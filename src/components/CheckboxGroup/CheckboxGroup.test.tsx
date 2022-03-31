@@ -1,7 +1,8 @@
-import * as React from "react";
+import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import * as generateUUID from "../../helpers/generateUUID";
@@ -9,14 +10,48 @@ import CheckboxGroup from "./CheckboxGroup";
 import Checkbox from "../Checkbox/Checkbox";
 import { LayoutTypes } from "../../helpers/enums";
 
-describe("Checkbox Accessibility", () => {
-  it("passes axe accessibility", async () => {
+describe("CheckboxGroup Accessibility", () => {
+  it("passes axe accessibility with string labels ", async () => {
     const { container } = render(
       <CheckboxGroup labelText="CheckboxGroup example" name="a11y-test">
         <Checkbox value="2" labelText="Checkbox 2" />
         <Checkbox value="3" labelText="Checkbox 3" />
         <Checkbox value="4" labelText="Checkbox 4" />
         <Checkbox value="5" labelText="Checkbox 5" />
+      </CheckboxGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+  it("passes axe accessibility with jsx labels", async () => {
+    const { container } = render(
+      <CheckboxGroup
+        labelText="jsxLabels"
+        name="jsxLabels"
+        id="jsxLabels"
+        isFullWidth
+      >
+        <Checkbox
+          id="arts"
+          labelText={
+            <Flex>
+              <span>Arts</span>
+              <Spacer />
+              <span>4</span>
+            </Flex>
+          }
+          value="arts"
+        />
+        <Checkbox
+          id="English"
+          labelText={
+            <Flex>
+              <span>English</span>
+              <Spacer />
+              <span>23</span>
+            </Flex>
+          }
+          value="English"
+        />
       </CheckboxGroup>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -119,8 +154,8 @@ describe("Checkbox", () => {
   });
 
   it("sets the next value through the onChange function", () => {
-    let newValue = [];
-    const onChange = (value) => {
+    let newValue: string[] = [];
+    const onChange = (value: string[]) => {
       newValue = value;
     };
     render(
@@ -346,6 +381,39 @@ describe("Checkbox", () => {
         </CheckboxGroup>
       )
       .toJSON();
+    const withJSXCheckboxLabels = renderer
+      .create(
+        <CheckboxGroup
+          id="jsxLabels"
+          isFullWidth
+          labelText="jsxLabels"
+          name="jsxLabels"
+        >
+          <Checkbox
+            id="arts"
+            labelText={
+              <Flex>
+                <span>Arts</span>
+                <Spacer />
+                <span>4</span>
+              </Flex>
+            }
+            value="arts"
+          />
+          <Checkbox
+            id="English"
+            labelText={
+              <Flex>
+                <span>English</span>
+                <Spacer />
+                <span>23</span>
+              </Flex>
+            }
+            value="English"
+          />
+        </CheckboxGroup>
+      )
+      .toJSON();
 
     expect(column).toMatchSnapshot();
     expect(row).toMatchSnapshot();
@@ -356,6 +424,7 @@ describe("Checkbox", () => {
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(withJSXCheckboxLabels).toMatchSnapshot();
   });
 
   it("should throw warning when a non-Checkbox component is used as a child", () => {
@@ -366,7 +435,8 @@ describe("Checkbox", () => {
       </CheckboxGroup>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
+      "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
+        "allowed as children."
     );
   });
 });

@@ -130,7 +130,7 @@ describe("Breadcrumbs Testing", () => {
 
   it("Throws error when nothing is passed into Breadcrumb", () => {
     expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
-      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
+      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   });
 });

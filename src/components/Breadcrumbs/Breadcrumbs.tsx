@@ -76,7 +76,7 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
 
   if (!breadcrumbsData || breadcrumbsData.length === 0) {
     throw new Error(
-      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
+      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   }
 

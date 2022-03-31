@@ -72,42 +72,52 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
 
   if (imageSrc && !imageAlt) {
     console.warn(
-      `Hero: the "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
+      `NYPL Reservoir: The "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
     );
   }
 
   if (heroType === HeroTypes.Primary) {
     if (!backgroundImageSrc) {
       console.warn(
-        `Hero: it is recommended to use the "backgroundImageSrc" prop for the PRIMARY Hero.`
+        "NYPL Reservoir Hero: It is recommended to use the `backgroundImageSrc` " +
+          "prop for the `HeroTypes.Primary` `heroType` variant."
       );
     }
     if (imageAlt && imageSrc) {
       console.warn(
-        `Hero: the "imageSrc" and "imageAlt" props have been passed, but the "PRIMARY" Hero will not use it.`
+        "NYPL Reservoir Hero: The `imageSrc` and `imageAlt` props have been " +
+          "passed, but the `HeroTypes.Primary` `heroType` variant will not use it."
       );
     }
   } else if (locationDetails) {
     console.warn(
-      `Hero: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
     );
   }
   if (HeroSecondaryTypes.includes(heroType) && backgroundImageSrc) {
     console.warn(
-      `Hero: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
+      "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
+        "but the `HeroTypes.Secondary` `heroType` variant will not use it."
     );
   }
   if (heroType === HeroTypes.Tertiary && (backgroundImageSrc || imageSrc)) {
-    console.warn(`Hero: TERTIARY hero will not use any of the image props.`);
+    console.warn(
+      "NYPL Reservoir Hero: The `HeroTypes.Tertiary` `heroType` variant hero " +
+        "will not use any of the image props."
+    );
   }
   if (heroType === HeroTypes.Campaign && (!backgroundImageSrc || !imageSrc)) {
     console.warn(
-      `Hero: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
+      "NYPL Reservoir Hero: It is recommended to use both the " +
+        "`backgroundImageSrc` and `imageSrc` props for the " +
+        "`HeroTypes.Campaign` `heroType` variant."
     );
   }
   if (heroType === HeroTypes.FiftyFifty && backgroundImageSrc) {
     console.warn(
-      `Hero: the "backgroundImageSrc" prop has been passed, but FIFTYFIFTY hero will not use it.`
+      "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
+        "but the `HeroTypes.FiftyFifty` `heroType` variant hero will not use it."
     );
   }
 
@@ -133,7 +143,9 @@ export default function Hero(props: React.PropsWithChildren<HeroProps>) {
     };
   } else if (foregroundColor || backgroundColor) {
     console.warn(
-      `Hero: the "foregroundColor" and/or "backgroundColor" props have been passed, but SECONDARY Hero will not use them.`
+      "NYPL Reservoir Hero: The `foregroundColor` and/or `backgroundColor` " +
+        "props have been passed, but the `HeroTypes.Secondary` `heroType` " +
+        "variant will not use them."
     );
   }
 

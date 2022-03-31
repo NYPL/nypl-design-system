@@ -319,11 +319,13 @@ describe("Card", () => {
     );
   });
 
-  it("Logs a warning when both `imageComponent` and `imageAspectRatio` are passed", () => {
+  it("Logs a warning when both `imageProps.component` and `imageProps.aspectRatio` are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(cardImageComponentAndRatio());
     expect(warn).toHaveBeenCalledWith(
-      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+      "NYPL Reservoir Card: Both the `imageProps.component` and `imageProps.aspectRatio` " +
+        "props were set but `imageProps.aspectRatio` will be ignored in favor " +
+        "of the aspect ratio on `imageProps.component` prop."
     );
   });
 

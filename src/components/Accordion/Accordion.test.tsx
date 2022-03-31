@@ -5,6 +5,7 @@ import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import Accordion from "./Accordion";
+import { AccordionTypes } from "./AccordionTypes";
 import Card, { CardContent, CardHeading } from "../Card/Card";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import { ImageRatios } from "../Image/ImageTypes";
@@ -192,8 +193,32 @@ describe("Accordion", () => {
         <Accordion accordionData={accordionData} id="accordian" isDefaultOpen />
       )
       .toJSON();
+    const withError = renderer
+      .create(
+        <Accordion
+          accordionData={[
+            { ...accordionData[0], accordionType: AccordionTypes.Error },
+          ]}
+          id="accordian"
+          isDefaultOpen
+        />
+      )
+      .toJSON();
+    const withWarning = renderer
+      .create(
+        <Accordion
+          accordionData={[
+            { ...accordionData[0], accordionType: AccordionTypes.Warning },
+          ]}
+          id="accordian"
+          isDefaultOpen
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(defaultOpen).toMatchSnapshot();
+    expect(withError).toMatchSnapshot();
+    expect(withWarning).toMatchSnapshot();
   });
 });

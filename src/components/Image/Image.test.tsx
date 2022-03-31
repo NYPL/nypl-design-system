@@ -59,7 +59,9 @@ describe("Image", () => {
   it("throws error when alt text is too long", () => {
     expect(() =>
       render(<Image src="test.png" alt={tooManyChars} />)
-    ).toThrowError("Alt Text must be less than 300 characters");
+    ).toThrowError(
+      "NYPL Reservoir Image: Alt text must be less than 300 characters."
+    );
   });
 
   it("Renders the UI snapshot correctly", () => {

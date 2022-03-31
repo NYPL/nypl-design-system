@@ -28,6 +28,8 @@ export interface RadioGroupProps {
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
+  /** Set's the `Radio`s' wrapper to be full width. */
+  isFullWidth?: boolean;
   /** Adds the 'aria-invalid' attribute to the input and
    * sets the error state when true. */
   isInvalid?: boolean;
@@ -68,6 +70,7 @@ const RadioGroup = React.forwardRef<
     id = generateUUID(),
     invalidText,
     isDisabled = false,
+    isFullWidth = false,
     isInvalid = false,
     isRequired = false,
     labelText,
@@ -99,7 +102,8 @@ const RadioGroup = React.forwardRef<
         noop();
       } else {
         console.warn(
-          "Only `Radio` components are allowed inside the `RadioGroup` component."
+          "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
+            "inside the `RadioGroup` component."
         );
       }
     }
@@ -120,7 +124,7 @@ const RadioGroup = React.forwardRef<
   });
 
   // Get the Chakra-based styles for the custom elements in this component.
-  const styles = useMultiStyleConfig("RadioGroup", {});
+  const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
 
   return (
     <Fieldset

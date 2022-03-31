@@ -11,6 +11,7 @@ import { LayoutTypes } from "../../helpers/enums";
 import Heading from "../Heading/Heading";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import useWindowSize from "../../hooks/useWindowSize";
 import generateUUID from "../../helpers/generateUUID";
 
 interface CardBaseProps {
@@ -185,18 +186,36 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     mainActionLink,
   } = props;
   const hasImage = imageProps.src || imageProps.component;
+  const [finalImageSize, setFinalImageSize] = React.useState<ImageSizes>(
+    imageProps.size
+  );
   const finalImageAspectRatio = imageProps.component
     ? ImageRatios.Original
     : imageProps.aspectRatio;
   const customColors = {};
   const cardContents = [];
+  const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 
   if (imageProps.component && imageProps.aspectRatio !== ImageRatios.Square) {
     console.warn(
-      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+      "NYPL Reservoir Card: Both the `imageProps.component` and `imageProps.aspectRatio` " +
+        "props were set but `imageProps.aspectRatio` will be ignored in favor " +
+        "of the aspect ratio on `imageProps.component` prop."
     );
   }
+
+  // The `Card`'s image should always display as 100% width on mobile. To
+  // achieve this, we set the size to `ImageSizes.Default` only when the
+  // viewport is less than "600px". Otherwise, we set the size to
+  // the value passed in via `imageSize`.
+  React.useEffect(() => {
+    if (windowDimensions.width < 600) {
+      setFinalImageSize(ImageSizes.Default);
+    } else {
+      setFinalImageSize(imageProps.size);
+    }
+  }, [windowDimensions.width, imageProps.size]);
 
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
@@ -268,8 +287,8 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
             credit={imageProps.credit}
             isAtEnd={imageProps.isAtEnd}
             layout={layout}
-            size={imageProps.size}
-            src={imageProps.src ? imageProps.src : null}
+            size={finalImageSize}
+            src={imageProps.src ? imageProps.src : undefined}
           />
         )}
         <Box className="card-body" __css={styles.body}>

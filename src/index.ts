@@ -17,6 +17,7 @@ export {
   VStack,
 } from "@chakra-ui/react";
 export { default as Accordion } from "./components/Accordion/Accordion";
+export { AccordionTypes } from "./components/Accordion/AccordionTypes";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export { BreadcrumbsTypes } from "./components/Breadcrumbs/BreadcrumbsTypes";
 export { default as Button } from "./components/Button/Button";

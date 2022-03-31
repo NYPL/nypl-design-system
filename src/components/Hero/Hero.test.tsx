@@ -17,7 +17,9 @@ export const subHeaderText = (
   </>
 );
 export const otherSubHeaderText =
-  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New " +
+  "York Public Library is an essential part of neighborhoods across the city. " +
+  "Visit us today.";
 const imageAlt = "Image example";
 const imageSrc = "https://placeimg.com/800/400/animals";
 
@@ -302,7 +304,7 @@ describe("Hero", () => {
     );
 
     expect(warn).toHaveBeenCalledWith(
-      `Hero: the "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
+      `NYPL Reservoir: The "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
     );
   });
 
@@ -319,7 +321,8 @@ describe("Hero", () => {
       <Hero heroType={HeroTypes.Primary} heading={heading} />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: it is recommended to use the "backgroundImageSrc" prop for the PRIMARY Hero.`
+      "NYPL Reservoir Hero: It is recommended to use the `backgroundImageSrc` " +
+        "prop for the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
@@ -332,7 +335,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: the "imageSrc" and "imageAlt" props have been passed, but the "PRIMARY" Hero will not use it.`
+      "NYPL Reservoir Hero: The `imageSrc` and `imageAlt` props have been passed, " +
+        "but the `HeroTypes.Primary` `heroType` variant will not use it."
     );
   });
 
@@ -356,7 +360,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
@@ -370,7 +375,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
+      "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
+        "but the `HeroTypes.Secondary` `heroType` variant will not use it."
     );
 
     rerender(
@@ -385,7 +391,9 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: the "foregroundColor" and/or "backgroundColor" props have been passed, but SECONDARY Hero will not use them.`
+      "NYPL Reservoir Hero: The `foregroundColor` and/or `backgroundColor` " +
+        "props have been passed, but the `HeroTypes.Secondary` `heroType` " +
+        "variant will not use them."
     );
   });
 
@@ -407,7 +415,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
@@ -420,7 +429,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: TERTIARY hero will not use any of the image props.`
+      "NYPL Reservoir Hero: The `HeroTypes.Tertiary` `heroType` variant hero " +
+        "will not use any of the image props."
     );
 
     rerender(
@@ -432,7 +442,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: TERTIARY hero will not use any of the image props.`
+      "NYPL Reservoir Hero: The `HeroTypes.Tertiary` `heroType` variant hero " +
+        "will not use any of the image props."
     );
   });
 
@@ -457,7 +468,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
@@ -471,7 +483,9 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
+      "NYPL Reservoir Hero: It is recommended to use both the " +
+        "`backgroundImageSrc` and `imageSrc` props for the `HeroTypes.Campaign` " +
+        "`heroType` variant."
     );
 
     rerender(
@@ -484,7 +498,9 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
+      "NYPL Reservoir Hero: It is recommended to use both the " +
+        "`backgroundImageSrc` and `imageSrc` props for the `HeroTypes.Campaign` " +
+        "`heroType` variant."
     );
   });
 
@@ -500,7 +516,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
@@ -513,7 +530,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Hero: the "backgroundImageSrc" prop has been passed, but FIFTYFIFTY hero will not use it.`
+      "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
+        "but the `HeroTypes.FiftyFifty` `heroType` variant hero will not use it."
     );
   });
 

@@ -102,7 +102,8 @@ export default function StructuredContent(
 
   if (hasImage && !imageProps.alt) {
     console.warn(
-      "StructuredContent: `imageProps.alt` prop is required when using an image."
+      "NYPL Reservoir StructuredContent: The `imageProps.alt` prop is required " +
+        "when using an image."
     );
   }
 
