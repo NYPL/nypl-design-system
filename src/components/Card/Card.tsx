@@ -11,6 +11,7 @@ import { CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
 import Image, { ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import useWindowSize from "../../hooks/useWindowSize";
 import generateUUID from "../../helpers/generateUUID";
 
 interface CardBaseProps {
@@ -180,12 +181,15 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     layout = CardLayouts.Column,
     mainActionLink,
   } = props;
+  const [finalImageSize, setFinalImageSize] =
+    React.useState<ImageSizes>(imageSize);
   const hasImage = imageSrc || imageComponent;
   const finalImageAspectRatio = imageComponent
     ? ImageRatios.Original
     : imageAspectRatio;
   const customColors = {};
   const cardContents = [];
+  const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 
   if (imageComponent && imageAspectRatio !== ImageRatios.Square) {
@@ -195,6 +199,18 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
         "aspect ratio on `imageComponent` prop."
     );
   }
+
+  // The `Card`'s image should always display as 100% width on mobile. To
+  // achieve this, we set the size to `ImageSizes.Default` only when the
+  // viewport is less than "600px". Otherwise, we set the size to
+  // the value passed in via `imageSize`.
+  React.useEffect(() => {
+    if (windowDimensions.width < 600) {
+      setFinalImageSize(ImageSizes.Default);
+    } else {
+      setFinalImageSize(imageSize);
+    }
+  }, [windowDimensions.width, imageSize]);
 
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
@@ -262,7 +278,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
             src={imageSrc ? imageSrc : null}
             component={imageComponent}
             alt={imageAlt}
-            imageSize={imageSize}
+            imageSize={finalImageSize}
             imageAspectRatio={finalImageAspectRatio}
             imageAtEnd={imageAtEnd}
             layout={layout}
