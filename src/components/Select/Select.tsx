@@ -45,6 +45,8 @@ export interface SelectProps {
   onChange?: (event: React.FormEvent) => void;
   /** Placeholder text in the select element. */
   placeholder?: string;
+  /** The variant to display. */
+  selectType?: SelectTypes;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the select's label onscreen or hide it. Refer
@@ -52,8 +54,6 @@ export interface SelectProps {
   showLabel?: boolean;
   /** Whether or not to display the "Required"/"Optional" text in the label text. */
   showOptReqLabel?: boolean;
-  /** The variant to display. */
-  type?: SelectTypes;
   /** The value of the selected option.
    * Should be passed along with `onChange` for controlled components. */
   value?: string;
@@ -80,16 +80,18 @@ export const Select = chakra(
         name,
         onChange,
         placeholder,
+        selectType = SelectTypes.Default,
         showHelperInvalidText = true,
         showLabel = true,
         showOptReqLabel = true,
-        type = SelectTypes.Default,
         value = "",
         ...rest
       } = props;
       const ariaAttributes = {};
       const optReqFlag = isRequired ? "Required" : "Optional";
-      const styles = useMultiStyleConfig("CustomSelect", { variant: type });
+      const styles = useMultiStyleConfig("CustomSelect", {
+        variant: selectType,
+      });
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
@@ -105,18 +107,6 @@ export const Select = chakra(
           labelText && footnote ? `${labelText} - ${footnote}` : labelText;
       } else if (helperText) {
         ariaAttributes["aria-describedby"] = `${id}-helperText`;
-      }
-
-      if (React.Children.count(children) > 10) {
-        console.warn(
-          "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
-        );
-      }
-
-      if (React.Children.count(children) < 4) {
-        console.warn(
-          "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
-        );
       }
 
       return (

@@ -6,10 +6,8 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import {
-  SkeletonLoaderImageRatios,
-  SkeletonLoaderLayouts,
-} from "./SkeletonLoaderTypes";
+import { SkeletonLoaderImageRatios } from "./SkeletonLoaderTypes";
+import { LayoutTypes } from "../../helpers/enums";
 
 export interface SkeletonLoaderProps {
   /** Additional class name for the Skeleton component. */
@@ -26,8 +24,8 @@ export interface SkeletonLoaderProps {
   /** Optional boolean value to control visibility of border around skeleton loader. */
   isBordered?: boolean;
   /** Optional value to control the position of the image placeholder;
-   * default value is `SkeletonLoaderLayouts.Column`. */
-  layout?: SkeletonLoaderLayouts;
+   * default value is `LayoutTypes.Column`. */
+  layout?: LayoutTypes;
   /** Optional boolean value to control visibility of button placeholder. */
   showButton?: boolean;
   /** Optional boolean value to control visibility of content placeholder. */
@@ -54,7 +52,7 @@ export const SkeletonLoader = chakra(
       headingSize = 1,
       imageAspectRatio = SkeletonLoaderImageRatios.Square,
       isBordered = false,
-      layout = SkeletonLoaderLayouts.Column,
+      layout = LayoutTypes.Column,
       showButton = false,
       showContent = true,
       showHeading = true,

@@ -8,23 +8,30 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { CardLayouts } from "./CardTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import Heading from "../Heading/Heading";
-import Image, { ImageProps } from "../Image/Image";
+import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import useWindowSize from "../../hooks/useWindowSize";
 import generateUUID from "../../helpers/generateUUID";
 
 interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
   isCentered?: boolean;
   /** Optional value to render the layout in a row or column.
-   * Default is `CardLayouts.Column`. */
-  layout?: CardLayouts;
+   * Default is `LayoutTypes.Column`. */
+  layout?: LayoutTypes;
 }
 
 interface CardLinkBoxProps {
   /** Main link to use when the full `Card` component should be clickable. */
   mainActionLink?: string;
+}
+
+// Used internally only for the `imageProps` prop for the `Card` component.
+interface CardImageProps extends ComponentImageProps {
+  /** Optional boolean value to control the position of the `CardImage`. */
+  isAtEnd?: boolean;
 }
 
 interface CardActionsProps extends CardBaseProps {
@@ -36,9 +43,10 @@ interface CardActionsProps extends CardBaseProps {
   topBorder?: boolean;
 }
 
-interface CardImageProps extends CardBaseProps, ImageProps {
+/** Used only internally for the `CardImage` component. */
+interface CardImageComponentProps extends CardBaseProps, ImageProps {
   /** Optional boolean value to control the position of the `CardImage`. */
-  imageAtEnd?: boolean;
+  isAtEnd?: boolean;
 }
 
 export interface CardProps extends CardBaseProps, CardLinkBoxProps {
@@ -50,24 +58,11 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   foregroundColor?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** Text description of the image; to follow best practices for accessibility,
-   * this prop should not be left blank if `imageSrc` is passed. */
-  imageAlt?: string;
-  /** Optional value to control the aspect ratio of the `CardImage`; default
-   * value is `ImageRatios.Square`. */
-  imageAspectRatio?: ImageRatios;
-  /** Optional boolean value to control the position of the `CardImage`. */
-  imageAtEnd?: boolean;
-  /** Custom image component used in place of DS `Image` component. */
-  imageComponent?: JSX.Element;
-  /** Optional value to control the size of the `CardImage`. Default value is
-   * `ImageSizes.Default`. */
-  imageSize?: ImageSizes;
-  /** The path to the image displayed within the `Card` component. */
-  imageSrc?: string;
   /** Optional boolean value to control the visibility of a border around
    * the card. */
   isBordered?: boolean;
+  /** Object used to create and render the `Image` component. */
+  imageProps?: CardImageProps;
 }
 
 /**
@@ -75,31 +70,37 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
  * renders an `Image` component but with overriding styles specific to the
  * `Card` component.
  */
-function CardImage(props: React.ComponentProps<"img"> & CardImageProps) {
+function CardImage(
+  props: React.ComponentProps<"img"> & CardImageComponentProps
+) {
   const {
     alt,
-    isCentered,
+    aspectRatio,
+    caption,
     component,
-    imageSize,
-    imageAspectRatio,
-    src,
-    imageAtEnd,
+    credit,
+    isAtEnd,
+    isCentered,
     layout,
+    size,
+    src,
   } = props;
   // Additional styles to add to the `Image` component.
   const styles = useStyleConfig("CardImage", {
+    imageIsAtEnd: isAtEnd,
     isCentered,
-    imageAtEnd,
-    imageSize,
     layout,
+    size,
   });
   return (
     <Box __css={styles}>
       <Image
         alt={alt}
+        caption={caption}
         component={component}
-        imageAspectRatio={imageAspectRatio}
-        imageSize={imageSize}
+        credit={credit}
+        aspectRatio={aspectRatio}
+        size={size}
         src={src}
       />
     </Box>
@@ -125,13 +126,13 @@ export const CardContent = chakra((props: React.PropsWithChildren<{}>) => {
 // CardActions child-component
 export const CardActions = chakra(
   (props: React.PropsWithChildren<CardActionsProps>) => {
-    const { bottomBorder, children, topBorder, isCentered, layout, ...rest } =
+    const { bottomBorder, children, isCentered, layout, topBorder, ...rest } =
       props;
     const styles = useStyleConfig("CardActions", {
       bottomBorder,
-      topBorder,
       isCentered,
       layout,
+      topBorder,
     });
 
     return (
@@ -185,40 +186,62 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
     className,
     foregroundColor,
     id = generateUUID(),
-    imageAlt = "",
-    imageAspectRatio = ImageRatios.Square,
-    imageAtEnd,
-    imageComponent,
-    imageSize = ImageSizes.Default,
-    imageSrc,
+    imageProps = {
+      alt: "",
+      aspectRatio: ImageRatios.Square,
+      caption: undefined,
+      component: undefined,
+      credit: undefined,
+      isAtEnd: false,
+      size: ImageSizes.Default,
+      src: "",
+    },
     isBordered,
     isCentered = false,
-    layout = CardLayouts.Column,
+    layout = LayoutTypes.Column,
     mainActionLink,
     ...rest
   } = props;
-  const hasImage = imageSrc || imageComponent;
-  const finalImageAspectRatio = imageComponent
+  const hasImage = imageProps.src || imageProps.component;
+  const [finalImageSize, setFinalImageSize] = React.useState<ImageSizes>(
+    imageProps.size
+  );
+  const finalImageAspectRatio = imageProps.component
     ? ImageRatios.Original
-    : imageAspectRatio;
+    : imageProps.aspectRatio;
   const customColors = {};
   const cardContents = [];
+  const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 
-  if (imageComponent && imageAspectRatio !== ImageRatios.Square) {
+  if (imageProps.component && imageProps.aspectRatio !== ImageRatios.Square) {
     console.warn(
-      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+      "NYPL Reservoir Card: Both the `imageProps.component` and `imageProps.aspectRatio` " +
+        "props were set but `imageProps.aspectRatio` will be ignored in favor " +
+        "of the aspect ratio on `imageProps.component` prop."
     );
   }
+
+  // The `Card`'s image should always display as 100% width on mobile. To
+  // achieve this, we set the size to `ImageSizes.Default` only when the
+  // viewport is less than "600px". Otherwise, we set the size to
+  // the value passed in via `imageSize`.
+  React.useEffect(() => {
+    if (windowDimensions.width < 600) {
+      setFinalImageSize(ImageSizes.Default);
+    } else {
+      setFinalImageSize(imageProps.size);
+    }
+  }, [windowDimensions.width, imageProps.size]);
 
   backgroundColor && (customColors["backgroundColor"] = backgroundColor);
   foregroundColor && (customColors["color"] = foregroundColor);
 
   const styles = useMultiStyleConfig("Card", {
+    hasImage,
+    imageIsAtEnd: imageProps.isAtEnd,
     isBordered,
     isCentered,
-    hasImage,
-    imageAtEnd,
     layout,
     mainActionLink,
   });
@@ -260,11 +283,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
       child.type === CardActions ||
       child.props.mdxType === "CardActions"
     ) {
-      const elem = React.cloneElement(child, {
-        key,
-        isCentered,
-        layout,
-      });
+      const elem = React.cloneElement(child, { key, isCentered, layout });
       cardContents.push(elem);
     }
   });
@@ -282,13 +301,15 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
       >
         {hasImage && (
           <CardImage
-            src={imageSrc ? imageSrc : null}
-            component={imageComponent}
-            alt={imageAlt}
-            imageSize={imageSize}
-            imageAspectRatio={finalImageAspectRatio}
-            imageAtEnd={imageAtEnd}
+            alt={imageProps.alt}
+            aspectRatio={finalImageAspectRatio}
+            caption={imageProps.caption}
+            component={imageProps.component}
+            credit={imageProps.credit}
+            isAtEnd={imageProps.isAtEnd}
             layout={layout}
+            size={finalImageSize}
+            src={imageProps.src ? imageProps.src : undefined}
           />
         )}
         <Box className="card-body" __css={styles.body}>

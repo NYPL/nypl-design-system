@@ -1,21 +1,16 @@
 const containerStyles = {
-  borderLeftWidth: "1px",
-  borderRightWidth: "1px",
-  borderColor: "ui.gray.medium",
+  border: "none",
   width: "100%",
 };
 const buttonStyles = {
-  border: "none",
-  fontWeight: 500,
-  _hover: {
-    bg: "ui.gray.light-cool",
-  },
+  borderWidth: "1px",
+  fontWeight: "medium",
 };
 const panelStyles = {
-  paddingTop: "xs",
-  paddingRight: "xxxl",
-  paddingLeft: "s",
-  paddingBottom: "xs",
+  padding: "s",
+  borderLeftWidth: "1px",
+  borderRightWidth: "1px",
+  borderBottomWidth: "1px",
 };
 
 const Accordion = {

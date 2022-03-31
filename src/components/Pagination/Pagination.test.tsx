@@ -398,7 +398,9 @@ describe("Pagination", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Pagination: Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+        "NYPL Reservoir Pagination: Props for both `getPageHref` and " +
+          "`onPageChange` are passed. The component will default to using " +
+          "`getPageHref`."
       );
     });
 
@@ -409,7 +411,8 @@ describe("Pagination", () => {
         <Pagination pageCount={10} currentPage={2} getPageHref={getPageHref} />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Pagination: The `currentPage` prop does not work with the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
+        "NYPL Reservoir Pagination: The `currentPage` prop does not work with " +
+          "the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
       );
     });
   });

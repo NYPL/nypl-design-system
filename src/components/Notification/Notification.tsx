@@ -13,12 +13,12 @@ import generateUUID from "../../helpers/generateUUID";
 interface BaseProps {
   /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
-  /** Optional prop to control horizontal alignment of the `Notification` content */
-  centered?: boolean;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** Optional prop to control horizontal alignment of the `Notification` content */
+  isCentered?: boolean;
   /** Optional prop to control the coloring of the `Notification` text and the
    * visibility of an applicable icon. */
   notificationType?: NotificationTypes;
@@ -27,7 +27,7 @@ interface BaseProps {
 // Used for `NotificationHeading` and `Notification`
 type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 // Used for `NotificationContent`
-type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
+type BasePropsWithoutIsCentered = Omit<BaseProps, "isCentered">;
 
 export interface NotificationProps extends BasePropsWithoutAlignText {
   /** Label used to describe the `Notification`'s aside HTML element. */
@@ -54,10 +54,10 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
  */
 export const NotificationHeading = chakra(
   (props: React.PropsWithChildren<BasePropsWithoutAlignText>) => {
-    const { centered, children, icon, id, notificationType, ...rest } = props;
+    const { children, icon, id, isCentered, notificationType, ...rest } = props;
     const styles = useMultiStyleConfig("NotificationHeading", {
-      centered,
       icon,
+      isCentered,
       notificationType,
     });
     return (
@@ -79,7 +79,7 @@ export const NotificationHeading = chakra(
  * NotificationContent child-component.
  */
 export const NotificationContent = chakra(
-  (props: React.PropsWithChildren<BasePropsWithoutCentered>) => {
+  (props: React.PropsWithChildren<BasePropsWithoutIsCentered>) => {
     const { alignText, children, icon, notificationType, ...rest } = props;
     const styles = useMultiStyleConfig("NotificationContent", {
       alignText,
@@ -102,11 +102,11 @@ export const NotificationContent = chakra(
 export const Notification = chakra((props: NotificationProps) => {
   const {
     ariaLabel,
-    centered = false,
     className,
     dismissible = false,
     icon,
     id = generateUUID(),
+    isCentered = false,
     noMargin = false,
     notificationContent,
     notificationHeading,
@@ -117,8 +117,8 @@ export const Notification = chakra((props: NotificationProps) => {
   const [isOpen, setIsOpen] = useState(true);
   const handleClose = () => setIsOpen(false);
   const styles = useMultiStyleConfig("Notification", {
-    centered,
     dismissible,
+    isCentered,
     noMargin,
     notificationType,
   });
@@ -183,16 +183,16 @@ export const Notification = chakra((props: NotificationProps) => {
   const iconElem = iconElement();
   const childHeading = notificationHeading && (
     <NotificationHeading
-      centered={centered}
       icon={iconElem}
       id={id}
+      isCentered={isCentered}
       notificationType={notificationType}
     >
       {notificationHeading}
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText = childHeading && showIcon && (!!icon || !centered);
+  const alignText = childHeading && showIcon && (!!icon || !isCentered);
   const childContent = (
     <NotificationContent
       alignText={alignText}

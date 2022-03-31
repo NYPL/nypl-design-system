@@ -29,6 +29,12 @@ const Select = {
   parts: ["select", "helper"],
   baseStyle: {
     marginBottom: "xs",
+    // The backgroundColor set to "ui.white" hides the arrow SVG icon when
+    // the component is focused. The background is added for dark mode and
+    // so we need to add specific selector.
+    ".chakra-select__icon-wrapper": {
+      zIndex: "9999",
+    },
     helper: {
       ...helperTextMargin,
     },

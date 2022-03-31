@@ -252,7 +252,7 @@ exports[`Image Renders the UI snapshot correctly 18`] = `
 </div>
 `;
 
-exports[`Image Renders the UI snapshot correctly 17`] = `
+exports[`Image Renders the UI snapshot correctly 19`] = `
 <img
   alt=""
   className="css-0"
@@ -260,7 +260,7 @@ exports[`Image Renders the UI snapshot correctly 17`] = `
 />
 `;
 
-exports[`Image Renders the UI snapshot correctly 18`] = `
+exports[`Image Renders the UI snapshot correctly 20`] = `
 <img
   alt=""
   className="css-0"

@@ -6,8 +6,8 @@ import renderer from "react-test-renderer";
 import Select from "./Select";
 
 const baseProps = {
-  labelText: "What is your favorite color?",
   helperText: "This is the helper text.",
+  labelText: "What is your favorite color?",
   name: "color",
 };
 const baseOptions = (
@@ -220,41 +220,6 @@ describe("Select", () => {
       target: { value: "white" },
     });
     expect(value).toEqual("white");
-  });
-
-  it("should throw warning when fewer than 4 options", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <Select {...baseProps}>
-        <option value="red">Red</option>
-      </Select>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
-    );
-  });
-
-  it("should throw warning when there are more than 10 options", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <Select {...baseProps}>
-        <option aria-selected={false}>test1</option>
-        <option aria-selected={false}>test2</option>
-        <option aria-selected={false}>test3</option>
-        <option aria-selected={false}>test4</option>
-        <option aria-selected={false}>test5</option>
-        <option aria-selected={false}>test6</option>
-        <option aria-selected={false}>test7</option>
-        <option aria-selected={false}>test8</option>
-        <option aria-selected={false}>test9</option>
-        <option aria-selected={false}>test10</option>
-        <option aria-selected={false}>test11</option>
-      </Select>
-    );
-
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
-    );
   });
 
   it("Renders the UI snapshot correctly", () => {

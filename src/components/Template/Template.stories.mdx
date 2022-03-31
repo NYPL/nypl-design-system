@@ -550,18 +550,14 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
             ]}
           />
           <Hero
+            backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
             heroType={HeroTypes.Campaign}
             heading={
               <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
             }
+            imageAlt="Image example"
+            imageSrc="https://placeimg.com/800/400/animals"
             subHeaderText={otherSubHeaderText}
-            backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-            image={
-              <Image
-                src="https://placeimg.com/800/400/animals"
-                alt="Image example"
-              />
-            }
           />
         </TemplateBreakout>
       </TemplateHeader>
@@ -584,7 +580,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
         </TemplateContentTop>
         <TemplateContentPrimary>
           <p>This is the main content!</p>
-          <Accordion contentData={faqContent} />
+          <Accordion accordionData={faqContent} />
           <HorizontalRule />
           <p>Fill out the form!</p>
           <Form action="/end/point">
@@ -621,10 +617,12 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
         <TemplateContentSidebar>
           <p>Sidebar information in a `Card` component.</p>
           <Card
-            imageSrc="https://placeimg.com/400/200/animals"
-            imageAlt="Alt text"
-            imageAspectRatio={ImageRatios.Square}
-            imageSize={ImageSizes.Small}
+            imageProps={{
+              alt: "Alt text",
+              aspectRatio: ImageRatios.Square,
+              size: ImageSizes.Small,
+              src: "https://placeimg.com/400/200/animals",
+            }}
             isCentered
           >
             <CardHeading level={HeadingLevels.Two} id="heading1">
@@ -643,9 +641,11 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
       <TemplateFooter>
         <Card
           id="custom-card"
-          imageAlt="Alt text"
-          imageSrc="https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
-          imageAspectRatio={ImageRatios.SixteenByNine}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.SixteenByNine,
+            src: "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png",
+          }}
           layout="horizontal"
           backgroundColor="#616161"
           foregroundColor="#FFF"

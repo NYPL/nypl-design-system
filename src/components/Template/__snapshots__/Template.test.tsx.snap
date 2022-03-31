@@ -123,6 +123,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
   </header>
   <main
     className="css-0"
+    id="mainContent"
   >
     <div
       className="css-0"
@@ -169,7 +170,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
 </div>
 `;
 
-exports[`Template components Renders the UI snapshot correctly 3`] = `
+exports[`Template components renders the UI snapshot correctly 3`] = `
 <div
   className="css-1y4kn3e"
 >
@@ -207,6 +208,7 @@ exports[`Template components Renders the UI snapshot correctly 3`] = `
   </header>
   <main
     className="css-0"
+    id="mainContent"
   >
     <div
       className="css-0"
@@ -253,7 +255,7 @@ exports[`Template components Renders the UI snapshot correctly 3`] = `
 </div>
 `;
 
-exports[`Template components Renders the UI snapshot correctly 4`] = `
+exports[`Template components renders the UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"

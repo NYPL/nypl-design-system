@@ -9,6 +9,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
+import { HeadingLevels } from "../Heading/HeadingTypes";
 import Image from "./Image";
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
@@ -49,25 +50,25 @@ export const imageBlockStyles = {
       description:
         "Alternate text description of the image. Needed for accessibility purposes.",
     },
+    aspectRatio: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageRatios.Original" } },
+      options: ratiosEnumValues.options,
+    },
     className: {
       control: false,
       description: "Additional class name for the component to use.",
     },
     component: { control: false },
-    imageAspectRatio: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "ImageRatios.Original" } },
-      options: ratiosEnumValues.options,
-    },
-    imageSize: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "ImageSizes.Default" } },
-      options: sizesEnumValues.options,
-    },
     imageType: {
       control: { type: "select" },
       table: { defaultValue: { summary: "ImageTypes.Default" } },
       options: typesEnumValues.options,
+    },
+    size: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "ImageSizes.Default" } },
+      options: sizesEnumValues.options,
     },
     src: {
       description:
@@ -87,7 +88,7 @@ export const imageBlockStyles = {
 
 <p>
   If you want a simple HTML `img` element then don't pass in values for the
-  `imageAspectRatio` or `imageSize` props.
+  `aspectRatio` or `size` props.
 </p>
 
 <Canvas>
@@ -98,22 +99,22 @@ export const imageBlockStyles = {
       additionalImageStyles: undefined,
       additionalWrapperStyles: undefined,
       alt: "Alt text",
+      aspectRatio: "ImageRatios.TwoByOne",
+      caption: "Image caption",
       className: undefined,
       component: undefined,
-      imageAspectRatio: "ImageRatios.TwoByOne",
-      imageCaption: "Image caption",
-      imageCredit: "Image credit",
-      imageSize: "ImageSizes.Medium",
+      credit: "Image credit",
       imageType: "ImageTypes.Default",
+      size: "ImageSizes.Medium",
       src: "https://placeimg.com/400/300/animals",
     }}
   >
     {(args) => (
       <Image
         {...args}
-        imageAspectRatio={ratiosEnumValues.getValue(args.imageAspectRatio)}
-        imageSize={sizesEnumValues.getValue(args.imageSize)}
+        aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
         imageType={typesEnumValues.getValue(args.imageType)}
+        size={sizesEnumValues.getValue(args.size)}
       />
     )}
   </Story>
@@ -123,9 +124,9 @@ export const imageBlockStyles = {
 
 ## Image Figure
 
-By passing in `imageCredit` or `imageCaption`, the `Image` component will
+By passing in `credit` or `caption`, the `Image` component will
 render an HTML `figure` element and render an `img` element inside with the
-proper props. If no `imageCredit` or `imageCaption` prop values are passed,
+proper props. If no `credit` or `caption` prop values are passed,
 then an `img` element will be rendered with or without wrapper style divs.
 
 <Canvas>
@@ -133,19 +134,19 @@ then an `img` element will be rendered with or without wrapper style divs.
     name="Figure and figcaption"
     args={{
       alt: "Alt text",
-      imageAspectRatio: ImageRatios.ThreeByTwo,
-      imageCaption: "Image caption",
-      imageCredit: "Image credit",
-      imageSize: ImageSizes.Medium,
+      aspectRatio: ImageRatios.ThreeByTwo,
+      caption: "Image caption",
+      credit: "Image credit",
       imageType: ImageTypes.Default,
+      size: ImageSizes.Medium,
       src: "https://placeimg.com/400/300/animals",
     }}
     argTypes={{
-      imageAspectRatio: { table: { disable: true } },
-      imageCaption: { table: { disable: true } },
-      imageCredit: { table: { disable: true } },
-      imageSize: { table: { disable: true } },
+      aspectRatio: { table: { disable: true } },
+      caption: { table: { disable: true } },
+      credit: { table: { disable: true } },
       imageType: { table: { disable: true } },
+      size: { table: { disable: true } },
       src: { table: { disable: true } },
     }}
   >
@@ -155,61 +156,85 @@ then an `img` element will be rendered with or without wrapper style divs.
 
 ## Image Sizes
 
-Use the `ImageSizes` prop to set the desired size.
+Use the `size` prop to set the desired size with the `ImageSizes` enum.
 
 <Canvas>
   <Story name="Image Sizes">
     <SimpleGrid columns={1}>
       <div style={{ textAlign: "center" }}>
-        <Heading id="ExtraExtraSmall" text="ImageSizes.ExtraExtraSmall" />
+        <Heading
+          id="ExtraExtraSmall"
+          level={HeadingLevels.Four}
+          text="ImageSizes.ExtraExtraSmall"
+        />
         <Image
           alt="Alt text"
-          imageCaption="64px"
-          imageSize={ImageSizes.ExtraExtraSmall}
+          caption="64px"
+          size={ImageSizes.ExtraExtraSmall}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="ExtraSmall" text="ImageSizes.ExtraSmall" />
+        <Heading
+          id="ExtraSmall"
+          level={HeadingLevels.Four}
+          text="ImageSizes.ExtraSmall"
+        />
         <Image
           alt="Alt text"
-          imageCaption="96px"
-          imageSize={ImageSizes.ExtraSmall}
+          caption="96px"
+          size={ImageSizes.ExtraSmall}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="Small" text="ImageSizes.Small" />
+        <Heading
+          id="Small"
+          level={HeadingLevels.Four}
+          text="ImageSizes.Small"
+        />
         <Image
           alt="Alt text"
-          imageCaption="165px"
-          imageSize={ImageSizes.Small}
+          caption="165px"
+          size={ImageSizes.Small}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="Medium" text="ImageSizes.Medium" />
+        <Heading
+          id="Medium"
+          level={HeadingLevels.Four}
+          text="ImageSizes.Medium"
+        />
         <Image
           alt="Alt text"
-          imageCaption="225px"
-          imageSize={ImageSizes.Medium}
+          caption="225px"
+          size={ImageSizes.Medium}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="Large" text="ImageSizes.Large" />
+        <Heading
+          id="Large"
+          level={HeadingLevels.Four}
+          text="ImageSizes.Large"
+        />
         <Image
           alt="Alt text"
-          imageCaption="360px"
-          imageSize={ImageSizes.Large}
+          caption="360px"
+          size={ImageSizes.Large}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={{ textAlign: "center" }}>
-        <Heading id="Default" text="ImageSizes.Default" />
+        <Heading
+          id="Default"
+          level={HeadingLevels.Four}
+          text="ImageSizes.Default"
+        />
         <Image
           alt="Alt text"
-          imageCaption="100%"
+          caption="100%"
           src="https://placeimg.com/400/300/animals"
         />
       </div>
@@ -219,8 +244,8 @@ Use the `ImageSizes` prop to set the desired size.
 
 ## Image Aspect Ratios
 
-Use the `imageAspectRatio` prop to set the desired aspect ratio. Note: the
-following example has `imageSize` set to `ImageSizes.Small`.
+Use the `aspectRatio` prop to set the desired aspect ratio. Note: the
+following example has `size` set to `ImageSizes.Small`.
 
 For a better viewing experience, the `Image` components below have been wrapped
 in an element with a fixed width value.
@@ -229,66 +254,98 @@ in an element with a fixed width value.
   <Story name="Image Aspect Ratios">
     <SimpleGrid columns={1}>
       <div style={imageBlockStyles}>
-        <Heading id="fourbythree" text="ImageRatios.FourByThree" />
+        <Heading
+          id="fourbythree"
+          level={HeadingLevels.Four}
+          text="ImageRatios.FourByThree"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.FourByThree}
+          aspectRatio={ImageRatios.FourByThree}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="onebytwo" text="ImageRatios.OneByTwo" />
+        <Heading
+          id="onebytwo"
+          level={HeadingLevels.Four}
+          text="ImageRatios.OneByTwo"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.OneByTwo}
+          aspectRatio={ImageRatios.OneByTwo}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="original" text="ImageRatios.Original" />
+        <Heading
+          id="original"
+          level={HeadingLevels.Four}
+          text="ImageRatios.Original"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.Original}
+          aspectRatio={ImageRatios.Original}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="sixteenbynine" text="ImageRatios.SixteenByNine" />
+        <Heading
+          id="sixteenbynine"
+          level={HeadingLevels.Four}
+          text="ImageRatios.SixteenByNine"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.SixteenByNine}
+          aspectRatio={ImageRatios.SixteenByNine}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="square" text="ImageRatios.Square" />
+        <Heading
+          id="square"
+          level={HeadingLevels.Four}
+          text="ImageRatios.Square"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.Square}
+          aspectRatio={ImageRatios.Square}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="threebyfour" text="ImageRatios.ThreeByFour" />
+        <Heading
+          id="threebyfour"
+          level={HeadingLevels.Four}
+          text="ImageRatios.ThreeByFour"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.ThreeByFour}
+          aspectRatio={ImageRatios.ThreeByFour}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="threebytwo" text="ImageRatios.ThreeByTwo" />
+        <Heading
+          id="threebytwo"
+          level={HeadingLevels.Four}
+          text="ImageRatios.ThreeByTwo"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.ThreeByTwo}
+          aspectRatio={ImageRatios.ThreeByTwo}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="twobyone" text="ImageRatios.TwoByOne" />
+        <Heading
+          id="twobyone"
+          level={HeadingLevels.Four}
+          text="ImageRatios.TwoByOne"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          aspectRatio={ImageRatios.TwoByOne}
           src="https://placeimg.com/400/300/animals"
         />
       </div>
@@ -299,7 +356,7 @@ in an element with a fixed width value.
 ## Image Types
 
 Use the `imageType` prop to get an image variant. Note that to get a perfect
-circle, the `imageAspectRatio` prop _must_ be set to `ImageRatios.Square`.
+circle, the `aspectRatio` prop _must_ be set to `ImageRatios.Square`.
 
 For a better viewing experience, the `Image` components below have been wrapped
 in an element with a fixed width value.
@@ -308,19 +365,27 @@ in an element with a fixed width value.
   <Story name="Image Types">
     <SimpleGrid columns={1}>
       <div style={imageBlockStyles}>
-        <Heading id="default" text="ImageTypes.Default" />
+        <Heading
+          id="default"
+          level={HeadingLevels.Four}
+          text="ImageTypes.Default"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.Square}
+          aspectRatio={ImageRatios.Square}
           imageType={ImageTypes.Default}
           src="https://placeimg.com/400/400/animals"
         />
       </div>
       <div style={imageBlockStyles}>
-        <Heading id="circle" text="ImageTypes.Circle" />
+        <Heading
+          id="circle"
+          level={HeadingLevels.Four}
+          text="ImageTypes.Circle"
+        />
         <Image
           alt="Alt text"
-          imageAspectRatio={ImageRatios.Square}
+          aspectRatio={ImageRatios.Square}
           imageType={ImageTypes.Circle}
           src="https://placeimg.com/400/400/animals"
         />

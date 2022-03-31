@@ -148,6 +148,23 @@ is the logo's code name. Pass in better descriptive text in the `title` prop
 when using the `Logo` component in your application. This will give screenreaders
 a better descriptive title for the `svg` graphic.
 
+## Logo Sizes
+
+Update the size of the `Logo` component by passing the `size` prop with a value from
+`LogoSizes`. The `LogoSizes` enum can be found in`src/components/Logo/LogoTypes.tsx`.
+
+Note: `LogoSizes.Default` sets the width to `100%` and the rendered logo will expand to
+fill the full width of the parent element.
+
+```jsx
+// Example
+<Logo name={LogoNames.NYPLBlack} size={LogoSizes.Large} />
+```
+
+<Canvas>
+  <Story name="Logo Sizes">{allLogosGrid(sizes)}</Story>
+</Canvas>
+
 ## All Logos
 
 The `Logo` component contains the logos most commonly used by are listed available
@@ -158,23 +175,6 @@ to the DS team.
 
 <Canvas withToolbar>
   <Story name="All Logos">{allLogosGrid(logos)}</Story>
-</Canvas>
-
-## Logo Sizes
-
-Update the size of the `Logo` component by passing the `size` prop with a value from
-`LogoSizes`. The `LogoSizes` enum can be found in`src/components/Logo/LogoTypes.tsx`.
-
-Note: `LogoSizes.Default` sets the width to `100%` and the logo will expand to
-fill the full width of the parent element.
-
-```jsx
-// Example
-<Logo name={LogoNames.NYPLBlack} size={LogoSizes.Large} />
-```
-
-<Canvas>
-  <Story name="Logo Sizes">{allLogosGrid(sizes)}</Story>
 </Canvas>
 
 ## Custom Logos

@@ -10,7 +10,7 @@ import * as React from "react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import { ToggleSizes } from "./ToggleSizes";
+import { ToggleSizes } from "./ToggleTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface ToggleProps {
@@ -34,20 +34,19 @@ export interface ToggleProps {
   /** Adds the 'disabled' and `aria-disabled` attributes to the input when true.
    * This also makes the text italic and color scheme gray. */
   isDisabled?: boolean;
-  /** Adds the 'aria-invalid' attribute to the input when true. This also makes
-   * the color theme "NYPL error" red for the button and text. */
+  /** Adds the 'aria-invalid' attribute to the input when true. */
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
-  /** The checkbox's label. This will serve as the text content for a `<label>`
+  /** The toggle's label. This will serve as the text content for a `<label>`
    * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
-  /** The name prop indicates into which group of checkboxes this checkbox
-   * belongs. If none is specified, 'default' will be used */
+  /** The name prop indicates the `Toggle`'s form element name. If none is
+   * specified, 'default' will be used. */
   name?: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Offers the ability to hide the helper/invalid text. */
+  /** The size of the Toggle. Defaults to "large". */
   size?: ToggleSizes;
 }
 
@@ -73,7 +72,7 @@ export const Toggle = chakra(
       labelText,
       name,
       onChange = onChangeDefault,
-      size = ToggleSizes.Large,
+      size = ToggleSizes.Default,
       ...rest
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
@@ -93,7 +92,7 @@ export const Toggle = chakra(
             isInvalid={isInvalid}
             isRequired={isRequired}
             ref={ref}
-            size={size === ToggleSizes.Large ? "lg" : "sm"}
+            size={size === ToggleSizes.Default ? "lg" : "sm"}
             lineHeight="1.5"
             {...(isChecked !== undefined
               ? {

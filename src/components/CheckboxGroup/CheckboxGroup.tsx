@@ -8,11 +8,11 @@ import {
 import * as React from "react";
 
 import Checkbox from "../Checkbox/Checkbox";
-import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
 import Fieldset from "../Fieldset/Fieldset";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
+import { LayoutTypes } from "../../helpers/enums";
 import { spacing } from "../../theme/foundations/spacing";
 import generateUUID from "../../helpers/generateUUID";
 
@@ -29,6 +29,8 @@ export interface CheckboxGroupProps {
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
+  /** Set's the `Checkbox`s' wrapper to be full width. */
+  isFullWidth?: boolean;
   /** A`dds the 'aria-invalid' attribute to the input and
    * sets the error state when true. */
   isInvalid?: boolean;
@@ -38,7 +40,7 @@ export interface CheckboxGroupProps {
    * true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
   /** Renders the checkbox buttons in a row or column (default). */
-  layout?: CheckboxGroupLayoutTypes;
+  layout?: LayoutTypes;
   /** The `name` prop indicates the form group for all the `Checkbox` children. */
   name: string;
   /** The action to perform on the `<input>`'s onChange function  */
@@ -69,10 +71,11 @@ export const CheckboxGroup = chakra(
       id = generateUUID(),
       invalidText,
       isDisabled = false,
+      isFullWidth = false,
       isInvalid = false,
       isRequired = false,
       labelText,
-      layout = CheckboxGroupLayoutTypes.Column,
+      layout = LayoutTypes.Column,
       name,
       onChange,
       optReqFlag = true,
@@ -81,8 +84,7 @@ export const CheckboxGroup = chakra(
       ...rest
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-    const spacingProp =
-      layout === CheckboxGroupLayoutTypes.Column ? spacing.s : spacing.l;
+    const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
     const newChildren = [];
     const checkboxProps =
       defaultValue && onChange
@@ -100,7 +102,8 @@ export const CheckboxGroup = chakra(
           noop();
         } else {
           console.warn(
-            "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
+            "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
+              "allowed as children."
           );
         }
       }
@@ -119,7 +122,7 @@ export const CheckboxGroup = chakra(
     });
 
     // Get the Chakra-based styles for the custom elements in this component.
-    const styles = useMultiStyleConfig("CheckboxGroup", {});
+    const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
 
     return (
       <Fieldset

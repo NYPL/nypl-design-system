@@ -4,10 +4,8 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import SkeletonLoader from "./SkeletonLoader";
-import {
-  SkeletonLoaderImageRatios,
-  SkeletonLoaderLayouts,
-} from "./SkeletonLoaderTypes";
+import { SkeletonLoaderImageRatios } from "./SkeletonLoaderTypes";
+import { LayoutTypes } from "../../helpers/enums";
 
 describe("SkeletonLoader Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -27,12 +25,12 @@ describe("SkeletonLoader", () => {
 
   it("renders in the column or row layout", () => {
     const { container, rerender } = render(
-      <SkeletonLoader layout={SkeletonLoaderLayouts.Column} />
+      <SkeletonLoader layout={LayoutTypes.Column} />
     );
 
     expect(container.querySelector(".column")).toBeInTheDocument();
 
-    rerender(<SkeletonLoader layout={SkeletonLoaderLayouts.Row} />);
+    rerender(<SkeletonLoader layout={LayoutTypes.Row} />);
     expect(container.querySelector(".row")).toBeInTheDocument();
   });
 
@@ -75,10 +73,10 @@ describe("SkeletonLoader", () => {
   it("renders the UI snapshot correctly", () => {
     const basic = renderer.create(<SkeletonLoader />).toJSON();
     const rowLayout = renderer
-      .create(<SkeletonLoader layout={SkeletonLoaderLayouts.Row} />)
+      .create(<SkeletonLoader layout={LayoutTypes.Row} />)
       .toJSON();
     const columnLayout = renderer
-      .create(<SkeletonLoader layout={SkeletonLoaderLayouts.Column} />)
+      .create(<SkeletonLoader layout={LayoutTypes.Column} />)
       .toJSON();
     const noImage = renderer
       .create(<SkeletonLoader showImage={false} />)

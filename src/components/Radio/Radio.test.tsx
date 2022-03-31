@@ -1,14 +1,31 @@
+import { Flex, Spacer } from "@chakra-ui/react";
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import * as generateUUID from "../../helpers/generateUUID";
 import Radio from "./Radio";
+import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Radio Accessibility", () => {
-  it("passes axe accessibility", async () => {
+  it("passes axe accessibility test with string label", async () => {
     const { container } = render(<Radio id="inputID" labelText="Test Label" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with jsx label", async () => {
+    const { container } = render(
+      <Radio
+        id="jsxLabel"
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+      />
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -147,6 +164,27 @@ describe("Radio Button", () => {
     expect(screen.queryByText("There is an error!")).not.toBeInTheDocument();
   });
 
+  it("logs a warning if `labelText` is not a string and `showLabel` is false", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Radio
+        value="arts"
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+        showLabel={false}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const primary = renderer
       .create(<Radio id="inputID" labelText="Test Label" />)
@@ -162,6 +200,21 @@ describe("Radio Button", () => {
       .toJSON();
     const isDisabled = renderer
       .create(<Radio id="radio-disabled" labelText="Test Label" isDisabled />)
+      .toJSON();
+    const withJSXLabel = renderer
+      .create(
+        <Radio
+          id="jsxLabel"
+          labelText={
+            <Flex>
+              <span>Arts</span>
+              <Spacer />
+              <span>4</span>
+            </Flex>
+          }
+          value="arts"
+        />
+      )
       .toJSON();
     const withChakraProps = renderer
       .create(
@@ -182,6 +235,7 @@ describe("Radio Button", () => {
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(withJSXLabel).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });

@@ -15,7 +15,7 @@ import {
   IconTypes,
 } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
-import { ColorVariants } from "./BreadcrumbsTypes";
+import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 import { getVariant } from "../../utils/utils";
 
 export interface BreadcrumbsDataProps {
@@ -28,10 +28,10 @@ export interface BreadcrumbProps {
   additionalStyles?: { [key: string]: any };
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
+  /** Used to control how the `Hero` component will be rendered. */
+  breadcrumbsType?: BreadcrumbsTypes;
   /** className you can add in addition to 'input' */
   className?: string;
-  /** Used to control how the `Hero` component will be rendered. */
-  colorVariant?: ColorVariants;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
 }
@@ -69,16 +69,16 @@ export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
   const {
     additionalStyles = {},
     breadcrumbsData,
+    breadcrumbsType,
     className,
-    colorVariant,
     id = generateUUID(),
     ...rest
   } = props;
-  const variant = getVariant(colorVariant, ColorVariants);
+  const variant = getVariant(breadcrumbsType, BreadcrumbsTypes);
 
   if (!breadcrumbsData || breadcrumbsData.length === 0) {
     throw new Error(
-      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
+      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   }
 

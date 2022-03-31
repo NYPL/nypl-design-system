@@ -249,29 +249,6 @@ exports[`StructuredContent renders the UI snapshot 6`] = `
   >
     Heading text
   </h2>
-  <figure
-    className="css-0"
-  >
-    <img
-      alt="Image alt text"
-      className="css-0"
-      src="https://placeimg.com/400/300/animals"
-    />
-    <figcaption
-      className="css-0"
-    >
-      <div
-        className="css-0"
-      >
-        Image caption
-      </div>
-      <div
-        className="css-0"
-      >
-        Image credit
-      </div>
-    </figcaption>
-  </figure>
   <div
     dangerouslySetInnerHTML={
       Object {

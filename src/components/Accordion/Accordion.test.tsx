@@ -5,16 +5,17 @@ import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import Accordion from "./Accordion";
+import { AccordionTypes } from "./AccordionTypes";
 import Card, { CardContent, CardHeading } from "../Card/Card";
-import { CardLayouts } from "../Card/CardTypes";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import { ImageRatios } from "../Image/ImageTypes";
+import { LayoutTypes } from "../../helpers/enums";
 
 describe("Accordion Accessibility", () => {
   it("passes axe accessibility test for one item", async () => {
     const { container } = render(
       <Accordion
-        contentData={[
+        accordionData={[
           {
             label: "Tom Nook",
             panel: (
@@ -34,7 +35,7 @@ describe("Accordion Accessibility", () => {
   it("passes axe accessibility test for multiple items", async () => {
     const { container } = render(
       <Accordion
-        contentData={[
+        accordionData={[
           {
             label: "Tom Nook",
             panel: (
@@ -60,7 +61,7 @@ describe("Accordion Accessibility", () => {
   });
 });
 
-export const contentData = [
+export const accordionData = [
   {
     label: "Tom Nook",
     panel: (
@@ -90,7 +91,7 @@ export const contentData = [
 
 describe("Accordion", () => {
   it("renders a visible button with a label to click on", () => {
-    render(<Accordion contentData={[contentData[0]]} />);
+    render(<Accordion accordionData={[accordionData[0]]} />);
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
 
     expect(accordionLabel).toBeInTheDocument();
@@ -100,7 +101,7 @@ describe("Accordion", () => {
   });
 
   it("opens the panel by default with isDefaultOpen passed", () => {
-    render(<Accordion isDefaultOpen contentData={[contentData[0]]} />);
+    render(<Accordion isDefaultOpen accordionData={[accordionData[0]]} />);
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
 
     expect(accordionLabel).toBeInTheDocument();
@@ -108,7 +109,7 @@ describe("Accordion", () => {
   });
 
   it("opens the accordion when the label is clicked", () => {
-    render(<Accordion contentData={[contentData[0]]} />);
+    render(<Accordion accordionData={[accordionData[0]]} />);
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
     expect(accordionLabel).toHaveAttribute("aria-expanded", "false");
@@ -117,7 +118,7 @@ describe("Accordion", () => {
   });
 
   it("renders multiple accordion items grouped together", () => {
-    render(<Accordion contentData={contentData} />);
+    render(<Accordion accordionData={accordionData} />);
 
     const accordion1 = screen.getByRole("button", { name: "Tom Nook" });
     const accordion2 = screen.getByRole("button", { name: "Isabelle" });
@@ -129,7 +130,7 @@ describe("Accordion", () => {
   });
 
   it("opens each accordion item independently of each other", () => {
-    render(<Accordion contentData={contentData} />);
+    render(<Accordion accordionData={accordionData} />);
 
     const accordion1 = screen.getByRole("button", { name: "Tom Nook" });
     const accordion2 = screen.getByRole("button", { name: "Isabelle" });
@@ -157,16 +158,19 @@ describe("Accordion", () => {
   });
 
   it("Renders the UI snapshot correctly", () => {
-    const contentData = [
+    const accordionData = [
       {
         label: "Gerry Kellman",
         panel: (
           <Card
             id="card"
-            imageAlt="Alt text"
-            imageAspectRatio={ImageRatios.TwoByOne}
-            imageSrc={`https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit`}
-            layout={CardLayouts.Row}
+            imageProps={{
+              alt: "Alt text",
+              aspectRatio: ImageRatios.TwoByOne,
+              src: "https://cdn.onebauer.media/one/media/6176/76fd/405b/ab5f/f20f/2d52/gerri-1500-1.jpg?format=jpg&quality=80&width=850&ratio=1-1&resize=aspectfit",
+            }}
+            isCentered
+            layout={LayoutTypes.Row}
           >
             <CardHeading id="heading1" level={HeadingLevels.Four}>
               Gerry Kellman
@@ -182,17 +186,39 @@ describe("Accordion", () => {
     ];
 
     const primary = renderer
-      .create(<Accordion contentData={contentData} id="accordian" />)
+      .create(<Accordion accordionData={accordionData} id="accordian" />)
       .toJSON();
     const defaultOpen = renderer
       .create(
-        <Accordion contentData={contentData} id="accordian" isDefaultOpen />
+        <Accordion accordionData={accordionData} id="accordian" isDefaultOpen />
+      )
+      .toJSON();
+    const withError = renderer
+      .create(
+        <Accordion
+          accordionData={[
+            { ...accordionData[0], accordionType: AccordionTypes.Error },
+          ]}
+          id="accordian"
+          isDefaultOpen
+        />
+      )
+      .toJSON();
+    const withWarning = renderer
+      .create(
+        <Accordion
+          accordionData={[
+            { ...accordionData[0], accordionType: AccordionTypes.Warning },
+          ]}
+          id="accordian"
+          isDefaultOpen
+        />
       )
       .toJSON();
     const withChakraProps = renderer
       .create(
         <Accordion
-          contentData={contentData}
+          accordionData={accordionData}
           id="accordian"
           p="s"
           color="ui.error.primary"
@@ -202,7 +228,7 @@ describe("Accordion", () => {
     const withOtherProps = renderer
       .create(
         <Accordion
-          contentData={contentData}
+          accordionData={accordionData}
           id="accordian"
           data-testid="testid"
         />
@@ -213,5 +239,7 @@ describe("Accordion", () => {
     expect(defaultOpen).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
+    expect(withError).toMatchSnapshot();
+    expect(withWarning).toMatchSnapshot();
   });
 });

@@ -13,7 +13,7 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import { spacing } from "../../theme/foundations/spacing";
 import Radio from "../Radio/Radio";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface RadioGroupProps {
@@ -29,6 +29,8 @@ export interface RadioGroupProps {
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
+  /** Set's the `Radio`s' wrapper to be full width. */
+  isFullWidth?: boolean;
   /** Adds the 'aria-invalid' attribute to the input and
    * sets the error state when true. */
   isInvalid?: boolean;
@@ -38,7 +40,7 @@ export interface RadioGroupProps {
    * true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
   /** Renders the Radio buttons in a row or column (default). */
-  layout?: RadioGroupLayoutTypes;
+  layout?: LayoutTypes;
   /** The `name` prop indicates the form group for all the Radio children. */
   name: string;
   /** The action to perform on the `<input>`'s onChange function  */
@@ -68,10 +70,11 @@ export const RadioGroup = chakra(
         id = generateUUID(),
         invalidText,
         isDisabled = false,
+        isFullWidth = false,
         isInvalid = false,
         isRequired = false,
         labelText,
-        layout = RadioGroupLayoutTypes.Column,
+        layout = LayoutTypes.Column,
         name,
         onChange = onChangeDefault,
         optReqFlag = true,
@@ -82,8 +85,7 @@ export const RadioGroup = chakra(
       const footnote: HelperErrorTextType = isInvalid
         ? invalidText
         : helperText;
-      const spacingProp =
-        layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
+      const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
       const newChildren = [];
 
       // Use Chakra's RadioGroup hook to set and get the proper props
@@ -103,7 +105,8 @@ export const RadioGroup = chakra(
             noop();
           } else {
             console.warn(
-              "Only `Radio` components are allowed inside the `RadioGroup` component."
+              "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
+                "inside the `RadioGroup` component."
             );
           }
         }
@@ -124,7 +127,7 @@ export const RadioGroup = chakra(
       });
 
       // Get the Chakra-based styles for the custom elements in this component.
-      const styles = useMultiStyleConfig("RadioGroup", {});
+      const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
 
       return (
         <Fieldset

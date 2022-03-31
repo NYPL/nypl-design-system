@@ -62,12 +62,12 @@ export interface InputProps {
   showOptReqLabel?: boolean;
   /** The amount to increase or decrease when using the number type. */
   step?: number;
+  /** FOR INTERNAL DS USE ONLY: the input variant to display. */
+  textInputType?: TextInputVariants;
   /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
   value?: string;
-  /** FOR INTERNAL DS USE ONLY: the input variant to display. */
-  variantType?: TextInputVariants;
 }
 
 /**
@@ -103,12 +103,14 @@ export const TextInput = chakra(
         showLabel = true,
         showOptReqLabel = true,
         step = 1,
+        textInputType = TextInputVariants.Default,
         type = TextInputTypes.text,
         value,
-        variantType = TextInputVariants.Default,
         ...rest
       } = props;
-      const styles = useMultiStyleConfig("TextInput", { variant: variantType });
+      const styles = useMultiStyleConfig("TextInput", {
+        variant: textInputType,
+      });
       const finalStyles = { ...styles, ...additionalStyles };
       const isTextArea = type === TextInputTypes.textarea;
       const isHidden = type === TextInputTypes.hidden;

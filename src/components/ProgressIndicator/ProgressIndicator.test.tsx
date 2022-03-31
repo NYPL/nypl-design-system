@@ -120,7 +120,9 @@ describe("ProgressIndicator", () => {
     render(<ProgressIndicator labelText="Linear" value={-20} />);
 
     expect(warn).toHaveBeenCalledWith(
-      "ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
+      "NYPL Reservoir ProgressIndicator: An invalid value was passed for the" +
+        " `value` prop, so 0 will be used. A valid value should be a number" +
+        " between 0 and 100."
     );
   });
 
@@ -129,7 +131,9 @@ describe("ProgressIndicator", () => {
     render(<ProgressIndicator labelText="Linear" value={150} />);
 
     expect(warn).toHaveBeenCalledWith(
-      "ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
+      "NYPL Reservoir ProgressIndicator: An invalid value was passed for the" +
+        " `value` prop, so 0 will be used. A valid value should be a number" +
+        " between 0 and 100."
     );
   });
 

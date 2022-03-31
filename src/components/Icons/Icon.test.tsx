@@ -28,7 +28,8 @@ describe("Icon", () => {
       </Icon>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Icon accepts either a `name` prop or an `svg` element child, not both."
+      "NYPL Reservoir Icon: Pass in either a `name` prop or an `svg` element " +
+        "child. Do not pass both."
     );
   });
 
@@ -36,7 +37,17 @@ describe("Icon", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Icon />);
     expect(warn).toHaveBeenCalledWith(
-      "Icon: Pass an icon `name` prop or an SVG child to ensure an icon appears."
+      "NYPL Reservoir Icon: Pass an icon `name` prop or an SVG child to " +
+        "ensure an icon appears."
+    );
+  });
+
+  it("consoles a warning if name is not passed and a child is but it's not an SVG element", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Icon>Not an SVG</Icon>);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Icon: An `svg` element must be passed to the `Icon` " +
+        "component as its child."
     );
   });
 

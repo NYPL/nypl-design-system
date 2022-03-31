@@ -26,7 +26,7 @@ export const StatusBadge = chakra(
     const styles = useStyleConfig("StatusBadge", { variant: level });
 
     if (!children) {
-      console.warn("Status Badge has no children.");
+      console.warn("NYPL Reservoir StatusBadge: No children were passed.");
     }
 
     return (

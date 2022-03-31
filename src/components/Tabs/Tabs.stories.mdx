@@ -24,12 +24,12 @@ import DSProvider from "../../theme/provider";
   }}
   argTypes={{
     children: { table: { disable: true } },
-    contentData: { control: false },
     defaultIndex: {
       table: { defaultValue: { summary: 0 } },
     },
     id: { control: false },
     onChange: { control: false },
+    tabsData: { control: false },
     useHash: {
       table: { defaultValue: { summary: false } },
     },
@@ -95,7 +95,7 @@ export const animalCrossing = [
   <Story
     name="Tabs with Controls"
     args={{
-      contentData: animalCrossing,
+      tabsData: animalCrossing,
       defaultIndex: 0,
       id: "tabs-id",
       onChange: undefined,
@@ -154,12 +154,12 @@ const animalCrossing = [
 ];
 
 // ...
-<Tabs contentData={animalCrossing} />;
+<Tabs tabsData={animalCrossing} />;
 ```
 
 ## Responsive Mobile Carousel
 
-For both, the `contentData` prop approach and the children component approach
+For both, the `tabsData` prop approach and the children component approach
 (described below in this document), the mobile carousel feature is built. This
 adds "previous" and "next" arrows in the tab list for users to scroll through
 all the tabs while the panel stays static.
@@ -183,7 +183,7 @@ export const onChange = (value) => {
 };
 
 // ...
-<Tabs contentData={animalCrossing} onChange={onChange} />;
+<Tabs tabsData={animalCrossing} onChange={onChange} />;
 ```
 
 export const onChange = (value) => {
@@ -192,7 +192,7 @@ export const onChange = (value) => {
 
 <Canvas>
   <Story name="With Callback Event Function">
-    <Tabs contentData={animalCrossing} onChange={onChange} />
+    <Tabs tabsData={animalCrossing} onChange={onChange} />
   </Story>
 </Canvas>
 
@@ -203,7 +203,7 @@ To enable this, set the `useHash` prop to true.
 
 <Canvas>
   <Story name="With URL Hash Option">
-    <Tabs contentData={animalCrossing} useHash={true} />
+    <Tabs tabsData={animalCrossing} useHash={true} />
   </Story>
 </Canvas>
 

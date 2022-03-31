@@ -93,7 +93,9 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
       tableData.length <= 0 ||
       tableData[0].constructor !== Array
     ) {
-      console.warn("Table: data should be two dimensional array.");
+      console.warn(
+        "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
+      );
       return null;
     }
 

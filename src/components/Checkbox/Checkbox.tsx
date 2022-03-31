@@ -39,7 +39,7 @@ export interface CheckboxProps {
   isRequired?: boolean;
   /** The checkbox's label. This will serve as the text content for a `<label>`
    * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
-  labelText: string;
+  labelText: string | JSX.Element;
   /** The name prop indicates into which group of checkboxes this checkbox
    * belongs. If none is specified, 'default' will be used */
   name?: string;
@@ -101,6 +101,11 @@ export const Checkbox = chakra(
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
 
     if (!showLabel) {
+      if (typeof labelText !== "string") {
+        console.warn(
+          "NYPL Reservoir Checkbox: `labelText` must be a string when `showLabel` is false."
+        );
+      }
       ariaAttributes["aria-label"] =
         labelText && footnote ? `${labelText} - ${footnote}` : labelText;
     } else {

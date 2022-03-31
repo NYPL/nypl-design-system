@@ -8,18 +8,20 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
+import { AccordionTypes } from "./AccordionTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import generateUUID from "../../helpers/generateUUID";
 
-export interface AccordionContentDataProps {
+export interface AccordionDataProps {
+  accordionType?: AccordionTypes;
   label: string;
   panel: string | React.ReactNode;
 }
 
 export interface AccordionProps {
-  /** Array of data to display */
-  contentData: AccordionContentDataProps[];
+  /** Array of data to display, and an optional accordionType */
+  accordionData: AccordionDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
@@ -46,7 +48,12 @@ const getIcon = (isExpanded = false, index, id) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromContentData = (data = [], id) => {
+const getElementsFromData = (data = [], id) => {
+  const colorMap = {
+    [AccordionTypes.Default]: "ui.white",
+    [AccordionTypes.Warning]: "ui.status.primary",
+    [AccordionTypes.Error]: "ui.status.secondary",
+  };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const multiplePadding = data?.length > 1 ? 4 : null;
@@ -69,20 +76,43 @@ const getElementsFromContentData = (data = [], id) => {
     return (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
-        {({ isExpanded }) => (
-          <>
-            <AccordionButton
-              id={`${id}-button-${index}`}
-              padding={multiplePadding}
-            >
-              <Box flex="1" textAlign="left">
-                {content.label}
-              </Box>
-              {getIcon(isExpanded, index, id)}
-            </AccordionButton>
-            {panel}
-          </>
-        )}
+        {({ isExpanded }) => {
+          const bgColorByAccordionType = colorMap[content.accordionType];
+          return (
+            <>
+              <AccordionButton
+                id={`${id}-button-${index}`}
+                padding={multiplePadding}
+                bg={
+                  !content.accordionType
+                    ? colorMap.default
+                    : bgColorByAccordionType
+                }
+                _expanded={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "ui.gray.light-warm"
+                      : bgColorByAccordionType,
+                }}
+                _hover={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "transparent"
+                      : bgColorByAccordionType,
+                  borderColor: "ui.gray.dark",
+                }}
+              >
+                <Box flex="1" textAlign="left">
+                  {content.label}
+                </Box>
+                {getIcon(isExpanded, index, id)}
+              </AccordionButton>
+              {panel}
+            </>
+          );
+        }}
       </AccordionItem>
     );
   });
@@ -94,7 +124,7 @@ const getElementsFromContentData = (data = [], id) => {
  */
 export const Accordion = chakra((props: AccordionProps) => {
   const {
-    contentData,
+    accordionData,
     id = generateUUID(),
     isDefaultOpen = false,
     ...rest
@@ -109,7 +139,7 @@ export const Accordion = chakra((props: AccordionProps) => {
       allowMultiple
       {...rest}
     >
-      {getElementsFromContentData(contentData, id)}
+      {getElementsFromData(accordionData, id)}
     </ChakraAccordion>
   );
 });

@@ -1,3 +1,4 @@
+import { Flex, Spacer } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -9,15 +10,12 @@ import { withDesign } from "storybook-addon-designs";
 
 import Radio from "../Radio/Radio";
 import RadioGroup, { onChangeDefault } from "./RadioGroup";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
 
-export const enumValues = getStorybookEnumValues(
-  RadioGroupLayoutTypes,
-  "RadioGroupLayoutTypes"
-);
+export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 
 <Meta
   title={getCategory("RadioGroup")}
@@ -37,6 +35,9 @@ export const enumValues = getStorybookEnumValues(
     isDisabled: {
       table: { defaultValue: { summary: false } },
     },
+    isFullWidth: {
+      table: { defaultValue: { summary: false } },
+    },
     isInvalid: {
       table: { defaultValue: { summary: false } },
     },
@@ -45,7 +46,7 @@ export const enumValues = getStorybookEnumValues(
     },
     layout: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "RadioGroupLayoutTypes.Column" } },
+      table: { defaultValue: { summary: "LayoutTypes.Column" } },
       options: enumValues.options,
     },
     key: { table: { disable: true } },
@@ -82,10 +83,11 @@ export const enumValues = getStorybookEnumValues(
       id: "radioGroup-id",
       invalidText: "error!",
       isDisabled: false,
+      isFullWidth: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Radio Group",
-      layout: "RadioGroupLayoutTypes.Column",
+      layout: "LayoutTypes.Column",
       name: "radio-story",
       onChange: undefined,
       optReqFlag: true,
@@ -127,7 +129,7 @@ a row.
     <RadioGroup
       labelText="Row"
       name="row-example"
-      layout={RadioGroupLayoutTypes.Row}
+      layout={LayoutTypes.Row}
       optReqFlag={false}
     >
       <Radio value="2" labelText="Radio 2" />
@@ -172,6 +174,68 @@ a row.
       <Radio value="3" labelText="Radio 3" />
       <Radio value="4" labelText="Radio 4" />
       <Radio value="5" labelText="Radio 5" />
+    </RadioGroup>
+  </DSProvider>
+</Canvas>
+
+## With JSX Element labels
+
+React elements can be passed to the `labelText` prop of the `Radio` component.
+This is useful if you need to pass information as part of the label. For example,
+if a `Radio` label needs to display how many items that option has, it can be
+displayed with the help of the `Flex` and `Spacer` components.
+
+Note: the width of `RadioGroup` is _not_ set to full width by default. In
+order to make this work, pass in the `isFullWidth` prop.
+
+<Canvas>
+  <DSProvider>
+    <RadioGroup
+      labelText="Radio Group"
+      name="radio-example"
+      optReqFlag={false}
+      isFullWidth
+    >
+      <Radio
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+        value="arts"
+      />
+      <Radio
+        labelText={
+          <Flex>
+            <span>English</span>
+            <Spacer />
+            <span>23</span>
+          </Flex>
+        }
+        value="English"
+      />
+      <Radio
+        labelText={
+          <Flex>
+            <span>Science</span>
+            <Spacer />
+            <span>10</span>
+          </Flex>
+        }
+        value="Science"
+      />
+      <Radio
+        labelText={
+          <Flex>
+            <span>Math</span>
+            <Spacer />
+            <span>3</span>
+          </Flex>
+        }
+        value="Math"
+      />
     </RadioGroup>
   </DSProvider>
 </Canvas>
