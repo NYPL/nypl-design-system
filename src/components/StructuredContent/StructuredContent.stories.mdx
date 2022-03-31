@@ -41,25 +41,34 @@ export const imageSizeEnumValues = getStorybookEnumValues(
   argTypes={{
     className: { control: false },
     id: { control: false },
-    imageAspectRatio: {
+    "imageProps.aspectRatio": {
+      control: {
+        type: "select",
+      },
       table: {
         defaultValue: { summary: "ImageRatios.Square" },
       },
       options: imageAspectRatioEnumValues.options,
     },
-    imagePosition: {
+    "imageProps.component": { control: false },
+    "imageProps.position": {
+      control: {
+        type: "select",
+      },
       table: {
         defaultValue: { summary: "StructuredContentImagePosition.Left" },
       },
       options: imagePositionEnumValues.options,
     },
-    imageSize: {
+    "imageProps.size": {
+      control: {
+        type: "select",
+      },
       table: {
         defaultValue: { summary: "ImageSizes.Medium" },
       },
       options: imageSizeEnumValues.options,
     },
-    imageComponent: { control: false },
   }}
 />
 
@@ -68,25 +77,27 @@ export const imageSizeEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `0.25.11`  |
+| Latest            | `0.25.12`  |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [With HTML String Text Content](#with-html-string-text-content)
+- [With HTML Element Text Content](#with-html-element-text-content)
+- [Examples](#examples)
+
+## Overview
 
 <Description of={StructuredContent} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
     name="StructuredContent with Controls"
     args={{
-      calloutText: "This is the callout text",
-      className: undefined,
-      headingText: "Heading text",
-      id: "structured-content",
-      imageAlt: "Image alt text",
-      imageAspectRatio: "ImageRatios.Square",
-      imageCaption: "Image caption",
-      imageCredit: "Image credit",
-      imagePosition: "StructuredContentImagePosition.Left",
-      imageSize: "ImageSizes.Medium",
-      imageSrc: "https://placeimg.com/400/300/animals",
       bodyContent:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod" +
         " tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa" +
@@ -111,22 +122,50 @@ export const imageSizeEnumValues = getStorybookEnumValues(
         "Nullam non nisi est sit. Turpis egestas integer eget aliquet nibh " +
         "praesent. Tortor at risus viverra adipiscing at. Eu augue ut lectus " +
         "arcu bibendum at varius vel pharetra.",
+      calloutText: "This is the callout text",
+      className: undefined,
+      headingText: "Heading text",
+      id: "structured-content",
+      "imageProps.alt": "Image alt text",
+      "imageProps.aspectRatio": "ImageRatios.Square",
+      "imageProps.caption": "Image caption",
+      "imageProps.component": undefined,
+      "imageProps.credit": "Image credit",
+      "imageProps.position": "StructuredContentImagePosition.Left",
+      "imageProps.size": "ImageSizes.Medium",
+      "imageProps.src": "https://placeimg.com/400/300/animals",
     }}
   >
     {(args) => (
       <StructuredContent
         {...args}
-        imageAspectRatio={imageAspectRatioEnumValues.getValue(
-          args.imageAspectRatio
-        )}
-        imagePosition={imagePositionEnumValues.getValue(args.imagePosition)}
-        imageSize={imageSizeEnumValues.getValue(args.imageSize)}
+        imageProps={{
+          alt: args["imageProps.alt"],
+          aspectRatio: imageAspectRatioEnumValues.getValue(
+            args["imageProps.aspectRatio"]
+          ),
+          caption: args["imageProps.caption"],
+          credit: args["imageProps.credit"],
+          position: imagePositionEnumValues.getValue(
+            args["imageProps.position"]
+          ),
+          size: imageSizeEnumValues.getValue(args["imageProps.size"]),
+          src: args["imageProps.src"],
+        }}
       />
     )}
   </Story>
 </Canvas>
 
 <ArgsTable story="StructuredContent with Controls" />
+
+## Accessibility
+
+- Containers should allow font-size to be scaled to 200% without content overlapping.
+- Images should have descriptive (but not too lengthy) alt text.
+- Headings levels should not be skipped. Meaning, a `<h2>` should not be followed
+  by a `<h4>`.
+- Any links or text with colors should have a 4.5:1 contrast ratio.
 
 ## With HTML String Text Content
 
@@ -138,13 +177,15 @@ includes HTML tags in the string.
     <StructuredContent
       calloutText="This is the callout text"
       headingText="Heading text"
-      imageAlt="Image alt text"
-      imageAspectRatio={ImageRatios.Original}
-      imageCaption="Image caption"
-      imageCredit="Image credit"
-      imagePosition={StructuredContentImagePosition.Left}
-      imageSize={ImageSizes.Medium}
-      imageSrc="https://placeimg.com/400/300/animals"
+      imageProps={{
+        alt: "Image alt text",
+        aspectRatio: ImageRatios.Original,
+        caption: "Image caption",
+        credit: "Image credit",
+        position: StructuredContentImagePosition.Left,
+        size: ImageSizes.Medium,
+        src: "https://placeimg.com/400/300/animals",
+      }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
         "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
@@ -185,13 +226,15 @@ The following content is passed as HTML DOM elements to the `bodyContent` prop.
     <StructuredContent
       calloutText="This is the callout text"
       headingText="Heading text"
-      imageAlt="Image alt text"
-      imageAspectRatio={ImageRatios.Original}
-      imageCaption="Image caption"
-      imageCredit="Image credit"
-      imagePosition={StructuredContentImagePosition.Left}
-      imageSize={ImageSizes.Medium}
-      imageSrc="https://placeimg.com/400/300/animals"
+      imageProps={{
+        alt: "Image alt text",
+        aspectRatio: ImageRatios.Original,
+        caption: "Image caption",
+        credit: "Image credit",
+        position: StructuredContentImagePosition.Left,
+        size: ImageSizes.Medium,
+        src: "https://placeimg.com/400/300/animals",
+      }}
       bodyContent={
         <>
           <p>
@@ -255,13 +298,15 @@ but no callout content. The second component does not have an image.
   <DSProvider>
     <StructuredContent
       headingText="Heading text"
-      imageAlt="Image alt text"
-      imageAspectRatio={ImageRatios.Original}
-      imageCaption="Image caption"
-      imageCredit="Image credit"
-      imagePosition={StructuredContentImagePosition.Left}
-      imageSize={ImageSizes.Medium}
-      imageSrc="https://placeimg.com/400/300/animals"
+      imageProps={{
+        alt: "Image alt text",
+        aspectRatio: ImageRatios.Original,
+        caption: "Image caption",
+        credit: "Image credit",
+        position: StructuredContentImagePosition.Left,
+        size: ImageSizes.Medium,
+        src: "https://placeimg.com/400/300/animals",
+      }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
         "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
@@ -319,13 +364,15 @@ The third one does not contain an image.
     />
     <StructuredContent
       headingText="Heading text"
-      imageAlt="Image alt text"
-      imageAspectRatio={ImageRatios.Original}
-      imageCaption="Image caption"
-      imageCredit="Image credit"
-      imagePosition={StructuredContentImagePosition.Left}
-      imageSize={ImageSizes.Medium}
-      imageSrc="https://placeimg.com/400/300/animals"
+      imageProps={{
+        alt: "Image alt text",
+        aspectRatio: ImageRatios.Original,
+        caption: "Image caption",
+        credit: "Image credit",
+        position: StructuredContentImagePosition.Left,
+        size: ImageSizes.Medium,
+        src: "https://placeimg.com/400/300/animals",
+      }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
         "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
@@ -390,11 +437,13 @@ text content. The second one has a callout content and image spanning full width
     <StructuredContent
       calloutText="This is the callout text"
       headingText="Heading text"
-      imageAlt="Image alt text"
-      imageAspectRatio={ImageRatios.Original}
-      imagePosition={StructuredContentImagePosition.Center}
-      imageSize={ImageSizes.Medium}
-      imageSrc="https://placeimg.com/400/300/animals"
+      imageProps={{
+        alt: "Image alt text",
+        aspectRatio: ImageRatios.Original,
+        position: StructuredContentImagePosition.Center,
+        size: ImageSizes.Medium,
+        src: "https://placeimg.com/400/300/animals",
+      }}
       bodyContent={
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
         "eiusmod tempor incididunt ut labore et dolore magna aliqua." +

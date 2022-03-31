@@ -13,12 +13,12 @@ import generateUUID from "../../helpers/generateUUID";
 interface BaseProps {
   /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
-  /** Optional prop to control horizontal alignment of the `Notification` content */
-  centered?: boolean;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** Optional prop to control horizontal alignment of the `Notification` content */
+  isCentered?: boolean;
   /** Optional prop to control the coloring of the `Notification` text and the
    * visibility of an applicable icon. */
   notificationType?: NotificationTypes;
@@ -27,7 +27,7 @@ interface BaseProps {
 // Used for `NotificationHeading` and `Notification`
 type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 // Used for `NotificationContent`
-type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
+type BasePropsWithoutIsCentered = Omit<BaseProps, "isCentered">;
 
 export interface NotificationProps extends BasePropsWithoutAlignText {
   /** Label used to describe the `Notification`'s aside HTML element. */
@@ -57,10 +57,10 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
 export function NotificationHeading(
   props: React.PropsWithChildren<BasePropsWithoutAlignText>
 ) {
-  const { centered, children, icon, id, notificationType } = props;
+  const { children, icon, id, isCentered, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationHeading", {
-    centered,
     icon,
+    isCentered,
     notificationType,
   });
   return (
@@ -81,7 +81,7 @@ export function NotificationHeading(
  * NotificationContent child-component.
  */
 export function NotificationContent(
-  props: React.PropsWithChildren<BasePropsWithoutCentered>
+  props: React.PropsWithChildren<BasePropsWithoutIsCentered>
 ) {
   const { alignText, children, icon, notificationType } = props;
   const styles = useMultiStyleConfig("NotificationContent", {
@@ -104,11 +104,11 @@ export function NotificationContent(
 export default function Notification(props: NotificationProps) {
   const {
     ariaLabel,
-    centered = false,
     className,
     dismissible = false,
     icon,
     id = generateUUID(),
+    isCentered = false,
     noMargin = false,
     notificationContent,
     notificationHeading,
@@ -118,8 +118,8 @@ export default function Notification(props: NotificationProps) {
   const [isOpen, setIsOpen] = useState(true);
   const handleClose = () => setIsOpen(false);
   const styles = useMultiStyleConfig("Notification", {
-    centered,
     dismissible,
+    isCentered,
     noMargin,
     notificationType,
   });
@@ -184,16 +184,16 @@ export default function Notification(props: NotificationProps) {
   const iconElem = iconElement();
   const childHeading = notificationHeading && (
     <NotificationHeading
-      centered={centered}
       icon={iconElem}
       id={id}
+      isCentered={isCentered}
       notificationType={notificationType}
     >
       {notificationHeading}
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText = childHeading && showIcon && (!!icon || !centered);
+  const alignText = childHeading && showIcon && (!!icon || !isCentered);
   const childContent = (
     <NotificationContent
       alignText={alignText}

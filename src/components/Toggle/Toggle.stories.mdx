@@ -11,7 +11,7 @@ import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Toggle from "./Toggle";
-import { ToggleSizes } from "./ToggleSizes";
+import { ToggleSizes } from "./ToggleTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -43,7 +43,7 @@ export const sizeEnumValues = getStorybookEnumValues(
     size: {
       control: {
         type: "select",
-        table: { defaultValue: { summary: "ToggleSizes.Large" } },
+        table: { defaultValue: { summary: "ToggleSizes.Default" } },
         options: sizeEnumValues.options,
       },
     },
@@ -55,7 +55,7 @@ export const sizeEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.8`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.25.13`  |
 
 <Description of={Toggle} />
 
@@ -98,9 +98,9 @@ The Toggle component label should clarify the action being performed. Labels sho
   <DSProvider>
     <SimpleGrid columns="2">
       <VStack align="left" spacing="s">
-        <Heading level={3}>Large</Heading>
-        <Toggle size={ToggleSizes.Large} defaultChecked={true} labelText="On" />
-        <Toggle size={ToggleSizes.Large} labelText="Off" />
+        <Heading level={3}>Default</Heading>
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level={3}>Small</Heading>
@@ -147,28 +147,18 @@ const onChange = (e) => {
     <SimpleGrid columns="3">
       <VStack align="left" spacing="s">
         <Heading level={3}>Default</Heading>
-        <Toggle size={ToggleSizes.Large} defaultChecked={true} labelText="On" />
-        <Toggle size={ToggleSizes.Large} labelText="Off" />
+        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level={3}>Disabled</Heading>
-        <Toggle
-          size={ToggleSizes.Large}
-          defaultChecked={true}
-          isDisabled={true}
-          labelText="On"
-        />
-        <Toggle size={ToggleSizes.Large} labelText="Off" isDisabled={true} />
+        <Toggle defaultChecked={true} isDisabled={true} labelText="On" />
+        <Toggle labelText="Off" isDisabled={true} />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level={3}>Error</Heading>
-        <Toggle
-          size={ToggleSizes.Large}
-          defaultChecked={true}
-          labelText="On"
-          isInvalid={true}
-        />
-        <Toggle size={ToggleSizes.Large} labelText="Off" isInvalid={true} />
+        <Toggle defaultChecked={true} labelText="On" isInvalid={true} />
+        <Toggle labelText="Off" isInvalid={true} />
       </VStack>
     </SimpleGrid>
   </DSProvider>

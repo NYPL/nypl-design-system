@@ -63,12 +63,12 @@ export interface InputProps {
   showOptReqLabel?: boolean;
   /** The amount to increase or decrease when using the number type. */
   step?: number;
+  /** FOR INTERNAL DS USE ONLY: the input variant to display. */
+  textInputType?: TextInputVariants;
   /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
   type?: TextInputTypes;
   /** Populates the value of the input/textarea elements */
   value?: string;
-  /** FOR INTERNAL DS USE ONLY: the input variant to display. */
-  variantType?: TextInputVariants;
 }
 
 /**
@@ -104,12 +104,12 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       showLabel = true,
       showOptReqLabel = true,
       step = 1,
+      textInputType = TextInputVariants.Default,
       type = TextInputTypes.text,
       value,
-      variantType = TextInputVariants.Default,
     } = props;
     const isFileType = type === TextInputTypes.File;
-    let finalVariantType = variantType;
+    let finalVariantType = textInputType;
     if (isFileType) {
       finalVariantType = TextInputVariants.File;
     }
