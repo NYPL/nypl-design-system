@@ -99,11 +99,13 @@ const CardActions = {
   baseStyle: (props) => {
     const { bottomBorder, isCentered, layout, topBorder } = props;
     let justifyContent = null;
-    if (isCentered) {
-      justifyContent = "center";
-    } else if (layout === "row") {
+    // Only center in the column layout.
+    if (layout === "row") {
       justifyContent = "left";
+    } else if (isCentered) {
+      justifyContent = "center";
     }
+
     const topBorderStyles = topBorder
       ? {
           borderTop: "1px solid",
