@@ -1,5 +1,4 @@
 import { Meta } from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
 
 import { getCategory } from "../../utils/componentCategories";
 
@@ -7,14 +6,14 @@ import { getCategory } from "../../utils/componentCategories";
 
 # Design Tokens
 
-| Table of Contents                                                                    |
-| ------------------------------------------------------------------------------------ |
-| 1. [What are Design Tokens?](#what-are-design-tokens)                                |
-| 2. [Why Use Design Tokens?](#why-use-design-tokens)                                  |
-| 3. [How to Use the NYPL Design Tokens](#figma-reference)                             |
-| 4. [Using NYPL Design Tokens in CSS](#using-nypl-design-tokens-in-css)               |
-| 5. [Using NYPL Design Tokens in Javascript](#using-nypl-design-tokens-in-javascript) |
-| 6. [NYPL Design Token Categories](#nypl-design-token-categories)                     |
+| Table of Contents                                                                              |
+| ---------------------------------------------------------------------------------------------- |
+| 1. [What are Design Tokens?](#what-are-design-tokens)                                          |
+| 2. [Why Use Design Tokens?](#why-use-design-tokens)                                            |
+| 3. [How to Use the Reservoir Design Tokens](#figma-reference)                                  |
+| 4. [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)               |
+| 5. [Using Reservoir Design Tokens in Javascript](#using-reservoir-design-tokens-in-javascript) |
+| 6. [Reservoir Design Token Categories](#reservoir-design-token-categories)                     |
 
 ## What are Design Tokens?
 
@@ -31,18 +30,17 @@ consistent visual system for UI development."_ - Jina Bolton, Lead Designer
 for the Salesforce Design System
 
 Design tokens are a single source of truth when it comes to styles. They allow
-an organization to more easily build multiple applications - web and/or native
+an organization to more easily build multiple applications - web and/or native -
+that feel and look the same without slowing down the development team.
 
-- that feel and look the same without slowing down the development team.
-
-## How to Use the NYPL Design Tokens
+## How to Use the Reservoir Design Tokens
 
 The NYPL design tokens are built into the Reservoir Design System (DS) and are
 offered in two formats for consumption: CSS variables and javascript data
 objects. To access either of these formats, the DS `v0.25.9` or higher needs
 to be properly installed in a consuming React application.
 
-## Using NYPL Design Tokens in CSS
+## Using Reservoir Design Tokens in CSS
 
 If your app uses CSS or SCSS to handle styles, the DS creates standard CSS
 custom properties (e.g. variables) for consumption in your stylesheets. If the
@@ -81,10 +79,10 @@ implemented using standard CSS custom properties conventions.
 }
 ```
 
-## Using NYPL Design Tokens in Javascript
+## Using Reservoir Design Tokens in Javascript
 
 If you would like to use CSS-in-JS styles in your React components, the
-`useNYPLTheme` hook will provide you with NYPL design token values. The hook
+`useNYPLTheme` hook will provide you with Reservoir design token values. The hook
 depends on the `DSProvider` component and will not work properly outside of
 the `DSProvider` wrapper component.
 
@@ -129,7 +127,7 @@ Design System and UX teams about this update.
 
 If you receive approval to make a change in a consuming app, then you can add
 styles directly to the `additionalStyles` prop. For example, if the `Heading`
-component needs to render text in NYPL's "success primary" green color and add
+component needs to render text in Reservoir's "success primary" green color and add
 a bold font weight, then you can do the following:
 
 ```tsx
@@ -176,7 +174,7 @@ const CustomButton = styled.button`
 `;
 ```
 
-## NYPL Design Token Categories
+## Reservoir Design Token Categories
 
 The DS design tokens are broken into the following categories:
 
