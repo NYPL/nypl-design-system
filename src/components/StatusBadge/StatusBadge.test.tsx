@@ -24,7 +24,9 @@ describe("StatusBadge", () => {
   it("throws a warning when no children are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(<StatusBadge></StatusBadge>);
-    expect(warn).toHaveBeenCalledWith("Status Badge has no children.");
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir StatusBadge: No children were passed."
+    );
   });
 
   it("renders the UI snapshot correctly", () => {

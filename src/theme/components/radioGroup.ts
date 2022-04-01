@@ -2,7 +2,9 @@ import { checkboxRadioGroupStyles } from "./global";
 
 const RadioGroup = {
   parts: ["helper", "stack"],
-  baseStyle: checkboxRadioGroupStyles,
+  baseStyle: ({ isFullWidth = false }) => ({
+    ...checkboxRadioGroupStyles(isFullWidth),
+  }),
 };
 
 export default RadioGroup;

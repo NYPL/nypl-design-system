@@ -100,6 +100,23 @@ describe("TemplateAppContainer component", () => {
     expect(screen.getByText("Footer")).toBeInTheDocument();
   });
 
+  it("renders a #mainContent id in the `main` DOM element", () => {
+    const { container } = render(
+      <TemplateAppContainer
+        aboveHeader={aboveHeader}
+        header={header}
+        breakout={breakout}
+        sidebar={sidebar}
+        contentTop={contentTop}
+        contentSidebar={contentSidebar}
+        contentPrimary={contentPrimary}
+        footer={footer}
+      />
+    );
+    expect(container.querySelector("#mainContent")).toBeInTheDocument();
+    expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
+  });
+
   it("renders only one header in a custom header component", () => {
     const customHeader = <header>Custom header</header>;
     render(
@@ -134,8 +151,9 @@ describe("TemplateAppContainer component", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "`TemplateHeader`: An HTML `header` element was passed in. Set " +
-        "`renderHeaderElement` to `false` to avoid nested HTML `header` elements."
+      "NYPL Reservoir TemplateHeader: An HTML `header` element was passed " +
+        "in. Set `renderHeaderElement` to `false` to avoid nested HTML " +
+        "`header` elements."
     );
   });
 
@@ -172,8 +190,9 @@ describe("TemplateAppContainer component", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "`TemplateFooter`: An HTML `footer` element was passed in. Set " +
-        "`renderFooterElement` to `false` to avoid nested HTML `footer` elements."
+      "NYPL Reservoir TemplateFooter: An HTML `footer` element was passed " +
+        "in. Set `renderFooterElement` to `false` to avoid nested HTML " +
+        "`footer` elements."
     );
   });
 });
@@ -207,7 +226,18 @@ describe("Template components", () => {
     expect(screen.getByText("Footer")).toBeInTheDocument();
   });
 
-  it("Renders the UI snapshot correctly", () => {
+  it("renders a #mainContent id in the TemplateContent component", () => {
+    const { container } = render(
+      <TemplateContent>
+        <TemplateContentPrimary>{contentPrimary}</TemplateContentPrimary>
+      </TemplateContent>
+    );
+
+    expect(container.querySelector("#mainContent")).toBeInTheDocument();
+    expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
+  });
+
+  it("renders the UI snapshot correctly", () => {
     const templateComponents = renderer
       .create(
         <Template>
