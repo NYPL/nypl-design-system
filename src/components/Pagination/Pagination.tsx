@@ -64,13 +64,16 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   }
   if (getPageHref && onPageChange) {
     console.warn(
-      "NYPL Reservoir Pagination: Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+      "NYPL Reservoir Pagination: Props for both `getPageHref` and " +
+        "`onPageChange` are passed. The component will default to using " +
+        "`getPageHref`."
     );
   }
 
   if (getPageHref && currentPage) {
     console.warn(
-      "NYPL Reservoir Pagination: The `currentPage` prop does not work with the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
+      "NYPL Reservoir Pagination: The `currentPage` prop does not work with " +
+        "the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
     );
   }
 
@@ -96,7 +99,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   // Select the next page.
   const nextPage = (e: Event) => {
     if (selectedPage < pageCount) {
-      handlePageClick(e, previousPageNumber);
+      handlePageClick(e, nextPageNumber);
     }
   };
   /**

@@ -60,7 +60,44 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.3.6`    |
-| Latest            | `0.25.12`  |
+| Latest            | `0.25.13`  |
+
+## Table of Contents
+
+- [Accessibility for TemplateAppContainer](#accessibility-for-templateappcontainer)
+- [TemplateAppContainer Component](#templateappcontainer-component)
+- [TemplateAppContainer Props](#templateappcontainer-props)
+- [Template Children Components](#template-children-components)
+- [Template Children Props](#template-children-props)
+- [Full Example with Template Children Components](#full-example-with-template-children-components)
+
+## Accessibility
+
+**The `TemplateAppContainer` component is the recommended way to render the entire
+application.** Therefore, this accessibility section is specifically for the
+`TemplateAppContainer` but the same rules apply to the individual "Template"
+components.
+
+If you need to render an alert or notification at the top of the page with an
+`aside` HTML element or HTML element with the `role="complementary"` attribute,
+then pass that alert or notification component to the `aboveHeader` prop. These
+elements should _not_ be rendered in the `header` HTML section since that's an
+accessibility violation.
+
+The `TemplateAppContainer` component renders a full DOM and one of the children
+is the `main` HTML element with a default "id" of `"mainContent"`. This should
+be used as the anchor element that the skip navigation link points to. As of
+v0.25.13, the consuming application is responsible for adding the skip
+navigation feature to the application. If your application is using the current
+NYPL Header, it already contains the skip navigation feature but make sure it is
+pointing to the correct anchor element.
+
+Resources
+
+- [W3C Aria Landmarks Example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/complementary.html)
+- [Digital A11y Role=Complementary](https://www.digitala11y.com/complementary-role/)
+- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
+- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
 
 ## TemplateAppContainer Component
 
@@ -74,13 +111,7 @@ Likewise, if you have a custom `Footer` component that _already_ renders an HTML
 `<footer>` element, set `renderFooterElement` to false so only one `<footer>`
 element is rendered.
 
-If you need to render an alert or notification at the top of the page with an
-`aside` HTML element or HTML element with the `role="complementary"` attribute,
-then pass that alert or notification component to the `aboveHeader` prop. These
-elements should _not_ be rendered in the `header` HTML section since that's an
-accessibility violation.
-
-<b>This is the recommended way to render an app page template.</b>
+**This is the recommended way to render an app page template.**
 
 ```jsx
 import { TemplateAppContainer } from "@nypl/design-system-react-components";
@@ -107,6 +138,8 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
 />;
 ```
 
+## TemplateAppContainer Props
+
 <Canvas>
   <Story
     name="TemplateAppContainer Component"
@@ -124,6 +157,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
           <Placeholder variant="short">More Content</Placeholder>
         </>
       ),
+      contentId: "mainContent",
       contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
       contentTop: <Placeholder>Content Top</Placeholder>,
       footer: <Placeholder variant="short">Footer</Placeholder>,
@@ -203,6 +237,8 @@ import {
 </Template>
 ```
 
+## Template Children Props
+
 <Canvas>
   <Story
     name="Template Children Components"
@@ -212,6 +248,7 @@ import {
     argTypes={{
       aboveHeader: { table: { disable: true } },
       breakout: { table: { disable: true } },
+      contentId: { table: { disable: true } },
       contentPrimary: { table: { disable: true } },
       contentSidebar: { table: { disable: true } },
       contentTop: { table: { disable: true } },
@@ -334,7 +371,7 @@ The components consist of:
 ```
 <Template>
   <TemplateHeader>...</TemplateHeader>
-  <TemplateContent sidebar="left">
+  <TemplateContent id="mainContent" sidebar="left">
     // ...
   </TemplateContent>
 <Template>
@@ -513,18 +550,14 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
             ]}
           />
           <Hero
+            backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
             heroType={HeroTypes.Campaign}
             heading={
               <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
             }
+            imageAlt="Image example"
+            imageSrc="https://placeimg.com/800/400/animals"
             subHeaderText={otherSubHeaderText}
-            backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-            image={
-              <Image
-                src="https://placeimg.com/800/400/animals"
-                alt="Image example"
-              />
-            }
           />
         </TemplateBreakout>
       </TemplateHeader>
@@ -547,7 +580,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
         </TemplateContentTop>
         <TemplateContentPrimary>
           <p>This is the main content!</p>
-          <Accordion contentData={faqContent} />
+          <Accordion accordionData={faqContent} />
           <HorizontalRule />
           <p>Fill out the form!</p>
           <Form action="/end/point">
@@ -584,11 +617,13 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
         <TemplateContentSidebar>
           <p>Sidebar information in a `Card` component.</p>
           <Card
-            center
-            imageSrc="https://placeimg.com/400/200/animals"
-            imageAlt="Alt text"
-            imageAspectRatio={ImageRatios.Square}
-            imageSize={ImageSizes.Small}
+            imageProps={{
+              alt: "Alt text",
+              aspectRatio: ImageRatios.Square,
+              size: ImageSizes.Small,
+              src: "https://placeimg.com/400/200/animals",
+            }}
+            isCentered
           >
             <CardHeading level={HeadingLevels.Two} id="heading1">
               Small Animal Image
@@ -606,9 +641,11 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
       <TemplateFooter>
         <Card
           id="custom-card"
-          imageAlt="Alt text"
-          imageSrc="https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png"
-          imageAspectRatio={ImageRatios.SixteenByNine}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.SixteenByNine,
+            src: "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png",
+          }}
           layout="horizontal"
           backgroundColor="#616161"
           foregroundColor="#FFF"

@@ -30,14 +30,16 @@ describe("HorizontalRule", () => {
       <HorizontalRule className="custom-hr" height="20px" />
     );
     expect(warn).not.toHaveBeenCalledWith(
-      "`HorizontalRule`: For the `height` prop, use a whole number, a `px` " +
-        "value, a `em` value, or a `rem` value. Using the default of 2px."
+      "NYPL Reservoir HorizontalRule: An invalid value was passed for the " +
+        "`height` prop, so the default value of 2px will be used.  A valid " +
+        "value should be a whole number, a `px` value, a `em` value, or a `rem` value."
     );
 
     rerender(<HorizontalRule className="custom-hr" height="20%" />);
     expect(warn).toHaveBeenCalledWith(
-      "`HorizontalRule`: For the `height` prop, use a whole number, a `px` " +
-        "value, a `em` value, or a `rem` value. Using the default of 2px."
+      "NYPL Reservoir HorizontalRule: An invalid value was passed for the " +
+        "`height` prop, so the default value of 2px will be used.  A valid " +
+        "value should be a whole number, a `px` value, a `em` value, or a `rem` value."
     );
   });
 

@@ -83,16 +83,18 @@ describe("StructuredContent Accessibility", () => {
   it("passes axe accessibility for HTML string text content", async () => {
     const { container } = render(
       <StructuredContent
+        bodyContent={htmlStringBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        imageAlt="Image alt text"
-        imageAspectRatio={ImageRatios.Original}
-        imageCaption="Image caption"
-        imageCredit="Image credit"
-        imagePosition={StructuredContentImagePosition.Left}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/300/animals"
-        bodyContent={htmlStringBodyContent}
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: ImageRatios.Original,
+          caption: "Image caption",
+          credit: "Image credit",
+          position: StructuredContentImagePosition.Left,
+          size: ImageSizes.Medium,
+          src: "https://placeimg.com/400/300/animals",
+        }}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -101,16 +103,18 @@ describe("StructuredContent Accessibility", () => {
   it("passes axe accessibility for HTML DOM text content", async () => {
     const { container } = render(
       <StructuredContent
+        bodyContent={htmlDOMBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        imageAlt="Image alt text"
-        imageAspectRatio={ImageRatios.Original}
-        imageCaption="Image caption"
-        imageCredit="Image credit"
-        imagePosition={StructuredContentImagePosition.Left}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/300/animals"
-        bodyContent={htmlDOMBodyContent}
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: ImageRatios.Original,
+          caption: "Image caption",
+          credit: "Image credit",
+          position: StructuredContentImagePosition.Left,
+          size: ImageSizes.Medium,
+          src: "https://placeimg.com/400/300/animals",
+        }}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -119,9 +123,9 @@ describe("StructuredContent Accessibility", () => {
   it("passes axe accessibility without an image", async () => {
     const { container } = render(
       <StructuredContent
+        bodyContent={htmlStringBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        bodyContent={htmlStringBodyContent}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -132,16 +136,18 @@ describe("StructuredContent", () => {
   it("renders two headings, an image, and body text", () => {
     render(
       <StructuredContent
+        bodyContent={htmlStringBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        imageAlt="Image alt text"
-        imageAspectRatio={ImageRatios.Original}
-        imageCaption="Image caption"
-        imageCredit="Image credit"
-        imagePosition={StructuredContentImagePosition.Left}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/300/animals"
-        bodyContent={htmlStringBodyContent}
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: ImageRatios.Original,
+          caption: "Image caption",
+          credit: "Image credit",
+          position: StructuredContentImagePosition.Left,
+          size: ImageSizes.Medium,
+          src: "https://placeimg.com/400/300/animals",
+        }}
       />
     );
     const mainHeading = screen.getByRole("heading", { level: 2 });
@@ -156,14 +162,16 @@ describe("StructuredContent", () => {
   it("optionally renders without the headings", () => {
     render(
       <StructuredContent
-        imageAlt="Image alt text"
-        imageAspectRatio={ImageRatios.Original}
-        imageCaption="Image caption"
-        imageCredit="Image credit"
-        imagePosition={StructuredContentImagePosition.Left}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/300/animals"
         bodyContent={htmlStringBodyContent}
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: ImageRatios.Original,
+          caption: "Image caption",
+          credit: "Image credit",
+          position: StructuredContentImagePosition.Left,
+          size: ImageSizes.Medium,
+          src: "https://placeimg.com/400/300/animals",
+        }}
       />
     );
     const mainHeading = screen.queryByRole("heading", { level: 2 });
@@ -178,9 +186,9 @@ describe("StructuredContent", () => {
   it("optionally renders without the image", () => {
     render(
       <StructuredContent
+        bodyContent={htmlStringBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        bodyContent={htmlStringBodyContent}
       />
     );
     const mainHeading = screen.getByRole("heading", { level: 2 });
@@ -192,24 +200,27 @@ describe("StructuredContent", () => {
     expect(screen.getByText(/Lorem ipsum dolor sit amet/i)).toBeInTheDocument();
   });
 
-  it("logs a warning when an image is used but no alt text is passed to `imageAlt`", () => {
+  it("logs a warning when an image is used but no alt text is passed to `imageProps.alt`", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <StructuredContent
+        bodyContent={htmlStringBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        imageAspectRatio={ImageRatios.Original}
-        imageCaption="Image caption"
-        imageCredit="Image credit"
-        imagePosition={StructuredContentImagePosition.Left}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/300/animals"
-        bodyContent={htmlStringBodyContent}
+        imageProps={{
+          aspectRatio: ImageRatios.Original,
+          caption: "Image caption",
+          credit: "Image credit",
+          position: StructuredContentImagePosition.Left,
+          size: ImageSizes.Medium,
+          src: "https://placeimg.com/400/300/animals",
+        }}
       />
     );
 
     expect(warn).toHaveBeenCalledWith(
-      "StructuredContent: `imageAlt` prop is required when using an image."
+      "NYPL Reservoir StructuredContent: The `imageProps.alt` prop is required " +
+        "when using an image."
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
   });
@@ -217,16 +228,18 @@ describe("StructuredContent", () => {
   it("renders an image wrapped in figure when provided an image caption or credit", () => {
     const { rerender } = render(
       <StructuredContent
+        bodyContent={htmlStringBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        imageAlt="Image alt text"
-        imageAspectRatio={ImageRatios.Original}
-        imageCaption="Image caption"
-        imageCredit="Image credit"
-        imagePosition={StructuredContentImagePosition.Left}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/300/animals"
-        bodyContent={htmlStringBodyContent}
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: ImageRatios.Original,
+          caption: "Image caption",
+          credit: "Image credit",
+          position: StructuredContentImagePosition.Left,
+          size: ImageSizes.Medium,
+          src: "https://placeimg.com/400/300/animals",
+        }}
       />
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -237,15 +250,17 @@ describe("StructuredContent", () => {
     // Not passing in the image's caption
     rerender(
       <StructuredContent
+        bodyContent={htmlStringBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        imageAlt="Image alt text"
-        imageAspectRatio={ImageRatios.Original}
-        imageCredit="Image credit"
-        imagePosition={StructuredContentImagePosition.Left}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/300/animals"
-        bodyContent={htmlStringBodyContent}
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: ImageRatios.Original,
+          credit: "Image credit",
+          position: StructuredContentImagePosition.Left,
+          size: ImageSizes.Medium,
+          src: "https://placeimg.com/400/300/animals",
+        }}
       />
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -257,14 +272,16 @@ describe("StructuredContent", () => {
   it("renders a simple image element when no image caption or credit are provided", () => {
     render(
       <StructuredContent
+        bodyContent={htmlStringBodyContent}
         calloutText="This is the callout text"
         headingText="Heading text"
-        imageAlt="Image alt text"
-        imageAspectRatio={ImageRatios.Original}
-        imagePosition={StructuredContentImagePosition.Left}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/300/animals"
-        bodyContent={htmlStringBodyContent}
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: ImageRatios.Original,
+          position: StructuredContentImagePosition.Left,
+          size: ImageSizes.Medium,
+          src: "https://placeimg.com/400/300/animals",
+        }}
       />
     );
     expect(screen.getByRole("img")).toBeInTheDocument();
@@ -277,91 +294,101 @@ describe("StructuredContent", () => {
     const withHTMLStringContent = renderer
       .create(
         <StructuredContent
+          bodyContent={htmlStringBodyContent}
           calloutText="This is the callout text"
           headingText="Heading text"
           id="withHTMLStringContent"
-          imageAlt="Image alt text"
-          imageAspectRatio={ImageRatios.Original}
-          imageCaption="Image caption"
-          imageCredit="Image credit"
-          imagePosition={StructuredContentImagePosition.Left}
-          imageSize={ImageSizes.Medium}
-          imageSrc="https://placeimg.com/400/300/animals"
-          bodyContent={htmlStringBodyContent}
+          imageProps={{
+            alt: "Image alt text",
+            aspectRatio: ImageRatios.Original,
+            caption: "Image caption",
+            credit: "Image credit",
+            position: StructuredContentImagePosition.Left,
+            size: ImageSizes.Medium,
+            src: "https://placeimg.com/400/300/animals",
+          }}
         />
       )
       .toJSON();
     const withHTMLDOMContent = renderer
       .create(
         <StructuredContent
+          bodyContent={htmlDOMBodyContent}
           calloutText="This is the callout text"
           headingText="Heading text"
           id="withHTMLDOMContent"
-          imageAlt="Image alt text"
-          imageAspectRatio={ImageRatios.Original}
-          imageCaption="Image caption"
-          imageCredit="Image credit"
-          imagePosition={StructuredContentImagePosition.Left}
-          imageSize={ImageSizes.Medium}
-          imageSrc="https://placeimg.com/400/300/animals"
-          bodyContent={htmlDOMBodyContent}
+          imageProps={{
+            alt: "Image alt text",
+            aspectRatio: ImageRatios.Original,
+            caption: "Image caption",
+            credit: "Image credit",
+            position: StructuredContentImagePosition.Left,
+            size: ImageSizes.Medium,
+            src: "https://placeimg.com/400/300/animals",
+          }}
         />
       )
       .toJSON();
     const withoutAnImage = renderer
       .create(
         <StructuredContent
+          bodyContent={htmlStringBodyContent}
           calloutText="This is the callout text"
           headingText="Heading text"
           id="withoutAnImage"
-          bodyContent={htmlStringBodyContent}
         />
       )
       .toJSON();
     const withImageWithoutCaptionOrCredit = renderer
       .create(
         <StructuredContent
+          bodyContent={htmlStringBodyContent}
           calloutText="This is the callout text"
           headingText="Heading text"
           id="withImageWithoutCaptionOrCredit"
-          imageAlt="Image alt text"
-          imageAspectRatio={ImageRatios.Original}
-          imagePosition={StructuredContentImagePosition.Left}
-          imageSize={ImageSizes.Medium}
-          imageSrc="https://placeimg.com/400/300/animals"
-          bodyContent={htmlStringBodyContent}
+          imageProps={{
+            alt: "Image alt text",
+            aspectRatio: ImageRatios.Original,
+            position: StructuredContentImagePosition.Left,
+            size: ImageSizes.Medium,
+            src: "https://placeimg.com/400/300/animals",
+          }}
         />
       )
       .toJSON();
     const withoutHeading = renderer
       .create(
         <StructuredContent
+          bodyContent={htmlStringBodyContent}
           calloutText="This is the callout text"
           id="withoutHeading"
-          imageAlt="Image alt text"
-          imageAspectRatio={ImageRatios.Original}
-          imageCaption="Image caption"
-          imageCredit="Image credit"
-          imagePosition={StructuredContentImagePosition.Left}
-          imageSize={ImageSizes.Medium}
-          imageSrc="https://placeimg.com/400/300/animals"
-          bodyContent={htmlStringBodyContent}
+          imageProps={{
+            alt: "Image alt text",
+            aspectRatio: ImageRatios.Original,
+            caption: "Image caption",
+            credit: "Image credit",
+            position: StructuredContentImagePosition.Left,
+            size: ImageSizes.Medium,
+            src: "https://placeimg.com/400/300/animals",
+          }}
         />
       )
       .toJSON();
     const withoutCalloutText = renderer
       .create(
         <StructuredContent
+          bodyContent={htmlStringBodyContent}
           headingText="Heading text"
           id="withoutCalloutText"
-          imageAlt="Image alt text"
-          imageAspectRatio={ImageRatios.Original}
-          imageCaption="Image caption"
-          imageCredit="Image credit"
-          imagePosition={StructuredContentImagePosition.Left}
-          imageSize={ImageSizes.Medium}
-          imageSrc="https://placeimg.com/400/300/animals"
-          bodyContent={htmlStringBodyContent}
+          imageProps={{
+            alt: "Image alt text",
+            aspectRatio: ImageRatios.Original,
+            caption: "Image caption",
+            credit: "Image credit",
+            position: StructuredContentImagePosition.Left,
+            size: ImageSizes.Medium,
+            src: "https://placeimg.com/400/300/animals",
+          }}
         />
       )
       .toJSON();
