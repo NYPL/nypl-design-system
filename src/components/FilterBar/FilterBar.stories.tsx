@@ -213,6 +213,7 @@ export const FilterBarWithMultiSelects: Story<FilterBarProps> = (args) => {
       {multiSelects.map((multiSelect: MultiSelectProps) => {
         return (
           <MultiSelect
+            variant="listbox"
             key={multiSelect.id}
             id={multiSelect.id}
             label={multiSelect.label}
@@ -337,6 +338,7 @@ export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
       {multiSelectsWithChildren.map((multiSelect: any) => {
         return (
           <MultiSelectDialog
+            variant="dialog"
             key={multiSelect.id}
             id={multiSelect.id}
             label={multiSelect.label}

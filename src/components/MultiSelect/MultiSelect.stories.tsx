@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import MultiSelect, { MultiSelectProps } from "./MultiSelect";
-import MultiSelectDialog, {
-  MultiSelectProps as MultiSelectDialogProps,
-} from "./MultiSelectDialog";
-import { MultiSelectItem } from "./MultiSelectTypes";
+import { /*MultiSelectVariants,*/ MultiSelectItem } from "./MultiSelectTypes";
 import { Story } from "@storybook/react/types-6-0";
 
 // @TODO export this, so FilterBar story can use it.
@@ -100,6 +97,7 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
 
   return (
     <MultiSelect
+      variant="listbox"
       {...args}
       items={items}
       selectedItems={selectedItems}
@@ -111,7 +109,7 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
   );
 };
 
-export const MultiSelectDialogStory: Story<MultiSelectDialogProps> = (args) => {
+export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   const [selectedItems, setSelectedItems] = useState({});
   const [openMultiSelectId, setOpenMultiSelectId] = useState(null);
   const isOpen = openMultiSelectId === args.id;
@@ -183,8 +181,9 @@ export const MultiSelectDialogStory: Story<MultiSelectDialogProps> = (args) => {
   }
 
   return (
-    <MultiSelectDialog
+    <MultiSelect
       {...args}
+      variant="dialog"
       items={items}
       isOpen={isOpen}
       onMenuToggle={() => {

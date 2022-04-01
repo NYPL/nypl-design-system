@@ -2,11 +2,8 @@ import React from "react";
 import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
-import {
-  MultiSelectItem,
-  SelectedItems,
-  MultiSelectWidths,
-} from "./MultiSelectTypes";
+import { MultiSelectItem, MultiSelectWidths } from "./MultiSelectTypes";
+import { MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import {
   Box,
@@ -17,34 +14,9 @@ import {
 } from "@chakra-ui/react";
 import FocusLock from "react-focus-lock";
 
-export interface MultiSelectProps {
-  /** The id of the multiSelect. */
-  id: string;
-  /** The label of the multiSelect. */
-  label: string;
-  /** The open status of the multiselect menu. */
-  isOpen?: boolean;
-  /** Whether the multiselect is in mobile mode or not. */
-  isMobile?: boolean;
-  /** The action to perform for the multiselect menu toggle button. */
-  onMenuToggle?: () => void;
-  /** The items to be rendered in the multiselect as options. */
-  items: MultiSelectItem[];
-  /** The action to perform on the checkbox's onChange function.  */
+type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** The action to perform for a mixed state checkbox (parent checkbox). */
-  // @TODO this is wrong, fix.
-  //onMixedStateChange?: (childItems: string[]) => void;
-  onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** The selected items state (items that were checked by user). */
-  selectedItems: SelectedItems;
-  /** The action to perform for save/apply button of multiselect. */
-  onApply?: () => void;
-  /** The action to perform for clear/reset button of multiselect.. */
-  onClear?: () => void;
-  /** Enum value used to set the width for the MultiSelect component. */
-  width?: MultiSelectWidths;
-}
+};
 
 function MultiSelectDialog({
   id,
@@ -59,7 +31,7 @@ function MultiSelectDialog({
   onApply,
   onClear,
   width = MultiSelectWidths.Default,
-}: MultiSelectProps) {
+}: MultiSelectDialogProps) {
   const styles = useMultiStyleConfig("MultiSelect", { width });
 
   function isChecked(multiSelectId: string, itemId: string) {

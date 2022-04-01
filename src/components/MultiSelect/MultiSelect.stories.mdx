@@ -12,7 +12,7 @@ import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import MultiSelect from "./MultiSelect";
 import * as stories from "./MultiSelect.stories.tsx";
-import { MultiSelectWidths } from "./MultiSelectTypes";
+import { MultiSelectVariants, MultiSelectWidths } from "./MultiSelectTypes";
 import { getStorybookEnumValues } from "../../utils/utils";
 
 export const widthsEnumValues = getStorybookEnumValues(
@@ -32,7 +32,7 @@ export const widthsEnumValues = getStorybookEnumValues(
     //jest: ["Checkbox.test.tsx"],
   }}
   argTypes={{
-    id: { table: { disable: true } },
+    //id: { table: { disable: true } },
     width: {
       control: { type: "select" },
       table: { defaultValue: { summary: "MultiSelectWidths.Default" } },
@@ -52,166 +52,9 @@ export const widthsEnumValues = getStorybookEnumValues(
 
 This component renders a MultiSelect form element.
 
-## Using the items prop
-
-The options rendered in the MultiSelect are passed into the component's items prop.
-The expected data structure is an array of objects, in the following format:
-
-```tsx
-<MultiSelect
-  id="group1"
-  label="Subject Specialities"
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: "art_history",
-      name: "Art History",
-    },
-  ]}
-/>
-```
-
-You can also add a second level of child items, in the following format:
-
-```tsx
-<MultiSelect
-  id="group1"
-  label="Subject Specialities"
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "parent_option",
-      name: "Parent option",
-      children: [
-        {
-          id: "child_1",
-          name: "Child 1",
-        },
-        {
-          id: "child_2",
-          name: "Child 2",
-        },
-      ],
-    },
-  ]}
-/>
-```
-
-## Controlling state using selectedItems and onChange prop
-
-While the component does not store the selectedItems state internally, it expects
-a certain state shape to be used. This state shape is a normalized pattern, and is
-basically an object of objects, keyed by the multiselect id.
-
-```json
-{
-  "subjects": {
-    "items": ["art", "architecture"]
-  },
-  "locations": {
-    "items": ["sasb"]
-  }
-}
-```
-
-This is helpful for when several MultiSelect components are rendered inside a FilterBar component,
-you can use the MultiSelect id to get items for a specific slice of the state.
-
-```jsx
-const subjectsSelectedItemssOnly = selectedItems["subjects"].items;
-const locationsSelectedItemssOnly = selectedItems["locations"].items;
-```
-
-It's also helpful if a consuming app is pushing state into the browser's url.
-This example uses NextJS's router push method to add query parameters to url.
-
-```jsx
-const multiSelectId = "subjects";
-// This wouldn't be a const in real world code, but for display purposes here
-// to show the state object more clearly.
-const mockStateObject = {
-  subjects: {
-    items: ["art", "architecture"],
-  },
-  locations: {
-    items: ["sasb"],
-  },
-};
-
-// Will push ?subjects=art,architecture into browser url.
-router.push({
-  query: {
-    [multiSelectId]: selectedItems[multiSelectId].items.join(" "),
-  },
-});
-```
-
-This is an example with a handleChange function to manage the selectedItems state, without
-mutating it.
-
-```jsx
-import React, { useState } from "react";
-import MultiSelect from "./MultiSelect";
-
-function MultiSelectControlledExample() {
-  const [selectedItems, setSelectedItems] = useState({});
-
-  function handleChange(multiSelectId: string, itemId: string) {
-    let itemIds;
-    // Check if the id already exists in the state
-    if (selectedItems[multiSelectId] !== undefined) {
-      let itemIdExists =
-        selectedItems[multiSelectId].items.indexOf(itemId) > -1;
-      // Make a copy of the existing array.
-      itemIds = selectedItems[multiSelectId].items.slice();
-      // If itemId exists, remove it from the array.
-      if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id != itemId);
-      } else {
-        // Add it to the array, but modify the copy, not the original.
-        itemIds.push(itemId);
-      }
-    } else {
-      itemIds = [];
-      itemIds.push(itemId);
-    }
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: itemIds,
-      },
-    });
-  }
-
-  return (
-    <MultiSelect
-      id="subjects"
-      label="Subjects"
-      items={items}
-      selectedItems={selectedItems}
-      onChange={(selectedItem) => {
-        handleChange("id", selectedItem.id);
-      }}
-    />
-  );
-}
-
-export default MultiSelectControlledExample;
-```
-
 <Canvas withToolbar>
   <Story
-    name="MultiSelect With Controls"
+    name="MultiSelect ListBox"
     args={{
       id: "group1",
       label: "Subject Specialities",
@@ -227,11 +70,11 @@ export default MultiSelectControlledExample;
   </Story>
 </Canvas>
 
-<ArgsTable story="MultiSelect" />
+<ArgsTable story="MultiSelect ListBox" />
 
 <Canvas withToolbar>
   <Story
-    name="MultiSelectDialog With Controls"
+    name="MultiSelect Dialog"
     args={{
       id: "group1",
       label: "Subject Specialities Dialog",
@@ -247,5 +90,4 @@ export default MultiSelectControlledExample;
   </Story>
 </Canvas>
 
-<ArgsTable story="MultiSelectDialog" />
-```
+<ArgsTable story="MultiSelect Dialog" />

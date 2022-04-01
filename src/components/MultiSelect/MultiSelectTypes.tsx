@@ -15,3 +15,8 @@ export enum MultiSelectWidths {
   Large = "large",
   Full = "full",
 }
+
+export enum MultiSelectVariants {
+  Listbox = "listbox",
+  Dialog = "dialog",
+}
