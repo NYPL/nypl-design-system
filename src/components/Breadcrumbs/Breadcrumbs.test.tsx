@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import { axe } from "jest-axe";
 
 import Breadcrumbs from "./Breadcrumbs";
-import { ColorVariants } from "./BreadcrumbsTypes";
+import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 
 describe("Breadcrumbs Accessibility", () => {
   const breadcrumbsData = [
@@ -51,7 +51,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          colorVariant={ColorVariants.BooksAndMore}
+          breadcrumbsType={BreadcrumbsTypes.BooksAndMore}
           id="breadcrumbs-test"
         />
       )
@@ -60,7 +60,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          colorVariant={ColorVariants.Blogs}
+          breadcrumbsType={BreadcrumbsTypes.Blogs}
           id="breadcrumbs-test"
         />
       )
@@ -69,7 +69,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          colorVariant={ColorVariants.Blogs}
+          breadcrumbsType={BreadcrumbsTypes.Blogs}
           id="breadcrumbs-test"
         />
       )
@@ -78,7 +78,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          colorVariant={ColorVariants.Education}
+          breadcrumbsType={BreadcrumbsTypes.Education}
           id="breadcrumbs-test"
         />
       )
@@ -130,7 +130,7 @@ describe("Breadcrumbs Testing", () => {
 
   it("Throws error when nothing is passed into Breadcrumb", () => {
     expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
-      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
+      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   });
 });

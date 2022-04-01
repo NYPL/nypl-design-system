@@ -1,11 +1,11 @@
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Heading from "../Heading/Heading";
-import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
+import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import Text from "../Text/Text";
-import { TextDisplaySizes } from "../Text/TextTypes";
+import { TextSizes } from "../Text/TextTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -54,15 +54,14 @@ set the specific `<h>` tag that you require.
 
 <DSProvider>
 
-Each heading level has a default style and size, but those styles can be
-overridden using the `displaySize` prop. The display sizes are separate from
-semantic elements and may be used to override the default size and styling of
-the semantic HTML heading elements. For example, the `h1` element has the
-`Primary` style applied by default, but a new style can be applied through
-the `displaySize` prop. Any `displaySize` style can be applied to any
-`Heading` element.
+Each heading level has a default style and size, but those styles can be overridden
+using the `size` prop. The display sizes are separate from semantic elements and
+may be used to override the default size and styling of the semantic HTML heading
+elements. For example, the `h1` element has the `Primary` style applied by default,
+but a new style can be applied through the `size` prop. Any `size` style can be
+applied to any `Heading` element.
 
-<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Primary}>
+<Heading level={HeadingLevels.One} size={HeadingSizes.Primary}>
   Primary Heading
 </Heading>
 
@@ -72,7 +71,7 @@ the `displaySize` prop. Any `displaySize` style can be applied to any
 | **Font Weight** | `300`     | `fontWeight: "heading.primary"` | `font-weight: var(--nypl-fontWeights-heading-primary)` |
 | **Line Height** | `1.1`     | n/a                             | n/a                                                    |
 
-<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Secondary}>
+<Heading level={HeadingLevels.One} size={HeadingSizes.Secondary}>
   Secondary Heading
 </Heading>
 
@@ -82,7 +81,7 @@ the `displaySize` prop. Any `displaySize` style can be applied to any
 | **Font Weight** | `500`     | `fontWeight: "heading.secondary"` | `font-weight: var(--nypl-fontWeights-heading-secondary)` |
 | **Line Height** | `1.25`    | n/a                               | n/a                                                      |
 
-<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Tertiary}>
+<Heading level={HeadingLevels.One} size={HeadingSizes.Tertiary}>
   Tertiary Heading
 </Heading>
 
@@ -92,7 +91,7 @@ the `displaySize` prop. Any `displaySize` style can be applied to any
 | **Font Weight** | `500`      | `fontWeight: "heading.tertiary"` | `font-weight: var(--nypl-fontWeights-heading-tertiary)` |
 | **Line Height** | `1.25`     | n/a                              | n/a                                                     |
 
-<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Callout}>
+<Heading level={HeadingLevels.One} size={HeadingSizes.Callout}>
   Callout Heading
 </Heading>
 
@@ -125,12 +124,12 @@ used for body copy, captions and secondary captions.
 
 <DSProvider>
 
-The `displaySize` prop can be used to render a specific style from the DS default text styles.
+The `size` prop can be used to render a specific style from the DS default text styles.
 
 - [Typography: Body Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
 - [Typography: Other Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)
 
-<Text displaySize={TextDisplaySizes.Default}>Default</Text>
+<Text size={TextSizes.Default}>Default</Text>
 
 |                 | Value  | JS Theme Object              | CSS Variable                                        |
 | --------------- | ------ | ---------------------------- | --------------------------------------------------- |
@@ -138,7 +137,7 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 | **Font Weight** | `300`  | `fontWeight: "text.default"` | `font-weight: var(--nypl-fontWeights-text-default)` |
 | **Line Height** | `1.5`  | `fontWeight: 1.5`            | `font-weight: 1.5`                                  |
 
-<Text displaySize={TextDisplaySizes.Caption}>Caption</Text>
+<Text size={TextSizes.Caption}>Caption</Text>
 
 |                 | Value      | JS Theme Object              | CSS Variable                                        |
 | --------------- | ---------- | ---------------------------- | --------------------------------------------------- |
@@ -146,7 +145,7 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 | **Font Weight** | `300`      | `fontWeight: "text.caption"` | `font-weight: var(--nypl-fontWeights-text-caption)` |
 | **Line Height** | `1.25`     | `fontWeight: 1.25`           | `font-weight: 1.25`                                 |
 
-<Text displaySize={TextDisplaySizes.Tag}>Tag</Text>
+<Text size={TextSizes.Tag}>Tag</Text>
 
 |                 | Value     | JS Theme Object          | CSS Variable                                    |
 | --------------- | --------- | ------------------------ | ----------------------------------------------- |
@@ -154,7 +153,7 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 | **Font Weight** | `400`     | `fontWeight: "text.tag"` | `font-weight: var(--nypl-fontWeights-text-tag)` |
 | **Line Height** | `1.5`     | `fontWeight: 1.5`        | `font-weight: 1.5`                              |
 
-<Text displaySize={TextDisplaySizes.Mini}>Mini</Text>
+<Text size={TextSizes.Mini}>Mini</Text>
 
 |                 | Value      | JS Theme Object           | CSS Variable                                     |
 | --------------- | ---------- | ------------------------- | ------------------------------------------------ |

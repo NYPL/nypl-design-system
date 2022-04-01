@@ -23,7 +23,7 @@ exports[`Heading renders the UI snapshot correctly 3`] = `
   className="chakra-heading css-0"
   id="customDisplaySize"
 >
-  Heading with Secondary displaySize
+  Heading with Secondary size
 </h1>
 `;
 

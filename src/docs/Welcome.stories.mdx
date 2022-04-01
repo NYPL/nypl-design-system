@@ -7,7 +7,7 @@ import { HeroTypes } from "../components/Hero/HeroTypes";
 import Heading from "../components/Heading/Heading";
 import {
   HeadingLevels,
-  HeadingDisplaySizes,
+  HeadingSizes,
 } from "../components/Heading/HeadingTypes";
 import Icon from "../components/Icons/Icon";
 import {
@@ -22,13 +22,10 @@ import Logo from "../components/Logo/Logo";
 import { LogoNames, LogoSizes } from "../components/Logo/LogoTypes";
 import SimpleGrid from "../components/Grid/SimpleGrid";
 import Text from "../components/Text/Text";
-import { TextDisplaySizes } from "../components/Text/TextTypes";
+import { TextSizes } from "../components/Text/TextTypes";
 import DSProvider from "../theme/provider";
 
 <Meta title="Welcome" />
-
-export const heroBackgroundColor = `var(--nypl-colors-section-books-and-more-primary)`;
-export const heroForegroundColor = `var(--nypl-colors-ui-white)`;
 
 <DSProvider>
   <VStack spacing="s">
@@ -39,7 +36,7 @@ export const heroForegroundColor = `var(--nypl-colors-ui-white)`;
       <Center>
         <Heading
           level={HeadingLevels.One}
-          displaySize={HeadingDisplaySizes.Tertiary}
+          size={HeadingSizes.Tertiary}
         >
           The React Component Library of the New York Public Library
         </Heading>
@@ -70,12 +67,12 @@ export const heroForegroundColor = `var(--nypl-colors-ui-white)`;
             marginBottom: "s",
           }}
         />
-        <Card center>
+        <Card isCentered>
           <CardHeading id="main-heading1" level={HeadingLevels.Three}>
             Getting Started
           </CardHeading>
           <CardContent>
-            <Text displaySize={TextDisplaySizes.Caption}>
+            <Text size={TextSizes.Caption}>
               To start using Reservoir Design System's, refer to Reservoir's
               Github{" "}
               <Link
@@ -114,12 +111,12 @@ export const heroForegroundColor = `var(--nypl-colors-ui-white)`;
             marginBottom: "s",
           }}
         />
-        <Card center>
+        <Card isCentered>
           <CardHeading id="main-heading1" level={HeadingLevels.Three}>
             Finding Components
           </CardHeading>
           <CardContent>
-            <Text displaySize={TextDisplaySizes.Caption}>
+            <Text size={TextSizes.Caption}>
               For your convenience, the Reservoir components have been organized
               into logical categories based on both form and function. Please
               refer to the <b>COMPONENTS</b> section in the Storybook sidebar.
@@ -144,12 +141,12 @@ export const heroForegroundColor = `var(--nypl-colors-ui-white)`;
             marginBottom: "s",
           }}
         />
-        <Card center>
+        <Card isCentered>
           <CardHeading id="main-heading1" level={HeadingLevels.Three}>
             Viewing the Code
           </CardHeading>
           <CardContent>
-            <Text displaySize="caption">
+            <Text size="caption">
               This React design system library is currently published on{" "}
               <Link
                 href="https://www.npmjs.com/package/@nypl/design-system-react-components"

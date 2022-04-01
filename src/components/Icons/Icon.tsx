@@ -54,7 +54,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     iconRotation = IconRotationTypes.Rotate0,
     id = generateUUID(),
     name,
-    size = IconSizes.Medium,
+    size = IconSizes.Default,
     title = `${name} icon`,
     type = IconTypes.Default,
   } = props;
@@ -77,12 +77,14 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   // Component prop validation
   if (name && children) {
     console.warn(
-      "Icon accepts either a `name` prop or an `svg` element child, not both."
+      "NYPL Reservoir Icon: Pass in either a `name` prop or an `svg` element " +
+        "child. Do not pass both."
     );
     return null;
   } else if (!name && !children) {
     console.warn(
-      "Icon: Pass an icon `name` prop or an SVG child to ensure an icon appears."
+      "NYPL Reservoir Icon: Pass an icon `name` prop or an SVG child to " +
+        "ensure an icon appears."
     );
     return null;
   }
@@ -105,14 +107,17 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
   // Apply icon props to the SVG child.
   if (
     (children as JSX.Element).type === "svg" ||
-    (children as JSX.Element).props.type === "svg" ||
-    (children as JSX.Element).props.mdxType === "svg"
+    (children as JSX.Element).props?.type === "svg" ||
+    (children as JSX.Element).props?.mdxType === "svg"
   ) {
     childSVG = React.cloneElement(children as JSX.Element, {
       ...iconProps,
     });
   } else {
-    console.warn("You must pass an `svg` element to the `Icon` component.");
+    console.warn(
+      "NYPL Reservoir Icon: An `svg` element must be passed to the `Icon` " +
+        "component as its child."
+    );
   }
 
   return <Box __css={styles}>{childSVG}</Box>;

@@ -60,13 +60,15 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
   // prop must be used.
   if (children && (listItems || listItems?.length > 0)) {
     console.warn(
-      "Pass in either `<li>`, `<dt>`, or `<dd>` children or use the `listItems` data prop, but don't use both."
+      "NYPL Reservoir List: Pass in either `<li>`, `<dt>`, or `<dd>` " +
+        "children or use the `listItems` data prop. Do not use both."
     );
     return null;
   }
   if (!children && !listItems) {
     console.warn(
-      "Either `<li>` children or the `listItems` prop must be used."
+      "NYPL Reservoir List: Pass in either `<li>` children or pass data in " +
+        "the `listItems` prop, not both."
     );
     return null;
   }
@@ -100,7 +102,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
     React.Children.map(children, (child: React.ReactElement) => {
       if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
         console.warn(
-          `Direct children of \`List\` (${listType}) should be \`<li>\`s.`
+          `NYPL Reservoir List: Direct children of \`List\` (${listType}) must be \`<li>\`s.`
         );
       }
     });
@@ -120,7 +122,8 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
         child.props.mdxType !== React.Fragment
       ) {
         console.warn(
-          "Direct children of `List` (definition) should be `<dt>`s and `<dd>`s."
+          "NYPL Reservoir List: Direct children of `List` (definition) must " +
+            "be `<dt>`s and `<dd>`s."
         );
       }
     });
