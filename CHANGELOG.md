@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the default background color used in the `Accordion` component.
+
 ## 0.25.13 (April 1, 2022)
 
 ### Adds
