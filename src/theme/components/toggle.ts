@@ -12,7 +12,7 @@ const toggleBaseStyle = ({ isDisabled }) => {
   return {
     label,
     helper,
-  }
+  };
 };
 const $width = cssVar("switch-track-width");
 const $height = cssVar("switch-track-height");

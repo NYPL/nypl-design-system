@@ -40,7 +40,7 @@ const baseStyleControl = {
       color: "ui.gray.medium",
       svg: {
         color: "ui.gray.light-cool",
-      }
+      },
     },
 
     _indeterminate: {

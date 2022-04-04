@@ -74,7 +74,7 @@ const selectTextinputDisabledStyles = {
   borderColor: "ui.gray.light-cool",
   color: "ui.gray.dark",
   opacity: "1",
-}
+};
 // Used for p, ul, and ol
 const textMargin = {
   margin: "0",
