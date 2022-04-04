@@ -74,7 +74,16 @@ export { ListTypes } from "./components/List/ListTypes";
 export { default as Logo } from "./components/Logo/Logo";
 export { LogoColors, LogoNames, LogoSizes } from "./components/Logo/LogoTypes";
 export { default as Modal } from "./components/Modal/Modal";
-export { default as MultiSelect } from "./components/MultiSelect/MultiSelect";
+
+export {
+  default as MultiSelect,
+  MultiSelectProps,
+} from "./components/MultiSelect/MultiSelect";
+export {
+  MultiSelectItem,
+  SelectedItems,
+} from "./components/MultiSelect/MultiSelectTypes";
+
 export { default as Notification } from "./components/Notification/Notification";
 export { NotificationTypes } from "./components/Notification/NotificationTypes";
 export { default as Pagination } from "./components/Pagination/Pagination";

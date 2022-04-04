@@ -95,6 +95,7 @@ export default function MultiSelect({
       />
     );
   }
+
   if (variant === "dialog") {
     const dialogOnChange = onChange as (
       event: React.ChangeEvent<HTMLInputElement>

@@ -5,7 +5,7 @@ export interface MultiSelectItem {
 }
 
 export interface SelectedItems {
-  [name: string]: { items: MultiSelectItem[] };
+  [name: string]: { items: string[] };
 }
 
 export enum MultiSelectWidths {
