@@ -20,11 +20,11 @@ const baseStyleControl = {
     color: "ui.white",
     _disabled: {
       color: "ui.gray.medium",
-      borderColor: "ui.gray.light-cool",
+      borderColor: "ui.disabled.primary",
       bg: "ui.white",
 
       _before: {
-        bg: "ui.gray.light-cool",
+        bg: "ui.disabled.primary",
       },
     },
     _invalid: {
@@ -49,7 +49,7 @@ const baseStyleControl = {
     },
   },
   _disabled: {
-    borderColor: "ui.gray.light-cool",
+    borderColor: "ui.disabled.primary",
     bg: "ui.white",
   },
   _focus: {

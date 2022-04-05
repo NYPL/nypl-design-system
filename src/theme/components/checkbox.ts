@@ -36,10 +36,10 @@ const baseStyleControl = {
 
     _disabled: {
       bg: "ui.white",
-      borderColor: "ui.gray.light-cool",
+      borderColor: "ui.disabled.primary",
       color: "ui.gray.medium",
       svg: {
-        color: "ui.gray.light-cool",
+        color: "ui.disabled.primary",
       },
     },
 
@@ -56,7 +56,7 @@ const baseStyleControl = {
 
   _disabled: {
     bg: "ui.white",
-    borderColor: "ui.gray.light-cool",
+    borderColor: "ui.disabled.primary",
   },
 
   _focus: {

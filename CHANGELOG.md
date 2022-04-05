@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
-- Updates the color values used in the `disabled` state for the `Checkbox`, `Radio`, `Select`, `TextInput` and `Toggle` components.
+- Updates the color values used in the `disabled` state for the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components.
 
 ## 0.25.13 (April 1, 2022)
 

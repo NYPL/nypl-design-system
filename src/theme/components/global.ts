@@ -71,7 +71,8 @@ const labelLegendText = {
 };
 // Used for the disabled state of Select and TextInput
 const selectTextinputDisabledStyles = {
-  borderColor: "ui.gray.light-cool",
+  bg: "ui.disabled.secondary",
+  borderColor: "ui.disabled.primary",
   color: "ui.gray.dark",
   opacity: "1",
 };
