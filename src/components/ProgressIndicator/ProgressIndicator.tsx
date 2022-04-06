@@ -11,7 +11,6 @@ import {
   ProgressIndicatorSizes,
   ProgressIndicatorTypes,
 } from "./ProgressIndicatorTypes";
-import generateUUID from "../../helpers/generateUUID";
 import Label from "../Label/Label";
 
 export interface ProgressIndicatorProps {
@@ -45,7 +44,7 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
 ) => {
   const {
     darkMode = false,
-    id = generateUUID(),
+    id,
     indicatorType = ProgressIndicatorTypes.Linear,
     isIndeterminate = false,
     labelText,

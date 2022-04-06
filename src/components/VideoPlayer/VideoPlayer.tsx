@@ -4,7 +4,6 @@ import * as React from "react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
-import generateUUID from "../../helpers/generateUUID";
 import { getVariant } from "../../utils/utils";
 
 export interface VideoPlayerProps {
@@ -50,7 +49,7 @@ export default function VideoPlayer(
     embedCode,
     headingText,
     helperText,
-    id = generateUUID(),
+    id,
     iframeTitle,
     showHelperInvalidText = true,
     videoId,

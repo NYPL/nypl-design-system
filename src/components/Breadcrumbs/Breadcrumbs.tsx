@@ -13,7 +13,6 @@ import {
   IconSizes,
   IconTypes,
 } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
 import { ColorVariants } from "./BreadcrumbsTypes";
 import { getVariant } from "../../utils/utils";
 
@@ -70,7 +69,7 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
     breadcrumbsData,
     className,
     colorVariant,
-    id = generateUUID(),
+    id,
   } = props;
   const variant = getVariant(colorVariant, ColorVariants);
 

@@ -4,8 +4,6 @@ import * as React from "react";
 import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
 import Link from "../Link/Link";
 import { getVariant } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface HeadingProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -47,7 +45,7 @@ function Heading(props: React.PropsWithChildren<HeadingProps>) {
     additionalStyles = {},
     className,
     displaySize,
-    id = generateUUID(),
+    id,
     level = HeadingLevels.Two,
     text,
     url,

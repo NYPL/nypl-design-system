@@ -9,8 +9,6 @@ import {
 
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface AccordionContentDataProps {
   label: string;
   panel: string | React.ReactNode;
@@ -29,7 +27,7 @@ export interface AccordionProps {
  * Get the minus or plus icon depending on whether the accordion
  * is open or closed.
  */
-const getIcon = (isExpanded = false, index, id) => {
+const getIcon = (isExpanded = false, index, id?) => {
   const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
   return (
     <Icon
@@ -92,7 +90,7 @@ const getElementsFromContentData = (data = [], id) => {
  * multiple accordion items together.
  */
 function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const { contentData, id = generateUUID(), isDefaultOpen = false } = props;
+  const { contentData, id, isDefaultOpen = false } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;

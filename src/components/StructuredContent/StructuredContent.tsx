@@ -6,8 +6,6 @@ import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Image, { ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import { StructuredContentImagePosition } from "./StructuredContentTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface StructuredContentProps {
   /** Optional value to set the text for the callout heading text. */
   calloutText?: string;
@@ -86,7 +84,7 @@ export default function StructuredContent(
     calloutText,
     className,
     headingText,
-    id = generateUUID(),
+    id,
     imageAlt = "",
     imageAspectRatio = ImageRatios.Square,
     imageCaption,

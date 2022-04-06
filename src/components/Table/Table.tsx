@@ -10,8 +10,6 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
-
 export interface TableProps {
   /** Additional class name for the `Table` component. */
   className?: string;
@@ -45,7 +43,7 @@ function Table(props: React.PropsWithChildren<TableProps>) {
     columnHeaders,
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    id = generateUUID(),
+    id,
     showRowDividers = false,
     tableData,
     titleText,

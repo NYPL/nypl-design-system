@@ -4,8 +4,6 @@ import { Box, useStyleConfig } from "@chakra-ui/react";
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
 import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface LinkProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -94,7 +92,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       children,
       className,
       href,
-      id = generateUUID(),
+      id,
       type = LinkTypes.Default,
     } = props;
 

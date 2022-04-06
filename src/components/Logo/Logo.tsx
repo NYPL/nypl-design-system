@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Icon as ChakraIcon, Box, useStyleConfig } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
 import { LogoNames, LogoSizes } from "./LogoTypes";
 import logoSvgs from "./LogoSvgs";
 
@@ -35,7 +34,7 @@ export default function Logo(props: React.PropsWithChildren<LogoProps>) {
     children,
     className,
     decorative = false,
-    id = generateUUID(),
+    id,
     name,
     size = LogoSizes.Medium,
     title = `${name} logo`,

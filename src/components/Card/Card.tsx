@@ -11,7 +11,6 @@ import { CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
 import Image, { ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
-import generateUUID from "../../helpers/generateUUID";
 
 interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
@@ -170,7 +169,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     children,
     className,
     foregroundColor,
-    id = generateUUID(),
+    id,
     imageAlt = "",
     imageAspectRatio = ImageRatios.Square,
     imageAtEnd,
