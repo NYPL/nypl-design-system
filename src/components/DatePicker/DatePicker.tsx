@@ -28,7 +28,7 @@ export interface FullDateType {
 // Used for the input fields' parent wrapper. Internal use only.
 interface DateRangeRowProps {
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Whether to render a single date input or two for a range of two dates. */
   isDateRange?: boolean;
 }

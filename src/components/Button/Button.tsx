@@ -18,7 +18,7 @@ interface ButtonProps {
   /** Additional className to use. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Adds 'disabled' property to the button. */
   isDisabled?: boolean;
   /** Trigger the Button's action through the `mouseDown` event handler instead

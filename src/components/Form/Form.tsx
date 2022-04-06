@@ -12,7 +12,7 @@ interface FormBaseProps {
    * should not be used``` */
   gap?: FormGaps;
   /** ID that other components can cross reference (internal use) */
-  id?: string;
+  id: string;
 }
 
 export interface FormChildProps extends FormBaseProps {}

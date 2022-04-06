@@ -29,7 +29,7 @@ export interface InputProps {
   /** Populates the HelperErrorText for the standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Populates the HelperErrorText for the error state */
   invalidText?: HelperErrorTextType;
   /** Adds the `disabled` and `aria-disabled` prop to the input when true */

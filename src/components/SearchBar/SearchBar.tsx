@@ -45,7 +45,7 @@ export interface SearchBarProps {
   /** The text to display below the form in a `HelperErrorText` component. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;

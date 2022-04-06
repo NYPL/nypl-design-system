@@ -11,7 +11,7 @@ interface LabelProps {
   /** The id of the html element that this `Label` is describing. */
   htmlFor: string;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Displays "Required" or "Optional" string alongside the label */
   optReqFlag?: optReqFlagType;
 }
