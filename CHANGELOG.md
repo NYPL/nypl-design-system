@@ -16,6 +16,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background color used in the `SkeletonLoader` component.
 - Updates the background color used in the `VideoPlayer` component.
 - Updates the background colors used in the `Tabs` component.
+- Updates the styling for the `HelperErrorText` to be consistent for all components that use it
+- Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
 
 ## 0.25.13 (April 1, 2022)
 
@@ -37,6 +39,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Accordion` button's background color when expanded, adds a border color when hovered over, and adjusts the padding.
 - Updates the `CardImage`'s margin bottom in the row and column layouts for mobile to be the same.
 - Updates the `CardImage` to have width 100% on mobile regardless of size.
+- Updates all the console warnings with consistent NYPL branding prefix label.
 - Renames the `Accordion` prop `contentData` to `accordionData`.
 - Renames the `Breadcrumbs` prop `colorVariant` to `breadcrumbsType`.
 - Renames the `Card` prop `center` to `isCentered`.
@@ -62,9 +65,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `StructuredContent` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, position, size, and src.
 - Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`. Updates the values from `Large` and `Small` to `Default` and `Small`.
 - Minor update to the logic for the `ProgressIndicator` sizing prop and styles.
-- Updates the styling for the `HelperErrorText` to be consistent for all components that use it
-- Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
-- Updates all the console warnings with consistent NYPL branding prefix label.
 
 ### Fixes
 
