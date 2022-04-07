@@ -1,22 +1,52 @@
-import * as React from "react";
+import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
-// import * as generateUUID from "../../helpers/generateUUID";
 import RadioGroup from "./RadioGroup";
 import Radio from "../Radio/Radio";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
-import userEvent from "@testing-library/user-event";
+import { LayoutTypes } from "../../helpers/enums";
 
 describe("Radio Accessibility", () => {
-  it("passes axe accessibility", async () => {
+  it("passes axe accessibility with string labels", async () => {
     const { container } = render(
       <RadioGroup labelText="RadioGroup example" name="a11y-test">
         <Radio value="2" labelText="Radio 2" />
         <Radio value="3" labelText="Radio 3" />
         <Radio value="4" labelText="Radio 4" />
         <Radio value="5" labelText="Radio 5" />
+      </RadioGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility with jsx labels", async () => {
+    const { container } = render(
+      <RadioGroup labelText="RadioGroup example" name="a11y-test" isFullWidth>
+        <Radio
+          id="arts"
+          labelText={
+            <Flex>
+              <span>Arts</span>
+              <Spacer />
+              <span>4</span>
+            </Flex>
+          }
+          value="arts"
+        />
+        <Radio
+          id="English"
+          labelText={
+            <Flex>
+              <span>English</span>
+              <Spacer />
+              <span>23</span>
+            </Flex>
+          }
+          value="English"
+        />
       </RadioGroup>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -233,7 +263,7 @@ describe("Radio Button", () => {
           labelText="row"
           name="row"
           id="row"
-          layout={RadioGroupLayoutTypes.Row}
+          layout={LayoutTypes.Row}
         >
           <Radio value="2" labelText="Radio 2" id="radio-2" />
           <Radio value="3" labelText="Radio 3" id="radio-3" />
@@ -326,6 +356,39 @@ describe("Radio Button", () => {
         </RadioGroup>
       )
       .toJSON();
+    const withJSXRadioLabels = renderer
+      .create(
+        <RadioGroup
+          id="jsxLabels"
+          isFullWidth
+          labelText="RadioGroup example"
+          name="a11y-test"
+        >
+          <Radio
+            id="arts"
+            labelText={
+              <Flex>
+                <span>Arts</span>
+                <Spacer />
+                <span>4</span>
+              </Flex>
+            }
+            value="arts"
+          />
+          <Radio
+            id="English"
+            labelText={
+              <Flex>
+                <span>English</span>
+                <Spacer />
+                <span>23</span>
+              </Flex>
+            }
+            value="English"
+          />
+        </RadioGroup>
+      )
+      .toJSON();
 
     expect(column).toMatchSnapshot();
     expect(row).toMatchSnapshot();
@@ -336,6 +399,7 @@ describe("Radio Button", () => {
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(withJSXRadioLabels).toMatchSnapshot();
   });
 
   it("should throw warning when a non-Radio component is used as a child", () => {
@@ -346,7 +410,8 @@ describe("Radio Button", () => {
       </RadioGroup>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Only `Radio` components are allowed inside the `RadioGroup` component."
+      "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside " +
+        "the `RadioGroup` component."
     );
   });
 });

@@ -37,7 +37,9 @@ export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
       if (child.type === FormField || child.props.mdxType === "FormField") {
         return React.cloneElement(child, { id: `${id}-grandchild${i}` });
       }
-      console.warn("FormRow children must be `FormField` components.");
+      console.warn(
+        "NYPL Reservoir FormRow: Children must be `FormField` components."
+      );
       return null;
     }
   );

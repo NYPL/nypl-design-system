@@ -7,6 +7,9 @@ const blogs = {
       color: "ui.gray.xdark",
     },
   },
+  svg: {
+    fill: "ui.black",
+  },
 };
 const booksAndMore = {
   bg: "section.books-and-more.secondary",

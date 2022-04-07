@@ -1,3 +1,4 @@
+import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as React from "react";
@@ -8,13 +9,30 @@ import Checkbox from "./Checkbox";
 import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Checkbox Accessibility", () => {
-  it("Passes axe accessibility test", async () => {
+  it("passes axe accessibility test with string label", async () => {
     const { container } = render(
       <Checkbox
         id="inputID"
         onChange={jest.fn()}
         labelText="Test Label"
         showLabel={false}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with jsx label", async () => {
+    const { container } = render(
+      <Checkbox
+        id="jsxLabel"
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+        value="arts"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -196,6 +214,27 @@ describe("Checkbox", () => {
     expect(changeHandler).toHaveBeenCalledTimes(1);
   });
 
+  it("logs a warning if `labelText` is not a string and `showLabel` is false", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Checkbox
+        value="arts"
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+        showLabel={false}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Checkbox: `labelText` must be a string when `showLabel` is false."
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const primary = renderer
       .create(<Checkbox id="inputID" labelText="Test Label" />)
@@ -230,6 +269,21 @@ describe("Checkbox", () => {
         <Checkbox id="checkbox-disabled" labelText="Test Label" isDisabled />
       )
       .toJSON();
+    const withJSXLabel = renderer
+      .create(
+        <Checkbox
+          id="jsxLabel"
+          labelText={
+            <Flex>
+              <span>Arts</span>
+              <Spacer />
+              <span>4</span>
+            </Flex>
+          }
+          value="arts"
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
@@ -237,5 +291,6 @@ describe("Checkbox", () => {
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(withJSXLabel).toMatchSnapshot();
   });
 });
