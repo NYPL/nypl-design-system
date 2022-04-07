@@ -11,8 +11,6 @@ import Select from "../Select/Select";
 import { SelectTypes } from "../Select/SelectTypes";
 import TextInput from "../TextInput/TextInput";
 import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 interface BaseProps {
   labelText: string;
   name: string;
@@ -84,7 +82,7 @@ export default function SearchBar(props: SearchBarProps) {
     descriptionText,
     headingText,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -121,6 +119,12 @@ export default function SearchBar(props: SearchBarProps) {
     lineHeight: "1.70",
     marginBottom: "auto",
   };
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Search Bar: This component's required `id` prop was not passed."
+    );
+  }
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select

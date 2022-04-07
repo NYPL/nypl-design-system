@@ -10,6 +10,7 @@ describe("Slider Accessibility", () => {
     it("passes axe accessibility test", async () => {
       const { container } = render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -21,6 +22,7 @@ describe("Slider Accessibility", () => {
     it("passes axe accessibility test without a label", async () => {
       const { container } = render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -33,6 +35,7 @@ describe("Slider Accessibility", () => {
     it("passes axe accessibility test without visible values", async () => {
       const { container } = render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -49,6 +52,7 @@ describe("Slider Accessibility", () => {
     it("passes axe accessibility test", async () => {
       const { container } = render(
         <Slider
+          id="slider"
           defaultValue={[25, 75]}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -61,6 +65,7 @@ describe("Slider Accessibility", () => {
     it("passes axe accessibility test without a label", async () => {
       const { container } = render(
         <Slider
+          id="slider"
           defaultValue={[25, 75]}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -74,6 +79,7 @@ describe("Slider Accessibility", () => {
     it("passes axe accessibility test without visible values", async () => {
       const { container } = render(
         <Slider
+          id="slider"
           defaultValue={[25, 75]}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -93,6 +99,7 @@ describe("Slider", () => {
     it("renders a label, two static values, text input, and helper text", () => {
       render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -131,6 +138,7 @@ describe("Slider", () => {
     it("renders the 'required' text in the label or hides it", () => {
       const { rerender } = render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -142,6 +150,7 @@ describe("Slider", () => {
 
       rerender(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -154,6 +163,7 @@ describe("Slider", () => {
 
       rerender(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -169,6 +179,7 @@ describe("Slider", () => {
     it("hides the label but adds it as an aria-label attribute", () => {
       render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -184,6 +195,7 @@ describe("Slider", () => {
     it("hides the min/max static values", () => {
       const { rerender } = render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -197,6 +209,7 @@ describe("Slider", () => {
 
       rerender(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -213,6 +226,7 @@ describe("Slider", () => {
     it("hides the current value input box", () => {
       const { rerender } = render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -224,6 +238,7 @@ describe("Slider", () => {
 
       rerender(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -237,6 +252,7 @@ describe("Slider", () => {
     it("renders the invalid state", () => {
       render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -258,6 +274,7 @@ describe("Slider", () => {
     it("renders the disabled state", () => {
       render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -274,6 +291,7 @@ describe("Slider", () => {
     it("updates the value through the text input", () => {
       render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -298,6 +316,7 @@ describe("Slider", () => {
       let currentValue = 0;
       render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -322,6 +341,7 @@ describe("Slider", () => {
 
       render(
         <Slider
+          id="slider"
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -446,6 +466,7 @@ describe("Slider", () => {
     it("renders everything from the single but also two text input fields", () => {
       render(
         <Slider
+          id="slider"
           defaultValue={[25, 75]}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -495,6 +516,7 @@ describe("Slider", () => {
     it("hides the label but adds it as an aria-label attribute", () => {
       render(
         <Slider
+          id="slider"
           defaultValue={[25, 75]}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -518,6 +540,7 @@ describe("Slider", () => {
     it("renders with min and max values as the default values if no `defaultValue` array is passed", () => {
       render(
         <Slider
+          id="slider"
           helperText="Component helper text."
           invalidText="Component error text :("
           isRangeSlider
@@ -534,6 +557,7 @@ describe("Slider", () => {
       // The start value is bigger than the end value.
       render(
         <Slider
+          id="slider"
           defaultValue={[75, 25]}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -559,6 +583,7 @@ describe("Slider", () => {
     it("updates the value through the text input", () => {
       render(
         <Slider
+          id="slider"
           defaultValue={[25, 75]}
           helperText="Component helper text."
           invalidText="Component error text :("

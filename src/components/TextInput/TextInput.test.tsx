@@ -6,12 +6,12 @@ import userEvent from "@testing-library/user-event";
 
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
-import * as generateUUID from "../../helpers/generateUUID";
 
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the input element", async () => {
     const { container } = render(
       <TextInput
+        id="textInput"
         labelText="Custom input label"
         isRequired
         placeholder="Input Placeholder"
@@ -25,6 +25,7 @@ describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the textarea element", async () => {
     const { container } = render(
       <TextInput
+        id="textInput"
         labelText="Custom textarea label"
         isRequired
         placeholder="Input Placeholder"
@@ -139,10 +140,7 @@ describe("TextInput", () => {
 });
 
 describe("Renders TextInput with auto-generated ID, hidden label and visible helper text", () => {
-  let generateUUIDSpy;
-
   beforeEach(() => {
-    generateUUIDSpy = jest.spyOn(generateUUID, "default");
     render(
       <TextInput
         labelText="Custom Input Label"
@@ -157,11 +155,6 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
 
   it("renders Input component", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("calls a UUID generation method if no ID is passed as a prop", () => {
-    // Called twice for the `TextInput` and the SVG icon components.
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(2);
   });
 
   it("does not renders Label component", () => {

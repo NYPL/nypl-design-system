@@ -13,8 +13,6 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import { spacing } from "../../theme/foundations/spacing";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
@@ -67,7 +65,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       children,
       defaultValue = [],
       helperText,
-      id = generateUUID(),
+      id,
       invalidText,
       isDisabled = false,
       isFullWidth = false,
@@ -92,6 +90,12 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
             onChange,
           }
         : {};
+
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Checkbox Group: This component's required `id` prop was not passed."
+      );
+    }
 
     // Go through the Checkbox children and update them as needed.
     React.Children.map(children, (child: React.ReactElement, i) => {

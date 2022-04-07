@@ -13,7 +13,6 @@ import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
-import generateUUID from "../../helpers/generateUUID";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 // The object shape for the DatePicker's start and end date state values.
@@ -53,7 +52,7 @@ interface DatePickerWrapperProps extends DateRangeRowProps {
 interface CustomTextInputProps extends InputProps {
   /** The ReactDatePicker plugin has its own `id` prop so we use this to pass the
    * value from the parent `DatePicker` component. */
-  dsId?: string;
+  dsId: string;
   /** The ReactDatePicker plugin manipulates the ref value so we declare our
    * own for some cases. */
   dsRef?: React.Ref<TextInputRefType>;
@@ -236,7 +235,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       helperText,
       helperTextFrom,
       helperTextTo,
-      id = generateUUID(),
+      id,
       initialDate,
       initialDateTo,
       invalidText,
@@ -325,14 +324,20 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       baseDatePickerAttrs.dateFormat = "yyyy";
     }
 
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Date Picker: This component's required `id` prop was not passed."
+      );
+    }
+
     if ((ref && !nameFrom) || (refTo && !nameTo)) {
       console.warn(
-        "A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
+        "NYPL Reservoir Date Picker: A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
       );
     }
     if (onChange && (ref || refTo || nameFrom || nameTo)) {
       console.warn(
-        "React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
+        "NYPL Reservoir Date Picker: React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
       );
     }
 

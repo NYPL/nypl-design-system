@@ -9,17 +9,17 @@ import TextInput from "../TextInput/TextInput";
 
 describe("Form Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<Form />);
+    const { container } = render(<Form id="form" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test for the full hierachy", async () => {
     const { container } = render(
-      <Form>
-        <FormRow>
-          <FormField>Form Field 1</FormField>
-          <FormField>Form Field 2</FormField>
-          <FormField>Form Field 3</FormField>
+      <Form id="form">
+        <FormRow id="formRow">
+          <FormField id="formField1">Form Field 1</FormField>
+          <FormField id="formField2">Form Field 2</FormField>
+          <FormField id="formField3">Form Field 3</FormField>
         </FormRow>
       </Form>
     );
@@ -32,10 +32,10 @@ describe("Form Snapshot", () => {
     const tree = renderer
       .create(
         <Form id="snapshot-form">
-          <FormRow>
-            <FormField>Form Field 1</FormField>
-            <FormField>Form Field 2</FormField>
-            <FormField>Form Field 3</FormField>
+          <FormRow id="formRow">
+            <FormField id="formField1">Form Field 1</FormField>
+            <FormField id="formField2">Form Field 2</FormField>
+            <FormField id="formField3">Form Field 3</FormField>
           </FormRow>
         </Form>
       )
@@ -46,14 +46,14 @@ describe("Form Snapshot", () => {
 
 describe("Form", () => {
   it("Renders a <form> element", () => {
-    render(<Form />);
+    render(<Form id="form" />);
     expect(screen.getByRole("form")).toBeInTheDocument();
   });
 
   it("Renders a <form> element with child FormRow element", () => {
     render(
-      <Form>
-        <FormRow />
+      <Form id="form">
+        <FormRow id="formRow" />
       </Form>
     );
     const form = screen.getByRole("form");
@@ -67,8 +67,8 @@ describe("Form", () => {
 
   it("Renders a <form> element with child FormField element", () => {
     render(
-      <Form>
-        <FormField />
+      <Form id="form">
+        <FormField id="formRow" />
       </Form>
     );
     const form = screen.getByRole("form");
@@ -82,9 +82,9 @@ describe("Form", () => {
 
   it("Renders a <form> element with FormRow, FormField and input elements properly nested", () => {
     render(
-      <Form>
-        <FormRow>
-          <FormField>
+      <Form id="form">
+        <FormRow id="formRow">
+          <FormField id="formField">
             <TextInput labelText="Input Field" />
           </FormField>
         </FormRow>
@@ -107,7 +107,7 @@ describe("Form", () => {
   });
 
   it("Renders a <form> element with custom `action` and `method` attributes", () => {
-    render(<Form action="/end/point" method="get" />);
+    render(<Form id="form" action="/end/point" method="get" />);
     const form = screen.getByRole("form");
     expect(form).toBeInTheDocument();
     expect(form).toHaveAttribute("action", "/end/point");
@@ -117,19 +117,19 @@ describe("Form", () => {
   it("passes down the `Form`'s id down to its children", () => {
     const { container } = render(
       <Form id="formId">
-        <FormRow>
-          <FormField>
+        <FormRow id="formRow">
+          <FormField id="formField">
             <TextInput labelText="Input Field" />
           </FormField>
-          <FormField>
+          <FormField id="formField">
             <TextInput labelText="Input Field" />
           </FormField>
         </FormRow>
-        <FormRow>
-          <FormField>
+        <FormRow id="formRow">
+          <FormField id="formField">
             <TextInput labelText="Input Field" />
           </FormField>
-          <FormField>
+          <FormField id="formRow">
             <TextInput labelText="Input Field" />
           </FormField>
         </FormRow>
@@ -162,8 +162,8 @@ describe("Form", () => {
   it("logs a warning if a child of `FormRow` is not a `FormField`", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Form>
-        <FormRow>
+      <Form id="form">
+        <FormRow id="formRow">
           <div>Not a FormField</div>
         </FormRow>
       </Form>
@@ -176,9 +176,9 @@ describe("Form", () => {
   it("calls the onSubmit function", () => {
     const onSubmit = jest.fn();
     render(
-      <Form onSubmit={onSubmit}>
-        <FormRow>
-          <FormField>
+      <Form id="form" onSubmit={onSubmit}>
+        <FormRow id="formRow">
+          <FormField id="formField">
             <TextInput labelText="Input Field" />
           </FormField>
         </FormRow>

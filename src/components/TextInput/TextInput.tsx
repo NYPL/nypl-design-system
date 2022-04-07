@@ -15,7 +15,6 @@ import Label from "../Label/Label";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
 
 export interface InputProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -29,7 +28,7 @@ export interface InputProps {
   /** Populates the HelperErrorText for the standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id: string;
+  id?: string;
   /** Populates the HelperErrorText for the error state */
   invalidText?: HelperErrorTextType;
   /** Adds the `disabled` and `aria-disabled` prop to the input when true */
@@ -88,7 +87,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       className,
       defaultValue,
       helperText,
-      id = generateUUID(),
+      id,
       invalidText,
       isDisabled = false,
       isInvalid = false,

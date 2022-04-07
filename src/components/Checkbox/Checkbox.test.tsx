@@ -6,7 +6,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Checkbox from "./Checkbox";
-import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
@@ -41,11 +40,9 @@ describe("Checkbox Accessibility", () => {
 
 describe("Checkbox", () => {
   let changeHandler;
-  let generateUUIDSpy;
 
   beforeEach(() => {
     changeHandler = jest.fn();
-    generateUUIDSpy = jest.spyOn(generateUUID, "default");
   });
 
   it("Renders with a checkbox input and label", () => {
@@ -108,12 +105,6 @@ describe("Checkbox", () => {
   it("Sets the checkbox's ID", () => {
     render(<Checkbox id="inputID" labelText="Test Label" />);
     expect(screen.getByRole("checkbox")).toHaveAttribute("id", "inputID");
-  });
-
-  it("Calls the UUID generation function if no id prop value is passed", () => {
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-    render(<Checkbox labelText="Test Label" />);
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
   });
 
   it("Sets the 'checked' attribute", () => {
@@ -218,6 +209,7 @@ describe("Checkbox", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Checkbox
+        id="checkbox"
         value="arts"
         labelText={
           <Flex>

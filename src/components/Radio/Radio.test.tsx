@@ -5,7 +5,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Radio from "./Radio";
-import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Radio Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
@@ -93,13 +92,6 @@ describe("Radio Button", () => {
     expect(screen.getByRole("radio")).toHaveAttribute("id", "inputID");
   });
 
-  it("calls the UUID generation function if no id prop value is passed", () => {
-    const generateUUIDSpy = jest.spyOn(generateUUID, "default");
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-    render(<Radio labelText="Hello" />);
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
-  });
-
   it("sets the 'checked' attribute", () => {
     render(
       <Radio
@@ -168,6 +160,7 @@ describe("Radio Button", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Radio
+        id="radio"
         value="arts"
         labelText={
           <Flex>

@@ -4,7 +4,6 @@ import { Button as ChakraButton, useStyleConfig } from "@chakra-ui/react";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import { getVariant } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
 
 export type ButtonElementType = "submit" | "button" | "reset";
 
@@ -40,7 +39,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
     buttonType,
     children,
     className = "",
-    id = generateUUID(),
+    id,
     isDisabled = false,
     mouseDown = false,
     onClick,
@@ -51,6 +50,12 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
   let hasIcon = false;
   let variant;
   let styles = {};
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Button: This component's required `id` prop was not passed."
+    );
+  }
 
   React.Children.map(children, (child: React.ReactElement) => {
     childCount++;

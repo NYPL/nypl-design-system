@@ -12,7 +12,6 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
 import Label from "../Label/Label";
 import HelperErrorText, {
   HelperErrorTextType,
@@ -81,7 +80,7 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     className,
     defaultValue = 0,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -99,6 +98,12 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     showValues = true,
     step = 1,
   } = props;
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Slider: This component's required `id` prop was not passed."
+    );
+  }
   // For the RangeSlider, if the defaultValue is not an array, then we set
   // the defaultValue to an array with the min and max values.
   const rangeSliderDefault =

@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { FormGaps } from "./FormTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
-import generateUUID from "../../helpers/generateUUID";
 
 interface FormBaseProps {
   /** className to be applied to FormRow, FormField, and Form */
@@ -30,6 +29,7 @@ export interface FormProps extends FormBaseProps {
 export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
   const { children, className, gap, id } = props;
   const count = React.Children.count(children);
+
   const alteredChildren = React.Children.map(
     children,
     (child: React.ReactElement, i) => {
@@ -65,7 +65,7 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     children,
     className,
     gap = FormGaps.Large,
-    id = generateUUID(),
+    id,
     method,
     onSubmit,
   } = props;

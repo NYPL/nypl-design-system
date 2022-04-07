@@ -12,11 +12,15 @@ import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
 describe("Radio Accessibility", () => {
   it("passes axe accessibility with string labels", async () => {
     const { container } = render(
-      <RadioGroup labelText="RadioGroup example" name="a11y-test">
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
-        <Radio value="5" labelText="Radio 5" />
+      <RadioGroup
+        id="radioGroup"
+        labelText="RadioGroup example"
+        name="a11y-test"
+      >
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
+        <Radio id="radio5" value="5" labelText="Radio 5" />
       </RadioGroup>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -24,7 +28,12 @@ describe("Radio Accessibility", () => {
 
   it("passes axe accessibility with jsx labels", async () => {
     const { container } = render(
-      <RadioGroup labelText="RadioGroup example" name="a11y-test" isFullWidth>
+      <RadioGroup
+        id="radioGroup"
+        labelText="RadioGroup example"
+        name="a11y-test"
+        isFullWidth
+      >
         <Radio
           id="arts"
           labelText={
@@ -56,10 +65,10 @@ describe("Radio Accessibility", () => {
 describe("Radio Button", () => {
   it("renders with radio inputs and a label", () => {
     render(
-      <RadioGroup labelText="Test Label" name="test1">
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+      <RadioGroup id="radioGroup" labelText="Test Label" name="test1">
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
     expect(screen.getByText(/Test Label/i)).toBeInTheDocument();
@@ -71,10 +80,15 @@ describe("Radio Button", () => {
 
   it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
     render(
-      <RadioGroup labelText="Test Label" name="test2" showLabel={false}>
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+      <RadioGroup
+        id="radioGroup"
+        labelText="Test Label"
+        name="test2"
+        showLabel={false}
+      >
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
     expect(screen.getByRole("radiogroup")).toHaveAttribute(
@@ -86,14 +100,15 @@ describe("Radio Button", () => {
   it("renders visible helper or error text", () => {
     const { rerender } = render(
       <RadioGroup
+        id="radioGroup"
         labelText="Test Label"
         name="test3"
         helperText="This is the helper text for the full group."
         invalidText="This is the error text :("
       >
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
     expect(
@@ -105,15 +120,16 @@ describe("Radio Button", () => {
 
     rerender(
       <RadioGroup
+        id="radioGroup"
         labelText="Test Label"
         name="test4"
         helperText="This is the helper text for the full group."
         invalidText="This is the error text :("
         isInvalid
       >
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
     expect(screen.getByText("This is the error text :(")).toBeVisible();
@@ -125,7 +141,7 @@ describe("Radio Button", () => {
   it("sets the RadioGroup's ID", () => {
     render(
       <RadioGroup labelText="Test Label" name="test5" id="some-id">
-        <Radio value="2" labelText="Radio 2" />
+        <Radio id="radio2" value="2" labelText="Radio 2" />
       </RadioGroup>
     );
 
@@ -143,14 +159,15 @@ describe("Radio Button", () => {
     };
     render(
       <RadioGroup
+        id="radioGroup"
         labelText="Test Label"
         name="getValue"
         defaultValue="4"
         onChange={onChange}
       >
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
 
@@ -176,10 +193,15 @@ describe("Radio Button", () => {
 
   it("sets the 'disabled' attribute for all its Radio children", () => {
     render(
-      <RadioGroup labelText="Test Label" name="test7" isDisabled>
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+      <RadioGroup
+        id="radioGroup"
+        labelText="Test Label"
+        name="test7"
+        isDisabled
+      >
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
     const radios = screen.getAllByRole("radio");
@@ -192,10 +214,15 @@ describe("Radio Button", () => {
 
   it("sets the 'required' attribute for all its Radio children", () => {
     render(
-      <RadioGroup labelText="Test Label" name="test8" isRequired>
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+      <RadioGroup
+        id="radioGroup"
+        labelText="Test Label"
+        name="test8"
+        isRequired
+      >
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
     const radios = screen.getAllByRole("radio");
@@ -212,14 +239,15 @@ describe("Radio Button", () => {
   it("sets the error state for all its Radio children", () => {
     render(
       <RadioGroup
+        id="radioGroup"
         labelText="Test Label"
         name="test9"
         isInvalid
         invalidText="There is an error :("
       >
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
     const radios = screen.getAllByRole("radio");
@@ -234,15 +262,16 @@ describe("Radio Button", () => {
   it("does not render the error text when 'showHelperInvalidText' is false", () => {
     render(
       <RadioGroup
+        id="radioGroup"
         labelText="Test Label"
         name="test10"
         isInvalid
         invalidText="There is an error :("
         showHelperInvalidText={false}
       >
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
       </RadioGroup>
     );
     expect(screen.queryByText("There is an error :(")).not.toBeInTheDocument();

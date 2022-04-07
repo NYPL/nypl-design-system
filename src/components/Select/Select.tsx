@@ -12,8 +12,6 @@ import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
 import { SelectTypes } from "./SelectTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface SelectProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -71,7 +69,7 @@ const Select = React.forwardRef<
     children,
     className,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -106,15 +104,21 @@ const Select = React.forwardRef<
     ariaAttributes["aria-describedby"] = `${id}-helperText`;
   }
 
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Select: This component's required `id` prop was not passed."
+    );
+  }
+
   if (React.Children.count(children) > 10) {
     console.warn(
-      "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
+      "NYPL Reservoir Select: NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
     );
   }
 
   if (React.Children.count(children) < 4) {
     console.warn(
-      "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
+      "NYPL Reservoir Select: NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
     );
   }
 
