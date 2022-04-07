@@ -10,13 +10,29 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `Reservoir` branding to Storybook.
+
+### Changes
+
+- Updates the hex color value for `ui.gray.light-cool`, `ui.disabled.primary` and `section.blogs.primary`.
+- Updates the default background color used in the `Accordion` component.
+- Updates the default background color used in the `Hero` component.
+- Updates the background color used in the `SkeletonLoader` component.
+- Updates the background color used in the `VideoPlayer` component.
+- Updates the background colors used in the `Tabs` component.
+- Updates all references to "design system" in the Storybook documentation to include "Reservoir" in the name of the design system.
+- Updates language on the `Welcome` page.
+
+## 0.25.13 (April 1, 2022)
+
+### Adds
+
 - Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
 - Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
 - Adds the `isFullWidth` prop to the `CheckboxGroup` and `RadioGroup` components. This sets the wrapper element to be full width for labels that need to span its container.
 - Adds an optional key – `accordionType` to the `Accordion`'s `contentData` prop, which allows users to switch the background color of the `Accordion`'s button.
 - Created new `LayoutTypes` enum for row and column layouts.
 - Adds the value "Default" to the `IconSizes` enum.
-- Adds `Reservoir` branding to Storybook.
 
 ### Changes
 
@@ -53,8 +69,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `StructuredContent` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, position, size, and src.
 - Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`. Updates the values from `Large` and `Small` to `Default` and `Small`.
 - Minor update to the logic for the `ProgressIndicator` sizing prop and styles.
-- Updates all references to "design system" in the Storybook documentation to include "Reservoir" in the name of the design system.
-- Updates language on the `Welcome` page.
 
 ### Fixes
 

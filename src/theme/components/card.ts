@@ -34,8 +34,14 @@ const getBodyPaddingStyles = ({ border, hasImage, imageIsAtEnd, isRow }) => {
 const Card = {
   parts: ["body", "heading"],
   baseStyle: (props) => {
-    const { border, center, hasImage, imageIsAtEnd, layout, mainActionLink } =
-      props;
+    const {
+      border,
+      hasImage,
+      imageIsAtEnd,
+      isCentered,
+      layout,
+      mainActionLink,
+    } = props;
     const isRow = layout === "row";
     const layoutStyles = isRow
       ? {
@@ -46,7 +52,7 @@ const Card = {
           },
           maxWidth: "100%",
           textAlign: "left",
-          alignItems: center ? "center" : null,
+          alignItems: isCentered ? "center" : null,
         }
       : {};
     const baseBorderStyles = border
@@ -62,7 +68,7 @@ const Card = {
       isRow,
     });
     let bodyMargin = null;
-    if (center) {
+    if (isCentered) {
       bodyMargin = "auto";
       if (isRow) {
         bodyMargin = "0";
@@ -72,7 +78,7 @@ const Card = {
       alignItems: "flex-start",
       display: "flex",
       flexFlow: "column wrap",
-      textAlign: center ? "center" : null,
+      textAlign: isCentered ? "center" : null,
       heading: {
         marginBottom: "xs",
         a: mainActionLink ? { color: "ui.black" } : null,
@@ -91,13 +97,15 @@ const Card = {
 
 const CardActions = {
   baseStyle: (props) => {
-    const { bottomBorder, center, layout, topBorder } = props;
+    const { bottomBorder, isCentered, layout, topBorder } = props;
     let justifyContent = null;
-    if (center) {
-      justifyContent = "center";
-    } else if (layout === "row") {
+    // Only center in the column layout.
+    if (layout === "row") {
       justifyContent = "left";
+    } else if (isCentered) {
+      justifyContent = "center";
     }
+
     const topBorderStyles = topBorder
       ? {
           borderTop: "1px solid",
@@ -135,7 +143,7 @@ const CardContent = {
 };
 
 const CardImage = {
-  baseStyle: ({ center, imageIsAtEnd, size, layout }) => {
+  baseStyle: ({ imageIsAtEnd, isCentered, size, layout }) => {
     // These sizes are only for the "row" layout.
     const imageSize = imageSizes[size] || {};
     const layoutStyles =
@@ -144,7 +152,7 @@ const CardImage = {
             flex: { md: "0 0 225px" },
             maxWidth: { base: "100%", md: "50%" },
             textAlign: "left",
-            alignItems: center ? "center" : null,
+            alignItems: isCentered ? "center" : null,
             margin: {
               base: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
               md: imageIsAtEnd
