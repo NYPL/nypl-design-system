@@ -19,10 +19,8 @@ const baseStyleControl = {
     borderColor: "ui.focus",
     color: "ui.white",
     _disabled: {
-      color: "ui.gray.medium",
       borderColor: "ui.disabled.primary",
       bg: "ui.white",
-
       _before: {
         bg: "ui.disabled.primary",
       },
