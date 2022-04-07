@@ -116,7 +116,7 @@ describe("Toggle", () => {
     render(
       // @ts-ignore: Typescript complains when a required prop is not passed, but
       // here we don't want to pass the required prop to make sure the warning appears.
-      <Toggle labelText="onChangeTest Lab" />
+      <Toggle labelText="test" />
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Toggle: This component's required `id` prop was not passed."
