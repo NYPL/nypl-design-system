@@ -29,7 +29,7 @@ export interface AccordionProps {
  * Get the minus or plus icon depending on whether the accordion
  * is open or closed.
  */
-const getIcon = (isExpanded = false, index, id?) => {
+const getIcon = (isExpanded = false, index, id) => {
   const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
   return (
     <Icon

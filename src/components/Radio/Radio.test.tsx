@@ -183,15 +183,7 @@ describe("Radio Button", () => {
     render(
       // @ts-ignore: Typescript complains when a required prop is not passed, but
       // here we don't want to pass the required prop to make sure the warning appears.
-      <Radio
-        labelText={
-          <Flex>
-            <span>Arts</span>
-            <Spacer />
-            <span>4</span>
-          </Flex>
-        }
-      />
+      <Radio labelText="Arts" />
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Radio: This component's required `id` prop was not passed."
