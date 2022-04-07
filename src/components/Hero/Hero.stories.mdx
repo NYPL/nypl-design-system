@@ -70,8 +70,8 @@ const imageSrc = "https://placeimg.com/800/400/animals";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
-- [Color Variations for Secondary Hero](#color-variations-for-secondary-hero)
 - [All Variations](#all-variations)
+- [Color Variations for Secondary Hero](#color-variations-for-secondary-hero)
 
 ## Overview
 
@@ -169,112 +169,6 @@ breadcrumbs and above the main content. This means that if the `Hero` displays
 a heading element, it should be the first on the page and an `h1` element set
 through `Heading`'s `level={HeadingLevels.One}`.
 
-## Color Variations for Secondary Hero
-
-The background color for the title bar in the "Secondary" `Hero` changes based
-on the `HeroTypes` variants for the `Secondary` main variant.
-
-```jsx
-// Example `HeroTypes` "Secondary" variant.
-<Hero heroType={HeroTypes.SecondaryBooksAndMore} {...props} />
-```
-
-<Canvas>
-  <Story name="Color Variations for Secondary Hero">
-    <VStack spacing={10} align="stretch">
-      <Heading
-        id="main-secondary-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.Secondary"
-      />
-      <Hero
-        image={image}
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="main-secondary-hero"
-            text="Secondary"
-          />
-        }
-        heroType={HeroTypes.Secondary}
-        subHeaderText={secondarySubHeaderText}
-      />
-      <Heading
-        id="books-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryBooksAndMore"
-      />
-      <Hero
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="books-hero"
-            text="Books and More"
-          />
-        }
-        heroType={HeroTypes.SecondaryBooksAndMore}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
-        subHeaderText={secondarySubHeaderText}
-      />
-      <Heading
-        id="location-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryLocations"
-      />
-      <Hero
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="locations-hero"
-            text="Locations"
-          />
-        }
-        heroType={HeroTypes.SecondaryLocations}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
-        subHeaderText={secondarySubHeaderText}
-      />
-      <Heading
-        id="research-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryResearch"
-      />
-      <Hero
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="research-hero"
-            text="Research"
-          />
-        }
-        heroType={HeroTypes.SecondaryResearch}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
-        subHeaderText={secondarySubHeaderText}
-      />
-      <Heading
-        id="whats-on-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryWhatsOn"
-      />
-      <Hero
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="whats-on-hero"
-            text="What's On"
-          />
-        }
-        heroType={HeroTypes.SecondaryWhatsOn}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
-        subHeaderText={secondarySubHeaderText}
-      />
-    </VStack>
-  </Story>
-</Canvas>
-
 ## All Variations
 
 <Canvas>
@@ -371,4 +265,111 @@ on the `HeroTypes` variants for the `Secondary` main variant.
       />
     </VStack>
   </DSProvider>
+</Canvas>
+
+## Color Variations for Secondary Hero
+
+The background color for the title bar in the "Secondary" `Hero` changes based
+on the `HeroTypes` variants for the `Secondary` main variant.
+
+```jsx
+// Example `HeroTypes` "Secondary" variant.
+<Hero heroType={HeroTypes.SecondaryBooksAndMore} {...props} />
+```
+
+<Canvas>
+  <Story name="Color Variations for Secondary Hero">
+    <VStack spacing={10} align="stretch">
+      <Heading
+        id="main-secondary-heading"
+        level={HeadingLevels.Two}
+        text="HeroTypes.Secondary"
+      />
+      <Hero
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="main-secondary-hero"
+            text="Secondary"
+          />
+        }
+        heroType={HeroTypes.Secondary}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={secondarySubHeaderText}
+      />
+      <Heading
+        id="books-heading"
+        level={HeadingLevels.Two}
+        text="HeroTypes.SecondaryBooksAndMore"
+      />
+      <Hero
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="books-hero"
+            text="Books and More"
+          />
+        }
+        heroType={HeroTypes.SecondaryBooksAndMore}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={secondarySubHeaderText}
+      />
+      <Heading
+        id="location-heading"
+        level={HeadingLevels.Two}
+        text="HeroTypes.SecondaryLocations"
+      />
+      <Hero
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="locations-hero"
+            text="Locations"
+          />
+        }
+        heroType={HeroTypes.SecondaryLocations}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={secondarySubHeaderText}
+      />
+      <Heading
+        id="research-heading"
+        level={HeadingLevels.Two}
+        text="HeroTypes.SecondaryResearch"
+      />
+      <Hero
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="research-hero"
+            text="Research"
+          />
+        }
+        heroType={HeroTypes.SecondaryResearch}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={secondarySubHeaderText}
+      />
+      <Heading
+        id="whats-on-heading"
+        level={HeadingLevels.Two}
+        text="HeroTypes.SecondaryWhatsOn"
+      />
+      <Hero
+        heading={
+          <Heading
+            level={HeadingLevels.One}
+            id="whats-on-hero"
+            text="What's On"
+          />
+        }
+        heroType={HeroTypes.SecondaryWhatsOn}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={secondarySubHeaderText}
+      />
+    </VStack>
+  </Story>
 </Canvas>
