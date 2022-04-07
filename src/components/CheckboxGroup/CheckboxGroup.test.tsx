@@ -280,6 +280,20 @@ describe("Checkbox", () => {
     expect(Checkboxes[2]).toHaveAttribute("aria-invalid");
   });
 
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <CheckboxGroup labelText="column" name="column">
+        <Checkbox id="checkbox1" value="1" labelText="Checkbox 1" />
+      </CheckboxGroup>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const column = renderer
       .create(
@@ -447,7 +461,7 @@ describe("Checkbox", () => {
       </CheckboxGroup>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
+      "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
     );
   });
 });

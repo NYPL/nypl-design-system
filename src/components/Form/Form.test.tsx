@@ -85,7 +85,7 @@ describe("Form", () => {
       <Form id="form">
         <FormRow id="formRow">
           <FormField id="formField">
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
       </Form>
@@ -119,18 +119,18 @@ describe("Form", () => {
       <Form id="formId">
         <FormRow id="formRow">
           <FormField id="formField">
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
           <FormField id="formField">
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
         <FormRow id="formRow">
           <FormField id="formField">
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
           <FormField id="formRow">
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
       </Form>
@@ -179,7 +179,7 @@ describe("Form", () => {
       <Form id="form" onSubmit={onSubmit}>
         <FormRow id="formRow">
           <FormField id="formField">
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
       </Form>
@@ -188,6 +188,24 @@ describe("Form", () => {
     expect(onSubmit).toHaveBeenCalledTimes(0);
     fireEvent.submit(form);
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it("Logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Form>
+        <FormRow id="formRow">
+          <FormField id="formField">
+            <TextInput id="textInput" labelText="Input Field" />
+          </FormField>
+        </FormRow>
+      </Form>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Form: This component's required `id` prop was not passed."
+    );
   });
 
   // TO DO: There's somethign weird about checking for the "grid-gap" style.

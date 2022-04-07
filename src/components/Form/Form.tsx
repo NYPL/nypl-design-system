@@ -70,6 +70,11 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     onSubmit,
   } = props;
 
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Form: This component's required `id` prop was not passed."
+    );
+  }
   let attributes = {};
   action && (attributes["action"] = action);
 

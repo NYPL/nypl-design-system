@@ -178,19 +178,6 @@ describe("Radio Button", () => {
     expect(newValue).toEqual("2");
   });
 
-  // TODO: Figure out why this renders twice with two different calls
-  // to the render function.
-  // it("calls the UUID generation function if no id prop value is passed", () => {
-  //   const generateUUIDSpy = jest.spyOn(generateUUID, "default");
-  //   expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-  //   render(
-  //     <RadioGroup labelText="Test Label" name="test6">
-  //       <Radio value="2" labelText="Radio 2" id="radio2" />
-  //     </RadioGroup>
-  //   );
-  //   expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
-  // });
-
   it("sets the 'disabled' attribute for all its Radio children", () => {
     render(
       <RadioGroup
@@ -439,7 +426,21 @@ describe("Radio Button", () => {
       </RadioGroup>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Only `Radio` components are allowed inside the `RadioGroup` component."
+      "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside the `RadioGroup` component."
+    );
+  });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <RadioGroup labelText="RadioGroup example" name="a11y-test">
+        <Radio id="radio1" value="1" labelText="Radio 1" />
+      </RadioGroup>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
     );
   });
 });

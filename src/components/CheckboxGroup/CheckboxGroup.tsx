@@ -93,7 +93,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
 
     if (!id) {
       console.warn(
-        "NYPL Reservoir Checkbox Group: This component's required `id` prop was not passed."
+        "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
       );
     }
 
@@ -105,7 +105,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
           noop();
         } else {
           console.warn(
-            "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
+            "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
           );
         }
       }

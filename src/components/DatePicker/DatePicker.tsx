@@ -49,7 +49,7 @@ interface DatePickerWrapperProps extends DateRangeRowProps {
 
 // Interface used by the internal DS `TextInput` component as a custom
 // component for the ReactDatePicker plugin component. Internal use only.
-interface CustomTextInputProps extends InputProps {
+interface CustomTextInputProps extends Partial<InputProps> {
   /** The ReactDatePicker plugin has its own `id` prop so we use this to pass the
    * value from the parent `DatePicker` component. */
   dsId: string;
@@ -326,18 +326,18 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
 
     if (!id) {
       console.warn(
-        "NYPL Reservoir Date Picker: This component's required `id` prop was not passed."
+        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed."
       );
     }
 
     if ((ref && !nameFrom) || (refTo && !nameTo)) {
       console.warn(
-        "NYPL Reservoir Date Picker: A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
+        "NYPL Reservoir DatePicker: A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
       );
     }
     if (onChange && (ref || refTo || nameFrom || nameTo)) {
       console.warn(
-        "NYPL Reservoir Date Picker: React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
+        "NYPL Reservoir DatePicker: React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
       );
     }
 

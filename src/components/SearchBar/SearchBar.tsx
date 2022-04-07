@@ -122,7 +122,7 @@ export default function SearchBar(props: SearchBarProps) {
 
   if (!id) {
     console.warn(
-      "NYPL Reservoir Search Bar: This component's required `id` prop was not passed."
+      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
     );
   }
   // Render the `Select` component.

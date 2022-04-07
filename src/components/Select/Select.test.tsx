@@ -258,6 +258,20 @@ describe("Select", () => {
     );
   });
 
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Select labelText="What is your favorite color?" name="color">
+        {baseOptions}
+      </Select>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Select: This component's required `id` prop was not passed."
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
 

@@ -178,6 +178,26 @@ describe("Radio Button", () => {
     );
   });
 
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Radio
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Radio: This component's required `id` prop was not passed."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const primary = renderer
       .create(<Radio id="inputID" labelText="Test Label" />)

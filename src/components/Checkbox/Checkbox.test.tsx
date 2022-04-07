@@ -227,6 +227,16 @@ describe("Checkbox", () => {
     );
   });
 
+  it("Logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    // @ts-ignore: Typescript complains when a required prop is not passed, but
+    // here we don't want to pass the required prop to make sure the warning appears.
+    render(<Checkbox labelText="checkbox" />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const primary = renderer
       .create(<Checkbox id="inputID" labelText="Test Label" />)

@@ -86,7 +86,7 @@ const RadioGroup = React.forwardRef<
 
   if (!id) {
     console.warn(
-      "NYPL Reservoir Radio Group: This component's required `id` prop was not passed."
+      "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
     );
   }
 
@@ -107,7 +107,7 @@ const RadioGroup = React.forwardRef<
         noop();
       } else {
         console.warn(
-          "Only `Radio` components are allowed inside the `RadioGroup` component."
+          "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside the `RadioGroup` component."
         );
       }
     }

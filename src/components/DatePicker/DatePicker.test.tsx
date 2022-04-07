@@ -371,7 +371,7 @@ describe("DatePicker", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Date Picker: A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
+        "NYPL Reservoir DatePicker: A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
       );
     });
 
@@ -389,7 +389,7 @@ describe("DatePicker", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Date Picker: React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
+        "NYPL Reservoir DatePicker: React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
       );
     });
 
@@ -899,6 +899,18 @@ describe("DatePicker", () => {
       userEvent.click(screen.getByText("2024"));
 
       expect(screen.getByDisplayValue("2024")).toBeInTheDocument();
+    });
+
+    it("logs a warning when there is no `id` passed", () => {
+      const warn = jest.spyOn(console, "warn");
+      render(
+        // @ts-ignore: Typescript complains when a required prop is not passed, but
+        // here we don't want to pass the required prop to make sure the warning appears.
+        <DatePicker labelText="Select the year you want to visit NYPL" />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed."
+      );
     });
   });
 });
