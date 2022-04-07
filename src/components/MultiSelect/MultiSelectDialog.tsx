@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
@@ -34,7 +34,18 @@ function MultiSelectDialog({
 }: MultiSelectDialogProps) {
   const styles = useMultiStyleConfig("MultiSelect", { width });
 
-  function isChecked(multiSelectId: string, itemId: string) {
+  // Control focus lock state.
+  const [focusLockDisabled, setFocusLockDisabled] = useState(false);
+  useEffect(() => {
+    if (isMobile) {
+      setFocusLockDisabled(true);
+    }
+    if (!isOpen) {
+      setFocusLockDisabled(false);
+    }
+  }, [isOpen, isMobile]);
+
+  function isChecked(multiSelectId: string, itemId: string): boolean {
     if (
       selectedItems[multiSelectId]?.items.find(
         // @ts-ignore
@@ -82,16 +93,6 @@ function MultiSelectDialog({
     return false;
   }
 
-  function focusLockDisabled(): boolean {
-    if (isMobile) {
-      return true;
-    }
-    if (!isOpen) {
-      return false;
-    }
-    return false;
-  }
-
   return (
     <Box id={id} __css={styles}>
       <MultiSelectMenuButton
@@ -102,7 +103,7 @@ function MultiSelectDialog({
         onMenuToggle={onMenuToggle}
         onClear={onClear}
       />
-      <FocusLock disabled={focusLockDisabled()}>
+      <FocusLock disabled={focusLockDisabled}>
         <Box
           role="dialog"
           __css={styles.menuContainer}

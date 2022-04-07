@@ -74,6 +74,9 @@ const MultiSelect = {
       paddingBottom: "m",
     },
     menu: {
+      /*styleType: "none",
+      marginInlineStart: "0px",
+      */
       paddingX: "xs",
       maxHeight: {
         base: "100%",
