@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Changes
 
-- Updates the colors for various states of the `Button` component.
+- Updates the colors for "secondary" and "pill" variants of the `Button` component.
 
 ## 0.25.13 (April 1, 2022)
 
