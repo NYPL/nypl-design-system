@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background color used in the `SkeletonLoader` component.
 - Updates the background color used in the `VideoPlayer` component.
 - Updates the background colors used in the `Tabs` component.
+- Uses the design token "text.caption" variable for the `Notification`'s font size.
 
 ## 0.25.13 (April 1, 2022)
 
