@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the default background color used in the `Accordion` component.
 - Updates the default background color used in the `Hero` component.
 - Updates the background color used in the `SkeletonLoader` component.
+- Updates the background color used in the `VideoPlayer` component.
 
 ## 0.25.13 (April 1, 2022)
 
