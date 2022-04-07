@@ -221,7 +221,7 @@ const fiftyfifty = {
 };
 const Hero = {
   baseStyle: {
-    bg: "ui.gray.x-light-warm",
+    bg: "ui.gray.x-light-cool",
   },
   // Available variants:
   variants: {
