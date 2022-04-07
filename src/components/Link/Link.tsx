@@ -3,7 +3,12 @@ import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
+import {
+  IconRotationTypes,
+  IconNames,
+  IconAlign,
+  IconSizes,
+} from "../Icons/IconTypes";
 export interface LinkProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -49,6 +54,7 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
       iconRotation={iconRotation}
       id={iconId}
       name={IconNames.Arrow}
+      size={IconSizes.Medium}
     />
   );
 
@@ -69,6 +75,7 @@ function getExternalIcon(children, linkId) {
       className="more-link"
       id={iconId}
       name={IconNames.ActionLaunch}
+      size={IconSizes.Medium}
     />
   );
 

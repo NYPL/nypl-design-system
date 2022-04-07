@@ -8,13 +8,13 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "./Heading";
-import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
+import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 import { getCategory } from "../../utils/componentCategories";
 import { getStorybookEnumValues } from "../../utils/utils";
 
 export const sizesEnumValues = getStorybookEnumValues(
-  HeadingDisplaySizes,
-  "HeadingDisplaySizes"
+  HeadingSizes,
+  "HeadingSizes"
 );
 export const levelsEnumValues = getStorybookEnumValues(
   HeadingLevels,
@@ -35,15 +35,15 @@ export const levelsEnumValues = getStorybookEnumValues(
   argTypes={{
     additionalStyles: { control: false },
     className: { control: false },
-    displaySize: {
-      control: { type: "select" },
-      options: sizesEnumValues.options,
-    },
     id: { control: false },
     level: {
       control: { type: "select" },
       options: levelsEnumValues.options,
       table: { defaultValue: { summary: "HeadingLevels.Two" } },
+    },
+    size: {
+      control: { type: "select" },
+      options: sizesEnumValues.options,
     },
   }}
 />
@@ -53,13 +53,13 @@ export const levelsEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.9`   |
+| Latest            | `0.25.13`  |
 
 <Description of={Heading} />
 
 A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's
 text can be passed in through a `text` prop or as a child. Default styles for
-semantic elements can be overwritten using the `displaySize` prop.
+semantic elements can be overwritten using the `size` prop.
 
 <Canvas withToolbar>
   <Story
@@ -67,9 +67,9 @@ semantic elements can be overwritten using the `displaySize` prop.
     args={{
       additionalStyles: undefined,
       className: undefined,
-      displaySize: undefined,
       id: "heading-id",
       level: "HeadingLevels.Two",
+      size: undefined,
       text: "Default Heading",
       url: undefined,
       urlClass: undefined,
@@ -78,10 +78,8 @@ semantic elements can be overwritten using the `displaySize` prop.
     {(args) => (
       <Heading
         {...args}
-        displaySize={
-          args.displaySize && sizesEnumValues.getValue(args.displaySize)
-        }
         level={levelsEnumValues.getValue(args.level)}
+        size={args.size && sizesEnumValues.getValue(args.size)}
       />
     )}
   </Story>
@@ -128,37 +126,37 @@ semantic elements can be overwritten using the `displaySize` prop.
   </Story>
 </Canvas>
 
-## DisplaySize Styles
+## Size Styles
 
 Note: The `level` prop for the `Heading`s in the next example are all set to
 `level={HeadingLevels.One}`.
 
 <Canvas>
-  <Story name="DisplaySize Styles">
+  <Story name="Size Styles">
     <div>
       <Heading
         id="heading-primary"
         level={HeadingLevels.One}
-        displaySize={HeadingDisplaySizes.Primary}
-        text="<h1> HeadingDisplaySizes.Primary"
+        size={HeadingSizes.Primary}
+        text="<h1> HeadingSizes.Primary"
       />
       <Heading
         id="heading-secondary"
         level={HeadingLevels.One}
-        displaySize={HeadingDisplaySizes.Secondary}
-        text="<h1> HeadingDisplaySizes.Secondary"
+        size={HeadingSizes.Secondary}
+        text="<h1> HeadingSizes.Secondary"
       />
       <Heading
         id="heading-tertiary"
         level={HeadingLevels.One}
-        displaySize={HeadingDisplaySizes.Tertiary}
-        text="<h1> HeadingDisplaySizes.Tertiary"
+        size={HeadingSizes.Tertiary}
+        text="<h1> HeadingSizes.Tertiary"
       />
       <Heading
         id="heading-callout"
         level={HeadingLevels.One}
-        displaySize={HeadingDisplaySizes.Callout}
-        text="<h1> HeadingDisplaySizes.Callout"
+        size={HeadingSizes.Callout}
+        text="<h1> HeadingSizes.Callout"
       />
     </div>
   </Story>

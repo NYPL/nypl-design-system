@@ -1,13 +1,13 @@
 import { Flex, Spacer } from "@chakra-ui/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import * as React from "react";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
 import CheckboxGroup from "./CheckboxGroup";
 import Checkbox from "../Checkbox/Checkbox";
-import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 
 describe("CheckboxGroup Accessibility", () => {
   it("passes axe accessibility with string labels ", async () => {
@@ -309,7 +309,7 @@ describe("Checkbox", () => {
           labelText="row"
           name="row"
           id="row"
-          layout={CheckboxGroupLayoutTypes.Row}
+          layout={LayoutTypes.Row}
         >
           <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
           <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
@@ -461,7 +461,8 @@ describe("Checkbox", () => {
       </CheckboxGroup>
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
+      "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
+        "allowed as children."
     );
   });
 });

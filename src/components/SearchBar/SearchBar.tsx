@@ -133,7 +133,7 @@ export default function SearchBar(props: SearchBarProps) {
       labelText={selectProps?.labelText}
       name={selectProps?.name}
       onChange={selectProps?.onChange}
-      type={SelectTypes.SearchBar}
+      selectType={SelectTypes.SearchBar}
       {...stateProps}
     >
       {selectProps?.optionsData.map((option) => (
@@ -151,12 +151,12 @@ export default function SearchBar(props: SearchBarProps) {
       name={textInputProps?.name}
       onChange={textInputProps?.onChange}
       placeholder={textInputPlaceholder}
-      type={TextInputTypes.text}
-      variantType={
+      textInputType={
         selectElem
           ? TextInputVariants.SearchBarSelect
           : TextInputVariants.SearchBar
       }
+      type={TextInputTypes.text}
       value={textInputProps?.value}
       {...stateProps}
     />

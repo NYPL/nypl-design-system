@@ -12,7 +12,7 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import { spacing } from "../../theme/foundations/spacing";
 import Radio from "../Radio/Radio";
-import { RadioGroupLayoutTypes } from "./RadioGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 export interface RadioGroupProps {
   /** Additional class name. */
   className?: string;
@@ -37,7 +37,7 @@ export interface RadioGroupProps {
    * true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
   /** Renders the Radio buttons in a row or column (default). */
-  layout?: RadioGroupLayoutTypes;
+  layout?: LayoutTypes;
   /** The `name` prop indicates the form group for all the Radio children. */
   name: string;
   /** The action to perform on the `<input>`'s onChange function  */
@@ -72,7 +72,7 @@ const RadioGroup = React.forwardRef<
     isInvalid = false,
     isRequired = false,
     labelText,
-    layout = RadioGroupLayoutTypes.Column,
+    layout = LayoutTypes.Column,
     name,
     onChange = onChangeDefault,
     optReqFlag = true,
@@ -80,8 +80,7 @@ const RadioGroup = React.forwardRef<
     showLabel = true,
   } = props;
   const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-  const spacingProp =
-    layout === RadioGroupLayoutTypes.Column ? spacing.s : spacing.l;
+  const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
   const newChildren = [];
 
   if (!id) {
@@ -107,7 +106,8 @@ const RadioGroup = React.forwardRef<
         noop();
       } else {
         console.warn(
-          "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside the `RadioGroup` component."
+          "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
+            "inside the `RadioGroup` component."
         );
       }
     }

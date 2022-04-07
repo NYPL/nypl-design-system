@@ -371,7 +371,8 @@ describe("DatePicker", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir DatePicker: A `ref` or `refTo` prop was passed but not the equivalent `nameFrom` or `nameTo` prop."
+        "NYPL Reservoir DatePicker: A `ref` or `refTo` prop was passed but " +
+          "not the equivalent `nameFrom` or `nameTo` prop."
       );
     });
 
@@ -389,7 +390,9 @@ describe("DatePicker", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir DatePicker: React `ref` props were passed and an `onChange` prop as well. Use whichever is best for your app but not both."
+        "NYPL Reservoir DatePicker: A `ref`, `refTo`, `nameFrom`, or `nameTo` " +
+          "prop was passed and an `onChange` prop as well. Use whichever is best " +
+          "for your app but not both."
       );
     });
 

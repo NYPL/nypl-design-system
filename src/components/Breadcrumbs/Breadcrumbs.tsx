@@ -13,7 +13,7 @@ import {
   IconSizes,
   IconTypes,
 } from "../Icons/IconTypes";
-import { ColorVariants } from "./BreadcrumbsTypes";
+import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 import { getVariant } from "../../utils/utils";
 
 export interface BreadcrumbsDataProps {
@@ -26,12 +26,12 @@ export interface BreadcrumbProps {
   additionalStyles?: { [key: string]: any };
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
+  /** Used to control how the `Hero` component will be rendered. */
+  breadcrumbsType?: BreadcrumbsTypes;
   /** className you can add in addition to 'input' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Used to control how the `Hero` component will be rendered. */
-  colorVariant?: ColorVariants;
 }
 
 const getElementsFromData = (data, breadcrumbsID) => {
@@ -67,15 +67,15 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
   const {
     additionalStyles = {},
     breadcrumbsData,
+    breadcrumbsType,
     className,
-    colorVariant,
     id,
   } = props;
-  const variant = getVariant(colorVariant, ColorVariants);
+  const variant = getVariant(breadcrumbsType, BreadcrumbsTypes);
 
   if (!breadcrumbsData || breadcrumbsData.length === 0) {
     throw new Error(
-      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
+      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   }
 

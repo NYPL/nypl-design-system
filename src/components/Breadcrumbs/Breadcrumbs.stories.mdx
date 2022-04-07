@@ -8,7 +8,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs from "./Breadcrumbs";
-import { ColorVariants } from "./BreadcrumbsTypes";
+import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Link from "../Link/Link";
@@ -17,8 +17,8 @@ import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
 
 export const enumValues = getStorybookEnumValues(
-  ColorVariants,
-  "ColorVariants"
+  BreadcrumbsTypes,
+  "BreadcrumbsTypes"
 );
 
 <Meta
@@ -36,7 +36,7 @@ export const enumValues = getStorybookEnumValues(
     additionalStyles: { control: false },
     breadcrumbsData: { control: false },
     className: { control: false },
-    colorVariant: {
+    breadcrumbsType: {
       control: { type: "select" },
       options: enumValues.options,
     },
@@ -49,7 +49,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.3`    |
-| Latest            | `0.25.12`  |
+| Latest            | `0.25.13`  |
 
 <Description of={Breadcrumbs} />
 
@@ -68,14 +68,14 @@ available in the breadcrumb hierarchy.
         { url: "#", text: "Grandchild" },
       ],
       className: undefined,
-      colorVariant: undefined,
+      breadcrumbsType: undefined,
       id: "breadcrumbs-id",
     }}
   >
     {(args) => (
       <Breadcrumbs
         {...args}
-        colorVariant={enumValues.getValue(args.colorVariant)}
+        breadcrumbsType={enumValues.getValue(args.breadcrumbsType)}
       />
     )}
   </Story>
@@ -115,13 +115,15 @@ so only one component must be rendered on a page.
 
 ## Color Variations
 
-The `Breadcrumbs` component background color can be set using the `colorVariant` prop and the `ColorVariants` enum. If the `colorVariant` prop is omitted, the default background color is `black`.
+The `Breadcrumbs` component background color can be set using the `breadcrumbsType`
+prop and the `BreadcrumbsTypes` enum. If the `breadcrumbsType` prop is omitted,
+the default background color is `black`.
 
 <Canvas>
   <Story
     name="Color Variations"
     args={{
-      colorVariant: ColorVariants.Blogs,
+      breadcrumbsType: BreadcrumbsTypes.Blogs,
     }}
   >
     {(args) => (
@@ -136,7 +138,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
               text: "Grandchild",
             },
           ]}
-          colorVariant={args.colorVariant}
+          breadcrumbsType={args.breadcrumbsType}
         />
       </>
     )}
@@ -155,7 +157,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.BooksAndMore}
+      breadcrumbsType={BreadcrumbsTypes.BooksAndMore}
     />
   </DSProvider>
 </Canvas>
@@ -172,7 +174,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.Education}
+      breadcrumbsType={BreadcrumbsTypes.Education}
     />
   </DSProvider>
 </Canvas>
@@ -189,7 +191,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.Locations}
+      breadcrumbsType={BreadcrumbsTypes.Locations}
     />
   </DSProvider>
 </Canvas>
@@ -206,7 +208,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.Research}
+      breadcrumbsType={BreadcrumbsTypes.Research}
     />
   </DSProvider>
 </Canvas>
@@ -223,7 +225,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.WhatsOn}
+      breadcrumbsType={BreadcrumbsTypes.WhatsOn}
     />
   </DSProvider>
 </Canvas>

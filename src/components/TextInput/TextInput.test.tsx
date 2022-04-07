@@ -12,11 +12,11 @@ describe("TextInput Accessibility", () => {
     const { container } = render(
       <TextInput
         id="textInput"
-        labelText="Custom input label"
         isRequired
+        labelText="Custom input label"
+        onChange={jest.fn()}
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
-        onChange={jest.fn()}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -26,11 +26,11 @@ describe("TextInput Accessibility", () => {
     const { container } = render(
       <TextInput
         id="textInput"
-        labelText="Custom textarea label"
         isRequired
+        labelText="Custom textarea label"
+        onChange={jest.fn()}
         placeholder="Input Placeholder"
         type={TextInputTypes.textarea}
-        onChange={jest.fn()}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -47,13 +47,13 @@ describe("TextInput", () => {
     changeHandler = jest.fn();
     utils = render(
       <TextInput
+        attributes={{ onFocus: focusHandler }}
         id="myTextInput"
-        labelText="Custom Input Label"
         isRequired
+        labelText="Custom Input Label"
+        onChange={changeHandler}
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
-        attributes={{ onFocus: focusHandler }}
-        onChange={changeHandler}
       />
     );
   });
@@ -74,13 +74,13 @@ describe("TextInput", () => {
   it("renders 'Optional' along with the label text", () => {
     utils.rerender(
       <TextInput
+        attributes={{ onFocus: focusHandler }}
         id="myTextInput"
-        labelText="Custom Input Label"
         isRequired={false}
+        labelText="Custom Input Label"
+        onChange={changeHandler}
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
-        attributes={{ onFocus: focusHandler }}
-        onChange={changeHandler}
       />
     );
 
@@ -91,14 +91,14 @@ describe("TextInput", () => {
   it("does not render 'Required' along with the label text", () => {
     utils.rerender(
       <TextInput
-        id="myTextInput"
-        labelText="Custom Input Label"
-        isRequired
-        showOptReqLabel={false}
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
         attributes={{ onFocus: focusHandler }}
+        id="myTextInput"
+        isRequired
+        labelText="Custom Input Label"
         onChange={changeHandler}
+        placeholder="Input Placeholder"
+        showOptReqLabel={false}
+        type={TextInputTypes.text}
       />
     );
 
@@ -155,12 +155,12 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
   beforeEach(() => {
     render(
       <TextInput
-        id="textInput"
-        labelText="Custom Input Label"
-        showLabel={false}
         helperText="Custom Helper Text"
+        id="textInput"
         isRequired
+        labelText="Custom Input Label"
         placeholder="Input Placeholder"
+        showLabel={false}
         type={TextInputTypes.text}
       />
     );
@@ -191,12 +191,12 @@ describe("TextInput shows error state", () => {
   beforeEach(() => {
     const utils = render(
       <TextInput
-        id="myTextInputError"
-        labelText="Custom Input Label"
         helperText="Custom Helper Text"
+        id="myTextInputError"
         invalidText="Custom Error Text"
-        placeholder="Input Placeholder"
         isInvalid
+        labelText="Custom Input Label"
+        placeholder="Input Placeholder"
         type={TextInputTypes.text}
       />
     );
@@ -220,14 +220,14 @@ describe("TextInput shows error state", () => {
   it("does not render the invalid text when 'showHelperInvalidText' is set to false", () => {
     rerender(
       <TextInput
-        id="myTextInputError"
-        labelText="Custom Input Label"
         helperText="Custom Helper Text"
+        id="myTextInputError"
         invalidText="Custom Error Text"
+        isInvalid
+        labelText="Custom Input Label"
         placeholder="Input Placeholder"
         showHelperInvalidText={false}
         type={TextInputTypes.text}
-        isInvalid
       />
     );
     expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
@@ -247,16 +247,16 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
   beforeEach(() => {
     render(
       <TextInput
-        id="inputID-attributes"
-        labelText="Input Label"
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
         attributes={{
           onChange: onChangeSpy,
           onBlur: onBlurSpy,
           maxLength: 10,
           tabIndex: 0,
         }}
+        id="inputID-attributes"
+        labelText="Input Label"
+        placeholder="Input Placeholder"
+        type={TextInputTypes.text}
       />
     );
   });
@@ -342,9 +342,9 @@ describe("Hidden input", () => {
   it("does not show the helper text", () => {
     render(
       <TextInput
+        helperText="Helper Text"
         id="inputID-hidden"
         labelText="Hidden Input Label"
-        helperText="Helper Text"
         type={TextInputTypes.hidden}
         value="hidden"
       />
@@ -455,6 +455,7 @@ describe("UI Snapshots", () => {
     expect(errorState).toMatchSnapshot();
     expect(disabledState).toMatchSnapshot();
   });
+
   it("renders the textarea UI snapshot correctly", () => {
     const basicTextarea = renderer
       .create(
