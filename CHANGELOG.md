@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Changes
+
+- Updates the hex color value for `ui.gray.light-cool`, `ui.disabled.primary` and `section.blogs.primary`.
+
 ## 0.25.13 (April 1, 2022)
 
 ### Adds
