@@ -8,6 +8,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `isRequired` prop to the `Label` component.
+
+### Changes
+
+- Updates how the `Required` text in the `Label` and `Fieldset` components is displayed. Instead of floating to the right of the label and legend elements, it is now displayed inlined as `(Required)`.
+- Renames the `optReqFlag` prop to `showRequiredLabel` in the `CheckboxGroup`, `Fieldset`, `RadioGroup`, and `Slider` components.
+- Renames the `showOptReqLabel` prop to `showRequiredLabel` in the `DatePicker`, `Select`, and `TextInput` components.
+
+### Removals
+
+- Removes the default `Optional` text displayed in the `Label` and `Fieldset` components.
+- Removes the `optReqFlag` prop in the `Label` component.
+
 ## 0.25.13 (April 1, 2022)
 
 ### Adds

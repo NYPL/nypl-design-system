@@ -267,19 +267,11 @@ describe("DatePicker", () => {
       expect(screen.getByText(/required/i)).toBeInTheDocument();
     });
 
-    it("should hide the Optional/Required text in the label with `showOptReqLabel`", () => {
+    it("should hide the (Required) text in the label with `showRequiredLabel`", () => {
       const { rerender } = render(
         <DatePicker labelText="Select the date you want to visit NYPL" />
       );
-      expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-
-      rerender(
-        <DatePicker
-          labelText="Select the date you want to visit NYPL"
-          showOptReqLabel={false}
-        />
-      );
-      expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
 
       rerender(
         <DatePicker
@@ -292,7 +284,7 @@ describe("DatePicker", () => {
       rerender(
         <DatePicker
           labelText="Select the date you want to visit NYPL"
-          showOptReqLabel={false}
+          showRequiredLabel={false}
           isRequired
         />
       );

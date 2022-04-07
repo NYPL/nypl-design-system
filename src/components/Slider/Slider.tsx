@@ -56,8 +56,6 @@ export interface SliderProps {
   name?: string;
   /** Callback function that gets the value(s) selected. */
   onChange?: (val: number | number[]) => void;
-  /** Whether or not to display the "Required"/"Optional" text in the label text. */
-  optReqFlag?: boolean;
   /** Offers the ability to hide the `TextInput` boxes. */
   showBoxes?: boolean;
   /** Offers the ability to hide the helper/invalid text. */
@@ -65,6 +63,9 @@ export interface SliderProps {
   /** Offers the ability to show the label onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
+  /** Whether or not to display the "(Required)" text in the label text.
+   * True by default. */
+  showRequiredLabel?: boolean;
   /** Offers the ability to hide the static min/max values. */
   showValues?: boolean;
   /** The amount to increase or decrease when using the slider thumb(s). */
@@ -92,10 +93,10 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
     min = 0,
     name,
     onChange,
-    optReqFlag = true,
     showBoxes = true,
     showHelperInvalidText = true,
     showLabel = true,
+    showRequiredLabel = true,
     showValues = true,
     step = 1,
   } = props;
@@ -113,7 +114,6 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
   if (isRangeSlider && currentValue[0] > currentValue[1]) {
     finalIsInvalid = true;
   }
-  const optReqText = isRequired ? "Required" : "Optional";
   const footnote: HelperErrorTextType = finalIsInvalid
     ? invalidText
     : helperText;
@@ -284,7 +284,7 @@ export default function Slider(props: React.PropsWithChildren<SliderProps>) {
               ? `${id}-textInput-${isRangeSlider ? "start" : "end"}`
               : null
           }
-          optReqFlag={optReqFlag && optReqText}
+          isRequired={showRequiredLabel && isRequired}
         >
           {labelText}
         </Label>

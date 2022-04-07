@@ -79,26 +79,17 @@ describe("Select", () => {
     ).toHaveAttribute("aria-describedby", `${id}-helperText`);
   });
 
-  it("renders required or optional text in the label", () => {
-    const { rerender } = render(<Select {...baseProps}>{baseOptions}</Select>);
-    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-
-    rerender(
+  it("renders '(Required)' text in the label", () => {
+    const { rerender } = render(
       <Select {...baseProps} isRequired>
         {baseOptions}
       </Select>
     );
+
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
 
     rerender(
-      <Select {...baseProps} showOptReqLabel={false}>
-        {baseOptions}
-      </Select>
-    );
-    expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
-
-    rerender(
-      <Select {...baseProps} isRequired showOptReqLabel={false}>
+      <Select {...baseProps} isRequired showRequiredLabel={false}>
         {baseOptions}
       </Select>
     );
@@ -120,9 +111,9 @@ describe("Select", () => {
     ).toHaveAttribute("required");
   });
 
-  it("should not render a required label if 'showOptReqLabel' flag is false, but still render the label", () => {
+  it("should not render a required label if 'showRequiredLabel' flag is false, but still render the label", () => {
     render(
-      <Select {...baseProps} isRequired showOptReqLabel={false}>
+      <Select {...baseProps} isRequired showRequiredLabel={false}>
         {baseOptions}
       </Select>
     );

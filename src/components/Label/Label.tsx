@@ -1,9 +1,7 @@
 import * as React from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import generateUUID from "../../helpers/generateUUID";
-
-type optReqFlagType = "Required" | "Optional" | "" | undefined;
 
 interface LabelProps {
   /** Additional CSS class name to render in the `label` element. */
@@ -12,8 +10,9 @@ interface LabelProps {
   htmlFor: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Displays "Required" or "Optional" string alongside the label */
-  optReqFlag?: optReqFlagType;
+  /** Controls whether the "(Required)" text should be displayed alongside the
+   * label's text. False by default. */
+  isRequired?: boolean;
 }
 
 /**
@@ -25,9 +24,9 @@ function Label(props: React.PropsWithChildren<LabelProps>) {
     className,
     htmlFor,
     id = generateUUID(),
-    optReqFlag,
+    isRequired = false,
   } = props;
-  const styles = useMultiStyleConfig("Label", {});
+  const styles = useStyleConfig("Label");
 
   return (
     <Box
@@ -38,7 +37,7 @@ function Label(props: React.PropsWithChildren<LabelProps>) {
       __css={styles}
     >
       {children}
-      {optReqFlag && <Box __css={styles.helper}>{optReqFlag}</Box>}
+      {isRequired && <span> (Required)</span>}
     </Box>
   );
 }

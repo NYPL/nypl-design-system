@@ -329,19 +329,6 @@ describe("Checkbox", () => {
         </CheckboxGroup>
       )
       .toJSON();
-    const noOptReqLabel = renderer
-      .create(
-        <CheckboxGroup
-          labelText="no optional or required label"
-          name="optReq"
-          id="optReq"
-          optReqFlag={false}
-        >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
-        </CheckboxGroup>
-      )
-      .toJSON();
     const isRequired = renderer
       .create(
         <CheckboxGroup
@@ -349,6 +336,20 @@ describe("Checkbox", () => {
           name="required"
           id="required"
           isRequired
+        >
+          <Checkbox value="2" labelText="Checkbox 2" />
+          <Checkbox value="3" labelText="Checkbox 3" />
+        </CheckboxGroup>
+      )
+      .toJSON();
+    const noRequiredLabel = renderer
+      .create(
+        <CheckboxGroup
+          labelText="no optional or required label"
+          name="noRequiredLabel"
+          id="noRequiredLabel"
+          isRequired
+          showRequiredLabel={false}
         >
           <Checkbox value="2" labelText="Checkbox 2" />
           <Checkbox value="3" labelText="Checkbox 3" />
@@ -420,7 +421,7 @@ describe("Checkbox", () => {
     expect(noLabel).toMatchSnapshot();
     expect(helperText).toMatchSnapshot();
     expect(invalidText).toMatchSnapshot();
-    expect(noOptReqLabel).toMatchSnapshot();
+    expect(noRequiredLabel).toMatchSnapshot();
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
