@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
+- Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
+
 ### Changes
 
 - Updates the hex color value for `ui.gray.light-cool`, `ui.disabled.primary` and `section.blogs.primary`.
