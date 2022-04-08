@@ -75,7 +75,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
-    const styles = useMultiStyleConfig("Toggle", {});
+    const styles = useMultiStyleConfig("Toggle", { isDisabled });
     const switchStyles = useStyleConfig("Switch", { size });
     ariaAttributes["aria-label"] =
       labelText && footnote ? `${labelText} - ${footnote}` : labelText;

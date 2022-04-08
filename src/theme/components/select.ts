@@ -1,4 +1,4 @@
-import { activeFocus } from "./global";
+import { activeFocus, selectTextInputDisabledStyles } from "./global";
 
 const select = {
   backgroundColor: "ui.white",
@@ -14,9 +14,7 @@ const select = {
   },
   _active: activeFocus(),
   _disabled: {
-    color: "ui.gray.xdark",
-    bg: "ui.gray.xx-light-cool",
-    opacity: "1",
+    ...selectTextInputDisabledStyles,
   },
   _invalid: {
     border: "1px solid",

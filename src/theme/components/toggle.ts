@@ -1,10 +1,15 @@
 import { cssVar } from "@chakra-ui/theme-tools";
 
-const baseStyle = {
-  label: { alignItems: "start", display: "flex", width: "fit-content" },
-  helperErrorText: {
+const toggleBaseStyle = ({ isDisabled }) => {
+  const label = { alignItems: "start", display: "flex", width: "fit-content" };
+  const helperErrorText = {
     marginLeft: "xxs",
-  },
+    fontStyle: isDisabled ? "italic" : null,
+  };
+  return {
+    label,
+    helperErrorText,
+  };
 };
 const $width = cssVar("switch-track-width");
 const $height = cssVar("switch-track-height");
@@ -48,7 +53,10 @@ const Switch = {
         fontSize: "label.default",
         marginLeft: "xs",
         marginTop: size === "lg" ? "xxxs" : null,
-        _disabled: { fontStyle: "italic" },
+        _disabled: {
+          color: "ui.gray.dark",
+          fontStyle: "italic",
+        },
       },
       thumb: {
         _disabled: {
@@ -84,7 +92,7 @@ const Switch = {
 
 const Toggle = {
   parts: ["helperErrorText"],
-  baseStyle,
+  baseStyle: toggleBaseStyle,
   // Default values
   defaultProps: {
     size: "lg",
