@@ -44,6 +44,10 @@ const secondary = {
   fontSize: "button.default",
   _hover: {
     bg: "ui.gray.xx-light-cool",
+    borderColor: "ui.gray.medium",
+  },
+  _disabled: {
+    bg: "ui.gray.x-light-cool",
   },
 };
 const link = {
@@ -71,6 +75,10 @@ const pill = {
   fontSize: "button.default",
   _hover: {
     bg: "ui.gray.xx-light-cool",
+    borderColor: "ui.gray.medium",
+  },
+  _disabled: {
+    bg: "ui.gray.x-light-cool",
   },
 };
 const iconOnly = {

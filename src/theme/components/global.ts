@@ -42,6 +42,7 @@ const checkboxRadioHelperStyle = {
   ...helperTextMargin,
   marginLeft: "30px", // calc(22px + var(--nypl-space-xs))
   _disabled: {
+    color: "ui.gray.dark",
     fontStyle: "italic",
   },
 };
@@ -64,6 +65,13 @@ const labelLegendText = {
     fontWeight: "regular",
   },
 };
+// Used for the disabled state of Select and TextInput
+const selectTextinputDisabledStyles = {
+  bg: "ui.disabled.secondary",
+  borderColor: "ui.disabled.primary",
+  color: "ui.gray.dark",
+  opacity: "1",
+};
 // Used for p, ul, and ol
 const textMargin = {
   margin: "0",
@@ -78,5 +86,6 @@ export {
   checkboxRadioLabelStyles,
   helperTextMargin,
   labelLegendText,
+  selectTextinputDisabledStyles,
   textMargin,
 };
