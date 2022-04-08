@@ -255,7 +255,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1ivt2zz"
+      className="chakra-accordion__button css-1v42wmb"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
@@ -378,7 +378,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1ivt2zz"
+      className="chakra-accordion__button css-1v42wmb"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
