@@ -14,7 +14,7 @@ interface FormBaseProps {
   id: string;
 }
 
-export interface FormChildProps extends FormBaseProps {}
+export interface FormChildProps extends Partial<FormBaseProps> {}
 
 export interface FormProps extends FormBaseProps {
   /** Optional form `action` attribute */
