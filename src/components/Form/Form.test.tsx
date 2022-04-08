@@ -16,10 +16,10 @@ describe("Form Accessibility", () => {
   it("passes axe accessibility test for the full hierachy", async () => {
     const { container } = render(
       <Form id="form">
-        <FormRow id="formRow">
-          <FormField id="formField1">Form Field 1</FormField>
-          <FormField id="formField2">Form Field 2</FormField>
-          <FormField id="formField3">Form Field 3</FormField>
+        <FormRow>
+          <FormField>Form Field 1</FormField>
+          <FormField>Form Field 2</FormField>
+          <FormField>Form Field 3</FormField>
         </FormRow>
       </Form>
     );
@@ -32,10 +32,10 @@ describe("Form Snapshot", () => {
     const tree = renderer
       .create(
         <Form id="snapshot-form">
-          <FormRow id="formRow">
-            <FormField id="formField1">Form Field 1</FormField>
-            <FormField id="formField2">Form Field 2</FormField>
-            <FormField id="formField3">Form Field 3</FormField>
+          <FormRow>
+            <FormField>Form Field 1</FormField>
+            <FormField>Form Field 2</FormField>
+            <FormField>Form Field 3</FormField>
           </FormRow>
         </Form>
       )
@@ -53,7 +53,7 @@ describe("Form", () => {
   it("Renders a <form> element with child FormRow element", () => {
     render(
       <Form id="form">
-        <FormRow id="formRow" />
+        <FormRow />
       </Form>
     );
     const form = screen.getByRole("form");
@@ -68,7 +68,7 @@ describe("Form", () => {
   it("Renders a <form> element with child FormField element", () => {
     render(
       <Form id="form">
-        <FormField id="formRow" />
+        <FormField />
       </Form>
     );
     const form = screen.getByRole("form");
@@ -83,8 +83,8 @@ describe("Form", () => {
   it("Renders a <form> element with FormRow, FormField and input elements properly nested", () => {
     render(
       <Form id="form">
-        <FormRow id="formRow">
-          <FormField id="formField">
+        <FormRow>
+          <FormField>
             <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
@@ -117,19 +117,19 @@ describe("Form", () => {
   it("passes down the `Form`'s id down to its children", () => {
     const { container } = render(
       <Form id="formId">
-        <FormRow id="formRow">
-          <FormField id="formField">
+        <FormRow>
+          <FormField>
             <TextInput id="textInput" labelText="Input Field" />
           </FormField>
-          <FormField id="formField">
+          <FormField>
             <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
-        <FormRow id="formRow">
-          <FormField id="formField">
+        <FormRow>
+          <FormField>
             <TextInput id="textInput" labelText="Input Field" />
           </FormField>
-          <FormField id="formRow">
+          <FormField>
             <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
@@ -163,7 +163,7 @@ describe("Form", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Form id="form">
-        <FormRow id="formRow">
+        <FormRow>
           <div>Not a FormField</div>
         </FormRow>
       </Form>
@@ -177,8 +177,8 @@ describe("Form", () => {
     const onSubmit = jest.fn();
     render(
       <Form id="form" onSubmit={onSubmit}>
-        <FormRow id="formRow">
-          <FormField id="formField">
+        <FormRow>
+          <FormField>
             <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
@@ -196,8 +196,8 @@ describe("Form", () => {
       // @ts-ignore: Typescript complains when a required prop is not passed, but
       // here we don't want to pass the required prop to make sure the warning appears.
       <Form>
-        <FormRow id="formRow">
-          <FormField id="formField">
+        <FormRow>
+          <FormField>
             <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
