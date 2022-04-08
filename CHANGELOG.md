@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the background color used in the `VideoPlayer` component.
 - Updates the background colors used in the `Tabs` component.
 - Updates the colors for "secondary" and "pill" variants of the `Button` component.
+- Updates the color values used in the `disabled` state for the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components.
 
 ## 0.25.13 (April 1, 2022)
 
