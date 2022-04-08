@@ -118,7 +118,9 @@ export {
 export { TextInputTypes } from "./components/TextInput/TextInputTypes";
 export { default as Toggle } from "./components/Toggle/Toggle";
 export { ToggleSizes } from "./components/Toggle/ToggleTypes";
+export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
+export { default as useWindowSize } from "./hooks/useWindowSize";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {
   VideoPlayerAspectRatios,
