@@ -11,7 +11,7 @@ import HelperErrorText, {
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
-import { SelectTypes } from "./SelectTypes";
+import { SelectTypes, LabelPositions } from "./SelectTypes";
 import generateUUID from "../../helpers/generateUUID";
 
 export interface SelectProps {
@@ -33,6 +33,9 @@ export interface SelectProps {
   isInvalid?: boolean;
   /** Adds the `required` and `aria-required` attributes to the input when true. */
   isRequired?: boolean;
+  /** Optional value to render the label inline or on top of the select element.
+   * Default is `LabelPositions.Top`. */
+  labelPosition?: LabelPositions;
   /** Provides text for a `Label` component if `showLabel` is set to `true`;
    * populates an `aria-label` attribute on the select input if `showLabel` is
    * set to `false`. */
