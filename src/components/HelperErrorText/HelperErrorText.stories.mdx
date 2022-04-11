@@ -49,7 +49,19 @@ import DSProvider from "../../theme/provider";
 | Added             | `0.0.10`   |
 | Latest            | `0.25.11`  |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [With HTML Children](#with-html-children)
+- [Invalid State](#invalid-state)
+
+## Overview
+
 <Description of={HelperErrorText} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -74,6 +86,54 @@ import DSProvider from "../../theme/provider";
 </Canvas>
 
 <ArgsTable story="HelperErrorText with Controls" />
+
+## Accessibility
+
+In the "invalid" state when `isInvalid` is set to true, the text passed to the
+`invalidText` prop will be presented to screen readers be default. If you need
+to turn this off, set the `ariaLive` prop to `"off"`. This is used in DS "form"
+components for invalid form submissions or incorrect values entered.
+
+### ariaAtomic
+
+The `ariaAtomic` prop sets the `aria-atomic` attribute and it is set to `true`
+by default. This allows the entire DOM element to be presented to assistive
+technologies. When it is set to `false`, only additionals or removals will be
+read by assistive technologies.
+
+### ariaLive
+
+The `ariaLive` prop sets the `aria-live` attribute; `"polite"` is set by default
+in the "invalid" state and `"off"` otherwise. This sets the priority of when the
+text in this component should be read to users by assistive technologies. The
+`"off"` value indicates that the content should not be presented, `"polite"` that
+it will be announced at the next available time slot, and `"assertive"` that it
+should be announced immediately.
+
+<Canvas>
+  <Story
+    name="With Aria Controls"
+    args={{
+      ariaAtomic: true,
+      ariaLive: "polite",
+      isInvalid: true,
+    }}
+  >
+    {(args) => (
+      <HelperErrorText
+        {...args}
+        text="Only invalid text can be read to screen readers with the appropriate aria-atomic and aria-live props."
+      />
+    )}
+  </Story>
+</Canvas>
+
+Resources:
+
+- [MDN ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+- [W3C WAI-ARIA 1.1 - aria-live (property)](https://www.w3.org/TR/wai-aria-1.1/#aria-live)
+- [W3C ARIA19: Using ARIA role=alert or Live Regions to Identify Errors](https://www.w3.org/TR/WCAG20-TECHS/ARIA19.html)
+- [DigitalA11y WAI-ARIA:aria-live (Property)](https://www.digitala11y.com/aria-live-properties/)
 
 ## With HTML Children
 
@@ -109,44 +169,5 @@ NYPL "invalid" styling.
 <Canvas>
   <Story name="Invalid State">
     <HelperErrorText isInvalid text="This is the error text :(" />
-  </Story>
-</Canvas>
-
-## With Aria Props
-
-In the "invalid" state when `isInvalid` is set to true, the rendered text can be
-presented to screen readers if `ariaAtomic` and `ariaLive` are set appropriately.
-
-### ariaAtomic
-
-The `ariaAtomic` prop sets the `aria-atomic` attribute; `true` by default. This
-allows the entire DOM element to be presented to assistive technologies. When it
-is set to `false`, only additionals or removals will be read by assistive
-technologies.
-
-### ariaLive
-
-The `ariaLive` prop sets the `aria-live` attribute; `polite` by default in the
-"invalid" state and `off` otherwise. This sets the priority of when the text in
-this component should be read to users by assistive technologies. The `off` value
-indicates that the content should not be presented, `polite` that it will be
-announced at the next available time slot, and `assertive` that it should be
-announced immediately.
-
-<Canvas>
-  <Story
-    name="With Aria Controls"
-    args={{
-      ariaAtomic: true,
-      ariaLive: "polite",
-      isInvalid: true,
-    }}
-  >
-    {(args) => (
-      <HelperErrorText
-        {...args}
-        text="Only invalid text can be read to screen readers with the appropriate aria-atomic and aria-live props."
-      />
-    )}
   </Story>
 </Canvas>
