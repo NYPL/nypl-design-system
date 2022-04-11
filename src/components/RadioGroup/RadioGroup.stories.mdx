@@ -55,13 +55,13 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
     key: { table: { disable: true } },
     onChange: { control: false },
     ref: { table: { disable: true } },
-    optReqFlag: {
-      table: { defaultValue: { summary: true } },
-    },
     showHelperInvalidText: {
       table: { defaultValue: { summary: true } },
     },
     showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showRequiredLabel: {
       table: { defaultValue: { summary: true } },
     },
   }}
@@ -72,7 +72,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.0`   |
-| Latest            | `0.25.13`  |
+| Latest            | `0.26.0`   |
 
 <Description of={RadioGroup} />
 
@@ -93,9 +93,9 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
       layout: "LayoutTypes.Column",
       name: "radio-story",
       onChange: undefined,
-      optReqFlag: true,
       showHelperInvalidText: true,
       showLabel: true,
+      showRequiredLabel: true,
     }}
   >
     {(args) => (
@@ -120,9 +120,9 @@ a row.
   <DSProvider>
     <RadioGroup
       defaultValue="4"
+      id="column"
       labelText="Column (default)"
       name="column-example"
-      optReqFlag={false}
     >
       <Radio value="2" labelText="Radio 2" />
       <Radio value="3" labelText="Radio 3" />
@@ -132,10 +132,10 @@ a row.
     <br />
     <RadioGroup
       defaultValue="3"
+      id="row"
       labelText="Row"
       name="row-example"
       layout={LayoutTypes.Row}
-      optReqFlag={false}
     >
       <Radio value="2" labelText="Radio 2" />
       <Radio value="3" labelText="Radio 3" />
@@ -152,10 +152,28 @@ a row.
     <RadioGroup
       defaultValue="4"
       invalidText="Error message for the full group."
+      id="errored"
       isInvalid
       labelText="Errored Radio Group"
       name="errored-example"
-      optReqFlag={false}
+    >
+      <Radio value="2" labelText="Radio 2" />
+      <Radio value="3" labelText="Radio 3" />
+      <Radio value="4" labelText="Radio 4" />
+      <Radio value="5" labelText="Radio 5" />
+    </RadioGroup>
+  </DSProvider>
+</Canvas>
+
+## Required
+
+<Canvas>
+  <DSProvider>
+    <RadioGroup
+      labelText="Required Radio Group"
+      name="required-example"
+      helperText="The reason for being required."
+      isRequired
     >
       <Radio value="2" labelText="Radio 2" />
       <Radio value="3" labelText="Radio 3" />
@@ -174,7 +192,6 @@ a row.
       isDisabled
       labelText="Disabled Radio Group"
       name="disabled-example"
-      optReqFlag={false}
     >
       <Radio value="2" labelText="Radio 2" />
       <Radio value="3" labelText="Radio 3" />
@@ -196,12 +213,7 @@ order to make this work, pass in the `isFullWidth` prop.
 
 <Canvas>
   <DSProvider>
-    <RadioGroup
-      labelText="Radio Group"
-      name="radio-example"
-      optReqFlag={false}
-      isFullWidth
-    >
+    <RadioGroup labelText="Radio Group" name="radio-example" isFullWidth>
       <Radio
         labelText={
           <Flex>

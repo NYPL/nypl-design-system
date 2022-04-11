@@ -719,7 +719,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <fieldset
   className="css-0"
-  id="optReq-checkbox-group"
+  id="noRequiredLabel-checkbox-group"
 >
   <legend>
     no optional or required label
@@ -728,7 +728,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
-    id="optReq"
+    id="noRequiredLabel"
   >
     <label
       className="chakra-checkbox css-g8du1g"
@@ -740,14 +740,14 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
         checked={false}
         className="chakra-checkbox__input"
         disabled={false}
-        id="optReq-0"
-        name="optReq"
+        id="noRequiredLabel-0"
+        name="noRequiredLabel"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
-        required={false}
+        required={true}
         style={
           Object {
             "border": "0px",
@@ -801,14 +801,14 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
         checked={false}
         className="chakra-checkbox__input"
         disabled={false}
-        id="optReq-1"
-        name="optReq"
+        id="noRequiredLabel-1"
+        name="noRequiredLabel"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
-        required={false}
+        required={true}
         style={
           Object {
             "border": "0px",
@@ -863,6 +863,9 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 >
   <legend>
     required
+    <span>
+       (Required)
+    </span>
   </legend>
   <div
     aria-label={null}

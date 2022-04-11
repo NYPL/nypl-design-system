@@ -20,7 +20,7 @@ import { Colors } from "@chakra-ui/react";
  */
 
 // Reusable variables:
-const grayLightCool = "#E0E0E0";
+const grayLightCool = "#E9E9E9";
 const grayxxLightCool = "#FAFAFA";
 const grayMedium = "#BDBDBD";
 const brandPrimary = "#C60917";

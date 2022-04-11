@@ -4,8 +4,6 @@ import { As, Box, useStyleConfig } from "@chakra-ui/react";
 import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 interface DefinitionProps {
   term: string;
   definition: string | JSX.Element;
@@ -45,7 +43,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
     additionalStyles = {},
     children,
     className,
-    id = generateUUID(),
+    id,
     inline = false,
     listItems,
     noStyling = false,

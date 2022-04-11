@@ -590,7 +590,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
 exports[`Radio Button renders the UI snapshot correctly 6`] = `
 <fieldset
   className=" css-0"
-  id="radio-group-optReq"
+  id="radio-group-noRequiredLabel"
 >
   <legend>
     no optional or required label
@@ -606,17 +606,18 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
         className="chakra-radio css-13p0l12"
       >
         <input
+          aria-required={true}
           checked={false}
           className="chakra-radio__input"
           disabled={false}
           id="radio-2"
-          name="optReq"
+          name="noRequiredLabel"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
-          required={false}
+          required={true}
           style={
             Object {
               "border": "0px",
@@ -653,17 +654,18 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
         className="chakra-radio css-13p0l12"
       >
         <input
+          aria-required={true}
           checked={false}
           className="chakra-radio__input"
           disabled={false}
           id="radio-3"
-          name="optReq"
+          name="noRequiredLabel"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
-          required={false}
+          required={true}
           style={
             Object {
               "border": "0px",
@@ -708,6 +710,9 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
 >
   <legend>
     required
+    <span>
+       (Required)
+    </span>
   </legend>
   <div
     className="chakra-radio-group css-0"
