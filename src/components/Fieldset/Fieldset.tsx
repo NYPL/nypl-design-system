@@ -5,7 +5,7 @@ interface FieldsetProps {
   /** Additional class name to add. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Flag to show or hide the text in the `legend` element. False by default. */
   isLegendHidden?: boolean;
   /** Flag to render "Required" or "Optional" in the `legend`.
@@ -31,6 +31,11 @@ const Fieldset = ({
   legendText,
   optReqFlag = true,
 }: React.PropsWithChildren<FieldsetProps>) => {
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
+    );
+  }
   const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
   return (
     <Box as="fieldset" id={id} __css={styles} className={className}>

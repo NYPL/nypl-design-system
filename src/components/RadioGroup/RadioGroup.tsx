@@ -13,8 +13,6 @@ import HelperErrorText, {
 import { spacing } from "../../theme/foundations/spacing";
 import Radio from "../Radio/Radio";
 import { LayoutTypes } from "../../helpers/enums";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface RadioGroupProps {
   /** Additional class name. */
   className?: string;
@@ -23,7 +21,7 @@ export interface RadioGroupProps {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the HelperErrorText for error state */
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
@@ -67,7 +65,7 @@ const RadioGroup = React.forwardRef<
     className = "",
     defaultValue,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isFullWidth = false,
@@ -84,6 +82,12 @@ const RadioGroup = React.forwardRef<
   const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
   const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
   const newChildren = [];
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
+    );
+  }
 
   // Use Chakra's RadioGroup hook to set and get the proper props
   // or the custom components.

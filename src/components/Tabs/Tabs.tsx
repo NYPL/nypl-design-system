@@ -9,7 +9,6 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
 import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -143,7 +142,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const {
     children,
     defaultIndex = 0,
-    id = generateUUID(),
+    id,
     onChange,
     tabsData,
     useHash = false,

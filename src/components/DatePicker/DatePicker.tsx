@@ -13,7 +13,6 @@ import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
-import generateUUID from "../../helpers/generateUUID";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 // The object shape for the DatePicker's start and end date state values.
@@ -28,7 +27,7 @@ export interface FullDateType {
 // Used for the input fields' parent wrapper. Internal use only.
 interface DateRangeRowProps {
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Whether to render a single date input or two for a range of two dates. */
   isDateRange?: boolean;
 }
@@ -50,10 +49,10 @@ interface DatePickerWrapperProps extends DateRangeRowProps {
 
 // Interface used by the internal DS `TextInput` component as a custom
 // component for the ReactDatePicker plugin component. Internal use only.
-interface CustomTextInputProps extends InputProps {
+interface CustomTextInputProps extends Partial<InputProps> {
   /** The ReactDatePicker plugin has its own `id` prop so we use this to pass the
    * value from the parent `DatePicker` component. */
-  dsId?: string;
+  dsId: string;
   /** The ReactDatePicker plugin manipulates the ref value so we declare our
    * own for some cases. */
   dsRef?: React.Ref<TextInputRefType>;
@@ -236,7 +235,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       helperText,
       helperTextFrom,
       helperTextTo,
-      id = generateUUID(),
+      id,
       initialDate,
       initialDateTo,
       invalidText,
@@ -323,6 +322,12 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       baseDatePickerAttrs["showYearPicker"] = true;
       baseDatePickerAttrs["yearItemNumber"] = yearsToDisplay;
       baseDatePickerAttrs.dateFormat = "yyyy";
+    }
+
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed."
+      );
     }
 
     if ((ref && !nameFrom) || (refTo && !nameTo)) {
