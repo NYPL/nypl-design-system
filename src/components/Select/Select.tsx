@@ -12,8 +12,6 @@ import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
 import { SelectTypes, LabelPositions } from "./SelectTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface SelectProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -22,7 +20,7 @@ export interface SelectProps {
   /** Optional string to populate the `HelperErrorText` for the standard state. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -54,8 +52,9 @@ export interface SelectProps {
   /** Offers the ability to show the select's label onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
-  /** Whether or not to display the "Required"/"Optional" text in the label text. */
-  showOptReqLabel?: boolean;
+  /** Whether or not to display the "(Required)" text in the label text.
+   * True by default. */
+  showRequiredLabel?: boolean;
   /** The value of the selected option.
    * Should be passed along with `onChange` for controlled components. */
   value?: string;
@@ -74,7 +73,7 @@ const Select = React.forwardRef<
     children,
     className,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -86,12 +85,11 @@ const Select = React.forwardRef<
     placeholder,
     showHelperInvalidText = true,
     showLabel = true,
-    showOptReqLabel = true,
+    showRequiredLabel = true,
     selectType = SelectTypes.Default,
     value = "",
   } = props;
   const ariaAttributes = {};
-  const optReqFlag = isRequired ? "Required" : "Optional";
   const styles = useMultiStyleConfig("CustomSelect", { variant: selectType });
   const finalInvalidText = invalidText
     ? invalidText
@@ -111,6 +109,11 @@ const Select = React.forwardRef<
     ariaAttributes["aria-describedby"] = `${id}-helperText`;
   }
 
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Select: This component's required `id` prop was not passed."
+    );
+  }
   return (
     <Box
       className={className}
@@ -123,7 +126,7 @@ const Select = React.forwardRef<
         <Label
           id={`${id}-label`}
           htmlFor={id}
-          optReqFlag={showOptReqLabel && optReqFlag}
+          isRequired={showRequiredLabel && isRequired}
         >
           {labelText}
         </Label>

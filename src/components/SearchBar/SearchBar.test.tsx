@@ -266,6 +266,18 @@ describe("SearchBar", () => {
     ).toBeInTheDocument();
   });
 
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <SearchBar labelText={labelText} onSubmit={jest.fn()} />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const basic = renderer
       .create(
