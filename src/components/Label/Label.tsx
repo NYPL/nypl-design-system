@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
-
 interface LabelProps {
   /** Additional CSS class name to render in the `label` element. */
   className?: string;
@@ -19,14 +17,14 @@ interface LabelProps {
  * A label for form inputs. It should never be used alone.
  */
 function Label(props: React.PropsWithChildren<LabelProps>) {
-  const {
-    children,
-    className,
-    htmlFor,
-    id = generateUUID(),
-    isRequired = false,
-  } = props;
+  const { children, className, htmlFor, id, isRequired = false } = props;
   const styles = useStyleConfig("Label");
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Label: This component's required `id` prop was not passed."
+    );
+  }
 
   return (
     <Box

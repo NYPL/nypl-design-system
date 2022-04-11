@@ -12,8 +12,6 @@ import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
 import { SelectTypes } from "./SelectTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface SelectProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -22,7 +20,7 @@ export interface SelectProps {
   /** Optional string to populate the `HelperErrorText` for the standard state. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -72,7 +70,7 @@ const Select = React.forwardRef<
     children,
     className,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -106,6 +104,11 @@ const Select = React.forwardRef<
     ariaAttributes["aria-describedby"] = `${id}-helperText`;
   }
 
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Select: This component's required `id` prop was not passed."
+    );
+  }
   return (
     <Box className={className} __css={{ ...styles, ...additionalStyles }}>
       {showLabel && (

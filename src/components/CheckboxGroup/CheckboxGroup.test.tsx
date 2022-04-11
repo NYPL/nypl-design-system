@@ -5,7 +5,6 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
-import * as generateUUID from "../../helpers/generateUUID";
 import CheckboxGroup from "./CheckboxGroup";
 import Checkbox from "../Checkbox/Checkbox";
 import { LayoutTypes } from "../../helpers/enums";
@@ -13,11 +12,15 @@ import { LayoutTypes } from "../../helpers/enums";
 describe("CheckboxGroup Accessibility", () => {
   it("passes axe accessibility with string labels ", async () => {
     const { container } = render(
-      <CheckboxGroup labelText="CheckboxGroup example" name="a11y-test">
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
-        <Checkbox value="5" labelText="Checkbox 5" />
+      <CheckboxGroup
+        id="checkboxGroup"
+        labelText="CheckboxGroup example"
+        name="a11y-test"
+      >
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
+        <Checkbox id="checkbox5" value="5" labelText="Checkbox 5" />
       </CheckboxGroup>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -61,10 +64,10 @@ describe("CheckboxGroup Accessibility", () => {
 describe("Checkbox", () => {
   it("renders with Checkbox inputs and a label", () => {
     render(
-      <CheckboxGroup labelText="Test Label" name="test1">
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+      <CheckboxGroup id="checkboxGroup" labelText="Test Label" name="test1">
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     expect(screen.getByText(/Test Label/i)).toBeInTheDocument();
@@ -76,10 +79,10 @@ describe("Checkbox", () => {
 
   it("renders with appropriate 'aria-label' attribute and value when 'showLabel' prop is set to false", () => {
     const { rerender } = render(
-      <CheckboxGroup labelText="Test Label" name="test2">
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+      <CheckboxGroup id="checkboxGroup" labelText="Test Label" name="test2">
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     expect(screen.getByTestId("checkbox-group")).not.toHaveAttribute(
@@ -88,10 +91,15 @@ describe("Checkbox", () => {
     );
 
     rerender(
-      <CheckboxGroup labelText="Test Label" name="test2" showLabel={false}>
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+      <CheckboxGroup
+        id="checkboxGroup"
+        labelText="Test Label"
+        name="test2"
+        showLabel={false}
+      >
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     expect(screen.getByTestId("checkbox-group")).toHaveAttribute(
@@ -103,14 +111,15 @@ describe("Checkbox", () => {
   it("renders visible helper or error text", () => {
     const { rerender } = render(
       <CheckboxGroup
+        id="checkboxGroup"
         labelText="Test Label"
         name="test3"
         helperText="This is the helper text for the full group."
         invalidText="This is the error text :("
       >
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     expect(
@@ -122,15 +131,16 @@ describe("Checkbox", () => {
 
     rerender(
       <CheckboxGroup
+        id="checkboxGroup"
         labelText="Test Label"
         name="test3"
         helperText="This is the helper text for the full group."
         invalidText="This is the error text :("
         isInvalid
       >
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     expect(screen.getByText("This is the error text :(")).toBeVisible();
@@ -142,7 +152,7 @@ describe("Checkbox", () => {
   it("sets the CheckboxGroup's ID", () => {
     render(
       <CheckboxGroup labelText="Test Label" name="test5" id="some-id">
-        <Checkbox value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
       </CheckboxGroup>
     );
 
@@ -160,14 +170,15 @@ describe("Checkbox", () => {
     };
     render(
       <CheckboxGroup
+        id="checkboxGroup"
         labelText="Test Label"
         name="getValue"
         defaultValue={["4"]}
         onChange={onChange}
       >
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
 
@@ -182,23 +193,17 @@ describe("Checkbox", () => {
     expect(newValue).toEqual(["4", "2"]);
   });
 
-  it("calls the UUID generation function if no id prop value is passed", () => {
-    const generateUUIDSpy = jest.spyOn(generateUUID, "default");
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-    render(
-      <CheckboxGroup labelText="Test Label" name="test6">
-        <Checkbox value="2" labelText="Checkbox 2" />
-      </CheckboxGroup>
-    );
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
-  });
-
   it("sets the 'disabled' attribute for all its Checkbox children", () => {
     render(
-      <CheckboxGroup labelText="Test Label" name="test7" isDisabled>
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+      <CheckboxGroup
+        id="checkboxGroup"
+        labelText="Test Label"
+        name="test7"
+        isDisabled
+      >
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     const Checkboxes = screen.getAllByRole("checkbox");
@@ -211,10 +216,15 @@ describe("Checkbox", () => {
 
   it("sets the 'required' attribute for all its Checkbox children", () => {
     render(
-      <CheckboxGroup labelText="Test Label" name="test8" isRequired>
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+      <CheckboxGroup
+        id="checkboxGroup"
+        labelText="Test Label"
+        name="test8"
+        isRequired
+      >
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     const Checkboxes = screen.getAllByRole("checkbox");
@@ -228,14 +238,15 @@ describe("Checkbox", () => {
   it("sets the error state for all its Checkbox children", () => {
     render(
       <CheckboxGroup
+        id="checkboxGroup"
         labelText="Test Label"
         name="test9"
         isInvalid
         invalidText="There's an error!"
       >
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     const Checkboxes = screen.getAllByRole("checkbox");
@@ -249,15 +260,16 @@ describe("Checkbox", () => {
   it("does not render the invalid text when 'isInvalid' is true but 'showHelperInvalidText' is false", () => {
     render(
       <CheckboxGroup
+        id="checkboxGroup"
         labelText="Test Label"
         name="test9"
         isInvalid
         invalidText="There's an error!"
         showHelperInvalidText={false}
       >
-        <Checkbox value="2" labelText="Checkbox 2" />
-        <Checkbox value="3" labelText="Checkbox 3" />
-        <Checkbox value="4" labelText="Checkbox 4" />
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
       </CheckboxGroup>
     );
     const Checkboxes = screen.getAllByRole("checkbox");
@@ -268,12 +280,26 @@ describe("Checkbox", () => {
     expect(Checkboxes[2]).toHaveAttribute("aria-invalid");
   });
 
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <CheckboxGroup labelText="column" name="column">
+        <Checkbox id="checkbox1" value="1" labelText="Checkbox 1" />
+      </CheckboxGroup>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const column = renderer
       .create(
         <CheckboxGroup labelText="column" name="column" id="column">
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();
@@ -285,8 +311,8 @@ describe("Checkbox", () => {
           id="row"
           layout={LayoutTypes.Row}
         >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();
@@ -298,8 +324,8 @@ describe("Checkbox", () => {
           id="noLabel"
           showLabel={false}
         >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();
@@ -311,8 +337,8 @@ describe("Checkbox", () => {
           id="helperText"
           helperText="helper text"
         >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();
@@ -324,8 +350,8 @@ describe("Checkbox", () => {
           id="invalidText"
           invalidText="error text"
         >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();
@@ -337,8 +363,8 @@ describe("Checkbox", () => {
           id="required"
           isRequired
         >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();
@@ -351,8 +377,8 @@ describe("Checkbox", () => {
           isRequired
           showRequiredLabel={false}
         >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();
@@ -364,8 +390,8 @@ describe("Checkbox", () => {
           id="invalid"
           isInvalid
         >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();
@@ -377,8 +403,8 @@ describe("Checkbox", () => {
           id="disabled"
           isDisabled
         >
-          <Checkbox value="2" labelText="Checkbox 2" />
-          <Checkbox value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
         </CheckboxGroup>
       )
       .toJSON();

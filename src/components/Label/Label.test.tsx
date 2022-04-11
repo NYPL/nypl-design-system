@@ -61,6 +61,18 @@ describe("Label", () => {
     expect(screen.queryByText(/Required/i)).toBeInTheDocument();
   });
 
+  it("Logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Label htmlFor="some-input-id">Cupcakes</Label>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Label: This component's required `id` prop was not passed."
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const simple = renderer
       .create(
