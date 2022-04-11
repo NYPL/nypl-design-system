@@ -325,19 +325,6 @@ describe("Radio Button", () => {
         </RadioGroup>
       )
       .toJSON();
-    const noOptReqLabel = renderer
-      .create(
-        <RadioGroup
-          labelText="no optional or required label"
-          name="optReq"
-          id="optReq"
-          optReqFlag={false}
-        >
-          <Radio value="2" labelText="Radio 2" id="radio-2" />
-          <Radio value="3" labelText="Radio 3" id="radio-3" />
-        </RadioGroup>
-      )
-      .toJSON();
     const isRequired = renderer
       .create(
         <RadioGroup
@@ -345,6 +332,20 @@ describe("Radio Button", () => {
           name="required"
           id="required"
           isRequired
+        >
+          <Radio value="2" labelText="Radio 2" id="radio-2" />
+          <Radio value="3" labelText="Radio 3" id="radio-3" />
+        </RadioGroup>
+      )
+      .toJSON();
+    const noRequiredLabel = renderer
+      .create(
+        <RadioGroup
+          labelText="no optional or required label"
+          name="noRequiredLabel"
+          id="noRequiredLabel"
+          isRequired
+          showRequiredLabel={false}
         >
           <Radio value="2" labelText="Radio 2" id="radio-2" />
           <Radio value="3" labelText="Radio 3" id="radio-3" />
@@ -411,7 +412,7 @@ describe("Radio Button", () => {
     expect(noLabel).toMatchSnapshot();
     expect(helperText).toMatchSnapshot();
     expect(invalidText).toMatchSnapshot();
-    expect(noOptReqLabel).toMatchSnapshot();
+    expect(noRequiredLabel).toMatchSnapshot();
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();

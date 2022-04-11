@@ -55,9 +55,9 @@ export interface InputProps {
   /** Offers the ability to show the label onscreen or hide it. Refer to the
    * `labelText` property for more information. */
   showLabel?: boolean;
-  /** Offers the ability to show the "Required"/"Optional" label onscreen or
-   * hide it. True by default. */
-  showOptReqLabel?: boolean;
+  /** Whether or not to display the "(Required)" text in the label text.
+   * True by default. */
+  showRequiredLabel?: boolean;
   /** The amount to increase or decrease when using the number type. */
   step?: number;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
@@ -98,7 +98,7 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
       placeholder,
       showHelperInvalidText = true,
       showLabel = true,
-      showOptReqLabel = true,
+      showRequiredLabel = true,
       step = 1,
       textInputType = TextInputVariants.Default,
       type = TextInputTypes.text,
@@ -108,7 +108,6 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
     const finalStyles = { ...styles, ...additionalStyles };
     const isTextArea = type === TextInputTypes.textarea;
     const isHidden = type === TextInputTypes.hidden;
-    const optReqFlag = isRequired ? "Required" : "Optional";
     const finalInvalidText = invalidText
       ? invalidText
       : "There is an error related to this field.";
@@ -182,8 +181,8 @@ const TextInput = React.forwardRef<TextInputRefType, InputProps>(
         {labelText && showLabel && !isHidden && (
           <Label
             htmlFor={id}
-            optReqFlag={showOptReqLabel && optReqFlag}
             id={`${id}-label`}
+            isRequired={showRequiredLabel && isRequired}
           >
             {labelText}
           </Label>

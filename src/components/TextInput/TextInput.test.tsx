@@ -71,24 +71,7 @@ describe("TextInput", () => {
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
   });
 
-  it("renders 'Optional' along with the label text", () => {
-    utils.rerender(
-      <TextInput
-        attributes={{ onFocus: focusHandler }}
-        id="myTextInput"
-        isRequired={false}
-        labelText="Custom Input Label"
-        onChange={changeHandler}
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
-      />
-    );
-
-    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
-    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-  });
-
-  it("does not render 'Required' along with the label text", () => {
+  it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
         attributes={{ onFocus: focusHandler }}
@@ -97,7 +80,7 @@ describe("TextInput", () => {
         labelText="Custom Input Label"
         onChange={changeHandler}
         placeholder="Input Placeholder"
-        showOptReqLabel={false}
+        showRequiredLabel={false}
         type={TextInputTypes.text}
       />
     );

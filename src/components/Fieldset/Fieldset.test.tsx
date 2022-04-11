@@ -39,17 +39,7 @@ describe("Fieldset", () => {
     expect(screen.getByText("Some other fields")).toBeInTheDocument();
   });
 
-  it("renders 'Optional' text by default in the legend", () => {
-    render(
-      <Fieldset id="fieldset" legendText="Legend Text">
-        <p>Some other fields</p>
-      </Fieldset>
-    );
-
-    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-  });
-
-  it("renders 'Required' text in the legend", () => {
+  it("renders '(Required)' text in the legend when `isRequired` is true", () => {
     render(
       <Fieldset id="fieldset" legendText="Legend Text" isRequired>
         <p>Some other fields</p>
@@ -59,7 +49,7 @@ describe("Fieldset", () => {
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
   });
 
-  it("can hide the 'Required'/'Optional' text in the legend but still show the main text", () => {
+  it("can hide the '(Required)' text in the legend but still show the main text", () => {
     const { rerender } = render(
       <Fieldset id="fieldset" legendText="Legend Text" isRequired>
         <p>Some other fields</p>
@@ -69,20 +59,11 @@ describe("Fieldset", () => {
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
 
     rerender(
-      <Fieldset id="fieldset" legendText="Legend Text" optReqFlag={false}>
-        <p>Some other fields</p>
-      </Fieldset>
-    );
-
-    expect(screen.getByText(/Legend Text/i)).toBeInTheDocument();
-    expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
-
-    rerender(
       <Fieldset
         id="fieldset"
-        legendText="Legend Text"
         isRequired
-        optReqFlag={false}
+        legendText="Legend Text"
+        showRequiredLabel={false}
       >
         <p>Some other fields</p>
       </Fieldset>
@@ -127,7 +108,7 @@ describe("Fieldset", () => {
           id="fieldset"
           legendText="Legend Text"
           isRequired
-          optReqFlag={false}
+          showRequiredLabel={false}
         >
           <p>Some other fields</p>
         </Fieldset>

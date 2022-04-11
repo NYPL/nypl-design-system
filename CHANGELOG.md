@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
 - Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
+- Adds the `isRequired` prop to the `Label` component.
 
 ### Changes
 
@@ -24,6 +25,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the colors for "secondary" and "pill" variants of the `Button` component.
 - Updates the color values used in the `disabled` state for the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components.
 - Updates the `Checkbox` component to use "3px" for the border radius.
+- Updates how the `Required` text in the `Label` and `Fieldset` components is displayed. Instead of floating to the right of the label and legend elements, it is now displayed inlined as `(Required)`.
+- Renames the `optReqFlag` prop to `showRequiredLabel` in the `CheckboxGroup`, `Fieldset`, `RadioGroup`, and `Slider` components.
+- Renames the `showOptReqLabel` prop to `showRequiredLabel` in the `DatePicker`, `Select`, and `TextInput` components.
+
+### Removals
+
+- Removes the default `Optional` text displayed in the `Label` and `Fieldset` components.
+- Removes the `optReqFlag` prop in the `Label` component.
 
 ## 0.25.13 (April 1, 2022)
 

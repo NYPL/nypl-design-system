@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, useStyleConfig } from "@chakra-ui/react";
 
 interface FieldsetProps {
   /** Additional class name to add. */
@@ -8,14 +8,13 @@ interface FieldsetProps {
   id: string;
   /** Flag to show or hide the text in the `legend` element. False by default. */
   isLegendHidden?: boolean;
-  /** Flag to render "Required" or "Optional" in the `legend`.
-   * False/"Optional" by default. */
+  /** Flag to render "Required" in the `legend`. True by default. */
   isRequired?: boolean;
   /** Text to display in the `legend` element. */
   legendText?: string;
-  /** Flag to show or hide the "Required"/"Optional" text in the `legend`.
+  /** Whether or not to display the "(Required)" text in the `legend` text.
    * True by default. */
-  optReqFlag?: boolean;
+  showRequiredLabel?: boolean;
 }
 
 /**
@@ -29,23 +28,21 @@ const Fieldset = ({
   isLegendHidden = false,
   isRequired = false,
   legendText,
-  optReqFlag = true,
+  showRequiredLabel = true,
 }: React.PropsWithChildren<FieldsetProps>) => {
+  const styles = useStyleConfig("Fieldset", { isLegendHidden });
+
   if (!id) {
     console.warn(
       "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
     );
   }
-  const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
+
   return (
     <Box as="fieldset" id={id} __css={styles} className={className}>
       <legend>
         {legendText}
-        {optReqFlag && (
-          <Box __css={styles.helper}>
-            {isRequired ? "Required" : "Optional"}
-          </Box>
-        )}
+        {showRequiredLabel && isRequired && <span> (Required)</span>}
       </legend>
       {children}
     </Box>

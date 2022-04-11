@@ -107,7 +107,6 @@ describe("Slider", () => {
         />
       );
       expect(screen.getByText(/Label/i)).toBeInTheDocument();
-      expect(screen.getByText(/Optional/i)).toBeInTheDocument();
       expect(screen.getByRole("slider")).toBeInTheDocument();
       // default min and max values
       expect(screen.getByText("0")).toBeInTheDocument();
@@ -135,20 +134,8 @@ describe("Slider", () => {
       expect(slider).toHaveAttribute("aria-labelledBy", "sliderId-label");
     });
 
-    it("renders the 'required' text in the label or hides it", () => {
+    it("renders the '(Required)' text in the label or hides it", () => {
       const { rerender } = render(
-        <Slider
-          id="slider"
-          defaultValue={50}
-          helperText="Component helper text."
-          invalidText="Component error text :("
-          labelText="Label"
-        />
-      );
-      // "Optional" by default.
-      expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-
-      rerender(
         <Slider
           id="slider"
           defaultValue={50}
@@ -158,7 +145,6 @@ describe("Slider", () => {
           isRequired
         />
       );
-      expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
       expect(screen.getByText(/Required/i)).toBeInTheDocument();
 
       rerender(
@@ -169,10 +155,9 @@ describe("Slider", () => {
           invalidText="Component error text :("
           labelText="Label"
           isRequired
-          optReqFlag={false}
+          showRequiredLabel={false}
         />
       );
-      expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
       expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
     });
 
@@ -475,7 +460,6 @@ describe("Slider", () => {
         />
       );
       expect(screen.getByText(/Label/i)).toBeInTheDocument();
-      expect(screen.getByText(/Optional/i)).toBeInTheDocument();
       // The range slider has two sliders!
       expect(screen.getAllByRole("slider")).toHaveLength(2);
       // default min and max values

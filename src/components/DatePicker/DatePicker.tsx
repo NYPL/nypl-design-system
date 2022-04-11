@@ -43,8 +43,9 @@ interface DatePickerWrapperProps extends DateRangeRowProps {
   labelText: string;
   /** Offers the ability to show the label onscreen or hide it. */
   showLabel?: boolean;
-  /** Whether or not to display the "Required"/"Optional" text in the label text. */
-  showOptReqLabel?: boolean;
+  /** Whether or not to display the "(Required)" text in the label text.
+   * True by default. */
+  showRequiredLabel?: boolean;
 }
 
 // Interface used by the internal DS `TextInput` component as a custom
@@ -61,8 +62,6 @@ interface CustomTextInputProps extends Partial<InputProps> {
   isRequired?: boolean;
   /** Event handler used by the ReactDatePicker plugin to open the popup calendar. */
   onClick?: (data: any) => any;
-  /** Whether or not to display the "Required"/"Optional" text in the label text. */
-  showOptReqLabel?: boolean;
   /** Data value used by the ReactDatePicker plugin and the custom TextInput component. */
   value?: string;
 }
@@ -113,8 +112,6 @@ export interface DatePickerProps extends DatePickerWrapperProps {
   refTo?: React.Ref<TextInputRefType>;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
-  /** Whether or not to display the "Required"/"Optional" text in the label text. */
-  showOptReqLabel?: boolean;
 }
 
 /**
@@ -142,7 +139,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       onClick,
       showLabel,
       showHelperInvalidText,
-      showOptReqLabel,
+      showRequiredLabel,
       value,
     },
     ref: React.Ref<TextInputRefType>
@@ -156,7 +153,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       isDisabled={isDisabled}
       isRequired={isRequired}
       showHelperInvalidText={showHelperInvalidText}
-      showOptReqLabel={showOptReqLabel}
+      showRequiredLabel={showRequiredLabel}
       isInvalid={isInvalid}
       helperText={helperText}
       invalidText={invalidText}
@@ -184,17 +181,17 @@ const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
   isRequired,
   labelText,
   showLabel,
-  showOptReqLabel,
+  showRequiredLabel,
 }) => (
   <FormField id={`${id}-form-field}`}>
     {isDateRange ? (
       <Fieldset
-        id={id}
         className={className}
+        id={id}
         isLegendHidden={!showLabel}
-        legendText={labelText}
-        optReqFlag={showOptReqLabel}
         isRequired={isRequired}
+        legendText={labelText}
+        showRequiredLabel={showRequiredLabel}
       >
         {children}
       </Fieldset>
@@ -252,7 +249,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       refTo,
       showHelperInvalidText = true,
       showLabel = true,
-      showOptReqLabel = true,
+      showRequiredLabel = true,
     } = props;
     const styles = useMultiStyleConfig("DatePicker", {});
     const finalStyles = isDateRange ? styles : {};
@@ -293,9 +290,9 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     let baseCustomTextInputAttrs = {
       dsId: `${id}-start`,
       isRequired,
-      // In the date range type, don't display the "required"/"optional" text
-      // in individual input labels. It'll display in the legend element.
-      showOptReqLabel: isDateRange ? false : showOptReqLabel,
+      // In the date range type, don't display the "(Required)" text in
+      // individual input labels. It'll display in the legend element.
+      showRequiredLabel: isDateRange ? false : showRequiredLabel,
       // Always display the labels for the input fields when
       // the DatePicker component is a date range type.
       showLabel: isDateRange ? true : showLabel,
@@ -413,7 +410,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
         labelText={labelText}
         className={className}
         isRequired={isRequired}
-        showOptReqLabel={showOptReqLabel}
+        showRequiredLabel={showRequiredLabel}
       >
         <DateRangeRow id={id} isDateRange={isDateRange}>
           <FormField id={`${id}-start-form`}>

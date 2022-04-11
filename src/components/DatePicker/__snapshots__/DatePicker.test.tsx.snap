@@ -11,11 +11,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
   >
     <legend>
       Select the full date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -111,11 +106,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
   >
     <legend>
       Select the date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -211,11 +201,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
   >
     <legend>
       Select the date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -311,11 +296,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
   >
     <legend>
       Select the date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -463,11 +443,6 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
   >
     <legend>
       Select the date you want to visit NYPL
-      <div
-        className="css-0"
-      >
-        Optional
-      </div>
     </legend>
     <div
       className="css-ahcv85"
@@ -592,11 +567,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
             id="basic-start-label"
           >
             Select the full date you want to visit NYPL
-            <div
-              className="css-0"
-            >
-              Optional
-            </div>
           </label>
           <input
             className="chakra-input css-0"
@@ -681,11 +651,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
             id="custom-format-start-label"
           >
             Select the date you want to visit NYPL
-            <div
-              className="css-0"
-            >
-              Optional
-            </div>
           </label>
           <input
             className="chakra-input css-0"
@@ -731,11 +696,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             id="invalid-start-label"
           >
             Select the date you want to visit NYPL
-            <div
-              className="css-0"
-            >
-              Optional
-            </div>
           </label>
           <input
             aria-describedby="invalid-start-helperText"
@@ -800,11 +760,6 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             id="disabled-start-label"
           >
             Select the date you want to visit NYPL
-            <div
-              className="css-0"
-            >
-              Optional
-            </div>
           </label>
           <input
             aria-describedby="disabled-start-helperText"
