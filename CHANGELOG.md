@@ -8,6 +8,23 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
+- Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
+
+### Changes
+
+- Updates the hex color value for `ui.gray.light-cool`, `ui.disabled.primary` and `section.blogs.primary`.
+- Updates the default background color used in the `Accordion` component.
+- Updates the default background color used in the `Hero` component.
+- Updates the background color used in the `SkeletonLoader` component.
+- Updates the background color used in the `VideoPlayer` component.
+- Updates the background colors used in the `Tabs` component.
+- Updates the colors for "secondary" and "pill" variants of the `Button` component.
+- Updates the color values used in the `disabled` state for the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components.
+- Updates the `Checkbox` component to use "3px" for the border radius.
+
 ## 0.25.13 (April 1, 2022)
 
 ### Adds

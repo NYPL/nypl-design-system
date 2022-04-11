@@ -11,7 +11,7 @@ const square = {
 };
 
 const invalid = {
-  backgroundColor: "ui.gray.light-warm",
+  backgroundColor: "ui.gray.light-cool",
   height: "auto",
   padding: "s",
 };

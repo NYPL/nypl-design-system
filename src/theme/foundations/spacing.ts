@@ -22,7 +22,7 @@
  *
  * Chakra Number Value | Chakra Name value | DS Variable
  * ------------------- | ----------------- | -----------------
- *        0.5            |         xxxs       |   --nypl-space-xxxs
+ *        0.5          |         xxxs      |   --nypl-space-xxxs
  *        1            |         xxs       |   --nypl-space-xxs
  *        2            |         xs        |   --nypl-space-xs
  *        4            |         s         |   --nypl-space-s

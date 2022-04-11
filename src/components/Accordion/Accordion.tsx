@@ -89,7 +89,7 @@ const getElementsFromData = (data = [], id) => {
                   bg:
                     !content.accordionType ||
                     content.accordionType === "default"
-                      ? "ui.gray.light-warm"
+                      ? "ui.gray.light-cool"
                       : bgColorByAccordionType,
                 }}
                 _hover={{
