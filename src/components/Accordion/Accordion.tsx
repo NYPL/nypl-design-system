@@ -10,8 +10,6 @@ import {
 import { AccordionTypes } from "./AccordionTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
   label: string;
@@ -122,7 +120,7 @@ const getElementsFromData = (data = [], id) => {
  * multiple accordion items together.
  */
 function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const { accordionData, id = generateUUID(), isDefaultOpen = false } = props;
+  const { accordionData, id, isDefaultOpen = false } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;

@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Box, useStyleConfig } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
-
 export type AriaLiveValues = "assertive" | "off" | "polite";
 export type HelperErrorTextType = string | JSX.Element;
 
@@ -38,7 +36,7 @@ export default function HelperErrorText({
   ariaAtomic = true,
   ariaLive = "polite",
   className = "",
-  id = generateUUID(),
+  id,
   isInvalid = false,
   text,
 }: HelperErrorTextProps) {

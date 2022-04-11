@@ -12,8 +12,6 @@ import Heading from "../Heading/Heading";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import useWindowSize from "../../hooks/useWindowSize";
-import generateUUID from "../../helpers/generateUUID";
-
 interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
   isCentered?: boolean;
@@ -170,7 +168,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     children,
     className,
     foregroundColor,
-    id = generateUUID(),
+    id,
     imageProps = {
       alt: "",
       aspectRatio: ImageRatios.Square,
