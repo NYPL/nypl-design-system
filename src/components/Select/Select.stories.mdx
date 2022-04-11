@@ -9,7 +9,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
-import Form from "../Form/Form";
+import Form, { FormField } from "../Form/Form";
 import Select from "./Select";
 import { SelectTypes } from "./SelectTypes";
 import { getCategory } from "../../utils/componentCategories";
@@ -118,7 +118,7 @@ The `Select` component renders all the necessary wrapping and associated text
 elements, but the select options _need_ to be child `<option>` HTML elements.
 
 ```jsx
-<Select labelText="What is your favorite color?" name="color">
+<Select id="select" labelText="What is your favorite color?" name="color">
   <option value="red">Red</option>
   <option value="green">Green</option>
   <option value="blue">Blue</option>
@@ -148,6 +148,7 @@ within the `label` element.
     <VStack align="stretch" spacing={8}>
       <Select
         helperText="Display the label"
+        id="label-example1"
         labelText="What is your favorite color?"
         name="color"
       >
@@ -159,6 +160,7 @@ within the `label` element.
       </Select>
       <Select
         helperText="Do not display the label"
+        id="label-example2"
         labelText="What is your favorite color?"
         name="color"
         showLabel={false}
@@ -171,6 +173,7 @@ within the `label` element.
       </Select>
       <Select
         helperText="Display the Required/Optional text"
+        id="label-example3"
         isRequired
         labelText="What is your favorite color?"
         name="color"
@@ -183,6 +186,7 @@ within the `label` element.
       </Select>
       <Select
         helperText="Do not display the Required/Optional text"
+        id="label-example4"
         isRequired
         labelText="What is your favorite color?"
         name="color"
@@ -204,6 +208,7 @@ within the `label` element.
   <DSProvider>
     <Select
       helperText="This is the helper text."
+      id="errored"
       invalidText="This is the error text :("
       isInvalid
       labelText="What is your favorite color?"
@@ -224,6 +229,7 @@ within the `label` element.
   <DSProvider>
     <Select
       helperText="This is the helper text."
+      id="disabled"
       invalidText="This is the error text :("
       isDisabled
       labelText="What is your favorite color?"
@@ -261,6 +267,7 @@ export function SelectControlledExample() {
   return (
     <Select
       helperText="This is the helper text."
+      id="example-1"
       labelText="What is your favorite color?"
       name="color"
       onChange={onChange}
@@ -286,6 +293,7 @@ export function SelectControlledExample() {
   return (
     <Select
       helperText="This is the helper text."
+      id="example-1"
       labelText="What is your favorite color?"
       name="color"
       onChange={onChange}
@@ -324,20 +332,25 @@ export function SelectUncontrolledExample() {
     console.log("Using uncontrolled ref:", selectValue);
   };
   return (
-    <Form>
-      <Select
-        helperText="This is the helper text."
-        labelText="What is your favorite color?"
-        name="color"
-        ref={selectRef}
-      >
-        <option value="red">Red</option>
-        <option value="green">Green</option>
-        <option value="blue">Blue</option>
-        <option value="black">Black</option>
-        <option value="white">White</option>
-      </Select>
-      <Button onClick={onSubmit}>Submit</Button>
+    <Form id="form">
+      <FormField>
+        <Select
+          helperText="This is the helper text."
+          id="example-2"
+          labelText="What is your favorite color?"
+          name="color"
+          ref={selectRef}
+        >
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="black">Black</option>
+          <option value="white">White</option>
+        </Select>
+        <Button id="submit" onClick={onSubmit}>
+          Submit
+        </Button>
+      </FormField>
     </Form>
   );
 }
@@ -350,20 +363,25 @@ export function SelectUncontrolledExample() {
     console.log("Using uncontrolled ref:", selectValue);
   };
   return (
-    <Form>
-      <Select
-        helperText="This is the helper text."
-        labelText="What is your favorite color?"
-        name="color"
-        ref={selectRef}
-      >
-        <option value="red">Red</option>
-        <option value="green">Green</option>
-        <option value="blue">Blue</option>
-        <option value="black">Black</option>
-        <option value="white">White</option>
-      </Select>
-      <Button onClick={onSubmit}>Submit</Button>
+    <Form id="form">
+      <FormField>
+        <Select
+          helperText="This is the helper text."
+          id="example-2"
+          labelText="What is your favorite color?"
+          name="color"
+          ref={selectRef}
+        >
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="black">Black</option>
+          <option value="white">White</option>
+        </Select>
+        <Button id="submit" onClick={onSubmit}>
+          Submit
+        </Button>
+      </FormField>
     </Form>
   );
 }

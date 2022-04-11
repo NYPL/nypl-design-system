@@ -92,7 +92,7 @@ component will handle all the states and data management.
 
 <Canvas>
   <DSProvider>
-    <Radio labelText="I am checked" isChecked value="1" />
+    <Radio labelText="I am checked" id="checked" isChecked value="1" />
   </DSProvider>
 </Canvas>
 
@@ -100,7 +100,10 @@ component will handle all the states and data management.
 
 <Canvas>
   <DSProvider>
-    <Radio labelText="Click or tab to the Radio to see its focus state" />
+    <Radio
+      id="focused"
+      labelText="Click or tab to the Radio to see its focus state"
+    />
   </DSProvider>
 </Canvas>
 
@@ -109,8 +112,13 @@ component will handle all the states and data management.
 <Canvas>
   <DSProvider>
     <HStack>
-      <Radio isInvalid labelText="I am in an error state" />
-      <Radio isInvalid isChecked labelText="I am checked in an error state" />
+      <Radio id="invalid" isInvalid labelText="I am in an error state" />
+      <Radio
+        id="invalid-checked"
+        isInvalid
+        isChecked
+        labelText="I am checked in an error state"
+      />
     </HStack>
   </DSProvider>
 </Canvas>
@@ -120,8 +128,13 @@ component will handle all the states and data management.
 <Canvas>
   <DSProvider>
     <HStack>
-      <Radio isDisabled labelText="I am disabled" />
-      <Radio isDisabled isChecked labelText="I am checked and disabled" />
+      <Radio id="disabled" isDisabled labelText="I am disabled" />
+      <Radio
+        id="disabled-checked"
+        isDisabled
+        isChecked
+        labelText="I am checked and disabled"
+      />
     </HStack>
   </DSProvider>
 </Canvas>
@@ -131,9 +144,10 @@ component will handle all the states and data management.
 <Canvas>
   <DSProvider>
     <Radio
-      name="testHelperText"
-      labelText="I have helper text"
       helperText="I am the helper text for this Radio"
+      id="help-text"
+      labelText="I have helper text"
+      name="testHelperText"
     />
   </DSProvider>
 </Canvas>
@@ -143,10 +157,11 @@ component will handle all the states and data management.
 <Canvas>
   <DSProvider>
     <Radio
-      name="testErrorText"
-      labelText="I have error text"
+      id="invalid-text"
       invalidText="I am the error text for this Radio"
       isInvalid
+      labelText="I have error text"
+      name="testErrorText"
     />
   </DSProvider>
 </Canvas>
@@ -159,6 +174,10 @@ usage.
 
 <Canvas>
   <DSProvider>
-    <Radio labelText={<span>Arts</span>} name="jsxElementLabel" />
+    <Radio
+      id="jsx-label"
+      labelText={<span>Arts</span>}
+      name="jsxElementLabel"
+    />
   </DSProvider>
 </Canvas>
