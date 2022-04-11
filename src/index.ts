@@ -82,6 +82,7 @@ export { default as Radio } from "./components/Radio/Radio";
 export { default as RadioGroup } from "./components/RadioGroup/RadioGroup";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
 export { default as Select } from "./components/Select/Select";
+export { LabelPositions } from "./components/Select/SelectTypes";
 export { default as SimpleGrid } from "./components/Grid/SimpleGrid";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export { SkeletonLoaderImageRatios } from "./components/SkeletonLoader/SkeletonLoaderTypes";

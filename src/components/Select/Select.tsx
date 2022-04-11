@@ -79,6 +79,7 @@ const Select = React.forwardRef<
     isDisabled = false,
     isInvalid = false,
     isRequired = false,
+    // labelPosition = LabelPositions.Top,
     labelText,
     name,
     onChange,
@@ -101,6 +102,7 @@ const Select = React.forwardRef<
   // To control the `Select` component, both `onChange` and `value`
   // must be passed.
   const controlledProps = onChange ? { onChange, value } : {};
+  console.log("rendering select!!");
 
   if (!showLabel) {
     ariaAttributes["aria-label"] =
@@ -110,7 +112,13 @@ const Select = React.forwardRef<
   }
 
   return (
-    <Box className={className} __css={{ ...styles, ...additionalStyles }}>
+    <Box
+      className={className}
+      __css={{
+        ...styles,
+        ...additionalStyles,
+      }}
+    >
       {showLabel && (
         <Label
           id={`${id}-label`}
