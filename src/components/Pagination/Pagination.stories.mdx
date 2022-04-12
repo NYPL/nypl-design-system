@@ -86,7 +86,7 @@ const getPageHref = (selectedPage: number) => {
       pageCount: 10,
     }}
   >
-    {(args) => <Pagination {...args} />}
+    {(args) => <Pagination {...args} onPageChange={undefined} />}
   </Story>
 </Canvas>
 
@@ -124,7 +124,7 @@ const onPageChange = (selectedPage: number) => {
       pageCount: 100,
     }}
   >
-    {(args) => <Pagination {...args} />}
+    {(args) => <Pagination {...args} getPageHref={undefined} />}
   </Story>
 </Canvas>
 

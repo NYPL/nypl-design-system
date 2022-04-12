@@ -11,8 +11,6 @@ import Select from "../Select/Select";
 import { SelectTypes } from "../Select/SelectTypes";
 import TextInput from "../TextInput/TextInput";
 import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 interface BaseProps {
   labelText: string;
   name: string;
@@ -45,7 +43,7 @@ export interface SearchBarProps {
   /** The text to display below the form in a `HelperErrorText` component. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -84,7 +82,7 @@ export const SearchBar = chakra((props: SearchBarProps) => {
     descriptionText,
     headingText,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -122,6 +120,12 @@ export const SearchBar = chakra((props: SearchBarProps) => {
     lineHeight: "1.70",
     marginBottom: "auto",
   };
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
+    );
+  }
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select

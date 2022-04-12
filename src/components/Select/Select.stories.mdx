@@ -51,7 +51,7 @@ export const enumValues = getStorybookEnumValues(SelectTypes, "SelectTypes");
     showLabel: {
       table: { defaultValue: { summary: true } },
     },
-    showOptReqLabel: {
+    showRequiredLabel: {
       table: { defaultValue: { summary: true } },
     },
     selectType: {
@@ -93,7 +93,7 @@ is left blank, a value will be generated for you.
       onChange: undefined,
       showHelperInvalidText: undefined,
       showLabel: true,
-      showOptReqLabel: true,
+      showRequiredLabel: true,
       selectType: SelectTypes.Default,
       value: undefined,
     }}
@@ -140,8 +140,8 @@ and `option` HTML elements:
 A Select can be rendered with or without a visible label. When `showLabel` is
 set to `false`, an `aria-label` attribute is added to the select input to
 maintain accessibility. If the component needs to be required, the
-`showOptReqLabel` prop can be used to show or hide the "Required"/"Optional"
-text within the `label` element.
+`showRequiredLabel` prop can be used to show or hide the "Required" text
+within the `label` element.
 
 <Canvas>
   <Story name="Labelling Variations">
@@ -186,7 +186,7 @@ text within the `label` element.
         isRequired
         labelText="What is your favorite color?"
         name="color"
-        showOptReqLabel={false}
+        showRequiredLabel={false}
       >
         <option value="red">Red</option>
         <option value="green">Green</option>

@@ -2,8 +2,6 @@ import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import { StatusBadgeTypes } from "./StatusBadgeTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface StatusBadgeProps {
   /** Additional class for the component */
   className?: string;
@@ -14,12 +12,16 @@ export interface StatusBadgeProps {
   level?: StatusBadgeTypes;
 }
 
+/**
+ * The `StatusBadge` component is used to display a visual badge for three
+ * different status levels.
+ */
 export const StatusBadge = chakra(
   (props: React.PropsWithChildren<StatusBadgeProps>) => {
     const {
       children,
       className,
-      id = generateUUID(),
+      id,
       level = StatusBadgeTypes.Low,
       ...rest
     } = props;

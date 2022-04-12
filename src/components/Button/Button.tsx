@@ -8,7 +8,6 @@ import * as React from "react";
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import { getVariant } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
 
 export type ButtonElementType = "submit" | "button" | "reset";
 
@@ -22,7 +21,7 @@ interface ButtonProps {
   /** Additional className to use. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Adds 'disabled' property to the button. */
   isDisabled?: boolean;
   /** Trigger the Button's action through the `mouseDown` event handler instead
@@ -44,7 +43,7 @@ export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
     buttonType,
     children,
     className = "",
-    id = generateUUID(),
+    id,
     isDisabled = false,
     mouseDown = false,
     onClick,
@@ -56,6 +55,12 @@ export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   let hasIcon = false;
   let variant;
   let styles = {};
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Button: This component's required `id` prop was not passed."
+    );
+  }
 
   React.Children.map(children, (child: React.ReactElement) => {
     childCount++;

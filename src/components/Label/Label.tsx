@@ -1,9 +1,5 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-
-import generateUUID from "../../helpers/generateUUID";
-
-type optReqFlagType = "Required" | "Optional" | "" | undefined;
 
 interface LabelProps {
   /** Additional CSS class name to render in the `label` element. */
@@ -12,8 +8,9 @@ interface LabelProps {
   htmlFor: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Displays "Required" or "Optional" string alongside the label */
-  optReqFlag?: optReqFlagType;
+  /** Controls whether the "(Required)" text should be displayed alongside the
+   * label's text. False by default. */
+  isRequired?: boolean;
 }
 
 /**
@@ -24,11 +21,17 @@ export const Label = chakra((props: React.PropsWithChildren<LabelProps>) => {
     children,
     className,
     htmlFor,
-    id = generateUUID(),
-    optReqFlag,
+    id,
+    isRequired = false,
     ...rest
   } = props;
-  const styles = useMultiStyleConfig("Label", {});
+  const styles = useStyleConfig("Label");
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Label: This component's required `id` prop was not passed."
+    );
+  }
 
   return (
     <Box
@@ -40,7 +43,7 @@ export const Label = chakra((props: React.PropsWithChildren<LabelProps>) => {
       {...rest}
     >
       {children}
-      {optReqFlag && <Box __css={styles.helper}>{optReqFlag}</Box>}
+      {isRequired && <span> (Required)</span>}
     </Box>
   );
 });

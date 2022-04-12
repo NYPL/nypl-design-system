@@ -6,7 +6,6 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import generateUUID from "../../helpers/generateUUID";
 import { LogoNames, LogoSizes } from "./LogoTypes";
 import logoSvgs from "./LogoSvgs";
 
@@ -40,7 +39,7 @@ export const Logo = chakra((props: React.PropsWithChildren<LogoProps>) => {
     children,
     className,
     decorative = false,
-    id = generateUUID(),
+    id,
     name,
     size = LogoSizes.Medium,
     title = `${name} logo`,

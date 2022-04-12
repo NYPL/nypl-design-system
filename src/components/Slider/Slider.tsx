@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import generateUUID from "../../helpers/generateUUID";
 import Label from "../Label/Label";
 import HelperErrorText, {
   HelperErrorTextType,
@@ -31,7 +30,7 @@ export interface SliderProps {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -57,8 +56,6 @@ export interface SliderProps {
   name?: string;
   /** Callback function that gets the value(s) selected. */
   onChange?: (val: number | number[]) => void;
-  /** Whether or not to display the "Required"/"Optional" text in the label text. */
-  optReqFlag?: boolean;
   /** Offers the ability to hide the `TextInput` boxes. */
   showBoxes?: boolean;
   /** Offers the ability to hide the helper/invalid text. */
@@ -66,6 +63,9 @@ export interface SliderProps {
   /** Offers the ability to show the label onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
+  /** Whether or not to display the "(Required)" text in the label text.
+   * True by default. */
+  showRequiredLabel?: boolean;
   /** Offers the ability to hide the static min/max values. */
   showValues?: boolean;
   /** The amount to increase or decrease when using the slider thumb(s). */
@@ -82,7 +82,7 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
     className,
     defaultValue = 0,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -93,14 +93,20 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
     min = 0,
     name,
     onChange,
-    optReqFlag = true,
     showBoxes = true,
     showHelperInvalidText = true,
     showLabel = true,
+    showRequiredLabel = true,
     showValues = true,
     step = 1,
     ...rest
   } = props;
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Slider: This component's required `id` prop was not passed."
+    );
+  }
   // For the RangeSlider, if the defaultValue is not an array, then we set
   // the defaultValue to an array with the min and max values.
   const rangeSliderDefault =
@@ -115,7 +121,6 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   if (isRangeSlider && currentValue[0] > currentValue[1]) {
     finalIsInvalid = true;
   }
-  const optReqText = isRequired ? "Required" : "Optional";
   const footnote: HelperErrorTextType = finalIsInvalid
     ? invalidText
     : helperText;
@@ -286,7 +291,7 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
               ? `${id}-textInput-${isRangeSlider ? "start" : "end"}`
               : null
           }
-          optReqFlag={optReqFlag && optReqText}
+          isRequired={showRequiredLabel && isRequired}
         >
           {labelText}
         </Label>

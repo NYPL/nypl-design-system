@@ -7,11 +7,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 >
   <legend>
     column
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -152,11 +147,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 >
   <legend>
     row
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -297,11 +287,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 >
   <legend>
     no label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label="no label"
@@ -442,11 +427,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 >
   <legend>
     helperText
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -603,11 +583,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 >
   <legend>
     invalidText
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -744,7 +719,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <fieldset
   className="css-1u8qly9"
-  id="optReq-checkbox-group"
+  id="noRequiredLabel-checkbox-group"
 >
   <legend>
     no optional or required label
@@ -753,7 +728,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     aria-label={null}
     className="chakra-stack css-1wdv1uh"
     data-testid="checkbox-group"
-    id="optReq"
+    id="noRequiredLabel"
   >
     <label
       className="chakra-checkbox css-1cgy6rg"
@@ -765,14 +740,14 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
         checked={false}
         className="chakra-checkbox__input"
         disabled={false}
-        id="optReq-0"
-        name="optReq"
+        id="noRequiredLabel-0"
+        name="noRequiredLabel"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
-        required={false}
+        required={true}
         style={
           Object {
             "border": "0px",
@@ -826,14 +801,14 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
         checked={false}
         className="chakra-checkbox__input"
         disabled={false}
-        id="optReq-1"
-        name="optReq"
+        id="noRequiredLabel-1"
+        name="noRequiredLabel"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
-        required={false}
+        required={true}
         style={
           Object {
             "border": "0px",
@@ -888,11 +863,9 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 >
   <legend>
     required
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
+    <span>
+       (Required)
+    </span>
   </legend>
   <div
     aria-label={null}
@@ -1033,11 +1006,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
 >
   <legend>
     invalid
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -1184,11 +1152,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
 >
   <legend>
     disabled
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -1335,11 +1298,6 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
 >
   <legend>
     jsxLabels
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -1504,11 +1462,6 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
 >
   <legend>
     chakraProps
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -1650,11 +1603,6 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
 >
   <legend>
     otherProps
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}

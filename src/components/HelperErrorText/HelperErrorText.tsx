@@ -1,8 +1,6 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import generateUUID from "../../helpers/generateUUID";
-
 export type AriaLiveValues = "assertive" | "off" | "polite";
 export type HelperErrorTextType = string | JSX.Element;
 
@@ -13,11 +11,12 @@ interface HelperErrorTextProps {
    * read the entire DOM element. When false, only changes (additionals or
    * removals) will be read. True by default. */
   ariaAtomic?: boolean;
-  /** Aria attribute only used in the invalid state to read error text. This
-   * indicates the priority of the text and when it should be presented to users
-   * using screen readers; "off" indicates that the content should not be presented,
-   * "polite" that it will be announced at the next available time slot, and
-   * "assertive" that it should be announced immediately. "polite" by default. */
+  /** Aria attribute used in the invalid state to read error text by default.
+   * This indicates the priority of the text and when it should be presented to
+   * users using screen readers; "off" indicates that the content should not be
+   * presented, "polite" that it will be announced at the next available time
+   * slot, and "assertive" that it should be announced immediately. This is set
+   * to "off" by default and to "polite" by when `isInvalid` is true. */
   ariaLive?: AriaLiveValues;
   /** Additional className to add. */
   className?: string;
@@ -30,7 +29,7 @@ interface HelperErrorTextProps {
 }
 
 /**
- * Helper or Error text for forms
+ * Helper or error text for forms components.
  */
 export const HelperErrorText = chakra(
   ({
@@ -38,7 +37,7 @@ export const HelperErrorText = chakra(
     ariaAtomic = true,
     ariaLive = "polite",
     className = "",
-    id = generateUUID(),
+    id,
     isInvalid = false,
     text,
     ...rest

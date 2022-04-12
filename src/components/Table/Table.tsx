@@ -11,8 +11,6 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import generateUUID from "../../helpers/generateUUID";
-
 export interface TableProps {
   /** Additional class name for the `Table` component. */
   className?: string;
@@ -46,7 +44,7 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
     columnHeaders,
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    id = generateUUID(),
+    id,
     showRowDividers = false,
     tableData,
     titleText,

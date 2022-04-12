@@ -67,7 +67,7 @@ export const enumValues = getStorybookEnumValues(
     showLabel: {
       table: { defaultValue: { summary: true } },
     },
-    showOptReqLabel: {
+    showRequiredLabel: {
       table: { defaultValue: { summary: true } },
     },
   }}
@@ -113,7 +113,7 @@ also be added through props.
       refTo: undefined,
       showHelperInvalidText: true,
       showLabel: true,
-      showOptReqLabel: true,
+      showRequiredLabel: true,
     }}
   >
     {(args) => (
@@ -152,7 +152,6 @@ popup calendar.
       helperTextTo="To this date."
       helperText="Select a valid date range."
       invalidText="There was an error with the date range :("
-      showOptReqLabel={false}
       isDateRange
     />
   </Story>
@@ -198,7 +197,6 @@ calendar; the four previous years, the current year, and the next seven years.
       dateType={DatePickerTypes.Year}
       labelText="Select the year you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
-      showOptReqLabel={false}
     />
   </Story>
 </Canvas>
@@ -215,7 +213,6 @@ calendar; the four previous years, the current year, and the next seven years.
       labelText="Select the year you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
       invalidText="Please select a valid date."
-      showOptReqLabel={false}
       isInvalid
       isDateRange
     />
@@ -230,7 +227,6 @@ calendar; the four previous years, the current year, and the next seven years.
       id="disabled-date"
       dateType={DatePickerTypes.Full}
       labelText="Select the year you want to visit NYPL"
-      showOptReqLabel={false}
       isDateRange
       isDisabled
     />
@@ -239,8 +235,8 @@ calendar; the four previous years, the current year, and the next seven years.
 
 ### Required State
 
-The "Required" or "Optional" text in the legend in the date range, or the label
-in a normal date input, can be hidden when `showOptReqLabel` is set to `false`.
+The "Required" text in the legend in the date range, or the label in a normal
+date input, can be hidden when `showRequiredLabel` is set to `false`.
 
 <Canvas>
   <DSProvider>

@@ -6,7 +6,6 @@ import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import { StructuredContentImagePosition } from "./StructuredContentTypes";
-import generateUUID from "../../helpers/generateUUID";
 
 interface StructuredContentImageProps extends ComponentImageProps {
   /** Optional value to control the positioning of the internal `Image` component.
@@ -72,7 +71,7 @@ export const StructuredContent = chakra(
       calloutText,
       className,
       headingText,
-      id = generateUUID(),
+      id,
       imageProps = {
         alt: "",
         aspectRatio: ImageRatios.Square,

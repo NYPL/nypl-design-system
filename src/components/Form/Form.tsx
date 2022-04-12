@@ -3,7 +3,6 @@ import * as React from "react";
 
 import { FormGaps } from "./FormTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
-import generateUUID from "../../helpers/generateUUID";
 
 interface FormBaseProps {
   /** className to be applied to FormRow, FormField, and Form */
@@ -13,10 +12,10 @@ interface FormBaseProps {
    * should not be used``` */
   gap?: FormGaps;
   /** ID that other components can cross reference (internal use) */
-  id?: string;
+  id: string;
 }
 
-export interface FormChildProps extends FormBaseProps {}
+export interface FormChildProps extends Partial<FormBaseProps> {}
 
 export interface FormProps extends FormBaseProps {
   /** Optional form `action` attribute */
@@ -79,12 +78,17 @@ export const Form = chakra(
       children,
       className,
       gap = FormGaps.Large,
-      id = generateUUID(),
+      id,
       method,
       onSubmit,
       ...rest
     } = props;
 
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Form: This component's required `id` prop was not passed."
+      );
+    }
     let attributes = {};
     action && (attributes["action"] = action);
 
@@ -99,7 +103,6 @@ export const Form = chakra(
       }
     );
 
-    //  TODO use Form
     return (
       <form
         aria-label="form"

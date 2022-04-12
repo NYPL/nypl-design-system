@@ -14,7 +14,6 @@ import {
   IconSizes,
   IconTypes,
 } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
 import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 import { getVariant } from "../../utils/utils";
 
@@ -71,7 +70,7 @@ export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
     breadcrumbsData,
     breadcrumbsType,
     className,
-    id = generateUUID(),
+    id,
     ...rest
   } = props;
   const variant = getVariant(breadcrumbsType, BreadcrumbsTypes);

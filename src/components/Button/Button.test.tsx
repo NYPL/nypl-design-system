@@ -96,6 +96,16 @@ describe("padding for icon only button", () => {
     );
     expect(container.querySelector("button svg")).toBeInTheDocument();
   });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    // @ts-ignore: Typescript complains when a required prop is not passed, but
+    // here we don't want to pass the required prop to make sure the warning appears.
+    render(<Button>Submit</Button>);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Button: This component's required `id` prop was not passed."
+    );
+  });
 });
 
 describe("Button Snapshot", () => {

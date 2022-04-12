@@ -8,8 +8,6 @@ import * as React from "react";
 import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 import Link from "../Link/Link";
 import { getVariant } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface HeadingProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -51,7 +49,7 @@ export const Heading = chakra(
     const {
       additionalStyles = {},
       className,
-      id = generateUUID(),
+      id,
       level = HeadingLevels.Two,
       size,
       text,

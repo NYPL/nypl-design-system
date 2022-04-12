@@ -5,8 +5,6 @@ import Link from "../Link/Link";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import { range } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface PaginationProps {
   /** Additional className. */
   className?: string;
@@ -37,7 +35,7 @@ export const Pagination = chakra((props: PaginationProps) => {
     className,
     currentPage,
     getPageHref,
-    id = generateUUID(),
+    id,
     initialPage = 1,
     onPageChange,
     pageCount,

@@ -8,8 +8,6 @@ import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconColors, IconNames, IconSizes } from "../Icons/IconTypes";
 import { NotificationTypes } from "./NotificationTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 interface BaseProps {
   /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
@@ -105,7 +103,7 @@ export const Notification = chakra((props: NotificationProps) => {
     className,
     dismissible = false,
     icon,
-    id = generateUUID(),
+    id,
     isCentered = false,
     noMargin = false,
     notificationContent,

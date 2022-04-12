@@ -16,7 +16,6 @@ import Label from "../Label/Label";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
 
 export interface InputProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -30,7 +29,7 @@ export interface InputProps {
   /** Populates the HelperErrorText for the standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Populates the HelperErrorText for the error state */
   invalidText?: HelperErrorTextType;
   /** Adds the `disabled` and `aria-disabled` prop to the input when true */
@@ -57,9 +56,9 @@ export interface InputProps {
   /** Offers the ability to show the label onscreen or hide it. Refer to the
    * `labelText` property for more information. */
   showLabel?: boolean;
-  /** Offers the ability to show the "Required"/"Optional" label onscreen or
-   * hide it. True by default. */
-  showOptReqLabel?: boolean;
+  /** Whether or not to display the "(Required)" text in the label text.
+   * True by default. */
+  showRequiredLabel?: boolean;
   /** The amount to increase or decrease when using the number type. */
   step?: number;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
@@ -90,7 +89,7 @@ export const TextInput = chakra(
         className,
         defaultValue,
         helperText,
-        id = generateUUID(),
+        id,
         invalidText,
         isDisabled = false,
         isInvalid = false,
@@ -101,7 +100,7 @@ export const TextInput = chakra(
         placeholder,
         showHelperInvalidText = true,
         showLabel = true,
-        showOptReqLabel = true,
+        showRequiredLabel = true,
         step = 1,
         textInputType = TextInputVariants.Default,
         type = TextInputTypes.text,
@@ -114,7 +113,6 @@ export const TextInput = chakra(
       const finalStyles = { ...styles, ...additionalStyles };
       const isTextArea = type === TextInputTypes.textarea;
       const isHidden = type === TextInputTypes.hidden;
-      const optReqFlag = isRequired ? "Required" : "Optional";
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
@@ -123,6 +121,12 @@ export const TextInput = chakra(
         : helperText;
       let fieldOutput;
       let options;
+
+      if (!id) {
+        console.warn(
+          "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+        );
+      }
 
       if (!showLabel) {
         attributes["aria-label"] =
@@ -182,8 +186,8 @@ export const TextInput = chakra(
           {labelText && showLabel && !isHidden && (
             <Label
               htmlFor={id}
-              optReqFlag={showOptReqLabel && optReqFlag}
               id={`${id}-label`}
+              isRequired={showRequiredLabel && isRequired}
             >
               {labelText}
             </Label>

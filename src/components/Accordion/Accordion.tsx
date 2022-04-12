@@ -11,8 +11,6 @@ import * as React from "react";
 import { AccordionTypes } from "./AccordionTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
   label: string;
@@ -123,12 +121,7 @@ const getElementsFromData = (data = [], id) => {
  * multiple accordion items together.
  */
 export const Accordion = chakra((props: AccordionProps) => {
-  const {
-    accordionData,
-    id = generateUUID(),
-    isDefaultOpen = false,
-    ...rest
-  } = props;
+  const { accordionData, id, isDefaultOpen = false, ...rest } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;

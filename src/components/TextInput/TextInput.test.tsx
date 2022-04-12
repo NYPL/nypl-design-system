@@ -6,12 +6,12 @@ import userEvent from "@testing-library/user-event";
 
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
-import * as generateUUID from "../../helpers/generateUUID";
 
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the input element", async () => {
     const { container } = render(
       <TextInput
+        id="textInput"
         isRequired
         labelText="Custom input label"
         onChange={jest.fn()}
@@ -25,6 +25,7 @@ describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the textarea element", async () => {
     const { container } = render(
       <TextInput
+        id="textInput"
         isRequired
         labelText="Custom textarea label"
         onChange={jest.fn()}
@@ -70,24 +71,7 @@ describe("TextInput", () => {
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
   });
 
-  it("renders 'Optional' along with the label text", () => {
-    utils.rerender(
-      <TextInput
-        attributes={{ onFocus: focusHandler }}
-        id="myTextInput"
-        isRequired={false}
-        labelText="Custom Input Label"
-        onChange={changeHandler}
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
-      />
-    );
-
-    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
-    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-  });
-
-  it("does not render 'Required' along with the label text", () => {
+  it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
         attributes={{ onFocus: focusHandler }}
@@ -96,7 +80,7 @@ describe("TextInput", () => {
         labelText="Custom Input Label"
         onChange={changeHandler}
         placeholder="Input Placeholder"
-        showOptReqLabel={false}
+        showRequiredLabel={false}
         type={TextInputTypes.text}
       />
     );
@@ -136,16 +120,26 @@ describe("TextInput", () => {
     // Called 5 times because "Hello" has length of 5.
     expect(changeHandler).toHaveBeenCalledTimes(5);
   });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <TextInput labelText="Custom Input Label" />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+    );
+  });
 });
 
 describe("Renders TextInput with auto-generated ID, hidden label and visible helper text", () => {
-  let generateUUIDSpy;
-
   beforeEach(() => {
-    generateUUIDSpy = jest.spyOn(generateUUID, "default");
     render(
       <TextInput
         helperText="Custom Helper Text"
+        id="textInput"
         isRequired
         labelText="Custom Input Label"
         placeholder="Input Placeholder"
@@ -157,11 +151,6 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
 
   it("renders Input component", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("calls a UUID generation method if no ID is passed as a prop", () => {
-    // Called twice for the `TextInput` and the SVG icon components.
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(2);
   });
 
   it("does not renders Label component", () => {

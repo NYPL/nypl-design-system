@@ -6,7 +6,6 @@ import renderer from "react-test-renderer";
 
 import Toggle from "./Toggle";
 import { ToggleSizes } from "./ToggleTypes";
-import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Toggle Accessibility", () => {
   it("Passes axe accessibility test", async () => {
@@ -19,7 +18,6 @@ describe("Toggle Accessibility", () => {
 
 describe("Toggle", () => {
   let changeHandler;
-  let generateUUIDSpy;
 
   beforeEach(() => {
     changeHandler = jest.fn();
@@ -63,13 +61,6 @@ describe("Toggle", () => {
   it("Sets the Toggle's ID", () => {
     render(<Toggle id="inputID" labelText="Test Label" />);
     expect(screen.getByRole("checkbox")).toHaveAttribute("id", "inputID");
-  });
-
-  it("Calls the UUID generation function if no id prop value is passed", () => {
-    generateUUIDSpy = jest.spyOn(generateUUID, "default");
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-    render(<Toggle labelText="Test Label" />);
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
   });
 
   it("Sets the 'checked' attribute", () => {
@@ -118,6 +109,18 @@ describe("Toggle", () => {
     expect(changeHandler).toHaveBeenCalledTimes(0);
     userEvent.click(utils.getByText("onChangeTest Lab"));
     expect(changeHandler).toHaveBeenCalledTimes(1);
+  });
+
+  it("Logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Toggle labelText="test" />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Toggle: This component's required `id` prop was not passed."
+    );
   });
 
   it("Renders the UI snapshot correctly", () => {

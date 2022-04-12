@@ -12,14 +12,13 @@ import {
   ProgressIndicatorSizes,
   ProgressIndicatorTypes,
 } from "./ProgressIndicatorTypes";
-import generateUUID from "../../helpers/generateUUID";
 import Label from "../Label/Label";
 
 export interface ProgressIndicatorProps {
   /** Flag to render the component in a dark background. */
   darkMode?: boolean;
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Whether the `ProgressIndicator` should be linear or circular. */
   indicatorType?: ProgressIndicatorTypes;
   /** Whether the progress animation should display because the `value` prop is
@@ -44,7 +43,7 @@ export interface ProgressIndicatorProps {
 export const ProgressIndicator = chakra((props: ProgressIndicatorProps) => {
   const {
     darkMode = false,
-    id = generateUUID(),
+    id,
     indicatorType = ProgressIndicatorTypes.Linear,
     isIndeterminate = false,
     labelText,
@@ -58,6 +57,11 @@ export const ProgressIndicator = chakra((props: ProgressIndicatorProps) => {
     size,
   });
   let finalValue = value;
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Progress Indicator: This component's required `id` prop was not passed."
+    );
+  }
   if (finalValue < 0 || finalValue > 100) {
     console.warn(
       "NYPL Reservoir ProgressIndicator: An invalid value was passed for the" +

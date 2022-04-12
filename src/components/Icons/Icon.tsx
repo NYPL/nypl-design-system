@@ -15,7 +15,6 @@ import {
   IconTypes,
 } from "./IconTypes";
 import iconSvgs from "./IconSvgs";
-import generateUUID from "../../helpers/generateUUID";
 
 export interface IconProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -58,7 +57,7 @@ export const Icon = chakra(
       color = IconColors.UiBlack,
       decorative = true,
       iconRotation = IconRotationTypes.Rotate0,
-      id = generateUUID(),
+      id,
       name,
       size = IconSizes.Default,
       title = `${name} icon`,
