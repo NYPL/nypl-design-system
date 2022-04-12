@@ -1,35 +1,3 @@
-// const multiSelectWidths = {
-//   default: {
-//     minWidth: {
-//       base: "100%",
-//       //md: "fit-content",
-//       md: "225px",
-//     },
-//   },
-//   /*small: {
-//     minWidth: {
-//       base: "100%",
-//       md: "165px",
-//     },
-//   },
-//   medium: {
-//     minWidth: {
-//       base: "100%",
-//       md: "225px",
-//     },
-//   },
-//   large: {
-//     minWidth: {
-//       base: "100%",
-//       md: "360px",
-//     },
-//   },
-//   */
-//   full: {
-//     minWidth: "100%",
-//   },
-// };
-
 const multiSelectWidths = {
   default: {
     width: {
@@ -56,9 +24,6 @@ const MultiSelect = {
     allowMenuContainerToOverflow = false,
   }) => ({
     ...multiSelectWidths[width],
-    // ...(!allowMenuContainerToOverflow && {
-    //   position: "relative",
-    // }),
     position: "relative",
     margin: {
       base: ".75rem 0",
@@ -74,8 +39,12 @@ const MultiSelect = {
       },
       zIndex: isBlockElement ? 0 : 1,
       ...(allowMenuContainerToOverflow && {
-        minWidth: "275px",
-        maxWidth: "375px",
+        minWidth: {
+          md: "275px",
+        },
+        maxWidth: {
+          md: "375px",
+        },
       }),
       width: "100%",
       // These are for active states
@@ -91,6 +60,7 @@ const MultiSelect = {
       marginInlineStart: "0px",
       */
       paddingX: "xs",
+      // Controls the height of the multiselect menu, before scroll bar.
       maxHeight: {
         base: "100%",
         md: "285px",
