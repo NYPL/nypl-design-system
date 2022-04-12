@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
 - Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
 - Adds the `isRequired` prop to the `Label` component.
+- Adds the `labelPosition` prop to the `Select` component, so that the label can be styled inline with the select input.
 
 ### Changes
 

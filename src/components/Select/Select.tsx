@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   Box,
   Select as ChakraSelect,
@@ -31,8 +31,8 @@ export interface SelectProps {
   isInvalid?: boolean;
   /** Adds the `required` and `aria-required` attributes to the input when true. */
   isRequired?: boolean;
-  /** Optional value to render the label inline or on top of the select element.
-   * Default is `LabelPositions.Top`. */
+  /** Optional value to render the label inline, rather than the default (on top)
+   * of the select element. */
   labelPosition?: LabelPositions;
   /** Provides text for a `Label` component if `showLabel` is set to `true`;
    * populates an `aria-label` attribute on the select input if `showLabel` is
@@ -78,7 +78,7 @@ const Select = React.forwardRef<
     isDisabled = false,
     isInvalid = false,
     isRequired = false,
-    // labelPosition = LabelPositions.Top,
+    labelPosition = LabelPositions.Top,
     labelText,
     name,
     onChange,
@@ -90,7 +90,14 @@ const Select = React.forwardRef<
     value = "",
   } = props;
   const ariaAttributes = {};
-  const styles = useMultiStyleConfig("CustomSelect", { variant: selectType });
+  const [labelWidth, setLabelWidth] = useState<number>(0);
+
+  const labelRef = useRef<HTMLInputElement>();
+  const styles = useMultiStyleConfig("CustomSelect", {
+    variant: selectType,
+    labelPosition,
+    labelWidth,
+  });
   const finalInvalidText = invalidText
     ? invalidText
     : "There is an error related to this field.";
@@ -114,6 +121,17 @@ const Select = React.forwardRef<
       "NYPL Reservoir Select: This component's required `id` prop was not passed."
     );
   }
+
+  useEffect(() => {
+    if (labelPosition === LabelPositions.Inline) {
+      // console.log("labelRef -->", labelRef);
+      const width = labelRef?.current?.clientWidth + 8;
+      setLabelWidth(width);
+    }
+  }, [labelRef.current]);
+
+  console.log("labelWidth -->", labelWidth);
+
   return (
     <Box
       className={className}
@@ -122,37 +140,42 @@ const Select = React.forwardRef<
         ...additionalStyles,
       }}
     >
-      {showLabel && (
-        <Label
-          id={`${id}-label`}
-          htmlFor={id}
-          isRequired={showRequiredLabel && isRequired}
+      <Box __css={labelPosition === LabelPositions.Inline && styles.inline}>
+        {showLabel && (
+          <Box ref={labelRef}>
+            <Label
+              htmlFor={id}
+              id={`${id}-label`}
+              isInlined={true}
+              isRequired={showRequiredLabel && isRequired}
+            >
+              {labelText}
+            </Label>
+          </Box>
+        )}
+        <ChakraSelect
+          id={id}
+          variant="outline"
+          isRequired={isRequired}
+          isDisabled={isDisabled}
+          isInvalid={isInvalid}
+          name={name}
+          placeholder={placeholder}
+          ref={ref}
+          {...controlledProps}
+          {...ariaAttributes}
+          icon={
+            <Icon
+              id={`${id}-icon`}
+              name={IconNames.Arrow}
+              size={IconSizes.Medium}
+            />
+          }
+          __css={styles.select}
         >
-          {labelText}
-        </Label>
-      )}
-      <ChakraSelect
-        id={id}
-        variant="outline"
-        isRequired={isRequired}
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        name={name}
-        placeholder={placeholder}
-        ref={ref}
-        {...controlledProps}
-        {...ariaAttributes}
-        icon={
-          <Icon
-            id={`${id}-icon`}
-            name={IconNames.Arrow}
-            size={IconSizes.Medium}
-          />
-        }
-        __css={styles.select}
-      >
-        {children}
-      </ChakraSelect>
+          {children}
+        </ChakraSelect>
+      </Box>
       {footnote && showHelperInvalidText && (
         <Box __css={styles.helper} aria-disabled={isDisabled}>
           <HelperErrorText

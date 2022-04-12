@@ -11,12 +11,19 @@ import { withDesign } from "storybook-addon-designs";
 import Button from "../Button/Button";
 import Form from "../Form/Form";
 import Select from "./Select";
-import { SelectTypes } from "./SelectTypes";
+import { SelectTypes, LabelPositions } from "./SelectTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
 
-export const enumValues = getStorybookEnumValues(SelectTypes, "SelectTypes");
+export const selectTypesEnumValues = getStorybookEnumValues(
+  SelectTypes,
+  "SelectTypes"
+);
+export const labelPositionsEnumValues = getStorybookEnumValues(
+  LabelPositions,
+  "LabelPositions"
+);
 
 <Meta
   title={getCategory("Select")}
@@ -40,6 +47,11 @@ export const enumValues = getStorybookEnumValues(SelectTypes, "SelectTypes");
     },
     isRequired: {
       table: { defaultValue: { summary: false } },
+    },
+    labelPosition: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "LabelPositions.Top" } },
+      options: labelPositionsEnumValues.options,
     },
     name: { control: false },
     key: { table: { disable: true } },
@@ -88,6 +100,7 @@ is left blank, a value will be generated for you.
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
+      labelPosition: "LabelPositions.Top",
       labelText: "What is your favorite color?",
       name: "color",
       onChange: undefined,
@@ -137,11 +150,13 @@ and `option` HTML elements:
 
 ## Labelling Variations
 
-A Select can be rendered with or without a visible label. When `showLabel` is
-set to `false`, an `aria-label` attribute is added to the select input to
-maintain accessibility. If the component needs to be required, the
-`showRequiredLabel` prop can be used to show or hide the "Required" text
-within the `label` element.
+A Select can be rendered with or without a visible label. If the label is visible,
+it can be displayed above (the default) or inline with the select input using the
+`labelPosition` prop. Note that the label will only display inline when the device
+width exceeds the `--nypl-breakpoint-large` breakpoint, or 960px. When `showLabel`
+is set to `false`, an `aria-label` attribute is added to the select input to maintain
+accessibility. If the component needs to be required, the `showRequiredLabel` prop
+can be used to show or hide the "Required" text within the `label` element.
 
 <Canvas>
   <Story name="Labelling Variations">
@@ -170,7 +185,7 @@ within the `label` element.
         <option value="white">White</option>
       </Select>
       <Select
-        helperText="Display the Required/Optional text"
+        helperText="Display the Required text"
         isRequired
         labelText="What is your favorite color?"
         name="color"
@@ -182,11 +197,24 @@ within the `label` element.
         <option value="white">White</option>
       </Select>
       <Select
-        helperText="Do not display the Required/Optional text"
+        helperText="Do not display the Required text"
         isRequired
         labelText="What is your favorite color?"
         name="color"
         showRequiredLabel={false}
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Select
+        helperText="Display the label inline"
+        isRequired
+        labelText="What is your favorite color?"
+        name="color"
+        labelPosition={LabelPositions.Inline}
       >
         <option value="red">Red</option>
         <option value="green">Green</option>

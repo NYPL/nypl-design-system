@@ -4,6 +4,7 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Select from "./Select";
+import { LabelPositions } from "./SelectTypes";
 
 const baseProps = {
   helperText: "This is the helper text.",
@@ -295,6 +296,19 @@ describe("Select", () => {
         </Select>
       )
       .toJSON();
+    const withLabelInline = renderer
+      .create(
+        <Select
+          id="select"
+          isRequired
+          labelPosition={LabelPositions.Inline}
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
     const hasOnChange = renderer
       .create(
         <Select
@@ -313,6 +327,7 @@ describe("Select", () => {
     expect(withInvalidText).toMatchSnapshot();
     expect(withHelperText).toMatchSnapshot();
     expect(required).toMatchSnapshot();
+    expect(withLabelInline).toMatchSnapshot();
     expect(hasOnChange).toMatchSnapshot();
   });
 });
