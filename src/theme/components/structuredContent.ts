@@ -85,10 +85,10 @@ const StructuredContent = {
       // This gives Chakra `Box` styles to divs inside the
       // main `StructuredContent` content area.
       ".structuredcontent-body > div": {
-        "margin-top": "var(--nypl-space-l)",
-        "margin-inline-end": "var(--nypl-space-0)",
-        "margin-bottom": "var(--nypl-space-0)",
-        "margin-inline-start": "var(--nypl-space-0)",
+        marginTop: "var(--nypl-space-l)",
+        marginInlineEnd: "var(--nypl-space-0)",
+        marginBottom: "var(--nypl-space-0)",
+        marginInlineStart: "var(--nypl-space-0)",
       },
       a: baseLinkStyles,
       ul: {
@@ -111,22 +111,22 @@ const StructuredContent = {
           // These styles, except for `baseTHStyles`, are set from
           // Chakra so they are copied explicitly.
           textAlign: "start",
-          "padding-inline-start": "var(--nypl-space-6)",
-          "padding-inline-end": "var(--nypl-space-6)",
-          "padding-top": "var(--nypl-space-3)",
-          "padding-bottom": "var(--nypl-space-3)",
-          "line-height": "var(--nypl-lineHeights-4)",
+          paddingInlineStart: "var(--nypl-space-6)",
+          paddingInlineEnd: "var(--nypl-space-6)",
+          paddingTop: "var(--nypl-space-3)",
+          paddingBottom: "var(--nypl-space-3)",
+          lineHeight: "var(--nypl-lineHeights-4)",
           ...baseTHStyles(),
         },
         td: {
           // These styles, except for `baseTDStyles`, are set from
           // Chakra so they are copied explicitly.
           textAlign: "start",
-          "padding-inline-start": "var(--nypl-space-6)",
-          "padding-inline-end": "var(--nypl-space-6)",
-          "padding-top": "var(--nypl-space-4)",
-          "padding-bottom": "var(--nypl-space-4)",
-          "line-height": "var(--nypl-lineHeights-5)",
+          paddingInlineStart: "var(--nypl-space-6)",
+          paddingInlineEnd: "var(--nypl-space-6)",
+          paddingTop: "var(--nypl-space-4)",
+          paddingBottom: "var(--nypl-space-4)",
+          lineHeight: "var(--nypl-lineHeights-5)",
           ...baseTDStyles(),
         },
       },
