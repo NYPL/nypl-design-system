@@ -35,6 +35,8 @@ interface CardActionsProps extends CardBaseProps {
   /** Optional boolean value to control visibility of border on the bottom edge
    * of the card actions element */
   bottomBorder?: boolean;
+  /**  */
+  isAlignedRight?: boolean;
   /** Optional boolean value to control visibility of border on the top edge of
    * the card actions element */
   topBorder?: boolean;
@@ -60,9 +62,6 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   id?: string;
   /** Object used to create and render the `Image` component. */
   imageProps?: CardImageProps;
-  /** Set CardActions to the right content side. This only works in
-   * the row layout. */
-  isAlignedRightActions?: boolean;
 }
 
 /**
@@ -119,9 +118,17 @@ export function CardContent(props: React.PropsWithChildren<{}>) {
 
 // CardActions child-component
 export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
-  const { bottomBorder, children, isCentered, layout, topBorder } = props;
+  const {
+    bottomBorder,
+    children,
+    isAlignedRight,
+    isCentered,
+    layout,
+    topBorder,
+  } = props;
   const styles = useStyleConfig("CardActions", {
     bottomBorder,
+    isAlignedRight,
     isCentered,
     layout,
     topBorder,
@@ -182,7 +189,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       size: ImageSizes.Default,
       src: "",
     },
-    isAlignedRightActions = false,
     isCentered = false,
     layout = LayoutTypes.Column,
     mainActionLink,
@@ -233,9 +239,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   });
 
   React.Children.map(children, (child: React.ReactElement, key) => {
-    const isCardActions =
-      child.type === CardActions || child.props.mdxType === "CardActions";
-
     if (child.type === CardHeading || child.props.mdxType === "CardHeading") {
       // If the child is a `CardHeading` component, then we add the
       // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
@@ -266,17 +269,14 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     } else if (
       child.type === CardContent ||
       child.props.mdxType === "CardContent" ||
-      isCardActions
+      child.type === CardActions ||
+      child.props.mdxType === "CardActions"
     ) {
       const elem = React.cloneElement(child, { key, isCentered, layout });
 
       // Only allow `CardActions` to align to the right of the main
       // `CardContent` component when in the row layout.
-      if (
-        isCardActions &&
-        isAlignedRightActions &&
-        layout === LayoutTypes.Row
-      ) {
+      if (child.props.isAlignedRight && layout === LayoutTypes.Row) {
         cardRightContents.push(elem);
       } else {
         cardContents.push(elem);
