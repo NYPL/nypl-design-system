@@ -81,6 +81,9 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
     "imageProps.src": {
       table: { defaultValue: { summary: "" } },
     },
+    isAlignedRightActions: {
+      table: { defaultValue: { summary: false } },
+    },
     isCentered: {
       table: { defaultValue: { summary: false } },
     },
@@ -137,9 +140,9 @@ The `CardActions` component is used to display "call to action" (CTA) buttons
 and links for the card. The DS `Button` and `Link` components should be passed
 as children into the `CardActions` component.
 
-Use the `isAlignedRight` prop to align the `CardActions` to the right of the
-the main `CardContent` component area. This is only applicable in the row layout
-of the `Card` component.
+Set the `isAlignedRightActions` prop to true in the `Card` component to align the
+`CardActions` to the right of the the main content area. This is only applicable
+in the row layout of the `Card` component.
 
 ### CardContent
 
@@ -163,6 +166,7 @@ headings and CTAs.
       "imageProps.isAtEnd": false,
       "imageProps.size": "ImageSizes.Default",
       "imageProps.src": "https://placeimg.com/400/300/animals",
+      isAlignedRightActions: false,
       isCentered: false,
       layout: "LayoutTypes.Row",
       mainActionLink: undefined,
@@ -776,7 +780,7 @@ from being having the full-click functionality.
 
 It's possible to set only the `CardActions` component on the right side of the
 main content area of the `Card`. This is possible only in the "LayoutTypes.Row"
-layout and through the `CardActions` component's `isAlignedRight` prop which
+layout and through the `Card` component's `isAlignedRightActions` prop which
 must be set to `true`.
 
 <Canvas>
@@ -802,7 +806,7 @@ must be set to `true`.
         libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel
         eu leo. Nulla vitae elit libero, a pharetra augue.
       </CardContent>
-      <CardActions topBorder bottomBorder isAlignedRight>
+      <CardActions topBorder bottomBorder>
         <Button
           onClick={action("clicked")}
           id="main-button1"
@@ -820,7 +824,7 @@ must be set to `true`.
           Secondary
         </Button>
       </CardActions>
-      <CardActions isAlignedRight>
+      <CardActions>
         <Link href="#">#hash1</Link>,<Link href="#">#hash2</Link>,
         <Link href="#">#hash3</Link>
       </CardActions>

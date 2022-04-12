@@ -257,12 +257,13 @@ describe("Card", () => {
         alt: "Alt text",
         src: "https://placeimg.com/400/200/arch",
       }}
+      isAlignedRightActions
     >
       <CardHeading level={HeadingLevels.Three} id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
-      <CardActions isAlignedRight>
+      <CardActions>
         <Button
           onClick={() => {}}
           id="button1"
@@ -272,7 +273,7 @@ describe("Card", () => {
           Example CTA
         </Button>
       </CardActions>
-      <CardActions isAlignedRight>
+      <CardActions>
         <Button
           onClick={() => {}}
           id="button2"
