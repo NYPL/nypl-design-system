@@ -27,6 +27,8 @@ interface MultiSelectCommonProps {
   defaultIsOpen?: boolean;
   /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements. */
   isBlockElement?: boolean;
+  /** Boolean to control if the menu container can be a different width than the menu button. */
+  allowMenuContainerToOverflow?: boolean;
 }
 
 type MultiSelectVariantsProps =
@@ -67,6 +69,7 @@ export default function MultiSelect({
   onMixedStateChange,
   defaultIsOpen,
   isBlockElement = false,
+  allowMenuContainerToOverflow = false,
 }: MultiSelectProps) {
   const commonProps = {
     id: id,
@@ -78,6 +81,7 @@ export default function MultiSelect({
     onClear: onClear,
     defaultIsOpen: defaultIsOpen,
     isBlockElement: isBlockElement,
+    allowMenuContainerToOverflow: allowMenuContainerToOverflow,
   };
 
   if (variant === "listbox") {

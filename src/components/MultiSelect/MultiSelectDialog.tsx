@@ -32,8 +32,13 @@ function MultiSelectDialog({
   onClear,
   width = MultiSelectWidths.Default,
   isBlockElement = false,
+  allowMenuContainerToOverflow = false,
 }: MultiSelectDialogProps) {
-  const styles = useMultiStyleConfig("MultiSelect", { width, isBlockElement });
+  const styles = useMultiStyleConfig("MultiSelect", {
+    width,
+    isBlockElement,
+    allowMenuContainerToOverflow,
+  });
 
   // Track the window size width, to set isMobile.
   const [isMobile, setIsMobile] = useState<boolean>();

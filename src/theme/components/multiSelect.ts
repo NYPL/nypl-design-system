@@ -34,7 +34,7 @@ const multiSelectWidths = {
   default: {
     width: {
       base: "100%",
-      md: "245px",
+      md: "250px",
     },
   },
   full: {
@@ -50,26 +50,22 @@ const MultiSelect = {
     "menuChildren",
     "selectedItemsCountButton",
   ],
-  baseStyle: ({ width = "default", isBlockElement }) => ({
-    /*width: {
-      base: "100%",
-      md: "fit-content",
-    },
-    */
-    position: "relative",
+  baseStyle: ({
+    width = "default",
+    isBlockElement,
+    allowMenuContainerToOverflow = false,
+  }) => ({
     ...multiSelectWidths[width],
+    // ...(!allowMenuContainerToOverflow && {
+    //   position: "relative",
+    // }),
+    position: "relative",
     margin: {
       base: ".75rem 0",
       md: "0 2em 0 0",
     },
     menuButton: {
       width: "100%",
-      /*minWidth: {
-        base: "100%",
-        md: "175px",
-      },
-      */
-      //...multiSelectWidths[width],
       justifyContent: "space-between",
     },
     menuContainer: {
@@ -77,17 +73,11 @@ const MultiSelect = {
         md: isBlockElement ? "relative" : "absolute",
       },
       zIndex: isBlockElement ? 0 : 1,
-      /*minWidth: {
-        base: "100%",
-        md: "300px",
-      },
-      */
+      ...(allowMenuContainerToOverflow && {
+        minWidth: "275px",
+        maxWidth: "375px",
+      }),
       width: "100%",
-      // width: {
-      //   base: "100%",
-      //   md: "fit-content",
-      // },
-      // ...multiSelectWidths[width],
       // These are for active states
       boxSizing: "border-box",
       background: "white",
@@ -123,7 +113,7 @@ const MultiSelect = {
     },
     selectedItemsCountButton: {
       marginRight: "xs",
-      paddingLeft: "xs",
+      paddingLeft: "s",
       paddingRight: "xs",
       backgroundColor: "ui.gray.x-light-cool",
       border: "1px",
