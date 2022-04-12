@@ -10,11 +10,9 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
     id="myTextInput-label"
   >
     Custom Input Label
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
+    <span>
+       (Required)
+    </span>
   </label>
   <input
     aria-required={true}
@@ -41,11 +39,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
     id="myTextInput-label"
   >
     Custom Input Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <input
     className="chakra-input css-0"
@@ -91,11 +84,9 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     id="myTextInput-label"
   >
     Custom Input Label
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
+    <span>
+       (Required)
+    </span>
   </label>
   <input
     aria-describedby="myTextInput-helperText"
@@ -135,11 +126,9 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     id="myTextInput-label"
   >
     Custom Input Label
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
+    <span>
+       (Required)
+    </span>
   </label>
   <input
     aria-invalid={true}
@@ -179,11 +168,9 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     id="myTextInput-label"
   >
     Custom Input Label
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
+    <span>
+       (Required)
+    </span>
   </label>
   <input
     aria-required={true}
@@ -210,11 +197,6 @@ exports[`UI Snapshots renders the textarea UI snapshot correctly 1`] = `
     id="myTextarea-label"
   >
     Custom textarea Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <textarea
     className="chakra-textarea css-0"

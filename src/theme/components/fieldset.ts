@@ -2,7 +2,6 @@ import { labelLegendText } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
 const Fieldset = {
-  parts: ["helperErrorText"],
   baseStyle: ({ isLegendHidden }) => {
     const screenreaderStyles = isLegendHidden ? screenreaderOnly : {};
     return {
@@ -12,7 +11,6 @@ const Fieldset = {
         ...labelLegendText,
         ...screenreaderStyles,
       },
-      helperErrorText: { ...labelLegendText.helperErrorText },
     };
   },
 };

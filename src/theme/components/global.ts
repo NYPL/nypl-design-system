@@ -50,17 +50,13 @@ const checkboxRadioGroupStyles = (isFullWidth = false) => ({
 });
 // Used in `Label` and `Fieldset`.
 const labelLegendText = {
-  alignItems: "baseline",
-  width: "100%",
-  marginBottom: "xs",
+  display: "inline-block",
   fontSize: "label.default",
   fontWeight: "label.default",
-  display: "flex",
-  justifyContent: "space-between",
-  helperErrorText: {
-    marginLeft: "m",
-    fontSize: "helper.default",
-    fontWeight: "helper.default",
+  marginBottom: "xs",
+  width: "100%",
+  span: {
+    fontWeight: "regular",
   },
 };
 // Used for the disabled state of Select and TextInput

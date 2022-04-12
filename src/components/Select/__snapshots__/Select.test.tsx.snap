@@ -10,11 +10,6 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
     id="select-label"
   >
     Which Succession sibling are you?
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="chakra-select__wrapper css-42b2qy"
@@ -94,11 +89,6 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
     id="select-label"
   >
     Which Succession sibling are you?
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="chakra-select__wrapper css-42b2qy"
@@ -179,11 +169,6 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     id="select-label"
   >
     Which Succession sibling are you?
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="chakra-select__wrapper css-42b2qy"
@@ -276,11 +261,6 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     id="select-label"
   >
     Which Succession sibling are you?
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="chakra-select__wrapper css-42b2qy"
@@ -373,11 +353,9 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
     id="select-label"
   >
     Which Succession sibling are you?
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
+    <span>
+       (Required)
+    </span>
   </label>
   <div
     className="chakra-select__wrapper css-42b2qy"
@@ -458,11 +436,6 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
     id="select-label"
   >
     Which Succession sibling are you?
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="chakra-select__wrapper css-42b2qy"

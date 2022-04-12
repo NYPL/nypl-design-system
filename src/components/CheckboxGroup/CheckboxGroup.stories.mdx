@@ -52,14 +52,14 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
     },
     name: { control: false },
     onChange: { control: false },
-    optReqFlag: {
-      table: { defaultValue: { summary: true } },
-    },
     ref: { table: { disable: true } },
     showHelperInvalidText: {
       table: { defaultValue: { summary: true } },
     },
     showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showRequiredLabel: {
       table: { defaultValue: { summary: true } },
     },
   }}
@@ -90,9 +90,9 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
       layout: "LayoutTypes.Column",
       name: "checkbox-story",
       onChange: undefined,
-      optReqFlag: true,
       showHelperInvalidText: true,
       showLabel: true,
+      showRequiredLabel: true,
     }}
   >
     {(args) => (
@@ -115,23 +115,14 @@ a row.
 
 <Canvas>
   <DSProvider>
-    <CheckboxGroup
-      labelText="Column (default)"
-      name="column-example"
-      optReqFlag={false}
-    >
+    <CheckboxGroup labelText="Column (default)" name="column-example">
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
       <Checkbox value="4" labelText="Checkbox 4" />
       <Checkbox value="5" labelText="Checkbox 5" />
     </CheckboxGroup>
     <br />
-    <CheckboxGroup
-      labelText="Row"
-      name="row-example"
-      layout={LayoutTypes.Row}
-      optReqFlag={false}
-    >
+    <CheckboxGroup labelText="Row" name="row-example" layout={LayoutTypes.Row}>
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
       <Checkbox value="4" labelText="Checkbox 4" />
@@ -147,9 +138,26 @@ a row.
     <CheckboxGroup
       labelText="Errored Checkbox Group"
       name="errored-example"
-      optReqFlag={false}
       invalidText="Error message for the full group."
       isInvalid
+    >
+      <Checkbox value="2" labelText="Checkbox 2" />
+      <Checkbox value="3" labelText="Checkbox 3" />
+      <Checkbox value="4" labelText="Checkbox 4" />
+      <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+  </DSProvider>
+</Canvas>
+
+## Required
+
+<Canvas>
+  <DSProvider>
+    <CheckboxGroup
+      labelText="Required Checkbox Group"
+      name="required-example"
+      helperText="The reason for being required."
+      isRequired
     >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
@@ -166,7 +174,6 @@ a row.
     <CheckboxGroup
       labelText="Disabled Checkbox Group"
       name="disabled-example"
-      optReqFlag={false}
       helperText="The reason for being disabled."
       isDisabled
     >
@@ -193,7 +200,6 @@ order to make this work, pass in the `isFullWidth` prop.
     <CheckboxGroup
       labelText="Checkbox Group"
       name="checkbox-example"
-      optReqFlag={false}
       isFullWidth
     >
       <Checkbox

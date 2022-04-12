@@ -50,9 +50,6 @@ import DSProvider from "../../theme/provider";
     },
     name: { control: false },
     onChange: { control: false },
-    optReqFlag: {
-      table: { defaultValue: { summary: true } },
-    },
     showBoxes: {
       table: { defaultValue: { summary: true } },
     },
@@ -60,6 +57,9 @@ import DSProvider from "../../theme/provider";
       table: { defaultValue: { summary: true } },
     },
     showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showRequiredLabel: {
       table: { defaultValue: { summary: true } },
     },
     showValues: {
@@ -114,10 +114,10 @@ For this type of component, the `value` prop must be a single number.
       min: 0,
       name: undefined,
       onChange: undefined,
-      optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
+      showRequiredLabel: true,
       showValues: true,
       step: 1,
     }}
@@ -190,10 +190,10 @@ numbers. This signifies the starting and ending values of the range slider.
       min: 0,
       name: undefined,
       onChange: undefined,
-      optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
+      showRequiredLabel: true,
       showValues: true,
       step: 1,
     }}
@@ -227,9 +227,6 @@ Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
 
 ### Single Slider States
 
-Note: In the following examples, the "Required"/"Optional" text in the label is
-hidden by setting the `optReqFlag` prop to false.
-
 <Canvas>
   <DSProvider>
     <Heading
@@ -239,7 +236,6 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={50}
-      optReqFlag={false}
       helperText="Component helper text."
       invalidText="Component error text :("
       labelText="Label"
@@ -256,11 +252,27 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={50}
-      optReqFlag={false}
       helperText="Component helper text."
       invalidText="Component error text :("
       labelText="Label"
       isInvalid
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-single-required"
+      level={HeadingLevels.Four}
+      text="Required State"
+    />
+    <Slider
+      defaultValue={50}
+      helperText="Component helper text."
+      invalidText="Component error text :("
+      labelText="Label"
+      isRequired
     />
   </DSProvider>
 </Canvas>
@@ -274,7 +286,6 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={50}
-      optReqFlag={false}
       helperText="Component helper text."
       invalidText="Component error text :("
       labelText="Label"
@@ -287,9 +298,6 @@ hidden by setting the `optReqFlag` prop to false.
 
 To enable the Range Slider, set the `isRangeSlider` prop to true.
 
-Note: In the following examples, the "Required"/"Optional" text in the label is
-hidden by setting the `optReqFlag` prop to false.
-
 <Canvas>
   <DSProvider>
     <Heading
@@ -299,7 +307,6 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={[25, 75]}
-      optReqFlag={false}
       helperText="Component helper text."
       invalidText="Component error text :("
       labelText="Label"
@@ -318,7 +325,6 @@ hidden by setting the `optReqFlag` prop to false.
     <SimpleGrid columns={1} gap={GridGaps.Large}>
       <Slider
         defaultValue={[25, 75]}
-        optReqFlag={false}
         helperText="Component helper text."
         invalidText="Component error text :("
         labelText="Label"
@@ -336,7 +342,6 @@ hidden by setting the `optReqFlag` prop to false.
       </p>
       <Slider
         defaultValue={[80, 20]}
-        optReqFlag={false}
         helperText="Component helper text."
         invalidText="Component error text :("
         labelText="Label"
@@ -349,13 +354,30 @@ hidden by setting the `optReqFlag` prop to false.
 <Canvas>
   <DSProvider>
     <Heading
+      id="heading-range-required"
+      level={HeadingLevels.Four}
+      text="Required State"
+    />
+    <Slider
+      defaultValue={[25, 75]}
+      helperText="Component helper text."
+      invalidText="Component error text :("
+      labelText="Label"
+      isRangeSlider
+      isRequired
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading
       id="heading-range-disabled"
       level={HeadingLevels.Four}
       text="Disabled State"
     />
     <Slider
       defaultValue={[25, 75]}
-      optReqFlag={false}
       helperText="Component helper text."
       invalidText="Component error text :("
       labelText="Label"
@@ -397,7 +419,6 @@ input are hidden.
         defaultValue={50}
         helperText="Component helper text."
         labelText="Label"
-        optReqFlag={false}
         showValues={false}
         showBoxes={false}
       />
@@ -405,7 +426,6 @@ input are hidden.
         defaultValue={50}
         helperText="Component helper text."
         labelText="Label"
-        optReqFlag={false}
         showHelperInvalidText={false}
         showValues={false}
         showBoxes={false}
@@ -414,7 +434,6 @@ input are hidden.
         defaultValue={50}
         helperText="Component helper text."
         labelText="Label"
-        optReqFlag={false}
         showValues={false}
         showBoxes={false}
         showLabel={false}

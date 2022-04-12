@@ -12,8 +12,6 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import { LayoutTypes } from "../../helpers/enums";
 import { spacing } from "../../theme/foundations/spacing";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
@@ -22,7 +20,7 @@ export interface CheckboxGroupProps {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the HelperErrorText for error state */
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
@@ -43,13 +41,14 @@ export interface CheckboxGroupProps {
   name: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (value: string[]) => void;
-  /** Whether or not to display "Required"/"Optional" in the label text. */
-  optReqFlag?: boolean;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the group's legend onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
+  /** Whether or not to display the "(Required)" text in the label text.
+   * True by default. */
+  showRequiredLabel?: boolean;
 }
 
 const noop = () => {};
@@ -66,7 +65,7 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       children,
       defaultValue = [],
       helperText,
-      id = generateUUID(),
+      id,
       invalidText,
       isDisabled = false,
       isFullWidth = false,
@@ -76,9 +75,9 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       layout = LayoutTypes.Column,
       name,
       onChange,
-      optReqFlag = true,
       showHelperInvalidText = true,
       showLabel = true,
+      showRequiredLabel = true,
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
@@ -90,6 +89,12 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
             onChange,
           }
         : {};
+
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
+      );
+    }
 
     // Go through the Checkbox children and update them as needed.
     React.Children.map(children, (child: React.ReactElement, i) => {
@@ -126,7 +131,8 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
         id={`${id}-checkbox-group`}
         isLegendHidden={!showLabel}
         legendText={labelText}
-        optReqFlag={optReqFlag}
+        isRequired={isRequired}
+        showRequiredLabel={showRequiredLabel}
       >
         <ChakraCheckboxGroup {...checkboxProps}>
           <Stack

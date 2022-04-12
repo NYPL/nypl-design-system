@@ -8,15 +8,13 @@ import * as React from "react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface CheckboxProps {
   /** className you can add in addition to 'input' */
   className?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -78,7 +76,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       className,
       invalidText,
       helperText,
-      id = generateUUID(),
+      id,
       isChecked,
       isDisabled = false,
       isIndeterminate = false,
@@ -96,6 +94,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const onChange = props.onChange || onChangeDefault;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
+
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
+      );
+    }
 
     if (!showLabel) {
       if (typeof labelText !== "string") {

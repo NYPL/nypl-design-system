@@ -4,15 +4,13 @@ import { Radio as ChakraRadio, useMultiStyleConfig } from "@chakra-ui/react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface RadioProps {
   /** Additional class name. */
   className?: string;
   /** Optional string to populate the HelperErrorText for the standard state. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true.
    */
@@ -52,7 +50,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const {
     className,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isChecked,
     isDisabled = false,
@@ -68,6 +66,12 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
   const styles = useMultiStyleConfig("Radio", {});
   const footnote = isInvalid ? invalidText : helperText;
   const attributes = {};
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Radio: This component's required `id` prop was not passed."
+    );
+  }
 
   if (!showLabel) {
     if (typeof labelText !== "string") {

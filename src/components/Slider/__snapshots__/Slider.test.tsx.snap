@@ -10,11 +10,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     id="defaultRangeSlider-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="css-0"
@@ -187,11 +182,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     id="errored-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="css-0"
@@ -366,11 +356,9 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     id="required-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
+    <span>
+       (Required)
+    </span>
   </label>
   <div
     className="css-0"
@@ -545,11 +533,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     id="disabled-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="css-0"
@@ -877,11 +860,6 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
     id="noVisibleValues-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="css-0"
@@ -1111,11 +1089,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
     id="defaultSlider-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="css-0"
@@ -1246,11 +1219,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
     id="errored-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="css-0"
@@ -1382,11 +1350,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
     id="required-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
+    <span>
+       (Required)
+    </span>
   </label>
   <div
     className="css-0"
@@ -1518,11 +1484,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
     id="disabled-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="css-0"
@@ -1765,11 +1726,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
     id="noVisibleValues-label"
   >
     Label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </label>
   <div
     className="css-0"
