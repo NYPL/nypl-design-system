@@ -6,6 +6,7 @@ const baseStyle = {
   cursor: "pointer",
   color: "ui.white",
   justifyContent: "center",
+  maxHeight: "2.5rem",
   py: "xs",
   px: "s",
   textDecoration: "none",
