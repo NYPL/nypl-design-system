@@ -97,7 +97,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.13`  |
+| Latest            | `0.26.0`   |
 
 ## Table of Contents
 
@@ -109,6 +109,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
 - [Custom Image Component](#custom-image-component)
 - [Card With Link Heading](#card-with-link-heading)
 - [Card With Full-Click Functionality](#card-with-full-click-functionality)
+- [Card with Right Side CardActions](#card-with-right-side-cardactions)
 - [Cards in a Grid](#cards-in-a-grid)
 - [Cards in a Stack](#cards-in-a-stack)
 - [Card Without Images](#card-without-images)
@@ -135,6 +136,10 @@ accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-sta
 The `CardActions` component is used to display "call to action" (CTA) buttons
 and links for the card. The DS `Button` and `Link` components should be passed
 as children into the `CardActions` component.
+
+Use the `isAlignedRight` prop to align the `CardActions` to the right of the
+the main `CardContent` component area. This is only applicable in the row layout
+of the `Card` component.
 
 ### CardContent
 
@@ -764,6 +769,62 @@ from being having the full-click functionality.
         </CardContent>
       </Card>
     </SimpleGrid>
+  </Story>
+</Canvas>
+
+## Card with Right Side CardActions
+
+It's possible to set only the `CardActions` component on the right side of the
+main content area of the `Card`. This is possible only in the "LayoutTypes.Row"
+layout and through the `CardActions` component's `isAlignedRight` prop which
+must be set to `true`.
+
+<Canvas>
+  <Story name="Card with Right Side CardActions">
+    <Card
+      imageProps={{
+        alt: "Alt text",
+        aspectRatio: ImageRatios.TwoByOne,
+        size: ImageSizes.Medium,
+        src: "https://placeimg.com/400/200/animals",
+      }}
+      isCentered
+      layout={LayoutTypes.Row}
+    >
+      <CardHeading level={HeadingLevels.Two} id="main-heading1">
+        Optional Header
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Three} id="main-heading2">
+        Sollicitudin Lorem Tortor Purus Ornare
+      </CardHeading>
+      <CardContent>
+        Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+        libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel
+        eu leo. Nulla vitae elit libero, a pharetra augue.
+      </CardContent>
+      <CardActions topBorder bottomBorder isAlignedRight>
+        <Button
+          onClick={action("clicked")}
+          id="main-button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Primary
+        </Button>
+        <Button
+          onClick={action("clicked")}
+          id="main-button2"
+          buttonType={ButtonTypes.Secondary}
+          type="submit"
+        >
+          Secondary
+        </Button>
+      </CardActions>
+      <CardActions isAlignedRight>
+        <Link href="#">#hash1</Link>,<Link href="#">#hash2</Link>,
+        <Link href="#">#hash3</Link>
+      </CardActions>
+    </Card>
   </Story>
 </Canvas>
 

@@ -35,6 +35,8 @@ interface CardActionsProps extends CardBaseProps {
   /** Optional boolean value to control visibility of border on the bottom edge
    * of the card actions element */
   bottomBorder?: boolean;
+  /**  */
+  isAlignedRight?: boolean;
   /** Optional boolean value to control visibility of border on the top edge of
    * the card actions element */
   topBorder?: boolean;
@@ -116,9 +118,17 @@ export function CardContent(props: React.PropsWithChildren<{}>) {
 
 // CardActions child-component
 export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
-  const { bottomBorder, children, isCentered, layout, topBorder } = props;
+  const {
+    bottomBorder,
+    children,
+    isAlignedRight,
+    isCentered,
+    layout,
+    topBorder,
+  } = props;
   const styles = useStyleConfig("CardActions", {
     bottomBorder,
+    isAlignedRight,
     isCentered,
     layout,
     topBorder,
@@ -192,6 +202,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
     : imageProps.aspectRatio;
   const customColors = {};
   const cardContents = [];
+  const cardRightContents = [];
   const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 
@@ -262,7 +273,14 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       child.props.mdxType === "CardActions"
     ) {
       const elem = React.cloneElement(child, { key, isCentered, layout });
-      cardContents.push(elem);
+
+      // Only allow `CardActions` to align to the right of the main
+      // `CardContent` component when in the row layout.
+      if (child.props.isAlignedRight && layout === LayoutTypes.Row) {
+        cardRightContents.push(elem);
+      } else {
+        cardContents.push(elem);
+      }
     }
   });
 
@@ -292,6 +310,14 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
         <Box className="card-body" __css={styles.body}>
           {cardContents}
         </Box>
+        {cardRightContents.length ? (
+          <Box
+            className="card-right"
+            __css={{ ...styles.body, marginLeft: "m" }}
+          >
+            {cardRightContents}
+          </Box>
+        ) : null}
       </Box>
     </CardLinkBox>
   );

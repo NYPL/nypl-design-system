@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
 - Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
 - Adds the `isRequired` prop to the `Label` component.
+- Adds the `isAlignedRight` prop to the `CardActions` component. This aligns `CardActions` component to the right of the main content area in the `Card` component. This only works for the `LayoutTypes.Row` layout.
 
 ### Changes
 

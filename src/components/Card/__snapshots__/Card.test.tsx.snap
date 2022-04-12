@@ -406,3 +406,61 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
   </div>
 </div>
 `;
+
+exports[`Card Renders the UI snapshot correctly 7`] = `
+<div
+  className="css-0"
+  id="cardID"
+>
+  <div
+    className="css-0"
+  >
+    <img
+      alt="Alt text"
+      className="css-0"
+      src="https://placeimg.com/400/200/arch"
+    />
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h3
+      className="chakra-heading css-0"
+      id="heading1"
+    >
+      The Card Heading
+    </h3>
+    <div
+      className="css-0"
+    >
+      middle column content
+    </div>
+    <div
+      className="css-0"
+    >
+      <button
+        className="chakra-button css-0"
+        data-testid="button"
+        id="button1"
+        onClick={[Function]}
+        type="submit"
+      >
+        Example CTA
+      </button>
+    </div>
+    <div
+      className="css-0"
+    >
+      <button
+        className="chakra-button css-0"
+        data-testid="button"
+        id="button2"
+        onClick={[Function]}
+        type="submit"
+      >
+        Example CTA
+      </button>
+    </div>
+  </div>
+</div>
+`;
