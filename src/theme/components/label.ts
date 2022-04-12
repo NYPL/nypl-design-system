@@ -1,10 +1,7 @@
 import { labelLegendText } from "./global";
 
 const Label = {
-  parts: ["helper"],
-  baseStyle: {
-    ...labelLegendText,
-  },
+  baseStyle: labelLegendText,
 };
 
 export default Label;

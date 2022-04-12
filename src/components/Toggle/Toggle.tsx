@@ -10,8 +10,6 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import { ToggleSizes } from "./ToggleTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface ToggleProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -21,7 +19,7 @@ export interface ToggleProps {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -62,7 +60,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
       additionalStyles = {},
       defaultChecked = false,
       helperText,
-      id = generateUUID(),
+      id,
       invalidText,
       isChecked,
       isDisabled = false,
@@ -75,10 +73,16 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
-    const styles = useMultiStyleConfig("Toggle", {});
+    const styles = useMultiStyleConfig("Toggle", { isDisabled });
     const switchStyles = useStyleConfig("Switch", { size });
     ariaAttributes["aria-label"] =
       labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Toggle: This component's required `id` prop was not passed."
+      );
+    }
 
     return (
       <>

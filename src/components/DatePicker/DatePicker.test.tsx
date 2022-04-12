@@ -28,7 +28,10 @@ const monthArray = [
 describe("DatePicker Accessibility", () => {
   it("passes axe accessibility for a single date input", async () => {
     const { container } = render(
-      <DatePicker labelText="Select the date you want to visit NYPL" />
+      <DatePicker
+        id="datePicker"
+        labelText="Select the date you want to visit NYPL"
+      />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -36,6 +39,7 @@ describe("DatePicker Accessibility", () => {
   it("passes axe accessibility for a date range", async () => {
     const { container } = render(
       <DatePicker
+        id="datePicker"
         labelText="Select the date range you want to visit NYPL"
         isDateRange
       />
@@ -67,7 +71,10 @@ describe("DatePicker", () => {
   describe("Single input", () => {
     it("should render the basic date input field including a date", () => {
       render(
-        <DatePicker labelText="Select the full date you want to visit NYPL" />
+        <DatePicker
+          id="datePicker"
+          labelText="Select the full date you want to visit NYPL"
+        />
       );
       const [year, month, day] = getTodaysValues();
       const date = getTodaysDateDisplay();
@@ -85,6 +92,7 @@ describe("DatePicker", () => {
     it("should render with an initial date", () => {
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the full date you want to visit NYPL"
           initialDate="1/2/1988"
         />
@@ -97,6 +105,7 @@ describe("DatePicker", () => {
     it("should render the 'month' DatePicker type", () => {
       render(
         <DatePicker
+          id="datePicker"
           dateType={DatePickerTypes.Month}
           labelText="Select the month you want to visit NYPL"
         />
@@ -115,6 +124,7 @@ describe("DatePicker", () => {
     it("should render the 'year' DatePicker type", () => {
       render(
         <DatePicker
+          id="datePicker"
           dateType={DatePickerTypes.Year}
           labelText="Select the month you want to visit NYPL"
         />
@@ -135,6 +145,7 @@ describe("DatePicker", () => {
       const customDateFormat2 = "MM/dd/yyyy";
       const { rerender } = render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           dateFormat={customDateFormat1}
         />
@@ -147,6 +158,7 @@ describe("DatePicker", () => {
       const dateFormat2 = `${month}/${day}/${year}`;
       rerender(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           dateFormat={customDateFormat2}
         />
@@ -157,6 +169,7 @@ describe("DatePicker", () => {
     it("should hide the input label but add an aria-label", () => {
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           showLabel={false}
         />
@@ -174,6 +187,7 @@ describe("DatePicker", () => {
     it("should render with helper text and error text", () => {
       const { rerender } = render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
@@ -193,6 +207,7 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
@@ -211,6 +226,7 @@ describe("DatePicker", () => {
     it("should not render the helper text or invalid text when 'showHelperInvalidText' is false", () => {
       const { rerender } = render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
@@ -226,6 +242,7 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
@@ -244,6 +261,7 @@ describe("DatePicker", () => {
     it("should render a disabled input field", () => {
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           isDisabled
@@ -258,6 +276,7 @@ describe("DatePicker", () => {
     it("should render a required label", () => {
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           isRequired
@@ -267,22 +286,18 @@ describe("DatePicker", () => {
       expect(screen.getByText(/required/i)).toBeInTheDocument();
     });
 
-    it("should hide the Optional/Required text in the label with `showOptReqLabel`", () => {
+    it("should hide the (Required) text in the label with `showRequiredLabel`", () => {
       const { rerender } = render(
-        <DatePicker labelText="Select the date you want to visit NYPL" />
-      );
-      expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-
-      rerender(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
-          showOptReqLabel={false}
         />
       );
-      expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
 
       rerender(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           isRequired
         />
@@ -291,8 +306,9 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
-          showOptReqLabel={false}
+          showRequiredLabel={false}
           isRequired
         />
       );
@@ -306,6 +322,7 @@ describe("DatePicker", () => {
       };
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           onChange={onChange}
@@ -339,6 +356,7 @@ describe("DatePicker", () => {
       const ref = React.createRef<TextInputRefType>();
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           ref={ref}
         />
@@ -355,6 +373,7 @@ describe("DatePicker", () => {
       const onChange = (_data) => {};
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           ref={ref}
           nameFrom="start-date"
@@ -437,6 +456,7 @@ describe("DatePicker", () => {
     it("should render the date range with two input fields", () => {
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date range you want to visit NYPL"
           isDateRange
         />
@@ -456,6 +476,7 @@ describe("DatePicker", () => {
     it("should render the initial dates", () => {
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the full date you want to visit NYPL"
           isDateRange
           initialDate="1/2/1988"
@@ -472,6 +493,7 @@ describe("DatePicker", () => {
     it("should render two input labels and three separate helper text", () => {
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextFrom="Note for the 'from' field."
@@ -498,6 +520,7 @@ describe("DatePicker", () => {
     it("should render different states based on respective props", () => {
       const { rerender } = render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
@@ -514,6 +537,7 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
+          id="datePicker"
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
@@ -528,6 +552,7 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
+          id="datePicker"
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextTo="Note for the 'to' field."
@@ -620,6 +645,7 @@ describe("DatePicker", () => {
     it("should select two new dates", () => {
       render(
         <DatePicker
+          id="datePicker"
           initialDate="3/2/1988"
           initialDateTo="3/28/1988"
           isDateRange
@@ -662,7 +688,12 @@ describe("DatePicker", () => {
 
   describe("Popup Calendar", () => {
     it("should render a popup calendar for the full date", () => {
-      render(<DatePicker labelText="Select the date you want to visit NYPL" />);
+      render(
+        <DatePicker
+          id="datePicker"
+          labelText="Select the date you want to visit NYPL"
+        />
+      );
       const input = screen.getByLabelText(
         /Select the date you want to visit NYPL/i
       );
@@ -692,6 +723,7 @@ describe("DatePicker", () => {
     it("should select a new date from the calendar", () => {
       render(
         <DatePicker
+          id="datePicker"
           labelText="Select the date you want to visit NYPL"
           initialDate="08/01/2021"
         />
@@ -736,6 +768,7 @@ describe("DatePicker", () => {
     it("should render a popup calendar for the month date", () => {
       render(
         <DatePicker
+          id="datePicker"
           dateType={DatePickerTypes.Month}
           labelText="Select the month you want to visit NYPL"
         />
@@ -762,6 +795,7 @@ describe("DatePicker", () => {
     it("should select a new month from the calendar", () => {
       render(
         <DatePicker
+          id="datePicker"
           dateType={DatePickerTypes.Month}
           initialDate="4/1/1988"
           labelText="Select the month you want to visit NYPL"
@@ -801,6 +835,7 @@ describe("DatePicker", () => {
     it("should render a popup calendar for the year date", () => {
       render(
         <DatePicker
+          id="datePicker"
           dateType={DatePickerTypes.Year}
           labelText="Select the year you want to visit NYPL"
         />
@@ -838,6 +873,7 @@ describe("DatePicker", () => {
     it("should select a new year from the calendar", () => {
       render(
         <DatePicker
+          id="datePicker"
           dateType={DatePickerTypes.Year}
           labelText="Select the year you want to visit NYPL"
         />
@@ -857,6 +893,18 @@ describe("DatePicker", () => {
       userEvent.click(screen.getByText("2024"));
 
       expect(screen.getByDisplayValue("2024")).toBeInTheDocument();
+    });
+
+    it("logs a warning when there is no `id` passed", () => {
+      const warn = jest.spyOn(console, "warn");
+      render(
+        // @ts-ignore: Typescript complains when a required prop is not passed, but
+        // here we don't want to pass the required prop to make sure the warning appears.
+        <DatePicker labelText="Select the year you want to visit NYPL" />
+      );
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed."
+      );
     });
   });
 });

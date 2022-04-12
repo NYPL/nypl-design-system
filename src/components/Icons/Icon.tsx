@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Icon as ChakraIcon, Box, useStyleConfig } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
 import {
   IconAlign,
   IconColors,
@@ -52,7 +51,7 @@ export default function Icon(props: React.PropsWithChildren<IconProps>) {
     color = IconColors.UiBlack,
     decorative = true,
     iconRotation = IconRotationTypes.Rotate0,
-    id = generateUUID(),
+    id,
     name,
     size = IconSizes.Default,
     title = `${name} icon`,
