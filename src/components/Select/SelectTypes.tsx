@@ -5,6 +5,6 @@ export enum SelectTypes {
 }
 
 export enum LabelPositions {
-  Top = "top",
+  Default = "default",
   Inline = "inline",
 }

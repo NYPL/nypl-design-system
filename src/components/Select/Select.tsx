@@ -78,7 +78,7 @@ const Select = React.forwardRef<
     isDisabled = false,
     isInvalid = false,
     isRequired = false,
-    labelPosition = LabelPositions.Top,
+    labelPosition = LabelPositions.Default,
     labelText,
     name,
     onChange,
@@ -123,10 +123,12 @@ const Select = React.forwardRef<
 
   useEffect(() => {
     if (labelPosition === LabelPositions.Inline) {
-      const width = labelRef?.current?.clientWidth + 8;
-      setLabelWidth(width);
+      if (labelRef.current) {
+        const width = labelRef.current.clientWidth + 8;
+        setLabelWidth(width);
+      }
     }
-  }, [labelRef.current]);
+  }, [labelPosition]);
 
   return (
     <Box

@@ -50,7 +50,7 @@ export const labelPositionsEnumValues = getStorybookEnumValues(
     },
     labelPosition: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "LabelPositions.Top" } },
+      table: { defaultValue: { summary: "LabelPositions.Default" } },
       options: labelPositionsEnumValues.options,
     },
     name: { control: false },
@@ -100,7 +100,7 @@ is left blank, a value will be generated for you.
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
-      labelPosition: "LabelPositions.Top",
+      labelPosition: "LabelPositions.Default",
       labelText: "What is your favorite color?",
       name: "color",
       onChange: undefined,
