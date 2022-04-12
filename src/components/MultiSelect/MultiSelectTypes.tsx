@@ -8,11 +8,12 @@ export interface SelectedItems {
   [name: string]: { items: string[] };
 }
 
+// @TODO Just do "Default" and "Full"
 export enum MultiSelectWidths {
   Default = "default",
-  Small = "small",
-  Medium = "medium",
-  Large = "large",
+  // Small = "small",
+  // Medium = "medium",
+  // Large = "large",
   Full = "full",
 }
 

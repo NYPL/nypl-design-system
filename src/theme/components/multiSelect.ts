@@ -1,31 +1,44 @@
+// const multiSelectWidths = {
+//   default: {
+//     minWidth: {
+//       base: "100%",
+//       //md: "fit-content",
+//       md: "225px",
+//     },
+//   },
+//   /*small: {
+//     minWidth: {
+//       base: "100%",
+//       md: "165px",
+//     },
+//   },
+//   medium: {
+//     minWidth: {
+//       base: "100%",
+//       md: "225px",
+//     },
+//   },
+//   large: {
+//     minWidth: {
+//       base: "100%",
+//       md: "360px",
+//     },
+//   },
+//   */
+//   full: {
+//     minWidth: "100%",
+//   },
+// };
+
 const multiSelectWidths = {
   default: {
-    minWidth: {
+    width: {
       base: "100%",
-      //md: "fit-content",
-      md: "275px",
-    },
-  },
-  small: {
-    minWidth: {
-      base: "100%",
-      md: "165px",
-    },
-  },
-  medium: {
-    minWidth: {
-      base: "100%",
-      md: "225px",
-    },
-  },
-  large: {
-    minWidth: {
-      base: "100%",
-      md: "360px",
+      md: "245px",
     },
   },
   full: {
-    minWidth: "100%",
+    width: "100%",
   },
 };
 
@@ -38,10 +51,12 @@ const MultiSelect = {
     "selectedItemsCountButton",
   ],
   baseStyle: ({ width = "default", isBlockElement }) => ({
-    width: {
+    /*width: {
       base: "100%",
       md: "fit-content",
     },
+    */
+    position: "relative",
     ...multiSelectWidths[width],
     margin: {
       base: ".75rem 0",
@@ -54,7 +69,7 @@ const MultiSelect = {
         md: "175px",
       },
       */
-      ...multiSelectWidths[width],
+      //...multiSelectWidths[width],
       justifyContent: "space-between",
     },
     menuContainer: {
@@ -62,11 +77,17 @@ const MultiSelect = {
         md: isBlockElement ? "relative" : "absolute",
       },
       zIndex: isBlockElement ? 0 : 1,
-      minWidth: {
+      /*minWidth: {
         base: "100%",
-        md: "275px",
+        md: "300px",
       },
-      //...multiSelectWidths[width],
+      */
+      width: "100%",
+      // width: {
+      //   base: "100%",
+      //   md: "fit-content",
+      // },
+      // ...multiSelectWidths[width],
       // These are for active states
       boxSizing: "border-box",
       background: "white",
@@ -102,8 +123,8 @@ const MultiSelect = {
     },
     selectedItemsCountButton: {
       marginRight: "xs",
-      paddingLeft: "s",
-      paddingRight: "s",
+      paddingLeft: "xs",
+      paddingRight: "xs",
       backgroundColor: "ui.gray.x-light-cool",
       border: "1px",
       borderRadius: "20px",

@@ -23,7 +23,7 @@ function MultiSelectListbox({
   onChange,
   selectedItems,
   onClear,
-  width = MultiSelectWidths.Small,
+  width = MultiSelectWidths.Default,
   isBlockElement = false,
 }: MultiSelectListboxProps) {
   const styles = useMultiStyleConfig("MultiSelect", { width, isBlockElement });

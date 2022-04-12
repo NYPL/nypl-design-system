@@ -68,7 +68,7 @@ export default function MultiSelect({
   defaultIsOpen,
   isBlockElement = false,
 }: MultiSelectProps) {
-  const multiSelectSharedProps = {
+  const commonProps = {
     id: id,
     label: label,
     variant: variant,
@@ -86,12 +86,7 @@ export default function MultiSelect({
       id: string
     ) => void;
 
-    return (
-      <MultiSelectListBox
-        {...multiSelectSharedProps}
-        onChange={listboxOnChange}
-      />
-    );
+    return <MultiSelectListBox {...commonProps} onChange={listboxOnChange} />;
   }
 
   if (variant === "dialog") {
@@ -101,17 +96,9 @@ export default function MultiSelect({
 
     return (
       <MultiSelectDialog
-        // id={id}
-        // label={label}
-        // variant={variant}
-        // defaultIsOpen={defaultIsOpen}
-        // items={items}
-        // selectedItems={selectedItems}
-        // width={width}
-        {...multiSelectSharedProps}
+        {...commonProps}
         onChange={dialogOnChange}
         onMixedStateChange={onMixedStateChange}
-        // onClear={onClear}
         onApply={onApply}
       />
     );
