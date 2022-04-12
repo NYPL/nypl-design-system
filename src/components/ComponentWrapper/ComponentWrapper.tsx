@@ -7,8 +7,6 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import Text from "../Text/Text";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface ComponentWrapperProps {
   /** The UI elements that will be wrapped by this component */
   children: React.ReactNode;
@@ -35,7 +33,7 @@ function ComponentWrapper(
     descriptionText,
     headingText,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isInvalid = false,
   } = props;
