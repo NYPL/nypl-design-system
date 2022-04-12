@@ -112,7 +112,10 @@ is left blank, a value will be generated for you.
     }}
   >
     {(args) => (
-      <Select {...args}>
+      <Select
+        {...args}
+        labelPosition={labelPositionsEnumValues.getValue(args.labelPosition)}
+      >
         <option value="red">Red</option>
         <option value="green">Green</option>
         <option value="blue">Blue</option>
