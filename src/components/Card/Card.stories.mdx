@@ -99,6 +99,22 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
 | Added             | `0.24.0`   |
 | Latest            | `0.25.13`  |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Image Position](#image-position)
+- [Image Size](#image-size)
+- [Custom Image Component](#custom-image-component)
+- [Card With Link Heading](#card-with-link-heading)
+- [Card With Full-Click Functionality](#card-with-full-click-functionality)
+- [Cards in a Grid](#cards-in-a-grid)
+- [Cards in a Stack](#cards-in-a-stack)
+- [Card Without Images](#card-without-images)
+
+## Overview
+
 <Description of={Card} />
 
 The `Card` component is viewed as a contained, stand-alone element. It is highly
@@ -109,21 +125,23 @@ order and each child component may be used multiple times within the content
 area. Although a `Card` is a self-contained unit, `Card` components are often
 grouped together and displayed in some type of grid layout.
 
-#### CardHeading
+### CardHeading
 
 The `CardHeading` component mirrors the standard DS `Heading` component and
 accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/components-typography-styles-heading--heading-with-controls).
 
-#### CardActions
+### CardActions
 
 The `CardActions` component is used to display "call to action" (CTA) buttons
 and links for the card. The DS `Button` and `Link` components should be passed
 as children into the `CardActions` component.
 
-#### CardContent
+### CardContent
 
 The `CardContent` component should be used to display all content other than
 headings and CTAs.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -199,6 +217,40 @@ headings and CTAs.
 </Canvas>
 
 <ArgsTable story="Card with Controls" />
+
+## Accessibility
+
+### Headings
+
+In general, headings from `h1` through `h6` must be in sequential order in the
+DOM tree. Rendering an `h4` following an `h2` will throw an accessibility error.
+Therefore, when adding `CardHeading` components, make sure to add them in
+sequential order with the proper `level` prop.
+
+```tsx
+// Correct
+<CardHeading level={HeadingLevels.Three} id="headingthree">
+  Heading level three
+</CardHeading>
+<CardHeading level={HeadingLevels.Four} id="headingfour">
+  Heading level four
+</CardHeading>
+
+// Incorrect
+<CardHeading level={HeadingLevels.Two} id="headingtwo">
+  Heading level Two
+</CardHeading>
+<CardHeading level={HeadingLevels.Four} id="headingfour">
+  Heading level four
+</CardHeading>
+```
+
+### Full-Click Functionality
+
+Passing in a URL in the `mainActionLink` prop will make the entire `Card`
+clickable. Other links in the `CardActions` component can still be accessed by
+tabbing through and pressing "enter" or by clicking as you normally would on a
+link.
 
 ## Image Position
 
@@ -566,6 +618,155 @@ prop to override the default width.
   </DSProvider>
 </Canvas>
 
+## Custom Image Component
+
+Instead of passing a path for the `imageProps.src` prop, you can pass a custom
+image component in using the `imageProps.component` prop.
+
+<Canvas withToolbar>
+  <Story name="Custom Image Component">
+    <Card
+      imageProps={{
+        alt: "Alt text",
+        aspectRatio: ImageRatios.SixteenByNine,
+        component: (
+          <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
+        ),
+        src: "https://placeimg.com/400/200/animals",
+      }}
+    >
+      <CardHeading level={HeadingLevels.Two} id="img1-heading1">
+        Card Component with Custom Image Component
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Three} id="img2-heading2">
+        Secondary Heading
+      </CardHeading>
+      <CardContent>
+        Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean lacinia bibendum nulla sed
+        consectetur. Vestibulum id ligula porta felis euismod semper. Cras justo
+        odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
+        consectetur est at lobortis.
+      </CardContent>
+      <CardActions>
+        <Link type={LinkTypes.Button} href="#">
+          Reserve
+        </Link>
+        <Link href="#url" type={LinkTypes.Forwards}>
+          View Book Details
+        </Link>
+      </CardActions>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card with Link Heading
+
+The `CardHeading` component works just like the DS `Heading` component. This
+means that a URL can be passed in the `url` prop for `CardHeading` or a `Link`
+component can be used as a child. Click on "Show code" in the example below to
+see both patterns.
+
+<Canvas>
+  <Story name="Card With Link Heading">
+    <Card
+      imageProps={{
+        alt: "Alt text",
+        aspectRatio: ImageRatios.TwoByOne,
+        src: "https://placeimg.com/400/200/animals",
+      }}
+    >
+      <CardHeading
+        level={HeadingLevels.Three}
+        id="link-heading1"
+        url="http://nypl.org"
+      >
+        Go to NYPL home page.
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Four} id="link-heading2">
+        <>
+          Go to NYPL <Link href="http://nypl.org">home page</Link>.
+        </>
+      </CardHeading>
+      <CardContent>
+        This entire `Card` component is clickable, but the links below are still
+        accessible by tabbing through the `Card` and pressing `enter` or
+        clicking with a mouse.
+      </CardContent>
+      <CardActions>
+        <Link href="#" type={LinkTypes.Button}>
+          Button
+        </Link>
+        <Link href="#" type={LinkTypes.Forwards}>
+          Other link
+        </Link>
+      </CardActions>
+    </Card>
+  </Story>
+</Canvas>
+
+## Card With Full-Click Functionality
+
+To enable the full-click functionality in the `Card` component, pass a URL in
+the `mainActionLink` prop. This will make the entire `Card` component clickable.
+If the `Card` has action links or buttons, they can still be accessed by tabbing
+through the `Card` and pressing `enter` or clicking like a regular link.
+
+Internally, if multiple `CardHeading` components are passed, only the first one
+will have the full-click link. This, however, does not affect the `Card` itself
+from being having the full-click functionality.
+
+<Canvas>
+  <Story name="Card With Full-Click Functionality">
+    <SimpleGrid columns={2}>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: ImageRatios.TwoByOne,
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        mainActionLink="http://nypl.org"
+      >
+        <CardHeading level={HeadingLevels.Three} id="fullclick1-heading1">
+          Go to NYPL home page.
+        </CardHeading>
+        <CardHeading level={HeadingLevels.Four} id="fullclick1-heading2">
+          Some other heading.
+        </CardHeading>
+        <CardContent>
+          This entire `Card` component is clickable, but the links below are
+          still accessible by tabbing through the `Card` and pressing `enter` or
+          clicking with a mouse.
+        </CardContent>
+        <CardActions>
+          <Link href="#" type={LinkTypes.Button}>
+            Button
+          </Link>
+          <Link href="#" type={LinkTypes.Forwards}>
+            Other link
+          </Link>
+        </CardActions>
+      </Card>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: ImageRatios.TwoByOne,
+          isAtEnd: true,
+          src: "https://placeimg.com/410/210/animals",
+        }}
+        mainActionLink="http://nypl.org"
+      >
+        <CardHeading level={HeadingLevels.Three} id="fullclick2-heading1">
+          Go to NYPL home page.
+        </CardHeading>
+        <CardContent>
+          This `Card` component does not have any extra links.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </Story>
+</Canvas>
+
 ## Cards in a Grid
 
 <Canvas>
@@ -728,48 +929,6 @@ prop to override the default width.
   </Story>
 </Canvas>
 
-## Custom Image Component
-
-Instead of passing a path for the `imageProps.src` prop, you can pass a custom
-image component in using the `imageProps.component` prop.
-
-<Canvas withToolbar>
-  <Story name="Custom Image Component">
-    <Card
-      imageProps={{
-        alt: "Alt text",
-        aspectRatio: ImageRatios.SixteenByNine,
-        component: (
-          <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
-        ),
-        src: "https://placeimg.com/400/200/animals",
-      }}
-    >
-      <CardHeading level={HeadingLevels.Two} id="img1-heading1">
-        Card Component with Custom Image Component
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Three} id="img2-heading2">
-        Secondary Heading
-      </CardHeading>
-      <CardContent>
-        Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Aenean lacinia bibendum nulla sed
-        consectetur. Vestibulum id ligula porta felis euismod semper. Cras justo
-        odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
-        consectetur est at lobortis.
-      </CardContent>
-      <CardActions>
-        <Link type={LinkTypes.Button} href="#">
-          Reserve
-        </Link>
-        <Link href="#url" type={LinkTypes.Forwards}>
-          View Book Details
-        </Link>
-      </CardActions>
-    </Card>
-  </Story>
-</Canvas>
-
 ## Cards Without Images
 
 <Canvas>
@@ -850,135 +1009,3 @@ image component in using the `imageProps.component` prop.
     </SimpleGrid>
   </Story>
 </Canvas>
-
-## Card with Link Heading
-
-The `CardHeading` component works just like the DS `Heading` component. This
-means that a URL can be passed in the `url` prop for `CardHeading` or a `Link`
-component can be used as a child. Click on "Show code" in the example below to
-see both patterns.
-
-<Canvas>
-  <Story name="Card With Link Heading">
-    <Card
-      imageProps={{
-        alt: "Alt text",
-        aspectRatio: ImageRatios.TwoByOne,
-        src: "https://placeimg.com/400/200/animals",
-      }}
-    >
-      <CardHeading
-        level={HeadingLevels.Three}
-        id="link-heading1"
-        url="http://nypl.org"
-      >
-        Go to NYPL home page.
-      </CardHeading>
-      <CardHeading level={HeadingLevels.Four} id="link-heading2">
-        <>
-          Go to NYPL <Link href="http://nypl.org">home page</Link>.
-        </>
-      </CardHeading>
-      <CardContent>
-        This entire `Card` component is clickable, but the links below are still
-        accessible by tabbing through the `Card` and pressing `enter` or
-        clicking with a mouse.
-      </CardContent>
-      <CardActions>
-        <Link href="#" type={LinkTypes.Button}>
-          Button
-        </Link>
-        <Link href="#" type={LinkTypes.Forwards}>
-          Other link
-        </Link>
-      </CardActions>
-    </Card>
-  </Story>
-</Canvas>
-
-## Card With Full-Click Functionality
-
-To enable the full-click functionality in the `Card` component, pass a URL in
-the `mainActionLink` prop. This will make the entire `Card` component clickable.
-If the `Card` has action links or buttons, they can still be accessed by tabbing
-through the `Card` and pressing `enter` or clicking like a regular link.
-
-Internally, if multiple `CardHeading` components are passed, only the first one
-will have the full-click link. This, however, does not affect the `Card` itself
-from being having the full-click functionality.
-
-<Canvas>
-  <Story name="Card With Full-Click Functionality">
-    <SimpleGrid columns={2}>
-      <Card
-        imageProps={{
-          alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
-          src: "https://placeimg.com/400/200/animals",
-        }}
-        mainActionLink="http://nypl.org"
-      >
-        <CardHeading level={HeadingLevels.Three} id="fullclick1-heading1">
-          Go to NYPL home page.
-        </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="fullclick1-heading2">
-          Some other heading.
-        </CardHeading>
-        <CardContent>
-          This entire `Card` component is clickable, but the links below are
-          still accessible by tabbing through the `Card` and pressing `enter` or
-          clicking with a mouse.
-        </CardContent>
-        <CardActions>
-          <Link href="#" type={LinkTypes.Button}>
-            Button
-          </Link>
-          <Link href="#" type={LinkTypes.Forwards}>
-            Other link
-          </Link>
-        </CardActions>
-      </Card>
-      <Card
-        imageProps={{
-          alt: "Alt text",
-          aspectRatio: ImageRatios.TwoByOne,
-          isAtEnd: true,
-          src: "https://placeimg.com/410/210/animals",
-        }}
-        mainActionLink="http://nypl.org"
-      >
-        <CardHeading level={HeadingLevels.Three} id="fullclick2-heading1">
-          Go to NYPL home page.
-        </CardHeading>
-        <CardContent>
-          This `Card` component does not have any extra links.
-        </CardContent>
-      </Card>
-    </SimpleGrid>
-  </Story>
-</Canvas>
-
-## Accessibility
-
-### Headings
-
-In general, headings from `h1` through `h6` must be in sequential order in the
-DOM tree. Rendering an `h4` following an `h2` will throw an error. Therefore,
-when adding `CardHeading` components, make sure to add them in sequential order
-with the `level` prop.
-
-```tsx
-<CardHeading level={HeadingLevels.Three} id="headingthree">
-  Heading level three
-</CardHeading>
-<CardHeading level={HeadingLevels.Four} id="headingfour">
-  Heading level four
-</CardHeading>
-```
-
-### Full-Click Functionality
-
-Passing in a URL in the `mainActionLink` prop will make the entire `Card`
-clickable. Other links in the `CardActions` component can still be accessed by
-tabbing through and pressing "enter" or by clicking as you normally would on a
-link.
