@@ -18,13 +18,15 @@ type MultiSelectListboxProps = Omit<MultiSelectProps, "onChange"> & {
 function MultiSelectListbox({
   id,
   label,
+  defaultIsOpen,
   items,
   onChange,
   selectedItems,
   onClear,
   width = MultiSelectWidths.Small,
+  isBlockElement = false,
 }: MultiSelectListboxProps) {
-  const styles = useMultiStyleConfig("MultiSelect", { width });
+  const styles = useMultiStyleConfig("MultiSelect", { width, isBlockElement });
   // Downshift
   const {
     isOpen,
@@ -55,6 +57,7 @@ function MultiSelectListbox({
     onSelectedItemChange: ({ selectedItem }) => {
       onChange(selectedItem, id);
     },
+    initialIsOpen: defaultIsOpen,
   });
 
   return (

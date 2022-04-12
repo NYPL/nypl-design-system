@@ -23,6 +23,10 @@ interface MultiSelectCommonProps {
   width?: MultiSelectWidths;
   /** The action to perform for clear/reset button of multiselect.. */
   onClear?: () => void;
+  /** Set the default open or closed state of the multiselect. */
+  defaultIsOpen?: boolean;
+  /** Boolean value used to control how the MultiSelect component will render within the page and interact with other DOM elements. */
+  isBlockElement?: boolean;
 }
 
 type MultiSelectVariantsProps =
@@ -32,24 +36,13 @@ type MultiSelectVariantsProps =
       onChange: (selectedItem: MultiSelectItem, id: string) => void;
       // These are props that are never allowed on the listbox variant.
       onMixedStateChange?: never;
-      isOpen?: never;
-      isMobile?: never;
-      onMenuToggle?: never;
       onApply?: never;
     }
   | {
       variant: "dialog";
-      /** The open status of the multiselect menu. */
-      isOpen: boolean;
-      /** Whether the multiselect is in mobile mode or not. */
-      isMobile?: boolean;
-      /** The action to perform for the multiselect menu toggle button. */
-      onMenuToggle?: () => void;
       /** The action to perform on the checkbox's onChange function.  */
       onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
       /** The action to perform for a mixed state checkbox (parent checkbox). */
-      // @TODO this is wrong, fix.
-      //onMixedStateChange?: (childItems: string[]) => void;
       onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
       /** The action to perform for save/apply button of multiselect. */
       onApply: () => void;
@@ -72,10 +65,21 @@ export default function MultiSelect({
   onClear,
   onApply,
   onMixedStateChange,
-  onMenuToggle,
-  isMobile,
-  isOpen,
+  defaultIsOpen,
+  isBlockElement = false,
 }: MultiSelectProps) {
+  const multiSelectSharedProps = {
+    id: id,
+    label: label,
+    variant: variant,
+    items: items,
+    selectedItems: selectedItems,
+    width: width,
+    onClear: onClear,
+    defaultIsOpen: defaultIsOpen,
+    isBlockElement: isBlockElement,
+  };
+
   if (variant === "listbox") {
     const listboxOnChange = onChange as (
       selectedItem: MultiSelectItem,
@@ -84,14 +88,8 @@ export default function MultiSelect({
 
     return (
       <MultiSelectListBox
-        id={id}
-        label={label}
-        variant={variant}
-        items={items}
-        selectedItems={selectedItems}
-        width={width}
+        {...multiSelectSharedProps}
         onChange={listboxOnChange}
-        onClear={onClear}
       />
     );
   }
@@ -103,19 +101,18 @@ export default function MultiSelect({
 
     return (
       <MultiSelectDialog
-        id={id}
-        label={label}
-        variant={variant}
-        items={items}
-        selectedItems={selectedItems}
-        width={width}
+        // id={id}
+        // label={label}
+        // variant={variant}
+        // defaultIsOpen={defaultIsOpen}
+        // items={items}
+        // selectedItems={selectedItems}
+        // width={width}
+        {...multiSelectSharedProps}
         onChange={dialogOnChange}
-        onClear={onClear}
-        onApply={onApply}
-        isOpen={isOpen}
-        isMobile={isMobile}
-        onMenuToggle={onMenuToggle}
         onMixedStateChange={onMixedStateChange}
+        // onClear={onClear}
+        onApply={onApply}
       />
     );
   }

@@ -96,23 +96,28 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
   }
 
   return (
-    <MultiSelect
-      variant="listbox"
-      {...args}
-      items={items}
-      selectedItems={selectedItems}
-      onChange={(selectedItem) => {
-        handleChange(args.id, selectedItem.id);
-      }}
-      onClear={() => setSelectedItems({})}
-    />
+    <>
+      <MultiSelect
+        {...args}
+        variant="listbox"
+        items={items}
+        selectedItems={selectedItems}
+        onChange={(selectedItem) => {
+          handleChange(args.id, selectedItem.id);
+        }}
+        onClear={() => setSelectedItems({})}
+      />
+      <div>
+        If you already have props as an object, and you want to pass it in JSX,
+        you can use ... as a “spread” operator to pass the whole props object.
+        These two components are equivalent:
+      </div>
+    </>
   );
 };
 
 export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   const [selectedItems, setSelectedItems] = useState({});
-  const [openMultiSelectId, setOpenMultiSelectId] = useState(null);
-  const isOpen = openMultiSelectId === args.id;
 
   function handleChange(multiSelectId: string, itemId: string) {
     let itemIds;
@@ -181,30 +186,29 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
   }
 
   return (
-    <MultiSelect
-      {...args}
-      variant="dialog"
-      items={items}
-      isOpen={isOpen}
-      onMenuToggle={() => {
-        if (openMultiSelectId === args.id) {
-          setOpenMultiSelectId(null);
-        } else {
-          setOpenMultiSelectId(args.id);
-        }
-      }}
-      selectedItems={selectedItems}
-      onChange={(e) => handleChange(args.id, e.target.id)}
-      onMixedStateChange={(e) => {
-        handleMixedStateChange(e.target.id);
-      }}
-      onApply={() => {
-        setOpenMultiSelectId(null);
-      }}
-      onClear={() => {
-        setSelectedItems({});
-        setOpenMultiSelectId(null);
-      }}
-    />
+    <>
+      <MultiSelect
+        {...args}
+        variant="dialog"
+        items={items}
+        defaultIsOpen={false}
+        selectedItems={selectedItems}
+        onChange={(e) => handleChange(args.id, e.target.id)}
+        onMixedStateChange={(e) => {
+          handleMixedStateChange(e.target.id);
+        }}
+        onApply={() => {
+          console.log("onApply from consuming!");
+        }}
+        onClear={() => {
+          setSelectedItems({});
+        }}
+      />
+      <div>
+        If you already have props as an object, and you want to pass it in JSX,
+        you can use ... as a “spread” operator to pass the whole props object.
+        These two components are equivalent:
+      </div>
+    </>
   );
 };

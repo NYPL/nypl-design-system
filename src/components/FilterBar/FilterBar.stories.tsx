@@ -231,16 +231,7 @@ export const FilterBarWithMultiSelects: Story<FilterBarProps> = (args) => {
 
 export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [openMultiSelectId, setOpenMultiSelectId] = useState(null);
   const [selectedItems, setSelectedItems] = useState({});
-
-  function handleMenuToggle(multiSelectId: string) {
-    if (openMultiSelectId === multiSelectId) {
-      setOpenMultiSelectId(null);
-    } else {
-      setOpenMultiSelectId(multiSelectId);
-    }
-  }
 
   function handleChange(multiSelectId: string, itemId: string) {
     let itemIds;
@@ -343,20 +334,17 @@ export const FilterBarWithMultiDialogs: Story<FilterBarProps> = (args) => {
             id={multiSelect.id}
             label={multiSelect.label}
             items={multiSelect.items}
-            isOpen={openMultiSelectId === multiSelect.id}
-            isMobile={args.isMobile}
-            onMenuToggle={() => handleMenuToggle(multiSelect.id)}
             selectedItems={selectedItems}
             onChange={(e) => handleChange(multiSelect.id, e.target.id)}
             onMixedStateChange={(e) => {
               handleMixedStateChange(multiSelect.id, e.target.id);
             }}
             onApply={() => {
-              setOpenMultiSelectId(null);
+              console.log("on apply");
             }}
             onClear={() => {
               setSelectedItems({});
-              setOpenMultiSelectId(null);
+              console.log("on clear");
             }}
           />
         );

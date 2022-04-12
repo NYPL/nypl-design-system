@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
@@ -13,6 +13,8 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import FocusLock from "react-focus-lock";
+import useOnClickOutside from "./../../hooks/useOnClickOutside";
+import useWindowSize from "./../../hooks/useWindowSize";
 
 type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -22,17 +24,34 @@ function MultiSelectDialog({
   id,
   label,
   items,
-  isOpen,
-  isMobile,
+  defaultIsOpen = false,
   onChange,
   onMixedStateChange,
   selectedItems,
-  onMenuToggle,
   onApply,
   onClear,
   width = MultiSelectWidths.Default,
+  isBlockElement = false,
 }: MultiSelectDialogProps) {
-  const styles = useMultiStyleConfig("MultiSelect", { width });
+  const styles = useMultiStyleConfig("MultiSelect", { width, isBlockElement });
+
+  // Track the window size width, to set isMobile.
+  const [isMobile, setIsMobile] = useState<boolean>();
+  const windowDimensions = useWindowSize();
+  useEffect(() => {
+    if (windowDimensions.width >= 320) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }, [windowDimensions.width]);
+
+  // Control the open or closed state of the multiselect.
+  const [isOpen, setIsOpen] = useState(defaultIsOpen);
+  // Create a ref that we add to the element for which we want to detect outside clicks.
+  const ref = useRef();
+  // Closes the multiselect if click outside event.
+  useOnClickOutside(ref, () => setIsOpen(false));
 
   // Control focus lock state.
   const [focusLockDisabled, setFocusLockDisabled] = useState(false);
@@ -94,13 +113,15 @@ function MultiSelectDialog({
   }
 
   return (
-    <Box id={id} __css={styles}>
+    <Box id={id} ref={ref} __css={styles}>
       <MultiSelectMenuButton
         multiSelectId={id}
         label={label}
         isOpen={isOpen}
         selectedItems={selectedItems}
-        onMenuToggle={onMenuToggle}
+        onMenuToggle={() => {
+          setIsOpen(!isOpen);
+        }}
         onClear={onClear}
       />
       <FocusLock disabled={focusLockDisabled}>
@@ -186,7 +207,12 @@ function MultiSelectDialog({
                 buttonType={ButtonTypes.Primary}
                 mouseDown={false}
                 type="button"
-                onClick={onApply}
+                onClick={() => {
+                  // Close the multiselect on apply.
+                  setIsOpen(false);
+                  // Run the onApply prop function.
+                  onApply();
+                }}
               >
                 Apply Filters
               </Button>
