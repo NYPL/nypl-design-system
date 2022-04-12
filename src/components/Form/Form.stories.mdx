@@ -1,4 +1,4 @@
-import { ButtonGroup, Flex, Spacer } from "@chakra-ui/react";
+import { Flex, Spacer } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import {
   ArgsTable,
@@ -231,6 +231,7 @@ need to render multiple input components in a horizontal row.
             <Select
               helperText="The select field helper text."
               labelText="Select Field"
+              showLabel={true}
             >
               <option>Option 1</option>
               <option>Option 2</option>
@@ -240,22 +241,9 @@ need to render multiple input components in a horizontal row.
             </Select>
           </FormField>
         </FormRow>
-        <FormRow>
-          <FormField>
-            <Select labelText="Select Field" showLabel={false}>
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
-              <option>Option 4</option>
-              <option>Option 5</option>
-            </Select>
-          </FormField>
-          <FormField>
-            <ButtonGroup>
-              <Button>Submit</Button>
-            </ButtonGroup>
-          </FormField>
-        </FormRow>
+        <FormField>
+          <Button>Submit</Button>
+        </FormField>
       </Form>
     )}
   </Story>

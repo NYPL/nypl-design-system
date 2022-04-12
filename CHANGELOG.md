@@ -36,10 +36,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the default `Optional` text displayed in the `Label` and `Fieldset` components.
 - Removes the `optReqFlag` prop in the `Label` component.
 
-### Fixes
-
-- Fixes how the `Button` component gets rendered inside the `Form` and `FormField` component layout.
-
 ## 0.25.13 (April 1, 2022)
 
 ### Adds
