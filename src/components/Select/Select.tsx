@@ -107,7 +107,6 @@ const Select = React.forwardRef<
   // To control the `Select` component, both `onChange` and `value`
   // must be passed.
   const controlledProps = onChange ? { onChange, value } : {};
-  console.log("rendering select!!");
 
   if (!showLabel) {
     ariaAttributes["aria-label"] =
@@ -124,13 +123,10 @@ const Select = React.forwardRef<
 
   useEffect(() => {
     if (labelPosition === LabelPositions.Inline) {
-      // console.log("labelRef -->", labelRef);
       const width = labelRef?.current?.clientWidth + 8;
       setLabelWidth(width);
     }
   }, [labelRef.current]);
-
-  console.log("labelWidth -->", labelWidth);
 
   return (
     <Box

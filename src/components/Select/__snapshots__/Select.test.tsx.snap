@@ -7,13 +7,17 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
   <div
     className="css-0"
   >
-    <label
+    <div
       className="css-0"
-      htmlFor="select"
-      id="select-label"
     >
-      Which Succession sibling are you?
-    </label>
+      <label
+        className="css-0"
+        htmlFor="select"
+        id="select-label"
+      >
+        Which Succession sibling are you?
+      </label>
+    </div>
     <div
       className="chakra-select__wrapper css-42b2qy"
     >
@@ -90,13 +94,17 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
   <div
     className="css-0"
   >
-    <label
+    <div
       className="css-0"
-      htmlFor="select"
-      id="select-label"
     >
-      Which Succession sibling are you?
-    </label>
+      <label
+        className="css-0"
+        htmlFor="select"
+        id="select-label"
+      >
+        Which Succession sibling are you?
+      </label>
+    </div>
     <div
       className="chakra-select__wrapper css-42b2qy"
     >
@@ -174,13 +182,17 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
   <div
     className="css-0"
   >
-    <label
+    <div
       className="css-0"
-      htmlFor="select"
-      id="select-label"
     >
-      Which Succession sibling are you?
-    </label>
+      <label
+        className="css-0"
+        htmlFor="select"
+        id="select-label"
+      >
+        Which Succession sibling are you?
+      </label>
+    </div>
     <div
       className="chakra-select__wrapper css-42b2qy"
     >
@@ -275,13 +287,17 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
   <div
     className="css-0"
   >
-    <label
+    <div
       className="css-0"
-      htmlFor="select"
-      id="select-label"
     >
-      Which Succession sibling are you?
-    </label>
+      <label
+        className="css-0"
+        htmlFor="select"
+        id="select-label"
+      >
+        Which Succession sibling are you?
+      </label>
+    </div>
     <div
       className="chakra-select__wrapper css-42b2qy"
     >
@@ -376,16 +392,20 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
   <div
     className="css-0"
   >
-    <label
+    <div
       className="css-0"
-      htmlFor="select"
-      id="select-label"
     >
-      Which Succession sibling are you?
-      <span>
-         (Required)
-      </span>
-    </label>
+      <label
+        className="css-0"
+        htmlFor="select"
+        id="select-label"
+      >
+        Which Succession sibling are you?
+        <span>
+           (Required)
+        </span>
+      </label>
+    </div>
     <div
       className="chakra-select__wrapper css-42b2qy"
     >
@@ -463,16 +483,20 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
   <div
     className="css-0"
   >
-    <label
+    <div
       className="css-0"
-      htmlFor="select"
-      id="select-label"
     >
-      Which Succession sibling are you?
-      <span>
-         (Required)
-      </span>
-    </label>
+      <label
+        className="css-0"
+        htmlFor="select"
+        id="select-label"
+      >
+        Which Succession sibling are you?
+        <span>
+           (Required)
+        </span>
+      </label>
+    </div>
     <div
       className="chakra-select__wrapper css-42b2qy"
     >
@@ -550,13 +574,17 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
   <div
     className="css-0"
   >
-    <label
+    <div
       className="css-0"
-      htmlFor="select"
-      id="select-label"
     >
-      Which Succession sibling are you?
-    </label>
+      <label
+        className="css-0"
+        htmlFor="select"
+        id="select-label"
+      >
+        Which Succession sibling are you?
+      </label>
+    </div>
     <div
       className="chakra-select__wrapper css-42b2qy"
     >
