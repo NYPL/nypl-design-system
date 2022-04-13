@@ -58,21 +58,17 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       />
     </div>
     <div
-      className="css-0"
-    >
-      <div
-        aria-atomic={true}
-        aria-live="off"
-        className=" css-0"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "VideoPlayer helper test.",
-          }
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "VideoPlayer helper test.",
         }
-        data-isinvalid={false}
-        id="video-player-with-text-componentWrapper-helperText"
-      />
-    </div>
+      }
+      data-isinvalid={false}
+      id="video-player-with-text-componentWrapper-helperText"
+    />
   </div>
 </div>
 `;
@@ -109,21 +105,17 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       />
     </div>
     <div
-      className="css-0"
-    >
-      <div
-        aria-atomic={true}
-        aria-live="off"
-        className=" css-0"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "VideoPlayer helper test.",
-          }
+      aria-atomic={true}
+      aria-live="off"
+      className=" css-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "VideoPlayer helper test.",
         }
-        data-isinvalid={false}
-        id="video-player-with-text-componentWrapper-helperText"
-      />
-    </div>
+      }
+      data-isinvalid={false}
+      id="video-player-with-text-componentWrapper-helperText"
+    />
   </div>
 </div>
 `;

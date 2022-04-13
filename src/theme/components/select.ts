@@ -1,8 +1,4 @@
-import {
-  activeFocus,
-  helperTextMargin,
-  selectTextinputDisabledStyles,
-} from "./global";
+import { activeFocus, selectTextInputDisabledStyles } from "./global";
 
 const select = {
   backgroundColor: "ui.white",
@@ -18,7 +14,7 @@ const select = {
   },
   _active: activeFocus(),
   _disabled: {
-    ...selectTextinputDisabledStyles,
+    ...selectTextInputDisabledStyles,
   },
   _invalid: {
     border: "1px solid",
@@ -28,7 +24,7 @@ const select = {
 };
 
 const Select = {
-  parts: ["select", "helper", "inline"],
+  parts: ["helperText", "inline", "select"],
   baseStyle: ({ labelPosition, labelWidth }) => {
     return {
       marginBottom: "xs",
@@ -38,19 +34,18 @@ const Select = {
       ".chakra-select__icon-wrapper": {
         zIndex: "9999",
       },
-      helper: {
-        ...helperTextMargin,
+      helperText: {
         marginLeft:
           labelPosition === "inline" ? { md: `${labelWidth}px` } : null,
-      },
-      select: {
-        ...select,
-        flex: labelPosition === "inline" ? { md: "1" } : null,
       },
       inline: {
         display: { md: "flex" },
         gap: { md: "var(--nypl-space-xs)" },
         alignItems: { md: "flex-end" },
+      },
+      select: {
+        ...select,
+        flex: labelPosition === "inline" ? { md: "1" } : null,
       },
     };
   },

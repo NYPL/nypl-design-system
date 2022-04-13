@@ -73,21 +73,17 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     </button>
   </form>
   <div
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="off"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Search for items in Animal Crossing New Horizons",
-        }
+    aria-atomic={true}
+    aria-live="off"
+    className=" css-0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Search for items in Animal Crossing New Horizons",
       }
-      data-isinvalid={false}
-      id="basic-helperText"
-    />
-  </div>
+    }
+    data-isinvalid={false}
+    id="basic-helperText"
+  />
 </div>
 `;
 
@@ -276,21 +272,17 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     </button>
   </form>
   <div
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="off"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Search for items in Animal Crossing New Horizons",
-        }
+    aria-atomic={true}
+    aria-live="off"
+    className=" css-0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Search for items in Animal Crossing New Horizons",
       }
-      data-isinvalid={false}
-      id="withSelect-helperText"
-    />
-  </div>
+    }
+    data-isinvalid={false}
+    id="withSelect-helperText"
+  />
 </div>
 `;
 

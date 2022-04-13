@@ -1,5 +1,4 @@
 import {
-  Box,
   Checkbox as ChakraCheckbox,
   Icon,
   useMultiStyleConfig,
@@ -142,13 +141,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           {showLabel && labelText}
         </ChakraCheckbox>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          </Box>
+          <HelperErrorText
+            additionalStyles={styles.helperErrorText}
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         )}
       </>
     );

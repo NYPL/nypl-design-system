@@ -261,22 +261,17 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     </div>
   </div>
   <div
-    aria-disabled={false}
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Tom doesn't count as a sibling :(.",
-        }
+    aria-atomic={true}
+    aria-live="polite"
+    className=" css-0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Tom doesn't count as a sibling :(.",
       }
-      data-isinvalid={true}
-      id="select-helperText"
-    />
-  </div>
+    }
+    data-isinvalid={true}
+    id="select-helperText"
+  />
 </div>
 `;
 
@@ -366,22 +361,17 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     </div>
   </div>
   <div
-    aria-disabled={false}
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="off"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Remember, Logan will judge you no matter who you pick.",
-        }
+    aria-atomic={true}
+    aria-live="off"
+    className=" css-0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Remember, Logan will judge you no matter who you pick.",
       }
-      data-isinvalid={false}
-      id="select-helperText"
-    />
-  </div>
+    }
+    data-isinvalid={false}
+    id="select-helperText"
+  />
 </div>
 `;
 

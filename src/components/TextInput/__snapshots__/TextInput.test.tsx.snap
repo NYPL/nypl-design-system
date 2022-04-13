@@ -102,22 +102,17 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     type="text"
   />
   <div
-    aria-disabled={false}
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="off"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Custom helper text",
-        }
+    aria-atomic={true}
+    aria-live="off"
+    className=" css-0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Custom helper text",
       }
-      data-isinvalid={false}
-      id="myTextInput-helperText"
-    />
-  </div>
+    }
+    data-isinvalid={false}
+    id="myTextInput-helperText"
+  />
 </div>
 `;
 
@@ -149,22 +144,17 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     type="text"
   />
   <div
-    aria-disabled={false}
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "There is an error related to this field.",
-        }
+    aria-atomic={true}
+    aria-live="polite"
+    className=" css-0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "There is an error related to this field.",
       }
-      data-isinvalid={true}
-      id="myTextInput-helperText"
-    />
-  </div>
+    }
+    data-isinvalid={true}
+    id="myTextInput-helperText"
+  />
 </div>
 `;
 

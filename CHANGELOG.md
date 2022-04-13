@@ -30,6 +30,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Renames the `optReqFlag` prop to `showRequiredLabel` in the `CheckboxGroup`, `Fieldset`, `RadioGroup`, and `Slider` components.
 - Renames the `showOptReqLabel` prop to `showRequiredLabel` in the `DatePicker`, `Select`, and `TextInput` components.
 - Uses the design token "text.caption" variable for the `Notification`'s font size.
+- Updates the styling for the `HelperErrorText` to be consistent for all components that use it
+- Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
 
 ### Removals
 

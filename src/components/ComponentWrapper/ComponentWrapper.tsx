@@ -59,13 +59,12 @@ function ComponentWrapper(
       {descriptionText && <Text>{descriptionText}</Text>}
       {children}
       {footnote && (
-        <Box __css={styles.helperText}>
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-          />
-        </Box>
+        <HelperErrorText
+          additionalStyles={styles.helperErrorText}
+          id={`${id}-helperText`}
+          isInvalid={isInvalid}
+          text={footnote}
+        />
       )}
     </Box>
   );

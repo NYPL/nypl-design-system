@@ -1,9 +1,4 @@
-import {
-  Box,
-  Stack,
-  useMultiStyleConfig,
-  useRadioGroup,
-} from "@chakra-ui/react";
+import { Stack, useMultiStyleConfig, useRadioGroup } from "@chakra-ui/react";
 import * as React from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -151,13 +146,12 @@ const RadioGroup = React.forwardRef<
         {newChildren}
       </Stack>
       {footnote && showHelperInvalidText && (
-        <Box __css={styles.helper}>
-          <HelperErrorText
-            id={`${id}-helperErrorText`}
-            isInvalid={isInvalid}
-            text={footnote}
-          />
-        </Box>
+        <HelperErrorText
+          additionalStyles={styles.helperErrorText}
+          id={`${id}-helperErrorText`}
+          isInvalid={isInvalid}
+          text={footnote}
+        />
       )}
     </Fieldset>
   );
