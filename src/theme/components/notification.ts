@@ -1,8 +1,30 @@
 import { NotificationTypes } from "../../components/Notification/NotificationTypes";
 
+interface NotificationBaseStyle {
+  dismissible: boolean;
+  isCentered: boolean;
+  noMargin: boolean;
+  notificationType: NotificationTypes;
+}
+interface NotificationContentBaseStyle {
+  alignText: boolean;
+  icon: boolean;
+  notificationType: NotificationTypes;
+}
+interface NotificationHeadingBaseStyle {
+  icon: boolean;
+  isCentered: boolean;
+  notificationType: NotificationTypes;
+}
+
 const Notification = {
   parts: ["container", "dismissibleButton", "icon"],
-  baseStyle: ({ dismissible, isCentered, noMargin, notificationType }) => {
+  baseStyle: ({
+    dismissible,
+    isCentered,
+    noMargin,
+    notificationType,
+  }: NotificationBaseStyle) => {
     let bg = "ui.status.primary";
     if (
       notificationType === NotificationTypes.Announcement ||
@@ -55,7 +77,11 @@ const Notification = {
 
 const NotificationContent = {
   parts: ["content"],
-  baseStyle: ({ alignText, icon, notificationType }) => ({
+  baseStyle: ({
+    alignText,
+    icon,
+    notificationType,
+  }: NotificationContentBaseStyle) => ({
     display: "flex",
     justifyContent: "center",
     content: {
@@ -81,7 +107,11 @@ const NotificationContent = {
 
 const NotificationHeading = {
   parts: ["heading"],
-  baseStyle: ({ icon, isCentered, notificationType }) => {
+  baseStyle: ({
+    icon,
+    isCentered,
+    notificationType,
+  }: NotificationHeadingBaseStyle) => {
     let color = "ui.black";
     if (notificationType === NotificationTypes.Announcement) {
       color = "section.research.secondary";

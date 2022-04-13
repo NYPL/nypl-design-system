@@ -9,6 +9,7 @@ import * as React from "react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
+
 export interface CheckboxProps {
   /** className you can add in addition to 'input' */
   className?: string;

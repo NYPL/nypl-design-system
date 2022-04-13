@@ -85,7 +85,7 @@ const TemplateHeader = ({
   if (renderHeaderElement) {
     // But if they passed in a component that renders an HTML `<header>`,
     // then log a warning.
-    React.Children.map(children, (child: React.ReactElement) => {
+    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
       if (child?.type === "header" || child?.props?.mdxType === "header") {
         console.warn(
           "NYPL Reservoir TemplateHeader: An HTML `header` element was passed " +
@@ -133,7 +133,7 @@ const TemplateContent = (
   // Manually pass in the `sidebar` prop to the `TemplateContentPrimary` and
   // `TemplateContentSidebar` components.
   const newChildren = React.Children.map(
-    children,
+    children as JSX.Element,
     (child: React.ReactElement) => {
       let newChild = child;
       if (
@@ -220,7 +220,7 @@ const TemplateFooter = ({
   // The user wants to render the `footer` HTML element.
   if (renderFooterElement) {
     // But give a warning if one was passed.
-    React.Children.map(children, (child: React.ReactElement) => {
+    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
       if (child?.type === "footer" || child?.props?.mdxType === "footer") {
         console.warn(
           "NYPL Reservoir TemplateFooter: An HTML `footer` element was passed " +

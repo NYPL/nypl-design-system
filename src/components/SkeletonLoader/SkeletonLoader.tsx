@@ -71,11 +71,11 @@ export default function SkeletonLoader(
    * "heading" and "content" areas defined by the `type` argument. The last
    * element will have width of `lastWidth`.
    */
-  const getSkeletonElements = (type, size = 1, lastWidth = "80%") => {
+  const getSkeletonElements = (type: string, size = 1, lastWidth = "80%") => {
     return new Array(size).fill(null).map((_, i) => {
       const width = i === size - 1 ? lastWidth : "100%";
       const marginBottomValue =
-        i === size - 1 && type === "content" ? "0" : null;
+        i === size - 1 && type === "content" ? "0" : undefined;
       return (
         <ChakraSkeleton key={`${type}-${i}`} width={width}>
           <Box

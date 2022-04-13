@@ -134,9 +134,9 @@ const categories = {
 
 export const getCategory = (component: string) => {
   let catPath = component;
-  Object.keys(categories).forEach((key) => {
-    const t = categories[key].title;
-    const c = categories[key].components;
+  Object.keys(categories).forEach((key: string) => {
+    const t = categories[key as keyof typeof categories].title;
+    const c = categories[key as keyof typeof categories].components;
     if (c.includes(component)) {
       catPath = `${t}/${component}`;
     }

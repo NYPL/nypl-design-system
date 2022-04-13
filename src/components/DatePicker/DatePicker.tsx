@@ -15,6 +15,18 @@ import TextInput, {
 } from "../TextInput/TextInput";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
+interface ReactDatePickerAttrs {
+  popperClassName: string;
+  popperPlacement: string;
+  popperModifiers: any[];
+  minDate: Date | null;
+  maxDate: Date | null;
+  dateFormat: string;
+  showMonthYearPicker?: boolean;
+  showYearPicker?: boolean;
+  yearItemNumber?: number;
+}
+
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {
   /** Date object that gets returned for the onChange
@@ -264,14 +276,14 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     // This updates the internal state for the start and end date values,
     // and also calls the `onChange` prop if it was passed to return the
     // date value to the parent.
-    const onChangeDefault = (date, value) => {
+    const onChangeDefault = (date: Date, value: string) => {
       setFullDate({ ...fullDate, [value]: date });
       onChange && onChange({ ...fullDate, [value]: date });
     };
     // How many years to display in the DatePickerTypes.Year option.
     const yearsToDisplay = 12;
     // Both `ReactDatePicker` components share some props.
-    let baseDatePickerAttrs = {
+    let baseDatePickerAttrs: ReactDatePickerAttrs = {
       popperClassName: "date-picker-calendar",
       popperPlacement: "bottom-start",
       popperModifiers: [
@@ -372,7 +384,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       endDatePickerElement = (
         <ReactDatePicker
           selected={fullDate.endDate}
-          onChange={(date) => onChangeDefault(date, "endDate")}
+          onChange={(date: Date) => onChangeDefault(date, "endDate")}
           customInput={
             <CustomTextInput
               labelText="To"
@@ -389,7 +401,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
     const startDatePickerElement = (
       <ReactDatePicker
         selected={fullDate.startDate}
-        onChange={(date) => onChangeDefault(date, "startDate")}
+        onChange={(date: Date) => onChangeDefault(date, "startDate")}
         customInput={
           <CustomTextInput
             labelText={startLabelText}

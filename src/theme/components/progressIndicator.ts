@@ -1,5 +1,10 @@
 import { ProgressIndicatorSizes } from "../../components/ProgressIndicator/ProgressIndicatorTypes";
 
+interface ProgressIndicatorBaseStyle {
+  darkMode: boolean;
+  size: ProgressIndicatorSizes;
+}
+
 const ProgressIndicator = {
   parts: [
     "circular",
@@ -8,7 +13,7 @@ const ProgressIndicator = {
     "linearContainer",
     "linearPercentage",
   ],
-  baseStyle: ({ darkMode, size }) => {
+  baseStyle: ({ darkMode, size }: ProgressIndicatorBaseStyle) => {
     return {
       color: darkMode ? "ui.white" : "ui.black",
       circular: {

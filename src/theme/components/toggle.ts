@@ -1,8 +1,11 @@
 import { helperTextMargin } from "./global";
 import { cssVar } from "@chakra-ui/theme-tools";
 
-// const baseStyle = {
-const toggleBaseStyle = ({ isDisabled }) => {
+interface ToggleBaseStyle {
+  isDisabled: boolean;
+}
+
+const toggleBaseStyle = ({ isDisabled }: ToggleBaseStyle) => {
   const label = { alignItems: "start", display: "flex", width: "fit-content" };
   const helper = {
     ...helperTextMargin,

@@ -38,9 +38,9 @@ describe("TextInput Accessibility", () => {
 });
 
 describe("TextInput", () => {
+  let changeHandler: jest.MockedFunction<() => void>;
+  let focusHandler: jest.MockedFunction<() => void>;
   let utils;
-  let changeHandler;
-  let focusHandler;
 
   beforeEach(() => {
     focusHandler = jest.fn();

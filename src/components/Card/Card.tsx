@@ -191,7 +191,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   } = props;
   const hasImage = imageProps.src || imageProps.component;
   const [finalImageSize, setFinalImageSize] = React.useState<ImageSizes>(
-    imageProps.size
+    imageProps.size || ImageSizes.Default
   );
   const finalImageAspectRatio = imageProps.component
     ? ImageRatios.Original

@@ -1,5 +1,9 @@
+interface HelperErrorTextBaseStyle {
+  isInvalid: boolean;
+}
+
 const helperErrorText = {
-  baseStyle: ({ isInvalid }) => ({
+  baseStyle: ({ isInvalid }: HelperErrorTextBaseStyle) => ({
     marginBottom: "0",
     fontSize: "helper.default",
     color: isInvalid ? "ui.error.primary" : "ui.black",

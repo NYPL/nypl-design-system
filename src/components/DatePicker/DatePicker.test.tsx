@@ -763,7 +763,7 @@ describe("DatePicker", () => {
       userEvent.click(screen.getByText(midMonthDay));
       // So only the month should change accordingly.
       const newMonthValue = `${newDayValue.substr(0, 5)}${strPad(
-        "10"
+        10
       )}${newDayValue.substr(7)}`;
       expect(screen.getByDisplayValue(newMonthValue)).toBeInTheDocument();
     });
