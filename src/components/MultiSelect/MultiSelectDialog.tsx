@@ -59,15 +59,16 @@ function MultiSelectDialog({
   useOnClickOutside(ref, () => setIsOpen(false));
 
   // Control focus lock state.
-  const [focusLockDisabled, setFocusLockDisabled] = useState(false);
-  useEffect(() => {
-    if (isMobile) {
-      setFocusLockDisabled(true);
-    }
-    if (!isOpen) {
-      setFocusLockDisabled(false);
-    }
-  }, [isOpen, isMobile]);
+  // const [focusLockDisabled, setFocusLockDisabled] = useState(true);
+  // useEffect(() => {
+  //   /*if (isMobile) {
+  //     setFocusLockDisabled(true);
+  //   }
+  //   */
+  //   if (!isOpen) {
+  //     setFocusLockDisabled(false);
+  //   }
+  // }, [isOpen, isMobile]);
 
   function isChecked(multiSelectId: string, itemId: string): boolean {
     if (
@@ -118,18 +119,18 @@ function MultiSelectDialog({
   }
 
   return (
-    <Box id={id} ref={ref} __css={styles}>
-      <MultiSelectMenuButton
-        multiSelectId={id}
-        label={label}
-        isOpen={isOpen}
-        selectedItems={selectedItems}
-        onMenuToggle={() => {
-          setIsOpen(!isOpen);
-        }}
-        onClear={onClear}
-      />
-      <FocusLock disabled={focusLockDisabled}>
+    <FocusLock disabled={!isOpen}>
+      <Box id={id} ref={ref} __css={styles}>
+        <MultiSelectMenuButton
+          multiSelectId={id}
+          label={label}
+          isOpen={isOpen}
+          selectedItems={selectedItems}
+          onMenuToggle={() => {
+            setIsOpen(!isOpen);
+          }}
+          onClear={onClear}
+        />
         <Box
           role="dialog"
           __css={styles.menuContainer}
@@ -224,8 +225,8 @@ function MultiSelectDialog({
             </Stack>
           )}
         </Box>
-      </FocusLock>
-    </Box>
+      </Box>
+    </FocusLock>
   );
 }
 
