@@ -5,6 +5,15 @@ const multiSelectWidths = {
       md: "250px",
     },
   },
+  fitContent: {
+    width: {
+      base: "100%",
+      md: "fit-content",
+    },
+    minWidth: {
+      md: "175px",
+    },
+  },
   full: {
     width: "100%",
   },
@@ -18,11 +27,7 @@ const MultiSelect = {
     "menuChildren",
     "selectedItemsCountButton",
   ],
-  baseStyle: ({
-    width = "default",
-    isBlockElement,
-    allowMenuContainerToOverflow = false,
-  }) => ({
+  baseStyle: ({ width = "default", isBlockElement }) => ({
     ...multiSelectWidths[width],
     position: "relative",
     margin: {
@@ -38,7 +43,7 @@ const MultiSelect = {
         md: isBlockElement ? "relative" : "absolute",
       },
       zIndex: isBlockElement ? 0 : 1,
-      ...(allowMenuContainerToOverflow && {
+      ...(width === "fitContent" && {
         minWidth: {
           md: "275px",
         },

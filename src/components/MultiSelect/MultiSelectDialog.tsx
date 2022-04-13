@@ -32,12 +32,10 @@ function MultiSelectDialog({
   onClear,
   width = MultiSelectWidths.Default,
   isBlockElement = false,
-  allowMenuContainerToOverflow = false,
 }: MultiSelectDialogProps) {
   const styles = useMultiStyleConfig("MultiSelect", {
     width,
     isBlockElement,
-    allowMenuContainerToOverflow,
   });
 
   // Track the window size width, to set isMobile.
@@ -57,18 +55,6 @@ function MultiSelectDialog({
   const ref = useRef();
   // Closes the multiselect if click outside event.
   useOnClickOutside(ref, () => setIsOpen(false));
-
-  // Control focus lock state.
-  // const [focusLockDisabled, setFocusLockDisabled] = useState(true);
-  // useEffect(() => {
-  //   /*if (isMobile) {
-  //     setFocusLockDisabled(true);
-  //   }
-  //   */
-  //   if (!isOpen) {
-  //     setFocusLockDisabled(false);
-  //   }
-  // }, [isOpen, isMobile]);
 
   function isChecked(multiSelectId: string, itemId: string): boolean {
     if (
@@ -119,8 +105,8 @@ function MultiSelectDialog({
   }
 
   return (
-    <FocusLock disabled={!isOpen}>
-      <Box id={id} ref={ref} __css={styles}>
+    <Box id={id} ref={ref} __css={styles}>
+      <FocusLock disabled={!isOpen}>
         <MultiSelectMenuButton
           multiSelectId={id}
           label={label}
@@ -225,8 +211,8 @@ function MultiSelectDialog({
             </Stack>
           )}
         </Box>
-      </Box>
-    </FocusLock>
+      </FocusLock>
+    </Box>
   );
 }
 

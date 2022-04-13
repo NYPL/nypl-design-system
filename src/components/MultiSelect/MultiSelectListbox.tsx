@@ -25,12 +25,10 @@ function MultiSelectListbox({
   onClear,
   width = MultiSelectWidths.Default,
   isBlockElement = false,
-  allowMenuContainerToOverflow = false,
 }: MultiSelectListboxProps) {
   const styles = useMultiStyleConfig("MultiSelect", {
     width,
     isBlockElement,
-    allowMenuContainerToOverflow,
   });
   // Downshift
   const {
