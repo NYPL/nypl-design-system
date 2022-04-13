@@ -1,10 +1,11 @@
 import { labelLegendText } from "./global";
 
 const Label = {
-  parts: ["helper"],
-  baseStyle: {
+  baseStyle: ({ isInlined }) => ({
     ...labelLegendText,
-  },
+    flex: isInlined ? "1" : null,
+    whiteSpace: isInlined ? "nowrap" : null,
+  }),
   variants: {
     button: {
       borderRadius: "sm",

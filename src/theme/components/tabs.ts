@@ -21,14 +21,14 @@ const tab = {
   },
   whiteSpace: "nowrap",
   _hover: {
-    bg: "ui.gray.x-light-warm",
+    bg: "ui.gray.x-light-cool",
     borderTopRadius: "sm",
     borderBottom: "1px solid",
     borderBottomColor: "ui.black",
   },
   _selected: {
     fontWeight: "bold",
-    bg: "ui.gray.light-warm",
+    bg: "ui.gray.light-cool",
     border: "0",
     borderTopRadius: "sm",
     borderBottom: "3px solid",

@@ -1,4 +1,4 @@
-import { activeFocus, helperTextMargin } from "./global";
+import { activeFocus, selectTextInputDisabledStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
 const input = {
@@ -13,9 +13,10 @@ const input = {
     borderColor: "ui.gray.dark",
   },
   _disabled: {
-    bgColor: "ui.gray.xx-light-cool",
-    color: "ui.gray.xdark",
-    opacity: "1",
+    ...selectTextInputDisabledStyles,
+    _placeholder: {
+      color: "ui.gray.medium",
+    },
   },
   _active: activeFocus(),
   _focus: activeFocus(),
@@ -32,11 +33,8 @@ const input = {
 };
 
 const TextInput = {
-  parts: ["helper", "textarea"],
+  parts: ["input", "textarea"],
   baseStyle: {
-    helper: {
-      ...helperTextMargin,
-    },
     input,
     textarea: {
       ...input,

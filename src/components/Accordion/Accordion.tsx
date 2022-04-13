@@ -1,17 +1,16 @@
-import * as React from "react";
 import {
-  Box,
   Accordion as ChakraAccordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
+  Box,
+  chakra,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import { AccordionTypes } from "./AccordionTypes";
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
   label: string;
@@ -91,7 +90,7 @@ const getElementsFromData = (data = [], id) => {
                   bg:
                     !content.accordionType ||
                     content.accordionType === "default"
-                      ? "ui.gray.light-warm"
+                      ? "ui.gray.light-cool"
                       : bgColorByAccordionType,
                 }}
                 _hover={{
@@ -121,16 +120,21 @@ const getElementsFromData = (data = [], id) => {
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const { accordionData, id = generateUUID(), isDefaultOpen = false } = props;
+export const Accordion = chakra((props: AccordionProps) => {
+  const { accordionData, id, isDefaultOpen = false, ...rest } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
-    <ChakraAccordion id={id} defaultIndex={[openFirstAccordion]} allowMultiple>
+    <ChakraAccordion
+      id={id}
+      defaultIndex={[openFirstAccordion]}
+      allowMultiple
+      {...rest}
+    >
       {getElementsFromData(accordionData, id)}
     </ChakraAccordion>
   );
-}
+});
 
 export default Accordion;

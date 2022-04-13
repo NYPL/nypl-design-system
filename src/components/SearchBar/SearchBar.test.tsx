@@ -266,6 +266,18 @@ describe("SearchBar", () => {
     ).toBeInTheDocument();
   });
 
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <SearchBar labelText={labelText} onSubmit={jest.fn()} />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const basic = renderer
       .create(
@@ -378,6 +390,31 @@ describe("SearchBar", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <SearchBar
+          helperText={helperText}
+          id="chakra"
+          labelText={labelText}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <SearchBar
+          helperText={helperText}
+          id="props"
+          labelText={labelText}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(withSelect).toMatchSnapshot();
@@ -389,5 +426,7 @@ describe("SearchBar", () => {
     expect(withHeading).toMatchSnapshot();
     expect(withDescription).toMatchSnapshot();
     expect(withHeadingAndDescription).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -41,7 +41,7 @@ export const enumValues = getStorybookEnumValues(
     ref: { table: { disable: true } },
     showHelperInvalidText: { table: { defaultValue: { summary: true } } },
     showLabel: { table: { defaultValue: { summary: true } } },
-    showOptReqLabel: { table: { defaultValue: { summary: true } } },
+    showRequiredLabel: { table: { defaultValue: { summary: true } } },
     step: { table: { defaultValue: { summary: 1 } } },
     textInputType: {
       control: false,
@@ -61,7 +61,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.26.0`   |
 
 <Description of={TextInput} />
 
@@ -91,7 +91,7 @@ is left blank, a value will be generated for you.
       placeholder: "e.g. blue, green, etc.",
       showHelperInvalidText: true,
       showLabel: true,
-      showOptReqLabel: true,
+      showRequiredLabel: true,
       step: 1,
       type: "TextInputTypes.text",
       value: undefined,
@@ -109,38 +109,43 @@ is left blank, a value will be generated for you.
 A TextInput can be rendered with or without visible labels. When `showLabel` is
 set to `false`, an `aria-label` attribute is added to the input/textarea element
 to maintain accessibility. If the component needs to be required, the
-`showOptReqLabel` prop can be used to show or hide the "Required"/"Optional"
-text within the `label` element.
+`showRequiredLabel` prop can be used to show or hide the "(Required)" text
+within the `label` element.
 
 <Canvas withToolbar>
   <Story name="Labelling Variations">
     <VStack align="stretch" spacing={12}>
       <TextInput
+        helperText="Choose wisely!"
+        id="textInput-1"
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
-        helperText="Choose wisely!"
       />
       <TextInput
+        id="textInput-2"
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
         showLabel={false}
       />
       <TextInput
+        id="textInput-3"
+        isRequired
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
-        isRequired
       />
       <TextInput
+        id="textInput-4"
+        isRequired
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
-        showOptReqLabel={false}
-        isRequired
+        showRequiredLabel={false}
       />
       <TextInput
-        labelText="What is your favorite color?"
-        showLabel={false}
-        placeholder="i.e. blue, green, etc."
         helperText="Choose wisely!"
+        id="textInput-5"
+        labelText="What is your favorite color?"
+        placeholder="i.e. blue, green, etc."
+        showLabel={false}
       />
     </VStack>
   </Story>
@@ -151,11 +156,12 @@ text within the `label` element.
 <Canvas>
   <DSProvider>
     <TextInput
-      labelText="What is your favorite color?"
-      placeholder="i.e. blue, green, etc."
       helperText="Choose wisely!"
+      id="errored"
       invalidText="This is error text :("
       isInvalid
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
     />
   </DSProvider>
 </Canvas>
@@ -165,10 +171,11 @@ text within the `label` element.
 <Canvas>
   <DSProvider>
     <TextInput
+      helperText="Choose wisely!"
+      id="disabled"
+      isDisabled
       labelText="What is your favorite color?"
       placeholder="i.e. blue, green, etc."
-      helperText="Choose wisely!"
-      isDisabled
     />
   </DSProvider>
 </Canvas>
@@ -186,19 +193,21 @@ helperText={<>Choose <b>wisely!</b></>}
 <Canvas>
   <DSProvider>
     <TextInput
+      helperText="Choose <b>wisely!</b>"
+      id="string"
       labelText="What is your favorite color?"
       placeholder="i.e. blue, green, etc."
-      helperText="Choose <b>wisely!</b>"
     />
     <br />
     <TextInput
-      labelText="What is your favorite color?"
-      placeholder="i.e. blue, green, etc."
       helperText={
         <>
           Choose <b>wisely!</b>
         </>
       }
+      id="jsx"
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
     />
   </DSProvider>
 </Canvas>
@@ -214,6 +223,7 @@ All the variations described above are available for the `textarea` option.
     name="Textarea"
     args={{
       helperText: "Let it all out.",
+      id: "textarea",
       invalidText: "This is error text :(",
       isDisabled: false,
       isInvalid: false,
@@ -221,7 +231,7 @@ All the variations described above are available for the `textarea` option.
       labelText: "In less than 500 words, describe your favorite color?",
       placeholder: "Essay question...",
       showLabel: true,
-      showOptReqLabel: true,
+      showRequiredLabel: true,
       type: TextInputTypes.textarea,
     }}
     argTypes={{

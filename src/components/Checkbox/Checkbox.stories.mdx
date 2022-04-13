@@ -57,12 +57,13 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.25.13`  |
+| Latest            | `0.26.0`   |
 
 <Description of={Checkbox} />
 
-This component renders a Checkbox button form element. See below for configuration information. Note that the `id` property, while optional, will
-cause an accessibility violation if none is present.
+This component renders a Checkbox button form element. See below for configuration
+information. Note that the `id` property, while optional, will cause an
+accessibility violation if none is present.
 
 <Canvas withToolbar>
   <Story
@@ -123,7 +124,10 @@ now be controlled and removed by the parent component in order to remove this st
 
 <Canvas>
   <DSProvider>
-    <Checkbox labelText="Click or tab to the Checkbox to see its focus state" />
+    <Checkbox
+      id="focused"
+      labelText="Click or tab to the Checkbox to see its focus state"
+    />
   </DSProvider>
 </Canvas>
 
@@ -132,8 +136,9 @@ now be controlled and removed by the parent component in order to remove this st
 <Canvas>
   <DSProvider>
     <HStack>
-      <Checkbox isInvalid labelText="I am in an error state" />
+      <Checkbox id="invalid" isInvalid labelText="I am in an error state" />
       <Checkbox
+        id="invalid-checked"
         isInvalid
         isChecked
         labelText="I am checked in an error state"
@@ -147,8 +152,13 @@ now be controlled and removed by the parent component in order to remove this st
 <Canvas>
   <DSProvider>
     <HStack>
-      <Checkbox isDisabled labelText="I am disabled" />
-      <Checkbox isDisabled isChecked labelText="I am checked and disabled" />
+      <Checkbox id="disabled" isDisabled labelText="I am disabled" />
+      <Checkbox
+        id="disabled-checked"
+        isDisabled
+        isChecked
+        labelText="I am checked and disabled"
+      />
     </HStack>
   </DSProvider>
 </Canvas>
@@ -158,6 +168,7 @@ now be controlled and removed by the parent component in order to remove this st
 <Canvas>
   <DSProvider>
     <Checkbox
+      id="helpertext"
       name="testHelperText"
       labelText="I have helper text"
       helperText="I am the helper text for this Checkbox"
@@ -170,10 +181,11 @@ now be controlled and removed by the parent component in order to remove this st
 <Canvas>
   <DSProvider>
     <Checkbox
-      name="testinvalidText"
-      labelText="I have error text"
+      id="invalid-text"
       invalidText="I am the error text for this Checkbox"
       isInvalid
+      name="testinvalidText"
+      labelText="I have error text"
     />
   </DSProvider>
 </Canvas>
@@ -186,6 +198,10 @@ usage.
 
 <Canvas>
   <DSProvider>
-    <Checkbox labelText={<span>Arts</span>} name="jsxElementLabel" />
+    <Checkbox
+      id="jsx-label"
+      labelText={<span>Arts</span>}
+      name="jsxElementLabel"
+    />
   </DSProvider>
 </Canvas>

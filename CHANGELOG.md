@@ -10,12 +10,50 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
+- Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
+- Adds the `isRequired` prop to the `Label` component.
+- Adds the `labelPosition` prop to the `Select` component, so that the label can be styled inline with the select input.
+- Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
+- Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
+
+### Changes
+
+- Updates the hex color value for `ui.gray.light-cool`, `ui.disabled.primary` and `section.blogs.primary`.
+- Updates the default background color used in the `Accordion` component.
+- Updates the default background color used in the `Hero` component.
+- Updates the background color used in the `SkeletonLoader` component.
+- Updates the background color used in the `VideoPlayer` component.
+- Updates the background colors used in the `Tabs` component.
+- Updates the colors for "secondary" and "pill" variants of the `Button` component.
+- Updates the color values used in the `disabled` state for the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components.
+- Updates the `Checkbox` component to use "3px" for the border radius.
+- Updates how the `Required` text in the `Label` and `Fieldset` components is displayed. Instead of floating to the right of the label and legend elements, it is now displayed inlined as `(Required)`.
+- Renames the `optReqFlag` prop to `showRequiredLabel` in the `CheckboxGroup`, `Fieldset`, `RadioGroup`, and `Slider` components.
+- Renames the `showOptReqLabel` prop to `showRequiredLabel` in the `DatePicker`, `Select`, and `TextInput` components.
+- Uses the design token "text.caption" variable for the `Notification`'s font size.
+- Updates the styling for the `HelperErrorText` to be consistent for all components that use it
+- Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
+- Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
+- Renames the `Skeleton`'s `border` prop to `isBordered`.
+
+### Removals
+
+- Removes the default `Optional` text displayed in the `Label` and `Fieldset` components.
+- Removes the `optReqFlag` prop in the `Label` component.
+- Removes the `HorizontalRule`'s `height` and `width` props from its prop interface in favor of Chakra's style props; the default values are still set for `height` and `width`.
+
+## 0.25.13 (April 1, 2022)
+
+### Adds
+
 - Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
 - Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
 - Adds the `isFullWidth` prop to the `CheckboxGroup` and `RadioGroup` components. This sets the wrapper element to be full width for labels that need to span its container.
 - Adds an optional key – `accordionType` to the `Accordion`'s `contentData` prop, which allows users to switch the background color of the `Accordion`'s button.
 - Created new `LayoutTypes` enum for row and column layouts.
 - Adds the value "Default" to the `IconSizes` enum.
+- Adds a warning if a required `id` prop is not passed to one of the "Form Elements": `Button`, `Checkbox`, `CheckboxGroup`, `DatePicker`, `Fieldset`, `Form`, `Label`, `ProgressIndicator`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`.
 
 ### Changes
 
@@ -52,6 +90,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `StructuredContent` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, position, size, and src.
 - Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`. Updates the values from `Large` and `Small` to `Default` and `Small`.
 - Minor update to the logic for the `ProgressIndicator` sizing prop and styles.
+- Makes the id prop required for all "Form Elements".
 
 ### Fixes
 
@@ -67,6 +106,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Removes the `CardLayouts`, `CheckboxGroupLayoutTypes`, `RadioGroupLayoutTypes`, and `SkeletonLoaderLayouts` enums.
 - Removes the `CardTypes.tsx`,` CheckboxGroupLayoutTypes.tsx`, and `RadioGroupLayoutTypes.tsx` files.
+- Removes the default autogenerated id for all components, as well as the `uuid` package.
 
 ## 0.25.12 (March 18, 2022)
 

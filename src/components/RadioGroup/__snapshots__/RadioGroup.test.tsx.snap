@@ -2,16 +2,11 @@
 
 exports[`Radio Button renders the UI snapshot correctly 1`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-column"
 >
   <legend>
     column
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -51,7 +46,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -98,7 +93,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -118,16 +113,11 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 2`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-row"
 >
   <legend>
     row
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -167,7 +157,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -214,7 +204,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -234,16 +224,11 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 3`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-noLabel"
 >
   <legend>
     no label
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label="no label"
@@ -283,7 +268,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -330,7 +315,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -350,16 +335,11 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 4`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-helperText"
 >
   <legend>
     helperText
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -399,7 +379,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -446,7 +426,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -462,36 +442,27 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     </label>
   </div>
   <div
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="off"
-      className=" css-0"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "helper text",
-        }
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "helper text",
       }
-      data-isinvalid={false}
-      id="helperText-helperErrorText"
-    />
-  </div>
+    }
+    data-isinvalid={false}
+    id="helperText-helperErrorText"
+  />
 </fieldset>
 `;
 
 exports[`Radio Button renders the UI snapshot correctly 5`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-invalidText"
 >
   <legend>
     invalidText
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -531,7 +502,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -578,7 +549,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -598,8 +569,8 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 6`] = `
 <fieldset
-  className=" css-0"
-  id="radio-group-optReq"
+  className="css-1u8qly9"
+  id="radio-group-noRequiredLabel"
 >
   <legend>
     no optional or required label
@@ -613,17 +584,18 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       className="chakra-radio css-13p0l12"
     >
       <input
+        aria-required={true}
         checked={false}
         className="chakra-radio__input"
         disabled={false}
         id="radio-2"
-        name="optReq"
+        name="noRequiredLabel"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
-        required={false}
+        required={true}
         style={
           Object {
             "border": "0px",
@@ -642,7 +614,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -660,17 +632,18 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       className="chakra-radio css-13p0l12"
     >
       <input
+        aria-required={true}
         checked={false}
         className="chakra-radio__input"
         disabled={false}
         id="radio-3"
-        name="optReq"
+        name="noRequiredLabel"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
-        required={false}
+        required={true}
         style={
           Object {
             "border": "0px",
@@ -689,7 +662,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -709,16 +682,14 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 7`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-required"
 >
   <legend>
     required
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
+    <span>
+       (Required)
+    </span>
   </legend>
   <div
     aria-label={null}
@@ -759,7 +730,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -807,7 +778,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -827,16 +798,11 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 8`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-invalid"
 >
   <legend>
     invalid
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -878,7 +844,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         data-invalid=""
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -929,7 +895,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         data-invalid=""
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -951,16 +917,11 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 9`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-disabled"
 >
   <legend>
     disabled
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -1002,7 +963,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         data-disabled=""
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -1053,7 +1014,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         data-disabled=""
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
@@ -1075,16 +1036,11 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 10`] = `
 <fieldset
-  className=" css-0"
+  className="css-1u8qly9"
   id="radio-group-jsxLabels"
 >
   <legend>
     RadioGroup example
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <div
     aria-label={null}
@@ -1124,7 +1080,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -1183,7 +1139,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
       />
       <span
         aria-hidden={true}
-        className="css-ssalds"
+        className="css-14wybg9"
         onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -1207,6 +1163,229 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
             23
           </span>
         </div>
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Radio Button renders the UI snapshot correctly 11`] = `
+<fieldset
+  className="css-1y4kn3e"
+  id="radio-group-chakra"
+>
+  <legend>
+    chakra
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    role="radiogroup"
+  >
+    <label
+      className="chakra-radio css-13p0l12"
+    >
+      <input
+        checked={false}
+        className="chakra-radio__input"
+        disabled={false}
+        id="radio-2"
+        name="chakra"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="radio"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="css-14wybg9"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      />
+      <span
+        className="chakra-radio__label css-1y8kf23"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Radio 2
+      </span>
+    </label>
+    <label
+      className="chakra-radio css-13p0l12"
+    >
+      <input
+        checked={false}
+        className="chakra-radio__input"
+        disabled={false}
+        id="radio-3"
+        name="chakra"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="radio"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="css-14wybg9"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      />
+      <span
+        className="chakra-radio__label css-1y8kf23"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Radio 3
+      </span>
+    </label>
+  </div>
+</fieldset>
+`;
+
+exports[`Radio Button renders the UI snapshot correctly 12`] = `
+<fieldset
+  className="css-1u8qly9"
+  data-testid="props"
+  id="radio-group-props"
+>
+  <legend>
+    props
+  </legend>
+  <div
+    aria-label={null}
+    className="chakra-stack css-1wdv1uh"
+    role="radiogroup"
+  >
+    <label
+      className="chakra-radio css-13p0l12"
+    >
+      <input
+        checked={false}
+        className="chakra-radio__input"
+        disabled={false}
+        id="radio-2"
+        name="props"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="radio"
+        value="2"
+      />
+      <span
+        aria-hidden={true}
+        className="css-14wybg9"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      />
+      <span
+        className="chakra-radio__label css-1y8kf23"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Radio 2
+      </span>
+    </label>
+    <label
+      className="chakra-radio css-13p0l12"
+    >
+      <input
+        checked={false}
+        className="chakra-radio__input"
+        disabled={false}
+        id="radio-3"
+        name="props"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          Object {
+            "border": "0px",
+            "clip": "rect(0px, 0px, 0px, 0px)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0px",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="radio"
+        value="3"
+      />
+      <span
+        aria-hidden={true}
+        className="css-14wybg9"
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      />
+      <span
+        className="chakra-radio__label css-1y8kf23"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        Radio 3
       </span>
     </label>
   </div>
