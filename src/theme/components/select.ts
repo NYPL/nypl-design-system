@@ -41,16 +41,16 @@ const Select = {
       helper: {
         ...helperTextMargin,
         marginLeft:
-          labelPosition === "inline" ? { lg: `${labelWidth}px` } : null,
+          labelPosition === "inline" ? { md: `${labelWidth}px` } : null,
       },
       select: {
         ...select,
-        flex: labelPosition === "inline" ? { lg: "1" } : null,
+        flex: labelPosition === "inline" ? { md: "1" } : null,
       },
       inline: {
-        display: { lg: "flex" },
-        gap: { lg: "var(--nypl-space-xs)" },
-        alignItems: { lg: "flex-end" },
+        display: { md: "flex" },
+        gap: { md: "var(--nypl-space-xs)" },
+        alignItems: { md: "flex-end" },
       },
     };
   },
