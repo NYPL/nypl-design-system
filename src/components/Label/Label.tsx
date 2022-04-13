@@ -8,6 +8,9 @@ interface LabelProps {
   htmlFor: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Controls whether the label should be inline with the input it goes with.
+   * This prop should only be used internally. */
+  isInlined?: boolean;
   /** Controls whether the "(Required)" text should be displayed alongside the
    * label's text. False by default. */
   isRequired?: boolean;
@@ -17,8 +20,15 @@ interface LabelProps {
  * A label for form inputs. It should never be used alone.
  */
 function Label(props: React.PropsWithChildren<LabelProps>) {
-  const { children, className, htmlFor, id, isRequired = false } = props;
-  const styles = useStyleConfig("Label");
+  const {
+    children,
+    className,
+    htmlFor,
+    id,
+    isInlined = false,
+    isRequired = false,
+  } = props;
+  const styles = useStyleConfig("Label", { isInlined });
 
   if (!id) {
     console.warn(
