@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { FormGaps } from "./FormTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
-import generateUUID from "../../helpers/generateUUID";
 
 interface FormBaseProps {
   /** className to be applied to FormRow, FormField, and Form */
@@ -12,10 +11,10 @@ interface FormBaseProps {
    * should not be used``` */
   gap?: FormGaps;
   /** ID that other components can cross reference (internal use) */
-  id?: string;
+  id: string;
 }
 
-export interface FormChildProps extends FormBaseProps {}
+export interface FormChildProps extends Partial<FormBaseProps> {}
 
 export interface FormProps extends FormBaseProps {
   /** Optional form `action` attribute */
@@ -30,6 +29,7 @@ export interface FormProps extends FormBaseProps {
 export function FormRow(props: React.PropsWithChildren<FormChildProps>) {
   const { children, className, gap, id } = props;
   const count = React.Children.count(children);
+
   const alteredChildren = React.Children.map(
     children as JSX.Element,
     (child: React.ReactElement, i) => {
@@ -67,12 +67,18 @@ export default function Form(props: React.PropsWithChildren<FormProps>) {
     children,
     className,
     gap = FormGaps.Large,
-    id = generateUUID(),
+    id,
     method,
     onSubmit,
   } = props;
+  const attributes: Partial<FormProps> = {};
 
-  let attributes: FormProps = {};
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Form: This component's required `id` prop was not passed."
+    );
+  }
+
   action && (attributes["action"] = action);
 
   method &&

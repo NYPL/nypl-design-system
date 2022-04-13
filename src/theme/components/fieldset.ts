@@ -6,7 +6,6 @@ interface FieldSetProps {
 }
 
 const Fieldset = {
-  parts: ["helper"],
   baseStyle: ({ isLegendHidden }: FieldSetProps) => {
     const screenreaderStyles = isLegendHidden ? screenreaderOnly : {};
     return {
@@ -16,7 +15,6 @@ const Fieldset = {
         ...labelLegendText,
         ...screenreaderStyles,
       },
-      helper: { ...labelLegendText.helper },
     };
   },
 };

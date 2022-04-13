@@ -5,7 +5,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Radio from "./Radio";
-import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Radio Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
@@ -93,13 +92,6 @@ describe("Radio Button", () => {
     expect(screen.getByRole("radio")).toHaveAttribute("id", "inputID");
   });
 
-  it("calls the UUID generation function if no id prop value is passed", () => {
-    const generateUUIDSpy = jest.spyOn(generateUUID, "default");
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-    render(<Radio labelText="Hello" />);
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
-  });
-
   it("sets the 'checked' attribute", () => {
     render(
       <Radio
@@ -168,6 +160,7 @@ describe("Radio Button", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Radio
+        id="radio"
         value="arts"
         labelText={
           <Flex>
@@ -182,6 +175,18 @@ describe("Radio Button", () => {
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
+    );
+  });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Radio labelText="Arts" />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Radio: This component's required `id` prop was not passed."
     );
   });
 

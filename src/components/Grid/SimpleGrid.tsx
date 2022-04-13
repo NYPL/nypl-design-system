@@ -1,9 +1,6 @@
 import * as React from "react";
 import { SimpleGrid as ChakraSimpleGrid } from "@chakra-ui/react";
 import { GridGaps } from "./GridTypes";
-
-import generateUUID from "../../helpers/generateUUID";
-
 export interface SimpleGridProps {
   /** Additional class name. */
   className?: string;
@@ -26,7 +23,7 @@ function SimpleGrid(props: React.PropsWithChildren<SimpleGridProps>) {
     <ChakraSimpleGrid
       columns={responsiveCols}
       gap={gap}
-      id={id || generateUUID()}
+      id={id}
       className={className}
     >
       {children}
