@@ -2,12 +2,12 @@
 
 exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   data-testid="video-player-component"
   id="video-player-without-text"
 >
   <div
-    className="css-0"
+    className="css-1xdhyk6"
   >
     <div
       className="css-0"
@@ -27,21 +27,21 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
 
 exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   data-testid="video-player-component"
   id="video-player-with-text"
 >
   <div
-    className="css-0"
+    className="css-1xdhyk6"
   >
     <h2
-      className="chakra-heading css-0"
+      className="chakra-heading css-1xdhyk6"
       id="video-player-with-text-componentWrapper-heading"
     >
       VideoPlayer Heading
     </h2>
     <p
-      className="chakra-text css-0"
+      className="chakra-text css-1xdhyk6"
     >
       VideoPlayer description
     </p>
@@ -60,7 +60,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     <div
       aria-atomic={true}
       aria-live="off"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "VideoPlayer helper test.",
@@ -75,21 +75,21 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
 
 exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   data-testid="video-player-component"
   id="video-player-with-text"
 >
   <div
-    className="css-0"
+    className="css-1xdhyk6"
   >
     <h2
-      className="chakra-heading css-0"
+      className="chakra-heading css-1xdhyk6"
       id="video-player-with-text-componentWrapper-heading"
     >
       VideoPlayer Heading
     </h2>
     <p
-      className="chakra-text css-0"
+      className="chakra-text css-1xdhyk6"
     >
       VideoPlayer description
     </p>
@@ -107,7 +107,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     <div
       aria-atomic={true}
       aria-live="off"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "VideoPlayer helper test.",
@@ -122,7 +122,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
 
 exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   data-testid="video-player-component"
   id="video-player-error"
 >
@@ -133,5 +133,55 @@ exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
       }
     }
   />
+</div>
+`;
+
+exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
+<div
+  className="css-kle7zy"
+  data-testid="video-player-component"
+  id="chakra"
+>
+  <div
+    className="css-1xdhyk6"
+  >
+    <div
+      className="css-0"
+    >
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+        allowFullScreen={true}
+        className="css-0"
+        frameBorder="0"
+        src="https://player.vimeo.com/video/474719268?autoplay=0&loop=0"
+        title="Vimeo video player"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+  id="props"
+>
+  <div
+    className="css-1xdhyk6"
+  >
+    <div
+      className="css-0"
+    >
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+        allowFullScreen={true}
+        className="css-0"
+        frameBorder="0"
+        src="https://player.vimeo.com/video/474719268?autoplay=0&loop=0"
+        title="Vimeo video player"
+      />
+    </div>
+  </div>
 </div>
 `;

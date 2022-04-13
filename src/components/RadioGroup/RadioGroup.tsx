@@ -1,4 +1,9 @@
-import { Stack, useMultiStyleConfig, useRadioGroup } from "@chakra-ui/react";
+import {
+  chakra,
+  Stack,
+  useMultiStyleConfig,
+  useRadioGroup,
+} from "@chakra-ui/react";
 import * as React from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -52,109 +57,114 @@ export const onChangeDefault = () => {
   return;
 };
 
-const RadioGroup = React.forwardRef<
-  HTMLInputElement,
-  React.PropsWithChildren<RadioGroupProps>
->((props, ref?) => {
-  const {
-    children,
-    className = "",
-    defaultValue,
-    helperText,
-    id,
-    invalidText,
-    isDisabled = false,
-    isFullWidth = false,
-    isInvalid = false,
-    isRequired = false,
-    labelText,
-    layout = LayoutTypes.Column,
-    name,
-    onChange = onChangeDefault,
-    showHelperInvalidText = true,
-    showLabel = true,
-    showRequiredLabel = true,
-  } = props;
-  const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-  const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
-  const newChildren = [];
+export const RadioGroup = chakra(
+  React.forwardRef<HTMLInputElement, React.PropsWithChildren<RadioGroupProps>>(
+    (props, ref?) => {
+      const {
+        children,
+        className = "",
+        defaultValue,
+        helperText,
+        id,
+        invalidText,
+        isDisabled = false,
+        isFullWidth = false,
+        isInvalid = false,
+        isRequired = false,
+        labelText,
+        layout = LayoutTypes.Column,
+        name,
+        onChange = onChangeDefault,
+        showHelperInvalidText = true,
+        showLabel = true,
+        showRequiredLabel = true,
+        ...rest
+      } = props;
+      const footnote: HelperErrorTextType = isInvalid
+        ? invalidText
+        : helperText;
+      const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
+      const newChildren = [];
 
-  if (!id) {
-    console.warn(
-      "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
-    );
-  }
-
-  // Use Chakra's RadioGroup hook to set and get the proper props
-  // or the custom components.
-  const { getRootProps, getRadioProps } = useRadioGroup({
-    name,
-    defaultValue,
-    onChange,
-  });
-  const radioGroupProps = getRootProps();
-
-  // Go through the Radio children and update them as needed.
-  React.Children.map(children, (child: React.ReactElement, i) => {
-    if (child.type !== Radio) {
-      // Special case for Storybook MDX documentation.
-      if (child.props.mdxType && child.props.mdxType === "Radio") {
-        noop();
-      } else {
+      if (!id) {
         console.warn(
-          "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
-            "inside the `RadioGroup` component."
+          "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
         );
       }
-    }
 
-    const chakraRadioProps = getRadioProps({
-      value: child.props.value,
-    } as any);
+      // Use Chakra's RadioGroup hook to set and get the proper props
+      // or the custom components.
+      const { getRootProps, getRadioProps } = useRadioGroup({
+        name,
+        defaultValue,
+        onChange,
+      });
+      const radioGroupProps = getRootProps();
 
-    if (child !== undefined && child !== null) {
-      const newProps = { key: i, isDisabled, isInvalid, isRequired };
-      if (child.props.value === defaultValue) {
-        newProps["checked"] = true;
-      }
-      newChildren.push(
-        React.cloneElement(child, { ...newProps, ...chakraRadioProps })
+      // Go through the Radio children and update them as needed.
+      React.Children.map(children, (child: React.ReactElement, i) => {
+        if (child.type !== Radio) {
+          // Special case for Storybook MDX documentation.
+          if (child.props.mdxType && child.props.mdxType === "Radio") {
+            noop();
+          } else {
+            console.warn(
+              "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
+                "inside the `RadioGroup` component."
+            );
+          }
+        }
+
+        const chakraRadioProps = getRadioProps({
+          value: child.props.value,
+        } as any);
+
+        if (child !== undefined && child !== null) {
+          const newProps = { key: i, isDisabled, isInvalid, isRequired };
+          if (child.props.value === defaultValue) {
+            newProps["checked"] = true;
+          }
+          newChildren.push(
+            React.cloneElement(child, { ...newProps, ...chakraRadioProps })
+          );
+        }
+      });
+
+      // Get the Chakra-based styles for the custom elements in this component.
+      const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
+
+      return (
+        <Fieldset
+          className={className}
+          id={`radio-group-${id}`}
+          isLegendHidden={!showLabel}
+          isRequired={isRequired}
+          legendText={labelText}
+          showRequiredLabel={showRequiredLabel}
+          {...rest}
+        >
+          <Stack
+            aria-label={!showLabel ? labelText : null}
+            direction={[layout]}
+            spacing={spacingProp}
+            ref={ref}
+            {...radioGroupProps}
+            sx={styles.stack}
+          >
+            {newChildren}
+          </Stack>
+          {footnote && showHelperInvalidText && (
+            <HelperErrorText
+              additionalStyles={styles.helperErrorText}
+              id={`${id}-helperErrorText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
+          )}
+        </Fieldset>
       );
     }
-  });
-
-  // Get the Chakra-based styles for the custom elements in this component.
-  const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
-
-  return (
-    <Fieldset
-      className={className}
-      id={`radio-group-${id}`}
-      isLegendHidden={!showLabel}
-      isRequired={isRequired}
-      legendText={labelText}
-      showRequiredLabel={showRequiredLabel}
-    >
-      <Stack
-        aria-label={!showLabel ? labelText : null}
-        direction={[layout]}
-        spacing={spacingProp}
-        ref={ref}
-        {...radioGroupProps}
-        sx={styles.stack}
-      >
-        {newChildren}
-      </Stack>
-      {footnote && showHelperInvalidText && (
-        <HelperErrorText
-          additionalStyles={styles.helperErrorText}
-          id={`${id}-helperErrorText`}
-          isInvalid={isInvalid}
-          text={footnote}
-        />
-      )}
-    </Fieldset>
-  );
-});
+  )
+);
 
 export default RadioGroup;

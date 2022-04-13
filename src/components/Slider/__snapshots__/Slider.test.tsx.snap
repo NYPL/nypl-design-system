@@ -2,10 +2,10 @@
 
 exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="defaultRangeSlider-textInput-start"
     id="defaultRangeSlider-label"
   >
@@ -15,7 +15,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <div
-      className="css-oihlfv"
+      className="css-bunm4f"
     >
       <input
         aria-label="Label - start value"
@@ -138,7 +138,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-label="Label - end value"
@@ -160,7 +160,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component helper text.",
@@ -174,10 +174,10 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
 
 exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="errored-textInput-start"
     id="errored-label"
   >
@@ -187,7 +187,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="css-oihlfv"
+      className="css-bunm4f"
     >
       <input
         aria-invalid={true}
@@ -311,7 +311,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-invalid={true}
@@ -334,7 +334,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component error text :(",
@@ -348,10 +348,10 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
 
 exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="required-textInput-start"
     id="required-label"
   >
@@ -364,7 +364,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="css-oihlfv"
+      className="css-bunm4f"
     >
       <input
         aria-label="Label - start value"
@@ -488,7 +488,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-label="Label - end value"
@@ -511,7 +511,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component helper text.",
@@ -525,10 +525,10 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
 
 exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="disabled-textInput-start"
     id="disabled-label"
   >
@@ -538,7 +538,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="css-oihlfv"
+      className="css-bunm4f"
     >
       <input
         aria-label="Label - start value"
@@ -663,7 +663,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-label="Label - end value"
@@ -685,7 +685,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component helper text.",
@@ -699,13 +699,13 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
 
 exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
   >
     <div
-      className="css-oihlfv"
+      className="css-bunm4f"
     >
       <input
         aria-label="Label - start value"
@@ -828,7 +828,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-label="Label - end value"
@@ -852,10 +852,10 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
 
 exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor={null}
     id="noVisibleValues-label"
   >
@@ -962,7 +962,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component helper text.",
@@ -976,7 +976,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
 
 exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -1081,10 +1081,10 @@ exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
 
 exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="defaultSlider-textInput-end"
     id="defaultSlider-label"
   >
@@ -1175,7 +1175,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-label="Label"
@@ -1197,7 +1197,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component helper text.",
@@ -1211,10 +1211,10 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
 
 exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="errored-textInput-end"
     id="errored-label"
   >
@@ -1305,7 +1305,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-invalid={true}
@@ -1328,7 +1328,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component error text :(",
@@ -1342,10 +1342,10 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
 
 exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="required-textInput-end"
     id="required-label"
   >
@@ -1439,7 +1439,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-label="Label"
@@ -1462,7 +1462,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component helper text.",
@@ -1476,10 +1476,10 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
 
 exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor="disabled-textInput-end"
     id="disabled-label"
   >
@@ -1572,7 +1572,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-label="Label"
@@ -1594,7 +1594,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component helper text.",
@@ -1608,7 +1608,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
 
 exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -1694,7 +1694,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
       100
     </div>
     <div
-      className="css-1g047oq"
+      className="css-1ebeaqx"
     >
       <input
         aria-label="Label"
@@ -1718,10 +1718,10 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
 
 exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <label
-    className="css-0"
+    className="css-1xdhyk6"
     htmlFor={null}
     id="noVisibleValues-label"
   >
@@ -1805,7 +1805,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className=" css-0"
+    className="css-1xdhyk6"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Component helper text.",
@@ -1819,7 +1819,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
 
 exports[`Slider Single Slider renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -1895,5 +1895,266 @@ exports[`Slider Single Slider renders the UI snapshot correctly 7`] = `
       />
     </div>
   </div>
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
+<div
+  className="css-kle7zy"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="chakra-textInput-end"
+    id="chakra-label"
+  >
+    Label
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-chakra"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label={null}
+        aria-labelledby="chakra-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-chakra"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1ebeaqx"
+    >
+      <input
+        aria-label="Label"
+        className="chakra-input css-0"
+        disabled={false}
+        id="chakra-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="50"
+      />
+    </div>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Component helper text.",
+      }
+    }
+    data-isinvalid={false}
+    id="chakra-helperText"
+  />
+</div>
+`;
+
+exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="props-textInput-end"
+    id="props-label"
+  >
+    Label
+  </label>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      0
+    </div>
+    <div
+      className="chakra-slider css-0"
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "outline": 0,
+          "paddingBottom": 0,
+          "paddingTop": 0,
+          "position": "relative",
+          "touchAction": "none",
+          "userSelect": "none",
+        }
+      }
+      tabIndex={-1}
+    >
+      <div
+        className="chakra-slider__track css-0"
+        id="slider-track-props"
+        style={
+          Object {
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="chakra-slider__filled-track css-0"
+          style={
+            Object {
+              "left": "0%",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "50%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-label={null}
+        aria-labelledby="props-label"
+        aria-orientation="horizontal"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={50}
+        className="chakra-slider__thumb css-0"
+        id="slider-thumb-props"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "MozUserSelect": "none",
+            "WebkitUserSelect": "none",
+            "left": "calc(50% - 0px)",
+            "msUserSelect": "none",
+            "position": "absolute",
+            "touchAction": "none",
+            "userSelect": "none",
+          }
+        }
+        tabIndex={0}
+      />
+      <input
+        type="hidden"
+        value={50}
+      />
+    </div>
+    <div
+      className="css-0"
+    >
+      100
+    </div>
+    <div
+      className="css-1ebeaqx"
+    >
+      <input
+        aria-label="Label"
+        className="chakra-input css-0"
+        disabled={false}
+        id="props-textInput-end"
+        max={100}
+        min={0}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        step={1}
+        type="number"
+        value="50"
+      />
+    </div>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Component helper text.",
+      }
+    }
+    data-isinvalid={false}
+    id="props-helperText"
+  />
 </div>
 `;

@@ -14,6 +14,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
 - Adds the `isRequired` prop to the `Label` component.
 - Adds the `labelPosition` prop to the `Select` component, so that the label can be styled inline with the select input.
+- Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
+- Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
 
 ### Changes
 
@@ -32,11 +34,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Uses the design token "text.caption" variable for the `Notification`'s font size.
 - Updates the styling for the `HelperErrorText` to be consistent for all components that use it
 - Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
+- Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
+- Renames the `Skeleton`'s `border` prop to `isBordered`.
 
 ### Removals
 
 - Removes the default `Optional` text displayed in the `Label` and `Fieldset` components.
 - Removes the `optReqFlag` prop in the `Label` component.
+- Removes the `HorizontalRule`'s `height` and `width` props from its prop interface in favor of Chakra's style props; the default values are still set for `height` and `width`.
 
 ## 0.25.13 (April 1, 2022)
 

@@ -1,10 +1,11 @@
-import * as React from "react";
 import {
   Box,
+  chakra,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import {
   TextInputTypes,
@@ -79,125 +80,130 @@ export type TextInputRefType = HTMLInputElement & HTMLTextAreaElement;
  * element. All types will render an accessible `Label` component and an
  * optional `HelperErrorText` component.
  */
-const TextInput = React.forwardRef<TextInputRefType, InputProps>(
-  (props, ref: React.Ref<TextInputRefType>) => {
-    const {
-      additionalStyles = {},
-      attributes = {},
-      className,
-      defaultValue,
-      helperText,
-      id,
-      invalidText,
-      isDisabled = false,
-      isInvalid = false,
-      isRequired = false,
-      labelText,
-      name,
-      onChange,
-      placeholder,
-      showHelperInvalidText = true,
-      showLabel = true,
-      showRequiredLabel = true,
-      step = 1,
-      textInputType = TextInputVariants.Default,
-      type = TextInputTypes.text,
-      value,
-    } = props;
-    const styles = useMultiStyleConfig("TextInput", { variant: textInputType });
-    const finalStyles = { ...styles, ...additionalStyles };
-    const isTextArea = type === TextInputTypes.textarea;
-    const isHidden = type === TextInputTypes.hidden;
-    const finalInvalidText = invalidText
-      ? invalidText
-      : "There is an error related to this field.";
-    let footnote: HelperErrorTextType = isInvalid
-      ? finalInvalidText
-      : helperText;
-    let fieldOutput;
-    let options;
+export const TextInput = chakra(
+  React.forwardRef<TextInputRefType, InputProps>(
+    (props, ref: React.Ref<TextInputRefType>) => {
+      const {
+        additionalStyles = {},
+        attributes = {},
+        className,
+        defaultValue,
+        helperText,
+        id,
+        invalidText,
+        isDisabled = false,
+        isInvalid = false,
+        isRequired = false,
+        labelText,
+        name,
+        onChange,
+        placeholder,
+        showHelperInvalidText = true,
+        showLabel = true,
+        showRequiredLabel = true,
+        step = 1,
+        textInputType = TextInputVariants.Default,
+        type = TextInputTypes.text,
+        value,
+        ...rest
+      } = props;
+      const styles = useMultiStyleConfig("TextInput", {
+        variant: textInputType,
+      });
+      const finalStyles = { ...styles, ...additionalStyles };
+      const isTextArea = type === TextInputTypes.textarea;
+      const isHidden = type === TextInputTypes.hidden;
+      const finalInvalidText = invalidText
+        ? invalidText
+        : "There is an error related to this field.";
+      let footnote: HelperErrorTextType = isInvalid
+        ? finalInvalidText
+        : helperText;
+      let fieldOutput;
+      let options;
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+      if (!id) {
+        console.warn(
+          "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+        );
+      }
+
+      if (!showLabel) {
+        attributes["aria-label"] =
+          labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+      } else if (helperText) {
+        attributes["aria-describedby"] = `${id}-helperText`;
+      }
+
+      if (
+        type === TextInputTypes.tel ||
+        type === TextInputTypes.url ||
+        type === TextInputTypes.email
+      ) {
+        const example = TextInputFormats[type];
+        footnote = (
+          <>
+            Ex: {example}
+            <br />
+            {footnote}
+          </>
+        );
+      }
+
+      // When the type is "hidden", the input element needs fewer attributes.
+      options = isHidden
+        ? { id, "aria-hidden": isHidden, name, onChange, ref }
+        : {
+            "aria-required": isRequired,
+            defaultValue,
+            id,
+            isDisabled,
+            isRequired,
+            isInvalid,
+            placeholder,
+            name,
+            onChange,
+            ref,
+            // The `step` attribute is useful for the number type.
+            step: type === TextInputTypes.number ? step : null,
+            ...attributes,
+          };
+      // For `input` and `textarea`, all attributes are the same but `input`
+      // also needs `type` and `value` to render correctly.
+      if (!isTextArea) {
+        options = { type, value, ...options } as any;
+        fieldOutput = <ChakraInput {...options} __css={finalStyles.input} />;
+      } else {
+        fieldOutput = (
+          <ChakraTextarea {...options} __css={finalStyles.textarea}>
+            {value}
+          </ChakraTextarea>
+        );
+      }
+
+      return (
+        <Box __css={finalStyles} className={className} {...rest}>
+          {labelText && showLabel && !isHidden && (
+            <Label
+              htmlFor={id}
+              id={`${id}-label`}
+              isRequired={showRequiredLabel && isRequired}
+            >
+              {labelText}
+            </Label>
+          )}
+          {fieldOutput}
+          {footnote && showHelperInvalidText && !isHidden && (
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
+          )}
+        </Box>
       );
     }
-
-    if (!showLabel) {
-      attributes["aria-label"] =
-        labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-    } else if (helperText) {
-      attributes["aria-describedby"] = `${id}-helperText`;
-    }
-
-    if (
-      type === TextInputTypes.tel ||
-      type === TextInputTypes.url ||
-      type === TextInputTypes.email
-    ) {
-      const example = TextInputFormats[type];
-      footnote = (
-        <>
-          Ex: {example}
-          <br />
-          {footnote}
-        </>
-      );
-    }
-
-    // When the type is "hidden", the input element needs fewer attributes.
-    options = isHidden
-      ? { id, "aria-hidden": isHidden, name, onChange, ref }
-      : {
-          "aria-required": isRequired,
-          defaultValue,
-          id,
-          isDisabled,
-          isRequired,
-          isInvalid,
-          placeholder,
-          name,
-          onChange,
-          ref,
-          // The `step` attribute is useful for the number type.
-          step: type === TextInputTypes.number ? step : null,
-          ...attributes,
-        };
-    // For `input` and `textarea`, all attributes are the same but `input`
-    // also needs `type` and `value` to render correctly.
-    if (!isTextArea) {
-      options = { type, value, ...options } as any;
-      fieldOutput = <ChakraInput {...options} __css={finalStyles.input} />;
-    } else {
-      fieldOutput = (
-        <ChakraTextarea {...options} __css={finalStyles.textarea}>
-          {value}
-        </ChakraTextarea>
-      );
-    }
-
-    return (
-      <Box __css={finalStyles} className={className}>
-        {labelText && showLabel && !isHidden && (
-          <Label
-            htmlFor={id}
-            id={`${id}-label`}
-            isRequired={showRequiredLabel && isRequired}
-          >
-            {labelText}
-          </Label>
-        )}
-        {fieldOutput}
-        {footnote && showHelperInvalidText && !isHidden && (
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={isInvalid}
-            text={footnote}
-          />
-        )}
-      </Box>
-    );
-  }
+  )
 );
 
 export default TextInput;

@@ -1,4 +1,4 @@
-import { useMultiStyleConfig } from "@chakra-ui/react";
+import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
@@ -172,32 +172,36 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
  * for a date range we render a "fieldset".
  * @note This is only used internally for this file.
  */
-const DatePickerWrapper: React.FC<DatePickerWrapperProps> = ({
-  children,
-  className,
-  id,
-  isDateRange,
-  isRequired,
-  labelText,
-  showLabel,
-  showRequiredLabel,
-}) => (
-  <FormField id={`${id}-form-field}`}>
-    {isDateRange ? (
-      <Fieldset
-        className={className}
-        id={id}
-        isLegendHidden={!showLabel}
-        isRequired={isRequired}
-        legendText={labelText}
-        showRequiredLabel={showRequiredLabel}
-      >
-        {children}
-      </Fieldset>
-    ) : (
-      children
-    )}
-  </FormField>
+const DatePickerWrapper: React.FC<DatePickerWrapperProps> = chakra(
+  ({
+    children,
+    className,
+    id,
+    isDateRange,
+    isRequired,
+    labelText,
+    showLabel,
+    showRequiredLabel,
+    ...rest
+  }) => (
+    <FormField id={`${id}-form-field`} {...rest}>
+      {isDateRange ? (
+        <Fieldset
+          className={className}
+          id={id}
+          isLegendHidden={!showLabel}
+          isRequired={isRequired}
+          legendText={labelText}
+          showRequiredLabel={showRequiredLabel}
+        >
+          {children}
+        </Fieldset>
+      ) : (
+        children
+      )}
+    </FormField>
+  ),
+  { shouldForwardProp: () => true }
 );
 
 /**
@@ -222,8 +226,8 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
 /**
  * Returns a single date input field or two date input fields for a date range.
  */
-const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
-  (props, ref?) => {
+export const DatePicker = chakra(
+  React.forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
     const {
       className,
       dateFormat = "yyyy-MM-dd",
@@ -249,6 +253,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
       showHelperInvalidText = true,
       showLabel = true,
       showRequiredLabel = true,
+      ...rest
     } = props;
     const styles = useMultiStyleConfig("DatePicker", {});
     const finalStyles = isDateRange ? styles : {};
@@ -410,6 +415,7 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
         className={className}
         isRequired={isRequired}
         showRequiredLabel={showRequiredLabel}
+        {...rest}
       >
         <DateRangeRow id={id} isDateRange={isDateRange}>
           <FormField id={`${id}-start-form`}>
@@ -429,7 +435,8 @@ const DatePicker = React.forwardRef<TextInputRefType, DatePickerProps>(
         )}
       </DatePickerWrapper>
     );
-  }
+  }),
+  { shouldForwardProp: () => true }
 );
 
 export default DatePicker;
