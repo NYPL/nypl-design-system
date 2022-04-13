@@ -51,7 +51,18 @@ export const enumValues = getStorybookEnumValues(
 | Added             | `0.18.7`   |
 | Latest            | `0.25.1`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Patterns](#patterns)
+
+## Overview
+
 <Description of={StatusBadge} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -72,6 +83,13 @@ export const enumValues = getStorybookEnumValues(
 </Canvas>
 
 <ArgsTable story="StatusBadge" />
+
+## Accessibility
+
+The visual aspect of the `StatusBadge` component displays three different status
+levels through the use of three different colors. It is important to assign
+the appropriate text so that the user can understand the priority level of the
+`StatusBadge`, and not rely just on the color.
 
 ## Patterns
 

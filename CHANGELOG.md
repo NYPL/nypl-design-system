@@ -29,6 +29,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates how the `Required` text in the `Label` and `Fieldset` components is displayed. Instead of floating to the right of the label and legend elements, it is now displayed inlined as `(Required)`.
 - Renames the `optReqFlag` prop to `showRequiredLabel` in the `CheckboxGroup`, `Fieldset`, `RadioGroup`, and `Slider` components.
 - Renames the `showOptReqLabel` prop to `showRequiredLabel` in the `DatePicker`, `Select`, and `TextInput` components.
+- Uses the design token "text.caption" variable for the `Notification`'s font size.
 
 ### Removals
 
