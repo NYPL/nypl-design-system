@@ -60,7 +60,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.12`  |
+| Latest            | `0.26.0`   |
 
 <Description of={SearchBar} />
 
@@ -147,16 +147,17 @@ rendered but will be used for its `aria-label` attribute.
 
 ```
 const selectProps = {
-  name: "select-form-name",
   labelText: "Select a category",
-  optionsData: optionsGroup,
+  name: "select-form-name",
   onChange: (event) => {
     console.log(event.target.value);
   },
+  optionsData: optionsGroup,
 };
 
 // ...
 <SearchBar
+  id="searchBar"
   onSubmit={() => {}}
   selectProps={selectProps}
   // ...
@@ -183,6 +184,7 @@ const textInputProps = {
 
 // ...
 <SearchBar
+  id="searchBar"
   onSubmit={() => {}}
   textInputProps={textInputProps}
   // ...
@@ -200,6 +202,7 @@ const textInputElement = <CustomInput {...props} />;
 
 // ...
 <SearchBar
+  id="searchBar"
   onSubmit={() => {}}
   textInputElement={textInputElement}
   // ...
@@ -227,6 +230,7 @@ const helperText = "";
 
 // ...
 <SearchBar
+  id="searchBar"
   onSubmit={() => {}}
   helperText="Search for items in <b>Animal Crossing New Horizons</b>."
   // ...
@@ -238,6 +242,7 @@ const helperText = "";
     <SearchBar
       descriptionText="The helper text below contains HTML in a string."
       helperText="Search for items in <b>Animal Crossing New Horizons</b>."
+      id="helper-text"
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
@@ -248,6 +253,7 @@ const helperText = "";
     <br />
     <SearchBar
       descriptionText="The invalid text below contains HTML in a string."
+      id="invalid-text"
       isInvalid
       invalidText="Could <b>not</b> find the item <b>:(</b>"
       onSubmit={() => {}}
@@ -277,6 +283,7 @@ precedence.
   <Story
     name="Search Autocomplete"
     args={{
+      id: "autocomplete",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
@@ -309,15 +316,16 @@ handle the error state yourself.
 <Canvas>
   <DSProvider>
     <SearchBar
+      helperText="This is the helper text!"
+      id="error-state"
+      invalidText="Could not find the item :("
+      isInvalid
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
         name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperText="This is the helper text!"
-      invalidText="Could not find the item :("
-      isInvalid
     />
   </DSProvider>
 </Canvas>
@@ -331,14 +339,15 @@ handle the disabled state yourself.
 <Canvas>
   <DSProvider>
     <SearchBar
+      helperText="Reason for disabled state."
+      id="disabled-state"
+      isDisabled
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
         name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperText="Reason for disabled state."
-      isDisabled
     />
   </DSProvider>
 </Canvas>
@@ -353,6 +362,7 @@ description above the main `SearchBar` form component.
     <SearchBar
       descriptionText="This is the description for this `SearchBar` instance."
       headingText="Heading for this `SearchBar`"
+      id="heading-and-description"
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
@@ -398,6 +408,9 @@ function SearchBarValueExample() {
   };
   return (
     <SearchBar
+      helperText="Search for an item"
+      invalidText="Could not find the item :("
+      id="example-1"
       onSubmit={onSubmit}
       selectProps={{
         labelText: "Select a category",
@@ -410,8 +423,6 @@ function SearchBarValueExample() {
         onChange: textInputOnChange,
         placeholder: "Item Search",
       }}
-      helperText="Search for an item"
-      invalidText="Could not find the item :("
     />
   );
 }
@@ -428,6 +439,9 @@ export function SearchBarValueExample() {
   };
   return (
     <SearchBar
+      helperText="Search for an item"
+      invalidText="Could not find the item :("
+      id="example-1"
       onSubmit={onSubmit}
       selectProps={{
         labelText: "Select a category",
@@ -440,8 +454,6 @@ export function SearchBarValueExample() {
         onChange: textInputOnChange,
         placeholder: "Item Search",
       }}
-      helperText="Search for an item"
-      invalidText="Could not find the item :("
     />
   );
 }

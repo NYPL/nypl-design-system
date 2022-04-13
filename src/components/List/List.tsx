@@ -1,11 +1,9 @@
+import { As, Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { As, Box, useStyleConfig } from "@chakra-ui/react";
 
 import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 interface DefinitionProps {
   term: string;
   definition: string | JSX.Element;
@@ -40,17 +38,18 @@ export interface ListProps {
  * and `dd` elements based on the `type` prop. Note that the `title` prop will
  * only display for the `Definition` list type.
  */
-export default function List(props: React.PropsWithChildren<ListProps>) {
+export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
   const {
     additionalStyles = {},
     children,
     className,
-    id = generateUUID(),
+    id,
     inline = false,
     listItems,
     noStyling = false,
     title,
     type = ListTypes.Unordered,
+    ...rest
   } = props;
   const styles = useStyleConfig("List", { inline, noStyling, variant: type });
   const finalStyles = { ...styles, ...additionalStyles };
@@ -132,14 +131,26 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
   if (type === ListTypes.Ordered || type === ListTypes.Unordered) {
     checkListChildrenError(type);
     listElement = (
-      <Box as={type as As} id={id} className={className} __css={finalStyles}>
+      <Box
+        as={type as As}
+        id={id}
+        className={className}
+        __css={finalStyles}
+        {...rest}
+      >
         {listChildrenElms(type)}
       </Box>
     );
   } else if (type === ListTypes.Definition) {
     checkDefinitionChildrenError();
     listElement = (
-      <Box as="section" id={id} className={className} __css={finalStyles}>
+      <Box
+        as="section"
+        id={id}
+        className={className}
+        __css={finalStyles}
+        {...rest}
+      >
         {title && (
           <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
             {title}
@@ -151,4 +162,6 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
   }
 
   return listElement;
-}
+});
+
+export default List;

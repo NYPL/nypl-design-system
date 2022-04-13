@@ -176,6 +176,14 @@ describe("Heading", () => {
         </Heading>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Heading id="chakra" text="Heading" p="20px" color="ui.red.primary" />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Heading id="props" text="Heading" data-testid="props" />)
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(basicWithChildText).toMatchSnapshot();
@@ -183,5 +191,7 @@ describe("Heading", () => {
     expect(otherLevel).toMatchSnapshot();
     expect(withLink).toMatchSnapshot();
     expect(withCustomLink).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

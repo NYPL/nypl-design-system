@@ -46,6 +46,7 @@ export const layoutsEnumValues = getStorybookEnumValues(
       },
       options: imageRatiosEnumValues.options,
     },
+    isBordered: { table: { defaultValue: { summary: "false" } } },
     layout: {
       table: { defaultValue: { summary: "LayoutTypes.Column" } },
       options: layoutsEnumValues.options,
@@ -62,7 +63,7 @@ export const layoutsEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.17.3`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.26.0`   |
 
 <Description of={SkeletonLoader} />
 
@@ -76,11 +77,11 @@ to better view the example. The default value is `100%`.
   <Story
     name="SkeletonLoader with Controls"
     args={{
-      border: false,
       className: undefined,
       contentSize: 3,
       headingSize: 1,
       imageAspectRatio: "SkeletonLoaderImageRatios.Square",
+      isBordered: false,
       layout: "LayoutTypes.Column",
       showButton: false,
       showContent: true,
@@ -108,27 +109,27 @@ to better view the example. The default value is `100%`.
     <SimpleGrid columns={3}>
       <SkeletonLoader
         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        border
+        isBordered
       />
       <SkeletonLoader
         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        border
+        isBordered
       />
       <SkeletonLoader
         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        border
+        isBordered
       />
       <SkeletonLoader
         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        border
+        isBordered
       />
       <SkeletonLoader
         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        border
+        isBordered
       />
       <SkeletonLoader
         imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        border
+        isBordered
       />
     </SimpleGrid>
   </Story>

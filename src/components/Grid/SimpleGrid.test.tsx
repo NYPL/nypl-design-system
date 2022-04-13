@@ -60,7 +60,16 @@ describe("Grid Accessibility", () => {
 describe("SimpleGrid", () => {
   it("Renders the SimpleGrid UI snapshot correctly", () => {
     const tree = renderer.create(<SimpleGrid id="test-grid" />).toJSON();
+    const withChakraProps = renderer
+      .create(<SimpleGrid id="chakra" p="20px" color="ui.error.primary" />)
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<SimpleGrid id="props" data-testid="props" />)
+      .toJSON();
+
     expect(tree).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 
   it("Renders SimpleGrid component", () => {

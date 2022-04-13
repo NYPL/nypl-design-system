@@ -96,6 +96,16 @@ describe("padding for icon only button", () => {
     );
     expect(container.querySelector("button svg")).toBeInTheDocument();
   });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    // @ts-ignore: Typescript complains when a required prop is not passed, but
+    // here we don't want to pass the required prop to make sure the warning appears.
+    render(<Button>Submit</Button>);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Button: This component's required `id` prop was not passed."
+    );
+  });
 });
 
 describe("Button Snapshot", () => {
@@ -161,6 +171,19 @@ describe("Button Snapshot", () => {
         </Button>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Button id="button" onClick={jest.fn()} data-testid="testid" />)
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(disabled).toMatchSnapshot();
@@ -169,5 +192,7 @@ describe("Button Snapshot", () => {
     expect(pill).toMatchSnapshot();
     expect(link).toMatchSnapshot();
     expect(noBrand).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });
