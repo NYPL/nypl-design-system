@@ -53,7 +53,20 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
 | Added             | `0.7.0`    |
 | Latest            | `0.25.13`  |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Definition List](#definition-list)
+- [Definition List of Links](#definition-list-of-links)
+- [Lists with Data Props](#lists-with-data-props)
+
+## Overview
+
 <Description of={List} />
+
+## Component Props
 
 export const animalCrossingDefinitions = [
   {
@@ -167,6 +180,22 @@ export const definitions = [
 </Canvas>
 
 <ArgsTable story="List with Controls" />
+
+## Accessibility
+
+Internally, the `List` component implements native HTML markup for unordered,
+ordered, and definition lists. This includes `ul`, `ol`, and `dl` elements.
+When data is passed into the `listItems` data prop, the appropriate children
+HTML elements are used. This includes `li` for unorder and ordered lists, and
+`dt` and `dd` elements for definition lists.
+
+The definition type for the `List` component is wrapped in a `section` element
+with an `h2` header. Keep that in mind when ordering headings on the page.
+
+Resources:
+
+- [W3C WAI Content Structure](https://www.w3.org/WAI/tutorials/page-structure/content/)
+- [Deque University Appropriate Semantic Markup for Lists](https://dequeuniversity.com/tips/list-markup)
 
 ## Definition List
 
@@ -313,7 +342,7 @@ object must have two keys, `term` and `definition`.
 
 ```jsx
 // With `dt`/`dd` elements
-<List type={ListTypes.Definition} title="Animal Corssing Fish">
+<List type={ListTypes.Definition} title="Animal Crossing Fish">
   <dt>Mahi-mahi</dt>
   <dd>The mahi-mahi is an ocean fish known...</dd>
   <dt>Golden trout</dt>

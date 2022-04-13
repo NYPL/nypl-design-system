@@ -44,10 +44,20 @@ export const enumValues = getStorybookEnumValues(TextSizes, "TextSizes");
 | Added             | `0.25.1`   |
 | Latest            | `0.25.13`  |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+
+## Overview
+
 <Description of={Text} />
 
 The `Text` component renders a basic `<p>` element. As its name indicates, the
 `size` prop controls the size of the text rendered in the component.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -88,3 +98,8 @@ The `Text` component renders a basic `<p>` element. As its name indicates, the
 </Canvas>
 
 <ArgsTable story="Text" />
+
+## Accessibility
+
+The `Text` component renders paragraph `p` HTML elements which are inherently
+accessible and will be read by screen readers.
