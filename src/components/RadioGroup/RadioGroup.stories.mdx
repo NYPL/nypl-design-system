@@ -97,10 +97,10 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
   >
     {(args) => (
       <RadioGroup {...args} layout={enumValues.getValue(args.layout)}>
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
-        <Radio value="5" labelText="Radio 5" />
+        <Radio id="main-2" labelText="Radio 2" value="2" />
+        <Radio id="main-3" labelText="Radio 3" value="3" />
+        <Radio id="main-4" labelText="Radio 4" value="4" />
+        <Radio id="main-5" labelText="Radio 5" value="5" />
       </RadioGroup>
     )}
   </Story>
@@ -115,18 +115,23 @@ a row.
 
 <Canvas>
   <DSProvider>
-    <RadioGroup labelText="Column (default)" name="column-example">
-      <Radio value="2" labelText="Radio 2" />
-      <Radio value="3" labelText="Radio 3" />
-      <Radio value="4" labelText="Radio 4" />
-      <Radio value="5" labelText="Radio 5" />
+    <RadioGroup id="column" labelText="Column (default)" name="column-example">
+      <Radio id="column-2" labelText="Radio 2" value="2" />
+      <Radio id="column-3" labelText="Radio 3" value="3" />
+      <Radio id="column-4" labelText="Radio 4" value="4" />
+      <Radio id="column-5" labelText="Radio 5" value="5" />
     </RadioGroup>
     <br />
-    <RadioGroup labelText="Row" name="row-example" layout={LayoutTypes.Row}>
-      <Radio value="2" labelText="Radio 2" />
-      <Radio value="3" labelText="Radio 3" />
-      <Radio value="4" labelText="Radio 4" />
-      <Radio value="5" labelText="Radio 5" />
+    <RadioGroup
+      id="row"
+      labelText="Row"
+      name="row-example"
+      layout={LayoutTypes.Row}
+    >
+      <Radio id="row-2" labelText="Radio 2" value="2" />
+      <Radio id="row-3" labelText="Radio 3" value="3" />
+      <Radio id="row-4" labelText="Radio 4" value="4" />
+      <Radio id="row-5" labelText="Radio 5" value="5" />
     </RadioGroup>
   </DSProvider>
 </Canvas>
@@ -136,15 +141,16 @@ a row.
 <Canvas>
   <DSProvider>
     <RadioGroup
-      labelText="Errored Radio Group"
-      name="errored-example"
+      id="errored"
       invalidText="Error message for the full group."
       isInvalid
+      labelText="Errored Radio Group"
+      name="errored-example"
     >
-      <Radio value="2" labelText="Radio 2" />
-      <Radio value="3" labelText="Radio 3" />
-      <Radio value="4" labelText="Radio 4" />
-      <Radio value="5" labelText="Radio 5" />
+      <Radio id="radio-2" labelText="Radio 2" value="2" />
+      <Radio id="radio-3" labelText="Radio 3" value="3" />
+      <Radio id="radio-4" labelText="Radio 4" value="4" />
+      <Radio id="radio-5" labelText="Radio 5" value="5" />
     </RadioGroup>
   </DSProvider>
 </Canvas>
@@ -154,15 +160,16 @@ a row.
 <Canvas>
   <DSProvider>
     <RadioGroup
+      helperText="The reason for being required."
+      id="required"
+      isRequired
       labelText="Required Radio Group"
       name="required-example"
-      helperText="The reason for being required."
-      isRequired
     >
-      <Radio value="2" labelText="Radio 2" />
-      <Radio value="3" labelText="Radio 3" />
-      <Radio value="4" labelText="Radio 4" />
-      <Radio value="5" labelText="Radio 5" />
+      <Radio id="required-2" labelText="Radio 2" value="2" />
+      <Radio id="required-3" labelText="Radio 3" value="3" />
+      <Radio id="required-4" labelText="Radio 4" value="4" />
+      <Radio id="required-5" labelText="Radio 5" value="5" />
     </RadioGroup>
   </DSProvider>
 </Canvas>
@@ -172,15 +179,16 @@ a row.
 <Canvas>
   <DSProvider>
     <RadioGroup
+      helperText="The reason for being disabled."
+      id="disabled"
+      isDisabled
       labelText="Disabled Radio Group"
       name="disabled-example"
-      helperText="The reason for being disabled."
-      isDisabled
     >
-      <Radio value="2" labelText="Radio 2" />
-      <Radio value="3" labelText="Radio 3" />
-      <Radio value="4" labelText="Radio 4" />
-      <Radio value="5" labelText="Radio 5" />
+      <Radio id="required-2" labelText="Radio 2" value="2" />
+      <Radio id="required-3" labelText="Radio 3" value="3" />
+      <Radio id="required-4" labelText="Radio 4" value="4" />
+      <Radio id="required-5" labelText="Radio 5" value="5" />
     </RadioGroup>
   </DSProvider>
 </Canvas>
@@ -197,8 +205,14 @@ order to make this work, pass in the `isFullWidth` prop.
 
 <Canvas>
   <DSProvider>
-    <RadioGroup labelText="Radio Group" name="radio-example" isFullWidth>
+    <RadioGroup
+      id="jsx-radiogroup"
+      isFullWidth
+      labelText="Radio Group"
+      name="radio-example"
+    >
       <Radio
+        id="arts"
         labelText={
           <Flex>
             <span>Arts</span>
@@ -209,6 +223,7 @@ order to make this work, pass in the `isFullWidth` prop.
         value="arts"
       />
       <Radio
+        id="english"
         labelText={
           <Flex>
             <span>English</span>
@@ -219,6 +234,7 @@ order to make this work, pass in the `isFullWidth` prop.
         value="English"
       />
       <Radio
+        id="science"
         labelText={
           <Flex>
             <span>Science</span>
@@ -229,6 +245,7 @@ order to make this work, pass in the `isFullWidth` prop.
         value="Science"
       />
       <Radio
+        id="math"
         labelText={
           <Flex>
             <span>Math</span>
@@ -265,9 +282,9 @@ const onChange = (data) => {
   defaultValue="3"
   onChange={onChange}
 >
-  <Radio value="2" labelText="Radio 2" />
-  <Radio value="3" labelText="Radio 3" />
-  <Radio value="4" labelText="Radio 4" />
+  <Radio id="2" labelText="Radio 2" value="2" />
+  <Radio id="3" labelText="Radio 3" value="3" />
+  <Radio id="4" labelText="Radio 4" value="4" />
 </RadioGroup>;
 ```
 
@@ -308,9 +325,9 @@ const submitForm = (formData) => {
         defaultValue="3"
         ref={register()}
       >
-        <Radio value="2" labelText="Radio 2" />
-        <Radio value="3" labelText="Radio 3" />
-        <Radio value="4" labelText="Radio 4" />
+        <Radio id="2" labelText="Radio 2" value="2" />
+        <Radio id="3" labelText="Radio 3" value="3" />
+        <Radio id="4" labelText="Radio 4" value="4" />
       </RadioGroup>
     }
     name="radioExample"
@@ -332,9 +349,9 @@ const radioGroupRef = React.createRef<HTMLInputElement>();
   defaultValue="3"
   ref={radioGroupRef}
 >
-  <Radio value="2" labelText="Radio 2" />
-  <Radio value="3" labelText="Radio 3" />
-  <Radio value="4" labelText="Radio 4" />
+  <Radio id="2" labelText="Radio 2" value="2" />
+  <Radio id="3" labelText="Radio 3" value="3" />
+  <Radio id="4" labelText="Radio 4" value="4" />
 </RadioGroup>
 
 // ...
