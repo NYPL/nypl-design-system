@@ -1,5 +1,9 @@
 import { Meta } from "@storybook/addon-docs";
 
+import Button from "../components/Button/Button";
+import Text from "../components/Text/Text";
+import DSProvider from "../theme/provider";
+
 <Meta title="Chakra UI" />
 
 # Chakra UI
@@ -10,7 +14,9 @@ import { Meta } from "@storybook/addon-docs";
 | 2. [DSProvider](#dsprovider)        |
 | 3. [Components](#components)        |
 | 4. [Styling](#styling)              |
-| 5. [Testing](#testing)              |
+| 5. [Style Props](#style-props)      |
+| 6. [Hooks](#hooks)                  |
+| 7. [Testing](#testing)              |
 
 ## Why Chakra UI?
 
@@ -409,6 +415,142 @@ const Button = {
 All typography values can be found in the `src/theme/foundations/typography.ts`
 file. These values declare the font family, font sizes, and font weights to use
 for all text.
+
+## Style Props
+
+NYPL Reservoir components are built around the Chakra UI library. While Reservoir
+components may use the corresponding Chakra UI component, that is not always the
+case. Every Reservoir component, however, does make use of the Chakra UI
+"style props" pattern. This means that it is possible to pass in CSS rules to a
+component, including the shorthand versions. These style props will target the
+wrapper element of the component; this means if you want to target a specific
+element or component in a Reservoir component, you won't be able to with style
+props.
+
+<DSProvider>
+  <Text isBold>
+    While this is available to use, it is not recommended. If you see a need to
+    override styles, please reach out to the NYPL Reservoir team for assistance.
+  </Text>
+</DSProvider>
+
+In the following example, the `Button` component has been passed `p` and `maxW`
+props which are shorthand for "padding" and "max-width", respectively.
+
+```jsx
+<Button p="s" maxW="200px">
+  Button
+</Button>
+```
+
+<DSProvider>
+  <Button p="s" maxW="200px">
+    Button
+  </Button>
+</DSProvider>
+
+Find more information and a full list of all the available props, check the Chakra
+UI [Style Props page](https://chakra-ui.com/docs/styled-system/features/style-props).
+
+## Hooks
+
+The following hooks are available to use and can be imported from
+`@nypl/design-system-react-components`.
+
+### useNYPLTheme
+
+If your application does not use CSS or SCSS files and you want to write
+CSS-in-JS styles in your React components, the `useNYPLTheme` hook will provide
+you with NYPL-specific style values. This hook depends on the `DSProvider`
+component and if the function is used outside of this wrapper component, then
+the theme object will be empty.
+
+After importing and rendering the `DSProvider` wrapper component, as explained
+in the [DSProvider](#dsprovider) section, your children components can use this
+hook function.
+
+```tsx
+import { useNYPLTheme } from "@nypl/design-system-react-components";
+// ...
+
+const theme = useNYPLTheme();
+```
+
+The `theme` variable will be a JS object with style values discussed in the
+sections above. This will allow you to use NYPL-specific styles in your
+components through CSS-in-JS.
+
+```ts
+// theme:
+{
+  breakpoints: { ... },
+  colors: {
+    brand: { ... },
+    section: { ... },
+    transparent: { ... },
+    ui: { ... },
+  },
+  fontSizes: { ... },
+  fontWeights: { ... },
+  fonts: { ... },
+  radii: { ... },
+  space: { ... },
+}
+```
+
+#### Usage
+
+_Note: more patterns will be added._
+
+1. NYPL DS Components
+
+All DS components _should_ be used with their current styles. If a DS component
+needs an updated style, first contact the Design System and UX teams about this
+update. If you really _need_ to update a style and there is no available
+variant, then you can add styles directly to the `additionalStyles` prop. At the
+moment, not all DS components have this prop or feature.
+
+For example, if the `Heading` component should render the text in NYPL's green
+color used for "success primary" and add a bold font weight, then you can do
+the following:
+
+```tsx
+const theme = useNYPLTheme();
+
+// ...
+return (
+  <div>
+    <Heading
+      level={2}
+      additionalStyles={{
+        color: theme.colors.ui.sucess.primary,
+        fontWeight: theme.fontWeights.bold,
+      }}
+    >
+      Get a Digital Library Card Today in a Few Easy Steps
+    </Heading>
+
+    {/* Other components */}
+  </div>
+);
+```
+
+Of course, you can destructure the `theme` object to only get the object keys
+you need for your component (this is a general example). Log the object to the
+console to see all the available styles.
+
+2. HTML Components
+
+Use the `style` attribute in HTML components to add inline styles.
+
+```tsx
+<p style={{ color: theme.colors.ui.success.primary }}>
+  If you are 13 or older and live, work, attend school, or pay property taxes in
+  New York State, you can get a free digital library card right now using this
+  online form. Visitors to New York State can also use this form to apply for a
+  temporary card.
+</p>
+```
 
 ## Testing
 

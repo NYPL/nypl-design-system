@@ -263,6 +263,27 @@ describe("ProgressIndicator", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <ProgressIndicator
+          id="chakra"
+          labelText="Linear"
+          value={50}
+          p="20px"
+          color="ui.red.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <ProgressIndicator
+          id="props"
+          labelText="Linear"
+          value={50}
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(linearBasic).toMatchSnapshot();
     expect(circularBasic).toMatchSnapshot();
@@ -272,5 +293,7 @@ describe("ProgressIndicator", () => {
     expect(circularIndeterminate).toMatchSnapshot();
     expect(linearDarkMode).toMatchSnapshot();
     expect(circularDarkMode).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

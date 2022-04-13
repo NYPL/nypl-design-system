@@ -2,7 +2,7 @@
 
 exports[`Table renders the UI snapshot correctly 1`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="basic"
   role="table"
 >
@@ -203,7 +203,7 @@ exports[`Table renders the UI snapshot correctly 1`] = `
 
 exports[`Table renders the UI snapshot correctly 2`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="withCaption"
   role="table"
 >
@@ -409,7 +409,7 @@ exports[`Table renders the UI snapshot correctly 2`] = `
 
 exports[`Table renders the UI snapshot correctly 3`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="withHeaders"
   role="table"
 >
@@ -666,7 +666,7 @@ exports[`Table renders the UI snapshot correctly 3`] = `
 
 exports[`Table renders the UI snapshot correctly 4`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="withHeaders"
   role="table"
 >
@@ -923,7 +923,7 @@ exports[`Table renders the UI snapshot correctly 4`] = `
 
 exports[`Table renders the UI snapshot correctly 5`] = `
 <table
-  className="chakra-table css-0"
+  className="chakra-table css-1xdhyk6"
   id="withHeaders"
   role="table"
 >
@@ -1137,6 +1137,409 @@ exports[`Table renders the UI snapshot correctly 5`] = `
       >
         Sonny
       </th>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Resetti
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Risetto san
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Village Road
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        New York
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        09873
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        NY
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Table renders the UI snapshot correctly 6`] = `
+<table
+  className="chakra-table css-kle7zy"
+  id="chakra"
+  role="table"
+>
+  <tbody
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Tom
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Nook
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Tanukichi
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Main Street
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        New York
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        23458
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        NY
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Isabelle
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        -
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Shizue
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Walnut Street
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        New York
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        23458
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        NY
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        K.K.
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Slider
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Totakeke
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Niper Place
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        New York
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        98765
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        NY
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Sonny
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Resetti
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Risetto san
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Village Road
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        New York
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        09873
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        NY
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Table renders the UI snapshot correctly 7`] = `
+<table
+  className="chakra-table css-1xdhyk6"
+  data-testid="props"
+  id="props"
+  role="table"
+>
+  <tbody
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Tom
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Nook
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Tanukichi
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Main Street
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        New York
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        23458
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        NY
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Isabelle
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        -
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Shizue
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Walnut Street
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        New York
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        23458
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        NY
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        K.K.
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Slider
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Totakeke
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Niper Place
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        New York
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        98765
+      </td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        NY
+      </td>
+    </tr>
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
+        Sonny
+      </td>
       <td
         className="css-0"
         role="gridcell"

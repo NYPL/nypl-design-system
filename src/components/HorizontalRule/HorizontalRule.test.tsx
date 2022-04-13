@@ -24,25 +24,6 @@ describe("HorizontalRule", () => {
     expect(hrClass).toContain("custom-hr");
   });
 
-  it("renders with proper custom class", () => {
-    const warn = jest.spyOn(console, "warn");
-    const { rerender } = render(
-      <HorizontalRule className="custom-hr" height="20px" />
-    );
-    expect(warn).not.toHaveBeenCalledWith(
-      "NYPL Reservoir HorizontalRule: An invalid value was passed for the " +
-        "`height` prop, so the default value of 2px will be used.  A valid " +
-        "value should be a whole number, a `px` value, a `em` value, or a `rem` value."
-    );
-
-    rerender(<HorizontalRule className="custom-hr" height="20%" />);
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir HorizontalRule: An invalid value was passed for the " +
-        "`height` prop, so the default value of 2px will be used.  A valid " +
-        "value should be a whole number, a `px` value, a `em` value, or a `rem` value."
-    );
-  });
-
   it("renders the UI snapshot correctly", () => {
     const basic = renderer.create(<HorizontalRule />).toJSON();
     const updatedHeight = renderer
@@ -55,10 +36,19 @@ describe("HorizontalRule", () => {
     const alignRight = renderer
       .create(<HorizontalRule align="right" />)
       .toJSON();
+    const withChakraProps = renderer
+      .create(<HorizontalRule p="20px" color="ui.error.primary" />)
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<HorizontalRule data-testid="props" />)
+      .toJSON();
+
     expect(basic).toMatchSnapshot();
     expect(updatedHeight).toMatchSnapshot();
     expect(updatedWidth).toMatchSnapshot();
     expect(alignLeft).toMatchSnapshot();
     expect(alignRight).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

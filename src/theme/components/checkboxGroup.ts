@@ -1,7 +1,7 @@
 import { checkboxRadioGroupStyles } from "./global";
 
 const CheckboxGroup = {
-  parts: ["helper", "stack"],
+  parts: ["helperErrorText", "stack"],
   baseStyle: ({ isFullWidth = false }) => ({
     ...checkboxRadioGroupStyles(isFullWidth),
   }),

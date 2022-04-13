@@ -1,7 +1,7 @@
 const ComponentWrapper = {
+  parts: ["helperErrorText"],
   baseStyle: ({ hasChildren }) => ({
-    helperText: {
-      marginBottom: "0",
+    helperErrorText: {
       marginTop: hasChildren ? "xs" : "0",
     },
   }),
