@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
 - Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
 - Adds the `isRequired` prop to the `Label` component.
+- Adds the `labelPosition` prop to the `Select` component, so that the label can be styled inline with the select input.
 - Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
 - Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
 
@@ -31,6 +32,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Renames the `optReqFlag` prop to `showRequiredLabel` in the `CheckboxGroup`, `Fieldset`, `RadioGroup`, and `Slider` components.
 - Renames the `showOptReqLabel` prop to `showRequiredLabel` in the `DatePicker`, `Select`, and `TextInput` components.
 - Uses the design token "text.caption" variable for the `Notification`'s font size.
+- Updates the styling for the `HelperErrorText` to be consistent for all components that use it
+- Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
 - Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
 - Renames the `Skeleton`'s `border` prop to `isBordered`.
 

@@ -40,7 +40,7 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
     buttonText: { description: "Only used for Storybook" },
     buttonType: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "ButtonType.Primary" } },
+      table: { defaultValue: { summary: "ButtonTypes.Primary" } },
       options: enumValues.options,
     },
     className: { control: false },
@@ -145,8 +145,12 @@ be used to wrap the `Button` component.
 <Canvas>
   <Story name="Button Groups">
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Secondary}>Button</Button>
-      <Button buttonType={ButtonTypes.Primary}>Submit</Button>
+      <Button buttonType={ButtonTypes.Secondary} id="group-1">
+        Button
+      </Button>
+      <Button buttonType={ButtonTypes.Primary} id="group-2">
+        Submit
+      </Button>
     </ButtonGroup>
   </Story>
 </Canvas>
@@ -160,7 +164,7 @@ to see the full list of icon and logo names that can be rendered.
 <Canvas>
   <Story name="With Icon">
     <VStack align="left" width="150px">
-      <Button>
+      <Button id="icon-1">
         <Icon
           name={IconNames.Search}
           align={IconAlign.Left}
@@ -168,7 +172,7 @@ to see the full list of icon and logo names that can be rendered.
         />
         Button Text
       </Button>
-      <Button>
+      <Button id="icon-2">
         Button Text
         <Icon
           name={IconNames.Search}
@@ -185,7 +189,7 @@ The icon can be placed to the left or the right of the button text.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType={ButtonTypes.Secondary} id="icon-left">
         <Icon
           name={IconNames.Arrow}
           iconRotation={IconRotationTypes.Rotate90}
@@ -194,7 +198,7 @@ The icon can be placed to the left or the right of the button text.
         />
         Previous
       </Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType={ButtonTypes.Secondary} id="icon-right">
         Next
         <Icon
           name={IconNames.Arrow}
@@ -215,10 +219,11 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
   <DSProvider>
     <ButtonGroup>
       <Button
-        buttonType={ButtonTypes.Secondary}
         attributes={{
           "aria-label": "Previous",
         }}
+        buttonType={ButtonTypes.Secondary}
+        id="prev-btn"
       >
         <Icon
           name={IconNames.Arrow}
@@ -227,10 +232,11 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
         />
       </Button>
       <Button
-        buttonType={ButtonTypes.Secondary}
         attributes={{
           "aria-label": "Next",
         }}
+        buttonType={ButtonTypes.Secondary}
+        id="next-btn"
       >
         <Icon
           name={IconNames.Arrow}
@@ -239,10 +245,11 @@ is an `aria-label` passed to the `Button` component through the `attributes` pro
         />
       </Button>
       <Button
-        buttonType={ButtonTypes.Secondary}
         attributes={{
           "aria-label": "Close",
         }}
+        buttonType={ButtonTypes.Secondary}
+        id="close-btn"
       >
         <Icon name={IconNames.Close} size={IconSizes.Small} />
       </Button>
@@ -259,8 +266,10 @@ must include an up arrow icon on the right side.
 <Canvas>
   <Story name="Patterns">
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Callout}>Donate to this library</Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType={ButtonTypes.Callout} id="donate-btn">
+        Donate to this library
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary} id="top-btn">
         Back to Top
         <Icon
           name={IconNames.Arrow}
@@ -281,12 +290,24 @@ The different `ButtonTypes` modified by the `buttonType` prop:
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Primary}>Primary</Button>
-      <Button buttonType={ButtonTypes.Secondary}>Secondary</Button>
-      <Button buttonType={ButtonTypes.Callout}>Callout</Button>
-      <Button buttonType={ButtonTypes.Pill}>Pill</Button>
-      <Button buttonType={ButtonTypes.Link}>Link</Button>
-      <Button buttonType={ButtonTypes.NoBrand}>NoBrand</Button>
+      <Button buttonType={ButtonTypes.Primary} id="primary-btn">
+        Primary
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary} id="secondary-btn">
+        Secondary
+      </Button>
+      <Button buttonType={ButtonTypes.Callout} id="callout-btn">
+        Callout
+      </Button>
+      <Button buttonType={ButtonTypes.Pill} id="pill-btn">
+        Pill
+      </Button>
+      <Button buttonType={ButtonTypes.Link} id="link-btn">
+        Link
+      </Button>
+      <Button buttonType={ButtonTypes.NoBrand} id="nobrand-btn">
+        NoBrand
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -296,8 +317,12 @@ Modifying the `isDisabled` prop:
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button isDisabled={false}>Enabled</Button>
-      <Button isDisabled>isDisabled</Button>
+      <Button id="enabled-btn" isDisabled={false}>
+        Enabled
+      </Button>
+      <Button id="disabled-btn" isDisabled>
+        isDisabled
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>

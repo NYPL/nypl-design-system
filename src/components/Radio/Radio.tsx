@@ -1,5 +1,4 @@
 import {
-  Box,
   chakra,
   Radio as ChakraRadio,
   useMultiStyleConfig,
@@ -113,13 +112,12 @@ export const Radio = chakra(
           {showLabel && labelText}
         </ChakraRadio>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper} aria-disabled={isDisabled}>
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          </Box>
+          <HelperErrorText
+            additionalStyles={styles.helperErrorText}
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         )}
       </>
     );

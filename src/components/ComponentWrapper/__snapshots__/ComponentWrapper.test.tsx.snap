@@ -19,21 +19,17 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     children elements
   </div>
   <div
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="off"
-      className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "helper text",
-        }
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "helper text",
       }
-      data-isinvalid={false}
-      id="id-helperText"
-    />
-  </div>
+    }
+    data-isinvalid={false}
+    id="id-helperText"
+  />
 </div>
 `;
 
@@ -66,21 +62,17 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     children elements
   </div>
   <div
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "invalid text",
-        }
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "invalid text",
       }
-      data-isinvalid={true}
-      id="id-helperText"
-    />
-  </div>
+    }
+    data-isinvalid={true}
+    id="id-helperText"
+  />
 </div>
 `;
 

@@ -194,13 +194,11 @@ export const TextInput = chakra(
           )}
           {fieldOutput}
           {footnote && showHelperInvalidText && !isHidden && (
-            <Box __css={finalStyles.helper} aria-disabled={isDisabled}>
-              <HelperErrorText
-                id={`${id}-helperText`}
-                isInvalid={isInvalid}
-                text={footnote}
-              />
-            </Box>
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              text={footnote}
+            />
           )}
         </Box>
       );

@@ -8,6 +8,9 @@ interface LabelProps {
   htmlFor: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Controls whether the label should be inline with the input it goes with.
+   * This prop should only be used internally. */
+  isInlined?: boolean;
   /** Controls whether the "(Required)" text should be displayed alongside the
    * label's text. False by default. */
   isRequired?: boolean;
@@ -22,10 +25,11 @@ export const Label = chakra((props: React.PropsWithChildren<LabelProps>) => {
     className,
     htmlFor,
     id,
+    isInlined = false,
     isRequired = false,
     ...rest
   } = props;
-  const styles = useStyleConfig("Label");
+  const styles = useStyleConfig("Label", { isInlined });
 
   if (!id) {
     console.warn(

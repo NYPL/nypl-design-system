@@ -442,21 +442,17 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     </label>
   </div>
   <div
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="off"
-      className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "helper text",
-        }
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "helper text",
       }
-      data-isinvalid={false}
-      id="helperText-helperErrorText"
-    />
-  </div>
+    }
+    data-isinvalid={false}
+    id="helperText-helperErrorText"
+  />
 </fieldset>
 `;
 

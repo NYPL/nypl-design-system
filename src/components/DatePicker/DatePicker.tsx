@@ -1,4 +1,4 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
@@ -9,7 +9,6 @@ import { FormGaps } from "../Form/FormTypes";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import { helperTextMargin } from "../../theme/components/global";
 import TextInput, {
   InputProps,
   TextInputRefType,
@@ -428,13 +427,11 @@ export const DatePicker = chakra(
           )}
         </DateRangeRow>
         {helperText && isDateRange && showHelperInvalidText && (
-          <Box __css={helperTextMargin}>
-            <HelperErrorText
-              id={`${id}-helper-text`}
-              isInvalid={false}
-              text={helperText}
-            />
-          </Box>
+          <HelperErrorText
+            id={`${id}-helper-text`}
+            isInvalid={false}
+            text={helperText}
+          />
         )}
       </DatePickerWrapper>
     );

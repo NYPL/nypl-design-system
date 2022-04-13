@@ -4,7 +4,7 @@ import {
   Select as ChakraSelect,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import HelperErrorText, {
   HelperErrorTextType,
@@ -12,7 +12,7 @@ import HelperErrorText, {
 import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
-import { SelectTypes } from "./SelectTypes";
+import { SelectTypes, LabelPositions } from "./SelectTypes";
 export interface SelectProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -32,6 +32,9 @@ export interface SelectProps {
   isInvalid?: boolean;
   /** Adds the `required` and `aria-required` attributes to the input when true. */
   isRequired?: boolean;
+  /** Optional value to render the label inline, rather than the default (on top)
+   * of the select element. */
+  labelPosition?: LabelPositions;
   /** Provides text for a `Label` component if `showLabel` is set to `true`;
    * populates an `aria-label` attribute on the select input if `showLabel` is
    * set to `false`. */
@@ -75,6 +78,7 @@ export const Select = chakra(
         isDisabled = false,
         isInvalid = false,
         isRequired = false,
+        labelPosition = LabelPositions.Default,
         labelText,
         name,
         onChange,
@@ -87,8 +91,12 @@ export const Select = chakra(
         ...rest
       } = props;
       const ariaAttributes = {};
+      const [labelWidth, setLabelWidth] = useState<number>(0);
+      const labelRef = useRef<HTMLInputElement>();
       const styles = useMultiStyleConfig("CustomSelect", {
         variant: selectType,
+        labelPosition,
+        labelWidth,
       });
       const finalInvalidText = invalidText
         ? invalidText
@@ -113,52 +121,64 @@ export const Select = chakra(
         );
       }
 
+      useEffect(() => {
+        if (labelPosition === LabelPositions.Inline) {
+          if (labelRef.current) {
+            const width = labelRef.current.clientWidth + 8;
+            setLabelWidth(width);
+          }
+        }
+      }, [labelPosition]);
+
       return (
         <Box
           className={className}
           __css={{ ...styles, ...additionalStyles }}
           {...rest}
         >
-          {showLabel && (
-            <Label
-              id={`${id}-label`}
-              htmlFor={id}
-              isRequired={showRequiredLabel && isRequired}
+          <Box __css={labelPosition === LabelPositions.Inline && styles.inline}>
+            {showLabel && (
+              <Box ref={labelRef}>
+                <Label
+                  htmlFor={id}
+                  id={`${id}-label`}
+                  isInlined
+                  isRequired={showRequiredLabel && isRequired}
+                >
+                  {labelText}
+                </Label>
+              </Box>
+            )}
+            <ChakraSelect
+              id={id}
+              variant="outline"
+              isRequired={isRequired}
+              isDisabled={isDisabled}
+              isInvalid={isInvalid}
+              name={name}
+              placeholder={placeholder}
+              ref={ref}
+              {...controlledProps}
+              {...ariaAttributes}
+              icon={
+                <Icon
+                  id={`${id}-icon`}
+                  name={IconNames.Arrow}
+                  size={IconSizes.Medium}
+                />
+              }
+              __css={styles.select}
             >
-              {labelText}
-            </Label>
-          )}
-          <ChakraSelect
-            id={id}
-            variant="outline"
-            isRequired={isRequired}
-            isDisabled={isDisabled}
-            isInvalid={isInvalid}
-            name={name}
-            placeholder={placeholder}
-            ref={ref}
-            {...controlledProps}
-            {...ariaAttributes}
-            icon={
-              <Icon
-                id={`${id}-icon`}
-                name={IconNames.Arrow}
-                size={IconSizes.Medium}
-              />
-            }
-            __css={styles.select}
-          >
-            {children}
-          </ChakraSelect>
-          {footnote && showHelperInvalidText && (
-            <Box __css={styles.helper} aria-disabled={isDisabled}>
+              {children}
+            </ChakraSelect>
+            {footnote && showHelperInvalidText && (
               <HelperErrorText
                 id={`${id}-helperText`}
                 isInvalid={isInvalid}
                 text={footnote}
               />
-            </Box>
-          )}
+            )}
+          </Box>
         </Box>
       );
     }

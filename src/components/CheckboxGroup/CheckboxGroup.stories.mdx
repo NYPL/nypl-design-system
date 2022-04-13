@@ -115,14 +115,23 @@ a row.
 
 <Canvas>
   <DSProvider>
-    <CheckboxGroup labelText="Column (default)" name="column-example">
+    <CheckboxGroup
+      id="column"
+      labelText="Column (default)"
+      name="column-example"
+    >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
       <Checkbox value="4" labelText="Checkbox 4" />
       <Checkbox value="5" labelText="Checkbox 5" />
     </CheckboxGroup>
     <br />
-    <CheckboxGroup labelText="Row" name="row-example" layout={LayoutTypes.Row}>
+    <CheckboxGroup
+      id="row"
+      labelText="Row"
+      name="row-example"
+      layout={LayoutTypes.Row}
+    >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
       <Checkbox value="4" labelText="Checkbox 4" />
@@ -136,10 +145,11 @@ a row.
 <Canvas>
   <DSProvider>
     <CheckboxGroup
-      labelText="Errored Checkbox Group"
-      name="errored-example"
+      id="errored"
       invalidText="Error message for the full group."
       isInvalid
+      labelText="Errored Checkbox Group"
+      name="errored-example"
     >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
@@ -154,10 +164,11 @@ a row.
 <Canvas>
   <DSProvider>
     <CheckboxGroup
+      id="required"
+      isRequired
       labelText="Required Checkbox Group"
       name="required-example"
       helperText="The reason for being required."
-      isRequired
     >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
@@ -172,10 +183,11 @@ a row.
 <Canvas>
   <DSProvider>
     <CheckboxGroup
+      id="disabled"
+      isDisabled
       labelText="Disabled Checkbox Group"
       name="disabled-example"
       helperText="The reason for being disabled."
-      isDisabled
     >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
@@ -198,9 +210,10 @@ order to make this work, pass in the `isFullWidth` prop.
 <Canvas>
   <DSProvider>
     <CheckboxGroup
+      id="full-width"
+      isFullWidth
       labelText="Checkbox Group"
       name="checkbox-example"
-      isFullWidth
     >
       <Checkbox
         labelText={
@@ -266,6 +279,7 @@ export function IndeterminateExample() {
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
   return (
     <CheckboxGroup
+      id="indeterminate"
       labelText="Indeterminate Example"
       name="indeterminate-example"
     >
@@ -296,6 +310,7 @@ export function IndeterminateExample() {
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
   return (
     <CheckboxGroup
+      id="indeterminate"
       labelText="Indeterminate Example"
       name="indeterminate-example"
     >

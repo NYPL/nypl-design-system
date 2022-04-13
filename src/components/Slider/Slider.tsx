@@ -311,13 +311,11 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
       </Box>
 
       {footnote && showHelperInvalidText && (
-        <Box __css={styles.helper}>
-          <HelperErrorText
-            id={`${id}-helperText`}
-            isInvalid={finalIsInvalid}
-            text={footnote}
-          />
-        </Box>
+        <HelperErrorText
+          id={`${id}-helperText`}
+          isInvalid={finalIsInvalid}
+          text={footnote}
+        />
       )}
     </Box>
   );

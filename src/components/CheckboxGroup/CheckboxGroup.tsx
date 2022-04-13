@@ -1,5 +1,4 @@
 import {
-  Box,
   chakra,
   CheckboxGroup as ChakraCheckboxGroup,
   Stack,
@@ -152,13 +151,12 @@ export const CheckboxGroup = chakra(
           </Stack>
         </ChakraCheckboxGroup>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
-            <HelperErrorText
-              id={`${id}-helperErrorText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          </Box>
+          <HelperErrorText
+            additionalStyles={styles.helperErrorText}
+            id={`${id}-helperErrorText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         )}
       </Fieldset>
     );
