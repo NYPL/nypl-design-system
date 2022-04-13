@@ -24,16 +24,30 @@ const select = {
 };
 
 const Select = {
-  parts: ["select"],
-  baseStyle: {
-    marginBottom: "xs",
-    // The backgroundColor set to "ui.white" hides the arrow SVG icon when
-    // the component is focused. The background is added for dark mode and
-    // so we need to add specific selector.
-    ".chakra-select__icon-wrapper": {
-      zIndex: "9999",
-    },
-    select,
+  parts: ["helperText", "inline", "select"],
+  baseStyle: ({ labelPosition, labelWidth }) => {
+    return {
+      marginBottom: "xs",
+      // The backgroundColor set to "ui.white" hides the arrow SVG icon when
+      // the component is focused. The background is added for dark mode and
+      // so we need to add specific selector.
+      ".chakra-select__icon-wrapper": {
+        zIndex: "9999",
+      },
+      helperText: {
+        marginLeft:
+          labelPosition === "inline" ? { md: `${labelWidth}px` } : null,
+      },
+      inline: {
+        display: { md: "flex" },
+        gap: { md: "var(--nypl-space-xs)" },
+        alignItems: { md: "flex-end" },
+      },
+      select: {
+        ...select,
+        flex: labelPosition === "inline" ? { md: "1" } : null,
+      },
+    };
   },
   variants: {
     searchbar: {
