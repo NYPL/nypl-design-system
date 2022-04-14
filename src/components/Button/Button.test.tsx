@@ -171,6 +171,19 @@ describe("Button Snapshot", () => {
         </Button>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Button id="button" onClick={jest.fn()} data-testid="testid" />)
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(disabled).toMatchSnapshot();
@@ -179,5 +192,7 @@ describe("Button Snapshot", () => {
     expect(pill).toMatchSnapshot();
     expect(link).toMatchSnapshot();
     expect(noBrand).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

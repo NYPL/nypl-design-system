@@ -10,11 +10,6 @@ const activeFocus = (darkMode = false) => ({
   outlineColor: darkMode ? "ui.white" : "ui.focus",
   zIndex: "9999",
 });
-// Used in `Select` and `TextInput`.
-const helperTextMargin = {
-  marginTop: "xxs",
-  marginBottom: "0",
-};
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
   userSelect: "none",
@@ -38,8 +33,7 @@ const checkboxRadioControlSize = {
   w: "1.375rem",
 };
 // Used in `Checkbox` and `Radio`.
-const checkboxRadioHelperStyle = {
-  ...helperTextMargin,
+const checkboxRadioHelperErrorTextStyle = {
   marginLeft: "30px", // calc(22px + var(--nypl-space-xs))
   _disabled: {
     color: "ui.gray.dark",
@@ -47,8 +41,8 @@ const checkboxRadioHelperStyle = {
   },
 };
 const checkboxRadioGroupStyles = (isFullWidth = false) => ({
-  helper: {
-    marginTop: "s",
+  helperErrorText: {
+    marginTop: "xs",
   },
   stack: {
     width: isFullWidth ? "100%" : "fit-content",
@@ -66,7 +60,7 @@ const labelLegendText = {
   },
 };
 // Used for the disabled state of Select and TextInput
-const selectTextinputDisabledStyles = {
+const selectTextInputDisabledStyles = {
   bg: "ui.disabled.secondary",
   borderColor: "ui.disabled.primary",
   color: "ui.gray.dark",
@@ -82,10 +76,9 @@ export {
   activeFocus,
   checkboxRadioControlSize,
   checkboxRadioGroupStyles,
-  checkboxRadioHelperStyle,
+  checkboxRadioHelperErrorTextStyle,
   checkboxRadioLabelStyles,
-  helperTextMargin,
   labelLegendText,
-  selectTextinputDisabledStyles,
+  selectTextInputDisabledStyles,
   textMargin,
 };
