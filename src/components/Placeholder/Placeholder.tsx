@@ -13,5 +13,7 @@ export default function Placeholder({
   children,
   variant,
 }: React.PropsWithChildren<PlaceholderProps>) {
-  return <div className={`placeholder placeholder--${variant}`}>{children}</div>;
+  return (
+    <div className={`placeholder placeholder--${variant}`}>{children}</div>
+  );
 }

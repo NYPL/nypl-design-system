@@ -81,7 +81,10 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
       showRequiredLabel = true,
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-    const spacingProp = layout === LayoutTypes.Column ? spacing.input.group.default.vstack : spacing.input.group.default.hstack;
+    const spacingProp =
+      layout === LayoutTypes.Column
+        ? spacing.input.group.default.vstack
+        : spacing.input.group.default.hstack;
     const newChildren = [];
     const checkboxProps =
       defaultValue && onChange
