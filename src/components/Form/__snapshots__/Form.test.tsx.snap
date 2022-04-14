@@ -6,27 +6,27 @@ exports[`Form Snapshot Renders the UI snapshot correctly 1`] = `
   id="snapshot-form"
 >
   <div
-    className="css-aq1pyb"
+    className="css-1idw21l"
     id="snapshot-form-parent"
   >
     <div
-      className="css-1ao258g"
+      className="css-a4mzcu"
       id="snapshot-form-child0"
     >
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="snapshot-form-child0-grandchild0"
       >
         Form Field 1
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="snapshot-form-child0-grandchild1"
       >
         Form Field 2
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="snapshot-form-child0-grandchild2"
       >
         Form Field 3

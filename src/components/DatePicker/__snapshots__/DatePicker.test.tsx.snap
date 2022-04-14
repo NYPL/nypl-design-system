@@ -2,7 +2,7 @@
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="basic-form-field}"
 >
   <fieldset
@@ -13,11 +13,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
       Select the full date you want to visit NYPL
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-1sphu8e"
       id="basic-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="basic-form-row-grandchild0"
       >
         <div
@@ -54,7 +54,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="basic-form-row-grandchild1"
       >
         <div
@@ -97,7 +97,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="no-label-form-field}"
 >
   <fieldset
@@ -108,11 +108,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
       Select the date you want to visit NYPL
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-1sphu8e"
       id="no-label-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="no-label-form-row-grandchild0"
       >
         <div
@@ -149,7 +149,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="no-label-form-row-grandchild1"
       >
         <div
@@ -192,7 +192,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="custom-format-form-field}"
 >
   <fieldset
@@ -203,11 +203,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
       Select the date you want to visit NYPL
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-1sphu8e"
       id="custom-format-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="custom-format-form-row-grandchild0"
       >
         <div
@@ -244,7 +244,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="custom-format-form-row-grandchild1"
       >
         <div
@@ -287,7 +287,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="invalid-form-field}"
 >
   <fieldset
@@ -298,11 +298,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       Select the date you want to visit NYPL
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-1sphu8e"
       id="invalid-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="invalid-form-row-grandchild0"
       >
         <div
@@ -357,7 +357,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="invalid-form-row-grandchild1"
       >
         <div
@@ -434,7 +434,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="disabled-form-field}"
 >
   <fieldset
@@ -445,11 +445,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       Select the date you want to visit NYPL
     </legend>
     <div
-      className="css-ahcv85"
+      className="css-1sphu8e"
       id="disabled-form-row"
     >
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="disabled-form-row-grandchild0"
       >
         <div
@@ -486,7 +486,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
         </div>
       </div>
       <div
-        className="css-aq1pyb"
+        className="css-1idw21l"
         id="disabled-form-row-grandchild1"
       >
         <div
@@ -545,11 +545,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="basic-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-1idw21l"
     id="basic-start-form"
   >
     <div
@@ -590,11 +590,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="no-label-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-1idw21l"
     id="no-label-start-form"
   >
     <div
@@ -629,11 +629,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="custom-format-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-1idw21l"
     id="custom-format-start-form"
   >
     <div
@@ -674,11 +674,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="invalid-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-1idw21l"
     id="invalid-start-form"
   >
     <div
@@ -738,11 +738,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 <div
-  className="css-aq1pyb"
+  className="css-1idw21l"
   id="disabled-form-field}"
 >
   <div
-    className="css-aq1pyb"
+    className="css-1idw21l"
     id="disabled-start-form"
   >
     <div

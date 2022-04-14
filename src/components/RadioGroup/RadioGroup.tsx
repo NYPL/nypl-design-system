@@ -81,7 +81,7 @@ const RadioGroup = React.forwardRef<
     showRequiredLabel = true,
   } = props;
   const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-  const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
+  const spacingProp = layout === LayoutTypes.Column ? spacing.input.group.default.vstack : spacing.input.group.default.hstack;
   const newChildren = [];
 
   if (!id) {

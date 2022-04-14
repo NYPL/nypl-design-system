@@ -10,8 +10,8 @@ const input = {
   borderColor: "ui.gray.medium",
   borderRadius: "sm",
   fontSize: "text.caption",
-  py: "xs",
-  px: "s",
+  py: "inset.narrow",
+  px: "inset.default",
   _hover: {
     borderColor: "ui.gray.dark",
   },
