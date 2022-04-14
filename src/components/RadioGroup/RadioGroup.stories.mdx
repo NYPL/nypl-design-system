@@ -1,4 +1,4 @@
-import { Flex, Spacer } from "@chakra-ui/react";
+import { ButtonGroup, Flex, Spacer } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -8,9 +8,12 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import Button from "../Button/Button";
+import Form from "../Form/Form";
 import Radio from "../Radio/Radio";
-import RadioGroup, { onChangeDefault } from "./RadioGroup";
+import RadioGroup from "./RadioGroup";
 import { LayoutTypes } from "../../helpers/enums";
+import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -81,7 +84,7 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
       defaultValue: "4",
       helperText: "This is the helper text for the full group.",
       id: "radioGroup-id",
-      invalidText: "error!",
+      invalidText: "An error occurred :(",
       isDisabled: false,
       isFullWidth: false,
       isInvalid: false,
@@ -115,7 +118,12 @@ a row.
 
 <Canvas>
   <DSProvider>
-    <RadioGroup id="column" labelText="Column (default)" name="column-example">
+    <RadioGroup
+      defaultValue="4"
+      id="column"
+      labelText="Column (default)"
+      name="column-example"
+    >
       <Radio id="column-2" labelText="Radio 2" value="2" />
       <Radio id="column-3" labelText="Radio 3" value="3" />
       <Radio id="column-4" labelText="Radio 4" value="4" />
@@ -123,6 +131,7 @@ a row.
     </RadioGroup>
     <br />
     <RadioGroup
+      defaultValue="3"
       id="row"
       labelText="Row"
       name="row-example"
@@ -141,6 +150,7 @@ a row.
 <Canvas>
   <DSProvider>
     <RadioGroup
+      defaultValue="4"
       id="errored"
       invalidText="Error message for the full group."
       isInvalid
@@ -263,32 +273,63 @@ order to make this work, pass in the `isFullWidth` prop.
 
 ### Controlled Component using `name` and `onChange` props
 
-If your application uses controlled React components and the DS RadioGroup must
+If your application uses controlled React components and the DS `RadioGroup` must
 be controlled, you can extract the data through the `name` and `onChange` props.
-This will be called every time a new `Radio` value is selected.
+This will be called every time a new `Radio` value is selected. Open the browser's
+console to see the output.
 
 ```jsx
-const onChange = (data) => {
-  // This will return the value selected as a string.
-  console.log(data);
-};
-// ...
-
-// Example of the DS RadioGroup instance with the function above:
-<RadioGroup
-  id="controlled-example"
-  labelText="Radio Group"
-  name="radioExample"
-  defaultValue="3"
-  onChange={onChange}
->
-  <Radio id="2" labelText="Radio 2" value="2" />
-  <Radio id="3" labelText="Radio 3" value="3" />
-  <Radio id="4" labelText="Radio 4" value="4" />
-</RadioGroup>;
+function RadioGroupControlledExample() {
+  const onChange = (selected) => {
+    // This will return the value selected as a string.
+    console.log(`Controlled example. Selected: ${selected}`);
+  };
+  return (
+    <RadioGroup
+      defaultValue="3"
+      id="controlled-example"
+      labelText="Controlled RadioGroup"
+      name="radioGroupExample"
+      onChange={onChange}
+    >
+      <Radio id="2" labelText="Radio 2" value="2" />
+      <Radio id="3" labelText="Radio 3" value="3" />
+      <Radio id="4" labelText="Radio 4" value="4" />
+    </RadioGroup>
+  );
+}
 ```
 
+export function RadioGroupControlledExample() {
+  const onChange = (selected) => {
+    // This will return the value selected as a string.
+    console.log(`Controlled example. Selected: ${selected}`);
+  };
+  return (
+    <RadioGroup
+      defaultValue="3"
+      id="controlled-example"
+      labelText="Controlled RadioGroup"
+      name="radioGroupExample"
+      onChange={onChange}
+    >
+      <Radio id="2" labelText="Radio 2" value="2" />
+      <Radio id="3" labelText="Radio 3" value="3" />
+      <Radio id="4" labelText="Radio 4" value="4" />
+    </RadioGroup>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <RadioGroupControlledExample />
+  </DSProvider>
+</Canvas>
+
 ### Uncontrolled Component using `ref`s
+
+**NOTE: this, along with Chakra's own `RadioGroup` component, are not working
+at this time and we recommend to use the controlled pattern above.**
 
 If your application uses uncontrolled components, you can pass React `ref` props
 to the DS RadioGroup component to get the selected value from the DOM.
@@ -319,10 +360,10 @@ const submitForm = (formData) => {
   <Controller
     as={
       <RadioGroup
-        id="uncontrolled-example"
-        labelText="Radio Group"
-        name="radioExample"
         defaultValue="3"
+        id="uncontrolled-example"
+        labelText="RadioGroup Uncontrolled"
+        name="radioGroupExample"
         ref={register()}
       >
         <Radio id="2" labelText="Radio 2" value="2" />
@@ -330,34 +371,81 @@ const submitForm = (formData) => {
         <Radio id="4" labelText="Radio 4" value="4" />
       </RadioGroup>
     }
-    name="radioExample"
     control={control}
+    name="radioGroupExample"
   />
 </form>;
 ```
 
 The above is specific to `react-hook-form` but a similar pattern can be used
-with normal React `ref` values.
+with normal React `ref` values. Open the browser's console to see the output
+**although, at the moment, forwarding the ref to Chakra's own `RadioGroup`
+component is not working.**
 
 ```jsx
-const radioGroupRef = React.createRef<HTMLInputElement>();
-// ...
-<RadioGroup
-  id="uncontrolled-example"
-  labelText="Radio Group"
-  name="radioExample"
-  defaultValue="3"
-  ref={radioGroupRef}
->
-  <Radio id="2" labelText="Radio 2" value="2" />
-  <Radio id="3" labelText="Radio 3" value="3" />
-  <Radio id="4" labelText="Radio 4" value="4" />
-</RadioGroup>
-
-// ...
-// Get the value through:
-const onSubmit = () => {
-  // ...
-  const radioGroupValue = radioGroupRef.current.value;
-};
+export function RadioGroupUncontrolledExample() {
+  const radioGroupRef = React.createRef();
+  // Get the value through:
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const radioGroupValue = radioGroupRef.current.value;
+    console.log(`Uncontrolled example. Selected: ${radioGroupValue}`);
+  };
+  return (
+    <Form onSubmit={onSubmit}>
+      <SimpleGrid columns="1">
+        <RadioGroup
+          defaultValue="3"
+          id="uncontrolled-example"
+          labelText="Uncontrolled RadioGroup"
+          name="radioGroupExample"
+          ref={radioGroupRef}
+        >
+          <Radio id="2" labelText="Radio 2" value="2" />
+          <Radio id="3" labelText="Radio 3" value="3" />
+          <Radio id="4" labelText="Radio 4" value="4" />
+        </RadioGroup>
+        <ButtonGroup>
+          <Button type="submit">Submit</Button>
+        </ButtonGroup>
+      </SimpleGrid>
+    </Form>
+  );
+}
 ```
+
+export function RadioGroupUncontrolledExample() {
+  const radioGroupRef = React.createRef();
+  // Get the value through:
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const radioGroupValue = radioGroupRef.current.value;
+    console.log(`Uncontrolled example. Selected: ${radioGroupValue}`);
+  };
+  return (
+    <Form onSubmit={onSubmit}>
+      <SimpleGrid columns="1">
+        <RadioGroup
+          defaultValue="3"
+          id="uncontrolled-example"
+          labelText="Uncontrolled RadioGroup"
+          name="radioGroupExample"
+          ref={radioGroupRef}
+        >
+          <Radio id="2" labelText="Radio 2" value="2" />
+          <Radio id="3" labelText="Radio 3" value="3" />
+          <Radio id="4" labelText="Radio 4" value="4" />
+        </RadioGroup>
+        <ButtonGroup>
+          <Button type="submit">Submit</Button>
+        </ButtonGroup>
+      </SimpleGrid>
+    </Form>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <RadioGroupUncontrolledExample />
+  </DSProvider>
+</Canvas>

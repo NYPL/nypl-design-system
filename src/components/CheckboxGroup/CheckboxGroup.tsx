@@ -132,8 +132,8 @@ export const CheckboxGroup = chakra(
       <Fieldset
         id={`${id}-checkbox-group`}
         isLegendHidden={!showLabel}
-        legendText={labelText}
         isRequired={isRequired}
+        legendText={labelText}
         showRequiredLabel={showRequiredLabel}
         {...rest}
       >

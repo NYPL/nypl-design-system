@@ -1,8 +1,8 @@
 import {
   chakra,
+  RadioGroup as ChakraRadioGroup,
   Stack,
   useMultiStyleConfig,
-  useRadioGroup,
 } from "@chakra-ui/react";
 import * as React from "react";
 
@@ -53,10 +53,13 @@ export interface RadioGroupProps {
 }
 
 const noop = () => {};
-export const onChangeDefault = () => {
-  return;
-};
 
+/**
+ * RadioGroup is a wrapper for DS `Radio` components that renders as a fieldset
+ * HTML element along with optional helper text. The `name` prop is essential
+ * for this form group element and is not needed for individual DS `Radio`
+ * components when `RadioGroup` is used.
+ */
 export const RadioGroup = chakra(
   React.forwardRef<HTMLInputElement, React.PropsWithChildren<RadioGroupProps>>(
     (props, ref?) => {
@@ -74,17 +77,31 @@ export const RadioGroup = chakra(
         labelText,
         layout = LayoutTypes.Column,
         name,
-        onChange = onChangeDefault,
+        onChange,
         showHelperInvalidText = true,
         showLabel = true,
         showRequiredLabel = true,
         ...rest
       } = props;
+      const [value, setValue] = React.useState(defaultValue);
       const footnote: HelperErrorTextType = isInvalid
         ? invalidText
         : helperText;
       const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
-      const newChildren = [];
+      const newChildren: JSX.Element[] = [];
+      // Get the Chakra-based styles for the custom elements in this component.
+      const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
+      // Props for the `ChakraRadioGroup` component.
+      const radioGroupProps = {
+        "aria-label": !showLabel ? labelText : undefined,
+        name,
+        onChange: (selected: string) => {
+          setValue(selected);
+          onChange && onChange(selected);
+        },
+        ref,
+        value,
+      };
 
       if (!id) {
         console.warn(
@@ -92,20 +109,11 @@ export const RadioGroup = chakra(
         );
       }
 
-      // Use Chakra's RadioGroup hook to set and get the proper props
-      // or the custom components.
-      const { getRootProps, getRadioProps } = useRadioGroup({
-        name,
-        defaultValue,
-        onChange,
-      });
-      const radioGroupProps = getRootProps();
-
       // Go through the Radio children and update them as needed.
-      React.Children.map(children, (child: React.ReactElement, i) => {
-        if (child.type !== Radio) {
+      React.Children.map(children, (child: React.ReactElement, key) => {
+        if (child?.type !== Radio) {
           // Special case for Storybook MDX documentation.
-          if (child.props.mdxType && child.props.mdxType === "Radio") {
+          if (child.props?.mdxType && child.props?.mdxType === "Radio") {
             noop();
           } else {
             console.warn(
@@ -115,23 +123,16 @@ export const RadioGroup = chakra(
           }
         }
 
-        const chakraRadioProps = getRadioProps({
-          value: child.props.value,
-        } as any);
-
         if (child !== undefined && child !== null) {
-          const newProps = { key: i, isDisabled, isInvalid, isRequired };
-          if (child.props.value === defaultValue) {
-            newProps["checked"] = true;
-          }
-          newChildren.push(
-            React.cloneElement(child, { ...newProps, ...chakraRadioProps })
-          );
+          const newProps = {
+            key,
+            isDisabled,
+            isInvalid,
+            isRequired,
+          };
+          newChildren.push(React.cloneElement(child, newProps));
         }
       });
-
-      // Get the Chakra-based styles for the custom elements in this component.
-      const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
 
       return (
         <Fieldset
@@ -143,16 +144,11 @@ export const RadioGroup = chakra(
           showRequiredLabel={showRequiredLabel}
           {...rest}
         >
-          <Stack
-            aria-label={!showLabel ? labelText : null}
-            direction={[layout]}
-            spacing={spacingProp}
-            ref={ref}
-            {...radioGroupProps}
-            sx={styles.stack}
-          >
-            {newChildren}
-          </Stack>
+          <ChakraRadioGroup {...radioGroupProps}>
+            <Stack direction={[layout]} spacing={spacingProp} sx={styles.stack}>
+              {newChildren}
+            </Stack>
+          </ChakraRadioGroup>
           {footnote && showHelperInvalidText && (
             <HelperErrorText
               additionalStyles={styles.helperErrorText}

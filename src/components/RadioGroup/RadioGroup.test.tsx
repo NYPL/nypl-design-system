@@ -5,8 +5,8 @@ import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
 
-import RadioGroup from "./RadioGroup";
 import Radio from "../Radio/Radio";
+import RadioGroup from "./RadioGroup";
 import { LayoutTypes } from "../../helpers/enums";
 
 describe("Radio Accessibility", () => {
