@@ -4,7 +4,7 @@
 import {
   checkboxRadioLabelStyles,
   checkboxRadioControlSize,
-  checkboxRadioHelperStyle,
+  checkboxRadioHelperErrorTextStyle,
 } from "./global";
 
 // Style object for the Checkbox's visual icon.
@@ -74,13 +74,13 @@ const baseStyleControl = {
 const baseStyleLabel = checkboxRadioLabelStyles;
 
 // Style object for the Checkbox's helper text
-const baseStyleHelper = checkboxRadioHelperStyle;
+const baseStyleHelperErrorText = checkboxRadioHelperErrorTextStyle;
 
 const baseStyle = {
   icon: baseStyleIcon,
   control: baseStyleControl,
   label: baseStyleLabel,
-  helper: baseStyleHelper,
+  helperErrorText: baseStyleHelperErrorText,
 };
 
 // Sticking to "lg" for the default size.
@@ -97,7 +97,7 @@ const sizes = {
 };
 
 const Checkbox = {
-  parts: ["icon", "control", "label", "helper"],
+  parts: ["helperErrorText", "icon", "control", "label"],
   baseStyle,
   sizes,
   // Default values

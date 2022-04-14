@@ -71,7 +71,7 @@ export const typesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.4`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.26.0`   |
 
 <Description of={ProgressIndicator} />
 
@@ -114,6 +114,7 @@ dialogs, etc.
     }}
   >
     <ProgressIndicator
+      id="linear"
       indicatorType={ProgressIndicatorTypes.Linear}
       labelText="Linear Progress Type"
       value={50}
@@ -135,6 +136,7 @@ full-screen loading. Set the `indicatorType` prop to
     }}
   >
     <ProgressIndicator
+      id="circular"
       indicatorType={ProgressIndicatorTypes.Circular}
       labelText="Linear Progress Type"
       value={50}
@@ -153,8 +155,13 @@ through the `ProgressIndicatorSizes.Small` value.
 <Canvas>
   <DSProvider>
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
-      <ProgressIndicator labelText="Default 8px size" value={50} />
       <ProgressIndicator
+        id="default-size"
+        labelText="Default 8px size"
+        value={50}
+      />
+      <ProgressIndicator
+        id="small-size"
         labelText="Small 4px size"
         size={ProgressIndicatorSizes.Small}
         value={50}
@@ -174,11 +181,13 @@ percentage will not displayed.
   <DSProvider>
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
+        id="default-size"
         indicatorType={ProgressIndicatorTypes.Circular}
         labelText="Default 48px size"
         value={50}
       />
       <ProgressIndicator
+        id="small-size"
         indicatorType={ProgressIndicatorTypes.Circular}
         labelText="Small 24px size"
         size={ProgressIndicatorSizes.Small}
@@ -202,11 +211,13 @@ the progress element to provide a description of the progress for screen readers
   <DSProvider>
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
+        id="label"
         labelText="This label will be added through aria-label"
         showLabel={false}
         value={50}
       />
       <ProgressIndicator
+        id="label-hidden"
         indicatorType={ProgressIndicatorTypes.Circular}
         labelText="This label will be added through aria-label"
         showLabel={false}
@@ -226,11 +237,13 @@ exact value or progress of the task is unknown.
   <DSProvider>
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
       <ProgressIndicator
+        id="indeterminate"
         isIndeterminate
         labelText="Indeterminate state"
         value={50}
       />
       <ProgressIndicator
+        id="indeterminate-circular"
         indicatorType={ProgressIndicatorTypes.Circular}
         isIndeterminate
         labelText="Indeterminate state"
@@ -251,9 +264,15 @@ Note: the background is manually set to better showcase the `darkMode` prop.
   <DSProvider>
     <Box bg="black" w="100%" h="200px" p="20px">
       <SimpleGrid columns={1} gap={GridGaps.Medium}>
-        <ProgressIndicator labelText="Dark Mode" value={50} darkMode />
         <ProgressIndicator
           darkMode
+          id="darkmode"
+          labelText="Dark Mode"
+          value={50}
+        />
+        <ProgressIndicator
+          darkMode
+          id="darkmode-circular"
           indicatorType={ProgressIndicatorTypes.Circular}
           labelText="Dark Mode"
           value={50}
@@ -282,8 +301,13 @@ function ProgressIndicatorExample() {
   }, []);
   return (
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
-      <ProgressIndicator labelText="Progress example" value={value} />
       <ProgressIndicator
+        id="example"
+        labelText="Progress example"
+        value={value}
+      />
+      <ProgressIndicator
+        id="example-circular"
         indicatorType={ProgressIndicatorTypes.Circular}
         labelText="Progress example"
         value={value}
@@ -303,8 +327,13 @@ export function ProgressIndicatorExample() {
   }, []);
   return (
     <SimpleGrid columns={1} gap={GridGaps.Medium}>
-      <ProgressIndicator labelText="Progress example" value={value} />
       <ProgressIndicator
+        id="example"
+        labelText="Progress example"
+        value={value}
+      />
+      <ProgressIndicator
+        id="example-circular"
         indicatorType={ProgressIndicatorTypes.Circular}
         labelText="Progress example"
         value={value}

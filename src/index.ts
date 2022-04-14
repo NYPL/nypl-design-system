@@ -92,7 +92,7 @@ export { StatusBadgeTypes } from "./components/StatusBadge/StatusBadgeTypes";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
 export { StructuredContentImagePosition } from "./components/StructuredContent/StructuredContentTypes";
 export {
-  Tabs,
+  default as Tabs,
   TabList,
   Tab,
   TabPanels,

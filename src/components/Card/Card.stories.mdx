@@ -51,9 +51,6 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
   }}
   argTypes={{
     backgroundColor: { control: { type: "color" } },
-    border: {
-      table: { defaultValue: { summary: false } },
-    },
     className: { control: false },
     foregroundColor: { control: { type: "color" } },
     id: { control: false },
@@ -81,6 +78,9 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
     "imageProps.src": {
       table: { defaultValue: { summary: "" } },
     },
+    isBordered: {
+      table: { defaultValue: { summary: false } },
+    },
     isCentered: {
       table: { defaultValue: { summary: false } },
     },
@@ -97,7 +97,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.13`  |
+| Latest            | `0.26.0`   |
 
 ## Table of Contents
 
@@ -148,7 +148,6 @@ headings and CTAs.
     name="Card with Controls"
     args={{
       backgroundColor: undefined,
-      border: false,
       className: undefined,
       foregroundColor: undefined,
       id: "card-id",
@@ -158,6 +157,7 @@ headings and CTAs.
       "imageProps.isAtEnd": false,
       "imageProps.size": "ImageSizes.Default",
       "imageProps.src": "https://placeimg.com/400/300/animals",
+      isBordered: false,
       isCentered: false,
       layout: "LayoutTypes.Row",
       mainActionLink: undefined,
@@ -191,17 +191,17 @@ headings and CTAs.
         </CardContent>
         <CardActions topBorder bottomBorder>
           <Button
-            onClick={action("clicked")}
-            id="main-button1"
             buttonType={ButtonTypes.Primary}
+            id="main-button1"
+            onClick={action("clicked")}
             type="submit"
           >
             Primary
           </Button>
           <Button
-            onClick={action("clicked")}
-            id="main-button2"
             buttonType={ButtonTypes.Secondary}
+            id="main-button2"
+            onClick={action("clicked")}
             type="submit"
           >
             Secondary
@@ -934,7 +934,7 @@ from being having the full-click functionality.
 <Canvas>
   <Story name="Cards Without Images">
     <SimpleGrid columns={3}>
-      <Card border>
+      <Card isBordered>
         <CardHeading level={HeadingLevels.Three} id="no-img1-heading1">
           Card Heading
         </CardHeading>
@@ -944,7 +944,7 @@ from being having the full-click functionality.
           Praesent commodo cursus magna, vel scelerisque nisl.
         </CardContent>
       </Card>
-      <Card border>
+      <Card isBordered>
         <CardHeading level={HeadingLevels.Three} id="no-img2-heading1">
           Card Heading
         </CardHeading>
@@ -954,7 +954,7 @@ from being having the full-click functionality.
           Praesent commodo cursus magna, vel scelerisque nisl.
         </CardContent>
       </Card>
-      <Card border>
+      <Card isBordered>
         <CardHeading level={HeadingLevels.Three} id="no-img3-heading1">
           Card Heading
         </CardHeading>
@@ -967,7 +967,7 @@ from being having the full-click functionality.
     </SimpleGrid>
     <br />
     <SimpleGrid columns={1}>
-      <Card layout={LayoutTypes.Row} border>
+      <Card layout={LayoutTypes.Row} isBordered>
         <CardHeading level={HeadingLevels.Three} id="no-img4-heading1">
           Card Heading
         </CardHeading>
@@ -980,7 +980,7 @@ from being having the full-click functionality.
           eget metus.
         </CardContent>
       </Card>
-      <Card layout={LayoutTypes.Row} border>
+      <Card layout={LayoutTypes.Row} isBordered>
         <CardHeading level={HeadingLevels.Three} id="no-img5-heading1">
           Card Heading
         </CardHeading>
@@ -993,7 +993,7 @@ from being having the full-click functionality.
           eget metus.
         </CardContent>
       </Card>
-      <Card layout={LayoutTypes.Row} border>
+      <Card layout={LayoutTypes.Row} isBordered>
         <CardHeading level={HeadingLevels.Three} id="no-img6-heading1">
           Card Heading
         </CardHeading>

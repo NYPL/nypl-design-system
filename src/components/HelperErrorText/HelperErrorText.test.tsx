@@ -90,10 +90,25 @@ describe("HelperErrorText", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <HelperErrorText
+          id="chakra"
+          text="Text"
+          p="20px"
+          color="ui.red.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<HelperErrorText id="props" text="Text" data-testid="props" />)
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(invalid).toMatchSnapshot();
     expect(withHTMLString).toMatchSnapshot();
     expect(withHTMLElement).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });
