@@ -127,6 +127,7 @@ const reservoirSpacingTokens = {
   },
   table: {
     column: reservoirSpacingValues["m"],
+    row: reservoirSpacingValues["l"],
   },
 };
 export const spacing = {
