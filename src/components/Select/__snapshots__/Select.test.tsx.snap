@@ -2,7 +2,7 @@
 
 exports[`Select Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -11,7 +11,7 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <label
-        className="css-0"
+        className="css-1xdhyk6"
         htmlFor="select"
         id="select-label"
       >
@@ -51,10 +51,17 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-onkibi"
+          className="chakra-icon chakra-select__icon css-1grhd2q"
           focusable={false}
           id="select-icon"
-          role="img"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
           title="arrow icon"
           viewBox="0 0 24 24"
         >
@@ -89,7 +96,7 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
 
 exports[`Select Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -98,7 +105,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <label
-        className="css-0"
+        className="css-1xdhyk6"
         htmlFor="select"
         id="select-label"
       >
@@ -139,10 +146,17 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-onkibi"
+          className="chakra-icon chakra-select__icon css-1grhd2q"
           focusable={false}
           id="select-icon"
-          role="img"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
           title="arrow icon"
           viewBox="0 0 24 24"
         >
@@ -177,7 +191,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
 
 exports[`Select Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -186,7 +200,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <label
-        className="css-0"
+        className="css-1xdhyk6"
         htmlFor="select"
         id="select-label"
       >
@@ -227,10 +241,17 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-onkibi"
+          className="chakra-icon chakra-select__icon css-1grhd2q"
           focusable={false}
           id="select-icon"
-          role="img"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
           title="arrow icon"
           viewBox="0 0 24 24"
         >
@@ -259,15 +280,10 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
         </svg>
       </div>
     </div>
-  </div>
-  <div
-    aria-disabled={false}
-    className="css-0"
-  >
     <div
       aria-atomic={true}
       aria-live="polite"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Tom doesn't count as a sibling :(.",
@@ -282,7 +298,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
 
 exports[`Select Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -291,7 +307,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <label
-        className="css-0"
+        className="css-1xdhyk6"
         htmlFor="select"
         id="select-label"
       >
@@ -332,10 +348,17 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-onkibi"
+          className="chakra-icon chakra-select__icon css-1grhd2q"
           focusable={false}
           id="select-icon"
-          role="img"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
           title="arrow icon"
           viewBox="0 0 24 24"
         >
@@ -364,15 +387,10 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
         </svg>
       </div>
     </div>
-  </div>
-  <div
-    aria-disabled={false}
-    className="css-0"
-  >
     <div
       aria-atomic={true}
       aria-live="off"
-      className=" css-0"
+      className="css-1xdhyk6"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Remember, Logan will judge you no matter who you pick.",
@@ -387,7 +405,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
 
 exports[`Select Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -396,7 +414,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
       className="css-0"
     >
       <label
-        className="css-0"
+        className="css-1xdhyk6"
         htmlFor="select"
         id="select-label"
       >
@@ -440,10 +458,17 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-onkibi"
+          className="chakra-icon chakra-select__icon css-1grhd2q"
           focusable={false}
           id="select-icon"
-          role="img"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
           title="arrow icon"
           viewBox="0 0 24 24"
         >
@@ -478,7 +503,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
 
 exports[`Select Renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -487,7 +512,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
       className="css-0"
     >
       <label
-        className="css-0"
+        className="css-1xdhyk6"
         htmlFor="select"
         id="select-label"
       >
@@ -531,10 +556,17 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-onkibi"
+          className="chakra-icon chakra-select__icon css-1grhd2q"
           focusable={false}
           id="select-icon"
-          role="img"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
           title="arrow icon"
           viewBox="0 0 24 24"
         >
@@ -569,7 +601,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
 
 exports[`Select Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -578,7 +610,7 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
       className="css-0"
     >
       <label
-        className="css-0"
+        className="css-1xdhyk6"
         htmlFor="select"
         id="select-label"
       >
@@ -620,10 +652,206 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-onkibi"
+          className="chakra-icon chakra-select__icon css-1grhd2q"
           focusable={false}
           id="select-icon"
-          role="img"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
+          title="arrow icon"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders the UI snapshot correctly 8`] = `
+<div
+  className="css-kle7zy"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <label
+        className="css-1xdhyk6"
+        htmlFor="chakra"
+        id="chakra-label"
+      >
+        Which Succession sibling are you?
+      </label>
+    </div>
+    <div
+      className="chakra-select__wrapper css-42b2qy"
+    >
+      <select
+        className="chakra-select css-1ik61og"
+        disabled={false}
+        id="chakra"
+        name="succession-sibling"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        required={false}
+      >
+        <option>
+          Kendall
+        </option>
+        <option>
+          Shiv
+        </option>
+        <option>
+          Connor
+        </option>
+        <option>
+          Roman
+        </option>
+        <option>
+          Tom
+        </option>
+      </select>
+      <div
+        className="chakra-select__icon-wrapper css-162mkon"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon chakra-select__icon css-1grhd2q"
+          focusable={false}
+          id="chakra-icon"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
+          title="arrow icon"
+          viewBox="0 0 24 24"
+        >
+          <g
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path
+              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+              fill="currentColor"
+              strokeLinecap="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              fill="none"
+              r="11.25"
+              strokeMiterlimit="10"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders the UI snapshot correctly 9`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <label
+        className="css-1xdhyk6"
+        htmlFor="props"
+        id="props-label"
+      >
+        Which Succession sibling are you?
+      </label>
+    </div>
+    <div
+      className="chakra-select__wrapper css-42b2qy"
+    >
+      <select
+        className="chakra-select css-1ik61og"
+        disabled={false}
+        id="props"
+        name="succession-sibling"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        required={false}
+      >
+        <option>
+          Kendall
+        </option>
+        <option>
+          Shiv
+        </option>
+        <option>
+          Connor
+        </option>
+        <option>
+          Roman
+        </option>
+        <option>
+          Tom
+        </option>
+      </select>
+      <div
+        className="chakra-select__icon-wrapper css-162mkon"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon chakra-select__icon css-1grhd2q"
+          focusable={false}
+          id="props-icon"
+          role="presentation"
+          style={
+            Object {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
           title="arrow icon"
           viewBox="0 0 24 24"
         >

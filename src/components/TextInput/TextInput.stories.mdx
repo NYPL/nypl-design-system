@@ -116,31 +116,36 @@ within the `label` element.
   <Story name="Labelling Variations">
     <VStack align="stretch" spacing={12}>
       <TextInput
+        helperText="Choose wisely!"
+        id="textInput-1"
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
-        helperText="Choose wisely!"
       />
       <TextInput
+        id="textInput-2"
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
         showLabel={false}
       />
       <TextInput
+        id="textInput-3"
+        isRequired
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
-        isRequired
       />
       <TextInput
+        id="textInput-4"
+        isRequired
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
         showRequiredLabel={false}
-        isRequired
       />
       <TextInput
-        labelText="What is your favorite color?"
-        showLabel={false}
-        placeholder="i.e. blue, green, etc."
         helperText="Choose wisely!"
+        id="textInput-5"
+        labelText="What is your favorite color?"
+        placeholder="i.e. blue, green, etc."
+        showLabel={false}
       />
     </VStack>
   </Story>
@@ -151,11 +156,12 @@ within the `label` element.
 <Canvas>
   <DSProvider>
     <TextInput
-      labelText="What is your favorite color?"
-      placeholder="i.e. blue, green, etc."
       helperText="Choose wisely!"
+      id="errored"
       invalidText="This is error text :("
       isInvalid
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
     />
   </DSProvider>
 </Canvas>
@@ -165,10 +171,11 @@ within the `label` element.
 <Canvas>
   <DSProvider>
     <TextInput
+      helperText="Choose wisely!"
+      id="disabled"
+      isDisabled
       labelText="What is your favorite color?"
       placeholder="i.e. blue, green, etc."
-      helperText="Choose wisely!"
-      isDisabled
     />
   </DSProvider>
 </Canvas>
@@ -186,19 +193,21 @@ helperText={<>Choose <b>wisely!</b></>}
 <Canvas>
   <DSProvider>
     <TextInput
+      helperText="Choose <b>wisely!</b>"
+      id="string"
       labelText="What is your favorite color?"
       placeholder="i.e. blue, green, etc."
-      helperText="Choose <b>wisely!</b>"
     />
     <br />
     <TextInput
-      labelText="What is your favorite color?"
-      placeholder="i.e. blue, green, etc."
       helperText={
         <>
           Choose <b>wisely!</b>
         </>
       }
+      id="jsx"
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
     />
   </DSProvider>
 </Canvas>
@@ -214,6 +223,7 @@ All the variations described above are available for the `textarea` option.
     name="Textarea"
     args={{
       helperText: "Let it all out.",
+      id: "textarea",
       invalidText: "This is error text :(",
       isDisabled: false,
       isInvalid: false,

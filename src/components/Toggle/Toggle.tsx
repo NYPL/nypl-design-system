@@ -1,5 +1,6 @@
 import {
   Box,
+  chakra,
   Switch,
   useMultiStyleConfig,
   useStyleConfig,
@@ -54,8 +55,8 @@ export const onChangeDefault = () => {
 /**
  * Component that renders Chakra's `Switch` component along with NYPL defaults.
  */
-const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
-  (props, ref?) => {
+export const Toggle = chakra(
+  React.forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
     const {
       additionalStyles = {},
       defaultChecked = false,
@@ -70,10 +71,11 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
       name,
       onChange = onChangeDefault,
       size = ToggleSizes.Default,
+      ...rest
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
-    const styles = useMultiStyleConfig("Toggle", { isDisabled });
+    const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
     const switchStyles = useStyleConfig("Switch", { size });
     ariaAttributes["aria-label"] =
       labelText && footnote ? `${labelText} - ${footnote}` : labelText;
@@ -86,7 +88,7 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
 
     return (
       <>
-        <Box __css={{ ...styles, ...additionalStyles }}>
+        <Box __css={{ ...styles, ...additionalStyles }} {...rest}>
           <Switch
             id={id}
             name={name || "default"}
@@ -111,17 +113,16 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
           </Switch>
         </Box>
         {footnote && (
-          <Box __css={styles.helper}>
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          </Box>
+          <HelperErrorText
+            additionalStyles={styles.helperErrorText}
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         )}
       </>
     );
-  }
+  })
 );
 
 export default Toggle;

@@ -34,6 +34,37 @@ describe("Breadcrumbs Accessibility", () => {
   });
 });
 
+describe("Breadcrumbs", () => {
+  const breadcrumbsData = [
+    { url: "#string1", text: "string1" },
+    { url: "#string2", text: "string2" },
+    { url: "#string3", text: "string3" },
+  ];
+
+  it("Renders a tag with custom text", () => {
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
+
+    // The last breadcrumb (the active page) is not a link.
+    expect(screen.getAllByRole("link")).toHaveLength(2);
+    expect(screen.getAllByRole("link")[0]).toHaveTextContent("string1");
+    expect(screen.getAllByRole("link")[1]).toHaveTextContent("string2");
+    expect(screen.getByText(/string3/)).toBeInTheDocument();
+  });
+
+  it("Renders icon", () => {
+    const { container } = render(
+      <Breadcrumbs breadcrumbsData={breadcrumbsData} />
+    );
+    expect(container.querySelector(".breadcrumbs-icon")).toBeInTheDocument();
+  });
+
+  it("Throws error when nothing is passed into Breadcrumb", () => {
+    expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
+      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
+    );
+  });
+});
+
 describe("Breadcrumbs Snapshot", () => {
   it("Renders the UI snapshot correctly", () => {
     const breadcrumbsData = [
@@ -94,6 +125,25 @@ describe("Breadcrumbs Snapshot", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          id="breadcrumbs-test"
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Breadcrumbs
+          breadcrumbsData={breadcrumbsData}
+          id="breadcrumbs-test"
+          data-testid="testid"
+        />
+      )
+      .toJSON();
 
     expect(breadcrumbsSnapshot).toMatchSnapshot();
     expect(breadcrumbsVariantColor).toMatchSnapshot();
@@ -101,36 +151,7 @@ describe("Breadcrumbs Snapshot", () => {
     expect(breadcrumbsLocationsVariant).toMatchSnapshot();
     expect(breadcrumbsEducationVariant).toMatchSnapshot();
     expect(breadcrumbsAdditionalStyles).toMatchSnapshot();
-  });
-});
-
-describe("Breadcrumbs Testing", () => {
-  const breadcrumbsData = [
-    { url: "#string1", text: "string1" },
-    { url: "#string2", text: "string2" },
-    { url: "#string3", text: "string3" },
-  ];
-
-  it("Renders a tag with custom text", () => {
-    render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
-
-    // The last breadcrumb (the active page) is not a link.
-    expect(screen.getAllByRole("link")).toHaveLength(2);
-    expect(screen.getAllByRole("link")[0]).toHaveTextContent("string1");
-    expect(screen.getAllByRole("link")[1]).toHaveTextContent("string2");
-    expect(screen.getByText(/string3/)).toBeInTheDocument();
-  });
-
-  it("Renders icon", () => {
-    const { container } = render(
-      <Breadcrumbs breadcrumbsData={breadcrumbsData} />
-    );
-    expect(container.querySelector(".breadcrumbs-icon")).toBeInTheDocument();
-  });
-
-  it("Throws error when nothing is passed into Breadcrumb", () => {
-    expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
-      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
-    );
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -25,7 +25,7 @@ export default function ColorCard(
     <div style={{ display: "flex", alignItems: "center" }}>
       <Card
         backgroundColor={backgroundColor}
-        border
+        isBordered
         isCentered
         layout={LayoutTypes.Column}
       />

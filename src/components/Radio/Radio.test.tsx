@@ -221,6 +221,19 @@ describe("Radio Button", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Radio
+          id="chakra"
+          labelText="Test Label"
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Radio id="props" labelText="Test Label" data-testid="props" />)
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
@@ -228,5 +241,7 @@ describe("Radio Button", () => {
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
     expect(withJSXLabel).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -390,6 +390,31 @@ describe("SearchBar", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <SearchBar
+          helperText={helperText}
+          id="chakra"
+          labelText={labelText}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <SearchBar
+          helperText={helperText}
+          id="props"
+          labelText={labelText}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(withSelect).toMatchSnapshot();
@@ -401,5 +426,7 @@ describe("SearchBar", () => {
     expect(withHeading).toMatchSnapshot();
     expect(withDescription).toMatchSnapshot();
     expect(withHeadingAndDescription).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

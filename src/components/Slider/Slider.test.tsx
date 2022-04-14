@@ -436,6 +436,31 @@ describe("Slider", () => {
           />
         )
         .toJSON();
+      const withChakraProps = renderer
+        .create(
+          <Slider
+            id="chakra"
+            defaultValue={50}
+            helperText="Component helper text."
+            invalidText="Component error text :("
+            labelText="Label"
+            p="20px"
+            color="ui.error.primary"
+          />
+        )
+        .toJSON();
+      const withOtherProps = renderer
+        .create(
+          <Slider
+            id="props"
+            defaultValue={50}
+            helperText="Component helper text."
+            invalidText="Component error text :("
+            labelText="Label"
+            data-testid="props"
+          />
+        )
+        .toJSON();
 
       expect(defaultSlider).toMatchSnapshot();
       expect(errored).toMatchSnapshot();
@@ -444,6 +469,8 @@ describe("Slider", () => {
       expect(noLabels).toMatchSnapshot();
       expect(noVisibleValues).toMatchSnapshot();
       expect(onlySlider).toMatchSnapshot();
+      expect(withChakraProps).toMatchSnapshot();
+      expect(withOtherProps).toMatchSnapshot();
     });
   });
 
