@@ -247,6 +247,27 @@ describe("Notification", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Notification
+          id="chakra"
+          notificationContent={<>Notification content.</>}
+          notificationHeading="Notification Heading"
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Notification
+          id="props"
+          notificationContent={<>Notification content.</>}
+          notificationHeading="Notification Heading"
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(standard).toMatchSnapshot();
     expect(announcement).toMatchSnapshot();
@@ -255,5 +276,7 @@ describe("Notification", () => {
     expect(withoutAnIcon).toMatchSnapshot();
     expect(withoutHeadingAndIcon).toMatchSnapshot();
     expect(dismissible).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

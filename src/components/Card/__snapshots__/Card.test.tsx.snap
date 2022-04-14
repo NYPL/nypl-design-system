@@ -2,7 +2,7 @@
 
 exports[`Card Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="regularCard"
 >
   <div
@@ -18,21 +18,22 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-0"
+      className="chakra-heading css-1xdhyk6"
       id="heading1"
+      layout="column"
     >
       The Card Heading
     </h3>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       middle column content
     </div>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <button
-        className="chakra-button css-0"
+        className="chakra-button css-1xdhyk6"
         data-testid="button"
         id="button1"
         onClick={[Function]}
@@ -47,7 +48,7 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
 
 exports[`Card Renders the UI snapshot correctly 2`] = `
 <div
-  className="edition-card css-0"
+  className="edition-card css-1xdhyk6"
   id="cardWithExtendedStyles"
 >
   <div
@@ -63,13 +64,14 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-0"
+      className="chakra-heading css-1xdhyk6"
       id="editioncardheading1"
+      layout="column"
     >
       The Card Heading
     </h2>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <div>
         Published in New York by Random House
@@ -82,10 +84,10 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       </div>
     </div>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <a
-        className="css-0"
+        className="css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -94,7 +96,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         Read Online
       </a>
       <a
-        className="css-0"
+        className="css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -102,7 +104,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon css-onkibi"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
           id="icon-cardWithExtendedStyles"
           role="img"
@@ -141,7 +143,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
 
 exports[`Card Renders the UI snapshot correctly 3`] = `
 <div
-  className="edition-card css-0"
+  className="edition-card css-1xdhyk6"
   id="cardWithNoCTAs"
 >
   <div
@@ -157,13 +159,14 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-0"
+      className="chakra-heading css-1xdhyk6"
       id="editioncardheading1"
+      layout="column"
     >
       The Card Heading
     </h2>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <p>
         Published in New York by Random House
@@ -181,7 +184,7 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
 
 exports[`Card Renders the UI snapshot correctly 4`] = `
 <div
-  className="edition-card css-0"
+  className="edition-card css-1xdhyk6"
   id="cardWithNoContent"
 >
   <div
@@ -197,11 +200,12 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-0"
+      className="chakra-heading css-1xdhyk6"
       id="editioncardheading1"
+      layout="column"
     >
       <a
-        className="css-0"
+        className="css-1xdhyk6"
         href="#edition-link"
         id="editioncardheading1-link"
         rel={null}
@@ -211,10 +215,10 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       </a>
     </h2>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <a
-        className="css-0"
+        className="css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -223,7 +227,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         Read Online
       </a>
       <a
-        className="css-0"
+        className="css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -231,7 +235,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon css-onkibi"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
           id="icon-cardWithNoContent"
           role="img"
@@ -270,18 +274,19 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
 
 exports[`Card Renders the UI snapshot correctly 5`] = `
 <div
-  className="edition-card css-0"
+  className="edition-card css-1xdhyk6"
   id="cardWithNoImage"
 >
   <div
     className="card-body css-0"
   >
     <h2
-      className="chakra-heading css-0"
+      className="chakra-heading css-1xdhyk6"
       id="editioncardheading1"
+      layout="column"
     >
       <a
-        className="css-0"
+        className="css-1xdhyk6"
         href="#edition-link"
         id="editioncardheading1-link"
         rel={null}
@@ -291,15 +296,15 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       </a>
     </h2>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       middle column content
     </div>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <a
-        className="css-0"
+        className="css-1xdhyk6"
         href="online"
         id="link-online"
         rel={null}
@@ -308,7 +313,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         Read Online
       </a>
       <a
-        className="css-0"
+        className="css-1xdhyk6"
         href="#url"
         id="link-icon"
         rel={null}
@@ -316,7 +321,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon css-onkibi"
+          className="chakra-icon css-1grhd2q"
           focusable={false}
           id="icon-cardWithNoImage"
           role="img"
@@ -358,7 +363,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
   className="chakra-linkbox css-10n1vic"
 >
   <div
-    className="css-0"
+    className="css-1xdhyk6"
     id="fullclick"
   >
     <div
@@ -374,8 +379,9 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
       className="card-body css-0"
     >
       <h3
-        className="chakra-heading css-0"
+        className="chakra-heading css-1xdhyk6"
         id="heading1"
+        layout="column"
       >
         <a
           className="chakra-linkbox__overlay css-kvj8dg"
@@ -385,15 +391,15 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
         </a>
       </h3>
       <div
-        className="css-0"
+        className="css-1xdhyk6"
       >
         middle column content
       </div>
       <div
-        className="css-0"
+        className="css-1xdhyk6"
       >
         <button
-          className="chakra-button css-0"
+          className="chakra-button css-1xdhyk6"
           data-testid="button"
           id="button1"
           onClick={[Function]}
@@ -409,7 +415,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
 
 exports[`Card Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="cardID"
 >
   <div
@@ -425,21 +431,22 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
     className="card-body css-0"
   >
     <h3
-      className="chakra-heading css-0"
+      className="chakra-heading css-1xdhyk6"
       id="heading1"
+      layout="column"
     >
       The Card Heading
     </h3>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       middle column content
     </div>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <button
-        className="chakra-button css-0"
+        className="chakra-button css-1xdhyk6"
         data-testid="button"
         id="button1"
         onClick={[Function]}
@@ -449,12 +456,107 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
       </button>
     </div>
     <div
-      className="css-0"
+      className="css-1xdhyk6"
     >
       <button
-        className="chakra-button css-0"
+        className="chakra-button css-1xdhyk6"
         data-testid="button"
         id="button2"
+        onClick={[Function]}
+        type="submit"
+      >
+        Example CTA
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Renders the UI snapshot correctly 8`] = `
+<div
+  className="css-1t0bvx9"
+  id="chakraProps"
+>
+  <div
+    className="css-0"
+  >
+    <img
+      alt="Alt text"
+      className="css-0"
+      src="https://placeimg.com/400/200/arch"
+    />
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h3
+      className="chakra-heading css-1ss7kwh"
+      id="heading1"
+      layout="column"
+    >
+      The Card Heading
+    </h3>
+    <div
+      className="css-1rn2qcq"
+    >
+      middle column content
+    </div>
+    <div
+      className="css-1avkygu"
+    >
+      <button
+        className="chakra-button css-1xdhyk6"
+        data-testid="button"
+        id="button1"
+        onClick={[Function]}
+        type="submit"
+      >
+        Example CTA
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Renders the UI snapshot correctly 9`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="card-testid"
+  id="otherProps"
+>
+  <div
+    className="css-0"
+  >
+    <img
+      alt="Alt text"
+      className="css-0"
+      src="https://placeimg.com/400/200/arch"
+    />
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h3
+      className="chakra-heading css-1ss7kwh"
+      id="heading1"
+      layout="column"
+    >
+      The Card Heading
+    </h3>
+    <div
+      className="css-1xdhyk6"
+      data-testid="cardcontent-testid"
+    >
+      middle column content
+    </div>
+    <div
+      className="css-1xdhyk6"
+      data-testid="cardaction-testid"
+    >
+      <button
+        className="chakra-button css-1xdhyk6"
+        data-testid="button"
+        id="button1"
         onClick={[Function]}
         type="submit"
       >

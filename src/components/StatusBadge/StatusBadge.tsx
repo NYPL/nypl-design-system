@@ -1,5 +1,5 @@
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import { StatusBadgeTypes } from "./StatusBadgeTypes";
 export interface StatusBadgeProps {
@@ -16,19 +16,27 @@ export interface StatusBadgeProps {
  * The `StatusBadge` component is used to display a visual badge for three
  * different status levels.
  */
-function StatusBadge(props: React.PropsWithChildren<StatusBadgeProps>) {
-  const { children, className, id, level = StatusBadgeTypes.Low } = props;
-  const styles = useStyleConfig("StatusBadge", { variant: level });
+export const StatusBadge = chakra(
+  (props: React.PropsWithChildren<StatusBadgeProps>) => {
+    const {
+      children,
+      className,
+      id,
+      level = StatusBadgeTypes.Low,
+      ...rest
+    } = props;
+    const styles = useStyleConfig("StatusBadge", { variant: level });
 
-  if (!children) {
-    console.warn("NYPL Reservoir StatusBadge: No children were passed.");
+    if (!children) {
+      console.warn("NYPL Reservoir StatusBadge: No children were passed.");
+    }
+
+    return (
+      <Box id={id} className={className} __css={styles} {...rest}>
+        {children}
+      </Box>
+    );
   }
-
-  return (
-    <Box id={id} className={className} __css={styles}>
-      {children}
-    </Box>
-  );
-}
+);
 
 export default StatusBadge;

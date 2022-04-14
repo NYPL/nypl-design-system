@@ -25,8 +25,6 @@ import { getCategory } from "../../utils/componentCategories";
   }}
   argTypes={{
     className: { control: false },
-    height: { table: { defaultValue: { summary: "2px" } } },
-    width: { table: { defaultValue: { summary: "100%" } } },
   }}
 />
 
@@ -35,7 +33,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.0`   |
-| Latest            | `0.25.10`  |
+| Latest            | `0.26.0`   |
 
 <Description of={HorizontalRule} />
 
@@ -45,7 +43,9 @@ number, a `px` value, a `em` value, or a `rem` value. Otherwise, the default
 value of "2px" will be used.
 
 <Canvas withToolbar>
-  <Story name="HorizontalRule">{(args) => <HorizontalRule {...args} />}</Story>
+  <Story name="HorizontalRule" args={{ align: "left" }}>
+    {(args) => <HorizontalRule {...args} />}
+  </Story>
 </Canvas>
 
 <ArgsTable story="HorizontalRule" />

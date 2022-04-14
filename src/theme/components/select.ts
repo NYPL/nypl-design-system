@@ -1,8 +1,4 @@
-import {
-  activeFocus,
-  helperTextMargin,
-  selectTextinputDisabledStyles,
-} from "./global";
+import { activeFocus, selectTextInputDisabledStyles } from "./global";
 
 const select = {
   backgroundColor: "ui.white",
@@ -18,7 +14,7 @@ const select = {
   },
   _active: activeFocus(),
   _disabled: {
-    ...selectTextinputDisabledStyles,
+    ...selectTextInputDisabledStyles,
   },
   _invalid: {
     border: "1px solid",
@@ -28,19 +24,30 @@ const select = {
 };
 
 const Select = {
-  parts: ["select", "helper"],
-  baseStyle: {
-    marginBottom: "xs",
-    // The backgroundColor set to "ui.white" hides the arrow SVG icon when
-    // the component is focused. The background is added for dark mode and
-    // so we need to add specific selector.
-    ".chakra-select__icon-wrapper": {
-      zIndex: "9999",
-    },
-    helper: {
-      ...helperTextMargin,
-    },
-    select,
+  parts: ["helperText", "inline", "select"],
+  baseStyle: ({ labelPosition, labelWidth }) => {
+    return {
+      marginBottom: "xs",
+      // The backgroundColor set to "ui.white" hides the arrow SVG icon when
+      // the component is focused. The background is added for dark mode and
+      // so we need to add specific selector.
+      ".chakra-select__icon-wrapper": {
+        zIndex: "9999",
+      },
+      helperText: {
+        marginLeft:
+          labelPosition === "inline" ? { md: `${labelWidth}px` } : null,
+      },
+      inline: {
+        display: { md: "flex" },
+        gap: { md: "var(--nypl-space-xs)" },
+        alignItems: { md: "flex-end" },
+      },
+      select: {
+        ...select,
+        flex: labelPosition === "inline" ? { md: "1" } : null,
+      },
+    };
   },
   variants: {
     searchbar: {

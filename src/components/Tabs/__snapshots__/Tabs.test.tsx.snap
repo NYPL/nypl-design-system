@@ -2,7 +2,7 @@
 
 exports[`Tabs renders the UI snapshot correctly 1`] = `
 <div
-  className="chakra-tabs css-0"
+  className="chakra-tabs css-1xdhyk6"
   id="basic"
 >
   <div
@@ -10,7 +10,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
   >
     <button
       aria-label="Previous"
-      className="chakra-button css-fg6w03"
+      className="chakra-button css-1fhylxi"
       data-testid="button"
       id="tabs-previous-basic"
       onClick={[Function]}
@@ -18,7 +18,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="tabs-previous-icon-basic"
         role="img"
@@ -105,7 +105,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     </div>
     <button
       aria-label="Next"
-      className="chakra-button css-1whvqek"
+      className="chakra-button css-12jygyh"
       data-testid="button"
       id="tabs-next-basic"
       onClick={[Function]}
@@ -113,7 +113,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon css-onkibi"
+        className="chakra-icon css-1grhd2q"
         focusable={false}
         id="tabs-next-icon-basic"
         role="img"
@@ -187,6 +187,395 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       }
       hidden={true}
       id="basic--tabpanel-2"
+      role="tabpanel"
+      tabIndex={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`Tabs renders the UI snapshot correctly 2`] = `
+<div
+  className="chakra-tabs css-kle7zy"
+  id="chakra"
+>
+  <div
+    className="css-l3f8vc"
+  >
+    <button
+      aria-label="Previous"
+      className="chakra-button css-1fhylxi"
+      data-testid="button"
+      id="tabs-previous-chakra"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="tabs-previous-icon-chakra"
+        role="img"
+        title="arrow icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </button>
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-16fuzwj"
+      >
+        <div
+          aria-orientation="horizontal"
+          className="chakra-tabs__tablist css-k008qs"
+          onKeyDown={[Function]}
+          role="tablist"
+        >
+          <button
+            aria-controls="chakra--tabpanel--1"
+            aria-selected={false}
+            className="chakra-tabs__tab css-abpfcx"
+            id="chakra--tab--1"
+            onClick={[Function]}
+            onFocus={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            Tom Nook
+          </button>
+          <button
+            aria-controls="chakra--tabpanel--1"
+            aria-selected={false}
+            className="chakra-tabs__tab css-abpfcx"
+            id="chakra--tab--1"
+            onClick={[Function]}
+            onFocus={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            Isabelle
+          </button>
+          <button
+            aria-controls="chakra--tabpanel--1"
+            aria-selected={false}
+            className="chakra-tabs__tab css-abpfcx"
+            id="chakra--tab--1"
+            onClick={[Function]}
+            onFocus={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            K.K. Slider
+          </button>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next"
+      className="chakra-button css-12jygyh"
+      data-testid="button"
+      id="tabs-next-chakra"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="tabs-next-icon-chakra"
+        role="img"
+        title="arrow icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </button>
+  </div>
+  <div
+    className="chakra-tabs__tab-panels css-8atqhb"
+  >
+    <div
+      aria-labelledby="chakra--tab-0"
+      className="chakra-tabs__tab-panel css-sjt5nk"
+      hidden={false}
+      id="chakra--tabpanel-0"
+      role="tabpanel"
+      tabIndex={0}
+    >
+      <p>
+        Tom Nook, 
+        <b>
+          known in Japan as Tanukichi
+        </b>
+        , is a fictional character in the Animal Crossing series who operates the village store.
+      </p>
+    </div>
+    <div
+      aria-labelledby="chakra--tab-1"
+      className="chakra-tabs__tab-panel css-sjt5nk"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Isabelle, known as Shizue in Japan, is a fictional character from the Animal Crossing series of video games. She is a kindly Shih Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where she serves as the secretary to the player character.",
+        }
+      }
+      hidden={true}
+      id="chakra--tabpanel-1"
+      role="tabpanel"
+      tabIndex={0}
+    />
+    <div
+      aria-labelledby="chakra--tab-2"
+      className="chakra-tabs__tab-panel css-sjt5nk"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a fictional character within the Animal Crossing franchise. One of the franchise's most popular characters, he debuted in the title Animal Crossing, and has appeared in every installment since.</p>",
+        }
+      }
+      hidden={true}
+      id="chakra--tabpanel-2"
+      role="tabpanel"
+      tabIndex={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`Tabs renders the UI snapshot correctly 3`] = `
+<div
+  className="chakra-tabs css-1xdhyk6"
+  data-testid="props"
+  id="props"
+>
+  <div
+    className="css-l3f8vc"
+  >
+    <button
+      aria-label="Previous"
+      className="chakra-button css-1fhylxi"
+      data-testid="button"
+      id="tabs-previous-props"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="tabs-previous-icon-props"
+        role="img"
+        title="arrow icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </button>
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-16fuzwj"
+      >
+        <div
+          aria-orientation="horizontal"
+          className="chakra-tabs__tablist css-k008qs"
+          onKeyDown={[Function]}
+          role="tablist"
+        >
+          <button
+            aria-controls="props--tabpanel--1"
+            aria-selected={false}
+            className="chakra-tabs__tab css-abpfcx"
+            id="props--tab--1"
+            onClick={[Function]}
+            onFocus={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            Tom Nook
+          </button>
+          <button
+            aria-controls="props--tabpanel--1"
+            aria-selected={false}
+            className="chakra-tabs__tab css-abpfcx"
+            id="props--tab--1"
+            onClick={[Function]}
+            onFocus={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            Isabelle
+          </button>
+          <button
+            aria-controls="props--tabpanel--1"
+            aria-selected={false}
+            className="chakra-tabs__tab css-abpfcx"
+            id="props--tab--1"
+            onClick={[Function]}
+            onFocus={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            K.K. Slider
+          </button>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next"
+      className="chakra-button css-12jygyh"
+      data-testid="button"
+      id="tabs-next-props"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="tabs-next-icon-props"
+        role="img"
+        title="arrow icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </button>
+  </div>
+  <div
+    className="chakra-tabs__tab-panels css-8atqhb"
+  >
+    <div
+      aria-labelledby="props--tab-0"
+      className="chakra-tabs__tab-panel css-sjt5nk"
+      hidden={false}
+      id="props--tabpanel-0"
+      role="tabpanel"
+      tabIndex={0}
+    >
+      <p>
+        Tom Nook, 
+        <b>
+          known in Japan as Tanukichi
+        </b>
+        , is a fictional character in the Animal Crossing series who operates the village store.
+      </p>
+    </div>
+    <div
+      aria-labelledby="props--tab-1"
+      className="chakra-tabs__tab-panel css-sjt5nk"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Isabelle, known as Shizue in Japan, is a fictional character from the Animal Crossing series of video games. She is a kindly Shih Tzu that debuted in the 2012 release Animal Crossing: New Leaf, where she serves as the secretary to the player character.",
+        }
+      }
+      hidden={true}
+      id="props--tabpanel-1"
+      role="tabpanel"
+      tabIndex={0}
+    />
+    <div
+      aria-labelledby="props--tab-2"
+      className="chakra-tabs__tab-panel css-sjt5nk"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a fictional character within the Animal Crossing franchise. One of the franchise's most popular characters, he debuted in the title Animal Crossing, and has appeared in every installment since.</p>",
+        }
+      }
+      hidden={true}
+      id="props--tabpanel-2"
       role="tabpanel"
       tabIndex={0}
     />

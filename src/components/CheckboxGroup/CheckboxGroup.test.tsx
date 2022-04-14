@@ -441,6 +441,33 @@ describe("Checkbox", () => {
         </CheckboxGroup>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <CheckboxGroup
+          labelText="chakraProps"
+          name="chakraProps"
+          id="chakraProps"
+          p="s"
+          color="ui.error.primary"
+        >
+          <Checkbox id="2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="3" value="3" labelText="Checkbox 3" />
+        </CheckboxGroup>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <CheckboxGroup
+          labelText="otherProps"
+          name="otherProps"
+          id="otherProps"
+          data-testid="props"
+        >
+          <Checkbox id="2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="3" value="3" labelText="Checkbox 3" />
+        </CheckboxGroup>
+      )
+      .toJSON();
 
     expect(column).toMatchSnapshot();
     expect(row).toMatchSnapshot();
@@ -452,6 +479,8 @@ describe("Checkbox", () => {
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
     expect(withJSXCheckboxLabels).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 
   it("should throw warning when a non-Checkbox component is used as a child", () => {

@@ -1,5 +1,5 @@
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React from "react";
-import { Box, useStyleConfig } from "@chakra-ui/react";
 
 interface FieldsetProps {
   /** Additional class name to add. */
@@ -21,32 +21,35 @@ interface FieldsetProps {
  * A wrapper component that renders a `fieldset` element along with a `legend`
  * element as its first child. Commonly used to wrap form components.
  */
-const Fieldset = ({
-  children,
-  className,
-  id,
-  isLegendHidden = false,
-  isRequired = false,
-  legendText,
-  showRequiredLabel = true,
-}: React.PropsWithChildren<FieldsetProps>) => {
-  const styles = useStyleConfig("Fieldset", { isLegendHidden });
+export const Fieldset = chakra(
+  ({
+    children,
+    className,
+    id,
+    isLegendHidden = false,
+    isRequired = false,
+    legendText,
+    showRequiredLabel = true,
+    ...rest
+  }: React.PropsWithChildren<FieldsetProps>) => {
+    const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
 
-  if (!id) {
-    console.warn(
-      "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
+      );
+    }
+
+    return (
+      <Box as="fieldset" id={id} __css={styles} className={className} {...rest}>
+        <legend>
+          {legendText}
+          {showRequiredLabel && isRequired && <span> (Required)</span>}
+        </legend>
+        {children}
+      </Box>
     );
   }
-
-  return (
-    <Box as="fieldset" id={id} __css={styles} className={className}>
-      <legend>
-        {legendText}
-        {showRequiredLabel && isRequired && <span> (Required)</span>}
-      </legend>
-      {children}
-    </Box>
-  );
-};
+);
 
 export default Fieldset;

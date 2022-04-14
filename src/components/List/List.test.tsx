@@ -226,11 +226,59 @@ describe("List", () => {
         />
       )
       .toJSON();
+    const withChakraPropsUnordered = renderer
+      .create(
+        <List
+          id="chakra"
+          type={ListTypes.Unordered}
+          listItems={fishArray}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherPropsUnordered = renderer
+      .create(
+        <List
+          id="other"
+          type={ListTypes.Unordered}
+          listItems={fishArray}
+          data-testid="other"
+        />
+      )
+      .toJSON();
+    const withChakraPropsDefinition = renderer
+      .create(
+        <List
+          id="chakra"
+          type={ListTypes.Definition}
+          title="Animal Crossing Fish"
+          listItems={fishDefinitions}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherPropsDefinition = renderer
+      .create(
+        <List
+          id="other"
+          type={ListTypes.Definition}
+          title="Animal Crossing Fish"
+          listItems={fishDefinitions}
+          data-testid="other"
+        />
+      )
+      .toJSON();
 
     expect(unordered).toMatchSnapshot();
     expect(unorderedNoStyling).toMatchSnapshot();
     expect(ordered).toMatchSnapshot();
     expect(orderedNoStyling).toMatchSnapshot();
     expect(definition).toMatchSnapshot();
+    expect(withChakraPropsUnordered).toMatchSnapshot();
+    expect(withOtherPropsUnordered).toMatchSnapshot();
+    expect(withChakraPropsDefinition).toMatchSnapshot();
+    expect(withOtherPropsDefinition).toMatchSnapshot();
   });
 });
