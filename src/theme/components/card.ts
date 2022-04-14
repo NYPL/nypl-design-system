@@ -6,19 +6,24 @@ const imageSizes = {
   large: { flex: { md: "0 0 360px" } },
 };
 // This is complicated and can be refactored later...
-const getBodyPaddingStyles = ({ border, hasImage, imageIsAtEnd, isRow }) => {
+const getBodyPaddingStyles = ({
+  hasImage,
+  isBordered,
+  imageIsAtEnd,
+  isRow,
+}) => {
   let bodyPadding = null;
-  if (border) {
+  if (isBordered) {
     bodyPadding = "inset.default";
     if (hasImage) {
       bodyPadding =
         "0 var(--nypl-space-inset-default) var(--nypl-space-inset-default)";
     }
   }
-  if (isRow && border) {
+  if (isRow && isBordered) {
     bodyPadding = "var(--nypl-space-inset-default)";
   }
-  if (isRow && border && hasImage) {
+  if (isRow && isBordered && hasImage) {
     bodyPadding = {
       base: "0 var(--nypl-space-inset-default) var(--nypl-space-inset-default)",
       md: "var(--nypl-space-inset-default) var(--nypl-space-inset-default) var(--nypl-space-inset-default) 0",
@@ -36,9 +41,9 @@ const Card = {
   parts: ["body", "heading"],
   baseStyle: (props) => {
     const {
-      border,
       hasImage,
       imageIsAtEnd,
+      isBordered,
       isCentered,
       layout,
       mainActionLink,
@@ -56,14 +61,14 @@ const Card = {
           alignItems: isCentered ? "center" : null,
         }
       : {};
-    const baseBorderStyles = border
+    const baseBorderStyles = isBordered
       ? {
           border: "1px solid",
           borderColor: "ui.gray.medium",
         }
       : {};
     const bodyPadding = getBodyPaddingStyles({
-      border,
+      isBordered,
       hasImage,
       imageIsAtEnd,
       isRow,
@@ -144,7 +149,7 @@ const CardContent = {
 };
 
 const CardImage = {
-  baseStyle: ({ imageIsAtEnd, isCentered, size, layout }) => {
+  baseStyle: ({ imageIsAtEnd, isCentered, layout, size }) => {
     // These sizes are only for the "row" layout.
     const imageSize = imageSizes[size] || {};
     const layoutStyles =

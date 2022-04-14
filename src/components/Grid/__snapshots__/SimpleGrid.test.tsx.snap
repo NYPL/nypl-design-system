@@ -2,7 +2,22 @@
 
 exports[`SimpleGrid Renders the SimpleGrid UI snapshot correctly 1`] = `
 <div
-  className="css-1qnpqp9"
+  className="css-bjq6jk"
   id="test-grid"
+/>
+`;
+
+exports[`SimpleGrid Renders the SimpleGrid UI snapshot correctly 2`] = `
+<div
+  className="css-161u8yz"
+  id="chakra"
+/>
+`;
+
+exports[`SimpleGrid Renders the SimpleGrid UI snapshot correctly 3`] = `
+<div
+  className="css-bjq6jk"
+  data-testid="props"
+  id="props"
 />
 `;

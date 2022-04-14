@@ -13,7 +13,7 @@ const Notification = {
     return {
       bg,
       display: "flex",
-      fontSize: "-1", // slightly smaller than the default size
+      fontSize: "text.caption", // slightly smaller than the default size
       position: "relative",
       textAlign: isCentered ? "center" : null,
       borderRadius: noMargin ? "0" : "4px",

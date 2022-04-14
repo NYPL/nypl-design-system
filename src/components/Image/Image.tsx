@@ -1,4 +1,4 @@
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
@@ -55,31 +55,35 @@ export interface ImageProps extends ImageWrapperProps {
   src: string;
 }
 
-function ImageWrapper(props: React.PropsWithChildren<ImageWrapperProps>) {
-  const {
-    additionalWrapperStyles = {},
-    className = "",
-    children,
-    aspectRatio = ImageRatios.Original,
-    size = ImageSizes.Default,
-  } = props;
-  const styles = useMultiStyleConfig("CustomImageWrapper", {
-    ratio: aspectRatio,
-    size,
-  });
-  return (
-    <Box
-      className={`the-wrap ${className}`}
-      __css={{ ...styles, ...additionalWrapperStyles }}
-    >
-      <Box className="the-crop" __css={styles.crop}>
-        {children}
+const ImageWrapper = chakra(
+  (props: React.PropsWithChildren<ImageWrapperProps>) => {
+    const {
+      additionalWrapperStyles = {},
+      className = "",
+      children,
+      aspectRatio = ImageRatios.Original,
+      size = ImageSizes.Default,
+      ...rest
+    } = props;
+    const styles = useMultiStyleConfig("CustomImageWrapper", {
+      ratio: aspectRatio,
+      size,
+    });
+    return (
+      <Box
+        className={`the-wrap ${className}`}
+        __css={{ ...styles, ...additionalWrapperStyles }}
+        {...rest}
+      >
+        <Box className="the-crop" __css={styles.crop}>
+          {children}
+        </Box>
       </Box>
-    </Box>
-  );
-}
+    );
+  }
+);
 
-export default function Image(props: ImageProps) {
+export const Image = chakra((props: ImageProps) => {
   const {
     additionalFigureStyles = {},
     additionalImageStyles = {},
@@ -93,6 +97,7 @@ export default function Image(props: ImageProps) {
     imageType = ImageTypes.Default,
     size = ImageSizes.Default,
     src,
+    ...rest
   } = props;
   const useImageWrapper = aspectRatio !== ImageRatios.Original;
   const styles = useMultiStyleConfig("CustomImage", {
@@ -122,6 +127,7 @@ export default function Image(props: ImageProps) {
       aspectRatio={aspectRatio}
       className={className}
       size={size}
+      {...(caption || credit ? {} : rest)}
     >
       {imageComponent}
     </ImageWrapper>
@@ -130,7 +136,11 @@ export default function Image(props: ImageProps) {
   );
 
   return caption || credit ? (
-    <Box as="figure" __css={{ ...styles.figure, ...additionalFigureStyles }}>
+    <Box
+      as="figure"
+      __css={{ ...styles.figure, ...additionalFigureStyles }}
+      {...rest}
+    >
       {finalImage}
       <Box as="figcaption" __css={styles.figcaption}>
         {caption && <Box __css={styles.captionWrappers}>{caption}</Box>}
@@ -140,4 +150,6 @@ export default function Image(props: ImageProps) {
   ) : (
     finalImage
   );
-}
+});
+
+export default Image;

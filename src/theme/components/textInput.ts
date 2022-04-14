@@ -1,8 +1,4 @@
-import {
-  activeFocus,
-  helperTextMargin,
-  selectTextinputDisabledStyles,
-} from "./global";
+import { activeFocus, selectTextInputDisabledStyles } from "./global";
 
 const input = {
   bgColor: "ui.white",
@@ -16,7 +12,7 @@ const input = {
     borderColor: "ui.gray.dark",
   },
   _disabled: {
-    ...selectTextinputDisabledStyles,
+    ...selectTextInputDisabledStyles,
     _placeholder: {
       color: "ui.gray.medium",
     },
@@ -36,11 +32,8 @@ const input = {
 };
 
 const TextInput = {
-  parts: ["helper", "input", "textarea"],
+  parts: ["input", "textarea"],
   baseStyle: {
-    helper: {
-      ...helperTextMargin,
-    },
     input,
     textarea: {
       ...input,
