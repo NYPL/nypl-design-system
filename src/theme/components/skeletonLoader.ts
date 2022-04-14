@@ -1,8 +1,8 @@
 import { keyframes } from "@chakra-ui/system";
 
 interface SkeletonLoaderBaseStyle {
-  border: boolean;
   imageAspectRatio: keyof typeof imagePaddingBottomStyles;
+  isBordered: boolean;
   showImage?: boolean;
 }
 
@@ -29,8 +29,8 @@ const imageRowHeightStyles = {
 // NYPL's skeleton loader component.
 const SkeletonLoader = {
   parts: ["section", "image", "container", "heading", "content", "button"],
-  baseStyle: ({ border, imageAspectRatio }: SkeletonLoaderBaseStyle) => {
-    const borderStyles = border ? { ...borderRules } : {};
+  baseStyle: ({ imageAspectRatio, isBordered }: SkeletonLoaderBaseStyle) => {
+    const borderStyles = isBordered ? { ...borderRules } : {};
 
     return {
       margin: "auto",

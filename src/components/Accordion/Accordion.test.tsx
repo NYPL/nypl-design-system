@@ -215,9 +215,30 @@ describe("Accordion", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Accordion
+          accordionData={accordionData}
+          id="accordian"
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Accordion
+          accordionData={accordionData}
+          id="accordian"
+          data-testid="testid"
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(defaultOpen).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
     expect(withError).toMatchSnapshot();
     expect(withWarning).toMatchSnapshot();
   });

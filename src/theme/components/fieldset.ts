@@ -8,6 +8,7 @@ interface FieldSetProps {
 const Fieldset = {
   baseStyle: ({ isLegendHidden }: FieldSetProps) => {
     const screenreaderStyles = isLegendHidden ? screenreaderOnly : {};
+
     return {
       border: 0,
       padding: 0,

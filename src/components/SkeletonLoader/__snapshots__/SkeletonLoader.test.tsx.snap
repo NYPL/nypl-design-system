@@ -2,7 +2,7 @@
 
 exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -81,7 +81,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -160,7 +160,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -239,7 +239,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -311,7 +311,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -374,7 +374,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -413,7 +413,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 6`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -503,7 +503,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -582,7 +582,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   style={
     Object {
       "width": undefined,
@@ -661,7 +661,166 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
 
 exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="chakra-skeleton css-1twknw3"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
+  <div
+    className="column css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="chakra-skeleton css-tz3wol"
+      >
+        <div
+          className="css-0"
+          style={
+            Object {
+              "marginBottom": null,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="css-0"
+    >
+      <div
+        className="chakra-skeleton css-1akrz52"
+      >
+        <div
+          className="css-0"
+          style={
+            Object {
+              "marginBottom": null,
+            }
+          }
+        />
+      </div>
+      <div
+        className="chakra-skeleton css-1akrz52"
+      >
+        <div
+          className="css-0"
+          style={
+            Object {
+              "marginBottom": null,
+            }
+          }
+        />
+      </div>
+      <div
+        className="chakra-skeleton css-qaeww3"
+      >
+        <div
+          className="css-0"
+          style={
+            Object {
+              "marginBottom": "0",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
+<div
+  className="css-kle7zy"
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="chakra-skeleton css-1twknw3"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
+  <div
+    className="column css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="chakra-skeleton css-tz3wol"
+      >
+        <div
+          className="css-0"
+          style={
+            Object {
+              "marginBottom": null,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="css-0"
+    >
+      <div
+        className="chakra-skeleton css-1akrz52"
+      >
+        <div
+          className="css-0"
+          style={
+            Object {
+              "marginBottom": null,
+            }
+          }
+        />
+      </div>
+      <div
+        className="chakra-skeleton css-1akrz52"
+      >
+        <div
+          className="css-0"
+          style={
+            Object {
+              "marginBottom": null,
+            }
+          }
+        />
+      </div>
+      <div
+        className="chakra-skeleton css-qaeww3"
+      >
+        <div
+          className="css-0"
+          style={
+            Object {
+              "marginBottom": "0",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
   style={
     Object {
       "width": undefined,

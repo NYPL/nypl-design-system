@@ -1,20 +1,20 @@
-import { helperTextMargin } from "./global";
 import { cssVar } from "@chakra-ui/theme-tools";
+import { ToggleSizes } from "../../components/Toggle/ToggleTypes";
 
 interface ToggleBaseStyle {
   isDisabled: boolean;
+  size: ToggleSizes;
 }
 
-const toggleBaseStyle = ({ isDisabled }: ToggleBaseStyle) => {
+const toggleBaseStyle = ({ isDisabled, size }: ToggleBaseStyle) => {
   const label = { alignItems: "start", display: "flex", width: "fit-content" };
-  const helper = {
-    ...helperTextMargin,
-    marginLeft: "xxs",
+  const helperErrorText = {
+    marginLeft: size === ToggleSizes.Default ? "xxl" : "xl",
     fontStyle: isDisabled ? "italic" : null,
   };
   return {
     label,
-    helper,
+    helperErrorText,
   };
 };
 const $width = cssVar("switch-track-width");
@@ -97,7 +97,7 @@ const Switch = {
 };
 
 const Toggle = {
-  parts: ["helper"],
+  parts: ["helperErrorText"],
   baseStyle: toggleBaseStyle,
   // Default values
   defaultProps: {

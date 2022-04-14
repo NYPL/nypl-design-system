@@ -1,5 +1,5 @@
 import {
-  Box,
+  chakra,
   Checkbox as ChakraCheckbox,
   Icon,
   useMultiStyleConfig,
@@ -72,8 +72,8 @@ function CheckboxIcon(props) {
   );
 }
 
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  (props, ref?) => {
+export const Checkbox = chakra(
+  React.forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
     const {
       className,
       invalidText,
@@ -89,6 +89,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       showHelperInvalidText = true,
       showLabel = true,
       value,
+      ...rest
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
@@ -139,21 +140,21 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           alignItems="flex-start"
           __css={styles}
           {...ariaAttributes}
+          {...rest}
         >
           {showLabel && labelText}
         </ChakraCheckbox>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          </Box>
+          <HelperErrorText
+            additionalStyles={styles.helperErrorText}
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         )}
       </>
     );
-  }
+  })
 );
 
 export default Checkbox;

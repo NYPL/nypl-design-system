@@ -3,9 +3,9 @@ interface ComponentWrapperProps {
 }
 
 const ComponentWrapper = {
+  parts: ["helperErrorText"],
   baseStyle: ({ hasChildren }: ComponentWrapperProps) => ({
-    helperText: {
-      marginBottom: "0",
+    helperErrorText: {
       marginTop: hasChildren ? "xs" : "0",
     },
   }),

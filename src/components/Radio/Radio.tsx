@@ -1,9 +1,9 @@
-import * as React from "react";
 import {
-  Box,
+  chakra,
   Radio as ChakraRadio,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import HelperErrorText, {
   HelperErrorTextType,
@@ -24,12 +24,10 @@ export interface RadioProps {
    * Learn more about controlled and uncontrolled form fields: https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
   isChecked?: boolean;
   /** Adds the 'disabled' and `aria-disabled` attributes to the input when true.
-   * This also makes the text italic and color scheme gray.
-   */
+   * This also makes the text italic and color scheme gray. */
   isDisabled?: boolean;
   /** Adds the 'aria-invalid' attribute to the input when true. This also makes
-   * the color theme "NYPL error" red for the button and text.
-   */
+   * the color theme "NYPL error" red for the button and text. */
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
@@ -50,77 +48,78 @@ export interface RadioProps {
   value?: string;
 }
 
-const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
-  const {
-    className,
-    helperText,
-    id,
-    invalidText,
-    isChecked,
-    isDisabled = false,
-    isInvalid = false,
-    isRequired = false,
-    labelText,
-    name,
-    onChange,
-    showHelperInvalidText = true,
-    showLabel = true,
-    value,
-  } = props;
-  const styles = useMultiStyleConfig("Radio", {});
-  const footnote = isInvalid ? invalidText : helperText;
-  const attributes = {};
+export const Radio = chakra(
+  React.forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
+    const {
+      className,
+      helperText,
+      id,
+      invalidText,
+      isChecked,
+      isDisabled = false,
+      isInvalid = false,
+      isRequired = false,
+      labelText,
+      name,
+      onChange,
+      showHelperInvalidText = true,
+      showLabel = true,
+      value,
+      ...rest
+    } = props;
+    const styles = useMultiStyleConfig("Radio", {});
+    const footnote = isInvalid ? invalidText : helperText;
+    const attributes = {};
 
-  if (!id) {
-    console.warn(
-      "NYPL Reservoir Radio: This component's required `id` prop was not passed."
-    );
-  }
-
-  if (!showLabel) {
-    if (typeof labelText !== "string") {
+    if (!id) {
       console.warn(
-        "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
+        "NYPL Reservoir Radio: This component's required `id` prop was not passed."
       );
     }
-    attributes["aria-label"] =
-      labelText && footnote ? `${labelText} - ${footnote}` : labelText;
-  } else {
-    if (footnote) {
+
+    if (!showLabel) {
+      if (typeof labelText !== "string") {
+        console.warn(
+          "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
+        );
+      }
+      attributes["aria-label"] =
+        labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+    } else if (footnote) {
       attributes["aria-describedby"] = `${id}-helperText`;
     }
-  }
 
-  return (
-    <>
-      <ChakraRadio
-        className={className}
-        id={id}
-        isChecked={isChecked}
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        isRequired={isRequired}
-        name={name}
-        onChange={onChange}
-        value={value}
-        ref={ref}
-        alignItems="flex-start"
-        __css={styles}
-        {...attributes}
-      >
-        {showLabel && labelText}
-      </ChakraRadio>
-      {footnote && showHelperInvalidText && (
-        <Box __css={styles.helper} aria-disabled={isDisabled}>
+    return (
+      <>
+        <ChakraRadio
+          className={className}
+          id={id}
+          isChecked={isChecked}
+          isDisabled={isDisabled}
+          isInvalid={isInvalid}
+          isRequired={isRequired}
+          name={name}
+          onChange={onChange}
+          value={value}
+          ref={ref}
+          alignItems="flex-start"
+          __css={styles}
+          {...attributes}
+          {...rest}
+        >
+          {showLabel && labelText}
+        </ChakraRadio>
+        {footnote && showHelperInvalidText && (
           <HelperErrorText
+            additionalStyles={styles.helperErrorText}
             id={`${id}-helperText`}
             isInvalid={isInvalid}
             text={footnote}
           />
-        </Box>
-      )}
-    </>
-  );
-});
+        )}
+      </>
+    );
+  })
+);
 
 export default Radio;

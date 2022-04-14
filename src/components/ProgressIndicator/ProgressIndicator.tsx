@@ -1,11 +1,12 @@
-import React from "react";
 import {
   Box,
+  chakra,
   CircularProgress as ChakraCircularProgress,
   CircularProgressLabel as ChakraCircularProgressLabel,
   Progress as ChakraProgress,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import React from "react";
 
 import {
   ProgressIndicatorSizes,
@@ -39,9 +40,7 @@ export interface ProgressIndicatorProps {
  * time to complete or consists of multiple steps. Examples include downloading,
  * uploading, or processing.
  */
-const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
-  props: ProgressIndicatorProps
-) => {
+export const ProgressIndicator = chakra((props: ProgressIndicatorProps) => {
   const {
     darkMode = false,
     id,
@@ -51,6 +50,7 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
     showLabel = true,
     size = ProgressIndicatorSizes.Default,
     value = 0,
+    ...rest
   } = props;
   const styles = useMultiStyleConfig("ProgressIndicator", {
     darkMode,
@@ -126,7 +126,11 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
     );
   };
 
-  return <Box __css={styles}>{progressComponent(indicatorType)}</Box>;
-};
+  return (
+    <Box __css={styles} {...rest}>
+      {progressComponent(indicatorType)}
+    </Box>
+  );
+});
 
 export default ProgressIndicator;

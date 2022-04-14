@@ -2,7 +2,7 @@
 
 exports[`StatusBadge renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="low"
 >
   Registration Required
@@ -11,7 +11,7 @@ exports[`StatusBadge renders the UI snapshot correctly 1`] = `
 
 exports[`StatusBadge renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="medium"
 >
   Registration Required
@@ -20,8 +20,27 @@ exports[`StatusBadge renders the UI snapshot correctly 2`] = `
 
 exports[`StatusBadge renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   id="high"
+>
+  Registration Required
+</div>
+`;
+
+exports[`StatusBadge renders the UI snapshot correctly 4`] = `
+<div
+  className="css-kle7zy"
+  id="chakra"
+>
+  Registration Required
+</div>
+`;
+
+exports[`StatusBadge renders the UI snapshot correctly 5`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+  id="props"
 >
   Registration Required
 </div>

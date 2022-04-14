@@ -15,7 +15,6 @@ const staticValues = {
 const CustomSlider = {
   parts: [
     "container",
-    "helper",
     "leftValue",
     "rightValue",
     "textInput",
@@ -41,9 +40,6 @@ const CustomSlider = {
       container: {
         display: "flex",
         alignItems: "center",
-      },
-      helper: {
-        marginTop: "xs",
       },
       leftValue: { ...staticValues, color: isDisabled ? "ui.gray.dark" : null },
       rightValue: {

@@ -1,5 +1,9 @@
+import {
+  Button as ChakraButton,
+  chakra,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import * as React from "react";
-import { Button as ChakraButton, useStyleConfig } from "@chakra-ui/react";
 
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
@@ -32,7 +36,7 @@ interface ButtonProps {
 /**
  * Renders a simple `button` element with custom variant styles.
  */
-function Button(props: React.PropsWithChildren<ButtonProps>) {
+export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   const {
     additionalStyles = {},
     attributes,
@@ -44,6 +48,7 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
     mouseDown = false,
     onClick,
     type = "button",
+    ...rest
   } = props;
   const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
   let childCount = 0;
@@ -80,13 +85,14 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
       className={className}
       type={type}
       isDisabled={isDisabled}
-      __css={{ ...styles, ...additionalStyles }}
       {...attributes}
       {...btnCallback}
+      __css={{ ...styles, ...additionalStyles }}
+      {...rest}
     >
       {children}
     </ChakraButton>
   );
-}
+});
 
 export default Button;

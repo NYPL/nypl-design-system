@@ -229,6 +229,25 @@ describe("Link", () => {
         </Link>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Link
+          href="#passed-in-link"
+          id="chakra"
+          p="20px"
+          color="ui.error.primary"
+        >
+          Standard
+        </Link>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Link href="#passed-in-link" id="props" data-testid="props">
+          Standard
+        </Link>
+      )
+      .toJSON();
 
     expect(standard).toMatchSnapshot();
     expect(typeForwards).toMatchSnapshot();
@@ -238,6 +257,8 @@ describe("Link", () => {
     expect(withIconChild).toMatchSnapshot();
     expect(withAchorChild).toMatchSnapshot();
     expect(withAchorChildAndIcon).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 
   // TODO:

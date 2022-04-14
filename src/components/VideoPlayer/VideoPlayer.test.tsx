@@ -281,10 +281,33 @@ describe("VideoPlayer", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <VideoPlayer
+          id="chakra"
+          videoId="474719268"
+          videoType={VideoPlayerTypes.Vimeo}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <VideoPlayer
+          id="props"
+          videoId="474719268"
+          videoType={VideoPlayerTypes.Vimeo}
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(videoPlayerWithoutText).toMatchSnapshot();
     expect(videoPlayerWithText).toMatchSnapshot();
     expect(videoPlayerUsingEmbedCode).toMatchSnapshot();
     expect(videoPlayerError).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -447,11 +447,39 @@ describe("DatePicker", () => {
           />
         )
         .toJSON();
+      const withChakraProps = renderer
+        .create(
+          <DatePicker
+            id="chakra"
+            labelText="Select the date you want to visit NYPL"
+            helperText="Note that the Library may be closed on Sundays."
+            invalidText="Please select a valid date."
+            initialDate="1/2/1988"
+            p="20px"
+            color="ui.error.primary"
+          />
+        )
+        .toJSON();
+      const withOtherProps = renderer
+        .create(
+          <DatePicker
+            id="props"
+            labelText="Select the date you want to visit NYPL"
+            helperText="Note that the Library may be closed on Sundays."
+            invalidText="Please select a valid date."
+            initialDate="1/2/1988"
+            data-testid="datepicker"
+          />
+        )
+        .toJSON();
+
       expect(basic).toMatchSnapshot();
       expect(withoutLabel).toMatchSnapshot();
       expect(withCustomFormat).toMatchSnapshot();
       expect(invalid).toMatchSnapshot();
       expect(disabled).toMatchSnapshot();
+      expect(withChakraProps).toMatchSnapshot();
+      expect(withOtherProps).toMatchSnapshot();
     });
   });
 
@@ -566,7 +594,7 @@ describe("DatePicker", () => {
       );
       // Both input fields are required.
       // The "Required" text is only displayed once in the `legend`.
-      expect(screen.getAllByText(/required/i)).toHaveLength(1);
+      expect(screen.getAllByText(/Required/i)).toHaveLength(1);
       expect(screen.getByLabelText(/From/i)).toHaveAttribute("required");
       expect(screen.getByLabelText(/To/i)).toHaveAttribute("required");
     });

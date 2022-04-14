@@ -146,11 +146,26 @@ describe("Toggle", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Toggle
+          id="chakra"
+          labelText="Test Label"
+          p="20px"
+          color="ui.error.primray"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Toggle id="props" labelText="Test Label" data-testid="props" />)
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
     expect(small).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

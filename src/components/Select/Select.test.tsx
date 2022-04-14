@@ -4,6 +4,7 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Select from "./Select";
+import { LabelPositions } from "./SelectTypes";
 
 const baseProps = {
   helperText: "This is the helper text.",
@@ -230,7 +231,6 @@ describe("Select", () => {
 
   it("Renders the UI snapshot correctly", () => {
     const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
-
     const options = siblings.map((sibling) => (
       <option key={sibling}>{sibling}</option>
     ));
@@ -295,6 +295,19 @@ describe("Select", () => {
         </Select>
       )
       .toJSON();
+    const withLabelInline = renderer
+      .create(
+        <Select
+          id="select"
+          isRequired
+          labelPosition={LabelPositions.Inline}
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
     const hasOnChange = renderer
       .create(
         <Select
@@ -307,12 +320,40 @@ describe("Select", () => {
         </Select>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Select
+          id="chakra"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          p="20px"
+          color="ui.error.primary"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Select
+          id="props"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          data-testid="props"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(disabled).toMatchSnapshot();
     expect(withInvalidText).toMatchSnapshot();
     expect(withHelperText).toMatchSnapshot();
     expect(required).toMatchSnapshot();
+    expect(withLabelInline).toMatchSnapshot();
     expect(hasOnChange).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });
