@@ -67,7 +67,7 @@ const selectTextInputDisabledStyles = {
   color: "ui.gray.dark",
   opacity: "1",
 };
-// Used for the disabled state of Select and TextInput
+// Used for the focus state of Select and TextInput
 const selectTextInputFocusStyles = {
   ...activeFocus(),
   borderColor: "ui.focus",
