@@ -41,6 +41,7 @@ The following default spacing values are available through the DS.
 
 | JS Theme Object | CSS Variable        | REM Equivalent | Pixel Equivalent | Visual Reference                                                                                              |
 | --------------- | ------------------- | -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| `xxxs`          | `--nypl-space-xxxs` | `0.125rem`     | `2px`            | <div style={{ width: "var(--nypl-space-xxxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
 | `xxs`           | `--nypl-space-xxs`  | `0.25rem`      | `4px`            | <div style={{ width: "var(--nypl-space-xxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
 | `xs`            | `--nypl-space-xs`   | `0.5rem`       | `8px`            | <div style={{ width: "var(--nypl-space-xs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
 | `s`             | `--nypl-space-s`    | `1rem`         | `16px`           | <div style={{ width: "var(--nypl-space-s)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
@@ -54,7 +55,10 @@ The following default spacing values are available through the DS.
 
 ## Page Section Spacing
 
-In consuming apps, the major page sections should be separated vertically by `2rem`. This includes the space after the page global `header` and the space before the global `footer`. Similarly, the major page sections should be separated horizontally by `2rem`.
+In consuming apps, the major page sections should be separated vertically by
+`2rem`. This includes the space after the page global `header` and the space
+before the global `footer`. Similarly, the major page sections should be
+separated horizontally by `2rem`.
 
 |                        | Value  | JS Theme Object | CSS Variable                 |
 | ---------------------- | ------ | --------------- | ---------------------------- |
@@ -63,23 +67,39 @@ In consuming apps, the major page sections should be separated vertically by `2r
 
 ## Grid Spacing
 
-When elements are displayed in a grid (i.e. Cards, Images, etc.), the space between elements, both horizontal and vertical, should be `2rem`.
+When elements are displayed in a grid (i.e. Cards, Images, etc.), the space
+between elements, both horizontal and vertical, should be `2rem`.
 
 |                 | Value  | JS Theme Object | CSS Variable                  |
 | --------------- | ------ | --------------- | ----------------------------- |
-| **Default Gap** | `1rem` | `grid.default`  | `--nypl-spacing-grid-default` |
+| **Default Gap** | `2rem` | `grid.default`  | `--nypl-spacing-grid-default` |
 
 ## Form Spacing
 
-Form input components should have a `2rem` space between each form input component. This includes both vertical (column) and horizontal (row) stacking. The DS [Form](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/components-form-elements-form--form-with-controls) component has correct spacing incorporated into its UI structure and should always be used when building forms. Please note that the spacing in the `Form` component is identical to the spacing in the `Grid` component.
+Form input components should have a `2rem` space between each form input
+component. This includes both vertical (column) and horizontal (row) stacking.
+The DS [Form](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/components-form-elements-form--form-with-controls)
+component has correct spacing incorporated into its UI structure and should
+always be used when building forms. Please note that the spacing in the `Form`
+component is identical to the spacing in the `Grid` component.
 
-When `Checkbox` and `Radio` components are grouped together, the components should have a `1rem` space between components for vertical (column) stacking and a `2rem` space between components for horizontal (row) stacking. The DS `CheckboxGroup` and `RadioGroup` components have the correct spacing built in and should be used respectively when multiple `Checkbox` or `radio` components are being used together.
+When `Checkbox` and `Radio` components are grouped together, the components
+should have a `1rem` space between components for vertical (column) stacking
+and a `2rem` space between components for horizontal (row) stacking. The DS
+`CheckboxGroup` and `RadioGroup` components have the correct spacing built
 
-When `Button` components are grouped together, the `Button` components should have a `0.5rem` space between component. This includes both vertical (column) and horizontal (row) stacking. The DS `ButtonGroup` component has the correct spacing built in and should be used when multiple `Button` components are being used together.
+in and should be used respectively when multiple `Checkbox` or `radio`
+components are being used together.
+
+When `Button` components are grouped together, the `Button` components should
+have a `0.5rem` space between component. This includes both vertical (column)
+and horizontal (row) stacking. The DS `ButtonGroup` component has the correct
+spacing built in and should be used when multiple `Button` components are being
+used together.
 
 |                                        | Value    | JS Theme Object              | CSS Variable                                |
 | -------------------------------------- | -------- | ---------------------------- | ------------------------------------------- |
-| **Default Form Gap**                   | `1rem`   | `grid.default`               | `--nypl-spacing-grid-default`               |
+| **Default Form Gap**                   | `2rem`   | `grid.default`               | `--nypl-spacing-grid-default`               |
 | **Input Group Default Row Spacing**    | `2rem`   | `input.group.default.hstack` | `--nypl-spacing-input-group-default-hstack` |
 | **Input Group Default Column Spacing** | `1rem`   | `input.group.default.vstack` | `--nypl-spacing-input-group-default-vstack` |
 | **Button Group Row Spacing**           | `0.5rem` | `input.group.button.hstack`  | `--nypl-spacing-input-group-button-hstack`  |
@@ -87,7 +107,9 @@ When `Button` components are grouped together, the `Button` components should ha
 
 ## Tabular Data Spacing
 
-When data is displayed in a tabular layout (i.e. rows and columns in a table, a definition list, etc.), the space between data cells in a row should be `1.5rem` and the space between rows should be `2rem`.
+When data is displayed in a tabular layout (i.e. rows and columns in a table,
+a definition list, etc.), the space between data cells in a row should be
+`1.5rem` and the space between rows should be `2rem`.
 
 |                | Value    | JS Theme Object | CSS Variable                  |
 | -------------- | -------- | --------------- | ----------------------------- |

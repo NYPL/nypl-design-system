@@ -21,7 +21,7 @@ const getBodyPaddingStyles = ({
     }
   }
   if (isRow && isBordered) {
-    bodyPadding = "var(--nypl-space-inset-default)";
+    bodyPadding = "inset.default";
   }
   if (isRow && isBordered && hasImage) {
     bodyPadding = {
