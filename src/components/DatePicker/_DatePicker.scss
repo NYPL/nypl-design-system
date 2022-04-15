@@ -1,42 +1,92 @@
 // Styles needed to override `react-datepicker` plugin styles.
 .date-picker-calendar {
+  font-family: var(--nypl-fonts-body);
+
+  .react-datepicker {
+    border-color: var(--nypl-colors-ui-gray-medium);
+  }
+  // The styles for the triangle arrow above the calendar popup.
+  .react-datepicker__triangle {
+    // Shift the triangle to the left.
+    transform: translate(32px, 0px) !important;
+    &::before {
+      border-bottom-color: var(--nypl-colors-ui-gray-medium) !important;
+    }
+    &::after {
+      border-bottom-color: var(--nypl-colors-ui-gray-x-light-cool) !important;
+    }
+  }
+  // The left and right arrow buttons.
+  .react-datepicker__navigation {
+    &-icon {
+      top: 5px;
+      &::before {
+        border-color: var(--nypl-colors-ui-gray-medium);
+      }
+    }
+    &:hover {
+      .react-datepicker__navigation-icon::before {
+        border-color: var(--nypl-colors-ui-gray-dark);
+      }
+    }
+  }
+  // The header with the appropriate date.
+  .react-datepicker__header {
+    border-color: var(--nypl-colors-ui-gray-medium);
+    background-color: var(--nypl-colors-ui-gray-x-light-cool);
+  }
   // Make sure the width is enough to fit 12 selectable years.
   .react-datepicker__year-wrapper {
     max-width: 220px;
   }
-
   // Moving away from React DatePickers default blue color theme:
   .react-datepicker__year,
   .react-datepicker__month,
   .react-datepicker__day {
     // For currently selected ranges
     &--in-range.react-datepicker__day--in-range {
-      opacity: 0.5;
+      opacity: 1;
     }
-
     // For ranges about to be selected.
     &-text--keyboard-selected,
     &--keyboard-selected,
     &--in-range,
     &--in-selecting-range {
-      background-color: var(--nypl-colors-ui-black);
+      background-color: var(--nypl-colors-ui-gray-light-cool);
       border-radius: 0;
-      color: var(--nypl-colors-ui-white);
+      color: var(--nypl-colors-ui-black);
       opacity: 0.3;
     }
-
+    // For today's date visual styles.
+    &-text--today,
+    &--today {
+      color: var(--nypl-colors-ui-black);
+      background-color: var(--nypl-colors-ui-gray-light-cool);
+    }
     // Selected states.
     &-text--selected,
     &--selected {
-      background-color: var(--nypl-colors-ui-black);
+      background-color: var(--nypl-colors-ui-focus);
+      font-weight: bold;
       border-radius: 0;
       color: var(--nypl-colors-ui-white);
       opacity: 1;
     }
   }
-
-  // Shift the triangle to the left.
-  .react-datepicker__triangle {
-    transform: translate(32px, 0px) !important;
+  // Hover state
+  .react-datepicker__year-text:not(.react-datepicker__year-text--disabled),
+  .react-datepicker__month-text,
+  .react-datepicker__day {
+    &:hover {
+      border-radius: 0;
+      background-color: var(--nypl-colors-ui-gray-x-light-cool);
+      color: var(--nypl-colors-ui-black);
+    }
+  }
+  .react-datepicker__day--keyboard-selected {
+    opacity: 1;
+    border-radius: 0;
+    background-color: var(--nypl-colors-ui-gray-x-light-cool);
+    color: var(--nypl-colors-ui-black);
   }
 }
