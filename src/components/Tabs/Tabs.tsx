@@ -1,6 +1,6 @@
-import * as React from "react";
 import {
   Box,
+  chakra,
   Tab,
   TabList,
   TabPanels,
@@ -8,8 +8,8 @@ import {
   Tabs as ChakraTabs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
-import generateUUID from "../../helpers/generateUUID";
 import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -139,14 +139,15 @@ const getElementsFromChildren = (children): TabPanelProps => {
  * Renders Chakra's `Tab` component with specific variants, props,
  * and controlled styling.
  */
-function Tabs(props: React.PropsWithChildren<TabsProps>) {
+export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
   const {
     children,
     defaultIndex = 0,
-    id = generateUUID(),
+    id,
     onChange,
     tabsData,
     useHash = false,
+    ...rest
   } = props;
   const styles = useMultiStyleConfig("Tabs", {});
   // Just an estimate of the tab width for the mobile carousel.
@@ -238,6 +239,7 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
       isLazy
       onChange={onChange}
       variant="enclosed"
+      {...rest}
     >
       <Box
         __css={styles.tablistWrapper}
@@ -256,6 +258,8 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
       {panels}
     </ChakraTabs>
   );
-}
+});
 
-export { Tabs, TabList, Tab, TabPanels, TabPanel };
+// Tabs is also exported above so the props can display in Storybook.
+export { TabList, Tab, TabPanels, TabPanel };
+export default Tabs;

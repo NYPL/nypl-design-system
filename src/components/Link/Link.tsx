@@ -1,5 +1,5 @@
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
@@ -9,8 +9,6 @@ import {
   IconAlign,
   IconSizes,
 } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface LinkProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -93,16 +91,17 @@ function getExternalIcon(children, linkId) {
  * A component that uses an `href` prop or a child anchor element, to create
  * an anchor element with added styling and conventions.
  */
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (props, ref: any) => {
+export const Link = chakra(
+  React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
     const {
       additionalStyles = {},
       attributes,
       children,
       className,
       href,
-      id = generateUUID(),
+      id,
       type = LinkTypes.Default,
+      ...rest
     } = props;
 
     // Merge the necessary props alongside any extra props for the
@@ -152,7 +151,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style}>
+        <Box as="span" __css={style} {...rest}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -180,12 +179,13 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           target={target}
           {...linkProps}
           __css={{ ...style, ...additionalStyles }}
+          {...rest}
         >
           {newChildren}
         </Box>
       );
     }
-  }
+  })
 );
 
 export default Link;

@@ -50,9 +50,6 @@ import DSProvider from "../../theme/provider";
     },
     name: { control: false },
     onChange: { control: false },
-    optReqFlag: {
-      table: { defaultValue: { summary: true } },
-    },
     showBoxes: {
       table: { defaultValue: { summary: true } },
     },
@@ -60,6 +57,9 @@ import DSProvider from "../../theme/provider";
       table: { defaultValue: { summary: true } },
     },
     showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showRequiredLabel: {
       table: { defaultValue: { summary: true } },
     },
     showValues: {
@@ -76,7 +76,7 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.4`   |
-| Latest            | `0.25.13`  |
+| Latest            | `0.26.0`   |
 
 ## Table of Contents
 
@@ -114,10 +114,10 @@ For this type of component, the `value` prop must be a single number.
       min: 0,
       name: undefined,
       onChange: undefined,
-      optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
+      showRequiredLabel: true,
       showValues: true,
       step: 1,
     }}
@@ -191,10 +191,10 @@ numbers. This signifies the starting and ending values of the range slider.
       min: 0,
       name: undefined,
       onChange: undefined,
-      optReqFlag: true,
       showBoxes: true,
       showHelperInvalidText: true,
       showLabel: true,
+      showRequiredLabel: true,
       showValues: true,
       step: 1,
     }}
@@ -228,9 +228,6 @@ Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
 
 ### Single Slider States
 
-Note: In the following examples, the "Required"/"Optional" text in the label is
-hidden by setting the `optReqFlag` prop to false.
-
 <Canvas>
   <DSProvider>
     <Heading
@@ -240,8 +237,8 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={50}
-      optReqFlag={false}
       helperText="Component helper text."
+      id="single-slider"
       invalidText="Component error text :("
       labelText="Label"
     />
@@ -257,11 +254,29 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={50}
-      optReqFlag={false}
       helperText="Component helper text."
+      id="errored-slider"
       invalidText="Component error text :("
       labelText="Label"
       isInvalid
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-single-required"
+      level={HeadingLevels.Four}
+      text="Required State"
+    />
+    <Slider
+      defaultValue={50}
+      helperText="Component helper text."
+      id="required-slider"
+      invalidText="Component error text :("
+      labelText="Label"
+      isRequired
     />
   </DSProvider>
 </Canvas>
@@ -275,8 +290,8 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={50}
-      optReqFlag={false}
       helperText="Component helper text."
+      id="disabled-slider"
       invalidText="Component error text :("
       labelText="Label"
       isDisabled
@@ -288,9 +303,6 @@ hidden by setting the `optReqFlag` prop to false.
 
 To enable the Range Slider, set the `isRangeSlider` prop to true.
 
-Note: In the following examples, the "Required"/"Optional" text in the label is
-hidden by setting the `optReqFlag` prop to false.
-
 <Canvas>
   <DSProvider>
     <Heading
@@ -300,8 +312,8 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={[25, 75]}
-      optReqFlag={false}
       helperText="Component helper text."
+      id="range-slider"
       invalidText="Component error text :("
       labelText="Label"
       isRangeSlider
@@ -319,8 +331,8 @@ hidden by setting the `optReqFlag` prop to false.
     <SimpleGrid columns={1} gap={GridGaps.Large}>
       <Slider
         defaultValue={[25, 75]}
-        optReqFlag={false}
         helperText="Component helper text."
+        id="range-error-slider"
         invalidText="Component error text :("
         labelText="Label"
         isRangeSlider
@@ -337,13 +349,32 @@ hidden by setting the `optReqFlag` prop to false.
       </p>
       <Slider
         defaultValue={[80, 20]}
-        optReqFlag={false}
         helperText="Component helper text."
+        id="range-error-slider2"
         invalidText="Component error text :("
         labelText="Label"
         isRangeSlider
       />
     </SimpleGrid>
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading
+      id="heading-range-required"
+      level={HeadingLevels.Four}
+      text="Required State"
+    />
+    <Slider
+      defaultValue={[25, 75]}
+      helperText="Component helper text."
+      id="range-required-slider"
+      invalidText="Component error text :("
+      labelText="Label"
+      isRangeSlider
+      isRequired
+    />
   </DSProvider>
 </Canvas>
 
@@ -356,8 +387,8 @@ hidden by setting the `optReqFlag` prop to false.
     />
     <Slider
       defaultValue={[25, 75]}
-      optReqFlag={false}
       helperText="Component helper text."
+      id="single-disabled-slider"
       invalidText="Component error text :("
       labelText="Label"
       isRangeSlider
@@ -382,6 +413,7 @@ input are hidden.
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="single-slider-variant-1"
         labelText="Label"
         showValues={false}
         showBoxes={false}
@@ -389,6 +421,7 @@ input are hidden.
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="single-slider-variant-2"
         labelText="Label"
         showValues={false}
         showBoxes={false}
@@ -397,16 +430,16 @@ input are hidden.
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="single-slider-variant-3"
         labelText="Label"
-        optReqFlag={false}
         showValues={false}
         showBoxes={false}
       />
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="single-slider-variant-4"
         labelText="Label"
-        optReqFlag={false}
         showHelperInvalidText={false}
         showValues={false}
         showBoxes={false}
@@ -414,8 +447,8 @@ input are hidden.
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="single-slider-variant-5"
         labelText="Label"
-        optReqFlag={false}
         showValues={false}
         showBoxes={false}
         showLabel={false}
@@ -437,6 +470,7 @@ For the following examples, all labels are hidden.
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="hidden-labels-1"
         labelText="Label"
         showHelperInvalidText={false}
         showLabel={false}
@@ -444,6 +478,7 @@ For the following examples, all labels are hidden.
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="hidden-labels-2"
         labelText="Label"
         showHelperInvalidText={false}
         showLabel={false}
@@ -452,6 +487,7 @@ For the following examples, all labels are hidden.
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="hidden-labels-3"
         labelText="Label"
         showHelperInvalidText={false}
         showLabel={false}
@@ -460,6 +496,7 @@ For the following examples, all labels are hidden.
       <Slider
         defaultValue={50}
         helperText="Component helper text."
+        id="hidden-labels-4"
         labelText="Label"
         showHelperInvalidText={false}
         showLabel={false}
@@ -480,38 +517,42 @@ In the following examples, all the labels are hidden.
       <Slider
         defaultValue={[15, 75]}
         helperText="Component helper text."
+        id="range-slider-1"
+        isRangeSlider
         labelText="Label"
         showHelperInvalidText={false}
         showLabel={false}
-        isRangeSlider
       />
       <Slider
         defaultValue={[15, 75]}
         helperText="Component helper text."
+        id="range-slider-1"
+        isRangeSlider
         labelText="Label"
-        showHelperInvalidText={false}
-        showLabel={false}
         showBoxes={false}
-        isRangeSlider
+        showHelperInvalidText={false}
+        showLabel={false}
       />
       <Slider
         defaultValue={[15, 75]}
         helperText="Component helper text."
+        id="range-slider-3"
+        isRangeSlider
         labelText="Label"
         showHelperInvalidText={false}
         showLabel={false}
         showValues={false}
-        isRangeSlider
       />
       <Slider
         defaultValue={[15, 75]}
         helperText="Component helper text."
+        id="range-slider-4"
+        isRangeSlider
         labelText="Label"
+        showBoxes={false}
         showHelperInvalidText={false}
         showLabel={false}
         showValues={false}
-        showBoxes={false}
-        isRangeSlider
       />
     </SimpleGrid>
   </DSProvider>
@@ -540,6 +581,7 @@ function SliderExample() {
   return (
     <Slider
       helperText="Component helper text."
+      id="slider"
       labelText="Label"
       onChange={onChange}
     />
@@ -554,6 +596,7 @@ export function SliderExample() {
   return (
     <Slider
       helperText="Component helper text."
+      id="slider"
       labelText="Label"
       onChange={onChange}
     />
@@ -582,9 +625,10 @@ function RangeSliderExample() {
   return (
     <Slider
       helperText="Component helper text."
+      id="range-slider"
+      isRangeSlider
       labelText="Label"
       onChange={onChange}
-      isRangeSlider
     />
   );
 }
@@ -600,9 +644,10 @@ export function RangeSliderExample() {
     <Slider
       defaultValue={[15, 75]}
       helperText="Component helper text."
+      id="range-slider"
+      isRangeSlider
       labelText="Label"
       onChange={onChange}
-      isRangeSlider
     />
   );
 }

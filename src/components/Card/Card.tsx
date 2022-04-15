@@ -1,19 +1,18 @@
-import * as React from "react";
 import {
   Box,
+  chakra,
   LinkBox as ChakraLinkBox,
   LinkOverlay as ChakraLinkOverlay,
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import { LayoutTypes } from "../../helpers/enums";
 import Heading from "../Heading/Heading";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
 import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import useWindowSize from "../../hooks/useWindowSize";
-import generateUUID from "../../helpers/generateUUID";
-
 interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
   isCentered?: boolean;
@@ -51,15 +50,15 @@ interface CardImageComponentProps extends CardBaseProps, ImageProps {
 export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   /** Optional hex color value used to set the card background color. */
   backgroundColor?: string;
-  /** Optional boolean value to control the visibility of a border around
-   * the card. */
-  border?: boolean;
   /** Optional CSS class name to add. */
   className?: string;
   /** Optional hex color value used to override the default text color. */
   foregroundColor?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** Optional boolean value to control the visibility of a border around
+   * the card. */
+  isBordered?: boolean;
   /** Object used to create and render the `Image` component. */
   imageProps?: CardImageProps;
 }
@@ -88,8 +87,8 @@ function CardImage(
   const styles = useStyleConfig("CardImage", {
     imageIsAtEnd: isAtEnd,
     isCentered,
-    size,
     layout,
+    size,
   });
   return (
     <Box __css={styles}>
@@ -107,27 +106,42 @@ function CardImage(
 }
 
 // CardHeading child-component
-export const CardHeading = Heading;
+export const CardHeading = chakra(Heading);
 
 // CardContent child-component
-export function CardContent(props: React.PropsWithChildren<{}>) {
-  const { children } = props;
+export const CardContent = chakra((props: React.PropsWithChildren<{}>) => {
+  const { children, ...rest } = props;
   const styles = useStyleConfig("CardContent");
-  return children && <Box __css={styles}>{children}</Box>;
-}
+  return (
+    children && (
+      <Box __css={styles} {...rest}>
+        {children}
+      </Box>
+    )
+  );
+});
 
 // CardActions child-component
-export function CardActions(props: React.PropsWithChildren<CardActionsProps>) {
-  const { bottomBorder, children, isCentered, layout, topBorder } = props;
-  const styles = useStyleConfig("CardActions", {
-    bottomBorder,
-    isCentered,
-    layout,
-    topBorder,
-  });
+export const CardActions = chakra(
+  (props: React.PropsWithChildren<CardActionsProps>) => {
+    const { bottomBorder, children, isCentered, layout, topBorder, ...rest } =
+      props;
+    const styles = useStyleConfig("CardActions", {
+      bottomBorder,
+      isCentered,
+      layout,
+      topBorder,
+    });
 
-  return children && <Box __css={styles}>{children}</Box>;
-}
+    return (
+      children && (
+        <Box __css={styles} {...rest}>
+          {children}
+        </Box>
+      )
+    );
+  }
+);
 
 /**
  * If `mainActionLink` is passed, then this adds Chakra's `LinkBox` wrapper
@@ -163,14 +177,13 @@ function CardLinkOverlay({
   );
 }
 
-export default function Card(props: React.PropsWithChildren<CardProps>) {
+export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
   const {
     backgroundColor,
-    border,
     children,
     className,
     foregroundColor,
-    id = generateUUID(),
+    id,
     imageProps = {
       alt: "",
       aspectRatio: ImageRatios.Square,
@@ -181,9 +194,11 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       size: ImageSizes.Default,
       src: "",
     },
+    isBordered,
     isCentered = false,
     layout = LayoutTypes.Column,
     mainActionLink,
+    ...rest
   } = props;
   const hasImage = imageProps.src || imageProps.component;
   const [finalImageSize, setFinalImageSize] = React.useState<ImageSizes>(
@@ -221,9 +236,9 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
   foregroundColor && (customColors["color"] = foregroundColor);
 
   const styles = useMultiStyleConfig("Card", {
-    border,
     hasImage,
     imageIsAtEnd: imageProps.isAtEnd,
+    isBordered,
     isCentered,
     layout,
     mainActionLink,
@@ -250,7 +265,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
           ...child.props.additionalStyles,
         },
         key,
-        isCentered,
         // Override the child text with the potential `CardLinkOverlay`.
         children: newChildren,
         layout,
@@ -259,7 +273,11 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       cardHeadingCount++;
     } else if (
       child.type === CardContent ||
-      child.props.mdxType === "CardContent" ||
+      child.props.mdxType === "CardContent"
+    ) {
+      const elem = React.cloneElement(child, { key });
+      cardContents.push(elem);
+    } else if (
       child.type === CardActions ||
       child.props.mdxType === "CardActions"
     ) {
@@ -277,6 +295,7 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
           ...styles,
           ...customColors,
         }}
+        {...rest}
       >
         {hasImage && (
           <CardImage
@@ -297,4 +316,6 @@ export default function Card(props: React.PropsWithChildren<CardProps>) {
       </Box>
     </CardLinkBox>
   );
-}
+});
+
+export default Card;

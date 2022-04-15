@@ -1,0 +1,1039 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar renders the UI snapshot correctly 1`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <form
+    aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
+    className="css-1xdhyk6"
+    id="searchbar-form-basic"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-label="Item Search"
+        className="chakra-input css-0"
+        disabled={false}
+        id="searchbar-textinput-basic"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search "
+        required={false}
+        step={null}
+        type="text"
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-basic"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-basic"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Search for items in Animal Crossing New Horizons",
+      }
+    }
+    data-isinvalid={false}
+    id="basic-helperText"
+  />
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 2`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <form
+    aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
+    className="css-1xdhyk6"
+    id="searchbar-form-withSelect"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <div
+        className="css-0"
+      >
+        <div
+          className="chakra-select__wrapper css-42b2qy"
+        >
+          <select
+            aria-label="Select a category"
+            className="chakra-select css-1ik61og"
+            disabled={false}
+            id="searchbar-select-withSelect"
+            name="selectName"
+            onBlur={[Function]}
+            onChange={[MockFunction]}
+            onFocus={[Function]}
+            required={false}
+            value=""
+          >
+            <option
+              value="Art"
+            >
+              Art
+            </option>
+            <option
+              value="Bushes"
+            >
+              Bushes
+            </option>
+            <option
+              value="Clothing"
+            >
+              Clothing
+            </option>
+            <option
+              value="Flowers"
+            >
+              Flowers
+            </option>
+            <option
+              value="Fossils"
+            >
+              Fossils
+            </option>
+            <option
+              value="Fruits"
+            >
+              Fruits
+            </option>
+            <option
+              value="Furniture"
+            >
+              Furniture
+            </option>
+            <option
+              value="Songs"
+            >
+              Songs
+            </option>
+            <option
+              value="Tools"
+            >
+              Tools
+            </option>
+            <option
+              value="Villagers"
+            >
+              Villagers
+            </option>
+          </select>
+          <div
+            className="chakra-select__icon-wrapper css-162mkon"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon chakra-select__icon css-1grhd2q"
+              focusable={false}
+              id="searchbar-select-withSelect-icon"
+              role="presentation"
+              style={
+                Object {
+                  "color": "currentColor",
+                  "height": "1em",
+                  "width": "1em",
+                }
+              }
+              title="arrow icon"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path
+                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                  fill="currentColor"
+                  strokeLinecap="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  fill="none"
+                  r="11.25"
+                  strokeMiterlimit="10"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-label="Item Search"
+        className="chakra-input css-0"
+        disabled={false}
+        id="searchbar-textinput-withSelect"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search "
+        required={false}
+        step={null}
+        type="text"
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-withSelect"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-withSelect"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Search for items in Animal Crossing New Horizons",
+      }
+    }
+    data-isinvalid={false}
+    id="withSelect-helperText"
+  />
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 3`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <form
+    aria-label="SearchBar label"
+    className="css-1xdhyk6"
+    id="searchbar-form-withoutHelperText"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-label="Item Search"
+        className="chakra-input css-0"
+        disabled={false}
+        id="searchbar-textinput-withoutHelperText"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search "
+        required={false}
+        step={null}
+        type="text"
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-withoutHelperText"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-withoutHelperText"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 4`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <form
+    aria-label="SearchBar label"
+    className="css-1xdhyk6"
+    id="searchbar-form-invalidState"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-invalid={true}
+        aria-label="Item Search - There is an error related to this field."
+        className="chakra-input css-0"
+        disabled={false}
+        id="searchbar-textinput-invalidState"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search "
+        required={false}
+        step={null}
+        type="text"
+      />
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-invalidState"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-invalidState"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 5`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <form
+    aria-label="SearchBar label"
+    className="css-1xdhyk6"
+    id="searchbar-form-disabledState"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-label="Item Search"
+        className="chakra-input css-0"
+        disabled={true}
+        id="searchbar-textinput-disabledState"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search "
+        required={false}
+        step={null}
+        type="text"
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      disabled={true}
+      id="searchbar-button-disabledState"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-disabledState"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 6`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <form
+    aria-label="SearchBar label"
+    className="css-1xdhyk6"
+    id="searchbar-form-requiredState"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-label="Item Search"
+        aria-required={true}
+        className="chakra-input css-0"
+        disabled={true}
+        id="searchbar-textinput-requiredState"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search (Required)"
+        required={true}
+        step={null}
+        type="text"
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      disabled={true}
+      id="searchbar-button-requiredState"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-requiredState"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 7`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <form
+    aria-label="SearchBar label"
+    className="css-1xdhyk6"
+    id="searchbar-form-noBrandButtonType"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-label="Item Search"
+        aria-required={true}
+        className="chakra-input css-0"
+        disabled={true}
+        id="searchbar-textinput-noBrandButtonType"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search (Required)"
+        required={true}
+        step={null}
+        type="text"
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      disabled={true}
+      id="searchbar-button-noBrandButtonType"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-noBrandButtonType"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 8`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <h2
+    className="chakra-heading css-1xdhyk6"
+    id="withHeading-heading"
+  >
+    A Heading
+  </h2>
+  <form
+    aria-label="SearchBar label"
+    className="css-1xdhyk6"
+    id="searchbar-form-withHeading"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-withHeading"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-withHeading"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 9`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <p
+    className="chakra-text css-1xdhyk6"
+  >
+    A description
+  </p>
+  <form
+    aria-label="SearchBar label"
+    className="css-1xdhyk6"
+    id="searchbar-form-withDescription"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-withDescription"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-withDescription"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 10`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <h2
+    className="chakra-heading css-1xdhyk6"
+    id="withHeadingAndDescription-heading"
+  >
+    A Heading
+  </h2>
+  <p
+    className="chakra-text css-1xdhyk6"
+  >
+    A description
+  </p>
+  <form
+    aria-label="SearchBar label"
+    className="css-1xdhyk6"
+    id="searchbar-form-withHeadingAndDescription"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-withHeadingAndDescription"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-withHeadingAndDescription"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 11`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <form
+    aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
+    className="css-kle7zy"
+    id="searchbar-form-chakra"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-label="Item Search"
+        className="chakra-input css-0"
+        disabled={false}
+        id="searchbar-textinput-chakra"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search "
+        required={false}
+        step={null}
+        type="text"
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-chakra"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-chakra"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Search for items in Animal Crossing New Horizons",
+      }
+    }
+    data-isinvalid={false}
+    id="chakra-helperText"
+  />
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 12`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <form
+    aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
+    className="css-1xdhyk6"
+    id="searchbar-form-props"
+    onSubmit={[MockFunction]}
+    role="search"
+  >
+    <div
+      className="css-1xdhyk6"
+    >
+      <input
+        aria-label="Item Search"
+        className="chakra-input css-0"
+        disabled={false}
+        id="searchbar-textinput-props"
+        name="textInputName"
+        onBlur={[Function]}
+        onChange={[MockFunction]}
+        onFocus={[Function]}
+        placeholder="Item Search "
+        required={false}
+        step={null}
+        type="text"
+      />
+      
+    </div>
+    <button
+      className="chakra-button css-1me3d5y"
+      data-testid="button"
+      id="searchbar-button-props"
+      onClick={null}
+      type="submit"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="searchbar-icon-props"
+        role="img"
+        title="search icon"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      Search
+    </button>
+  </form>
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Search for items in Animal Crossing New Horizons",
+      }
+    }
+    data-isinvalid={false}
+    id="props-helperText"
+  />
+</div>
+`;

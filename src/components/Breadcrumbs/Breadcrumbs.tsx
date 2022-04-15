@@ -1,10 +1,11 @@
-import * as React from "react";
 import {
   Breadcrumb as ChakraBreadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  chakra,
   useStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import Icon from "../Icons/Icon";
 import {
@@ -13,7 +14,6 @@ import {
   IconSizes,
   IconTypes,
 } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
 import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 import { getVariant } from "../../utils/utils";
 
@@ -64,13 +64,14 @@ const getElementsFromData = (data, breadcrumbsID) => {
   return breadcrumbItems;
 };
 
-function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
+export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
   const {
     additionalStyles = {},
     breadcrumbsData,
     breadcrumbsType,
     className,
-    id = generateUUID(),
+    id,
+    ...rest
   } = props;
   const variant = getVariant(breadcrumbsType, BreadcrumbsTypes);
 
@@ -83,18 +84,18 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
   const styles = useStyleConfig("Breadcrumb", { variant });
   const finalStyles = { ...styles, ...additionalStyles };
   const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
-  const ariaAttrs = { "aria-label": "Breadcrumb" };
 
   return (
     <ChakraBreadcrumb
+      aria-label="Breadcrumb"
       className={className}
       id={id}
-      {...ariaAttrs}
       __css={finalStyles}
+      {...rest}
     >
       {breadcrumbItems}
     </ChakraBreadcrumb>
   );
-}
+});
 
 export default Breadcrumbs;

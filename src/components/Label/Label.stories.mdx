@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -19,10 +19,7 @@ import { getCategory } from "../../utils/componentCategories";
   argTypes={{
     className: { control: false },
     id: { control: false },
-    optReqFlag: {
-      control: { type: "select" },
-      options: ["Required", "Optional", ""],
-    },
+    isInlined: { table: { disable: true } },
     text: {
       description: "Only used for Storybook",
     },
@@ -34,7 +31,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.25.8`   |
+| Latest            | `0.26.0`   |
 
 <Description of={Label} />
 
@@ -45,7 +42,7 @@ import { getCategory } from "../../utils/componentCategories";
       className: undefined,
       htmlFor: "id-of-input-element",
       id: "label-id",
-      optReqFlag: "Required",
+      isRequired: false,
       text: "A label for a villager.",
     }}
   >
@@ -55,24 +52,22 @@ import { getCategory } from "../../utils/componentCategories";
 
 <ArgsTable story="Label with Controls" />
 
-## Required/Optional helper text
+## isRequired helper text
 
 An optional helper string can be rendered at the end of the `Label` text through
-the `optReqFlag` prop. Pass in either `"Required"`, `"Optional"`, or `""`. The
-default value is undefined for no helper text to appear.
+the `isRequired` prop. This is useful for visually labeling a field as required
+with the `"(Required)"` text next to the label's text. This is set to `false`
+by default.
 
 <Canvas>
-  <Story name="Required/Optional helper text">
-    <Box width="300px">
-      <Label htmlFor="some-id1" optReqFlag="">
-        No text
+  <Story name="isRequired helper text">
+    <VStack>
+      <Label htmlFor="label-id1" id="regular">
+        A regular label
       </Label>
-      <Label htmlFor="some-id2" optReqFlag="Required">
-        Required helper text
+      <Label htmlFor="label-id2" id="required" isRequired>
+        A label that is required
       </Label>
-      <Label htmlFor="some-id3" optReqFlag="Optional">
-        Optional helper text
-      </Label>
-    </Box>
+    </VStack>
   </Story>
 </Canvas>
