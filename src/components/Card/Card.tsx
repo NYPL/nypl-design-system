@@ -328,7 +328,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
         {cardRightContents.length ? (
           <Box
             className="card-right"
-            __css={{ ...styles.body, marginLeft: "m" }}
+            __css={{ ...styles.body, ...styles.actions }}
           >
             {cardRightContents}
           </Box>
