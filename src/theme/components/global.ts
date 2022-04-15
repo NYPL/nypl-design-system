@@ -5,6 +5,7 @@ export { wrapperStyles } from "./globalMixins";
 
 // Used in `Select` and `TextInput`.
 const activeFocus = (darkMode = false) => ({
+  boxShadow: "none",
   outline: "2px solid",
   outlineOffset: "2px",
   outlineColor: darkMode ? "ui.white" : "ui.focus",
@@ -66,6 +67,11 @@ const selectTextInputDisabledStyles = {
   color: "ui.gray.dark",
   opacity: "1",
 };
+// Used for the disabled state of Select and TextInput
+const selectTextInputFocusStyles = {
+  ...activeFocus(),
+  borderColor: "ui.focus",
+};
 // Used for p, ul, and ol
 const textMargin = {
   margin: "0",
@@ -80,5 +86,6 @@ export {
   checkboxRadioLabelStyles,
   labelLegendText,
   selectTextInputDisabledStyles,
+  selectTextInputFocusStyles,
   textMargin,
 };
