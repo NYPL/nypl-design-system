@@ -59,7 +59,7 @@ const List = {
         fontWeight: "label.default",
         paddingBottom: { base: "0", md: "s" },
         paddingTop: "s",
-        paddingRight: { md: "m" },
+        paddingRight: { md: "table.column" },
       },
       dd: {
         margin: "0",
