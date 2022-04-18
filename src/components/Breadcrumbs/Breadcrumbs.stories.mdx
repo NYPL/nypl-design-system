@@ -51,11 +51,23 @@ export const enumValues = getStorybookEnumValues(
 | Added             | `0.0.3`    |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Long Titles](#long-titles)
+- [Color Variations](#color-variations)
+
+## Overview
+
 <Description of={Breadcrumbs} />
 
 The `Breadcrumbs` component is a navigation element that provides a breadcrumb
 path that reflects the site structure and allows a user to navigate to any page
 available in the breadcrumb hierarchy.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -86,13 +98,17 @@ available in the breadcrumb hierarchy.
 ### Accessibility
 
 Only one `Breadcrumbs` component should be rendered on a page. This is because
-only one HTML `<nav>` element with `aria-label` attribute of "Breadcrumbs"
-should be rendered. The `Breadcrumbs` component renders this HTML landmark
-so only one component must be rendered on a page.
+only one HTML `<nav>` element with an `aria-label` attribute value of
+"Breadcrumbs" should be rendered on a page. The DS `Breadcrumbs` component
+renders this HTML landmark so only one component must be rendered on a page.
+
+Internally, links are organized in a `ul` list element. The current page link is
+denoted by an `aria-current` attribute value of "page".
 
 - [W3 Breadcrumbs Practice](https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html)
+- [Chakra UI Breadcrumb](https://chakra-ui.com/docs/components/navigation/breadcrumb)
 
-### Long Titles
+## Long Titles
 
 <Canvas>
   <DSProvider>

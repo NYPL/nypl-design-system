@@ -83,7 +83,6 @@ const categories = {
       "StructuredContent",
       "ContentSwitcher",
       "Footer",
-      "Grid",
       "Header",
       "HorizontalRule",
       "Section",
