@@ -143,9 +143,21 @@ describe("ComponentWrapper", () => {
         </ComponentWrapper>
       )
       .toJSON();
+    const withChakraProps = renderer.create(
+      <ComponentWrapper id="chakra" p="20px" color="ui.error.primary">
+        <div>children elements</div>
+      </ComponentWrapper>
+    );
+    const withOtherProps = renderer.create(
+      <ComponentWrapper id="props" data-testid="props">
+        <div>children elements</div>
+      </ComponentWrapper>
+    );
 
     expect(basic).toMatchSnapshot();
     expect(onlyWithChildren).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

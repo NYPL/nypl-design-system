@@ -19,6 +19,7 @@ import { getCategory } from "../../utils/componentCategories";
   argTypes={{
     className: { control: false },
     id: { control: false },
+    isInlined: { table: { disable: true } },
     text: {
       description: "Only used for Storybook",
     },
@@ -61,8 +62,10 @@ by default.
 <Canvas>
   <Story name="isRequired helper text">
     <VStack>
-      <Label htmlFor="label-id1">A regular label</Label>
-      <Label htmlFor="label-id2" isRequired>
+      <Label htmlFor="label-id1" id="regular">
+        A regular label
+      </Label>
+      <Label htmlFor="label-id2" id="required" isRequired>
         A label that is required
       </Label>
     </VStack>

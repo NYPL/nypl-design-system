@@ -1,7 +1,6 @@
 import {
-  activeFocus,
-  helperTextMargin,
-  selectTextinputDisabledStyles,
+  selectTextInputDisabledStyles,
+  selectTextInputFocusStyles,
 } from "./global";
 
 const select = {
@@ -9,17 +8,18 @@ const select = {
   borderRadius: "sm",
   borderColor: "ui.gray.medium",
   fontSize: "text.caption",
-  paddingTop: "xs",
-  paddingRight: "xl",
-  paddingBottom: "xs",
-  paddingLeft: "s",
+  paddingTop: "inset.narrow",
+  paddingRight: "inset.extrawide",
+  paddingBottom: "inset.narrow",
+  paddingLeft: "inset.default",
   _hover: {
     borderColor: "ui.gray.dark",
   },
-  _active: activeFocus(),
+  _active: selectTextInputFocusStyles,
   _disabled: {
-    ...selectTextinputDisabledStyles,
+    ...selectTextInputDisabledStyles,
   },
+  _focus: selectTextInputFocusStyles,
   _invalid: {
     border: "1px solid",
     borderColor: "ui.error.primary",
@@ -28,19 +28,30 @@ const select = {
 };
 
 const Select = {
-  parts: ["select", "helper"],
-  baseStyle: {
-    marginBottom: "xs",
-    // The backgroundColor set to "ui.white" hides the arrow SVG icon when
-    // the component is focused. The background is added for dark mode and
-    // so we need to add specific selector.
-    ".chakra-select__icon-wrapper": {
-      zIndex: "9999",
-    },
-    helper: {
-      ...helperTextMargin,
-    },
-    select,
+  parts: ["helperText", "inline", "select"],
+  baseStyle: ({ labelPosition, labelWidth }) => {
+    return {
+      marginBottom: "xs",
+      // The backgroundColor set to "ui.white" hides the arrow SVG icon when
+      // the component is focused. The background is added for dark mode and
+      // so we need to add specific selector.
+      ".chakra-select__icon-wrapper": {
+        zIndex: "9999",
+      },
+      helperText: {
+        marginLeft:
+          labelPosition === "inline" ? { md: `${labelWidth}px` } : null,
+      },
+      inline: {
+        display: { md: "flex" },
+        gap: { md: "var(--nypl-space-xs)" },
+        alignItems: { md: "flex-end" },
+      },
+      select: {
+        ...select,
+        flex: labelPosition === "inline" ? { md: "1" } : null,
+      },
+    };
   },
   variants: {
     searchbar: {

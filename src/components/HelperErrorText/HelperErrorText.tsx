@@ -1,5 +1,5 @@
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useStyleConfig } from "@chakra-ui/react";
 
 export type AriaLiveValues = "assertive" | "off" | "polite";
 export type HelperErrorTextType = string | JSX.Element;
@@ -31,30 +31,36 @@ interface HelperErrorTextProps {
 /**
  * Helper or error text for forms components.
  */
-export default function HelperErrorText({
-  additionalStyles = {},
-  ariaAtomic = true,
-  ariaLive = "polite",
-  className = "",
-  id,
-  isInvalid = false,
-  text,
-}: HelperErrorTextProps) {
-  // Only announce the text in the invalid state.
-  const announceAriaLive = isInvalid;
-  const styles = useStyleConfig("HelperErrorText", { isInvalid });
-  const finalStyles = { ...styles, ...additionalStyles };
-  const props = {
-    "aria-atomic": ariaAtomic,
-    "aria-live": announceAriaLive ? ariaLive : "off",
-    className,
-    "data-isinvalid": isInvalid,
+export const HelperErrorText = chakra(
+  ({
+    additionalStyles = {},
+    ariaAtomic = true,
+    ariaLive = "polite",
+    className = "",
     id,
-    __css: finalStyles,
-  };
-  return typeof text === "string" ? (
-    <Box {...props} dangerouslySetInnerHTML={{ __html: text }} />
-  ) : (
-    <Box {...props}>{text}</Box>
-  );
-}
+    isInvalid = false,
+    text,
+    ...rest
+  }: HelperErrorTextProps) => {
+    // Only announce the text in the invalid state.
+    const announceAriaLive = isInvalid;
+    const styles = useStyleConfig("HelperErrorText", { isInvalid });
+    const finalStyles = { ...styles, ...additionalStyles };
+    const props = {
+      "aria-atomic": ariaAtomic,
+      "aria-live": announceAriaLive ? ariaLive : "off",
+      className,
+      "data-isinvalid": isInvalid,
+      id,
+      __css: finalStyles,
+      ...rest,
+    };
+    return typeof text === "string" ? (
+      <Box {...props} dangerouslySetInnerHTML={{ __html: text }} />
+    ) : (
+      <Box {...props}>{text}</Box>
+    );
+  }
+);
+
+export default HelperErrorText;

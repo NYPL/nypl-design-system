@@ -5,7 +5,7 @@
 
   margin-bottom: var(--nypl-space-l);
   @include breakpoint($nypl-breakpoint-large) {
-    margin-bottom: var(--nypl-space-xl);
+    margin-bottom: var(--nypl-space-l);
   }
 
   padding: var(--nypl-space-s);

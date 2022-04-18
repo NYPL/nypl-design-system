@@ -1,7 +1,8 @@
 import {
+  activeFocus,
   checkboxRadioLabelStyles,
   checkboxRadioControlSize,
-  checkboxRadioHelperStyle,
+  checkboxRadioHelperErrorTextStyle,
 } from "./global";
 
 // Style object for the Radio's "control" or visual icon.
@@ -51,6 +52,7 @@ const baseStyleControl = {
     bg: "ui.white",
   },
   _focus: {
+    ...activeFocus(),
     boxShadow: "outline",
     borderColor: "ui.focus",
   },
@@ -68,14 +70,14 @@ const baseStyleControl = {
 const baseStyleLabel = checkboxRadioLabelStyles;
 
 // Style object for the Radio's helper text
-const baseStyleHelper = checkboxRadioHelperStyle;
+const baseStyleHelperErrorText = checkboxRadioHelperErrorTextStyle;
 
 const baseStyle = {
   // Chakra-inserted elements in the Chakra Radio component
   control: baseStyleControl,
   label: baseStyleLabel,
   // Custom element in the DS Radio component.
-  helper: baseStyleHelper,
+  helperErrorText: baseStyleHelperErrorText,
 };
 
 // Sticking to "md" for the default size.
@@ -89,7 +91,7 @@ const sizes = {
 };
 
 const Radio = {
-  parts: ["control", "label", "helper"],
+  parts: ["control", "helperErrorText", "label"],
   baseStyle,
   sizes,
   // Default values

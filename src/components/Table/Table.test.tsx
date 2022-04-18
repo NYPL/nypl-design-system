@@ -127,11 +127,26 @@ describe("Table", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Table
+          id="chakra"
+          tableData={tableData}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Table id="props" tableData={tableData} data-testid="props" />)
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(withCaption).toMatchSnapshot();
     expect(withHeaders).toMatchSnapshot();
     expect(withRowHeaders).toMatchSnapshot();
     expect(withCustomHeaderColors).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });
