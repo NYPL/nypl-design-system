@@ -1,4 +1,7 @@
-import { activeFocus, selectTextInputDisabledStyles } from "./global";
+import {
+  selectTextInputDisabledStyles,
+  selectTextInputFocusStyles,
+} from "./global";
 
 const input = {
   bgColor: "ui.white",
@@ -6,8 +9,8 @@ const input = {
   borderColor: "ui.gray.medium",
   borderRadius: "sm",
   fontSize: "text.caption",
-  py: "xs",
-  px: "s",
+  py: "inset.narrow",
+  px: "inset.default",
   _hover: {
     borderColor: "ui.gray.dark",
   },
@@ -17,8 +20,8 @@ const input = {
       color: "ui.gray.medium",
     },
   },
-  _active: activeFocus(),
-  _focus: activeFocus(),
+  _active: selectTextInputFocusStyles,
+  _focus: selectTextInputFocusStyles,
   _placeholder: {
     color: "ui.gray.dark",
     fontStyle: "italic",
