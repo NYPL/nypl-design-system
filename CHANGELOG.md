@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `labelPosition` prop to the `Select` component, so that the label can be styled inline with the select input.
 - Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
 - Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
+- Adds semantic design tokens for `spacing` theme object.
 
 ### Changes
 
