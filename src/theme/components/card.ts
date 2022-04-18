@@ -41,23 +41,24 @@ const getBodyPaddingStyles = ({
 }: BodyPaddingProps) => {
   let bodyPadding = null;
   if (isBordered) {
-    bodyPadding = "s";
+    bodyPadding = "inset.default";
     if (hasImage) {
-      bodyPadding = "0 var(--nypl-space-s) var(--nypl-space-s)";
+      bodyPadding =
+        "0 var(--nypl-space-inset-default) var(--nypl-space-inset-default)";
     }
   }
   if (isRow && isBordered) {
-    bodyPadding = "var(--nypl-space-s)";
+    bodyPadding = "inset.default";
   }
   if (isRow && isBordered && hasImage) {
     bodyPadding = {
-      base: "0 var(--nypl-space-s) var(--nypl-space-s)",
-      md: "var(--nypl-space-s) var(--nypl-space-s) var(--nypl-space-s) 0",
+      base: "0 var(--nypl-space-inset-default) var(--nypl-space-inset-default)",
+      md: "var(--nypl-space-inset-default) var(--nypl-space-inset-default) var(--nypl-space-inset-default) 0",
     };
     if (imageIsAtEnd) {
       bodyPadding = {
-        base: "var(--nypl-space-s) var(--nypl-space-s) 0",
-        md: "var(--nypl-space-s) 0 var(--nypl-space-s) var(--nypl-space-s)",
+        base: "var(--nypl-space-inset-default) var(--nypl-space-inset-default) 0",
+        md: "var(--nypl-space-inset-default) 0 var(--nypl-space-inset-default) var(--nypl-space-inset-default)",
       };
     }
   }

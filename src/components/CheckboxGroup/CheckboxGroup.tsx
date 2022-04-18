@@ -83,7 +83,10 @@ export const CheckboxGroup = chakra(
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const newChildren: JSX.Element[] = [];
-    const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
+    const spacingProp =
+      layout === LayoutTypes.Column
+        ? spacing.input.group.default.vstack
+        : spacing.input.group.default.hstack;
     const checkboxProps =
       defaultValue && onChange
         ? {
