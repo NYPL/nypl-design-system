@@ -34,21 +34,21 @@ const Template = {
 };
 const TemplateHeader = {
   baseStyle: {
-    marginBottom: "l", // --nypl-space-l
+    marginBottom: "page.hstack", // --nypl-space-l
   },
 };
 const TemplateBreakout = {
   baseStyle: {
     ...breakout,
     width: "100vw",
-    marginBottom: "l", // --nypl-space-l
+    marginBottom: "page.hstack", // --nypl-space-l
   },
 };
 const TemplateContent = {
   baseStyle: {
     ...wrapperStyles,
     display: "block",
-    marginBottom: "l", // --nypl-space-l
+    marginBottom: "page.hstack", // --nypl-space-l
   },
   variants: {
     sidebar: {
@@ -63,13 +63,13 @@ const TemplateContent = {
 const TemplateContentTop = {
   baseStyle: {
     flex: "1 0 100%",
-    marginBottom: "l", // --nypl-space-l
+    marginBottom: "page.hstack", // --nypl-space-l
   },
 };
 const TemplateContentPrimary = {
   baseStyle: {
     flex: "1 1",
-    marginBottom: "l", // --nypl-space-l
+    marginBottom: "page.hstack", // --nypl-space-l
   },
   variants: {
     left: {
@@ -84,20 +84,20 @@ const TemplateContentPrimary = {
 const TemplateContentSidebar = {
   baseStyle: {
     flex: "0 0 255px",
-    order: { md: "1" },
-    marginBottom: "l", // --nypl-space-l
+    order: { md: "page.vstack" },
+    marginBottom: "page.hstack", // --nypl-space-l
   },
   variants: {
     left: {
       marginRight: {
         base: 0,
-        md: "xl", // --nypl-space-xl
+        md: "page.vstack", // --nypl-space-xl
       },
     },
     right: {
       marginLeft: {
         base: 0,
-        md: "xl", // --nypl-space-xl
+        md: "page.vstack", // --nypl-space-xl
       },
     },
   },

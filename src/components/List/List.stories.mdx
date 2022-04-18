@@ -53,6 +53,17 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
 | Added             | `0.7.0`    |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Description List](#description-list)
+- [Description List of Links](#description-list-of-links)
+- [Lists with Data Props](#lists-with-data-props)
+
+## Overview
+
 <Description of={List} />
 
 export const animalCrossingDescriptions = [
@@ -167,6 +178,22 @@ export const descriptions = [
 </Canvas>
 
 <ArgsTable story="List with Controls" />
+
+## Accessibility
+
+Internally, the `List` component implements native HTML markup for unordered,
+ordered, and description lists. This includes `ul`, `ol`, and `dl` elements.
+When data is passed into the `listItems` data prop, the appropriate children
+HTML elements are used. This includes `li` for unorder and ordered lists, and
+`dt` and `dd` elements for description lists.
+
+The description type for the `List` component is wrapped in a `section` element
+with an `h2` header. Keep that in mind when ordering headings on the page.
+
+Resources:
+
+- [W3C WAI Content Structure](https://www.w3.org/WAI/tutorials/page-structure/content/)
+- [Deque University Appropriate Semantic Markup for Lists](https://dequeuniversity.com/tips/list-markup)
 
 ## Description List
 

@@ -20,53 +20,101 @@ import DSProvider from "../../theme/provider";
 
 # Spacing
 
-| Table of Contents                                |
-| ------------------------------------------------ |
-| 1. [General Information](#general-information)   |
-| 2. [CSS Variables](#css-variables)               |
-| 3. [Section Spacing](#section-spacing)           |
-| 4. [Grid Spacing](#grid-spacing)                 |
-| 5. [Tabular Data Spacing](#tabular-data-spacing) |
-| 6. [Form Spacing](#form-spacing)                 |
-| 7. [Figma Reference](#figma-reference)           |
+| Table of Contents                                    |
+| ---------------------------------------------------- |
+| 1. [General Information](#general-information)       |
+| 2. [Default Spacing Values](#default-spacing-values) |
+| 3. [Page Section Spacing](#page-section-spacing)     |
+| 4. [Grid Spacing](#grid-spacing)                     |
+| 5. [Form Spacing](#form-spacing)                     |
+| 6. [Tabular Data Spacing](#tabular-data-spacing)     |
+| 7. [Figma Reference](#figma-reference)               |
 
 ## General Information
 
-The DS spacing values are based on a root font size of `16px` (`1rem` = `16px`).
+The DS spacing values are based on a root unit of `16px` (`1rem` = `16px`).
 
-## CSS Variables
+## Default Spacing Values
 
 <DSProvider>
-The following CSS variables are available through the DS.
+The following default spacing values are available through the DS.
 
-| Variable Name       | REM Equivalent | Pixel Equivalent | Visual Reference                                                                                              |
-| ------------------- | -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------- |
-| `--nypl-space-xxs`  | `0.25rem`      | `4px`            | <div style={{ width: "var(--nypl-space-xxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
-| `--nypl-space-xs`   | `0.5rem`       | `8px`            | <div style={{ width: "var(--nypl-space-xs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
-| `--nypl-space-s`    | `1rem`         | `16px`           | <div style={{ width: "var(--nypl-space-s)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
-| `--nypl-space-m`    | `1.5rem`       | `24px`           | <div style={{ width: "var(--nypl-space-m)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
-| `--nypl-space-l`    | `2rem`         | `32px`           | <div style={{ width: "var(--nypl-space-l)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
-| `--nypl-space-xl`   | `3rem`         | `48px`           | <div style={{ width: "var(--nypl-space-xl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
-| `--nypl-space-xxl`  | `4rem`         | `64px`           | <div style={{ width: "var(--nypl-space-xxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
-| `--nypl-space-xxxl` | `6rem`         | `96px`           | <div style={{ width: "var(--nypl-space-xxxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
+| JS Theme Object | CSS Variable        | REM Equivalent | Pixel Equivalent | Visual Reference                                                                                              |
+| --------------- | ------------------- | -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| `xxxs`          | `--nypl-space-xxxs` | `0.125rem`     | `2px`            | <div style={{ width: "var(--nypl-space-xxxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
+| `xxs`           | `--nypl-space-xxs`  | `0.25rem`      | `4px`            | <div style={{ width: "var(--nypl-space-xxs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
+| `xs`            | `--nypl-space-xs`   | `0.5rem`       | `8px`            | <div style={{ width: "var(--nypl-space-xs)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
+| `s`             | `--nypl-space-s`    | `1rem`         | `16px`           | <div style={{ width: "var(--nypl-space-s)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `m`             | `--nypl-space-m`    | `1.5rem`       | `24px`           | <div style={{ width: "var(--nypl-space-m)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `l`             | `--nypl-space-l`    | `2rem`         | `32px`           | <div style={{ width: "var(--nypl-space-l)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>    |
+| `xl`            | `--nypl-space-xl`   | `3rem`         | `48px`           | <div style={{ width: "var(--nypl-space-xl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>   |
+| `xxl`           | `--nypl-space-xxl`  | `4rem`         | `64px`           | <div style={{ width: "var(--nypl-space-xxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div>  |
+| `xxxl`          | `--nypl-space-xxxl` | `6rem`         | `96px`           | <div style={{ width: "var(--nypl-space-xxxl)", backgroundColor: "var(--nypl-colors-ui-focus)" }}>&nbsp;</div> |
 
 </DSProvider>
 
-## Section Spacing
+## Page Section Spacing
 
-In consuming apps, the major page sections should be separated vertically by `3rem` `(--nypl-space-xl`). This includes the space after the page global `header` and the space before the global `footer`.
+In consuming apps, the major page sections should be separated vertically by
+`2rem`. This includes the space after the page global `header` and the space
+before the global `footer`. Similarly, the major page sections should be
+separated horizontally by `2rem`.
+
+|                        | Value  | JS Theme Object | CSS Variable                 |
+| ---------------------- | ------ | --------------- | ---------------------------- |
+| **Vertical Spacing**   | `2rem` | `page.vstack`   | `--nypl-spacing-page-vstack` |
+| **Horizontal Spacing** | `2rem` | `page.hstack`   | `--nypl-spacing-page-hstack` |
 
 ## Grid Spacing
 
-When elements are displayed in a grid (i.e. Cards, Images, etc.), the space between elements, both horizontal and vertical, should be `2rem` (`--nypl-space-l`).
+When elements are displayed in a grid (i.e. Cards, Images, etc.), the space
+between elements, both horizontal and vertical, should be `2rem`.
 
-## Tabular Data Spacing
-
-When data is displayed in a tabular layout (i.e. rows and columns in a table, a description list, etc.), the space between data cells in a row should be `1.5rem` (`--nypl-space-m`) and the space between rows should be `2rem` (`--nypl-space-l`).
+|                 | Value  | JS Theme Object | CSS Variable                  |
+| --------------- | ------ | --------------- | ----------------------------- |
+| **Default Gap** | `2rem` | `grid.default`  | `--nypl-spacing-grid-default` |
 
 ## Form Spacing
 
-Form input components should have a `2rem` (`--nypl-space-l`) space between each component. This includes both vertical (column) and horizontal (row) stacking. The DS [Form](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/form-elements-form--form) component has correct spacing incorporated into its UI structure and should always be used when building forms.
+Form input components should have a `2rem` space between each form input
+component. This includes both vertical (column) and horizontal (row) stacking.
+The DS [Form](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/components-form-elements-form--form-with-controls)
+component has correct spacing incorporated into its UI structure and should
+always be used when building forms. Please note that the spacing in the `Form`
+component is identical to the spacing in the `Grid` component.
+
+When `Checkbox` and `Radio` components are grouped together, the components
+should have a `1rem` space between components for vertical (column) stacking
+and a `2rem` space between components for horizontal (row) stacking. The DS
+`CheckboxGroup` and `RadioGroup` components have the correct spacing built
+
+in and should be used respectively when multiple `Checkbox` or `radio`
+components are being used together.
+
+When `Button` components are grouped together, the `Button` components should
+have a `0.5rem` space between component. This includes both vertical (column)
+and horizontal (row) stacking. The DS `ButtonGroup` component has the correct
+spacing built in and should be used when multiple `Button` components are being
+used together.
+
+|                                        | Value    | JS Theme Object              | CSS Variable                                |
+| -------------------------------------- | -------- | ---------------------------- | ------------------------------------------- |
+| **Default Form Gap**                   | `2rem`   | `grid.default`               | `--nypl-spacing-grid-default`               |
+| **Input Group Default Row Spacing**    | `2rem`   | `input.group.default.hstack` | `--nypl-spacing-input-group-default-hstack` |
+| **Input Group Default Column Spacing** | `1rem`   | `input.group.default.vstack` | `--nypl-spacing-input-group-default-vstack` |
+| **Button Group Row Spacing**           | `0.5rem` | `input.group.button.hstack`  | `--nypl-spacing-input-group-button-hstack`  |
+| **Button Group Column Spacing**        | `0.5rem` | `input.group.button.vstack`  | `--nypl-spacing-input-group-button-vstack`  |
+
+## Tabular Data Spacing
+
+When data is displayed in a tabular layout (i.e. rows and columns in a table,
+a description list, etc.), the space between data cells in a row should be
+`1.5rem` and the space between rows should be `2rem`.
+
+|                | Value    | JS Theme Object | CSS Variable                  |
+| -------------- | -------- | --------------- | ----------------------------- |
+| **Column Gap** | `1.5rem` | `table.column`  | `--nypl-spacing-table-column` |
+| **Row Gap**    | `2rem`   | `table.row`     | `--nypl-spacing-table-row`    |
 
 ## Figma Reference
 
