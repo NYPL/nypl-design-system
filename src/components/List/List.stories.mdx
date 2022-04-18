@@ -58,25 +58,23 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
-- [Definition List](#definition-list)
-- [Definition List of Links](#definition-list-of-links)
+- [Description List](#description-list)
+- [Description List of Links](#description-list-of-links)
 - [Lists with Data Props](#lists-with-data-props)
 
 ## Overview
 
 <Description of={List} />
 
-## Component Props
-
-export const animalCrossingDefinitions = [
+export const animalCrossingDescriptions = [
   {
     term: "Mahi-mahi",
-    definition:
+    description:
       'The mahi-mahi is an ocean fish known for its wide, somewhat-cute face. It can reach over six feet long. It is known by different names including "dolphinfish," even though it has no relation to dolphins. They live in only in warm, tropical waters...which perhaps explains the relaxed, happy look on their faces.',
   },
   {
     term: "Golden trout",
-    definition: (
+    description: (
       <p>
         The golden trout is a <b>beautifully</b> colored fish that can only live
         in very clean waters. They are difficult to come across since they are
@@ -88,12 +86,12 @@ export const animalCrossingDefinitions = [
   },
   {
     term: "Rainbowfish",
-    definition:
+    description:
       'The rainbowfish is a tropical fish known for its metallic colors and beautiful fins. There are over 50 different species, each unique and pleasing color. I must say, it does make me wish for feathers of a more exciting hue than "underbaked brownie."',
   },
   {
     term: "Suckerfish",
-    definition: (
+    description: (
       <p>
         The{" "}
         <Link href="https://animalcrossing.fandom.com/wiki/Suckerfish">
@@ -124,30 +122,30 @@ export const itemGroups = [
   "Tools",
   "Villagers",
 ];
-export const definitions = [
+export const descriptions = [
   {
     term: "Balrogs",
-    definition:
+    description:
       'Demonic creatures of fire and shadow, Balrogs were fallen Maiar, loyal to the first Dark Lord, Morgoth. They participated in the wars of the First Age of Middle-earth but were mostly destroyed during the War of Wrath which ended the Age. By the Third Age, the only remaining Balrog was "Durin\'s Bane," the Balrog of Moria, killed by Gandalf.',
   },
   {
     term: "Dwarves",
-    definition:
+    description:
       "The race of Dwarves preferred to live in mountains and caves, settling in places such as Erebor (the Lonely Mountain), the Iron Hills, the Blue Mountains, and Moria (Khazad-dûm) in the Misty Mountains. Aulë the Smith created Dwarves; he also invented the Dwarven language, known as Khuzdul. Dwarves mined and worked precious metals throughout the mountains of Middle-earth. The seven different groups of Dwarf-folk originated in the locations where the Seven Fathers of the Dwarves first awoke before the First Age.",
   },
   {
     term: "Elves",
-    definition:
+    description:
       'The Elves, or Firstborn, were the first of Eru\'s Children to awaken. Born under the stars before the ascension of the Moon and the Sun, they retain a special love for light and an inner spirit endowed with unique gifts. They call themselves the Quendi, or "Speakers", for they were the first to utter words; and, even now, no race understands language and song like the Firstborn. Fair and fine featured, brilliant and proud, immortal and strong, tall and agile, they are the most blessed of the Free Peoples. They can see as well under moon or starlight as a man at the height of day. They cannot become sick or scarred, but if an Elf should die, from violence or losing the will to live from grief, their spirit goes to the halls of Mandos, and as they are bound to Arda and cannot leave until the world is broken and remade. Elven skill and agility is legendary: for instance, walking atop freshly fallen snow without leaving a trace of their passing. On a clear day they can see ten miles with perfect clarity and detail up to 100 miles. These gifts come at great cost, though: they are strongly bound to Fate (see Mandos) and hated by Morgoth. No other race has been blessed and cursed more than the Quendi.',
   },
   {
     term: "Ents",
-    definition:
+    description:
       "Ents were an ancient race of tree-like creatures, having become like the trees that they shepherd. They were created by Yavanna and given life by Ilúvatar. By the Third Age, they were a dwindling race, having long ago lost their mates, the Entwives.",
   },
   {
     term: "Hobbits",
-    definition:
+    description:
       'Hobbits are a race of Middle-earth, also known as "halflings" on account of their short stature, roughly half the size of men. They are characterized by curly hair on their heads and leathery feet that have furry insteps, for which they did not wear shoes. Many hobbits live in the Shire as well as Bree, and they once lived in the vales of the Anduin. They are fond of an unadventurous life of farming, eating, and socializing. There were three types of Hobbits: The Harfoots were the most numerous. The Stoors had an affinity for water, boats and swimming; the Fallohides were an adventurous people. The origin of hobbits is unclear, but of all the races they have the closest affinity to men, and in the Prologue to The Lord of the Rings Tolkien calls them relatives of men.',
   },
 ];
@@ -168,11 +166,11 @@ export const definitions = [
   >
     {(args) => (
       <List {...args} type={enumValues.getValue(args.type)}>
-        {args.type !== "ListTypes.Definition"
+        {args.type !== "ListTypes.Description"
           ? itemGroups.map((item, i) => <li key={i}>{item}</li>)
-          : definitions.map((item, i) => [
+          : descriptions.map((item, i) => [
               <dt key={`dt_${i}`}>{item.term}</dt>,
-              <dd key={`dd_${i}`}>{item.definition}</dd>,
+              <dd key={`dd_${i}`}>{item.description}</dd>,
             ])}
       </List>
     )}
@@ -184,12 +182,12 @@ export const definitions = [
 ## Accessibility
 
 Internally, the `List` component implements native HTML markup for unordered,
-ordered, and definition lists. This includes `ul`, `ol`, and `dl` elements.
+ordered, and description lists. This includes `ul`, `ol`, and `dl` elements.
 When data is passed into the `listItems` data prop, the appropriate children
 HTML elements are used. This includes `li` for unorder and ordered lists, and
-`dt` and `dd` elements for definition lists.
+`dt` and `dd` elements for description lists.
 
-The definition type for the `List` component is wrapped in a `section` element
+The description type for the `List` component is wrapped in a `section` element
 with an `h2` header. Keep that in mind when ordering headings on the page.
 
 Resources:
@@ -197,22 +195,30 @@ Resources:
 - [W3C WAI Content Structure](https://www.w3.org/WAI/tutorials/page-structure/content/)
 - [Deque University Appropriate Semantic Markup for Lists](https://dequeuniversity.com/tips/list-markup)
 
-## Definition List
+## Description List
 
-To render a definition list, pass in `ListTypes.Definition` to the `type` prop.
-The optional `title` prop will now render above the definition list element.
+_Note: This element is officially called the "Description List" element in HTML5.
+Before HTML5, it was called the "Definition List" element and some online resources
+may still use this name. In the Reservoir Design System, we will use the
+"Description List" name._
+
+- [W3C Using description lists](https://www.w3.org/WAI/WCAG21/Techniques/html/H40.html)
+- [MDN dl: The Description List element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
+
+To render a description list, pass in `ListTypes.Description` to the `type` prop.
+The optional `title` prop will now render above the description list element.
 This type of list renders `dt` and `dd` elements.
 
 ```jsx
-<List type={ListTypes.Definition}>
+<List type={ListTypes.Description}>
   <dt>Term</dt>
-  <dd>Definition</dd>
+  <dd>Description</dd>
 </List>
 ```
 
 <Canvas>
   <Story
-    name="Definition List"
+    name="Description List"
     args={{
       id: "nypl-list2",
       noStyling: false,
@@ -231,23 +237,23 @@ This type of list renders `dt` and `dd` elements.
     }}
   >
     {(args) => (
-      <List {...args} type={ListTypes.Definition}>
-        {definitions.map((item, i) => [
+      <List {...args} type={ListTypes.Description}>
+        {descriptions.map((item, i) => [
           <dt key={`dt_${i}`}>{item.term}</dt>,
-          <dd key={`dd_${i}`}>{item.definition}</dd>,
+          <dd key={`dd_${i}`}>{item.description}</dd>,
         ])}
       </List>
     )}
   </Story>
 </Canvas>
 
-## Definition List of Links
+## Description List of Links
 
 An example with HTML elements inside of the `dd` elements.
 
 <Canvas>
   <Story
-    name="Definition List of Links"
+    name="Description List of Links"
     args={{
       noStyling: false,
       title: "Details",
@@ -265,7 +271,7 @@ An example with HTML elements inside of the `dd` elements.
     }}
   >
     {(args) => (
-      <List {...args} type={ListTypes.Definition}>
+      <List {...args} type={ListTypes.Description}>
         <dt>Authors</dt>
         <dd>
           <a href="#">Chirwa, Ephraim Wadonda, author</a>
@@ -333,16 +339,16 @@ const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
 <List type={ListTypes.Unordered} listItems={fishArray} />
 ```
 
-### Definition
+### Description
 
-For lists of type `ListTypes.Definition` (dl), `dt` and `dd` elements can be
+For lists of type `ListTypes.Description` (dl), `dt` and `dd` elements can be
 passed as children. If that's not possible but the data to render is stored as
 an array of objects, then that data array can be passed into `listItems`. The
-object must have two keys, `term` and `definition`.
+object must have two keys, `term` and `description`.
 
 ```jsx
 // With `dt`/`dd` elements
-<List type={ListTypes.Definition} title="Animal Crossing Fish">
+<List type={ListTypes.Description} title="Animal Crossing Fish">
   <dt>Mahi-mahi</dt>
   <dd>The mahi-mahi is an ocean fish known...</dd>
   <dt>Golden trout</dt>
@@ -354,28 +360,28 @@ object must have two keys, `term` and `definition`.
 </List>
 
 // With `itemList` data prop
-const fishDefinitions = [
+const fishDescriptions = [
   {
     term: "Mahi-mahi",
-    definition: "The mahi-mahi is an ocean fish known..."
+    description: "The mahi-mahi is an ocean fish known..."
   },
   {
     term: "Golden trout",
-    definition: "The golden trout is a beautifully colored fish..."
+    description: "The golden trout is a beautifully colored fish..."
   },
   {
     term: "Rainbowfish",
-    definition: "The rainbowfish is a tropical fish known..."
+    description: "The rainbowfish is a tropical fish known..."
   },
   {
     term: "Suckerfish"
-    definition: "he suckerfish is a curious fish that..."
+    description: "he suckerfish is a curious fish that..."
   }
 ];
 <List
-  listItems={fishDefinitions}
+  listItems={fishDescriptions}
   title="Animal Crossing Fish"
-  type={ListTypes.Definition}
+  type={ListTypes.Description}
 />
 ```
 
@@ -383,7 +389,7 @@ const fishDefinitions = [
   <Story
     name="List with Data Props"
     args={{
-      listItems: animalCrossingDefinitions,
+      listItems: animalCrossingDescriptions,
       noStyling: false,
       title: "Animal Crossing Fish",
     }}
@@ -393,6 +399,6 @@ const fishDefinitions = [
       type: { control: false },
     }}
   >
-    {(args) => <List {...args} type={ListTypes.Definition} />}
+    {(args) => <List {...args} type={ListTypes.Description} />}
   </Story>
 </Canvas>

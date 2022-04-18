@@ -43,6 +43,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Fieldset` component to render the "Optional"/"Required" text in the `legend` element as pseudo CSS in the `::after` rule.
 - Passes the `isRequired` prop in the `RadioGroup` and `CheckboxGroup` to the `Fieldset` wrapper component.
 - Updates the `focus` styles for the `Radio`, `Select` and `TextInput` components.
+- Updates the references of the `<dl>` element from "Definition" to "Description", as that's the official name in HTML5. This affects the `List` element and its `ListTypes.Description` enum value.
 
 ### Removals
 
