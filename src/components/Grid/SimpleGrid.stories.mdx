@@ -59,6 +59,15 @@ export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
 | Added             | `0.25.1`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Other SimpleGrid Examples](#other-simplegrid-examples)
+
+## Overview
+
 <Description of={SimpleGrid} />
 
 The `SimpleGrid` component is used to render UI elements in a uniform grid layout,
@@ -69,6 +78,8 @@ tablet and `1` for mobile. By default, the `SimpleGrid` component uses these
 standards and the `columns` prop is optional. If the `columns` prop is used, the
 tablet breakpoint will be dropped and only the mobile breakpoint (1 item per row)
 will be triggered.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -166,6 +177,18 @@ will be triggered.
 </Canvas>
 
 <ArgsTable story="SimpleGrid with Controls" />
+
+## Accessibility
+
+The CSS grid layout properties are used for the `SimpleGrid` component. We don't
+recommend using property rules that change the visual order of elements on the
+page that don't match with its DOM order. This is because a screenreader won't
+pick up `SimpleGrid` CSS rules and will read the page in the expected DOM order
+rather than the visual order.
+
+Resources:
+
+- [MDN CSS Grid Layout and Accessibility](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility)
 
 ## Other SimpleGrid Examples
 
