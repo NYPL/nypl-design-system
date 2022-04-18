@@ -1,4 +1,7 @@
-import { activeFocus, selectTextInputDisabledStyles } from "./global";
+import {
+  selectTextInputDisabledStyles,
+  selectTextInputFocusStyles,
+} from "./global";
 
 const select = {
   backgroundColor: "ui.white",
@@ -12,10 +15,11 @@ const select = {
   _hover: {
     borderColor: "ui.gray.dark",
   },
-  _active: activeFocus(),
+  _active: selectTextInputFocusStyles,
   _disabled: {
     ...selectTextInputDisabledStyles,
   },
+  _focus: selectTextInputFocusStyles,
   _invalid: {
     border: "1px solid",
     borderColor: "ui.error.primary",
