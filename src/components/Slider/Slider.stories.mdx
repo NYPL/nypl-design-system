@@ -138,14 +138,12 @@ For this type of component, the `value` prop must be a single number.
 
 ## Accessibility
 
-- UI component should be accessible via keyboard. In addition to the text fields,
-  a keyboard user should be able to tab to the blue circle and then with left and
-  right arrows increase or decrease the value.
-- The color contrast between foreground color and background color should be
-  4.5:1 contrast ratio.
-- If text size is 200%, the button should scale with text so there is no overlap.
-- A `Slider` is an input component, so it should have a label. A `Slider` without a
-  label is ambiguous and not accessible.
+The `Slider` component is accessible via keyboard. In addition to the text fields,
+a keyboard user can tab to the blue slider thumb and then with left and right
+arrows increase or decrease the value. The color contrast between foreground
+color and background color is 4.5:1. If text size is 200%, the button scales
+with text so there is no overlap. Internally, a `Label` is associated with the
+`<input>` element.
 
 Resources:
 

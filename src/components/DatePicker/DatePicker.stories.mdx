@@ -80,11 +80,26 @@ export const enumValues = getStorybookEnumValues(
 | Added             | `0.24.0`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Date Range](#date-range)
+- [Calendar Types](#calendar-types)
+- [Other States](#other-states)
+- [Date Inputs and Output](#date-inputs-and-output)
+- [Getting Date Input Values](#getting-date-input-values)
+
+## Overview
+
 <Description of={DatePicker} />
 
 This is fully customizable to allow selectable full dates, only the month, or
 only they year as input. Initial date values and max and min date values can
 also be added through props.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -127,6 +142,22 @@ also be added through props.
 </Canvas>
 
 <ArgsTable story="DatePicker with Controls" />
+
+## Accessibility
+
+The Reservoir `DatePicker` component implements the `react-datepicker` npm package.
+This package exports a component that is used internally to display the popup
+calendar, manage its data, and associate the `<label>` element with its corresponding
+`<input>` element. This component is accessible through keyboard navigation.
+
+The Reservoir handles the grouping of the two `<input>` elements in the "date
+range" mode by wrapping the elements in a `<fieldset>` element with its own
+`<legend>` label for the group. Note that this is in addition to the two labels
+that each `<input>` element is associated with.
+
+Resources:
+
+- [react-datepicker Accessibility](https://github.com/Hacker0x01/react-datepicker#accessibility)
 
 ## Date Range
 
@@ -318,7 +349,7 @@ February to see the dates that are available to select.
   </DSProvider>
 </Canvas>
 
-## Getting Date Data Values
+## Getting Date Input Values
 
 ### Controlled Component Using `onChange` prop
 
