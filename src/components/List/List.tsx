@@ -57,7 +57,7 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
 
   // Either li/dt/dd children elements must be passed or the `listItems`
   // prop must be used.
-  if (children && (listItems || listItems?.length > 0)) {
+  if (children && listItems && listItems?.length > 0) {
     console.warn(
       "NYPL Reservoir List: Pass in either `<li>`, `<dt>`, or `<dd>` " +
         "children or use the `listItems` data prop. Do not use both."
@@ -83,6 +83,9 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
     if (children) {
       return children;
     }
+    if (!listItems) {
+      return null;
+    }
     if (listType === ListTypes.Ordered || listType === ListTypes.Unordered) {
       return listItems.map((item, i) => <li key={i}>{item}</li>);
     } else if (listType === ListTypes.Description) {
@@ -98,7 +101,7 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
    * children are different HTML elements.
    */
   const checkListChildrenError = (listType: ListTypes) => {
-    React.Children.map(children, (child: React.ReactElement) => {
+    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
       if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
         console.warn(
           `NYPL Reservoir List: Direct children of \`List\` (${listType}) must be \`<li>\`s.`
@@ -111,7 +114,7 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
    * children are different HTML elements.
    */
   const checkDescriptionChildrenError = () => {
-    React.Children.map(children, function (child: React.ReactElement) {
+    React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
       if (
         child.type !== "dt" &&
         child.type !== "dd" &&

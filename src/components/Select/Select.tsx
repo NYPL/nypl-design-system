@@ -13,6 +13,8 @@ import Icon from "../Icons/Icon";
 import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
 import { SelectTypes, LabelPositions } from "./SelectTypes";
+import { AriaAttributes } from "../../utils/interfaces";
+
 export interface SelectProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -90,9 +92,9 @@ export const Select = chakra(
         value = "",
         ...rest
       } = props;
-      const ariaAttributes = {};
+      const ariaAttributes: AriaAttributes = {};
       const [labelWidth, setLabelWidth] = useState<number>(0);
-      const labelRef = useRef<HTMLInputElement>();
+      const labelRef = useRef<HTMLDivElement>(null);
       const styles = useMultiStyleConfig("CustomSelect", {
         variant: selectType,
         labelPosition,
@@ -101,9 +103,7 @@ export const Select = chakra(
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
-      const footnote: HelperErrorTextType = isInvalid
-        ? finalInvalidText
-        : helperText;
+      const footnote = isInvalid ? finalInvalidText : helperText;
       // To control the `Select` component, both `onChange` and `value`
       // must be passed.
       const controlledProps = onChange ? { onChange, value } : {};
@@ -136,7 +136,13 @@ export const Select = chakra(
           __css={{ ...styles, ...additionalStyles }}
           {...rest}
         >
-          <Box __css={labelPosition === LabelPositions.Inline && styles.inline}>
+          <Box
+            __css={
+              labelPosition === LabelPositions.Inline
+                ? styles.inline
+                : undefined
+            }
+          >
             {showLabel && (
               <Box ref={labelRef}>
                 <Label

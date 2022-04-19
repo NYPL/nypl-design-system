@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, RenderResult, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
@@ -17,7 +17,7 @@ describe("VideoPlayer Accessibility", () => {
 
 describe("VideoPlayer", () => {
   const videoId = "nm-dD2tx6bk";
-  let utils;
+  let utils: RenderResult;
 
   describe("YouTube player", () => {
     beforeEach(() => {

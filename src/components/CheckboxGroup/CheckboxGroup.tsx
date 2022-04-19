@@ -81,7 +81,7 @@ export const CheckboxGroup = chakra(
       showRequiredLabel = true,
       ...rest
     } = props;
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
+    const footnote = isInvalid ? invalidText : helperText;
     const newChildren: JSX.Element[] = [];
     const spacingProp =
       layout === LayoutTypes.Column

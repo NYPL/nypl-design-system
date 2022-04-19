@@ -37,7 +37,7 @@ export interface BreadcrumbProps {
 
 const getElementsFromData = (
   data: BreadcrumbsDataProps[],
-  breadcrumbsID: string
+  breadcrumbsID?: string
 ) => {
   if (!data?.length) {
     return {};

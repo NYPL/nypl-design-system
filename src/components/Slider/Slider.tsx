@@ -121,9 +121,7 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   if (isRangeSlider && currentValue[0] > currentValue[1]) {
     finalIsInvalid = true;
   }
-  const footnote: HelperErrorTextType = finalIsInvalid
-    ? invalidText
-    : helperText;
+  const footnote = finalIsInvalid ? invalidText : helperText;
   const styles = useMultiStyleConfig("CustomSlider", {
     isDisabled,
     isInvalid: finalIsInvalid,

@@ -116,9 +116,7 @@ export const TextInput = chakra(
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
-      let footnote: HelperErrorTextType = isInvalid
-        ? finalInvalidText
-        : helperText;
+      let footnote = isInvalid ? finalInvalidText : helperText;
       let fieldOutput;
       let options;
 

@@ -76,7 +76,7 @@ export const SkeletonLoader = chakra(
       return new Array(size).fill(null).map((_, i) => {
         const width = i === size - 1 ? lastWidth : "100%";
         const marginBottomValue =
-          i === size - 1 && type === "content" ? "0" : null;
+          i === size - 1 && type === "content" ? "0" : undefined;
         return (
           <ChakraSkeleton key={`${type}-${i}`} width={width}>
             <Box

@@ -178,23 +178,23 @@ describe("Select", () => {
       </Select>
     );
 
-    expect(selectRef.current.value).toEqual("red");
+    expect(selectRef.current?.value).toEqual("red");
 
     fireEvent.change(screen.getByRole("combobox"), {
       target: { value: "blue" },
     });
-    expect(selectRef.current.value).toEqual("blue");
+    expect(selectRef.current?.value).toEqual("blue");
 
     fireEvent.change(screen.getByRole("combobox"), {
       target: { value: "white" },
     });
-    expect(selectRef.current.value).toEqual("white");
+    expect(selectRef.current?.value).toEqual("white");
   });
 
   it("calls the onChange callback function", () => {
     let value = "";
-    const changeCallback = (e) => {
-      value = e.target.value;
+    const changeCallback = (e: React.FormEvent) => {
+      value = (e.target as HTMLInputElement).value;
     };
     render(
       <Select {...baseProps} onChange={changeCallback} value={value}>

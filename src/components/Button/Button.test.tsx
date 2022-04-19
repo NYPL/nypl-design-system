@@ -1,5 +1,10 @@
 import * as React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  render,
+  RenderResult,
+  screen,
+  fireEvent,
+} from "@testing-library/react";
 import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
 import renderer from "react-test-renderer";
@@ -23,7 +28,7 @@ describe("Button Accessibility", () => {
 
 describe("Button", () => {
   let onClick: jest.MockedFunction<() => void>;
-  let utils;
+  let utils: RenderResult;
 
   beforeEach(() => {
     onClick = jest.fn();

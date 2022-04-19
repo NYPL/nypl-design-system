@@ -5,6 +5,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import * as React from "react";
+import { AriaAttributes } from "../../utils/interfaces";
 
 import HelperErrorText, {
   HelperErrorTextType,
@@ -92,8 +93,8 @@ export const Checkbox = chakra(
       ...rest
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-    const ariaAttributes = {};
+    const footnote = isInvalid ? invalidText : helperText;
+    const ariaAttributes: AriaAttributes = {};
     const onChange = props.onChange || onChangeDefault;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
@@ -111,7 +112,9 @@ export const Checkbox = chakra(
         );
       }
       ariaAttributes["aria-label"] =
-        labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+        labelText && footnote
+          ? `${labelText} - ${footnote}`
+          : (labelText as string);
     } else {
       if (footnote) ariaAttributes["aria-describedby"] = `${id}-helperText`;
     }

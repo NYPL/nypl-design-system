@@ -154,7 +154,7 @@ describe("Radio Button", () => {
 
   it("sets the next value through the onChange function", () => {
     let newValue = "";
-    const onChange = (value) => {
+    const onChange = (value: string) => {
       newValue = value;
     };
     render(

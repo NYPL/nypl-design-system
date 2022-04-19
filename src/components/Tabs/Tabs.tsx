@@ -59,8 +59,8 @@ const getElementsFromData = (
   data: TabsDataProps[],
   useHash: boolean
 ): TabPanelProps => {
-  const tabs = [];
-  const panels = [];
+  const tabs: React.ReactNode[] = [];
+  const panels: React.ReactNode[] = [];
 
   if (!data?.length) {
     return { tabs: [], panels: [] };
@@ -110,14 +110,14 @@ const getElementsFromData = (
  * the DOM when building up the `Tabs` component using child component.
  */
 const getElementsFromChildren = (children): TabPanelProps => {
-  const tabs = [];
-  const panels = [];
+  const tabs: React.ReactNode[] = [];
+  const panels: React.ReactNode[] = [];
 
   if (!children?.length) {
     return { tabs: [], panels: [] };
   }
 
-  children.forEach((child) => {
+  children.forEach((child: JSX.Element) => {
     if (child.type === TabList || child.props.mdxType === "TabList") {
       tabs.push(child);
 
