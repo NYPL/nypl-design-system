@@ -40,6 +40,22 @@
   .react-datepicker__year-wrapper {
     max-width: 220px;
   }
+  // Hover state
+  .react-datepicker__year-text:not(.react-datepicker__year-text--disabled),
+  .react-datepicker__month-text,
+  .react-datepicker__day {
+    &:hover {
+      border-radius: 0;
+      background-color: var(--nypl-colors-ui-gray-x-light-cool);
+      color: var(--nypl-colors-ui-black);
+    }
+  }
+  .react-datepicker__day--keyboard-selected {
+    opacity: 1;
+    border-radius: 0;
+    background-color: var(--nypl-colors-ui-gray-x-light-cool);
+    color: var(--nypl-colors-ui-black);
+  }
   // Moving away from React DatePickers default blue color theme:
   .react-datepicker__year,
   .react-datepicker__month,
@@ -63,6 +79,10 @@
     &--today {
       color: var(--nypl-colors-ui-black);
       background-color: var(--nypl-colors-ui-gray-light-cool);
+      &:hover {
+        color: var(--nypl-colors-ui-black);
+        background-color: var(--nypl-colors-ui-gray-light-cool);
+      }
     }
     // Selected states.
     &-text--selected,
@@ -72,22 +92,10 @@
       border-radius: 0;
       color: var(--nypl-colors-ui-white);
       opacity: 1;
+      &:hover {
+        background-color: var(--nypl-colors-ui-focus);
+        color: var(--nypl-colors-ui-white);
+      }
     }
-  }
-  // Hover state
-  .react-datepicker__year-text:not(.react-datepicker__year-text--disabled),
-  .react-datepicker__month-text,
-  .react-datepicker__day {
-    &:hover {
-      border-radius: 0;
-      background-color: var(--nypl-colors-ui-gray-x-light-cool);
-      color: var(--nypl-colors-ui-black);
-    }
-  }
-  .react-datepicker__day--keyboard-selected {
-    opacity: 1;
-    border-radius: 0;
-    background-color: var(--nypl-colors-ui-gray-x-light-cool);
-    color: var(--nypl-colors-ui-black);
   }
 }
