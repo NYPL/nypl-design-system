@@ -69,10 +69,9 @@
     &--keyboard-selected,
     &--in-range,
     &--in-selecting-range {
-      background-color: var(--nypl-colors-ui-gray-light-cool);
+      background-color: var(--nypl-colors-ui-gray-x-light-cool);
       border-radius: 0;
       color: var(--nypl-colors-ui-black);
-      opacity: 0.3;
     }
     // For today's date visual styles.
     &-text--today,
