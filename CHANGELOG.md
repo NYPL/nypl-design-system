@@ -45,6 +45,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Passes the `isRequired` prop in the `RadioGroup` and `CheckboxGroup` to the `Fieldset` wrapper component.
 - Updates the `focus` styles for the `Radio`, `Select` and `TextInput` components.
 - Updates the references of the `<dl>` element from "Definition" to "Description", as that's the official name in HTML5. This affects the `List` element and its `ListTypes.Description` enum value.
+- Updates styles for `React Datepicker`'s calendar popup in the `DatePicker` component.
 
 ### Removals
 
@@ -55,6 +56,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Fixes
 
+- Fixes how the `Button` component gets rendered inside the `Form` and `FormField` component layout.
 - Fixes how the `Select` component is controlled in the `SearchBar` component.
 
 ## 0.25.13 (April 1, 2022)
