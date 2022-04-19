@@ -12,6 +12,9 @@ describe("HorizontalRule Accessibility", () => {
   });
 });
 
+// These tests do not currently test the mobile web view.
+// We need to determine a way of doing this for all components,
+// and will add it in at a later date.
 describe("Header", () => {
   beforeEach(() => {
     render(<Header />);
