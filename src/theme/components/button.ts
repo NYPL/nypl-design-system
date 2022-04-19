@@ -6,6 +6,7 @@ const baseStyle = {
   cursor: "pointer",
   color: "ui.white",
   justifyContent: "center",
+  maxHeight: "2.5rem",
   py: "inset.narrow",
   px: "inset.default",
   textDecoration: "none",
