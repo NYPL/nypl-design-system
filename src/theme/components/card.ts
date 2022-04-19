@@ -65,7 +65,7 @@ const getBodyPaddingStyles = ({
   return bodyPadding;
 };
 const Card = {
-  parts: ["body", "heading"],
+  parts: ["actions", "body", "heading"],
   baseStyle: ({
     hasImage,
     imageIsAtEnd,
@@ -111,15 +111,20 @@ const Card = {
       display: "flex",
       flexFlow: "column wrap",
       textAlign: isCentered ? "center" : null,
-      heading: {
-        marginBottom: "xs",
-        a: mainActionLink ? { color: "ui.black" } : null,
+      actions: {
+        width: ["100%", "100%", "180px"],
+        marginLeft: ["0", "0", "m"],
+        marginTop: ["xs", "xs", "0"],
       },
       body: {
         display: { md: "block" },
         flexFlow: { md: "row nowrap" },
         margin: bodyMargin,
         padding: bodyPadding,
+      },
+      heading: {
+        marginBottom: "xs",
+        a: mainActionLink ? { color: "ui.black" } : null,
       },
       ...baseBorderStyles,
       ...layoutStyles,
