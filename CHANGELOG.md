@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `labelPosition` prop to the `Select` component, so that the label can be styled inline with the select input.
 - Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
 - Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
+- Adds semantic design tokens for `spacing` theme object.
 - Adds the `isAlignedRightActions` prop to the `Card` component to render `CardActions` components to the right of the main content area. This only works for the `Card`'s row layout.
 
 ### Changes
@@ -42,6 +43,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Refactors the DS `RadioGroup` component so it internally implements Chakra's `RadioGroup` component rather than the `useRadioGroup` hook. The "uncontrolled" version of Chakra's `RadioGroup` is not working and will be investigated in the future. It is recommended to use the controlled component pattern.
 - Updates the `Fieldset` component to render the "Optional"/"Required" text in the `legend` element as pseudo CSS in the `::after` rule.
 - Passes the `isRequired` prop in the `RadioGroup` and `CheckboxGroup` to the `Fieldset` wrapper component.
+- Updates the `focus` styles for the `Radio`, `Select` and `TextInput` components.
+- Updates the references of the `<dl>` element from "Definition" to "Description", as that's the official name in HTML5. This affects the `List` element and its `ListTypes.Description` enum value.
 
 ### Removals
 

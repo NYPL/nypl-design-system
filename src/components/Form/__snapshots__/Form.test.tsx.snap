@@ -7,27 +7,27 @@ exports[`Form Snapshot Renders the UI snapshot correctly 1`] = `
   id="snapshot-form"
 >
   <div
-    className="css-1fk5tq5"
+    className="css-fadkce"
     id="snapshot-form-parent"
   >
     <div
-      className="css-gz4qaq"
+      className="css-dofnwd"
       id="snapshot-form-child0"
     >
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="snapshot-form-child0-grandchild0"
       >
         Form Field 1
       </div>
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="snapshot-form-child0-grandchild1"
       >
         Form Field 2
       </div>
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="snapshot-form-child0-grandchild2"
       >
         Form Field 3
@@ -46,27 +46,27 @@ exports[`Form Snapshot Renders the UI snapshot correctly 2`] = `
   p="20px"
 >
   <div
-    className="css-1fk5tq5"
+    className="css-fadkce"
     id="chakra-parent"
   >
     <div
-      className="css-gz4qaq"
+      className="css-dofnwd"
       id="chakra-child0"
     >
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="chakra-child0-grandchild0"
       >
         Form Field 1
       </div>
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="chakra-child0-grandchild1"
       >
         Form Field 2
       </div>
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="chakra-child0-grandchild2"
       >
         Form Field 3
@@ -84,27 +84,27 @@ exports[`Form Snapshot Renders the UI snapshot correctly 3`] = `
   id="props"
 >
   <div
-    className="css-1fk5tq5"
+    className="css-fadkce"
     id="props-parent"
   >
     <div
-      className="css-gz4qaq"
+      className="css-dofnwd"
       id="props-child0"
     >
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="props-child0-grandchild0"
       >
         Form Field 1
       </div>
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="props-child0-grandchild1"
       >
         Form Field 2
       </div>
       <div
-        className="css-hs913m"
+        className="css-7ajbp2"
         id="props-child0-grandchild2"
       >
         Form Field 3
