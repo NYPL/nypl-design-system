@@ -114,10 +114,10 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             id="searchbar-select-withSelect"
             name="selectName"
             onBlur={[Function]}
-            onChange={[MockFunction]}
+            onChange={[Function]}
             onFocus={[Function]}
             required={false}
-            value=""
+            value="Songs"
           >
             <option
               value="Art"
