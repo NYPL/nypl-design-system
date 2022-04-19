@@ -108,7 +108,14 @@ const categories = {
   },
   navigation: {
     title: "Components/Navigation",
-    components: ["Breadcrumbs", "Link", "Menu", "Pagination", "Subnavigation"],
+    components: [
+      "Breadcrumbs",
+      "Link",
+      "Menu",
+      "Pagination",
+      "SkipNav",
+      "Subnavigation",
+    ],
   },
   styleguide: {
     title: "Style Guide",
