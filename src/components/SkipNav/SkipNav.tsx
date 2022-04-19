@@ -18,7 +18,7 @@ interface SkipNavProps {
  * SkipNav is a component that is used to provide a navigational list of links.
  * The first link is used to skip to the main content of the page using the
  * `#mainContent` id, and the second link points to accessibility information
- * on NYPL.org.
+ * on NYPL.org. These links are visually hidden but can be read by screenreaders.
  */
 export const SkipNav = chakra(
   (props: React.PropsWithChildren<SkipNavProps>) => {

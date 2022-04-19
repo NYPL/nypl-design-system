@@ -14,19 +14,21 @@ import { getCategory } from "../../utils/componentCategories";
 ## General Information
 
 An application's "skip navigation link" is used to skip to the primary or main
-content of a page. This link is located at the top of the page and is usually
-visually hidden until a user focuses on the link. For most applications at
-NYPL, the [NYPL Header](https://github.com/NYPL/dgx-header-component) is used
-and this component already renders a skip navigation link.
+content of a page. This link is located at the top of the page and is visually
+hidden until a user focuses on the link. For most applications at NYPL, the
+[NYPL Header](https://github.com/NYPL/dgx-header-component) is used and this
+component already renders a skip navigation link.
 
 The link must target an existing anchor on the page and is typically the `id`
-`"#mainContent"` set on the `main` HTML element on the page. While the DS does not
-currently, as of `v0.25.13`, provide a skip navigation link, it does provide the
-anchor element for the link through the `TemplateAppContainer` component.
+`"#mainContent"` set on the `main` HTML element on the page. When using the
+Reservoir's `SkipNav` and `TemplateAppContainer` components, this accessibility
+combination is automatically handled.
 
-The `TemplateAppContainer` component renders as a `main` HTML element with a
-default `id` of `"mainContent"`. This should be used as the anchor element that
-the skip navigation link points to.
+The `SkipNav` component renders two links, the first being the main link pointing
+to `"#mainContent"`. The `TemplateAppContainer` component renders as a `main`
+HTML element with a default `id` of `"mainContent"`. While it's possible to
+update the target of the skip link and the id of the `<main>` element, this is
+not recommended.
 
 ## Resources
 
