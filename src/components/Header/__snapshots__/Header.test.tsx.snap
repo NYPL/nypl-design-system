@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders the UI snapshot correctly 1`] = `
+<div
+  className="css-0"
+>
+  <aside
+    className="css-1xdhyk6"
+    data-type="standard"
+    id="above-header-notification"
+  >
+    <div
+      className="css-0"
+    >
+      <div
+        className="css-1xdhyk6"
+      >
+        <div
+          className="css-0"
+        >
+          Masks are encouraged at all NYPL locations.
+           
+          <a
+            className="css-1xdhyk6"
+            href="https://nypl.org/reopening"
+            id="reopening-link"
+            rel={null}
+            target={null}
+          >
+            Learn more and find information about our hours and services.
+          </a>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div
+    className="css-cfhxjm"
+  >
+    <svg
+      aria-hidden={false}
+      className="chakra-icon css-1grhd2q"
+      focusable={false}
+      id="header-nypl-logo"
+      role="img"
+      title="NYPL Header Logo"
+      viewBox="0 0 24 24"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokeMiterlimit="10"
+        />
+      </g>
+    </svg>
+    <div
+      className="chakra-stack css-7cg1zs"
+    >
+      <ul
+        className="css-1xdhyk6"
+        id="header-nav-upper"
+      >
+        <li>
+          <button
+            className="chakra-button withIcon css-1xdhyk6"
+            data-testid="button"
+            id="logInButton"
+            type="button"
+          >
+            Log In
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-1grhd2q"
+              focusable={false}
+              role="img"
+              title="arrow icon"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path
+                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                  fill="currentColor"
+                  strokeLinecap="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  fill="none"
+                  r="11.25"
+                  strokeMiterlimit="10"
+                />
+              </g>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Locations
+          </a>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Get A Library Card
+          </a>
+        </li>
+        <li>
+          <button
+            className="chakra-button withIcon css-1xdhyk6"
+            data-testid="button"
+            id="emailUpdatesButton"
+            type="button"
+          >
+            Get Email Updates
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-1grhd2q"
+              focusable={false}
+              role="img"
+              title="arrow icon"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path
+                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                  fill="currentColor"
+                  strokeLinecap="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  fill="none"
+                  r="11.25"
+                  strokeMiterlimit="10"
+                />
+              </g>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            className="chakra-button css-1xdhyk6"
+            data-testid="button"
+            id="donateButton"
+            type="button"
+          >
+            Donate
+          </button>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Shop
+          </a>
+        </li>
+      </ul>
+      <ul
+        className="css-1xdhyk6"
+        id="header-nav-lower"
+      >
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Books/Music/Movies
+          </a>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Research
+          </a>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Education
+          </a>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Events
+          </a>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Connect
+          </a>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Give
+          </a>
+        </li>
+        <li>
+          <a
+            className="css-1xdhyk6"
+            href="#"
+            rel={null}
+            target={null}
+          >
+            Get Help
+          </a>
+        </li>
+        <li>
+          <button
+            className="chakra-button css-1xdhyk6"
+            data-testid="button"
+            id="searchButton"
+            type="button"
+          >
+            Search
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-1grhd2q"
+              focusable={false}
+              role="img"
+              title="search icon"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path
+                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                  fill="currentColor"
+                  strokeLinecap="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  fill="none"
+                  r="11.25"
+                  strokeMiterlimit="10"
+                />
+              </g>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr
+    className="css-mvtkpx"
+  />
+</div>
+`;

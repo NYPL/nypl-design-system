@@ -40,6 +40,7 @@ export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export { FormGaps } from "./components/Form/FormTypes";
 export { GridGaps } from "./components/Grid/GridTypes";
+export { default as Header } from "./components/Header/Header";
 export { default as Heading } from "./components/Heading/Heading";
 export { HeadingSizes, HeadingLevels } from "./components/Heading/HeadingTypes";
 export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";

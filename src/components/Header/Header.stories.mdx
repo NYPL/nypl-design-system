@@ -1,0 +1,27 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import Header from "./Header";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("Header")}
+  parameters={{ layout: "fullscreen" }}
+  component={Header}
+  decorators={[withDesign]}
+/>
+
+# Header
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `0.26.0`   |
+| Latest            | `0.26.0`   |
+
+<Description of={Header} />
+
+<Canvas withToolbar>
+  <Story name="Header">
+    <Header />
+  </Story>
+</Canvas>
