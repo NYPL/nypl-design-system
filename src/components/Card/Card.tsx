@@ -61,6 +61,9 @@ export interface CardProps extends CardBaseProps, CardLinkBoxProps {
   isBordered?: boolean;
   /** Object used to create and render the `Image` component. */
   imageProps?: CardImageProps;
+  /** Set CardActions to the right content side. This only works in
+   * the row layout. */
+  isAlignedRightActions?: boolean;
 }
 
 /**
@@ -194,6 +197,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
       size: ImageSizes.Default,
       src: "",
     },
+    isAlignedRightActions = false,
     isBordered,
     isCentered = false,
     layout = LayoutTypes.Column,
@@ -209,6 +213,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
     : imageProps.aspectRatio;
   const customColors = {};
   const cardContents = [];
+  const cardRightContents = [];
   const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 
@@ -245,6 +250,9 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
   });
 
   React.Children.map(children, (child: React.ReactElement, key) => {
+    const isCardActions =
+      child.type === CardActions || child.props.mdxType === "CardActions";
+
     if (child.type === CardHeading || child.props.mdxType === "CardHeading") {
       // If the child is a `CardHeading` component, then we add the
       // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
@@ -277,12 +285,16 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
     ) {
       const elem = React.cloneElement(child, { key });
       cardContents.push(elem);
-    } else if (
-      child.type === CardActions ||
-      child.props.mdxType === "CardActions"
-    ) {
+    } else if (isCardActions) {
       const elem = React.cloneElement(child, { key, isCentered, layout });
-      cardContents.push(elem);
+
+      // Only allow `CardActions` to align to the right of the main
+      // `CardContent` component when in the row layout.
+      if (isAlignedRightActions && layout === LayoutTypes.Row) {
+        cardRightContents.push(elem);
+      } else {
+        cardContents.push(elem);
+      }
     }
   });
 
@@ -313,6 +325,14 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
         <Box className="card-body" __css={styles.body}>
           {cardContents}
         </Box>
+        {cardRightContents.length ? (
+          <Box
+            className="card-right"
+            __css={{ ...styles.body, ...styles.actions }}
+          >
+            {cardRightContents}
+          </Box>
+        ) : null}
       </Box>
     </CardLinkBox>
   );
