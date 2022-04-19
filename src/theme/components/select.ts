@@ -1,21 +1,25 @@
-import { activeFocus, selectTextInputDisabledStyles } from "./global";
+import {
+  selectTextInputDisabledStyles,
+  selectTextInputFocusStyles,
+} from "./global";
 
 const select = {
   backgroundColor: "ui.white",
   borderRadius: "sm",
   borderColor: "ui.gray.medium",
   fontSize: "text.caption",
-  paddingTop: "xs",
-  paddingRight: "xl",
-  paddingBottom: "xs",
-  paddingLeft: "s",
+  paddingTop: "inset.narrow",
+  paddingRight: "inset.extrawide",
+  paddingBottom: "inset.narrow",
+  paddingLeft: "inset.default",
   _hover: {
     borderColor: "ui.gray.dark",
   },
-  _active: activeFocus(),
+  _active: selectTextInputFocusStyles,
   _disabled: {
     ...selectTextInputDisabledStyles,
   },
+  _focus: selectTextInputFocusStyles,
   _invalid: {
     border: "1px solid",
     borderColor: "ui.error.primary",

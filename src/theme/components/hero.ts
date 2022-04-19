@@ -5,8 +5,8 @@ const secondaryBase = {
   overflowX: "hidden",
   content: {
     ...wrapperStyles,
-    paddingRight: "s",
-    paddingLeft: "s",
+    paddingRight: "inset.default",
+    paddingLeft: "inset.default",
     display: "flex",
     flexFlow: {
       base: "column nowrap",
@@ -25,8 +25,9 @@ const secondaryBase = {
     },
   },
   bodyText: {
-    marginTop: "xs",
-    marginRight: { md: "xs" },
+    paddingBottom: "inset.default",
+    paddingTop: "inset.default",
+    paddingRight: { md: "inset.default" },
     flex: { md: "1 1 50%" },
     order: { md: "2" },
   },
@@ -83,10 +84,10 @@ const primary = {
       md: "0 0 60%",
     },
     maxWidth: { md: "960px" },
-    paddingTop: "xxl",
-    paddingBottom: "xxl",
-    paddingRight: "l",
-    paddingLeft: "l",
+    paddingTop: "inset.extrawide",
+    paddingBottom: "inset.extrawide",
+    paddingRight: "inset.wide",
+    paddingLeft: "inset.wide",
     a: {
       color: "inherit",
       display: "inline-block",
@@ -120,10 +121,7 @@ const tertiary = {
     color: "ui.white",
     display: "flex",
     flexFlow: "column nowrap",
-    paddingTop: "m",
-    paddingBottom: "m",
-    paddingRight: "s",
-    paddingLeft: "s",
+    padding: "inset.default",
     p: {
       marginBottom: "0",
       marginTop: "s",
@@ -147,7 +145,7 @@ const campaign = {
   minHeight: "300px",
   overflow: "visible",
   padding: {
-    base: "l",
+    base: "inset.wide",
     md: "0",
   },
   position: "relative",
@@ -185,7 +183,7 @@ const campaign = {
       base: "0 0 100%",
       md: "0 0 50%",
     },
-    padding: "l",
+    padding: "inset.wide",
     maxWidth: { md: "960px" },
   },
 };
