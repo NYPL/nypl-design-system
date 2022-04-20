@@ -34,286 +34,178 @@ exports[`Header renders the UI snapshot correctly 1`] = `
     </div>
   </aside>
   <div
-    className="css-cfhxjm"
+    className="css-k008qs"
   >
-    <svg
-      aria-hidden={false}
-      className="chakra-icon css-1grhd2q"
-      focusable={false}
-      id="header-nypl-logo"
-      role="img"
-      title="NYPL Header Logo"
-      viewBox="0 0 24 24"
-    >
-      <g
-        stroke="currentColor"
-        strokeWidth="1.5"
-      >
-        <path
-          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-          fill="none"
-          strokeLinecap="round"
-        />
-        <path
-          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-          fill="currentColor"
-          strokeLinecap="round"
-        />
-        <circle
-          cx="12"
-          cy="12"
-          fill="none"
-          r="11.25"
-          strokeMiterlimit="10"
-        />
-      </g>
-    </svg>
     <div
-      className="chakra-stack css-7cg1zs"
+      className="css-0"
     >
-      <ul
-        className="css-1xdhyk6"
-        id="header-nav-upper"
+      <svg
+        aria-hidden={false}
+        className="chakra-icon css-1mrt2vv"
+        focusable={false}
+        id="header-nypl-logo"
+        role="img"
+        title="NYPL Header Logo"
+        viewBox="0 0 24 24"
       >
-        <li>
-          <button
-            className="chakra-button withIcon css-1xdhyk6"
-            data-testid="button"
-            id="logInButton"
-            type="button"
-          >
-            Log In
-            <svg
-              aria-hidden={true}
-              className="chakra-icon css-1grhd2q"
-              focusable={false}
-              role="img"
-              title="arrow icon"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path
-                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                  fill="currentColor"
-                  strokeLinecap="round"
-                />
-                <circle
-                  cx="12"
-                  cy="12"
-                  fill="none"
-                  r="11.25"
-                  strokeMiterlimit="10"
-                />
-              </g>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Locations
-          </a>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Get A Library Card
-          </a>
-        </li>
-        <li>
-          <button
-            className="chakra-button withIcon css-1xdhyk6"
-            data-testid="button"
-            id="emailUpdatesButton"
-            type="button"
-          >
-            Get Email Updates
-            <svg
-              aria-hidden={true}
-              className="chakra-icon css-1grhd2q"
-              focusable={false}
-              role="img"
-              title="arrow icon"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path
-                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                  fill="currentColor"
-                  strokeLinecap="round"
-                />
-                <circle
-                  cx="12"
-                  cy="12"
-                  fill="none"
-                  r="11.25"
-                  strokeMiterlimit="10"
-                />
-              </g>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            className="chakra-button css-1xdhyk6"
-            data-testid="button"
-            id="donateButton"
-            type="button"
-          >
-            Donate
-          </button>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Shop
-          </a>
-        </li>
-      </ul>
-      <ul
-        className="css-1xdhyk6"
-        id="header-nav-lower"
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+    </div>
+    <div
+      className="css-17xejub"
+    />
+    <div
+      className="chakra-stack css-1p1m4ay"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="log-in-icon"
+        role="img"
+        title="Log in to your account"
+        viewBox="0 0 24 24"
       >
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Books/Music/Movies
-          </a>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Research
-          </a>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Education
-          </a>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Events
-          </a>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Connect
-          </a>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Give
-          </a>
-        </li>
-        <li>
-          <a
-            className="css-1xdhyk6"
-            href="#"
-            rel={null}
-            target={null}
-          >
-            Get Help
-          </a>
-        </li>
-        <li>
-          <button
-            className="chakra-button css-1xdhyk6"
-            data-testid="button"
-            id="searchButton"
-            type="button"
-          >
-            Search
-            <svg
-              aria-hidden={true}
-              className="chakra-icon css-1grhd2q"
-              focusable={false}
-              role="img"
-              title="search icon"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path
-                  d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-                  fill="currentColor"
-                  strokeLinecap="round"
-                />
-                <circle
-                  cx="12"
-                  cy="12"
-                  fill="none"
-                  r="11.25"
-                  strokeMiterlimit="10"
-                />
-              </g>
-            </svg>
-          </button>
-        </li>
-      </ul>
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="locator-icon"
+        role="img"
+        title="NYPL Locator"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="search-icon"
+        role="img"
+        title="Search"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-1grhd2q"
+        focusable={false}
+        id="hamburger-icon"
+        role="img"
+        title="Menu"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokeMiterlimit="10"
+          />
+        </g>
+      </svg>
     </div>
   </div>
   <hr
