@@ -37,8 +37,7 @@ export interface ToggleProps {
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
-  /** The toggle's label. This will serve as the text content for a `<label>`
-   * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
+  /** The toggle's label. This will serve as the text content for the `<label>` element */
   labelText: string;
   /** The name prop indicates the `Toggle`'s form element name. If none is
    * specified, 'default' will be used. */

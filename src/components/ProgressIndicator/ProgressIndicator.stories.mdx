@@ -127,6 +127,10 @@ value. The min and max values are set to "0" and "100", respectively, and are se
 with the `aria-valuemin` and `aria-valuemax` attributes. This makes this
 component and its value(s) visible to screen readers.
 
+When `showLabel` is set to false, the `labelText` value will be set to the
+main `<div>`'s `aria-label` attribute. This is the same div that contains the
+`aria-valuemin`, `aria-valuemax`, and `aria-valuenow` attributes.
+
 Resources:
 
 - [DigitalA11y WAI-ARIA: ROLE=PROGRESSBAR](https://www.digitala11y.com/progressbar-role/)

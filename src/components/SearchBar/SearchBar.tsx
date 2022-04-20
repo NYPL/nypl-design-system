@@ -19,6 +19,7 @@ interface BaseProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
+  value?: string;
 }
 // Internal interfaces that are used only for `SearchBar` props.
 export interface SelectProps extends BaseProps {
@@ -27,7 +28,6 @@ export interface SelectProps extends BaseProps {
 }
 export interface TextInputProps extends BaseProps {
   placeholder?: string;
-  value?: string;
 }
 
 export interface SearchBarProps {
@@ -136,6 +136,7 @@ export const SearchBar = chakra((props: SearchBarProps) => {
       name={selectProps?.name}
       onChange={selectProps?.onChange}
       selectType={SelectTypes.SearchBar}
+      value={selectProps?.value}
       {...stateProps}
     >
       {selectProps?.optionsData.map((option) => (
