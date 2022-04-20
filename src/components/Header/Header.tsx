@@ -23,8 +23,8 @@ import Notification from "../Notification/Notification";
 const Header = () => {
   const styles = useMultiStyleConfig("Header", {});
   const [width, setWidth] = React.useState(window.innerWidth);
-  const breakpointLarge = 1025;
-  const breakpointMedium = 769;
+  const breakpointLarge = 960;
+  const breakpointMedium = 600;
 
   React.useEffect(() => {
     const handleWindowResize = () => setWidth(window.innerWidth);
