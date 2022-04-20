@@ -11,7 +11,17 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 
-export interface CheckboxProps {
+interface CheckboxIconProps {
+  /** When using the Checkbox as a "controlled" form element, you can specify
+   * the Checkbox's checked state using this prop.
+   * Learn more about controlled and uncontrolled form fields:
+   * https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
+  isChecked?: boolean;
+  /** Adds the indeterminate state to the `Checkbox`. */
+  isIndeterminate?: boolean;
+}
+
+export interface CheckboxProps extends CheckboxIconProps {
   /** className you can add in addition to 'input' */
   className?: string;
   /** Optional string to populate the HelperErrorText for standard state */
@@ -21,16 +31,9 @@ export interface CheckboxProps {
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
-  /** When using the Checkbox as a "controlled" form element, you can specify
-   * the Checkbox's checked state using this prop.
-   * Learn more about controlled and uncontrolled form fields:
-   * https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/ */
-  isChecked?: boolean;
   /** Adds the 'disabled' and `aria-disabled` attributes to the input when true.
    * This also makes the text italic and color scheme gray. */
   isDisabled?: boolean;
-  /** Adds the indeterminate state to the `Checkbox`. */
-  isIndeterminate?: boolean;
   /** Adds the 'aria-invalid' attribute to the input when true. This also makes
    * the color theme "NYPL error" red for the button and text. */
   isInvalid?: boolean;
@@ -57,7 +60,7 @@ export const onChangeDefault = () => {
   return;
 };
 
-function CheckboxIcon(props) {
+function CheckboxIcon(props: CheckboxIconProps) {
   // We don't need the `isIndeterminate` or `isChecked` props but it
   // causes rendering issues on the SVG element, so we remove them
   // before passing all the props to the `Icon` component.

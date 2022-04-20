@@ -215,7 +215,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
     : imageProps.aspectRatio;
   const customColors: CustomColorProps = {};
   const cardContents: JSX.Element[] = [];
-  const cardRightContents = [];
+  const cardRightContents: JSX.Element[] = [];
   const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 

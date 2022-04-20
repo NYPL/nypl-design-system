@@ -13,7 +13,7 @@
     // match output dir to input dir. e.g. dist/index instead of dist/src/index
     "rootDir": "./src",
     // stricter type-checking for stronger correctness. Recommended by TS
-    "strict": true,
+    "strict": false,
     // linter checks for common issues
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,

@@ -113,7 +113,7 @@ const LibraryExample = ({
 
 export const AutosuggestLibrary = () => (
   <StoryWrapper>
-    <LibraryExample renderInputComponent={libraryRenderInputComponent} />
+    <LibraryExample renderInputComponent={libraryRenderInputComponent as any} />
   </StoryWrapper>
 );
 
@@ -218,5 +218,5 @@ const searchBarRenderInputComponent = (
 };
 
 export const SearchBarExample = () => (
-  <LibraryExample renderInputComponent={searchBarRenderInputComponent} />
+  <LibraryExample renderInputComponent={searchBarRenderInputComponent as any} />
 );
