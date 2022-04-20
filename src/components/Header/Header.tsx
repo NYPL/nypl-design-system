@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  chakra,
   Box,
   Flex,
   HStack,
@@ -19,19 +20,15 @@ import Logo from "../Logo/Logo";
 import { LogoNames, LogoSizes } from "../Logo/LogoTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Notification from "../Notification/Notification";
+import useWindowSize from "../../hooks/useWindowSize";
 
-const Header = () => {
+export const Header = chakra(() => {
   const styles = useMultiStyleConfig("Header", {});
-  const [width, setWidth] = React.useState(window.innerWidth);
-  const breakpointLarge = 960;
+  const windowDimensions = useWindowSize();
+  // These values are based on the breakpoints md and lg
+  // from the NYPL theme object.
   const breakpointMedium = 600;
-
-  React.useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
+  const breakpointLarge = 960;
 
   return (
     <Box __css={styles.container}>
@@ -50,18 +47,18 @@ const Header = () => {
         }
         showIcon={false}
       />
-      {width > breakpointMedium ? (
-        <Flex marginX={{ xl: "70px", lg: "40px" }}>
+      {windowDimensions.width > breakpointMedium ? (
+        <Flex marginX={{ xl: "150px", lg: "75px" }}>
           <Logo
             __css={styles.logo}
             id="header-nypl-logo"
             name={
-              width > breakpointLarge
+              windowDimensions.width > breakpointLarge
                 ? LogoNames.NYPLBlack
                 : LogoNames.NYPLLionBlack
             }
             size={
-              width > breakpointLarge
+              windowDimensions.width > breakpointLarge
                 ? LogoSizes.Small
                 : LogoSizes.ExtraExtraSmall
             }
@@ -105,7 +102,11 @@ const Header = () => {
                     size={IconSizes.Small}
                   />
                 </Button>,
-                <Button id="donateButton" key="donateButton">
+                <Button
+                  buttonType={ButtonTypes.Callout}
+                  id="donateButton"
+                  key="donateButton"
+                >
                   Donate
                 </Button>,
                 <Link href="#" key="shopLink">
@@ -202,5 +203,6 @@ const Header = () => {
       <HorizontalRule __css={styles.horizontalRule} />
     </Box>
   );
-};
+});
+
 export default Header;

@@ -23,7 +23,7 @@ const upperLinks = {
   marginLeft: "auto",
   whiteSpace: "nowrap",
   li: {
-    bgColor: "#ffffff",
+    bgColor: "ui.white",
     fontSize: "var(--nypl-fontSizes-text-mini)",
     fontWeight: 600,
     letterSpacing: ".05em",
@@ -31,7 +31,7 @@ const upperLinks = {
     textTransform: "uppercase",
   },
   "li > a": {
-    color: "#000000",
+    color: "ui.black",
     textDecoration: "none",
   },
   "li > button": {
@@ -42,7 +42,7 @@ const upperLinks = {
     textTransform: "uppercase",
   },
   "li > .withIcon": {
-    color: "#000000",
+    color: "ui.black",
     textDecoration: "none",
     svg: {
       position: "relative",
@@ -54,8 +54,8 @@ const upperLinks = {
   "li > #donateButton": {
     bg: "#ed1c24",
     borderRadius: "var(--nypl-space-xxs)",
-    paddingX: "12px",
-    paddingY: "6px",
+    maxHeight: "1.65rem",
+    paddingX: "11px",
   },
 };
 
@@ -68,7 +68,7 @@ const lowerLinks = {
     marginLeft: "var(--nypl-space-xxs)",
   },
   "li > a": {
-    color: "#000000",
+    color: "ui.black",
     fontWeight: 500,
     textDecoration: "none",
   },

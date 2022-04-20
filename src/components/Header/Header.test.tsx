@@ -5,7 +5,7 @@ import renderer from "react-test-renderer";
 
 import Header from "./Header";
 
-describe("HorizontalRule Accessibility", () => {
+describe("Header Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<Header />);
     expect(await axe(container)).toHaveNoViolations();
