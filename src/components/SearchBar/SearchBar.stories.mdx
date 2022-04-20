@@ -128,24 +128,27 @@ export const optionsGroup = [
       textInputProps: undefined,
     }}
   >
-    {(args) => (
-      <SearchBar
-        {...args}
-        selectProps={
-          args.showSelect && {
-            labelText: "Select a category",
-            name: "selectName",
-            optionsData: optionsGroup,
+    {(args) => {
+      const { helperText, showHelperText, showSelect, ...rest } = args;
+      return (
+        <SearchBar
+          {...rest}
+          selectProps={
+            showSelect && {
+              labelText: "Select a category",
+              name: "selectName",
+              optionsData: optionsGroup,
+            }
           }
-        }
-        textInputProps={{
-          labelText: "Item Search",
-          name: "textInputName",
-          placeholder: "Item Search",
-        }}
-        helperText={args.showHelperText && args.helperText}
-      />
-    )}
+          textInputProps={{
+            labelText: "Item Search",
+            name: "textInputName",
+            placeholder: "Item Search",
+          }}
+          helperText={showHelperText && helperText}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -172,8 +175,13 @@ Resources:
 
 To render an optional `Select` component, an object must be passed to the
 `selectProps` prop. It _must_ include `name`, `labelText`, and `optionsData`
-properties. The `onChange` property is optional. The `labelText` value won't be
-rendered but will be used for its `aria-label` attribute.
+properties. The `onChange` and `value` properties are optional. The `labelText`
+value won't be rendered but will be used for its `aria-label` attribute.
+
+If you want to control the `Select` component, you **must** pass the `onChange`
+and `value` props to the `selectProps` prop object. You must then control the
+state of the selected value in your application. See the example at end of this
+page for a full demonstration.
 
 ```
 const selectProps = {
@@ -183,6 +191,7 @@ const selectProps = {
     console.log(event.target.value);
   },
   optionsData: optionsGroup,
+  value: "Art",
 };
 
 // ...
@@ -427,7 +436,12 @@ values can be retrieved as `event.target.selectName.value` and
 `event.target.textInputName.value`.
 
 ```tsx
-function SearchBarValueExample() {
+export function SearchBarValueExample() {
+  const [selectValue, setSelectValue] = React.useState("Tools");
+  const selectOnChange = (event) => {
+    console.log(`onChange Select value: ${event.target.value}`);
+    setSelectValue(event.target.value);
+  };
   const textInputOnChange = (event) => {
     console.log(`onChange TextInput value: ${event.target.value}`);
   };
@@ -445,7 +459,9 @@ function SearchBarValueExample() {
       selectProps={{
         labelText: "Select a category",
         name: "selectName",
+        onChange: selectOnChange,
         optionsData: optionsGroup,
+        value: selectValue,
       }}
       textInputProps={{
         labelText: "Item Search",
@@ -459,6 +475,11 @@ function SearchBarValueExample() {
 ```
 
 export function SearchBarValueExample() {
+  const [selectValue, setSelectValue] = React.useState("Tools");
+  const selectOnChange = (event) => {
+    console.log(`onChange Select value: ${event.target.value}`);
+    setSelectValue(event.target.value);
+  };
   const textInputOnChange = (event) => {
     console.log(`onChange TextInput value: ${event.target.value}`);
   };
@@ -476,7 +497,9 @@ export function SearchBarValueExample() {
       selectProps={{
         labelText: "Select a category",
         name: "selectName",
+        onChange: selectOnChange,
         optionsData: optionsGroup,
+        value: selectValue,
       }}
       textInputProps={{
         labelText: "Item Search",

@@ -94,9 +94,12 @@ export const StructuredContent = chakra(
     });
     const finalBodyContent =
       typeof bodyContent === "string" ? (
-        <div dangerouslySetInnerHTML={{ __html: bodyContent }} />
+        <div
+          className="structuredcontent-body"
+          dangerouslySetInnerHTML={{ __html: bodyContent }}
+        />
       ) : (
-        <Box>{bodyContent}</Box>
+        <Box className="structuredcontent-body">{bodyContent}</Box>
       );
 
     if (hasImage && !imageProps.alt) {

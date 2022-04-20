@@ -1,4 +1,40 @@
-const baseStyle = ({
+export const baseTHStyles = (
+  showRowDividers = false,
+  columnHeadersTextColor = false
+) => ({
+  border: showRowDividers ? undefined : "none",
+  borderBottom: showRowDividers ? undefined : "0px",
+  color: columnHeadersTextColor ? columnHeadersTextColor : "ui.black",
+  fontSize: "0",
+  fontWeight: "bold",
+  letterSpacing: "0",
+  paddingLeft: 0,
+  paddingRight: "m",
+  textTransform: "capitalize",
+  _first: {
+    paddingLeft: showRowDividers ? "m" : null,
+  },
+  _last: {
+    paddingRight: showRowDividers ? "m" : "0",
+  },
+});
+export const baseTDStyles = (
+  showRowDividers = false,
+  useRowHeaders = false
+) => ({
+  border: showRowDividers ? undefined : "none",
+  borderBottom: showRowDividers ? undefined : "0px",
+  letterSpacing: "0",
+  paddingLeft: 0,
+  paddingRight: "m",
+  _first: {
+    paddingLeft: showRowDividers && !useRowHeaders ? "m" : null,
+  },
+  _last: {
+    paddingRight: showRowDividers ? "m" : "0",
+  },
+});
+export const baseStyle = ({
   columnHeadersTextColor,
   showRowDividers,
   useRowHeaders,
@@ -12,36 +48,8 @@ const baseStyle = ({
       color: "var(--nypl-colors-ui-black)",
     },
   },
-  th: {
-    border: showRowDividers ? undefined : "none",
-    borderBottom: showRowDividers ? undefined : "0px",
-    color: columnHeadersTextColor ? columnHeadersTextColor : "ui.black",
-    fontSize: "0",
-    fontWeight: "bold",
-    letterSpacing: "0",
-    paddingLeft: 0,
-    paddingRight: "m",
-    textTransform: "capitalize",
-    _first: {
-      paddingLeft: showRowDividers ? "m" : null,
-    },
-    _last: {
-      paddingRight: showRowDividers ? "m" : "0",
-    },
-  },
-  td: {
-    border: showRowDividers ? undefined : "none",
-    borderBottom: showRowDividers ? undefined : "0px",
-    letterSpacing: "0",
-    paddingLeft: 0,
-    paddingRight: "m",
-    _first: {
-      paddingLeft: showRowDividers && !useRowHeaders ? "m" : null,
-    },
-    _last: {
-      paddingRight: showRowDividers ? "m" : "0",
-    },
-  },
+  th: baseTHStyles(showRowDividers, columnHeadersTextColor),
+  td: baseTDStyles(showRowDividers, useRowHeaders),
   caption: {
     captionSide: "top",
     color: "ui.black",
