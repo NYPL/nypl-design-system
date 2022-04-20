@@ -63,6 +63,16 @@ export const enumValues = getStorybookEnumValues(FormGaps, "FormGaps");
 | Added             | `0.23.2`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Spacing Variants](#spacing-variants)
+- [Example Code](#example-code)
+
+## Overview
+
 <Description of={Form} />
 
 The `Form` component renders a standard `<form>` element and should be used to
@@ -86,6 +96,8 @@ fields as needed.
 
 `FormRow` should be used as a parent of multiple `FormField` components when you
 need to render multiple input components in a horizontal row.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -267,6 +279,17 @@ need to render multiple input components in a horizontal row.
 </Canvas>
 
 <ArgsTable story="Form with Controls" />
+
+## Accessibility
+
+The `Form` component renders a standard `<form>` element and should be used to
+wrap all form elements. A `Form` should have a `Button` component with a `type`
+of `submit` to submit the form to a server through the `Form`'s `action` prop.
+
+Resources:
+
+- [WebAIM Creating Accessible Forms](https://webaim.org/techniques/forms/)
+- [Deque The Anatomy of Accessible Forms: Best Practices](https://www.deque.com/blog/anatomy-of-accessible-forms-best-practices/)
 
 ## Spacing Variants
 
