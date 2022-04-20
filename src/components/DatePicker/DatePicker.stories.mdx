@@ -112,16 +112,16 @@ also be added through props.
       helperTextFrom: "Select start date.",
       helperTextTo: "Select end date.",
       id: "datePicker-id",
-      initialDate: "1/1/2021",
-      initialDateTo: "1/30/2021",
+      initialDate: "4/1/2022",
+      initialDateTo: "12/1/2022",
       invalidText: "Please select a valid date.",
       isDateRange: false,
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Select the date you want to visit NYPL",
-      maxDate: "1/1/2022",
-      minDate: "1/1/2021",
+      maxDate: "1/1/2023",
+      minDate: "1/1/2022",
       nameFrom: "visit-dates-from",
       nameTo: "visit-dates-to",
       onChange: undefined,
@@ -173,8 +173,8 @@ will share the props and styling. Note that for date range types, a `fieldset`
 is used as the parent wrapper and the `labelText` is used for the `legend`
 element text.
 
-Note: In the following example, the minimum date is "1/1/2021" and the max date
-is "3/1/21". This means only values within this range are selectable from the
+Note: In the following example, the minimum date is "1/1/2022" and the max date
+is "7/1/22". This means only values within this range are selectable from the
 popup calendar.
 
 <Canvas withToolbar>
@@ -183,8 +183,8 @@ popup calendar.
       id="date-range"
       dateFormat="yyyy-MM-dd"
       dateType={DatePickerTypes.Full}
-      minDate="1/1/2021"
-      maxDate="3/1/2021"
+      minDate="1/1/2022"
+      maxDate="7/1/2022"
       labelText="Select the date range you want to visit NYPL"
       nameFrom="visit-dates-from"
       nameTo="visit-dates-to"
@@ -338,7 +338,7 @@ written in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 
 The maximum and minimum date values can be set through the `maxDate` and
 `minDate` props, respectively. In this example, go back to January through
-February to see the dates that are available to select.
+February to see the dates that are available to select in 2022.
 
 <Canvas>
   <DSProvider>
@@ -347,8 +347,8 @@ February to see the dates that are available to select.
       dateFormat="MM-dd-yyyy"
       dateType={DatePickerTypes.Full}
       labelText="Select the date you want to visit NYPL"
-      minDate="1/1/2021"
-      maxDate="3/1/2021"
+      minDate="1/1/2022"
+      maxDate="3/1/2022"
       isDateRange
     />
   </DSProvider>
