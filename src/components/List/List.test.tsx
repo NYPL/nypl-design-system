@@ -7,14 +7,14 @@ import List from "./List";
 import { ListTypes } from "./ListTypes";
 
 const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
-const fishDefinitions = [
+const fishDescriptions = [
   {
     term: "Mahi-mahi",
-    definition: <p>The mahi-mahi is an ocean fish known...</p>,
+    description: <p>The mahi-mahi is an ocean fish known...</p>,
   },
   {
     term: "Golden trout",
-    definition: "The golden trout is a beautifully colored fish...",
+    description: "The golden trout is a beautifully colored fish...",
   },
 ];
 
@@ -43,12 +43,12 @@ describe("List Accessibility", () => {
     rerender(<List type={ListTypes.Ordered} listItems={fishArray} />);
     expect(await axe(container)).toHaveNoViolations();
   });
-  it("passes axe accessibility test for definition list", async () => {
+  it("passes axe accessibility test for description list", async () => {
     const { container } = render(
       <List
-        type={ListTypes.Definition}
+        type={ListTypes.Description}
         title="Animal Crossing Fish"
-        listItems={fishDefinitions}
+        listItems={fishDescriptions}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -102,9 +102,9 @@ describe("List", () => {
     expect(screen.getByText("Suckerfish")).toBeInTheDocument();
   });
 
-  it("returns definition list", () => {
+  it("returns description list", () => {
     render(
-      <List type={ListTypes.Definition}>
+      <List type={ListTypes.Description}>
         <dt>Mahi-mahi</dt>
         <dd>The mahi-mahi is an ocean fish known...</dd>
       </List>
@@ -116,12 +116,12 @@ describe("List", () => {
     ).toBeInTheDocument();
   });
 
-  it("returns definition list with the `listItems` prop", () => {
+  it("returns description list with the `listItems` prop", () => {
     render(
       <List
-        type={ListTypes.Definition}
+        type={ListTypes.Description}
         title="Animal Crossing Fish"
-        listItems={fishDefinitions}
+        listItems={fishDescriptions}
       />
     );
     expect(screen.getAllByRole("definition")).toHaveLength(2);
@@ -166,17 +166,17 @@ describe("List", () => {
     );
   });
 
-  it("consoles a warning when you pass a definition list children that aren't `<dt>`s or `<dd>`s", () => {
+  it("consoles a warning when you pass a description list children that aren't `<dt>`s or `<dd>`s", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List type={ListTypes.Definition}>
+      <List type={ListTypes.Description}>
         <span>Mahi-mahi</span>
         <span>Golden trout</span>
         <span>Rainbowfish</span>
       </List>
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir List: Direct children of `List` (definition) must be " +
+      "NYPL Reservoir List: Direct children of `List` (description) must be " +
         "`<dt>`s and `<dd>`s."
     );
   });
@@ -216,13 +216,13 @@ describe("List", () => {
         />
       )
       .toJSON();
-    const definition = renderer
+    const description = renderer
       .create(
         <List
-          id="definition"
-          type={ListTypes.Definition}
+          id="description"
+          type={ListTypes.Description}
           title="Animal Crossing Fish"
-          listItems={fishDefinitions}
+          listItems={fishDescriptions}
         />
       )
       .toJSON();
@@ -247,25 +247,25 @@ describe("List", () => {
         />
       )
       .toJSON();
-    const withChakraPropsDefinition = renderer
+    const withChakraPropsDescription = renderer
       .create(
         <List
           id="chakra"
-          type={ListTypes.Definition}
+          type={ListTypes.Description}
           title="Animal Crossing Fish"
-          listItems={fishDefinitions}
+          listItems={fishDescriptions}
           p="20px"
           color="ui.error.primary"
         />
       )
       .toJSON();
-    const withOtherPropsDefinition = renderer
+    const withOtherPropsDescription = renderer
       .create(
         <List
           id="other"
-          type={ListTypes.Definition}
+          type={ListTypes.Description}
           title="Animal Crossing Fish"
-          listItems={fishDefinitions}
+          listItems={fishDescriptions}
           data-testid="other"
         />
       )
@@ -275,10 +275,10 @@ describe("List", () => {
     expect(unorderedNoStyling).toMatchSnapshot();
     expect(ordered).toMatchSnapshot();
     expect(orderedNoStyling).toMatchSnapshot();
-    expect(definition).toMatchSnapshot();
+    expect(description).toMatchSnapshot();
     expect(withChakraPropsUnordered).toMatchSnapshot();
     expect(withOtherPropsUnordered).toMatchSnapshot();
-    expect(withChakraPropsDefinition).toMatchSnapshot();
-    expect(withOtherPropsDefinition).toMatchSnapshot();
+    expect(withChakraPropsDescription).toMatchSnapshot();
+    expect(withOtherPropsDescription).toMatchSnapshot();
   });
 });

@@ -1,4 +1,5 @@
 import {
+  activeFocus,
   checkboxRadioLabelStyles,
   checkboxRadioControlSize,
   checkboxRadioHelperErrorTextStyle,
@@ -51,6 +52,7 @@ const baseStyleControl = {
     bg: "ui.white",
   },
   _focus: {
+    ...activeFocus(),
     boxShadow: "outline",
     borderColor: "ui.focus",
   },

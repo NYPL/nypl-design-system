@@ -14,30 +14,31 @@ const getBodyPaddingStyles = ({
 }) => {
   let bodyPadding = null;
   if (isBordered) {
-    bodyPadding = "s";
+    bodyPadding = "inset.default";
     if (hasImage) {
-      bodyPadding = "0 var(--nypl-space-s) var(--nypl-space-s)";
+      bodyPadding =
+        "0 var(--nypl-space-inset-default) var(--nypl-space-inset-default)";
     }
   }
   if (isRow && isBordered) {
-    bodyPadding = "var(--nypl-space-s)";
+    bodyPadding = "inset.default";
   }
   if (isRow && isBordered && hasImage) {
     bodyPadding = {
-      base: "0 var(--nypl-space-s) var(--nypl-space-s)",
-      md: "var(--nypl-space-s) var(--nypl-space-s) var(--nypl-space-s) 0",
+      base: "0 var(--nypl-space-inset-default) var(--nypl-space-inset-default)",
+      md: "var(--nypl-space-inset-default) var(--nypl-space-inset-default) var(--nypl-space-inset-default) 0",
     };
     if (imageIsAtEnd) {
       bodyPadding = {
-        base: "var(--nypl-space-s) var(--nypl-space-s) 0",
-        md: "var(--nypl-space-s) 0 var(--nypl-space-s) var(--nypl-space-s)",
+        base: "var(--nypl-space-inset-default) var(--nypl-space-inset-default) 0",
+        md: "var(--nypl-space-inset-default) 0 var(--nypl-space-inset-default) var(--nypl-space-inset-default)",
       };
     }
   }
   return bodyPadding;
 };
 const Card = {
-  parts: ["body", "heading"],
+  parts: ["actions", "body", "heading"],
   baseStyle: (props) => {
     const {
       hasImage,
@@ -84,15 +85,20 @@ const Card = {
       display: "flex",
       flexFlow: "column wrap",
       textAlign: isCentered ? "center" : null,
-      heading: {
-        marginBottom: "xs",
-        a: mainActionLink ? { color: "ui.black" } : null,
+      actions: {
+        width: ["100%", "100%", "180px"],
+        marginLeft: ["0", "0", "m"],
+        marginTop: ["xs", "xs", "0"],
       },
       body: {
         display: { md: "block" },
         flexFlow: { md: "row nowrap" },
         margin: bodyMargin,
         padding: bodyPadding,
+      },
+      heading: {
+        marginBottom: "xs",
+        a: mainActionLink ? { color: "ui.black" } : null,
       },
       ...baseBorderStyles,
       ...layoutStyles,

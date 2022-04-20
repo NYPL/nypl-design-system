@@ -161,10 +161,18 @@ export const imageSizeEnumValues = getStorybookEnumValues(
 
 ## Accessibility
 
-- Containers should allow font-size to be scaled to 200% without content overlapping.
-- Images should have descriptive (but not too lengthy) alt text.
-- Headings levels should not be skipped. Meaning, a `<h2>` should not be followed
-  by a `<h4>`.
+The `StructuredContent` component is a structured container around a specific
+set of content. While the main image can be controlled through the `imageProps`
+prop, the content will not always be controlled. If the content that is being
+passed is coming from a CMS, the content can contain any set of HTML elements that
+are _not_ controlled through Reservoir DS components. While this component
+attempts to style the added elements, we cannot guarantee that the content will
+be accessible. Please review your content and make sure that:
+
+- The content's font-size to be scaled to 200% without content overlapping.
+- Any additional images have descriptive (but not too lengthy) alt text.
+- Any additional heading levels should not be skipped. Meaning, a `<h2>` should
+  not be followed by a `<h4>`.
 - Any links or text with colors should have a 4.5:1 contrast ratio.
 
 ## With HTML String Text Content

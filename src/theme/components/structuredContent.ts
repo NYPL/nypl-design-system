@@ -26,7 +26,7 @@ const StructuredContent = {
           ? null
           : imagePosition === "left"
           ? "0"
-          : "m",
+          : "l",
       ],
       marginRight: [
         "auto",
