@@ -58,6 +58,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes how the `Button` component gets rendered inside the `Form` and `FormField` component layout.
+- Fixes how the `Select` component is controlled in the `SearchBar` component.
 
 ## 0.25.13 (April 1, 2022)
 
