@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
 - Adds semantic design tokens for `spacing` theme object.
 - Adds the `isAlignedRightActions` prop to the `Card` component to render `CardActions` components to the right of the main content area. This only works for the `Card`'s row layout.
+- Adds styles to target native HTML basic elements inside the `StructuredContent` component.
 
 ### Changes
 
