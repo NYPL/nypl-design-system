@@ -126,8 +126,8 @@ set with the `isDisabled` prop. The `aria-invalid` is set with the `isInvalid`
 prop.
 
 Internally, a `Label` is associated with the `<input>` element. When `showLabel`
-is set to false, the required label value is set in the `<input>` element's
-`aria-label` attribute.
+is set to false, the `<input>` element's `aria-label` attribute is set to the
+required `labelText` value.
 
 When the `type` prop is set to `TextInputTypes.textarea`, the `<textarea>` element
 is rendered instead of the `<input>` element. This element follows all the same

@@ -145,6 +145,11 @@ color and background color is 4.5:1. If text size is 200%, the button scales
 with text so there is no overlap. Internally, a `Label` is associated with the
 `<input>` element.
 
+When `showLabel` is set to false, the `labelText` value will be set to the
+main `<div>`'s `aria-label` attribute. This is the same `<div>` that contains the
+`aria-valuemin`, `aria-valuemax`, `aria-orientation`, and `aria-valuenow`
+attributes.
+
 Resources:
 
 - [W3C WAI-Aria Practices - Slider](https://www.w3.org/TR/wai-aria-practices-1.1/#slider)

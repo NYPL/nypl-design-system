@@ -113,10 +113,13 @@ accessibility violation if none is present.
 ## Accessibility
 
 The `Checkbox` component renders `<label>` and `<input type="checkbox" />`
-elements that are associated with each other; the label has an `for` attribute
+elements that are associated with each other; the label has a `for` attribute
 with the value of the `input`'s `id` element. If there is helper or invalid text,
 the `<input>` element will have a `aria-describedby` attribute with the value of
 the helper or invalid text.
+
+When `showLabel` is set to false, the `labelText` value will be set to the
+`<input>`'s `aria-label` attribute.
 
 Resources:
 
