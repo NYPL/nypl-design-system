@@ -59,11 +59,29 @@ import DSProvider from "../../theme/provider";
 | Added             | `0.1.0`    |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Checked](#checked)
+- [Indeterminate](#indeterminate)
+- [Focused](#focused)
+- [Errored](#errored)
+- [Disabled](#disabled)
+- [Helper Text](#helper-text)
+- [Error Text](#error-text)
+- [With JSX Element Label](#with-jsx-element-label)
+
+## Overview
+
 <Description of={Checkbox} />
 
 This component renders a Checkbox button form element. See below for configuration
 information. Note that the `id` property, while optional, will cause an
 accessibility violation if none is present.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -91,6 +109,24 @@ accessibility violation if none is present.
 </Canvas>
 
 <ArgsTable story="Checkbox" />
+
+## Accessibility
+
+The `Checkbox` component renders `<label>` and `<input type="checkbox" />`
+elements that are associated with each other; the label has a `for` attribute
+with the value of the `input`'s `id` element. If there is helper or invalid text,
+the `<input>` element will have a `aria-describedby` attribute with the value of
+the helper or invalid text.
+
+When `showLabel` is set to false, the `labelText` value will be set to the
+`<input>`'s `aria-label` attribute.
+
+Resources:
+
+- [W3C WAI ARIA Checkbox Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/checkbox/checkbox-1/checkbox-1.html)
+- [a11ymatters Accessible Checkbox](https://www.a11ymatters.com/pattern/checkbox/)
+- [MDN ARIA: checkbox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
+- [Chakra UI Checkbox](https://chakra-ui.com/docs/components/form/checkbox)
 
 ## Checked
 
