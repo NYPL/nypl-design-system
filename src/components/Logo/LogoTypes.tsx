@@ -38,7 +38,6 @@ export enum LogoNames {
   QueensPublicLibraryWhite = "logo_qpl_white",
   QueensPublicLibraryAltBlack = "logo_qpl_alt_black",
   QueensPublicLibraryAltWhite = "logo_qpl_alt_white",
-  ReservoirHorizontalColor = "logo_reservoir_horizontal_color",
   ReservoirIconColor = "logo_reservoir_icon_color",
   ReservoirVerticalColor = "logo_reservoir_vertical_color",
   SchomburgColor = "logo_schomburg_color",

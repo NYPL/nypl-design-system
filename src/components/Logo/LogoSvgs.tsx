@@ -23,7 +23,6 @@ import logo_qpl_alt_white from "../../../icons/svg/logo_qpl_alt_white.svg";
 import logo_qpl_black from "../../../icons/svg/logo_qpl_black.svg";
 import logo_qpl_color from "../../../icons/svg/logo_qpl_color.svg";
 import logo_qpl_white from "../../../icons/svg/logo_qpl_white.svg";
-import logo_reservoir_horizontal_color from "../../../icons/svg/logo_reservoir_horizontal_color.svg";
 import logo_reservoir_icon_color from "../../../icons/svg/logo_reservoir_icon_color.svg";
 import logo_reservoir_vertical_color from "../../../icons/svg/logo_reservoir_vertical_color.svg";
 import logo_schomburg_black from "../../../icons/svg/logo_schomburg_black.svg";
@@ -65,7 +64,6 @@ export default {
   logo_qpl_black,
   logo_qpl_color,
   logo_qpl_white,
-  logo_reservoir_horizontal_color,
   logo_reservoir_icon_color,
   logo_reservoir_vertical_color,
   logo_schomburg_black,
