@@ -160,10 +160,11 @@ Resources:
 ### Slider Accessibility Implementation
 
 Chakra's `Slider` component is accessible and, as recommended, we pass in an
-`aria-label` to their `Slider` component. On top of that, the DS `Slider`
-component's `<label>` points to the `<input>` element which shows the current
-value. This `input` element also has its own `aria-label`. When the input box
-is hidden, the `for` attribute in the `label` element is removed.
+`aria-label` to their `Slider` component. On top of that, the Reservoir Design 
+System (DS) `Slider` component's `<label>` points to the `<input>` element 
+which shows the current value. This `input` element also has its own 
+`aria-label`. When the input box is hidden, the `for` attribute in the `label` 
+element is removed.
 
 Note that Chakra handles its single slider thumb aria attributes: `aria-valuemin`,
 `aria-valuemax`, `aria-valuenow`, and `aria-orientation`.

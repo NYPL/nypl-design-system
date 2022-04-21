@@ -20,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds semantic design tokens for `spacing` theme object.
 - Adds the `isAlignedRightActions` prop to the `Card` component to render `CardActions` components to the right of the main content area. This only works for the `Card`'s row layout.
 - Adds styles to target native HTML basic elements inside the `StructuredContent` component.
+- Adds `Reservoir` branding to Storybook.
 
 ### Changes
 
@@ -48,6 +49,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the references of the `<dl>` element from "Definition" to "Description", as that's the official name in HTML5. This affects the `List` element and its `ListTypes.Description` enum value.
 - Updates styles for `React Datepicker`'s calendar popup in the `DatePicker` component.
 - Updates storybook URL from /storybook-static/ to /reservoir/v0_26.
+- Updates all references to "design system" in the Storybook documentation to include "Reservoir" in the name of the design system.
+- Updates language on the `Welcome` page.
 
 ### Removals
 
