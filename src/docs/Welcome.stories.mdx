@@ -1,49 +1,168 @@
 import { Meta } from "@storybook/addon-docs";
 
-import Hero from "../components/Hero/Hero.tsx";
-import { HeroTypes } from "../components/Hero/HeroTypes.tsx";
-import Heading from "../components/Heading/Heading.tsx";
-import Image from "../components/Image/Image.tsx";
+import { Box, Center, Circle, VStack, Square } from "@chakra-ui/react";
+import Card, { CardHeading, CardContent } from "../components/Card/Card";
+import Hero from "../components/Hero/Hero";
+import { HeroTypes } from "../components/Hero/HeroTypes";
+import Heading from "../components/Heading/Heading";
+import {
+  HeadingLevels,
+  HeadingSizes,
+} from "../components/Heading/HeadingTypes";
+import Icon from "../components/Icons/Icon";
+import {
+  IconColors,
+  IconNames,
+  IconSizes,
+} from "../components/Icons/IconTypes";
+import Image from "../components/Image/Image";
+import Link from "../components/Link/Link";
+import { LinkTypes } from "../components/Link/LinkTypes";
+import Logo from "../components/Logo/Logo";
+import { LogoNames, LogoSizes } from "../components/Logo/LogoTypes";
+import SimpleGrid from "../components/Grid/SimpleGrid";
+import Text from "../components/Text/Text";
+import { TextSizes } from "../components/Text/TextTypes";
 import DSProvider from "../theme/provider";
 
 <Meta title="Welcome" />
 
-# NYPL Design System
-
-export const heroBackgroundColor = `var(--nypl-colors-section-books-and-more-primary)`;
-export const heroForegroundColor = `var(--nypl-colors-ui-white)`;
-
 <DSProvider>
-  <Hero
-    backgroundColor={heroBackgroundColor}
-    foregroundColor={heroForegroundColor}
-    heroType={HeroTypes.FiftyFifty}
-    imageAlt="NYPL Lion with mask on"
-    imageSrc="https://cdn-d8.nypl.org/s3fs-public/styles/2_1_960/public/2020-07/SASB_06_29_2020_Lions_mask-00207%20copy_0.jpeg?h=c8e955ed&itok=n_GLQgoe"
-    subHeaderText="With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today."
-  />
+  <VStack spacing="s">
+    <Center>
+      <Logo name={LogoNames.ReservoirVerticalColor} size={LogoSizes.Small} />
+    </Center>
+    <Box>
+      <Center>
+        <Heading level={HeadingLevels.One} size={HeadingSizes.Tertiary}>
+          The React Component Library of the New York Public Library
+        </Heading>
+      </Center>
+      <Text>
+        Reservoir is NYPL's open-source extensible React component library for
+        products and experiences, with accessibility as its core. Aiming to
+        provide design and user experience consistency, Reservoir is the
+        foundation for all digital properties in the NYPL landscape, offering
+        functional components that implement the NYPL style standards.
+      </Text>
+    </Box>
+    <SimpleGrid>
+      <Box
+        style={{
+          alignItems: "center",
+          border: "1px solid #ccc",
+          display: "flex",
+          flexDirection: "column",
+          padding: "24px",
+        }}
+      >
+        <Icon
+          name={IconNames.ActionCheckCircle}
+          size={IconSizes.ExtraExtraLarge}
+          color={IconColors.SectionEducationSecondary}
+          additionalStyles={{
+            marginBottom: "s",
+          }}
+        />
+        <Card isCentered>
+          <CardHeading id="main-heading1" level={HeadingLevels.Three}>
+            Get Started
+          </CardHeading>
+          <CardContent>
+            <Text size={TextSizes.Caption}>
+              To start using Reservoir Design System, refer to Reservoir's
+              Github{" "}
+              <Link
+                href="https://github.com/NYPL/nypl-design-system/wiki"
+                type={LinkTypes.External}
+              >
+                Wiki
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="https://github.com/NYPL/nypl-design-system/blob/development/README.md"
+                type={LinkTypes.External}
+              >
+                ReadMe
+              </Link>{" "}
+              to setup your project. You can also learn about our component
+              architecture and additional documentation.
+            </Text>
+          </CardContent>
+        </Card>
+      </Box>
+      <Box
+        style={{
+          alignItems: "center",
+          border: "1px solid #ccc",
+          display: "flex",
+          flexDirection: "column",
+          padding: "24px",
+        }}
+      >
+        <Icon
+          name={IconNames.Search}
+          size={IconSizes.ExtraExtraLarge}
+          color={IconColors.SectionEducationSecondary}
+          additionalStyles={{
+            marginBottom: "s",
+          }}
+        />
+        <Card isCentered>
+          <CardHeading id="main-heading1" level={HeadingLevels.Three}>
+            Find Components
+          </CardHeading>
+          <CardContent>
+            <Text size={TextSizes.Caption}>
+              For your convenience, the Reservoir Design System components have
+              been organized into logical categories based on both form and
+              function. Please refer to the <b>COMPONENTS</b> section in the
+              Storybook sidebar.
+            </Text>
+          </CardContent>
+        </Card>
+      </Box>
+      <Box
+        style={{
+          alignItems: "center",
+          border: "1px solid #ccc",
+          display: "flex",
+          flexDirection: "column",
+          padding: "24px",
+        }}
+      >
+        <Icon
+          name={IconNames.FileTypeSpreadsheet}
+          size={IconSizes.ExtraExtraLarge}
+          color={IconColors.SectionEducationSecondary}
+          additionalStyles={{
+            marginBottom: "s",
+          }}
+        />
+        <Card isCentered>
+          <CardHeading id="main-heading1" level={HeadingLevels.Three}>
+            View the Code
+          </CardHeading>
+          <CardContent>
+            <Text size="caption">
+              The Reservoir Design System React component library is currently
+              published on{" "}
+              <Link
+                href="https://www.npmjs.com/package/@nypl/design-system-react-components"
+                type={LinkTypes.External}
+              >
+                npm
+              </Link>
+              . If you're looking to contribute to this project, checkout the <Link
+                href="https://github.com/NYPL/nypl-design-system"
+                type={LinkTypes.External}
+              >
+                nypl-design-system
+              </Link> repo on Github for more information.
+            </Text>
+          </CardContent>
+        </Card>
+      </Box>
+    </SimpleGrid>
+  </VStack>
 </DSProvider>
-
-<br />
-
-Welcome to the New York Public Library's Design System React component library.
-This design system is NYPL's open-source extensible React library for products
-and experiences, with accessibility as its foundation. It ships functional components
-with consistent NYPL styling. You can learn more about the project and its goals
-[on our Confluence page](https://confluence.nypl.org/display/DIGTL/NYPL+Design+System)
-(needs a log in).
-
-The best way to get started is through the [Design System's Wiki](https://github.com/NYPL/nypl-design-system/wiki)
-to learn about design and implementation at NYPL. The Hero above is just
-one example of how we use the NYPL Design System on NYPL.org.
-
-For your convenience, the DS components have been organized into logical categories
-based on both form and function. Please refer to the **COMPONENTS** section in the
-Storybook sidebar.
-
-## @nypl/design-system-react-components
-
-This React design system library is currently published on [npm](https://www.npmjs.com/package/@nypl/design-system-react-components).
-If you're looking to contribute to this project, checkout the
-[nypl-design-system](https://github.com/NYPL/nypl-design-system) repo on Github
-for more information.
