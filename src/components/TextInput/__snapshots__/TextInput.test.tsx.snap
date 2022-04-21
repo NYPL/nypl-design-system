@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextInput"
+    id="myTextInput-label"
+  >
+    Custom Input Label
+    <span>
+       (Required)
+    </span>
+  </label>
+  <input
+    aria-required={true}
+    className="chakra-input css-0"
+    disabled={false}
+    id="myTextInput"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={true}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextInput"
+    id="myTextInput-label"
+  >
+    Custom Input Label
+  </label>
+  <input
+    className="chakra-input css-0"
+    disabled={false}
+    id="myTextInput"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={false}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <input
+    aria-label="Custom Input Label"
+    aria-required={true}
+    className="chakra-input css-0"
+    disabled={false}
+    id="myTextInput"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={true}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextInput"
+    id="myTextInput-label"
+  >
+    Custom Input Label
+    <span>
+       (Required)
+    </span>
+  </label>
+  <input
+    aria-describedby="myTextInput-helperText"
+    aria-required={true}
+    className="chakra-input css-0"
+    disabled={false}
+    id="myTextInput"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={true}
+    step={null}
+    type="text"
+  />
+  <div
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Custom helper text",
+      }
+    }
+    data-isinvalid={false}
+    id="myTextInput-helperText"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextInput"
+    id="myTextInput-label"
+  >
+    Custom Input Label
+    <span>
+       (Required)
+    </span>
+  </label>
+  <input
+    aria-invalid={true}
+    aria-required={true}
+    className="chakra-input css-0"
+    disabled={false}
+    id="myTextInput"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={true}
+    step={null}
+    type="text"
+  />
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "There is an error related to this field.",
+      }
+    }
+    data-isinvalid={true}
+    id="myTextInput-helperText"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextInput"
+    id="myTextInput-label"
+  >
+    Custom Input Label
+    <span>
+       (Required)
+    </span>
+  </label>
+  <input
+    aria-required={true}
+    className="chakra-input css-0"
+    disabled={true}
+    id="myTextInput"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={true}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
+<div
+  className="css-kle7zy"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="chakra"
+    id="chakra-label"
+  >
+    Custom Input Label
+  </label>
+  <input
+    className="chakra-input css-0"
+    disabled={false}
+    id="chakra"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={false}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="props"
+    id="props-label"
+  >
+    Custom Input Label
+  </label>
+  <input
+    className="chakra-input css-0"
+    disabled={false}
+    id="props"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Input Placeholder"
+    required={false}
+    step={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`UI Snapshots renders the textarea UI snapshot correctly 1`] = `
+<div
+  className="css-1xdhyk6"
+>
+  <label
+    className="css-1xdhyk6"
+    htmlFor="myTextarea"
+    id="myTextarea-label"
+  >
+    Custom textarea Label
+  </label>
+  <textarea
+    className="chakra-textarea css-0"
+    disabled={false}
+    id="myTextarea"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Textarea Placeholder"
+    required={false}
+    step={null}
+  />
+</div>
+`;

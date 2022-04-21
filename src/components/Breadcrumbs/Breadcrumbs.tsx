@@ -1,13 +1,12 @@
-import * as React from "react";
 import {
   Breadcrumb as ChakraBreadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  chakra,
   useStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
-import generateUUID from "../../helpers/generateUUID";
-import { ColorVariants } from "./BreadcrumbsTypes";
 import Icon from "../Icons/Icon";
 import {
   IconNames,
@@ -15,6 +14,7 @@ import {
   IconSizes,
   IconTypes,
 } from "../Icons/IconTypes";
+import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 import { getVariant } from "../../utils/utils";
 
 export interface BreadcrumbsDataProps {
@@ -27,12 +27,12 @@ export interface BreadcrumbProps {
   additionalStyles?: { [key: string]: any };
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
+  /** Used to control how the `Hero` component will be rendered. */
+  breadcrumbsType?: BreadcrumbsTypes;
   /** className you can add in addition to 'input' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Used to control how the `Hero` component will be rendered. */
-  colorVariant?: ColorVariants;
 }
 
 const getElementsFromData = (data, breadcrumbsID) => {
@@ -64,19 +64,20 @@ const getElementsFromData = (data, breadcrumbsID) => {
   return breadcrumbItems;
 };
 
-function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
+export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
   const {
     additionalStyles = {},
     breadcrumbsData,
+    breadcrumbsType,
     className,
-    colorVariant,
-    id = generateUUID(),
+    id,
+    ...rest
   } = props;
-  const variant = getVariant(colorVariant, ColorVariants);
+  const variant = getVariant(breadcrumbsType, BreadcrumbsTypes);
 
   if (!breadcrumbsData || breadcrumbsData.length === 0) {
     throw new Error(
-      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
+      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   }
 
@@ -85,10 +86,16 @@ function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
   const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
 
   return (
-    <ChakraBreadcrumb className={className} __css={finalStyles} id={id}>
+    <ChakraBreadcrumb
+      aria-label="Breadcrumb"
+      className={className}
+      id={id}
+      __css={finalStyles}
+      {...rest}
+    >
       {breadcrumbItems}
     </ChakraBreadcrumb>
   );
-}
+});
 
 export default Breadcrumbs;

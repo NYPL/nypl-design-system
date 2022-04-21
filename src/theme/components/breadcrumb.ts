@@ -7,9 +7,15 @@ const blogs = {
       color: "ui.gray.xdark",
     },
   },
+  svg: {
+    fill: "ui.black",
+  },
 };
 const booksAndMore = {
   bg: "section.books-and-more.secondary",
+};
+const education = {
+  bg: "section.education.secondary",
 };
 const locations = {
   bg: "section.locations.primary",
@@ -67,7 +73,7 @@ const Breadcrumb = {
         marginInlineStart: "xxs",
       },
     },
-    "li:nth-last-child(2)": {
+    "li:nth-last-of-type(2)": {
       display: "inline-block",
       span: {
         display: { base: "none", md: "inline" },
@@ -78,6 +84,7 @@ const Breadcrumb = {
   variants: {
     blogs,
     booksAndMore,
+    education,
     locations,
     research,
     whatsOn,

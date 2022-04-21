@@ -1,31 +1,33 @@
-import * as React from "react";
 import {
-  Box,
+  chakra,
   CheckboxGroup as ChakraCheckboxGroup,
   Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
-import { spacing } from "../../theme/foundations/spacing";
-import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
 import Checkbox from "../Checkbox/Checkbox";
 import Fieldset from "../Fieldset/Fieldset";
-
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
+import { LayoutTypes } from "../../helpers/enums";
+import { spacing } from "../../theme/foundations/spacing";
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
   /** Populates the initial value of the input */
   defaultValue?: string[];
   /** Optional string to populate the HelperErrorText for standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the HelperErrorText for error state */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
   isDisabled?: boolean;
+  /** Set's the `Checkbox`s' wrapper to be full width. */
+  isFullWidth?: boolean;
   /** A`dds the 'aria-invalid' attribute to the input and
    * sets the error state when true. */
   isInvalid?: boolean;
@@ -35,18 +37,19 @@ export interface CheckboxGroupProps {
    * true, or an "aria-label" if `showLabel` is false. */
   labelText: string;
   /** Renders the checkbox buttons in a row or column (default). */
-  layout?: CheckboxGroupLayoutTypes;
+  layout?: LayoutTypes;
   /** The `name` prop indicates the form group for all the `Checkbox` children. */
   name: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (value: string[]) => void;
-  /** Whether or not to display "Required"/"Optional" in the label text. */
-  optReqFlag?: boolean;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the group's legend onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
+  /** Whether or not to display the "(Required)" text in the label text.
+   * True by default. */
+  showRequiredLabel?: boolean;
 }
 
 const noop = () => {};
@@ -57,28 +60,32 @@ const noop = () => {};
  * wrapping and associated text elements, but the checkbox input elements
  * _need_ to be child `Checkbox` components from the NYPL Design System.
  */
-const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
-  (props, ref?) => {
+export const CheckboxGroup = chakra(
+  React.forwardRef<HTMLInputElement, CheckboxGroupProps>((props, ref?) => {
     const {
       children,
       defaultValue = [],
       helperText,
-      id = generateUUID(),
+      id,
       invalidText,
       isDisabled = false,
+      isFullWidth = false,
       isInvalid = false,
       isRequired = false,
       labelText,
-      layout = CheckboxGroupLayoutTypes.Column,
+      layout = LayoutTypes.Column,
       name,
       onChange,
-      optReqFlag = true,
       showHelperInvalidText = true,
       showLabel = true,
+      showRequiredLabel = true,
+      ...rest
     } = props;
-    const footnote = isInvalid ? invalidText : helperText;
+    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const spacingProp =
-      layout === CheckboxGroupLayoutTypes.Column ? spacing.s : spacing.l;
+      layout === LayoutTypes.Column
+        ? spacing.input.group.default.vstack
+        : spacing.input.group.default.hstack;
     const newChildren = [];
     const checkboxProps =
       defaultValue && onChange
@@ -88,6 +95,12 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
           }
         : {};
 
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
+      );
+    }
+
     // Go through the Checkbox children and update them as needed.
     React.Children.map(children, (child: React.ReactElement, i) => {
       if (child.type !== Checkbox) {
@@ -96,7 +109,8 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
           noop();
         } else {
           console.warn(
-            "Only `Checkbox` components are allowed inside the `CheckboxGroup` component."
+            "NYPL Reservoir CheckboxGroup: Only `Checkbox` components are " +
+              "allowed as children."
           );
         }
       }
@@ -115,14 +129,16 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
     });
 
     // Get the Chakra-based styles for the custom elements in this component.
-    const styles = useMultiStyleConfig("CheckboxGroup", {});
+    const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
 
     return (
       <Fieldset
         id={`${id}-checkbox-group`}
         isLegendHidden={!showLabel}
+        isRequired={isRequired}
         legendText={labelText}
-        optReqFlag={optReqFlag}
+        showRequiredLabel={showRequiredLabel}
+        {...rest}
       >
         <ChakraCheckboxGroup {...checkboxProps}>
           <Stack
@@ -138,15 +154,16 @@ const CheckboxGroup = React.forwardRef<HTMLInputElement, CheckboxGroupProps>(
           </Stack>
         </ChakraCheckboxGroup>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
-            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperErrorText`}>
-              {footnote}
-            </HelperErrorText>
-          </Box>
+          <HelperErrorText
+            additionalStyles={styles.helperErrorText}
+            id={`${id}-helperErrorText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         )}
       </Fieldset>
     );
-  }
+  })
 );
 
 export default CheckboxGroup;

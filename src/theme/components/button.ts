@@ -6,8 +6,9 @@ const baseStyle = {
   cursor: "pointer",
   color: "ui.white",
   justifyContent: "center",
-  py: "xs",
-  px: "s",
+  maxHeight: "2.5rem",
+  py: "inset.narrow",
+  px: "inset.default",
   textDecoration: "none",
   wordWrap: "normal",
   fontWeight: "button.default",
@@ -44,6 +45,10 @@ const secondary = {
   fontSize: "button.default",
   _hover: {
     bg: "ui.gray.xx-light-cool",
+    borderColor: "ui.gray.medium",
+  },
+  _disabled: {
+    bg: "ui.gray.x-light-cool",
   },
 };
 const link = {
@@ -65,12 +70,15 @@ const pill = {
   borderColor: "ui.gray.light-cool",
   color: "inherit",
   borderRadius: "pill",
-  py: "xs",
-  paddingInlineStart: "m",
-  paddingInlineEnd: "m",
+  py: "inset.narrow",
+  px: "inset.wide",
   fontSize: "button.default",
   _hover: {
     bg: "ui.gray.xx-light-cool",
+    borderColor: "ui.gray.medium",
+  },
+  _disabled: {
+    bg: "ui.gray.x-light-cool",
   },
 };
 const iconOnly = {
@@ -81,8 +89,8 @@ const iconOnly = {
   _hover: {
     bg: "ui.gray.xx-light-cool",
   },
-  paddingInlineStart: "xs",
-  paddingInlineEnd: "xs",
+  paddingInlineStart: "inset.narrow",
+  paddingInlineEnd: "inset.narrow",
 };
 const callout = {
   bg: "brand.primary",

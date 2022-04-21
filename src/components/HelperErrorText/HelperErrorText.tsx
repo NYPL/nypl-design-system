@@ -1,9 +1,8 @@
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useStyleConfig } from "@chakra-ui/react";
-
-import generateUUID from "../../helpers/generateUUID";
 
 export type AriaLiveValues = "assertive" | "off" | "polite";
+export type HelperErrorTextType = string | JSX.Element;
 
 interface HelperErrorTextProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -12,11 +11,12 @@ interface HelperErrorTextProps {
    * read the entire DOM element. When false, only changes (additionals or
    * removals) will be read. True by default. */
   ariaAtomic?: boolean;
-  /** Aria attribute only used in the invalid state to read error text. This
-   * indicates the priority of the text and when it should be presented to users
-   * using screen readers; "off" indicates that the content should not be presented,
-   * "polite" that it will be announced at the next available time slot, and
-   * "assertive" that it should be announced immediately. "polite" by default. */
+  /** Aria attribute used in the invalid state to read error text by default.
+   * This indicates the priority of the text and when it should be presented to
+   * users using screen readers; "off" indicates that the content should not be
+   * presented, "polite" that it will be announced at the next available time
+   * slot, and "assertive" that it should be announced immediately. This is set
+   * to "off" by default and to "polite" by when `isInvalid` is true. */
   ariaLive?: AriaLiveValues;
   /** Additional className to add. */
   className?: string;
@@ -24,38 +24,43 @@ interface HelperErrorTextProps {
   id?: string;
   /** Toggles between helper and invalid styling. */
   isInvalid?: boolean;
+  /** The text to display. */
+  text: HelperErrorTextType;
 }
 
 /**
- * Helper or Error text for forms
+ * Helper or error text for forms components.
  */
-export default function HelperErrorText(
-  props: React.PropsWithChildren<HelperErrorTextProps>
-) {
-  const {
+export const HelperErrorText = chakra(
+  ({
     additionalStyles = {},
     ariaAtomic = true,
     ariaLive = "polite",
-    children,
     className = "",
-    id = generateUUID(),
+    id,
     isInvalid = false,
-  } = props;
-  // Only announce the text in the invalid state.
-  const announceAriaLive = isInvalid;
-  const styles = useStyleConfig("HelperErrorText", { isInvalid });
-  const finalStyles = { ...styles, ...additionalStyles };
+    text,
+    ...rest
+  }: HelperErrorTextProps) => {
+    // Only announce the text in the invalid state.
+    const announceAriaLive = isInvalid;
+    const styles = useStyleConfig("HelperErrorText", { isInvalid });
+    const finalStyles = { ...styles, ...additionalStyles };
+    const props = {
+      "aria-atomic": ariaAtomic,
+      "aria-live": announceAriaLive ? ariaLive : "off",
+      className,
+      "data-isinvalid": isInvalid,
+      id,
+      __css: finalStyles,
+      ...rest,
+    };
+    return typeof text === "string" ? (
+      <Box {...props} dangerouslySetInnerHTML={{ __html: text }} />
+    ) : (
+      <Box {...props}>{text}</Box>
+    );
+  }
+);
 
-  return (
-    <Box
-      id={id}
-      className={className}
-      aria-atomic={ariaAtomic}
-      data-isinvalid={isInvalid}
-      aria-live={announceAriaLive ? ariaLive : "off"}
-      __css={finalStyles}
-    >
-      {children}
-    </Box>
-  );
-}
+export default HelperErrorText;

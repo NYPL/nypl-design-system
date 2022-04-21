@@ -1,9 +1,11 @@
+// Only used for the `Placeholder` component, not to style
+// an `input`'s placeholder.
 .placeholder {
   --color-place-holder: var(--nypl-colors-ui-gray-dark);
 
   margin-bottom: var(--nypl-space-l);
   @include breakpoint($nypl-breakpoint-large) {
-    margin-bottom: var(--nypl-space-xl);
+    margin-bottom: var(--nypl-space-l);
   }
 
   padding: var(--nypl-space-s);

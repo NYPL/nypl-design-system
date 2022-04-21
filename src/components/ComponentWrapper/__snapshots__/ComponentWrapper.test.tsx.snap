@@ -2,16 +2,16 @@
 
 exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <h2
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="id-heading"
   >
     heading text
   </h2>
   <p
-    className="chakra-text css-0"
+    className="chakra-text css-1xdhyk6"
   >
     description text
   </p>
@@ -19,24 +19,23 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     children elements
   </div>
   <div
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="off"
-      className=" css-0"
-      data-isinvalid={false}
-      id="id-helperText"
-    >
-      helper text
-    </div>
-  </div>
+    aria-atomic={true}
+    aria-live="off"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "helper text",
+      }
+    }
+    data-isinvalid={false}
+    id="id-helperText"
+  />
 </div>
 `;
 
 exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div>
     children elements
@@ -46,16 +45,16 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
 
 exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <h2
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     id="id-heading"
   >
     heading text
   </h2>
   <p
-    className="chakra-text css-0"
+    className="chakra-text css-1xdhyk6"
   >
     description text
   </p>
@@ -63,17 +62,37 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     children elements
   </div>
   <div
-    className="css-0"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      className=" css-0"
-      data-isinvalid={true}
-      id="id-helperText"
-    >
-      invalid text
-    </div>
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "invalid text",
+      }
+    }
+    data-isinvalid={true}
+    id="id-helperText"
+  />
+</div>
+`;
+
+exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
+<div
+  className="css-kle7zy"
+>
+  <div>
+    children elements
+  </div>
+</div>
+`;
+
+exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
+<div
+  className="css-1xdhyk6"
+  data-testid="props"
+>
+  <div>
+    children elements
   </div>
 </div>
 `;

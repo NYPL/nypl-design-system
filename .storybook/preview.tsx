@@ -18,7 +18,15 @@ addParameters({
   options: {
     storySort: {
       method: "alphabetical",
-      order: ["Introduction", "Components", "Documentation"],
+      order: [
+        "Welcome",
+        "Chakra UI",
+        "Style Guide",
+        "Accessibility Guide",
+        "Components",
+        "Hooks",
+        "Development Guide",
+      ],
     },
   },
 });
@@ -41,4 +49,7 @@ addDecorator((StoryFn) => (
 export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: "^on.*" },
+  // Allows all props' descriptions and default values to show in
+  // Storybook's canvas addon bar.
+  controls: { expanded: true },
 };

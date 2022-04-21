@@ -4,7 +4,7 @@
 import {
   checkboxRadioLabelStyles,
   checkboxRadioControlSize,
-  checkboxRadioHelperStyle,
+  checkboxRadioHelperErrorTextStyle,
 } from "./global";
 
 // Style object for the Checkbox's visual icon.
@@ -36,8 +36,10 @@ const baseStyleControl = {
 
     _disabled: {
       bg: "ui.white",
-      borderColor: "ui.gray.medium",
-      color: "ui.gray.medium",
+      borderColor: "ui.disabled.primary",
+      svg: {
+        color: "ui.disabled.primary",
+      },
     },
 
     _indeterminate: {
@@ -53,7 +55,7 @@ const baseStyleControl = {
 
   _disabled: {
     bg: "ui.white",
-    borderColor: "ui.gray.medium",
+    borderColor: "ui.disabled.primary",
   },
 
   _focus: {
@@ -69,20 +71,16 @@ const baseStyleControl = {
 };
 
 // Style object for the Checkbox's label
-const baseStyleLabel = {
-  ...checkboxRadioLabelStyles,
-};
+const baseStyleLabel = checkboxRadioLabelStyles;
 
 // Style object for the Checkbox's helper text
-const baseStyleHelper = {
-  ...checkboxRadioHelperStyle,
-};
+const baseStyleHelperErrorText = checkboxRadioHelperErrorTextStyle;
 
 const baseStyle = {
   icon: baseStyleIcon,
   control: baseStyleControl,
   label: baseStyleLabel,
-  helper: baseStyleHelper,
+  helperErrorText: baseStyleHelperErrorText,
 };
 
 // Sticking to "lg" for the default size.
@@ -91,15 +89,15 @@ const sizes = {
     // Controls the width/height of the checkbox itself.
     control: {
       ...checkboxRadioControlSize,
-      borderRadius: "sm",
+      borderRadius: "checkbox",
     },
     // Controls the font-size of the label only.
-    label: { fontSize: "text.default" },
+    label: { fontSize: "label.default" },
   },
 };
 
 const Checkbox = {
-  parts: ["icon", "control", "label", "helper"],
+  parts: ["helperErrorText", "icon", "control", "label"],
   baseStyle,
   sizes,
   // Default values

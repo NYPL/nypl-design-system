@@ -1,21 +1,22 @@
 import * as React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import TextInput from "./TextInput";
 import { TextInputTypes } from "./TextInputTypes";
-import * as generateUUID from "../../helpers/generateUUID";
 
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the input element", async () => {
     const { container } = render(
       <TextInput
-        labelText="Custom input label"
+        id="textInput"
         isRequired
+        labelText="Custom input label"
+        onChange={jest.fn()}
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
-        onChange={jest.fn()}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -24,11 +25,12 @@ describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the textarea element", async () => {
     const { container } = render(
       <TextInput
-        labelText="Custom textarea label"
+        id="textInput"
         isRequired
+        labelText="Custom textarea label"
+        onChange={jest.fn()}
         placeholder="Input Placeholder"
         type={TextInputTypes.textarea}
-        onChange={jest.fn()}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -45,13 +47,13 @@ describe("TextInput", () => {
     changeHandler = jest.fn();
     utils = render(
       <TextInput
+        attributes={{ onFocus: focusHandler }}
         id="myTextInput"
-        labelText="Custom Input Label"
         isRequired
+        labelText="Custom Input Label"
+        onChange={changeHandler}
         placeholder="Input Placeholder"
         type={TextInputTypes.text}
-        attributes={{ onFocus: focusHandler }}
-        onChange={changeHandler}
       />
     );
   });
@@ -69,34 +71,17 @@ describe("TextInput", () => {
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
   });
 
-  it("renders 'Optional' along with the label text", () => {
+  it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
-        id="myTextInput"
-        labelText="Custom Input Label"
-        isRequired={false}
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
         attributes={{ onFocus: focusHandler }}
-        onChange={changeHandler}
-      />
-    );
-
-    expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
-    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-  });
-
-  it("does not render 'Required' along with the label text", () => {
-    utils.rerender(
-      <TextInput
         id="myTextInput"
-        labelText="Custom Input Label"
         isRequired
-        showOptReqLabel={false}
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
-        attributes={{ onFocus: focusHandler }}
+        labelText="Custom Input Label"
         onChange={changeHandler}
+        placeholder="Input Placeholder"
+        showRequiredLabel={false}
+        type={TextInputTypes.text}
       />
     );
 
@@ -135,20 +120,30 @@ describe("TextInput", () => {
     // Called 5 times because "Hello" has length of 5.
     expect(changeHandler).toHaveBeenCalledTimes(5);
   });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <TextInput labelText="Custom Input Label" />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
+    );
+  });
 });
 
 describe("Renders TextInput with auto-generated ID, hidden label and visible helper text", () => {
-  let generateUUIDSpy;
-
   beforeEach(() => {
-    generateUUIDSpy = jest.spyOn(generateUUID, "default");
     render(
       <TextInput
-        labelText="Custom Input Label"
-        showLabel={false}
         helperText="Custom Helper Text"
+        id="textInput"
         isRequired
+        labelText="Custom Input Label"
         placeholder="Input Placeholder"
+        showLabel={false}
         type={TextInputTypes.text}
       />
     );
@@ -156,11 +151,6 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
 
   it("renders Input component", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
-  });
-
-  it("calls a UUID generation method if no ID is passed as a prop", () => {
-    // Called twice for the `TextInput` and the SVG icon components.
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(2);
   });
 
   it("does not renders Label component", () => {
@@ -184,12 +174,12 @@ describe("TextInput shows error state", () => {
   beforeEach(() => {
     const utils = render(
       <TextInput
-        id="myTextInputError"
-        labelText="Custom Input Label"
         helperText="Custom Helper Text"
+        id="myTextInputError"
         invalidText="Custom Error Text"
-        placeholder="Input Placeholder"
         isInvalid
+        labelText="Custom Input Label"
+        placeholder="Input Placeholder"
         type={TextInputTypes.text}
       />
     );
@@ -213,14 +203,14 @@ describe("TextInput shows error state", () => {
   it("does not render the invalid text when 'showHelperInvalidText' is set to false", () => {
     rerender(
       <TextInput
-        id="myTextInputError"
-        labelText="Custom Input Label"
         helperText="Custom Helper Text"
+        id="myTextInputError"
         invalidText="Custom Error Text"
+        isInvalid
+        labelText="Custom Input Label"
         placeholder="Input Placeholder"
         showHelperInvalidText={false}
         type={TextInputTypes.text}
-        isInvalid
       />
     );
     expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
@@ -240,16 +230,16 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
   beforeEach(() => {
     render(
       <TextInput
-        id="inputID-attributes"
-        labelText="Input Label"
-        placeholder="Input Placeholder"
-        type={TextInputTypes.text}
         attributes={{
           onChange: onChangeSpy,
           onBlur: onBlurSpy,
           maxLength: 10,
           tabIndex: 0,
         }}
+        id="inputID-attributes"
+        labelText="Input Label"
+        placeholder="Input Placeholder"
+        type={TextInputTypes.text}
       />
     );
   });
@@ -335,9 +325,9 @@ describe("Hidden input", () => {
   it("does not show the helper text", () => {
     render(
       <TextInput
+        helperText="Helper Text"
         id="inputID-hidden"
         labelText="Hidden Input Label"
-        helperText="Helper Text"
         type={TextInputTypes.hidden}
         value="hidden"
       />
@@ -366,5 +356,126 @@ describe("Textarea element type", () => {
 
   it("renders label with label text", () => {
     expect(screen.getByLabelText(/Custom textarea Label/i)).toBeInTheDocument();
+  });
+});
+
+describe("UI Snapshots", () => {
+  it("renders the text input UI snapshot correctly", () => {
+    const required = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const optional = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const hiddenLabelText = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          showLabel={false}
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const withHelperText = renderer
+      .create(
+        <TextInput
+          helperText="Custom helper text"
+          id="myTextInput"
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const errorState = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isInvalid
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const disabledState = renderer
+      .create(
+        <TextInput
+          id="myTextInput"
+          isDisabled
+          isRequired
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+        />
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <TextInput
+          id="chakra"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <TextInput
+          id="props"
+          labelText="Custom Input Label"
+          placeholder="Input Placeholder"
+          type={TextInputTypes.text}
+          data-testid="props"
+        />
+      )
+      .toJSON();
+
+    expect(required).toMatchSnapshot();
+    expect(optional).toMatchSnapshot();
+    expect(hiddenLabelText).toMatchSnapshot();
+    expect(withHelperText).toMatchSnapshot();
+    expect(errorState).toMatchSnapshot();
+    expect(disabledState).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
+  });
+
+  it("renders the textarea UI snapshot correctly", () => {
+    const basicTextarea = renderer
+      .create(
+        <TextInput
+          id="myTextarea"
+          labelText="Custom textarea Label"
+          placeholder="Textarea Placeholder"
+          type={TextInputTypes.textarea}
+        />
+      )
+      .toJSON();
+
+    expect(basicTextarea).toMatchSnapshot();
   });
 });

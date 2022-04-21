@@ -3,10 +3,11 @@ import React from "react";
 /**
  * Custom hook that controls the sliding function for the carousel wrapper.
  * This returns functions to use for the "previous" and "next" buttons as well
- * as a CSS style object that should be use to transition between slides.
+ * as a CSS style object that should be use to transition between slides. There
+ * is also a function to programmatically slide to the first slide.
  * Inspired by: https://codesandbox.io/s/fxjeo
  */
-const useCarouselStyles = (slidesCount = 0, slideWidth = 100) => {
+export const useCarouselStyles = (slidesCount = 0, slideWidth = 100) => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   // This wraps around to the last slide if this is invoked while the
   // first slide is active.

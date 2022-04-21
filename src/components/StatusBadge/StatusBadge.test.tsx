@@ -24,7 +24,9 @@ describe("StatusBadge", () => {
   it("throws a warning when no children are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(<StatusBadge></StatusBadge>);
-    expect(warn).toHaveBeenCalledWith("Status Badge has no children.");
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir StatusBadge: No children were passed."
+    );
   });
 
   it("renders the UI snapshot correctly", () => {
@@ -45,9 +47,25 @@ describe("StatusBadge", () => {
         </StatusBadge>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <StatusBadge id="chakra" p="20px" color="ui.error.primary">
+          Registration Required
+        </StatusBadge>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <StatusBadge id="props" data-testid="props">
+          Registration Required
+        </StatusBadge>
+      )
+      .toJSON();
 
     expect(low).toMatchSnapshot();
     expect(medium).toMatchSnapshot();
     expect(high).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

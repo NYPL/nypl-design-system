@@ -1,11 +1,14 @@
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useStyleConfig } from "@chakra-ui/react";
 
 import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
-
+import {
+  IconRotationTypes,
+  IconNames,
+  IconAlign,
+  IconSizes,
+} from "../Icons/IconTypes";
 export interface LinkProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -51,6 +54,7 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
       iconRotation={iconRotation}
       id={iconId}
       name={IconNames.Arrow}
+      size={IconSizes.Medium}
     />
   );
 
@@ -71,6 +75,7 @@ function getExternalIcon(children, linkId) {
       className="more-link"
       id={iconId}
       name={IconNames.ActionLaunch}
+      size={IconSizes.Medium}
     />
   );
 
@@ -86,16 +91,17 @@ function getExternalIcon(children, linkId) {
  * A component that uses an `href` prop or a child anchor element, to create
  * an anchor element with added styling and conventions.
  */
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (props, ref: any) => {
+export const Link = chakra(
+  React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
     const {
       additionalStyles = {},
       attributes,
       children,
       className,
       href,
-      id = generateUUID(),
+      id,
       type = LinkTypes.Default,
+      ...rest
     } = props;
 
     // Merge the necessary props alongside any extra props for the
@@ -145,7 +151,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style}>
+        <Box as="span" __css={style} {...rest}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -173,12 +179,13 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           target={target}
           {...linkProps}
           __css={{ ...style, ...additionalStyles }}
+          {...rest}
         >
           {newChildren}
         </Box>
       );
     }
-  }
+  })
 );
 
 export default Link;

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Icon from "./Icon";
 import { IconNames } from "./IconTypes";
@@ -27,7 +28,8 @@ describe("Icon", () => {
       </Icon>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Icon accepts either a `name` prop or an `svg` element child, not both."
+      "NYPL Reservoir Icon: Pass in either a `name` prop or an `svg` element " +
+        "child. Do not pass both."
     );
   });
 
@@ -35,7 +37,17 @@ describe("Icon", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Icon />);
     expect(warn).toHaveBeenCalledWith(
-      "Pass an icon `name` prop or an SVG child to `Icon` to ensure an icon appears."
+      "NYPL Reservoir Icon: Pass an icon `name` prop or an SVG child to " +
+        "ensure an icon appears."
+    );
+  });
+
+  it("consoles a warning if name is not passed and a child is but it's not an SVG element", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Icon>Not an SVG</Icon>);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Icon: An `svg` element must be passed to the `Icon` " +
+        "component as its child."
     );
   });
 
@@ -75,5 +87,42 @@ describe("Icon", () => {
       </Icon>
     );
     expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const basic = renderer
+      .create(<Icon id="basic" name={IconNames.Download} />)
+      .toJSON();
+    const customIcon = renderer
+      .create(
+        <Icon id="customIcon">
+          <svg viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z"
+            />
+          </svg>
+        </Icon>
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Icon
+          id="chakra"
+          name={IconNames.Download}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Icon id="props" name={IconNames.Download} data-testid="props" />)
+      .toJSON();
+
+    expect(basic).toMatchSnapshot();
+    expect(customIcon).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

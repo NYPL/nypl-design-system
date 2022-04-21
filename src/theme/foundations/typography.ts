@@ -28,7 +28,7 @@ const typography: Typography = {
   // Values from "src/styles/02-typography/_typeface.css"
   fonts: {
     body: "-apple-system, BlinkMacSystemFont, system-ui, sans-serif",
-    heading: "-apple-system, BlinkMacSystemFont, system-ui, sans-seri",
+    heading: "-apple-system, BlinkMacSystemFont, system-ui, sans-serif",
   },
   // Values from "src/styles/02-typography/_type-scale.css"
   fontSizes: {
@@ -41,7 +41,7 @@ const typography: Typography = {
     "2": fontSizeValues["2"],
     "3": fontSizeValues["3"],
     "4": fontSizeValues["4"],
-    // specific tokens
+    // semantic tokens
     breadcrumbs: {
       default: fontSizeValues["-1"],
     },
@@ -55,7 +55,7 @@ const typography: Typography = {
       callout: fontSizeValues["1"],
     },
     helper: {
-      default: fontSizeValues["-1"],
+      default: fontSizeValues["-2"],
     },
     label: {
       default: fontSizeValues["-1"],
@@ -75,7 +75,7 @@ const typography: Typography = {
     regular: fontWeightValues["regular"],
     medium: fontWeightValues["medium"],
     bold: fontWeightValues["bold"],
-    // specific tokens
+    // semantic tokens
     breadcrumbs: {
       default: fontWeightValues["regular"],
       lastChild: fontWeightValues["bold"],

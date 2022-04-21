@@ -10,8 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 import SimpleGrid from "./SimpleGrid";
 import { GridGaps } from "./GridTypes";
 import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
-import { CardLayouts } from "../Card/CardTypes";
-import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
+import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import {
   IconNames,
@@ -21,6 +20,7 @@ import {
 } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import { ImageRatios } from "../Image/ImageTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
@@ -57,13 +57,29 @@ export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.25.1`   |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Other SimpleGrid Examples](#other-simplegrid-examples)
+
+## Overview
 
 <Description of={SimpleGrid} />
 
-The `SimpleGrid` component is used to render UI elements in a uniform grid layout, with the column widths and grid spacing fixed throughout the grid.
+The `SimpleGrid` component is used to render UI elements in a uniform grid layout,
+with the column widths and grid spacing fixed throughout the grid.
 
-The NYPL standards for the items per row in a grid is `3` for desktop, `2` for tablet and `1` for mobile. By default, the `SimpleGrid` component uses these standards and the `columns` prop is optional. If the `columns` prop is used, the tablet breakpoint will be dropped and only the mobile breakpoint (1 item per row) will be triggered.
+The NYPL standards for the items per row in a grid is `3` for desktop, `2` for
+tablet and `1` for mobile. By default, the `SimpleGrid` component uses these
+standards and the `columns` prop is optional. If the `columns` prop is used, the
+tablet breakpoint will be dropped and only the mobile breakpoint (1 item per row)
+will be triggered.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -78,9 +94,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
     {(args) => (
       <SimpleGrid {...args} gap={enumValues.getValue(args.gap)}>
         <Card
-          imageSrc="https://placeimg.com/400/220/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/220/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -89,9 +107,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/220/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/220/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -100,9 +120,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/240/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/240/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -111,9 +133,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/260/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/260/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -122,9 +146,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/320/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/320/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -133,9 +159,11 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/300/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/300/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -149,6 +177,18 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
 </Canvas>
 
 <ArgsTable story="SimpleGrid with Controls" />
+
+## Accessibility
+
+The CSS grid layout properties are used for the `SimpleGrid` component. We don't
+recommend using property rules that change the visual order of elements on the
+page that don't match with its DOM order. This is because a screenreader won't
+pick up `SimpleGrid` CSS rules and will read the page in the expected DOM order
+rather than the visual order.
+
+Resources:
+
+- [MDN CSS Grid Layout and Accessibility](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility)
 
 ## Other SimpleGrid Examples
 
@@ -213,12 +253,14 @@ This example is rendering horizontal `Card` components with the `columns` prop s
   <DSProvider>
     <SimpleGrid columns={1}>
       <Card
-        layout={CardLayouts.Row}
-        border
-        center
-        imageSrc="https://placeimg.com/400/200/animals"
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.FourByThree}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: ImageRatios.FourByThree,
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isBordered
+        isCentered
+        layout={LayoutTypes.Row}
       >
         <CardHeading level={HeadingLevels.Four} id="heading1">
           Card Heading
@@ -230,12 +272,14 @@ This example is rendering horizontal `Card` components with the `columns` prop s
         </CardContent>
       </Card>
       <Card
-        layout={CardLayouts.Row}
-        border
-        center
-        imageSrc="https://placeimg.com/410/210/animals"
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.FourByThree}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: ImageRatios.FourByThree,
+          src: "https://placeimg.com/410/210/animals",
+        }}
+        isBordered
+        isCentered
+        layout={LayoutTypes.Row}
       >
         <CardHeading level={HeadingLevels.Four} id="heading2">
           Card Heading
@@ -247,12 +291,14 @@ This example is rendering horizontal `Card` components with the `columns` prop s
         </CardContent>
       </Card>
       <Card
-        layout={CardLayouts.Row}
-        border
-        center
-        imageSrc="https://placeimg.com/320/320/animals"
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.FourByThree}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: ImageRatios.FourByThree,
+          src: "https://placeimg.com/320/320/animals",
+        }}
+        isBordered
+        isCentered
+        layout={LayoutTypes.Row}
       >
         <CardHeading level={HeadingLevels.Four} id="heading3">
           Card Heading

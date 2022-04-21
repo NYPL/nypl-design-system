@@ -1,3 +1,4 @@
+import { Flex, Spacer } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -9,15 +10,12 @@ import { withDesign } from "storybook-addon-designs";
 
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "./CheckboxGroup";
-import { CheckboxGroupLayoutTypes } from "./CheckboxGroupLayoutTypes";
+import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
 
-export const enumValues = getStorybookEnumValues(
-  CheckboxGroupLayoutTypes,
-  "CheckboxGroupLayoutTypes"
-);
+export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 
 <Meta
   title={getCategory("CheckboxGroup")}
@@ -37,6 +35,9 @@ export const enumValues = getStorybookEnumValues(
     isDisabled: {
       table: { defaultValue: { summary: false } },
     },
+    isFullWidth: {
+      table: { defaultValue: { summary: true } },
+    },
     isInvalid: {
       table: { defaultValue: { summary: false } },
     },
@@ -46,19 +47,19 @@ export const enumValues = getStorybookEnumValues(
     key: { table: { disable: true } },
     layout: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "CheckboxGroupLayoutTypes.Column" } },
+      table: { defaultValue: { summary: "LayoutTypes.Column" } },
       options: enumValues.options,
     },
     name: { control: false },
     onChange: { control: false },
-    optReqFlag: {
-      table: { defaultValue: { summary: true } },
-    },
     ref: { table: { disable: true } },
     showHelperInvalidText: {
       table: { defaultValue: { summary: true } },
     },
     showLabel: {
+      table: { defaultValue: { summary: true } },
+    },
+    showRequiredLabel: {
       table: { defaultValue: { summary: true } },
     },
   }}
@@ -69,9 +70,26 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.25.3`   |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Layout Patterns](#layout-patterns)
+- [Errored](#errored)
+- [Required](#required)
+- [Disabled](#disabled)
+- [With JSX Element labels](#with-jsx-element-labels)
+- [Indeterminate Example](#indeterminate-example)
+- [Getting Checkbox Input Values](#getting-checkbox-input-values)
+
+## Overview
 
 <Description of={CheckboxGroup} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -82,15 +100,16 @@ export const enumValues = getStorybookEnumValues(
       id: "checkboxGroup-id",
       invalidText: "This is the error text :(",
       isDisabled: false,
+      isFullWidth: false,
       isInvalid: false,
       isRequired: false,
       labelText: "Standard Checkbox Group",
-      layout: "CheckboxGroupLayoutTypes.Column",
+      layout: "LayoutTypes.Column",
       name: "checkbox-story",
       onChange: undefined,
-      optReqFlag: true,
       showHelperInvalidText: true,
       showLabel: true,
+      showRequiredLabel: true,
     }}
   >
     {(args) => (
@@ -106,6 +125,16 @@ export const enumValues = getStorybookEnumValues(
 
 <ArgsTable story="CheckboxGroup" />
 
+## Accessibility
+
+The `CheckboxGroup` renders a group of `Checkbox` components that are wrapped in
+a `<fieldset>` element. The `<fieldset>` element renders a `<legend>` element that
+can be visually hidden through the `showLabel` prop.
+
+Resources:
+
+- [Chakra UI Checkbox](https://chakra-ui.com/docs/components/form/checkbox)
+
 ## Layout Patterns
 
 Use the `layout` prop to set the `Checkbox` buttons to display in a column or in
@@ -114,9 +143,9 @@ a row.
 <Canvas>
   <DSProvider>
     <CheckboxGroup
+      id="column"
       labelText="Column (default)"
       name="column-example"
-      optReqFlag={false}
     >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
@@ -125,10 +154,10 @@ a row.
     </CheckboxGroup>
     <br />
     <CheckboxGroup
+      id="row"
       labelText="Row"
       name="row-example"
-      layout={CheckboxGroupLayoutTypes.Row}
-      optReqFlag={false}
+      layout={LayoutTypes.Row}
     >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
@@ -143,11 +172,30 @@ a row.
 <Canvas>
   <DSProvider>
     <CheckboxGroup
-      labelText="Errored Checkbox Group"
-      name="errored-example"
-      optReqFlag={false}
+      id="errored"
       invalidText="Error message for the full group."
       isInvalid
+      labelText="Errored Checkbox Group"
+      name="errored-example"
+    >
+      <Checkbox value="2" labelText="Checkbox 2" />
+      <Checkbox value="3" labelText="Checkbox 3" />
+      <Checkbox value="4" labelText="Checkbox 4" />
+      <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+  </DSProvider>
+</Canvas>
+
+## Required
+
+<Canvas>
+  <DSProvider>
+    <CheckboxGroup
+      id="required"
+      isRequired
+      labelText="Required Checkbox Group"
+      name="required-example"
+      helperText="The reason for being required."
     >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
@@ -162,16 +210,78 @@ a row.
 <Canvas>
   <DSProvider>
     <CheckboxGroup
+      id="disabled"
+      isDisabled
       labelText="Disabled Checkbox Group"
       name="disabled-example"
-      optReqFlag={false}
       helperText="The reason for being disabled."
-      isDisabled
     >
       <Checkbox value="2" labelText="Checkbox 2" />
       <Checkbox value="3" labelText="Checkbox 3" />
       <Checkbox value="4" labelText="Checkbox 4" />
       <Checkbox value="5" labelText="Checkbox 5" />
+    </CheckboxGroup>
+  </DSProvider>
+</Canvas>
+
+## With JSX Element labels
+
+React elements can be passed to the `labelText` prop of the `Checkbox` component.
+This is useful if you need to pass information as part of the label. For example,
+if a `Checkbox` label needs to display how many items that option has, it can be
+displayed with the help of the `Flex` and `Spacer` components.
+
+Note: the width of `CheckboxGroup` is _not_ set to full width by default. In
+order to make this work, pass in the `isFullWidth` prop.
+
+<Canvas>
+  <DSProvider>
+    <CheckboxGroup
+      id="full-width"
+      isFullWidth
+      labelText="Checkbox Group"
+      name="checkbox-example"
+    >
+      <Checkbox
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+        value="arts"
+      />
+      <Checkbox
+        labelText={
+          <Flex>
+            <span>English</span>
+            <Spacer />
+            <span>23</span>
+          </Flex>
+        }
+        value="English"
+      />
+      <Checkbox
+        labelText={
+          <Flex>
+            <span>Science</span>
+            <Spacer />
+            <span>10</span>
+          </Flex>
+        }
+        value="Science"
+      />
+      <Checkbox
+        labelText={
+          <Flex>
+            <span>Math</span>
+            <Spacer />
+            <span>3</span>
+          </Flex>
+        }
+        value="Math"
+      />
     </CheckboxGroup>
   </DSProvider>
 </Canvas>
@@ -196,6 +306,7 @@ export function IndeterminateExample() {
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
   return (
     <CheckboxGroup
+      id="indeterminate"
       labelText="Indeterminate Example"
       name="indeterminate-example"
     >
@@ -226,6 +337,7 @@ export function IndeterminateExample() {
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
   return (
     <CheckboxGroup
+      id="indeterminate"
       labelText="Indeterminate Example"
       name="indeterminate-example"
     >
@@ -255,7 +367,7 @@ export function IndeterminateExample() {
   </DSProvider>
 </Canvas>
 
-## Getting Checkbox Data Values
+## Getting Checkbox Input Values
 
 ### Controlled Component using `name`, `defaultValue`, and `onChange` props
 

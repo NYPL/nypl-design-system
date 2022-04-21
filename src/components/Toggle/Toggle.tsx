@@ -1,14 +1,16 @@
-import * as React from "react";
 import {
   Box,
+  chakra,
   Switch,
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import generateUUID from "../../helpers/generateUUID";
-import { ToggleSizes } from "./ToggleSizes";
-import HelperErrorText from "../HelperErrorText/HelperErrorText";
+import * as React from "react";
 
+import HelperErrorText, {
+  HelperErrorTextType,
+} from "../HelperErrorText/HelperErrorText";
+import { ToggleSizes } from "./ToggleTypes";
 export interface ToggleProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalStyles?: { [key: string]: any };
@@ -16,12 +18,12 @@ export interface ToggleProps {
    *   If true, the toggle will be initially set to the "on" position. */
   defaultChecked?: boolean;
   /** Optional string to populate the HelperErrorText for standard state */
-  helperText?: string;
+  helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
-  invalidText?: string;
+  invalidText?: HelperErrorTextType;
   /** When using the Toggle as a "controlled" form element, you can specify
    * the Toggle's checked state using this prop.
    * Learn more about controlled and uncontrolled form fields:
@@ -30,20 +32,18 @@ export interface ToggleProps {
   /** Adds the 'disabled' and `aria-disabled` attributes to the input when true.
    * This also makes the text italic and color scheme gray. */
   isDisabled?: boolean;
-  /** Adds the 'aria-invalid' attribute to the input when true. This also makes
-   * the color theme "NYPL error" red for the button and text. */
+  /** Adds the 'aria-invalid' attribute to the input when true. */
   isInvalid?: boolean;
   /** Adds the 'required' attribute to the input when true. */
   isRequired?: boolean;
-  /** The checkbox's label. This will serve as the text content for a `<label>`
-   * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
+  /** The toggle's label. This will serve as the text content for the `<label>` element */
   labelText: string;
-  /** The name prop indicates into which group of checkboxes this checkbox
-   * belongs. If none is specified, 'default' will be used */
+  /** The name prop indicates the `Toggle`'s form element name. If none is
+   * specified, 'default' will be used. */
   name?: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Offers the ability to hide the helper/invalid text. */
+  /** The size of the Toggle. Defaults to "large". */
   size?: ToggleSizes;
 }
 
@@ -54,13 +54,13 @@ export const onChangeDefault = () => {
 /**
  * Component that renders Chakra's `Switch` component along with NYPL defaults.
  */
-const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
-  (props, ref?) => {
+export const Toggle = chakra(
+  React.forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
     const {
       additionalStyles = {},
       defaultChecked = false,
       helperText,
-      id = generateUUID(),
+      id,
       invalidText,
       isChecked,
       isDisabled = false,
@@ -69,18 +69,25 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
       labelText,
       name,
       onChange = onChangeDefault,
-      size = ToggleSizes.Large,
+      size = ToggleSizes.Default,
+      ...rest
     } = props;
-    const footnote = isInvalid ? invalidText : helperText;
+    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const ariaAttributes = {};
-    const styles = useMultiStyleConfig("Toggle", {});
-    const switchStyles = useStyleConfig("Switch");
+    const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
+    const switchStyles = useStyleConfig("Switch", { size });
     ariaAttributes["aria-label"] =
       labelText && footnote ? `${labelText} - ${footnote}` : labelText;
 
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Toggle: This component's required `id` prop was not passed."
+      );
+    }
+
     return (
       <>
-        <Box __css={{ ...styles, ...additionalStyles }}>
+        <Box __css={{ ...styles, ...additionalStyles }} {...rest}>
           <Switch
             id={id}
             name={name || "default"}
@@ -88,7 +95,8 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
             isInvalid={isInvalid}
             isRequired={isRequired}
             ref={ref}
-            size={size === ToggleSizes.Large ? "lg" : "sm"}
+            size={size === ToggleSizes.Default ? "lg" : "sm"}
+            lineHeight="1.5"
             {...(isChecked !== undefined
               ? {
                   isChecked,
@@ -104,15 +112,16 @@ const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
           </Switch>
         </Box>
         {footnote && (
-          <Box __css={styles.helper}>
-            <HelperErrorText isInvalid={isInvalid} id={`${id}-helperText`}>
-              {footnote}
-            </HelperErrorText>
-          </Box>
+          <HelperErrorText
+            additionalStyles={styles.helperErrorText}
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+          />
         )}
       </>
     );
-  }
+  })
 );
 
 export default Toggle;

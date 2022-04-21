@@ -1,21 +1,27 @@
-import { activeFocus, helperTextMargin } from "./global";
+import {
+  selectTextInputDisabledStyles,
+  selectTextInputFocusStyles,
+} from "./global";
 
 const input = {
+  bgColor: "ui.white",
   border: "1px solid",
   borderColor: "ui.gray.medium",
   borderRadius: "sm",
-  py: "xs",
-  px: "s",
+  fontSize: "text.caption",
+  py: "inset.narrow",
+  px: "inset.default",
   _hover: {
     borderColor: "ui.gray.dark",
   },
   _disabled: {
-    bgColor: "ui.gray.xx-light-cool",
-    color: "ui.gray.xdark",
-    opacity: "1",
+    ...selectTextInputDisabledStyles,
+    _placeholder: {
+      color: "ui.gray.medium",
+    },
   },
-  _active: activeFocus,
-  _focus: activeFocus,
+  _active: selectTextInputFocusStyles,
+  _focus: selectTextInputFocusStyles,
   _placeholder: {
     color: "ui.gray.dark",
     fontStyle: "italic",
@@ -29,11 +35,8 @@ const input = {
 };
 
 const TextInput = {
-  parts: ["helper", "input", "textarea"],
+  parts: ["input", "textarea"],
   baseStyle: {
-    helper: {
-      ...helperTextMargin,
-    },
     input,
     textarea: {
       ...input,

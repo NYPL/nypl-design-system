@@ -13,9 +13,11 @@ describe("Grid Accessibility", () => {
     const { container } = render(
       <SimpleGrid>
         <Card
-          imageSrc="https://placeimg.com/500/200/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/500/200/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Two}>Card Heading</CardHeading>
           <CardContent>
@@ -24,9 +26,11 @@ describe("Grid Accessibility", () => {
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/220/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/220/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -35,9 +39,11 @@ describe("Grid Accessibility", () => {
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/240/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: ImageRatios.TwoByOne,
+            src: "https://placeimg.com/400/240/animals",
+          }}
         >
           <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
           <CardContent>
@@ -54,7 +60,16 @@ describe("Grid Accessibility", () => {
 describe("SimpleGrid", () => {
   it("Renders the SimpleGrid UI snapshot correctly", () => {
     const tree = renderer.create(<SimpleGrid id="test-grid" />).toJSON();
+    const withChakraProps = renderer
+      .create(<SimpleGrid id="chakra" p="20px" color="ui.error.primary" />)
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<SimpleGrid id="props" data-testid="props" />)
+      .toJSON();
+
     expect(tree).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 
   it("Renders SimpleGrid component", () => {

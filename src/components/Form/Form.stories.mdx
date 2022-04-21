@@ -1,3 +1,4 @@
+import { ButtonGroup, Flex, Spacer } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import {
   ArgsTable,
@@ -14,7 +15,7 @@ import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import DatePicker from "../DatePicker/DatePicker";
 import { DatePickerTypes } from "../DatePicker/DatePickerTypes";
 import Form, { FormRow, FormField } from "./Form";
-import { FormSpacing } from "./FormTypes";
+import { FormGaps } from "./FormTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
@@ -27,7 +28,7 @@ import { getCategory } from "../../utils/componentCategories";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getStorybookEnumValues } from "../../utils/utils";
 
-export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
+export const enumValues = getStorybookEnumValues(FormGaps, "FormGaps");
 
 <Meta
   title={getCategory("Form")}
@@ -47,9 +48,9 @@ export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
       control: { type: "radio" },
       options: ["get", "post"],
     },
-    spacing: {
+    gap: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "FormSpacing.Large" } },
+      table: { defaultValue: { summary: "FormGaps.Large" } },
       options: enumValues.options,
     },
   }}
@@ -60,15 +61,43 @@ export const enumValues = getStorybookEnumValues(FormSpacing, "FormSpacing");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.1`   |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Spacing Variants](#spacing-variants)
+- [Example Code](#example-code)
+
+## Overview
 
 <Description of={Form} />
 
-The `Form` component renders a standard `<form>` element and should be used to handle layout and spacing for child input fields. `FormRow` and `FormField` components should be used to build the `<form>` struture and to arrange input fields as needed.
+The `Form` component renders a standard `<form>` element and should be used to
+handle layout and spacing for child input fields. `FormRow` and `FormField`
+components should be used to build the `<form>` structure and to arrange input
+fields as needed.
 
-`FormField` should be used as a parent for all input components from the DS (`Button`, `Select`, `TextInput`, etc.).
+```jsx
+<Form id="form-id">
+  <FormRow>
+    <FormField>{/* ... */}</FormField>
+  </FormRow>
+  <FormRow>
+    <FormField>{/* ... */}</FormField>
+  </FormRow>
+</Form>
+```
 
-`FormRow` should be used as a parent of multiple `FormField` components when you need to render multiple input components in a horizontal row.
+`FormField` should be used as a parent for all input components from the DS
+(`Button`, `Select`, `TextInput`, etc.).
+
+`FormRow` should be used as a parent of multiple `FormField` components when you
+need to render multiple input components in a horizontal row.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -78,34 +107,36 @@ The `Form` component renders a standard `<form>` element and should be used to h
       className: undefined,
       id: "form-id",
       method: "get",
-      spacing: "FormSpacing.Large",
+      gap: "FormGaps.Large",
     }}
   >
     {(args) => (
-      <Form {...args} spacing={enumValues.getValue(args.spacing)}>
+      <Form {...args} gap={enumValues.getValue(args.gap)} id="form-id">
         <FormRow>
           <FormField>
             <TextInput
-              labelText="First Name"
               helperText="Make sure to complete this field."
+              id="first-name"
               isRequired
+              labelText="First Name"
             />
           </FormField>
           <FormField>
             <TextInput
-              labelText="Last Name"
               helperText="Make sure to complete this field."
+              id="last-name"
               isRequired
+              labelText="Last Name"
             />
           </FormField>
           <FormField>
             <DatePicker
-              id="date-range"
               dateType={DatePickerTypes.Full}
               dateFormat="yyyy-MM-dd"
               helperTextFrom="From this date."
               helperTextTo="To this date."
               helperText="Select a valid date range."
+              id="date-range"
               invalidText="Please select a valid date range."
               isDateRange
               labelText="Select the date range you want to visit NYPL"
@@ -118,37 +149,42 @@ The `Form` component renders a standard `<form>` element and should be used to h
         </FormRow>
         <FormField>
           <TextInput
-            labelText="Username"
             helperText="Make sure to complete this field."
+            id="username"
             isRequired
+            labelText="Username"
           />
         </FormField>
         <FormField>
           <TextInput
-            labelText="Password"
             helperText="Make sure to complete this field."
+            id="password"
             isRequired
+            labelText="Password"
           />
         </FormField>
         <FormRow>
           <FormField>
             <TextInput
-              labelText="Phone Field"
               helperText="This one is up to you."
+              id="phone"
+              labelText="Phone Field"
               type="tel"
             />
           </FormField>
           <FormField>
             <TextInput
-              labelText="URL Field"
               helperText="This one is up to you."
+              id="url"
+              labelText="URL Field"
               type="url"
             />
           </FormField>
           <FormField>
             <TextInput
-              labelText="Age"
               helperText="This one is up to you."
+              id="age"
+              labelText="Age"
               type="number"
             />
           </FormField>
@@ -156,29 +192,71 @@ The `Form` component renders a standard `<form>` element and should be used to h
         <FormRow>
           <FormField>
             <CheckboxGroup
+              id="checkbox-group"
+              isFullWidth
               labelText="Checkbox Group"
-              name="cbg1"
-              optReqFlag={false}
+              name="checkbox-example"
             >
-              <Checkbox labelText="Checkbox 1" showLabel />
-              <Checkbox labelText="Checkbox 2" showLabel />
-              <Checkbox labelText="Checkbox 3" showLabel />
-              <Checkbox labelText="Checkbox 4" showLabel />
+              <Checkbox
+                id="arts"
+                labelText={
+                  <Flex>
+                    <span>Arts</span>
+                    <Spacer />
+                    <span>4</span>
+                  </Flex>
+                }
+                value="arts"
+              />
+              <Checkbox
+                id="english"
+                labelText={
+                  <Flex>
+                    <span>English</span>
+                    <Spacer />
+                    <span>23</span>
+                  </Flex>
+                }
+                value="English"
+              />
+              <Checkbox
+                id="science"
+                labelText={
+                  <Flex>
+                    <span>Science</span>
+                    <Spacer />
+                    <span>10</span>
+                  </Flex>
+                }
+                value="Science"
+              />
+              <Checkbox
+                id="math"
+                labelText={
+                  <Flex>
+                    <span>Math</span>
+                    <Spacer />
+                    <span>3</span>
+                  </Flex>
+                }
+                value="Math"
+              />
             </CheckboxGroup>
           </FormField>
           <FormField>
-            <RadioGroup labelText="Radio Group" name="rg1" optReqFlag={false}>
-              <Radio labelText="Radio 1" showLabel />
-              <Radio labelText="Radio 2" showLabel />
-              <Radio labelText="Radio 3" showLabel />
-              <Radio labelText="Radio 4" showLabel />
+            <RadioGroup id="radio-group" labelText="Radio Group" name="rg1">
+              <Radio id="radio1" labelText="Radio 1" value="radio1" />
+              <Radio id="radio2" labelText="Radio 2" value="radio2" />
+              <Radio id="radio3" labelText="Radio 3" value="radio3" />
+              <Radio id="radio4" labelText="Radio 4" value="radio4" />
             </RadioGroup>
           </FormField>
           <FormField>
             <Select
+              helperText="The select field helper text."
+              id="select"
               labelText="Select Field"
               showLabel={true}
-              helperText="The select field helper text."
             >
               <option>Option 1</option>
               <option>Option 2</option>
@@ -188,15 +266,30 @@ The `Form` component renders a standard `<form>` element and should be used to h
             </Select>
           </FormField>
         </FormRow>
-        <FormField>
-          <Button>Submit</Button>
-        </FormField>
+        <FormRow>
+          <FormField>
+            <ButtonGroup>
+              <Button id="submit">Submit</Button>
+            </ButtonGroup>
+          </FormField>
+        </FormRow>
       </Form>
     )}
   </Story>
 </Canvas>
 
 <ArgsTable story="Form with Controls" />
+
+## Accessibility
+
+The `Form` component renders a standard `<form>` element and should be used to
+wrap all form elements. A `Form` should have a `Button` component with a `type`
+of `submit` to submit the form to a server through the `Form`'s `action` prop.
+
+Resources:
+
+- [WebAIM Creating Accessible Forms](https://webaim.org/techniques/forms/)
+- [Deque The Anatomy of Accessible Forms: Best Practices](https://www.deque.com/blog/anatomy-of-accessible-forms-best-practices/)
 
 ## Spacing Variants
 
@@ -205,13 +298,14 @@ export const formRow = (nameString, size) => {
   return (
     <li key={size}>
       <Heading level={HeadingLevels.Three}>{labelText}</Heading>
-      <Form spacing={size}>
+      <Form gap={size} id={`form-spacing-${size}`}>
         <FormRow>
           <FormField>
             <Select
+              helperText="The select field helper text."
+              id={`select-spacing-${size}-1`}
               labelText="Select Field"
               showLabel={true}
-              helperText="The select field helper text."
             >
               <option>Option 1</option>
               <option>Option 2</option>
@@ -221,9 +315,10 @@ export const formRow = (nameString, size) => {
           </FormField>
           <FormField>
             <Select
+              helperText="The select field helper text."
+              id={`select-spacing-${size}-2`}
               labelText="Select Field"
               showLabel={true}
-              helperText="The select field helper text."
             >
               <option>Option 1</option>
               <option>Option 2</option>
@@ -233,9 +328,10 @@ export const formRow = (nameString, size) => {
           </FormField>
           <FormField>
             <Select
+              helperText="The select field helper text."
+              id={`select-spacing-${size}-3`}
               labelText="Select Field"
               showLabel={true}
-              helperText="The select field helper text."
             >
               <option>Option 1</option>
               <option>Option 2</option>
@@ -250,34 +346,27 @@ export const formRow = (nameString, size) => {
   );
 };
 export const sizes = [];
-for (const formSpacing in FormSpacing) {
-  sizes.push(formRow(`FormSpacing.${formSpacing}`, FormSpacing[formSpacing]));
+for (const formGap in FormGaps) {
+  sizes.push(formRow(`FormGaps.${formGap}`, FormGaps[formGap]));
 }
 export const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 
-By default, the `Form` component will handle the NYPL spacing around form input elements. The default spacing value is `large`, which corresponds to the CSS variable `--nypl-space-l` (2rem / 32px).
+By default, the `Form` component will handle the NYPL spacing around form input
+elements. The default spacing value is `large`, which corresponds to the CSS
+variable `--nypl-space-l` (2rem / 32px).
 
 **IMPORTANT:** The default spacing should not be overwritten without a very good reason.
 
-Below are the spacing variants available with the `FormSpacing` enum.
+Below are the spacing variants available with the `FormGaps` enum.
 
 <Canvas>
-  <Story
-    name="Spacing Variants"
-    args={{
-      id: "spacing-form-id",
-    }}
-  >
-    {getForms(sizes)}
-  </Story>
+  <Story name="Spacing Variants">{getForms(sizes)}</Story>
 </Canvas>
 
 ## Example Code
 
-<Story name="Example Code" />
-
 ```jsx
-<Form action="/end/point" method="get" spacing={FormSpacing.Large}>
+<Form action="/end/point" method="get" gap={FormGaps.Large} id="example-form">
   <FormField>
     <TextInput
       labelText="Username"

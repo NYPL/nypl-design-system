@@ -1,12 +1,15 @@
 import * as React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Select from "./Select";
+import { LabelPositions } from "./SelectTypes";
 
 const baseProps = {
-  labelText: "What is your favorite color?",
   helperText: "This is the helper text.",
+  id: "select",
+  labelText: "What is your favorite color?",
   name: "color",
 };
 const baseOptions = (
@@ -78,26 +81,17 @@ describe("Select", () => {
     ).toHaveAttribute("aria-describedby", `${id}-helperText`);
   });
 
-  it("renders required or optional text in the label", () => {
-    const { rerender } = render(<Select {...baseProps}>{baseOptions}</Select>);
-    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-
-    rerender(
+  it("renders '(Required)' text in the label", () => {
+    const { rerender } = render(
       <Select {...baseProps} isRequired>
         {baseOptions}
       </Select>
     );
+
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
 
     rerender(
-      <Select {...baseProps} showOptReqLabel={false}>
-        {baseOptions}
-      </Select>
-    );
-    expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
-
-    rerender(
-      <Select {...baseProps} isRequired showOptReqLabel={false}>
+      <Select {...baseProps} isRequired showRequiredLabel={false}>
         {baseOptions}
       </Select>
     );
@@ -119,9 +113,9 @@ describe("Select", () => {
     ).toHaveAttribute("required");
   });
 
-  it("should not render a required label if 'showOptReqLabel' flag is false, but still render the label", () => {
+  it("should not render a required label if 'showRequiredLabel' flag is false, but still render the label", () => {
     render(
-      <Select {...baseProps} isRequired showOptReqLabel={false}>
+      <Select {...baseProps} isRequired showRequiredLabel={false}>
         {baseOptions}
       </Select>
     );
@@ -221,38 +215,145 @@ describe("Select", () => {
     expect(value).toEqual("white");
   });
 
-  it("should throw warning when fewer than 4 options", () => {
+  it("logs a warning when there is no `id` passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Select {...baseProps}>
-        <option value="red">Red</option>
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Select labelText="What is your favorite color?" name="color">
+        {baseOptions}
       </Select>
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL DS recommends that <select> fields have at least 4 options; a radio button group is a good alternative for 3 or fewer options."
+      "NYPL Reservoir Select: This component's required `id` prop was not passed."
     );
   });
 
-  it("should throw warning when there are more than 10 options", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <Select {...baseProps}>
-        <option aria-selected={false}>test1</option>
-        <option aria-selected={false}>test2</option>
-        <option aria-selected={false}>test3</option>
-        <option aria-selected={false}>test4</option>
-        <option aria-selected={false}>test5</option>
-        <option aria-selected={false}>test6</option>
-        <option aria-selected={false}>test7</option>
-        <option aria-selected={false}>test8</option>
-        <option aria-selected={false}>test9</option>
-        <option aria-selected={false}>test10</option>
-        <option aria-selected={false}>test11</option>
-      </Select>
-    );
+  it("Renders the UI snapshot correctly", () => {
+    const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
+    const options = siblings.map((sibling) => (
+      <option key={sibling}>{sibling}</option>
+    ));
 
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL DS recommends that <select> fields have no more than 10 options; an auto-complete text input is a good alternative for 11 or more options."
-    );
+    const primary = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const disabled = renderer
+      .create(
+        <Select
+          id="select"
+          isDisabled
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const withInvalidText = renderer
+      .create(
+        <Select
+          id="select"
+          invalidText="Tom doesn't count as a sibling :(."
+          isInvalid
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const withHelperText = renderer
+      .create(
+        <Select
+          helperText="Remember, Logan will judge you no matter who you pick."
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const required = renderer
+      .create(
+        <Select
+          id="select"
+          isRequired
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const withLabelInline = renderer
+      .create(
+        <Select
+          id="select"
+          isRequired
+          labelPosition={LabelPositions.Inline}
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const hasOnChange = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          onChange={jest.fn()}
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Select
+          id="chakra"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          p="20px"
+          color="ui.error.primary"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Select
+          id="props"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          data-testid="props"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+
+    expect(primary).toMatchSnapshot();
+    expect(disabled).toMatchSnapshot();
+    expect(withInvalidText).toMatchSnapshot();
+    expect(withHelperText).toMatchSnapshot();
+    expect(required).toMatchSnapshot();
+    expect(withLabelInline).toMatchSnapshot();
+    expect(hasOnChange).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

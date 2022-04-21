@@ -1,6 +1,6 @@
-import * as React from "react";
 import {
   Box,
+  chakra,
   Tab,
   TabList,
   TabPanels,
@@ -8,8 +8,8 @@ import {
   Tabs as ChakraTabs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
-import generateUUID from "../../helpers/generateUUID";
 import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
 import Icon from "../Icons/Icon";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -17,21 +17,27 @@ import Button from "../Button/Button";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
 import useWindowSize from "../../hooks/useWindowSize";
 
+// Internal interface used for rendering `Tabs` tab and panel
+// elements, either from data or from children.
+interface TabPanelProps {
+  tabs: React.ReactNode[] | React.ReactNode;
+  panels: React.ReactNode[] | React.ReactNode;
+}
 // The general shape of the data object for each Tab.
-export interface TabsContentDataProps {
+export interface TabsDataProps {
   label: string;
   content: string | React.ReactNode;
 }
 
 export interface TabsProps {
-  /** Array of data to display */
-  contentData?: TabsContentDataProps[];
   /** The index of the tab to display for controlled situations. */
   defaultIndex?: number;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** The callback function invoked on every tab change event. */
   onChange?: (index: number) => any;
+  /** Array of data to display */
+  tabsData?: TabsDataProps[];
   /** Render a hash in the url for each tab. Only available when data is
    * passed through the `data` props. */
   useHash?: boolean;
@@ -49,18 +55,18 @@ const onClickHash = (tabHash) => {
  * This returns an object with `Tab` and `TabPanel` components to rendered in
  * `TabList` and `TabPanels` components respectively.
  */
-const getElementsFromContentData = (data, useHash) => {
+const getElementsFromData = (data, useHash): TabPanelProps => {
   const tabs = [];
   const panels = [];
 
   if (!data?.length) {
-    return {};
+    return { tabs: [], panels: [] };
   }
 
   if (data?.length > 6) {
     console.warn(
-      "We recommend to use no more than six tabs. If more than six tabs are " +
-        "needed, consider other navigational patterns."
+      "NYPL Reservoir Tabs: it is recommended to use no more than six tabs. If " +
+        "more than six tabs are needed, consider other navigational patterns."
     );
   }
   data.forEach((tab, index) => {
@@ -78,8 +84,8 @@ const getElementsFromContentData = (data, useHash) => {
     if (typeof tab.content === "string") {
       tempPanel = (
         <TabPanel
-          key={index}
           dangerouslySetInnerHTML={{ __html: tab.content }}
+          key={index}
         />
       );
     } else {
@@ -91,8 +97,8 @@ const getElementsFromContentData = (data, useHash) => {
   });
 
   return {
-    tabs: <TabList>{tabs}</TabList>,
-    panels: <TabPanels>{panels}</TabPanels>,
+    tabs: [<TabList key="list">{tabs}</TabList>],
+    panels: [<TabPanels key="panels">{panels}</TabPanels>],
   };
 };
 
@@ -100,12 +106,12 @@ const getElementsFromContentData = (data, useHash) => {
  * This returns an object with `TabList` and `TabPanels` components to help format
  * the DOM when building up the `Tabs` component using child component.
  */
-const getElementsFromChildren = (children) => {
+const getElementsFromChildren = (children): TabPanelProps => {
   const tabs = [];
   const panels = [];
 
   if (!children?.length) {
-    return {};
+    return { tabs: [], panels: [] };
   }
 
   children.forEach((child) => {
@@ -115,8 +121,8 @@ const getElementsFromChildren = (children) => {
       const childTabs = React.Children.count(child.props.children);
       if (childTabs > 6) {
         console.warn(
-          "We recommend to use no more than six tabs. If more than six tabs are " +
-            "needed, consider other navigational patterns."
+          "NYPL Reservoir Tabs: It is recommended to use no more than six tabs. " +
+            "If more than six tabs are needed, consider other navigational patterns."
         );
       }
     }
@@ -133,14 +139,15 @@ const getElementsFromChildren = (children) => {
  * Renders Chakra's `Tab` component with specific variants, props,
  * and controlled styling.
  */
-function Tabs(props: React.PropsWithChildren<TabsProps>) {
+export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
   const {
     children,
-    contentData,
     defaultIndex = 0,
-    id = generateUUID(),
+    id,
     onChange,
+    tabsData,
     useHash = false,
+    ...rest
   } = props;
   const styles = useMultiStyleConfig("Tabs", {});
   // Just an estimate of the tab width for the mobile carousel.
@@ -149,11 +156,18 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   const mediumTabWidth = 40;
   const [tabWidth, setTabWidth] = React.useState(initTabWidth);
   const windowDimensions = useWindowSize();
-  const { tabs, panels } = contentData
-    ? getElementsFromContentData(contentData, useHash)
+  const { tabs, panels }: any = tabsData
+    ? getElementsFromData(tabsData, useHash)
     : getElementsFromChildren(children);
+
+  if (tabs.length === 0 || panels.length === 0) {
+    console.warn(
+      "NYPL Reservoir Tabs: Pass data in the `contentData` props or as children."
+    );
+  }
+
   // `tabs` is an array for the children component approach but an object for
-  // the `contentData` prop approach. We need to get the right props key value
+  // the `tabsData` prop approach. We need to get the right props key value
   // to set the carousel's length.
   const tabProps = tabs[0] ? tabs[0]?.props : (tabs as any).props;
   const { prevSlide, nextSlide, carouselStyle, goToStart } = useCarouselStyles(
@@ -173,53 +187,59 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
   }, [goToStart, windowDimensions.width]);
   const previousButton = (
     <Button
-      buttonType={ButtonTypes.Primary}
       attributes={{
         "aria-label": "Previous",
         ...styles.buttonArrows,
         left: "0",
       }}
+      buttonType={ButtonTypes.Primary}
+      id={`tabs-previous-${id}`}
       onClick={prevSlide}
     >
       <Icon
-        name={IconNames.Arrow}
         iconRotation={IconRotationTypes.Rotate90}
+        id={`tabs-previous-icon-${id}`}
+        name={IconNames.Arrow}
         size={IconSizes.Small}
       />
     </Button>
   );
   const nextButton = (
     <Button
-      buttonType={ButtonTypes.Primary}
       attributes={{
         "aria-label": "Next",
         ...styles.buttonArrows,
         right: "0",
       }}
+      buttonType={ButtonTypes.Primary}
+      id={`tabs-next-${id}`}
       onClick={nextSlide}
     >
       <Icon
-        name={IconNames.Arrow}
         iconRotation={IconRotationTypes.Rotate270}
+        id={`tabs-next-icon-${id}`}
+        name={IconNames.Arrow}
         size={IconSizes.Small}
       />
     </Button>
   );
 
-  if (children && contentData?.length) {
+  if (children && tabsData?.length) {
     console.warn(
-      "Only pass children or data in the `data` props but not both."
+      "NYPL Reservoir Tabs: Only pass children or data in the `contentData` " +
+        "prop. Do not pass both."
     );
   }
 
   return (
     <ChakraTabs
-      id={id}
-      onChange={onChange}
       defaultIndex={defaultIndex}
-      variant="enclosed"
+      id={id}
       // The following lazy loads each panel whenever it is needed.
       isLazy
+      onChange={onChange}
+      variant="enclosed"
+      {...rest}
     >
       <Box
         __css={styles.tablistWrapper}
@@ -238,6 +258,8 @@ function Tabs(props: React.PropsWithChildren<TabsProps>) {
       {panels}
     </ChakraTabs>
   );
-}
+});
 
-export { Tabs, TabList, Tab, TabPanels, TabPanel };
+// Tabs is also exported above so the props can display in Storybook.
+export { TabList, Tab, TabPanels, TabPanel };
+export default Tabs;

@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { VStack } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -8,9 +10,13 @@ import {
 import { withDesign } from "storybook-addon-designs";
 import { withQuery } from "@storybook/addon-queryparams";
 
+import Button from "../Button/Button";
+import DSProvider from "../../theme/provider";
 import Pagination from "./Pagination";
-import * as stories from "./Pagination.stories.tsx";
 import { getCategory } from "../../utils/componentCategories";
+import { getStorybookHrefProps } from "../../utils/utils";
+
+export const hrefProps = getStorybookHrefProps(10);
 
 <Meta
   title={getCategory("Pagination")}
@@ -25,6 +31,7 @@ import { getCategory } from "../../utils/componentCategories";
   }}
   argTypes={{
     className: { control: false },
+    currentPage: { control: false },
     getPageHref: { control: false },
     id: { control: false },
     initialPage: { table: { defaultValue: { summary: 1 } } },
@@ -37,7 +44,16 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.10`   |
-| Latest            | `0.25.3`   |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Accessibility](#accessibility)
+- [Pagination with URL Updates](#pagination-with-url-updates)
+- [Pagination with Unchanging URL](#pagination-with-unchanging-url)
+
+## Overview
 
 <Description of={Pagination} />
 
@@ -45,7 +61,18 @@ The `Pagination` component helps navigate between pages of a multi-page
 application. It is commonly used on a search results page. Update the `pageCount`
 prop in the Controls to explore this component with many or few pages.
 
-Pagination uses anchor tags because it is navigating between URLs.
+## Accessibility
+
+Internally, the `Pagination` component is implemented with a `<nav>` element with
+an `aria-label` attribute of `"Pagination"` and an unordered `<ul>` element. This
+component uses anchor `<a>` tags because it is navigating between URLs. In the
+"unchanging URL" variation, each anchor tag has an `href` attribute with a value
+of `"#"`, because the URL is not changing.
+
+Resources:
+
+- [W3C Design System Pagination](https://design-system.w3.org/components/pagination.html)
+- [a11ymatters Accessible Pagination](https://www.a11ymatters.com/pattern/pagination/)
 
 ## Pagination with URL Updates
 
@@ -73,14 +100,13 @@ const getPageHref = (selectedPage: number) => {
     name="Pagination with URL Updates"
     args={{
       className: undefined,
-      getPageHref: undefined,
+      getPageHref: hrefProps.getPageHref,
       id: "pagination-id",
-      initialPage: 1,
-      onPageChange: undefined,
+      initialPage: hrefProps.computedCurrentPage || 1,
       pageCount: 10,
     }}
   >
-    {(args) => stories.PaginationGetPageHref(args)}
+    {(args) => <Pagination {...args} onPageChange={undefined} />}
   </Story>
 </Canvas>
 
@@ -93,14 +119,14 @@ function passed as a prop and that the URL is updated whenever a page is
 changed. However, the optional `onPageChange` prop is available in case URL
 updating is not desired.
 
-In the following example, the `onPageChange` function gets the current page as
+In the following example, the `onPageChange` function gets the selected page as
 its only function argument. This is computed internally in the `Pagination`
 component through its own state.
 
 ```tsx
 // Example in a search results page.
-const onPageChange = (currentPage: number) => {
-  console.log(`Current page: ${currentPage}`);
+const onPageChange = (selectedPage: number) => {
+  console.log(`Current page: ${selectedPage}`);
   // Do what you need to with the `currentPage` value.
 };
 ```
@@ -110,13 +136,50 @@ const onPageChange = (currentPage: number) => {
     name="Pagination with Unchanging URL"
     args={{
       className: undefined,
-      getPageHref: undefined,
       id: "pagination-id-2",
       initialPage: 7,
-      onPageChange: undefined,
+      onPageChange: (selectedPage) => {
+        console.log(`Current page: ${selectedPage}`);
+      },
       pageCount: 100,
     }}
   >
-    {(args) => stories.PaginationOnPageChange(args)}
+    {(args) => <Pagination {...args} getPageHref={undefined} />}
   </Story>
+</Canvas>
+
+### Forcing a Page Change Programmatically
+
+There may be circumstances when you want to programmatically force the page
+number to change without the user explicitly requesting it (for example, if
+you want a user to be brought back to page 1 after entering a new search term).
+You can use the `currentPage` prop to do this. Note, the `currentPage` prop can
+only be used with the client-side, unchanging URL version of the `Pagination`
+component, and in combination with the `onPageChange` function.
+
+The following example shows that the user can be brought to page 1 without clicking
+on the `Pagination` component.
+
+export function CurrentPagePaginationExample() {
+  const [page, setPage] = useState(1);
+  const handleClick = () => setPage(1);
+  const handleSelection = (selectedPage) => setPage(selectedPage);
+  return (
+    <VStack align="start" spacing={6}>
+      <Pagination
+        pageCount={10}
+        currentPage={page}
+        onPageChange={(selectedPage) => handleSelection(selectedPage)}
+      />
+      <Button type="button" buttonType="primary" onClick={handleClick}>
+        Go to Page 1
+      </Button>
+    </VStack>
+  );
+}
+
+<Canvas>
+  <DSProvider>
+    <CurrentPagePaginationExample />
+  </DSProvider>
 </Canvas>

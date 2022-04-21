@@ -1,50 +1,88 @@
-import { helperTextMargin } from "./global";
+import { cssVar } from "@chakra-ui/theme-tools";
+import { ToggleSizes } from "../../components/Toggle/ToggleTypes";
 
-const baseStyle = {
-  label: { display: "flex", alignItems: "center", width: "fit-content" },
-  helper: {
-    ...helperTextMargin,
-    marginLeft: "xs",
-  },
+const toggleBaseStyle = ({ isDisabled, size }) => {
+  const label = { alignItems: "start", display: "flex", width: "fit-content" };
+  const helperErrorText = {
+    marginLeft: size === ToggleSizes.Default ? "xxl" : "xl",
+    fontStyle: isDisabled ? "italic" : null,
+  };
+  return {
+    label,
+    helperErrorText,
+  };
 };
+const $width = cssVar("switch-track-width");
+const $height = cssVar("switch-track-height");
 
 const Switch = {
-  baseStyle: {
-    opacity: 0.4,
-    track: {
-      p: "4px",
-      border: "1px solid",
-      borderColor: "ui.gray.medium",
-      _checked: {
-        borderColor: "ui.link.primary",
-        bg: "ui.link.primary",
-        opacity: 1,
+  baseStyle: ({ size }: { size: string }) => {
+    return {
+      alignItems: "start",
+      opacity: 0.4,
+      track: {
+        border: "1px solid",
+        borderColor: "ui.gray.medium",
+        p: "1px",
+        _checked: {
+          bg: "ui.link.primary",
+          borderColor: "ui.link.primary",
+          opacity: 1,
+        },
+        _invalid: {
+          bg: "inherit",
+          borderColor: "ui.error.primary",
+          "> span": {
+            bg: "ui.error.primary",
+          },
+        },
+        _disabled: {
+          bg: "ui.gray.medium",
+          borderColor: "ui.gray.medium",
+          _checked: {
+            opacity: 0.4,
+          },
+        },
+        _focus: {
+          outline: "2px solid",
+          outlineColor: "ui.focus",
+          outlineOffset: "2px",
+          zIndex: "9999",
+        },
       },
-      _invalid: {
-        borderColor: "ui.error.primary",
-        bg: "inherit",
-        "> span": {
+      label: {
+        fontSize: "label.default",
+        marginLeft: "xs",
+        marginTop: size === "lg" ? "xxxs" : null,
+        _disabled: {
+          color: "ui.gray.dark",
+          fontStyle: "italic",
+        },
+      },
+      thumb: {
+        _disabled: {
           bg: "ui.error.primary",
         },
       },
-      _disabled: {
-        borderColor: "ui.gray.medium",
-        bg: "ui.gray.medium",
-        _checked: {
-          opacity: 0.4,
-        },
-      },
-      _focus: {
-        outline: "2px solid",
-        outlineColor: "ui.focus",
-        outlineOffset: "2px",
-        zIndex: "9999",
+    };
+  },
+  sizes: {
+    sm: {
+      container: {
+        // Chakra defaults for `sm`:
+        // width: 1.375rem
+        // height: 0.75rem
+        [$width.variable]: "2.25rem",
+        [$height.variable]: "1rem",
       },
     },
-    label: { fontSize: -1, marginLeft: "xs" },
-    thumb: {
-      _disabled: {
-        bg: "ui.error.primary",
+    lg: {
+      container: {
+        // Chakra defaults for `lg`:
+        // width: 2.875rem
+        // height: 1.5rem
+        [$width.variable]: "3.25rem",
+        [$height.variable]: "1.5rem",
       },
     },
   },
@@ -54,8 +92,8 @@ const Switch = {
 };
 
 const Toggle = {
-  parts: ["helper"],
-  baseStyle,
+  parts: ["helperErrorText"],
+  baseStyle: toggleBaseStyle,
   // Default values
   defaultProps: {
     size: "lg",

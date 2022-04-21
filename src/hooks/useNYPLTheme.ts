@@ -9,7 +9,7 @@ function useNYPLTheme() {
   const theme = useTheme();
   if (!theme || Object.keys(theme).length === 0) {
     console.warn(
-      "The `useNYPLTheme` hook must be used inside of `<DSProvider />`."
+      "NYPL Reservoir useNYPLTheme: hook must be used inside of `<DSProvider />`."
     );
     return {};
   }
@@ -22,8 +22,8 @@ function useNYPLTheme() {
     colors: {
       // primary, secondary
       brand: theme.colors.brand,
-      // blogs, books-and-more, locations, research,
-      // research-library, whats-on
+      // blogs, books-and-more, education, locations,
+      // research, research-library, whats-on
       section: theme.colors.section,
       transparent: theme.colors.transparent,
       // black, disabled, error, focus, gray, link,
@@ -32,19 +32,43 @@ function useNYPLTheme() {
     },
     fontSizes: {
       "-3": theme.fontSizes["-3"],
-      "-2": theme.fontSizes.xs,
-      "-1": theme.fontSizes.sm,
-      "0": theme.fontSizes.md,
-      "1": theme.fontSizes.lg,
+      "-2": theme.fontSizes["-2"],
+      "-1": theme.fontSizes["-1"],
+      "0": theme.fontSizes["0"],
+      "1": theme.fontSizes["1"],
       "2": theme.fontSizes["2"],
       "3": theme.fontSizes["3"],
       "4": theme.fontSizes["4"],
+      // default
+      breadcrumbs: theme.fontSizes.breadcrumbs,
+      // default
+      button: theme.fontSizes.button,
+      // primary, secondary, tertiary, callout
+      heading: theme.fontSizes.heading,
+      // default
+      helper: theme.fontSizes.helper,
+      // default, secondary
+      label: theme.fontSizes.label,
+      // default, caption, tag, mini
+      text: theme.fontSizes.text,
     },
     fontWeights: {
       light: theme.fontWeights.light,
       regular: theme.fontWeights.regular,
       medium: theme.fontWeights.medium,
       bold: theme.fontWeights.bold,
+      // default, lastChild
+      breadcrumbs: theme.fontWeights.breadcrumbs,
+      // default
+      button: theme.fontWeights.button,
+      // primary, secondary, tertiary, callout
+      heading: theme.fontWeights.heading,
+      // default
+      helper: theme.fontWeights.helper,
+      // default
+      label: theme.fontWeights.label,
+      // default, caption, tag, mini
+      text: theme.fontWeights.text,
     },
     fonts: {
       body: theme.fonts.body,

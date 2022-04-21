@@ -8,7 +8,7 @@ const margins = {
 };
 
 // Heading Styles
-const headings = {
+export const headings = {
   h1: {
     fontSize: "heading.primary", // var(--nypl-fontSizes-4);
     fontWeight: "heading.primary",

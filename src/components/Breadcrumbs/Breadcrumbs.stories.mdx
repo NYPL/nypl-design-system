@@ -8,7 +8,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Breadcrumbs from "./Breadcrumbs";
-import { ColorVariants } from "./BreadcrumbsTypes";
+import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import Link from "../Link/Link";
@@ -17,8 +17,8 @@ import DSProvider from "../../theme/provider";
 import { getStorybookEnumValues } from "../../utils/utils";
 
 export const enumValues = getStorybookEnumValues(
-  ColorVariants,
-  "ColorVariants"
+  BreadcrumbsTypes,
+  "BreadcrumbsTypes"
 );
 
 <Meta
@@ -36,7 +36,7 @@ export const enumValues = getStorybookEnumValues(
     additionalStyles: { control: false },
     breadcrumbsData: { control: false },
     className: { control: false },
-    colorVariant: {
+    breadcrumbsType: {
       control: { type: "select" },
       options: enumValues.options,
     },
@@ -49,11 +49,25 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.3`    |
-| Latest            | `0.25.8`   |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Long Titles](#long-titles)
+- [Color Variations](#color-variations)
+
+## Overview
 
 <Description of={Breadcrumbs} />
 
-The `Breadcrumbs` component is a navigation element that provides a breadcrumb path that reflects the site structure and allows a user to navigate to any page available in the breadcrumb hierarchy.
+The `Breadcrumbs` component is a navigation element that provides a breadcrumb
+path that reflects the site structure and allows a user to navigate to any page
+available in the breadcrumb hierarchy.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -66,14 +80,14 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
         { url: "#", text: "Grandchild" },
       ],
       className: undefined,
-      colorVariant: undefined,
+      breadcrumbsType: undefined,
       id: "breadcrumbs-id",
     }}
   >
     {(args) => (
       <Breadcrumbs
         {...args}
-        colorVariant={enumValues.getValue(args.colorVariant)}
+        breadcrumbsType={enumValues.getValue(args.breadcrumbsType)}
       />
     )}
   </Story>
@@ -81,7 +95,20 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
 
 <ArgsTable story="Breadcrumbs with Controls" />
 
-### Long Titles
+### Accessibility
+
+Only one `Breadcrumbs` component should be rendered on a page. This is because
+only one HTML `<nav>` element with an `aria-label` attribute value of
+"Breadcrumbs" should be rendered on a page. The DS `Breadcrumbs` component
+renders this HTML landmark so only one component must be rendered on a page.
+
+Internally, links are organized in a `ul` list element. The current page link is
+denoted by an `aria-current` attribute value of "page".
+
+- [W3 Breadcrumbs Practice](https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html)
+- [Chakra UI Breadcrumb](https://chakra-ui.com/docs/components/navigation/breadcrumb)
+
+## Long Titles
 
 <Canvas>
   <DSProvider>
@@ -104,13 +131,15 @@ The `Breadcrumbs` component is a navigation element that provides a breadcrumb p
 
 ## Color Variations
 
-The `Breadcrumbs` component background color can be set using the `colorVariant` prop and the `ColorVariants` enum. If the `colorVariant` prop is omitted, the default background color is `black`.
+The `Breadcrumbs` component background color can be set using the `breadcrumbsType`
+prop and the `BreadcrumbsTypes` enum. If the `breadcrumbsType` prop is omitted,
+the default background color is `black`.
 
 <Canvas>
   <Story
     name="Color Variations"
     args={{
-      colorVariant: ColorVariants.Blogs,
+      breadcrumbsType: BreadcrumbsTypes.Blogs,
     }}
   >
     {(args) => (
@@ -125,7 +154,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
               text: "Grandchild",
             },
           ]}
-          colorVariant={args.colorVariant}
+          breadcrumbsType={args.breadcrumbsType}
         />
       </>
     )}
@@ -144,7 +173,24 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.BooksAndMore}
+      breadcrumbsType={BreadcrumbsTypes.BooksAndMore}
+    />
+  </DSProvider>
+</Canvas>
+
+<Canvas>
+  <DSProvider>
+    <Heading level={HeadingLevels.Three}>Education</Heading>
+    <Breadcrumbs
+      breadcrumbsData={[
+        { url: "#", text: "Parent" },
+        { url: "#", text: "Child" },
+        {
+          url: "#",
+          text: "Grandchild",
+        },
+      ]}
+      breadcrumbsType={BreadcrumbsTypes.Education}
     />
   </DSProvider>
 </Canvas>
@@ -161,7 +207,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.Locations}
+      breadcrumbsType={BreadcrumbsTypes.Locations}
     />
   </DSProvider>
 </Canvas>
@@ -178,7 +224,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.Research}
+      breadcrumbsType={BreadcrumbsTypes.Research}
     />
   </DSProvider>
 </Canvas>
@@ -195,7 +241,7 @@ The `Breadcrumbs` component background color can be set using the `colorVariant`
           text: "Grandchild",
         },
       ]}
-      colorVariant={ColorVariants.WhatsOn}
+      breadcrumbsType={BreadcrumbsTypes.WhatsOn}
     />
   </DSProvider>
 </Canvas>

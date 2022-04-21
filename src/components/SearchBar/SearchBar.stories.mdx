@@ -60,7 +60,20 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.9`   |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Form Components](#form-components)
+- [Search Autocomplete](#search-autocomplete)
+- [Form States](#form-states)
+- [With Heading and Description Text](#with-heading-and-description-text)
+- [TextInput and onSubmit Values](#textinput-and-onsubmit-values)
+
+## Overview
 
 <Description of={SearchBar} />
 
@@ -89,6 +102,8 @@ export const optionsGroup = [
   "Villagers",
 ];
 
+## Component Props
+
 <Canvas withToolbar>
   <Story
     name="SearchBar with Controls"
@@ -96,7 +111,7 @@ export const optionsGroup = [
       action: undefined,
       buttonOnClick: undefined,
       className: undefined,
-      helperErrorText: "Search for items in Animal Crossing New Horizons",
+      helperText: "Search for items in Animal Crossing New Horizons",
       id: "searchBar-id",
       invalidText: "Could not find the item :(",
       isDisabled: false,
@@ -113,47 +128,75 @@ export const optionsGroup = [
       textInputProps: undefined,
     }}
   >
-    {(args) => (
-      <SearchBar
-        {...args}
-        selectProps={
-          args.showSelect && {
-            labelText: "Select a category",
-            name: "selectName",
-            optionsData: optionsGroup,
+    {(args) => {
+      const { helperText, showHelperText, showSelect, ...rest } = args;
+      return (
+        <SearchBar
+          {...rest}
+          selectProps={
+            showSelect && {
+              labelText: "Select a category",
+              name: "selectName",
+              optionsData: optionsGroup,
+            }
           }
-        }
-        textInputProps={{
-          labelText: "Item Search",
-          name: "textInputName",
-          placeholder: "Item Search",
-        }}
-        helperErrorText={args.showHelperText && args.helperErrorText}
-      />
-    )}
+          textInputProps={{
+            labelText: "Item Search",
+            name: "textInputName",
+            placeholder: "Item Search",
+          }}
+          helperText={showHelperText && helperText}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
 <ArgsTable story="SearchBar with Controls" />
 
-## Component Props
+## Accessibility
+
+The `SearchBar` component is implemented with Reservoir `Select`, `TextInput`,
+and `Button` accessible components. This a "complete" component that renders an
+HTML `<form>` element that is submitted with a `<button>` element of `type="submit"`.
+The `<form>` element also has a `role="search"` attribute that allows
+screenreaders to pick up this entire search form.
+
+Resources:
+
+- [Reservoir Select](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/components-form-elements-select--select-with-controls)
+- [Reservoir TextInput](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/components-form-elements-textinput--text-input-with-controls)
+- [a11ymatters Accessible Search Form](https://www.a11ymatters.com/pattern/accessible-search/)
+- [MDN ARIA: search role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/search_role)
+
+## Form Components
 
 ### Select Component
 
 To render an optional `Select` component, an object must be passed to the
 `selectProps` prop. It _must_ include `name`, `labelText`, and `optionsData`
-properties. The `labelText` value won't be rendered but will be used for its
-`aria-label` attribute.
+properties. The `onChange` and `value` properties are optional. The `labelText`
+value won't be rendered but will be used for its `aria-label` attribute.
+
+If you want to control the `Select` component, you **must** pass the `onChange`
+and `value` props to the `selectProps` prop object. You must then control the
+state of the selected value in your application. See the example at end of this
+page for a full demonstration.
 
 ```
 const selectProps = {
-  name: "select-form-name",
   labelText: "Select a category",
+  name: "select-form-name",
+  onChange: (event) => {
+    console.log(event.target.value);
+  },
   optionsData: optionsGroup,
+  value: "Art",
 };
 
 // ...
 <SearchBar
+  id="searchBar"
   onSubmit={() => {}}
   selectProps={selectProps}
   // ...
@@ -163,9 +206,9 @@ const selectProps = {
 ### TextInput Component
 
 To render the `TextInput` component, an object must be passed to the
-`textInputProps` prop. It _must_ include `labelText`, `name`, and `placeholder`
-properties. The `labelText` value won't be rendered but will be used for its
-`aria-label` attribute. Optional values to pass include `onChange` and `value`.
+`textInputProps` prop. It _must_ include `labelText` and `name` properties. The
+`labelText` value won't be rendered but will be used for its `aria-label`
+attribute. Optional properties to pass include `onChange`, `placeholder`, and `value`.
 
 ```
 const textInputProps = {
@@ -180,6 +223,7 @@ const textInputProps = {
 
 // ...
 <SearchBar
+  id="searchBar"
   onSubmit={() => {}}
   textInputProps={textInputProps}
   // ...
@@ -197,6 +241,7 @@ const textInputElement = <CustomInput {...props} />;
 
 // ...
 <SearchBar
+  id="searchBar"
   onSubmit={() => {}}
   textInputElement={textInputElement}
   // ...
@@ -215,20 +260,50 @@ style is used by default.
 
 ### HelperErrorText Component
 
-To render the `HelperErrorText` component, pass a string value to the
-`helperErrorText` prop. For the invalid state when `isInvalid` is true, pass the
-error string in the `invalidText` prop.
+To render the `HelperErrorText` component, pass a string or HTML to the
+`helperText` prop. For the invalid state when `isInvalid` is true, pass the
+error string or HTML in the `invalidText` prop.
 
 ```
-const helperErrorText = "";
+const helperText = "";
 
 // ...
 <SearchBar
+  id="searchBar"
   onSubmit={() => {}}
-  helperErrorText="Search for items in Animal Crossing New Horizons"
+  helperText="Search for items in <b>Animal Crossing New Horizons</b>."
   // ...
 />
 ```
+
+<Canvas>
+  <DSProvider>
+    <SearchBar
+      descriptionText="The helper text below contains HTML in a string."
+      helperText="Search for items in <b>Animal Crossing New Horizons</b>."
+      id="helper-text"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+    <br />
+    <SearchBar
+      descriptionText="The invalid text below contains HTML in a string."
+      id="invalid-text"
+      isInvalid
+      invalidText="Could <b>not</b> find the item <b>:(</b>"
+      onSubmit={() => {}}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  </DSProvider>
+</Canvas>
 
 ## Search Autocomplete
 
@@ -247,6 +322,7 @@ precedence.
   <Story
     name="Search Autocomplete"
     args={{
+      id: "autocomplete",
       isDisabled: false,
       isInvalid: false,
       isRequired: false,
@@ -257,7 +333,7 @@ precedence.
         <SearchBar
           onSubmit={() => {}}
           textInputElement={stories.SearchBarExample()}
-          helperErrorText="Select your home library. Start by typing the name of the library. Try 'ba'."
+          helperText="Select your home library. Start by typing the name of the library. Try 'ba'."
           {...args}
         />
       </div>
@@ -265,7 +341,7 @@ precedence.
   </Story>
 </Canvas>
 
-## Other Examples
+## Form States
 
 Use the Controls in the `Basic` example to see different states in real time.
 Here are the same possible states of the `SearchBar` component in static examples.
@@ -279,15 +355,16 @@ handle the error state yourself.
 <Canvas>
   <DSProvider>
     <SearchBar
+      helperText="This is the helper text!"
+      id="error-state"
+      invalidText="Could not find the item :("
+      isInvalid
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
         name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperErrorText="This is the helper text!"
-      invalidText="Could not find the item :("
-      isInvalid
     />
   </DSProvider>
 </Canvas>
@@ -301,19 +378,20 @@ handle the disabled state yourself.
 <Canvas>
   <DSProvider>
     <SearchBar
+      helperText="Reason for disabled state."
+      id="disabled-state"
+      isDisabled
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
         name: "textInputName",
         placeholder: "Item Search",
       }}
-      helperErrorText="Reason for disabled state."
-      isDisabled
     />
   </DSProvider>
 </Canvas>
 
-### With Heading and Description Text
+## With Heading and Description Text
 
 Use the `descriptionText` and `headingText` props to render a heading and
 description above the main `SearchBar` form component.
@@ -323,6 +401,7 @@ description above the main `SearchBar` form component.
     <SearchBar
       descriptionText="This is the description for this `SearchBar` instance."
       headingText="Heading for this `SearchBar`"
+      id="heading-and-description"
       onSubmit={() => {}}
       textInputProps={{
         labelText: "Item Search",
@@ -333,7 +412,7 @@ description above the main `SearchBar` form component.
   </DSProvider>
 </Canvas>
 
-### TextInput and onSubmit Values
+## TextInput and onSubmit Values
 
 _NOTE: open the browser console to see the values logged in the example below._
 
@@ -357,7 +436,12 @@ values can be retrieved as `event.target.selectName.value` and
 `event.target.textInputName.value`.
 
 ```tsx
-function SearchBarValueExample() {
+export function SearchBarValueExample() {
+  const [selectValue, setSelectValue] = React.useState("Tools");
+  const selectOnChange = (event) => {
+    console.log(`onChange Select value: ${event.target.value}`);
+    setSelectValue(event.target.value);
+  };
   const textInputOnChange = (event) => {
     console.log(`onChange TextInput value: ${event.target.value}`);
   };
@@ -368,11 +452,16 @@ function SearchBarValueExample() {
   };
   return (
     <SearchBar
+      helperText="Search for an item"
+      invalidText="Could not find the item :("
+      id="example-1"
       onSubmit={onSubmit}
       selectProps={{
         labelText: "Select a category",
         name: "selectName",
+        onChange: selectOnChange,
         optionsData: optionsGroup,
+        value: selectValue,
       }}
       textInputProps={{
         labelText: "Item Search",
@@ -380,14 +469,17 @@ function SearchBarValueExample() {
         onChange: textInputOnChange,
         placeholder: "Item Search",
       }}
-      helperErrorText="Search for an item"
-      invalidText="Could not find the item :("
     />
   );
 }
 ```
 
 export function SearchBarValueExample() {
+  const [selectValue, setSelectValue] = React.useState("Tools");
+  const selectOnChange = (event) => {
+    console.log(`onChange Select value: ${event.target.value}`);
+    setSelectValue(event.target.value);
+  };
   const textInputOnChange = (event) => {
     console.log(`onChange TextInput value: ${event.target.value}`);
   };
@@ -398,11 +490,16 @@ export function SearchBarValueExample() {
   };
   return (
     <SearchBar
+      helperText="Search for an item"
+      invalidText="Could not find the item :("
+      id="example-1"
       onSubmit={onSubmit}
       selectProps={{
         labelText: "Select a category",
         name: "selectName",
+        onChange: selectOnChange,
         optionsData: optionsGroup,
+        value: selectValue,
       }}
       textInputProps={{
         labelText: "Item Search",
@@ -410,8 +507,6 @@ export function SearchBarValueExample() {
         onChange: textInputOnChange,
         placeholder: "Item Search",
       }}
-      helperErrorText="Search for an item"
-      invalidText="Could not find the item :("
     />
   );
 }

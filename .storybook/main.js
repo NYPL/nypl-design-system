@@ -4,10 +4,9 @@ const toPath = (_path) => path.join(process.cwd(), _path);
 module.exports = {
   // Where are the stories?
   stories: [
-    "../src/docs/Intro.stories.mdx",
-    "../src/docs/Chakra.stories.mdx",
-    "../src/components/StyleGuide/*.stories.@(tsx|mdx)",
+    "../src/docs/*.stories.mdx",
     "../src/components/**/*.stories.@(tsx|mdx)",
+    "../src/hooks/*.stories.@(tsx|mdx)",
   ],
   // Each addon is added here by either it's name in a string or an object
   // configuration for that addon.
@@ -38,6 +37,20 @@ module.exports = {
     // Display the enum variable name rather than the compiled values.
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: false,
+      // Do we want to display Chakra props in Storybook? Nope.
+      // They are useful but it clutters the Storybook file and the Chakra
+      // docs are easy to access on their own site. DS components still
+      // accept Chakra props but this handles whether they are displayed
+      // or not in Storybook.
+      propFilter: (prop) => {
+        // This is a bit of a "hack" but it just tells us that the prop
+        // is defined in a DS component. If we define it, display it!
+        // Specifically in the `ArgsTable` section of Storybook.
+        const isDSProp =
+          prop.parent &&
+          prop.parent.fileName.includes("nypl-design-system/src/components");
+        return isDSProp;
+      },
     },
   },
   refs: {

@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import Image from "../Image/Image";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
 import { HeroTypes } from "./HeroTypes";
@@ -18,10 +17,11 @@ export const subHeaderText = (
   </>
 );
 export const otherSubHeaderText =
-  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
-export const image = (
-  <Image src="https://placeimg.com/800/400/animals" alt="Image example" />
-);
+  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New " +
+  "York Public Library is an essential part of neighborhoods across the city. " +
+  "Visit us today.";
+const imageAlt = "Image example";
+const imageSrc = "https://placeimg.com/800/400/animals";
 
 describe("Hero", () => {
   describe("axe accessbility tests", () => {
@@ -54,8 +54,9 @@ describe("Hero", () => {
               text="Hero Secondary"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -81,6 +82,7 @@ describe("Hero", () => {
     it("passes for type Campaign", async () => {
       const { container } = render(
         <Hero
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
           heroType={HeroTypes.Campaign}
           heading={
             <Heading
@@ -89,9 +91,9 @@ describe("Hero", () => {
               text="Hero Campaign"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
-          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          image={image}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -101,8 +103,9 @@ describe("Hero", () => {
       const { container } = render(
         <Hero
           heroType={HeroTypes.FiftyFifty}
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
-          image={image}
         />
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -144,8 +147,9 @@ describe("Hero", () => {
             text="Hero Secondary"
           />
         }
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={subHeaderText}
-        image={image}
       />
     );
 
@@ -181,6 +185,7 @@ describe("Hero", () => {
   it("renders Campaign Hero", () => {
     render(
       <Hero
+        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         heroType={HeroTypes.Campaign}
         heading={
           <Heading
@@ -189,9 +194,9 @@ describe("Hero", () => {
             text="Hero Campaign"
           />
         }
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        image={image}
       />
     );
 
@@ -212,8 +217,9 @@ describe("Hero", () => {
     render(
       <Hero
         heroType={HeroTypes.FiftyFifty}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
-        image={image}
       />
     );
 
@@ -249,11 +255,12 @@ describe("Hero", () => {
 
     rerender(
       <Hero
-        heroType={HeroTypes.FiftyFifty}
-        subHeaderText={otherSubHeaderText}
-        image={image}
-        foregroundColor="#123456"
         backgroundColor="#654321"
+        foregroundColor="#123456"
+        heroType={HeroTypes.FiftyFifty}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={otherSubHeaderText}
       />
     );
 
@@ -264,6 +271,8 @@ describe("Hero", () => {
 
     rerender(
       <Hero
+        backgroundColor="#654321"
+        foregroundColor="#123456"
         heroType={HeroTypes.Secondary}
         heading={
           <Heading
@@ -272,16 +281,30 @@ describe("Hero", () => {
             text="Hero Secondary"
           />
         }
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={subHeaderText}
-        image={image}
-        foregroundColor="#123456"
-        backgroundColor="#654321"
       />
     );
 
     expect(screen.getByTestId("hero-content")).not.toHaveAttribute(
       "style",
       "color: rgb(18, 52, 86); background-color: rgb(101, 67, 33);"
+    );
+  });
+
+  it("logs a warning if `imageSrc` prop is passed but not `imageAlt`", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        heroType={HeroTypes.Primary}
+        imageSrc={imageSrc}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      `NYPL Reservoir: The "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
     );
   });
 
@@ -298,19 +321,22 @@ describe("Hero", () => {
       <Hero heroType={HeroTypes.Primary} heading={heading} />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: it is recommended to use the "backgroundImageSrc" prop for PRIMARY hero.`
+      "NYPL Reservoir Hero: It is recommended to use the `backgroundImageSrc` " +
+        "prop for the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
       <Hero
+        backgroundImageSrc="https://placeimg.com/1600/800/arch"
         heroType={HeroTypes.Primary}
         heading={heading}
-        backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: the "image" prop has been passed, but PRIMARY hero will not use it.`
+      "NYPL Reservoir Hero: The `imageSrc` and `imageAlt` props have been passed, " +
+        "but the `HeroTypes.Primary` `heroType` variant will not use it."
     );
   });
 
@@ -327,40 +353,47 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.Secondary}
         heading={heading}
-        subHeaderText={subHeaderText}
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         locationDetails={<>Some location details.</>}
+        subHeaderText={subHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
       <Hero
-        heroType={HeroTypes.Secondary}
-        heading={heading}
-        subHeaderText={subHeaderText}
-        image={image}
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        heroType={HeroTypes.Secondary}
+        heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={subHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: the "backgroundImageSrc" prop has been passed, but SECONDARY hero will not use it.`
+      "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
+        "but the `HeroTypes.Secondary` `heroType` variant will not use it."
     );
 
     rerender(
       <Hero
+        backgroundColor="#654321"
+        foregroundColor="#123456"
         heroType={HeroTypes.Secondary}
         heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={subHeaderText}
-        image={image}
-        foregroundColor="#123456"
-        backgroundColor="#654321"
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: the "foregroundColor" and/or "backgroundColor" props have been passed, but SECONDARY Hero will not use them.`
+      "NYPL Reservoir Hero: The `foregroundColor` and/or `backgroundColor` " +
+        "props have been passed, but the `HeroTypes.Secondary` `heroType` " +
+        "variant will not use them."
     );
   });
 
@@ -382,31 +415,35 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
       <Hero
         heroType={HeroTypes.Tertiary}
         heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
-        image={image}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: TERTIARY hero will not use any of the image props.`
+      "NYPL Reservoir Hero: The `HeroTypes.Tertiary` `heroType` variant hero " +
+        "will not use any of the image props."
     );
 
     rerender(
       <Hero
-        heroType={HeroTypes.Tertiary}
-        heading={heading}
-        subHeaderText={otherSubHeaderText}
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
+        heroType={HeroTypes.Tertiary}
+        heading={heading}
+        subHeaderText={otherSubHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: TERTIARY hero will not use any of the image props.`
+      "NYPL Reservoir Hero: The `HeroTypes.Tertiary` `heroType` variant hero " +
+        "will not use any of the image props."
     );
   });
 
@@ -421,16 +458,34 @@ describe("Hero", () => {
     );
     const { rerender } = render(
       <Hero
+        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         heroType={HeroTypes.Campaign}
         heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        locationDetails={<>Some location details.</>}
         subHeaderText={otherSubHeaderText}
-        backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        image={image}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
+    );
+
+    rerender(
+      <Hero
+        heroType={HeroTypes.Campaign}
+        heading={heading}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={otherSubHeaderText}
         locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: It is recommended to use both the " +
+        "`backgroundImageSrc` and `imageSrc` props for the `HeroTypes.Campaign` " +
+        "`heroType` variant."
     );
 
     rerender(
@@ -438,25 +493,14 @@ describe("Hero", () => {
         heroType={HeroTypes.Campaign}
         heading={heading}
         subHeaderText={otherSubHeaderText}
-        image={image}
-        locationDetails={<>Some location details.</>}
-      />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      `Warning: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
-    );
-
-    rerender(
-      <Hero
-        heroType={HeroTypes.Campaign}
-        heading={heading}
-        subHeaderText={otherSubHeaderText}
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: it is recommended to use both "backgroundImageSrc" and "image" props for CAMPAIGN hero.`
+      "NYPL Reservoir Hero: It is recommended to use both the " +
+        "`backgroundImageSrc` and `imageSrc` props for the `HeroTypes.Campaign` " +
+        "`heroType` variant."
     );
   });
 
@@ -466,24 +510,28 @@ describe("Hero", () => {
       <Hero
         heroType={HeroTypes.FiftyFifty}
         subHeaderText={otherSubHeaderText}
-        image={image}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
         locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: Please provide "locationDetails" only to PRIMARY hero.`
+      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
+        "with the `HeroTypes.Primary` `heroType` variant."
     );
 
     rerender(
       <Hero
-        heroType={HeroTypes.FiftyFifty}
-        subHeaderText={otherSubHeaderText}
-        image={image}
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
+        heroType={HeroTypes.FiftyFifty}
+        imageAlt={imageAlt}
+        imageSrc={imageSrc}
+        subHeaderText={otherSubHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      `Warning: the "backgroundImageSrc" prop has been passed, but FIFTYFIFTY hero will not use it.`
+      "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
+        "but the `HeroTypes.FiftyFifty` `heroType` variant hero will not use it."
     );
   });
 
@@ -515,8 +563,9 @@ describe("Hero", () => {
               text="Hero Secondary"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
@@ -531,8 +580,9 @@ describe("Hero", () => {
               text="Hero Secondary Books and More"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
@@ -547,8 +597,9 @@ describe("Hero", () => {
               text="Hero Secondary Locations"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
@@ -563,8 +614,9 @@ describe("Hero", () => {
               text="Hero Secondary"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
@@ -579,14 +631,16 @@ describe("Hero", () => {
               text="Hero Secondary What's On"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={subHeaderText}
-          image={image}
         />
       )
       .toJSON();
     const campaign = renderer
       .create(
         <Hero
+          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
           heroType={HeroTypes.Campaign}
           heading={
             <Heading
@@ -595,9 +649,9 @@ describe("Hero", () => {
               text="Hero Campaign"
             />
           }
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
-          backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          image={image}
         />
       )
       .toJSON();
@@ -620,8 +674,40 @@ describe("Hero", () => {
       .create(
         <Hero
           heroType={HeroTypes.FiftyFifty}
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
-          image={image}
+        />
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.Primary}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="chakra"
+              text="Hero Primary"
+            />
+          }
+          subHeaderText="Example Subtitle"
+          backgroundImageSrc="https://placeimg.com/1600/800/arch"
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.Primary}
+          heading={
+            <Heading level={HeadingLevels.One} id="props" text="Hero Primary" />
+          }
+          subHeaderText="Example Subtitle"
+          backgroundImageSrc="https://placeimg.com/1600/800/arch"
+          data-testid="props"
         />
       )
       .toJSON();
@@ -635,5 +721,7 @@ describe("Hero", () => {
     expect(tertiary).toMatchSnapshot();
     expect(campaign).toMatchSnapshot();
     expect(fiftyFifty).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -4,7 +4,7 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Heading from "./Heading";
-import { HeadingDisplaySizes, HeadingLevels } from "./HeadingTypes";
+import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 
 describe("Heading Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -30,6 +30,11 @@ describe("Heading", () => {
     );
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
     expect(screen.getByText("Heading 2")).toBeInTheDocument();
+  });
+
+  it("renders the default level two if no `level` prop is passed", () => {
+    render(<Heading id="h2">Heading 2</Heading>);
+    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
   });
 
   // TODO: check that header children are links
@@ -86,15 +91,9 @@ describe("Heading", () => {
     );
   });
 
-  it("throws an error when an invalid heading number passed", () => {
-    expect(() =>
-      render(<Heading id="h1" level={9} text="Heading 9" />)
-    ).toThrow("Heading only supports levels 1-6");
-  });
-
   it("throws error when neither child nor text is passed", () => {
-    expect(() => render(<Heading id="h1" level={9} />)).toThrow(
-      "Heading only supports levels 1-6"
+    expect(() => render(<Heading id="h1" level={HeadingLevels.One} />)).toThrow(
+      "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
     );
   });
 
@@ -106,7 +105,7 @@ describe("Heading", () => {
           <span>many</span>
         </Heading>
       )
-    ).toThrow("Please only pass one child into Heading, got span, span");
+    ).toThrow("NYPL Reservoir Heading: Only pass one child into Heading.");
   });
 
   it("uses custom display size", () => {
@@ -114,8 +113,8 @@ describe("Heading", () => {
       <Heading
         id="h1"
         level={HeadingLevels.One}
-        text="Heading with Secondary displaySize"
-        displaySize={HeadingDisplaySizes.Secondary}
+        size={HeadingSizes.Secondary}
+        text="Heading with Secondary size"
       />
     );
     expect(screen.getByRole("heading", { level: 1 })).toHaveStyle({
@@ -141,8 +140,8 @@ describe("Heading", () => {
         <Heading
           id="customDisplaySize"
           level={HeadingLevels.One}
-          text="Heading with Secondary displaySize"
-          displaySize={HeadingDisplaySizes.Secondary}
+          size={HeadingSizes.Secondary}
+          text="Heading with Secondary size"
         />
       )
       .toJSON();
@@ -177,6 +176,14 @@ describe("Heading", () => {
         </Heading>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Heading id="chakra" text="Heading" p="20px" color="ui.red.primary" />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Heading id="props" text="Heading" data-testid="props" />)
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(basicWithChildText).toMatchSnapshot();
@@ -184,5 +191,7 @@ describe("Heading", () => {
     expect(otherLevel).toMatchSnapshot();
     expect(withLink).toMatchSnapshot();
     expect(withCustomLink).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

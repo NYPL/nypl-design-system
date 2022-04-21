@@ -1,5 +1,5 @@
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -8,17 +8,15 @@ import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
 import { IconColors, IconNames, IconSizes } from "../Icons/IconTypes";
 import { NotificationTypes } from "./NotificationTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 interface BaseProps {
   /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
-  /** Optional prop to control horizontal alignment of the `Notification` content */
-  centered?: boolean;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** Optional prop to control horizontal alignment of the `Notification` content */
+  isCentered?: boolean;
   /** Optional prop to control the coloring of the `Notification` text and the
    * visibility of an applicable icon. */
   notificationType?: NotificationTypes;
@@ -27,9 +25,11 @@ interface BaseProps {
 // Used for `NotificationHeading` and `Notification`
 type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 // Used for `NotificationContent`
-type BasePropsWithoutCentered = Omit<BaseProps, "centered">;
+type BasePropsWithoutIsCentered = Omit<BaseProps, "isCentered">;
 
 export interface NotificationProps extends BasePropsWithoutAlignText {
+  /** Label used to describe the `Notification`'s aside HTML element. */
+  ariaLabel?: string;
   /** Additional `className` to add.  */
   className?: string;
   /** Optional prop to control whether a `Notification` can be dismissed
@@ -50,79 +50,80 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
 /**
  * NotificationHeading child-component.
  */
-export function NotificationHeading(
-  props: React.PropsWithChildren<BasePropsWithoutAlignText>
-) {
-  const { centered, children, icon, id, notificationType } = props;
-  const styles = useMultiStyleConfig("NotificationHeading", {
-    centered,
-    icon,
-    notificationType,
-  });
-  return (
-    <Box as="header" __css={styles}>
-      {icon}
-      <Heading
-        additionalStyles={styles.heading}
-        id={`${id}-heading`}
-        level={HeadingLevels.Four}
-      >
-        {children}
-      </Heading>
-    </Box>
-  );
-}
+export const NotificationHeading = chakra(
+  (props: React.PropsWithChildren<BasePropsWithoutAlignText>) => {
+    const { children, icon, id, isCentered, notificationType, ...rest } = props;
+    const styles = useMultiStyleConfig("NotificationHeading", {
+      icon,
+      isCentered,
+      notificationType,
+    });
+    return (
+      <Box as="header" __css={styles} {...rest}>
+        {icon}
+        <Heading
+          additionalStyles={styles.heading}
+          id={`${id}-heading`}
+          level={HeadingLevels.Four}
+        >
+          {children}
+        </Heading>
+      </Box>
+    );
+  }
+);
 
 /**
  * NotificationContent child-component.
  */
-export function NotificationContent(
-  props: React.PropsWithChildren<BasePropsWithoutCentered>
-) {
-  const { alignText, children, icon, notificationType } = props;
-  const styles = useMultiStyleConfig("NotificationContent", {
-    alignText,
-    icon,
-    notificationType,
-  });
-  return (
-    <Box __css={styles}>
-      {icon}
-      <Box __css={styles.content}>{children}</Box>
-    </Box>
-  );
-}
+export const NotificationContent = chakra(
+  (props: React.PropsWithChildren<BasePropsWithoutIsCentered>) => {
+    const { alignText, children, icon, notificationType, ...rest } = props;
+    const styles = useMultiStyleConfig("NotificationContent", {
+      alignText,
+      icon,
+      notificationType,
+    });
+    return (
+      <Box __css={styles} {...rest}>
+        {icon}
+        <Box __css={styles.content}>{children}</Box>
+      </Box>
+    );
+  }
+);
 
 /**
  * Component used to present users with three different levels of notifications:
  * standard, announcement, and warning.
  */
-export default function Notification(props: NotificationProps) {
+export const Notification = chakra((props: NotificationProps) => {
   const {
-    centered = false,
+    ariaLabel,
     className,
     dismissible = false,
     icon,
-    id = generateUUID(),
+    id,
+    isCentered = false,
     noMargin = false,
     notificationContent,
     notificationHeading,
     notificationType = NotificationTypes.Standard,
     showIcon = true,
+    ...rest
   } = props;
   const [isOpen, setIsOpen] = useState(true);
   const handleClose = () => setIsOpen(false);
   const styles = useMultiStyleConfig("Notification", {
-    centered,
+    dismissible,
+    isCentered,
     noMargin,
     notificationType,
-    showIcon,
   });
   const iconElement = () => {
     const baseIconProps = {
-      decorative: false,
-      size: IconSizes.Large,
       additionalStyles: styles.icon,
+      size: IconSizes.Large,
     };
     // If the icon should not display, return null.
     if (!showIcon) {
@@ -136,16 +137,19 @@ export default function Notification(props: NotificationProps) {
       });
     const iconProps = {
       [NotificationTypes.Announcement]: {
-        name: IconNames.SpeakerNotes,
         color: IconColors.SectionResearchSecondary,
+        name: IconNames.SpeakerNotes,
+        title: "Notification announcement icon",
       },
       [NotificationTypes.Standard]: {
-        name: IconNames.AlertNotificationImportant,
         color: IconColors.UiBlack,
+        name: IconNames.AlertNotificationImportant,
+        title: "Notification standard icon",
       },
       [NotificationTypes.Warning]: {
-        name: IconNames.ErrorFilled,
         color: IconColors.BrandPrimary,
+        name: IconNames.ErrorFilled,
+        title: "Notification warning icon",
       },
     };
     return (
@@ -158,31 +162,35 @@ export default function Notification(props: NotificationProps) {
   };
   const dismissibleButton = dismissible && (
     <Button
-      buttonType={ButtonTypes.Link}
-      onClick={handleClose}
       additionalStyles={styles.dismissibleButton}
+      attributes={{
+        "aria-label": "Close the notification",
+      }}
+      buttonType={ButtonTypes.Link}
+      id={`${id}-notification-dismissible-button`}
+      onClick={handleClose}
     >
       <Icon
-        id={`${id}-notification-dismissible-icon`}
-        decorative={false}
+        id={`${id}-dismissible-notification-icon`}
         name={IconNames.Close}
         size={IconSizes.Large}
+        title="Notification close icon"
       />
     </Button>
   );
   const iconElem = iconElement();
   const childHeading = notificationHeading && (
     <NotificationHeading
-      centered={centered}
       icon={iconElem}
       id={id}
+      isCentered={isCentered}
       notificationType={notificationType}
     >
       {notificationHeading}
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText = childHeading && showIcon && (!!icon || !centered);
+  const alignText = childHeading && showIcon && (!!icon || !isCentered);
   const childContent = (
     <NotificationContent
       alignText={alignText}
@@ -199,11 +207,13 @@ export default function Notification(props: NotificationProps) {
   }
   return (
     <Box
+      aria-label={ariaLabel}
       as="aside"
-      id={id}
       className={className}
-      __css={styles}
       data-type={notificationType}
+      id={id}
+      __css={styles}
+      {...rest}
     >
       <Box __css={styles.container}>
         {childHeading}
@@ -212,4 +222,6 @@ export default function Notification(props: NotificationProps) {
       {dismissibleButton}
     </Box>
   );
-}
+});
+
+export default Notification;
