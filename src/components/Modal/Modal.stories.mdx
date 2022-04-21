@@ -26,13 +26,16 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.3.5`    |
+| Latest            | `1.0.0`    |
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Component Props](#component-props)
-- [Code Implementation](#code-implementation)
+- [Accessibility](#accessibility)
+- [ModalTrigger](#modaltrigger)
+- [ModalTrigger Component Props](#modaltrigger-component-props)
+- [useModal](#usemodal)
+- [useModal Component Props](#usemodal-component-props)
 
 ## Overview
 
@@ -40,6 +43,10 @@ _Note: This component is going through an accessibility review and is not
 recommended for use until it is updated._
 
 <Description of={Modal} />
+
+## Accessibility
+
+TBD
 
 ## ModalTrigger
 
@@ -52,20 +59,24 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
 //...
 <ModalTrigger
   buttonText="Button Text"
-  headingText="Heading text"
-  bodyContent="body text"
+  modalProps={{
+    headingText: "Heading Text",
+    bodyContent: "body text",
+  }}
 />;
 ```
 
-## Component Props
+## ModalTrigger Component Props
 
 <Canvas withToolbar>
   <Story
     name="ModalTrigger"
     args={{
       buttonText: "Button Text",
-      headingText: "Heading text",
-      bodyContent: "body text",
+      modalProps: {
+        headingText: "Heading Text",
+        bodyContent: "body text",
+      },
     }}
   >
     {(args) => <ModalTrigger {...args} />}
@@ -74,7 +85,7 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
 
 <ArgsTable story="ModalTrigger" />
 
-## Modal
+## useModal
 
 This DS `Modal` component renders just the Chakra UI `Modal` component. You
 must render your own button and pass the appropriate `onOpen` handler.
@@ -85,8 +96,8 @@ properties. The `onOpen` function handler is used to open the `Modal` React
 component. This function can be passed to any number of elements that use
 the `onClick` attribute.
 
-@NOTE: in this case, the `buttonText` prop is not necessary since you have to
-create and render your own button.
+**NOTE: in this case, the `buttonText` prop is not necessary since you have to
+create and render your own button.**
 
 ```jsx
 import { useModal } from "@nypl/design-system-react-components";
@@ -94,6 +105,10 @@ import { useModal } from "@nypl/design-system-react-components";
 // ...
 export const ModalStory = (args) => {
   const { onOpen, Modal } = useModal();
+  const modalProps = {
+    headingText: "Heading text",
+    bodyContent: "body text",
+  };
   return (
     <>
       <ButtonGroup>
@@ -108,7 +123,7 @@ export const ModalStory = (args) => {
         I'm just a div and shouldn't be used in production but this is just an
         example
       </div>
-      <Modal headingText="Heading text" bodyContent="body text" />
+      <Modal modalProps={modalProps} />
     </>
   );
 };
@@ -135,12 +150,16 @@ export const ModalStory = (args) => {
   );
 };
 
+## useModal Component Props
+
 <Canvas withToolbar>
   <Story
     name="Modal"
     args={{
-      headingText: "Heading text",
-      bodyContent: "body text",
+      modalProps: {
+        headingText: "Heading text",
+        bodyContent: "body text",
+      },
     }}
   >
     {(args) => <ModalStory {...args} />}
