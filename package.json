@@ -33,7 +33,7 @@
     "analyze": "size-limit --why",
     "generate-sass-resources": "gulp",
     "storybook": "start-storybook -p 6006",
-    "build-storybook-v0_26": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v0_26",
+    "build-storybook:v0_26": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v0_26",
     "prebuild:storybook": "npm run test:generate-output"
   },
   "lint-staged": {
