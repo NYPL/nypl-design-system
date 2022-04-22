@@ -26,7 +26,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `1.0.0`    |
+| Latest            | `0.27.0`   |
 
 ## Table of Contents
 
@@ -59,9 +59,14 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
 //...
 <ModalTrigger
   buttonText="Button Text"
+  id="modal-trigger"
   modalProps={{
-    headingText: "Heading Text",
-    bodyContent: "body text",
+    bodyContent="body text"
+    closeButtonLabel="Close Button"
+    headingText="Modal Heading Text"
+    onClose={() => {
+      console.log("custom close");
+    }}
   }}
 />;
 ```
@@ -73,9 +78,14 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
     name="ModalTrigger"
     args={{
       buttonText: "Button Text",
+      id: "modal-trigger",
       modalProps: {
-        headingText: "Heading Text",
         bodyContent: "body text",
+        closeButtonLabel: "Close Button",
+        headingText: "Modal Heading Text",
+        onClose: () => {
+          console.log("custom close");
+        },
       },
     }}
   >
@@ -87,14 +97,15 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
 
 ## useModal
 
-This DS `Modal` component renders just the Chakra UI `Modal` component. You
-must render your own button and pass the appropriate `onOpen` handler.
+This hook function can be used to render just the Chakra UI `Modal` component
+with a custom open button and optional custom close buttons. You must render
+your own button and pass the appropriate `onOpen` handler for the modal to open.
 
-You can retrieve the DS `Modal` component and the `onOpen` function handler when
-calling the `useModal` function. This returns an object with `onOpen` and `Modal`
-properties. The `onOpen` function handler is used to open the `Modal` React
-component. This function can be passed to any number of elements that use
-the `onClick` attribute.
+You can retrieve the DS `Modal` component and the `onOpen` and `onClose` function
+handlers when calling the `useModal` function. The `onOpen` function handler is
+used to open the `Modal` React component. This function can be passed to any
+number of elements that use the `onClick` attribute. The `onClose` function can
+be used on any element that uses the `onClick` attribute.
 
 **NOTE: in this case, the `buttonText` prop is not necessary since you have to
 create and render your own button.**
@@ -104,15 +115,30 @@ import { useModal } from "@nypl/design-system-react-components";
 
 // ...
 export const ModalStory = (args) => {
-  const { onOpen, Modal } = useModal();
+  const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
-    headingText: "Heading text",
-    bodyContent: "body text",
+    bodyContent: (
+      <>
+        <Button id="custom-close" onClick={onClose}>
+          Go back
+        </Button>
+        <p>This is the body content.</p>
+        <Button id="custom-close2" onClick={onClose}>
+          This is a custom close button.
+        </Button>
+      </>
+    ),
+    closeButtonLabel: "Close Button",
+    headingText: "Modal Heading Text",
+    onClose: () => {
+      console.log("custom close");
+      onClose();
+    },
   };
   return (
     <>
       <ButtonGroup>
-        <Button id="1" onClick={onOpen} buttonType={ButtonTypes.NoBrand}>
+        <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
         <Button buttonType={ButtonTypes.Secondary} id="2" onClick={onOpen}>
@@ -123,19 +149,38 @@ export const ModalStory = (args) => {
         I'm just a div and shouldn't be used in production but this is just an
         example
       </div>
-      <Modal modalProps={modalProps} />
+      <Modal {...modalProps} />
     </>
   );
 };
 ```
 
 export const ModalStory = (args) => {
-  const { onOpen, Modal } = useModal();
+  const { onClose, onOpen, Modal } = useModal();
+  const modalProps = {
+    bodyContent: (
+      <>
+        <Button id="custom-close" onClick={onClose}>
+          Go back
+        </Button>
+        <p>This is the body content.</p>
+        <Button id="custom-close2" onClick={onClose}>
+          This is a custom close button.
+        </Button>
+      </>
+    ),
+    closeButtonLabel: "Close Button",
+    headingText: "Modal Heading Text",
+    onClose: () => {
+      console.log("custom close");
+      onClose();
+    },
+  };
   return (
     <>
       <ButtonGroup>
-        <Button id="1" onClick={onOpen} buttonType={ButtonTypes.NoBrand}>
-          Custom Open Button
+        <Button id="1" onClick={onOpen}>
+          Open Modal
         </Button>
         <Button buttonType={ButtonTypes.Secondary} id="2" onClick={onOpen}>
           I can open the modal, too
@@ -145,7 +190,7 @@ export const ModalStory = (args) => {
         I'm just a div and shouldn't be used in production but this is just an
         example
       </div>
-      <Modal {...args} />
+      <Modal {...modalProps} />
     </>
   );
 };
@@ -153,16 +198,8 @@ export const ModalStory = (args) => {
 ## useModal Component Props
 
 <Canvas withToolbar>
-  <Story
-    name="Modal"
-    args={{
-      modalProps: {
-        headingText: "Heading text",
-        bodyContent: "body text",
-      },
-    }}
-  >
-    {(args) => <ModalStory {...args} />}
+  <Story name="Modal">
+    <ModalStory />
   </Story>
 </Canvas>
 
