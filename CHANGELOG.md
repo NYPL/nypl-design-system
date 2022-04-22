@@ -8,6 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.26.1 (April 22, 2022)
+
+### Updates
+
+- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.
+
+### Fixes
+
+- Adds updated package-lock file to fix bad installations.
+
+## 0.26.0 (April 22, 2022)
+
 ### Adds
 
 - Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
@@ -41,7 +53,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the styling for the `HelperErrorText` to be consistent for all components that use it
 - Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
 - Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
-- Renames the `Skeleton`'s `border` prop to `isBordered`.
+- Renames the `SkeletonLoader` component's `border` prop to `isBordered`.
 - Refactors the DS `RadioGroup` component so it internally implements Chakra's `RadioGroup` component rather than the `useRadioGroup` hook. The "uncontrolled" version of Chakra's `RadioGroup` is not working and will be investigated in the future. It is recommended to use the controlled component pattern.
 - Updates the `Fieldset` component to render the "Optional"/"Required" text in the `legend` element as pseudo CSS in the `::after` rule.
 - Passes the `isRequired` prop in the `RadioGroup` and `CheckboxGroup` to the `Fieldset` wrapper component.
