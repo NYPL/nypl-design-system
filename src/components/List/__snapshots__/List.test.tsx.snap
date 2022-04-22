@@ -2,7 +2,7 @@
 
 exports[`List Renders the UI snapshot correctly 1`] = `
 <ul
-  className="css-0"
+  className="css-1xdhyk6"
   id="unordered"
 >
   <li>
@@ -22,7 +22,7 @@ exports[`List Renders the UI snapshot correctly 1`] = `
 
 exports[`List Renders the UI snapshot correctly 2`] = `
 <ul
-  className="css-0"
+  className="css-1xdhyk6"
   id="ordered"
 >
   <li>
@@ -42,7 +42,7 @@ exports[`List Renders the UI snapshot correctly 2`] = `
 
 exports[`List Renders the UI snapshot correctly 3`] = `
 <ol
-  className="css-0"
+  className="css-1xdhyk6"
   id="unordered-no-styling"
 >
   <li>
@@ -62,7 +62,7 @@ exports[`List Renders the UI snapshot correctly 3`] = `
 
 exports[`List Renders the UI snapshot correctly 4`] = `
 <ol
-  className="css-0"
+  className="css-1xdhyk6"
   id="ordered-no-styling"
 >
   <li>
@@ -82,12 +82,114 @@ exports[`List Renders the UI snapshot correctly 4`] = `
 
 exports[`List Renders the UI snapshot correctly 5`] = `
 <section
-  className="css-0"
-  id="definition"
+  className="css-1xdhyk6"
+  id="description"
 >
   <h2
-    className="chakra-heading css-0"
-    id="definition-heading"
+    className="chakra-heading css-1xdhyk6"
+    id="description-heading"
+  >
+    Animal Crossing Fish
+  </h2>
+  <dl>
+    <dt>
+      Mahi-mahi
+    </dt>
+    <dd>
+      <p>
+        The mahi-mahi is an ocean fish known...
+      </p>
+    </dd>
+    <dt>
+      Golden trout
+    </dt>
+    <dd>
+      The golden trout is a beautifully colored fish...
+    </dd>
+  </dl>
+</section>
+`;
+
+exports[`List Renders the UI snapshot correctly 6`] = `
+<ul
+  className="css-kle7zy"
+  id="chakra"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`List Renders the UI snapshot correctly 7`] = `
+<ul
+  className="css-1xdhyk6"
+  data-testid="other"
+  id="other"
+>
+  <li>
+    Mahi-mahi
+  </li>
+  <li>
+    Golden trout
+  </li>
+  <li>
+    Rainbowfish
+  </li>
+  <li>
+    Suckerfish
+  </li>
+</ul>
+`;
+
+exports[`List Renders the UI snapshot correctly 8`] = `
+<section
+  className="css-kle7zy"
+  id="chakra"
+>
+  <h2
+    className="chakra-heading css-1xdhyk6"
+    id="chakra-heading"
+  >
+    Animal Crossing Fish
+  </h2>
+  <dl>
+    <dt>
+      Mahi-mahi
+    </dt>
+    <dd>
+      <p>
+        The mahi-mahi is an ocean fish known...
+      </p>
+    </dd>
+    <dt>
+      Golden trout
+    </dt>
+    <dd>
+      The golden trout is a beautifully colored fish...
+    </dd>
+  </dl>
+</section>
+`;
+
+exports[`List Renders the UI snapshot correctly 9`] = `
+<section
+  className="css-1xdhyk6"
+  data-testid="other"
+  id="other"
+>
+  <h2
+    className="chakra-heading css-1xdhyk6"
+    id="other-heading"
   >
     Animal Crossing Fish
   </h2>

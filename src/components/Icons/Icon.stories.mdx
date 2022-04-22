@@ -91,9 +91,24 @@ export const rotationEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.25.13`  |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Rotation Types](#rotation-types)
+- [IconColors Types](#icon-colors-types)
+- [IconSizes Types](#icon-sizes-types)
+- [All Display Icons](#all-display-icons)
+- [Custom Icons](#custom-icons)
+
+## Overview
 
 <Description of={Icon} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -214,11 +229,21 @@ export const allIconsType = (list) => (
 
 ## Accessibility
 
-For accessibility purposes, every DS `Icon` will render the `svg` element with
-its icon name in the `title` element. The default text in the `title` element
-is the icon's code name. Pass in better descriptive text in the `title` prop
-when using the `Icon` component in your application. This will give screenreaders
-a better descriptive title for the `svg` graphic.
+For accessibility purposes, every Reservoir Design System (DS) `Icon` will 
+render the `svg` element with its icon name in the `title` element. The default 
+text in the `title` element is the icon's code name. Pass in better descriptive 
+text in the `title` prop when using the `Icon` component in your application. 
+This will give screenreaders a better descriptive title for the `svg` graphic.
+
+`Icon`s are decorative by default. This means that they are presentational and
+screenreaders will not read them because the `aria-hidden` attribute is set to
+`true`.
+
+Resources:
+
+- [W3C Design System SVG Icons](https://design-system.w3.org/styles/svg-icons.html)
+- [CSS-Tricks Accessible SVG Icons](https://css-tricks.com/accessible-svg-icons/)
+- [Chakra UI Icon](https://chakra-ui.com/docs/components/media-and-icons/icon)
 
 ## Rotation Types
 

@@ -22,6 +22,7 @@ const selectProps: SelectProps = {
   name: "selectName",
   labelText: "Select a category",
   optionsData: optionsGroup,
+  value: "Songs",
 };
 const textInputProps: TextInputProps = {
   labelText: "Item Search",
@@ -162,7 +163,9 @@ describe("SearchBar", () => {
   });
 
   it("calls the Select onChange callback function", () => {
-    selectProps.onChange = jest.fn();
+    let selectValue = "Songs";
+    selectProps.onChange = (e) => (selectValue = e.target.value);
+    selectProps.value = selectValue;
 
     render(
       <SearchBar
@@ -175,13 +178,13 @@ describe("SearchBar", () => {
       />
     );
     const select = screen.getByLabelText(selectProps.labelText);
-    expect(selectProps.onChange).toHaveBeenCalledTimes(0);
+    expect(selectValue).toEqual("Songs");
 
     userEvent.selectOptions(select, "Flowers");
-    expect(selectProps.onChange).toHaveBeenCalledTimes(1);
+    expect(selectValue).toEqual("Flowers");
 
     userEvent.selectOptions(select, "Furniture");
-    expect(selectProps.onChange).toHaveBeenCalledTimes(2);
+    expect(selectValue).toEqual("Furniture");
   });
 
   it("calls the callback function for the Button component ", () => {
@@ -264,6 +267,18 @@ describe("SearchBar", () => {
     expect(
       screen.getByPlaceholderText("Item Search (Required)")
     ).toBeInTheDocument();
+  });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <SearchBar labelText={labelText} onSubmit={jest.fn()} />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
+    );
   });
 
   it("renders the UI snapshot correctly", () => {
@@ -378,6 +393,31 @@ describe("SearchBar", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <SearchBar
+          helperText={helperText}
+          id="chakra"
+          labelText={labelText}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <SearchBar
+          helperText={helperText}
+          id="props"
+          labelText={labelText}
+          onSubmit={jest.fn()}
+          textInputProps={textInputProps}
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(withSelect).toMatchSnapshot();
@@ -389,5 +429,7 @@ describe("SearchBar", () => {
     expect(withHeading).toMatchSnapshot();
     expect(withDescription).toMatchSnapshot();
     expect(withHeadingAndDescription).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -1,14 +1,12 @@
+import { As, Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { As, Box, useStyleConfig } from "@chakra-ui/react";
 
 import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
 import { HeadingLevels } from "../Heading/HeadingTypes";
-import generateUUID from "../../helpers/generateUUID";
-
-interface DefinitionProps {
+interface DescriptionProps {
   term: string;
-  definition: string | JSX.Element;
+  description: string | JSX.Element;
 }
 export interface ListProps {
   /** Optionally pass in additional Chakra-based styles. */
@@ -21,36 +19,37 @@ export interface ListProps {
   inline?: boolean;
   /** Data to render if children are not passed. For `ListTypes.Ordered` and
    * `ListTypes.Unordered` `List` types, the data structure is an array of
-   * strings to renders as `li` items. For `ListTypes.Definition` `List` types,
-   * the data structure is an array of objects with `term` and `definition`
+   * strings to renders as `li` items. For `ListTypes.Description` `List` types,
+   * the data structure is an array of objects with `term` and `description`
    * properties to render `dt` and `dd` elements, respectively.
    */
-  listItems?: (string | JSX.Element | DefinitionProps)[];
+  listItems?: (string | JSX.Element | DescriptionProps)[];
   /** Remove list styling. */
   noStyling?: boolean;
   /** An optional title that will appear over the list. This prop only applies
-   * to Definition Lists. */
+   * to Description Lists. */
   title?: string;
-  /** The type of list: Ordered, Unordered, or Definition. Unordered by default. */
+  /** The type of list: Ordered, Unordered, or Description. Unordered by default. */
   type: ListTypes;
 }
 
 /**
- * A component that renders list item `li` elements or definition item `dt`
+ * A component that renders list item `li` elements or description item `dt`
  * and `dd` elements based on the `type` prop. Note that the `title` prop will
- * only display for the `Definition` list type.
+ * only display for the `Description` list type.
  */
-export default function List(props: React.PropsWithChildren<ListProps>) {
+export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
   const {
     additionalStyles = {},
     children,
     className,
-    id = generateUUID(),
+    id,
     inline = false,
     listItems,
     noStyling = false,
     title,
     type = ListTypes.Unordered,
+    ...rest
   } = props;
   const styles = useStyleConfig("List", { inline, noStyling, variant: type });
   const finalStyles = { ...styles, ...additionalStyles };
@@ -78,7 +77,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
    * first, otherwise it will check and render the data passed into the
    * `listItems` props based on the `ListType` type. If it is of type "Unordered"
    * or "Ordered", it will return `li` elements. Otherwise, it will return a
-   * combination of `dt` and `dd` elements for the "Definition" type.
+   * combination of `dt` and `dd` elements for the "Description" type.
    */
   const listChildrenElms = (listType: ListTypes) => {
     if (children) {
@@ -86,10 +85,10 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
     }
     if (listType === ListTypes.Ordered || listType === ListTypes.Unordered) {
       return listItems.map((item, i) => <li key={i}>{item}</li>);
-    } else if (listType === ListTypes.Definition) {
-      return (listItems as DefinitionProps[]).map((item, i) => [
+    } else if (listType === ListTypes.Description) {
+      return (listItems as DescriptionProps[]).map((item, i) => [
         <dt key={`${i}-term`}>{item.term}</dt>,
-        <dd key={`${i}-def`}>{item.definition}</dd>,
+        <dd key={`${i}-des`}>{item.description}</dd>,
       ]);
     }
     return null;
@@ -111,7 +110,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
    * Checks for `dt` and `dd` elements and consoles a warning if the
    * children are different HTML elements.
    */
-  const checkDefinitionChildrenError = () => {
+  const checkDescriptionChildrenError = () => {
     React.Children.map(children, function (child: React.ReactElement) {
       if (
         child.type !== "dt" &&
@@ -122,7 +121,7 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
         child.props.mdxType !== React.Fragment
       ) {
         console.warn(
-          "NYPL Reservoir List: Direct children of `List` (definition) must " +
+          "NYPL Reservoir List: Direct children of `List` (description) must " +
             "be `<dt>`s and `<dd>`s."
         );
       }
@@ -132,14 +131,26 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
   if (type === ListTypes.Ordered || type === ListTypes.Unordered) {
     checkListChildrenError(type);
     listElement = (
-      <Box as={type as As} id={id} className={className} __css={finalStyles}>
+      <Box
+        as={type as As}
+        id={id}
+        className={className}
+        __css={finalStyles}
+        {...rest}
+      >
         {listChildrenElms(type)}
       </Box>
     );
-  } else if (type === ListTypes.Definition) {
-    checkDefinitionChildrenError();
+  } else if (type === ListTypes.Description) {
+    checkDescriptionChildrenError();
     listElement = (
-      <Box as="section" id={id} className={className} __css={finalStyles}>
+      <Box
+        as="section"
+        id={id}
+        className={className}
+        __css={finalStyles}
+        {...rest}
+      >
         {title && (
           <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
             {title}
@@ -151,4 +162,6 @@ export default function List(props: React.PropsWithChildren<ListProps>) {
   }
 
   return listElement;
-}
+});
+
+export default List;

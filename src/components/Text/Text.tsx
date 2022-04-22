@@ -1,5 +1,6 @@
+import { Text as ChakraText, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Text as ChakraText, useStyleConfig } from "@chakra-ui/react";
+
 import { TextSizes } from "./TextTypes";
 import { getVariant } from "../../utils/utils";
 
@@ -16,7 +17,7 @@ export interface TextProps {
   size?: TextSizes;
 }
 
-function Text(props: React.PropsWithChildren<TextProps>) {
+export const Text = chakra((props: React.PropsWithChildren<TextProps>) => {
   const {
     children,
     className = "",
@@ -24,6 +25,7 @@ function Text(props: React.PropsWithChildren<TextProps>) {
     isItalic,
     noSpace,
     size = TextSizes.Default,
+    ...rest
   } = props;
   const variant = getVariant(size, TextSizes, TextSizes.Default);
   const styles = useStyleConfig("Text", {
@@ -41,10 +43,10 @@ function Text(props: React.PropsWithChildren<TextProps>) {
   }
 
   return (
-    <ChakraText className={className} sx={styles}>
+    <ChakraText className={className} sx={styles} {...rest}>
       {children}
     </ChakraText>
   );
-}
+});
 
 export default Text;

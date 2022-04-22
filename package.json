@@ -1,7 +1,7 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "0.25.13",
-  "description": "Design System React Components",
+  "version": "0.26.0",
+  "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
     "url": "https://github.com/NYPL/nypl-design-system/"
@@ -32,8 +32,8 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "generate-sass-resources": "gulp",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "npm run prebuild:storybook && build-storybook -c .storybook -o ./storybook-static",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/public",
+    "build-storybook:v0_26": "npm run prebuild:storybook && build-storybook -c .storybook -o ./reservoir/v0_26",
     "prebuild:storybook": "npm run test:generate-output"
   },
   "lint-staged": {
@@ -65,8 +65,7 @@
     "he": "1.2.0",
     "react-datepicker": "4.1.1",
     "system-font-css": "2.0.2",
-    "typescript": "4.3.5",
-    "uuid": "8.3.2"
+    "typescript": "4.3.5"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1.7.1",

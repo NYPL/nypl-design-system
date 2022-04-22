@@ -57,13 +57,29 @@ export const enumValues = getStorybookEnumValues(GridGaps, "GridGaps");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.1`   |
-| Latest            | `0.25.1`   |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Other SimpleGrid Examples](#other-simplegrid-examples)
+
+## Overview
 
 <Description of={SimpleGrid} />
 
-The `SimpleGrid` component is used to render UI elements in a uniform grid layout, with the column widths and grid spacing fixed throughout the grid.
+The `SimpleGrid` component is used to render UI elements in a uniform grid layout,
+with the column widths and grid spacing fixed throughout the grid.
 
-The NYPL standards for the items per row in a grid is `3` for desktop, `2` for tablet and `1` for mobile. By default, the `SimpleGrid` component uses these standards and the `columns` prop is optional. If the `columns` prop is used, the tablet breakpoint will be dropped and only the mobile breakpoint (1 item per row) will be triggered.
+The NYPL standards for the items per row in a grid is `3` for desktop, `2` for
+tablet and `1` for mobile. By default, the `SimpleGrid` component uses these
+standards and the `columns` prop is optional. If the `columns` prop is used, the
+tablet breakpoint will be dropped and only the mobile breakpoint (1 item per row)
+will be triggered.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -162,6 +178,18 @@ The NYPL standards for the items per row in a grid is `3` for desktop, `2` for t
 
 <ArgsTable story="SimpleGrid with Controls" />
 
+## Accessibility
+
+The CSS grid layout properties are used for the `SimpleGrid` component. We don't
+recommend using property rules that change the visual order of elements on the
+page that don't match with its DOM order. This is because a screenreader won't
+pick up `SimpleGrid` CSS rules and will read the page in the expected DOM order
+rather than the visual order.
+
+Resources:
+
+- [MDN CSS Grid Layout and Accessibility](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility)
+
 ## Other SimpleGrid Examples
 
 ### Icons
@@ -225,12 +253,12 @@ This example is rendering horizontal `Card` components with the `columns` prop s
   <DSProvider>
     <SimpleGrid columns={1}>
       <Card
-        border
         imageProps={{
           alt: "Alt text",
           aspectRatio: ImageRatios.FourByThree,
           src: "https://placeimg.com/400/200/animals",
         }}
+        isBordered
         isCentered
         layout={LayoutTypes.Row}
       >
@@ -244,12 +272,12 @@ This example is rendering horizontal `Card` components with the `columns` prop s
         </CardContent>
       </Card>
       <Card
-        border
         imageProps={{
           alt: "Alt text",
           aspectRatio: ImageRatios.FourByThree,
           src: "https://placeimg.com/410/210/animals",
         }}
+        isBordered
         isCentered
         layout={LayoutTypes.Row}
       >
@@ -263,12 +291,12 @@ This example is rendering horizontal `Card` components with the `columns` prop s
         </CardContent>
       </Card>
       <Card
-        border
         imageProps={{
           alt: "Alt text",
           aspectRatio: ImageRatios.FourByThree,
           src: "https://placeimg.com/320/320/animals",
         }}
+        isBordered
         isCentered
         layout={LayoutTypes.Row}
       >

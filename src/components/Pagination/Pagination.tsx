@@ -1,12 +1,10 @@
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Link from "../Link/Link";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 import { range } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
-
 export interface PaginationProps {
   /** Additional className. */
   className?: string;
@@ -32,15 +30,16 @@ export interface PaginationProps {
 /**
  * A component that provides a navigational list of page items.
  */
-const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
+export const Pagination = chakra((props: PaginationProps) => {
   const {
     className,
     currentPage,
     getPageHref,
-    id = generateUUID(),
+    id,
     initialPage = 1,
     onPageChange,
     pageCount,
+    ...rest
   } = props;
   const refCurrentPage = useRef(currentPage);
   const [selectedPage, setSelectedPage] = useState<number>(initialPage);
@@ -251,6 +250,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
       role="navigation"
       className={className}
       __css={styles}
+      {...rest}
     >
       <List type={ListTypes.Unordered} inline noStyling id={`${id}-list`}>
         {previousLiLink}
@@ -259,6 +259,6 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
       </List>
     </Box>
   );
-};
+});
 
 export default Pagination;

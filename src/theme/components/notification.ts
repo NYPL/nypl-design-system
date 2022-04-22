@@ -13,7 +13,7 @@ const Notification = {
     return {
       bg,
       display: "flex",
-      fontSize: "-1", // slightly smaller than the default size
+      fontSize: "text.caption", // slightly smaller than the default size
       position: "relative",
       textAlign: isCentered ? "center" : null,
       borderRadius: noMargin ? "0" : "4px",
@@ -21,7 +21,7 @@ const Notification = {
       container: {
         margin: "auto",
         maxWidth: "var(--nypl-breakpoint-xl)",
-        padding: "s",
+        padding: "inset.default",
         paddingRight: dismissible ? "l" : null,
         paddingLeft: isCentered && dismissible ? "l" : null,
         width: "100%",

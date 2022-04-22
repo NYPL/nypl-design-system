@@ -8,7 +8,6 @@ const staticValues = {
 const CustomSlider = {
   parts: [
     "container",
-    "helper",
     "leftValue",
     "rightValue",
     "textInput",
@@ -22,7 +21,7 @@ const CustomSlider = {
     if (isInvalid) {
       baseColor = "ui.error.primary";
     } else if (isDisabled) {
-      baseColor = "ui.gray.light-cool";
+      baseColor = "ui.disabled.primary";
     }
 
     return {
@@ -30,16 +29,14 @@ const CustomSlider = {
         display: "flex",
         alignItems: "center",
       },
-      helper: {
-        marginTop: "xs",
-      },
-      leftValue: staticValues,
+      leftValue: { ...staticValues, color: isDisabled ? "ui.gray.dark" : null },
       rightValue: {
         ...staticValues,
         marginLeft: "s",
         // If the text input boxes are shown, then there already is
         // a margin, so we can set this static value to "0".
         marginRight: showBoxes ? "0" : "s",
+        color: isDisabled ? "ui.gray.dark" : null,
       },
       textInput: {
         // Allows for three or more digits present in the
@@ -62,7 +59,7 @@ const CustomSlider = {
       track: {
         bgColor: "ui.gray.light-cool",
         _disabled: {
-          bgColor: "ui.gray.light-cool",
+          bgColor: "ui.disabled.primary",
         },
       },
       thumb: {
@@ -73,6 +70,10 @@ const CustomSlider = {
         boxShadow: "none",
         _active: {
           transform: "translateY(-50%) scale(1.0)",
+        },
+        _disabled: {
+          bgColor: "ui.disabled.secondary",
+          borderColor: "ui.disabled.primary",
         },
       },
     };

@@ -36,7 +36,19 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `0.25.10`  |
+| Latest            | `0.26.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [With a title](#with-a-title)
+- [With Row Dividers](#with-row-dividers)
+- [With Row Headers](#with-row-headers)
+- [With Custom Header Colors](#with-custom-header-colors)
+
+## Overview
 
 <Description of={Table} />
 
@@ -64,6 +76,8 @@ export const tableData = [
   ],
 ];
 
+## Component Props
+
 <Canvas withToolbar>
   <Story
     name="Table"
@@ -87,16 +101,29 @@ export const tableData = [
 
 ## Accessibility
 
-- The HTML for the `Table` element is structured with proper semantic use of the
-  `table`, `caption`, `thead`, `tbody`, `tr`, and `td` HTML elements.
-- When titles are added through the `titleText` prop, the `caption` element will
-  be rendered on the page.
-- The first row and/or the first cell in a `tr` row can be headers. Each `th`
-  header cell has an appropriate scope attribute set to either `scope="col"` or
-  `scope="row"`. For example, every `th` cell in a `thead` `tr` row will have
-  `scope="col"`. Every `th` cell in a `tbody` `tr` row will have `scope="row"`.
-  These headers are visually different from the data. Use the `useRowHeaders`
-  prop to render the first cell in every row as a header.
+Internally, the HTML for the `Table` element is structured with proper semantic
+use of the `table`, `caption`, `thead`, `tbody`, `tr`, and `td` HTML elements.
+When titles are added through the `titleText` prop, the `caption` element will
+be rendered above the `thead` element.
+
+This component should be used to render tabular data only and not used for layout
+purposes.
+
+The first row and/or the first cell in a `tr` row can be headers. Each `th`
+header cell has an appropriate scope attribute set to either `scope="col"` or
+`scope="row"`. For example, every `th` cell in a `thead` `tr` row will have
+`scope="col"`. Every `th` cell in a `tbody` `tr` row will have `scope="row"`.
+These headers are visually different from the data. Use the `useRowHeaders`
+prop to render the first cell in every row as a header. If a table has two levels
+of headers (such as two levels of horizontal headers), break the data into two
+separate tables.
+
+Resources:
+
+- [W3C Tables Tutorial](https://www.w3.org/WAI/tutorials/tables/)
+- [MDN table: The Table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
+- [MDN HTML table advance features and accessibility](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced)
+- [Chakra UI Table](https://chakra-ui.com/docs/components/data-display/table)
 
 ## With a title
 

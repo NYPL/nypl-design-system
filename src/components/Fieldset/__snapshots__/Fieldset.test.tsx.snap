@@ -2,15 +2,11 @@
 
 exports[`Fieldset renders the UI snapshot correctly 1`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
+  id="fieldset"
 >
   <legend>
     Legend Text
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
   </legend>
   <p>
     Some other fields
@@ -20,15 +16,14 @@ exports[`Fieldset renders the UI snapshot correctly 1`] = `
 
 exports[`Fieldset renders the UI snapshot correctly 2`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
+  id="fieldset"
 >
   <legend>
     Legend Text
-    <div
-      className="css-0"
-    >
-      Required
-    </div>
+    <span>
+       (Required)
+    </span>
   </legend>
   <p>
     Some other fields
@@ -38,7 +33,8 @@ exports[`Fieldset renders the UI snapshot correctly 2`] = `
 
 exports[`Fieldset renders the UI snapshot correctly 3`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
+  id="fieldset"
 >
   <legend>
     Legend Text
@@ -51,15 +47,40 @@ exports[`Fieldset renders the UI snapshot correctly 3`] = `
 
 exports[`Fieldset renders the UI snapshot correctly 4`] = `
 <fieldset
-  className="css-0"
+  className="css-1xdhyk6"
+  id="fieldset"
 >
   <legend>
     Legend Text
-    <div
-      className="css-0"
-    >
-      Optional
-    </div>
+  </legend>
+  <p>
+    Some other fields
+  </p>
+</fieldset>
+`;
+
+exports[`Fieldset renders the UI snapshot correctly 5`] = `
+<fieldset
+  className="css-kle7zy"
+  id="withChakraProps"
+>
+  <legend>
+    Legend Text
+  </legend>
+  <p>
+    Some other fields
+  </p>
+</fieldset>
+`;
+
+exports[`Fieldset renders the UI snapshot correctly 6`] = `
+<fieldset
+  className="css-1xdhyk6"
+  data-testid="props"
+  id="withOtherProps"
+>
+  <legend>
+    Legend Text
   </legend>
   <p>
     Some other fields
