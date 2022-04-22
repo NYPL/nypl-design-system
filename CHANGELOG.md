@@ -8,6 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.26.1 (April 22, 2022)
+
+### Updates
+
+- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.
+
+### Fixes
+
+- Adds updated package-lock file to fix bad installations.
+
 ## 0.26.0 (April 22, 2022)
 
 ### Adds
