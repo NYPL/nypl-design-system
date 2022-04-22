@@ -1,22 +1,12 @@
 import { Stack } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
 
 import Icon from "../Icons/Icon";
 import { IconColors, IconSizes, IconNames } from "../Icons/IconTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
-<Meta
-  title={getCategory("Iconography")}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
-    },
-  }}
-/>
+<Meta title={getCategory("Iconography")} />
 
 # Iconography
 
@@ -31,7 +21,7 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Use the NYPL Design System [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
+Use the Reservoir Design System (DS) [Icon](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/icon--control-props)
 component to render and control icons as `<svg>` elements within consuming apps.
 
 The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).

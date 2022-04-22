@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.26.0 (April 22, 2022)
+
 ### Adds
 
 - Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
@@ -20,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds semantic design tokens for `spacing` theme object.
 - Adds the `isAlignedRightActions` prop to the `Card` component to render `CardActions` components to the right of the main content area. This only works for the `Card`'s row layout.
 - Adds styles to target native HTML basic elements inside the `StructuredContent` component.
+- Adds `Reservoir` branding to Storybook.
 
 ### Changes
 
@@ -40,13 +43,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the styling for the `HelperErrorText` to be consistent for all components that use it
 - Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
 - Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
-- Renames the `Skeleton`'s `border` prop to `isBordered`.
+- Renames the `SkeletonLoader` component's `border` prop to `isBordered`.
 - Refactors the DS `RadioGroup` component so it internally implements Chakra's `RadioGroup` component rather than the `useRadioGroup` hook. The "uncontrolled" version of Chakra's `RadioGroup` is not working and will be investigated in the future. It is recommended to use the controlled component pattern.
 - Updates the `Fieldset` component to render the "Optional"/"Required" text in the `legend` element as pseudo CSS in the `::after` rule.
 - Passes the `isRequired` prop in the `RadioGroup` and `CheckboxGroup` to the `Fieldset` wrapper component.
 - Updates the `focus` styles for the `Radio`, `Select` and `TextInput` components.
 - Updates the references of the `<dl>` element from "Definition" to "Description", as that's the official name in HTML5. This affects the `List` element and its `ListTypes.Description` enum value.
 - Updates styles for `React Datepicker`'s calendar popup in the `DatePicker` component.
+- Updates storybook URL from /storybook-static/ to /reservoir/v0_26.
+- Updates all references to "design system" in the Storybook documentation to include "Reservoir" in the name of the design system.
+- Updates language on the `Welcome` page.
 
 ### Removals
 
