@@ -680,6 +680,37 @@ describe("Hero", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.Primary}
+          heading={
+            <Heading
+              level={HeadingLevels.One}
+              id="chakra"
+              text="Hero Primary"
+            />
+          }
+          subHeaderText="Example Subtitle"
+          backgroundImageSrc="https://placeimg.com/1600/800/arch"
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Hero
+          heroType={HeroTypes.Primary}
+          heading={
+            <Heading level={HeadingLevels.One} id="props" text="Hero Primary" />
+          }
+          subHeaderText="Example Subtitle"
+          backgroundImageSrc="https://placeimg.com/1600/800/arch"
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(secondary).toMatchSnapshot();
@@ -690,5 +721,7 @@ describe("Hero", () => {
     expect(tertiary).toMatchSnapshot();
     expect(campaign).toMatchSnapshot();
     expect(fiftyFifty).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

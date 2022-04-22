@@ -2,30 +2,43 @@
 
 exports[`HorizontalRule renders the UI snapshot correctly 1`] = `
 <hr
-  className="css-1bhbd2a"
+  className="css-mvtkpx"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 2`] = `
 <hr
-  className="css-154goob"
+  className="css-j99tgf"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 3`] = `
 <hr
-  className="css-gj8znx"
+  className="css-21sffo"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 4`] = `
 <hr
-  className="css-1bhbd2a"
+  className="css-mvtkpx"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 5`] = `
 <hr
-  className="css-1bhbd2a"
+  className="css-mvtkpx"
+/>
+`;
+
+exports[`HorizontalRule renders the UI snapshot correctly 6`] = `
+<hr
+  className="css-1pg2j4r"
+/>
+`;
+
+exports[`HorizontalRule renders the UI snapshot correctly 7`] = `
+<hr
+  className="css-mvtkpx"
+  data-testid="props"
 />
 `;

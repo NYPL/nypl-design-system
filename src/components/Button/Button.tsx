@@ -1,10 +1,13 @@
+import {
+  Button as ChakraButton,
+  chakra,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import * as React from "react";
-import { Button as ChakraButton, useStyleConfig } from "@chakra-ui/react";
 
 import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
 import { getVariant } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
 
 export type ButtonElementType = "submit" | "button" | "reset";
 
@@ -18,7 +21,7 @@ interface ButtonProps {
   /** Additional className to use. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Adds 'disabled' property to the button. */
   isDisabled?: boolean;
   /** Trigger the Button's action through the `mouseDown` event handler instead
@@ -33,24 +36,31 @@ interface ButtonProps {
 /**
  * Renders a simple `button` element with custom variant styles.
  */
-function Button(props: React.PropsWithChildren<ButtonProps>) {
+export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   const {
     additionalStyles = {},
     attributes,
     buttonType,
     children,
     className = "",
-    id = generateUUID(),
+    id,
     isDisabled = false,
     mouseDown = false,
     onClick,
     type = "button",
+    ...rest
   } = props;
   const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
   let childCount = 0;
   let hasIcon = false;
   let variant;
   let styles = {};
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Button: This component's required `id` prop was not passed."
+    );
+  }
 
   React.Children.map(children, (child: React.ReactElement) => {
     childCount++;
@@ -78,13 +88,14 @@ function Button(props: React.PropsWithChildren<ButtonProps>) {
       className={className}
       type={type}
       isDisabled={isDisabled}
-      __css={{ ...styles, ...additionalStyles }}
       {...attributes}
       {...btnCallback}
+      __css={{ ...styles, ...additionalStyles }}
+      {...rest}
     >
       {children}
     </ChakraButton>
   );
-}
+});
 
 export default Button;

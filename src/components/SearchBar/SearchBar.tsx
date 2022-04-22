@@ -1,4 +1,4 @@
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import Button from "../Button/Button";
@@ -11,8 +11,6 @@ import Select from "../Select/Select";
 import { SelectTypes } from "../Select/SelectTypes";
 import TextInput from "../TextInput/TextInput";
 import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
-import generateUUID from "../../helpers/generateUUID";
-
 interface BaseProps {
   labelText: string;
   name: string;
@@ -21,6 +19,7 @@ interface BaseProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
+  value?: string;
 }
 // Internal interfaces that are used only for `SearchBar` props.
 export interface SelectProps extends BaseProps {
@@ -28,7 +27,6 @@ export interface SelectProps extends BaseProps {
 }
 export interface TextInputProps extends BaseProps {
   placeholder?: string;
-  value?: string;
 }
 
 export interface SearchBarProps {
@@ -45,7 +43,7 @@ export interface SearchBarProps {
   /** The text to display below the form in a `HelperErrorText` component. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -76,7 +74,7 @@ export interface SearchBarProps {
  * Renders a wrapper `form` element to be used with `Select` (optional),
  * `Input`, and `Button` components together.
  */
-export default function SearchBar(props: SearchBarProps) {
+export const SearchBar = chakra((props: SearchBarProps) => {
   const {
     action,
     buttonOnClick = null,
@@ -84,7 +82,7 @@ export default function SearchBar(props: SearchBarProps) {
     descriptionText,
     headingText,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -96,6 +94,7 @@ export default function SearchBar(props: SearchBarProps) {
     selectProps,
     textInputElement,
     textInputProps,
+    ...rest
   } = props;
   const styles = useMultiStyleConfig("SearchBar", {});
   const stateProps = {
@@ -121,6 +120,12 @@ export default function SearchBar(props: SearchBarProps) {
     lineHeight: "1.70",
     marginBottom: "auto",
   };
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
+    );
+  }
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
@@ -130,6 +135,7 @@ export default function SearchBar(props: SearchBarProps) {
       name={selectProps?.name}
       onChange={selectProps?.onChange}
       selectType={SelectTypes.SearchBar}
+      value={selectProps?.value}
       {...stateProps}
     >
       {selectProps?.optionsData.map((option) => (
@@ -188,6 +194,7 @@ export default function SearchBar(props: SearchBarProps) {
       id={id}
       invalidText={invalidText}
       isInvalid={isInvalid}
+      {...rest}
     >
       <Box
         as="form"
@@ -206,4 +213,6 @@ export default function SearchBar(props: SearchBarProps) {
       </Box>
     </ComponentWrapper>
   );
-}
+});
+
+export default SearchBar;

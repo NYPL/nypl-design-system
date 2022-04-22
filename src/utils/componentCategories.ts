@@ -1,4 +1,4 @@
-// NYPL Design System Component Categories
+// NYPL Reservoir Design System Component Categories
 
 const categories = {
   accessibility: {
@@ -83,7 +83,6 @@ const categories = {
       "StructuredContent",
       "ContentSwitcher",
       "Footer",
-      "Grid",
       "Header",
       "HorizontalRule",
       "Section",

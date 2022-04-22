@@ -82,6 +82,7 @@ export { default as Radio } from "./components/Radio/Radio";
 export { default as RadioGroup } from "./components/RadioGroup/RadioGroup";
 export { default as SearchBar } from "./components/SearchBar/SearchBar";
 export { default as Select } from "./components/Select/Select";
+export { LabelPositions } from "./components/Select/SelectTypes";
 export { default as SimpleGrid } from "./components/Grid/SimpleGrid";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export { SkeletonLoaderImageRatios } from "./components/SkeletonLoader/SkeletonLoaderTypes";
@@ -91,7 +92,7 @@ export { StatusBadgeTypes } from "./components/StatusBadge/StatusBadgeTypes";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
 export { StructuredContentImagePosition } from "./components/StructuredContent/StructuredContentTypes";
 export {
-  Tabs,
+  default as Tabs,
   TabList,
   Tab,
   TabPanels,
@@ -118,7 +119,9 @@ export {
 export { TextInputTypes } from "./components/TextInput/TextInputTypes";
 export { default as Toggle } from "./components/Toggle/Toggle";
 export { ToggleSizes } from "./components/Toggle/ToggleTypes";
+export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
+export { default as useWindowSize } from "./hooks/useWindowSize";
 export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
 export {
   VideoPlayerAspectRatios,

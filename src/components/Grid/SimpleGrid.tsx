@@ -1,9 +1,7 @@
+import { chakra, SimpleGrid as ChakraSimpleGrid } from "@chakra-ui/react";
 import * as React from "react";
-import { SimpleGrid as ChakraSimpleGrid } from "@chakra-ui/react";
+
 import { GridGaps } from "./GridTypes";
-
-import generateUUID from "../../helpers/generateUUID";
-
 export interface SimpleGridProps {
   /** Additional class name. */
   className?: string;
@@ -15,23 +13,34 @@ export interface SimpleGridProps {
   id?: string;
 }
 
-function SimpleGrid(props: React.PropsWithChildren<SimpleGridProps>) {
-  const { children, columns, className, gap = GridGaps.Large, id } = props;
+export const SimpleGrid = chakra(
+  (props: React.PropsWithChildren<SimpleGridProps>) => {
+    const {
+      children,
+      columns,
+      className,
+      gap = GridGaps.Large,
+      id,
+      ...rest
+    } = props;
 
-  const responsiveCols = columns
-    ? { base: 1, md: columns }
-    : { base: 1, md: 2, lg: 3 };
+    const responsiveCols = columns
+      ? { base: 1, md: columns }
+      : { base: 1, md: 2, lg: 3 };
 
-  return (
-    <ChakraSimpleGrid
-      columns={responsiveCols}
-      gap={gap}
-      id={id || generateUUID()}
-      className={className}
-    >
-      {children}
-    </ChakraSimpleGrid>
-  );
-}
+    return (
+      <ChakraSimpleGrid
+        columns={responsiveCols}
+        gap={gap}
+        id={id}
+        className={className}
+        {...rest}
+      >
+        {children}
+      </ChakraSimpleGrid>
+    );
+  },
+  { shouldForwardProp: () => true }
+);
 
 export default SimpleGrid;

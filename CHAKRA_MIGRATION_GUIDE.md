@@ -1,6 +1,6 @@
 # Chakra Migration Guide
 
-The first Design System (DS) version that includes the Chakra UI library is version `0.25.0`. This guide is meant for those who are using a version less than `0.25.0` and want to migrate to a version greater than or equal to `0.25.0`. If you're importing the latest DS version, this guide will also help!
+The first Reservoir Design System (DS) version that includes the Chakra UI library is version `0.25.0`. This guide is meant for those who are using a version less than `0.25.0` and want to migrate to a version greater than or equal to `0.25.0`. If you're importing the latest DS version, this guide will also help!
 
 If you would rather read documentation on the Design System's internal use of Chakra, check the Storybook documentation page. The following two links have the same information but in different formats for your reading preference:
 
@@ -15,7 +15,7 @@ If you would rather read documentation on the Design System's internal use of Ch
 
 ## Phase 1 - version 0.25.0
 
-The NYPL Design System first included the Chakra UI library in version `0.25.0` and we call this the "Phase 1" release. This version includes the Chakra integration, re-exported Chakra components, and the first refactor of DS components to use Chakra internally.
+The DS first included the Chakra UI library in version `0.25.0` and we call this the "Phase 1" release. This version includes the Chakra integration, re-exported Chakra components, and the first refactor of DS components to use Chakra internally.
 
 ### DS Components with Chakra
 

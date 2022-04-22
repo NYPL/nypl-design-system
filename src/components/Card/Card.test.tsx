@@ -250,6 +250,102 @@ describe("Card", () => {
       <CardContent>middle column content</CardContent>
     </Card>
   );
+  const cardWithRightActions = () => (
+    <Card
+      id="cardID"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
+      isAlignedRightActions
+    >
+      <CardHeading level={HeadingLevels.Three} id="heading1">
+        The Card Heading
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
+      <CardActions>
+        <Button
+          onClick={() => {}}
+          id="button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Example CTA
+        </Button>
+      </CardActions>
+      <CardActions>
+        <Button
+          onClick={() => {}}
+          id="button2"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Example CTA
+        </Button>
+      </CardActions>
+    </Card>
+  );
+  const cardWithChakraProps = (
+    <Card
+      id="chakraProps"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
+      p="s"
+      color="ui.error.primary"
+    >
+      <CardHeading
+        level={HeadingLevels.Three}
+        id="heading1"
+        color="ui.error.secondary"
+      >
+        The Card Heading
+      </CardHeading>
+      <CardContent p="20px">middle column content</CardContent>
+      <CardActions m="20px">
+        <Button
+          onClick={() => {}}
+          id="button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Example CTA
+        </Button>
+      </CardActions>
+    </Card>
+  );
+  const cardWithOtherProps = (
+    <Card
+      id="otherProps"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
+      data-testid="card-testid"
+    >
+      <CardHeading
+        level={HeadingLevels.Three}
+        id="heading1"
+        color="ui.error.secondary"
+      >
+        The Card Heading
+      </CardHeading>
+      <CardContent data-testid="cardcontent-testid">
+        middle column content
+      </CardContent>
+      <CardActions data-testid="cardaction-testid">
+        <Button
+          onClick={() => {}}
+          id="button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Example CTA
+        </Button>
+      </CardActions>
+    </Card>
+  );
   let container;
 
   it("renders a Card with a header, image, content, and CTAs", () => {
@@ -336,6 +432,9 @@ describe("Card", () => {
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
     const withNoImage = renderer.create(cardWithNoImage).toJSON();
     const withFullClick = renderer.create(cardFullClick()).toJSON();
+    const withRightActions = renderer.create(cardWithRightActions()).toJSON();
+    const withChakraProps = renderer.create(cardWithChakraProps).toJSON();
+    const withOtherProps = renderer.create(cardWithOtherProps).toJSON();
 
     expect(regular).toMatchSnapshot();
     expect(withExtendedStyles).toMatchSnapshot();
@@ -343,5 +442,8 @@ describe("Card", () => {
     expect(withNoContent).toMatchSnapshot();
     expect(withNoImage).toMatchSnapshot();
     expect(withFullClick).toMatchSnapshot();
+    expect(withRightActions).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

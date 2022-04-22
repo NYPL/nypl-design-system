@@ -5,8 +5,8 @@ const StatusBadge = {
     display: "block",
     fontSize: "-1", // slightly smaller than the default size
     fontStyle: "italic",
-    py: "xxs",
-    px: "xs",
+    py: "inset.extranarrow",
+    px: "inset.narrow",
     textAlign: "center",
     width: "fit-content",
   },

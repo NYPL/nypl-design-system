@@ -6,7 +6,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Checkbox from "./Checkbox";
-import * as generateUUID from "../../helpers/generateUUID";
 
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
@@ -41,11 +40,9 @@ describe("Checkbox Accessibility", () => {
 
 describe("Checkbox", () => {
   let changeHandler;
-  let generateUUIDSpy;
 
   beforeEach(() => {
     changeHandler = jest.fn();
-    generateUUIDSpy = jest.spyOn(generateUUID, "default");
   });
 
   it("Renders with a checkbox input and label", () => {
@@ -108,12 +105,6 @@ describe("Checkbox", () => {
   it("Sets the checkbox's ID", () => {
     render(<Checkbox id="inputID" labelText="Test Label" />);
     expect(screen.getByRole("checkbox")).toHaveAttribute("id", "inputID");
-  });
-
-  it("Calls the UUID generation function if no id prop value is passed", () => {
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-    render(<Checkbox labelText="Test Label" />);
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
   });
 
   it("Sets the 'checked' attribute", () => {
@@ -218,6 +209,7 @@ describe("Checkbox", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Checkbox
+        id="checkbox"
         value="arts"
         labelText={
           <Flex>
@@ -232,6 +224,16 @@ describe("Checkbox", () => {
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Checkbox: `labelText` must be a string when `showLabel` is false."
+    );
+  });
+
+  it("Logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    // @ts-ignore: Typescript complains when a required prop is not passed, but
+    // here we don't want to pass the required prop to make sure the warning appears.
+    render(<Checkbox labelText="checkbox" />);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
     );
   });
 
@@ -284,6 +286,25 @@ describe("Checkbox", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Checkbox
+          id="checkbox-chakra"
+          labelText="Test Label"
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Checkbox
+          id="checkbox-props"
+          labelText="Test Label"
+          data-testid="testid"
+        />
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
@@ -292,5 +313,7 @@ describe("Checkbox", () => {
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
     expect(withJSXLabel).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

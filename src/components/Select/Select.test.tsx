@@ -4,9 +4,11 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Select from "./Select";
+import { LabelPositions } from "./SelectTypes";
 
 const baseProps = {
   helperText: "This is the helper text.",
+  id: "select",
   labelText: "What is your favorite color?",
   name: "color",
 };
@@ -79,26 +81,17 @@ describe("Select", () => {
     ).toHaveAttribute("aria-describedby", `${id}-helperText`);
   });
 
-  it("renders required or optional text in the label", () => {
-    const { rerender } = render(<Select {...baseProps}>{baseOptions}</Select>);
-    expect(screen.getByText(/Optional/i)).toBeInTheDocument();
-
-    rerender(
+  it("renders '(Required)' text in the label", () => {
+    const { rerender } = render(
       <Select {...baseProps} isRequired>
         {baseOptions}
       </Select>
     );
+
     expect(screen.getByText(/Required/i)).toBeInTheDocument();
 
     rerender(
-      <Select {...baseProps} showOptReqLabel={false}>
-        {baseOptions}
-      </Select>
-    );
-    expect(screen.queryByText(/Optional/i)).not.toBeInTheDocument();
-
-    rerender(
-      <Select {...baseProps} isRequired showOptReqLabel={false}>
+      <Select {...baseProps} isRequired showRequiredLabel={false}>
         {baseOptions}
       </Select>
     );
@@ -120,9 +113,9 @@ describe("Select", () => {
     ).toHaveAttribute("required");
   });
 
-  it("should not render a required label if 'showOptReqLabel' flag is false, but still render the label", () => {
+  it("should not render a required label if 'showRequiredLabel' flag is false, but still render the label", () => {
     render(
-      <Select {...baseProps} isRequired showOptReqLabel={false}>
+      <Select {...baseProps} isRequired showRequiredLabel={false}>
         {baseOptions}
       </Select>
     );
@@ -222,9 +215,22 @@ describe("Select", () => {
     expect(value).toEqual("white");
   });
 
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Select labelText="What is your favorite color?" name="color">
+        {baseOptions}
+      </Select>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Select: This component's required `id` prop was not passed."
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
-
     const options = siblings.map((sibling) => (
       <option key={sibling}>{sibling}</option>
     ));
@@ -289,6 +295,19 @@ describe("Select", () => {
         </Select>
       )
       .toJSON();
+    const withLabelInline = renderer
+      .create(
+        <Select
+          id="select"
+          isRequired
+          labelPosition={LabelPositions.Inline}
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
     const hasOnChange = renderer
       .create(
         <Select
@@ -301,12 +320,40 @@ describe("Select", () => {
         </Select>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Select
+          id="chakra"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          p="20px"
+          color="ui.error.primary"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Select
+          id="props"
+          labelText="Which Succession sibling are you?"
+          name="succession-sibling"
+          data-testid="props"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(disabled).toMatchSnapshot();
     expect(withInvalidText).toMatchSnapshot();
     expect(withHelperText).toMatchSnapshot();
     expect(required).toMatchSnapshot();
+    expect(withLabelInline).toMatchSnapshot();
     expect(hasOnChange).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -41,7 +41,7 @@ const typography: Typography = {
     "2": fontSizeValues["2"],
     "3": fontSizeValues["3"],
     "4": fontSizeValues["4"],
-    // specific tokens
+    // semantic tokens
     breadcrumbs: {
       default: fontSizeValues["-1"],
     },
@@ -75,7 +75,7 @@ const typography: Typography = {
     regular: fontWeightValues["regular"],
     medium: fontWeightValues["medium"],
     bold: fontWeightValues["bold"],
-    // specific tokens
+    // semantic tokens
     breadcrumbs: {
       default: fontWeightValues["regular"],
       lastChild: fontWeightValues["bold"],
