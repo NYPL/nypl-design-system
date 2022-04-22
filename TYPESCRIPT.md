@@ -12,7 +12,7 @@ _Note_: Typescript is not usable when creating Storybook documentation in MDX fi
 
 ## Enums
 
-Some of the NYPL Design System React components have props that only accept a value from a specific set of values. The set of values are organized through a Typescript string `enum`. For example, the `Heading` component has an optional `displaySize` prop. Only values from the `HeadingDisplaySizes` string `enum` are allowed to be used.
+Some of the Reservoir Design System React components have props that only accept a value from a specific set of values. The set of values are organized through a Typescript string `enum`. For example, the `Heading` component has an optional `displaySize` prop. Only values from the `HeadingDisplaySizes` string `enum` are allowed to be used.
 
 Following this pattern (assuming that the consuming app developer is also using Typescript):
 
@@ -91,7 +91,7 @@ If the consuming application does not use Typescript, then the following won't t
 
 ### Converting to types
 
-Another way the `displaySize` can be implemented is through a `type`. This gives us the same Typescript prop type validation but is less explicit. For the time being, we want to write explicit prop values to make it easier to debug on non-Typescript applications that import the NYPL Design System.
+Another way the `displaySize` can be implemented is through a `type`. This gives us the same Typescript prop type validation but is less explicit. For the time being, we want to write explicit prop values to make it easier to debug on non-Typescript applications that import the Reservoir Design System.
 
 ```tsx
 export type HeadingDisplaySizes =

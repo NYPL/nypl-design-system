@@ -63,6 +63,17 @@ export const enumValues = getStorybookEnumValues(
 | Added             | `0.22.0`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Labelling Variations](#labelling-variations)
+- [HTML in Helper Text](#html-in-helper-text)
+- [Textarea](#textarea)
+
+## Overview
+
 <Description of={TextInput} />
 
 This component renders a text input form element. See below for configuration
@@ -70,6 +81,8 @@ information. For optimal accessibility, the `labelText` property is a required
 prop, regardless of the label visibility. Additionally, while the `id` prop is
 optional, a unique `id` attribute is necessary for accessibility. If the prop
 is left blank, a value will be generated for you.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -103,6 +116,29 @@ is left blank, a value will be generated for you.
 </Canvas>
 
 <ArgsTable story="TextInput with Controls" />
+
+## Accessibility
+
+The `TextInput` component renders an HTML `<input>` element which is accessible
+via keyboard and screen reader. The `aria-required` and `required` attributes are
+set with the `isRequired` prop. The `aria-disabled` and `disabled` attributes are
+set with the `isDisabled` prop. The `aria-invalid` is set with the `isInvalid`
+prop.
+
+Internally, a `Label` is associated with the `<input>` element. When `showLabel`
+is set to false, the `<input>` element's `aria-label` attribute is set to the
+required `labelText` value.
+
+When the `type` prop is set to `TextInputTypes.textarea`, the `<textarea>` element
+is rendered instead of the `<input>` element. This element follows all the same
+accessibility rules described above.
+
+Resources:
+
+- [MDN input: The Input (Form Input) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+- [MDN textarea: The Textarea element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
+- [Chakra UI Input](https://chakra-ui.com/docs/components/form/input)
+- [Chakra UI Textarea](https://chakra-ui.com/docs/components/form/textarea)
 
 ## Labelling Variations
 
