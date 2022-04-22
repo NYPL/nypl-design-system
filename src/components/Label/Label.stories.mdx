@@ -33,7 +33,18 @@ import { getCategory } from "../../utils/componentCategories";
 | Added             | `0.0.10`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [isRequired helper text](#isrequired-helper-text)
+
+## Overview
+
 <Description of={Label} />
+
+## Component Props
 
 <Canvas>
   <Story
@@ -51,6 +62,22 @@ import { getCategory } from "../../utils/componentCategories";
 </Canvas>
 
 <ArgsTable story="Label with Controls" />
+
+## Accessibility
+
+The `Label` component is an accessible HTML `<label>` element. The JSX prop
+`htmlFor` should be set to the `id` of the input element that the label is
+associated with. This is the proper way to label inputs so that screenreaders
+can read the label, without the use of the `aria-label` attribute on the input
+element.
+
+Note: All form-related Reservoir components already implement this `Label`
+component so there is no need to use this component unless if you are building
+a new form-related input component.
+
+Resources:
+
+- [WebAIM Creating Accessible Forms](https://webaim.org/techniques/forms/advanced)
 
 ## isRequired helper text
 

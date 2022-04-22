@@ -67,6 +67,18 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
 | Added             | `0.0.4`    |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Button Groups](#button-groups)
+- [With Icons](#with-icons)
+- [Patterns](#patterns)
+- [Other Examples](#other-examples)
+
+## Overview
+
 <Description of={Button} />
 
 Update the `buttonType` in the Controls section to see the types of buttons
@@ -82,6 +94,8 @@ that can be rendered.
 
 When one and only one `Icon` component is passed inside a `Button` component with
 no text, it will automatically be configured to use the `"iconOnly"` type.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -136,6 +150,21 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
 
 <ArgsTable story="Button with Controls" />
 
+## Accessibility
+
+The Reservoir `Button` component renders an HTML `<button>` element that is
+accessible. `Button`s should be used to perform user actions or submit forms,
+never to link and go to another page. For `Button`s without text and only an
+icon, make sure to pass an `aria-label` value to the `Button`. `Button`s cannot
+have images of text.
+
+Resources:
+
+- [W3C WAI ARIA Button](https://www.w3.org/TR/wai-aria-practices-1.1/#button)
+- [W3C WAI ARIA Button Examples](https://www.w3.org/TR/wai-aria-practices-1.1/examples/button/button.html)
+- [MDN ARIA: button role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role)
+- [Chakra UI Button](https://chakra-ui.com/docs/components/form/button)
+
 ## Button Groups
 
 Primary and secondary buttons should be grouped like in the following example.
@@ -163,7 +192,7 @@ to see the full list of icon and logo names that can be rendered.
 
 <Canvas>
   <Story name="With Icon">
-    <VStack align="left" width="150px">
+    <VStack align="left" spacing="input.group.button.vstack" width="150px">
       <Button id="icon-1">
         <Icon
           name={IconNames.Search}

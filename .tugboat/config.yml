@@ -7,5 +7,5 @@ services:
         - apt-get install nodejs
         - apt-get install npm
         - npm install
-        - npm run prebuild:storybook && npm run build-storybook
-        - ln -snf "${TUGBOAT_ROOT}/storybook-static" "${DOCROOT}"
+        - npm run prebuild:storybook && npm run build-storybook:v0
+        - ln -snf "${TUGBOAT_ROOT}/reservoir/v0_26" "${DOCROOT}"

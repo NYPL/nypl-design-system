@@ -1,6 +1,6 @@
-# Contributing to the NYPL Design System
+# Contributing to the Reservoir Design System
 
-We're excited that you want to contribute to the NYPL Design System!
+We're excited that you want to contribute to the Reservoir Design System!
 
 The first step is to follow the [README](/README.md) to install the codebase and install the dependencies in order to be able to start the local development workflow.
 

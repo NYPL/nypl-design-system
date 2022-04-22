@@ -59,7 +59,20 @@ export const sizesEnumValues = getStorybookEnumValues(LogoSizes, "LogoSizes");
 | Added             | `0.25.9`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Logo Sizes](#logo-sizes)
+- [All Logos](#all-logos)
+- [Custom Logos](#custom-logos)
+
+## Overview
+
 <Description of={Logo} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -142,11 +155,22 @@ export const allLogosGrid = (list) => (
 
 ## Accessibility
 
-For accessibility purposes, every DS `Logo` will render the `svg` element with
-its `svg` file name in the `title` element. The default text in the `title` element
-is the logo's code name. Pass in better descriptive text in the `title` prop
-when using the `Logo` component in your application. This will give screenreaders
-a better descriptive title for the `svg` graphic.
+For accessibility purposes, every Reservoir Design System (DS) `Logo` will 
+render the `svg` element with its `svg` file name in the `title` element. The 
+default text in the `title` element is the logo's code name. Pass in better 
+descriptive text in the `title` prop when using the `Logo` component in your 
+application. This will give screenreaders a better descriptive title for the 
+`svg` graphic.
+
+`Logos`s are decorative by default. This means that they are presentational and
+screenreaders will not read them because the `aria-hidden` attribute is set to
+`true`.
+
+Resources:
+
+- [W3C Design System SVG Icons](https://design-system.w3.org/styles/svg-icons.html)
+- [CSS-Tricks Accessible SVG Icons](https://css-tricks.com/accessible-svg-icons/)
+- [Chakra UI Icon](https://chakra-ui.com/docs/components/media-and-icons/icon)
 
 ## Logo Sizes
 

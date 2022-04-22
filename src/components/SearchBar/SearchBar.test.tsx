@@ -22,6 +22,7 @@ const selectProps: SelectProps = {
   name: "selectName",
   labelText: "Select a category",
   optionsData: optionsGroup,
+  value: "Songs",
 };
 const textInputProps: TextInputProps = {
   labelText: "Item Search",
@@ -162,7 +163,9 @@ describe("SearchBar", () => {
   });
 
   it("calls the Select onChange callback function", () => {
-    selectProps.onChange = jest.fn();
+    let selectValue = "Songs";
+    selectProps.onChange = (e) => (selectValue = e.target.value);
+    selectProps.value = selectValue;
 
     render(
       <SearchBar
@@ -175,13 +178,13 @@ describe("SearchBar", () => {
       />
     );
     const select = screen.getByLabelText(selectProps.labelText);
-    expect(selectProps.onChange).toHaveBeenCalledTimes(0);
+    expect(selectValue).toEqual("Songs");
 
     userEvent.selectOptions(select, "Flowers");
-    expect(selectProps.onChange).toHaveBeenCalledTimes(1);
+    expect(selectValue).toEqual("Flowers");
 
     userEvent.selectOptions(select, "Furniture");
-    expect(selectProps.onChange).toHaveBeenCalledTimes(2);
+    expect(selectValue).toEqual("Furniture");
   });
 
   it("calls the callback function for the Button component ", () => {

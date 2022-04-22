@@ -8,7 +8,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       Above Header
     </div>
@@ -17,7 +17,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       NYPL Header
     </div>
@@ -25,12 +25,12 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         Breadcrumbs
       </div>
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         Hero
       </div>
@@ -44,7 +44,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Content Top
       </div>
@@ -53,7 +53,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Left Sidebar
       </div>
@@ -62,12 +62,12 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Main Content
       </div>
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         More Content
       </div>
@@ -77,7 +77,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       Footer
     </div>
@@ -93,7 +93,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       Above Header
     </div>
@@ -102,7 +102,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       NYPL Header
     </div>
@@ -110,12 +110,12 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         Breadcrumbs
       </div>
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         Hero
       </div>
@@ -129,7 +129,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Content Top
       </div>
@@ -138,7 +138,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Left Sidebar
       </div>
@@ -147,12 +147,12 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Main Content
       </div>
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         More Content
       </div>
@@ -162,7 +162,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       Footer
     </div>
@@ -178,7 +178,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       Above Header
     </div>
@@ -187,7 +187,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       NYPL Header
     </div>
@@ -195,12 +195,12 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         Breadcrumbs
       </div>
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         Hero
       </div>
@@ -214,7 +214,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Content Top
       </div>
@@ -223,7 +223,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Left Sidebar
       </div>
@@ -232,12 +232,12 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Main Content
       </div>
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         More Content
       </div>
@@ -247,7 +247,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       Footer
     </div>
@@ -264,7 +264,7 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       Above Header
     </div>
@@ -273,7 +273,7 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       NYPL Header
     </div>
@@ -281,12 +281,12 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         Breadcrumbs
       </div>
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         Hero
       </div>
@@ -300,7 +300,7 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Content Top
       </div>
@@ -309,7 +309,7 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Left Sidebar
       </div>
@@ -318,12 +318,12 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
       className="css-0"
     >
       <div
-        className="placeholder placeholder-undefined"
+        className="placeholder placeholder--undefined"
       >
         Main Content
       </div>
       <div
-        className="placeholder placeholder-short"
+        className="placeholder placeholder--short"
       >
         More Content
       </div>
@@ -333,7 +333,7 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="placeholder placeholder-short"
+      className="placeholder placeholder--short"
     >
       Footer
     </div>
