@@ -71,6 +71,11 @@ const lowerLinks = {
     color: "ui.black",
     fontWeight: 500,
     textDecoration: "none",
+    _hover: {
+      borderBottom: "2px solid",
+      color: "#ed1c24",
+      textDecoration: "none",
+    },
   },
   "li > #searchButton": {
     alignItems: "center",
