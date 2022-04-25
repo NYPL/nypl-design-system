@@ -114,17 +114,6 @@ describe("Breadcrumbs Snapshot", () => {
         />
       )
       .toJSON();
-    const breadcrumbsAdditionalStyles = renderer
-      .create(
-        <Breadcrumbs
-          additionalStyles={{
-            bg: "var(--nypl-colors-ui-error-primary)",
-          }}
-          breadcrumbsData={breadcrumbsData}
-          id="breadcrumbs-test"
-        />
-      )
-      .toJSON();
     const withChakraProps = renderer
       .create(
         <Breadcrumbs
@@ -150,7 +139,6 @@ describe("Breadcrumbs Snapshot", () => {
     expect(breadcrumbsBlogsVariant).toMatchSnapshot();
     expect(breadcrumbsLocationsVariant).toMatchSnapshot();
     expect(breadcrumbsEducationVariant).toMatchSnapshot();
-    expect(breadcrumbsAdditionalStyles).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });

@@ -9,9 +9,8 @@ import {
   IconAlign,
   IconSizes,
 } from "../Icons/IconTypes";
+
 export interface LinkProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
   attributes?: { [key: string]: any };
   /** Any child node passed to the component. */
@@ -94,7 +93,6 @@ function getExternalIcon(children, linkId) {
 export const Link = chakra(
   React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
     const {
-      additionalStyles = {},
       attributes,
       children,
       className,
@@ -161,9 +159,6 @@ export const Link = chakra(
               ref,
               rel,
               target,
-              // Useful if more styles are needed for the custom
-              // anchor element or link component.
-              style: additionalStyles,
             },
             [childrenToClone.props.children]
           )}
@@ -178,7 +173,7 @@ export const Link = chakra(
           rel={rel}
           target={target}
           {...linkProps}
-          __css={{ ...style, ...additionalStyles }}
+          __css={style}
           {...rest}
         >
           {newChildren}

@@ -62,9 +62,9 @@ export const NotificationHeading = chakra(
       <Box as="header" __css={styles} {...rest}>
         {icon}
         <Heading
-          additionalStyles={styles.heading}
           id={`${id}-heading`}
           level={HeadingLevels.Four}
+          __css={styles.heading}
         >
           {children}
         </Heading>
@@ -122,8 +122,8 @@ export const Notification = chakra((props: NotificationProps) => {
   });
   const iconElement = () => {
     const baseIconProps = {
-      additionalStyles: styles.icon,
       size: IconSizes.Large,
+      __css: styles.icon,
     };
     // If the icon should not display, return null.
     if (!showIcon) {
@@ -155,20 +155,20 @@ export const Notification = chakra((props: NotificationProps) => {
     return (
       <Icon
         id={`${id}-notification-icon`}
-        {...baseIconProps}
         {...iconProps[notificationType]}
+        {...baseIconProps}
       />
     );
   };
   const dismissibleButton = dismissible && (
     <Button
-      additionalStyles={styles.dismissibleButton}
       attributes={{
         "aria-label": "Close the notification",
       }}
       buttonType={ButtonTypes.Link}
       id={`${id}-notification-dismissible-button`}
       onClick={handleClose}
+      __css={styles.dismissibleButton}
     >
       <Icon
         id={`${id}-dismissible-notification-icon`}

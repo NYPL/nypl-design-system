@@ -9,8 +9,6 @@ interface DescriptionProps {
   description: string | JSX.Element;
 }
 export interface ListProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** ClassName you can add in addition to 'list' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -40,7 +38,6 @@ export interface ListProps {
  */
 export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
   const {
-    additionalStyles = {},
     children,
     className,
     id,
@@ -52,7 +49,6 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
     ...rest
   } = props;
   const styles = useStyleConfig("List", { inline, noStyling, variant: type });
-  const finalStyles = { ...styles, ...additionalStyles };
   let listElement = null;
 
   // Either li/dt/dd children elements must be passed or the `listItems`
@@ -135,7 +131,7 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
         as={type as As}
         id={id}
         className={className}
-        __css={finalStyles}
+        __css={styles}
         {...rest}
       >
         {listChildrenElms(type)}
@@ -144,13 +140,7 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
   } else if (type === ListTypes.Description) {
     checkDescriptionChildrenError();
     listElement = (
-      <Box
-        as="section"
-        id={id}
-        className={className}
-        __css={finalStyles}
-        {...rest}
-      >
+      <Box as="section" id={id} className={className} __css={styles} {...rest}>
         {title && (
           <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
             {title}

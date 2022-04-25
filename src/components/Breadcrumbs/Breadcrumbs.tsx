@@ -23,8 +23,6 @@ export interface BreadcrumbsDataProps {
 }
 
 export interface BreadcrumbProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
   /** Used to control how the `Hero` component will be rendered. */
@@ -65,14 +63,7 @@ const getElementsFromData = (data, breadcrumbsID) => {
 };
 
 export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
-  const {
-    additionalStyles = {},
-    breadcrumbsData,
-    breadcrumbsType,
-    className,
-    id,
-    ...rest
-  } = props;
+  const { breadcrumbsData, breadcrumbsType, className, id, ...rest } = props;
   const variant = getVariant(breadcrumbsType, BreadcrumbsTypes);
 
   if (!breadcrumbsData || breadcrumbsData.length === 0) {
@@ -82,7 +73,6 @@ export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
   }
 
   const styles = useStyleConfig("Breadcrumb", { variant });
-  const finalStyles = { ...styles, ...additionalStyles };
   const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
 
   return (
@@ -90,7 +80,7 @@ export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
       aria-label="Breadcrumb"
       className={className}
       id={id}
-      __css={finalStyles}
+      __css={styles}
       {...rest}
     >
       {breadcrumbItems}

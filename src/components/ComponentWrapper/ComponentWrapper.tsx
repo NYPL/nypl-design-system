@@ -60,10 +60,10 @@ export const ComponentWrapper = chakra(
         {children}
         {footnote && (
           <HelperErrorText
-            additionalStyles={styles.helperErrorText}
             id={`${id}-helperText`}
             isInvalid={isInvalid}
             text={footnote}
+            __css={styles.helperErrorText}
           />
         )}
       </Box>

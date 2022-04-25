@@ -68,8 +68,7 @@ export const Hero = chakra(
     const headingStyles = styles.heading;
     // We want to add `Hero`-specific styling to the `Heading` component.
     const finalHeading =
-      heading &&
-      React.cloneElement(heading, { additionalStyles: headingStyles });
+      heading && React.cloneElement(heading, { __css: headingStyles });
     let backgroundImageStyle = {};
     let contentBoxStyling = {};
 
