@@ -12,6 +12,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `SkipNav` component and adds this component inside the `TemplateAppContainer` component. The `SkipNav` component renders accessible links to the main content of a page and accessibility information on NYPL.org.
 
+## 0.26.1 (April 22, 2022)
+
+### Updates
+
+- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.
+
+### Fixes
+
+- Adds updated package-lock file to fix bad installations.
+
 ## 0.26.0 (April 22, 2022)
 
 ### Adds
