@@ -64,42 +64,14 @@ import { getCategory } from "../../utils/componentCategories";
 
 ## Table of Contents
 
-- [Accessibility for TemplateAppContainer](#accessibility-for-templateappcontainer)
-- [TemplateAppContainer Component](#templateappcontainer-component)
-- [TemplateAppContainer Props](#templateappcontainer-props)
-- [Template Children Components](#template-children-components)
-- [Template Children Props](#template-children-props)
+- [TemplateAppContainer Overview](#templateappcontainer-overview)
+- [TemplateAppContainer Component Props](#templateappcontainer-component-props)
+- [TemplateAppContainer Accessibility](#templateappcontainer-accessibility)
+- [Template Children Overview](#template-children-overview)
+- [Template Children Component Props](#template-children-component-props)
 - [Full Example with Template Children Components](#full-example-with-template-children-components)
 
-## Accessibility
-
-**The `TemplateAppContainer` component is the recommended way to render the entire
-application.** Therefore, this accessibility section is specifically for the
-`TemplateAppContainer` but the same rules apply to the individual "Template"
-components.
-
-If you need to render an alert or notification at the top of the page with an
-`aside` HTML element or HTML element with the `role="complementary"` attribute,
-then pass that alert or notification component to the `aboveHeader` prop. These
-elements should _not_ be rendered in the `header` HTML section since that's an
-accessibility violation.
-
-The `TemplateAppContainer` component renders a full DOM and one of the children
-is the `main` HTML element with a default "id" of `"mainContent"`. This should
-be used as the anchor element that the skip navigation link points to. As of
-v0.25.13, the consuming application is responsible for adding the skip
-navigation feature to the application. If your application is using the current
-NYPL Header, it already contains the skip navigation feature but make sure it is
-pointing to the correct anchor element.
-
-Resources
-
-- [W3C Aria Landmarks Example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/complementary.html)
-- [Digital A11y Role=Complementary](https://www.digitala11y.com/complementary-role/)
-- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
-- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
-
-## TemplateAppContainer Component
+## TemplateAppContainer Overview
 
 <Description of={TemplateAppContainer} />
 
@@ -138,7 +110,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
 />;
 ```
 
-## TemplateAppContainer Props
+## TemplateAppContainer Component Props
 
 <Canvas>
   <Story
@@ -186,13 +158,45 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
 
 <ArgsTable story="TemplateAppContainer Component" />
 
-## Template Children Components
+## TemplateAppContainer Accessibility
 
-The DS also provides a set of "template" components that work together to
-render a consistent mobile and desktop layout. More information on individual
-components and how they should be composed can be found below. Even though these
-component are available for use, we recommend using the `TemplateAppContainer`
-component and passing down children component as props as needed.
+**The `TemplateAppContainer` component is the recommended way to render the entire
+application.** Therefore, this accessibility section is specifically for the
+`TemplateAppContainer` but the same rules apply to the individual "Template"
+components.
+
+The `TemplateAppContainer` component renders the header as a `<header>` element,
+the content as a `<main>` element, and the footer as a `<footer>` element.
+
+If you need to render an alert or notification at the top of the page with an
+`aside` HTML element or HTML element with the `role="complementary"` attribute,
+then pass that alert or notification component to the `aboveHeader` prop. These
+elements should _not_ be rendered in the `header` HTML section since that's an
+accessibility violation.
+
+The `TemplateAppContainer` component renders a full DOM and one of the children
+is the `main` HTML element with a default "id" of `"mainContent"`. This should
+be used as the anchor element that the skip navigation link points to. As of
+v0.25.13, the consuming application is responsible for adding the skip
+navigation feature to the application. If your application is using the current
+NYPL Header, it already contains the skip navigation feature but make sure it is
+pointing to the correct anchor element.
+
+Resources
+
+- [W3C Aria Landmarks Example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/complementary.html)
+- [Digital A11y Role=Complementary](https://www.digitala11y.com/complementary-role/)
+- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
+- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
+
+## Template Children Overview
+
+The Reservoir Design System (DS) also provides a set of "template" components 
+that work together to render a consistent mobile and desktop layout. More 
+information on individual components and how they should be composed can be 
+found below. Even though these component are available for use, we recommend 
+using the `TemplateAppContainer` component and passing down children component 
+as props as needed.
 
 Basic "template" components structure:
 
@@ -237,7 +241,7 @@ import {
 </Template>
 ```
 
-## Template Children Props
+## Template Children Component Props
 
 <Canvas>
   <Story

@@ -1,6 +1,5 @@
 import { ButtonGroup } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
@@ -14,16 +13,7 @@ import {
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
-<Meta
-  title={getCategory("Buttons")}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11477%3A2298",
-    },
-  }}
-/>
+<Meta title={getCategory("Buttons")} />
 
 # Buttons
 
@@ -38,7 +28,7 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Use the NYPL Design System [Button](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/form-elements-button--basic)
+Use the [Button](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/form-elements-button--basic)
 component to render form buttons.
 
 ```jsx

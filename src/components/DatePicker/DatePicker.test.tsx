@@ -591,7 +591,7 @@ describe("DatePicker", () => {
       );
       // Both input fields are required.
       // The "Required" text is only displayed once in the `legend`.
-      expect(screen.getAllByText(/required/i)).toHaveLength(1);
+      expect(screen.getAllByText(/Required/i)).toHaveLength(1);
       expect(screen.getByLabelText(/From/i)).toHaveAttribute("required");
       expect(screen.getByLabelText(/To/i)).toHaveAttribute("required");
     });

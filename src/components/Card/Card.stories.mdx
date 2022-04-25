@@ -78,6 +78,9 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
     "imageProps.src": {
       table: { defaultValue: { summary: "" } },
     },
+    isAlignedRightActions: {
+      table: { defaultValue: { summary: false } },
+    },
     isBordered: {
       table: { defaultValue: { summary: false } },
     },
@@ -109,6 +112,7 @@ export const LayoutTypesEnumValues = getStorybookEnumValues(
 - [Custom Image Component](#custom-image-component)
 - [Card With Link Heading](#card-with-link-heading)
 - [Card With Full-Click Functionality](#card-with-full-click-functionality)
+- [Card with Right Side CardActions](#card-with-right-side-cardactions)
 - [Cards in a Grid](#cards-in-a-grid)
 - [Cards in a Stack](#cards-in-a-stack)
 - [Card Without Images](#card-without-images)
@@ -127,14 +131,18 @@ grouped together and displayed in some type of grid layout.
 
 ### CardHeading
 
-The `CardHeading` component mirrors the standard DS `Heading` component and
-accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/components-typography-styles-heading--heading-with-controls).
+The `CardHeading` component mirrors the standard Reservoir Design System (DS)
+`Heading` component and accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/components-typography-styles-heading--heading-with-controls).
 
 ### CardActions
 
 The `CardActions` component is used to display "call to action" (CTA) buttons
 and links for the card. The DS `Button` and `Link` components should be passed
 as children into the `CardActions` component.
+
+Set the `isAlignedRightActions` prop to true in the `Card` component to align the
+`CardActions` to the right of the the main content area. This is only applicable
+in the row layout of the `Card` component.
 
 ### CardContent
 
@@ -157,6 +165,7 @@ headings and CTAs.
       "imageProps.isAtEnd": false,
       "imageProps.size": "ImageSizes.Default",
       "imageProps.src": "https://placeimg.com/400/300/animals",
+      isAlignedRightActions: false,
       isBordered: false,
       isCentered: false,
       layout: "LayoutTypes.Row",
@@ -764,6 +773,63 @@ from being having the full-click functionality.
         </CardContent>
       </Card>
     </SimpleGrid>
+  </Story>
+</Canvas>
+
+## Card with Right Side CardActions
+
+It's possible to set only the `CardActions` component on the right side of the
+main content area of the `Card`. This is possible only in the "LayoutTypes.Row"
+layout and through the `Card` component's `isAlignedRightActions` prop which
+must be set to `true`.
+
+<Canvas>
+  <Story name="Card with Right Side CardActions">
+    <Card
+      imageProps={{
+        alt: "Alt text",
+        aspectRatio: ImageRatios.TwoByOne,
+        size: ImageSizes.Medium,
+        src: "https://placeimg.com/400/200/animals",
+      }}
+      isAlignedRightActions
+      isCentered
+      layout={LayoutTypes.Row}
+    >
+      <CardHeading level={HeadingLevels.Two} id="main-heading1">
+        Optional Header
+      </CardHeading>
+      <CardHeading level={HeadingLevels.Three} id="main-heading2">
+        Sollicitudin Lorem Tortor Purus Ornare
+      </CardHeading>
+      <CardContent>
+        Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+        libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel
+        eu leo. Nulla vitae elit libero, a pharetra augue.
+      </CardContent>
+      <CardActions topBorder bottomBorder>
+        <Button
+          onClick={action("clicked")}
+          id="main-button1"
+          buttonType={ButtonTypes.Primary}
+          type="submit"
+        >
+          Primary
+        </Button>
+        <Button
+          onClick={action("clicked")}
+          id="main-button2"
+          buttonType={ButtonTypes.Secondary}
+          type="submit"
+        >
+          Secondary
+        </Button>
+      </CardActions>
+      <CardActions>
+        <Link href="#">#hash1</Link>,<Link href="#">#hash2</Link>,
+        <Link href="#">#hash3</Link>
+      </CardActions>
+    </Card>
   </Story>
 </Canvas>
 

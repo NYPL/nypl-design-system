@@ -84,12 +84,24 @@ export const imageBlockStyles = {
 | Added             | `0.0.6`    |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Image Figure](#image-figure)
+- [Image Sizes](#image-sizes)
+- [Image Aspect Ratios](#image-aspect-ratios)
+- [Image Types](#image-types)
+
+## Overview
+
 <Description of={Image} />
 
-<p>
-  If you want a simple HTML `img` element then don't pass in values for the
-  `aspectRatio` or `size` props.
-</p>
+If you want a simple HTML `img` element then don't pass in values for the
+`aspectRatio` or `size` props.
+
+## Component Props
 
 <Canvas>
   <Story
@@ -121,6 +133,18 @@ export const imageBlockStyles = {
 </Canvas>
 
 <ArgsTable story="Image with Controls" />
+
+## Accessibility
+
+All images must have an `alt` attribute, even if it's empty. The `alt` prop should
+be used to concisely describe the image. If the image is decorative, then the
+`alt` prop should be an empty string `""`.
+
+Resources:
+
+- [W3C WAI Images Tutorial](https://www.w3.org/WAI/tutorials/images/)
+- [WebAIM Accessible Images](https://webaim.org/techniques/images/)
+- [Yale Usability & Web Accessibility](https://usability.yale.edu/web-accessibility/articles/images)
 
 ## Image Figure
 

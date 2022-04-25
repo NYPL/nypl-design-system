@@ -73,7 +73,24 @@ export const typesEnumValues = getStorybookEnumValues(
 | Added             | `0.25.4`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Linear Type](#linear-type)
+- [Circular Type](#circular-type)
+- [Sizing](#sizing)
+- [Labels](#labels)
+- [Indeterminate State](#indeterminate-state)
+- [Dark Mode](#dark-mode)
+- [Get Input Values](#get-input-values)
+
+## Overview
+
 <Description of={ProgressIndicator} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -100,6 +117,26 @@ export const typesEnumValues = getStorybookEnumValues(
 </Canvas>
 
 <ArgsTable story="ProgressIndicator with Controls" />
+
+## Accessibility
+
+Chakra UI takes care of the internal accessibility attributes for this component.
+Specifically, the `role` attribute is set to `progressbar` and the `aria-valuenow`
+attribute is set to the value of the `value` prop, or the percentage completion
+value. The min and max values are set to "0" and "100", respectively, and are set
+with the `aria-valuemin` and `aria-valuemax` attributes. This makes this
+component and its value(s) visible to screen readers.
+
+When `showLabel` is set to false, the `labelText` value will be set to the
+main `<div>`'s `aria-label` attribute. This is the same div that contains the
+`aria-valuemin`, `aria-valuemax`, and `aria-valuenow` attributes.
+
+Resources:
+
+- [DigitalA11y WAI-ARIA: ROLE=PROGRESSBAR](https://www.digitala11y.com/progressbar-role/)
+- [MDN Using the progressbar role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_progressbar_role)
+- [Chakra UI Progress](https://chakra-ui.com/docs/components/feedback/progress)
+- [Chakra UI Circular Progress](https://chakra-ui.com/docs/components/feedback/circular-progress)
 
 ## Linear Type
 
@@ -144,7 +181,7 @@ full-screen loading. Set the `indicatorType` prop to
   </Story>
 </Canvas>
 
-### Sizing
+## Sizing
 
 The starting height for the progress bar is 4px on mobile and 8px for desktop.
 The `size` prop can be used to optionally set the height to 4px for desktop
@@ -197,7 +234,7 @@ percentage will not displayed.
   </DSProvider>
 </Canvas>
 
-### Labels
+## Labels
 
 The `labelText` value and the `value` percentage are displayed by default. They
 can be hidden through the `showLabel` prop.
@@ -227,7 +264,7 @@ the progress element to provide a description of the progress for screen readers
   </DSProvider>
 </Canvas>
 
-### Indeterminate State
+## Indeterminate State
 
 When the `isIndeterminate` prop is set to true, the `value` prop is ignored and
 the state is set to an animated indeterminate state. This is often used when the
@@ -253,7 +290,7 @@ exact value or progress of the task is unknown.
   </DSProvider>
 </Canvas>
 
-### Dark Mode
+## Dark Mode
 
 When in "dark mode", set the `darkMode` prop to true. This will render the
 progress bar and the label text in white for better contrast.
@@ -282,7 +319,7 @@ Note: the background is manually set to better showcase the `darkMode` prop.
   </DSProvider>
 </Canvas>
 
-### Example
+## Get Input Values
 
 In the following example, we are setting the `value` prop based on a timer that
 increases the value every second by 10. Once it reaches 100, it resets to 0.

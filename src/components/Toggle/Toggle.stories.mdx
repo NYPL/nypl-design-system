@@ -57,6 +57,18 @@ export const sizeEnumValues = getStorybookEnumValues(
 | Added             | `0.25.8`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Sizes](#sizes)
+- [Controlled Toggle](#controlled-toggle)
+- [Browser States](#browser-states)
+- [Layouts](#layouts)
+
+## Overview
+
 <Description of={Toggle} />
 
 The `Toggle` component is used as an alternative for the Checkbox component and
@@ -70,6 +82,8 @@ actions that occur immediately after a user “flips the switch.”
 
 The Toggle component label should clarify the action being performed. Labels
 should be short and to the point, often three words or less.
+
+## Component Props
 
 <Canvas>
   <Story
@@ -95,6 +109,24 @@ should be short and to the point, often three words or less.
 </Canvas>
 
 <ArgsTable story="Toggle" />
+
+## Accessibility
+
+The `Toggle` component is implemented using Chakra's `Switch` component. While
+some accessibility resources state that using a `<button>` element is better for
+a toggle or switch component, Chakra UI internally uses a `checkbox` element.
+Because Chakra's `Switch` component handles the internal state so well and its
+styles, we chose this over implementing this component with a `<button>` element.
+
+For comparison and reference, resources that build toggle components with the
+`<button>` element are linked below.
+
+Resources:
+
+- [Chakra UI Switch](https://chakra-ui.com/docs/components/form/switch)
+- [W3C Switch Example Using HTML Button](https://w3c.github.io/aria-practices/examples/switch/switch-button.html)
+- [Inclusive Components Toggle Buttons](https://inclusive-components.design/toggle-button/)
+- [Accessible HTML Toggle Button (Switch)](https://www.erikkroes.nl/blog/accessible-html-toggle-button-switch/)
 
 ## Sizes
 

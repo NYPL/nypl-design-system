@@ -83,11 +83,11 @@ exports[`List Renders the UI snapshot correctly 4`] = `
 exports[`List Renders the UI snapshot correctly 5`] = `
 <section
   className="css-1xdhyk6"
-  id="definition"
+  id="description"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
-    id="definition-heading"
+    id="description-heading"
   >
     Animal Crossing Fish
   </h2>

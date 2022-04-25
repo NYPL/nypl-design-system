@@ -72,7 +72,24 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 | Added             | `0.25.1`   |
 | Latest            | `0.26.0`   |
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Layout Patterns](#layout-patterns)
+- [Errored](#errored)
+- [Required](#required)
+- [Disabled](#disabled)
+- [With JSX Element labels](#with-jsx-element-labels)
+- [Indeterminate Example](#indeterminate-example)
+- [Getting Checkbox Input Values](#getting-checkbox-input-values)
+
+## Overview
+
 <Description of={CheckboxGroup} />
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -107,6 +124,16 @@ export const enumValues = getStorybookEnumValues(LayoutTypes, "LayoutTypes");
 </Canvas>
 
 <ArgsTable story="CheckboxGroup" />
+
+## Accessibility
+
+The `CheckboxGroup` renders a group of `Checkbox` components that are wrapped in
+a `<fieldset>` element. The `<fieldset>` element renders a `<legend>` element that
+can be visually hidden through the `showLabel` prop.
+
+Resources:
+
+- [Chakra UI Checkbox](https://chakra-ui.com/docs/components/form/checkbox)
 
 ## Layout Patterns
 
@@ -269,8 +296,8 @@ children are checked, the parent will be in the "checked" state.
 The following working example can be used in your application to keep track of
 the checked and indeterminate states - taken and modified from Chakra's
 [Checkbox](https://chakra-ui.com/docs/form/checkbox#indeterminate) documentation.
-Note that this example is specifically using NYPL DS `Checkbox` and
-`CheckboxGroup` components.
+Note that this example is specifically using Reservoir Design System (DS) 
+`Checkbox` and `CheckboxGroup` components.
 
 ```tsx
 export function IndeterminateExample() {
@@ -340,7 +367,7 @@ export function IndeterminateExample() {
   </DSProvider>
 </Canvas>
 
-## Getting Checkbox Data Values
+## Getting Checkbox Input Values
 
 ### Controlled Component using `name`, `defaultValue`, and `onChange` props
 

@@ -360,7 +360,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
 
 exports[`Card Renders the UI snapshot correctly 6`] = `
 <div
-  className="chakra-linkbox css-10n1vic"
+  className="chakra-linkbox css-hng3kb"
 >
   <div
     className="css-1xdhyk6"
@@ -415,6 +415,65 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
 
 exports[`Card Renders the UI snapshot correctly 7`] = `
 <div
+  className="css-1xdhyk6"
+  id="cardID"
+>
+  <div
+    className="css-0"
+  >
+    <img
+      alt="Alt text"
+      className="css-0"
+      src="https://placeimg.com/400/200/arch"
+    />
+  </div>
+  <div
+    className="card-body css-0"
+  >
+    <h3
+      className="chakra-heading css-1xdhyk6"
+      id="heading1"
+      layout="column"
+    >
+      The Card Heading
+    </h3>
+    <div
+      className="css-1xdhyk6"
+    >
+      middle column content
+    </div>
+    <div
+      className="css-1xdhyk6"
+    >
+      <button
+        className="chakra-button css-1xdhyk6"
+        data-testid="button"
+        id="button1"
+        onClick={[Function]}
+        type="submit"
+      >
+        Example CTA
+      </button>
+    </div>
+    <div
+      className="css-1xdhyk6"
+    >
+      <button
+        className="chakra-button css-1xdhyk6"
+        data-testid="button"
+        id="button2"
+        onClick={[Function]}
+        type="submit"
+      >
+        Example CTA
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Renders the UI snapshot correctly 8`] = `
+<div
   className="css-1t0bvx9"
   id="chakraProps"
 >
@@ -459,7 +518,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`Card Renders the UI snapshot correctly 8`] = `
+exports[`Card Renders the UI snapshot correctly 9`] = `
 <div
   className="css-1xdhyk6"
   data-testid="card-testid"
