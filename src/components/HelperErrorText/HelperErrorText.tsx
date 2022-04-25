@@ -22,7 +22,7 @@ interface HelperErrorTextProps {
   className?: string;
   /** Unique ID for accessibility purposes. */
   id?: string;
-  /** Controls whether the label should be inline with the input it goes with.
+  /** If the position of the input is inlined, the helper text's position changes.
    * This prop should only be used internally. */
   isInlined?: boolean;
   /** Toggles between helper and invalid styling. */
