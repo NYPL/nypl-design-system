@@ -1,5 +1,4 @@
 import { Canvas, Meta } from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
 import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
@@ -10,16 +9,7 @@ import { TextSizes } from "../Text/TextTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
-<Meta
-  title={getCategory("Typography")}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
-    },
-  }}
-/>
+<Meta title={getCategory("Typography")} />
 
 # Typography
 
@@ -38,13 +28,18 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Consuming applications should utilize the DS standard text components as much as possible. In cases where that is not possible, the DS exposes CSS variables to assist with formatting text elements.
+Consuming applications should utilize the Reservoir Design System (DS) standard
+text components as much as possible. In cases where that is not possible, the
+DS exposes CSS variables to assist with formatting text elements.
 
-The sizing of all text elements in the Design System is based on `1rem` being equal to `16px`.
+The sizing of all text elements in the Design System is based on `1rem` being
+equal to `16px`.
 
 ## Heading Component
 
-Use the NYPL Design System [Heading](/docs/components-typography-styles-heading--heading-props) component to render a standard HTML `<h>` tag. The `level` prop can be used to set the specific `<h>` tag that you require.
+Use the DS [Heading](/docs/components-typography-styles-heading--heading-props)
+component to render a standard HTML `<h>` tag. The `level` prop can be used to
+set the specific `<h>` tag that you require.
 
 <Canvas>
   <DSProvider>
@@ -110,7 +105,9 @@ applied to any `Heading` element.
 
 ## Text Component
 
-Use the NYPL Design System [Text](/docs/components-typography-styles-text--text) component to render a standard HTML `<p>` tag. The Text component is generally used for body copy, captions and secondary captions.
+Use the DS [Text](/docs/components-typography-styles-text--text)
+component to render a standard HTML `<p>` tag. The Text component is generally
+used for body copy, captions and secondary captions.
 
 <Canvas>
   <DSProvider>
@@ -168,7 +165,9 @@ The `size` prop can be used to render a specific style from the DS default text 
 
 ## Font Family
 
-With website accessibility in mind, font choices for the DS were made with an eye toward clarity and readability. Headings and body content use the following font family assignment:
+With website accessibility in mind, font choices for the DS were made with an
+eye toward clarity and readability. Headings and body content use the
+following font family assignment:
 
 <Canvas>
   <DSProvider>
@@ -184,11 +183,15 @@ The following CSS variables are available through the DS.
 ```
 
 > **RECOMMENDATIONS**  
-> When making font selections for project based components outside the DS, sans serif fonts display better on computers and mobile devices. Avoid decorative or overly stylized fonts, as they are often difficult to read even for users without visual impairments or reading Standard Text Default
+> When making font selections for project based components outside the DS,
+> sans serif fonts display better on computers and mobile devices. Avoid
+> decorative or overly stylized fonts, as they are often difficult to read even
+> for users without visual impairments or reading Standard Text Default
 
 ## Font Color
 
-All text within a project, unless specifically noted in mockups, should be black on a white background.
+All text within a project, unless specifically noted in mockups, should be
+black on a white background.
 
 <Canvas>
   <DSProvider>
@@ -203,7 +206,10 @@ All text within a project, unless specifically noted in mockups, should be black
   </DSProvider>
 </Canvas>
 
-In cases where specific colors must be applied to text elements, the DS provides CSS variables for the full NYPL color palette. Refer to the [Colors](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/style-guide-colors--colors-brand) section of the Style Guide for details.
+In cases where specific colors must be applied to text elements, the DS
+provides CSS variables for the full NYPL color palette. Refer to the
+[Colors](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/style-guide-colors--colors-brand)
+section of the Style Guide for details.
 
 ## Font Weight
 
@@ -347,7 +353,9 @@ The following font size design tokens are available through the DS.
 
 ## Text Case
 
-In general, the New York Public Library uses Title Case for titles. This means only using capital letters for the principal words. Articles, conjunctions, and prepositions do not get capital letters unless they start the title. For example:
+In general, the New York Public Library uses Title Case for titles. This means
+only using capital letters for the principal words. Articles, conjunctions, and
+prepositions do not get capital letters unless they start the title. For example:
 
 <Canvas>
   <DSProvider>
@@ -378,7 +386,8 @@ In general, the New York Public Library uses Title Case for titles. This means o
 ### Summaries
 
 140 characters max<br />
-Note: Online Exhibitions, with their longer, legacy summaries are an exception to this.
+Note: Online Exhibitions, with their longer, legacy summaries are an exception
+to this.
 
 <Canvas>
   <DSProvider>
