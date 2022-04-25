@@ -42,12 +42,14 @@ const BaseModal = chakra(
     onClose,
     ...rest
   }: React.PropsWithChildren<BaseModalProps>) => {
+    // Based on --nypl-breakpoint-medium
+    const breakpointMedium = 600;
     const defaultSize = "xl";
     const fullSize = "full";
     const [size, setSize] = React.useState<string>(defaultSize);
     const windowDimensions = useWindowSize();
     React.useEffect(() => {
-      if (windowDimensions.width <= 320) {
+      if (windowDimensions.width <= breakpointMedium) {
         setSize(fullSize);
       } else {
         setSize(defaultSize);
@@ -59,6 +61,7 @@ const BaseModal = chakra(
         id={id}
         isOpen={isOpen}
         onClose={onClose}
+        scrollBehavior="inside"
         size={size}
         {...rest}
       >
@@ -81,6 +84,11 @@ const BaseModal = chakra(
   }
 );
 
+/**
+ * The `ModalTrigger` component renders a button that you click to open the
+ * internal `Modal` component. Note that props to update the internal `Modal`
+ * component are passed through to the `modalProps` prop.
+ */
 export const ModalTrigger = chakra(
   ({
     buttonText,
@@ -113,6 +121,11 @@ export const ModalTrigger = chakra(
   }
 );
 
+/**
+ * This hook function can be used to render the `Modal` component with a custom
+ * open button(s) and optional custom close button(s). You must render your own
+ * button and pass the appropriate `onOpen` and ` handler for the modal to open.
+ */
 export function useModal() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const Modal = chakra(
