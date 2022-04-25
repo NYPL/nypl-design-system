@@ -214,8 +214,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             </svg>
           </div>
         </div>
-        
       </div>
+      
     </div>
     <div
       className="css-1xdhyk6"
