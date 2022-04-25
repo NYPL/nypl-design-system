@@ -67,6 +67,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates storybook URL from /storybook-static/ to /reservoir/v0_26.
 - Updates all references to "design system" in the Storybook documentation to include "Reservoir" in the name of the design system.
 - Updates language on the `Welcome` page.
+- Updates the `Header`'s bottom navigation links to be underlined and red when hovered.
 
 ### Removals
 
