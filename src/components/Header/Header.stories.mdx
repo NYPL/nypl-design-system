@@ -1,0 +1,35 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { withDesign } from "storybook-addon-designs";
+
+import Header from "./Header";
+import { getCategory } from "../../utils/componentCategories";
+
+<Meta
+  title={getCategory("Header")}
+  parameters={{ layout: "fullscreen" }}
+  component={Header}
+  decorators={[withDesign]}
+/>
+
+# Header
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `TBD`      |
+| Latest            | `TBD`      |
+
+## Overview
+
+<Description of={Header} />
+
+The `Header` component is meant to replicate (and eventually replace) the current
+[NYPL Header package](https://github.com/NYPL/dgx-header-component/) which is used
+across various NYPL products, with Design System technologies and components. It
+is a work in progress, and not yet ready for use. What you see below is simply a
+static component with no functionality.
+
+<Canvas withToolbar>
+  <Story name="Header">
+    <Header />
+  </Story>
+</Canvas>
