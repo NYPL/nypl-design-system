@@ -22,8 +22,14 @@ interface HelperErrorTextProps {
   className?: string;
   /** Unique ID for accessibility purposes. */
   id?: string;
+  /** Controls whether the label should be inline with the input it goes with.
+   * This prop should only be used internally. */
+  isInlined?: boolean;
   /** Toggles between helper and invalid styling. */
   isInvalid?: boolean;
+  /** If the input's label is inlined, labelWidth is passed to dictate the helper
+   * text's margin left. This prop should only be used internally. */
+  labelWidth?: number;
   /** The text to display. */
   text: HelperErrorTextType;
 }
@@ -38,13 +44,19 @@ export const HelperErrorText = chakra(
     ariaLive = "polite",
     className = "",
     id,
+    isInlined = false,
     isInvalid = false,
+    labelWidth = 0,
     text,
     ...rest
   }: HelperErrorTextProps) => {
     // Only announce the text in the invalid state.
     const announceAriaLive = isInvalid;
-    const styles = useStyleConfig("HelperErrorText", { isInvalid });
+    const styles = useStyleConfig("HelperErrorText", {
+      isInvalid,
+      isInlined,
+      labelWidth,
+    });
     const finalStyles = { ...styles, ...additionalStyles };
     const props = {
       "aria-atomic": ariaAtomic,

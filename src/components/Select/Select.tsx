@@ -96,7 +96,6 @@ export const Select = chakra(
       const styles = useMultiStyleConfig("CustomSelect", {
         variant: selectType,
         labelPosition,
-        labelWidth,
       });
       const finalInvalidText = invalidText
         ? invalidText
@@ -171,14 +170,16 @@ export const Select = chakra(
             >
               {children}
             </ChakraSelect>
-            {footnote && showHelperInvalidText && (
-              <HelperErrorText
-                id={`${id}-helperText`}
-                isInvalid={isInvalid}
-                text={footnote}
-              />
-            )}
           </Box>
+          {footnote && showHelperInvalidText && (
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInlined
+              isInvalid={isInvalid}
+              labelWidth={labelWidth}
+              text={footnote}
+            />
+          )}
         </Box>
       );
     }
