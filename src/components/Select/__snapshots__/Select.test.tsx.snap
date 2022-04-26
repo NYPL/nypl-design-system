@@ -284,7 +284,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-1mpebub"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Tom doesn't count as a sibling :(.",
@@ -391,7 +391,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
   <div
     aria-atomic={true}
     aria-live="off"
-    className="css-1xdhyk6"
+    className="css-1mpebub"
     dangerouslySetInnerHTML={
       Object {
         "__html": "Remember, Logan will judge you no matter who you pick.",

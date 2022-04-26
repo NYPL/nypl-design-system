@@ -107,6 +107,10 @@ export const Select = chakra(
       // must be passed.
       const controlledProps = onChange ? { onChange, value } : {};
 
+      // The number of pixels between the label and select elements
+      // when the labelPosition is inline (equivalent to --nypl-space-xs).
+      const labelSelectGap = 8;
+
       if (!showLabel) {
         ariaAttributes["aria-label"] =
           labelText && footnote ? `${labelText} - ${footnote}` : labelText;
@@ -123,11 +127,15 @@ export const Select = chakra(
       useEffect(() => {
         if (labelPosition === LabelPositions.Inline) {
           if (labelRef.current) {
-            const width = labelRef.current.clientWidth + 8;
+            const width = labelRef.current.clientWidth + labelSelectGap;
             setLabelWidth(width);
           }
+        } else {
+          setLabelWidth(0);
         }
       }, [labelPosition]);
+
+      console.log(footnote, labelWidth);
 
       return (
         <Box
@@ -174,10 +182,9 @@ export const Select = chakra(
           {footnote && showHelperInvalidText && (
             <HelperErrorText
               id={`${id}-helperText`}
-              isInlined
               isInvalid={isInvalid}
-              labelWidth={labelWidth}
               text={footnote}
+              ml={{ sm: "auto", md: `${labelWidth}px` }}
             />
           )}
         </Box>
