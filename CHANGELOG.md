@@ -8,13 +8,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds two patterns for rendering the updated `Modal` component. This is still an ongoing work-in-progress as the `Modal` gets finalized but it is now using Chakra under-the-hood.
+- Adds `@chakra-ui/storybook-addon` so stories automatically pick up the Chakra-based NYPL theme.
+
 ### Updates
 
+- Updates React and React DOM to version 17.
+- Updates Chakra packages `@chakra-ui/react` and `@chakra-ui/system`.
 - Updates how styles are passed down to internal components in `Card`, `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Hero`, `Notification`, `Pagination`, `Radio`, `RadioGroup`, `SearchBar`, and `Slider`. This is based on removing the `additionalStyles` prop and passing down styles to the `__css` prop.
 - Updates how the `id` is passed in the `DatePicker`'s custom `TextInput` component.
 
 ### Removals
 
+- Removes the following packages: `@storybook/addon-queryparams` and `react-router-dom`.
 - Removes the `additionalStyles` attributes from the `Breadcrumbs`, `Button`, `Heading`, `HelperErrorText`, `Icon`, `Link`, `List`, `Logo`, `Select`, `TextInput`, and `Toggle` components.
 
 ## 0.26.1 (April 22, 2022)
