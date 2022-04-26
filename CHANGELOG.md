@@ -16,7 +16,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.
+- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.]
+- Updates the `Header`'s bottom navigation links to be underlined and red when hovered.
 
 ### Fixes
 
