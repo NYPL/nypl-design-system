@@ -28,7 +28,6 @@ module.exports = {
       },
     },
     "@storybook/addon-controls",
-    "@storybook/addon-queryparams",
     "@storybook/addon-jest",
   ],
   typescript: {
