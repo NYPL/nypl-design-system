@@ -1,15 +1,15 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import {
-  IconRotationTypes,
-  IconNames,
-  IconAlign,
-  IconSizes,
-} from "../Icons/IconTypes";
 
+export type LinkTypes =
+  | "action"
+  | "backwards"
+  | "button"
+  | "default"
+  | "external"
+  | "forwards";
 export interface LinkProps {
   /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
   attributes?: { [key: string]: any };
@@ -27,7 +27,7 @@ export interface LinkProps {
 
 /**
  * Renders the `Link` children components with a direction arrow icon based
- * on the `Backwards` or `Forwards` `LinkTypes` type.
+ * on the `"backwards"` or `"forwards"` `linkType` value.
  */
 function getWithDirectionIcon(children, type: LinkTypes, linkId) {
   let iconRotation;
@@ -36,12 +36,12 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
 
   // An icon needs a position in order for it to be created and
   // rendered in the link.
-  if (type === LinkTypes.Backwards) {
-    iconRotation = IconRotationTypes.Rotate90;
-    iconAlign = IconAlign.Left;
-  } else if (type === LinkTypes.Forwards) {
-    iconRotation = IconRotationTypes.Rotate270;
-    iconAlign = IconAlign.Right;
+  if (type === "backwards") {
+    iconRotation = "rotate90";
+    iconAlign = "left";
+  } else if (type === "forwards") {
+    iconRotation = "rotate270";
+    iconAlign = "right";
   }
 
   const iconId = `${linkId}-icon`;
@@ -52,16 +52,16 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
       className="more-link"
       iconRotation={iconRotation}
       id={iconId}
-      name={IconNames.Arrow}
-      size={IconSizes.Medium}
+      name="arrow"
+      size="medium"
     />
   );
 
   return (
     <>
-      {type === LinkTypes.Backwards && icon}
+      {type === "backwards" && icon}
       {children}
-      {type === LinkTypes.Forwards && icon}
+      {type === "forwards" && icon}
     </>
   );
 }
@@ -70,11 +70,11 @@ function getExternalIcon(children, linkId) {
   const iconId = `${linkId}-icon`;
   const icon = (
     <Icon
-      align={IconAlign.Right}
+      align={"right"}
       className="more-link"
       id={iconId}
-      name={IconNames.ActionLaunch}
-      size={IconSizes.Medium}
+      name="action_launch"
+      size="medium"
     />
   );
 
@@ -98,7 +98,7 @@ export const Link = chakra(
       className,
       href,
       id,
-      type = LinkTypes.Default,
+      type = "default",
       ...rest
     } = props;
 
@@ -109,7 +109,7 @@ export const Link = chakra(
       href,
       ...attributes,
     };
-    // The LinkTypes.Default type.
+    // The "default" type.
     let variant = "link";
 
     if (typeof children === "string" && !href) {
@@ -117,13 +117,13 @@ export const Link = chakra(
     }
 
     if (
-      type === LinkTypes.Action ||
-      type === LinkTypes.Forwards ||
-      type === LinkTypes.Backwards ||
-      type === LinkTypes.External
+      type === "action" ||
+      type === "forwards" ||
+      type === "backwards" ||
+      type === "external"
     ) {
       variant = "moreLink";
-    } else if (type === LinkTypes.Button) {
+    } else if (type === "button") {
       variant = "button";
     }
     const style = useStyleConfig("Link", { variant });
@@ -131,13 +131,13 @@ export const Link = chakra(
     // Forwards or Backwards.  Or render with the launch icon
     // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
-      ((type === LinkTypes.Forwards || type === LinkTypes.Backwards) &&
+      ((type === "forwards" || type === "backwards") &&
         getWithDirectionIcon(children, type, id)) ||
-      (type === LinkTypes.External && getExternalIcon(children, id)) ||
+      (type === "external" && getExternalIcon(children, id)) ||
       children;
 
-    const rel = type === LinkTypes.External ? "nofollow" : null;
-    const target = type === LinkTypes.External ? "_blank" : null;
+    const rel = type === "external" ? "nofollow" : null;
+    const target = type === "external" ? "_blank" : null;
 
     if (!href) {
       // React Types error makes this fail:

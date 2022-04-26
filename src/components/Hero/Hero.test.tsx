@@ -4,8 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import { HeroTypes } from "./HeroTypes";
 import Hero from "./Hero";
 
 export const subHeaderText = (
@@ -28,14 +26,8 @@ describe("Hero", () => {
     it("passes for type Primary", async () => {
       const { container } = render(
         <Hero
-          heroType={HeroTypes.Primary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="a11y-hero"
-              text="Hero Primary"
-            />
-          }
+          heroType="primary"
+          heading={<Heading level="one" id="a11y-hero" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc="https://placeimg.com/1600/800/arch"
         />
@@ -46,14 +38,8 @@ describe("Hero", () => {
     it("passes for type Secondary", async () => {
       const { container } = render(
         <Hero
-          heroType={HeroTypes.Secondary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="a11y-hero"
-              text="Hero Secondary"
-            />
-          }
+          heroType="secondary"
+          heading={<Heading level="one" id="a11y-hero" text="Hero Secondary" />}
           imageAlt={imageAlt}
           imageSrc={imageSrc}
           subHeaderText={subHeaderText}
@@ -65,14 +51,8 @@ describe("Hero", () => {
     it("passes for type Tertiary", async () => {
       const { container } = render(
         <Hero
-          heroType={HeroTypes.Tertiary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="a11y-hero"
-              text="Hero Tertiary"
-            />
-          }
+          heroType="tertiary"
+          heading={<Heading level="one" id="a11y-hero" text="Hero Tertiary" />}
           subHeaderText={otherSubHeaderText}
         />
       );
@@ -83,14 +63,8 @@ describe("Hero", () => {
       const { container } = render(
         <Hero
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          heroType={HeroTypes.Campaign}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="a11y-hero"
-              text="Hero Campaign"
-            />
-          }
+          heroType="campaign"
+          heading={<Heading level="one" id="a11y-hero" text="Hero Campaign" />}
           imageAlt={imageAlt}
           imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
@@ -102,7 +76,7 @@ describe("Hero", () => {
     it("passes for type FiftyFifty", async () => {
       const { container } = render(
         <Hero
-          heroType={HeroTypes.FiftyFifty}
+          heroType="fiftyFifty"
           imageAlt={imageAlt}
           imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
@@ -115,14 +89,8 @@ describe("Hero", () => {
   it("renders Primary Hero", () => {
     render(
       <Hero
-        heroType={HeroTypes.Primary}
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="primary-hero"
-            text="Hero Primary"
-          />
-        }
+        heroType="primary"
+        heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
         subHeaderText="Example Subtitle"
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
       />
@@ -139,13 +107,9 @@ describe("Hero", () => {
   it("renders Secondary Hero", () => {
     render(
       <Hero
-        heroType={HeroTypes.Secondary}
+        heroType="secondary"
         heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="secondary-hero"
-            text="Hero Secondary"
-          />
+          <Heading level="one" id="secondary-hero" text="Hero Secondary" />
         }
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -165,13 +129,9 @@ describe("Hero", () => {
   it("renders Tertiary Hero", () => {
     render(
       <Hero
-        heroType={HeroTypes.Tertiary}
+        heroType="tertiary"
         heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="tertiary-hero"
-            text="Hero Tertiary"
-          />
+          <Heading level="one" id="tertiary-hero" text="Hero Tertiary" />
         }
         subHeaderText={otherSubHeaderText}
       />
@@ -186,13 +146,9 @@ describe("Hero", () => {
     render(
       <Hero
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        heroType={HeroTypes.Campaign}
+        heroType="campaign"
         heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="campaign-hero"
-            text="Hero Campaign"
-          />
+          <Heading level="one" id="campaign-hero" text="Hero Campaign" />
         }
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -216,7 +172,7 @@ describe("Hero", () => {
   it("renders Fifty-Fifty Hero", () => {
     render(
       <Hero
-        heroType={HeroTypes.FiftyFifty}
+        heroType="fiftyFifty"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
@@ -234,10 +190,10 @@ describe("Hero", () => {
   it("renders custom background and foreground colors for all but the Secondary type", () => {
     const { rerender } = render(
       <Hero
-        heroType={HeroTypes.Primary}
+        heroType="primary"
         heading={
           <Heading
-            level={HeadingLevels.One}
+            level="one"
             id="custom-colors-hero"
             text="Hero with Custom Colors"
           />
@@ -257,7 +213,7 @@ describe("Hero", () => {
       <Hero
         backgroundColor="#654321"
         foregroundColor="#123456"
-        heroType={HeroTypes.FiftyFifty}
+        heroType="fiftyFifty"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
@@ -273,13 +229,9 @@ describe("Hero", () => {
       <Hero
         backgroundColor="#654321"
         foregroundColor="#123456"
-        heroType={HeroTypes.Secondary}
+        heroType="secondary"
         heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="secondary-hero"
-            text="Hero Secondary"
-          />
+          <Heading level="one" id="secondary-hero" text="Hero Secondary" />
         }
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -298,7 +250,7 @@ describe("Hero", () => {
     render(
       <Hero
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        heroType={HeroTypes.Primary}
+        heroType="primary"
         imageSrc={imageSrc}
       />
     );
@@ -311,24 +263,18 @@ describe("Hero", () => {
   it("renders Primary Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (
-      <Heading
-        level={HeadingLevels.One}
-        id="hero-errors"
-        text="Hero with Error Warnings"
-      />
+      <Heading level="one" id="hero-errors" text="Hero with Error Warnings" />
     );
-    const { rerender } = render(
-      <Hero heroType={HeroTypes.Primary} heading={heading} />
-    );
+    const { rerender } = render(<Hero heroType="primary" heading={heading} />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use the `backgroundImageSrc` " +
-        "prop for the `HeroTypes.Primary` `heroType` variant."
+        "prop for the `'primary'` `heroType` variant."
     );
 
     rerender(
       <Hero
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        heroType={HeroTypes.Primary}
+        heroType="primary"
         heading={heading}
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -336,22 +282,18 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `imageSrc` and `imageAlt` props have been passed, " +
-        "but the `HeroTypes.Primary` `heroType` variant will not use it."
+        "but the `'primary'` `heroType` variant will not use it."
     );
   });
 
   it("renders Secondary Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (
-      <Heading
-        level={HeadingLevels.One}
-        id="hero-errors"
-        text="Hero with Error Warnings"
-      />
+      <Heading level="one" id="hero-errors" text="Hero with Error Warnings" />
     );
     const { rerender } = render(
       <Hero
-        heroType={HeroTypes.Secondary}
+        heroType="secondary"
         heading={heading}
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -361,13 +303,13 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
-        "with the `HeroTypes.Primary` `heroType` variant."
+        "with the `'primary'` `heroType` variant."
     );
 
     rerender(
       <Hero
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        heroType={HeroTypes.Secondary}
+        heroType="secondary"
         heading={heading}
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -376,14 +318,14 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
-        "but the `HeroTypes.Secondary` `heroType` variant will not use it."
+        "but the `'secondary'` `heroType` variant will not use it."
     );
 
     rerender(
       <Hero
         backgroundColor="#654321"
         foregroundColor="#123456"
-        heroType={HeroTypes.Secondary}
+        heroType="secondary"
         heading={heading}
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -392,7 +334,7 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `foregroundColor` and/or `backgroundColor` " +
-        "props have been passed, but the `HeroTypes.Secondary` `heroType` " +
+        "props have been passed, but the `'secondary'` `heroType` " +
         "variant will not use them."
     );
   });
@@ -400,15 +342,11 @@ describe("Hero", () => {
   it("renders Tertiary Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (
-      <Heading
-        level={HeadingLevels.One}
-        id="hero-errors"
-        text="Hero with Error Warnings"
-      />
+      <Heading level="one" id="hero-errors" text="Hero with Error Warnings" />
     );
     const { rerender } = render(
       <Hero
-        heroType={HeroTypes.Tertiary}
+        heroType="tertiary"
         heading={heading}
         subHeaderText={otherSubHeaderText}
         locationDetails={<>Some location details.</>}
@@ -416,12 +354,12 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
-        "with the `HeroTypes.Primary` `heroType` variant."
+        "with the `'primary'` `heroType` variant."
     );
 
     rerender(
       <Hero
-        heroType={HeroTypes.Tertiary}
+        heroType="tertiary"
         heading={heading}
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -429,20 +367,20 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `HeroTypes.Tertiary` `heroType` variant hero " +
+      "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
         "will not use any of the image props."
     );
 
     rerender(
       <Hero
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        heroType={HeroTypes.Tertiary}
+        heroType="tertiary"
         heading={heading}
         subHeaderText={otherSubHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `HeroTypes.Tertiary` `heroType` variant hero " +
+      "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
         "will not use any of the image props."
     );
   });
@@ -450,16 +388,12 @@ describe("Hero", () => {
   it("renders Campaign Hero with warnings in browser console", () => {
     const warn = jest.spyOn(console, "warn");
     const heading = (
-      <Heading
-        level={HeadingLevels.One}
-        id="hero-errors"
-        text="Hero with Error Warnings"
-      />
+      <Heading level="one" id="hero-errors" text="Hero with Error Warnings" />
     );
     const { rerender } = render(
       <Hero
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        heroType={HeroTypes.Campaign}
+        heroType="campaign"
         heading={heading}
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -469,12 +403,12 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
-        "with the `HeroTypes.Primary` `heroType` variant."
+        "with the `'primary'` `heroType` variant."
     );
 
     rerender(
       <Hero
-        heroType={HeroTypes.Campaign}
+        heroType="campaign"
         heading={heading}
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -484,13 +418,13 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use both the " +
-        "`backgroundImageSrc` and `imageSrc` props for the `HeroTypes.Campaign` " +
+        "`backgroundImageSrc` and `imageSrc` props for the `'campaign'` " +
         "`heroType` variant."
     );
 
     rerender(
       <Hero
-        heroType={HeroTypes.Campaign}
+        heroType="campaign"
         heading={heading}
         subHeaderText={otherSubHeaderText}
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
@@ -499,7 +433,7 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use both the " +
-        "`backgroundImageSrc` and `imageSrc` props for the `HeroTypes.Campaign` " +
+        "`backgroundImageSrc` and `imageSrc` props for the `'campaign'` " +
         "`heroType` variant."
     );
   });
@@ -508,7 +442,7 @@ describe("Hero", () => {
     const warn = jest.spyOn(console, "warn");
     const { rerender } = render(
       <Hero
-        heroType={HeroTypes.FiftyFifty}
+        heroType="fiftyFifty"
         subHeaderText={otherSubHeaderText}
         imageAlt={imageAlt}
         imageSrc={imageSrc}
@@ -517,13 +451,13 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
-        "with the `HeroTypes.Primary` `heroType` variant."
+        "with the `'primary'` `heroType` variant."
     );
 
     rerender(
       <Hero
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        heroType={HeroTypes.FiftyFifty}
+        heroType="fiftyFifty"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
@@ -531,7 +465,7 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
-        "but the `HeroTypes.FiftyFifty` `heroType` variant hero will not use it."
+        "but the `'fiftyFifty'` `heroType` variant hero will not use it."
     );
   });
 
@@ -539,13 +473,9 @@ describe("Hero", () => {
     const primary = renderer
       .create(
         <Hero
-          heroType={HeroTypes.Primary}
+          heroType="primary"
           heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="primary-hero"
-              text="Hero Primary"
-            />
+            <Heading level="one" id="primary-hero" text="Hero Primary" />
           }
           subHeaderText="Example Subtitle"
           backgroundImageSrc="https://placeimg.com/1600/800/arch"
@@ -555,13 +485,9 @@ describe("Hero", () => {
     const secondary = renderer
       .create(
         <Hero
-          heroType={HeroTypes.Secondary}
+          heroType="secondary"
           heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="secondary-hero"
-              text="Hero Secondary"
-            />
+            <Heading level="one" id="secondary-hero" text="Hero Secondary" />
           }
           imageAlt={imageAlt}
           imageSrc={imageSrc}
@@ -572,10 +498,10 @@ describe("Hero", () => {
     const secondaryBooksAndMore = renderer
       .create(
         <Hero
-          heroType={HeroTypes.SecondaryBooksAndMore}
+          heroType="secondaryBooksAndMore"
           heading={
             <Heading
-              level={HeadingLevels.One}
+              level="one"
               id="secondary-hero"
               text="Hero Secondary Books and More"
             />
@@ -589,10 +515,10 @@ describe("Hero", () => {
     const secondaryLocations = renderer
       .create(
         <Hero
-          heroType={HeroTypes.SecondaryLocations}
+          heroType="secondaryLocations"
           heading={
             <Heading
-              level={HeadingLevels.One}
+              level="one"
               id="secondary-hero"
               text="Hero Secondary Locations"
             />
@@ -606,13 +532,9 @@ describe("Hero", () => {
     const secondaryResearch = renderer
       .create(
         <Hero
-          heroType={HeroTypes.SecondaryResearch}
+          heroType="secondaryResearch"
           heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="secondary-hero"
-              text="Hero Secondary"
-            />
+            <Heading level="one" id="secondary-hero" text="Hero Secondary" />
           }
           imageAlt={imageAlt}
           imageSrc={imageSrc}
@@ -623,10 +545,10 @@ describe("Hero", () => {
     const secondaryWhatsOn = renderer
       .create(
         <Hero
-          heroType={HeroTypes.SecondaryWhatsOn}
+          heroType="secondaryWhatsOn"
           heading={
             <Heading
-              level={HeadingLevels.One}
+              level="one"
               id="secondary-hero"
               text="Hero Secondary What's On"
             />
@@ -641,13 +563,9 @@ describe("Hero", () => {
       .create(
         <Hero
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-          heroType={HeroTypes.Campaign}
+          heroType="campaign"
           heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="campaign-hero"
-              text="Hero Campaign"
-            />
+            <Heading level="one" id="campaign-hero" text="Hero Campaign" />
           }
           imageAlt={imageAlt}
           imageSrc={imageSrc}
@@ -658,13 +576,9 @@ describe("Hero", () => {
     const tertiary = renderer
       .create(
         <Hero
-          heroType={HeroTypes.Tertiary}
+          heroType="tertiary"
           heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="tertiary-hero"
-              text="Hero Tertiary"
-            />
+            <Heading level="one" id="tertiary-hero" text="Hero Tertiary" />
           }
           subHeaderText={otherSubHeaderText}
         />
@@ -673,7 +587,7 @@ describe("Hero", () => {
     const fiftyFifty = renderer
       .create(
         <Hero
-          heroType={HeroTypes.FiftyFifty}
+          heroType="fiftyFifty"
           imageAlt={imageAlt}
           imageSrc={imageSrc}
           subHeaderText={otherSubHeaderText}
@@ -683,14 +597,8 @@ describe("Hero", () => {
     const withChakraProps = renderer
       .create(
         <Hero
-          heroType={HeroTypes.Primary}
-          heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="chakra"
-              text="Hero Primary"
-            />
-          }
+          heroType="primary"
+          heading={<Heading level="one" id="chakra" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc="https://placeimg.com/1600/800/arch"
           p="20px"
@@ -701,10 +609,8 @@ describe("Hero", () => {
     const withOtherProps = renderer
       .create(
         <Hero
-          heroType={HeroTypes.Primary}
-          heading={
-            <Heading level={HeadingLevels.One} id="props" text="Hero Primary" />
-          }
+          heroType="primary"
+          heading={<Heading level="one" id="props" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc="https://placeimg.com/1600/800/arch"
           data-testid="props"

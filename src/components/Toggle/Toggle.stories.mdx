@@ -11,15 +11,8 @@ import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Toggle from "./Toggle";
-import { ToggleSizes } from "./ToggleTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const sizeEnumValues = getStorybookEnumValues(
-  ToggleSizes,
-  "ToggleSizes"
-);
 
 <Meta
   title={getCategory("Toggle")}
@@ -41,9 +34,7 @@ export const sizeEnumValues = getStorybookEnumValues(
     ref: { table: { disable: true } },
     size: {
       control: {
-        type: "select",
-        table: { defaultValue: { summary: "ToggleSizes.Default" } },
-        options: sizeEnumValues.options,
+        table: { defaultValue: { summary: "default" } },
       },
     },
   }}
@@ -102,7 +93,7 @@ should be short and to the point, often three words or less.
       size: "ToogleSizes.Large",
     }}
   >
-    {(args) => <Toggle {...args} size={sizeEnumValues.getValue(args.size)} />}
+    {(args) => <Toggle {...args} />}
   </Story>
 </Canvas>
 
@@ -141,10 +132,10 @@ Resources:
         <Toggle
           defaultChecked={true}
           id="small-checked"
-          size={ToggleSizes.Small}
+          size="small"
           labelText="On"
         />
-        <Toggle id="default-small" size={ToggleSizes.Small} labelText="Off" />
+        <Toggle id="default-small" size="small" labelText="Off" />
       </VStack>
     </SimpleGrid>
   </DSProvider>

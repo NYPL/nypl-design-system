@@ -7,15 +7,35 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import {
-  TextInputTypes,
-  TextInputFormats,
-  TextInputVariants,
-} from "./TextInputTypes";
 import Label from "../Label/Label";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
+
+// HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+export type TextInputTypes =
+  | "email"
+  | "hidden"
+  | "number"
+  | "password"
+  | "text"
+  | "textarea"
+  | "tel"
+  | "url";
+
+// Only used internally.
+export const TextInputFormats = {
+  email: "jdoe@domain.com",
+  hidden: "",
+  password: "",
+  text: "",
+  tel: "(123) 123-1234",
+  textarea: "",
+  url: "https://domain.com",
+};
+
+// Only used internally in `TextInput` and `SearchBar`.
+export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps {
   /** Additional attributes to pass to the `<input>` or `<textarea>` element */
@@ -99,16 +119,16 @@ export const TextInput = chakra(
         showLabel = true,
         showRequiredLabel = true,
         step = 1,
-        textInputType = TextInputVariants.Default,
-        type = TextInputTypes.text,
+        textInputType = "default",
+        type = "text",
         value,
         ...rest
       } = props;
       const styles = useMultiStyleConfig("TextInput", {
         variant: textInputType,
       });
-      const isTextArea = type === TextInputTypes.textarea;
-      const isHidden = type === TextInputTypes.hidden;
+      const isTextArea = type === "textarea";
+      const isHidden = type === "hidden";
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
@@ -131,12 +151,8 @@ export const TextInput = chakra(
         attributes["aria-describedby"] = `${id}-helperText`;
       }
 
-      if (
-        type === TextInputTypes.tel ||
-        type === TextInputTypes.url ||
-        type === TextInputTypes.email
-      ) {
-        const example = TextInputFormats[type];
+      if (type === "tel" || type === "url" || type === "email") {
+        const example = TextInputFormats[type] || "";
         footnote = (
           <>
             Ex: {example}
@@ -161,7 +177,7 @@ export const TextInput = chakra(
             onChange,
             ref,
             // The `step` attribute is useful for the number type.
-            step: type === TextInputTypes.number ? step : null,
+            step: type === "number" ? step : null,
             ...attributes,
           };
       // For `input` and `textarea`, all attributes are the same but `input`

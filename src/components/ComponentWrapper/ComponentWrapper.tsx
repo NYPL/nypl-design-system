@@ -2,7 +2,6 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
@@ -49,13 +48,7 @@ export const ComponentWrapper = chakra(
 
     return (
       <Box __css={styles} {...rest}>
-        {headingText && (
-          <Heading
-            id={`${id}-heading`}
-            level={HeadingLevels.Two}
-            text={headingText}
-          />
-        )}
+        {headingText && <Heading id={`${id}-heading`} text={headingText} />}
         {descriptionText && <Text>{descriptionText}</Text>}
         {children}
         {footnote && (

@@ -3,9 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import StructuredContent from "./StructuredContent";
-import { StructuredContentImagePosition } from "./StructuredContentTypes";
 
 const htmlStringBodyContent =
   "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
@@ -88,11 +86,11 @@ describe("StructuredContent Accessibility", () => {
         headingText="Heading text"
         imageProps={{
           alt: "Image alt text",
-          aspectRatio: ImageRatios.Original,
+          aspectRatio: "original",
           caption: "Image caption",
           credit: "Image credit",
-          position: StructuredContentImagePosition.Left,
-          size: ImageSizes.Medium,
+          position: "left",
+          size: "medium",
           src: "https://placeimg.com/400/300/animals",
         }}
       />
@@ -108,11 +106,11 @@ describe("StructuredContent Accessibility", () => {
         headingText="Heading text"
         imageProps={{
           alt: "Image alt text",
-          aspectRatio: ImageRatios.Original,
+          aspectRatio: "original",
           caption: "Image caption",
           credit: "Image credit",
-          position: StructuredContentImagePosition.Left,
-          size: ImageSizes.Medium,
+          position: "left",
+          size: "medium",
           src: "https://placeimg.com/400/300/animals",
         }}
       />
@@ -141,11 +139,11 @@ describe("StructuredContent", () => {
         headingText="Heading text"
         imageProps={{
           alt: "Image alt text",
-          aspectRatio: ImageRatios.Original,
+          aspectRatio: "original",
           caption: "Image caption",
           credit: "Image credit",
-          position: StructuredContentImagePosition.Left,
-          size: ImageSizes.Medium,
+          position: "left",
+          size: "medium",
           src: "https://placeimg.com/400/300/animals",
         }}
       />
@@ -165,11 +163,11 @@ describe("StructuredContent", () => {
         bodyContent={htmlStringBodyContent}
         imageProps={{
           alt: "Image alt text",
-          aspectRatio: ImageRatios.Original,
+          aspectRatio: "original",
           caption: "Image caption",
           credit: "Image credit",
-          position: StructuredContentImagePosition.Left,
-          size: ImageSizes.Medium,
+          position: "left",
+          size: "medium",
           src: "https://placeimg.com/400/300/animals",
         }}
       />
@@ -208,11 +206,11 @@ describe("StructuredContent", () => {
         calloutText="This is the callout text"
         headingText="Heading text"
         imageProps={{
-          aspectRatio: ImageRatios.Original,
+          aspectRatio: "original",
           caption: "Image caption",
           credit: "Image credit",
-          position: StructuredContentImagePosition.Left,
-          size: ImageSizes.Medium,
+          position: "left",
+          size: "medium",
           src: "https://placeimg.com/400/300/animals",
         }}
       />
@@ -233,11 +231,11 @@ describe("StructuredContent", () => {
         headingText="Heading text"
         imageProps={{
           alt: "Image alt text",
-          aspectRatio: ImageRatios.Original,
+          aspectRatio: "original",
           caption: "Image caption",
           credit: "Image credit",
-          position: StructuredContentImagePosition.Left,
-          size: ImageSizes.Medium,
+          position: "left",
+          size: "medium",
           src: "https://placeimg.com/400/300/animals",
         }}
       />
@@ -255,10 +253,10 @@ describe("StructuredContent", () => {
         headingText="Heading text"
         imageProps={{
           alt: "Image alt text",
-          aspectRatio: ImageRatios.Original,
+          aspectRatio: "original",
           credit: "Image credit",
-          position: StructuredContentImagePosition.Left,
-          size: ImageSizes.Medium,
+          position: "left",
+          size: "medium",
           src: "https://placeimg.com/400/300/animals",
         }}
       />
@@ -277,9 +275,9 @@ describe("StructuredContent", () => {
         headingText="Heading text"
         imageProps={{
           alt: "Image alt text",
-          aspectRatio: ImageRatios.Original,
-          position: StructuredContentImagePosition.Left,
-          size: ImageSizes.Medium,
+          aspectRatio: "original",
+          position: "left",
+          size: "medium",
           src: "https://placeimg.com/400/300/animals",
         }}
       />
@@ -300,11 +298,11 @@ describe("StructuredContent", () => {
           id="withHTMLStringContent"
           imageProps={{
             alt: "Image alt text",
-            aspectRatio: ImageRatios.Original,
+            aspectRatio: "original",
             caption: "Image caption",
             credit: "Image credit",
-            position: StructuredContentImagePosition.Left,
-            size: ImageSizes.Medium,
+            position: "left",
+            size: "medium",
             src: "https://placeimg.com/400/300/animals",
           }}
         />
@@ -319,11 +317,11 @@ describe("StructuredContent", () => {
           id="withHTMLDOMContent"
           imageProps={{
             alt: "Image alt text",
-            aspectRatio: ImageRatios.Original,
+            aspectRatio: "original",
             caption: "Image caption",
             credit: "Image credit",
-            position: StructuredContentImagePosition.Left,
-            size: ImageSizes.Medium,
+            position: "left",
+            size: "medium",
             src: "https://placeimg.com/400/300/animals",
           }}
         />
@@ -348,9 +346,9 @@ describe("StructuredContent", () => {
           id="withImageWithoutCaptionOrCredit"
           imageProps={{
             alt: "Image alt text",
-            aspectRatio: ImageRatios.Original,
-            position: StructuredContentImagePosition.Left,
-            size: ImageSizes.Medium,
+            aspectRatio: "original",
+            position: "left",
+            size: "medium",
             src: "https://placeimg.com/400/300/animals",
           }}
         />
@@ -364,11 +362,11 @@ describe("StructuredContent", () => {
           id="withoutHeading"
           imageProps={{
             alt: "Image alt text",
-            aspectRatio: ImageRatios.Original,
+            aspectRatio: "original",
             caption: "Image caption",
             credit: "Image credit",
-            position: StructuredContentImagePosition.Left,
-            size: ImageSizes.Medium,
+            position: "left",
+            size: "medium",
             src: "https://placeimg.com/400/300/animals",
           }}
         />
@@ -391,11 +389,11 @@ describe("StructuredContent", () => {
           id="withChakraProps"
           imageProps={{
             alt: "Image alt text",
-            aspectRatio: ImageRatios.Original,
+            aspectRatio: "original",
             caption: "Image caption",
             credit: "Image credit",
-            position: StructuredContentImagePosition.Left,
-            size: ImageSizes.Medium,
+            position: "left",
+            size: "medium",
             src: "https://placeimg.com/400/300/animals",
           }}
           bodyContent={htmlStringBodyContent}
@@ -412,11 +410,11 @@ describe("StructuredContent", () => {
           id="withOtherProps"
           imageProps={{
             alt: "Image alt text",
-            aspectRatio: ImageRatios.Original,
+            aspectRatio: "original",
             caption: "Image caption",
             credit: "Image credit",
-            position: StructuredContentImagePosition.Left,
-            size: ImageSizes.Medium,
+            position: "left",
+            size: "medium",
             src: "https://placeimg.com/400/300/animals",
           }}
           bodyContent={htmlStringBodyContent}

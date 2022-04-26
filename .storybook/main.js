@@ -34,9 +34,9 @@ module.exports = {
   typescript: {
     // Type-check stories during Storybook build.
     check: true,
-    // Display the enum variable name rather than the compiled values.
+    // Display the compiled value options.
     reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: false,
+      shouldExtractLiteralValuesFromEnum: true,
       // Do we want to display Chakra props in Storybook? Nope.
       // They are useful but it clutters the Storybook file and the Chakra
       // docs are easy to access on their own site. DS components still
