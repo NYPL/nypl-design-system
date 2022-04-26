@@ -11,10 +11,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds two patterns for rendering the updated `Modal` component. This is still an ongoing work-in-progress as the `Modal` gets finalized but it is now using Chakra under-the-hood.
+- Adds `@chakra-ui/storybook-addon` so stories automatically pick up the Chakra-based NYPL theme.
 
 ### Updates
 
 - Updates React and React DOM to version 17.
+- Updates Chakra packages `@chakra-ui/react` and `@chakra-ui/system`.
 
 ### Removals
 

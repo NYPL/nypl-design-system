@@ -29,6 +29,7 @@ module.exports = {
     },
     "@storybook/addon-controls",
     "@storybook/addon-jest",
+    "@chakra-ui/storybook-addon",
   ],
   typescript: {
     // Type-check stories during Storybook build.
