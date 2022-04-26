@@ -135,8 +135,6 @@ export const Select = chakra(
         }
       }, [labelPosition]);
 
-      console.log(footnote, labelWidth);
-
       return (
         <Box
           className={className}
