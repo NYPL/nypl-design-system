@@ -8,13 +8,9 @@ export interface SelectedItems {
   [name: string]: { items: string[] };
 }
 
+// @TODO Switch these to string literal union.
 export enum MultiSelectWidths {
   Default = "default",
   FitContent = "fitContent",
   Full = "full",
-}
-
-export enum MultiSelectVariants {
-  Listbox = "listbox",
-  Dialog = "dialog",
 }

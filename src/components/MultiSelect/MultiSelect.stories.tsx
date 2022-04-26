@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MultiSelect, { MultiSelectProps } from "./MultiSelect";
-import { /*MultiSelectVariants,*/ MultiSelectItem } from "./MultiSelectTypes";
+import { MultiSelectItem } from "./MultiSelectTypes";
 import { Story } from "@storybook/react/types-6-0";
 
 // @TODO export this, so FilterBar story can use it.
@@ -76,7 +76,7 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
         selectedItems[multiSelectId].items.indexOf(itemId) > -1;
       // Make a copy of the existing array.
       itemIds = selectedItems[multiSelectId].items.slice();
-      // If termId exists, remove it from the array.
+      // If id exists, remove it from the array.
       if (itemIdExists) {
         itemIds = itemIds.filter((id) => id !== itemId);
       } else {

@@ -14,7 +14,6 @@ interface MultiSelectCommonProps {
   label: string;
   /** The variant of the multiSelect. */
   variant: "listbox" | "dialog";
-  //variant: MultiSelectVariants;
   /** The items to be rendered in the multiselect as options. */
   items: MultiSelectItem[];
   /** The selected items state (items that were checked by user). */

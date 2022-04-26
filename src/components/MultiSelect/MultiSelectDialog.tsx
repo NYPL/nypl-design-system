@@ -11,9 +11,10 @@ import {
   Stack,
   UnorderedList,
   useMultiStyleConfig,
+  useOutsideClick,
 } from "@chakra-ui/react";
-import FocusLock from "react-focus-lock";
-import useOnClickOutside from "./../../hooks/useOnClickOutside";
+// @TODO Add "@chakra-ui/focus-lock" to package.json dependencies ?
+import FocusLock from "@chakra-ui/focus-lock";
 import useWindowSize from "./../../hooks/useWindowSize";
 
 type MultiSelectDialogProps = Omit<MultiSelectProps, "onChange"> & {
@@ -53,9 +54,13 @@ function MultiSelectDialog({
   const [isOpen, setIsOpen] = useState(defaultIsOpen);
   // Create a ref that we add to the element for which we want to detect outside clicks.
   const ref = useRef();
-  // Closes the multiselect if click outside event.
-  useOnClickOutside(ref, () => setIsOpen(false));
+  // Closes the multiselect if user clicks outside.
+  useOutsideClick({
+    ref: ref,
+    handler: () => setIsOpen(false),
+  });
 
+  // @TODO switch all 3 of these to const functions and remove the parameters?
   function isChecked(multiSelectId: string, itemId: string): boolean {
     if (
       selectedItems[multiSelectId]?.items.find(
@@ -106,7 +111,7 @@ function MultiSelectDialog({
 
   return (
     <Box id={id} ref={ref} __css={styles}>
-      <FocusLock disabled={!isOpen}>
+      <FocusLock isDisabled={!isOpen}>
         <MultiSelectMenuButton
           multiSelectId={id}
           label={label}
