@@ -8,6 +8,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds two patterns for rendering the updated `Modal` component. This is still an ongoing work-in-progress as the `Modal` gets finalized but it is now using Chakra under-the-hood.
+- Adds `@chakra-ui/storybook-addon` so stories automatically pick up the Chakra-based NYPL theme.
+
+### Updates
+
+- Updates React and React DOM to version 17.
+- Updates Chakra packages `@chakra-ui/react` and `@chakra-ui/system`.
+- Updates the `HelperErrorText` styling to correctly display when used with a `Select` element with a `labelPosition` of inline.
+
+### Removals
+
+- Removes the following packages: `@storybook/addon-queryparams` and `react-router-dom`.
+
 ## 0.26.1 (April 22, 2022)
 
 ### Updates
