@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates React and React DOM to version 17.
 - Updates Chakra packages `@chakra-ui/react` and `@chakra-ui/system`.
+- Updates the `HelperErrorText` styling to correctly display when used with a `Select` element with a `labelPosition` of inline.
 
 ### Removals
 
