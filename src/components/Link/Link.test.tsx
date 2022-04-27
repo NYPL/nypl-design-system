@@ -1,10 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
-import {
-  BrowserRouter as Router,
-  Link as ReactRouterLink,
-} from "react-router-dom";
 import renderer from "react-test-renderer";
 
 import Link from "./Link";
@@ -96,20 +92,6 @@ describe("Link", () => {
 
   it("Can pass in text as child and url as props", () => {
     render(<Link href="#test">Test</Link>);
-    expect(screen.getByRole("link")).toBeInTheDocument();
-  });
-
-  it("Can pass in a ReactRouter Link", () => {
-    render(
-      <Router>
-        <Link type="action">
-          <ReactRouterLink to="#">
-            <Icon name="download" align="left" iconRotation="rotate0" />
-            Download
-          </ReactRouterLink>
-        </Link>
-      </Router>
-    );
     expect(screen.getByRole("link")).toBeInTheDocument();
   });
 

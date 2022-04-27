@@ -69,7 +69,7 @@ export { LayoutTypes } from "./helpers/types";
 export { default as Link, LinkTypes } from "./components/Link/Link";
 export { default as List, ListTypes } from "./components/List/List";
 export { default as Logo, LogoNames, LogoSizes } from "./components/Logo/Logo";
-export { default as Modal } from "./components/Modal/Modal";
+export { ModalTrigger, useModal } from "./components/Modal/Modal";
 export {
   default as Notification,
   NotificationTypes,

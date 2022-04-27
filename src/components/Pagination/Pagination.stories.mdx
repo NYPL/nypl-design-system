@@ -8,7 +8,6 @@ import {
   Story,
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
-import { withQuery } from "@storybook/addon-queryparams";
 
 import Button from "../Button/Button";
 import DSProvider from "../../theme/provider";
@@ -21,7 +20,7 @@ export const hrefProps = getStorybookHrefProps(10);
 <Meta
   title={getCategory("Pagination")}
   component={Pagination}
-  decorators={[withDesign, withQuery]}
+  decorators={[withDesign]}
   parameters={{
     design: {
       type: "figma",
