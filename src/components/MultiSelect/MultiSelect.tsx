@@ -1,11 +1,7 @@
 import React from "react";
 import MultiSelectListBox from "./MultiSelectListbox";
 import MultiSelectDialog from "./MultiSelectDialog";
-import {
-  MultiSelectItem,
-  SelectedItems,
-  MultiSelectWidths,
-} from "./MultiSelectTypes";
+import { MultiSelectItem, SelectedItems } from "./MultiSelectTypes";
 
 interface MultiSelectCommonProps {
   /** The id of the multiSelect. */
@@ -18,8 +14,8 @@ interface MultiSelectCommonProps {
   items: MultiSelectItem[];
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
-  /** Enum value used to set the width for the MultiSelect component. */
-  width?: MultiSelectWidths;
+  /** Value used to set the width for the MultiSelect component. */
+  width?: "default" | "fitContent" | "full";
   /** The action to perform for clear/reset button of multiselect.. */
   onClear?: () => void;
   /** Set the default open or closed state of the multiselect. */

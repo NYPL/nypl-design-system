@@ -12,13 +12,6 @@ import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 import MultiSelect from "./MultiSelect";
 import * as stories from "./MultiSelect.stories.tsx";
-import { MultiSelectWidths } from "./MultiSelectTypes";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const widthsEnumValues = getStorybookEnumValues(
-  MultiSelectWidths,
-  "MultiSelectWidths"
-);
 
 <Meta
   title={getCategory("MultiSelect")}
@@ -32,12 +25,7 @@ export const widthsEnumValues = getStorybookEnumValues(
     //jest: ["Checkbox.test.tsx"],
   }}
   argTypes={{
-    //id: { table: { disable: true } },
-    width: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "MultiSelectWidths.Default" } },
-      options: widthsEnumValues.options,
-    },
+    id: { table: { disable: true } },
   }}
 />
 
@@ -56,17 +44,13 @@ This component renders a MultiSelect form element.
   <Story
     name="MultiSelect ListBox"
     args={{
-      id: "group1",
+      id: "multiselect-listbox",
       label: "Subject Specialities",
-      width: "MultiSelectWidths.Default",
+      variant: "listbox",
+      width: "default",
     }}
   >
-    {(args) => (
-      <stories.MultiSelectStory
-        {...args}
-        width={widthsEnumValues.getValue(args.width)}
-      />
-    )}
+    {(args) => <stories.MultiSelectStory {...args} />}
   </Story>
 </Canvas>
 
@@ -76,17 +60,13 @@ This component renders a MultiSelect form element.
   <Story
     name="MultiSelect Dialog"
     args={{
-      id: "group1",
+      id: "multiselect-dialog",
       label: "Subject Specialities",
-      width: "MultiSelectWidths.Default",
+      variant: "dialog",
+      width: "default",
     }}
   >
-    {(args) => (
-      <stories.MultiSelectDialogStory
-        {...args}
-        width={widthsEnumValues.getValue(args.width)}
-      />
-    )}
+    {(args) => <stories.MultiSelectDialogStory {...args} />}
   </Story>
 </Canvas>
 

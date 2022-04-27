@@ -99,7 +99,7 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
     <>
       <MultiSelect
         {...args}
-        variant="listbox"
+        //variant="listbox"
         items={items}
         selectedItems={selectedItems}
         onChange={(selectedItem) => {

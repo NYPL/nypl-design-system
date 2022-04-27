@@ -81,7 +81,6 @@ export {
 } from "./components/MultiSelect/MultiSelect";
 export {
   MultiSelectItem,
-  MultiSelectWidths,
   SelectedItems,
 } from "./components/MultiSelect/MultiSelectTypes";
 

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Button from "./../Button/Button";
 import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
-import { MultiSelectItem, MultiSelectWidths } from "./MultiSelectTypes";
+import { MultiSelectItem } from "./MultiSelectTypes";
 import { MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import {
@@ -31,7 +31,7 @@ function MultiSelectDialog({
   selectedItems,
   onApply,
   onClear,
-  width = MultiSelectWidths.Default,
+  width = "default",
   isBlockElement = false,
 }: MultiSelectDialogProps) {
   const styles = useMultiStyleConfig("MultiSelect", {

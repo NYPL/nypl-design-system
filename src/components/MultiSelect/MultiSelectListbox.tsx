@@ -6,7 +6,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import Checkbox from "./../Checkbox/Checkbox";
-import { MultiSelectItem, MultiSelectWidths } from "./MultiSelectTypes";
+import { MultiSelectItem } from "./MultiSelectTypes";
 import { MultiSelectProps } from "./MultiSelect";
 import MultiSelectMenuButton from "./MultiSelectMenuButton";
 import { useSelect } from "downshift";
@@ -23,7 +23,7 @@ function MultiSelectListbox({
   onChange,
   selectedItems,
   onClear,
-  width = MultiSelectWidths.Default,
+  width = "default",
   isBlockElement = false,
 }: MultiSelectListboxProps) {
   const styles = useMultiStyleConfig("MultiSelect", {
