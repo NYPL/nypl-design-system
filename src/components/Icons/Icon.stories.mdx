@@ -30,7 +30,29 @@ import { getCategory } from "../../utils/componentCategories";
     children: { table: { disable: true } },
     className: { control: false },
     color: {
+      control: { type: "select" },
       table: { defaultValue: { summary: "ui.black" } },
+      options: [
+        "ui.black",
+        "ui.white",
+        "brand.primary",
+        "brand.secondary",
+        "section.blogs.primary",
+        "section.blogs.secondary",
+        "section.books-and-more.primary",
+        "section.books-and-more.secondary",
+        "section.education.primary",
+        "section.education.secondary",
+        "section.locations.primary",
+        "section.locations.secondary",
+        "section.research.primary",
+        "section.research.secondary",
+        "section.research-library.lpa",
+        "section.research-library.schomburg",
+        "section.research-library.schwartzman",
+        "section.whats-on.primary",
+        "section.whats-on.secondary",
+      ],
     },
     iconRotation: {
       table: { defaultValue: { summary: "rotate0" } },
@@ -213,8 +235,8 @@ export const iconSizesValues = [
 ];
 for (const icon in iconNamesValues) {
   icons.push(
-    iconRow(icon, {
-      displayValue: icon,
+    iconRow(iconNamesValues[icon], {
+      displayValue: iconNamesValues[icon],
       size: "xxlarge",
     })
   );
@@ -222,26 +244,26 @@ for (const icon in iconNamesValues) {
 for (const iconRotation in iconRotationTypesValues) {
   rotations.push(
     iconRow("arrow", {
-      displayValue: iconRotation,
-      iconRotation,
+      displayValue: iconRotationTypesValues[iconRotation],
+      iconRotation: iconRotationTypesValues[iconRotation],
       size: "xxlarge",
     })
   );
 }
 for (const iconColor in iconColorsValues) {
   colors.push(
-    iconRow("errorFilled", {
-      color: iconColor,
-      displayValue: iconColor,
+    iconRow("error_filled", {
+      color: iconColorsValues[iconColor],
+      displayValue: iconColorsValues[iconColor],
       size: "xxlarge",
     })
   );
 }
 for (const iconSize in iconSizesValues) {
   sizes.push(
-    iconRow("actionCheckCircle", {
-      displayValue: iconSize,
-      size: iconSize,
+    iconRow("action_check_circle", {
+      displayValue: iconSizesValues[iconSize],
+      size: iconSizesValues[iconSize],
     })
   );
 }

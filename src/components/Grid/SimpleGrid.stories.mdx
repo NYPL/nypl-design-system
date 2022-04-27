@@ -31,7 +31,17 @@ import DSProvider from "../../theme/provider";
       control: { min: 2, type: "number" },
     },
     gap: {
+      control: { type: "select" },
       table: { defaultValue: { summary: "grid.l" } },
+      options: [
+        "grid.xxs",
+        "grid.xs",
+        "grid.s",
+        "grid.m",
+        "grid.l",
+        "grid.xl",
+        "grid.xxl",
+      ],
     },
     id: { control: false },
   }}
@@ -216,9 +226,9 @@ export const iconNames = [
   "utility_search",
 ];
 for (const name in iconNames) {
-  const iname = `Example icon: ${name}`;
+  const iname = `Example icon: ${iconNames[name]}`;
   const iconRender = (
-    <Icon key={name} name={name} size="xxxlarge" title={iname} />
+    <Icon key={name} name={iconNames[name]} size="xxxlarge" title={iname} />
   );
   icons.push(iconRender);
 }

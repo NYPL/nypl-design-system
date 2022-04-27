@@ -169,13 +169,15 @@ export const logoSizeValues = [
   "large",
 ];
 for (const logo in logoNameValues) {
-  logos.push(logoRow(logo, { displayValue: logo }));
+  logos.push(
+    logoRow(logoNameValues[logo], { displayValue: logoNameValues[logo] })
+  );
 }
 for (const logoSize in logoSizeValues) {
   sizes.push(
     logoRow("logo_nypl_full_black", {
-      displayValue: logoSize,
-      size: logoSize,
+      displayValue: logoSizeValues[logoSize],
+      size: logoSizeValues[logoSize],
     })
   );
 }

@@ -580,18 +580,20 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           <Accordion accordionData={faqContent} />
           <HorizontalRule />
           <p>Fill out the form!</p>
-          <Form action="/end/point">
+          <Form id="form1" action="/end/point">
             <FormField>
               <TextInput
-                labelText="Username"
                 helperText="Make sure to complete this field."
+                id="username"
+                labelText="Username"
                 required
               />
             </FormField>
             <FormField>
               <TextInput
-                labelText="Password"
                 helperText="Make sure to complete this field."
+                id="password"
+                labelText="Password"
                 required
               />
             </FormField>
@@ -607,7 +609,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
               </FormField>
             </FormRow>
             <FormField>
-              <Button>Submit</Button>
+              <Button id="submit">Submit</Button>
             </FormField>
           </Form>
         </TemplateContentPrimary>

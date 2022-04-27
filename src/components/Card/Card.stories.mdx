@@ -149,7 +149,10 @@ headings and CTAs.
   >
     {(args) => (
       <Card
-        {...args}
+        backgroundColor={args.backgroundColor}
+        className={args.className}
+        foregroundColor={args.foregroundColor}
+        id={args.id}
         imageProps={{
           alt: args["imageProps.alt"],
           aspectRatio: args["imageProps.aspectRatio"],
@@ -158,6 +161,11 @@ headings and CTAs.
           size: args["imageProps.size"],
           src: args["imageProps.src"],
         }}
+        isAlignedRightActions={args.isAlignedRightActions}
+        isBordered={args.isBordered}
+        isCentered={args.isCentered}
+        layout={args.layout}
+        mainActionLink={args.mainActionLink}
       >
         <CardHeading level="two" id="main-heading1">
           Optional Header

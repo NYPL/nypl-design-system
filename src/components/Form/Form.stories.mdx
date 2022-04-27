@@ -43,7 +43,17 @@ import { getCategory } from "../../utils/componentCategories";
       options: ["get", "post"],
     },
     gap: {
+      control: { type: "select" },
       table: { defaultValue: { summary: "grid.l" } },
+      options: [
+        "grid.xxs",
+        "grid.xs",
+        "grid.s",
+        "grid.m",
+        "grid.l",
+        "grid.xl",
+        "grid.xxl",
+      ],
     },
   }}
 />

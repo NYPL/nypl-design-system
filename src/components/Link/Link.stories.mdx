@@ -169,23 +169,6 @@ can use the `href` prop to generate an `<a>` element.
 
 ## Link with Routers
 
-<Canvas>
-  <Story name="Link with Routers">
-    <div>With React Router</div>
-    <Router>
-      <Link type="action">
-        <ReactRouterLink to="#">Next Page</ReactRouterLink>
-      </Link>
-    </Router>
-    <br />
-    <br />
-    <div>With NextJS</div>
-    <NextJsLink href="#" passHref>
-      <Link type="action">Next Page</Link>
-    </NextJsLink>
-  </Story>
-</Canvas>
-
 ### React Router
 
 The Design System's `Link` component should wrap around `react-router`'s own
@@ -258,7 +241,7 @@ export const NextJsLink = (props: HTMLAnchorElement) =>
 export const NextJsLink = (props) =>
   React.cloneElement(
     props.children,
-    { ...props },
+    { href: props.href },
     props.children.props.children
   );
 

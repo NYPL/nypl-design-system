@@ -19,11 +19,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates Chakra packages `@chakra-ui/react` and `@chakra-ui/system`.
 - Updates how styles are passed down to internal components in `Card`, `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Hero`, `Notification`, `Pagination`, `Radio`, `RadioGroup`, `SearchBar`, and `Slider`. This is based on removing the `additionalStyles` prop and passing down styles to the `__css` prop.
 - Updates how the `id` is passed in the `DatePicker`'s custom `TextInput` component.
+- Updates how some prop values are passed. Instead of using a Typescript enum object, a Typescript type with the string literal values is used. This still restricts the accepted values for certain props. The enum to string literal type conversion includes the following variables: `AccordionType`, `BreadcrumbsTypes`, `ButtonTypes`, `DatePickerTypes`, `FormGaps` (deleted), `GridGaps`, `HeadingSizes`, `HeadingLevels`, `HeroTypes`, `IconAlign`, `IconTypes`, `IconRotationTypes`, `IconColors`, `IconSizes`, `IconNames`, `LinkTypes`, `ListTypes`, `LogoColors`, `LogoSizes`, `LogoNames`, `NotificationTypes`, `SelectTypes`, `LabelPositions`, `SkeletonLoaderImageRatios`, `StatusBadgeTypes`, `StructuredContentImagePosition`, `TextSizes`, `TextInputTypes`, `TextInputFormats`, `TextInputVariants`, `ToggleSizes`, `VideoPlayerTypes`, `VideoPlayerAspectRatios`, and `LayoutTypes`.
 
 ### Removals
 
 - Removes the following packages: `@storybook/addon-queryparams` and `react-router-dom`.
 - Removes the `additionalStyles` attributes from the `Breadcrumbs`, `Button`, `Heading`, `HelperErrorText`, `Icon`, `Link`, `List`, `Logo`, `Select`, `TextInput`, and `Toggle` components.
+- Removes `getVariant` and `getStorybookEnumValues` helper functions.
+- Removes all Typescript enum objects in favor of string literal types.
 
 ## 0.26.1 (April 22, 2022)
 
