@@ -1,5 +1,4 @@
 import { range } from "../../utils/utils";
-// import { ButtonTypes } from "../../components/Button/ButtonTypes";
 
 describe("range", () => {
   it("returns an array of values not including the stop argument", () => {

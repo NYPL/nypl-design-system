@@ -20,7 +20,7 @@ Following this pattern (assuming that the consuming app developer is also using 
 - allows component creators to define specific values that can be used
 - allows app developers to catch errors early in compilation time since Typescript throws an error if an unintended or wrong value was passed
 
-### Heading `sizes` Example
+### Heading `size` Example
 
 The following is an example of the type used to update the `size` prop for the `Heading` component. The available values declared by the `HeadingSizes` type are: `"primary"`, `"secondary"`, `"tertiary"`, `"callout"`.
 
