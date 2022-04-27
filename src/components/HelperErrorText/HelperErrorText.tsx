@@ -44,9 +44,7 @@ export const HelperErrorText = chakra(
   }: HelperErrorTextProps) => {
     // Only announce the text in the invalid state.
     const announceAriaLive = isInvalid;
-    const styles = useStyleConfig("HelperErrorText", {
-      isInvalid,
-    });
+    const styles = useStyleConfig("HelperErrorText", { isInvalid });
     const finalStyles = { ...styles, ...additionalStyles };
     const props = {
       "aria-atomic": ariaAtomic,

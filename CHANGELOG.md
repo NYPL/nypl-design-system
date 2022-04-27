@@ -28,7 +28,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.
-- Updates the `HelperErrorText` styling to correctly display when used with a `Select` element with a `labelPosition` of inline.
 
 ### Fixes
 
