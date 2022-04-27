@@ -87,12 +87,7 @@ to better view the example. The default value is `100%`.
       width: "300px",
     }}
   >
-    {(args) => (
-      <SkeletonLoader
-        {...args}
-        layout={layoutsEnumValues.getValue(args.layout)}
-      />
-    )}
+    {(args) => <SkeletonLoader {...args} />}
   </Story>
 </Canvas>
 

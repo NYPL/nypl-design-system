@@ -180,7 +180,7 @@ export const Icon = chakra(
     return <Box __css={styles}>{childSVG}</Box>;
   },
   // Pass all custom props to Chakra and override, e.g. we want the
-  // DS color prop to use the DS enum and not color strings.
+  // DS color value set and not color strings.
   { shouldForwardProp: () => true }
 );
 

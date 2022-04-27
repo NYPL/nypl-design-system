@@ -105,14 +105,7 @@ If you want a simple HTML `img` element then don't pass in values for the
       src: "https://placeimg.com/400/300/animals",
     }}
   >
-    {(args) => (
-      <Image
-        {...args}
-        aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
-        imageType={typesEnumValues.getValue(args.imageType)}
-        size={sizesEnumValues.getValue(args.size)}
-      />
-    )}
+    {(args) => <Image {...args} />}
   </Story>
 </Canvas>
 

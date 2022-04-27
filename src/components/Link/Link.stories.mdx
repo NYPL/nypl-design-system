@@ -71,11 +71,7 @@ import DSProvider from "../../theme/provider";
       type: "action",
     }}
   >
-    {(args) => (
-      <Link {...args} type={enumValues.getValue(args.type)}>
-        Link
-      </Link>
-    )}
+    {(args) => <Link {...args}>Link</Link>}
   </Story>
 </Canvas>
 
