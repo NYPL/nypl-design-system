@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Table` component to allow JSX elements to be rendered in the data cells.
+
 ## 0.27.0 (April 27, 2022)
 
 ### Adds
