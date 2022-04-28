@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.27.0 (April 27, 2022)
+
 ### Adds
 
 - Adds two patterns for rendering the updated `Modal` component. This is still an ongoing work-in-progress as the `Modal` gets finalized but it is now using Chakra under-the-hood.
