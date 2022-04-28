@@ -94,7 +94,6 @@ export const Select = chakra(
       const styles = useMultiStyleConfig("CustomSelect", {
         variant: selectType,
         labelPosition,
-        labelWidth,
       });
       const finalInvalidText = invalidText
         ? invalidText
@@ -105,6 +104,10 @@ export const Select = chakra(
       // To control the `Select` component, both `onChange` and `value`
       // must be passed.
       const controlledProps = onChange ? { onChange, value } : {};
+
+      // The number of pixels between the label and select elements
+      // when the labelPosition is inline (equivalent to --nypl-space-xs).
+      const labelSelectGap = 8;
 
       if (!showLabel) {
         ariaAttributes["aria-label"] =
@@ -122,9 +125,11 @@ export const Select = chakra(
       useEffect(() => {
         if (labelPosition === "inline") {
           if (labelRef.current) {
-            const width = labelRef.current.clientWidth + 8;
+            const width = labelRef.current.clientWidth + labelSelectGap;
             setLabelWidth(width);
           }
+        } else {
+          setLabelWidth(0);
         }
       }, [labelPosition]);
 
@@ -159,14 +164,15 @@ export const Select = chakra(
             >
               {children}
             </ChakraSelect>
-            {footnote && showHelperInvalidText && (
-              <HelperErrorText
-                id={`${id}-helperText`}
-                isInvalid={isInvalid}
-                text={footnote}
-              />
-            )}
           </Box>
+          {footnote && showHelperInvalidText && (
+            <HelperErrorText
+              id={`${id}-helperText`}
+              isInvalid={isInvalid}
+              text={footnote}
+              ml={{ sm: "auto", md: `${labelWidth}px` }}
+            />
+          )}
         </Box>
       );
     }

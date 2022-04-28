@@ -29,7 +29,7 @@ const select = {
 
 const Select = {
   parts: ["helperText", "inline", "select"],
-  baseStyle: ({ labelPosition, labelWidth }) => {
+  baseStyle: ({ labelPosition }) => {
     return {
       marginBottom: "xs",
       // The backgroundColor set to "ui.white" hides the arrow SVG icon when
@@ -37,10 +37,6 @@ const Select = {
       // so we need to add specific selector.
       ".chakra-select__icon-wrapper": {
         zIndex: "9999",
-      },
-      helperText: {
-        marginLeft:
-          labelPosition === "inline" ? { md: `${labelWidth}px` } : null,
       },
       inline: {
         display: { md: "flex" },
