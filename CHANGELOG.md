@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes sizing in the `Card` component for the "body" and "right" sections when the `isAlignedRightActions` prop is set to `true`.
+
 ## 0.27.0 (April 27, 2022)
 
 ### Adds
