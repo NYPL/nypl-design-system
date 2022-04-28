@@ -113,7 +113,7 @@ const categories = {
       "Link",
       "Menu",
       "Pagination",
-      "SkipNav",
+      "SkipNavigation",
       "Subnavigation",
     ],
   },

@@ -8,14 +8,14 @@ import {
 } from "@storybook/addon-docs";
 
 import Button from "../Button/Button";
-import SkipNav from "./SkipNav";
+import SkipNavigation from "./SkipNavigation";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
-  title={getCategory("SkipNav")}
-  component={SkipNav}
+  title={getCategory("SkipNavigation")}
+  component={SkipNavigation}
   parameters={{
-    jest: ["SkipNav.test.tsx"],
+    jest: ["SkipNavigation.test.tsx"],
   }}
   argTypes={{
     className: { control: false },
@@ -24,7 +24,7 @@ import { getCategory } from "../../utils/componentCategories";
   }}
 />
 
-# SkipNav
+# SkipNavigation
 
 | Component Version | DS Version |
 | ----------------- | ---------- |
@@ -39,9 +39,9 @@ import { getCategory } from "../../utils/componentCategories";
 
 ## Overview
 
-<Description of={SkipNav} />
+<Description of={SkipNavigation} />
 
-**NOTE: In order to see the links in the `SkipNav` component, start by focusing
+**NOTE: In order to see the links in the `SkipNavigation` component, start by focusing
 on the button below by tabbing or clicking on it. Then press "tab" to see the
 first link and press "tab" again to see the second link. Hiding the links
 intentional as the links should initially be visually hidden.**
@@ -50,7 +50,7 @@ intentional as the links should initially be visually hidden.**
 
 <Canvas>
   <Story
-    name="SkipNav with Controls"
+    name="SkipNavigation with Controls"
     args={{
       className: undefined,
       id: "skip-nav",
@@ -60,28 +60,28 @@ intentional as the links should initially be visually hidden.**
     {(args) => (
       <>
         <Button>Focus on me and then press "tab"</Button>
-        <SkipNav {...args} />
+        <SkipNavigation {...args} />
       </>
     )}
   </Story>
 </Canvas>
 
-<ArgsTable story="SkipNav with Controls" />
+<ArgsTable story="SkipNavigation with Controls" />
 
 ## Accessibility
 
 To create a useable page for screen readers, a link or a navigational list of
-links should be added before all the content on a page. The Reservoir achieves
-this through the `SkipNav` component which renders a `<nav>` element with an
-`aria-label` of "Skip Navigation". Inside the `<nav>` element, an unordered list
-is rendered.
+links should be added before all the content on a page. The Reservoir Design
+System (DS) achieves this through the `SkipNavigation` component which renders
+a `<nav>` element with an `aria-label` of "Skip Navigation". Inside the `<nav>`
+element, an unordered list is rendered.
 
 The reason this is a navigation list of links is because the first main link
 points to the anchor of the main content, in this case `"#mainContent"`. The
 second link points to accessibility information on [NYPL.org/accessibility](https://nypl.org/accessibility).
 
 See the [Skip Navigation accessibility guide](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/accessibility-guide-skip-navigation--page)
-for more information on how to use this component with other Reservoir components.
+for more information on how to use this component with other DS components.
 
 Resources:
 

@@ -35,7 +35,7 @@ import Radio from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
-import SkipNav from "./components/skipNav";
+import SkipNavigation from "./components/skipNavigation";
 import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
@@ -107,7 +107,7 @@ const theme = extendTheme({
     SearchBar,
     Skeleton,
     SkeletonLoader,
-    SkipNav,
+    SkipNavigation,
     CustomSlider,
     StatusBadge,
     StructuredContent,

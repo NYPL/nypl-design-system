@@ -5,7 +5,7 @@ import Link from "../Link/Link";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
 
-interface SkipNavProps {
+interface SkipNavigationProps {
   /** Additional CSS class name to render in the `nav` element. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
@@ -15,15 +15,15 @@ interface SkipNavProps {
 }
 
 /**
- * SkipNav is a component that is used to provide a navigational list of links.
- * The first link is used to skip to the main content of the page using the
- * `#mainContent` id, and the second link points to accessibility information
+ * SkipNavigation is a component that is used to provide a navigational list of
+ * links. The first link is used to skip to the main content of the page using
+ * the `#mainContent` id, and the second link points to accessibility information
  * on NYPL.org. These links are visually hidden but can be read by screenreaders.
  */
-export const SkipNav = chakra(
-  (props: React.PropsWithChildren<SkipNavProps>) => {
+export const SkipNavigation = chakra(
+  (props: React.PropsWithChildren<SkipNavigationProps>) => {
     const { className, id, target = "#mainContent", ...rest } = props;
-    const styles = useStyleConfig("SkipNav");
+    const styles = useStyleConfig("SkipNavigation");
 
     return (
       <Box
@@ -49,4 +49,4 @@ export const SkipNav = chakra(
   }
 );
 
-export default SkipNav;
+export default SkipNavigation;

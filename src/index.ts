@@ -86,7 +86,7 @@ export { LabelPositions } from "./components/Select/SelectTypes";
 export { default as SimpleGrid } from "./components/Grid/SimpleGrid";
 export { default as SkeletonLoader } from "./components/SkeletonLoader/SkeletonLoader";
 export { SkeletonLoaderImageRatios } from "./components/SkeletonLoader/SkeletonLoaderTypes";
-export { default as SkipNav } from "./components/SkipNav/SkipNav";
+export { default as SkipNavigation } from "./components/SkipNavigation/SkipNavigation";
 export { default as Slider } from "./components/Slider/Slider";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export { StatusBadgeTypes } from "./components/StatusBadge/StatusBadgeTypes";

@@ -1,4 +1,4 @@
-const SkipNav = {
+const SkipNavigation = {
   baseStyle: {
     // Don't display links by default...
     a: {
@@ -11,8 +11,11 @@ const SkipNav = {
       width: "1px",
       // Only display when the user focuses on the links.
       _focus: {
+        border: "1px solid var(—nypl-colors-ui-gray-dark)",
         height: "auto",
         left: "2rem",
+        padding:
+          "var(--nypl-space-inset-extranarrow) var(--nypl-space-inset-narrow)",
         top: "3rem",
         width: "auto",
       },
@@ -20,4 +23,4 @@ const SkipNav = {
   },
 };
 
-export default SkipNav;
+export default SkipNavigation;

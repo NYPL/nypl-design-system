@@ -3,18 +3,18 @@ import { render, screen, within } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import SkipNav from "./SkipNav";
+import SkipNavigation from "./SkipNavigation";
 
-describe("SkipNav Accessibility", () => {
+describe("SkipNavigation Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<SkipNav />);
+    const { container } = render(<SkipNavigation />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
 describe("Label", () => {
   it("renders a nav element with an unordered list", () => {
-    render(<SkipNav />);
+    render(<SkipNavigation />);
     const nav = screen.getByRole("navigation");
 
     expect(nav).toBeInTheDocument();
@@ -26,7 +26,7 @@ describe("Label", () => {
   });
 
   it("renders two links", () => {
-    render(<SkipNav />);
+    render(<SkipNavigation />);
     const links = screen.getAllByRole("link");
 
     expect(links[0]).toHaveAttribute("href", "#mainContent");
@@ -37,22 +37,22 @@ describe("Label", () => {
   });
 
   it("renders a custom main link target", () => {
-    render(<SkipNav target="customId" />);
+    render(<SkipNavigation target="customId" />);
     const links = screen.getAllByRole("link");
 
     expect(links[0]).toHaveAttribute("href", "customId");
   });
 
   it("Renders the UI snapshot correctly", () => {
-    const simple = renderer.create(<SkipNav />).toJSON();
+    const simple = renderer.create(<SkipNavigation />).toJSON();
     const customTarget = renderer
-      .create(<SkipNav target="customId" />)
+      .create(<SkipNavigation target="customId" />)
       .toJSON();
     const withChakraProps = renderer
-      .create(<SkipNav p="20px" color="ui.error.primary" />)
+      .create(<SkipNavigation p="20px" color="ui.error.primary" />)
       .toJSON();
     const withOtherProps = renderer
-      .create(<SkipNav data-testid="props" />)
+      .create(<SkipNavigation data-testid="props" />)
       .toJSON();
 
     expect(simple).toMatchSnapshot();

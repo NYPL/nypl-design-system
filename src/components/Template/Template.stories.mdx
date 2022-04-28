@@ -27,7 +27,7 @@ import Notification, {
   NotificationProps,
 } from "../Notification/Notification";
 import Placeholder from "../Placeholder/Placeholder";
-import SkipNav from "../SkipNav/SkipNav";
+import SkipNavigation from "../SkipNavigation/SkipNavigation";
 import {
   Template,
   TemplateAboveHeader,
@@ -80,7 +80,8 @@ If you have a custom `Header` component that _already_ renders an HTML `<header>
 element, set `renderHeaderElement` to false so only one `<header>` element is
 rendered.
 
-If you need to render the `SkipNav` component, set `renderSkipNav` to true.
+If you need to render the `SkipNavigation` component, set `renderSkipNavigation`
+to true.
 
 Likewise, if you have a custom `Footer` component that _already_ renders an HTML
 `<footer>` element, set `renderFooterElement` to false so only one `<footer>`
@@ -110,7 +111,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
     </>
   }
   footer={<Placeholder variant="short">Footer</Placeholder>}
-  renderSkipNav={true}
+  renderSkipNavigation={true}
 />;
 ```
 
@@ -141,7 +142,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       sidebar: "left",
       renderFooterElement: true,
       renderHeaderElement: true,
-      renderSkipNav: false,
+      renderSkipNavigation: false,
     }}
     argTypes={{
       aboveHeader: { control: false },
@@ -185,10 +186,11 @@ be used as the anchor element that the skip navigation link points to. If your
 application is using the current NYPL Header, it already contains the skip
 navigation feature but make sure it is pointing to the correct anchor element.
 
-If you are using a custom header component or you need to use the Reservoir's
-`SkipNav` component, then set the `renderSkipNav` prop to true. This will render
-the `SkipNav` component at the top of the page before any other elements. The
-main link will point to the `#mainContent` `main` element.
+If you are using a custom header component or you need to use the Reservoir
+Design System (DS) `SkipNavigation` component, then set the `renderSkipNavigation`
+prop to true. This will render the `SkipNavigation` component at the top of the
+page before any other elements. The main link will point to the `#mainContent`
+`main` element.
 
 Resources
 
@@ -199,14 +201,13 @@ Resources
 
 ## Template Children Overview
 
-The Reservoir Design System (DS) also provides a set of "template" components 
-that work together to render a consistent mobile and desktop layout. More 
-information on individual components and how they should be composed can be 
-found below. Even though these component are available for use, we recommend 
-using the `TemplateAppContainer` component and passing down children component 
-as props as needed.
+The DS also provides a set of "template" components that work together to render
+a consistent mobile and desktop layout. More information on individual components
+and how they should be composed can be found below. Even though these component
+are available for use, we recommend using the `TemplateAppContainer` component
+and passing down children component as props as needed.
 
-Note: If you need to render the `SkipNav` component, you need to explicitly
+Note: If you need to render the `SkipNavigation` component, you need to explicitly
 render it immediately before the `TemplateAboveHeader` component. This is done
 automatically in the `TemplateAppContainer` component.
 
@@ -227,7 +228,7 @@ import {
 
 
 <Template>
-  <SkipNav />
+  <SkipNavigation />
   <TemplateAboveHeader>
     // ...
   </TemplateAboveHeader>
@@ -276,7 +277,7 @@ import {
   >
     {(args) => (
       <Template>
-        <SkipNav />
+        <SkipNavigation />
         <TemplateAboveHeader>
           <Placeholder variant="short">Above Header</Placeholder>
         </TemplateAboveHeader>
@@ -538,7 +539,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
 <Canvas>
   <Story name="Full Example with Template Children Components">
     <Template>
-      <SkipNav />
+      <SkipNavigation />
       <TemplateAboveHeader>
         <Notification
           notificationType={NotificationTypes.Standard}

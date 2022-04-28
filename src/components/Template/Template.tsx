@@ -1,7 +1,7 @@
 import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import SkipNav from "../SkipNav/SkipNav";
+import SkipNavigation from "../SkipNavigation/SkipNavigation";
 
 export interface TemplateProps {}
 export interface TemplateHeaderProps {
@@ -45,7 +45,8 @@ export interface TemplateAppContainerProps
   footer?: React.ReactElement;
   /** DOM that will be rendered in the `TemplateHeader` component section. */
   header?: React.ReactElement;
-  renderSkipNav?: boolean;
+  /** Render the `SkipNavigation` component or not. False by default. */
+  renderSkipNavigation?: boolean;
 }
 
 /**
@@ -262,7 +263,7 @@ export const TemplateAppContainer = chakra(
       sidebar = "none",
       renderFooterElement = true,
       renderHeaderElement = true,
-      renderSkipNav = false,
+      renderSkipNavigation = false,
       ...rest
     } = props;
     const aboveHeaderElem = aboveHeader && (
@@ -282,7 +283,7 @@ export const TemplateAppContainer = chakra(
     );
     return (
       <Template {...rest}>
-        {renderSkipNav ? <SkipNav /> : null}
+        {renderSkipNavigation ? <SkipNavigation /> : null}
         {aboveHeaderElem}
         {(header || breakoutElem) && (
           <TemplateHeader renderHeaderElement={renderHeaderElement}>
