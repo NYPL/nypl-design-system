@@ -78,6 +78,7 @@ const CustomImage = {
   baseStyle: ({ size = "default" }) => ({
     figure: {
       margin: "auto",
+      width: "100%",
       ...imageSizes[size],
       img: {
         marginBottom: "xxs",
