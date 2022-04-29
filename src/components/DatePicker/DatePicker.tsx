@@ -50,9 +50,6 @@ interface DatePickerWrapperProps extends DateRangeRowProps {
 // Interface used by the internal DS `TextInput` component as a custom
 // component for the ReactDatePicker plugin component. Internal use only.
 interface CustomTextInputProps extends Partial<InputProps> {
-  /** The ReactDatePicker plugin has its own `id` prop so we use this to pass the
-   * value from the parent `DatePicker` component. */
-  dsId: string;
   /** The ReactDatePicker plugin manipulates the ref value so we declare our
    * own for some cases. */
   dsRef?: React.Ref<TextInputRefType>;
@@ -124,11 +121,10 @@ export interface DatePickerProps extends DatePickerWrapperProps {
 const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
   (
     {
-      additionalStyles = {},
       attributes,
-      dsId,
       dsRef,
       helperText,
+      id,
       invalidText,
       isDisabled,
       isInvalid,
@@ -140,30 +136,33 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       showHelperInvalidText,
       showRequiredLabel,
       value,
+      ...rest
     },
     ref: React.Ref<TextInputRefType>
-  ) => (
-    <TextInput
-      id={dsId}
-      showLabel={showLabel}
-      onChange={onChange}
-      value={value}
-      labelText={labelText}
-      isDisabled={isDisabled}
-      isRequired={isRequired}
-      showHelperInvalidText={showHelperInvalidText}
-      showRequiredLabel={showRequiredLabel}
-      isInvalid={isInvalid}
-      helperText={helperText}
-      invalidText={invalidText}
-      // Use either the specific prop-based or the `forwardRef` value.
-      // `react-datepicker` manipulates the `ref` value so when we
-      // want a specific ref, use the `dsRef` prop.
-      ref={dsRef || ref}
-      attributes={{ ...attributes, onClick }}
-      additionalStyles={additionalStyles}
-    />
-  )
+  ) => {
+    return (
+      <TextInput
+        attributes={{ ...attributes, onClick }}
+        helperText={helperText}
+        id={id}
+        invalidText={invalidText}
+        isDisabled={isDisabled}
+        isInvalid={isInvalid}
+        isRequired={isRequired}
+        labelText={labelText}
+        onChange={onChange}
+        showHelperInvalidText={showHelperInvalidText}
+        showLabel={showLabel}
+        showRequiredLabel={showRequiredLabel}
+        value={value}
+        // Use either the specific prop-based or the `forwardRef` value.
+        // `react-datepicker` manipulates the `ref` value so when we
+        // want a specific ref, use the `dsRef` prop.
+        ref={dsRef || ref}
+        {...rest}
+      />
+    );
+  }
 );
 
 /**
@@ -292,7 +291,6 @@ export const DatePicker = chakra(
     };
     // Both custom `TextInput` components share some props.
     let baseCustomTextInputAttrs = {
-      dsId: `${id}-start`,
       isRequired,
       // In the date range type, don't display the "(Required)" text in
       // individual input labels. It'll display in the legend element.
@@ -305,7 +303,7 @@ export const DatePicker = chakra(
       helperText: isDateRange ? helperTextFrom : helperText,
       showHelperInvalidText,
       invalidText,
-      additionalStyles: finalStyles.subLabels,
+      __css: finalStyles.subLabels,
     };
     // These are attribute objects for the `react-datepicker` package component.
     let startDatePickerAttrs = {};
@@ -354,7 +352,6 @@ export const DatePicker = chakra(
     if (isDateRange) {
       const endCustomTextInputAttrs = {
         ...baseCustomTextInputAttrs,
-        dsId: `${id}-end`,
         helperText: helperTextTo,
       };
       // These props are used to follow the pattern recommended by
@@ -375,33 +372,34 @@ export const DatePicker = chakra(
       startLabelText = "From";
       endDatePickerElement = (
         <ReactDatePicker
-          selected={fullDate.endDate}
-          onChange={(date) => onChangeDefault(date, "endDate")}
           customInput={
             <CustomTextInput
-              labelText="To"
-              dsRef={refTo}
               attributes={{ name: nameTo }}
+              dsRef={refTo}
+              labelText="To"
               {...endCustomTextInputAttrs}
             />
           }
+          id={`${id}-end`}
+          onChange={(date) => onChangeDefault(date, "endDate")}
+          selected={fullDate.endDate}
           {...endDatePickerAttrs}
         />
       );
     }
-
     const startDatePickerElement = (
       <ReactDatePicker
-        selected={fullDate.startDate}
-        onChange={(date) => onChangeDefault(date, "startDate")}
         customInput={
           <CustomTextInput
-            labelText={startLabelText}
-            dsRef={ref}
             attributes={{ name: nameFrom }}
+            dsRef={ref}
+            labelText={startLabelText}
             {...baseCustomTextInputAttrs}
           />
         }
+        id={`${id}-start`}
+        onChange={(date) => onChangeDefault(date, "startDate")}
+        selected={fullDate.startDate}
         {...startDatePickerAttrs}
       />
     );

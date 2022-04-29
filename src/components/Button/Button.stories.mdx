@@ -35,7 +35,6 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
     jest: ["Button.test.tsx"],
   }}
   argTypes={{
-    additionalStyles: { control: false },
     attributes: { control: false },
     buttonText: { description: "Only used for Storybook" },
     buttonType: {
@@ -65,7 +64,7 @@ export const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -101,7 +100,6 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
   <Story
     name="Button with Controls"
     args={{
-      additionalStyles: undefined,
       attributes: undefined,
       buttonText: "Button Text",
       buttonType: "ButtonTypes.Primary",
@@ -118,7 +116,6 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
   >
     {(args) => (
       <Button
-        additionalStyles={args.additionalStyles}
         attributes={args.attributes}
         buttonType={enumValues.getValue(args.buttonType)}
         className={args.className}

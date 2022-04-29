@@ -268,14 +268,11 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
           child.props.children
         );
       const elem = React.cloneElement(child, {
-        additionalStyles: {
-          ...styles.heading,
-          ...child.props.additionalStyles,
-        },
         key,
         // Override the child text with the potential `CardLinkOverlay`.
         children: newChildren,
         layout,
+        __css: styles.heading,
       });
       cardContents.push(elem);
       cardHeadingCount++;

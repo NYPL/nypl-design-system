@@ -9,8 +9,6 @@ import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 import Link from "../Link/Link";
 import { getVariant } from "../../utils/utils";
 export interface HeadingProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Optional className that appears in addition to `heading` */
   className?: string;
   /** Optional ID that other components can cross reference for accessibility purposes */
@@ -47,7 +45,6 @@ const getMappedLevel = (level = HeadingLevels.Two) => {
 export const Heading = chakra(
   (props: React.PropsWithChildren<HeadingProps>) => {
     const {
-      additionalStyles = {},
       className,
       id,
       level = HeadingLevels.Two,
@@ -62,7 +59,6 @@ export const Heading = chakra(
     const styles = useStyleConfig("Heading", { variant });
     // Combine native base styles with any additional styles.
     // This is used in the `Hero` and `Notification` components.
-    const finalStyles = { ...styles, ...additionalStyles };
     const asHeading: any = `h${finalLevel}`;
 
     if (!props.children && !text) {
@@ -92,7 +88,7 @@ export const Heading = chakra(
         as={asHeading}
         className={className}
         id={id}
-        sx={finalStyles}
+        sx={styles}
         {...rest}
       >
         {content}

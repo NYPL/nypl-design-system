@@ -18,8 +18,6 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 
 export interface InputProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Additional attributes to pass to the `<input>` or `<textarea>` element */
   attributes?: { [key: string]: any };
   /** A class name for the TextInput parent div. */
@@ -84,7 +82,6 @@ export const TextInput = chakra(
   React.forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
-        additionalStyles = {},
         attributes = {},
         className,
         defaultValue,
@@ -110,7 +107,6 @@ export const TextInput = chakra(
       const styles = useMultiStyleConfig("TextInput", {
         variant: textInputType,
       });
-      const finalStyles = { ...styles, ...additionalStyles };
       const isTextArea = type === TextInputTypes.textarea;
       const isHidden = type === TextInputTypes.hidden;
       const finalInvalidText = invalidText
@@ -172,17 +168,17 @@ export const TextInput = chakra(
       // also needs `type` and `value` to render correctly.
       if (!isTextArea) {
         options = { type, value, ...options } as any;
-        fieldOutput = <ChakraInput {...options} __css={finalStyles.input} />;
+        fieldOutput = <ChakraInput {...options} __css={styles.input} />;
       } else {
         fieldOutput = (
-          <ChakraTextarea {...options} __css={finalStyles.textarea}>
+          <ChakraTextarea {...options} __css={styles.textarea}>
             {value}
           </ChakraTextarea>
         );
       }
 
       return (
-        <Box __css={finalStyles} className={className} {...rest}>
+        <Box __css={styles} className={className} {...rest}>
           {labelText && showLabel && !isHidden && (
             <Label
               htmlFor={id}

@@ -12,8 +12,6 @@ import { getVariant } from "../../utils/utils";
 export type ButtonElementType = "submit" | "button" | "reset";
 
 interface ButtonProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Additional attributes passed to the button. */
   attributes?: { [key: string]: any };
   /** The kind of button assigned through the `ButtonTypes` enum. */
@@ -38,7 +36,6 @@ interface ButtonProps {
  */
 export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   const {
-    additionalStyles = {},
     attributes,
     buttonType,
     children,
@@ -81,6 +78,7 @@ export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   }
 
   styles = useStyleConfig("Button", { variant });
+
   return (
     <ChakraButton
       id={id}
@@ -90,7 +88,7 @@ export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
       isDisabled={isDisabled}
       {...attributes}
       {...btnCallback}
-      __css={{ ...styles, ...additionalStyles }}
+      __css={styles}
       {...rest}
     >
       {children}

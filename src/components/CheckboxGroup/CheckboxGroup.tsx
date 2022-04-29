@@ -155,10 +155,10 @@ export const CheckboxGroup = chakra(
         </ChakraCheckboxGroup>
         {footnote && showHelperInvalidText && (
           <HelperErrorText
-            additionalStyles={styles.helperErrorText}
             id={`${id}-helperErrorText`}
             isInvalid={isInvalid}
             text={footnote}
+            __css={styles.helperErrorText}
           />
         )}
       </Fieldset>
