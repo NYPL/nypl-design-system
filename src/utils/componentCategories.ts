@@ -53,6 +53,7 @@ const categories = {
     title: "Components/Form Elements",
     components: [
       "Button",
+      "ButtonGroup",
       "Checkbox",
       "CheckboxGroup",
       "DatePicker",

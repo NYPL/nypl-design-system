@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `ButtonGroup` component for `Button` layout.
+
 ## 0.27.0 (April 27, 2022)
 
 ### Adds
