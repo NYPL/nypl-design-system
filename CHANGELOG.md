@@ -12,6 +12,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 0.27.0 (April 27, 2022)
+
 ### Adds
 
 - Adds two patterns for rendering the updated `Modal` component. This is still an ongoing work-in-progress as the `Modal` gets finalized but it is now using Chakra under-the-hood.
@@ -21,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates React and React DOM to version 17.
 - Updates Chakra packages `@chakra-ui/react` and `@chakra-ui/system`.
+- Updates the `HelperErrorText` styling to correctly display when used with a `Select` element with a `labelPosition` of inline.
 
 ### Removals
 
