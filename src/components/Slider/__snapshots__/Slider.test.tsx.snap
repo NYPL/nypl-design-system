@@ -16,6 +16,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-bunm4f"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label - start value"
@@ -139,6 +141,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label - end value"
@@ -188,6 +192,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-bunm4f"
+      max={100}
+      min={0}
     >
       <input
         aria-invalid={true}
@@ -312,6 +318,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-invalid={true}
@@ -365,6 +373,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-bunm4f"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label - start value"
@@ -489,6 +499,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label - end value"
@@ -539,6 +551,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-bunm4f"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label - start value"
@@ -664,6 +678,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label - end value"
@@ -706,6 +722,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
   >
     <div
       className="css-bunm4f"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label - start value"
@@ -829,6 +847,8 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label - end value"
@@ -1176,6 +1196,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label"
@@ -1306,6 +1328,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-invalid={true}
@@ -1440,6 +1464,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label"
@@ -1573,6 +1599,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label"
@@ -1695,6 +1723,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label"
@@ -1995,6 +2025,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label"
@@ -2126,6 +2158,8 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
     </div>
     <div
       className="css-1ebeaqx"
+      max={100}
+      min={0}
     >
       <input
         aria-label="Label"

@@ -69,7 +69,7 @@ export const Radio = chakra(
     } = props;
     const styles = useMultiStyleConfig("Radio", {});
     const footnote = isInvalid ? invalidText : helperText;
-    const attributes = {};
+    const ariaAttributes = {};
 
     if (!id) {
       console.warn(
@@ -83,10 +83,10 @@ export const Radio = chakra(
           "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
         );
       }
-      attributes["aria-label"] =
+      ariaAttributes["aria-label"] =
         labelText && footnote ? `${labelText} - ${footnote}` : labelText;
     } else if (footnote) {
-      attributes["aria-describedby"] = `${id}-helperText`;
+      ariaAttributes["aria-describedby"] = `${id}-helperText`;
     }
 
     return (
@@ -104,7 +104,7 @@ export const Radio = chakra(
           ref={ref}
           alignItems="flex-start"
           __css={styles}
-          {...attributes}
+          {...ariaAttributes}
           {...rest}
         >
           {showLabel && labelText}
