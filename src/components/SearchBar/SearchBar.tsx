@@ -130,13 +130,13 @@ export const SearchBar = chakra((props: SearchBarProps) => {
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
-      additionalStyles={styles.select}
       id={`searchbar-select-${id}`}
       labelText={selectProps?.labelText}
       name={selectProps?.name}
       onChange={selectProps?.onChange}
       selectType={SelectTypes.SearchBar}
       value={selectProps?.value}
+      __css={styles.select}
       {...stateProps}
     >
       {selectProps?.optionsData.map((option) => (
@@ -167,12 +167,12 @@ export const SearchBar = chakra((props: SearchBarProps) => {
   // Render the `Button` component.
   const buttonElem = (
     <Button
-      additionalStyles={searchBarButtonStyles}
       buttonType={buttonType}
       id={`searchbar-button-${id}`}
       isDisabled={isDisabled}
       onClick={buttonOnClick}
       type="submit"
+      __css={searchBarButtonStyles}
     >
       <Icon
         align={IconAlign.Left}

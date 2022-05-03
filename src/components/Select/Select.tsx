@@ -16,8 +16,6 @@ import { SelectTypes, LabelPositions } from "./SelectTypes";
 import { AriaAttributes } from "../../utils/interfaces";
 
 export interface SelectProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** A class name for the `div` parent element. */
   className?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
@@ -71,7 +69,6 @@ export const Select = chakra(
   React.forwardRef<HTMLSelectElement, React.PropsWithChildren<SelectProps>>(
     (props: React.PropsWithChildren<SelectProps>, ref?) => {
       const {
-        additionalStyles = {},
         children,
         className,
         helperText,
@@ -136,11 +133,7 @@ export const Select = chakra(
       }, [labelPosition]);
 
       return (
-        <Box
-          className={className}
-          __css={{ ...styles, ...additionalStyles }}
-          {...rest}
-        >
+        <Box className={className} __css={styles} {...rest}>
           <Box
             __css={
               labelPosition === LabelPositions.Inline

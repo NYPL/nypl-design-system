@@ -220,7 +220,7 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
       <TextInput
         id={`${id}-textInput-${type}`}
         labelText={updatedLabel}
-        additionalStyles={{
+        __css={{
           ...styles.textInput,
           // Specific margins for each text input to
           // push the elements inside.

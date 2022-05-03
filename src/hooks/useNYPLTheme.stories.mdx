@@ -55,8 +55,7 @@ This will allow you to use NYPL-specific styles in your components through CSS-i
 All DS components _should_ be used with their current styles. If a DS component
 needs an updated style, first contact the Design System and UX teams about this
 update. If you really _need_ to update a style and there is no available
-variant, then you can add styles directly to the `additionalStyles` prop. At the
-moment, not all DS components have this prop or feature.
+variant, then you can add styles directly as style prop.
 
 For example, if the `Heading` component should render the text in NYPL's green
 color used for "success primary" and add a bold font weight, then you can do
@@ -70,10 +69,8 @@ return (
   <div>
     <Heading
       level={2}
-      additionalStyles={{
-        color: theme.colors.ui.sucess.primary,
-        fontWeight: theme.fontWeights.bold,
-      }}
+      color={theme.colors.ui.success.primary}
+      fontWeight={theme.fontWeights.bold}
     >
       Get a Digital Library Card Today in a Few Easy Steps
     </Heading>

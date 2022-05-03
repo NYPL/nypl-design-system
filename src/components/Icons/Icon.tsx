@@ -17,8 +17,6 @@ import {
 import iconSvgs from "./IconSvgs";
 
 export interface IconProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Aligns the icon. */
   align?: IconAlign;
   /** Optional className that will be added to the parent element */
@@ -50,7 +48,6 @@ export interface IconProps {
 export const Icon = chakra(
   (props: React.PropsWithChildren<IconProps>) => {
     const {
-      additionalStyles = {},
       align = IconAlign.None,
       children,
       className,
@@ -101,13 +98,7 @@ export const Icon = chakra(
     // render the SVG child with NYPL-theme styling.
     if (name) {
       const SvgComponent: any = iconSvgs[name];
-      return (
-        <ChakraIcon
-          as={SvgComponent}
-          {...iconProps}
-          __css={{ ...styles, ...additionalStyles }}
-        />
-      );
+      return <ChakraIcon as={SvgComponent} {...iconProps} __css={styles} />;
     }
 
     // If no `name` prop was passed, we expect a child SVG element to be passed.
@@ -127,11 +118,7 @@ export const Icon = chakra(
       );
     }
 
-    return (
-      <Box __css={styles} {...rest}>
-        {childSVG}
-      </Box>
-    );
+    return <Box __css={styles}>{childSVG}</Box>;
   },
   // Pass all custom props to Chakra and override, e.g. we want the
   // DS color prop to use the DS enum and not color strings.

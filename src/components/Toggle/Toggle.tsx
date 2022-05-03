@@ -13,8 +13,6 @@ import HelperErrorText, {
 import { ToggleSizes } from "./ToggleTypes";
 import { AriaAttributes } from "../../utils/interfaces";
 export interface ToggleProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Used for uncontrolled scenarios.  Sets the state of the Toggle when the page first loads.
    *   If true, the toggle will be initially set to the "on" position. */
   defaultChecked?: boolean;
@@ -58,7 +56,6 @@ export const onChangeDefault = () => {
 export const Toggle = chakra(
   React.forwardRef<HTMLInputElement, ToggleProps>((props, ref?) => {
     const {
-      additionalStyles = {},
       defaultChecked = false,
       helperText,
       id,
@@ -88,7 +85,7 @@ export const Toggle = chakra(
 
     return (
       <>
-        <Box __css={{ ...styles, ...additionalStyles }} {...rest}>
+        <Box __css={styles} {...rest}>
           <Switch
             id={id}
             name={name || "default"}
@@ -114,10 +111,10 @@ export const Toggle = chakra(
         </Box>
         {footnote && (
           <HelperErrorText
-            additionalStyles={styles.helperErrorText}
             id={`${id}-helperText`}
             isInvalid={isInvalid}
             text={footnote}
+            __css={styles.helperErrorText}
           />
         )}
       </>

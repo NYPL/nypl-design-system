@@ -152,10 +152,10 @@ export const RadioGroup = chakra(
           </ChakraRadioGroup>
           {footnote && showHelperInvalidText && (
             <HelperErrorText
-              additionalStyles={styles.helperErrorText}
               id={`${id}-helperErrorText`}
               isInvalid={isInvalid}
               text={footnote}
+              __css={styles.helperErrorText}
             />
           )}
         </Fieldset>
