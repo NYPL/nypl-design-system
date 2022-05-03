@@ -198,12 +198,6 @@ exports[`Link renders the UI snapshot correctly 7`] = `
     className="css-0"
     href="#existing-anchor-tag"
     id="anchor-link"
-<<<<<<< HEAD
-    style={Object {}}
-=======
-    rel={null}
-    target={null}
->>>>>>> development
   >
     check link
   </a>
