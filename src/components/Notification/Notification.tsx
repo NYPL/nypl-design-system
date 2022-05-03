@@ -125,7 +125,7 @@ export const Notification = chakra((props: NotificationProps) => {
       size: IconSizes.Large,
       __css: styles.icon,
     };
-    // If the icon should not display, return null.
+    // If the icon should not display, return undefined.
     if (!showIcon) {
       return undefined;
     }

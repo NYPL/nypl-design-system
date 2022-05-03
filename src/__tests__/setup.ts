@@ -14,7 +14,7 @@ const exposedProperties = ["window", "navigator", "document"];
 
 (global as any).window = window;
 (global as any).document = window.document;
-Object.keys((document as any).defaultView).forEach((property) => {
+Object.keys((document as Document).defaultView).forEach((property) => {
   if (typeof (global as any)[property] === "undefined") {
     exposedProperties.push(property);
     (global as any)[property] = (document as any).defaultView[property];
