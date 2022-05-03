@@ -213,7 +213,7 @@ describe("TextInput shows error state", () => {
   });
 });
 
-describe("Renders HTML attributes passed through", () => {
+describe("Renders HTML attributes passed", () => {
   const onChangeSpy = jest.fn();
   beforeEach(() => {
     render(

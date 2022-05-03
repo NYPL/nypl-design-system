@@ -73,6 +73,8 @@ export interface InputProps {
   ) => void;
   /** The action to perform on the `input`/`textarea`'s onClick function  */
   onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+  /** The action to perform on the `input`/`textarea`'s onFocus function  */
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** Populates the placeholder for the input/textarea elements */
   placeholder?: string;
   /** Offers the ability to hide the helper/invalid text. */
@@ -123,6 +125,7 @@ export const TextInput = chakra(
         name,
         onChange,
         onClick,
+        onFocus,
         placeholder,
         showHelperInvalidText = true,
         showLabel = true,
@@ -188,6 +191,7 @@ export const TextInput = chakra(
             name,
             onChange,
             onClick,
+            onFocus,
             placeholder,
             ref,
             // The `step` attribute is useful for the number type.
