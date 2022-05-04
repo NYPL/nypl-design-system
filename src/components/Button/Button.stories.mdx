@@ -1,4 +1,4 @@
-import { ButtonGroup, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -9,6 +9,7 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Button, { ButtonElementType } from "./Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -178,8 +179,7 @@ Resources:
 ## Button Groups
 
 Primary and secondary buttons should be grouped like in the following example.
-The `ButtonGroup` component, which is directly exported from Chakra UI, should
-be used to wrap the `Button` component.
+The `ButtonGroup` component should be used to wrap the `Button` component.
 
 <Canvas>
   <Story name="Button Groups">
