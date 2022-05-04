@@ -317,38 +317,109 @@ describe("MultiSelect Dialog", () => {
         items={items}
         defaultIsOpen={true}
         selectedItems={selectedTestItems}
+        onMixedStateChange={() => null}
         onChange={() => null}
         onClear={() => null}
         onApply={() => null}
       />
     );
     expect(screen.getByLabelText("Art")).toBeChecked();
-    expect(screen.getByLabelText("Architecture")).toBeChecked();
     expect(screen.getByLabelText("Design")).toBeChecked();
   });
-  // it("Renders the UI snapshot correctly", () => {
-  //   const defaultWidth = renderer
-  //     .create(
-  //       <MultiSelect
-  //         id="some-id"
-  //         label="MultiSelect Test Label"
-  //         variant="dialog"
-  //         items={items}
-  //         selectedItems={selectedTestItems}
-  //         onChange={() => null}
-  //         onClear={() => null}
-  //         onApply={() => null}
-  //       />
-  //     )
-  //     .toJSON();
+  it("Renders the UI snapshot correctly", () => {
+    const defaultDialog = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
 
-  //   selectedTestItems = { "some-id": { items: ["ux"] } };
+    const isOpen = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          defaultIsOpen={true}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
 
-  //   expect(defaultWidth).toMatchSnapshot();
-  // });
+    selectedTestItems = { "some-id": { items: ["ux"] } };
+    const mixedState = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          defaultIsOpen={true}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
+
+    selectedTestItems = { "some-id": { items: ["ux", "fashion"] } };
+    const allChecked = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          defaultIsOpen={true}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
+
+    selectedTestItems = { "some-id": { items: ["design"] } };
+    const parentChecked = renderer
+      .create(
+        <MultiSelect
+          id="some-id"
+          label="MultiSelect Test Label"
+          variant="dialog"
+          items={items}
+          defaultIsOpen={true}
+          selectedItems={selectedTestItems}
+          onChange={() => null}
+          onClear={() => null}
+          onApply={() => null}
+        />
+      )
+      .toJSON();
+
+    expect(defaultDialog).toMatchSnapshot();
+    expect(isOpen).toMatchSnapshot();
+    expect(mixedState).toMatchSnapshot();
+    expect(allChecked).toMatchSnapshot();
+    expect(parentChecked).toMatchSnapshot(
+      `MultiSelect Dialog Renders the UI snapshot correctly 4`
+    );
+  });
 });
 
-describe("MultiSelect Listbox", () => {
+xdescribe("MultiSelect Listbox", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
   it("should have no axe violations", async () => {
