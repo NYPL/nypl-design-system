@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   chakra,
   Box,
@@ -12,7 +12,12 @@ import {
 import Button from "../Button/Button";
 import { ButtonTypes } from "../Button/ButtonTypes";
 import Icon from "../Icons/Icon";
-import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
+import {
+  IconAlign,
+  IconColors,
+  IconNames,
+  IconSizes,
+} from "../Icons/IconTypes";
 import Link from "../Link/Link";
 import List from "../List/List";
 import { ListTypes } from "../List/ListTypes";
@@ -23,12 +28,15 @@ import Notification from "../Notification/Notification";
 import useWindowSize from "../../hooks/useWindowSize";
 
 export const Header = chakra(() => {
-  const styles = useMultiStyleConfig("Header", {});
   const windowDimensions = useWindowSize();
   // These values are based on the breakpoints md and lg
   // from the NYPL theme object.
   const breakpointMedium = 600;
   const breakpointLarge = 960;
+
+  const styles = useMultiStyleConfig("Header", {});
+
+  const [logInOpen, setLogInOpen] = useState<boolean>(false);
 
   return (
     <Box __css={styles.container}>
@@ -66,23 +74,63 @@ export const Header = chakra(() => {
           />
           <VStack spacing="65px" align="flex-end">
             <List
-              __css={styles.upperLinks}
+              __css={styles.upperLinksList}
               id="header-nav-upper"
               inline
               listItems={[
-                <Button
-                  buttonType={ButtonTypes.Link}
-                  className="withIcon"
-                  id="logInButton"
-                  key="logInButton"
-                >
-                  Log In
-                  <Icon
-                    name={IconNames.Arrow}
-                    align={IconAlign.Right}
-                    size={IconSizes.Small}
+                <>
+                  <Button
+                    buttonType={ButtonTypes.Link}
+                    className="buttonWithIcon"
+                    id={logInOpen ? "closeLogInButton" : "logInButton"}
+                    key={logInOpen ? "closeLogInButton" : "logInButton"}
+                    onClick={() => setLogInOpen(!logInOpen)}
+                  >
+                    {logInOpen ? "Close" : "Log In"}
+                    <Icon
+                      align={IconAlign.Right}
+                      name={logInOpen ? IconNames.Close : IconNames.Arrow}
+                      size={IconSizes.Small}
+                    />
+                  </Button>
+                  <List
+                    id={logInOpen ? "logInMenuOpen" : "logInMenuClosed"}
+                    noStyling
+                    type={ListTypes.Unordered}
+                    listItems={[
+                      <Button
+                        buttonType={ButtonTypes.Pill}
+                        id="logInCatalog"
+                        key="logInCatalog"
+                      >
+                        <Icon
+                          align={IconAlign.Left}
+                          color={IconColors.UiWhite}
+                          id="log-in-icon"
+                          name={IconNames.UtilityAccountFilled}
+                          size={IconSizes.Medium}
+                          title="Log in to your account"
+                        />
+                        Log Into The Catalog
+                      </Button>,
+                      <Button
+                        buttonType={ButtonTypes.Pill}
+                        id="logInResearchCatalog"
+                        key="logInResearchCatalog"
+                      >
+                        <Icon
+                          align={IconAlign.Left}
+                          color={IconColors.UiWhite}
+                          id="log-in-icon"
+                          name={IconNames.ActionHelpDefault}
+                          size={IconSizes.Medium}
+                          title="Log in to your account"
+                        />
+                        Log Into The Research Catalog
+                      </Button>,
+                    ]}
                   />
-                </Button>,
+                </>,
                 <Link href="#" key="locationsLink">
                   Locations
                 </Link>,
@@ -91,7 +139,7 @@ export const Header = chakra(() => {
                 </Link>,
                 <Button
                   buttonType={ButtonTypes.Link}
-                  className="withIcon"
+                  className="buttonWithIcon"
                   id="emailUpdatesButton"
                   key="emailUpdatesButton"
                 >
