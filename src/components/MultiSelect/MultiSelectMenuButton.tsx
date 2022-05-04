@@ -75,6 +75,7 @@ const MultiSelectMenuButton = React.forwardRef<
 
   return (
     <Button
+      id={`${multiSelectId}-button`}
       ref={ref}
       attributes={{
         ...styles.menuButton,
@@ -96,6 +97,7 @@ const MultiSelectMenuButton = React.forwardRef<
             {getSelectedItemsCount(multiSelectId)}
           </Box>
           <Icon
+            id={`${multiSelectId}-icon`}
             name={IconNames.Close}
             decorative={true}
             size={IconSizes.ExtraSmall}
@@ -107,6 +109,7 @@ const MultiSelectMenuButton = React.forwardRef<
         {label}
       </Box>
       <Icon
+        id={`${multiSelectId}-icon`}
         name={IconNames[iconType]}
         decorative={true}
         size={IconSizes.Small}

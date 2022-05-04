@@ -16,7 +16,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
     <button
       className="chakra-button css-0"
       data-testid="button"
-      id="5b32d681-0ce9-4a1c-b321-7b3dd63a5927"
+      id="test-button"
       type="button"
     >
       <span
@@ -28,7 +28,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
         aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
-        id="654ac0f9-edb9-42c3-a106-f3a87800e57d"
+        id="test-icon"
         role="img"
         title="plus icon"
         viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
     <button
       className="chakra-button css-0"
       data-testid="button"
-      id="ab950e93-06a7-449a-a5fe-67945a5414f1"
+      id="test-button"
       type="button"
     >
       <span
@@ -105,7 +105,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
-        id="38d6fb83-f3ad-4204-881d-1e4fecfa76f5"
+        id="test-icon"
         role="img"
         title="minus icon"
         viewBox="0 0 24 24"
@@ -1011,7 +1011,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
     <button
       className="chakra-button css-0"
       data-testid="button"
-      id="5186d4e3-9faa-4a10-be63-e82d05ecd354"
+      id="test-button"
       type="button"
     >
       <span
@@ -1030,7 +1030,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
           aria-hidden={true}
           className="chakra-icon css-onkibi"
           focusable={false}
-          id="df87dd44-f809-4750-8499-f698bd6a89f9"
+          id="test-icon"
           role="img"
           title="close icon"
           viewBox="0 0 24 24"
@@ -1068,7 +1068,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
         aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
-        id="f76d3c86-fef3-4cdd-9faa-e3b87bbc21b2"
+        id="test-icon"
         role="img"
         title="minus icon"
         viewBox="0 0 24 24"
