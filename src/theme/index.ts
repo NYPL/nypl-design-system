@@ -11,6 +11,7 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
+import ButtonGroup from "./components/buttonGroup";
 import Card from "./components/card";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
@@ -80,6 +81,7 @@ const theme = extendTheme({
     Accordion,
     Breadcrumb,
     Button,
+    ButtonGroup,
     ...Card,
     Checkbox,
     CheckboxGroup,

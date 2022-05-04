@@ -34,6 +34,7 @@ module.exports = {
   typescript: {
     // Type-check stories during Storybook build.
     check: true,
+    reactDocgen: "react-docgen-typescript",
     // Display the compiled value options.
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
@@ -46,10 +47,7 @@ module.exports = {
         // This is a bit of a "hack" but it just tells us that the prop
         // is defined in a DS component. If we define it, display it!
         // Specifically in the `ArgsTable` section of Storybook.
-        const isDSProp =
-          prop.parent &&
-          prop.parent.fileName.includes("nypl-design-system/src/components");
-        return isDSProp;
+        return prop.parent ? !/node_modules/.test(prop.parent.fileName) : false;
       },
     },
   },
