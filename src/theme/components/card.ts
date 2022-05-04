@@ -95,6 +95,7 @@ const Card = {
         flexFlow: { md: "row nowrap" },
         margin: bodyMargin,
         padding: bodyPadding,
+        width: "100%",
       },
       heading: {
         marginBottom: "xs",
