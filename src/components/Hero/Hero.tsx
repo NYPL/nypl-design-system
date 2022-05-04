@@ -1,7 +1,7 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import Image from "../Image/Image";
+import Image, { ComponentImageProps } from "../Image/Image";
 
 export type HeroTypes =
   | "primary"
@@ -13,7 +13,6 @@ export type HeroTypes =
   | "tertiary"
   | "campaign"
   | "fiftyFifty";
-
 // Only used for internal purposes.
 export const heroSecondaryTypes = [
   "secondary",
@@ -22,6 +21,8 @@ export const heroSecondaryTypes = [
   "secondaryResearch",
   "secondaryWhatsOn",
 ];
+export interface HeroImageProps
+  extends Pick<ComponentImageProps, "alt" | "src"> {}
 export interface HeroProps {
   /** Optional hex color value used to override the default background
    * color for a given `Hero` variation.
@@ -39,14 +40,14 @@ export interface HeroProps {
   heading?: JSX.Element;
   /** Used to control how the `Hero` component will be rendered. */
   heroType?: HeroTypes;
-  /** Text description of the image; to follow best practices for accessibility,
-   * this prop should not be left blank if `imageSrc` is passed. */
-  imageAlt?: string;
-  /** Optional `imageSrc` used for SECONDARY, fiftyFifty and CAMPAIGN
-   * `Hero` types; Note: `imageSrc` can only be used in conjunction with
-   * `backgroundImageSrc` for the CAMPAIGN `Hero` type.
+  /** Object used to create and render the `Image` component. Note that only
+   * `src` and `alt` are the available attributes to pass. If `imageProps.alt` is
+   * left blank, a warning will be logged to the console and will cause accessibility
+   * issues. For `imageProps.src`, it will only work for the "SECONDARY,
+   * fiftyFifty and CAMPAIGN `Hero` types; Note: `imageSrc` can only be used
+   * in conjunction with `backgroundImageSrc` for the CAMPAIGN `Hero` type.
    * Note: not all `Hero` variations utilize this prop. */
-  imageSrc?: string;
+  imageProps?: HeroImageProps;
   /** Optional details area that contains location data.
    * Note: not all `Hero` variations utilize this prop. */
   locationDetails?: JSX.Element;
