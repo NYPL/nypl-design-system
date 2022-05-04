@@ -16,7 +16,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
     <button
       className="chakra-button css-0"
       data-testid="button"
-      id="ef3c8b81-65c8-4d83-97a3-1e9e5cfe2176"
+      id="5b32d681-0ce9-4a1c-b321-7b3dd63a5927"
       type="button"
     >
       <span
@@ -28,7 +28,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 1`] = `
         aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
-        id="2684b355-a6e2-41cb-b821-fbb75144f89f"
+        id="654ac0f9-edb9-42c3-a106-f3a87800e57d"
         role="img"
         title="plus icon"
         viewBox="0 0 24 24"
@@ -82,6 +82,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
   id="test"
 >
   <div
+    aria-expanded={true}
     aria-haspopup="listbox"
     aria-labelledby="downshift-10-label downshift-10-toggle-button"
     className="css-0"
@@ -92,7 +93,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
     <button
       className="chakra-button css-0"
       data-testid="button"
-      id="deb65b73-c1cb-48e5-9977-7f167e30a5fa"
+      id="ab950e93-06a7-449a-a5fe-67945a5414f1"
       type="button"
     >
       <span
@@ -104,160 +105,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 2`] = `
         aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
-        id="b7ca61ac-56be-4568-bdcd-7c922923bc1e"
-        role="img"
-        title="plus icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
-    </button>
-  </div>
-  <div
-    className="css-1hyfx7x"
-  >
-    <ul
-      aria-labelledby="downshift-10-label"
-      className="css-10ns9zz"
-      id="downshift-10-menu"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onMouseLeave={[Function]}
-      role="listbox"
-      tabIndex={-1}
-    />
-  </div>
-</div>
-`;
-
-exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
-<div
-  className="css-0"
-  id="test"
->
-  <div
-    aria-haspopup="listbox"
-    aria-labelledby="downshift-11-label downshift-11-toggle-button"
-    className="css-0"
-    id="downshift-11-toggle-button"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-  >
-    <button
-      className="chakra-button css-0"
-      data-testid="button"
-      id="1b3b96a4-e2ad-4637-863c-9b8a4bb05a54"
-      type="button"
-    >
-      <span
-        className="css-scaw4q"
-      >
-        MultiSelect Label
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-onkibi"
-        focusable={false}
-        id="a96df7d3-eaaa-4937-ac56-69a6c1eace14"
-        role="img"
-        title="plus icon"
-        viewBox="0 0 24 24"
-      >
-        <g
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokeMiterlimit="10"
-          />
-        </g>
-      </svg>
-    </button>
-  </div>
-  <div
-    className="css-1hyfx7x"
-  >
-    <ul
-      aria-labelledby="downshift-11-label"
-      className="css-10ns9zz"
-      id="downshift-11-menu"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onMouseLeave={[Function]}
-      role="listbox"
-      tabIndex={-1}
-    />
-  </div>
-</div>
-`;
-
-exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
-<div
-  className="css-0"
-  id="test"
->
-  <div
-    aria-expanded={true}
-    aria-haspopup="listbox"
-    aria-labelledby="downshift-12-label downshift-12-toggle-button"
-    className="css-0"
-    id="downshift-12-toggle-button"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-  >
-    <button
-      className="chakra-button css-0"
-      data-testid="button"
-      id="2ab27ba8-ce41-418d-8813-8e6bf6b5f055"
-      type="button"
-    >
-      <span
-        className="css-scaw4q"
-      >
-        MultiSelect Label
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-onkibi"
-        focusable={false}
-        id="4741abc5-cfca-4987-99d3-63c0b5990ed3"
+        id="38d6fb83-f3ad-4204-881d-1e4fecfa76f5"
         role="img"
         title="minus icon"
         viewBox="0 0 24 24"
@@ -291,9 +139,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <ul
-      aria-labelledby="downshift-12-label"
+      aria-labelledby="downshift-10-label"
       className="css-10ns9zz"
-      id="downshift-12-menu"
+      id="downshift-10-menu"
       onBlur={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -304,7 +152,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-0"
+        id="downshift-10-item-0"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -374,7 +222,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-1"
+        id="downshift-10-item-1"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -444,7 +292,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-2"
+        id="downshift-10-item-2"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -514,7 +362,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-3"
+        id="downshift-10-item-3"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -584,7 +432,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-4"
+        id="downshift-10-item-4"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -654,7 +502,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-5"
+        id="downshift-10-item-5"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -724,7 +572,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-6"
+        id="downshift-10-item-6"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -794,7 +642,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-7"
+        id="downshift-10-item-7"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -864,7 +712,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-8"
+        id="downshift-10-item-8"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -934,7 +782,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-9"
+        id="downshift-10-item-9"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1004,7 +852,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-10"
+        id="downshift-10-item-10"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1074,7 +922,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-12-item-11"
+        id="downshift-10-item-11"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1146,7 +994,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
+exports[`MultiSelect Listbox Renders the UI snapshot correctly 3`] = `
 <div
   className="css-0"
   id="test"
@@ -1154,16 +1002,16 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
   <div
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="downshift-13-label downshift-13-toggle-button"
+    aria-labelledby="downshift-11-label downshift-11-toggle-button"
     className="css-0"
-    id="downshift-13-toggle-button"
+    id="downshift-11-toggle-button"
     onClick={[Function]}
     onKeyDown={[Function]}
   >
     <button
       className="chakra-button css-0"
       data-testid="button"
-      id="7918a3d9-076e-4657-9781-c156f062b025"
+      id="5186d4e3-9faa-4a10-be63-e82d05ecd354"
       type="button"
     >
       <span
@@ -1182,7 +1030,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
           aria-hidden={true}
           className="chakra-icon css-onkibi"
           focusable={false}
-          id="5c5fe0b3-f3b1-4a8e-a64a-ba8320c6c1de"
+          id="df87dd44-f809-4750-8499-f698bd6a89f9"
           role="img"
           title="close icon"
           viewBox="0 0 24 24"
@@ -1220,7 +1068,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
         aria-hidden={true}
         className="chakra-icon css-onkibi"
         focusable={false}
-        id="fe818841-7b9d-4761-ba43-d8b4b051d868"
+        id="f76d3c86-fef3-4cdd-9faa-e3b87bbc21b2"
         role="img"
         title="minus icon"
         viewBox="0 0 24 24"
@@ -1254,9 +1102,9 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
     className="css-0"
   >
     <ul
-      aria-labelledby="downshift-13-label"
+      aria-labelledby="downshift-11-label"
       className="css-10ns9zz"
-      id="downshift-13-menu"
+      id="downshift-11-menu"
       onBlur={[Function]}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -1267,7 +1115,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-0"
+        id="downshift-11-item-0"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1340,7 +1188,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-1"
+        id="downshift-11-item-1"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1413,7 +1261,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-2"
+        id="downshift-11-item-2"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1483,7 +1331,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-3"
+        id="downshift-11-item-3"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1553,7 +1401,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-4"
+        id="downshift-11-item-4"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1623,7 +1471,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-5"
+        id="downshift-11-item-5"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1693,7 +1541,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-6"
+        id="downshift-11-item-6"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1763,7 +1611,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-7"
+        id="downshift-11-item-7"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1833,7 +1681,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-8"
+        id="downshift-11-item-8"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1903,7 +1751,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-9"
+        id="downshift-11-item-9"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -1973,7 +1821,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-10"
+        id="downshift-11-item-10"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"
@@ -2043,7 +1891,7 @@ exports[`MultiSelect Listbox Renders the UI snapshot correctly 5`] = `
       <li
         aria-selected="false"
         className="css-z07a8f"
-        id="downshift-13-item-11"
+        id="downshift-11-item-11"
         onClick={[Function]}
         onMouseMove={[Function]}
         role="option"

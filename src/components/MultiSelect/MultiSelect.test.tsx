@@ -306,7 +306,7 @@ describe("MultiSelect Dialog", () => {
   });
   it("if passed in selectedItems, they should be checked on first render", () => {
     selectedTestItems = {
-      "some-id": { items: ["art", "architecture", "ux", "fashion", "design"] },
+      "some-id": { items: ["art", "architecture", "ux", "fashion"] },
     };
 
     render(
@@ -348,7 +348,7 @@ describe("MultiSelect Dialog", () => {
   // });
 });
 
-xdescribe("MultiSelect Listbox", () => {
+describe("MultiSelect Listbox", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
   it("should have no axe violations", async () => {
@@ -475,7 +475,7 @@ xdescribe("MultiSelect Listbox", () => {
     expect(screen.queryAllByRole("option")).toHaveLength(0);
   });
   it("Renders the UI snapshot correctly", () => {
-    const defaultWidth = renderer
+    const defaultListbox = renderer
       .create(
         <MultiSelect
           id="test"
@@ -488,34 +488,7 @@ xdescribe("MultiSelect Listbox", () => {
         />
       )
       .toJSON();
-    const fitContent = renderer
-      .create(
-        <MultiSelect
-          id="test"
-          label="MultiSelect Label"
-          variant="listbox"
-          width="fitContent"
-          items={items}
-          selectedItems={selectedTestItems}
-          onChange={() => null}
-          onClear={() => null}
-        />
-      )
-      .toJSON();
-    const full = renderer
-      .create(
-        <MultiSelect
-          id="test"
-          label="MultiSelect Label"
-          variant="listbox"
-          width="full"
-          items={items}
-          selectedItems={selectedTestItems}
-          onChange={() => null}
-          onClear={() => null}
-        />
-      )
-      .toJSON();
+
     const isOpen = renderer
       .create(
         <MultiSelect
@@ -539,6 +512,7 @@ xdescribe("MultiSelect Listbox", () => {
           label="MultiSelect Label"
           variant="listbox"
           items={items}
+          defaultIsOpen={true}
           selectedItems={selectedTestItems}
           onChange={() => null}
           onClear={() => null}
@@ -546,9 +520,7 @@ xdescribe("MultiSelect Listbox", () => {
       )
       .toJSON();
 
-    expect(defaultWidth).toMatchSnapshot();
-    expect(fitContent).toMatchSnapshot();
-    expect(full).toMatchSnapshot();
+    expect(defaultListbox).toMatchSnapshot();
     expect(isOpen).toMatchSnapshot();
     expect(selection).toMatchSnapshot();
   });
