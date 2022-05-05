@@ -24,7 +24,6 @@ import DSProvider from "../../theme/provider";
     jest: ["TextInput.test.tsx"],
   }}
   argTypes={{
-    attributes: { control: false },
     id: { control: false },
     isDisabled: { table: { defaultValue: { summary: false } } },
     isInvalid: { table: { defaultValue: { summary: false } } },
@@ -79,7 +78,6 @@ is left blank, a value will be generated for you.
   <Story
     name="TextInput with Controls"
     args={{
-      attributes: undefined,
       className: undefined,
       defaultValue: undefined,
       helperText: "Choose wisely.",

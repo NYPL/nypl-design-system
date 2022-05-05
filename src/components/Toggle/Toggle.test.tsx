@@ -16,7 +16,7 @@ describe("Toggle Accessibility", () => {
 });
 
 describe("Toggle", () => {
-  let changeHandler;
+  let changeHandler: jest.MockedFunction<() => void>;
 
   beforeEach(() => {
     changeHandler = jest.fn();

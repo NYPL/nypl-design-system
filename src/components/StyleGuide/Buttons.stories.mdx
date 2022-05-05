@@ -27,7 +27,7 @@ component to render form buttons.
 ```jsx
 import { Button } from "@nypl/design-system-react-components";
 
-<Button>Button Text</Button>;
+<Button id="btn">Button Text</Button>;
 ```
 
 ## Guidelines
@@ -57,16 +57,18 @@ can be achieved by using the `Form` component to wrap the `Button`s.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button>Button Text</Button>
-      <Button>
+      <Button id="btn">Button Text</Button>
+      <Button id="btn-search">
         <Icon name="search" size="small" align="left" />
         Button Text
       </Button>
-      <Button>
+      <Button id="btn-close">
         <Icon name="close" size="medium" />
       </Button>
-      <Button buttonType="callout">Donate</Button>
-      <Button buttonType="secondary">
+      <Button buttonType="callout" id="btn-donate">
+        Donate
+      </Button>
+      <Button buttonType="secondary" id="btn-back-to-top">
         Back to Top
         <Icon
           name="arrow"
@@ -87,12 +89,24 @@ component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType="primary">Primary Button</Button>
-      <Button buttonType="secondary">Secondary Button</Button>
-      <Button buttonType="callout">Callout Button</Button>
-      <Button buttonType="pill">Pill Button</Button>
-      <Button buttonType="link">Link Button</Button>
-      <Button buttonType="noBrand">NoBrand Button</Button>
+      <Button buttonType="primary" id="primary">
+        Primary Button
+      </Button>
+      <Button buttonType="secondary" id="secondary">
+        Secondary Button
+      </Button>
+      <Button buttonType="callout" id="callout">
+        Callout Button
+      </Button>
+      <Button buttonType="pill" id="pill">
+        Pill Button
+      </Button>
+      <Button buttonType="link" id="link">
+        Link Button
+      </Button>
+      <Button buttonType="noBrand" id="noBrand">
+        NoBrand Button
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -144,8 +158,10 @@ component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType="callout">Donate to this library</Button>
-      <Button buttonType="secondary">
+      <Button buttonType="callout" id="callout2">
+        Donate to this library
+      </Button>
+      <Button buttonType="secondary" id="secondary2">
         Back to Top
         <Icon
           align="right"
@@ -154,11 +170,11 @@ component.
           size="small"
         />
       </Button>
-      <Button buttonType="secondary">
+      <Button buttonType="secondary" id="previous">
         <Icon align="left" iconRotation="rotate90" name="arrow" size="small" />
         Previous
       </Button>
-      <Button buttonType="secondary">
+      <Button buttonType="secondary" id="next">
         Next
         <Icon
           align="right"

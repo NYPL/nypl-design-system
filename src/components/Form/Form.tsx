@@ -31,7 +31,7 @@ export const FormRow = chakra(
     const { children, className, gap, id, ...rest } = props;
     const count = React.Children.count(children);
     const alteredChildren = React.Children.map(
-      children,
+      children as JSX.Element,
       (child: React.ReactElement, i) => {
         if (!child) return null;
         if (child.type === FormField || child.props.mdxType === "FormField") {
@@ -88,7 +88,8 @@ export const Form = chakra(
         "NYPL Reservoir Form: This component's required `id` prop was not passed."
       );
     }
-    let attributes = {};
+
+    const attributes: Partial<FormProps> = {};
     action && (attributes["action"] = action);
 
     method &&
@@ -96,7 +97,7 @@ export const Form = chakra(
       (attributes["method"] = method);
 
     const alteredChildren = React.Children.map(
-      children,
+      children as JSX.Element,
       (child: React.ReactElement, i) => {
         return React.cloneElement(child, { gap, id: `${id}-child${i}` });
       }

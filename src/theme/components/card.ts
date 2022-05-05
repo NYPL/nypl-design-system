@@ -1,3 +1,30 @@
+interface CardBaseStyleProps {
+  hasImage: boolean;
+  imageIsAtEnd: boolean;
+  isBordered: boolean;
+  isCentered: boolean;
+  layout: string;
+  mainActionLink: boolean;
+}
+interface BodyPaddingProps {
+  hasImage: boolean;
+  imageIsAtEnd: boolean;
+  isBordered: boolean;
+  isRow: boolean;
+}
+interface CardImageBaseStyleProps {
+  imageIsAtEnd: boolean;
+  isCentered: boolean;
+  size: keyof typeof imageSizes;
+  layout: string;
+}
+interface CardActionsBaseStyleProps {
+  bottomBorder: boolean;
+  isCentered: boolean;
+  layout: string;
+  topBorder: boolean;
+}
+
 const imageSizes = {
   xxsmall: { flex: { base: "0 0 100%", md: "0 0 64px" }, width: "100%" },
   xsmall: { flex: { md: "0 0 96px" } },
@@ -8,10 +35,10 @@ const imageSizes = {
 // This is complicated and can be refactored later...
 const getBodyPaddingStyles = ({
   hasImage,
-  isBordered,
   imageIsAtEnd,
+  isBordered,
   isRow,
-}) => {
+}: BodyPaddingProps) => {
   let bodyPadding = null;
   if (isBordered) {
     bodyPadding = "inset.default";
@@ -39,15 +66,14 @@ const getBodyPaddingStyles = ({
 };
 const Card = {
   parts: ["actions", "body", "heading"],
-  baseStyle: (props) => {
-    const {
-      hasImage,
-      imageIsAtEnd,
-      isBordered,
-      isCentered,
-      layout,
-      mainActionLink,
-    } = props;
+  baseStyle: ({
+    hasImage,
+    imageIsAtEnd,
+    isBordered,
+    isCentered,
+    layout,
+    mainActionLink,
+  }: CardBaseStyleProps) => {
     const isRow = layout === "row";
     const layoutStyles = isRow
       ? {
@@ -107,8 +133,12 @@ const Card = {
 };
 
 const CardActions = {
-  baseStyle: (props) => {
-    const { bottomBorder, isCentered, layout, topBorder } = props;
+  baseStyle: ({
+    bottomBorder,
+    isCentered,
+    layout,
+    topBorder,
+  }: CardActionsBaseStyleProps) => {
     let justifyContent = null;
     // Only center in the column layout.
     if (layout === "row") {
@@ -154,9 +184,14 @@ const CardContent = {
 };
 
 const CardImage = {
-  baseStyle: ({ imageIsAtEnd, isCentered, layout, size }) => {
+  baseStyle: ({
+    imageIsAtEnd,
+    isCentered,
+    layout,
+    size,
+  }: CardImageBaseStyleProps) => {
     // These sizes are only for the "row" layout.
-    const imageSize = imageSizes[size] || {};
+    const imageSize = size ? imageSizes[size] : {};
     const layoutStyles =
       layout === "row"
         ? {

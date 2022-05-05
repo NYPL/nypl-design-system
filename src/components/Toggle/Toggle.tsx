@@ -10,6 +10,7 @@ import * as React from "react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
+import { AriaAttributes } from "../../utils/interfaces";
 
 export type ToggleSizes = "default" | "small";
 export interface ToggleProps {
@@ -70,8 +71,8 @@ export const Toggle = chakra(
       size = "default",
       ...rest
     } = props;
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-    const ariaAttributes = {};
+    const footnote = isInvalid ? invalidText : helperText;
+    const ariaAttributes: AriaAttributes = {};
     const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
     const switchStyles = useStyleConfig("Switch", { size });
     ariaAttributes["aria-label"] =
