@@ -1,11 +1,8 @@
 import React from "react";
 import Button from "./../Button/Button";
-import { ButtonTypes } from "./../Button/ButtonTypes";
 import Heading from "./../Heading/Heading";
-import { HeadingLevels } from "./../Heading/HeadingTypes";
 import Icon from "./../Icons/Icon";
-import { IconRotationTypes, IconSizes } from "./../Icons/IconTypes";
-import Modal from "./../Modal/Modal";
+//import Modal from "./../Modal/Modal";
 import { Box, Stack, useMultiStyleConfig } from "@chakra-ui/react";
 import { SelectedItems } from "./../MultiSelect/MultiSelectTypes";
 
@@ -30,6 +27,11 @@ export interface FilterBarProps {
   onApply: () => void;
   /** Children compenents passed into the FilterBar. */
   children: React.ReactNode;
+}
+
+// @TODO Fix this
+function Modal({ children }: any) {
+  return <div>{children}</div>;
 }
 
 function FilterBar({
@@ -62,8 +64,9 @@ function FilterBar({
       {isMobile ? (
         <Box __css={styles.inner}>
           <Button
+            id="filter-bar-toggle-button"
             onClick={onModalToggle}
-            buttonType={ButtonTypes.Secondary}
+            buttonType="secondary"
             type="button"
           >
             {getFilterButtonLabel(selectedItems)}
@@ -72,20 +75,18 @@ function FilterBar({
             <Modal>
               <Box __css={styles.ctaContainer}>
                 <Button
-                  buttonType={ButtonTypes.Link}
+                  id="filter-bar-go-back-button"
+                  buttonType="link"
                   mouseDown={false}
                   type="button"
                   onClick={onGoBack}
                 >
-                  <Icon
-                    decorative
-                    iconRotation={IconRotationTypes.Rotate90}
-                    size={IconSizes.Small}
-                  />
+                  <Icon decorative iconRotation="rotate90" size="small" />
                   Go Back
                 </Button>
                 <Button
-                  buttonType={ButtonTypes.Primary}
+                  id="filter-bar-apply-button"
+                  buttonType="primary"
                   mouseDown={false}
                   type="button"
                   onClick={onApply}
@@ -94,15 +95,16 @@ function FilterBar({
                 </Button>
               </Box>
               <Box>
-                <Heading level={HeadingLevels.Three} text="Filters" />
+                <Heading level="three" text="Filters" />
                 {children}
                 {Object.keys(selectedItems).length > 0 && (
                   <Button
+                    id="filter-bar-clear-all-button"
                     attributes={{
                       ...styles.clearFilters,
                     }}
                     type="submit"
-                    buttonType={ButtonTypes.Link}
+                    buttonType="link"
                     mouseDown={false}
                     onClick={onClear}
                   >
@@ -115,7 +117,7 @@ function FilterBar({
         </Box>
       ) : (
         <Box __css={styles.inner}>
-          <Heading level={HeadingLevels.Two} text={label} />
+          <Heading level="two" text={label} />
           <Stack direction="row" spacing={2}>
             {children}
           </Stack>

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Button from "./../Button/Button";
-import { ButtonTypes } from "./../Button/ButtonTypes";
 import Checkbox from "./../Checkbox/Checkbox";
 import { MultiSelectItem } from "./MultiSelectTypes";
 import { MultiSelectProps } from "./MultiSelect";
@@ -194,7 +193,8 @@ function MultiSelectDialog({
           {isOpen && !isMobile && (
             <Stack direction="row" spacing={4} justify="flex-end">
               <Button
-                buttonType={ButtonTypes.Link}
+                id="multiselect-dialog-clear"
+                buttonType="link"
                 mouseDown={false}
                 type="button"
                 onClick={onClear}
@@ -202,7 +202,8 @@ function MultiSelectDialog({
                 Clear
               </Button>
               <Button
-                buttonType={ButtonTypes.Primary}
+                id="multiselect-dialog-apply"
+                buttonType="primary"
                 mouseDown={false}
                 type="button"
                 onClick={() => {

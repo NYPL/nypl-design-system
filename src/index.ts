@@ -70,6 +70,16 @@ export { default as Link, LinkTypes } from "./components/Link/Link";
 export { default as List, ListTypes } from "./components/List/List";
 export { default as Logo, LogoNames, LogoSizes } from "./components/Logo/Logo";
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
+
+export {
+  default as MultiSelect,
+  MultiSelectProps,
+} from "./components/MultiSelect/MultiSelect";
+export {
+  MultiSelectItem,
+  SelectedItems,
+} from "./components/MultiSelect/MultiSelectTypes";
+
 export {
   default as Notification,
   NotificationTypes,

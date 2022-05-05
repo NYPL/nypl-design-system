@@ -39,64 +39,70 @@ interface ButtonProps {
 /**
  * Renders a simple `button` element with custom variant styles.
  */
-export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
-  const {
-    attributes,
-    buttonType = "primary",
-    children,
-    className = "",
-    id,
-    isDisabled = false,
-    mouseDown = false,
-    onClick,
-    type = "button",
-    ...rest
-  } = props;
-  const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
-  let childCount = 0;
-  let hasIcon = false;
-  let variant: string | ButtonTypes = buttonType;
-  let styles = {};
+// @TODO Had to update this to forwardRefs on button for MultiSelect
+export const Button = chakra(
+  React.forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
+    (props, ref?) => {
+      const {
+        attributes,
+        buttonType = "primary",
+        children,
+        className = "",
+        id,
+        isDisabled = false,
+        mouseDown = false,
+        onClick,
+        type = "button",
+        ...rest
+      } = props;
+      const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
+      let childCount = 0;
+      let hasIcon = false;
+      let variant: string | ButtonTypes = buttonType;
+      let styles = {};
 
-  if (!id) {
-    console.warn(
-      "NYPL Reservoir Button: This component's required `id` prop was not passed."
-    );
-  }
-
-  React.Children.map(children, (child: React.ReactElement) => {
-    childCount++;
-    if (child !== undefined && child !== null) {
-      if (
-        child.type === Icon ||
-        (child.props && child.props.mdxType === "Icon")
-      ) {
-        hasIcon = true;
+      if (!id) {
+        console.warn(
+          "NYPL Reservoir Button: This component's required `id` prop was not passed."
+        );
       }
+
+      React.Children.map(children, (child: React.ReactElement) => {
+        childCount++;
+        if (child !== undefined && child !== null) {
+          if (
+            child.type === Icon ||
+            (child.props && child.props.mdxType === "Icon")
+          ) {
+            hasIcon = true;
+          }
+        }
+      });
+
+      if (childCount === 1 && hasIcon) {
+        variant = "iconOnly";
+      }
+
+      styles = useStyleConfig("Button", { variant });
+
+      return (
+        <ChakraButton
+          id={id}
+          ref={ref}
+          data-testid="button"
+          className={className}
+          type={type}
+          isDisabled={isDisabled}
+          {...attributes}
+          {...btnCallback}
+          __css={styles}
+          {...rest}
+        >
+          {children}
+        </ChakraButton>
+      );
     }
-  });
-
-  if (childCount === 1 && hasIcon) {
-    variant = "iconOnly";
-  }
-
-  styles = useStyleConfig("Button", { variant });
-
-  return (
-    <ChakraButton
-      id={id}
-      data-testid="button"
-      className={className}
-      type={type}
-      isDisabled={isDisabled}
-      {...attributes}
-      {...btnCallback}
-      __css={styles}
-      {...rest}
-    >
-      {children}
-    </ChakraButton>
-  );
-});
+  )
+);
 
 export default Button;

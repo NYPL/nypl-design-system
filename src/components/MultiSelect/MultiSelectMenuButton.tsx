@@ -1,8 +1,7 @@
 import React from "react";
 import Button from "./../Button/Button";
-import { ButtonTypes } from "./../Button/ButtonTypes";
+//import { ButtonTypes } from "./../Button/ButtonTypes";
 import Icon from "./../Icons/Icon";
-import { IconAlign, IconNames, IconSizes } from "./../Icons/IconTypes";
 import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 import { SelectedItems } from "./MultiSelectTypes";
 
@@ -28,7 +27,7 @@ const MultiSelectMenuButton = React.forwardRef<
   const { multiSelectId, label, isOpen, onMenuToggle, selectedItems, onClear } =
     props;
   const styles = useMultiStyleConfig("MultiSelect", {});
-  const iconType = isOpen ? "Minus" : "Plus";
+  const iconType = isOpen ? "minus" : "plus";
 
   // Sets the ListBoxMenuButton label, including a count of selected items.
   /*function getButtonLabel(multiSelectId: string) {
@@ -75,11 +74,12 @@ const MultiSelectMenuButton = React.forwardRef<
 
   return (
     <Button
+      id="multiselect-menu-button"
       ref={ref}
       attributes={{
         ...styles.menuButton,
       }}
-      buttonType={ButtonTypes.Secondary}
+      buttonType="secondary"
       onClick={onMenuToggle}
       {...props}
     >
@@ -95,22 +95,13 @@ const MultiSelectMenuButton = React.forwardRef<
           <Box as="span" verticalAlign="text-bottom">
             {getSelectedItemsCount(multiSelectId)}
           </Box>
-          <Icon
-            name={IconNames.Close}
-            decorative={true}
-            size={IconSizes.ExtraSmall}
-            align={IconAlign.Right}
-          />
+          <Icon name="close" decorative={true} size="xsmall" align="right" />
         </Box>
       )}
       <Box as="span" pr="s">
         {label}
       </Box>
-      <Icon
-        name={IconNames[iconType]}
-        decorative={true}
-        size={IconSizes.Small}
-      />
+      <Icon name={iconType} decorative={true} size="small" />
     </Button>
   );
 });

@@ -67,6 +67,7 @@ export type IconRotationTypes =
   | "rotate270";
 export type IconSizes =
   | "default"
+  | "xsmall"
   | "small"
   | "medium"
   | "large"
