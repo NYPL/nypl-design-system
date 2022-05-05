@@ -60,20 +60,21 @@ function MultiSelectDialog({
     handler: () => setIsOpen(false),
   });
 
-  // @TODO switch all 3 of these to const functions and remove the parameters?
-  function isChecked(multiSelectId: string, itemId: string): boolean {
+  const isChecked = (multiSelectId: string, itemId: string): boolean => {
     if (
       selectedItems[multiSelectId]?.items.find(
-        // @ts-ignore
         (selectedItemId: string) => selectedItemId === itemId
       )
     ) {
       return true;
     }
     return false;
-  }
+  };
 
-  function isAllChecked(multiSelectId: string, item: MultiSelectItem): boolean {
+  const isAllChecked = (
+    multiSelectId: string,
+    item: MultiSelectItem
+  ): boolean => {
     let childIds = [];
     item.children.map((childItem) => {
       childIds.push(childItem.id);
@@ -87,12 +88,12 @@ function MultiSelectDialog({
       return true;
     }
     return false;
-  }
+  };
 
-  function isIndeterminate(
+  const isIndeterminate = (
     multiSelectId: string,
     item: MultiSelectItem
-  ): boolean {
+  ): boolean => {
     let childIds = [];
     item.children.map((childItem) => {
       childIds.push(childItem.id);
@@ -107,7 +108,7 @@ function MultiSelectDialog({
       return true;
     }
     return false;
-  }
+  };
 
   return (
     <Box id={id} ref={ref} __css={styles}>

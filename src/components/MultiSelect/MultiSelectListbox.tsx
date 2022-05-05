@@ -107,7 +107,6 @@ function MultiSelectListbox({
                   name={item.name}
                   isChecked={
                     selectedItems[id]?.items.find(
-                      // @ts-ignore
                       (selectedItemId: string) => selectedItemId === item.id
                     )
                       ? true

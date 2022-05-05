@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import MultiSelect, { MultiSelectProps } from "./MultiSelect";
-import { MultiSelectItem } from "./MultiSelectTypes";
+//import { MultiSelectItem } from "./MultiSelectTypes";
 import { Story } from "@storybook/react/types-6-0";
+import useMultiSelectState from "./useMultiSelectState";
 
 // @TODO export this, so FilterBar story can use it.
 const items = [
@@ -117,73 +118,9 @@ export const MultiSelectStory: Story<MultiSelectProps> = (args) => {
 };
 
 export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
-  const [selectedItems, setSelectedItems] = useState({});
-
-  function handleChange(multiSelectId: string, itemId: string) {
-    let itemIds;
-    // Check if the id already exists in the state
-    if (selectedItems[multiSelectId] !== undefined) {
-      let itemIdExists =
-        selectedItems[multiSelectId].items.indexOf(itemId) > -1;
-      // Make a copy of the existing array.
-      itemIds = selectedItems[multiSelectId].items.slice();
-      // If termId exists, remove it from the array.
-      if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id !== itemId);
-      } else {
-        // Add it to the array, but modify the copy, not the original.
-        itemIds.push(itemId);
-      }
-    } else {
-      itemIds = [];
-      itemIds.push(itemId);
-    }
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: itemIds,
-      },
-    });
-  }
-
-  function handleMixedStateChange(parentId: string) {
-    const multiSelectId = args.id;
-    // Build an array of child items.
-    let childItems = [];
-    items.map((item) => {
-      if (item.id === parentId) {
-        item.children.map((childItem: MultiSelectItem) => {
-          childItems.push(childItem.id);
-        });
-      }
-    });
-
-    let newItems;
-    // Some selected items for group already exist in state.
-    if (selectedItems[multiSelectId] !== undefined) {
-      //
-      if (
-        childItems.every((childItem) =>
-          selectedItems[multiSelectId].items.includes(childItem)
-        )
-      ) {
-        newItems = selectedItems[multiSelectId].items.filter(
-          (stateItem) => !childItems.includes(stateItem)
-        );
-      } else {
-        // Merge all child items.
-        newItems = [...childItems, ...selectedItems[multiSelectId].items];
-      }
-    } else {
-      newItems = childItems;
-    }
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: newItems,
-      },
-    });
-  }
+  // Example with custom hook useMultiSelectState.
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
+    useMultiSelectState(args.id, items);
 
   return (
     <>
@@ -193,15 +130,15 @@ export const MultiSelectDialogStory: Story<MultiSelectProps> = (args) => {
         items={items}
         defaultIsOpen={false}
         selectedItems={selectedItems}
-        onChange={(e) => handleChange(args.id, e.target.id)}
-        onMixedStateChange={(e) => {
-          handleMixedStateChange(e.target.id);
+        onChange={(e) => onChange(e.target.id)}
+        onMixedStateChange={(e) => onMixedStateChange(e.target.id)}
+        onClear={() => {
+          onClear();
+          console.log("onClear from consuming!");
         }}
         onApply={() => {
           console.log("onApply from consuming!");
-        }}
-        onClear={() => {
-          setSelectedItems({});
+          console.log(selectedItems);
         }}
       />
       <div>
