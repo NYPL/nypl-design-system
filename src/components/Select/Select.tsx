@@ -10,9 +10,10 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
 import Label from "../Label/Label";
-import { SelectTypes, LabelPositions } from "./SelectTypes";
+
+export type SelectTypes = "default" | "searchbar";
+export type LabelPositions = "default" | "inline";
 export interface SelectProps {
   /** A class name for the `div` parent element. */
   className?: string;
@@ -75,12 +76,12 @@ export const Select = chakra(
         isDisabled = false,
         isInvalid = false,
         isRequired = false,
-        labelPosition = LabelPositions.Default,
+        labelPosition = "default",
         labelText,
         name,
         onChange,
         placeholder,
-        selectType = SelectTypes.Default,
+        selectType = "default",
         showHelperInvalidText = true,
         showLabel = true,
         showRequiredLabel = true,
@@ -122,7 +123,7 @@ export const Select = chakra(
       }
 
       useEffect(() => {
-        if (labelPosition === LabelPositions.Inline) {
+        if (labelPosition === "inline") {
           if (labelRef.current) {
             const width = labelRef.current.clientWidth + labelSelectGap;
             setLabelWidth(width);
@@ -134,7 +135,7 @@ export const Select = chakra(
 
       return (
         <Box className={className} __css={styles} {...rest}>
-          <Box __css={labelPosition === LabelPositions.Inline && styles.inline}>
+          <Box __css={labelPosition === "inline" && styles.inline}>
             {showLabel && (
               <Box ref={labelRef}>
                 <Label
@@ -158,13 +159,7 @@ export const Select = chakra(
               ref={ref}
               {...controlledProps}
               {...ariaAttributes}
-              icon={
-                <Icon
-                  id={`${id}-icon`}
-                  name={IconNames.Arrow}
-                  size={IconSizes.Medium}
-                />
-              }
+              icon={<Icon id={`${id}-icon`} name="arrow" size="medium" />}
               __css={styles.select}
             >
               {children}

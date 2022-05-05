@@ -11,8 +11,9 @@ import Fieldset from "../Fieldset/Fieldset";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import { LayoutTypes } from "../../helpers/enums";
+import { LayoutTypes } from "../../helpers/types";
 import { spacing } from "../../theme/foundations/spacing";
+
 export interface CheckboxGroupProps {
   /** Any child node passed to the component. */
   children: React.ReactNode;
@@ -73,7 +74,7 @@ export const CheckboxGroup = chakra(
       isInvalid = false,
       isRequired = false,
       labelText,
-      layout = LayoutTypes.Column,
+      layout = "column",
       name,
       onChange,
       showHelperInvalidText = true,
@@ -83,7 +84,7 @@ export const CheckboxGroup = chakra(
     } = props;
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
     const spacingProp =
-      layout === LayoutTypes.Column
+      layout === "column"
         ? spacing.input.group.default.vstack
         : spacing.input.group.default.hstack;
     const newChildren = [];

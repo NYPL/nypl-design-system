@@ -10,19 +10,7 @@ import { withDesign } from "storybook-addon-designs";
 
 import SimpleGrid from "../Grid/SimpleGrid";
 import SkeletonLoader from "./SkeletonLoader";
-import { SkeletonLoaderImageRatios } from "./SkeletonLoaderTypes";
-import { LayoutTypes } from "../../helpers/enums";
 import { getCategory } from "../../utils/componentCategories";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const imageRatiosEnumValues = getStorybookEnumValues(
-  SkeletonLoaderImageRatios,
-  "SkeletonLoaderImageRatios"
-);
-export const layoutsEnumValues = getStorybookEnumValues(
-  LayoutTypes,
-  "LayoutTypes"
-);
 
 <Meta
   title={getCategory("SkeletonLoader")}
@@ -40,16 +28,13 @@ export const layoutsEnumValues = getStorybookEnumValues(
     contentSize: { table: { defaultValue: { summary: "3" } } },
     headingSize: { table: { defaultValue: { summary: "1" } } },
     imageAspectRatio: {
-      control: { type: "select" },
       table: {
-        defaultValue: { summary: "SkeletonLoaderImageRatios.Square" },
+        defaultValue: { summary: "square" },
       },
-      options: imageRatiosEnumValues.options,
     },
     isBordered: { table: { defaultValue: { summary: "false" } } },
     layout: {
-      table: { defaultValue: { summary: "LayoutTypes.Column" } },
-      options: layoutsEnumValues.options,
+      table: { defaultValue: { summary: "column" } },
     },
     showButton: { table: { defaultValue: { summary: "false" } } },
     showContent: { table: { defaultValue: { summary: "true" } } },
@@ -63,7 +48,7 @@ export const layoutsEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.17.3`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -92,9 +77,9 @@ to better view the example. The default value is `100%`.
       className: undefined,
       contentSize: 3,
       headingSize: 1,
-      imageAspectRatio: "SkeletonLoaderImageRatios.Square",
+      imageAspectRatio: "square",
       isBordered: false,
-      layout: "LayoutTypes.Column",
+      layout: "column",
       showButton: false,
       showContent: true,
       showHeading: true,
@@ -102,13 +87,7 @@ to better view the example. The default value is `100%`.
       width: "300px",
     }}
   >
-    {(args) => (
-      <SkeletonLoader
-        {...args}
-        imageAspectRatio={imageRatiosEnumValues.getValue(args.imageAspectRatio)}
-        layout={layoutsEnumValues.getValue(args.layout)}
-      />
-    )}
+    {(args) => <SkeletonLoader {...args} />}
   </Story>
 </Canvas>
 
@@ -138,30 +117,12 @@ Resources:
 <Canvas>
   <Story name="Placeholders in a Grid">
     <SimpleGrid columns={3}>
-      <SkeletonLoader
-        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        isBordered
-      />
-      <SkeletonLoader
-        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        isBordered
-      />
-      <SkeletonLoader
-        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        isBordered
-      />
-      <SkeletonLoader
-        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        isBordered
-      />
-      <SkeletonLoader
-        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        isBordered
-      />
-      <SkeletonLoader
-        imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        isBordered
-      />
+      <SkeletonLoader imageAspectRatio="landscape" isBordered />
+      <SkeletonLoader imageAspectRatio="landscape" isBordered />
+      <SkeletonLoader imageAspectRatio="landscape" isBordered />
+      <SkeletonLoader imageAspectRatio="landscape" isBordered />
+      <SkeletonLoader imageAspectRatio="landscape" isBordered />
+      <SkeletonLoader imageAspectRatio="landscape" isBordered />
     </SimpleGrid>
   </Story>
 </Canvas>
@@ -171,11 +132,11 @@ Resources:
 <Canvas>
   <Story name="Placeholders in a List">
     <SimpleGrid columns={1}>
-      <SkeletonLoader layout={LayoutTypes.Row} showImage={false} />
-      <SkeletonLoader layout={LayoutTypes.Row} showImage={false} />
-      <SkeletonLoader layout={LayoutTypes.Row} showImage={false} />
-      <SkeletonLoader layout={LayoutTypes.Row} showImage={false} />
-      <SkeletonLoader layout={LayoutTypes.Row} showImage={false} />
+      <SkeletonLoader layout="row" showImage={false} />
+      <SkeletonLoader layout="row" showImage={false} />
+      <SkeletonLoader layout="row" showImage={false} />
+      <SkeletonLoader layout="row" showImage={false} />
+      <SkeletonLoader layout="row" showImage={false} />
     </SimpleGrid>
   </Story>
 </Canvas>

@@ -2,10 +2,8 @@ import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
-import { DatePickerTypes } from "./DatePickerTypes";
 import Fieldset from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
-import { FormGaps } from "../Form/FormTypes";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
@@ -13,6 +11,8 @@ import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
+
+export type DatePickerTypes = "full" | "month" | "year";
 
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {
@@ -215,7 +215,7 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
   children,
 }) =>
   isDateRange ? (
-    <FormRow id={`${id}-form-row`} gap={FormGaps.ExtraSmall}>
+    <FormRow id={`${id}-form-row`} gap="grid.xs">
       {children}
     </FormRow>
   ) : (
@@ -230,7 +230,7 @@ export const DatePicker = chakra(
     const {
       className,
       dateFormat = "yyyy-MM-dd",
-      dateType = DatePickerTypes.Full,
+      dateType = "full",
       helperText,
       helperTextFrom,
       helperTextTo,
@@ -271,7 +271,7 @@ export const DatePicker = chakra(
       setFullDate({ ...fullDate, [value]: date });
       onChange && onChange({ ...fullDate, [value]: date });
     };
-    // How many years to display in the DatePickerTypes.Year option.
+    // How many years to display in the "year" option.
     const yearsToDisplay = 12;
     // Both `ReactDatePicker` components share some props.
     let baseDatePickerAttrs = {
@@ -314,10 +314,10 @@ export const DatePicker = chakra(
     let startLabelText = labelText;
 
     // Update the appropriate props for the selected date type to render.
-    if (dateType === DatePickerTypes.Month) {
+    if (dateType === "month") {
       baseDatePickerAttrs["showMonthYearPicker"] = true;
       baseDatePickerAttrs.dateFormat = "MM-yyyy";
-    } else if (dateType === DatePickerTypes.Year) {
+    } else if (dateType === "year") {
       baseDatePickerAttrs["showYearPicker"] = true;
       baseDatePickerAttrs["yearItemNumber"] = yearsToDisplay;
       baseDatePickerAttrs.dateFormat = "yyyy";
