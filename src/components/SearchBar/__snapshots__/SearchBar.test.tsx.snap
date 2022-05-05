@@ -34,7 +34,6 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-basic"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -214,8 +213,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             </svg>
           </div>
         </div>
-        
       </div>
+      
     </div>
     <div
       className="css-1xdhyk6"
@@ -240,7 +239,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withSelect"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -327,7 +325,6 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withoutHelperText"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -402,7 +399,6 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-invalidState"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -478,7 +474,6 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       data-testid="button"
       disabled={true}
       id="searchbar-button-disabledState"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -555,7 +550,6 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       data-testid="button"
       disabled={true}
       id="searchbar-button-requiredState"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -632,7 +626,6 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       data-testid="button"
       disabled={true}
       id="searchbar-button-noBrandButtonType"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -694,7 +687,6 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withHeading"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -755,7 +747,6 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withDescription"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -822,7 +813,6 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-withHeadingAndDescription"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -897,7 +887,6 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-chakra"
-      onClick={null}
       type="submit"
     >
       <svg
@@ -985,7 +974,6 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       className="chakra-button css-1me3d5y"
       data-testid="button"
       id="searchbar-button-props"
-      onClick={null}
       type="submit"
     >
       <svg

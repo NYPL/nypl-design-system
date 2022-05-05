@@ -5,8 +5,6 @@ export type AriaLiveValues = "assertive" | "off" | "polite";
 export type HelperErrorTextType = string | JSX.Element;
 
 interface HelperErrorTextProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Aria attribute. When true, assistive technologies will
    * read the entire DOM element. When false, only changes (additionals or
    * removals) will be read. True by default. */
@@ -33,7 +31,6 @@ interface HelperErrorTextProps {
  */
 export const HelperErrorText = chakra(
   ({
-    additionalStyles = {},
     ariaAtomic = true,
     ariaLive = "polite",
     className = "",
@@ -45,14 +42,13 @@ export const HelperErrorText = chakra(
     // Only announce the text in the invalid state.
     const announceAriaLive = isInvalid;
     const styles = useStyleConfig("HelperErrorText", { isInvalid });
-    const finalStyles = { ...styles, ...additionalStyles };
     const props = {
       "aria-atomic": ariaAtomic,
       "aria-live": announceAriaLive ? ariaLive : "off",
       className,
       "data-isinvalid": isInvalid,
       id,
-      __css: finalStyles,
+      __css: styles,
       ...rest,
     };
     return typeof text === "string" ? (

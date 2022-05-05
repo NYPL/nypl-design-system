@@ -5,7 +5,6 @@ import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Toggle from "./Toggle";
-import { ToggleSizes } from "./ToggleTypes";
 
 describe("Toggle Accessibility", () => {
   it("Passes axe accessibility test", async () => {
@@ -17,7 +16,7 @@ describe("Toggle Accessibility", () => {
 });
 
 describe("Toggle", () => {
-  let changeHandler;
+  let changeHandler: jest.MockedFunction<() => void>;
 
   beforeEach(() => {
     changeHandler = jest.fn();
@@ -142,7 +141,7 @@ describe("Toggle", () => {
           id="Toggle-disabled"
           labelText="Test Label"
           isDisabled
-          size={ToggleSizes.Small}
+          size="small"
         />
       )
       .toJSON();

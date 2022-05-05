@@ -209,7 +209,6 @@ exports[`Link renders the UI snapshot correctly 7`] = `
     href="#existing-anchor-tag"
     id="anchor-link"
     rel={null}
-    style={Object {}}
     target={null}
   >
     check link
