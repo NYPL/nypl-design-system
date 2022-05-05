@@ -92,10 +92,10 @@ wrap the elements in the `DSProvider` component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button id="enabled-button" isDisabled={false}>
+      <Button id="enabled" isDisabled={false}>
         Enabled
       </Button>
-      <Button id="disabled-button" isDisabled>
+      <Button id="disabled" isDisabled>
         Disabled
       </Button>
     </ButtonGroup>
@@ -263,7 +263,9 @@ const Button = {
 Now this variant can be rendered:
 
 ```tsx
-<Button buttonType={ButtonTypes.Secondary}>Press me</Button>
+<Button buttonType="secondary" id="secondary">
+  Press me
+</Button>
 ```
 
 ### Breakpoints

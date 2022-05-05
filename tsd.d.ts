@@ -6,3 +6,5 @@ declare module "*.svg" {
   export { ReactComponent };
   export default content;
 }
+
+declare module "react-autosuggest";

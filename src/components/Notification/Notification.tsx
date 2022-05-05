@@ -2,12 +2,10 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import Icon from "../Icons/Icon";
-import { IconColors, IconNames, IconSizes } from "../Icons/IconTypes";
-import { NotificationTypes } from "./NotificationTypes";
+import Icon, { IconColors, IconNames, IconSizes } from "../Icons/Icon";
+
+export type NotificationTypes = "standard" | "announcement" | "warning";
 interface BaseProps {
   /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
@@ -61,11 +59,7 @@ export const NotificationHeading = chakra(
     return (
       <Box as="header" __css={styles} {...rest}>
         {icon}
-        <Heading
-          id={`${id}-heading`}
-          level={HeadingLevels.Four}
-          __css={styles.heading}
-        >
+        <Heading id={`${id}-heading`} level="four" __css={styles.heading}>
           {children}
         </Heading>
       </Box>
@@ -108,7 +102,7 @@ export const Notification = chakra((props: NotificationProps) => {
     noMargin = false,
     notificationContent,
     notificationHeading,
-    notificationType = NotificationTypes.Standard,
+    notificationType = "standard",
     showIcon = true,
     ...rest
   } = props;
@@ -122,12 +116,12 @@ export const Notification = chakra((props: NotificationProps) => {
   });
   const iconElement = () => {
     const baseIconProps = {
-      size: IconSizes.Large,
+      size: "large" as IconSizes,
       __css: styles.icon,
     };
-    // If the icon should not display, return null.
+    // If the icon should not display, return undefined.
     if (!showIcon) {
-      return null;
+      return undefined;
     }
     // If a custom icon is passed, add specific `Notification` styles.
     if (icon)
@@ -135,22 +129,27 @@ export const Notification = chakra((props: NotificationProps) => {
         id: `${id}-custom-notification-icon`,
         ...baseIconProps,
       });
+    interface IconProps {
+      color: IconColors;
+      name: IconNames;
+      title: string;
+    }
     const iconProps = {
-      [NotificationTypes.Announcement]: {
-        color: IconColors.SectionResearchSecondary,
-        name: IconNames.SpeakerNotes,
+      announcement: {
+        color: "section.research.secondary",
+        name: "speaker_notes",
         title: "Notification announcement icon",
-      },
-      [NotificationTypes.Standard]: {
-        color: IconColors.UiBlack,
-        name: IconNames.AlertNotificationImportant,
+      } as IconProps,
+      standard: {
+        color: "ui.black",
+        name: "alert_notification_important",
         title: "Notification standard icon",
-      },
-      [NotificationTypes.Warning]: {
-        color: IconColors.BrandPrimary,
-        name: IconNames.ErrorFilled,
+      } as IconProps,
+      warning: {
+        color: "brand.primary",
+        name: "error_filled",
         title: "Notification warning icon",
-      },
+      } as IconProps,
     };
     return (
       <Icon
@@ -162,18 +161,16 @@ export const Notification = chakra((props: NotificationProps) => {
   };
   const dismissibleButton = dismissible && (
     <Button
-      attributes={{
-        "aria-label": "Close the notification",
-      }}
-      buttonType={ButtonTypes.Link}
+      aria-label="Close the notification"
+      buttonType="link"
       id={`${id}-notification-dismissible-button`}
       onClick={handleClose}
       __css={styles.dismissibleButton}
     >
       <Icon
         id={`${id}-dismissible-notification-icon`}
-        name={IconNames.Close}
-        size={IconSizes.Large}
+        name="close"
+        size="large"
         title="Notification close icon"
       />
     </Button>
@@ -190,11 +187,11 @@ export const Notification = chakra((props: NotificationProps) => {
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText = childHeading && showIcon && (!!icon || !isCentered);
+  const alignText = !!(childHeading && showIcon && (!!icon || !isCentered));
   const childContent = (
     <NotificationContent
       alignText={alignText}
-      icon={!childHeading ? iconElem : null}
+      icon={!childHeading ? iconElem : undefined}
       notificationType={notificationType}
     >
       {notificationContent}
