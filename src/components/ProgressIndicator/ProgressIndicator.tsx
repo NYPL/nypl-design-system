@@ -8,12 +8,10 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-import {
-  ProgressIndicatorSizes,
-  ProgressIndicatorTypes,
-} from "./ProgressIndicatorTypes";
 import Label from "../Label/Label";
 
+export type ProgressIndicatorSizes = "default" | "small";
+export type ProgressIndicatorTypes = "circular" | "linear";
 export interface ProgressIndicatorProps {
   /** Flag to render the component in a dark background. */
   darkMode?: boolean;
@@ -44,11 +42,11 @@ export const ProgressIndicator = chakra((props: ProgressIndicatorProps) => {
   const {
     darkMode = false,
     id,
-    indicatorType = ProgressIndicatorTypes.Linear,
+    indicatorType = "linear",
     isIndeterminate = false,
     labelText,
     showLabel = true,
-    size = ProgressIndicatorSizes.Default,
+    size = "default",
     value = 0,
     ...rest
   } = props;
@@ -74,33 +72,31 @@ export const ProgressIndicator = chakra((props: ProgressIndicatorProps) => {
     id,
     // If the label is visually shown, associate it with the progress indicator.
     // Otherwise, the `aria-label` will be added.
-    "aria-label": showLabel ? null : labelText,
-    "aria-labelledby": showLabel ? `${id}-label` : null,
+    "aria-label": showLabel ? undefined : labelText,
+    "aria-labelledby": showLabel ? `${id}-label` : undefined,
     // If `isIndeterminate` is true, then it overrides the `value` prop.
-    isIndeterminate: isIndeterminate || null,
-    value: isIndeterminate ? null : finalValue,
+    isIndeterminate: isIndeterminate || undefined,
+    value: isIndeterminate ? undefined : finalValue,
   };
-  const progressComponent = (indicatorType) => {
+  const progressComponent = (indicatorType: ProgressIndicatorTypes) => {
     // Only display the percentage text for the default size, not in the
     // indeterminate state, and when `showLabel` is true.
-    if (indicatorType === ProgressIndicatorTypes.Circular) {
+    if (indicatorType === "circular") {
       // For the small size, since the label won't be visible, we need to add
       // it to the parent component's `aria-label` attribute.
-      if (size === ProgressIndicatorSizes.Small) {
+      if (size === "small") {
         progressProps["aria-label"] = labelText;
       }
       return (
         <Box __css={styles.circularContainer}>
           <ChakraCircularProgress {...progressProps} sx={styles.circular}>
-            {showLabel &&
-              !isIndeterminate &&
-              size !== ProgressIndicatorSizes.Small && (
-                <ChakraCircularProgressLabel>
-                  {finalValue}%
-                </ChakraCircularProgressLabel>
-              )}
+            {showLabel && !isIndeterminate && size !== "small" && (
+              <ChakraCircularProgressLabel>
+                {finalValue}%
+              </ChakraCircularProgressLabel>
+            )}
           </ChakraCircularProgress>
-          {showLabel && size !== ProgressIndicatorSizes.Small && (
+          {showLabel && size !== "small" && (
             <Label id={`${id}-label`} htmlFor={id}>
               {labelText}
             </Label>

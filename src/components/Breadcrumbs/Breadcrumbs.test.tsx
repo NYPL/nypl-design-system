@@ -4,7 +4,6 @@ import renderer from "react-test-renderer";
 import { axe } from "jest-axe";
 
 import Breadcrumbs from "./Breadcrumbs";
-import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 
 describe("Breadcrumbs Accessibility", () => {
   const breadcrumbsData = [
@@ -82,7 +81,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType={BreadcrumbsTypes.BooksAndMore}
+          breadcrumbsType="booksAndMore"
           id="breadcrumbs-test"
         />
       )
@@ -91,7 +90,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType={BreadcrumbsTypes.Blogs}
+          breadcrumbsType="blogs"
           id="breadcrumbs-test"
         />
       )
@@ -100,7 +99,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType={BreadcrumbsTypes.Blogs}
+          breadcrumbsType="blogs"
           id="breadcrumbs-test"
         />
       )
@@ -109,18 +108,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType={BreadcrumbsTypes.Education}
-          id="breadcrumbs-test"
-        />
-      )
-      .toJSON();
-    const breadcrumbsAdditionalStyles = renderer
-      .create(
-        <Breadcrumbs
-          additionalStyles={{
-            bg: "var(--nypl-colors-ui-error-primary)",
-          }}
-          breadcrumbsData={breadcrumbsData}
+          breadcrumbsType="education"
           id="breadcrumbs-test"
         />
       )
@@ -150,7 +138,6 @@ describe("Breadcrumbs Snapshot", () => {
     expect(breadcrumbsBlogsVariant).toMatchSnapshot();
     expect(breadcrumbsLocationsVariant).toMatchSnapshot();
     expect(breadcrumbsEducationVariant).toMatchSnapshot();
-    expect(breadcrumbsAdditionalStyles).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
