@@ -1,13 +1,8 @@
-import { NotificationTypes } from "../../components/Notification/NotificationTypes";
-
 const Notification = {
   parts: ["container", "dismissibleButton", "icon"],
   baseStyle: ({ dismissible, isCentered, noMargin, notificationType }) => {
     let bg = "ui.status.primary";
-    if (
-      notificationType === NotificationTypes.Announcement ||
-      notificationType === NotificationTypes.Warning
-    ) {
+    if (notificationType === "announcement" || notificationType === "warning") {
       bg = "ui.gray.x-light-cool";
     }
     return {
@@ -59,10 +54,7 @@ const NotificationContent = {
     display: "flex",
     justifyContent: "center",
     content: {
-      color:
-        notificationType === NotificationTypes.Warning
-          ? "brand.primary"
-          : "currentColor",
+      color: notificationType === "warning" ? "brand.primary" : "currentColor",
       marginTop: icon ? "xxxs" : "0",
       paddingLeft: alignText
         ? "calc(var(--nypl-space-m) + var(--nypl-space-s))"
@@ -83,9 +75,9 @@ const NotificationHeading = {
   parts: ["heading"],
   baseStyle: ({ icon, isCentered, notificationType }) => {
     let color = "ui.black";
-    if (notificationType === NotificationTypes.Announcement) {
+    if (notificationType === "announcement") {
       color = "section.research.secondary";
-    } else if (notificationType === NotificationTypes.Warning) {
+    } else if (notificationType === "warning") {
       color = "brand.primary";
     }
     return {

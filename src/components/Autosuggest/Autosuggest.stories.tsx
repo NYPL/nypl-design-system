@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import Autosuggest from "react-autosuggest";
 import Icon from "../Icons/Icon";
-import { IconNames } from "../Icons/IconTypes";
 import TextInput from "../TextInput/TextInput";
 
 /**
@@ -147,7 +146,7 @@ const FishExample = () => {
   const renderSuggestion = (suggestion) => (
     <span>
       {suggestion}
-      <Icon name={IconNames.Check} />
+      <Icon name="check" />
     </span>
   );
   const getSuggestionValue = (suggestion) => suggestion;

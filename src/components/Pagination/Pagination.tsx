@@ -3,8 +3,8 @@ import React, { useState, useRef } from "react";
 
 import Link from "../Link/Link";
 import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import { range } from "../../utils/utils";
+
 export interface PaginationProps {
   /** Additional className. */
   className?: string;
@@ -252,7 +252,7 @@ export const Pagination = chakra((props: PaginationProps) => {
       __css={styles}
       {...rest}
     >
-      <List type={ListTypes.Unordered} inline noStyling id={`${id}-list`}>
+      <List type="ul" inline noStyling id={`${id}-list`}>
         {previousLiLink}
         {getPaginationNumbers(selectedPage)}
         {nextLiLink}

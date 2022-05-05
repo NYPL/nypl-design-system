@@ -1,22 +1,21 @@
 import {
   Accordion as ChakraAccordion,
-  AccordionItem,
   AccordionButton,
+  AccordionItem,
   AccordionPanel,
   Box,
   chakra,
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { AccordionTypes } from "./AccordionTypes";
 import Icon from "../Icons/Icon";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
+
+export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
   accordionType?: AccordionTypes;
   label: string;
   panel: string | React.ReactNode;
 }
-
 export interface AccordionProps {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
@@ -31,13 +30,9 @@ export interface AccordionProps {
  * is open or closed.
  */
 const getIcon = (isExpanded = false, index, id) => {
-  const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
+  const iconName = isExpanded ? "minus" : "plus";
   return (
-    <Icon
-      id={`accordion-${id}-icon-${index}`}
-      name={iconName}
-      size={IconSizes.Small}
-    />
+    <Icon id={`accordion-${id}-icon-${index}`} name={iconName} size="small" />
   );
 };
 
@@ -48,9 +43,9 @@ const getIcon = (isExpanded = false, index, id) => {
  */
 const getElementsFromData = (data = [], id) => {
   const colorMap = {
-    [AccordionTypes.Default]: "ui.white",
-    [AccordionTypes.Warning]: "ui.status.primary",
-    [AccordionTypes.Error]: "ui.status.secondary",
+    default: "ui.white",
+    warning: "ui.status.primary",
+    error: "ui.status.secondary",
   };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.

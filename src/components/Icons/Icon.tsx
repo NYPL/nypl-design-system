@@ -6,15 +6,74 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import {
-  IconAlign,
-  IconColors,
-  IconNames,
-  IconRotationTypes,
-  IconSizes,
-  IconTypes,
-} from "./IconTypes";
 import iconSvgs from "./IconSvgs";
+
+export type IconAlign = "left" | "right" | "none";
+export type IconColors =
+  | "ui.black"
+  | "ui.white"
+  | "brand.primary"
+  | "brand.secondary"
+  | "section.blogs.primary"
+  | "section.blogs.secondary"
+  | "section.books-and-more.primary"
+  | "section.books-and-more.secondary"
+  | "section.education.primary"
+  | "section.education.secondary"
+  | "section.locations.primary"
+  | "section.locations.secondary"
+  | "section.research.primary"
+  | "section.research.secondary"
+  | "section.research-library.lpa"
+  | "section.research-library.schomburg"
+  | "section.research-library.schwartzman"
+  | "section.whats-on.primary"
+  | "section.whats-on.secondary";
+export type IconNames =
+  | "accessibility_full"
+  | "accessibility_partial"
+  | "action_check_circle"
+  | "action_help_default"
+  | "action_help_outline"
+  | "alert_notification_important"
+  | "action_launch"
+  | "arrow"
+  | "check"
+  | "clock"
+  | "close"
+  | "download"
+  | "error_filled"
+  | "error_outline"
+  | "file_type_audio"
+  | "file_type_doc"
+  | "file_type_generic_doc"
+  | "file_type_image"
+  | "file_type_pdf"
+  | "file_type_spreadsheet"
+  | "file_type_video"
+  | "headset"
+  | "minus"
+  | "plus"
+  | "search"
+  | "speaker_notes"
+  | "utility_account_filled"
+  | "utility_account_unfilled"
+  | "utility_hamburger"
+  | "utility_search";
+export type IconRotationTypes =
+  | "rotate0"
+  | "rotate90"
+  | "rotate180"
+  | "rotate270";
+export type IconSizes =
+  | "default"
+  | "small"
+  | "medium"
+  | "large"
+  | "xlarge"
+  | "xxlarge"
+  | "xxxlarge";
+export type IconTypes = "default" | "breadcrumbs";
 
 export interface IconProps {
   /** Aligns the icon. */
@@ -48,17 +107,17 @@ export interface IconProps {
 export const Icon = chakra(
   (props: React.PropsWithChildren<IconProps>) => {
     const {
-      align = IconAlign.None,
+      align = "none",
       children,
       className,
-      color = IconColors.UiBlack,
+      color = "ui.black",
       decorative = true,
-      iconRotation = IconRotationTypes.Rotate0,
+      iconRotation = "rotate0",
       id,
       name,
-      size = IconSizes.Default,
+      size = "default",
       title = `${name} icon`,
-      type = IconTypes.Default,
+      type = "default",
       ...rest
     } = props;
     const styles = useStyleConfig("Icon", {
@@ -121,7 +180,7 @@ export const Icon = chakra(
     return <Box __css={styles}>{childSVG}</Box>;
   },
   // Pass all custom props to Chakra and override, e.g. we want the
-  // DS color prop to use the DS enum and not color strings.
+  // DS color value set and not color strings.
   { shouldForwardProp: () => true }
 );
 
