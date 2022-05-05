@@ -9,15 +9,8 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import StatusBadge from "./StatusBadge";
-import { StatusBadgeTypes } from "./StatusBadgeTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(
-  StatusBadgeTypes,
-  "StatusBadgeTypes"
-);
 
 <Meta
   title={getCategory("StatusBadge")}
@@ -34,9 +27,7 @@ export const enumValues = getStorybookEnumValues(
     className: { control: false },
     id: { control: false },
     level: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "StatusBadgeTypes.Low" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "low" } },
     },
     text: {
       description: "Only used for Storybook",
@@ -49,7 +40,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.18.7`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -70,15 +61,11 @@ export const enumValues = getStorybookEnumValues(
     args={{
       className: undefined,
       id: "statusBadge-id",
-      level: "StatusBadgeTypes.Low",
+      level: "low",
       text: "Registration Required",
     }}
   >
-    {(args) => (
-      <StatusBadge level={enumValues.getValue(args.level)}>
-        {args.text}
-      </StatusBadge>
-    )}
+    {(args) => <StatusBadge level={args.level}>{args.text}</StatusBadge>}
   </Story>
 </Canvas>
 
@@ -101,10 +88,8 @@ Used in instances where the associated message is the highest barrier. Use
 <Canvas>
   <DSProvider>
     <VStack spacing="s" align="stretch">
-      <StatusBadge level={StatusBadgeTypes.High}>
-        On-Site Access Only
-      </StatusBadge>
-      <StatusBadge level={StatusBadgeTypes.Medium}>Cancelled</StatusBadge>
+      <StatusBadge level="high">On-Site Access Only</StatusBadge>
+      <StatusBadge level="medium">Cancelled</StatusBadge>
     </VStack>
   </DSProvider>
 </Canvas>

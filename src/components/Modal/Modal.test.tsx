@@ -1,11 +1,10 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
 
-import { Button } from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
+import Button from "../Button/Button";
 import { ModalTrigger, useModal } from "./Modal";
 
 describe("Modal Accessibility", () => {
@@ -37,11 +36,7 @@ describe("Modal Accessibility", () => {
             Go back
           </Button>
           <p>This is the body content.</p>
-          <Button
-            buttonType={ButtonTypes.NoBrand}
-            id="custom-close2"
-            onClick={onClose}
-          >
+          <Button buttonType="noBrand" id="custom-close2" onClick={onClose}>
             This is a custom close button.
           </Button>
         </>
@@ -55,7 +50,7 @@ describe("Modal Accessibility", () => {
     };
     const { container } = render(
       <>
-        <Button id="1" onClick={onOpen} buttonType={ButtonTypes.NoBrand}>
+        <Button id="1" onClick={onOpen} buttonType="noBrand">
           Open Modal
         </Button>
         <Modal {...modalProps} />
@@ -128,7 +123,7 @@ describe("useModal", () => {
   };
   const useModalComponent = (
     <>
-      <Button id="1" onClick={onOpen} buttonType={ButtonTypes.NoBrand}>
+      <Button id="1" onClick={onOpen} buttonType="noBrand">
         Open Modal
       </Button>
       <Modal {...modalProps} />

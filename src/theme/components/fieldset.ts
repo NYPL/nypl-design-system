@@ -1,8 +1,12 @@
 import { labelLegendText } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 
+interface FieldSetProps {
+  isLegendHidden?: boolean;
+}
+
 const Fieldset = {
-  baseStyle: ({ isLegendHidden }) => {
+  baseStyle: ({ isLegendHidden }: FieldSetProps) => {
     const screenreaderStyles = isLegendHidden ? screenreaderOnly : {};
 
     return {

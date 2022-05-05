@@ -4,15 +4,10 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
-import { LinkTypes } from "../Link/LinkTypes";
-import { ImageRatios } from "../Image/ImageTypes";
 
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -24,17 +19,12 @@ describe("Card Accessibility", () => {
           src: "https://placeimg.com/400/200/arch",
         }}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level="three" id="heading1">
           The Card Heading
         </CardHeading>
         <CardContent>middle column content</CardContent>
         <CardActions>
-          <Button
-            onClick={() => {}}
-            id="button1"
-            buttonType={ButtonTypes.Primary}
-            type="submit"
-          >
+          <Button onClick={() => {}} id="button1" type="submit">
             Example CTA
           </Button>
         </CardActions>
@@ -53,17 +43,12 @@ describe("Card Accessibility", () => {
         }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level="three" id="heading1">
           The Card Heading
         </CardHeading>
         <CardContent>middle column content</CardContent>
         <CardActions>
-          <Button
-            onClick={() => {}}
-            id="button1"
-            buttonType={ButtonTypes.Primary}
-            type="submit"
-          >
+          <Button onClick={() => {}} id="button1" type="submit">
             Example CTA
           </Button>
         </CardActions>
@@ -82,17 +67,12 @@ describe("Card", () => {
         src: "https://placeimg.com/400/200/arch",
       }}
     >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
+      <CardHeading level="three" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Button
-          onClick={() => {}}
-          id="button1"
-          buttonType={ButtonTypes.Primary}
-          type="submit"
-        >
+        <Button onClick={() => {}} id="button1" type="submit">
           Example CTA
         </Button>
       </CardActions>
@@ -107,7 +87,7 @@ describe("Card", () => {
         src: "https://placeimg.com/300/400/arch",
       }}
     >
-      <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
+      <CardHeading id="editioncardheading1" level="two">
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -119,15 +99,15 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type={LinkTypes.Button}>
+        <Link id="link-online" href="online" type="button">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type="action">
           <Icon
-            align={IconAlign.Left}
-            iconRotation={IconRotationTypes.Rotate0}
+            align="left"
+            iconRotation="rotate0"
             id="icon-cardWithExtendedStyles"
-            name={IconNames.Download}
+            name="download"
           />
           Download
         </Link>
@@ -143,7 +123,7 @@ describe("Card", () => {
         src: "https://placeimg.com/300/400/arch",
       }}
     >
-      <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
+      <CardHeading id="editioncardheading1" level="two">
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -162,23 +142,19 @@ describe("Card", () => {
         src: "https://placeimg.com/300/400/arch",
       }}
     >
-      <CardHeading
-        id="editioncardheading1"
-        level={HeadingLevels.Two}
-        url="#edition-link"
-      >
+      <CardHeading id="editioncardheading1" level="two" url="#edition-link">
         The Card Heading
       </CardHeading>
       <CardActions>
-        <Link id="link-online" href="online" type={LinkTypes.Button}>
+        <Link id="link-online" href="online" type="button">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type="action">
           <Icon
-            align={IconAlign.Left}
-            iconRotation={IconRotationTypes.Rotate0}
+            align="left"
+            iconRotation="rotate0"
             id="icon-cardWithNoContent"
-            name={IconNames.Download}
+            name="download"
           />
           Download
         </Link>
@@ -187,24 +163,20 @@ describe("Card", () => {
   );
   const cardWithNoImage = (
     <Card id="cardWithNoImage" className="edition-card">
-      <CardHeading
-        id="editioncardheading1"
-        level={HeadingLevels.Two}
-        url="#edition-link"
-      >
+      <CardHeading id="editioncardheading1" level="two" url="#edition-link">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type={LinkTypes.Button}>
+        <Link id="link-online" href="online" type="button">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type="action">
           <Icon
-            align={IconAlign.Left}
-            iconRotation={IconRotationTypes.Rotate0}
+            align="left"
+            iconRotation="rotate0"
             id="icon-cardWithNoImage"
-            name={IconNames.Download}
+            name="download"
           />
           Download
         </Link>
@@ -220,17 +192,12 @@ describe("Card", () => {
       }}
       mainActionLink="http://nypl.org"
     >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
+      <CardHeading level="three" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Button
-          buttonType={ButtonTypes.Primary}
-          id="button1"
-          onClick={() => {}}
-          type="submit"
-        >
+        <Button id="button1" onClick={() => {}} type="submit">
           Example CTA
         </Button>
       </CardActions>
@@ -240,11 +207,11 @@ describe("Card", () => {
     <Card
       id="fullclick"
       imageProps={{
-        aspectRatio: ImageRatios.ThreeByTwo,
+        aspectRatio: "threeByTwo",
         component: <Image alt="" src="https://placeimg.com/400/200/arch" />,
       }}
     >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
+      <CardHeading level="three" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
@@ -259,27 +226,17 @@ describe("Card", () => {
       }}
       isAlignedRightActions
     >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
+      <CardHeading level="three" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Button
-          onClick={() => {}}
-          id="button1"
-          buttonType={ButtonTypes.Primary}
-          type="submit"
-        >
+        <Button onClick={() => {}} id="button1" type="submit">
           Example CTA
         </Button>
       </CardActions>
       <CardActions>
-        <Button
-          onClick={() => {}}
-          id="button2"
-          buttonType={ButtonTypes.Primary}
-          type="submit"
-        >
+        <Button onClick={() => {}} id="button2" type="submit">
           Example CTA
         </Button>
       </CardActions>
@@ -295,21 +252,12 @@ describe("Card", () => {
       p="s"
       color="ui.error.primary"
     >
-      <CardHeading
-        level={HeadingLevels.Three}
-        id="heading1"
-        color="ui.error.secondary"
-      >
+      <CardHeading level="three" id="heading1" color="ui.error.secondary">
         The Card Heading
       </CardHeading>
       <CardContent p="20px">middle column content</CardContent>
       <CardActions m="20px">
-        <Button
-          onClick={() => {}}
-          id="button1"
-          buttonType={ButtonTypes.Primary}
-          type="submit"
-        >
+        <Button onClick={() => {}} id="button1" type="submit">
           Example CTA
         </Button>
       </CardActions>
@@ -324,23 +272,14 @@ describe("Card", () => {
       }}
       data-testid="card-testid"
     >
-      <CardHeading
-        level={HeadingLevels.Three}
-        id="heading1"
-        color="ui.error.secondary"
-      >
+      <CardHeading level="three" id="heading1" color="ui.error.secondary">
         The Card Heading
       </CardHeading>
       <CardContent data-testid="cardcontent-testid">
         middle column content
       </CardContent>
       <CardActions data-testid="cardaction-testid">
-        <Button
-          onClick={() => {}}
-          id="button1"
-          buttonType={ButtonTypes.Primary}
-          type="submit"
-        >
+        <Button onClick={() => {}} id="button1" type="submit">
           Example CTA
         </Button>
       </CardActions>

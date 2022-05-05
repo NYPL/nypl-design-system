@@ -14,12 +14,9 @@ import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
 import Form, { FormRow, FormField } from "../Form/Form";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import Hero from "../Hero/Hero";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
-import { HeroTypes } from "../Hero/HeroTypes";
 import Image from "../Image/Image";
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import Link from "../Link/Link";
 import Notification, {
   NotificationContent,
@@ -41,7 +38,6 @@ import {
   TemplateAppContainer,
 } from "./Template";
 import TextInput from "../TextInput/TextInput";
-import { NotificationTypes } from "../Notification/NotificationTypes";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
@@ -201,11 +197,12 @@ Resources
 
 ## Template Children Overview
 
-The DS also provides a set of "template" components that work together to render
-a consistent mobile and desktop layout. More information on individual components
-and how they should be composed can be found below. Even though these component
-are available for use, we recommend using the `TemplateAppContainer` component
-and passing down children component as props as needed.
+The Reservoir Design System (DS) also provides a set of "template" components
+that work together to render a consistent mobile and desktop layout. More
+information on individual components and how they should be composed can be
+found below. Even though these component are available for use, we recommend
+using the `TemplateAppContainer` component and passing down children component
+as props as needed.
 
 Note: If you need to render the `SkipNavigation` component, you need to explicitly
 render it immediately before the `TemplateAboveHeader` component. This is done
@@ -542,7 +539,6 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
       <SkipNavigation />
       <TemplateAboveHeader>
         <Notification
-          notificationType={NotificationTypes.Standard}
           notificationHeading="Standard Notification"
           notificationContent={
             <>
@@ -571,10 +567,8 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           />
           <Hero
             backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-            heroType={HeroTypes.Campaign}
-            heading={
-              <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
-            }
+            heroType="campaign"
+            heading={<Heading level="one" id="1" text="Hero Campaign" />}
             imageAlt="Image example"
             imageSrc="https://placeimg.com/800/400/animals"
             subHeaderText={otherSubHeaderText}
@@ -584,7 +578,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
       <TemplateContent sidebar="right">
         <TemplateContentTop>
           <Notification
-            notificationType={NotificationTypes.Announcement}
+            notificationType="announcement"
             notificationHeading="Announcement Notification"
             notificationContent={
               <>
@@ -603,18 +597,20 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           <Accordion accordionData={faqContent} />
           <HorizontalRule />
           <p>Fill out the form!</p>
-          <Form action="/end/point">
+          <Form id="form1" action="/end/point">
             <FormField>
               <TextInput
-                labelText="Username"
                 helperText="Make sure to complete this field."
+                id="username"
+                labelText="Username"
                 required
               />
             </FormField>
             <FormField>
               <TextInput
-                labelText="Password"
                 helperText="Make sure to complete this field."
+                id="password"
+                labelText="Password"
                 required
               />
             </FormField>
@@ -630,7 +626,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
               </FormField>
             </FormRow>
             <FormField>
-              <Button>Submit</Button>
+              <Button id="submit">Submit</Button>
             </FormField>
           </Form>
         </TemplateContentPrimary>
@@ -639,16 +635,14 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           <Card
             imageProps={{
               alt: "Alt text",
-              aspectRatio: ImageRatios.Square,
-              size: ImageSizes.Small,
+              aspectRatio: "square",
+              size: "small",
               src: "https://placeimg.com/400/200/animals",
             }}
             isCentered
           >
-            <CardHeading level={HeadingLevels.Two} id="heading1">
-              Small Animal Image
-            </CardHeading>
-            <CardHeading level={HeadingLevels.Three} id="heading2">
+            <CardHeading id="heading1">Small Animal Image</CardHeading>
+            <CardHeading level="three" id="heading2">
               Animal info
             </CardHeading>
             <CardContent>
@@ -663,16 +657,14 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
           id="custom-card"
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.SixteenByNine,
+            aspectRatio: "sixteenByNine",
             src: "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png",
           }}
           layout="horizontal"
           backgroundColor="#616161"
           foregroundColor="#FFF"
         >
-          <CardHeading id="heading1-footer" level={HeadingLevels.Two}>
-            Footer
-          </CardHeading>
+          <CardHeading id="heading1-footer">Footer</CardHeading>
           <CardContent>
             <p>This is an example footer using the `Card` component.</p>
             <p>
@@ -681,27 +673,12 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
             </p>
           </CardContent>
           <CardActions>
-            <Link
-              attributes={{
-                style: { color: "#FFF", textDecoration: "underline" },
-              }}
-              href="#"
-            >
+            <Link color="#FFF" href="#" textDecoration="underline">
               Facebook
             </Link>
-            ,<Link
-              attributes={{
-                style: { color: "#FFF", textDecoration: "underline" },
-              }}
-              href="#"
-            >
+            ,<Link color="#FFF" href="#" textDecoration="underline">
               Instagram
-            </Link>,<Link
-              attributes={{
-                style: { color: "#FFF", textDecoration: "underline" },
-              }}
-              href="#"
-            >
+            </Link>,<Link color="#FFF" href="#" textDecoration="underline">
               Twitter
             </Link>
           </CardActions>

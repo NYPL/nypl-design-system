@@ -3,7 +3,6 @@ import * as React from "react";
 
 import Link from "../Link/Link";
 import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 
 interface SkipNavigationProps {
   /** Additional CSS class name to render in the `nav` element. */
@@ -34,7 +33,7 @@ export const SkipNavigation = chakra(
         __css={styles}
         {...rest}
       >
-        <List inline noStyling type={ListTypes.Unordered}>
+        <List inline noStyling type="ul">
           <li>
             <Link href={target}>Skip to Main Content</Link>
           </li>
