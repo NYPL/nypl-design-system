@@ -92,8 +92,12 @@ wrap the elements in the `DSProvider` component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button id="enabled-button" isDisabled={false}>Enabled</Button>
-      <Button id="disabled-button" isDisabled>Disabled</Button>
+      <Button id="enabled-button" isDisabled={false}>
+        Enabled
+      </Button>
+      <Button id="disabled-button" isDisabled>
+        Disabled
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -438,13 +442,13 @@ In the following example, the `Button` component has been passed `p` and `maxW`
 props which are shorthand for "padding" and "max-width", respectively.
 
 ```jsx
-<Button p="s" maxW="200px">
+<Button id="styled-button" p="s" maxH="none" maxW="200px">
   Button
 </Button>
 ```
 
 <DSProvider>
-  <Button p="s" maxW="200px">
+  <Button id="styled-button" p="s" maxH="none" maxW="200px">
     Button
   </Button>
 </DSProvider>
