@@ -18,6 +18,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         className="css-1eo4rk2"
         href="page=1"
         id="firstPage-1"
+        rel={null}
+        target={null}
       >
         1
       </a>
@@ -29,6 +31,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         className="css-1xdhyk6"
         href="page=2"
         id="firstPage-2"
+        rel={null}
+        target={null}
       >
         2
       </a>
@@ -40,6 +44,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         className="css-1xdhyk6"
         href="page=3"
         id="firstPage-3"
+        rel={null}
+        target={null}
       >
         3
       </a>
@@ -51,6 +57,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         className="css-1xdhyk6"
         href="page=4"
         id="firstPage-4"
+        rel={null}
+        target={null}
       >
         4
       </a>
@@ -62,6 +70,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         className="css-1xdhyk6"
         href="page=5"
         id="firstPage-5"
+        rel={null}
+        target={null}
       >
         5
       </a>
@@ -76,6 +86,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         className="css-1xdhyk6"
         href="page=10"
         id="firstPage-10"
+        rel={null}
+        target={null}
       >
         10
       </a>
@@ -86,6 +98,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         className="css-1xdhyk6"
         href="page=2"
         id="firstPage-Next"
+        rel={null}
+        target={null}
       >
         Next
       </a>
@@ -111,6 +125,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         className="css-1xdhyk6"
         href="page=9"
         id="lastPage-Previous"
+        rel={null}
+        target={null}
       >
         Previous
       </a>
@@ -122,6 +138,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         className="css-1xdhyk6"
         href="page=1"
         id="lastPage-1"
+        rel={null}
+        target={null}
       >
         1
       </a>
@@ -136,6 +154,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         className="css-1xdhyk6"
         href="page=6"
         id="lastPage-6"
+        rel={null}
+        target={null}
       >
         6
       </a>
@@ -147,6 +167,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         className="css-1xdhyk6"
         href="page=7"
         id="lastPage-7"
+        rel={null}
+        target={null}
       >
         7
       </a>
@@ -158,6 +180,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         className="css-1xdhyk6"
         href="page=8"
         id="lastPage-8"
+        rel={null}
+        target={null}
       >
         8
       </a>
@@ -169,6 +193,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         className="css-1xdhyk6"
         href="page=9"
         id="lastPage-9"
+        rel={null}
+        target={null}
       >
         9
       </a>
@@ -180,6 +206,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         className="css-1eo4rk2"
         href="page=10"
         id="lastPage-10"
+        rel={null}
+        target={null}
       >
         10
       </a>
@@ -205,6 +233,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         className="css-1xdhyk6"
         href="page=4"
         id="middlePage-Previous"
+        rel={null}
+        target={null}
       >
         Previous
       </a>
@@ -216,6 +246,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         className="css-1xdhyk6"
         href="page=1"
         id="middlePage-1"
+        rel={null}
+        target={null}
       >
         1
       </a>
@@ -230,6 +262,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         className="css-1xdhyk6"
         href="page=4"
         id="middlePage-4"
+        rel={null}
+        target={null}
       >
         4
       </a>
@@ -241,6 +275,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         className="css-1eo4rk2"
         href="page=5"
         id="middlePage-5"
+        rel={null}
+        target={null}
       >
         5
       </a>
@@ -252,6 +288,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         className="css-1xdhyk6"
         href="page=6"
         id="middlePage-6"
+        rel={null}
+        target={null}
       >
         6
       </a>
@@ -266,6 +304,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         className="css-1xdhyk6"
         href="page=10"
         id="middlePage-10"
+        rel={null}
+        target={null}
       >
         10
       </a>
@@ -276,6 +316,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         className="css-1xdhyk6"
         href="page=6"
         id="middlePage-Next"
+        rel={null}
+        target={null}
       >
         Next
       </a>
@@ -302,6 +344,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         className="css-1eo4rk2"
         href="page=1"
         id="chakra-1"
+        rel={null}
+        target={null}
       >
         1
       </a>
@@ -313,6 +357,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         className="css-1xdhyk6"
         href="page=2"
         id="chakra-2"
+        rel={null}
+        target={null}
       >
         2
       </a>
@@ -324,6 +370,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         className="css-1xdhyk6"
         href="page=3"
         id="chakra-3"
+        rel={null}
+        target={null}
       >
         3
       </a>
@@ -335,6 +383,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         className="css-1xdhyk6"
         href="page=4"
         id="chakra-4"
+        rel={null}
+        target={null}
       >
         4
       </a>
@@ -346,6 +396,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         className="css-1xdhyk6"
         href="page=5"
         id="chakra-5"
+        rel={null}
+        target={null}
       >
         5
       </a>
@@ -360,6 +412,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         className="css-1xdhyk6"
         href="page=10"
         id="chakra-10"
+        rel={null}
+        target={null}
       >
         10
       </a>
@@ -370,6 +424,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         className="css-1xdhyk6"
         href="page=2"
         id="chakra-Next"
+        rel={null}
+        target={null}
       >
         Next
       </a>
@@ -397,6 +453,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         className="css-1eo4rk2"
         href="page=1"
         id="props-1"
+        rel={null}
+        target={null}
       >
         1
       </a>
@@ -408,6 +466,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         className="css-1xdhyk6"
         href="page=2"
         id="props-2"
+        rel={null}
+        target={null}
       >
         2
       </a>
@@ -419,6 +479,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         className="css-1xdhyk6"
         href="page=3"
         id="props-3"
+        rel={null}
+        target={null}
       >
         3
       </a>
@@ -430,6 +492,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         className="css-1xdhyk6"
         href="page=4"
         id="props-4"
+        rel={null}
+        target={null}
       >
         4
       </a>
@@ -441,6 +505,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         className="css-1xdhyk6"
         href="page=5"
         id="props-5"
+        rel={null}
+        target={null}
       >
         5
       </a>
@@ -455,6 +521,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         className="css-1xdhyk6"
         href="page=10"
         id="props-10"
+        rel={null}
+        target={null}
       >
         10
       </a>
@@ -465,6 +533,8 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         className="css-1xdhyk6"
         href="page=2"
         id="props-Next"
+        rel={null}
+        target={null}
       >
         Next
       </a>

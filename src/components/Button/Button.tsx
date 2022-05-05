@@ -5,16 +5,19 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
-import { getVariant } from "../../utils/utils";
 
 export type ButtonElementType = "submit" | "button" | "reset";
+export type ButtonTypes =
+  | "primary"
+  | "secondary"
+  | "callout"
+  | "pill"
+  | "link"
+  | "noBrand";
 
 interface ButtonProps {
-  /** Additional attributes passed to the button. */
-  attributes?: { [key: string]: any };
-  /** The kind of button assigned through the `ButtonTypes` enum. */
+  /** The button variation to render based on the `ButtonTypes` type.*/
   buttonType?: ButtonTypes;
   /** Additional className to use. */
   className?: string;
@@ -36,8 +39,7 @@ interface ButtonProps {
  */
 export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   const {
-    attributes,
-    buttonType,
+    buttonType = "primary",
     children,
     className = "",
     id,
@@ -50,7 +52,7 @@ export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
   let childCount = 0;
   let hasIcon = false;
-  let variant;
+  let variant: string | ButtonTypes = buttonType;
   let styles = {};
 
   if (!id) {
@@ -70,8 +72,6 @@ export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
 
   if (childCount === 1 && hasIcon) {
     variant = "iconOnly";
-  } else {
-    variant = getVariant(buttonType, ButtonTypes, ButtonTypes.Primary);
   }
 
   styles = useStyleConfig("Button", { variant });
@@ -83,7 +83,6 @@ export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
       className={className}
       type={type}
       isDisabled={isDisabled}
-      {...attributes}
       {...btnCallback}
       __css={styles}
       {...rest}

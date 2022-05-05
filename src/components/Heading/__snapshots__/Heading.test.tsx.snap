@@ -45,6 +45,8 @@ exports[`Heading renders the UI snapshot correctly 5`] = `
     className="css-1xdhyk6"
     href="fake-url"
     id="withLink-link"
+    rel={null}
+    target={null}
   >
     Heading text is a link
   </a>

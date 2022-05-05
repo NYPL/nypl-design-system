@@ -8,10 +8,13 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { LayoutTypes } from "../../helpers/enums";
+import { LayoutTypes } from "../../helpers/types";
 import Heading from "../Heading/Heading";
-import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
+import Image, {
+  ComponentImageProps,
+  ImageProps,
+  ImageSizes,
+} from "../Image/Image";
 import useWindowSize from "../../hooks/useWindowSize";
 
 interface CustomColorProps {
@@ -23,7 +26,7 @@ interface CardBaseProps {
   /** Optional value to control the alignment of the text and elements. */
   isCentered?: boolean;
   /** Optional value to render the layout in a row or column.
-   * Default is `LayoutTypes.Column`. */
+   * Default is `"column"`. */
   layout?: LayoutTypes;
 }
 
@@ -191,27 +194,27 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
     id,
     imageProps = {
       alt: "",
-      aspectRatio: ImageRatios.Square,
+      aspectRatio: "square",
       caption: undefined,
       component: undefined,
       credit: undefined,
       isAtEnd: false,
-      size: ImageSizes.Default,
+      size: "default",
       src: "",
     },
     isAlignedRightActions = false,
     isBordered,
     isCentered = false,
-    layout = LayoutTypes.Column,
+    layout = "column",
     mainActionLink,
     ...rest
   } = props;
   const hasImage = imageProps.src || imageProps.component;
   const [finalImageSize, setFinalImageSize] = React.useState<ImageSizes>(
-    imageProps.size || ImageSizes.Default
+    imageProps.size || "default"
   );
   const finalImageAspectRatio = imageProps.component
-    ? ImageRatios.Original
+    ? "original"
     : imageProps.aspectRatio;
   const customColors: CustomColorProps = {};
   const cardContents: JSX.Element[] = [];
@@ -219,7 +222,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
   const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 
-  if (imageProps.component && imageProps.aspectRatio !== ImageRatios.Square) {
+  if (imageProps.component && imageProps.aspectRatio !== "square") {
     console.warn(
       "NYPL Reservoir Card: Both the `imageProps.component` and `imageProps.aspectRatio` " +
         "props were set but `imageProps.aspectRatio` will be ignored in favor " +
@@ -228,12 +231,12 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
   }
 
   // The `Card`'s image should always display as 100% width on mobile. To
-  // achieve this, we set the size to `ImageSizes.Default` only when the
+  // achieve this, we set the size to `"default"` only when the
   // viewport is less than "600px". Otherwise, we set the size to
   // the value passed in via `imageSize`.
   React.useEffect(() => {
     if (windowDimensions.width < 600) {
-      setFinalImageSize(ImageSizes.Default);
+      setFinalImageSize("default");
     } else {
       setFinalImageSize(imageProps.size);
     }
@@ -290,7 +293,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
 
         // Only allow `CardActions` to align to the right of the main
         // `CardContent` component when in the row layout.
-        if (isAlignedRightActions && layout === LayoutTypes.Row) {
+        if (isAlignedRightActions && layout === "row") {
           cardRightContents.push(elem);
         } else {
           cardContents.push(elem);

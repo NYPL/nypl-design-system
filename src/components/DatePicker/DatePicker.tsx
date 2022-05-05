@@ -2,10 +2,8 @@ import { chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState, forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
-import { DatePickerTypes } from "./DatePickerTypes";
 import Fieldset from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
-import { FormGaps } from "../Form/FormTypes";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
@@ -25,6 +23,7 @@ interface ReactDatePickerAttrs {
   showYearPicker?: boolean;
   yearItemNumber?: number;
 }
+export type DatePickerTypes = "full" | "month" | "year";
 
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {
@@ -133,7 +132,6 @@ export interface DatePickerProps extends DatePickerWrapperProps {
 const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
   (
     {
-      attributes,
       dsRef,
       helperText,
       id,
@@ -142,19 +140,18 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       isInvalid,
       isRequired,
       labelText,
+      name,
       onChange,
       onClick,
       showLabel,
       showHelperInvalidText,
       showRequiredLabel,
       value,
-      ...rest
     },
     ref: React.Ref<TextInputRefType>
   ) => {
     return (
       <TextInput
-        attributes={{ ...attributes, onClick }}
         helperText={helperText}
         id={id}
         invalidText={invalidText}
@@ -162,7 +159,9 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
         isInvalid={isInvalid}
         isRequired={isRequired}
         labelText={labelText}
+        name={name}
         onChange={onChange}
+        onClick={onClick}
         showHelperInvalidText={showHelperInvalidText}
         showLabel={showLabel}
         showRequiredLabel={showRequiredLabel}
@@ -171,7 +170,6 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
         // `react-datepicker` manipulates the `ref` value so when we
         // want a specific ref, use the `dsRef` prop.
         ref={dsRef || ref}
-        {...rest}
       />
     );
   }
@@ -227,7 +225,7 @@ const DateRangeRow: React.FC<DateRangeRowProps> = ({
   children,
 }) =>
   isDateRange ? (
-    <FormRow id={`${id}-form-row`} gap={FormGaps.ExtraSmall}>
+    <FormRow id={`${id}-form-row`} gap="grid.xs">
       {children}
     </FormRow>
   ) : (
@@ -242,7 +240,7 @@ export const DatePicker = chakra(
     const {
       className,
       dateFormat = "yyyy-MM-dd",
-      dateType = DatePickerTypes.Full,
+      dateType = "full",
       helperText,
       helperTextFrom,
       helperTextTo,
@@ -283,7 +281,7 @@ export const DatePicker = chakra(
       setFullDate({ ...fullDate, [value]: date });
       onChange && onChange({ ...fullDate, [value]: date });
     };
-    // How many years to display in the DatePickerTypes.Year option.
+    // How many years to display in the "year" option.
     const yearsToDisplay = 12;
     // Both `ReactDatePicker` components share some props.
     let baseDatePickerAttrs: ReactDatePickerAttrs = {
@@ -326,10 +324,10 @@ export const DatePicker = chakra(
     let startLabelText = labelText;
 
     // Update the appropriate props for the selected date type to render.
-    if (dateType === DatePickerTypes.Month) {
+    if (dateType === "month") {
       baseDatePickerAttrs["showMonthYearPicker"] = true;
       baseDatePickerAttrs.dateFormat = "MM-yyyy";
-    } else if (dateType === DatePickerTypes.Year) {
+    } else if (dateType === "year") {
       baseDatePickerAttrs["showYearPicker"] = true;
       baseDatePickerAttrs["yearItemNumber"] = yearsToDisplay;
       baseDatePickerAttrs.dateFormat = "yyyy";
@@ -386,13 +384,13 @@ export const DatePicker = chakra(
         <ReactDatePicker
           customInput={
             <CustomTextInput
-              attributes={{ name: nameTo }}
               dsRef={refTo}
               labelText="To"
               {...endCustomTextInputAttrs}
             />
           }
           id={`${id}-end`}
+          name={nameTo}
           onChange={(date: Date) => onChangeDefault(date, "endDate")}
           selected={fullDate.endDate}
           {...endDatePickerAttrs}
@@ -403,13 +401,13 @@ export const DatePicker = chakra(
       <ReactDatePicker
         customInput={
           <CustomTextInput
-            attributes={{ name: nameFrom }}
             dsRef={ref}
             labelText={startLabelText}
             {...baseCustomTextInputAttrs}
           />
         }
         id={`${id}-start`}
+        name={nameFrom}
         onChange={(date: Date) => onChangeDefault(date, "startDate")}
         selected={fullDate.startDate}
         {...startDatePickerAttrs}

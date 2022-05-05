@@ -4,8 +4,7 @@ import { axe } from "jest-axe";
 import userEvent from "@testing-library/user-event";
 import renderer from "react-test-renderer";
 
-import DatePicker, { FullDateType } from "./DatePicker";
-import { DatePickerTypes } from "./DatePickerTypes";
+import DatePicker, { DatePickerTypes, FullDateType } from "./DatePicker";
 import { TextInputRefType } from "../TextInput/TextInput";
 
 /** This adds a "0" padding for date values under "10". */
@@ -60,9 +59,9 @@ describe("DatePicker", () => {
   /** Returns today's date in string format based on the DatePicker type. */
   const getTodaysDateDisplay = (type?: DatePickerTypes) => {
     const [year, month, day] = getTodaysValues();
-    if (DatePickerTypes.Year === type) {
+    if ("year" === type) {
       return `${year}`;
-    } else if (DatePickerTypes.Month === type) {
+    } else if ("month" === type) {
       return `${month}-${year}`;
     }
     return `${year}-${month}-${day}`;
@@ -106,12 +105,12 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Month}
+          dateType="month"
           labelText="Select the month you want to visit NYPL"
         />
       );
       const [year, month] = getTodaysValues();
-      const date = getTodaysDateDisplay(DatePickerTypes.Month);
+      const date = getTodaysDateDisplay("month");
 
       expect(
         screen.getByLabelText(/Select the month you want to visit NYPL/i)
@@ -125,12 +124,12 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Year}
+          dateType="year"
           labelText="Select the month you want to visit NYPL"
         />
       );
       const [year] = getTodaysValues();
-      const date = getTodaysDateDisplay(DatePickerTypes.Year);
+      const date = getTodaysDateDisplay("year");
 
       expect(
         screen.getByLabelText(/Select the month you want to visit NYPL/i)
@@ -800,7 +799,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Month}
+          dateType="month"
           labelText="Select the month you want to visit NYPL"
         />
       );
@@ -827,7 +826,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Month}
+          dateType="month"
           initialDate="4/1/1988"
           labelText="Select the month you want to visit NYPL"
         />
@@ -867,7 +866,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Year}
+          dateType="year"
           labelText="Select the year you want to visit NYPL"
         />
       );
@@ -905,7 +904,7 @@ describe("DatePicker", () => {
       render(
         <DatePicker
           id="datePicker"
-          dateType={DatePickerTypes.Year}
+          dateType="year"
           labelText="Select the year you want to visit NYPL"
         />
       );

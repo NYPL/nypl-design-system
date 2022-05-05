@@ -1,4 +1,4 @@
-import { ProgressIndicatorSizes } from "../../components/ProgressIndicator/ProgressIndicatorTypes";
+import { ProgressIndicatorSizes } from "../../components/ProgressIndicator/ProgressIndicator";
 
 interface ProgressIndicatorBaseStyle {
   darkMode: boolean;
@@ -20,8 +20,8 @@ const ProgressIndicator = {
         // Note: we have to target the SVG HTMl elements in order
         // to override the default styles.
         svg: {
-          height: size === ProgressIndicatorSizes.Default ? "48px" : "24px",
-          width: size === ProgressIndicatorSizes.Default ? "48px" : "24px",
+          height: size === "default" ? "48px" : "24px",
+          width: size === "default" ? "48px" : "24px",
           display: "block",
           circle: {
             _first: {
@@ -49,7 +49,7 @@ const ProgressIndicator = {
         bg: darkMode ? "ui.gray.dark" : "ui.gray.light-cool",
         height: {
           base: "4px",
-          md: size === ProgressIndicatorSizes.Default ? "8px" : "4px",
+          md: size === "default" ? "8px" : "4px",
         },
       },
       linearContainer: {

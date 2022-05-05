@@ -1,16 +1,10 @@
 import * as React from "react";
-import {
-  render,
-  RenderResult,
-  screen,
-  fireEvent,
-} from "@testing-library/react";
+import { render, RenderResult, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 
 import TextInput from "./TextInput";
-import { TextInputTypes } from "./TextInputTypes";
 
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the input element", async () => {
@@ -21,7 +15,7 @@ describe("TextInput Accessibility", () => {
         labelText="Custom input label"
         onChange={jest.fn()}
         placeholder="Input Placeholder"
-        type={TextInputTypes.text}
+        type="text"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -35,7 +29,7 @@ describe("TextInput Accessibility", () => {
         labelText="Custom textarea label"
         onChange={jest.fn()}
         placeholder="Input Placeholder"
-        type={TextInputTypes.textarea}
+        type="textarea"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -44,21 +38,18 @@ describe("TextInput Accessibility", () => {
 
 describe("TextInput", () => {
   let changeHandler: jest.MockedFunction<() => void>;
-  let focusHandler: jest.MockedFunction<() => void>;
   let utils: RenderResult;
 
   beforeEach(() => {
-    focusHandler = jest.fn();
     changeHandler = jest.fn();
     utils = render(
       <TextInput
-        attributes={{ onFocus: focusHandler }}
         id="myTextInput"
         isRequired
         labelText="Custom Input Label"
         onChange={changeHandler}
         placeholder="Input Placeholder"
-        type={TextInputTypes.text}
+        type="text"
       />
     );
   });
@@ -79,14 +70,13 @@ describe("TextInput", () => {
   it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
-        attributes={{ onFocus: focusHandler }}
         id="myTextInput"
         isRequired
         labelText="Custom Input Label"
         onChange={changeHandler}
         placeholder="Input Placeholder"
         showRequiredLabel={false}
-        type={TextInputTypes.text}
+        type="text"
       />
     );
 
@@ -111,12 +101,6 @@ describe("TextInput", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
       "aria-required"
     );
-  });
-
-  it("allows user to pass in additional attributes", () => {
-    expect(focusHandler).toHaveBeenCalledTimes(0);
-    fireEvent.focus(screen.getByLabelText(/Custom Input Label/i));
-    expect(focusHandler).toHaveBeenCalledTimes(1);
   });
 
   it("changing the value calls the onChange handler", () => {
@@ -149,7 +133,7 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
         labelText="Custom Input Label"
         placeholder="Input Placeholder"
         showLabel={false}
-        type={TextInputTypes.text}
+        type="text"
       />
     );
   });
@@ -186,7 +170,7 @@ describe("TextInput shows error state", () => {
         isInvalid
         labelText="Custom Input Label"
         placeholder="Input Placeholder"
-        type={TextInputTypes.text}
+        type="text"
       />
     );
   });
@@ -214,7 +198,7 @@ describe("TextInput shows error state", () => {
         labelText="Custom Input Label"
         placeholder="Input Placeholder"
         showHelperInvalidText={false}
-        type={TextInputTypes.text}
+        type="text"
       />
     );
     expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
@@ -228,22 +212,17 @@ describe("TextInput shows error state", () => {
   });
 });
 
-describe("Renders HTML attributes passed through the `attributes` prop", () => {
+describe("Renders HTML attributes passed", () => {
   const onChangeSpy = jest.fn();
-  const onBlurSpy = jest.fn();
   beforeEach(() => {
     render(
       <TextInput
-        attributes={{
-          onChange: onChangeSpy,
-          onBlur: onBlurSpy,
-          maxLength: 10,
-          tabIndex: 0,
-        }}
         id="inputID-attributes"
         labelText="Input Label"
+        maxLength={10}
+        onChange={onChangeSpy}
         placeholder="Input Placeholder"
-        type={TextInputTypes.text}
+        type="text"
       />
     );
   });
@@ -255,23 +234,10 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
     );
   });
 
-  it("has a tabIndex", () => {
-    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
-      "tabIndex",
-      "0"
-    );
-  });
-
   it("calls the onChange function", () => {
     expect(onChangeSpy).toHaveBeenCalledTimes(0);
     userEvent.type(screen.getByLabelText(/Input Label/i), "Hello");
     expect(onChangeSpy).toHaveBeenCalledTimes(5);
-  });
-
-  it("calls the onBlur function", () => {
-    expect(onBlurSpy).toHaveBeenCalledTimes(0);
-    fireEvent.blur(screen.getByLabelText(/Input Label/i));
-    expect(onBlurSpy).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -284,7 +250,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
 //         id="inputID-attributes"
 //         labelText="Input Label"
 //         placeholder={"Input Placeholder"}
-//         type={TextInputTypes.text}
+//         type="text"
 //         ref={ref}
 //       />
 //     );
@@ -298,7 +264,7 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
 //         id="inputID-attributes"
 //         labelText="Input Label"
 //         placeholder={"Input Placeholder"}
-//         type={TextInputTypes.textarea}
+//         type="textarea"
 //         ref={ref}
 //       />
 //     );
@@ -312,7 +278,7 @@ describe("Hidden input", () => {
       <TextInput
         id="inputID-hidden"
         labelText="Hidden Input Label"
-        type={TextInputTypes.hidden}
+        type="hidden"
         value="hidden"
       />
     );
@@ -332,7 +298,7 @@ describe("Hidden input", () => {
         helperText="Helper Text"
         id="inputID-hidden"
         labelText="Hidden Input Label"
-        type={TextInputTypes.hidden}
+        type="hidden"
         value="hidden"
       />
     );
@@ -349,7 +315,7 @@ describe("Textarea element type", () => {
         id="myTextarea"
         labelText="Custom textarea Label"
         placeholder="Textarea Placeholder"
-        type={TextInputTypes.textarea}
+        type="textarea"
       />
     );
   });
@@ -372,7 +338,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -382,7 +348,7 @@ describe("UI Snapshots", () => {
           id="myTextInput"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -394,7 +360,7 @@ describe("UI Snapshots", () => {
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
           showLabel={false}
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -406,7 +372,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -418,7 +384,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -430,7 +396,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
         />
       )
       .toJSON();
@@ -440,7 +406,7 @@ describe("UI Snapshots", () => {
           id="chakra"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
           p="20px"
           color="ui.error.primary"
         />
@@ -452,7 +418,7 @@ describe("UI Snapshots", () => {
           id="props"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          type={TextInputTypes.text}
+          type="text"
           data-testid="props"
         />
       )
@@ -475,7 +441,7 @@ describe("UI Snapshots", () => {
           id="myTextarea"
           labelText="Custom textarea Label"
           placeholder="Textarea Placeholder"
-          type={TextInputTypes.textarea}
+          type="textarea"
         />
       )
       .toJSON();

@@ -11,8 +11,6 @@ import renderer from "react-test-renderer";
 
 import Button from "./Button";
 import Icon from "../Icons/Icon";
-import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
-import { ButtonTypes } from "./ButtonTypes";
 
 describe("Button Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -91,11 +89,7 @@ describe("padding for icon only button", () => {
     const onClick = jest.fn();
     const { container } = render(
       <Button id="button" onClick={onClick} type="button">
-        <Icon
-          align={IconAlign.Left}
-          name={IconNames.Check}
-          size={IconSizes.Small}
-        />
+        <Icon align="left" name="check" size="small" />
       </Button>
     );
     expect(container.querySelector("button svg")).toBeInTheDocument();
@@ -130,47 +124,35 @@ describe("Button Snapshot", () => {
       .toJSON();
     const secondary = renderer
       .create(
-        <Button
-          id="button"
-          onClick={jest.fn()}
-          buttonType={ButtonTypes.Secondary}
-        >
+        <Button id="button" onClick={jest.fn()} buttonType="secondary">
           Seconday
         </Button>
       )
       .toJSON();
     const callout = renderer
       .create(
-        <Button
-          id="button"
-          onClick={jest.fn()}
-          buttonType={ButtonTypes.Callout}
-        >
+        <Button id="button" onClick={jest.fn()} buttonType="callout">
           Callout
         </Button>
       )
       .toJSON();
     const pill = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType={ButtonTypes.Pill}>
+        <Button id="button" onClick={jest.fn()} buttonType="pill">
           Pill
         </Button>
       )
       .toJSON();
     const link = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType={ButtonTypes.Link}>
+        <Button id="button" onClick={jest.fn()} buttonType="link">
           Link
         </Button>
       )
       .toJSON();
     const noBrand = renderer
       .create(
-        <Button
-          id="button"
-          onClick={jest.fn()}
-          buttonType={ButtonTypes.NoBrand}
-        >
+        <Button id="button" onClick={jest.fn()} buttonType="noBrand">
           NoBrand
         </Button>
       )

@@ -4,7 +4,6 @@ import renderer from "react-test-renderer";
 import { axe } from "jest-axe";
 
 import Breadcrumbs from "./Breadcrumbs";
-import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
 
 describe("Breadcrumbs Accessibility", () => {
   const breadcrumbsData = [
@@ -82,7 +81,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType={BreadcrumbsTypes.BooksAndMore}
+          breadcrumbsType="booksAndMore"
           id="breadcrumbs-test"
         />
       )
@@ -91,7 +90,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType={BreadcrumbsTypes.Blogs}
+          breadcrumbsType="blogs"
           id="breadcrumbs-test"
         />
       )
@@ -100,7 +99,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType={BreadcrumbsTypes.Blogs}
+          breadcrumbsType="blogs"
           id="breadcrumbs-test"
         />
       )
@@ -109,7 +108,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType={BreadcrumbsTypes.Education}
+          breadcrumbsType="education"
           id="breadcrumbs-test"
         />
       )

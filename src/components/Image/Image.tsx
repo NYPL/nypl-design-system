@@ -1,8 +1,23 @@
 import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
-
+export type ImageRatios =
+  | "fourByThree"
+  | "oneByTwo"
+  | "original"
+  | "sixteenByNine"
+  | "square"
+  | "threeByFour"
+  | "threeByTwo"
+  | "twoByOne";
+export type ImageSizes =
+  | "default"
+  | "xxsmall"
+  | "xsmall"
+  | "small"
+  | "medium"
+  | "large";
+export type ImageTypes = "default" | "circle";
 // Used for components that have an `imageProps` prop.
 export interface ComponentImageProps {
   /** String value used to populate the `alt` attribute of the internal `Image`
@@ -30,7 +45,8 @@ interface ImageWrapperProps {
   additionalWrapperStyles?: { [key: string]: any };
   /** ClassName you can add in addition to 'image' */
   className?: string;
-  /** Optional value to control the aspect ratio of the cartd image; default value is `square` */
+  /** Optional value to control the aspect ratio of the card image; default
+   * value is `"original"` */
   aspectRatio?: ImageRatios;
   /** Optional value to control the size of the image */
   size?: ImageSizes;
@@ -61,8 +77,8 @@ const ImageWrapper = chakra(
       additionalWrapperStyles = {},
       className = "",
       children,
-      aspectRatio = ImageRatios.Original,
-      size = ImageSizes.Default,
+      aspectRatio = "original",
+      size = "default",
       ...rest
     } = props;
     const styles = useMultiStyleConfig("CustomImageWrapper", {
@@ -89,17 +105,17 @@ export const Image = chakra((props: ImageProps) => {
     additionalImageStyles = {},
     additionalWrapperStyles = {},
     alt,
-    aspectRatio = ImageRatios.Original,
+    aspectRatio = "original",
     caption,
     className = "",
     component,
     credit,
-    imageType = ImageTypes.Default,
-    size = ImageSizes.Default,
+    imageType = "default",
+    size = "default",
     src,
     ...rest
   } = props;
-  const useImageWrapper = aspectRatio !== ImageRatios.Original;
+  const useImageWrapper = aspectRatio !== "original";
   const styles = useMultiStyleConfig("CustomImage", {
     variant: imageType,
     size,

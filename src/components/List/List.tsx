@@ -1,9 +1,9 @@
 import { As, Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
-import { ListTypes } from "./ListTypes";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
+
+export type ListTypes = "ol" | "ul" | "dl";
 interface DescriptionProps {
   term: string;
   description: string | JSX.Element;
@@ -15,11 +15,11 @@ export interface ListProps {
   id?: string;
   /** Display the list in a row. */
   inline?: boolean;
-  /** Data to render if children are not passed. For `ListTypes.Ordered` and
-   * `ListTypes.Unordered` `List` types, the data structure is an array of
-   * strings to renders as `li` items. For `ListTypes.Description` `List` types,
-   * the data structure is an array of objects with `term` and `description`
-   * properties to render `dt` and `dd` elements, respectively.
+  /** Data to render if children are not passed. For `listTypes` orderd `"ol"`
+   * and unordered `"ul"` `List` types, the data structure is an array of strings
+   * to renders as `li` items. For descroption `"dl"` `List` types, the data
+   * structure is an array of objects with `term` and `description` properties
+   * to render `dt` and `dd` elements, respectively.
    */
   listItems?: (string | JSX.Element | DescriptionProps)[];
   /** Remove list styling. */
@@ -27,7 +27,7 @@ export interface ListProps {
   /** An optional title that will appear over the list. This prop only applies
    * to Description Lists. */
   title?: string;
-  /** The type of list: Ordered, Unordered, or Description. Unordered by default. */
+  /** The type of list: "ol", "ul", or "dl". "ul" by default. */
   type: ListTypes;
 }
 
@@ -45,7 +45,7 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
     listItems,
     noStyling = false,
     title,
-    type = ListTypes.Unordered,
+    type = "ul",
     ...rest
   } = props;
   const styles = useStyleConfig("List", { inline, noStyling, variant: type });
@@ -71,9 +71,9 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
   /**
    * This returns either the `children` elements passed to the `List` component
    * first, otherwise it will check and render the data passed into the
-   * `listItems` props based on the `ListType` type. If it is of type "Unordered"
-   * or "Ordered", it will return `li` elements. Otherwise, it will return a
-   * combination of `dt` and `dd` elements for the "Description" type.
+   * `listItems` props based on the `ListType` type. If it is of type unordered
+   * or ordered, it will return `li` elements. Otherwise, it will return a
+   * combination of `dt` and `dd` elements for the description type.
    */
   const listChildrenElms = (listType: ListTypes) => {
     if (children) {
@@ -82,9 +82,9 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
     if (!listItems) {
       return null;
     }
-    if (listType === ListTypes.Ordered || listType === ListTypes.Unordered) {
+    if (listType === "ol" || listType === "ul") {
       return listItems.map((item, i) => <li key={i}>{item}</li>);
-    } else if (listType === ListTypes.Description) {
+    } else if (listType === "dl") {
       return (listItems as DescriptionProps[]).map((item, i) => [
         <dt key={`${i}-term`}>{item.term}</dt>,
         <dd key={`${i}-des`}>{item.description}</dd>,
@@ -127,7 +127,7 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
     });
   };
 
-  if (type === ListTypes.Ordered || type === ListTypes.Unordered) {
+  if (type === "ol" || type === "ul") {
     checkListChildrenError(type);
     listElement = (
       <Box
@@ -140,15 +140,11 @@ export const List = chakra((props: React.PropsWithChildren<ListProps>) => {
         {listChildrenElms(type)}
       </Box>
     );
-  } else if (type === ListTypes.Description) {
+  } else if (type === "dl") {
     checkDescriptionChildrenError();
     listElement = (
       <Box as="section" id={id} className={className} __css={styles} {...rest}>
-        {title && (
-          <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
-            {title}
-          </Heading>
-        )}
+        {title && <Heading id={`${id}-heading`}>{title}</Heading>}
         <dl>{listChildrenElms(type)}</dl>
       </Box>
     );

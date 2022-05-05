@@ -35,7 +35,6 @@ const Select = {
   parts: ["helperText", "inline", "select"],
   baseStyle: ({ labelPosition }: SelectBaseStyle) => {
     return {
-      marginBottom: "xs",
       // The backgroundColor set to "ui.white" hides the arrow SVG icon when
       // the component is focused. The background is added for dark mode and
       // so we need to add specific selector.

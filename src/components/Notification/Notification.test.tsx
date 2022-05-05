@@ -4,9 +4,7 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Notification from "./Notification";
-import { NotificationTypes } from "./NotificationTypes";
 import Icon from "../Icons/Icon";
-import { IconNames, IconColors, IconSizes } from "../Icons/IconTypes";
 
 describe("Notification Accessibility", () => {
   it("passes axe accessibility test with heading", async () => {
@@ -107,9 +105,9 @@ describe("Notification", () => {
           <Icon
             id="custom-icon"
             className="custom-icon"
-            color={IconColors.BrandPrimary}
-            name={IconNames.Check}
-            size={IconSizes.Large}
+            color="brand.primary"
+            name="check"
+            size="large"
           />
         }
         id="notificationID"
@@ -130,7 +128,7 @@ describe("Notification", () => {
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
-        notificationType={NotificationTypes.Announcement}
+        notificationType="announcement"
       />
     );
 
@@ -146,7 +144,7 @@ describe("Notification", () => {
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
-        notificationType={NotificationTypes.Warning}
+        notificationType="warning"
       />
     );
 
@@ -170,7 +168,6 @@ describe("Notification", () => {
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
-        notificationType={NotificationTypes.Standard}
       />
     );
 
@@ -197,7 +194,7 @@ describe("Notification", () => {
           id="notificationID2"
           notificationContent={<>Notification content.</>}
           notificationHeading="Notification Heading"
-          notificationType={NotificationTypes.Announcement}
+          notificationType="announcement"
         />
       )
       .toJSON();
@@ -207,7 +204,7 @@ describe("Notification", () => {
           id="notificationID3"
           notificationContent={<>Notification content.</>}
           notificationHeading="Notification Heading"
-          notificationType={NotificationTypes.Warning}
+          notificationType="warning"
         />
       )
       .toJSON();

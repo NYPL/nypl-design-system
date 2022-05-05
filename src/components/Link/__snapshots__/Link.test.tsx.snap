@@ -5,6 +5,8 @@ exports[`Link renders the UI snapshot correctly 1`] = `
   className="css-1xdhyk6"
   href="#passed-in-link"
   id="standard-link"
+  rel={null}
+  target={null}
 >
   Standard
 </a>
@@ -15,6 +17,8 @@ exports[`Link renders the UI snapshot correctly 2`] = `
   className="css-1xdhyk6"
   href="#passed-in-link"
   id="forwards-link"
+  rel={null}
+  target={null}
 >
   Forwards
   <svg
@@ -57,6 +61,8 @@ exports[`Link renders the UI snapshot correctly 3`] = `
   className="css-1xdhyk6"
   href="#passed-in-link"
   id="backwards-link"
+  rel={null}
+  target={null}
 >
   <svg
     aria-hidden={true}
@@ -143,6 +149,8 @@ exports[`Link renders the UI snapshot correctly 5`] = `
   className="css-1xdhyk6"
   href="#passed-in-link"
   id="button-link"
+  rel={null}
+  target={null}
 >
   Button
 </a>
@@ -153,6 +161,8 @@ exports[`Link renders the UI snapshot correctly 6`] = `
   className="css-1xdhyk6"
   href="#passed-in-link"
   id="icon-link"
+  rel={null}
+  target={null}
 >
   <svg
     aria-hidden={true}
@@ -198,6 +208,8 @@ exports[`Link renders the UI snapshot correctly 7`] = `
     className="css-0"
     href="#existing-anchor-tag"
     id="anchor-link"
+    rel={null}
+    target={null}
   >
     check link
   </a>
@@ -253,6 +265,8 @@ exports[`Link renders the UI snapshot correctly 9`] = `
   className="css-kle7zy"
   href="#passed-in-link"
   id="chakra"
+  rel={null}
+  target={null}
 >
   Standard
 </a>
@@ -264,6 +278,8 @@ exports[`Link renders the UI snapshot correctly 10`] = `
   data-testid="props"
   href="#passed-in-link"
   id="props"
+  rel={null}
+  target={null}
 >
   Standard
 </a>

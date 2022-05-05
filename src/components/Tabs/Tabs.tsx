@@ -10,10 +10,8 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { IconNames, IconRotationTypes, IconSizes } from "../Icons/IconTypes";
-import Icon from "../Icons/Icon";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Button from "../Button/Button";
+import Icon from "../Icons/Icon";
 import useCarouselStyles from "../../hooks/useCarouselStyles";
 import useWindowSize from "../../hooks/useWindowSize";
 
@@ -190,39 +188,37 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
   }, [goToStart, windowDimensions.width]);
   const previousButton = (
     <Button
-      attributes={{
-        "aria-label": "Previous",
+      aria-label="Previous"
+      id={`tabs-previous-${id}`}
+      onClick={prevSlide}
+      __css={{
         ...styles.buttonArrows,
         left: "0",
       }}
-      buttonType={ButtonTypes.Primary}
-      id={`tabs-previous-${id}`}
-      onClick={prevSlide}
     >
       <Icon
-        iconRotation={IconRotationTypes.Rotate90}
+        iconRotation="rotate90"
         id={`tabs-previous-icon-${id}`}
-        name={IconNames.Arrow}
-        size={IconSizes.Small}
+        name="arrow"
+        size="small"
       />
     </Button>
   );
   const nextButton = (
     <Button
-      attributes={{
-        "aria-label": "Next",
+      aria-label="Next"
+      id={`tabs-next-${id}`}
+      onClick={nextSlide}
+      __css={{
         ...styles.buttonArrows,
         right: "0",
       }}
-      buttonType={ButtonTypes.Primary}
-      id={`tabs-next-${id}`}
-      onClick={nextSlide}
     >
       <Icon
-        iconRotation={IconRotationTypes.Rotate270}
+        iconRotation="rotate270"
         id={`tabs-next-icon-${id}`}
-        name={IconNames.Arrow}
-        size={IconSizes.Small}
+        name="arrow"
+        size="small"
       />
     </Button>
   );

@@ -17,8 +17,7 @@ import Label from "../Label/Label";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import TextInput from "../TextInput/TextInput";
-import { TextInputTypes } from "../TextInput/TextInputTypes";
+import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
 export interface SliderProps {
   /** Additional class name for the Slider component. */
@@ -149,15 +148,16 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   };
   // Props that the two `TextInput` components use.
   const textInputSharedProps = {
-    attributes: { max, min },
     isDisabled,
     isInvalid: finalIsInvalid,
     isRequired,
+    max,
+    min,
     // Never show the label or helper text for the `TextInput` component.
     showHelperInvalidText: false,
     showLabel: false,
     step,
-    type: TextInputTypes.number,
+    type: "number" as TextInputTypes,
   };
   /**
    * This returns either the "start" or "end" `TextInput` component. Note that

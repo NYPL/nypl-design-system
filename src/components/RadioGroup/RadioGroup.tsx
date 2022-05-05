@@ -12,7 +12,8 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import { spacing } from "../../theme/foundations/spacing";
 import Radio from "../Radio/Radio";
-import { LayoutTypes } from "../../helpers/enums";
+import { LayoutTypes } from "../../helpers/types";
+
 export interface RadioGroupProps {
   /** Additional class name. */
   className?: string;
@@ -75,7 +76,7 @@ export const RadioGroup = chakra(
         isInvalid = false,
         isRequired = false,
         labelText,
-        layout = LayoutTypes.Column,
+        layout = "column",
         name,
         onChange,
         showHelperInvalidText = true,
@@ -84,8 +85,10 @@ export const RadioGroup = chakra(
         ...rest
       } = props;
       const [value, setValue] = React.useState(defaultValue);
-      const footnote = isInvalid ? invalidText : helperText;
-      const spacingProp = layout === LayoutTypes.Column ? spacing.s : spacing.l;
+      const footnote: HelperErrorTextType = isInvalid
+        ? invalidText
+        : helperText;
+      const spacingProp = layout === "column" ? spacing.s : spacing.l;
       const newChildren: JSX.Element[] = [];
       // Get the Chakra-based styles for the custom elements in this component.
       const styles = useMultiStyleConfig("RadioGroup", { isFullWidth });
