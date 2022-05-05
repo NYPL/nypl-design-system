@@ -20,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the `additionalStyles` attributes from the `Breadcrumbs`, `Button`, `Heading`, `HelperErrorText`, `Icon`, `Link`, `List`, `Logo`, `Select`, `TextInput`, and `Toggle` components.
 - Removes `getVariant` and `getStorybookEnumValues` helper functions.
 - Removes all Typescript enum objects in favor of string literal types.
+- Remove the bottom margin attribute that is applied to the parent element for the `Select` component.
 
 ## 0.27.0 (April 27, 2022)
 
