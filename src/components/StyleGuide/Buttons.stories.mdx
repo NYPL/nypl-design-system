@@ -34,7 +34,9 @@ component to render form buttons.
 ```jsx
 import { Button, ButtonTypes } from "@nypl/design-system-react-components";
 
-<Button buttonType={ButtonTypes.Primary}>Button Text</Button>;
+<Button buttonType={ButtonTypes.Primary} id="example-button">
+  Button Text
+</Button>;
 ```
 
 ## Guidelines
@@ -64,8 +66,10 @@ can be achieved by using the `Form` component to wrap the `Button`s.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Primary}>Button Text</Button>
-      <Button buttonType={ButtonTypes.Primary}>
+      <Button buttonType={ButtonTypes.Primary} id="button-basic">
+        Button Text
+      </Button>
+      <Button buttonType={ButtonTypes.Primary} id="button-icon">
         <Icon
           name={IconNames.Search}
           size={IconSizes.Small}
@@ -73,11 +77,13 @@ can be achieved by using the `Form` component to wrap the `Button`s.
         />
         Button Text
       </Button>
-      <Button buttonType={ButtonTypes.Primary}>
+      <Button buttonType={ButtonTypes.Primary} id="button-icon-only">
         <Icon name={IconNames.Close} size={IconSizes.Medium} />
       </Button>
-      <Button buttonType={ButtonTypes.Callout}>Donate</Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType={ButtonTypes.Callout} id="button-donate">
+        Donate
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary} id="button-to-top">
         Back to Top
         <Icon
           name={IconNames.Arrow}
@@ -98,12 +104,24 @@ component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Primary}>Primary Button</Button>
-      <Button buttonType={ButtonTypes.Secondary}>Secondary Button</Button>
-      <Button buttonType={ButtonTypes.Callout}>Callout Button</Button>
-      <Button buttonType={ButtonTypes.Pill}>Pill Button</Button>
-      <Button buttonType={ButtonTypes.Link}>Link Button</Button>
-      <Button buttonType={ButtonTypes.NoBrand}>NoBrand Button</Button>
+      <Button buttonType={ButtonTypes.Primary} id="button-primary">
+        Primary Button
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary} id="button-secondary">
+        Secondary Button
+      </Button>
+      <Button buttonType={ButtonTypes.Callout} id="button-callout">
+        Callout Button
+      </Button>
+      <Button buttonType={ButtonTypes.Pill} id="button-pill">
+        Pill Button
+      </Button>
+      <Button buttonType={ButtonTypes.Link} id="button-link">
+        Link Button
+      </Button>
+      <Button buttonType={ButtonTypes.NoBrand} id="button-no-brand">
+        NoBrand Button
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -155,8 +173,10 @@ component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType={ButtonTypes.Callout}>Donate to this library</Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType={ButtonTypes.Callout} id="button-callout-donate">
+        Donate to this library
+      </Button>
+      <Button buttonType={ButtonTypes.Secondary} id="button-secondary-to-top">
         Back to Top
         <Icon
           name={IconNames.Arrow}
@@ -165,7 +185,7 @@ component.
           align={IconAlign.Right}
         />
       </Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType={ButtonTypes.Secondary} id="button-previous">
         <Icon
           name={IconNames.Arrow}
           iconRotation={IconRotationTypes.Rotate90}
@@ -174,7 +194,7 @@ component.
         />
         Previous
       </Button>
-      <Button buttonType={ButtonTypes.Secondary}>
+      <Button buttonType={ButtonTypes.Secondary} id="button-next">
         Next
         <Icon
           name={IconNames.Arrow}

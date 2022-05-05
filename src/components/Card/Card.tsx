@@ -217,7 +217,7 @@ export const Card = chakra((props: React.PropsWithChildren<CardProps>) => {
   const windowDimensions = useWindowSize();
   let cardHeadingCount = 0;
 
-  if (imageProps.component && imageProps.aspectRatio !== ImageRatios.Square) {
+  if (imageProps.component && imageProps.aspectRatio) {
     console.warn(
       "NYPL Reservoir Card: Both the `imageProps.component` and `imageProps.aspectRatio` " +
         "props were set but `imageProps.aspectRatio` will be ignored in favor " +

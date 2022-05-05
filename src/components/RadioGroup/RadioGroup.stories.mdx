@@ -381,6 +381,7 @@ const submitForm = (formData) => {
 };
 
 <form
+  id="example-form"
   onSubmit={handleSubmit(submitForm)}
   method="post"
   action="/some/api/endpoint"
@@ -420,7 +421,7 @@ export function RadioGroupUncontrolledExample() {
     console.log(`Uncontrolled example. Selected: ${radioGroupValue}`);
   };
   return (
-    <Form onSubmit={onSubmit}>
+    <Form id="example-form" onSubmit={onSubmit}>
       <SimpleGrid columns="1">
         <RadioGroup
           defaultValue="3"
@@ -434,7 +435,7 @@ export function RadioGroupUncontrolledExample() {
           <Radio id="4" labelText="Radio 4" value="4" />
         </RadioGroup>
         <ButtonGroup>
-          <Button type="submit">Submit</Button>
+          <Button id="submit-button" type="submit">Submit</Button>
         </ButtonGroup>
       </SimpleGrid>
     </Form>
@@ -451,7 +452,7 @@ export function RadioGroupUncontrolledExample() {
     console.log(`Uncontrolled example. Selected: ${radioGroupValue}`);
   };
   return (
-    <Form onSubmit={onSubmit}>
+    <Form id="example-form" onSubmit={onSubmit}>
       <SimpleGrid columns="1">
         <RadioGroup
           defaultValue="3"
@@ -465,7 +466,7 @@ export function RadioGroupUncontrolledExample() {
           <Radio id="4" labelText="Radio 4" value="4" />
         </RadioGroup>
         <ButtonGroup>
-          <Button type="submit">Submit</Button>
+          <Button id="submit-button" type="submit">Submit</Button>
         </ButtonGroup>
       </SimpleGrid>
     </Form>
