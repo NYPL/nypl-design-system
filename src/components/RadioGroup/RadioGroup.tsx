@@ -111,29 +111,32 @@ export const RadioGroup = chakra(
       }
 
       // Go through the Radio children and update them as needed.
-      React.Children.map(children, (child: React.ReactElement, key) => {
-        if (child?.type !== Radio) {
-          // Special case for Storybook MDX documentation.
-          if (child.props?.mdxType && child.props?.mdxType === "Radio") {
-            noop();
-          } else {
-            console.warn(
-              "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
-                "inside the `RadioGroup` component."
-            );
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement, key) => {
+          if (child?.type !== Radio) {
+            // Special case for Storybook MDX documentation.
+            if (child.props?.mdxType && child.props?.mdxType === "Radio") {
+              noop();
+            } else {
+              console.warn(
+                "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
+                  "inside the `RadioGroup` component."
+              );
+            }
+          }
+
+          if (child !== undefined && child !== null) {
+            const newProps = {
+              key,
+              isDisabled,
+              isInvalid,
+              isRequired,
+            };
+            newChildren.push(React.cloneElement(child, newProps));
           }
         }
-
-        if (child !== undefined && child !== null) {
-          const newProps = {
-            key,
-            isDisabled,
-            isInvalid,
-            isRequired,
-          };
-          newChildren.push(React.cloneElement(child, newProps));
-        }
-      });
+      );
 
       return (
         <Fieldset

@@ -52,8 +52,14 @@ const size = {
     width: "0.875rem",
   },
 };
+interface IconBaseStyle {
+  align: keyof typeof align;
+  color: string;
+  iconRotation: keyof typeof iconRotation;
+  size: keyof typeof size;
+}
 const Icon = {
-  baseStyle: (props) => {
+  baseStyle: (props: IconBaseStyle) => {
     const allStyles = {
       ...svgBase,
       ...align[props.align],

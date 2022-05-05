@@ -1,7 +1,7 @@
 import { Flex, Spacer } from "@chakra-ui/react";
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import * as React from "react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
@@ -39,7 +39,7 @@ describe("Checkbox Accessibility", () => {
 });
 
 describe("Checkbox", () => {
-  let changeHandler;
+  let changeHandler: jest.MockedFunction<() => void>;
 
   beforeEach(() => {
     changeHandler = jest.fn();

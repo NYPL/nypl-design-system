@@ -29,7 +29,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -45,7 +45,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -57,7 +57,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -108,7 +108,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -124,7 +124,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -136,7 +136,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -187,7 +187,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -203,7 +203,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -215,7 +215,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -259,7 +259,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -275,7 +275,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -287,7 +287,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -338,7 +338,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -350,7 +350,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -401,7 +401,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 6`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -440,7 +440,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -456,7 +456,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -468,7 +468,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -530,7 +530,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -546,7 +546,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -558,7 +558,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -609,7 +609,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -625,7 +625,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -637,7 +637,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -688,7 +688,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -704,7 +704,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -716,7 +716,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -767,7 +767,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -783,7 +783,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -795,7 +795,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -847,7 +847,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -863,7 +863,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />
@@ -875,7 +875,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 12`] = `
           className="css-0"
           style={
             Object {
-              "marginBottom": null,
+              "marginBottom": undefined,
             }
           }
         />

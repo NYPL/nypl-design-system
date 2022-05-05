@@ -72,13 +72,13 @@ export const ProgressIndicator = chakra((props: ProgressIndicatorProps) => {
     id,
     // If the label is visually shown, associate it with the progress indicator.
     // Otherwise, the `aria-label` will be added.
-    "aria-label": showLabel ? null : labelText,
-    "aria-labelledby": showLabel ? `${id}-label` : null,
+    "aria-label": showLabel ? undefined : labelText,
+    "aria-labelledby": showLabel ? `${id}-label` : undefined,
     // If `isIndeterminate` is true, then it overrides the `value` prop.
-    isIndeterminate: isIndeterminate || null,
-    value: isIndeterminate ? null : finalValue,
+    isIndeterminate: isIndeterminate || undefined,
+    value: isIndeterminate ? undefined : finalValue,
   };
-  const progressComponent = (indicatorType) => {
+  const progressComponent = (indicatorType: ProgressIndicatorTypes) => {
     // Only display the percentage text for the default size, not in the
     // indeterminate state, and when `showLabel` is true.
     if (indicatorType === "circular") {
