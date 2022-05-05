@@ -5,7 +5,7 @@ const cssnano = require("cssnano");
 const svgr = require("@svgr/rollup").default;
 
 module.exports = {
-  rollup(config, options) {
+  rollup(config, _options) {
     config.plugins = [
       postcss({
         plugins: [

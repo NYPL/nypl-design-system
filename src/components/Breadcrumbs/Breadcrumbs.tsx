@@ -32,7 +32,10 @@ export interface BreadcrumbProps {
   id?: string;
 }
 
-const getElementsFromData = (data, breadcrumbsID) => {
+const getElementsFromData = (
+  data: BreadcrumbsDataProps[],
+  breadcrumbsID?: string
+) => {
   if (!data?.length) {
     return {};
   }

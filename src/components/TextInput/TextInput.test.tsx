@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, RenderResult, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
@@ -37,16 +37,13 @@ describe("TextInput Accessibility", () => {
 });
 
 describe("TextInput", () => {
-  let utils;
-  let changeHandler;
-  let focusHandler;
+  let changeHandler: jest.MockedFunction<() => void>;
+  let utils: RenderResult;
 
   beforeEach(() => {
-    focusHandler = jest.fn();
     changeHandler = jest.fn();
     utils = render(
       <TextInput
-        attributes={{ onFocus: focusHandler }}
         id="myTextInput"
         isRequired
         labelText="Custom Input Label"
@@ -73,7 +70,6 @@ describe("TextInput", () => {
   it("does not render '(Required)' along with the label text", () => {
     utils.rerender(
       <TextInput
-        attributes={{ onFocus: focusHandler }}
         id="myTextInput"
         isRequired
         labelText="Custom Input Label"
@@ -105,12 +101,6 @@ describe("TextInput", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toHaveAttribute(
       "aria-required"
     );
-  });
-
-  it("allows user to pass in additional attributes", () => {
-    expect(focusHandler).toHaveBeenCalledTimes(0);
-    fireEvent.focus(screen.getByLabelText(/Custom Input Label/i));
-    expect(focusHandler).toHaveBeenCalledTimes(1);
   });
 
   it("changing the value calls the onChange handler", () => {
@@ -169,9 +159,10 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
 });
 
 describe("TextInput shows error state", () => {
-  let rerender;
+  let utils: RenderResult;
+
   beforeEach(() => {
-    const utils = render(
+    utils = render(
       <TextInput
         helperText="Custom Helper Text"
         id="myTextInputError"
@@ -182,8 +173,6 @@ describe("TextInput shows error state", () => {
         type="text"
       />
     );
-
-    rerender = utils.rerender;
   });
 
   it("renders Input component", () => {
@@ -200,7 +189,7 @@ describe("TextInput shows error state", () => {
   });
 
   it("does not render the invalid text when 'showHelperInvalidText' is set to false", () => {
-    rerender(
+    utils.rerender(
       <TextInput
         helperText="Custom Helper Text"
         id="myTextInputError"
@@ -223,20 +212,15 @@ describe("TextInput shows error state", () => {
   });
 });
 
-describe("Renders HTML attributes passed through the `attributes` prop", () => {
+describe("Renders HTML attributes passed", () => {
   const onChangeSpy = jest.fn();
-  const onBlurSpy = jest.fn();
   beforeEach(() => {
     render(
       <TextInput
-        attributes={{
-          onChange: onChangeSpy,
-          onBlur: onBlurSpy,
-          maxLength: 10,
-          tabIndex: 0,
-        }}
         id="inputID-attributes"
         labelText="Input Label"
+        maxLength={10}
+        onChange={onChangeSpy}
         placeholder="Input Placeholder"
         type="text"
       />
@@ -250,23 +234,10 @@ describe("Renders HTML attributes passed through the `attributes` prop", () => {
     );
   });
 
-  it("has a tabIndex", () => {
-    expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
-      "tabIndex",
-      "0"
-    );
-  });
-
   it("calls the onChange function", () => {
     expect(onChangeSpy).toHaveBeenCalledTimes(0);
     userEvent.type(screen.getByLabelText(/Input Label/i), "Hello");
     expect(onChangeSpy).toHaveBeenCalledTimes(5);
-  });
-
-  it("calls the onBlur function", () => {
-    expect(onBlurSpy).toHaveBeenCalledTimes(0);
-    fireEvent.blur(screen.getByLabelText(/Input Label/i));
-    expect(onBlurSpy).toHaveBeenCalledTimes(1);
   });
 });
 
