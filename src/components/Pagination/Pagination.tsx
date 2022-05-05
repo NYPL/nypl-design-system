@@ -51,7 +51,7 @@ export const Pagination = chakra((props: PaginationProps) => {
   // function exists, then set the internal state – selectedPage –
   // to the new currentPage and update the refCurrentPage with that value.
   React.useEffect(() => {
-    if (onPageChange && currentPage !== refCurrentPage.current) {
+    if (onPageChange && currentPage && currentPage !== refCurrentPage.current) {
       setSelectedPage(currentPage);
       refCurrentPage.current = currentPage;
     }
@@ -110,7 +110,10 @@ export const Pagination = chakra((props: PaginationProps) => {
    * 2. Otherwise, we stay on the same page by setting the `href` attribute to
    *    "#" and call the `onPageChange` prop through the `onClick` callback.
    */
-  const getLinkElement = (type: string, item?: number) => {
+  const getLinkElement = (
+    type: "items" | "previous" | "next",
+    item?: number
+  ) => {
     const isSelectedPage = selectedPage === item;
     // The current page link has different styles.
     const currentStyles = isSelectedPage
@@ -121,11 +124,13 @@ export const Pagination = chakra((props: PaginationProps) => {
       : {};
     const allAttrs = {
       items: {
-        href: changeUrls ? getPageHref(item) : "#",
+        href: changeUrls ? getPageHref(item as number) : "#",
         attributes: {
           "aria-label": `Page ${item}`,
           "aria-current": isSelectedPage ? "page" : null,
-          onClick: changeUrls ? undefined : (e) => handlePageClick(e, item),
+          onClick: changeUrls
+            ? undefined
+            : (e: Event) => handlePageClick(e, item as number),
         },
         text: item,
       },

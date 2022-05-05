@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, RenderResult, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
@@ -37,8 +37,8 @@ describe("TextInput Accessibility", () => {
 });
 
 describe("TextInput", () => {
-  let utils;
-  let changeHandler;
+  let changeHandler: jest.MockedFunction<() => void>;
+  let utils: RenderResult;
 
   beforeEach(() => {
     changeHandler = jest.fn();
@@ -159,9 +159,10 @@ describe("Renders TextInput with auto-generated ID, hidden label and visible hel
 });
 
 describe("TextInput shows error state", () => {
-  let rerender;
+  let utils: RenderResult;
+
   beforeEach(() => {
-    const utils = render(
+    utils = render(
       <TextInput
         helperText="Custom Helper Text"
         id="myTextInputError"
@@ -172,8 +173,6 @@ describe("TextInput shows error state", () => {
         type="text"
       />
     );
-
-    rerender = utils.rerender;
   });
 
   it("renders Input component", () => {
@@ -190,7 +189,7 @@ describe("TextInput shows error state", () => {
   });
 
   it("does not render the invalid text when 'showHelperInvalidText' is set to false", () => {
-    rerender(
+    utils.rerender(
       <TextInput
         helperText="Custom Helper Text"
         id="myTextInputError"

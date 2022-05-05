@@ -27,7 +27,11 @@ export interface LinkProps {
  * Renders the `Link` children components with a direction arrow icon based
  * on the `"backwards"` or `"forwards"` `linkType` value.
  */
-function getWithDirectionIcon(children, type: LinkTypes, linkId) {
+function getWithDirectionIcon(
+  children: JSX.Element,
+  type: LinkTypes,
+  linkId: string
+) {
   let iconRotation;
   let iconAlign;
   let icon = null;
@@ -64,7 +68,7 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
   );
 }
 
-function getExternalIcon(children, linkId) {
+function getExternalIcon(children: JSX.Element, linkId: string) {
   const iconId = `${linkId}-icon`;
   const icon = (
     <Icon
@@ -117,17 +121,16 @@ export const Link = chakra(
       variant = "button";
     }
     const style = useStyleConfig("Link", { variant });
+    const rel = type === "external" ? "nofollow" : null;
+    const target = type === "external" ? "_blank" : null;
     // Render with specific direction arrows if the type is
     // Forwards or Backwards.  Or render with the launch icon
     // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
-        getWithDirectionIcon(children, type, id)) ||
-      (type === "external" && getExternalIcon(children, id)) ||
+        getWithDirectionIcon(children as JSX.Element, type, id)) ||
+      (type === "external" && getExternalIcon(children as JSX.Element, id)) ||
       children;
-
-    const rel = type === "external" ? "nofollow" : null;
-    const target = type === "external" ? "_blank" : null;
 
     if (!href) {
       // React Types error makes this fail:

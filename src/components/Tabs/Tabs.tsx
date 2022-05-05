@@ -45,7 +45,7 @@ export interface TabsProps {
  * An internal function used to update the hash in the URL.
  * This function is only used when `useHash` is `true`.
  */
-const onClickHash = (tabHash) => {
+const onClickHash = (tabHash: string) => {
   window.location.hash = tabHash;
 };
 
@@ -53,9 +53,12 @@ const onClickHash = (tabHash) => {
  * This returns an object with `Tab` and `TabPanel` components to rendered in
  * `TabList` and `TabPanels` components respectively.
  */
-const getElementsFromData = (data, useHash): TabPanelProps => {
-  const tabs = [];
-  const panels = [];
+const getElementsFromData = (
+  data: TabsDataProps[],
+  useHash: boolean
+): TabPanelProps => {
+  const tabs: React.ReactNode[] = [];
+  const panels: React.ReactNode[] = [];
 
   if (!data?.length) {
     return { tabs: [], panels: [] };
@@ -74,7 +77,7 @@ const getElementsFromData = (data, useHash): TabPanelProps => {
       <Tab
         fontSize={["0", null, "1"]}
         key={index}
-        onClick={useHash ? () => onClickHash(`tab${index + 1}`) : null}
+        onClick={useHash ? () => onClickHash(`tab${index + 1}`) : undefined}
       >
         {tab.label}
       </Tab>
@@ -105,14 +108,14 @@ const getElementsFromData = (data, useHash): TabPanelProps => {
  * the DOM when building up the `Tabs` component using child component.
  */
 const getElementsFromChildren = (children): TabPanelProps => {
-  const tabs = [];
-  const panels = [];
+  const tabs: React.ReactNode[] = [];
+  const panels: React.ReactNode[] = [];
 
   if (!children?.length) {
     return { tabs: [], panels: [] };
   }
 
-  children.forEach((child) => {
+  children.forEach((child: JSX.Element) => {
     if (child.type === TabList || child.props.mdxType === "TabList") {
       tabs.push(child);
 

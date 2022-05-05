@@ -4,6 +4,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import * as React from "react";
+import { AriaAttributes } from "../../utils/interfaces";
 
 import HelperErrorText, {
   HelperErrorTextType,
@@ -69,7 +70,7 @@ export const Radio = chakra(
     } = props;
     const styles = useMultiStyleConfig("Radio", {});
     const footnote = isInvalid ? invalidText : helperText;
-    const ariaAttributes = {};
+    const ariaAttributes: AriaAttributes = {};
 
     if (!id) {
       console.warn(
@@ -84,7 +85,9 @@ export const Radio = chakra(
         );
       }
       ariaAttributes["aria-label"] =
-        labelText && footnote ? `${labelText} - ${footnote}` : labelText;
+        labelText && footnote
+          ? `${labelText} - ${footnote}`
+          : (labelText as string);
     } else if (footnote) {
       ariaAttributes["aria-describedby"] = `${id}-helperText`;
     }

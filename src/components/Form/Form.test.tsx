@@ -116,7 +116,7 @@ describe("Form", () => {
     );
     const form = screen.getByRole("form");
     const formRow = form.firstChild;
-    const formField = formRow.firstChild;
+    const formField = formRow?.firstChild;
     const textInput = screen.getByRole("textbox");
     expect(form).toBeInTheDocument();
     expect(formRow).toBeInTheDocument();

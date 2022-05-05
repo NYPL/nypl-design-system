@@ -119,9 +119,9 @@ export const Notification = chakra((props: NotificationProps) => {
       size: "large" as IconSizes,
       __css: styles.icon,
     };
-    // If the icon should not display, return null.
+    // If the icon should not display, return undefined.
     if (!showIcon) {
-      return null;
+      return undefined;
     }
     // If a custom icon is passed, add specific `Notification` styles.
     if (icon)
@@ -187,11 +187,11 @@ export const Notification = chakra((props: NotificationProps) => {
     </NotificationHeading>
   );
   // Specific alignment styles for the content.
-  const alignText = childHeading && showIcon && (!!icon || !isCentered);
+  const alignText = !!(childHeading && showIcon && (!!icon || !isCentered));
   const childContent = (
     <NotificationContent
       alignText={alignText}
-      icon={!childHeading ? iconElem : null}
+      icon={!childHeading ? iconElem : undefined}
       notificationType={notificationType}
     >
       {notificationContent}

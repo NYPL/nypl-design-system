@@ -9,7 +9,7 @@ import TextInput from "../TextInput/TextInput";
  * Wrapper component just to give the Autosuggest examples more space for the
  * suggestions dropdown to display.
  */
-const StoryWrapper = ({ children }) => (
+const StoryWrapper = ({ children }: { children: JSX.Element }) => (
   <div style={{ padding: "5px", minHeight: "400px" }}>{children}</div>
 );
 
@@ -26,16 +26,24 @@ const libraryRenderInputComponent = (inputProps: any) => {
   );
 };
 
+interface Library {
+  label: string;
+}
+
 /**
  * LibraryExample
  * An example component that internally uses the `react-autosuggest` library.
  * The list is made up of objects with `label` key. It adds a Label, Input, and
  * HelperErrorText as elements for the autosuggest component to render.
  */
-const LibraryExample = ({ renderInputComponent }) => {
+const LibraryExample = ({
+  renderInputComponent,
+}: {
+  renderInputComponent: JSX.Element;
+}) => {
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const libraryList = [
+  const libraryList: Library[] = [
     { label: "SimplyE" },
     { label: "53rd Street Branch" },
     { label: "Aguilar Branch" },
@@ -50,10 +58,11 @@ const LibraryExample = ({ renderInputComponent }) => {
     { label: "Soundview Branch" },
     { label: "St. George Library Center" },
   ];
-  const onChange = (_: any, { newValue }) => setValue(newValue);
+  const onChange = (_: any, { newValue }: { newValue: string }) =>
+    setValue(newValue);
   // Tell autosuggest to suggest by the first letter of the library. This can
   // be manipulated.
-  const getSuggestions = (value, list) => {
+  const getSuggestions = (value: string, list: Library[]) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
@@ -66,7 +75,7 @@ const LibraryExample = ({ renderInputComponent }) => {
 
   // Autosuggest will call this function every time suggestions need to be
   // updated. `getSuggestions` must be passed.
-  const onSuggestionsFetchRequested = ({ value }) =>
+  const onSuggestionsFetchRequested = ({ value }: { value: string }) =>
     setSuggestions(getSuggestions(value, libraryList));
   // Clear out any suggestions.
   const onSuggestionsClearRequested = () => setSuggestions([]);
@@ -99,7 +108,7 @@ const LibraryExample = ({ renderInputComponent }) => {
 
 export const AutosuggestLibrary = () => (
   <StoryWrapper>
-    <LibraryExample renderInputComponent={libraryRenderInputComponent} />
+    <LibraryExample renderInputComponent={libraryRenderInputComponent as any} />
   </StoryWrapper>
 );
 
@@ -198,5 +207,5 @@ const searchBarRenderInputComponent = (inputProps: any) => {
 };
 
 export const SearchBarExample = () => (
-  <LibraryExample renderInputComponent={searchBarRenderInputComponent} />
+  <LibraryExample renderInputComponent={searchBarRenderInputComponent as any} />
 );

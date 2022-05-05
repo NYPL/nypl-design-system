@@ -21,7 +21,7 @@ export const range = (start: number, stop: number, step = 1): number[] => {
  * Pagination component, makes the URL change and refreshes the page.
  * @NOTE this is only used for Storybook documentation.
  */
-export const getStorybookHrefProps = (pageCount) => {
+export const getStorybookHrefProps = (pageCount: number) => {
   // This uses the `addon-queryparams` Storybook addon.
   const urlParams = new URLSearchParams(document.location.search);
   const pageParam = urlParams.get("page");
@@ -36,7 +36,7 @@ export const getStorybookHrefProps = (pageCount) => {
   const location = window.location;
   // Passing this function into `Pagination` makes the URL to change
   // and refreshes the page.
-  const getPageHref = (selectedPage) => {
+  const getPageHref = (selectedPage: number) => {
     return `${location.href}&page=${selectedPage}`;
   };
 
