@@ -121,7 +121,6 @@ export interface DatePickerProps extends DatePickerWrapperProps {
 const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
   (
     {
-      attributes,
       dsRef,
       helperText,
       id,
@@ -130,19 +129,18 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       isInvalid,
       isRequired,
       labelText,
+      name,
       onChange,
       onClick,
       showLabel,
       showHelperInvalidText,
       showRequiredLabel,
       value,
-      ...rest
     },
     ref: React.Ref<TextInputRefType>
   ) => {
     return (
       <TextInput
-        attributes={{ ...attributes, onClick }}
         helperText={helperText}
         id={id}
         invalidText={invalidText}
@@ -150,7 +148,9 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
         isInvalid={isInvalid}
         isRequired={isRequired}
         labelText={labelText}
+        name={name}
         onChange={onChange}
+        onClick={onClick}
         showHelperInvalidText={showHelperInvalidText}
         showLabel={showLabel}
         showRequiredLabel={showRequiredLabel}
@@ -159,7 +159,6 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
         // `react-datepicker` manipulates the `ref` value so when we
         // want a specific ref, use the `dsRef` prop.
         ref={dsRef || ref}
-        {...rest}
       />
     );
   }
@@ -374,13 +373,13 @@ export const DatePicker = chakra(
         <ReactDatePicker
           customInput={
             <CustomTextInput
-              attributes={{ name: nameTo }}
               dsRef={refTo}
               labelText="To"
               {...endCustomTextInputAttrs}
             />
           }
           id={`${id}-end`}
+          name={nameTo}
           onChange={(date) => onChangeDefault(date, "endDate")}
           selected={fullDate.endDate}
           {...endDatePickerAttrs}
@@ -391,13 +390,13 @@ export const DatePicker = chakra(
       <ReactDatePicker
         customInput={
           <CustomTextInput
-            attributes={{ name: nameFrom }}
             dsRef={ref}
             labelText={startLabelText}
             {...baseCustomTextInputAttrs}
           />
         }
         id={`${id}-start`}
+        name={nameFrom}
         onChange={(date) => onChangeDefault(date, "startDate")}
         selected={fullDate.startDate}
         {...startDatePickerAttrs}

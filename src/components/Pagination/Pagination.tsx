@@ -149,9 +149,9 @@ export const Pagination = chakra((props: PaginationProps) => {
     const linkAttrs = allAttrs[type];
     return (
       <Link
-        attributes={linkAttrs.attributes}
         href={linkAttrs.href}
         id={`${id}-${linkAttrs.text}`}
+        {...linkAttrs.attributes}
         __css={{
           ...styles.link,
           ...currentStyles,

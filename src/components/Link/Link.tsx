@@ -11,8 +11,6 @@ export type LinkTypes =
   | "external"
   | "forwards";
 export interface LinkProps {
-  /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
-  attributes?: { [key: string]: any };
   /** Any child node passed to the component. */
   children: React.ReactNode;
   /** Additional class name to render in the `Link` component. */
@@ -92,22 +90,14 @@ function getExternalIcon(children, linkId) {
  */
 export const Link = chakra(
   React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
-    const {
-      attributes,
-      children,
-      className,
-      href,
-      id,
-      type = "default",
-      ...rest
-    } = props;
+    const { children, className, href, id, type = "default", ...rest } = props;
 
     // Merge the necessary props alongside any extra props for the
     // anchor element.
     const linkProps = {
       id,
       href,
-      ...attributes,
+      ...rest,
     };
     // The "default" type.
     let variant = "link";
@@ -149,7 +139,7 @@ export const Link = chakra(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style} {...rest}>
+        <Box as="span" __css={style}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -174,7 +164,6 @@ export const Link = chakra(
           target={target}
           {...linkProps}
           __css={style}
-          {...rest}
         >
           {newChildren}
         </Box>

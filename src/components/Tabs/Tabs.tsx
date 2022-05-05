@@ -185,13 +185,13 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
   }, [goToStart, windowDimensions.width]);
   const previousButton = (
     <Button
-      attributes={{
-        "aria-label": "Previous",
+      aria-label="Previous"
+      id={`tabs-previous-${id}`}
+      onClick={prevSlide}
+      __css={{
         ...styles.buttonArrows,
         left: "0",
       }}
-      id={`tabs-previous-${id}`}
-      onClick={prevSlide}
     >
       <Icon
         iconRotation="rotate90"
@@ -203,13 +203,13 @@ export const Tabs = chakra((props: React.PropsWithChildren<TabsProps>) => {
   );
   const nextButton = (
     <Button
-      attributes={{
-        "aria-label": "Next",
+      aria-label="Next"
+      id={`tabs-next-${id}`}
+      onClick={nextSlide}
+      __css={{
         ...styles.buttonArrows,
         right: "0",
       }}
-      id={`tabs-next-${id}`}
-      onClick={nextSlide}
     >
       <Icon
         iconRotation="rotate270"

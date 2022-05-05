@@ -58,7 +58,6 @@ export const iconNames = [
     jest: ["Button.test.tsx"],
   }}
   argTypes={{
-    attributes: { control: false },
     buttonText: { description: "Only used for Storybook" },
     buttonType: {
       table: { defaultValue: { summary: "primary" } },
@@ -121,7 +120,6 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
   <Story
     name="Button with Controls"
     args={{
-      attributes: undefined,
       buttonText: "Button Text",
       buttonType: "primary",
       className: undefined,
@@ -137,7 +135,6 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
   >
     {(args) => (
       <Button
-        attributes={args.attributes}
         buttonType={args.buttonType}
         className={args.className}
         id={args.id}
@@ -236,37 +233,18 @@ The icon can be placed to the left or the right of the button text.
 </Canvas>
 
 Text in a button is optional if an icon is rendered, but make sure that there
-is an `aria-label` passed to the `Button` component through the `attributes` prop:
-`attributes={{ "aria-label": "Previous" }}`
+is an `aria-label` passed to the `Button` component `aria-label="Previous"`.
 
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button
-        attributes={{
-          "aria-label": "Previous",
-        }}
-        buttonType="secondary"
-        id="prev-btn"
-      >
+      <Button aria-label="Previous" buttonType="secondary" id="prev-btn">
         <Icon name="arrow" iconRotation="rotate90" size="small" />
       </Button>
-      <Button
-        attributes={{
-          "aria-label": "Next",
-        }}
-        buttonType="secondary"
-        id="next-btn"
-      >
+      <Button aria-label="Next" buttonType="secondary" id="next-btn">
         <Icon name="arrow" iconRotation="rotate270" size="small" />
       </Button>
-      <Button
-        attributes={{
-          "aria-label": "Close",
-        }}
-        buttonType="secondary"
-        id="close-btn"
-      >
+      <Button aria-label="Close" buttonType="secondary" id="close-btn">
         <Icon name="close" size="small" />
       </Button>
     </ButtonGroup>

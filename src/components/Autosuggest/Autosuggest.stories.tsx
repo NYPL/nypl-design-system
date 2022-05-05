@@ -13,19 +13,15 @@ const StoryWrapper = ({ children }) => (
   <div style={{ padding: "5px", minHeight: "400px" }}>{children}</div>
 );
 
-const libraryRenderInputComponent = (
-  inputProps: React.HTMLProps<HTMLInputElement>
-) => {
+const libraryRenderInputComponent = (inputProps: any) => {
   return (
     <TextInput
-      attributes={{
-        ...inputProps,
-      }}
       id="library-autosuggest"
       isRequired
       labelText="Home Library"
       name="homeLibraryName"
       helperText="Select your home library. Start by typing the name of the library. Try 'ba'."
+      {...inputProps}
     />
   );
 };
@@ -132,12 +128,10 @@ const FishExample = () => {
   const renderInputComponent = (inputProps) => {
     return (
       <TextInput
-        attributes={{
-          ...inputProps,
-        }}
         id="library-fish-autosuggest"
         labelText="Fish in Animal Crossing"
         name="favoriteFish"
+        {...inputProps}
       />
     );
   };
@@ -191,18 +185,14 @@ export const AutosuggestFish = () => (
   </StoryWrapper>
 );
 
-const searchBarRenderInputComponent = (
-  inputProps: React.HTMLProps<HTMLInputElement>
-) => {
+const searchBarRenderInputComponent = (inputProps: any) => {
   return (
     <TextInput
-      attributes={{
-        ...inputProps,
-      }}
       id="autosuggest-searchBar"
       isRequired
       labelText="home library"
       name="homeLibraryName"
+      {...inputProps}
     />
   );
 };

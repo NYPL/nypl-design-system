@@ -17,8 +17,6 @@ export type ButtonTypes =
   | "noBrand";
 
 interface ButtonProps {
-  /** Additional attributes passed to the button. */
-  attributes?: { [key: string]: any };
   /** The button variation to render based on the `ButtonTypes` type.*/
   buttonType?: ButtonTypes;
   /** Additional className to use. */
@@ -41,7 +39,6 @@ interface ButtonProps {
  */
 export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   const {
-    attributes,
     buttonType = "primary",
     children,
     className = "",
@@ -89,7 +86,6 @@ export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
       className={className}
       type={type}
       isDisabled={isDisabled}
-      {...attributes}
       {...btnCallback}
       __css={styles}
       {...rest}

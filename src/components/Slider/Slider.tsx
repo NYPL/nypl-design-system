@@ -150,10 +150,11 @@ export const Slider = chakra((props: React.PropsWithChildren<SliderProps>) => {
   };
   // Props that the two `TextInput` components use.
   const textInputSharedProps = {
-    attributes: { max, min },
     isDisabled,
     isInvalid: finalIsInvalid,
     isRequired,
+    max,
+    min,
     // Never show the label or helper text for the `TextInput` component.
     showHelperInvalidText: false,
     showLabel: false,
