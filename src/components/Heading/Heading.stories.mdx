@@ -44,6 +44,7 @@ export const levelsEnumValues = getStorybookEnumValues(
       control: { type: "select" },
       options: sizesEnumValues.options,
     },
+    noSpace: { table: { defaultValue: { summary: false } } },
   }}
 />
 
@@ -81,6 +82,7 @@ semantic elements can be overwritten using the `size` prop.
       className: undefined,
       id: "heading-id",
       level: "HeadingLevels.Two",
+      noSpace: false,
       size: undefined,
       text: "Default Heading",
       url: undefined,
