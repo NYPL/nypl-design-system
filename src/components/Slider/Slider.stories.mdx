@@ -8,8 +8,6 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import { GridGaps } from "../Grid/GridTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Slider from "./Slider";
 import { getCategory } from "../../utils/componentCategories";
@@ -233,11 +231,7 @@ Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
 
 <Canvas>
   <DSProvider>
-    <Heading
-      id="heading-single-default"
-      level={HeadingLevels.Four}
-      text="Default State"
-    />
+    <Heading id="heading-single-default" level="four" text="Default State" />
     <Slider
       defaultValue={50}
       helperText="Component helper text."
@@ -250,11 +244,7 @@ Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
 
 <Canvas>
   <DSProvider>
-    <Heading
-      id="heading-single-errored"
-      level={HeadingLevels.Four}
-      text="Errored State"
-    />
+    <Heading id="heading-single-errored" level="four" text="Errored State" />
     <Slider
       defaultValue={50}
       helperText="Component helper text."
@@ -268,11 +258,7 @@ Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
 
 <Canvas>
   <DSProvider>
-    <Heading
-      id="heading-single-required"
-      level={HeadingLevels.Four}
-      text="Required State"
-    />
+    <Heading id="heading-single-required" level="four" text="Required State" />
     <Slider
       defaultValue={50}
       helperText="Component helper text."
@@ -286,11 +272,7 @@ Note that Chakra handles its two slider thumbs aria attributes: `aria-valuemin`,
 
 <Canvas>
   <DSProvider>
-    <Heading
-      id="heading-single-disabled"
-      level={HeadingLevels.Four}
-      text="Disabled State"
-    />
+    <Heading id="heading-single-disabled" level="four" text="Disabled State" />
     <Slider
       defaultValue={50}
       helperText="Component helper text."
@@ -308,11 +290,7 @@ To enable the Range Slider, set the `isRangeSlider` prop to true.
 
 <Canvas>
   <DSProvider>
-    <Heading
-      id="heading-range-default"
-      level={HeadingLevels.Four}
-      text="Default State"
-    />
+    <Heading id="heading-range-default" level="four" text="Default State" />
     <Slider
       defaultValue={[25, 75]}
       helperText="Component helper text."
@@ -326,12 +304,8 @@ To enable the Range Slider, set the `isRangeSlider` prop to true.
 
 <Canvas>
   <DSProvider>
-    <Heading
-      id="heading-range-errored"
-      level={HeadingLevels.Four}
-      text="Errored State"
-    />
-    <SimpleGrid columns={1} gap={GridGaps.Large}>
+    <Heading id="heading-range-errored" level="four" text="Errored State" />
+    <SimpleGrid columns={1} gap="grid.l">
       <Slider
         defaultValue={[25, 75]}
         helperText="Component helper text."
@@ -364,11 +338,7 @@ To enable the Range Slider, set the `isRangeSlider` prop to true.
 
 <Canvas>
   <DSProvider>
-    <Heading
-      id="heading-range-required"
-      level={HeadingLevels.Four}
-      text="Required State"
-    />
+    <Heading id="heading-range-required" level="four" text="Required State" />
     <Slider
       defaultValue={[25, 75]}
       helperText="Component helper text."
@@ -383,11 +353,7 @@ To enable the Range Slider, set the `isRangeSlider` prop to true.
 
 <Canvas>
   <DSProvider>
-    <Heading
-      id="heading-range-disabled"
-      level={HeadingLevels.Four}
-      text="Disabled State"
-    />
+    <Heading id="heading-range-disabled" level="four" text="Disabled State" />
     <Slider
       defaultValue={[25, 75]}
       helperText="Component helper text."
@@ -409,10 +375,10 @@ input are hidden.
   <DSProvider>
     <Heading
       id="heading-single-labels"
-      level={HeadingLevels.Four}
+      level="four"
       text="With and Without Component Labels"
     />
-    <SimpleGrid columns={1} gap={GridGaps.ExtraLarge}>
+    <SimpleGrid columns={1} gap="grid.xl">
       <Slider
         defaultValue={50}
         helperText="Component helper text."
@@ -466,10 +432,10 @@ For the following examples, all labels are hidden.
   <DSProvider>
     <Heading
       id="heading-single-labels-inputs"
-      level={HeadingLevels.Four}
+      level="four"
       text="With and Without Internal Inputs and Labels"
     />
-    <SimpleGrid columns={1} gap={GridGaps.ExtraLarge}>
+    <SimpleGrid columns={1} gap="grid.xl">
       <Slider
         defaultValue={50}
         helperText="Component helper text."
@@ -516,7 +482,7 @@ In the following examples, all the labels are hidden.
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1} gap={GridGaps.ExtraLarge}>
+    <SimpleGrid columns={1} gap="grid.xl">
       <Slider
         defaultValue={[15, 75]}
         helperText="Component helper text."

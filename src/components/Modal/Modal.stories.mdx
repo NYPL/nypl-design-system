@@ -9,7 +9,6 @@ import {
 import { useState } from "react";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import { ModalTrigger, useModal } from "./Modal";
@@ -139,7 +138,7 @@ export const ModalStory = (args) => {
         <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
-        <Button buttonType={ButtonTypes.Secondary} id="2" onClick={onOpen}>
+        <Button buttonType="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>
@@ -180,7 +179,7 @@ export const ModalStory = (args) => {
         <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
-        <Button buttonType={ButtonTypes.Secondary} id="2" onClick={onOpen}>
+        <Button buttonType="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>

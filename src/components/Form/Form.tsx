@@ -1,8 +1,7 @@
 import { chakra } from "@chakra-ui/react";
 import * as React from "react";
 
-import { FormGaps } from "./FormTypes";
-import SimpleGrid from "../Grid/SimpleGrid";
+import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
 
 interface FormBaseProps {
   /** className to be applied to FormRow, FormField, and Form */
@@ -10,7 +9,7 @@ interface FormBaseProps {
   /** Optional spacing size; if omitted, the default `large` (2rem / 32px)
    * spacing will be used; ```IMPORTANT: for general form layout, this prop
    * should not be used``` */
-  gap?: FormGaps;
+  gap?: GridGaps;
   /** ID that other components can cross reference (internal use) */
   id: string;
 }
@@ -77,7 +76,7 @@ export const Form = chakra(
       action,
       children,
       className,
-      gap = FormGaps.Large,
+      gap = "grid.l",
       id,
       method,
       onSubmit,
