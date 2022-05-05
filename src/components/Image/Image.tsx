@@ -33,7 +33,7 @@ export interface ComponentImageProps {
   /** Optional value to render as a credit for the internal `Image` component. */
   credit?: string;
   /** Optional value to control the size of the internal `Image` component.
-   * Defaults to `ImageSizes.Medium`. */
+   * Defaults to `ImageSizes.Default`. */
   size?: ImageSizes;
   /** Optional value that contains the path to an image. If omitted, the internal
    * DS `Image` component will not render. */
@@ -58,7 +58,7 @@ export interface ImageProps extends ImageWrapperProps {
   /** Optionally pass in additional Chakra-based styles only for the image. */
   additionalImageStyles?: { [key: string]: any };
   /** Alternate text description of the image */
-  alt: string;
+  alt?: string;
   /** Adding will wrap the image in a <figure> */
   caption?: string;
   /** Custom image component */
@@ -68,7 +68,7 @@ export interface ImageProps extends ImageWrapperProps {
   /** Optional value for the image type */
   imageType?: ImageTypes;
   /** The src attribute is required, and contains the path to the image you want to embed. */
-  src: string;
+  src?: string;
 }
 
 const ImageWrapper = chakra(

@@ -11,6 +11,10 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
+interface CustomColors {
+  backgroundColor?: string;
+  color?: string;
+}
 export interface TableProps {
   /** Additional class name for the `Table` component. */
   className?: string;
@@ -41,7 +45,7 @@ export interface TableProps {
 export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
   const {
     className,
-    columnHeaders,
+    columnHeaders = [],
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
     id,
@@ -51,8 +55,7 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
     useRowHeaders = false,
     ...rest
   } = props;
-
-  const customColors = {};
+  const customColors: CustomColors = {};
 
   columnHeadersBackgroundColor &&
     (customColors["backgroundColor"] = columnHeadersBackgroundColor);

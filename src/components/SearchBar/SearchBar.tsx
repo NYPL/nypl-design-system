@@ -21,6 +21,7 @@ interface BaseProps {
 // Internal interfaces that are used only for `SearchBar` props.
 export interface SelectProps extends BaseProps {
   optionsData: string[];
+  onChange?: (event: React.FormEvent) => void;
 }
 export interface TextInputProps extends BaseProps {
   placeholder?: string;
@@ -74,7 +75,7 @@ export interface SearchBarProps {
 export const SearchBar = chakra((props: SearchBarProps) => {
   const {
     action,
-    buttonOnClick = null,
+    buttonOnClick,
     className,
     descriptionText,
     headingText,
