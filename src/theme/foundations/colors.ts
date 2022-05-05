@@ -4,6 +4,12 @@ import { Colors } from "@chakra-ui/react";
  * All colors can be found in Storybook:
  *   https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/style-guide-colors--page
  *
+ * All UI colors can be found in Figma:
+ *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=47083%3A27674
+ *
+ * All Brand colors can be found in Figma:
+ *   https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007
+ *
  * At the end of this file, there are objects that extend Chakra's default
  * color shade palette for individual colors. WE DO NOT RECOMMEND to use them
  * and only recommend to use the colors defined by the Design System such as the
