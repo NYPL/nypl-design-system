@@ -320,8 +320,8 @@ describe("Slider", () => {
 
     it("gets the current value through the onChange callback function", () => {
       let currentValue = 0;
-      function onChange(value) {
-        currentValue = value;
+      function onChange(value: number | number[]) {
+        currentValue = value as number;
       }
 
       render(

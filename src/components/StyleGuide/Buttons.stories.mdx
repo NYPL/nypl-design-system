@@ -27,7 +27,7 @@ component to render form buttons.
 ```jsx
 import { Button } from "@nypl/design-system-react-components";
 
-<Button>Button Text</Button>;
+<Button id="btn">Button Text</Button>;
 ```
 
 ## Guidelines
@@ -58,7 +58,7 @@ can be achieved by using the `Form` component to wrap the `Button`s.
   <DSProvider>
     <ButtonGroup>
       <Button id="basic">Button Text</Button>
-      <Button id="with-icon">
+      <Button id="btn-search">
         <Icon name="search" size="small" align="left" />
         Button Text
       </Button>
@@ -68,7 +68,7 @@ can be achieved by using the `Form` component to wrap the `Button`s.
       <Button buttonType="callout" id="donate">
         Donate
       </Button>
-      <Button buttonType="secondary" id="top">
+      <Button buttonType="secondary" id="btn-back-to-top">
         Back to Top
         <Icon
           name="arrow"
@@ -158,7 +158,7 @@ component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button buttonType="callout" id="donate2">
+      <Button buttonType="callout" id="callout2">
         Donate to this library
       </Button>
       <Button buttonType="secondary" id="secondary2">
@@ -170,11 +170,11 @@ component.
           size="small"
         />
       </Button>
-      <Button buttonType="secondary" id="secondary3">
+      <Button buttonType="secondary" id="previous">
         <Icon align="left" iconRotation="rotate90" name="arrow" size="small" />
         Previous
       </Button>
-      <Button buttonType="secondary" id="secondary4">
+      <Button buttonType="secondary" id="next">
         Next
         <Icon
           align="right"

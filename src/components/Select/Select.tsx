@@ -11,6 +11,7 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
 import Label from "../Label/Label";
+import { AriaAttributes } from "../../utils/interfaces";
 
 export type SelectTypes = "default" | "searchbar";
 export type LabelPositions = "default" | "inline";
@@ -88,9 +89,9 @@ export const Select = chakra(
         value = "",
         ...rest
       } = props;
-      const ariaAttributes = {};
+      const ariaAttributes: AriaAttributes = {};
       const [labelWidth, setLabelWidth] = useState<number>(0);
-      const labelRef = useRef<HTMLInputElement>();
+      const labelRef = useRef<HTMLDivElement>(null);
       const styles = useMultiStyleConfig("CustomSelect", {
         variant: selectType,
         labelPosition,
@@ -98,9 +99,7 @@ export const Select = chakra(
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
-      const footnote: HelperErrorTextType = isInvalid
-        ? finalInvalidText
-        : helperText;
+      const footnote = isInvalid ? finalInvalidText : helperText;
       // To control the `Select` component, both `onChange` and `value`
       // must be passed.
       const controlledProps = onChange ? { onChange, value } : {};

@@ -38,8 +38,6 @@ export const TextInputFormats = {
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps {
-  /** Additional attributes to pass to the `<input>` or `<textarea>` element */
-  attributes?: { [key: string]: any };
   /** A class name for the TextInput parent div. */
   className?: string;
   /** The starting value of the input field. */
@@ -59,6 +57,12 @@ export interface InputProps {
   /** Provides text for a `Label` component if `showLabel` is set to true;
    * populates an `aria-label` attribute if `showLabel` is set to false. */
   labelText: string;
+  /** The max number for a `number` TextInput type. */
+  max?: number;
+  /** The max length of the input field. */
+  maxLength?: number;
+  /** The min number for a `number` TextInput type. */
+  min?: number;
   /** Used to reference the input element in forms. */
   name?: string;
   /** The action to perform on the `input`/`textarea`'s onChange function  */
@@ -67,6 +71,10 @@ export interface InputProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
+  /** The action to perform on the `input`/`textarea`'s onClick function  */
+  onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+  /** The action to perform on the `input`/`textarea`'s onFocus function  */
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** Populates the placeholder for the input/textarea elements */
   placeholder?: string;
   /** Offers the ability to hide the helper/invalid text. */
@@ -102,7 +110,6 @@ export const TextInput = chakra(
   React.forwardRef<TextInputRefType, InputProps>(
     (props, ref: React.Ref<TextInputRefType>) => {
       const {
-        attributes = {},
         className,
         defaultValue,
         helperText,
@@ -112,8 +119,13 @@ export const TextInput = chakra(
         isInvalid = false,
         isRequired = false,
         labelText,
+        max,
+        maxLength,
+        min,
         name,
         onChange,
+        onClick,
+        onFocus,
         placeholder,
         showHelperInvalidText = true,
         showLabel = true,
@@ -135,6 +147,7 @@ export const TextInput = chakra(
       let footnote: HelperErrorTextType = isInvalid
         ? finalInvalidText
         : helperText;
+      let ariaAttributes = {};
       let fieldOutput;
       let options;
 
@@ -145,10 +158,10 @@ export const TextInput = chakra(
       }
 
       if (!showLabel) {
-        attributes["aria-label"] =
+        ariaAttributes["aria-label"] =
           labelText && footnote ? `${labelText} - ${footnote}` : labelText;
       } else if (helperText) {
-        attributes["aria-describedby"] = `${id}-helperText`;
+        ariaAttributes["aria-describedby"] = `${id}-helperText`;
       }
 
       if (type === "tel" || type === "url" || type === "email") {
@@ -172,13 +185,19 @@ export const TextInput = chakra(
             isDisabled,
             isRequired,
             isInvalid,
-            placeholder,
+            max,
+            maxLength,
+            min,
             name,
             onChange,
+            onClick,
+            onFocus,
+            placeholder,
             ref,
             // The `step` attribute is useful for the number type.
             step: type === "number" ? step : null,
-            ...attributes,
+            ...ariaAttributes,
+            ...rest,
           };
       // For `input` and `textarea`, all attributes are the same but `input`
       // also needs `type` and `value` to render correctly.

@@ -1,6 +1,13 @@
 import { cssVar } from "@chakra-ui/theme-tools";
 
-const toggleBaseStyle = ({ isDisabled, size }) => {
+import { ToggleSizes } from "../../components/Toggle/Toggle";
+
+interface ToggleBaseStyle {
+  isDisabled: boolean;
+  size: ToggleSizes;
+}
+
+const toggleBaseStyle = ({ isDisabled, size }: ToggleBaseStyle) => {
   const label = { alignItems: "start", display: "flex", width: "fit-content" };
   const helperErrorText = {
     marginLeft: size === "default" ? "xxl" : "xl",

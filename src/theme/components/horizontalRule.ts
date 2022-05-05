@@ -1,5 +1,9 @@
+interface HorizontalRuleBaseStyle {
+  align: string;
+}
+
 const HorizontalRule = {
-  baseStyle: ({ align }) => ({
+  baseStyle: ({ align }: HorizontalRuleBaseStyle) => ({
     bg: "ui.gray.light-cool",
     border: "0",
     height: "2px",

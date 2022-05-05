@@ -127,7 +127,7 @@ export const StructuredContent = chakra(
             caption={imageProps.caption}
             credit={imageProps.credit}
             size={imageProps.size}
-            src={imageProps.src ? imageProps.src : null}
+            src={imageProps.src ? imageProps.src : undefined}
           />
         )}
         {finalBodyContent}
