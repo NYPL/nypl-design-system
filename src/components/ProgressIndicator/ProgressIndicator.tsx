@@ -1,24 +1,22 @@
-import React from "react";
 import {
   Box,
+  chakra,
   CircularProgress as ChakraCircularProgress,
   CircularProgressLabel as ChakraCircularProgressLabel,
   Progress as ChakraProgress,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import React from "react";
 
-import {
-  ProgressIndicatorSizes,
-  ProgressIndicatorTypes,
-} from "./ProgressIndicatorTypes";
-import generateUUID from "../../helpers/generateUUID";
 import Label from "../Label/Label";
 
+export type ProgressIndicatorSizes = "default" | "small";
+export type ProgressIndicatorTypes = "circular" | "linear";
 export interface ProgressIndicatorProps {
   /** Flag to render the component in a dark background. */
   darkMode?: boolean;
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Whether the `ProgressIndicator` should be linear or circular. */
   indicatorType?: ProgressIndicatorTypes;
   /** Whether the progress animation should display because the `value` prop is
@@ -40,27 +38,33 @@ export interface ProgressIndicatorProps {
  * time to complete or consists of multiple steps. Examples include downloading,
  * uploading, or processing.
  */
-const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
-  props: ProgressIndicatorProps
-) => {
+export const ProgressIndicator = chakra((props: ProgressIndicatorProps) => {
   const {
     darkMode = false,
-    id = generateUUID(),
-    indicatorType = ProgressIndicatorTypes.Linear,
+    id,
+    indicatorType = "linear",
     isIndeterminate = false,
     labelText,
     showLabel = true,
-    size = ProgressIndicatorSizes.Default,
+    size = "default",
     value = 0,
+    ...rest
   } = props;
   const styles = useMultiStyleConfig("ProgressIndicator", {
     darkMode,
     size,
   });
   let finalValue = value;
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Progress Indicator: This component's required `id` prop was not passed."
+    );
+  }
   if (finalValue < 0 || finalValue > 100) {
     console.warn(
-      "ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
+      "NYPL Reservoir ProgressIndicator: An invalid value was passed for the" +
+        " `value` prop, so 0 will be used. A valid value should be a number" +
+        " between 0 and 100."
     );
     finalValue = 0;
   }
@@ -77,24 +81,22 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
   const progressComponent = (indicatorType) => {
     // Only display the percentage text for the default size, not in the
     // indeterminate state, and when `showLabel` is true.
-    if (indicatorType === ProgressIndicatorTypes.Circular) {
+    if (indicatorType === "circular") {
       // For the small size, since the label won't be visible, we need to add
       // it to the parent component's `aria-label` attribute.
-      if (size === ProgressIndicatorSizes.Small) {
+      if (size === "small") {
         progressProps["aria-label"] = labelText;
       }
       return (
         <Box __css={styles.circularContainer}>
           <ChakraCircularProgress {...progressProps} sx={styles.circular}>
-            {showLabel &&
-              !isIndeterminate &&
-              size !== ProgressIndicatorSizes.Small && (
-                <ChakraCircularProgressLabel>
-                  {finalValue}%
-                </ChakraCircularProgressLabel>
-              )}
+            {showLabel && !isIndeterminate && size !== "small" && (
+              <ChakraCircularProgressLabel>
+                {finalValue}%
+              </ChakraCircularProgressLabel>
+            )}
           </ChakraCircularProgress>
-          {showLabel && size !== ProgressIndicatorSizes.Small && (
+          {showLabel && size !== "small" && (
             <Label id={`${id}-label`} htmlFor={id}>
               {labelText}
             </Label>
@@ -120,7 +122,11 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = (
     );
   };
 
-  return <Box __css={styles}>{progressComponent(indicatorType)}</Box>;
-};
+  return (
+    <Box __css={styles} {...rest}>
+      {progressComponent(indicatorType)}
+    </Box>
+  );
+});
 
 export default ProgressIndicator;

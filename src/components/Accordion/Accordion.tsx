@@ -1,24 +1,24 @@
-import * as React from "react";
 import {
-  Box,
   Accordion as ChakraAccordion,
-  AccordionItem,
   AccordionButton,
+  AccordionItem,
   AccordionPanel,
+  Box,
+  chakra,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import Icon from "../Icons/Icon";
-import { IconNames, IconSizes } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
 
-export interface AccordionContentDataProps {
+export type AccordionTypes = "default" | "warning" | "error";
+export interface AccordionDataProps {
+  accordionType?: AccordionTypes;
   label: string;
   panel: string | React.ReactNode;
 }
-
 export interface AccordionProps {
-  /** Array of data to display */
-  contentData: AccordionContentDataProps[];
+  /** Array of data to display, and an optional accordionType */
+  accordionData: AccordionDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
@@ -30,13 +30,9 @@ export interface AccordionProps {
  * is open or closed.
  */
 const getIcon = (isExpanded = false, index, id) => {
-  const iconName = isExpanded ? IconNames.Minus : IconNames.Plus;
+  const iconName = isExpanded ? "minus" : "plus";
   return (
-    <Icon
-      id={`accordion-${id}-icon-${index}`}
-      name={iconName}
-      size={IconSizes.Small}
-    />
+    <Icon id={`accordion-${id}-icon-${index}`} name={iconName} size="small" />
   );
 };
 
@@ -45,7 +41,12 @@ const getIcon = (isExpanded = false, index, id) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromContentData = (data = [], id) => {
+const getElementsFromData = (data = [], id) => {
+  const colorMap = {
+    default: "ui.white",
+    warning: "ui.status.primary",
+    error: "ui.status.secondary",
+  };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const multiplePadding = data?.length > 1 ? 4 : null;
@@ -68,20 +69,43 @@ const getElementsFromContentData = (data = [], id) => {
     return (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
-        {({ isExpanded }) => (
-          <>
-            <AccordionButton
-              id={`${id}-button-${index}`}
-              padding={multiplePadding}
-            >
-              <Box flex="1" textAlign="left">
-                {content.label}
-              </Box>
-              {getIcon(isExpanded, index, id)}
-            </AccordionButton>
-            {panel}
-          </>
-        )}
+        {({ isExpanded }) => {
+          const bgColorByAccordionType = colorMap[content.accordionType];
+          return (
+            <>
+              <AccordionButton
+                id={`${id}-button-${index}`}
+                padding={multiplePadding}
+                bg={
+                  !content.accordionType
+                    ? colorMap.default
+                    : bgColorByAccordionType
+                }
+                _expanded={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "ui.gray.light-cool"
+                      : bgColorByAccordionType,
+                }}
+                _hover={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "transparent"
+                      : bgColorByAccordionType,
+                  borderColor: "ui.gray.dark",
+                }}
+              >
+                <Box flex="1" textAlign="left">
+                  {content.label}
+                </Box>
+                {getIcon(isExpanded, index, id)}
+              </AccordionButton>
+              {panel}
+            </>
+          );
+        }}
       </AccordionItem>
     );
   });
@@ -91,16 +115,21 @@ const getElementsFromContentData = (data = [], id) => {
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-function Accordion(props: React.PropsWithChildren<AccordionProps>) {
-  const { contentData, id = generateUUID(), isDefaultOpen = false } = props;
+export const Accordion = chakra((props: AccordionProps) => {
+  const { accordionData, id, isDefaultOpen = false, ...rest } = props;
 
   // Pass `0` to open the first accordion in the 0-index based array.
   const openFirstAccordion = isDefaultOpen ? 0 : undefined;
   return (
-    <ChakraAccordion id={id} defaultIndex={[openFirstAccordion]} allowMultiple>
-      {getElementsFromContentData(contentData, id)}
+    <ChakraAccordion
+      id={id}
+      defaultIndex={[openFirstAccordion]}
+      allowMultiple
+      {...rest}
+    >
+      {getElementsFromData(accordionData, id)}
     </ChakraAccordion>
   );
-}
+});
 
 export default Accordion;

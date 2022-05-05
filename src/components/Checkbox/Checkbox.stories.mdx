@@ -57,12 +57,31 @@ import DSProvider from "../../theme/provider";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.25.12`  |
+| Latest            | `0.28.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Checked](#checked)
+- [Indeterminate](#indeterminate)
+- [Focused](#focused)
+- [Errored](#errored)
+- [Disabled](#disabled)
+- [Helper Text](#helper-text)
+- [Error Text](#error-text)
+- [With JSX Element Label](#with-jsx-element-label)
+
+## Overview
 
 <Description of={Checkbox} />
 
-This component renders a Checkbox button form element. See below for configuration information. Note that the `id` property, while optional, will
-cause an accessibility violation if none is present.
+This component renders a Checkbox button form element. See below for configuration
+information. Note that the `id` property, while optional, will cause an
+accessibility violation if none is present.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
@@ -90,6 +109,24 @@ cause an accessibility violation if none is present.
 </Canvas>
 
 <ArgsTable story="Checkbox" />
+
+## Accessibility
+
+The `Checkbox` component renders `<label>` and `<input type="checkbox" />`
+elements that are associated with each other; the label has a `for` attribute
+with the value of the `input`'s `id` element. If there is helper or invalid text,
+the `<input>` element will have a `aria-describedby` attribute with the value of
+the helper or invalid text.
+
+When `showLabel` is set to false, the `labelText` value will be set to the
+`<input>`'s `aria-label` attribute.
+
+Resources:
+
+- [W3C WAI ARIA Checkbox Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/checkbox/checkbox-1/checkbox-1.html)
+- [a11ymatters Accessible Checkbox](https://www.a11ymatters.com/pattern/checkbox/)
+- [MDN ARIA: checkbox role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
+- [Chakra UI Checkbox](https://chakra-ui.com/docs/components/form/checkbox)
 
 ## Checked
 
@@ -123,7 +160,10 @@ now be controlled and removed by the parent component in order to remove this st
 
 <Canvas>
   <DSProvider>
-    <Checkbox labelText="Click or tab to the Checkbox to see its focus state" />
+    <Checkbox
+      id="focused"
+      labelText="Click or tab to the Checkbox to see its focus state"
+    />
   </DSProvider>
 </Canvas>
 
@@ -132,8 +172,9 @@ now be controlled and removed by the parent component in order to remove this st
 <Canvas>
   <DSProvider>
     <HStack>
-      <Checkbox isInvalid labelText="I am in an error state" />
+      <Checkbox id="invalid" isInvalid labelText="I am in an error state" />
       <Checkbox
+        id="invalid-checked"
         isInvalid
         isChecked
         labelText="I am checked in an error state"
@@ -147,8 +188,13 @@ now be controlled and removed by the parent component in order to remove this st
 <Canvas>
   <DSProvider>
     <HStack>
-      <Checkbox isDisabled labelText="I am disabled" />
-      <Checkbox isDisabled isChecked labelText="I am checked and disabled" />
+      <Checkbox id="disabled" isDisabled labelText="I am disabled" />
+      <Checkbox
+        id="disabled-checked"
+        isDisabled
+        isChecked
+        labelText="I am checked and disabled"
+      />
     </HStack>
   </DSProvider>
 </Canvas>
@@ -158,6 +204,7 @@ now be controlled and removed by the parent component in order to remove this st
 <Canvas>
   <DSProvider>
     <Checkbox
+      id="helpertext"
       name="testHelperText"
       labelText="I have helper text"
       helperText="I am the helper text for this Checkbox"
@@ -170,10 +217,27 @@ now be controlled and removed by the parent component in order to remove this st
 <Canvas>
   <DSProvider>
     <Checkbox
-      name="testinvalidText"
-      labelText="I have error text"
+      id="invalid-text"
       invalidText="I am the error text for this Checkbox"
       isInvalid
+      name="testinvalidText"
+      labelText="I have error text"
+    />
+  </DSProvider>
+</Canvas>
+
+## With JSX Element Label
+
+This is useful when you want to add dynamic content to the label or add
+a layout to the label. View the `CheckboxGroup` documentation for this
+usage.
+
+<Canvas>
+  <DSProvider>
+    <Checkbox
+      id="jsx-label"
+      labelText={<span>Arts</span>}
+      name="jsxElementLabel"
     />
   </DSProvider>
 </Canvas>

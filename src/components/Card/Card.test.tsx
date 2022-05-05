@@ -4,35 +4,27 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
-import { LinkTypes } from "../Link/LinkTypes";
-import { ImageRatios } from "../Image/ImageTypes";
 
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <Card
         id="cardID"
-        imageSrc="https://placeimg.com/400/200/arch"
-        imageAlt="Alt text"
+        imageProps={{
+          alt: "Alt text",
+          src: "https://placeimg.com/400/200/arch",
+        }}
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level="three" id="heading1">
           The Card Heading
         </CardHeading>
         <CardContent>middle column content</CardContent>
         <CardActions>
-          <Button
-            onClick={() => {}}
-            id="button1"
-            buttonType={ButtonTypes.Primary}
-            type="submit"
-          >
+          <Button onClick={() => {}} id="button1" type="submit">
             Example CTA
           </Button>
         </CardActions>
@@ -45,21 +37,18 @@ describe("Card Accessibility", () => {
     const { container } = render(
       <Card
         id="cardID"
-        imageSrc="https://placeimg.com/400/200/arch"
-        imageAlt="Alt text"
+        imageProps={{
+          alt: "Alt text",
+          src: "https://placeimg.com/400/200/arch",
+        }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level={HeadingLevels.Three} id="heading1">
+        <CardHeading level="three" id="heading1">
           The Card Heading
         </CardHeading>
         <CardContent>middle column content</CardContent>
         <CardActions>
-          <Button
-            onClick={() => {}}
-            id="button1"
-            buttonType={ButtonTypes.Primary}
-            type="submit"
-          >
+          <Button onClick={() => {}} id="button1" type="submit">
             Example CTA
           </Button>
         </CardActions>
@@ -73,20 +62,17 @@ describe("Card", () => {
   const regularCard = (
     <Card
       id="regularCard"
-      imageSrc="https://placeimg.com/400/200/arch"
-      imageAlt="Alt text"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
     >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
+      <CardHeading level="three" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Button
-          onClick={() => {}}
-          id="button1"
-          buttonType={ButtonTypes.Primary}
-          type="submit"
-        >
+        <Button onClick={() => {}} id="button1" type="submit">
           Example CTA
         </Button>
       </CardActions>
@@ -96,10 +82,12 @@ describe("Card", () => {
     <Card
       className="edition-card"
       id="cardWithExtendedStyles"
-      imageAlt="Alt text"
-      imageSrc="https://placeimg.com/300/400/arch"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/300/400/arch",
+      }}
     >
-      <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
+      <CardHeading id="editioncardheading1" level="two">
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -111,15 +99,15 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type={LinkTypes.Button}>
+        <Link id="link-online" href="online" type="button">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type="action">
           <Icon
-            align={IconAlign.Left}
-            iconRotation={IconRotationTypes.Rotate0}
+            align="left"
+            iconRotation="rotate0"
             id="icon-cardWithExtendedStyles"
-            name={IconNames.Download}
+            name="download"
           />
           Download
         </Link>
@@ -130,10 +118,12 @@ describe("Card", () => {
     <Card
       className="edition-card"
       id="cardWithNoCTAs"
-      imageAlt="Alt text"
-      imageSrc="https://placeimg.com/300/400/arch"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/300/400/arch",
+      }}
     >
-      <CardHeading id="editioncardheading1" level={HeadingLevels.Two}>
+      <CardHeading id="editioncardheading1" level="two">
         The Card Heading
       </CardHeading>
       <CardContent>
@@ -147,26 +137,24 @@ describe("Card", () => {
     <Card
       className="edition-card"
       id="cardWithNoContent"
-      imageAlt="Alt text"
-      imageSrc="https://placeimg.com/300/400/arch"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/300/400/arch",
+      }}
     >
-      <CardHeading
-        id="editioncardheading1"
-        level={HeadingLevels.Two}
-        url="#edition-link"
-      >
+      <CardHeading id="editioncardheading1" level="two" url="#edition-link">
         The Card Heading
       </CardHeading>
       <CardActions>
-        <Link id="link-online" href="online" type={LinkTypes.Button}>
+        <Link id="link-online" href="online" type="button">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type="action">
           <Icon
-            align={IconAlign.Left}
-            iconRotation={IconRotationTypes.Rotate0}
+            align="left"
+            iconRotation="rotate0"
             id="icon-cardWithNoContent"
-            name={IconNames.Download}
+            name="download"
           />
           Download
         </Link>
@@ -175,24 +163,20 @@ describe("Card", () => {
   );
   const cardWithNoImage = (
     <Card id="cardWithNoImage" className="edition-card">
-      <CardHeading
-        id="editioncardheading1"
-        level={HeadingLevels.Two}
-        url="#edition-link"
-      >
+      <CardHeading id="editioncardheading1" level="two" url="#edition-link">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type={LinkTypes.Button}>
+        <Link id="link-online" href="online" type="button">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type={LinkTypes.Action}>
+        <Link id="link-icon" href="#url" type="action">
           <Icon
-            align={IconAlign.Left}
-            iconRotation={IconRotationTypes.Rotate0}
+            align="left"
+            iconRotation="rotate0"
             id="icon-cardWithNoImage"
-            name={IconNames.Download}
+            name="download"
           />
           Download
         </Link>
@@ -202,21 +186,18 @@ describe("Card", () => {
   const cardFullClick = () => (
     <Card
       id="fullclick"
-      imageAlt="Alt text"
-      imageSrc="https://placeimg.com/400/200/arch"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
       mainActionLink="http://nypl.org"
     >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
+      <CardHeading level="three" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Button
-          buttonType={ButtonTypes.Primary}
-          id="button1"
-          onClick={() => {}}
-          type="submit"
-        >
+        <Button id="button1" onClick={() => {}} type="submit">
           Example CTA
         </Button>
       </CardActions>
@@ -225,13 +206,83 @@ describe("Card", () => {
   const cardImageComponentAndRatio = () => (
     <Card
       id="fullclick"
-      imageComponent={<Image alt="" src="https://placeimg.com/400/200/arch" />}
-      imageAspectRatio={ImageRatios.ThreeByTwo}
+      imageProps={{
+        aspectRatio: "threeByTwo",
+        component: <Image alt="" src="https://placeimg.com/400/200/arch" />,
+      }}
     >
-      <CardHeading level={HeadingLevels.Three} id="heading1">
+      <CardHeading level="three" id="heading1">
         The Card Heading
       </CardHeading>
       <CardContent>middle column content</CardContent>
+    </Card>
+  );
+  const cardWithRightActions = () => (
+    <Card
+      id="cardID"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
+      isAlignedRightActions
+    >
+      <CardHeading level="three" id="heading1">
+        The Card Heading
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
+      <CardActions>
+        <Button onClick={() => {}} id="button1" type="submit">
+          Example CTA
+        </Button>
+      </CardActions>
+      <CardActions>
+        <Button onClick={() => {}} id="button2" type="submit">
+          Example CTA
+        </Button>
+      </CardActions>
+    </Card>
+  );
+  const cardWithChakraProps = (
+    <Card
+      id="chakraProps"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
+      p="s"
+      color="ui.error.primary"
+    >
+      <CardHeading level="three" id="heading1" color="ui.error.secondary">
+        The Card Heading
+      </CardHeading>
+      <CardContent p="20px">middle column content</CardContent>
+      <CardActions m="20px">
+        <Button onClick={() => {}} id="button1" type="submit">
+          Example CTA
+        </Button>
+      </CardActions>
+    </Card>
+  );
+  const cardWithOtherProps = (
+    <Card
+      id="otherProps"
+      imageProps={{
+        alt: "Alt text",
+        src: "https://placeimg.com/400/200/arch",
+      }}
+      data-testid="card-testid"
+    >
+      <CardHeading level="three" id="heading1" color="ui.error.secondary">
+        The Card Heading
+      </CardHeading>
+      <CardContent data-testid="cardcontent-testid">
+        middle column content
+      </CardContent>
+      <CardActions data-testid="cardaction-testid">
+        <Button onClick={() => {}} id="button1" type="submit">
+          Example CTA
+        </Button>
+      </CardActions>
     </Card>
   );
   let container;
@@ -303,11 +354,13 @@ describe("Card", () => {
     );
   });
 
-  it("Logs a warning when both `imageComponent` and `imageAspectRatio` are passed", () => {
+  it("Logs a warning when both `imageProps.component` and `imageProps.aspectRatio` are passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(cardImageComponentAndRatio());
     expect(warn).toHaveBeenCalledWith(
-      "Both `imageComponent` and `imageAspectRatio` are set but `imageAspectRatio` will be ignored in favor of the aspect ratio on `imageComponent`."
+      "NYPL Reservoir Card: Both the `imageProps.component` and `imageProps.aspectRatio` " +
+        "props were set but `imageProps.aspectRatio` will be ignored in favor " +
+        "of the aspect ratio on `imageProps.component` prop."
     );
   });
 
@@ -318,6 +371,9 @@ describe("Card", () => {
     const withNoContent = renderer.create(cardWithNoContent).toJSON();
     const withNoImage = renderer.create(cardWithNoImage).toJSON();
     const withFullClick = renderer.create(cardFullClick()).toJSON();
+    const withRightActions = renderer.create(cardWithRightActions()).toJSON();
+    const withChakraProps = renderer.create(cardWithChakraProps).toJSON();
+    const withOtherProps = renderer.create(cardWithOtherProps).toJSON();
 
     expect(regular).toMatchSnapshot();
     expect(withExtendedStyles).toMatchSnapshot();
@@ -325,5 +381,8 @@ describe("Card", () => {
     expect(withNoContent).toMatchSnapshot();
     expect(withNoImage).toMatchSnapshot();
     expect(withFullClick).toMatchSnapshot();
+    expect(withRightActions).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -1,13 +1,61 @@
+import {
+  Box,
+  chakra,
+  Icon as ChakraIcon,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import * as React from "react";
-import { Icon as ChakraIcon, Box, useStyleConfig } from "@chakra-ui/react";
 
-import generateUUID from "../../helpers/generateUUID";
-import { LogoNames, LogoSizes } from "./LogoTypes";
 import logoSvgs from "./LogoSvgs";
 
+export type LogoNames =
+  | "logo_bpl_black"
+  | "logo_bpl_white"
+  | "logo_clever_color"
+  | "logo_clever_white"
+  | "logo_firstbook_color"
+  | "logo_firstbook_color_negative"
+  | "logo_lpa_color"
+  | "logo_lpa_black"
+  | "logo_lpa_white"
+  | "logo_mln_black"
+  | "logo_mln_white"
+  | "logo_nypl_full_black"
+  | "logo_nypl_full_white"
+  | "logo_nypl_lion_black"
+  | "logo_nypl_lion_white"
+  | "logo_openebooks_color"
+  | "logo_openebooks_negative"
+  | "logo_openebooks_wtext_color"
+  | "logo_openebooks_wtext_negative"
+  | "logo_qpl_color"
+  | "logo_qpl_black"
+  | "logo_qpl_white"
+  | "logo_qpl_alt_black"
+  | "logo_qpl_alt_white"
+  | "logo_reservoir_icon_color"
+  | "logo_reservoir_vertical_color"
+  | "logo_schomburg_color"
+  | "logo_schomburg_black"
+  | "logo_schomburg_white"
+  | "logo_schomburg_circle_color"
+  | "logo_schomburg_circle_black"
+  | "logo_schomburg_circle_white"
+  | "logo_simplye_color"
+  | "logo_simplye_black"
+  | "logo_simplye_white"
+  | "logo_snfl_black"
+  | "logo_snfl_white"
+  | "logo_treasures_color"
+  | "logo_treasures_color_negative";
+export type LogoSizes =
+  | "default"
+  | "xxsmall"
+  | "xsmall"
+  | "small"
+  | "medium"
+  | "large";
 export interface LogoProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Optional className that will be added to the parent element */
   className?: string;
   /** Logos designated as decorative will be ignored by screenreaders. False
@@ -29,16 +77,16 @@ export interface LogoProps {
  * The `Logo` component renders SVG-based logos and color variants that are
  * commonly used by the New York Public Library.
  */
-export default function Logo(props: React.PropsWithChildren<LogoProps>) {
+export const Logo = chakra((props: React.PropsWithChildren<LogoProps>) => {
   const {
-    additionalStyles = {},
     children,
     className,
     decorative = false,
-    id = generateUUID(),
+    id,
     name,
-    size = LogoSizes.Medium,
+    size = "medium",
     title = `${name} logo`,
+    ...rest
   } = props;
   const styles = useStyleConfig("Logo", {
     size,
@@ -49,18 +97,21 @@ export default function Logo(props: React.PropsWithChildren<LogoProps>) {
     id,
     role: "img",
     title,
+    ...rest,
   };
   let childSVG = null;
 
   // Component prop validation
   if (name && children) {
     console.warn(
-      "Logo accepts either a `name` prop or an `svg` element child. It can not accept both."
+      "NYPL Reservoir Logo: Pass either a `name` prop or an `svg` element " +
+        "child. Do not pass both."
     );
     return null;
   } else if (!name && !children) {
     console.warn(
-      "Pass a logo `name` prop or an SVG child to `Logo` to ensure a logo appears."
+      "NYPL Reservoir Logo: Pass a logo `name` prop or an SVG child to " +
+        "`Logo` to ensure a logo appears."
     );
     return null;
   }
@@ -70,28 +121,27 @@ export default function Logo(props: React.PropsWithChildren<LogoProps>) {
   // render the SVG child with NYPL-theme styling.
   if (name) {
     const SvgComponent: any = logoSvgs[name];
-    return (
-      <ChakraIcon
-        as={SvgComponent}
-        {...logoProps}
-        __css={{ ...styles, ...additionalStyles }}
-      />
-    );
+    return <ChakraIcon as={SvgComponent} {...logoProps} __css={styles} />;
   }
 
   // If no `name` prop was passed, we expect a child SVG element to be passed.
   // Apply logo props to the SVG child.
   if (
     (children as JSX.Element).type === "svg" ||
-    (children as JSX.Element).props.type === "svg" ||
-    (children as JSX.Element).props.mdxType === "svg"
+    (children as JSX.Element).props?.type === "svg" ||
+    (children as JSX.Element).props?.mdxType === "svg"
   ) {
     childSVG = React.cloneElement(children as JSX.Element, {
       ...logoProps,
     });
   } else {
-    console.warn("You must pass an `svg` element to the `Logo` component.");
+    console.warn(
+      "NYPL Reservoir Logo: An `svg` element must be passed to the `Logo` " +
+        "component as its child."
+    );
   }
 
   return <Box __css={styles}>{childSVG}</Box>;
-}
+});
+
+export default Logo;

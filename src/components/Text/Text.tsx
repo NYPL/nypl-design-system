@@ -1,39 +1,33 @@
+import { Text as ChakraText, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Text as ChakraText, useStyleConfig } from "@chakra-ui/react";
-import { TextDisplaySizes } from "./TextTypes";
-import { getVariant } from "../../utils/utils";
+
+export type TextSizes = "default" | "caption" | "tag" | "mini";
 
 export interface TextProps {
   /** Additional class name to render in the `Text` component. */
   className?: string;
-  /** Optional prop to control the text styling */
-  displaySize?: TextDisplaySizes;
   /** Optional prop used to show bolded text */
   isBold?: boolean;
   /** Optional prop used to show itlicized text */
   isItalic?: boolean;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
+  /** Optional prop to control the text styling */
+  size?: TextSizes;
 }
 
-function Text(props: React.PropsWithChildren<TextProps>) {
+export const Text = chakra((props: React.PropsWithChildren<TextProps>) => {
   const {
     children,
     className = "",
-    displaySize = TextDisplaySizes.Default,
     isBold,
     isItalic,
     noSpace,
+    size = "default",
+    ...rest
   } = props;
-
-  let variant = getVariant(
-    displaySize,
-    TextDisplaySizes,
-    TextDisplaySizes.Default
-  );
-
   const styles = useStyleConfig("Text", {
-    variant,
+    variant: size,
     isBold,
     isItalic,
     noSpace,
@@ -41,15 +35,16 @@ function Text(props: React.PropsWithChildren<TextProps>) {
 
   if (!children) {
     console.warn(
-      "The Text component has no children and will not render correctly."
+      "NYPL Reservoir Text: No children were passed and the `Text` component " +
+        "will not render correctly."
     );
   }
 
   return (
-    <ChakraText className={className} sx={styles}>
+    <ChakraText className={className} sx={styles} {...rest}>
       {children}
     </ChakraText>
   );
-}
+});
 
 export default Text;

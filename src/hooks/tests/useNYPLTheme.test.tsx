@@ -10,7 +10,7 @@ describe("useNYPLTheme", () => {
     const { result } = renderHook(() => useNYPLTheme());
 
     expect(warn).toHaveBeenCalledWith(
-      "The `useNYPLTheme` hook must be used inside of `<DSProvider />`."
+      "NYPL Reservoir useNYPLTheme: hook must be used inside of `<DSProvider />`."
     );
     expect(result.current).toEqual({});
   });

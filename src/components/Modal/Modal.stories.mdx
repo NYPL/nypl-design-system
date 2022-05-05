@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ButtonGroup } from "@chakra-ui/react";
 import {
   ArgsTable,
   Canvas,
@@ -6,22 +6,17 @@ import {
   Meta,
   Story,
 } from "@storybook/addon-docs";
+import { useState } from "react";
 
-import Modal from "./Modal";
 import Button from "../Button/Button";
+import Heading from "../Heading/Heading";
+import Link from "../Link/Link";
+import { ModalTrigger, useModal } from "./Modal";
 import { getCategory } from "../../utils/componentCategories";
 
 <Meta
   title={getCategory("Modal")}
   component={Modal}
-  argTypes={{
-    blockName: { control: false },
-    children: { table: { disable: true } },
-    className: { control: false },
-    id: { control: false },
-    modifiers: { control: false },
-    open: { description: "Only used in Storybook." },
-  }}
   parameters={{
     jest: ["Modal.test.tsx"],
   }}
@@ -32,151 +27,275 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.1.0`    |
-| Latest            | `0.3.5`    |
+| Latest            | `0.27.0`   |
 
-<Description of={Modal} />
+## Table of Contents
 
-export const ModalStory = (args) => {
-  const [isModalOpen, setIsModalOpen] = React.useState(args.open);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-  return (
-    <>
-      <Button id="1" onClick={openModal}>
-        Open Modal
-      </Button>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Tempus quam
-        pellentesque nec nam. Sit amet purus gravida quis blandit turpis cursus.
-        Est ante in nibh mauris. Ut faucibus pulvinar elementum integer. Mattis
-        ullamcorper velit sed ullamcorper morbi tincidunt ornare massa.
-        Consectetur purus ut faucibus pulvinar elementum integer enim. Accumsan
-        sit amet nulla facilisi morbi. Sagittis vitae et leo duis. Elit
-        scelerisque mauris pellentesque pulvinar pellentesque. Ullamcorper velit
-        sed ullamcorper morbi. Tellus in hac habitasse platea dictumst.
-        Fermentum leo vel orci porta non. Pulvinar mattis nunc sed blandit
-        libero volutpat sed. Cras semper auctor neque vitae tempus. Turpis
-        egestas sed tempus urna et pharetra pharetra massa. Metus aliquam
-        eleifend mi in nulla posuere sollicitudin aliquam. Sit amet risus nullam
-        eget felis eget nunc. Pharetra et ultrices neque ornare.
-      </p>
-      <p>
-        Pellentesque massa placerat duis ultricies. Viverra suspendisse potenti
-        nullam ac tortor vitae purus faucibus ornare. Pulvinar neque laoreet
-        suspendisse interdum consectetur libero. Amet mauris commodo quis
-        imperdiet massa tincidunt nunc pulvinar sapien. Quisque sagittis purus
-        sit amet. Duis ut diam quam nulla porttitor massa id. Quis enim lobortis
-        scelerisque fermentum dui faucibus in ornare. At lectus urna duis
-        convallis. In mollis nunc sed id semper risus. Dolor sed viverra ipsum
-        nunc aliquet bibendum enim facilisis.
-      </p>
-      {isModalOpen && (
-        <Modal>
-          <Button id="2" onClick={closeModal}>
-            Close Modal
-          </Button>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus
-            quam pellentesque nec nam. Sit amet purus gravida quis blandit
-            turpis cursus. Est ante in nibh mauris. Ut faucibus pulvinar
-            elementum integer. Mattis ullamcorper velit sed ullamcorper morbi
-            tincidunt ornare massa. Consectetur purus ut faucibus pulvinar
-            elementum integer enim. Accumsan sit amet nulla facilisi morbi.
-            Sagittis vitae et leo duis. Elit scelerisque mauris pellentesque
-            pulvinar pellentesque. Ullamcorper velit sed ullamcorper morbi.
-            Tellus in hac habitasse platea dictumst. Fermentum leo vel orci
-            porta non. Pulvinar mattis nunc sed blandit libero volutpat sed.
-            Cras semper auctor neque vitae tempus. Turpis egestas sed tempus
-            urna et pharetra pharetra massa. Metus aliquam eleifend mi in nulla
-            posuere sollicitudin aliquam. Sit amet risus nullam eget felis eget
-            nunc. Pharetra et ultrices neque ornare.
-          </p>
-          <p>
-            Pellentesque massa placerat duis ultricies. Viverra suspendisse
-            potenti nullam ac tortor vitae purus faucibus ornare. Pulvinar neque
-            laoreet suspendisse interdum consectetur libero. Amet mauris commodo
-            quis imperdiet massa tincidunt nunc pulvinar sapien. Quisque
-            sagittis purus sit amet. Duis ut diam quam nulla porttitor massa id.
-            Quis enim lobortis scelerisque fermentum dui faucibus in ornare. At
-            lectus urna duis convallis. In mollis nunc sed id semper risus.
-            Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis.
-          </p>
-          <p>
-            Eget felis eget nunc lobortis mattis aliquam faucibus. Orci dapibus
-            ultrices in iaculis nunc sed. Vel elit scelerisque mauris
-            pellentesque pulvinar. Ultrices neque ornare aenean euismod
-            elementum nisi. Sollicitudin ac orci phasellus egestas tellus rutrum
-            tellus pellentesque. Lorem ipsum dolor sit amet. Tempus imperdiet
-            nulla malesuada pellentesque elit eget gravida cum. Pellentesque
-            massa placerat duis ultricies lacus sed turpis tincidunt. Donec et
-            odio pellentesque diam volutpat. Augue ut lectus arcu bibendum at
-            varius vel pharetra vel. Sit amet justo donec enim diam vulputate ut
-            pharetra sit. Felis eget nunc lobortis mattis aliquam faucibus.
-            Tincidunt praesent semper feugiat nibh sed pulvinar proin. Facilisi
-            nullam vehicula ipsum a. Ut sem nulla pharetra diam sit amet nisl
-            suscipit adipiscing.
-          </p>
-        </Modal>
-      )}
-    </>
-  );
-};
+- [Overview](#overview)
+- [Accessibility](#accessibility)
+- [ModalTrigger](#modaltrigger)
+- [ModalTrigger Component Props](#modaltrigger-component-props)
+- [useModal](#usemodal)
+- [useModal Component Props](#usemodal-component-props)
+- [Content Window Scrolling](#content-window-scrolling)
+
+## Overview
+
+_Note: This component is going through an accessibility review and is not
+recommended for use until it is updated._
+
+## Accessibility
+
+TBD
+
+## ModalTrigger
+
+<Description of={ModalTrigger} />
+
+```jsx
+import { ModalTrigger } from "@nypl/design-system-react-components";
+
+//...
+<ModalTrigger
+  buttonText="Button Text"
+  id="modal-trigger"
+  modalProps={{
+    bodyContent="body text"
+    closeButtonLabel="Close Button"
+    headingText="Modal Heading Text"
+    onClose={() => {
+      console.log("custom close");
+    }}
+  }}
+/>;
+```
+
+## ModalTrigger Component Props
 
 <Canvas withToolbar>
   <Story
-    name="Modal"
+    name="ModalTrigger"
     args={{
-      blockName: undefined,
-      className: undefined,
-      id: "modal-id",
-      modifiers: undefined,
-      open: false,
+      buttonText: "Button Text",
+      id: "modal-trigger",
+      modalProps: {
+        bodyContent: "body text",
+        closeButtonLabel: "Close Button",
+        headingText: "Modal Heading Text",
+        onClose: () => {
+          console.log("custom close");
+        },
+      },
     }}
   >
-    {(args) => <ModalStory {...args} />}
+    {(args) => <ModalTrigger {...args} />}
   </Story>
 </Canvas>
 
-<ArgsTable story="Modal" />
+<ArgsTable story="ModalTrigger" />
 
-## Code Implementation
+## useModal
 
-The `Modal` component displays a pop-up on the page whenever it is rendered. This
-means that the `Modal` component itself does not control or have state for when
-the pop-up should display. Controlling the state for when to render the `Modal`
-component should be contained in the parent component.
+<Description of={useModal} />
 
-Typically, a `Button` is used to trigger the action to render the `Modal`. The
-`Button` to deactivate the modal MUST be a child of the `Modal` component.
+You can retrieve the DS `Modal` component and the `onOpen` and `onClose` function
+handlers when calling the `useModal` function. The `onOpen` function handler is
+used to open the `Modal` React component. This function can be passed to any
+number of elements that use the `onClick` attribute. The `onClose` function can
+be used on any element that uses the `onClick` attribute.
 
-For a wrapper component implementation, we suggest the following template:
+**NOTE: in this case, the `buttonText` prop is not necessary since you have to
+create and render your own button.**
 
-```tsx
-export const PageComponent = () => {
-  // Don't render the Modal by default.
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  // Event handlers that update the local state for rendering the `Modal`.
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+```jsx
+import { useModal } from "@nypl/design-system-react-components";
+
+// ...
+export const ModalStory = (args) => {
+  const { onClose, onOpen, Modal } = useModal();
+  const modalProps = {
+    bodyContent: (
+      <>
+        <Button id="custom-close" onClick={onClose}>
+          Go back
+        </Button>
+        <p>This is the body content.</p>
+        <Button id="custom-close2" onClick={onClose}>
+          This is a custom close button.
+        </Button>
+      </>
+    ),
+    closeButtonLabel: "Close Button",
+    headingText: "Modal Heading Text",
+    onClose: () => {
+      console.log("custom close");
+      onClose();
+    },
+  };
   return (
     <>
-      <Button id="1" onClick={openModal}>
-        Open Modal
-      </Button>
-      <p>Some content this component renders</p>
-      {isModalOpen && (
-        <Modal>
-          <Button id="2" onClick={closeModal}>
-            Close Modal
-          </Button>
-          <p>This is the content that displays inside the `Modal` component.
-            Make sure that there is a child `Button` component in the `Modal`
-            component that "closes" it or removes it from the DOM.
-        </Modal>
-      )}
+      <ButtonGroup>
+        <Button id="1" onClick={onOpen}>
+          Open Modal
+        </Button>
+        <Button buttonType="secondary" id="2" onClick={onOpen}>
+          I can open the modal, too
+        </Button>
+      </ButtonGroup>
+      <div onClick={onOpen}>
+        I'm just a div and shouldn't be used in production but this is just an
+        example
+      </div>
+      <Modal {...modalProps} />
     </>
   );
 };
 ```
+
+export const ModalStory = (args) => {
+  const { onClose, onOpen, Modal } = useModal();
+  const modalProps = {
+    bodyContent: (
+      <>
+        <Button id="custom-close" onClick={onClose}>
+          Go back
+        </Button>
+        <p>This is the body content.</p>
+        <Button id="custom-close2" onClick={onClose}>
+          This is a custom close button.
+        </Button>
+      </>
+    ),
+    closeButtonLabel: "Close Button",
+    headingText: "Modal Heading Text",
+    onClose: () => {
+      console.log("custom close");
+      onClose();
+    },
+  };
+  return (
+    <>
+      <ButtonGroup>
+        <Button id="1" onClick={onOpen}>
+          Open Modal
+        </Button>
+        <Button buttonType="secondary" id="2" onClick={onOpen}>
+          I can open the modal, too
+        </Button>
+      </ButtonGroup>
+      <div onClick={onOpen}>
+        I'm just a div and shouldn't be used in production but this is just an
+        example
+      </div>
+      <Modal {...modalProps} />
+    </>
+  );
+};
+
+## useModal Component Props
+
+<Canvas withToolbar>
+  <Story name="Modal">
+    <ModalStory />
+  </Story>
+</Canvas>
+
+## Content Window Scrolling
+
+In either `Modal` pattern, the main content inside the `Modal` component will
+scroll while the `Modal`'s header and footer still stay static. Check the
+example below with a lot of content inside the `Modal`.
+
+<Canvas withToolbar>
+  <Story
+    name="Content Window Scrolling"
+    args={{
+      buttonText: "Button Text",
+      id: "modal-scrolling",
+      modalProps: {
+        bodyContent: (
+          <>
+            <Heading text="Content Title" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Pellentesque massa placerat duis ultricies lacus sed turpis
+              tincidunt.
+              <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non
+              arcu risus quis varius. Faucibus in ornare quam viverra orci sagittis.
+            </p>
+            <p>
+              Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis
+              enim lobortis scelerisque fermentum. Diam maecenas sed enim ut sem
+              viverra. Diam quam nulla porttitor massa id neque. Sed faucibus
+              turpis in eu mi.
+            </p>
+            <p>
+              Ornare lectus sit amet est placerat in. Quis blandit turpis cursus
+              in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu.
+              Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
+              fermentum. Porttitor leo a diam sollicitudin tempor id eu nisl
+              nunc. Feugiat nisl pretium fusce id velit ut tortor. Porttitor leo
+              a diam sollicitudin tempor id eu nisl nunc.
+            </p>
+            <p>
+              Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
+              gravida quis blandit turpis cursus in hac. Morbi tempus iaculis
+              urna id volutpat. Lectus nulla at volutpat diam ut venenatis.
+              Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus
+              arcu felis bibendum ut tristique. Cras semper auctor neque vitae
+              tempus quam pellentesque. Placerat orci nulla pellentesque
+              dignissim enim sit amet. Feugiat pretium nibh ipsum consequat.
+              Placerat orci nulla pellentesque dignissim. Suspendisse faucibus
+              interdum posuere lorem. Nullam non nisi est sit. Turpis egestas
+              integer eget aliquet nibh praesent. Tortor at risus 'viverra
+              adipiscing at. Eu augue ut lectus arcu bibendum at varius vel'
+              pharetra.
+            </p>
+            <Heading text="Another Title" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Pellentesque massa placerat duis ultricies lacus sed turpis
+              tincidunt.
+              <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non
+              arcu risus quis varius. Faucibus in ornare quam viverra orci sagittis.
+            </p>
+            <p>
+              Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis
+              enim lobortis scelerisque fermentum. Diam maecenas sed enim ut sem
+              viverra. Diam quam nulla porttitor massa id neque. Sed faucibus
+              turpis in eu mi.
+            </p>
+            <p>
+              Ornare lectus sit amet est placerat in. Quis blandit turpis cursus
+              in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu.
+              Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
+              fermentum. Porttitor leo a diam sollicitudin tempor id eu nisl
+              nunc. Feugiat nisl pretium fusce id velit ut tortor. Porttitor leo
+              a diam sollicitudin tempor id eu nisl nunc.
+            </p>
+            <p>
+              Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
+              gravida quis blandit turpis cursus in hac. Morbi tempus iaculis
+              urna id volutpat. Lectus nulla at volutpat diam ut venenatis.
+              Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus
+              arcu felis bibendum ut tristique. Cras semper auctor neque vitae
+              tempus quam pellentesque. Placerat orci nulla pellentesque
+              dignissim enim sit amet. Feugiat pretium nibh ipsum consequat.
+              Placerat orci nulla pellentesque dignissim. Suspendisse faucibus
+              interdum posuere lorem. Nullam non nisi est sit. Turpis egestas
+              integer eget aliquet nibh praesent. Tortor at risus 'viverra
+              adipiscing at. Eu augue ut lectus arcu bibendum at varius vel'
+              pharetra.
+            </p>
+          </>
+        ),
+        closeButtonLabel: "Close Button",
+        headingText: "Modal Heading Text",
+      },
+    }}
+  >
+    {(args) => <ModalTrigger {...args} />}
+  </Story>
+</Canvas>

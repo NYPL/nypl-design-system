@@ -1,5 +1,4 @@
-import { getStorybookEnumValues, range } from "../../utils/utils";
-import { ButtonTypes } from "../../components/Button/ButtonTypes";
+import { range } from "../../utils/utils";
 
 describe("range", () => {
   it("returns an array of values not including the stop argument", () => {
@@ -15,26 +14,5 @@ describe("range", () => {
     expect(range(2, 20, 4)).toEqual([2, 6, 10, 14, 18]);
     expect(range(2, 6, 2)).toEqual([2, 4]);
     expect(range(2, 20, 5)).toEqual([2, 7, 12, 17]);
-  });
-});
-
-describe("getStorybookEnumValues", () => {
-  const enumValues = getStorybookEnumValues(ButtonTypes, "ButtonTypes");
-
-  it("returns an array of values from the enum passed", () => {
-    expect(enumValues.options).toEqual([
-      "ButtonTypes.Primary",
-      "ButtonTypes.Secondary",
-      "ButtonTypes.Callout",
-      "ButtonTypes.Pill",
-      "ButtonTypes.Link",
-      "ButtonTypes.NoBrand",
-    ]);
-  });
-
-  it("returns a function with the value of the argument passed", () => {
-    expect(enumValues.getValue("ButtonTypes.Primary")).toEqual("primary");
-    expect(enumValues.getValue("ButtonTypes.Callout")).toEqual("callout");
-    expect(enumValues.getValue("ButtonTypes.NoBrand")).toEqual("noBrand");
   });
 });

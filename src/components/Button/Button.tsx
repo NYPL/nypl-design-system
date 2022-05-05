@@ -1,24 +1,30 @@
+import {
+  Button as ChakraButton,
+  chakra,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import * as React from "react";
-import { Button as ChakraButton, useStyleConfig } from "@chakra-ui/react";
 
-import { ButtonTypes } from "./ButtonTypes";
 import Icon from "../Icons/Icon";
-import { getVariant } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
 
 export type ButtonElementType = "submit" | "button" | "reset";
+export type ButtonTypes =
+  | "primary"
+  | "secondary"
+  | "callout"
+  | "pill"
+  | "link"
+  | "noBrand";
 
 interface ButtonProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Additional attributes passed to the button. */
   attributes?: { [key: string]: any };
-  /** The kind of button assigned through the `ButtonTypes` enum. */
+  /** The button variation to render based on the `ButtonTypes` type.*/
   buttonType?: ButtonTypes;
   /** Additional className to use. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+  id: string;
   /** Adds 'disabled' property to the button. */
   isDisabled?: boolean;
   /** Trigger the Button's action through the `mouseDown` event handler instead
@@ -33,28 +39,30 @@ interface ButtonProps {
 /**
  * Renders a simple `button` element with custom variant styles.
  */
-// @TODO had to add this to allow refs for Button.
-const Button = React.forwardRef<
-  HTMLButtonElement,
-  React.PropsWithChildren<ButtonProps>
->((props, ref?) => {
+export const Button = chakra((props: React.PropsWithChildren<ButtonProps>) => {
   const {
-    additionalStyles = {},
     attributes,
-    buttonType,
+    buttonType = "primary",
     children,
     className = "",
-    id = generateUUID(),
+    id,
     isDisabled = false,
     mouseDown = false,
     onClick,
     type = "button",
+    ...rest
   } = props;
   const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
   let childCount = 0;
   let hasIcon = false;
-  let variant;
+  let variant: string | ButtonTypes = buttonType;
   let styles = {};
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir Button: This component's required `id` prop was not passed."
+    );
+  }
 
   React.Children.map(children, (child: React.ReactElement) => {
     childCount++;
@@ -70,22 +78,21 @@ const Button = React.forwardRef<
 
   if (childCount === 1 && hasIcon) {
     variant = "iconOnly";
-  } else {
-    variant = getVariant(buttonType, ButtonTypes, ButtonTypes.Primary);
   }
 
   styles = useStyleConfig("Button", { variant });
+
   return (
     <ChakraButton
-      ref={ref}
       id={id}
       data-testid="button"
       className={className}
       type={type}
       isDisabled={isDisabled}
-      __css={{ ...styles, ...additionalStyles }}
       {...attributes}
       {...btnCallback}
+      __css={styles}
+      {...rest}
     >
       {children}
     </ChakraButton>

@@ -8,24 +8,168 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## Adds
+### Updates
+
+- Updates how styles are passed down to internal components in `Card`, `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Hero`, `Notification`, `Pagination`, `Radio`, `RadioGroup`, `SearchBar`, and `Slider`. This is based on removing the `additionalStyles` prop and passing down styles to the `__css` prop.
+- Updates how the `id` is passed in the `DatePicker`'s custom `TextInput` component.
+- Updates how some prop values are passed. Instead of using a Typescript enum object, a Typescript type with the string literal values is used. This still restricts the accepted values for certain props. The enum to string literal type conversion includes the following variables: `AccordionType`, `BreadcrumbsTypes`, `ButtonTypes`, `DatePickerTypes`, `FormGaps` (deleted), `GridGaps`, `HeadingSizes`, `HeadingLevels`, `HeroTypes`, `IconAlign`, `IconTypes`, `IconRotationTypes`, `IconColors`, `IconSizes`, `IconNames`, `LinkTypes`, `ListTypes`, `LogoColors`, `LogoSizes`, `LogoNames`, `NotificationTypes`, `SelectTypes`, `LabelPositions`, `SkeletonLoaderImageRatios`, `StatusBadgeTypes`, `StructuredContentImagePosition`, `TextSizes`, `TextInputTypes`, `TextInputFormats`, `TextInputVariants`, `ToggleSizes`, `VideoPlayerTypes`, `VideoPlayerAspectRatios`, and `LayoutTypes`.
+
+### Removals
+
+- Removes the `additionalStyles` attributes from the `Breadcrumbs`, `Button`, `Heading`, `HelperErrorText`, `Icon`, `Link`, `List`, `Logo`, `Select`, `TextInput`, and `Toggle` components.
+- Removes `getVariant` and `getStorybookEnumValues` helper functions.
+- Removes all Typescript enum objects in favor of string literal types.
+
+## 0.27.0 (April 27, 2022)
+
+### Adds
+
+- Adds two patterns for rendering the updated `Modal` component. This is still an ongoing work-in-progress as the `Modal` gets finalized but it is now using Chakra under-the-hood.
+- Adds `@chakra-ui/storybook-addon` so stories automatically pick up the Chakra-based NYPL theme.
+
+### Updates
+
+- Updates React and React DOM to version 17.
+- Updates Chakra packages `@chakra-ui/react` and `@chakra-ui/system`.
+- Updates the `HelperErrorText` styling to correctly display when used with a `Select` element with a `labelPosition` of inline.
+
+### Removals
+
+- Removes the following packages: `@storybook/addon-queryparams` and `react-router-dom`.
+
+## 0.26.1 (April 22, 2022)
+
+### Updates
+
+- Updates storybook URL from /reservoir/v0_26 to /reservoir/v0.
+
+### Fixes
+
+- Adds updated package-lock file to fix bad installations.
+
+## 0.26.0 (April 22, 2022)
+
+### Adds
+
+- Exports the `useCarouselStyles` and `useWindowSize` hooks and adds documentation for all hooks in Storybook.
+- Adds additional semantic design tokens from `fontWeights` and `fontSizes` to the `useNYPLTheme` hook.
+- Adds a warning if a required `id` prop is not passed to one of the "Form Elements": `Button`, `Checkbox`, `CheckboxGroup`, `DatePicker`, `Fieldset`, `Form`, `Label`, `ProgressIndicator`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`.
+- Adds the `isRequired` prop to the `Label` component.
+- Adds the `labelPosition` prop to the `Select` component, so that the label can be styled inline with the select input.
+- Adds Chakra's "Style Props" functionality to every Reservoir component. For composed components, such as the `SearchBar` component, these style props are passed to wrapper element. This update also updates the snapshot tests for every component.
+- Adds the functionality to pass all valid HTML attributes to a Reservoir component, such as `data-*` props.
+- Adds semantic design tokens for `spacing` theme object.
+- Adds the `isAlignedRightActions` prop to the `Card` component to render `CardActions` components to the right of the main content area. This only works for the `Card`'s row layout.
+- Adds styles to target native HTML basic elements inside the `StructuredContent` component.
+- Adds `Reservoir` branding to Storybook.
+
+### Changes
+
+- Updates the hex color value for `ui.gray.light-cool`, `ui.disabled.primary` and `section.blogs.primary`.
+- Updates the default background color used in the `Accordion` component.
+- Updates the default background color used in the `Hero` component.
+- Updates the background color used in the `SkeletonLoader` component.
+- Updates the background color used in the `VideoPlayer` component.
+- Updates the background colors used in the `Tabs` component.
+- Updates the colors for "secondary" and "pill" variants of the `Button` component.
+- Updates the color values used in the `disabled` state for the `Checkbox`, `Radio`, `Select`, `Slider`, `TextInput` and `Toggle` components.
+- Updates the `Checkbox` component to use "3px" for the border radius.
+- Makes the id prop required for all "Form Elements".
+- Updates how the `Required` text in the `Label` and `Fieldset` components is displayed. Instead of floating to the right of the label and legend elements, it is now displayed inlined as `(Required)`.
+- Renames the `optReqFlag` prop to `showRequiredLabel` in the `CheckboxGroup`, `Fieldset`, `RadioGroup`, and `Slider` components.
+- Renames the `showOptReqLabel` prop to `showRequiredLabel` in the `DatePicker`, `Select`, and `TextInput` components.
+- Uses the design token "text.caption" variable for the `Notification`'s font size.
+- Updates the styling for the `HelperErrorText` to be consistent for all components that use it
+- Refactors the `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Fieldset`, `Label`, `Radio`, `RadioGroup`, `Select`, `Slider`, `TextInput`, and `Toggle` to better use the updated `HelperErrorText` styling.
+- Renames the `Card`'s `center` prop to `isCentered` and `border` prop to `isBordered`.
+- Renames the `SkeletonLoader` component's `border` prop to `isBordered`.
+- Refactors the DS `RadioGroup` component so it internally implements Chakra's `RadioGroup` component rather than the `useRadioGroup` hook. The "uncontrolled" version of Chakra's `RadioGroup` is not working and will be investigated in the future. It is recommended to use the controlled component pattern.
+- Updates the `Fieldset` component to render the "Optional"/"Required" text in the `legend` element as pseudo CSS in the `::after` rule.
+- Passes the `isRequired` prop in the `RadioGroup` and `CheckboxGroup` to the `Fieldset` wrapper component.
+- Updates the `focus` styles for the `Radio`, `Select` and `TextInput` components.
+- Updates the references of the `<dl>` element from "Definition" to "Description", as that's the official name in HTML5. This affects the `List` element and its `ListTypes.Description` enum value.
+- Updates styles for `React Datepicker`'s calendar popup in the `DatePicker` component.
+- Updates storybook URL from /storybook-static/ to /reservoir/v0_26.
+- Updates all references to "design system" in the Storybook documentation to include "Reservoir" in the name of the design system.
+- Updates language on the `Welcome` page.
+
+### Removals
+
+- Removes the default `Optional` text displayed in the `Label` and `Fieldset` components.
+- Removes the `optReqFlag` prop in the `Label` component.
+- Removes the default autogenerated id for all components, as well as the `uuid` package.
+- Removes the `HorizontalRule`'s `height` and `width` props from its prop interface in favor of Chakra's style props; the default values are still set for `height` and `width`.
+
+### Fixes
+
+- Fixes how the `Button` component gets rendered inside the `Form` and `FormField` component layout.
+- Fixes how the `Select` component is controlled in the `SearchBar` component.
+
+## 0.25.13 (April 1, 2022)
+
+### Adds
 
 - Adds a `contentId` prop to the `TemplateAppContainer` component and adds an `id` prop to the `TemplateContent` component. The default value of these `id`s are both set to "mainContent" and it will render as an attribute on the `main` HTML element. This is used as the target for the skip navigation link in consuming applications.
 - Adds an `Accessibility Guide` section to Storybook with a "Skip Navigation" page.
+- Adds the `isFullWidth` prop to the `CheckboxGroup` and `RadioGroup` components. This sets the wrapper element to be full width for labels that need to span its container.
+- Adds an optional key – `accordionType` to the `Accordion`'s `contentData` prop, which allows users to switch the background color of the `Accordion`'s button.
+- Created new `LayoutTypes` enum for row and column layouts.
+- Adds the value "Default" to the `IconSizes` enum.
 
 ### Changes
 
 - Updates Storybook's sidebar categories and documentation.
 - Updates the `Image`'s caption font size to "12px" (`text.tag`).
+- Updates the `Checkbox`'s and `Radio`'s `labelText` prop to accept strings and JSX Elements.
+- Updates the `Toggle`'s internal styling for the default and small sizes.
+- Updates the `Accordion` button's background color when expanded, adds a border color when hovered over, and adjusts the padding.
+- Updates the `CardImage`'s margin bottom in the row and column layouts for mobile to be the same.
+- Updates the `CardImage` to have width 100% on mobile regardless of size.
+- Updates all the console warnings with consistent NYPL branding prefix label.
+- Renames the `Accordion` prop `contentData` to `accordionData`.
+- Renames the `Breadcrumbs` prop `colorVariant` to `breadcrumbsType`.
+- Renames the `Card` prop `center` to `isCentered`.
+- Updates the `Card` prop `layout` to use the `LayoutTypes` enum instead of `CardLayouts`.
+- Updates the `CheckboxGroup` prop `layout` to use the `LayoutTypes` enum instead of `CheckboxGroupLayoutTypes`.
+- Renames the `Heading` prop `displaySize` to `size.
+- Renames the `HeadingDisplaySizes` enum to `HeadingSizes.
+- Renames the `Hero` prop `image` to `imageComponent`.
+- Renames the `Image` prop `imageSize` to `size`.
+- Renames the `Notification` prop `centered` to `isCentered`.
+- Updates the `RadioGroup` prop `layout` to use the `LayoutTypes` enum instead of `RadioGroupLayoutTypes`.
+- Internal updates to the `SearchBar` component based on updates from the `Select` and `TextInput` components.
+- Renames the `Select` prop `type` to `selectType`.
+- Updates the `SkeletonLoader` prop `layout` to use the `LayoutTypes` enum instead of `SkeletonLoaderLayouts`.
+- Renames the `StructuredContentImage` prop `imageSize` to `size` (this component is based on the `Image` component).
+- Internal updates to the `StructuredContent` component based on updates from the `Image` and `Heading` components.
+- Renames the `Tabs` prop `contentData` to `tabsData`.
+- Renames the `Text` prop `displaySize` to `size`.
+- Renames the `TextInput` prop `variant` to `textInputType`.
+- Updates the `Card` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, isAtEnd, size, and src.
+- Updates the `Hero` prop `image` to `imageAlt` and `imageSrc`. Internally, an `Image` component is created.
+- Renames the `Image` component props `imageAspectRatio` to `aspectRatio`, `imageCaption` to `caption`, and `imageCredit` to `credit`.
+- Updates the `StructuredContent` image-related props into one main prop named `imageProps`. This new prop contains the following properties: alt, aspectRatio, caption, component, credit, position, size, and src.
+- Renames the `ToggleSizes.tsx` file to `ToggleTypes.tsx`. Updates the values from `Large` and `Small` to `Default` and `Small`.
+- Minor update to the logic for the `ProgressIndicator` sizing prop and styles.
 
 ### Fixes
 
 - Fixes bug where the Next button in `Pagination` would navigate to the previous page.
 - Fixes the alignment of the first link in the `Pagination` component.
+- Fixes the `Breadcrumbs`' SVG arrow icon fill color for the "Blogs" variant.
+- Fixes the margin right value for list items in the `List` component for the inline style.
+- Fixes bug in the `Select` component where the SVG arrow hides when the component is focused.
+- Fixes the extra bottom spacing in the `HeroTypes.Campaign` `Hero` variant for the mobile view.
+- Fixes the `Slider` component so it doesn't cause a stack overflow client-side issue when updating the slider thumbs through the keyboard arrows. The values are now returned through Chakra's `onChange` callback instead of the `onChangeEnd` callback.
+
+### Removals
+
+- Removes the `CardLayouts`, `CheckboxGroupLayoutTypes`, `RadioGroupLayoutTypes`, and `SkeletonLoaderLayouts` enums.
+- Removes the `CardTypes.tsx`,` CheckboxGroupLayoutTypes.tsx`, and `RadioGroupLayoutTypes.tsx` files.
 
 ## 0.25.12 (March 18, 2022)
 
-## Adds
+### Adds
 
 - Adds `Education` section colors to the color palette theme object.
 - Adds a `currentPage` prop to the `Pagination` component, a value that updates the selected page programmatically without the user explicitly requesting it.

@@ -1,9 +1,7 @@
 import * as React from "react";
 
 import Card from "../Card/Card";
-import { CardLayouts } from "../Card/CardTypes";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 
 export interface ColorCardProps {
   /** backgroundColor of the color card */
@@ -25,12 +23,12 @@ export default function ColorCard(
     <div style={{ display: "flex", alignItems: "center" }}>
       <Card
         backgroundColor={backgroundColor}
-        center
-        layout={CardLayouts.Column}
-        border
+        isBordered
+        isCentered
+        layout="column"
       />
       <div style={{ marginLeft: "1rem" }}>
-        <Heading level={HeadingLevels.Four}>{colorName}</Heading>
+        <Heading level="four">{colorName}</Heading>
         {/* 
         TODO:
         This code is returning the CSS variable name.  This is not what we 

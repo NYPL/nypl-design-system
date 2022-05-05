@@ -151,8 +151,9 @@ describe("TemplateAppContainer component", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "`TemplateHeader`: An HTML `header` element was passed in. Set " +
-        "`renderHeaderElement` to `false` to avoid nested HTML `header` elements."
+      "NYPL Reservoir TemplateHeader: An HTML `header` element was passed " +
+        "in. Set `renderHeaderElement` to `false` to avoid nested HTML " +
+        "`header` elements."
     );
   });
 
@@ -189,8 +190,9 @@ describe("TemplateAppContainer component", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "`TemplateFooter`: An HTML `footer` element was passed in. Set " +
-        "`renderFooterElement` to `false` to avoid nested HTML `footer` elements."
+      "NYPL Reservoir TemplateFooter: An HTML `footer` element was passed " +
+        "in. Set `renderFooterElement` to `false` to avoid nested HTML " +
+        "`footer` elements."
     );
   });
 });
@@ -267,8 +269,41 @@ describe("Template components", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <TemplateAppContainer
+          aboveHeader={aboveHeader}
+          header={header}
+          breakout={breakout}
+          sidebar={sidebar}
+          contentTop={contentTop}
+          contentSidebar={contentSidebar}
+          contentPrimary={contentPrimary}
+          footer={footer}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <TemplateAppContainer
+          aboveHeader={aboveHeader}
+          header={header}
+          breakout={breakout}
+          sidebar={sidebar}
+          contentTop={contentTop}
+          contentSidebar={contentSidebar}
+          contentPrimary={contentPrimary}
+          footer={footer}
+          data-testid="props"
+        />
+      )
+      .toJSON();
 
     expect(templateComponents).toMatchSnapshot();
     expect(singleComponent).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Text from "./Text";
-import { TextDisplaySizes } from "./TextTypes";
 
 describe("Text Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -25,7 +24,8 @@ describe("Text", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Text></Text>);
     expect(warn).toHaveBeenCalledWith(
-      "The Text component has no children and will not render correctly."
+      "NYPL Reservoir Text: No children were passed and the `Text` component " +
+        "will not render correctly."
     );
   });
 
@@ -34,30 +34,30 @@ describe("Text", () => {
       .create(<Text>Animal Crossing is all that!</Text>)
       .toJSON();
     const caption = renderer
-      .create(
-        <Text displaySize={TextDisplaySizes.Caption}>
-          Animal Crossing is all that!
-        </Text>
-      )
+      .create(<Text size="caption">Animal Crossing is all that!</Text>)
       .toJSON();
     const tag = renderer
+      .create(<Text size="tag">Animal Crossing is all that!</Text>)
+      .toJSON();
+    const mini = renderer
+      .create(<Text size="mini">Animal Crossing is all that!</Text>)
+      .toJSON();
+    const withChakraProps = renderer
       .create(
-        <Text displaySize={TextDisplaySizes.Tag}>
+        <Text p="20px" color="ui.error.primary">
           Animal Crossing is all that!
         </Text>
       )
       .toJSON();
-    const mini = renderer
-      .create(
-        <Text displaySize={TextDisplaySizes.Mini}>
-          Animal Crossing is all that!
-        </Text>
-      )
+    const withOtherProps = renderer
+      .create(<Text data-testid="props">Animal Crossing is all that!</Text>)
       .toJSON();
 
     expect(defaultText).toMatchSnapshot();
     expect(caption).toMatchSnapshot();
     expect(tag).toMatchSnapshot();
     expect(mini).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

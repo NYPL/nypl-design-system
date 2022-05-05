@@ -4,18 +4,22 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import ProgressIndicator from "./ProgressIndicator";
-import { ProgressIndicatorTypes } from "./ProgressIndicatorTypes";
 
 describe("ProgressIndicator Accessibility", () => {
   it("passes axe accessibility for linear and circular types", async () => {
     const linearUtils = render(
-      <ProgressIndicator labelText="Linear" value={50} />
+      <ProgressIndicator
+        id="progressIndicatorLinear"
+        labelText="Linear"
+        value={50}
+      />
     );
     const circularUtils = render(
       <ProgressIndicator
+        id="progressIndicatorCircular"
         labelText="Circular"
         value={50}
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
       />
     );
     expect(await axe(linearUtils.container)).toHaveNoViolations();
@@ -24,13 +28,19 @@ describe("ProgressIndicator Accessibility", () => {
 
   it("passes axe accessibility for linear and circular types without labels", async () => {
     const linearUtils = render(
-      <ProgressIndicator labelText="Linear" value={50} showLabel={false} />
+      <ProgressIndicator
+        id="progressIndicatorLinear"
+        labelText="Linear"
+        value={50}
+        showLabel={false}
+      />
     );
     const circularUtils = render(
       <ProgressIndicator
+        id="progressIndicatorCircular"
         labelText="Circular"
         value={50}
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         showLabel={false}
       />
     );
@@ -40,13 +50,19 @@ describe("ProgressIndicator Accessibility", () => {
 
   it("passes axe accessibility for linear and circular types for indeterminate state", async () => {
     const linearUtils = render(
-      <ProgressIndicator labelText="Linear" value={50} isIndeterminate />
+      <ProgressIndicator
+        id="progressIndicatorLinear"
+        labelText="Linear"
+        value={50}
+        isIndeterminate
+      />
     );
     const circularUtils = render(
       <ProgressIndicator
+        id="progressIndicatorCircular"
         labelText="Circular"
         value={50}
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         isIndeterminate
       />
     );
@@ -56,13 +72,19 @@ describe("ProgressIndicator Accessibility", () => {
 
   it("passes axe accessibility for linear and circular types for dark mode", async () => {
     const linearUtils = render(
-      <ProgressIndicator labelText="Linear" value={50} darkMode />
+      <ProgressIndicator
+        id="progressIndicatorLinear"
+        labelText="Linear"
+        value={50}
+        darkMode
+      />
     );
     const circularUtils = render(
       <ProgressIndicator
+        id="progressIndicatorCircular"
         labelText="Circular"
         value={50}
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         darkMode
       />
     );
@@ -73,7 +95,9 @@ describe("ProgressIndicator Accessibility", () => {
 
 describe("ProgressIndicator", () => {
   it("renders a label and a progressbar for the linear type", () => {
-    render(<ProgressIndicator labelText="Linear" value={50} />);
+    render(
+      <ProgressIndicator id="progressIndicator" labelText="Linear" value={50} />
+    );
     expect(screen.getByLabelText("Linear")).toBeInTheDocument();
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
   });
@@ -81,8 +105,9 @@ describe("ProgressIndicator", () => {
   it("renders a label, a progressbar, and an svg for the circular type", () => {
     const { container } = render(
       <ProgressIndicator
+        id="progressIndicator"
         labelText="Circular"
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         value={50}
       />
     );
@@ -93,7 +118,12 @@ describe("ProgressIndicator", () => {
 
   it("renders the appropriate aria atttribute when the label is hidden", () => {
     render(
-      <ProgressIndicator labelText="Linear" value={50} showLabel={false} />
+      <ProgressIndicator
+        id="progressIndicator"
+        labelText="Linear"
+        value={50}
+        showLabel={false}
+      />
     );
     expect(screen.getByLabelText("Linear")).toBeInTheDocument();
     expect(screen.getByRole("progressbar")).toHaveAttribute(
@@ -104,32 +134,52 @@ describe("ProgressIndicator", () => {
 
   it("renders the value passed", () => {
     const { rerender } = render(
-      <ProgressIndicator labelText="Linear" value={50} />
+      <ProgressIndicator id="progressIndicator" labelText="Linear" value={50} />
     );
     expect(screen.getByText("50%")).toBeInTheDocument();
 
-    rerender(<ProgressIndicator labelText="Linear" value={89} />);
+    rerender(
+      <ProgressIndicator id="progressIndicator" labelText="Linear" value={89} />
+    );
     expect(screen.getByText("89%")).toBeInTheDocument();
 
-    rerender(<ProgressIndicator labelText="Linear" value={4} />);
+    rerender(
+      <ProgressIndicator id="progressIndicator" labelText="Linear" value={4} />
+    );
     expect(screen.getByText("4%")).toBeInTheDocument();
   });
 
   it("logs a warning if a value less than 0 is passed", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<ProgressIndicator labelText="Linear" value={-20} />);
+    render(
+      <ProgressIndicator
+        id="progressIndicator"
+        labelText="Linear"
+        value={-20}
+      />
+    );
 
     expect(warn).toHaveBeenCalledWith(
-      "ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
+      "NYPL Reservoir ProgressIndicator: An invalid value was passed for the" +
+        " `value` prop, so 0 will be used. A valid value should be a number" +
+        " between 0 and 100."
     );
   });
 
   it("logs a warning if a value more than 100 is passed", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<ProgressIndicator labelText="Linear" value={150} />);
+    render(
+      <ProgressIndicator
+        id="progressIndicator"
+        labelText="Linear"
+        value={150}
+      />
+    );
 
     expect(warn).toHaveBeenCalledWith(
-      "ProgressIndicator: pass in a `value` between 0 and 100. Defaulting to 0."
+      "NYPL Reservoir ProgressIndicator: An invalid value was passed for the" +
+        " `value` prop, so 0 will be used. A valid value should be a number" +
+        " between 0 and 100."
     );
   });
 
@@ -145,7 +195,7 @@ describe("ProgressIndicator", () => {
           id="circularBasic"
           labelText="Circular"
           value={50}
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
         />
       )
       .toJSON();
@@ -165,7 +215,7 @@ describe("ProgressIndicator", () => {
           id="circularNoLabel"
           labelText="Circular"
           value={50}
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
           showLabel={false}
         />
       )
@@ -186,7 +236,7 @@ describe("ProgressIndicator", () => {
           id="circularIndeterminate"
           labelText="Circular"
           value={50}
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
           isIndeterminate
         />
       )
@@ -207,8 +257,29 @@ describe("ProgressIndicator", () => {
           id="circularDarkMode"
           labelText="Circular"
           value={50}
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
           darkMode
+        />
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <ProgressIndicator
+          id="chakra"
+          labelText="Linear"
+          value={50}
+          p="20px"
+          color="ui.red.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <ProgressIndicator
+          id="props"
+          labelText="Linear"
+          value={50}
+          data-testid="props"
         />
       )
       .toJSON();
@@ -221,5 +292,7 @@ describe("ProgressIndicator", () => {
     expect(circularIndeterminate).toMatchSnapshot();
     expect(linearDarkMode).toMatchSnapshot();
     expect(circularDarkMode).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

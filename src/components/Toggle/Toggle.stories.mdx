@@ -11,15 +11,8 @@ import { withDesign } from "storybook-addon-designs";
 import Heading from "../Heading/Heading";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Toggle from "./Toggle";
-import { ToggleSizes } from "./ToggleSizes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const sizeEnumValues = getStorybookEnumValues(
-  ToggleSizes,
-  "ToggleSizes"
-);
 
 <Meta
   title={getCategory("Toggle")}
@@ -33,7 +26,6 @@ export const sizeEnumValues = getStorybookEnumValues(
     jest: ["Toggle.test.tsx"],
   }}
   argTypes={{
-    additionalStyles: { control: false },
     defaultChecked: { control: false },
     id: { control: false },
     key: { table: { disable: true } },
@@ -42,9 +34,7 @@ export const sizeEnumValues = getStorybookEnumValues(
     ref: { table: { disable: true } },
     size: {
       control: {
-        type: "select",
-        table: { defaultValue: { summary: "ToggleSizes.Large" } },
-        options: sizeEnumValues.options,
+        table: { defaultValue: { summary: "default" } },
       },
     },
   }}
@@ -55,23 +45,40 @@ export const sizeEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.8`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.28.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Sizes](#sizes)
+- [Controlled Toggle](#controlled-toggle)
+- [Browser States](#browser-states)
+- [Layouts](#layouts)
+
+## Overview
 
 <Description of={Toggle} />
 
-The Toggle component is used as an alternative for the Checkbox component and returns a boolean response. Like the Checkbox component, the Toggle component can display a label to the right of the toggle and helper/error text below the toggle.
+The `Toggle` component is used as an alternative for the Checkbox component and
+returns a boolean response. Like the Checkbox component, the `Toggle` component
+can display a label to the right of the toggle and helper/error text below the toggle.
 
 ### Best Practices
 
-Toggle components are commonly used for “on/off” switches to perform binary actions that occur immediately after a user “flips the switch.”
+`Toggle` components are commonly used for “on/off” switches to perform binary
+actions that occur immediately after a user “flips the switch.”
 
-The Toggle component label should clarify the action being performed. Labels should be short and to the point, often three words or less.
+The Toggle component label should clarify the action being performed. Labels
+should be short and to the point, often three words or less.
+
+## Component Props
 
 <Canvas>
   <Story
     name="Toggle"
     args={{
-      additionalStyles: undefined,
       defaultChecked: false,
       helperText: "This is the helper text!",
       id: "toggle-1",
@@ -86,11 +93,29 @@ The Toggle component label should clarify the action being performed. Labels sho
       size: "ToogleSizes.Large",
     }}
   >
-    {(args) => <Toggle {...args} size={sizeEnumValues.getValue(args.size)} />}
+    {(args) => <Toggle {...args} />}
   </Story>
 </Canvas>
 
 <ArgsTable story="Toggle" />
+
+## Accessibility
+
+The `Toggle` component is implemented using Chakra's `Switch` component. While
+some accessibility resources state that using a `<button>` element is better for
+a toggle or switch component, Chakra UI internally uses a `checkbox` element.
+Because Chakra's `Switch` component handles the internal state so well and its
+styles, we chose this over implementing this component with a `<button>` element.
+
+For comparison and reference, resources that build toggle components with the
+`<button>` element are linked below.
+
+Resources:
+
+- [Chakra UI Switch](https://chakra-ui.com/docs/components/form/switch)
+- [W3C Switch Example Using HTML Button](https://w3c.github.io/aria-practices/examples/switch/switch-button.html)
+- [Inclusive Components Toggle Buttons](https://inclusive-components.design/toggle-button/)
+- [Accessible HTML Toggle Button (Switch)](https://www.erikkroes.nl/blog/accessible-html-toggle-button-switch/)
 
 ## Sizes
 
@@ -98,14 +123,19 @@ The Toggle component label should clarify the action being performed. Labels sho
   <DSProvider>
     <SimpleGrid columns="2">
       <VStack align="left" spacing="s">
-        <Heading level={3}>Large</Heading>
-        <Toggle size={ToggleSizes.Large} defaultChecked={true} labelText="On" />
-        <Toggle size={ToggleSizes.Large} labelText="Off" />
+        <Heading level={3}>Default</Heading>
+        <Toggle defaultChecked={true} id="default-checked" labelText="On" />
+        <Toggle id="default" labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level={3}>Small</Heading>
-        <Toggle size={ToggleSizes.Small} defaultChecked={true} labelText="On" />
-        <Toggle size={ToggleSizes.Small} labelText="Off" />
+        <Toggle
+          defaultChecked={true}
+          id="small-checked"
+          size="small"
+          labelText="On"
+        />
+        <Toggle id="default-small" size="small" labelText="Off" />
       </VStack>
     </SimpleGrid>
   </DSProvider>
@@ -125,17 +155,23 @@ const onChange = (e) => {
   console.log(e.target.value);
 };
 
-<Toggle isChecked={true} onChange={onChange} labelText="Controlled Toggle" />;
+<Toggle
+  id="toggle"
+  isChecked={true}
+  labelText="Controlled Toggle"
+  onChange={onChange}
+/>;
 ```
 
 <Canvas>
   <DSProvider>
     <Toggle
+      id="toggle"
       isChecked={true}
+      labelText="Controlled Toggle"
       onChange={(e) => {
         console.log(e.target.value);
       }}
-      labelText="Controlled Toggle"
     />
   </DSProvider>
 </Canvas>
@@ -147,28 +183,28 @@ const onChange = (e) => {
     <SimpleGrid columns="3">
       <VStack align="left" spacing="s">
         <Heading level={3}>Default</Heading>
-        <Toggle size={ToggleSizes.Large} defaultChecked={true} labelText="On" />
-        <Toggle size={ToggleSizes.Large} labelText="Off" />
+        <Toggle defaultChecked={true} id="checked-default2" labelText="On" />
+        <Toggle id="default2" labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level={3}>Disabled</Heading>
         <Toggle
-          size={ToggleSizes.Large}
           defaultChecked={true}
+          id="disabled-checked"
           isDisabled={true}
           labelText="On"
         />
-        <Toggle size={ToggleSizes.Large} labelText="Off" isDisabled={true} />
+        <Toggle id="disabled2" isDisabled={true} labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level={3}>Error</Heading>
         <Toggle
-          size={ToggleSizes.Large}
           defaultChecked={true}
-          labelText="On"
+          id="error-default"
           isInvalid={true}
+          labelText="On"
         />
-        <Toggle size={ToggleSizes.Large} labelText="Off" isInvalid={true} />
+        <Toggle id="error2" isInvalid={true} labelText="Off" />
       </VStack>
     </SimpleGrid>
   </DSProvider>
@@ -181,18 +217,19 @@ const onChange = (e) => {
     <SimpleGrid columns="2">
       <VStack align="left" spacing="s">
         <Heading level={3}>Grouped</Heading>
-        <Toggle defaultChecked={true} labelText="On" />
-        <Toggle defaultChecked={true} labelText="On" />
-        <Toggle defaultChecked={true} labelText="On" />
-        <Toggle defaultChecked={true} labelText="On" />
-        <Toggle defaultChecked={true} labelText="On" />
+        <Toggle defaultChecked={true} id="layout1" labelText="On" />
+        <Toggle defaultChecked={true} id="layout2" labelText="On" />
+        <Toggle defaultChecked={true} id="layout3" labelText="On" />
+        <Toggle defaultChecked={true} id="layout4" labelText="On" />
+        <Toggle defaultChecked={true} id="layout5" labelText="On" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level={3}>With Helper Text</Heading>
         <Toggle
           defaultChecked={true}
-          labelText="On"
           helperText="Component Helper Text"
+          id="helper-text"
+          labelText="On"
         />
       </VStack>
     </SimpleGrid>

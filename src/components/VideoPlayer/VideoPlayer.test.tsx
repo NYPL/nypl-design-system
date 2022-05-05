@@ -4,12 +4,11 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import VideoPlayer from "./VideoPlayer";
-import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
 
 describe("VideoPlayer Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
-      <VideoPlayer videoType={VideoPlayerTypes.YouTube} videoId="nm-dD2tx6bk" />
+      <VideoPlayer videoType="youtube" videoId="nm-dD2tx6bk" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -21,9 +20,7 @@ describe("VideoPlayer", () => {
 
   describe("YouTube player", () => {
     beforeEach(() => {
-      utils = render(
-        <VideoPlayer videoType={VideoPlayerTypes.YouTube} videoId={videoId} />
-      );
+      utils = render(<VideoPlayer videoType="youtube" videoId={videoId} />);
     });
 
     it("Renders VideoPlayer container", () => {
@@ -46,9 +43,7 @@ describe("VideoPlayer", () => {
     const videoId = "474719268";
 
     beforeEach(() => {
-      utils = render(
-        <VideoPlayer videoType={VideoPlayerTypes.Vimeo} videoId={videoId} />
-      );
+      utils = render(<VideoPlayer videoType="vimeo" videoId={videoId} />);
     });
 
     it("Renders VideoPlayer iframe", () => {
@@ -107,7 +102,7 @@ describe("VideoPlayer", () => {
     beforeEach(() => {
       utils = render(
         <VideoPlayer
-          videoType={VideoPlayerTypes.YouTube}
+          videoType="youtube"
           videoId={videoId}
           headingText="Video Player Heading"
           descriptionText="Video Player description text."
@@ -133,7 +128,7 @@ describe("VideoPlayer", () => {
     it("does not render the helper text", () => {
       utils.rerender(
         <VideoPlayer
-          videoType={VideoPlayerTypes.YouTube}
+          videoType="youtube"
           videoId={videoId}
           headingText="Video Player Heading"
           descriptionText="Video Player description text."
@@ -151,7 +146,7 @@ describe("VideoPlayer", () => {
     it("Uses iframeTitle prop to add custom title attribute to iframe", () => {
       render(
         <VideoPlayer
-          videoType={VideoPlayerTypes.Vimeo}
+          videoType="vimeo"
           videoId="474719268"
           iframeTitle="My custom iframe title."
         />
@@ -164,9 +159,9 @@ describe("VideoPlayer", () => {
     it("Throws error if the videoId prop not is formatted properly", () => {
       render(
         <VideoPlayer
-          videoType={VideoPlayerTypes.Vimeo}
+          videoType="vimeo"
           videoId="http://vimeo.com/474719268"
-          aspectRatio={VideoPlayerAspectRatios.FourByThree}
+          aspectRatio="fourByThree"
         />
       );
       expect(
@@ -181,38 +176,43 @@ describe("VideoPlayer", () => {
 
       render(<VideoPlayer />);
       expect(warn).toHaveBeenCalledWith(
-        "VideoPlayer requires either the `embedCode` prop or both the `videoType` and `videoId` props."
+        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+          "both the `videoType` and `videoId` props; none were passed."
       );
 
       render(<VideoPlayer videoId="http://vimeo.com/474719268" />);
       expect(warn).toHaveBeenCalledWith(
-        "VideoPlayer also requires the `videoType` prop. You have only set the `videoId` prop."
+        "NYPL Reservoir VideoPlayer: The `videoType` prop is also required. " +
+          "Only the `videoId` prop was set."
       );
 
-      render(<VideoPlayer videoType={VideoPlayerTypes.Vimeo} />);
+      render(<VideoPlayer videoType="vimeo" />);
       expect(warn).toHaveBeenCalledWith(
-        "VideoPlayer also requires the `videoId` prop. You have only set the `videoType` prop."
+        "NYPL Reservoir VideoPlayer: The `videoId` prop is also required. " +
+          "Only the `videoType` prop was set."
       );
 
       render(
         <VideoPlayer
           embedCode="<iframe src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>"
-          videoType={VideoPlayerTypes.Vimeo}
+          videoType="vimeo"
           videoId="http://vimeo.com/474719268"
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "VideoPlayer can accept the `embedCode` prop or the `videoType` and `videoId` props. You have set both."
+        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+          "both the `videoType` and `videoId` props; all were set."
       );
 
       render(
         <VideoPlayer
           embedCode="<iframe src='https://player.vimeo.com/video/421404144?h=5467db7edd' width='640' height='360' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen></iframe>"
-          videoType={VideoPlayerTypes.Vimeo}
+          videoType="vimeo"
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "VideoPlayer can accept the `embedCode` prop or the `videoType` and `videoId` props. You have set both."
+        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+          "both the `videoType` and `videoId` props; all were set."
       );
 
       render(
@@ -222,7 +222,14 @@ describe("VideoPlayer", () => {
         />
       );
       expect(warn).toHaveBeenCalledWith(
-        "VideoPlayer can accept the `embedCode` prop or the `videoType` and `videoId` props. You have set both."
+        "NYPL Reservoir VideoPlayer: Pass in either the `embedCode` prop or " +
+          "both the `videoType` and `videoId` props; all were set."
+      );
+
+      const embedCode = `<iframe src="https://player./video/421404144?h=5467db7edd"></iframe>`;
+      render(<VideoPlayer embedCode={embedCode} />);
+      expect(warn).toHaveBeenCalledWith(
+        "NYPL Reservoir VideoPlayer: The `embedCode` prop is not configured properly."
       );
     });
   });
@@ -233,7 +240,7 @@ describe("VideoPlayer", () => {
         <VideoPlayer
           id="video-player-without-text"
           videoId="474719268"
-          videoType={VideoPlayerTypes.Vimeo}
+          videoType="vimeo"
         />
       )
       .toJSON();
@@ -245,7 +252,7 @@ describe("VideoPlayer", () => {
           id="video-player-with-text"
           helperText="VideoPlayer helper test."
           videoId="474719268"
-          videoType={VideoPlayerTypes.Vimeo}
+          videoType="vimeo"
         />
       )
       .toJSON();
@@ -265,7 +272,28 @@ describe("VideoPlayer", () => {
         <VideoPlayer
           id="video-player-error"
           videoId="https://vimeo.com/474719268"
-          videoType={VideoPlayerTypes.Vimeo}
+          videoType="vimeo"
+        />
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <VideoPlayer
+          id="chakra"
+          videoId="474719268"
+          videoType="vimeo"
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <VideoPlayer
+          id="props"
+          videoId="474719268"
+          videoType="vimeo"
+          data-testid="props"
         />
       )
       .toJSON();
@@ -274,5 +302,7 @@ describe("VideoPlayer", () => {
     expect(videoPlayerWithText).toMatchSnapshot();
     expect(videoPlayerUsingEmbedCode).toMatchSnapshot();
     expect(videoPlayerError).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

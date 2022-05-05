@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Image from "./Image";
-import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
 describe("Image Accessibility", () => {
   it("passes axe accessibility for regular img element", async () => {
@@ -14,7 +13,7 @@ describe("Image Accessibility", () => {
 
   it("passes axe accessibility for figure element wrapper", async () => {
     const { container } = render(
-      <Image src="test.png" alt="" imageCaption="This is a caption" />
+      <Image src="test.png" alt="" caption="This is a caption" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -35,28 +34,21 @@ describe("Image", () => {
   });
 
   it("renders an image wrapped in figure when provided a caption", () => {
-    render(<Image src="test.png" imageCaption="caption" alt="" />);
+    render(<Image src="test.png" caption="caption" alt="" />);
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("caption")).toBeInTheDocument();
   });
 
   it("renders an image wrapped in figure when provided an image credit", () => {
-    render(<Image src="test.png" imageCredit="credit" alt="" />);
+    render(<Image src="test.png" credit="credit" alt="" />);
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("credit")).toBeInTheDocument();
   });
 
   it("renders an image wrapped in figure with credit and caption", () => {
-    render(
-      <Image
-        src="test.png"
-        imageCaption="caption"
-        imageCredit="credit"
-        alt=""
-      />
-    );
+    render(<Image src="test.png" caption="caption" credit="credit" alt="" />);
     expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("figure")).toBeInTheDocument();
     expect(screen.getByText("caption")).toBeInTheDocument();
@@ -66,110 +58,77 @@ describe("Image", () => {
   it("throws error when alt text is too long", () => {
     expect(() =>
       render(<Image src="test.png" alt={tooManyChars} />)
-    ).toThrowError("Alt Text must be less than 300 characters");
+    ).toThrowError(
+      "NYPL Reservoir Image: Alt text must be less than 300 characters."
+    );
   });
 
   it("Renders the UI snapshot correctly", () => {
     const basic = renderer.create(<Image src="test.png" alt="" />).toJSON();
     const figCaption = renderer
-      .create(<Image src="test.png" alt="" imageCaption="Caption" />)
+      .create(<Image src="test.png" alt="" caption="Caption" />)
       .toJSON();
     const figCredit = renderer
-      .create(<Image src="test.png" alt="" imageCredit="Credit" />)
+      .create(<Image src="test.png" alt="" credit="Credit" />)
       .toJSON();
     const figCaptionCredit = renderer
-      .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageCaption="Caption"
-          imageCredit="Credit"
-        />
-      )
+      .create(<Image src="test.png" alt="" caption="Caption" credit="Credit" />)
       .toJSON();
     const sizeExtraExtraSmall = renderer
-      .create(
-        <Image src="test.png" alt="" imageSize={ImageSizes.ExtraExtraSmall} />
-      )
+      .create(<Image src="test.png" alt="" size="xxsmall" />)
       .toJSON();
     const sizeExtraSmall = renderer
-      .create(<Image src="test.png" alt="" imageSize={ImageSizes.ExtraSmall} />)
+      .create(<Image src="test.png" alt="" size="xsmall" />)
       .toJSON();
     const sizeSmall = renderer
-      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Small} />)
+      .create(<Image src="test.png" alt="" size="small" />)
       .toJSON();
     const sizeMedium = renderer
-      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Medium} />)
+      .create(<Image src="test.png" alt="" size="medium" />)
       .toJSON();
     const sizeLarge = renderer
-      .create(<Image src="test.png" alt="" imageSize={ImageSizes.Large} />)
+      .create(<Image src="test.png" alt="" size="large" />)
       .toJSON();
     const ratioFourByThree = renderer
-      .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageAspectRatio={ImageRatios.FourByThree}
-        />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="fourByThree" />)
       .toJSON();
     const ratioOneByTwo = renderer
-      .create(
-        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.OneByTwo} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="oneByTwo" />)
       .toJSON();
     const ratioOriginal = renderer
-      .create(
-        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.Original} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="original" />)
       .toJSON();
     const ratioSixteenByNine = renderer
-      .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageAspectRatio={ImageRatios.SixteenByNine}
-        />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="sixteenByNine" />)
       .toJSON();
     const ratioSquare = renderer
-      .create(
-        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.Square} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="square" />)
       .toJSON();
     const ratioThreeByFour = renderer
-      .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageAspectRatio={ImageRatios.ThreeByFour}
-        />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="threeByFour" />)
       .toJSON();
     const ratioThreeByTwo = renderer
-      .create(
-        <Image
-          src="test.png"
-          alt=""
-          imageAspectRatio={ImageRatios.ThreeByTwo}
-        />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="threeByTwo" />)
       .toJSON();
     const ratioTwoByOne = renderer
-      .create(
-        <Image src="test.png" alt="" imageAspectRatio={ImageRatios.TwoByOne} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="twoByOne" />)
       .toJSON();
     const typeCircle = renderer
       .create(
         <Image
           src="test.png"
           alt=""
-          imageAspectRatio={ImageRatios.Square}
-          imageSize={ImageSizes.Small}
-          imageType={ImageTypes.Circle}
+          aspectRatio="square"
+          size="small"
+          imageType="circle"
         />
       )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(<Image src="test.png" alt="" p="20px" color="ui.error.primary" />)
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Image src="test.png" alt="" data-testid="image" />)
       .toJSON();
 
     expect(basic).toMatchSnapshot();
@@ -190,5 +149,7 @@ describe("Image", () => {
     expect(ratioThreeByTwo).toMatchSnapshot();
     expect(ratioTwoByOne).toMatchSnapshot();
     expect(typeCircle).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

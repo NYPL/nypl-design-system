@@ -1,38 +1,35 @@
-import * as React from "react";
 import {
   Breadcrumb as ChakraBreadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  chakra,
   useStyleConfig,
 } from "@chakra-ui/react";
+import * as React from "react";
 
 import Icon from "../Icons/Icon";
-import {
-  IconNames,
-  IconRotationTypes,
-  IconSizes,
-  IconTypes,
-} from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
-import { ColorVariants } from "./BreadcrumbsTypes";
-import { getVariant } from "../../utils/utils";
 
+export type BreadcrumbsTypes =
+  | "blogs"
+  | "booksAndMore"
+  | "education"
+  | "locations"
+  | "research"
+  | "whatsOn";
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
 }
 
 export interface BreadcrumbProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
+  /** Used to control how the `Hero` component will be rendered. */
+  breadcrumbsType?: BreadcrumbsTypes;
   /** className you can add in addition to 'input' */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Used to control how the `Hero` component will be rendered. */
-  colorVariant?: ColorVariants;
 }
 
 const getElementsFromData = (data, breadcrumbsID) => {
@@ -48,12 +45,12 @@ const getElementsFromData = (data, breadcrumbsID) => {
       <BreadcrumbLink href={breadcrumbData.url}>
         {index === data.length - 2 && (
           <Icon
-            name={IconNames.Arrow}
-            size={IconSizes.Small}
-            iconRotation={IconRotationTypes.Rotate90}
+            name="arrow"
+            size="small"
+            iconRotation="rotate90"
             id={`${breadcrumbsID}__backarrow`}
             className="breadcrumbs-icon"
-            type={IconTypes.Breadcrumbs}
+            type="breadcrumbs"
           />
         )}
         <span className="breadcrumb-label">{breadcrumbData.text}</span>
@@ -64,37 +61,35 @@ const getElementsFromData = (data, breadcrumbsID) => {
   return breadcrumbItems;
 };
 
-function Breadcrumbs(props: React.PropsWithChildren<BreadcrumbProps>) {
+export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
   const {
-    additionalStyles = {},
     breadcrumbsData,
+    breadcrumbsType = "whatsOn",
     className,
-    colorVariant,
-    id = generateUUID(),
+    id,
+    ...rest
   } = props;
-  const variant = getVariant(colorVariant, ColorVariants);
 
   if (!breadcrumbsData || breadcrumbsData.length === 0) {
     throw new Error(
-      "You must use the `breadcrumbsData` prop to pass a data object to the Breadcrumbs component. That prop is current empty."
+      "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   }
 
-  const styles = useStyleConfig("Breadcrumb", { variant });
-  const finalStyles = { ...styles, ...additionalStyles };
+  const styles = useStyleConfig("Breadcrumb", { variant: breadcrumbsType });
   const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
-  const ariaAttrs = { "aria-label": "Breadcrumb" };
 
   return (
     <ChakraBreadcrumb
+      aria-label="Breadcrumb"
       className={className}
       id={id}
-      {...ariaAttrs}
-      __css={finalStyles}
+      __css={styles}
+      {...rest}
     >
       {breadcrumbItems}
     </ChakraBreadcrumb>
   );
-}
+});
 
 export default Breadcrumbs;

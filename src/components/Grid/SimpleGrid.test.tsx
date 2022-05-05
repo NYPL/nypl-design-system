@@ -3,43 +3,47 @@ import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import SimpleGrid from "./SimpleGrid";
 import Card, { CardHeading, CardContent } from "../Card/Card";
-import { ImageRatios } from "../Image/ImageTypes";
-import { HeadingLevels } from "../Heading/HeadingTypes";
+import SimpleGrid from "./SimpleGrid";
 
 describe("Grid Accessibility", () => {
   it("passes axe accessibility test with children components", async () => {
     const { container } = render(
       <SimpleGrid>
         <Card
-          imageSrc="https://placeimg.com/500/200/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: "twoByOne",
+            src: "https://placeimg.com/500/200/animals",
+          }}
         >
-          <CardHeading level={HeadingLevels.Two}>Card Heading</CardHeading>
+          <CardHeading level="two">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/220/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: "twoByOne",
+            src: "https://placeimg.com/400/220/animals",
+          }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
           </CardContent>
         </Card>
         <Card
-          imageSrc="https://placeimg.com/400/240/animals"
-          imageAlt="Alt text"
-          imageAspectRatio={ImageRatios.TwoByOne}
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: "twoByOne",
+            src: "https://placeimg.com/400/240/animals",
+          }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -54,7 +58,16 @@ describe("Grid Accessibility", () => {
 describe("SimpleGrid", () => {
   it("Renders the SimpleGrid UI snapshot correctly", () => {
     const tree = renderer.create(<SimpleGrid id="test-grid" />).toJSON();
+    const withChakraProps = renderer
+      .create(<SimpleGrid id="chakra" p="20px" color="ui.error.primary" />)
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<SimpleGrid id="props" data-testid="props" />)
+      .toJSON();
+
     expect(tree).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 
   it("Renders SimpleGrid component", () => {

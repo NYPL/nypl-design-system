@@ -1,11 +1,9 @@
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
 
 import Link from "../Link/Link";
 import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import { range } from "../../utils/utils";
-import generateUUID from "../../helpers/generateUUID";
 
 export interface PaginationProps {
   /** Additional className. */
@@ -32,15 +30,16 @@ export interface PaginationProps {
 /**
  * A component that provides a navigational list of page items.
  */
-const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
+export const Pagination = chakra((props: PaginationProps) => {
   const {
     className,
     currentPage,
     getPageHref,
-    id = generateUUID(),
+    id,
     initialPage = 1,
     onPageChange,
     pageCount,
+    ...rest
   } = props;
   const refCurrentPage = useRef(currentPage);
   const [selectedPage, setSelectedPage] = useState<number>(initialPage);
@@ -64,13 +63,16 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
   }
   if (getPageHref && onPageChange) {
     console.warn(
-      "NYPL Reservoir Pagination: Props for both `getPageHref` and `onPageChange` are passed. Will default to using `getPageHref`."
+      "NYPL Reservoir Pagination: Props for both `getPageHref` and " +
+        "`onPageChange` are passed. The component will default to using " +
+        "`getPageHref`."
     );
   }
 
   if (getPageHref && currentPage) {
     console.warn(
-      "NYPL Reservoir Pagination: The `currentPage` prop does not work with the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
+      "NYPL Reservoir Pagination: The `currentPage` prop does not work with " +
+        "the `getPageHref` prop. Use `currentPage` with `onPageChange` instead."
     );
   }
 
@@ -147,13 +149,13 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
     const linkAttrs = allAttrs[type];
     return (
       <Link
-        additionalStyles={{
-          ...styles.link,
-          ...currentStyles,
-        }}
         attributes={linkAttrs.attributes}
         href={linkAttrs.href}
         id={`${id}-${linkAttrs.text}`}
+        __css={{
+          ...styles.link,
+          ...currentStyles,
+        }}
       >
         {linkAttrs.text}
       </Link>
@@ -248,14 +250,15 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
       role="navigation"
       className={className}
       __css={styles}
+      {...rest}
     >
-      <List type={ListTypes.Unordered} inline noStyling id={`${id}-list`}>
+      <List type="ul" inline noStyling id={`${id}-list`}>
         {previousLiLink}
         {getPaginationNumbers(selectedPage)}
         {nextLiLink}
       </List>
     </Box>
   );
-};
+});
 
 export default Pagination;

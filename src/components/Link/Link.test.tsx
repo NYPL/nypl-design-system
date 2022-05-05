@@ -1,21 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
-import {
-  BrowserRouter as Router,
-  Link as ReactRouterLink,
-} from "react-router-dom";
 import renderer from "react-test-renderer";
 
 import Link from "./Link";
-import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import {
-  IconAlign,
-  IconNames,
-  IconRotationTypes,
-  IconSizes,
-} from "../Icons/IconTypes";
 
 describe("Link Accessibility", () => {
   it("passes axe accessibility test for children component", async () => {
@@ -36,12 +25,12 @@ describe("Link Accessibility", () => {
 describe("Link", () => {
   it("Can pass in an icon and text as children and url as prop", () => {
     const utils = render(
-      <Link href="#passed-in-link" type={LinkTypes.Action}>
+      <Link href="#passed-in-link" type="action">
         <Icon
           className="more-link"
-          name={IconNames.Download}
-          align={IconAlign.Left}
-          iconRotation={IconRotationTypes.Rotate0}
+          name="download"
+          align="left"
+          iconRotation="rotate0"
         />
         Download
       </Link>
@@ -61,13 +50,13 @@ describe("Link", () => {
 
   it("Can pass a link with <a> tag and an icon", () => {
     const utils = render(
-      <Link type={LinkTypes.Action}>
+      <Link type="action">
         <a href="#test2">
           <Icon
             className="more-link"
-            name={IconNames.Download}
-            align={IconAlign.Left}
-            iconRotation={IconRotationTypes.Rotate0}
+            name="download"
+            align="left"
+            iconRotation="rotate0"
           />
           Test
         </a>
@@ -79,7 +68,7 @@ describe("Link", () => {
 
   it("Generated back link has icon", () => {
     const utils = render(
-      <Link href="#passed-in-link" type={LinkTypes.Backwards}>
+      <Link href="#passed-in-link" type="backwards">
         content
       </Link>
     );
@@ -91,7 +80,7 @@ describe("Link", () => {
 
   it("Generated forwards link has icon", () => {
     const utils = render(
-      <Link href="#passed-in-link" type={LinkTypes.Forwards}>
+      <Link href="#passed-in-link" type="forwards">
         content
       </Link>
     );
@@ -106,24 +95,6 @@ describe("Link", () => {
     expect(screen.getByRole("link")).toBeInTheDocument();
   });
 
-  it("Can pass in a ReactRouter Link", () => {
-    render(
-      <Router>
-        <Link type={LinkTypes.Action}>
-          <ReactRouterLink to="#">
-            <Icon
-              name={IconNames.Download}
-              align={IconAlign.Left}
-              iconRotation={IconRotationTypes.Rotate0}
-            />
-            Download
-          </ReactRouterLink>
-        </Link>
-      </Router>
-    );
-    expect(screen.getByRole("link")).toBeInTheDocument();
-  });
-
   it("throws an error if text is passed but no url is passed", () => {
     expect(() => render(<Link>Test</Link>)).toThrowError(
       "`Link` needs the `href` prop."
@@ -134,11 +105,7 @@ describe("Link", () => {
     expect(() =>
       render(
         <Link>
-          <Icon
-            name={IconNames.Download}
-            align={IconAlign.Left}
-            iconRotation={IconRotationTypes.Rotate0}
-          />
+          <Icon name="download" align="left" iconRotation="rotate0" />
           <a href="#test">Test</a>
         </Link>
       )
@@ -148,60 +115,48 @@ describe("Link", () => {
   it("renders the UI snapshot correctly", () => {
     const standard = renderer
       .create(
-        <Link href="#passed-in-link" id="standard-link" type={LinkTypes.Action}>
+        <Link href="#passed-in-link" id="standard-link" type="action">
           Standard
         </Link>
       )
       .toJSON();
     const typeForwards = renderer
       .create(
-        <Link
-          href="#passed-in-link"
-          id="forwards-link"
-          type={LinkTypes.Forwards}
-        >
+        <Link href="#passed-in-link" id="forwards-link" type="forwards">
           Forwards
         </Link>
       )
       .toJSON();
     const typeBackwards = renderer
       .create(
-        <Link
-          href="#passed-in-link"
-          id="backwards-link"
-          type={LinkTypes.Backwards}
-        >
+        <Link href="#passed-in-link" id="backwards-link" type="backwards">
           Backwards
         </Link>
       )
       .toJSON();
     const typeExternal = renderer
       .create(
-        <Link
-          href="#passed-in-link"
-          id="external-link"
-          type={LinkTypes.External}
-        >
+        <Link href="#passed-in-link" id="external-link" type="external">
           External
         </Link>
       )
       .toJSON();
     const typeButton = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type={LinkTypes.Button}>
+        <Link href="#passed-in-link" id="button-link" type="button">
           Button
         </Link>
       )
       .toJSON();
     const withIconChild = renderer
       .create(
-        <Link href="#passed-in-link" id="icon-link" type={LinkTypes.Action}>
+        <Link href="#passed-in-link" id="icon-link" type="action">
           <Icon
-            align={IconAlign.Left}
+            align="left"
             className="more-link"
-            iconRotation={IconRotationTypes.Rotate0}
+            iconRotation="rotate0"
             id="link-icon"
-            name={IconNames.Download}
+            name="download"
           />
           Download
         </Link>
@@ -209,23 +164,37 @@ describe("Link", () => {
       .toJSON();
     const withAchorChild = renderer
       .create(
-        <Link id="anchor-link" type={LinkTypes.Action}>
+        <Link id="anchor-link" type="action">
           <a href="#existing-anchor-tag">check link</a>
         </Link>
       )
       .toJSON();
     const withAchorChildAndIcon = renderer
       .create(
-        <Link id="anchor-icon-link" type={LinkTypes.Action}>
+        <Link id="anchor-icon-link" type="action">
           <>
-            <Icon
-              align={IconAlign.Left}
-              id="link-icon"
-              name={IconNames.Check}
-              size={IconSizes.Small}
-            />
+            <Icon align="left" id="link-icon" name="check" size="small" />
             <a href="#existing-anchor-tag">check link</a>
           </>
+        </Link>
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Link
+          href="#passed-in-link"
+          id="chakra"
+          p="20px"
+          color="ui.error.primary"
+        >
+          Standard
+        </Link>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Link href="#passed-in-link" id="props" data-testid="props">
+          Standard
         </Link>
       )
       .toJSON();
@@ -238,6 +207,8 @@ describe("Link", () => {
     expect(withIconChild).toMatchSnapshot();
     expect(withAchorChild).toMatchSnapshot();
     expect(withAchorChildAndIcon).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 
   // TODO:

@@ -1,22 +1,28 @@
-import { helperTextMargin } from "./global";
+import { cssVar } from "@chakra-ui/theme-tools";
 
-const baseStyle = {
-  label: { alignItems: "start", display: "flex", width: "fit-content" },
-  helper: {
-    ...helperTextMargin,
-    marginLeft: "xxs",
-  },
+const toggleBaseStyle = ({ isDisabled, size }) => {
+  const label = { alignItems: "start", display: "flex", width: "fit-content" };
+  const helperErrorText = {
+    marginLeft: size === "default" ? "xxl" : "xl",
+    fontStyle: isDisabled ? "italic" : null,
+  };
+  return {
+    label,
+    helperErrorText,
+  };
 };
+const $width = cssVar("switch-track-width");
+const $height = cssVar("switch-track-height");
 
 const Switch = {
-  baseStyle: ({ size }) => {
+  baseStyle: ({ size }: { size: string }) => {
     return {
       alignItems: "start",
       opacity: 0.4,
       track: {
         border: "1px solid",
         borderColor: "ui.gray.medium",
-        p: "4px",
+        p: "1px",
         _checked: {
           bg: "ui.link.primary",
           borderColor: "ui.link.primary",
@@ -46,8 +52,11 @@ const Switch = {
       label: {
         fontSize: "label.default",
         marginLeft: "xs",
-        marginTop: size === "lg" ? "6px" : null,
-        _disabled: { fontStyle: "italic" },
+        marginTop: size === "lg" ? "xxxs" : null,
+        _disabled: {
+          color: "ui.gray.dark",
+          fontStyle: "italic",
+        },
       },
       thumb: {
         _disabled: {
@@ -56,14 +65,34 @@ const Switch = {
       },
     };
   },
+  sizes: {
+    sm: {
+      container: {
+        // Chakra defaults for `sm`:
+        // width: 1.375rem
+        // height: 0.75rem
+        [$width.variable]: "2.25rem",
+        [$height.variable]: "1rem",
+      },
+    },
+    lg: {
+      container: {
+        // Chakra defaults for `lg`:
+        // width: 2.875rem
+        // height: 1.5rem
+        [$width.variable]: "3.25rem",
+        [$height.variable]: "1.5rem",
+      },
+    },
+  },
   defaultProps: {
     colorScheme: "white",
   },
 };
 
 const Toggle = {
-  parts: ["helper"],
-  baseStyle,
+  parts: ["helperErrorText"],
+  baseStyle: toggleBaseStyle,
   // Default values
   defaultProps: {
     size: "lg",

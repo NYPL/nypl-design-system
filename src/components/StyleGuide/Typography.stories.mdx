@@ -1,25 +1,12 @@
 import { Canvas, Meta } from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
-import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import Text from "../Text/Text";
-import { TextDisplaySizes } from "../Text/TextTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
-<Meta
-  title={getCategory("Typography")}
-  decorators={[withDesign]}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=10975%3A16",
-    },
-  }}
-/>
+<Meta title={getCategory("Typography")} />
 
 # Typography
 
@@ -38,20 +25,25 @@ import DSProvider from "../../theme/provider";
 
 ## General Information
 
-Consuming applications should utilize the DS standard text components as much as possible. In cases where that is not possible, the DS exposes CSS variables to assist with formatting text elements.
+Consuming applications should utilize the Reservoir Design System (DS) standard
+text components as much as possible. In cases where that is not possible, the
+DS exposes CSS variables to assist with formatting text elements.
 
-The sizing of all text elements in the Design System is based on `1rem` being equal to `16px`.
+The sizing of all text elements in the Design System is based on `1rem` being
+equal to `16px`.
 
 ## Heading Component
 
-Use the NYPL Design System [Heading](/docs/components-typography-styles-heading--heading-props) component to render a standard HTML `<h>` tag. The `level` prop can be used to set the specific `<h>` tag that you require.
+Use the DS [Heading](/docs/components-typography-styles-heading--heading-props)
+component to render a standard HTML `<h>` tag. The `level` prop can be used to
+set the specific `<h>` tag that you require.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.One}>Heading Level 1</Heading>
-    <Heading level={HeadingLevels.Two}>Heading Level 2</Heading>
-    <Heading level={HeadingLevels.Three}>Heading Level 3</Heading>
-    <Heading level={HeadingLevels.Four}>Heading Level 4</Heading>
+    <Heading level="one">Heading Level 1</Heading>
+    <Heading level="two">Heading Level 2</Heading>
+    <Heading level="three">Heading Level 3</Heading>
+    <Heading level="four">Heading Level 4</Heading>
   </DSProvider>
 </Canvas>
 
@@ -59,9 +51,14 @@ Use the NYPL Design System [Heading](/docs/components-typography-styles-heading-
 
 <DSProvider>
 
-Each heading level has a default style and size, but those styles can be overridden using the `displaySize` prop. The display sizes are separate from semantic elements and may be used to override the default size and styling of the semantic HTML heading elements. For example, the `h1` element has the `Primary` style applied by default, but a new style can be applied through the `displaySize` prop. Any `displaySize` style can be applied to any `Heading` element.
+Each heading level has a default style and size, but those styles can be overridden
+using the `size` prop. The display sizes are separate from semantic elements and
+may be used to override the default size and styling of the semantic HTML heading
+elements. For example, the `h1` element has the `Primary` style applied by default,
+but a new style can be applied through the `size` prop. Any `size` style can be
+applied to any `Heading` element.
 
-<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Primary}>
+<Heading level="one" size="primary">
   Primary Heading
 </Heading>
 
@@ -71,7 +68,7 @@ Each heading level has a default style and size, but those styles can be overrid
 | **Font Weight** | `300`     | `fontWeight: "heading.primary"` | `font-weight: var(--nypl-fontWeights-heading-primary)` |
 | **Line Height** | `1.1`     | n/a                             | n/a                                                    |
 
-<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Secondary}>
+<Heading level="one" size="secondary">
   Secondary Heading
 </Heading>
 
@@ -81,7 +78,7 @@ Each heading level has a default style and size, but those styles can be overrid
 | **Font Weight** | `500`     | `fontWeight: "heading.secondary"` | `font-weight: var(--nypl-fontWeights-heading-secondary)` |
 | **Line Height** | `1.25`    | n/a                               | n/a                                                      |
 
-<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Tertiary}>
+<Heading level="one" size="tertiary">
   Tertiary Heading
 </Heading>
 
@@ -91,7 +88,7 @@ Each heading level has a default style and size, but those styles can be overrid
 | **Font Weight** | `500`      | `fontWeight: "heading.tertiary"` | `font-weight: var(--nypl-fontWeights-heading-tertiary)` |
 | **Line Height** | `1.25`     | n/a                              | n/a                                                     |
 
-<Heading level={HeadingLevels.One} displaySize={HeadingDisplaySizes.Callout}>
+<Heading level="one" size="callout">
   Callout Heading
 </Heading>
 
@@ -105,7 +102,9 @@ Each heading level has a default style and size, but those styles can be overrid
 
 ## Text Component
 
-Use the NYPL Design System [Text](/docs/components-typography-styles-text--text) component to render a standard HTML `<p>` tag. The Text component is generally used for body copy, captions and secondary captions.
+Use the DS [Text](/docs/components-typography-styles-text--text)
+component to render a standard HTML `<p>` tag. The Text component is generally
+used for body copy, captions and secondary captions.
 
 <Canvas>
   <DSProvider>
@@ -122,12 +121,12 @@ Use the NYPL Design System [Text](/docs/components-typography-styles-text--text)
 
 <DSProvider>
 
-The `displaySize` prop can be used to render a specific style from the DS default text styles.
+The `size` prop can be used to render a specific style from the DS default text styles.
 
 - [Typography: Body Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A52)
 - [Typography: Other Styles](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10975%3A100)
 
-<Text displaySize={TextDisplaySizes.Default}>Default</Text>
+<Text size="default">Default</Text>
 
 |                 | Value  | JS Theme Object              | CSS Variable                                        |
 | --------------- | ------ | ---------------------------- | --------------------------------------------------- |
@@ -135,7 +134,7 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 | **Font Weight** | `300`  | `fontWeight: "text.default"` | `font-weight: var(--nypl-fontWeights-text-default)` |
 | **Line Height** | `1.5`  | `fontWeight: 1.5`            | `font-weight: 1.5`                                  |
 
-<Text displaySize={TextDisplaySizes.Caption}>Caption</Text>
+<Text size="caption">Caption</Text>
 
 |                 | Value      | JS Theme Object              | CSS Variable                                        |
 | --------------- | ---------- | ---------------------------- | --------------------------------------------------- |
@@ -143,7 +142,7 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 | **Font Weight** | `300`      | `fontWeight: "text.caption"` | `font-weight: var(--nypl-fontWeights-text-caption)` |
 | **Line Height** | `1.25`     | `fontWeight: 1.25`           | `font-weight: 1.25`                                 |
 
-<Text displaySize={TextDisplaySizes.Tag}>Tag</Text>
+<Text size="tag">Tag</Text>
 
 |                 | Value     | JS Theme Object          | CSS Variable                                    |
 | --------------- | --------- | ------------------------ | ----------------------------------------------- |
@@ -151,7 +150,7 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 | **Font Weight** | `400`     | `fontWeight: "text.tag"` | `font-weight: var(--nypl-fontWeights-text-tag)` |
 | **Line Height** | `1.5`     | `fontWeight: 1.5`        | `font-weight: 1.5`                              |
 
-<Text displaySize={TextDisplaySizes.Mini}>Mini</Text>
+<Text size="mini">Mini</Text>
 
 |                 | Value      | JS Theme Object           | CSS Variable                                     |
 | --------------- | ---------- | ------------------------- | ------------------------------------------------ |
@@ -163,7 +162,9 @@ The `displaySize` prop can be used to render a specific style from the DS defaul
 
 ## Font Family
 
-With website accessibility in mind, font choices for the DS were made with an eye toward clarity and readability. Headings and body content use the following font family assignment:
+With website accessibility in mind, font choices for the DS were made with an
+eye toward clarity and readability. Headings and body content use the
+following font family assignment:
 
 <Canvas>
   <DSProvider>
@@ -179,15 +180,19 @@ The following CSS variables are available through the DS.
 ```
 
 > **RECOMMENDATIONS**  
-> When making font selections for project based components outside the DS, sans serif fonts display better on computers and mobile devices. Avoid decorative or overly stylized fonts, as they are often difficult to read even for users without visual impairments or reading Standard Text Default
+> When making font selections for project based components outside the DS,
+> sans serif fonts display better on computers and mobile devices. Avoid
+> decorative or overly stylized fonts, as they are often difficult to read even
+> for users without visual impairments or reading Standard Text Default
 
 ## Font Color
 
-All text within a project, unless specifically noted in mockups, should be black on a white background.
+All text within a project, unless specifically noted in mockups, should be
+black on a white background.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>Default Heading Color</Heading>
+    <Heading level="three">Default Heading Color</Heading>
     <Text>
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
@@ -198,7 +203,10 @@ All text within a project, unless specifically noted in mockups, should be black
   </DSProvider>
 </Canvas>
 
-In cases where specific colors must be applied to text elements, the DS provides CSS variables for the full NYPL color palette. Refer to the [Colors](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/style-guide-colors--colors-brand) section of the Style Guide for details.
+In cases where specific colors must be applied to text elements, the DS
+provides CSS variables for the full NYPL color palette. Refer to the
+[Colors](https://nypl.github.io/nypl-design-system/storybook-static/?path=/docs/style-guide-colors--colors-brand)
+section of the Style Guide for details.
 
 ## Font Weight
 
@@ -342,11 +350,13 @@ The following font size design tokens are available through the DS.
 
 ## Text Case
 
-In general, the New York Public Library uses Title Case for titles. This means only using capital letters for the principal words. Articles, conjunctions, and prepositions do not get capital letters unless they start the title. For example:
+In general, the New York Public Library uses Title Case for titles. This means
+only using capital letters for the principal words. Articles, conjunctions, and
+prepositions do not get capital letters unless they start the title. For example:
 
 <Canvas>
   <DSProvider>
-    <List type={ListTypes.Unordered}>
+    <List type="ul">
       <li>Snow White and the Seven Dwarfs</li>
       <li>The Last of the Mohicans</li>
       <li>Spooky Books for Kids: The Ultimate Creepy Guide</li>
@@ -364,7 +374,7 @@ In general, the New York Public Library uses Title Case for titles. This means o
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>
+    <Heading level="three">
       This is a Long Title to Show What 58 Characters Looks Like
     </Heading>
   </DSProvider>
@@ -373,7 +383,8 @@ In general, the New York Public Library uses Title Case for titles. This means o
 ### Summaries
 
 140 characters max<br />
-Note: Online Exhibitions, with their longer, legacy summaries are an exception to this.
+Note: Online Exhibitions, with their longer, legacy summaries are an exception
+to this.
 
 <Canvas>
   <DSProvider>

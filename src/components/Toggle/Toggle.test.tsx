@@ -1,9 +1,9 @@
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
+import * as React from "react";
 import renderer from "react-test-renderer";
-import * as generateUUID from "../../helpers/generateUUID";
+
 import Toggle from "./Toggle";
 
 describe("Toggle Accessibility", () => {
@@ -17,7 +17,6 @@ describe("Toggle Accessibility", () => {
 
 describe("Toggle", () => {
   let changeHandler;
-  let generateUUIDSpy;
 
   beforeEach(() => {
     changeHandler = jest.fn();
@@ -61,13 +60,6 @@ describe("Toggle", () => {
   it("Sets the Toggle's ID", () => {
     render(<Toggle id="inputID" labelText="Test Label" />);
     expect(screen.getByRole("checkbox")).toHaveAttribute("id", "inputID");
-  });
-
-  it("Calls the UUID generation function if no id prop value is passed", () => {
-    generateUUIDSpy = jest.spyOn(generateUUID, "default");
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-    render(<Toggle labelText="Test Label" />);
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
   });
 
   it("Sets the 'checked' attribute", () => {
@@ -118,6 +110,18 @@ describe("Toggle", () => {
     expect(changeHandler).toHaveBeenCalledTimes(1);
   });
 
+  it("Logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Toggle labelText="test" />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Toggle: This component's required `id` prop was not passed."
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const primary = renderer
       .create(<Toggle id="inputID" labelText="Test Label" />)
@@ -131,10 +135,36 @@ describe("Toggle", () => {
     const isDisabled = renderer
       .create(<Toggle id="Toggle-disabled" labelText="Test Label" isDisabled />)
       .toJSON();
+    const small = renderer
+      .create(
+        <Toggle
+          id="Toggle-disabled"
+          labelText="Test Label"
+          isDisabled
+          size="small"
+        />
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Toggle
+          id="chakra"
+          labelText="Test Label"
+          p="20px"
+          color="ui.error.primray"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Toggle id="props" labelText="Test Label" data-testid="props" />)
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(small).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

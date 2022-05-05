@@ -1,5 +1,4 @@
 import { Meta } from "@storybook/addon-docs";
-import { withDesign } from "storybook-addon-designs";
 
 import { getCategory } from "../../utils/componentCategories";
 
@@ -7,34 +6,49 @@ import { getCategory } from "../../utils/componentCategories";
 
 # Design Tokens
 
-| Table of Contents                                                                    |
-| ------------------------------------------------------------------------------------ |
-| 1. [What are Design Tokens?](#what-are-design-tokens)                                |
-| 2. [Why Use Design Tokens?](#why-use-design-tokens)                                  |
-| 3. [How to Use the NYPL Design Tokens](#figma-reference)                             |
-| 4. [Using NYPL Design Tokens in CSS](#using-nypl-design-tokens-in-css)               |
-| 5. [Using NYPL Design Tokens in Javascript](#using-nypl-design-tokens-in-javascript) |
-| 6. [NYPL Design Token Categories](#nypl-design-token-categories)                     |
+| Table of Contents                                                                              |
+| ---------------------------------------------------------------------------------------------- |
+| 1. [What are Design Tokens?](#what-are-design-tokens)                                          |
+| 2. [Why Use Design Tokens?](#why-use-design-tokens)                                            |
+| 3. [How to Use the Reservoir Design Tokens](#figma-reference)                                  |
+| 4. [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)               |
+| 5. [Using Reservoir Design Tokens in Javascript](#using-reservoir-design-tokens-in-javascript) |
+| 6. [Reservoir Design Token Categories](#reservoir-design-token-categories)                     |
 
 ## What are Design Tokens?
 
-Design tokens are the style values that define a design system. These values can include, but may not be limited to, spacing, color, typography, breakpoints and object styles. Ultimately, these values are used to construct and maintain the components that make up our system.
+Design tokens are the style values that define a design system. These values
+can include, but may not be limited to, spacing, color, typography, breakpoints
+and object styles. Ultimately, these values are used to construct and maintain
+the components that make up our system.
 
 ## Why Use Design Tokens?
 
-_"With design tokens, you can capture low-level values and then use them to create the styles for your product or app. You can maintain a scalable and consistent visual system for UI development."_ – Jina Bolton, Lead Designer for the Salesforce Design System
+_"With design tokens, you can capture low-level values and then use them to
+create the styles for your product or app. You can maintain a scalable and
+consistent visual system for UI development."_ - Jina Bolton, Lead Designer
+for the Salesforce Design System
 
-Design tokens are a single source of truth when it comes to styles. They allow an organization to more easily build multiple applications – web and/or native – that feel and look the same without slowing down the development team.
+Design tokens are a single source of truth when it comes to styles. They allow
+an organization to more easily build multiple applications - web and/or native -
+that feel and look the same without slowing down the development team.
 
-## How to Use the NYPL Design Tokens
+## How to Use the Reservoir Design Tokens
 
-The NYPL design tokens are built into the NYPL Design System (the DS) and are offered in two formats for consumption: CSS variables and javascript data objects. To access either of these formats, the DS `v0.25.9` or higher needs to be properly installed in a consuming React application.
+The NYPL design tokens are built into the Reservoir Design System (DS) and are
+offered in two formats for consumption: CSS variables and javascript data
+objects. To access either of these formats, the DS `v0.25.9` or higher needs
+to be properly installed in a consuming React application.
 
-## Using NYPL Design Tokens in CSS
+## Using Reservoir Design Tokens in CSS
 
-If your app uses CSS or SCSS to handle styles, the DS creates standard CSS custom properties (e.g. variables) for consumption in your stylesheets. If the DS is properly installed, the CSS custom properties will be available for you to use. Nothing more needs to be done to your app.
+If your app uses CSS or SCSS to handle styles, the DS creates standard CSS
+custom properties (e.g. variables) for consumption in your stylesheets. If the
+DS is properly installed, the CSS custom properties will be available for you
+to use. Nothing more needs to be done to your app.
 
-To assist with CSS scope isolation, all of the CSS custom properties created by the DS are prefixed with "nypl." Please see the examples below.
+To assist with CSS scope isolation, all of the CSS custom properties created
+by the DS are prefixed with "nypl." Please see the examples below.
 
 ```css
 --nypl-colors-brand-primary
@@ -50,7 +64,8 @@ To assist with CSS scope isolation, all of the CSS custom properties created by 
 --nypl-space-l
 ```
 
-The CSS custom properties are defined on the :root pseudo-class and should be implemented using standard CSS custom properties conventions.
+The CSS custom properties are defined on the :root pseudo-class and should be
+implemented using standard CSS custom properties conventions.
 
 ```css
 /* Property Declaration in the DS */
@@ -64,18 +79,25 @@ The CSS custom properties are defined on the :root pseudo-class and should be im
 }
 ```
 
-## Using NYPL Design Tokens in Javascript
+## Using Reservoir Design Tokens in Javascript
 
-If you would like to use CSS-in-JS styles in your React components, the `useNYPLTheme` hook will provide you with NYPL design token values. The hook depends on the `DSProvider` component and will not work properly outside of the `DSProvider` wrapper component.
+If you would like to use CSS-in-JS styles in your React components, the
+`useNYPLTheme` hook will provide you with Reservoir design token values. The hook
+depends on the `DSProvider` component and will not work properly outside of
+the `DSProvider` wrapper component.
 
-After importing and implementing the `DSProvider` wrapper component, as explained in the `DSProvider` section of the [DS Chakra UI](?path=/story/chakra-ui--page#dsprovider) document, your children components can use this hook function.
+After importing and implementing the `DSProvider` wrapper component, as
+explained in the `DSProvider` section of the [DS Chakra UI](?path=/story/chakra-ui--page#dsprovider)
+document, your children components can use this hook function.
 
 ```tsx
 import { useNYPLTheme } from "@nypl/design-system-react-components";
 const theme = useNYPLTheme();
 ```
 
-The theme variable will be a javascript object containing the NYPL design token style values. This will allow you to use design token values in your components through CSS-in-JS.
+The theme variable will be a javascript object containing the NYPL design
+token style values. This will allow you to use design token values in your
+components through CSS-in-JS.
 
 ```tsx
 // theme
@@ -97,9 +119,16 @@ The theme variable will be a javascript object containing the NYPL design token 
 
 #### Using in DS Components
 
-The general rule of thumb is that DS components and the available variants should be used with the styles and variants as they are shown in Storybook, but there may be rare times when a component does require a modification. That said, if a DS component does need an updated style, first contact the Design System and UX teams about this update.
+The general rule of thumb is that DS components and the available variants
+should be used with the styles and variants as they are shown in Storybook,
+but there may be rare times when a component does require a modification.
+That said, if a DS component does need an updated style, first contact the
+Design System and UX teams about this update.
 
-If you receive approval to make a change in a consuming app, then you can add styles directly to the `additionalStyles` prop. For example, if the `Heading` component needs to render text in NYPL's "success primary" green color and add a bold font weight, then you can do the following:
+If you receive approval to make a change in a consuming app, then you can add
+styles directly as style props. For example, if the `Heading` component needs to
+render text in Reservoir's "success primary" green color and add a bold font
+weight, then you can do the following:
 
 ```tsx
 const theme = useNYPLTheme();
@@ -109,10 +138,8 @@ return (
   <div>
     <Heading
       level={2}
-      additionalStyles={{
-        color: theme.colors.ui.success.primary,
-        fontWeight: theme.fontWeights.bold,
-      }}
+      color={theme.colors.ui.success.primary}
+      fontWeight={theme.fontWeights.bold}
     >
       Get a Digital Library Card Today in a Few Easy Steps
     </Heading>
@@ -145,7 +172,7 @@ const CustomButton = styled.button`
 `;
 ```
 
-## NYPL Design Token Categories
+## Reservoir Design Token Categories
 
 The DS design tokens are broken into the following categories:
 
@@ -162,4 +189,5 @@ The DS design tokens are broken into the following categories:
   - font sizes
   - font weights
 
-For details related to a specific category, please refer to the corresponding section in the Style Guide available in the DS Storybook.
+For details related to a specific category, please refer to the corresponding
+section in the Style Guide available in the DS Storybook.

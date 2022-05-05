@@ -8,18 +8,10 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Icon from "../Icons/Icon";
-import { IconColors, IconNames } from "../Icons/IconTypes";
 import Link from "../Link/Link";
 import Notification from "./Notification";
-import { NotificationTypes } from "./NotificationTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(
-  NotificationTypes,
-  "NotificationTypes"
-);
 
 <Meta
   title={getCategory("Notification")}
@@ -33,23 +25,21 @@ export const enumValues = getStorybookEnumValues(
     jest: ["Notification.test.tsx"],
   }}
   argTypes={{
-    centered: {
-      table: { defaultValue: { summary: false } },
-    },
     className: { control: false },
     dismissible: {
       table: { defaultValue: { summary: false } },
     },
     icon: { control: false },
     id: { control: false },
+    isCentered: {
+      table: { defaultValue: { summary: false } },
+    },
     noMargin: {
       table: { defaultValue: { summary: false } },
     },
     notificationContent: { control: false },
     notificationType: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "NotificationTypes.Standard" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "standard" } },
     },
   }}
 />
@@ -59,7 +49,18 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.12`  |
+| Latest            | `0.28.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Variants](#variants)
+- [Custom Icon](#custom-icon)
+- [Dismissible](#dismissible)
+
+## Overview
 
 <Description of={Notification} />
 
@@ -70,16 +71,18 @@ In the preview below, the border around the `Notification` is not part of the
 component. It has been added to help illustrate how the `Notification` sits
 within a parent element.
 
+## Component Props
+
 <Canvas>
   <Story
     name="Notification with Controls"
     args={{
       ariaLabel: "Notification label",
-      centered: false,
       className: undefined,
       dismissible: false,
       icon: undefined,
       id: "notification-id",
+      isCentered: false,
       noMargin: false,
       notificationHeading: "Notification Heading",
       notificationContent: (
@@ -92,16 +95,13 @@ within a parent element.
           nisi erat porttitor ligula.
         </>
       ),
-      notificationType: "NotificationTypes.Standard",
+      notificationType: "standard",
       showIcon: true,
     }}
   >
     {(args) => (
       <div style={{ border: "1px solid #ccc" }}>
-        <Notification
-          {...args}
-          notificationType={enumValues.getValue(args.notificationType)}
-        />
+        <Notification {...args} />
       </div>
     )}
   </Story>
@@ -118,10 +118,21 @@ be rendered inside other landmark elements such as the `header` and `footer`
 landmark elements. Adding a `Notification` component inside an HTML `main` landmark
 element is acceptable.
 
+Every `Notification` component must have a unique `aria-label` attribute. This
+is set through the `ariaLabel` prop. A unique `aria-label` value, along with the
+`aside` HTML landmark element, helps screen readers better navigate a page with
+multiple `Notification`s.
+
 Icons rendered in the `Notification` component are decorative by default which
 means that they are hidden to screen readers. Since the "X" close icon inside the
 dismissible button is decorative and because there is no discernible text inside
 the button, an `aria-label` attribute is added to the button.
+
+Resources:
+
+- [MDN Aria: complementary role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/complementary_role)
+- [Deque Creating Accessible SVGs](https://www.deque.com/blog/creating-accessible-svgs/)
+- [CSS Tricks Accessible SVG Icons](https://css-tricks.com/accessible-svg-icons/)
 
 ## Variants
 
@@ -148,7 +159,7 @@ the button, an `aria-label` attribute is added to the button.
 <Canvas>
   <DSProvider>
     <Notification
-      notificationType={NotificationTypes.Announcement}
+      notificationType="announcement"
       notificationHeading="Announcement Notification"
       notificationContent={
         <>
@@ -167,7 +178,7 @@ the button, an `aria-label` attribute is added to the button.
 <Canvas>
   <DSProvider>
     <Notification
-      notificationType={NotificationTypes.Warning}
+      notificationType="warning"
       notificationHeading="Warning Notification"
       notificationContent={
         <>
@@ -205,7 +216,7 @@ the button, an `aria-label` attribute is added to the button.
 <Canvas>
   <DSProvider>
     <Notification
-      notificationType={NotificationTypes.Announcement}
+      notificationType="announcement"
       notificationContent={
         <>
           This is an "announcement" Notification without a heading. Cras mattis
@@ -223,7 +234,7 @@ the button, an `aria-label` attribute is added to the button.
 <Canvas>
   <DSProvider>
     <Notification
-      notificationType={NotificationTypes.Warning}
+      notificationType="warning"
       notificationContent={
         <>
           This is a "warning" Notification without a heading. Cras mattis
@@ -306,12 +317,7 @@ The default icon can be overridden by using the `icon` prop to pass a custom `Ic
 <Canvas>
   <Story name="Custom Icons">
     <Notification
-      icon={
-        <Icon
-          name={IconNames.Check}
-          color={IconColors.SectionResearchSecondary}
-        />
-      }
+      icon={<Icon name="check" color="section.research.secondary" />}
       notificationHeading="Custom Icon"
       notificationContent={
         <>
@@ -346,7 +352,7 @@ appears once.
           nascetur ridiculus mus.
         </>
       }
-      notificationType={NotificationTypes.Announcement}
+      notificationType="announcement"
     />
   </Story>
 </Canvas>

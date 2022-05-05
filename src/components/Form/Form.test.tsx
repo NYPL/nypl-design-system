@@ -4,18 +4,17 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Form, { FormRow, FormField } from "./Form";
-// import { FormGaps } from "./FormTypes";
 import TextInput from "../TextInput/TextInput";
 
 describe("Form Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<Form />);
+    const { container } = render(<Form id="form" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test for the full hierachy", async () => {
     const { container } = render(
-      <Form>
+      <Form id="form">
         <FormRow>
           <FormField>Form Field 1</FormField>
           <FormField>Form Field 2</FormField>
@@ -40,19 +39,44 @@ describe("Form Snapshot", () => {
         </Form>
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Form id="chakra" p="20px" color="ui.error.primary">
+          <FormRow>
+            <FormField>Form Field 1</FormField>
+            <FormField>Form Field 2</FormField>
+            <FormField>Form Field 3</FormField>
+          </FormRow>
+        </Form>
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(
+        <Form id="props" data-testid="props">
+          <FormRow>
+            <FormField>Form Field 1</FormField>
+            <FormField>Form Field 2</FormField>
+            <FormField>Form Field 3</FormField>
+          </FormRow>
+        </Form>
+      )
+      .toJSON();
+
     expect(tree).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });
 
 describe("Form", () => {
   it("Renders a <form> element", () => {
-    render(<Form />);
+    render(<Form id="form" />);
     expect(screen.getByRole("form")).toBeInTheDocument();
   });
 
   it("Renders a <form> element with child FormRow element", () => {
     render(
-      <Form>
+      <Form id="form">
         <FormRow />
       </Form>
     );
@@ -67,7 +91,7 @@ describe("Form", () => {
 
   it("Renders a <form> element with child FormField element", () => {
     render(
-      <Form>
+      <Form id="form">
         <FormField />
       </Form>
     );
@@ -82,10 +106,10 @@ describe("Form", () => {
 
   it("Renders a <form> element with FormRow, FormField and input elements properly nested", () => {
     render(
-      <Form>
+      <Form id="form">
         <FormRow>
           <FormField>
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
       </Form>
@@ -107,7 +131,7 @@ describe("Form", () => {
   });
 
   it("Renders a <form> element with custom `action` and `method` attributes", () => {
-    render(<Form action="/end/point" method="get" />);
+    render(<Form id="form" action="/end/point" method="get" />);
     const form = screen.getByRole("form");
     expect(form).toBeInTheDocument();
     expect(form).toHaveAttribute("action", "/end/point");
@@ -119,18 +143,18 @@ describe("Form", () => {
       <Form id="formId">
         <FormRow>
           <FormField>
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
           <FormField>
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
         <FormRow>
           <FormField>
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
           <FormField>
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
       </Form>
@@ -162,24 +186,24 @@ describe("Form", () => {
   it("logs a warning if a child of `FormRow` is not a `FormField`", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Form>
+      <Form id="form">
         <FormRow>
           <div>Not a FormField</div>
         </FormRow>
       </Form>
     );
     expect(warn).toHaveBeenCalledWith(
-      "FormRow children must be `FormField` components."
+      "NYPL Reservoir FormRow: Children must be `FormField` components."
     );
   });
 
   it("calls the onSubmit function", () => {
     const onSubmit = jest.fn();
     render(
-      <Form onSubmit={onSubmit}>
+      <Form id="form" onSubmit={onSubmit}>
         <FormRow>
           <FormField>
-            <TextInput labelText="Input Field" />
+            <TextInput id="textInput" labelText="Input Field" />
           </FormField>
         </FormRow>
       </Form>
@@ -190,19 +214,21 @@ describe("Form", () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
-  // TO DO: There's somethign weird about checking for the "grid-gap" style.
-  // Other styles can be validated, but "grid-gap" is being ellusive.
-  // it("Renders a <form> element with spacing variant applied", () => {
-  //   render(
-  //     <Form gap={FormGaps.ExtraSmall}>
-  //       <FormRow />
-  //     </Form>
-  //   );
-  //   const form = screen.getByRole("form");
-  //   const formRow = form.firstChild;
-  //   expect(form).toBeInTheDocument();
-  //   expect(formRow).toHaveStyle({
-  //     "grid-gap": "var(--nypl-space-xs)",
-  //   });
-  // });
+  it("Logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Form>
+        <FormRow>
+          <FormField>
+            <TextInput id="textInput" labelText="Input Field" />
+          </FormField>
+        </FormRow>
+      </Form>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Form: This component's required `id` prop was not passed."
+    );
+  });
 });

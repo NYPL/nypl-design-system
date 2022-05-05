@@ -1,8 +1,8 @@
 const svgBase = {
   display: "inline-block",
   fill: "currentColor",
-  width: "24px",
-  height: "24px",
+  width: "auto",
+  height: "100%",
 };
 const align = {
   none: {},
@@ -39,6 +39,9 @@ const size = {
   large: {
     height: "var(--nypl-space-m)",
     width: "var(--nypl-space-m)",
+  },
+  default: {
+    width: "100%",
   },
   medium: {
     height: "1.125rem",

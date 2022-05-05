@@ -9,34 +9,15 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
-import { CardLayouts } from "./CardTypes";
 import Heading from "../Heading/Heading";
-import { HeadingDisplaySizes, HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
 import Link from "../Link/Link";
-import { LinkTypes } from "../Link/LinkTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const imageRatiosEnumValues = getStorybookEnumValues(
-  ImageRatios,
-  "ImageRatios"
-);
-export const imageSizesEnumValues = getStorybookEnumValues(
-  ImageSizes,
-  "ImageSizes"
-);
-export const cardLayoutsEnumValues = getStorybookEnumValues(
-  CardLayouts,
-  "CardLayouts"
-);
 
 <Meta
   title={getCategory("Card")}
@@ -51,39 +32,40 @@ export const cardLayoutsEnumValues = getStorybookEnumValues(
   }}
   argTypes={{
     backgroundColor: { control: { type: "color" } },
-    border: {
-      table: { defaultValue: { summary: false } },
-    },
-    center: {
-      table: { defaultValue: { summary: false } },
-    },
     className: { control: false },
     foregroundColor: { control: { type: "color" } },
     id: { control: false },
-    imageAlt: {
+    imageProps: { disable: true },
+    "imageProps.alt": {
+      control: { type: "text" },
       table: { defaultValue: { summary: "" } },
     },
-    imageAspectRatio: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "ImageRatios.Square" } },
-      options: imageRatiosEnumValues.options,
+    "imageProps.aspectRatio": {
+      table: { defaultValue: { summary: "square" } },
     },
-    imageAtEnd: {
+    "imageProps.caption": { control: false },
+    "imageProps.component": { control: false },
+    "imageProps.credit": { control: false },
+    "imageProps.isAtEnd": {
       table: { defaultValue: { summary: false } },
     },
-    imageComponent: { control: false },
-    imageSize: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "ImageSizes.Default" } },
-      options: imageSizesEnumValues.options,
+    "imageProps.size": {
+      table: { defaultValue: { summary: "default" } },
     },
-    imageSrc: {
+    "imageProps.src": {
       table: { defaultValue: { summary: "" } },
     },
+    isAlignedRightActions: {
+      table: { defaultValue: { summary: false } },
+    },
+    isBordered: {
+      table: { defaultValue: { summary: false } },
+    },
+    isCentered: {
+      table: { defaultValue: { summary: false } },
+    },
     layout: {
-      control: { type: "radio" },
-      table: { defaultValue: { summary: "CardLayouts.Column" } },
-      options: cardLayoutsEnumValues.options,
+      table: { defaultValue: { summary: "column" } },
     },
   }}
 />
@@ -93,7 +75,24 @@ export const cardLayoutsEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.25.10`  |
+| Latest            | `0.28.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Image Position](#image-position)
+- [Image Size](#image-size)
+- [Custom Image Component](#custom-image-component)
+- [Card With Link Heading](#card-with-link-heading)
+- [Card With Full-Click Functionality](#card-with-full-click-functionality)
+- [Card with Right Side CardActions](#card-with-right-side-cardactions)
+- [Cards in a Grid](#cards-in-a-grid)
+- [Cards in a Stack](#cards-in-a-stack)
+- [Card Without Images](#card-without-images)
+
+## Overview
 
 <Description of={Card} />
 
@@ -105,53 +104,73 @@ order and each child component may be used multiple times within the content
 area. Although a `Card` is a self-contained unit, `Card` components are often
 grouped together and displayed in some type of grid layout.
 
-#### CardHeading
+### CardHeading
 
-The `CardHeading` component mirrors the standard DS `Heading` component and
-accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/components-typography-styles-heading--heading-with-controls).
+The `CardHeading` component mirrors the standard Reservoir Design System (DS)
+`Heading` component and accepts the [same props](https://nypl.github.io/nypl-design-system/storybook-static/?path=/story/components-typography-styles-heading--heading-with-controls).
 
-#### CardActions
+### CardActions
 
 The `CardActions` component is used to display "call to action" (CTA) buttons
 and links for the card. The DS `Button` and `Link` components should be passed
 as children into the `CardActions` component.
 
-#### CardContent
+Set the `isAlignedRightActions` prop to true in the `Card` component to align the
+`CardActions` to the right of the the main content area. This is only applicable
+in the row layout of the `Card` component.
+
+### CardContent
 
 The `CardContent` component should be used to display all content other than
 headings and CTAs.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
     name="Card with Controls"
     args={{
       backgroundColor: undefined,
-      border: false,
-      center: false,
       className: undefined,
       foregroundColor: undefined,
       id: "card-id",
-      imageAlt: "Alt text",
-      imageAspectRatio: "ImageRatios.Square",
-      imageAtEnd: false,
-      imageComponent: undefined,
-      imageSize: "ImageSizes.Default",
-      imageSrc: "https://placeimg.com/400/300/animals",
-      layout: "CardLayouts.Row",
+      "imageProps.alt": "Alt text",
+      "imageProps.aspectRatio": "square",
+      "imageProps.component": undefined,
+      "imageProps.isAtEnd": false,
+      "imageProps.size": "default",
+      "imageProps.src": "https://placeimg.com/400/300/animals",
+      isAlignedRightActions: false,
+      isBordered: false,
+      isCentered: false,
+      layout: "row",
       mainActionLink: undefined,
     }}
   >
     {(args) => (
       <Card
-        {...args}
-        imageAspectRatio={imageRatiosEnumValues.getValue(args.imageAspectRatio)}
-        imageSize={imageSizesEnumValues.getValue(args.imageSize)}
-        layout={cardLayoutsEnumValues.getValue(args.layout)}
+        backgroundColor={args.backgroundColor}
+        className={args.className}
+        foregroundColor={args.foregroundColor}
+        id={args.id}
+        imageProps={{
+          alt: args["imageProps.alt"],
+          aspectRatio: args["imageProps.aspectRatio"],
+          component: args["imageProps.component"],
+          isAtEnd: args["imageProps.isAtEnd"],
+          size: args["imageProps.size"],
+          src: args["imageProps.src"],
+        }}
+        isAlignedRightActions={args.isAlignedRightActions}
+        isBordered={args.isBordered}
+        isCentered={args.isCentered}
+        layout={args.layout}
+        mainActionLink={args.mainActionLink}
       >
-        <CardHeading level={HeadingLevels.Two} id="main-heading1">
+        <CardHeading level="two" id="main-heading1">
           Optional Header
         </CardHeading>
-        <CardHeading level={HeadingLevels.Three} id="main-heading2">
+        <CardHeading level="three" id="main-heading2">
           Sollicitudin Lorem Tortor Purus Ornare
         </CardHeading>
         <CardContent>
@@ -160,18 +179,13 @@ headings and CTAs.
           vel eu leo. Nulla vitae elit libero, a pharetra augue.
         </CardContent>
         <CardActions topBorder bottomBorder>
-          <Button
-            onClick={action("clicked")}
-            id="main-button1"
-            buttonType={ButtonTypes.Primary}
-            type="submit"
-          >
+          <Button id="main-button1" onClick={action("clicked")} type="submit">
             Primary
           </Button>
           <Button
-            onClick={action("clicked")}
+            buttonType="secondary"
             id="main-button2"
-            buttonType={ButtonTypes.Secondary}
+            onClick={action("clicked")}
             type="submit"
           >
             Secondary
@@ -188,11 +202,45 @@ headings and CTAs.
 
 <ArgsTable story="Card with Controls" />
 
+## Accessibility
+
+### Headings
+
+In general, headings from `h1` through `h6` must be in sequential order in the
+DOM tree. Rendering an `h4` following an `h2` will throw an accessibility error.
+Therefore, when adding `CardHeading` components, make sure to add them in
+sequential order with the proper `level` prop.
+
+```tsx
+// Correct
+<CardHeading level="three" id="headingthree">
+  Heading level three
+</CardHeading>
+<CardHeading level="four" id="headingfour">
+  Heading level four
+</CardHeading>
+
+// Incorrect
+<CardHeading level="two" id="headingtwo">
+  Heading level Two
+</CardHeading>
+<CardHeading level="four" id="headingfour">
+  Heading level four
+</CardHeading>
+```
+
+### Full-Click Functionality
+
+Passing in a URL in the `mainActionLink` prop will make the entire `Card`
+clickable. Other links in the `CardActions` component can still be accessed by
+tabbing through and pressing "enter" or by clicking as you normally would on a
+link.
+
 ## Image Position
 
 By default, the image is always the first element within a `Card`. This means
 the image is at the top of a `Card` with a column layout and on the left side of
-a `Card` with a row layout. However, you can use the `imageAtEnd` boolean prop
+a `Card` with a row layout. However, you can use the `imageProps.isAtEnd` boolean prop
 to override the default placement and move the image to the last element within
 a `Card`.
 
@@ -202,11 +250,13 @@ a `Card`.
   <Story name="Card Image Position">
     <SimpleGrid columns={2}>
       <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/400/200/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/400/200/animals",
+        }}
       >
-        <CardHeading level={HeadingLevels.Three} id="props-heading1">
+        <CardHeading level="three" id="props-heading1">
           Image on Top (default)
         </CardHeading>
         <CardContent>
@@ -215,12 +265,14 @@ a `Card`.
         </CardContent>
       </Card>
       <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageAtEnd
-        imageSrc="https://placeimg.com/410/210/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          isAtEnd: true,
+          src: "https://placeimg.com/400/200/animals",
+        }}
       >
-        <CardHeading level={HeadingLevels.Three} id="props-heading2">
+        <CardHeading level="three" id="props-heading2">
           Image on Bottom
         </CardHeading>
         <CardContent>
@@ -238,13 +290,15 @@ a `Card`.
   <DSProvider>
     <SimpleGrid columns={1}>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/400/200/animals"
-        layout={CardLayouts.Row}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="row-heading1">
+        <CardHeading level="four" id="row-heading1">
           Image on Left (default)
         </CardHeading>
         <CardContent>
@@ -254,14 +308,16 @@ a `Card`.
         </CardContent>
       </Card>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageAtEnd
-        imageSrc="https://placeimg.com/410/210/animals"
-        layout={CardLayouts.Row}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          isAtEnd: true,
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Four} id="row-heading2">
+        <CardHeading level="four" id="row-heading2">
           Image on Right
         </CardHeading>
         <CardContent>
@@ -277,7 +333,7 @@ a `Card`.
 ## Image Size
 
 By default, the image width is `100%` for a `Card` with a column layout and
-`225px` for a `Card` with a row layout. However, you can use the `imageSize`
+`225px` for a `Card` with a row layout. However, you can use the `imageProps.size`
 prop to override the default width.
 
 ### Column Cards
@@ -286,16 +342,18 @@ prop to override the default width.
   <Story name="Card Image Size">
     <SimpleGrid columns={1}>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        imageSize={ImageSizes.ExtraExtraSmall}
-        imageSrc="https://placeimg.com/400/200/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "square",
+          size: "xxsmall",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column-heading1">
+        <CardHeading level="three" id="column-heading1">
           Extra Extra Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column-heading2">
+        <CardHeading level="four" id="column-heading2">
           Max-Width: 64px
         </CardHeading>
         <CardContent>
@@ -305,16 +363,18 @@ prop to override the default width.
       </Card>
       <HorizontalRule />
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        imageSize={ImageSizes.ExtraSmall}
-        imageSrc="https://placeimg.com/400/200/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "square",
+          size: "xsmall",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column-heading1">
+        <CardHeading level="three" id="column-heading1">
           Extra Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column-heading2">
+        <CardHeading level="four" id="column-heading2">
           Max-Width: 96px
         </CardHeading>
         <CardContent>
@@ -324,16 +384,18 @@ prop to override the default width.
       </Card>
       <HorizontalRule />
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        imageSize={ImageSizes.Small}
-        imageSrc="https://placeimg.com/400/200/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "square",
+          size: "small",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column-heading1">
+        <CardHeading level="three" id="column-heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column-heading2">
+        <CardHeading level="four" id="column-heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -343,16 +405,18 @@ prop to override the default width.
       </Card>
       <HorizontalRule />
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/400/200/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "square",
+          size: "medium",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column2-heading1">
+        <CardHeading level="three" id="column2-heading1">
           Medium Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column2-heading2">
+        <CardHeading level="four" id="column2-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -362,16 +426,18 @@ prop to override the default width.
       </Card>
       <HorizontalRule />
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        imageSize={ImageSizes.Large}
-        imageSrc="https://placeimg.com/410/210/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "square",
+          size: "large",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column3-heading1">
+        <CardHeading level="three" id="column3-heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column3-heading2">
+        <CardHeading level="four" id="column3-heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -381,15 +447,17 @@ prop to override the default width.
       </Card>
       <HorizontalRule />
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.Square}
-        imageSrc="https://placeimg.com/410/210/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "square",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
       >
-        <CardHeading level={HeadingLevels.Three} id="column-4heading1">
+        <CardHeading level="three" id="column-4heading1">
           Default Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="column-4heading2">
+        <CardHeading level="four" id="column-4heading2">
           Width: 100%
         </CardHeading>
         <CardContent>
@@ -407,17 +475,19 @@ prop to override the default width.
   <DSProvider>
     <SimpleGrid columns={1}>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSize={ImageSizes.ExtraExtraSmall}
-        imageSrc="https://placeimg.com/400/200/animals"
-        layout={CardLayouts.Row}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          size: "xxsmall",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+        <CardHeading level="three" id="row2-heading1">
           Extra Extra Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+        <CardHeading level="four" id="row2-heading2">
           Max-Width: 64px
         </CardHeading>
         <CardContent>
@@ -425,17 +495,19 @@ prop to override the default width.
         </CardContent>
       </Card>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSize={ImageSizes.ExtraSmall}
-        imageSrc="https://placeimg.com/400/200/animals"
-        layout={CardLayouts.Row}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          size: "xsmall",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+        <CardHeading level="three" id="row2-heading1">
           Extra Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+        <CardHeading level="four" id="row2-heading2">
           Max-Width: 96px
         </CardHeading>
         <CardContent>
@@ -443,17 +515,19 @@ prop to override the default width.
         </CardContent>
       </Card>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSize={ImageSizes.Small}
-        imageSrc="https://placeimg.com/400/200/animals"
-        layout={CardLayouts.Row}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          size: "small",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row2-heading1">
+        <CardHeading level="three" id="row2-heading1">
           Small Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row2-heading2">
+        <CardHeading level="four" id="row2-heading2">
           Max-Width: 165px
         </CardHeading>
         <CardContent>
@@ -461,17 +535,19 @@ prop to override the default width.
         </CardContent>
       </Card>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSize={ImageSizes.Medium}
-        imageSrc="https://placeimg.com/410/210/animals"
-        layout={CardLayouts.Row}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          size: "medium",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row3-heading2">
+        <CardHeading level="three" id="row3-heading2">
           Medium Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row3-heading2">
+        <CardHeading level="four" id="row3-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -480,17 +556,19 @@ prop to override the default width.
         </CardContent>
       </Card>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSize={ImageSizes.Large}
-        imageSrc="https://placeimg.com/400/250/animals"
-        layout={CardLayouts.Row}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          size: "large",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row4-heading1">
+        <CardHeading level="three" id="row4-heading1">
           Large Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row4-heading2">
+        <CardHeading level="four" id="row4-heading2">
           Max-Width: 360px
         </CardHeading>
         <CardContent>
@@ -500,16 +578,18 @@ prop to override the default width.
         </CardContent>
       </Card>
       <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/450/250/animals"
-        layout={CardLayouts.Row}
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
       >
-        <CardHeading level={HeadingLevels.Three} id="row5-heading2">
+        <CardHeading level="three" id="row5-heading2">
           Default Image
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="row5-heading2">
+        <CardHeading level="four" id="row5-heading2">
           Max-Width: 225px
         </CardHeading>
         <CardContent>
@@ -522,168 +602,27 @@ prop to override the default width.
   </DSProvider>
 </Canvas>
 
-## Cards in a Grid
-
-<Canvas>
-  <Story name="Cards in a Grid">
-    <SimpleGrid columns={3}>
-      <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/400/200/animals"
-      >
-        <CardHeading level={HeadingLevels.Three} id="grid1-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
-        </CardContent>
-      </Card>
-      <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/410/210/animals"
-      >
-        <CardHeading level={HeadingLevels.Three} id="grid2-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
-        </CardContent>
-      </Card>
-      <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/420/220/animals"
-      >
-        <CardHeading level={HeadingLevels.Three} id="grid3-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
-        </CardContent>
-      </Card>
-      <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/430/230/animals"
-      >
-        <CardHeading level={HeadingLevels.Three} id="grid4-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
-        </CardContent>
-      </Card>
-      <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/440/240/animals"
-      >
-        <CardHeading level={HeadingLevels.Three} id="grid5-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
-        </CardContent>
-      </Card>
-      <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/450/250/animals"
-      >
-        <CardHeading level={HeadingLevels.Three} id="grid6-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue.
-        </CardContent>
-      </Card>
-    </SimpleGrid>
-  </Story>
-</Canvas>
-
-## Cards in a Stack
-
-<Canvas>
-  <Story name="Cards in a Stack">
-    <SimpleGrid columns={1}>
-      <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/400/200/animals"
-        layout={CardLayouts.Row}
-      >
-        <CardHeading level={HeadingLevels.Four} id="stack1-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-          facilisis in, egestas eget quam.
-        </CardContent>
-      </Card>
-      <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/410/210/animals"
-        layout={CardLayouts.Row}
-      >
-        <CardHeading level={HeadingLevels.Four} id="stack2-heading2">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-          facilisis in, egestas eget quam.
-        </CardContent>
-      </Card>
-      <Card
-        center
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/420/220/animals"
-        layout={CardLayouts.Row}
-      >
-        <CardHeading level={HeadingLevels.Four} id="stack3-heading3">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-          facilisis in, egestas eget quam.
-        </CardContent>
-      </Card>
-    </SimpleGrid>
-  </Story>
-</Canvas>
-
 ## Custom Image Component
 
-Instead of passing a path for the `imageSrc` prop, you can pass a custom image
-component in using the `imageComponent` prop.
+Instead of passing a path for the `imageProps.src` prop, you can pass a custom
+image component in using the `imageProps.component` prop.
 
 <Canvas withToolbar>
   <Story name="Custom Image Component">
     <Card
-      imageAlt="Alt text"
-      imageAspectRatio={ImageRatios.SixteenByNine}
-      imageComponent={
-        <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
-      }
+      imageProps={{
+        alt: "Alt text",
+        aspectRatio: "sixteenByNine",
+        component: (
+          <Image src="https://placeimg.com/400/400/animals" alt="Alt text" />
+        ),
+        src: "https://placeimg.com/400/200/animals",
+      }}
     >
-      <CardHeading level={HeadingLevels.Two} id="img1-heading1">
+      <CardHeading level="two" id="img1-heading1">
         Card Component with Custom Image Component
       </CardHeading>
-      <CardHeading level={HeadingLevels.Three} id="img2-heading2">
+      <CardHeading level="three" id="img2-heading2">
         Secondary Heading
       </CardHeading>
       <CardContent>
@@ -694,95 +633,14 @@ component in using the `imageComponent` prop.
         consectetur est at lobortis.
       </CardContent>
       <CardActions>
-        <Link type={LinkTypes.Button} href="#">
+        <Link type="button" href="#">
           Reserve
         </Link>
-        <Link href="#url" type={LinkTypes.Forwards}>
+        <Link href="#url" type="forwards">
           View Book Details
         </Link>
       </CardActions>
     </Card>
-  </Story>
-</Canvas>
-
-## Cards Without Images
-
-<Canvas>
-  <Story name="Cards Without Images">
-    <SimpleGrid columns={3}>
-      <Card border>
-        <CardHeading level={HeadingLevels.Three} id="no-img1-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
-          Praesent commodo cursus magna, vel scelerisque nisl.
-        </CardContent>
-      </Card>
-      <Card border>
-        <CardHeading level={HeadingLevels.Three} id="no-img2-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
-          Praesent commodo cursus magna, vel scelerisque nisl.
-        </CardContent>
-      </Card>
-      <Card border>
-        <CardHeading level={HeadingLevels.Three} id="no-img3-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
-          Praesent commodo cursus magna, vel scelerisque nisl.
-        </CardContent>
-      </Card>
-    </SimpleGrid>
-    <br />
-    <SimpleGrid columns={1}>
-      <Card layout={CardLayouts.Row} border>
-        <CardHeading level={HeadingLevels.Three} id="no-img4-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
-          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
-          libero, a pharetra augue. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
-          eget metus.
-        </CardContent>
-      </Card>
-      <Card layout={CardLayouts.Row} border>
-        <CardHeading level={HeadingLevels.Three} id="no-img5-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
-          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
-          libero, a pharetra augue. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
-          eget metus.
-        </CardContent>
-      </Card>
-      <Card layout={CardLayouts.Row} border>
-        <CardHeading level={HeadingLevels.Three} id="no-img6-heading1">
-          Card Heading
-        </CardHeading>
-        <CardContent>
-          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
-          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
-          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
-          libero, a pharetra augue. Praesent commodo cursus magna, vel
-          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
-          eget metus.
-        </CardContent>
-      </Card>
-    </SimpleGrid>
   </Story>
 </Canvas>
 
@@ -796,18 +654,16 @@ see both patterns.
 <Canvas>
   <Story name="Card With Link Heading">
     <Card
-      imageSrc="https://placeimg.com/400/200/animals"
-      imageAlt="Alt text"
-      imageAspectRatio={ImageRatios.TwoByOne}
+      imageProps={{
+        alt: "Alt text",
+        aspectRatio: "twoByOne",
+        src: "https://placeimg.com/400/200/animals",
+      }}
     >
-      <CardHeading
-        level={HeadingLevels.Three}
-        id="link-heading1"
-        url="http://nypl.org"
-      >
+      <CardHeading level="three" id="link-heading1" url="http://nypl.org">
         Go to NYPL home page.
       </CardHeading>
-      <CardHeading level={HeadingLevels.Four} id="link-heading2">
+      <CardHeading level="four" id="link-heading2">
         <>
           Go to NYPL <Link href="http://nypl.org">home page</Link>.
         </>
@@ -818,10 +674,10 @@ see both patterns.
         clicking with a mouse.
       </CardContent>
       <CardActions>
-        <Link href="#" type={LinkTypes.Button}>
+        <Link href="#" type="button">
           Button
         </Link>
-        <Link href="#" type={LinkTypes.Forwards}>
+        <Link href="#" type="forwards">
           Other link
         </Link>
       </CardActions>
@@ -844,15 +700,17 @@ from being having the full-click functionality.
   <Story name="Card With Full-Click Functionality">
     <SimpleGrid columns={2}>
       <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageSrc="https://placeimg.com/400/200/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/400/200/animals",
+        }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level={HeadingLevels.Three} id="fullclick1-heading1">
+        <CardHeading level="three" id="fullclick1-heading1">
           Go to NYPL home page.
         </CardHeading>
-        <CardHeading level={HeadingLevels.Four} id="fullclick1-heading2">
+        <CardHeading level="four" id="fullclick1-heading2">
           Some other heading.
         </CardHeading>
         <CardContent>
@@ -861,22 +719,24 @@ from being having the full-click functionality.
           clicking with a mouse.
         </CardContent>
         <CardActions>
-          <Link href="#" type={LinkTypes.Button}>
+          <Link href="#" type="button">
             Button
           </Link>
-          <Link href="#" type={LinkTypes.Forwards}>
+          <Link href="#" type="forwards">
             Other link
           </Link>
         </CardActions>
       </Card>
       <Card
-        imageAlt="Alt text"
-        imageAspectRatio={ImageRatios.TwoByOne}
-        imageAtEnd
-        imageSrc="https://placeimg.com/410/210/animals"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          isAtEnd: true,
+          src: "https://placeimg.com/410/210/animals",
+        }}
         mainActionLink="http://nypl.org"
       >
-        <CardHeading level={HeadingLevels.Three} id="fullclick2-heading1">
+        <CardHeading level="three" id="fullclick2-heading1">
           Go to NYPL home page.
         </CardHeading>
         <CardContent>
@@ -887,27 +747,297 @@ from being having the full-click functionality.
   </Story>
 </Canvas>
 
-## Accessibility
+## Card with Right Side CardActions
 
-### Headings
+It's possible to set only the `CardActions` component on the right side of the
+main content area of the `Card`. This is possible only in the `layout="row"`
+layout and through the `Card` component's `isAlignedRightActions` prop which
+must be set to `true`.
 
-In general, headings from `h1` through `h6` must be in sequential order in the
-DOM tree. Rendering an `h4` following an `h2` will throw an error. Therefore,
-when adding `CardHeading` components, make sure to add them in sequential order
-with the `level` prop.
+<Canvas>
+  <Story name="Card with Right Side CardActions">
+    <Card
+      imageProps={{
+        alt: "Alt text",
+        aspectRatio: "twoByOne",
+        size: "medium",
+        src: "https://placeimg.com/400/200/animals",
+      }}
+      isAlignedRightActions
+      isCentered
+      layout="row"
+    >
+      <CardHeading level="two" id="main-heading1">
+        Optional Header
+      </CardHeading>
+      <CardHeading level="three" id="main-heading2">
+        Sollicitudin Lorem Tortor Purus Ornare
+      </CardHeading>
+      <CardContent>
+        Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+        libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel
+        eu leo. Nulla vitae elit libero, a pharetra augue.
+      </CardContent>
+      <CardActions topBorder bottomBorder>
+        <Button onClick={action("clicked")} id="main-button1" type="submit">
+          Primary
+        </Button>
+        <Button
+          onClick={action("clicked")}
+          id="main-button2"
+          buttonType="secondary"
+          type="submit"
+        >
+          Secondary
+        </Button>
+      </CardActions>
+      <CardActions>
+        <Link href="#">#hash1</Link>,<Link href="#">#hash2</Link>,
+        <Link href="#">#hash3</Link>
+      </CardActions>
+    </Card>
+  </Story>
+</Canvas>
 
-```tsx
-<CardHeading level={HeadingLevels.Three} id="headingthree">
-  Heading level three
-</CardHeading>
-<CardHeading level={HeadingLevels.Four} id="headingfour">
-  Heading level four
-</CardHeading>
-```
+## Cards in a Grid
 
-### Full-Click Functionality
+<Canvas>
+  <Story name="Cards in a Grid">
+    <SimpleGrid columns={3}>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+      >
+        <CardHeading level="three" id="grid1-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/410/210/animals",
+        }}
+      >
+        <CardHeading level="three" id="grid2-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/420/220/animals",
+        }}
+      >
+        <CardHeading level="three" id="grid3-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/430/230/animals",
+        }}
+      >
+        <CardHeading level="three" id="grid4-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/440/200/animals",
+        }}
+      >
+        <CardHeading level="three" id="grid5-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/450/200/animals",
+        }}
+      >
+        <CardHeading level="three" id="grid6-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </Story>
+</Canvas>
 
-Passing in a URL in the `mainActionLink` prop will make the entire `Card`
-clickable. Other links in the `CardActions` component can still be accessed by
-tabbing through and pressing "enter" or by clicking as you normally would on a
-link.
+## Cards in a Stack
+
+<Canvas>
+  <Story name="Cards in a Stack">
+    <SimpleGrid columns={1}>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/400/200/animals",
+        }}
+        isCentered
+        layout="row"
+      >
+        <CardHeading level="four" id="stack1-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/410/210/animals",
+        }}
+        isCentered
+        layout="row"
+      >
+        <CardHeading level="four" id="stack2-heading2">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://placeimg.com/420/220/animals",
+        }}
+        isCentered
+        layout="row"
+      >
+        <CardHeading level="four" id="stack3-heading3">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+          facilisis in, egestas eget quam.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </Story>
+</Canvas>
+
+## Cards Without Images
+
+<Canvas>
+  <Story name="Cards Without Images">
+    <SimpleGrid columns={3}>
+      <Card isBordered>
+        <CardHeading level="three" id="no-img1-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
+        </CardContent>
+      </Card>
+      <Card isBordered>
+        <CardHeading level="three" id="no-img2-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
+        </CardContent>
+      </Card>
+      <Card isBordered>
+        <CardHeading level="three" id="no-img3-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+          Praesent commodo cursus magna, vel scelerisque nisl.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+    <br />
+    <SimpleGrid columns={1}>
+      <Card layout="row" isBordered>
+        <CardHeading level="three" id="no-img4-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+      <Card layout="row" isBordered>
+        <CardHeading level="three" id="no-img5-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+      <Card layout="row" isBordered>
+        <CardHeading level="three" id="no-img6-heading1">
+          Card Heading
+        </CardHeading>
+        <CardContent>
+          Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
+          libero, a pharetra augue. Vestibulum id ligula porta felis euismod
+          semper. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit
+          libero, a pharetra augue. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et. Donec id elit non mi porta gravida at
+          eget metus.
+        </CardContent>
+      </Card>
+    </SimpleGrid>
+  </Story>
+</Canvas>

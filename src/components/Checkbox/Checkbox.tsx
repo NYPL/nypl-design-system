@@ -1,5 +1,5 @@
 import {
-  Box,
+  chakra,
   Checkbox as ChakraCheckbox,
   Icon,
   useMultiStyleConfig,
@@ -9,7 +9,6 @@ import * as React from "react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import generateUUID from "../../helpers/generateUUID";
 
 export interface CheckboxProps {
   /** className you can add in addition to 'input' */
@@ -17,7 +16,7 @@ export interface CheckboxProps {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -38,7 +37,7 @@ export interface CheckboxProps {
   isRequired?: boolean;
   /** The checkbox's label. This will serve as the text content for a `<label>`
    * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
-  labelText: string;
+  labelText: string | JSX.Element;
   /** The name prop indicates into which group of checkboxes this checkbox
    * belongs. If none is specified, 'default' will be used */
   name?: string;
@@ -73,13 +72,13 @@ function CheckboxIcon(props) {
   );
 }
 
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  (props, ref?) => {
+export const Checkbox = chakra(
+  React.forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
     const {
       className,
       invalidText,
       helperText,
-      id = generateUUID(),
+      id,
       isChecked,
       isDisabled = false,
       isIndeterminate = false,
@@ -90,6 +89,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       showHelperInvalidText = true,
       showLabel = true,
       value,
+      ...rest
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
     const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
@@ -98,7 +98,18 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
 
+    if (!id) {
+      console.warn(
+        "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
+      );
+    }
+
     if (!showLabel) {
+      if (typeof labelText !== "string") {
+        console.warn(
+          "NYPL Reservoir Checkbox: `labelText` must be a string when `showLabel` is false."
+        );
+      }
       ariaAttributes["aria-label"] =
         labelText && footnote ? `${labelText} - ${footnote}` : labelText;
     } else {
@@ -129,21 +140,21 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           alignItems="flex-start"
           __css={styles}
           {...ariaAttributes}
+          {...rest}
         >
           {showLabel && labelText}
         </ChakraCheckbox>
         {footnote && showHelperInvalidText && (
-          <Box __css={styles.helper}>
-            <HelperErrorText
-              id={`${id}-helperText`}
-              isInvalid={isInvalid}
-              text={footnote}
-            />
-          </Box>
+          <HelperErrorText
+            id={`${id}-helperText`}
+            isInvalid={isInvalid}
+            text={footnote}
+            __css={styles.helperErrorText}
+          />
         )}
       </>
     );
-  }
+  })
 );
 
 export default Checkbox;

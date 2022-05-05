@@ -9,15 +9,8 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import TextInput from "./TextInput";
-import { TextInputTypes, TextInputVariants } from "./TextInputTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(
-  TextInputTypes,
-  "TextInputTypes"
-);
 
 <Meta
   title={getCategory("TextInput")}
@@ -41,18 +34,16 @@ export const enumValues = getStorybookEnumValues(
     ref: { table: { disable: true } },
     showHelperInvalidText: { table: { defaultValue: { summary: true } } },
     showLabel: { table: { defaultValue: { summary: true } } },
-    showOptReqLabel: { table: { defaultValue: { summary: true } } },
+    showRequiredLabel: { table: { defaultValue: { summary: true } } },
     step: { table: { defaultValue: { summary: 1 } } },
+    textInputType: {
+      control: false,
+      table: { defaultValue: { summary: "default" } },
+    },
     type: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "TextInputTypes.text" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "text" } },
     },
     value: { control: false },
-    variantType: {
-      control: false,
-      table: { defaultValue: { summary: "TextInputVariants.Default" } },
-    },
   }}
 />
 
@@ -61,7 +52,18 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.22.0`   |
-| Latest            | `0.25.11`  |
+| Latest            | `0.28.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Labelling Variations](#labelling-variations)
+- [HTML in Helper Text](#html-in-helper-text)
+- [Textarea](#textarea)
+
+## Overview
 
 <Description of={TextInput} />
 
@@ -71,11 +73,12 @@ prop, regardless of the label visibility. Additionally, while the `id` prop is
 optional, a unique `id` attribute is necessary for accessibility. If the prop
 is left blank, a value will be generated for you.
 
+## Component Props
+
 <Canvas withToolbar>
   <Story
     name="TextInput with Controls"
     args={{
-      additionalStyles: undefined,
       attributes: undefined,
       className: undefined,
       defaultValue: undefined,
@@ -91,56 +94,84 @@ is left blank, a value will be generated for you.
       placeholder: "e.g. blue, green, etc.",
       showHelperInvalidText: true,
       showLabel: true,
-      showOptReqLabel: true,
+      showRequiredLabel: true,
       step: 1,
-      type: "TextInputTypes.text",
+      type: "text",
       value: undefined,
-      variantType: TextInputVariants.Default,
+      textInputType: "default",
     }}
   >
-    {(args) => <TextInput {...args} type={enumValues.getValue(args.type)} />}
+    {(args) => <TextInput {...args} />}
   </Story>
 </Canvas>
 
 <ArgsTable story="TextInput with Controls" />
+
+## Accessibility
+
+The `TextInput` component renders an HTML `<input>` element which is accessible
+via keyboard and screen reader. The `aria-required` and `required` attributes are
+set with the `isRequired` prop. The `aria-disabled` and `disabled` attributes are
+set with the `isDisabled` prop. The `aria-invalid` is set with the `isInvalid`
+prop.
+
+Internally, a `Label` is associated with the `<input>` element. When `showLabel`
+is set to false, the `<input>` element's `aria-label` attribute is set to the
+required `labelText` value.
+
+When the `type` prop is set to `"textarea"`, the `<textarea>` element
+is rendered instead of the `<input>` element. This element follows all the same
+accessibility rules described above.
+
+Resources:
+
+- [MDN input: The Input (Form Input) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+- [MDN textarea: The Textarea element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
+- [Chakra UI Input](https://chakra-ui.com/docs/components/form/input)
+- [Chakra UI Textarea](https://chakra-ui.com/docs/components/form/textarea)
 
 ## Labelling Variations
 
 A TextInput can be rendered with or without visible labels. When `showLabel` is
 set to `false`, an `aria-label` attribute is added to the input/textarea element
 to maintain accessibility. If the component needs to be required, the
-`showOptReqLabel` prop can be used to show or hide the "Required"/"Optional"
-text within the `label` element.
+`showRequiredLabel` prop can be used to show or hide the "(Required)" text
+within the `label` element.
 
 <Canvas withToolbar>
   <Story name="Labelling Variations">
     <VStack align="stretch" spacing={12}>
       <TextInput
+        helperText="Choose wisely!"
+        id="textInput-1"
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
-        helperText="Choose wisely!"
       />
       <TextInput
+        id="textInput-2"
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
         showLabel={false}
       />
       <TextInput
+        id="textInput-3"
+        isRequired
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
-        isRequired
       />
       <TextInput
+        id="textInput-4"
+        isRequired
         labelText="What is your favorite color?"
         placeholder="i.e. blue, green, etc."
-        showOptReqLabel={false}
-        isRequired
+        showRequiredLabel={false}
       />
       <TextInput
-        labelText="What is your favorite color?"
-        showLabel={false}
-        placeholder="i.e. blue, green, etc."
         helperText="Choose wisely!"
+        id="textInput-5"
+        labelText="What is your favorite color?"
+        placeholder="i.e. blue, green, etc."
+        showLabel={false}
       />
     </VStack>
   </Story>
@@ -151,11 +182,12 @@ text within the `label` element.
 <Canvas>
   <DSProvider>
     <TextInput
-      labelText="What is your favorite color?"
-      placeholder="i.e. blue, green, etc."
       helperText="Choose wisely!"
+      id="errored"
       invalidText="This is error text :("
       isInvalid
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
     />
   </DSProvider>
 </Canvas>
@@ -165,10 +197,11 @@ text within the `label` element.
 <Canvas>
   <DSProvider>
     <TextInput
+      helperText="Choose wisely!"
+      id="disabled"
+      isDisabled
       labelText="What is your favorite color?"
       placeholder="i.e. blue, green, etc."
-      helperText="Choose wisely!"
-      isDisabled
     />
   </DSProvider>
 </Canvas>
@@ -186,19 +219,21 @@ helperText={<>Choose <b>wisely!</b></>}
 <Canvas>
   <DSProvider>
     <TextInput
+      helperText="Choose <b>wisely!</b>"
+      id="string"
       labelText="What is your favorite color?"
       placeholder="i.e. blue, green, etc."
-      helperText="Choose <b>wisely!</b>"
     />
     <br />
     <TextInput
-      labelText="What is your favorite color?"
-      placeholder="i.e. blue, green, etc."
       helperText={
         <>
           Choose <b>wisely!</b>
         </>
       }
+      id="jsx"
+      labelText="What is your favorite color?"
+      placeholder="i.e. blue, green, etc."
     />
   </DSProvider>
 </Canvas>
@@ -206,14 +241,15 @@ helperText={<>Choose <b>wisely!</b></>}
 ## Textarea
 
 The TextInput component includes a multiline `textarea` form field. To render a
-`textarea` element, pass `TextInputTypes.textarea` for the `type` prop. All the
-variations described above are available for the `textarea` option.
+`textarea` element, pass `"textarea"` for the `type` prop. All the variations
+described above are available for the `textarea` option.
 
 <Canvas withToolbar>
   <Story
     name="Textarea"
     args={{
       helperText: "Let it all out.",
+      id: "textarea",
       invalidText: "This is error text :(",
       isDisabled: false,
       isInvalid: false,
@@ -221,12 +257,12 @@ variations described above are available for the `textarea` option.
       labelText: "In less than 500 words, describe your favorite color?",
       placeholder: "Essay question...",
       showLabel: true,
-      showOptReqLabel: true,
-      type: TextInputTypes.textarea,
+      showRequiredLabel: true,
+      type: "textarea",
     }}
     argTypes={{
       type: { control: false },
-      variantType: { control: false },
+      textInputType: { control: false },
     }}
   >
     {(args) => <TextInput {...args} />}

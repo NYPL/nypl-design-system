@@ -76,7 +76,7 @@ describe("Table", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Table tableData={[]} />);
     expect(warn).toHaveBeenCalledWith(
-      "Table: data should be two dimensional array."
+      "NYPL Reservoir Table: Data in the `tableData` prop must be a two dimensional array."
     );
   });
 
@@ -127,11 +127,26 @@ describe("Table", () => {
         />
       )
       .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Table
+          id="chakra"
+          tableData={tableData}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Table id="props" tableData={tableData} data-testid="props" />)
+      .toJSON();
 
     expect(basic).toMatchSnapshot();
     expect(withCaption).toMatchSnapshot();
     expect(withHeaders).toMatchSnapshot();
     expect(withRowHeaders).toMatchSnapshot();
     expect(withCustomHeaderColors).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

@@ -9,19 +9,8 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import VideoPlayer from "./VideoPlayer";
-import { VideoPlayerAspectRatios, VideoPlayerTypes } from "./VideoPlayerTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const ratiosEnumValues = getStorybookEnumValues(
-  VideoPlayerAspectRatios,
-  "VideoPlayerAspectRatios"
-);
-export const typesEnumValues = getStorybookEnumValues(
-  VideoPlayerTypes,
-  "VideoPlayerTypes"
-);
 
 <Meta
   title={getCategory("VideoPlayer")}
@@ -36,21 +25,16 @@ export const typesEnumValues = getStorybookEnumValues(
   }}
   argTypes={{
     aspectRatio: {
-      control: { type: "select" },
       table: {
-        defaultValue: { summary: "VideoPlayerAspectRatios.SixteenByNine" },
+        defaultValue: { summary: "sixteenByNine" },
       },
-      options: ratiosEnumValues.options,
     },
     className: { control: false },
     id: { control: false },
     showHelperInvalidText: {
       table: { defaultValue: { summary: true } },
     },
-    videoType: {
-      control: { type: "select" },
-      options: typesEnumValues.options,
-    },
+    videoType: {},
   }}
 />
 
@@ -59,21 +43,42 @@ export const typesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.25.9`   |
+| Latest            | `0.28.0`   |
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Extracting Video IDs](#extracting-video-ids)
+- [Example Embed Code Snippets](#example-embed-code-snippets)
+- [Errored](#errored)
+- [HTML in Helper Text](#html-in-helper-text)
+
+## Overview
 
 <Description of={VideoPlayer} />
 
-The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player on a page. The component requires the `embedCode` prop or both the `videoType` and `videoId` props. The component will not function properly if you try to set all of them.
+The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player
+on a page. The component requires the `embedCode` prop or both the `videoType`
+and `videoId` props. The component will not function properly if you try to set
+all of them.
 
-You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to enter the full video URL as the `videoId` value.
+You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to
+enter the full video URL as the `videoId` value.
 
-The `aspectRatio` prop is used to control the sizing of the space allotted for the video rendering. Ultimately, the `aspectRatio` prop should be set to match the aspect ratio of the video that is being rendered. The default aspect ratio is `16:9`.
+The `aspectRatio` prop is used to control the sizing of the space allotted for
+the video rendering. Ultimately, the `aspectRatio` prop should be set to match
+the aspect ratio of the video that is being rendered. The default aspect ratio
+is `16:9`.
+
+## Component Props
 
 <Canvas withToolbar>
   <Story
     name="VideoPlayer"
     args={{
-      aspectRatio: "VideoPlayerAspectRatios.SixteenByNine",
+      aspectRatio: "sixteenByNine",
       className: undefined,
       descriptionText:
         "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
@@ -91,9 +96,9 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
     {(args) => (
       <VideoPlayer
         {...args}
-        aspectRatio={ratiosEnumValues.getValue(args.aspectRatio)}
+        aspectRatio={args.aspectRatio}
         embedCode={args.embedCode}
-        videoType={args.videoType && typesEnumValues.getValue(args.videoType)}
+        videoType={args.videoType && args.videoType}
       />
     )}
   </Story>
@@ -103,6 +108,33 @@ The `aspectRatio` prop is used to control the sizing of the space allotted for t
 
 **Example Vimeo IDs:** `474719268`, `491405018`, `493795778` (square)<br />
 **Example YouTube IDs:** `PfqgDG1qrKg`, `roi5V8ppi7Y`, `nm-dD2tx6bk`
+
+## Accessibility
+
+The `VideoPlayer` component renders an `iframe` element with either a Vimeo or
+YouTube video. `iframe`s can be accessible if a `title` attribute is provided.
+When passing in a video type and a video `id`, make sure to pass a title. Otherwise,
+the title must already be provided in the embed code value that is passed to the
+`embedCode` prop. A default one is provided but a custom one is recommended.
+
+Not all the Vimeo or YouTube videos passed to the `VideoPlayer` component will
+be owned by The New York Public Library. Because these videos are hosted on a
+third-party platform, we cannot guarantee that the video will be accessible.
+Besides setting the `title` in the embedded `iframe`, there are _some_ ways we
+can reduce accessibility issues.
+
+- Never use autoplay on videos; a user must click the play button to start the
+  video.
+- Always show all the video player's controls for the user to interact with
+  the video.
+- Keep the full screen option available.
+
+Resources:
+
+- [W3C Making Audio and Video Media Accessible](https://www.w3.org/WAI/media/av/)
+- [WebAIM Creating Accessible Frames and Iframes](https://webaim.org/techniques/frames/)
+- [MDN iframe: The Inline Frame element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
+- [Deque University Be Sure to Provide Titles for Iframes](https://dequeuniversity.com/tips/provide-iframe-titles)
 
 ## Extracting Video IDs
 
@@ -122,7 +154,9 @@ https://www.youtube.com/watch?v=nm-dD2tx6bk
 
 ## Example Embed Code Snippets
 
-The examples below are shown with precise HTML formatting. However, often the embed code snippets provided by 3rd party video services are delivered as one long string.
+The examples below are shown with precise HTML formatting. However, often the
+embed code snippets provided by 3rd party video services are delivered as one
+long string.
 
 ### Vimeo
 
@@ -153,14 +187,12 @@ The examples below are shown with precise HTML formatting. However, often the em
 
 ## Errored
 
-If the necessary props are not passed to the `VideoPlayer` component, the component UI will display an error message.
+If the necessary props are not passed to the `VideoPlayer` component, the
+component UI will display an error message.
 
 <Canvas>
   <DSProvider>
-    <VideoPlayer
-      videoId="https://vimeo.com/474719268"
-      videoType={VideoPlayerTypes.Vimeo}
-    />
+    <VideoPlayer videoId="https://vimeo.com/474719268" videoType="vimeo" />
   </DSProvider>
 </Canvas>
 
@@ -173,7 +205,7 @@ It's possible to include HTML in the `helperText` prop.
     <VideoPlayer
       helperText="This helper text <b>contains HTML</b>."
       videoId="474719268"
-      videoType={VideoPlayerTypes.Vimeo}
+      videoType="vimeo"
     />
   </DSProvider>
 </Canvas>

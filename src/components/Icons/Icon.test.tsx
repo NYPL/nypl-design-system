@@ -1,13 +1,13 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
+import renderer from "react-test-renderer";
 
 import Icon from "./Icon";
-import { IconNames } from "./IconTypes";
 
 describe("Icon Accessibility", () => {
   it("passes axe accessibility test", async () => {
-    const { container } = render(<Icon name={IconNames.Download} />);
+    const { container } = render(<Icon name="download" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -16,7 +16,7 @@ describe("Icon", () => {
   it("consoles a warning if both name and children are passed to Icon", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <Icon name={IconNames.Download} decorative={true}>
+      <Icon name="download" decorative={true}>
         <svg viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg">
           <path
             fillRule="evenodd"
@@ -27,7 +27,8 @@ describe("Icon", () => {
       </Icon>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Icon accepts either a `name` prop or an `svg` element child, not both."
+      "NYPL Reservoir Icon: Pass in either a `name` prop or an `svg` element " +
+        "child. Do not pass both."
     );
   });
 
@@ -35,12 +36,22 @@ describe("Icon", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Icon />);
     expect(warn).toHaveBeenCalledWith(
-      "Icon: Pass an icon `name` prop or an SVG child to ensure an icon appears."
+      "NYPL Reservoir Icon: Pass an icon `name` prop or an SVG child to " +
+        "ensure an icon appears."
+    );
+  });
+
+  it("consoles a warning if name is not passed and a child is but it's not an SVG element", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Icon>Not an SVG</Icon>);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Icon: An `svg` element must be passed to the `Icon` " +
+        "component as its child."
     );
   });
 
   it("renders an icon based on the icon `name` prop", () => {
-    const { container } = render(<Icon name={IconNames.Download} />);
+    const { container } = render(<Icon name="download" />);
     expect(container.querySelector("svg")).toBeInTheDocument();
   });
 
@@ -49,13 +60,13 @@ describe("Icon", () => {
   // In order to test this, we can check the `title` attribute in the svg
   // element itself. Inspect the `Icon` in Storybook to see the `title` element.
   it("renders a title element", () => {
-    const { container, rerender } = render(<Icon name={IconNames.Download} />);
+    const { container, rerender } = render(<Icon name="download" />);
     expect(container.querySelector("svg")).toHaveAttribute(
       "title",
       "download icon"
     );
 
-    rerender(<Icon name={IconNames.Download} title="title content" />);
+    rerender(<Icon name="download" title="title content" />);
     expect(container.querySelector("svg")).toHaveAttribute(
       "title",
       "title content"
@@ -75,5 +86,35 @@ describe("Icon", () => {
       </Icon>
     );
     expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("renders the UI snapshot correctly", () => {
+    const basic = renderer.create(<Icon id="basic" name="download" />).toJSON();
+    const customIcon = renderer
+      .create(
+        <Icon id="customIcon">
+          <svg viewBox="0 0 24 14" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M10.526 12.871L.263 1.676 1.737.324 12 11.52 22.263.324l1.474 1.352L13.474 12.87a2 2 0 01-2.948 0z"
+            />
+          </svg>
+        </Icon>
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Icon id="chakra" name="download" p="20px" color="ui.error.primary" />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Icon id="props" name="download" data-testid="props" />)
+      .toJSON();
+
+    expect(basic).toMatchSnapshot();
+    expect(customIcon).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

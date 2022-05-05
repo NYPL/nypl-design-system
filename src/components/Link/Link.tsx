@@ -1,14 +1,16 @@
+import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
-import { Box, useStyleConfig } from "@chakra-ui/react";
 
-import { LinkTypes } from "./LinkTypes";
 import Icon from "../Icons/Icon";
-import { IconRotationTypes, IconNames, IconAlign } from "../Icons/IconTypes";
-import generateUUID from "../../helpers/generateUUID";
 
+export type LinkTypes =
+  | "action"
+  | "backwards"
+  | "button"
+  | "default"
+  | "external"
+  | "forwards";
 export interface LinkProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Additional attributes, such as `rel=nofollow`, to pass to the `<a>` tag. */
   attributes?: { [key: string]: any };
   /** Any child node passed to the component. */
@@ -25,7 +27,7 @@ export interface LinkProps {
 
 /**
  * Renders the `Link` children components with a direction arrow icon based
- * on the `Backwards` or `Forwards` `LinkTypes` type.
+ * on the `"backwards"` or `"forwards"` `linkType` value.
  */
 function getWithDirectionIcon(children, type: LinkTypes, linkId) {
   let iconRotation;
@@ -34,12 +36,12 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
 
   // An icon needs a position in order for it to be created and
   // rendered in the link.
-  if (type === LinkTypes.Backwards) {
-    iconRotation = IconRotationTypes.Rotate90;
-    iconAlign = IconAlign.Left;
-  } else if (type === LinkTypes.Forwards) {
-    iconRotation = IconRotationTypes.Rotate270;
-    iconAlign = IconAlign.Right;
+  if (type === "backwards") {
+    iconRotation = "rotate90";
+    iconAlign = "left";
+  } else if (type === "forwards") {
+    iconRotation = "rotate270";
+    iconAlign = "right";
   }
 
   const iconId = `${linkId}-icon`;
@@ -50,15 +52,16 @@ function getWithDirectionIcon(children, type: LinkTypes, linkId) {
       className="more-link"
       iconRotation={iconRotation}
       id={iconId}
-      name={IconNames.Arrow}
+      name="arrow"
+      size="medium"
     />
   );
 
   return (
     <>
-      {type === LinkTypes.Backwards && icon}
+      {type === "backwards" && icon}
       {children}
-      {type === LinkTypes.Forwards && icon}
+      {type === "forwards" && icon}
     </>
   );
 }
@@ -67,10 +70,11 @@ function getExternalIcon(children, linkId) {
   const iconId = `${linkId}-icon`;
   const icon = (
     <Icon
-      align={IconAlign.Right}
+      align={"right"}
       className="more-link"
       id={iconId}
-      name={IconNames.ActionLaunch}
+      name="action_launch"
+      size="medium"
     />
   );
 
@@ -86,16 +90,16 @@ function getExternalIcon(children, linkId) {
  * A component that uses an `href` prop or a child anchor element, to create
  * an anchor element with added styling and conventions.
  */
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (props, ref: any) => {
+export const Link = chakra(
+  React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref: any) => {
     const {
-      additionalStyles = {},
       attributes,
       children,
       className,
       href,
-      id = generateUUID(),
-      type = LinkTypes.Default,
+      id,
+      type = "default",
+      ...rest
     } = props;
 
     // Merge the necessary props alongside any extra props for the
@@ -105,7 +109,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       href,
       ...attributes,
     };
-    // The LinkTypes.Default type.
+    // The "default" type.
     let variant = "link";
 
     if (typeof children === "string" && !href) {
@@ -113,13 +117,13 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     }
 
     if (
-      type === LinkTypes.Action ||
-      type === LinkTypes.Forwards ||
-      type === LinkTypes.Backwards ||
-      type === LinkTypes.External
+      type === "action" ||
+      type === "forwards" ||
+      type === "backwards" ||
+      type === "external"
     ) {
       variant = "moreLink";
-    } else if (type === LinkTypes.Button) {
+    } else if (type === "button") {
       variant = "button";
     }
     const style = useStyleConfig("Link", { variant });
@@ -127,13 +131,13 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     // Forwards or Backwards.  Or render with the launch icon
     // if the type is External.  Otherwise, do not add an icon.
     const newChildren =
-      ((type === LinkTypes.Forwards || type === LinkTypes.Backwards) &&
+      ((type === "forwards" || type === "backwards") &&
         getWithDirectionIcon(children, type, id)) ||
-      (type === LinkTypes.External && getExternalIcon(children, id)) ||
+      (type === "external" && getExternalIcon(children, id)) ||
       children;
 
-    const rel = type === LinkTypes.External ? "nofollow" : null;
-    const target = type === LinkTypes.External ? "_blank" : null;
+    const rel = type === "external" ? "nofollow" : null;
+    const target = type === "external" ? "_blank" : null;
 
     if (!href) {
       // React Types error makes this fail:
@@ -145,7 +149,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       const childrenToClone: any = children[0] ? children[0] : children;
       const childProps = childrenToClone.props;
       return (
-        <Box as="span" __css={style}>
+        <Box as="span" __css={style} {...rest}>
           {React.cloneElement(
             childrenToClone,
             {
@@ -155,9 +159,6 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
               ref,
               rel,
               target,
-              // Useful if more styles are needed for the custom
-              // anchor element or link component.
-              style: additionalStyles,
             },
             [childrenToClone.props.children]
           )}
@@ -172,13 +173,14 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           rel={rel}
           target={target}
           {...linkProps}
-          __css={{ ...style, ...additionalStyles }}
+          __css={style}
+          {...rest}
         >
           {newChildren}
         </Box>
       );
     }
-  }
+  })
 );
 
 export default Link;

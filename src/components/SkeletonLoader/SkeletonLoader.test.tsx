@@ -4,10 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import SkeletonLoader from "./SkeletonLoader";
-import {
-  SkeletonLoaderImageRatios,
-  SkeletonLoaderLayouts,
-} from "./SkeletonLoaderTypes";
 
 describe("SkeletonLoader Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -26,13 +22,11 @@ describe("SkeletonLoader", () => {
   });
 
   it("renders in the column or row layout", () => {
-    const { container, rerender } = render(
-      <SkeletonLoader layout={SkeletonLoaderLayouts.Column} />
-    );
+    const { container, rerender } = render(<SkeletonLoader layout="column" />);
 
     expect(container.querySelector(".column")).toBeInTheDocument();
 
-    rerender(<SkeletonLoader layout={SkeletonLoaderLayouts.Row} />);
+    rerender(<SkeletonLoader layout="row" />);
     expect(container.querySelector(".row")).toBeInTheDocument();
   });
 
@@ -74,11 +68,9 @@ describe("SkeletonLoader", () => {
 
   it("renders the UI snapshot correctly", () => {
     const basic = renderer.create(<SkeletonLoader />).toJSON();
-    const rowLayout = renderer
-      .create(<SkeletonLoader layout={SkeletonLoaderLayouts.Row} />)
-      .toJSON();
+    const rowLayout = renderer.create(<SkeletonLoader layout="row" />).toJSON();
     const columnLayout = renderer
-      .create(<SkeletonLoader layout={SkeletonLoaderLayouts.Column} />)
+      .create(<SkeletonLoader layout="column" />)
       .toJSON();
     const noImage = renderer
       .create(<SkeletonLoader showImage={false} />)
@@ -93,21 +85,19 @@ describe("SkeletonLoader", () => {
       .create(<SkeletonLoader showButton={true} />)
       .toJSON();
     const landscape = renderer
-      .create(
-        <SkeletonLoader
-          imageAspectRatio={SkeletonLoaderImageRatios.Landscape}
-        />
-      )
+      .create(<SkeletonLoader imageAspectRatio="landscape" />)
       .toJSON();
     const portrait = renderer
-      .create(
-        <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Portrait} />
-      )
+      .create(<SkeletonLoader imageAspectRatio="portrait" />)
       .toJSON();
     const square = renderer
-      .create(
-        <SkeletonLoader imageAspectRatio={SkeletonLoaderImageRatios.Square} />
-      )
+      .create(<SkeletonLoader imageAspectRatio="square" />)
+      .toJSON();
+    const withChakraProps = renderer
+      .create(<SkeletonLoader p="20px" color="ui.error.primary" />)
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<SkeletonLoader data-testid="props" />)
       .toJSON();
 
     expect(basic).toMatchSnapshot();
@@ -120,5 +110,7 @@ describe("SkeletonLoader", () => {
     expect(landscape).toMatchSnapshot();
     expect(portrait).toMatchSnapshot();
     expect(square).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

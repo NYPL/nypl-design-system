@@ -4,51 +4,50 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import List from "./List";
-import { ListTypes } from "./ListTypes";
 
 const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
-const fishDefinitions = [
+const fishDescriptions = [
   {
     term: "Mahi-mahi",
-    definition: <p>The mahi-mahi is an ocean fish known...</p>,
+    description: <p>The mahi-mahi is an ocean fish known...</p>,
   },
   {
     term: "Golden trout",
-    definition: "The golden trout is a beautifully colored fish...",
+    description: "The golden trout is a beautifully colored fish...",
   },
 ];
 
 describe("List Accessibility", () => {
   it("passes axe accessibility test for unordered list", async () => {
     const { container, rerender } = render(
-      <List type={ListTypes.Unordered}>
+      <List type="ul">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
     );
     expect(await axe(container)).toHaveNoViolations();
 
-    rerender(<List type={ListTypes.Unordered} listItems={fishArray} />);
+    rerender(<List type="ul" listItems={fishArray} />);
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility test for ordered list", async () => {
     const { container, rerender } = render(
-      <List type={ListTypes.Ordered}>
+      <List type="ol">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
     );
     expect(await axe(container)).toHaveNoViolations();
 
-    rerender(<List type={ListTypes.Ordered} listItems={fishArray} />);
+    rerender(<List type="ol" listItems={fishArray} />);
     expect(await axe(container)).toHaveNoViolations();
   });
-  it("passes axe accessibility test for definition list", async () => {
+  it("passes axe accessibility test for description list", async () => {
     const { container } = render(
       <List
-        type={ListTypes.Definition}
+        type="dl"
         title="Animal Crossing Fish"
-        listItems={fishDefinitions}
+        listItems={fishDescriptions}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -58,7 +57,7 @@ describe("List Accessibility", () => {
 describe("List", () => {
   it("renders unordered list", () => {
     render(
-      <List type={ListTypes.Unordered}>
+      <List type="ul">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
@@ -70,7 +69,7 @@ describe("List", () => {
   });
 
   it("renders unordered list with the `listItems` prop", () => {
-    render(<List type={ListTypes.Unordered} listItems={fishArray} />);
+    render(<List type="ul" listItems={fishArray} />);
 
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
@@ -81,7 +80,7 @@ describe("List", () => {
 
   it("renders ordered list", () => {
     render(
-      <List type={ListTypes.Ordered}>
+      <List type="ol">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
@@ -93,7 +92,7 @@ describe("List", () => {
   });
 
   it("renders ordered list with the `listItems` prop", () => {
-    render(<List type={ListTypes.Ordered} listItems={fishArray} />);
+    render(<List type="ol" listItems={fishArray} />);
 
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
@@ -102,9 +101,9 @@ describe("List", () => {
     expect(screen.getByText("Suckerfish")).toBeInTheDocument();
   });
 
-  it("returns definition list", () => {
+  it("returns description list", () => {
     render(
-      <List type={ListTypes.Definition}>
+      <List type="dl">
         <dt>Mahi-mahi</dt>
         <dd>The mahi-mahi is an ocean fish known...</dd>
       </List>
@@ -116,12 +115,12 @@ describe("List", () => {
     ).toBeInTheDocument();
   });
 
-  it("returns definition list with the `listItems` prop", () => {
+  it("returns description list with the `listItems` prop", () => {
     render(
       <List
-        type={ListTypes.Definition}
+        type="dl"
         title="Animal Crossing Fish"
-        listItems={fishDefinitions}
+        listItems={fishDescriptions}
       />
     );
     expect(screen.getAllByRole("definition")).toHaveLength(2);
@@ -130,7 +129,7 @@ describe("List", () => {
   it("consoles a warning when children and the `listItems` prop are both passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List type={ListTypes.Ordered} listItems={fishArray}>
+      <List type="ol" listItems={fishArray}>
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
         <li>Rainbowfish</li>
@@ -138,88 +137,117 @@ describe("List", () => {
       </List>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Pass in either `<li>`, `<dt>`, or `<dd>` children or use the `listItems` data prop, but don't use both."
+      "NYPL Reservoir List: Pass in either `<li>`, `<dt>`, or `<dd>` children " +
+        "or use the `listItems` data prop. Do not use both."
     );
   });
 
   it("consoles a warning when no children are passed or the `listItems` prop is not passed", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<List type={ListTypes.Ordered}></List>);
+    render(<List type="ol"></List>);
     expect(warn).toHaveBeenCalledWith(
-      "Either `<li>` children or the `listItems` prop must be used."
+      "NYPL Reservoir List: Pass in either `<li>` children or pass data in " +
+        "the `listItems` prop, not both."
     );
   });
 
   it("consoles a warning when you pass an ordered or unordered list children that aren't <li>s", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List type={ListTypes.Ordered}>
+      <List type="ol">
         <span>Mahi-mahi</span>
         <span>Golden trout</span>
         <span>Rainbowfish</span>
       </List>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Direct children of `List` (ol) should be `<li>`s."
+      "NYPL Reservoir List: Direct children of `List` (ol) must be `<li>`s."
     );
   });
 
-  it("consoles a warning when you pass a definition list children that aren't `<dt>`s or `<dd>`s", () => {
+  it("consoles a warning when you pass a description list children that aren't `<dt>`s or `<dd>`s", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List type={ListTypes.Definition}>
+      <List type="dl">
         <span>Mahi-mahi</span>
         <span>Golden trout</span>
         <span>Rainbowfish</span>
       </List>
     );
     expect(warn).toHaveBeenCalledWith(
-      "Direct children of `List` (definition) should be `<dt>`s and `<dd>`s."
+      "NYPL Reservoir List: Direct children of `List` (description) must be " +
+        "`<dt>`s and `<dd>`s."
     );
   });
 
   it("Renders the UI snapshot correctly", () => {
     const unordered = renderer
-      .create(
-        <List id="unordered" type={ListTypes.Unordered} listItems={fishArray} />
-      )
+      .create(<List id="unordered" type="ul" listItems={fishArray} />)
       .toJSON();
     const unorderedNoStyling = renderer
-      .create(
-        <List
-          id="ordered"
-          type={ListTypes.Unordered}
-          listItems={fishArray}
-          noStyling
-        />
-      )
+      .create(<List id="ordered" type="ul" listItems={fishArray} noStyling />)
       .toJSON();
     const ordered = renderer
       .create(
-        <List
-          id="unordered-no-styling"
-          type={ListTypes.Ordered}
-          listItems={fishArray}
-        />
+        <List id="unordered-no-styling" type="ol" listItems={fishArray} />
       )
       .toJSON();
     const orderedNoStyling = renderer
       .create(
         <List
           id="ordered-no-styling"
-          type={ListTypes.Ordered}
+          type="ol"
           listItems={fishArray}
           noStyling
         />
       )
       .toJSON();
-    const definition = renderer
+    const description = renderer
       .create(
         <List
-          id="definition"
-          type={ListTypes.Definition}
+          id="description"
+          type="dl"
           title="Animal Crossing Fish"
-          listItems={fishDefinitions}
+          listItems={fishDescriptions}
+        />
+      )
+      .toJSON();
+    const withChakraPropsUnordered = renderer
+      .create(
+        <List
+          id="chakra"
+          type="ul"
+          listItems={fishArray}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherPropsUnordered = renderer
+      .create(
+        <List id="other" type="ul" listItems={fishArray} data-testid="other" />
+      )
+      .toJSON();
+    const withChakraPropsDescription = renderer
+      .create(
+        <List
+          id="chakra"
+          type="dl"
+          title="Animal Crossing Fish"
+          listItems={fishDescriptions}
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherPropsDescription = renderer
+      .create(
+        <List
+          id="other"
+          type="dl"
+          title="Animal Crossing Fish"
+          listItems={fishDescriptions}
+          data-testid="other"
         />
       )
       .toJSON();
@@ -228,6 +256,10 @@ describe("List", () => {
     expect(unorderedNoStyling).toMatchSnapshot();
     expect(ordered).toMatchSnapshot();
     expect(orderedNoStyling).toMatchSnapshot();
-    expect(definition).toMatchSnapshot();
+    expect(description).toMatchSnapshot();
+    expect(withChakraPropsUnordered).toMatchSnapshot();
+    expect(withOtherPropsUnordered).toMatchSnapshot();
+    expect(withChakraPropsDescription).toMatchSnapshot();
+    expect(withOtherPropsDescription).toMatchSnapshot();
   });
 });

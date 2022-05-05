@@ -1,14 +1,30 @@
+import { Flex, Spacer } from "@chakra-ui/react";
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import * as generateUUID from "../../helpers/generateUUID";
 import Radio from "./Radio";
 
 describe("Radio Accessibility", () => {
-  it("passes axe accessibility", async () => {
+  it("passes axe accessibility test with string label", async () => {
     const { container } = render(<Radio id="inputID" labelText="Test Label" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with jsx label", async () => {
+    const { container } = render(
+      <Radio
+        id="jsxLabel"
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+      />
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -76,13 +92,6 @@ describe("Radio Button", () => {
     expect(screen.getByRole("radio")).toHaveAttribute("id", "inputID");
   });
 
-  it("calls the UUID generation function if no id prop value is passed", () => {
-    const generateUUIDSpy = jest.spyOn(generateUUID, "default");
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(0);
-    render(<Radio labelText="Hello" />);
-    expect(generateUUIDSpy).toHaveBeenCalledTimes(1);
-  });
-
   it("sets the 'checked' attribute", () => {
     render(
       <Radio
@@ -147,6 +156,40 @@ describe("Radio Button", () => {
     expect(screen.queryByText("There is an error!")).not.toBeInTheDocument();
   });
 
+  it("logs a warning if `labelText` is not a string and `showLabel` is false", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Radio
+        id="radio"
+        value="arts"
+        labelText={
+          <Flex>
+            <span>Arts</span>
+            <Spacer />
+            <span>4</span>
+          </Flex>
+        }
+        showLabel={false}
+      />
+    );
+
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
+    );
+  });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      // @ts-ignore: Typescript complains when a required prop is not passed, but
+      // here we don't want to pass the required prop to make sure the warning appears.
+      <Radio labelText="Arts" />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Radio: This component's required `id` prop was not passed."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const primary = renderer
       .create(<Radio id="inputID" labelText="Test Label" />)
@@ -163,11 +206,42 @@ describe("Radio Button", () => {
     const isDisabled = renderer
       .create(<Radio id="radio-disabled" labelText="Test Label" isDisabled />)
       .toJSON();
+    const withJSXLabel = renderer
+      .create(
+        <Radio
+          id="jsxLabel"
+          labelText={
+            <Flex>
+              <span>Arts</span>
+              <Spacer />
+              <span>4</span>
+            </Flex>
+          }
+          value="arts"
+        />
+      )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Radio
+          id="chakra"
+          labelText="Test Label"
+          p="20px"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Radio id="props" labelText="Test Label" data-testid="props" />)
+      .toJSON();
 
     expect(primary).toMatchSnapshot();
     expect(isChecked).toMatchSnapshot();
     expect(isRequired).toMatchSnapshot();
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
+    expect(withJSXLabel).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

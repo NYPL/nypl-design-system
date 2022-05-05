@@ -6,8 +6,6 @@ import renderer from "react-test-renderer";
 
 import Button from "./Button";
 import Icon from "../Icons/Icon";
-import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
-import { ButtonTypes } from "./ButtonTypes";
 
 describe("Button Accessibility", () => {
   it("passes axe accessibility test", async () => {
@@ -87,14 +85,20 @@ describe("padding for icon only button", () => {
     const onClick = jest.fn();
     const { container } = render(
       <Button id="button" onClick={onClick} type="button">
-        <Icon
-          align={IconAlign.Left}
-          name={IconNames.Check}
-          size={IconSizes.Small}
-        />
+        <Icon align="left" name="check" size="small" />
       </Button>
     );
     expect(container.querySelector("button svg")).toBeInTheDocument();
+  });
+
+  it("logs a warning when there is no `id` passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    // @ts-ignore: Typescript complains when a required prop is not passed, but
+    // here we don't want to pass the required prop to make sure the warning appears.
+    render(<Button>Submit</Button>);
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Button: This component's required `id` prop was not passed."
+    );
   });
 });
 
@@ -116,50 +120,51 @@ describe("Button Snapshot", () => {
       .toJSON();
     const secondary = renderer
       .create(
-        <Button
-          id="button"
-          onClick={jest.fn()}
-          buttonType={ButtonTypes.Secondary}
-        >
+        <Button id="button" onClick={jest.fn()} buttonType="secondary">
           Seconday
         </Button>
       )
       .toJSON();
     const callout = renderer
       .create(
-        <Button
-          id="button"
-          onClick={jest.fn()}
-          buttonType={ButtonTypes.Callout}
-        >
+        <Button id="button" onClick={jest.fn()} buttonType="callout">
           Callout
         </Button>
       )
       .toJSON();
     const pill = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType={ButtonTypes.Pill}>
+        <Button id="button" onClick={jest.fn()} buttonType="pill">
           Pill
         </Button>
       )
       .toJSON();
     const link = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType={ButtonTypes.Link}>
+        <Button id="button" onClick={jest.fn()} buttonType="link">
           Link
         </Button>
       )
       .toJSON();
     const noBrand = renderer
       .create(
-        <Button
-          id="button"
-          onClick={jest.fn()}
-          buttonType={ButtonTypes.NoBrand}
-        >
+        <Button id="button" onClick={jest.fn()} buttonType="noBrand">
           NoBrand
         </Button>
       )
+      .toJSON();
+    const withChakraProps = renderer
+      .create(
+        <Button
+          id="button"
+          onClick={jest.fn()}
+          p="s"
+          color="ui.error.primary"
+        />
+      )
+      .toJSON();
+    const withOtherProps = renderer
+      .create(<Button id="button" onClick={jest.fn()} data-testid="testid" />)
       .toJSON();
 
     expect(primary).toMatchSnapshot();
@@ -169,5 +174,7 @@ describe("Button Snapshot", () => {
     expect(pill).toMatchSnapshot();
     expect(link).toMatchSnapshot();
     expect(noBrand).toMatchSnapshot();
+    expect(withChakraProps).toMatchSnapshot();
+    expect(withOtherProps).toMatchSnapshot();
   });
 });

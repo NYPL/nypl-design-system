@@ -1,17 +1,12 @@
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
-import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
 import Select from "../Select/Select";
-import { SelectTypes } from "../Select/SelectTypes";
 import TextInput from "../TextInput/TextInput";
-import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
-import generateUUID from "../../helpers/generateUUID";
 
 interface BaseProps {
   labelText: string;
@@ -21,6 +16,7 @@ interface BaseProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
+  value?: string;
 }
 // Internal interfaces that are used only for `SearchBar` props.
 export interface SelectProps extends BaseProps {
@@ -28,7 +24,6 @@ export interface SelectProps extends BaseProps {
 }
 export interface TextInputProps extends BaseProps {
   placeholder?: string;
-  value?: string;
 }
 
 export interface SearchBarProps {
@@ -45,7 +40,7 @@ export interface SearchBarProps {
   /** The text to display below the form in a `HelperErrorText` component. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -59,8 +54,8 @@ export interface SearchBarProps {
   labelText: string;
   /** Adds 'method' property to the `form` element. */
   method?: string;
-  /** Sets the `Button` variant type to `ButtonTypes.NoBrand` when true;
-   * false by default which sets the type to `ButtonTypes.Primary`. */
+  /** Sets the `Button` variant type to `noBrand` when true;
+   * false by default which sets the type to `primary`. */
   noBrandButtonType?: boolean;
   /** Handler function when the form is submitted. */
   onSubmit: (event: React.FormEvent) => void;
@@ -76,7 +71,7 @@ export interface SearchBarProps {
  * Renders a wrapper `form` element to be used with `Select` (optional),
  * `Input`, and `Button` components together.
  */
-export default function SearchBar(props: SearchBarProps) {
+export const SearchBar = chakra((props: SearchBarProps) => {
   const {
     action,
     buttonOnClick = null,
@@ -84,7 +79,7 @@ export default function SearchBar(props: SearchBarProps) {
     descriptionText,
     headingText,
     helperText,
-    id = generateUUID(),
+    id,
     invalidText,
     isDisabled = false,
     isInvalid = false,
@@ -96,6 +91,7 @@ export default function SearchBar(props: SearchBarProps) {
     selectProps,
     textInputElement,
     textInputProps,
+    ...rest
   } = props;
   const styles = useMultiStyleConfig("SearchBar", {});
   const stateProps = {
@@ -112,24 +108,29 @@ export default function SearchBar(props: SearchBarProps) {
   const textInputPlaceholder = `${inputPlaceholder} ${
     isRequired ? "(Required)" : ""
   }`;
-  const buttonType = noBrandButtonType
-    ? ButtonTypes.NoBrand
-    : ButtonTypes.Primary;
+  const buttonType = noBrandButtonType ? "noBrand" : "primary";
   const searchBarButtonStyles = {
     borderLeftRadius: "none",
     borderRightRadius: { base: "none", md: "sm" },
     lineHeight: "1.70",
     marginBottom: "auto",
   };
+
+  if (!id) {
+    console.warn(
+      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
+    );
+  }
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
-      additionalStyles={styles.select}
       id={`searchbar-select-${id}`}
       labelText={selectProps?.labelText}
       name={selectProps?.name}
       onChange={selectProps?.onChange}
-      type={SelectTypes.SearchBar}
+      selectType="searchbar"
+      value={selectProps?.value}
+      __css={styles.select}
       {...stateProps}
     >
       {selectProps?.optionsData.map((option) => (
@@ -147,12 +148,8 @@ export default function SearchBar(props: SearchBarProps) {
       name={textInputProps?.name}
       onChange={textInputProps?.onChange}
       placeholder={textInputPlaceholder}
-      type={TextInputTypes.text}
-      variantType={
-        selectElem
-          ? TextInputVariants.SearchBarSelect
-          : TextInputVariants.SearchBar
-      }
+      textInputType={selectElem ? "searchBarSelect" : "searchBar"}
+      type="text"
       value={textInputProps?.value}
       {...stateProps}
     />
@@ -160,18 +157,18 @@ export default function SearchBar(props: SearchBarProps) {
   // Render the `Button` component.
   const buttonElem = (
     <Button
-      additionalStyles={searchBarButtonStyles}
       buttonType={buttonType}
       id={`searchbar-button-${id}`}
       isDisabled={isDisabled}
       onClick={buttonOnClick}
       type="submit"
+      __css={searchBarButtonStyles}
     >
       <Icon
-        align={IconAlign.Left}
+        align="left"
         id={`searchbar-icon-${id}`}
-        name={IconNames.Search}
-        size={IconSizes.Small}
+        name="search"
+        size="small"
       />
       Search
     </Button>
@@ -188,6 +185,7 @@ export default function SearchBar(props: SearchBarProps) {
       id={id}
       invalidText={invalidText}
       isInvalid={isInvalid}
+      {...rest}
     >
       <Box
         as="form"
@@ -206,4 +204,6 @@ export default function SearchBar(props: SearchBarProps) {
       </Box>
     </ComponentWrapper>
   );
-}
+});
+
+export default SearchBar;
