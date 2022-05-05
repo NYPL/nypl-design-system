@@ -1,3 +1,10 @@
+interface CustomSliderBaseStyle {
+  isDisabled: boolean;
+  isInvalid: boolean;
+  showBoxes: boolean;
+  showValues: boolean;
+}
+
 // Margins around the static display values.
 const staticValues = {
   marginTop: "xs",
@@ -16,7 +23,12 @@ const CustomSlider = {
     "track",
     "thumb",
   ],
-  baseStyle: ({ isDisabled, isInvalid, showBoxes, showValues }) => {
+  baseStyle: ({
+    isDisabled,
+    isInvalid,
+    showBoxes,
+    showValues,
+  }: CustomSliderBaseStyle) => {
     let baseColor = "ui.link.primary";
     if (isInvalid) {
       baseColor = "ui.error.primary";

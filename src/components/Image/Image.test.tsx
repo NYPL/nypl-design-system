@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import Image from "./Image";
-import { ImageRatios, ImageSizes, ImageTypes } from "./ImageTypes";
 
 describe("Image Accessibility", () => {
   it("passes axe accessibility for regular img element", async () => {
@@ -76,66 +75,52 @@ describe("Image", () => {
       .create(<Image src="test.png" alt="" caption="Caption" credit="Credit" />)
       .toJSON();
     const sizeExtraExtraSmall = renderer
-      .create(<Image src="test.png" alt="" size={ImageSizes.ExtraExtraSmall} />)
+      .create(<Image src="test.png" alt="" size="xxsmall" />)
       .toJSON();
     const sizeExtraSmall = renderer
-      .create(<Image src="test.png" alt="" size={ImageSizes.ExtraSmall} />)
+      .create(<Image src="test.png" alt="" size="xsmall" />)
       .toJSON();
     const sizeSmall = renderer
-      .create(<Image src="test.png" alt="" size={ImageSizes.Small} />)
+      .create(<Image src="test.png" alt="" size="small" />)
       .toJSON();
     const sizeMedium = renderer
-      .create(<Image src="test.png" alt="" size={ImageSizes.Medium} />)
+      .create(<Image src="test.png" alt="" size="medium" />)
       .toJSON();
     const sizeLarge = renderer
-      .create(<Image src="test.png" alt="" size={ImageSizes.Large} />)
+      .create(<Image src="test.png" alt="" size="large" />)
       .toJSON();
     const ratioFourByThree = renderer
-      .create(
-        <Image src="test.png" alt="" aspectRatio={ImageRatios.FourByThree} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="fourByThree" />)
       .toJSON();
     const ratioOneByTwo = renderer
-      .create(
-        <Image src="test.png" alt="" aspectRatio={ImageRatios.OneByTwo} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="oneByTwo" />)
       .toJSON();
     const ratioOriginal = renderer
-      .create(
-        <Image src="test.png" alt="" aspectRatio={ImageRatios.Original} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="original" />)
       .toJSON();
     const ratioSixteenByNine = renderer
-      .create(
-        <Image src="test.png" alt="" aspectRatio={ImageRatios.SixteenByNine} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="sixteenByNine" />)
       .toJSON();
     const ratioSquare = renderer
-      .create(<Image src="test.png" alt="" aspectRatio={ImageRatios.Square} />)
+      .create(<Image src="test.png" alt="" aspectRatio="square" />)
       .toJSON();
     const ratioThreeByFour = renderer
-      .create(
-        <Image src="test.png" alt="" aspectRatio={ImageRatios.ThreeByFour} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="threeByFour" />)
       .toJSON();
     const ratioThreeByTwo = renderer
-      .create(
-        <Image src="test.png" alt="" aspectRatio={ImageRatios.ThreeByTwo} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="threeByTwo" />)
       .toJSON();
     const ratioTwoByOne = renderer
-      .create(
-        <Image src="test.png" alt="" aspectRatio={ImageRatios.TwoByOne} />
-      )
+      .create(<Image src="test.png" alt="" aspectRatio="twoByOne" />)
       .toJSON();
     const typeCircle = renderer
       .create(
         <Image
           src="test.png"
           alt=""
-          aspectRatio={ImageRatios.Square}
-          size={ImageSizes.Small}
-          imageType={ImageTypes.Circle}
+          aspectRatio="square"
+          size="small"
+          imageType="circle"
         />
       )
       .toJSON();

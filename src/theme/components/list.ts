@@ -1,5 +1,10 @@
 import { textMargin } from "./global";
 
+interface ListBaseStyle {
+  inline?: boolean;
+  noStyling: boolean;
+}
+
 export const baseListStyles = (inline = false, noStyling = false) => ({
   // Browser automatically applies margin, so by default we unset it.
   margin: noStyling ? "0" : "unset",
@@ -71,9 +76,10 @@ export const baseDefinitionStyles = {
 };
 
 const List = {
-  baseStyle: ({ inline, noStyling }) => baseListStyles(inline, noStyling),
+  baseStyle: ({ inline, noStyling }: ListBaseStyle) =>
+    baseListStyles(inline, noStyling),
   variants: {
-    ul: ({ noStyling }) => baseUnorderedStyles(noStyling),
+    ul: ({ noStyling }: ListBaseStyle) => baseUnorderedStyles(noStyling),
     ol: textMargin,
     dl: baseDefinitionStyles,
   },

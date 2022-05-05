@@ -7,19 +7,11 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import Breadcrumbs from "./Breadcrumbs";
-import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
+import Breadcrumbs, { BreadcrumbsTypes } from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import Link from "../Link/Link";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(
-  BreadcrumbsTypes,
-  "BreadcrumbsTypes"
-);
 
 <Meta
   title={getCategory("Breadcrumbs")}
@@ -33,13 +25,11 @@ export const enumValues = getStorybookEnumValues(
     jest: ["Breadcrumbs.test.tsx"],
   }}
   argTypes={{
-    additionalStyles: { control: false },
     breadcrumbsData: { control: false },
-    className: { control: false },
     breadcrumbsType: {
-      control: { type: "select" },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "whatsOn" } },
     },
+    className: { control: false },
     id: { control: false },
   }}
 />
@@ -49,7 +39,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.3`    |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -73,23 +63,17 @@ available in the breadcrumb hierarchy.
   <Story
     name="Breadcrumbs with Controls"
     args={{
-      additionalStyles: undefined,
       breadcrumbsData: [
         { url: "#", text: "Parent" },
         { url: "#", text: "Child" },
         { url: "#", text: "Grandchild" },
       ],
       className: undefined,
-      breadcrumbsType: undefined,
+      breadcrumbsType: "whatsOn",
       id: "breadcrumbs-id",
     }}
   >
-    {(args) => (
-      <Breadcrumbs
-        {...args}
-        breadcrumbsType={enumValues.getValue(args.breadcrumbsType)}
-      />
-    )}
+    {(args) => <Breadcrumbs {...args} />}
   </Story>
 </Canvas>
 
@@ -131,20 +115,20 @@ denoted by an `aria-current` attribute value of "page".
 
 ## Color Variations
 
-The `Breadcrumbs` component background color can be set using the `breadcrumbsType`
-prop and the `BreadcrumbsTypes` enum. If the `breadcrumbsType` prop is omitted,
-the default background color is `black`.
+The `Breadcrumbs` component background color can be set to a value of the
+`breadcrumbsType` type. If the `breadcrumbsType` prop is omitted, the default
+background color is `"whatsOn"` (`ui.black`).
 
 <Canvas>
   <Story
     name="Color Variations"
     args={{
-      breadcrumbsType: BreadcrumbsTypes.Blogs,
+      breadcrumbsType: "blogs",
     }}
   >
     {(args) => (
       <>
-        <Heading level={HeadingLevels.Three}>Blogs</Heading>
+        <Heading level="three">Blogs</Heading>
         <Breadcrumbs
           breadcrumbsData={[
             { url: "#", text: "Parent" },
@@ -163,7 +147,7 @@ the default background color is `black`.
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>Books and More</Heading>
+    <Heading level="three">Books and More</Heading>
     <Breadcrumbs
       breadcrumbsData={[
         { url: "#", text: "Parent" },
@@ -173,14 +157,14 @@ the default background color is `black`.
           text: "Grandchild",
         },
       ]}
-      breadcrumbsType={BreadcrumbsTypes.BooksAndMore}
+      breadcrumbsType="booksAndMore"
     />
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>Education</Heading>
+    <Heading level="three">Education</Heading>
     <Breadcrumbs
       breadcrumbsData={[
         { url: "#", text: "Parent" },
@@ -190,14 +174,14 @@ the default background color is `black`.
           text: "Grandchild",
         },
       ]}
-      breadcrumbsType={BreadcrumbsTypes.Education}
+      breadcrumbsType="education"
     />
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>Locations</Heading>
+    <Heading level="three">Locations</Heading>
     <Breadcrumbs
       breadcrumbsData={[
         { url: "#", text: "Parent" },
@@ -207,14 +191,14 @@ the default background color is `black`.
           text: "Grandchild",
         },
       ]}
-      breadcrumbsType={BreadcrumbsTypes.Locations}
+      breadcrumbsType="locations"
     />
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>Research</Heading>
+    <Heading level="three">Research</Heading>
     <Breadcrumbs
       breadcrumbsData={[
         { url: "#", text: "Parent" },
@@ -224,14 +208,14 @@ the default background color is `black`.
           text: "Grandchild",
         },
       ]}
-      breadcrumbsType={BreadcrumbsTypes.Research}
+      breadcrumbsType="research"
     />
   </DSProvider>
 </Canvas>
 
 <Canvas>
   <DSProvider>
-    <Heading level={HeadingLevels.Three}>What's On</Heading>
+    <Heading level="three">What's On</Heading>
     <Breadcrumbs
       breadcrumbsData={[
         { url: "#", text: "Parent" },
@@ -241,7 +225,7 @@ the default background color is `black`.
           text: "Grandchild",
         },
       ]}
-      breadcrumbsType={BreadcrumbsTypes.WhatsOn}
+      breadcrumbsType="whatsOn"
     />
   </DSProvider>
 </Canvas>

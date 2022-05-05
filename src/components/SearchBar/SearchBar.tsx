@@ -2,15 +2,12 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
-import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
 import Select from "../Select/Select";
-import { SelectTypes } from "../Select/SelectTypes";
 import TextInput from "../TextInput/TextInput";
-import { TextInputTypes, TextInputVariants } from "../TextInput/TextInputTypes";
+
 interface BaseProps {
   labelText: string;
   name: string;
@@ -24,6 +21,7 @@ interface BaseProps {
 // Internal interfaces that are used only for `SearchBar` props.
 export interface SelectProps extends BaseProps {
   optionsData: string[];
+  onChange?: (event: React.FormEvent) => void;
 }
 export interface TextInputProps extends BaseProps {
   placeholder?: string;
@@ -57,8 +55,8 @@ export interface SearchBarProps {
   labelText: string;
   /** Adds 'method' property to the `form` element. */
   method?: string;
-  /** Sets the `Button` variant type to `ButtonTypes.NoBrand` when true;
-   * false by default which sets the type to `ButtonTypes.Primary`. */
+  /** Sets the `Button` variant type to `noBrand` when true;
+   * false by default which sets the type to `primary`. */
   noBrandButtonType?: boolean;
   /** Handler function when the form is submitted. */
   onSubmit: (event: React.FormEvent) => void;
@@ -77,7 +75,7 @@ export interface SearchBarProps {
 export const SearchBar = chakra((props: SearchBarProps) => {
   const {
     action,
-    buttonOnClick = null,
+    buttonOnClick,
     className,
     descriptionText,
     headingText,
@@ -111,9 +109,7 @@ export const SearchBar = chakra((props: SearchBarProps) => {
   const textInputPlaceholder = `${inputPlaceholder} ${
     isRequired ? "(Required)" : ""
   }`;
-  const buttonType = noBrandButtonType
-    ? ButtonTypes.NoBrand
-    : ButtonTypes.Primary;
+  const buttonType = noBrandButtonType ? "noBrand" : "primary";
   const searchBarButtonStyles = {
     borderLeftRadius: "none",
     borderRightRadius: { base: "none", md: "sm" },
@@ -129,13 +125,13 @@ export const SearchBar = chakra((props: SearchBarProps) => {
   // Render the `Select` component.
   const selectElem = selectProps && (
     <Select
-      additionalStyles={styles.select}
       id={`searchbar-select-${id}`}
       labelText={selectProps?.labelText}
       name={selectProps?.name}
       onChange={selectProps?.onChange}
-      selectType={SelectTypes.SearchBar}
+      selectType="searchbar"
       value={selectProps?.value}
+      __css={styles.select}
       {...stateProps}
     >
       {selectProps?.optionsData.map((option) => (
@@ -153,12 +149,8 @@ export const SearchBar = chakra((props: SearchBarProps) => {
       name={textInputProps?.name}
       onChange={textInputProps?.onChange}
       placeholder={textInputPlaceholder}
-      textInputType={
-        selectElem
-          ? TextInputVariants.SearchBarSelect
-          : TextInputVariants.SearchBar
-      }
-      type={TextInputTypes.text}
+      textInputType={selectElem ? "searchBarSelect" : "searchBar"}
+      type="text"
       value={textInputProps?.value}
       {...stateProps}
     />
@@ -166,18 +158,18 @@ export const SearchBar = chakra((props: SearchBarProps) => {
   // Render the `Button` component.
   const buttonElem = (
     <Button
-      additionalStyles={searchBarButtonStyles}
       buttonType={buttonType}
       id={`searchbar-button-${id}`}
       isDisabled={isDisabled}
       onClick={buttonOnClick}
       type="submit"
+      __css={searchBarButtonStyles}
     >
       <Icon
-        align={IconAlign.Left}
+        align="left"
         id={`searchbar-icon-${id}`}
-        name={IconNames.Search}
-        size={IconSizes.Small}
+        name="search"
+        size="small"
       />
       Search
     </Button>

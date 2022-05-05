@@ -9,14 +9,9 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
-import Hero from "./Hero";
-import { HeroTypes, HeroSecondaryTypes } from "./HeroTypes";
+import Hero, { heroSecondaryTypes } from "./Hero";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(HeroTypes, "HeroTypes");
 
 <Meta
   title={getCategory("Hero")}
@@ -34,9 +29,7 @@ export const enumValues = getStorybookEnumValues(HeroTypes, "HeroTypes");
     foregroundColor: { control: false },
     heading: { control: false },
     heroType: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "HeroTypes.Primary" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "primary" } },
     },
     imageAlt: { control: false },
     imageSrc: { control: false },
@@ -63,7 +56,7 @@ const imageSrc = "https://placeimg.com/800/400/animals";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.2.0`    |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -91,7 +84,7 @@ descriptive text and images.
       backgroundImageSrc: undefined,
       foregroundColor: undefined,
       heading: undefined,
-      heroType: "HeroTypes.Primary",
+      heroType: "primary",
       imageAlt: undefined,
       imageSrc: undefined,
       locationDetails: undefined,
@@ -99,58 +92,50 @@ descriptive text and images.
     }}
   >
     {(args) =>
-      (args.heroType === "HeroTypes.Primary" && (
+      (args.heroType === "primary" && (
         <Hero
           {...args}
           backgroundImageSrc="https://placeimg.com/2400/800/nature"
-          heading={
-            <Heading level={HeadingLevels.One} id="1" text="Hero Primary" />
-          }
-          heroType={enumValues.getValue(args.heroType)}
+          heading={<Heading level="one" id="1" text="Hero Primary" />}
+          heroType={args.heroType}
           subHeaderText="Example Subtitle"
         />
       )) ||
-      (HeroSecondaryTypes.includes(enumValues.getValue(args.heroType)) && (
+      (heroSecondaryTypes.includes(args.heroType) && (
         <div className="nypl--books-and-more">
           <Hero
             {...args}
-            heading={
-              <Heading level={HeadingLevels.One} id="1" text="Hero Secondary" />
-            }
-            heroType={enumValues.getValue(args.heroType)}
+            heading={<Heading level="one" id="1" text="Hero Secondary" />}
+            heroType={args.heroType}
             imageAlt={args.imageAlt}
             imageSrc={args.imageSrc}
             subHeaderText={secondarySubHeaderText}
           />
         </div>
       )) ||
-      (args.heroType === "HeroTypes.Tertiary" && (
+      (args.heroType === "tertiary" && (
         <Hero
           {...args}
-          heading={
-            <Heading level={HeadingLevels.One} id="1" text="Hero Tertiary" />
-          }
-          heroType={enumValues.getValue(args.heroType)}
+          heading={<Heading level="one" id="1" text="Hero Tertiary" />}
+          heroType={args.heroType}
           subHeaderText={otherSubHeaderText}
         />
       )) ||
-      (args.heroType === "HeroTypes.Campaign" && (
+      (args.heroType === "campaign" && (
         <Hero
           {...args}
           backgroundImageSrc="https://placeimg.com/2400/800/nature"
-          heading={
-            <Heading level={HeadingLevels.One} id="1" text="Hero Campaign" />
-          }
-          heroType={enumValues.getValue(args.heroType)}
+          heading={<Heading level="one" id="1" text="Hero Campaign" />}
+          heroType={args.heroType}
           imageAlt={args.imageAlt}
           imageSrc={args.imageSrc}
           subHeaderText={otherSubHeaderText}
         />
       )) ||
-      (args.heroType === "HeroTypes.FiftyFifty" && (
+      (args.heroType === "fiftyFifty" && (
         <Hero
           {...args}
-          heroType={enumValues.getValue(args.heroType)}
+          heroType={args.heroType}
           imageAlt={args.imageAlt}
           imageSrc={args.imageSrc}
           subHeaderText={otherSubHeaderText}
@@ -167,98 +152,68 @@ descriptive text and images.
 The `Hero` component is commonly used as a banner below the page's header and
 breadcrumbs and above the main content. This means that if the `Hero` displays
 a heading element, it should be the first on the page and an `h1` element set
-through `Heading`'s `level={HeadingLevels.One}`.
+through `Heading`'s `level="one"`.
 
 ## All Variations
 
 <Canvas>
   <DSProvider>
     <VStack spacing={10} align="stretch">
-      <Heading level={HeadingLevels.Two} text="Primary" id="primary-heading" />
+      <Heading text="Primary" id="primary-heading" />
       <Hero
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="primary-hero"
-            text="Hero Primary"
-          />
-        }
-        heroType={HeroTypes.Primary}
+        heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
+        heroType="primary"
       />
-      <Heading
-        id="secondary-heading"
-        level={HeadingLevels.Two}
-        text="Secondary"
-      />
+      <Heading id="secondary-heading" text="Secondary" />
       <div className="nypl--locations">
         <Hero
           heading={
-            <Heading
-              level={HeadingLevels.One}
-              id="secondary-hero"
-              text="Hero Secondary"
-            />
+            <Heading level="one" id="secondary-hero" text="Hero Secondary" />
           }
-          heroType={HeroTypes.Secondary}
+          heroType="secondary"
           imageAlt={imageAlt}
           imageSrc={imageSrc}
           subHeaderText={secondarySubHeaderText}
         />
       </div>
-      <Heading
-        id="tertiary-heading"
-        level={HeadingLevels.Two}
-        text="Tertiary"
-      />
+      <Heading id="tertiary-heading" text="Tertiary" />
       <Hero
         heading={
           <Heading
-            level={HeadingLevels.One}
+            level="one"
             id="tertiary-hero"
             text="Hero Tertiary with Sub-Header"
           />
         }
-        heroType={HeroTypes.Tertiary}
+        heroType="tertiary"
         subHeaderText={otherSubHeaderText}
       />
       <Hero
         heading={
           <Heading
-            level={HeadingLevels.One}
+            level="one"
             id="tertiary-hero"
             text="Hero Tertiary without Sub-Header"
           />
         }
-        heroType={HeroTypes.Tertiary}
+        heroType="tertiary"
       />
-      <Heading
-        id="campaign-heading"
-        level={HeadingLevels.Two}
-        text="Campaign"
-      />
+      <Heading id="campaign-heading" text="Campaign" />
       <Hero
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
-        heroType={HeroTypes.Campaign}
+        heroType="campaign"
         heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="campaign-hero"
-            text="Hero Campaign"
-          />
+          <Heading level="one" id="campaign-hero" text="Hero Campaign" />
         }
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
       />
       <Box marginTop="30px" />
-      <Heading
-        id="fiftyfifty-heading"
-        level={HeadingLevels.Two}
-        text="FiftyFifty"
-      />
+      <Heading id="fiftyfifty-heading" text="FiftyFifty" />
       <Hero
-        heroType={HeroTypes.FiftyFifty}
+        heroType="fiftyFifty"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={otherSubHeaderText}
@@ -270,102 +225,54 @@ through `Heading`'s `level={HeadingLevels.One}`.
 ## Color Variations for Secondary Hero
 
 The background color for the title bar in the "Secondary" `Hero` changes based
-on the `HeroTypes` variants for the `Secondary` main variant.
+on the `heroType` variants for the `"secondary"` main variant.
 
 ```jsx
-// Example `HeroTypes` "Secondary" variant.
-<Hero heroType={HeroTypes.SecondaryBooksAndMore} {...props} />
+// Example `heroType` "secondary" variant.
+<Hero heroType="secondaryBooksAndMore" {...props} />
 ```
 
 <Canvas>
   <Story name="Color Variations for Secondary Hero">
     <VStack spacing={10} align="stretch">
-      <Heading
-        id="main-secondary-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.Secondary"
-      />
+      <Heading id="main-secondary-heading" text="secondary" />
       <Hero
         heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="main-secondary-hero"
-            text="Secondary"
-          />
+          <Heading level="one" id="main-secondary-hero" text="Secondary" />
         }
-        heroType={HeroTypes.Secondary}
+        heroType="secondary"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}
       />
-      <Heading
-        id="books-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryBooksAndMore"
-      />
+      <Heading id="books-heading" text="secondaryBooksAndMore" />
       <Hero
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="books-hero"
-            text="Books and More"
-          />
-        }
-        heroType={HeroTypes.SecondaryBooksAndMore}
+        heading={<Heading level="one" id="books-hero" text="Books and More" />}
+        heroType="secondaryBooksAndMore"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}
       />
-      <Heading
-        id="location-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryLocations"
-      />
+      <Heading id="location-heading" text="secondaryLocations" />
       <Hero
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="locations-hero"
-            text="Locations"
-          />
-        }
-        heroType={HeroTypes.SecondaryLocations}
+        heading={<Heading level="one" id="locations-hero" text="Locations" />}
+        heroType="secondaryLocations"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}
       />
-      <Heading
-        id="research-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryResearch"
-      />
+      <Heading id="research-heading" text="secondaryResearch" />
       <Hero
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="research-hero"
-            text="Research"
-          />
-        }
-        heroType={HeroTypes.SecondaryResearch}
+        heading={<Heading level="one" id="research-hero" text="Research" />}
+        heroType="secondaryResearch"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}
       />
-      <Heading
-        id="whats-on-heading"
-        level={HeadingLevels.Two}
-        text="HeroTypes.SecondaryWhatsOn"
-      />
+      <Heading id="whats-on-heading" text="secondaryWhatsOn" />
       <Hero
-        heading={
-          <Heading
-            level={HeadingLevels.One}
-            id="whats-on-hero"
-            text="What's On"
-          />
-        }
-        heroType={HeroTypes.SecondaryWhatsOn}
+        heading={<Heading level="one" id="whats-on-hero" text="What's On" />}
+        heroType="secondaryWhatsOn"
         imageAlt={imageAlt}
         imageSrc={imageSrc}
         subHeaderText={secondarySubHeaderText}

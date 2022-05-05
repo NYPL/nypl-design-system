@@ -3,10 +3,8 @@ import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
-import SimpleGrid from "./SimpleGrid";
 import Card, { CardHeading, CardContent } from "../Card/Card";
-import { ImageRatios } from "../Image/ImageTypes";
-import { HeadingLevels } from "../Heading/HeadingTypes";
+import SimpleGrid from "./SimpleGrid";
 
 describe("Grid Accessibility", () => {
   it("passes axe accessibility test with children components", async () => {
@@ -15,11 +13,11 @@ describe("Grid Accessibility", () => {
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/500/200/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Two}>Card Heading</CardHeading>
+          <CardHeading level="two">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -28,11 +26,11 @@ describe("Grid Accessibility", () => {
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/400/220/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
@@ -41,11 +39,11 @@ describe("Grid Accessibility", () => {
         <Card
           imageProps={{
             alt: "Alt text",
-            aspectRatio: ImageRatios.TwoByOne,
+            aspectRatio: "twoByOne",
             src: "https://placeimg.com/400/240/animals",
           }}
         >
-          <CardHeading level={HeadingLevels.Three}>Card Heading</CardHeading>
+          <CardHeading level="three">Card Heading</CardHeading>
           <CardContent>
             Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
             libero, a pharetra augue.
