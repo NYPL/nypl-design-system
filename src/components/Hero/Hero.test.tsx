@@ -18,8 +18,10 @@ export const otherSubHeaderText =
   "With 92 locations across the Bronx, Manhattan, and Staten Island, The New " +
   "York Public Library is an essential part of neighborhoods across the city. " +
   "Visit us today.";
-const imageAlt = "Image example";
-const imageSrc = "https://placeimg.com/800/400/animals";
+const imageProps = {
+  alt: "Image example",
+  src: "https://placeimg.com/800/400/animals",
+};
 
 describe("Hero", () => {
   describe("axe accessbility tests", () => {
@@ -40,8 +42,7 @@ describe("Hero", () => {
         <Hero
           heroType="secondary"
           heading={<Heading level="one" id="a11y-hero" text="Hero Secondary" />}
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={subHeaderText}
         />
       );
@@ -65,8 +66,7 @@ describe("Hero", () => {
           backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
           heroType="campaign"
           heading={<Heading level="one" id="a11y-hero" text="Hero Campaign" />}
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={otherSubHeaderText}
         />
       );
@@ -77,8 +77,7 @@ describe("Hero", () => {
       const { container } = render(
         <Hero
           heroType="fiftyFifty"
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={otherSubHeaderText}
         />
       );
@@ -111,8 +110,7 @@ describe("Hero", () => {
         heading={
           <Heading level="one" id="secondary-hero" text="Hero Secondary" />
         }
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={subHeaderText}
       />
     );
@@ -150,8 +148,7 @@ describe("Hero", () => {
         heading={
           <Heading level="one" id="campaign-hero" text="Hero Campaign" />
         }
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
     );
@@ -173,8 +170,7 @@ describe("Hero", () => {
     render(
       <Hero
         heroType="fiftyFifty"
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
     );
@@ -214,8 +210,7 @@ describe("Hero", () => {
         backgroundColor="#654321"
         foregroundColor="#123456"
         heroType="fiftyFifty"
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
     );
@@ -233,8 +228,7 @@ describe("Hero", () => {
         heading={
           <Heading level="one" id="secondary-hero" text="Hero Secondary" />
         }
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={subHeaderText}
       />
     );
@@ -245,18 +239,18 @@ describe("Hero", () => {
     );
   });
 
-  it("logs a warning if `imageSrc` prop is passed but not `imageAlt`", () => {
+  it("logs a warning if `imageProps.src` prop is passed but not `imageProps.alt`", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Hero
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
         heroType="primary"
-        imageSrc={imageSrc}
+        imageProps={{ src: imageProps.src }}
       />
     );
 
     expect(warn).toHaveBeenCalledWith(
-      `NYPL Reservoir: The "imageSrc" prop was passed but the "imageAlt" props was not. This will make the rendered image inaccessible.`
+      `NYPL Reservoir: The "imageProps.src" prop was passed but the "imageProps.alt" props was not. This will make the rendered image inaccessible.`
     );
   });
 
@@ -276,12 +270,11 @@ describe("Hero", () => {
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
         heroType="primary"
         heading={heading}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `imageSrc` and `imageAlt` props have been passed, " +
+      "NYPL Reservoir Hero: The `imageProps.src` and `imageProps.alt` props have been passed, " +
         "but the `'primary'` `heroType` variant will not use it."
     );
   });
@@ -295,8 +288,7 @@ describe("Hero", () => {
       <Hero
         heroType="secondary"
         heading={heading}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         locationDetails={<>Some location details.</>}
         subHeaderText={subHeaderText}
       />
@@ -311,8 +303,7 @@ describe("Hero", () => {
         backgroundImageSrc="https://placeimg.com/1600/800/arch"
         heroType="secondary"
         heading={heading}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={subHeaderText}
       />
     );
@@ -327,8 +318,7 @@ describe("Hero", () => {
         foregroundColor="#123456"
         heroType="secondary"
         heading={heading}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={subHeaderText}
       />
     );
@@ -361,8 +351,7 @@ describe("Hero", () => {
       <Hero
         heroType="tertiary"
         heading={heading}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
     );
@@ -395,8 +384,7 @@ describe("Hero", () => {
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         heroType="campaign"
         heading={heading}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         locationDetails={<>Some location details.</>}
         subHeaderText={otherSubHeaderText}
       />
@@ -410,15 +398,14 @@ describe("Hero", () => {
       <Hero
         heroType="campaign"
         heading={heading}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
         locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use both the " +
-        "`backgroundImageSrc` and `imageSrc` props for the `'campaign'` " +
+        "`backgroundImageSrc` and `imageProps.src` props for the `'campaign'` " +
         "`heroType` variant."
     );
 
@@ -433,7 +420,7 @@ describe("Hero", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use both the " +
-        "`backgroundImageSrc` and `imageSrc` props for the `'campaign'` " +
+        "`backgroundImageSrc` and `imageProps.src` props for the `'campaign'` " +
         "`heroType` variant."
     );
   });
@@ -444,8 +431,7 @@ describe("Hero", () => {
       <Hero
         heroType="fiftyFifty"
         subHeaderText={otherSubHeaderText}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         locationDetails={<>Some location details.</>}
       />
     );
@@ -458,8 +444,7 @@ describe("Hero", () => {
       <Hero
         backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
         heroType="fiftyFifty"
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
+        imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
     );
@@ -489,8 +474,7 @@ describe("Hero", () => {
           heading={
             <Heading level="one" id="secondary-hero" text="Hero Secondary" />
           }
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={subHeaderText}
         />
       )
@@ -506,8 +490,7 @@ describe("Hero", () => {
               text="Hero Secondary Books and More"
             />
           }
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={subHeaderText}
         />
       )
@@ -523,8 +506,7 @@ describe("Hero", () => {
               text="Hero Secondary Locations"
             />
           }
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={subHeaderText}
         />
       )
@@ -536,8 +518,7 @@ describe("Hero", () => {
           heading={
             <Heading level="one" id="secondary-hero" text="Hero Secondary" />
           }
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={subHeaderText}
         />
       )
@@ -553,8 +534,7 @@ describe("Hero", () => {
               text="Hero Secondary What's On"
             />
           }
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={subHeaderText}
         />
       )
@@ -567,8 +547,7 @@ describe("Hero", () => {
           heading={
             <Heading level="one" id="campaign-hero" text="Hero Campaign" />
           }
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={otherSubHeaderText}
         />
       )
@@ -588,8 +567,7 @@ describe("Hero", () => {
       .create(
         <Hero
           heroType="fiftyFifty"
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
+          imageProps={imageProps}
           subHeaderText={otherSubHeaderText}
         />
       )
