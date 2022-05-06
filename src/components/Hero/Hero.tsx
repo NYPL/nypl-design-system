@@ -194,7 +194,6 @@ export const Hero = chakra(
         >
           {childrenToRender}
         </Box>
-        {locationDetails}
       </Box>
     );
   },
