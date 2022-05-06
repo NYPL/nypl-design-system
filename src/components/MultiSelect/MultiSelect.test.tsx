@@ -7,9 +7,7 @@ import renderer from "react-test-renderer";
 import MultiSelect from "./MultiSelect";
 // Type
 import { MultiSelectItem } from "./MultiSelectTypes";
-//make items more expicit for testing
-//push prent/child consturct in array only for certain tests
-//-> use partent child1 child2 (or similar)
+
 const items = [
   { id: "dogs", name: "Dogs" },
   { id: "cats", name: "Cats" },
@@ -183,7 +181,7 @@ describe("MultiSelect Dialog", () => {
       />
     );
 
-    expect(screen.getAllByRole("checkbox")).toHaveLength;
+    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
   });
 
   it("should open menu when user clicks menu button", () => {
@@ -207,7 +205,7 @@ describe("MultiSelect Dialog", () => {
     );
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
-    expect(screen.getAllByRole("checkbox")).toHaveLength;
+    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
   });
   // Not sure this can be tested
   // it("should have block behavior if isBlockElement is true", () => {
@@ -457,7 +455,7 @@ describe("MultiSelect Listbox", () => {
 
     const ul = screen.getByRole("listbox");
     const list = ul[`${Object.keys(ul)[1]}`].children;
-    expect(list).toHaveLength;
+    expect(list).toHaveLength(6);
   });
 
   it("should open menu when user clicks menu button", () => {
@@ -478,7 +476,7 @@ describe("MultiSelect Listbox", () => {
       })
     );
     expect(screen.getByRole("listbox")).toBeInTheDocument();
-    expect(screen.getAllByRole("checkbox")).toHaveLength;
+    expect(screen.getAllByRole("checkbox")).toHaveLength(6);
   });
 
   it("should allow user to toggle menu by clicking menu button", () => {
@@ -505,7 +503,7 @@ describe("MultiSelect Listbox", () => {
     expect(
       container.querySelector('[aria-expanded="true"][aria-haspopup="listbox"]')
     ).toBeInstanceOf(HTMLElement);
-    expect(screen.getAllByRole("option")).toHaveLength;
+    expect(screen.getAllByRole("option")).toHaveLength(6);
 
     userEvent.click(
       screen.getByRole("button", {
