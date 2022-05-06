@@ -117,11 +117,11 @@ const Card = {
         flexShrink: { base: isAlignedRightActions ? "0" : null, md: "0" },
         marginLeft: { base: "0", md: "m" },
         marginTop: { base: "xs", md: "0" },
-        width: { base: "100%", md: "180px" },
+        maxWidth: { base: "100%", md: "180px" },
       },
       body: {
         display: { md: "block" },
-        flexBasis: { sm: isAlignedRightActions ? "100%" : null, md: "auto" },
+        flexBasis: { sm: isAlignedRightActions ? "100%" : null },
         flexFlow: { md: "row nowrap" },
         margin: bodyMargin,
         padding: bodyPadding,
