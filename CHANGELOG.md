@@ -25,6 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates how the `Tabs` component internally uses `Button`.
 - Updates how images are passed to the `Hero` component. Instead of `imageAlt` and `imageSrc` props, now an object must be passed to the `imageProps` prop.
 - Updates the values for the `name` prop for the `Icon` and `Logo` components.
+- Updates the `Table` component to allow JSX elements to be rendered in the data cells.
 
 ### Removals
 
