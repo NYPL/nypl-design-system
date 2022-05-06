@@ -8,11 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+- Adds `noSpace` prop to the `Heading` component.
+
 ### Updates
 
 - Updates how styles are passed down to internal components in `Card`, `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Hero`, `Notification`, `Pagination`, `Radio`, `RadioGroup`, `SearchBar`, and `Slider`. This is based on removing the `additionalStyles` prop and passing down styles to the `__css` prop.
 - Updates how the `id` is passed in the `DatePicker`'s custom `TextInput` component.
-- Added `noSpace` prop to the `Heading` component.
 
 ## 0.27.0 (April 27, 2022)
 

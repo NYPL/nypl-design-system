@@ -92,7 +92,6 @@ export const Heading = chakra(
         className={className}
         id={id}
         sx={styles}
-        mb={noSpace ? "0" : null}
         {...rest}
       >
         {content}
