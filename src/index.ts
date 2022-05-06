@@ -89,6 +89,7 @@ export {
   default as SkeletonLoader,
   SkeletonLoaderImageRatios,
 } from "./components/SkeletonLoader/SkeletonLoader";
+export { default as SkipNavigation } from "./components/SkipNavigation/SkipNavigation";
 export { default as Slider } from "./components/Slider/Slider";
 export {
   default as StatusBadge,
