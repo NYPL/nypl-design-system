@@ -75,7 +75,7 @@ function getExternalIcon(children: JSX.Element, linkId: string) {
       align={"right"}
       className="more-link"
       id={iconId}
-      name="action_launch"
+      name="actionLaunch"
       size="medium"
     />
   );
