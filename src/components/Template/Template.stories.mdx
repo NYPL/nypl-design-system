@@ -569,8 +569,10 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
             backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
             heroType="campaign"
             heading={<Heading level="one" id="1" text="Hero Campaign" />}
-            imageAlt="Image example"
-            imageSrc="https://placeimg.com/800/400/animals"
+            imageProps={{
+              alt: "Image example",
+              src: "https://placeimg.com/800/400/animals",
+            }}
             subHeaderText={otherSubHeaderText}
           />
         </TemplateBreakout>
