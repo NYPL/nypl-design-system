@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `max`, `maxLength`, `min`, and `onClick` props to the `TextInput` component.
+- Adds the `SkipNavigation` component and adds this component inside the `TemplateAppContainer` component. The `SkipNavigation` component renders accessible links to the main content of a page and accessibility information on NYPL.org.
+- Adds the `ButtonGroup` component for `Button` layout.
 
 ### Updates
 
@@ -21,6 +23,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates how the `DatePicker` and `Slider` components internally use `TextInput`.
 - Updates how the `Pagination` component internally uses `Link`.
 - Updates how the `Tabs` component internally uses `Button`.
+- Updates how images are passed to the `Hero` component. Instead of `imageAlt` and `imageSrc` props, now an object must be passed to the `imageProps` prop.
+- Updates the values for the `name` prop for the `Icon` and `Logo` components.
 - Updates the `Table` component to allow JSX elements to be rendered in the data cells.
 
 ### Removals

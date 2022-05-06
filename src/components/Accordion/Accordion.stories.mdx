@@ -74,9 +74,11 @@ const accordionData = [
       <Card
         layout="row"
         center
-        imageSrc="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-        imageAlt="Alt text"
-        imageAspectRatio="twoByOne"
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: "https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
+        }}
       >
         <CardHeading level="four" id="heading1">
           Tom Nook
