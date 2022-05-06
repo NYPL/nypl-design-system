@@ -24,6 +24,7 @@ import Notification, {
   NotificationProps,
 } from "../Notification/Notification";
 import Placeholder from "../Placeholder/Placeholder";
+import SkipNavigation from "../SkipNavigation/SkipNavigation";
 import {
   Template,
   TemplateAboveHeader,
@@ -75,6 +76,9 @@ If you have a custom `Header` component that _already_ renders an HTML `<header>
 element, set `renderHeaderElement` to false so only one `<header>` element is
 rendered.
 
+If you need to render the `SkipNavigation` component, set `renderSkipNavigation`
+to true.
+
 Likewise, if you have a custom `Footer` component that _already_ renders an HTML
 `<footer>` element, set `renderFooterElement` to false so only one `<footer>`
 element is rendered.
@@ -103,6 +107,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
     </>
   }
   footer={<Placeholder variant="short">Footer</Placeholder>}
+  renderSkipNavigation={true}
 />;
 ```
 
@@ -133,6 +138,7 @@ import { TemplateAppContainer } from "@nypl/design-system-react-components";
       sidebar: "left",
       renderFooterElement: true,
       renderHeaderElement: true,
+      renderSkipNavigation: false,
     }}
     argTypes={{
       aboveHeader: { control: false },
@@ -172,11 +178,15 @@ accessibility violation.
 
 The `TemplateAppContainer` component renders a full DOM and one of the children
 is the `main` HTML element with a default "id" of `"mainContent"`. This should
-be used as the anchor element that the skip navigation link points to. As of
-v0.25.13, the consuming application is responsible for adding the skip
-navigation feature to the application. If your application is using the current
-NYPL Header, it already contains the skip navigation feature but make sure it is
-pointing to the correct anchor element.
+be used as the anchor element that the skip navigation link points to. If your
+application is using the current NYPL Header, it already contains the skip
+navigation feature but make sure it is pointing to the correct anchor element.
+
+If you are using a custom header component or you need to use the Reservoir
+Design System (DS) `SkipNavigation` component, then set the `renderSkipNavigation`
+prop to true. This will render the `SkipNavigation` component at the top of the
+page before any other elements. The main link will point to the `#mainContent`
+`main` element.
 
 Resources
 
@@ -193,6 +203,10 @@ information on individual components and how they should be composed can be
 found below. Even though these component are available for use, we recommend
 using the `TemplateAppContainer` component and passing down children component
 as props as needed.
+
+Note: If you need to render the `SkipNavigation` component, you need to explicitly
+render it immediately before the `TemplateAboveHeader` component. This is done
+automatically in the `TemplateAppContainer` component.
 
 Basic "template" components structure:
 
@@ -211,6 +225,7 @@ import {
 
 
 <Template>
+  <SkipNavigation />
   <TemplateAboveHeader>
     // ...
   </TemplateAboveHeader>
@@ -259,6 +274,7 @@ import {
   >
     {(args) => (
       <Template>
+        <SkipNavigation />
         <TemplateAboveHeader>
           <Placeholder variant="short">Above Header</Placeholder>
         </TemplateAboveHeader>
@@ -520,6 +536,7 @@ This is best viewed in the Storybook "Canvas" and not "Docs" section.
 <Canvas>
   <Story name="Full Example with Template Children Components">
     <Template>
+      <SkipNavigation />
       <TemplateAboveHeader>
         <Notification
           notificationHeading="Standard Notification"
