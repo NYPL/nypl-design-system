@@ -64,7 +64,7 @@ const Heading = {
   baseStyle: ({ noSpace }) => {
     // This is to help target custom anchor elements
     // passed as children to the Heading component.
-    return { 
+    return {
       a: baseLinkStyles,
       marginBottom: noSpace ? "0" : "s",
     };
