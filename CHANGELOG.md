@@ -21,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates how the `DatePicker` and `Slider` components internally use `TextInput`.
 - Updates how the `Pagination` component internally uses `Link`.
 - Updates how the `Tabs` component internally uses `Button`.
+- Updates the values for the `name` prop for the `Icon` and `Logo` components.
 
 ### Removals
 
