@@ -36,6 +36,32 @@ describe("ButtonGroup", () => {
     expect(screen.queryByTestId("paragraph")).not.toBeInTheDocument();
   });
 
+  it("sets all `Button` children as disabled if isDisabled is true", () => {
+    const { rerender } = render(
+      <ButtonGroup>
+        <Button buttonType="secondary" id="btn-1">
+          Button
+        </Button>
+        <Button id="btn-2">Submit</Button>
+      </ButtonGroup>
+    );
+
+    expect(screen.getAllByRole("button")[0]).not.toBeDisabled();
+    expect(screen.getAllByRole("button")[1]).not.toBeDisabled();
+
+    rerender(
+      <ButtonGroup isDisabled>
+        <Button buttonType="secondary" id="btn-1">
+          Button
+        </Button>
+        <Button id="btn-2">Submit</Button>
+      </ButtonGroup>
+    );
+
+    expect(screen.getAllByRole("button")[0]).toBeDisabled();
+    expect(screen.getAllByRole("button")[1]).toBeDisabled();
+  });
+
   it("logs a warning when any element that is not a Button is passed ", () => {
     const warn = jest.spyOn(console, "warn");
     render(
