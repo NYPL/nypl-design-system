@@ -30,7 +30,7 @@ export interface TableProps {
    * component. The default value is false. */
   showRowDividers?: boolean;
   /** Two-dimensional array used to populate the table rows. */
-  tableData: string[][];
+  tableData: (string | JSX.Element)[][];
   /** Displays `Table` title element. */
   titleText?: string;
   /** If true, the first cell of each row in the `Table` component will be
