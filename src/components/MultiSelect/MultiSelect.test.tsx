@@ -7,66 +7,23 @@ import renderer from "react-test-renderer";
 import MultiSelect from "./MultiSelect";
 // Type
 import { MultiSelectItem } from "./MultiSelectTypes";
-
+//make items more expicit for testing
+//push prent/child consturct in array only for certain tests
+//-> use partent child1 child2 (or similar)
 const items = [
+  { id: "dogs", name: "Dogs" },
+  { id: "cats", name: "Cats" },
+  { id: "cars", name: "Cars" },
   {
-    id: "art",
-    name: "Art",
-  },
-  {
-    id: "architecture",
-    name: "Architecture",
-  },
-  {
-    id: "art_history",
-    name: "Art History",
-  },
-  {
-    id: "design",
-    name: "Design",
+    id: "colors",
+    name: "Colors",
     children: [
-      {
-        id: "fashion",
-        name: "Fashion",
-      },
-      {
-        id: "ux",
-        name: "User Experience",
-      },
+      { id: "red", name: "Red" },
+      { id: "blue", name: "Blue" },
     ],
   },
-  {
-    id: "business",
-    name: "Business",
-  },
-  {
-    id: "advertising",
-    name: "Advertising",
-  },
-  {
-    id: "government_and_law",
-    name: "Government and Law",
-  },
-  {
-    id: "civil_rights",
-    name: "Civil Rights",
-  },
-  {
-    id: "history",
-    name: "History",
-  },
-  {
-    id: "atlases",
-    name: "Atlases",
-  },
-  {
-    id: "cartography",
-    name: "Cartography",
-  },
-  {
-    id: "geology",
-    name: "Geology",
-  },
+  { id: "plants", name: "Plants" },
+  { id: "furniture", name: "Furniture" },
 ];
 
 const MultiSelectTestComponent = (componentId) => {
@@ -156,7 +113,7 @@ const MultiSelectTestComponent = (componentId) => {
 describe("MultiSelect Dialog", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
-  xit("should have no axe violations", async () => {
+  it("should have no axe violations", async () => {
     const { container } = render(
       <MultiSelect
         id="test"
@@ -172,7 +129,7 @@ describe("MultiSelect Dialog", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  xit("should initially render with provided id", () => {
+  it("should initially render with provided id", () => {
     const { container } = render(
       <MultiSelect
         id="some-id"
@@ -190,7 +147,7 @@ describe("MultiSelect Dialog", () => {
     // @TODO how to do this?
   });
 
-  xit("should initially render with a given label", () => {
+  it("should initially render with a given label", () => {
     render(
       <MultiSelect
         id="some-id"
@@ -211,7 +168,7 @@ describe("MultiSelect Dialog", () => {
     ).toBeInTheDocument();
   });
 
-  xit("should initially render with open menu if defaultIsOpen prop is true", async () => {
+  it("should initially render with open menu if defaultIsOpen prop is true", async () => {
     render(
       <MultiSelect
         id="some-id"
@@ -229,7 +186,7 @@ describe("MultiSelect Dialog", () => {
     expect(screen.getAllByRole("checkbox")).toHaveLength;
   });
 
-  xit("should open menu when user clicks menu button", () => {
+  it("should open menu when user clicks menu button", () => {
     render(
       <MultiSelect
         id="some-id"
@@ -252,8 +209,26 @@ describe("MultiSelect Dialog", () => {
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(screen.getAllByRole("checkbox")).toHaveLength;
   });
+  // Not sure this can be tested
+  // it("should have block behavior if isBlockElement is true", () => {
+  //   const { container } = render(
+  //     <MultiSelect
+  //       id="some-id"
+  //       label="MultiSelect Label"
+  //       variant="dialog"
+  //       items={items}
+  //       isBlockElement={true}
+  //       selectedItems={selectedTestItems}
+  //       onChange={() => null}
+  //       onClear={() => null}
+  //       onApply={() => null}
+  //     />
+  //   );
+  //   console.log(getComputedStyle(container.querySelector("[role='dialog']")));
+  //   // screen.logTestingPlaygroundURL();
+  // });
 
-  xit("should allow user to toggle menu by clicking menu button", () => {
+  it("should allow user to toggle menu by clicking menu button", () => {
     const { container } = render(
       <MultiSelect
         id="some-id"
@@ -292,21 +267,34 @@ describe("MultiSelect Dialog", () => {
     ).toEqual("false");
   });
 
-  xit("should check all children items if parent is checked", () => {
+  it("should have inteterminated state for parent item if not all child items are checked", () => {
     render(<MultiSelectTestComponent id="some-id" />);
-    // open menu
+    // Open menu
     userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
-    //check the design box
-    userEvent.click(screen.getByText("Design"));
-    // parent is checked
-    expect(screen.getByLabelText("Design")).toBeChecked();
-    // children are checked
-    expect(screen.getByLabelText("User Experience")).toBeChecked();
-    expect(screen.getByLabelText("Fashion")).toBeChecked();
+    // Check the child
+    userEvent.click(screen.getByText("Red"));
+    // Child is checked
+    expect(screen.getByLabelText("Red")).toBeChecked();
+    // Parent is indeterminated
+    expect(screen.getByLabelText("Colors")).toBePartiallyChecked();
   });
-  it("if passed in selectedItems, they should be checked on first render", () => {
+
+  it("should check all child items if parent is checked", () => {
+    render(<MultiSelectTestComponent id="some-id" />);
+    // Open menu
+    userEvent.click(screen.getByRole("button", { name: /MultiSelect Label/i }));
+    // Check the parent item
+    userEvent.click(screen.getByText("Colors"));
+    // Parent is checked
+    expect(screen.getByLabelText("Colors")).toBeChecked();
+    // Children are checked
+    expect(screen.getByLabelText("Red")).toBeChecked();
+    expect(screen.getByLabelText("Blue")).toBeChecked();
+  });
+
+  it("should check parent item if all child items are checked", () => {
     selectedTestItems = {
-      "some-id": { items: ["art", "architecture", "ux", "fashion"] },
+      "some-id": { items: ["red", "blue"] },
     };
 
     render(
@@ -323,10 +311,10 @@ describe("MultiSelect Dialog", () => {
         onApply={() => null}
       />
     );
-    expect(screen.getByLabelText("Art")).toBeChecked();
-    expect(screen.getByLabelText("Design")).toBeChecked();
+    expect(screen.getByLabelText("Colors")).toBeChecked();
   });
-  it("Renders the UI snapshot correctly", () => {
+
+  it("should render the UI snapshot correctly", () => {
     const defaultDialog = renderer
       .create(
         <MultiSelect
@@ -358,7 +346,7 @@ describe("MultiSelect Dialog", () => {
       )
       .toJSON();
 
-    selectedTestItems = { "some-id": { items: ["ux"] } };
+    selectedTestItems = { "some-id": { items: ["red"] } };
     const mixedState = renderer
       .create(
         <MultiSelect
@@ -368,6 +356,7 @@ describe("MultiSelect Dialog", () => {
           items={items}
           defaultIsOpen={true}
           selectedItems={selectedTestItems}
+          onMixedStateChange={() => null}
           onChange={() => null}
           onClear={() => null}
           onApply={() => null}
@@ -375,7 +364,7 @@ describe("MultiSelect Dialog", () => {
       )
       .toJSON();
 
-    selectedTestItems = { "some-id": { items: ["ux", "fashion"] } };
+    selectedTestItems = { "some-id": { items: ["red", "blue"] } };
     const allChecked = renderer
       .create(
         <MultiSelect
@@ -385,23 +374,7 @@ describe("MultiSelect Dialog", () => {
           items={items}
           defaultIsOpen={true}
           selectedItems={selectedTestItems}
-          onChange={() => null}
-          onClear={() => null}
-          onApply={() => null}
-        />
-      )
-      .toJSON();
-
-    selectedTestItems = { "some-id": { items: ["design"] } };
-    const parentChecked = renderer
-      .create(
-        <MultiSelect
-          id="some-id"
-          label="MultiSelect Test Label"
-          variant="dialog"
-          items={items}
-          defaultIsOpen={true}
-          selectedItems={selectedTestItems}
+          onMixedStateChange={() => null}
           onChange={() => null}
           onClear={() => null}
           onApply={() => null}
@@ -413,13 +386,10 @@ describe("MultiSelect Dialog", () => {
     expect(isOpen).toMatchSnapshot();
     expect(mixedState).toMatchSnapshot();
     expect(allChecked).toMatchSnapshot();
-    expect(parentChecked).toMatchSnapshot(
-      `MultiSelect Dialog Renders the UI snapshot correctly 4`
-    );
   });
 });
 
-xdescribe("MultiSelect Listbox", () => {
+describe("MultiSelect Listbox", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
   it("should have no axe violations", async () => {
@@ -484,7 +454,7 @@ xdescribe("MultiSelect Listbox", () => {
         onClear={() => null}
       />
     );
-    //when not open listbox is not accessible
+
     const ul = screen.getByRole("listbox");
     const list = ul[`${Object.keys(ul)[1]}`].children;
     expect(list).toHaveLength;
@@ -531,10 +501,10 @@ xdescribe("MultiSelect Listbox", () => {
         name: /multiselect label/i,
       })
     );
-    //the aria-expanded attribute is on a <div> that is ignored by the react testing library
-    //maybe this should be changed in the code?
-    const listbox = container.querySelector('[aria-haspopup="listbox"]');
-    expect(listbox[`${Object.keys(listbox)[1]}`]["aria-expanded"]).toBe(true);
+
+    expect(
+      container.querySelector('[aria-expanded="true"][aria-haspopup="listbox"]')
+    ).toBeInstanceOf(HTMLElement);
     expect(screen.getAllByRole("option")).toHaveLength;
 
     userEvent.click(
@@ -542,9 +512,14 @@ xdescribe("MultiSelect Listbox", () => {
         name: /multiselect label/i,
       })
     );
-    expect(listbox[`${Object.keys(listbox)[1]}`]["aria-expanded"]).toBe(false);
+    expect(
+      container.querySelector(
+        '[aria-expanded="false"][aria-haspopup="listbox"]'
+      )
+    ).toBeInstanceOf(HTMLElement);
     expect(screen.queryAllByRole("option")).toHaveLength(0);
   });
+
   it("Renders the UI snapshot correctly", () => {
     const defaultListbox = renderer
       .create(
@@ -575,7 +550,7 @@ xdescribe("MultiSelect Listbox", () => {
       )
       .toJSON();
 
-    selectedTestItems = { test: { items: ["art", "architecture"] } };
+    selectedTestItems = { test: { items: ["cats", "dogs"] } };
     const selection = renderer
       .create(
         <MultiSelect
