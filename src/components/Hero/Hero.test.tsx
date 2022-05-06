@@ -250,7 +250,7 @@ describe("Hero", () => {
     );
 
     expect(warn).toHaveBeenCalledWith(
-      `NYPL Reservoir: The "imageProps.src" prop was passed but the "imageProps.alt" props was not. This will make the rendered image inaccessible.`
+      `NYPL Reservoir Hero: The "imageProps.src" prop was passed but the "imageProps.alt" props was not. This will make the rendered image inaccessible.`
     );
   });
 

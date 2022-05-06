@@ -41,12 +41,12 @@ export interface HeroProps {
   /** Used to control how the `Hero` component will be rendered. */
   heroType?: HeroTypes;
   /** Object used to create and render the `Image` component. Note that only
-   * `src` and `alt` are the available attributes to pass. If `imageProps.alt` is
-   * left blank, a warning will be logged to the console and will cause accessibility
-   * issues. For `imageProps.src`, it will only work for the "SECONDARY,
-   * fiftyFifty and CAMPAIGN `Hero` types; Note: `imageProps.src` can only be used
-   * in conjunction with `backgroundImageSrc` for the CAMPAIGN `Hero` type.
-   * Note: not all `Hero` variations utilize this prop. */
+   * `src` and `alt` are the available attributes to pass. If `imageProps.alt`
+   * is left blank, a warning will be logged to the console and will cause
+   * accessibility issues. For `imageProps.src`, it will only work for the
+   * "secondary", "fiftyFifty" and "campaign" `Hero` types; Note: `imageProps.src`
+   * can only be used in conjunction with `backgroundImageSrc` for the "campaign"
+   * `Hero` type. Note: not all `Hero` variations utilize this prop. */
   imageProps?: HeroImageProps;
   /** Optional details area that contains location data.
    * Note: not all `Hero` variations utilize this prop. */
@@ -82,7 +82,7 @@ export const Hero = chakra(
 
     if (imageProps.src && !imageProps.alt) {
       console.warn(
-        `NYPL Reservoir: The "imageProps.src" prop was passed but the "imageProps.alt" props was not. This will make the rendered image inaccessible.`
+        `NYPL Reservoir Hero: The "imageProps.src" prop was passed but the "imageProps.alt" props was not. This will make the rendered image inaccessible.`
       );
     }
 

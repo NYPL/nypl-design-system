@@ -183,8 +183,9 @@ Each `Hero` variation can be rendered through the `heroType` prop.
 
 ### Primary
 
-The `"primary"` hero type should be used with the `backgroundImageSrc` and
-`heading` props.
+The `"primary"` hero type can be used with the `backgroundColor`, `backgroundImageSrc`,
+`foregroundColor`, `heading`, `locationDetails`, and `subHeaderText` props. The
+minimum props that should be used are `backgroundImageSrc` and `heading`.
 
 ```jsx
 backgroundImageSrc="https://placeimg.com/1600/800/arch"
@@ -203,7 +204,7 @@ heading={<Heading level="one" id="primary-hero" text="Hero Primary" />}
 
 ### Secondary
 
-The `"secondary"` hero type should be used with the `heading`, `imageProps`, and
+The `"secondary"` hero type can be used with the `heading`, `imageProps`, and
 `subHeaderText` props.
 
 ```jsx
@@ -229,8 +230,9 @@ subHeaderText={secondarySubHeaderText}
 
 ### Tertiary
 
-The `"tertiary"` hero type should be used with the `heading`, and `subHeaderText`
-props.
+The `"tertiary"` hero type can be used with the `backgroundColor`, `foregroundColor`,
+`heading`, and `subHeaderText` props. The minimum prop to use is the `heading`
+prop.
 
 ```jsx
 heading={
@@ -272,8 +274,10 @@ subHeaderText={otherSubHeaderText}
 
 ### Campaign
 
-The `"campaign"` hero type should be used with the `backgroundImageSrc`, `heading`,
-`imageProps`, and `subHeaderText` props.
+The `"campaign"` hero type can be used with the `backgroundColor`,
+`backgroundImageSrc`, `foregroundColor`, `heading`, `imageProps`, and
+`subHeaderText` props. The minimum props to use are `backgroundImageSrc`,
+`heading`, and `imageProps`.
 
 ```jsx
 backgroundImageSrc="https://placeimg.com/2400/800/nature/grayscale"
@@ -298,8 +302,9 @@ subHeaderText={otherSubHeaderText}
 
 ### FiftyFifty
 
-The `"fiftyFifty"` hero type should be used with the `imageProps` and
-`subHeaderText` props.
+The `"fiftyFifty"` hero type can be used with the `backgroundColor`,
+`foregroundColor`, `heading`, `imageProps`, and `subHeaderText` props. The
+minimum props to use are `imageProps` and `subHeaderText`.
 
 ```
 imageProps={imageProps}
