@@ -4,7 +4,6 @@ import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import ProgressIndicator from "./ProgressIndicator";
-import { ProgressIndicatorTypes } from "./ProgressIndicatorTypes";
 
 describe("ProgressIndicator Accessibility", () => {
   it("passes axe accessibility for linear and circular types", async () => {
@@ -20,7 +19,7 @@ describe("ProgressIndicator Accessibility", () => {
         id="progressIndicatorCircular"
         labelText="Circular"
         value={50}
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
       />
     );
     expect(await axe(linearUtils.container)).toHaveNoViolations();
@@ -41,7 +40,7 @@ describe("ProgressIndicator Accessibility", () => {
         id="progressIndicatorCircular"
         labelText="Circular"
         value={50}
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         showLabel={false}
       />
     );
@@ -63,7 +62,7 @@ describe("ProgressIndicator Accessibility", () => {
         id="progressIndicatorCircular"
         labelText="Circular"
         value={50}
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         isIndeterminate
       />
     );
@@ -85,7 +84,7 @@ describe("ProgressIndicator Accessibility", () => {
         id="progressIndicatorCircular"
         labelText="Circular"
         value={50}
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         darkMode
       />
     );
@@ -108,7 +107,7 @@ describe("ProgressIndicator", () => {
       <ProgressIndicator
         id="progressIndicator"
         labelText="Circular"
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         value={50}
       />
     );
@@ -196,7 +195,7 @@ describe("ProgressIndicator", () => {
           id="circularBasic"
           labelText="Circular"
           value={50}
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
         />
       )
       .toJSON();
@@ -216,7 +215,7 @@ describe("ProgressIndicator", () => {
           id="circularNoLabel"
           labelText="Circular"
           value={50}
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
           showLabel={false}
         />
       )
@@ -237,7 +236,7 @@ describe("ProgressIndicator", () => {
           id="circularIndeterminate"
           labelText="Circular"
           value={50}
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
           isIndeterminate
         />
       )
@@ -258,7 +257,7 @@ describe("ProgressIndicator", () => {
           id="circularDarkMode"
           labelText="Circular"
           value={50}
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
           darkMode
         />
       )

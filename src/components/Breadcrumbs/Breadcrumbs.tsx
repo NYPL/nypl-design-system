@@ -8,15 +8,14 @@ import {
 import * as React from "react";
 
 import Icon from "../Icons/Icon";
-import {
-  IconNames,
-  IconRotationTypes,
-  IconSizes,
-  IconTypes,
-} from "../Icons/IconTypes";
-import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
-import { getVariant } from "../../utils/utils";
 
+export type BreadcrumbsTypes =
+  | "blogs"
+  | "booksAndMore"
+  | "education"
+  | "locations"
+  | "research"
+  | "whatsOn";
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
@@ -33,7 +32,10 @@ export interface BreadcrumbProps {
   id?: string;
 }
 
-const getElementsFromData = (data, breadcrumbsID) => {
+const getElementsFromData = (
+  data: BreadcrumbsDataProps[],
+  breadcrumbsID?: string
+) => {
   if (!data?.length) {
     return {};
   }
@@ -46,12 +48,12 @@ const getElementsFromData = (data, breadcrumbsID) => {
       <BreadcrumbLink href={breadcrumbData.url}>
         {index === data.length - 2 && (
           <Icon
-            name={IconNames.Arrow}
-            size={IconSizes.Small}
-            iconRotation={IconRotationTypes.Rotate90}
+            name="arrow"
+            size="small"
+            iconRotation="rotate90"
             id={`${breadcrumbsID}__backarrow`}
             className="breadcrumbs-icon"
-            type={IconTypes.Breadcrumbs}
+            type="breadcrumbs"
           />
         )}
         <span className="breadcrumb-label">{breadcrumbData.text}</span>
@@ -63,8 +65,13 @@ const getElementsFromData = (data, breadcrumbsID) => {
 };
 
 export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
-  const { breadcrumbsData, breadcrumbsType, className, id, ...rest } = props;
-  const variant = getVariant(breadcrumbsType, BreadcrumbsTypes);
+  const {
+    breadcrumbsData,
+    breadcrumbsType = "whatsOn",
+    className,
+    id,
+    ...rest
+  } = props;
 
   if (!breadcrumbsData || breadcrumbsData.length === 0) {
     throw new Error(
@@ -72,7 +79,7 @@ export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
     );
   }
 
-  const styles = useStyleConfig("Breadcrumb", { variant });
+  const styles = useStyleConfig("Breadcrumb", { variant: breadcrumbsType });
   const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
 
   return (

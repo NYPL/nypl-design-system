@@ -11,6 +11,7 @@ import typography from "./foundations/typography";
 import Accordion from "./components/accordion";
 import Breadcrumb from "./components/breadcrumb";
 import Button from "./components/button";
+import ButtonGroup from "./components/buttonGroup";
 import Card from "./components/card";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
@@ -35,6 +36,7 @@ import Radio from "./components/radio";
 import RadioGroup from "./components/radioGroup";
 import SearchBar from "./components/searchBar";
 import { Skeleton, SkeletonLoader } from "./components/skeletonLoader";
+import SkipNavigation from "./components/skipNavigation";
 import CustomSlider from "./components/slider";
 import StatusBadge from "./components/statusBadge";
 import StructuredContent from "./components/structuredContent";
@@ -80,6 +82,7 @@ const theme = extendTheme({
     Accordion,
     Breadcrumb,
     Button,
+    ButtonGroup,
     ...Card,
     Checkbox,
     CheckboxGroup,
@@ -106,6 +109,7 @@ const theme = extendTheme({
     SearchBar,
     Skeleton,
     SkeletonLoader,
+    SkipNavigation,
     CustomSlider,
     StatusBadge,
     StructuredContent,

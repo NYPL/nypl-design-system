@@ -92,8 +92,12 @@ wrap the elements in the `DSProvider` component.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button isDisabled={false}>Enabled</Button>
-      <Button isDisabled>Disabled</Button>
+      <Button id="enabled" isDisabled={false}>
+        Enabled
+      </Button>
+      <Button id="disabled" isDisabled>
+        Disabled
+      </Button>
     </ButtonGroup>
   </DSProvider>
 </Canvas>
@@ -259,7 +263,9 @@ const Button = {
 Now this variant can be rendered:
 
 ```tsx
-<Button buttonType={ButtonTypes.Secondary}>Press me</Button>
+<Button buttonType="secondary" id="secondary">
+  Press me
+</Button>
 ```
 
 ### Breakpoints
@@ -438,13 +444,13 @@ In the following example, the `Button` component has been passed `p` and `maxW`
 props which are shorthand for "padding" and "max-width", respectively.
 
 ```jsx
-<Button p="s" maxW="200px">
+<Button id="styleprops" p="s" maxW="200px">
   Button
 </Button>
 ```
 
 <DSProvider>
-  <Button p="s" maxW="200px">
+  <Button id="styleprops" p="s" maxW="200px">
     Button
   </Button>
 </DSProvider>

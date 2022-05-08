@@ -10,7 +10,9 @@ import * as React from "react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import { ToggleSizes } from "./ToggleTypes";
+import { AriaAttributes } from "../../utils/interfaces";
+
+export type ToggleSizes = "default" | "small";
 export interface ToggleProps {
   /** Used for uncontrolled scenarios.  Sets the state of the Toggle when the page first loads.
    *   If true, the toggle will be initially set to the "on" position. */
@@ -66,11 +68,11 @@ export const Toggle = chakra(
       labelText,
       name,
       onChange = onChangeDefault,
-      size = ToggleSizes.Default,
+      size = "default",
       ...rest
     } = props;
-    const footnote: HelperErrorTextType = isInvalid ? invalidText : helperText;
-    const ariaAttributes = {};
+    const footnote = isInvalid ? invalidText : helperText;
+    const ariaAttributes: AriaAttributes = {};
     const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
     const switchStyles = useStyleConfig("Switch", { size });
     ariaAttributes["aria-label"] =
@@ -92,7 +94,7 @@ export const Toggle = chakra(
             isInvalid={isInvalid}
             isRequired={isRequired}
             ref={ref}
-            size={size === ToggleSizes.Default ? "lg" : "sm"}
+            size={size === "default" ? "lg" : "sm"}
             lineHeight="1.5"
             {...(isChecked !== undefined
               ? {

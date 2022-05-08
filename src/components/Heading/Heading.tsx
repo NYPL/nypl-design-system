@@ -5,9 +5,10 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 import Link from "../Link/Link";
-import { getVariant } from "../../utils/utils";
+
+export type HeadingSizes = "primary" | "secondary" | "tertiary" | "callout";
+export type HeadingLevels = "one" | "two" | "three" | "four" | "five" | "six";
 export interface HeadingProps {
   /** Optional className that appears in addition to `heading` */
   className?: string;
@@ -32,7 +33,7 @@ export interface HeadingProps {
 }
 
 /** Map the word heading level to the number heading level. The default is 2. */
-const getMappedLevel = (level = HeadingLevels.Two) => {
+const getMappedLevel = (level = "two") => {
   const levelMap = {
     one: 1,
     two: 2,
@@ -49,7 +50,7 @@ export const Heading = chakra(
     const {
       className,
       id,
-      level = HeadingLevels.Two,
+      level = "two",
       size,
       noSpace,
       text,
@@ -60,6 +61,8 @@ export const Heading = chakra(
     const finalLevel = getMappedLevel(level);
     const variant = size ? getVariant(size, HeadingSizes) : `h${finalLevel}`;
     const styles = useStyleConfig("Heading", { variant, noSpace });
+    const variant = size ? size : `h${finalLevel}`;
+    const styles = useStyleConfig("Heading", { variant });
     // Combine native base styles with any additional styles.
     // This is used in the `Hero` and `Notification` components.
     const asHeading: any = `h${finalLevel}`;
