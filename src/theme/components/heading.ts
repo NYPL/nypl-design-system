@@ -64,8 +64,8 @@ const Heading = {
   baseStyle: ({ noSpace }) => ({
     // This is to help target custom anchor elements
     // passed as children to the Heading component.
-      a: baseLinkStyles,
-      marginBottom: noSpace ? "0" : "s",
+    a: baseLinkStyles,
+    marginBottom: noSpace ? "0" : "s",
   }),
   // Available variants:
   // h1, h2, h3, h4, h5, h6,
