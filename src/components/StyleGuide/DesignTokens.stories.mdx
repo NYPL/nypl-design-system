@@ -126,9 +126,9 @@ That said, if a DS component does need an updated style, first contact the
 Design System and UX teams about this update.
 
 If you receive approval to make a change in a consuming app, then you can add
-styles directly to the `additionalStyles` prop. For example, if the `Heading`
-component needs to render text in Reservoir's "success primary" green color and add
-a bold font weight, then you can do the following:
+styles directly as style props. For example, if the `Heading` component needs to
+render text in Reservoir's "success primary" green color and add a bold font
+weight, then you can do the following:
 
 ```tsx
 const theme = useNYPLTheme();
@@ -138,10 +138,8 @@ return (
   <div>
     <Heading
       level={2}
-      additionalStyles={{
-        color: theme.colors.ui.success.primary,
-        fontWeight: theme.fontWeights.bold,
-      }}
+      color={theme.colors.ui.success.primary}
+      fontWeight={theme.fontWeights.bold}
     >
       Get a Digital Library Card Today in a Few Easy Steps
     </Heading>

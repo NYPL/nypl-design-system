@@ -5,12 +5,11 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { HeadingSizes, HeadingLevels } from "./HeadingTypes";
 import Link from "../Link/Link";
-import { getVariant } from "../../utils/utils";
+
+export type HeadingSizes = "primary" | "secondary" | "tertiary" | "callout";
+export type HeadingLevels = "one" | "two" | "three" | "four" | "five" | "six";
 export interface HeadingProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Optional className that appears in addition to `heading` */
   className?: string;
   /** Optional ID that other components can cross reference for accessibility purposes */
@@ -32,7 +31,7 @@ export interface HeadingProps {
 }
 
 /** Map the word heading level to the number heading level. The default is 2. */
-const getMappedLevel = (level = HeadingLevels.Two) => {
+const getMappedLevel = (level = "two") => {
   const levelMap = {
     one: 1,
     two: 2,
@@ -47,10 +46,9 @@ const getMappedLevel = (level = HeadingLevels.Two) => {
 export const Heading = chakra(
   (props: React.PropsWithChildren<HeadingProps>) => {
     const {
-      additionalStyles = {},
       className,
       id,
-      level = HeadingLevels.Two,
+      level = "two",
       size,
       text,
       url,
@@ -58,11 +56,10 @@ export const Heading = chakra(
       ...rest
     } = props;
     const finalLevel = getMappedLevel(level);
-    const variant = size ? getVariant(size, HeadingSizes) : `h${finalLevel}`;
+    const variant = size ? size : `h${finalLevel}`;
     const styles = useStyleConfig("Heading", { variant });
     // Combine native base styles with any additional styles.
     // This is used in the `Hero` and `Notification` components.
-    const finalStyles = { ...styles, ...additionalStyles };
     const asHeading: any = `h${finalLevel}`;
 
     if (!props.children && !text) {
@@ -92,7 +89,7 @@ export const Heading = chakra(
         as={asHeading}
         className={className}
         id={id}
-        sx={finalStyles}
+        sx={styles}
         {...rest}
       >
         {content}

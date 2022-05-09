@@ -3,6 +3,7 @@
 import "!style-loader!css-loader!sass-loader!../src/styles.scss";
 import React from "react";
 // We also want to add MDX-style documentation here:
+import { DocsContainer, DocsPage } from "@storybook/addon-docs";
 import { addDecorator, addParameters } from "@storybook/react";
 import { withTests } from "@storybook/addon-jest";
 
@@ -10,6 +11,10 @@ import nyplTheme from "../src/theme";
 import results from "../.jest-test-results.json";
 
 addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
   options: {
     storySort: {
       method: "alphabetical",

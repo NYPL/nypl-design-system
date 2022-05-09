@@ -1,11 +1,11 @@
 "use strict";
 
-var gulp = require("gulp");
-var concat = require("gulp-concat");
+const gulp = require("gulp");
+const concat = require("gulp-concat");
 
 gulp.task("default", mergeSass);
 
-function mergeSass(done) {
+function mergeSass(_done) {
   return gulp
     .src([
       "src/styles/base/_01-breakpoints.scss",

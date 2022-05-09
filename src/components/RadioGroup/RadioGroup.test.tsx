@@ -7,7 +7,6 @@ import renderer from "react-test-renderer";
 
 import Radio from "../Radio/Radio";
 import RadioGroup from "./RadioGroup";
-import { LayoutTypes } from "../../helpers/enums";
 
 describe("Radio Accessibility", () => {
   it("passes axe accessibility with string labels", async () => {
@@ -154,7 +153,7 @@ describe("Radio Button", () => {
 
   it("sets the next value through the onChange function", () => {
     let newValue = "";
-    const onChange = (value) => {
+    const onChange = (value: string) => {
       newValue = value;
     };
     render(
@@ -275,12 +274,7 @@ describe("Radio Button", () => {
       .toJSON();
     const row = renderer
       .create(
-        <RadioGroup
-          labelText="row"
-          name="row"
-          id="row"
-          layout={LayoutTypes.Row}
-        >
+        <RadioGroup labelText="row" name="row" id="row" layout="row">
           <Radio value="2" labelText="Radio 2" id="radio-2" />
           <Radio value="3" labelText="Radio 3" id="radio-3" />
         </RadioGroup>

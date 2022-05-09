@@ -2,14 +2,13 @@ import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import * as React from "react";
 
 import Heading from "../Heading/Heading";
-import { HeadingSizes, HeadingLevels } from "../Heading/HeadingTypes";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
-import { ImageRatios, ImageSizes } from "../Image/ImageTypes";
-import { StructuredContentImagePosition } from "./StructuredContentTypes";
+
+export type StructuredContentImagePosition = "left" | "right" | "center";
 
 interface StructuredContentImageProps extends ComponentImageProps {
   /** Optional value to control the positioning of the internal `Image` component.
-   * Defaults to `StructuredContentImagePosition.Left`. */
+   * Defaults to `"left"`. */
   position?: StructuredContentImagePosition;
 }
 
@@ -74,12 +73,12 @@ export const StructuredContent = chakra(
       id,
       imageProps = {
         alt: "",
-        aspectRatio: ImageRatios.Square,
+        aspectRatio: "square",
         caption: undefined,
         component: undefined,
         credit: undefined,
-        position: StructuredContentImagePosition.Left,
-        size: ImageSizes.Medium,
+        position: "left",
+        size: "medium",
         src: "",
       },
       bodyContent,
@@ -111,17 +110,9 @@ export const StructuredContent = chakra(
 
     return (
       <Box id={id} className={className} __css={styles} {...rest}>
-        {headingText && (
-          <Heading id={`${id}-heading`} level={HeadingLevels.Two}>
-            {headingText}
-          </Heading>
-        )}
+        {headingText && <Heading id={`${id}-heading`}>{headingText}</Heading>}
         {calloutText && (
-          <Heading
-            id={`${id}-callout`}
-            level={HeadingLevels.Three}
-            size={HeadingSizes.Callout}
-          >
+          <Heading id={`${id}-callout`} level="three" size="callout">
             {calloutText}
           </Heading>
         )}
@@ -136,7 +127,7 @@ export const StructuredContent = chakra(
             caption={imageProps.caption}
             credit={imageProps.credit}
             size={imageProps.size}
-            src={imageProps.src ? imageProps.src : null}
+            src={imageProps.src ? imageProps.src : undefined}
           />
         )}
         {finalBodyContent}
