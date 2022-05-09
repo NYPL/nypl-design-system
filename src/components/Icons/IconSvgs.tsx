@@ -1,64 +1,64 @@
 /* eslint-disable camelcase */
-import accessibility_full from "../../../icons/svg/accessibility_full.svg";
-import accessibility_partial from "../../../icons/svg/accessibility_partial.svg";
-import action_check_circle from "../../../icons/svg/action_check_circle.svg";
-import action_help_default from "../../../icons/svg/action_help_default.svg";
-import action_help_outline from "../../../icons/svg/action_help_outline.svg";
-import action_launch from "../../../icons/svg/action_launch.svg";
-import alert_notification_important from "../../../icons/svg/alert_notification_important.svg";
+import accessibilityFull from "../../../icons/svg/accessibility-full.svg";
+import accessibilityPartial from "../../../icons/svg/accessibility-partial.svg";
+import actionCheckCircle from "../../../icons/svg/action-check-circle.svg";
+import actionHelpDefault from "../../../icons/svg/action-help-default.svg";
+import actionHelpOutline from "../../../icons/svg/action-help-outline.svg";
+import actionLaunch from "../../../icons/svg/action-launch.svg";
+import alertNotificationImportant from "../../../icons/svg/alert-notification-important.svg";
 import arrow from "../../../icons/svg/arrow.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
 import close from "../../../icons/svg/close.svg";
-import file_type_audio from "../../../icons/svg/file_type_audio.svg";
-import file_type_doc from "../../../icons/svg/file_type_doc.svg";
-import file_type_generic_doc from "../../../icons/svg/file_type_generic_doc.svg";
-import file_type_image from "../../../icons/svg/file_type_image.svg";
-import file_type_pdf from "../../../icons/svg/file_type_pdf.svg";
-import file_type_spreadsheet from "../../../icons/svg/file_type_spreadsheet.svg";
-import file_type_video from "../../../icons/svg/file_type_video.svg";
+import fileTypeAudio from "../../../icons/svg/file-type-audio.svg";
+import fileTypeDoc from "../../../icons/svg/file-type-doc.svg";
+import fileTypeGenericDoc from "../../../icons/svg/file-type-generic-doc.svg";
+import fileTypeImage from "../../../icons/svg/file-type-image.svg";
+import fileTypePdf from "../../../icons/svg/file-type-pdf.svg";
+import fileTypeSpreadsheet from "../../../icons/svg/file-type-spreadsheet.svg";
+import fileTypeVideo from "../../../icons/svg/file-type-video.svg";
 import download from "../../../icons/svg/download.svg";
-import error_filled from "../../../icons/svg/error_filled.svg";
-import error_outline from "../../../icons/svg/error_outline.svg";
+import errorFilled from "../../../icons/svg/error-filled.svg";
+import errorOutline from "../../../icons/svg/error-outline.svg";
 import headset from "../../../icons/svg/headset.svg";
 import minus from "../../../icons/svg/minus.svg";
 import plus from "../../../icons/svg/plus.svg";
 import search from "../../../icons/svg/search.svg";
-import speaker_notes from "../../../icons/svg/speaker_notes.svg";
-import utility_account_filled from "../../../icons/svg/utility_account_filled.svg";
-import utility_account_unfilled from "../../../icons/svg/utility_account_unfilled.svg";
-import utility_hamburger from "../../../icons/svg/utility_hamburger.svg";
-import utility_search from "../../../icons/svg/search.svg";
+import speakerNotes from "../../../icons/svg/speaker-notes.svg";
+import utilityAccountFilled from "../../../icons/svg/utility-account-filled.svg";
+import utilityAccountUnfilled from "../../../icons/svg/utility-account-unfilled.svg";
+import utilityHamburger from "../../../icons/svg/utility-hamburger.svg";
+import utilitySearch from "../../../icons/svg/search.svg";
 
 export default {
-  accessibility_full,
-  accessibility_partial,
-  action_check_circle,
-  action_help_default,
-  action_help_outline,
-  action_launch,
-  alert_notification_important,
+  accessibilityFull,
+  accessibilityPartial,
+  actionCheckCircle,
+  actionHelpDefault,
+  actionHelpOutline,
+  actionLaunch,
+  alertNotificationImportant,
   arrow,
   check,
   clock,
   close,
   download,
-  error_filled,
-  error_outline,
-  file_type_audio,
-  file_type_doc,
-  file_type_generic_doc,
-  file_type_image,
-  file_type_pdf,
-  file_type_spreadsheet,
-  file_type_video,
+  errorFilled,
+  errorOutline,
+  fileTypeAudio,
+  fileTypeDoc,
+  fileTypeGenericDoc,
+  fileTypeImage,
+  fileTypePdf,
+  fileTypeSpreadsheet,
+  fileTypeVideo,
   headset,
   minus,
   plus,
   search,
-  speaker_notes,
-  utility_account_filled,
-  utility_account_unfilled,
-  utility_hamburger,
-  utility_search,
+  speakerNotes,
+  utilityAccountFilled,
+  utilityAccountUnfilled,
+  utilityHamburger,
+  utilitySearch,
 };

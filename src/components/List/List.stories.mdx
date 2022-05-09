@@ -8,16 +8,10 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
-import { LinkTypes } from "../Link/LinkTypes";
 import List from "./List";
-import { ListTypes } from "./ListTypes";
 import { getCategory } from "../../utils/componentCategories";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
 
 <Meta
   title={getCategory("List")}
@@ -31,7 +25,6 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
     jest: ["List.test.tsx"],
   }}
   argTypes={{
-    additionalStyles: { control: false },
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
@@ -39,9 +32,7 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
     listItems: { control: false },
     noStyling: { table: { defaultValue: { summary: false } } },
     type: {
-      control: { type: "select" },
-      options: enumValues.options,
-      table: { defaultValue: { summary: "ListTypes.Unordered" } },
+      table: { defaultValue: { summary: "ul" } },
     },
   }}
 />
@@ -51,7 +42,7 @@ export const enumValues = getStorybookEnumValues(ListTypes, "ListTypes");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.7.0`    |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -154,19 +145,18 @@ export const descriptions = [
   <Story
     name="List with Controls"
     args={{
-      additionalStyles: undefined,
       className: undefined,
       id: "nypl-list",
       inline: false,
       listItems: undefined,
       noStyling: false,
       title: "Middle-Earth Peoples",
-      type: "ListTypes.Unordered",
+      type: "ul",
     }}
   >
     {(args) => (
-      <List {...args} type={enumValues.getValue(args.type)}>
-        {args.type !== "ListTypes.Description"
+      <List {...args}>
+        {args.type !== "dl"
           ? itemGroups.map((item, i) => <li key={i}>{item}</li>)
           : descriptions.map((item, i) => [
               <dt key={`dt_${i}`}>{item.term}</dt>,
@@ -205,12 +195,12 @@ may still use this name. In the Reservoir Design System, we will use the
 - [W3C Using description lists](https://www.w3.org/WAI/WCAG21/Techniques/html/H40.html)
 - [MDN dl: The Description List element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
 
-To render a description list, pass in `ListTypes.Description` to the `type` prop.
-The optional `title` prop will now render above the description list element.
-This type of list renders `dt` and `dd` elements.
+To render a description list, pass in `"dl"` to the `type` prop. The optional
+`title` prop will now render above the description list element. This type of
+list renders `dt` and `dd` elements.
 
 ```jsx
-<List type={ListTypes.Description}>
+<List type="dl">
   <dt>Term</dt>
   <dd>Description</dd>
 </List>
@@ -237,7 +227,7 @@ This type of list renders `dt` and `dd` elements.
     }}
   >
     {(args) => (
-      <List {...args} type={ListTypes.Description}>
+      <List {...args} type="dl">
         {descriptions.map((item, i) => [
           <dt key={`dt_${i}`}>{item.term}</dt>,
           <dd key={`dd_${i}`}>{item.description}</dd>,
@@ -271,7 +261,7 @@ An example with HTML elements inside of the `dd` elements.
     }}
   >
     {(args) => (
-      <List {...args} type={ListTypes.Description}>
+      <List {...args} type="dl">
         <dt>Authors</dt>
         <dd>
           <a href="#">Chirwa, Ephraim Wadonda, author</a>
@@ -320,14 +310,13 @@ children elements or the `listItems` prop should be passed but not both.
 
 ### Unordered and Ordered
 
-For lists of type `ListTypes.Unordered` (ul) or `ListTypes.Ordered` (ol), `li`
-list item elements can be passed as children. If that's not possible but the
-data to render is stored as an array of strings, then that data array can be
-passed into `listItems`.
+For lists of type `"ul"` (unorderd) or `"ol"` (ordered), `li` list item elements
+can be passed as children. If that's not possible but the data to render is
+stored as an array of strings, then that data array can be passed into `listItems`.
 
 ```jsx
 <!-- With `li` elements -->
-<List type={ListTypes.Unordered}>
+<List type={ul}>
   <li>Mahi-mahi</li>
   <li>Golden trout</li>
   <li>Rainbowfish</li>
@@ -336,19 +325,19 @@ passed into `listItems`.
 
 <!-- With `itemList` data prop -->
 const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
-<List type={ListTypes.Unordered} listItems={fishArray} />
+<List type={ul} listItems={fishArray} />
 ```
 
 ### Description
 
-For lists of type `ListTypes.Description` (dl), `dt` and `dd` elements can be
+For lists of type `"dl"` (description), `dt` and `dd` elements can be
 passed as children. If that's not possible but the data to render is stored as
 an array of objects, then that data array can be passed into `listItems`. The
 object must have two keys, `term` and `description`.
 
 ```jsx
 // With `dt`/`dd` elements
-<List type={ListTypes.Description} title="Animal Crossing Fish">
+<List type="dl" title="Animal Crossing Fish">
   <dt>Mahi-mahi</dt>
   <dd>The mahi-mahi is an ocean fish known...</dd>
   <dt>Golden trout</dt>
@@ -381,7 +370,7 @@ const fishDescriptions = [
 <List
   listItems={fishDescriptions}
   title="Animal Crossing Fish"
-  type={ListTypes.Description}
+  type="dl"
 />
 ```
 
@@ -399,6 +388,6 @@ const fishDescriptions = [
       type: { control: false },
     }}
   >
-    {(args) => <List {...args} type={ListTypes.Description} />}
+    {(args) => <List {...args} type="dl" />}
   </Story>
 </Canvas>

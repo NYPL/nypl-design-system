@@ -856,7 +856,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
 >
   <label
     className="css-1xdhyk6"
-    htmlFor={null}
+    htmlFor=""
     id="noVisibleValues-label"
   >
     Label
@@ -1139,7 +1139,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
         />
       </div>
       <div
-        aria-label={null}
         aria-labelledby="defaultSlider-label"
         aria-orientation="horizontal"
         aria-valuemax={100}
@@ -1269,7 +1268,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
         />
       </div>
       <div
-        aria-label={null}
         aria-labelledby="errored-label"
         aria-orientation="horizontal"
         aria-valuemax={100}
@@ -1403,7 +1401,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
         />
       </div>
       <div
-        aria-label={null}
         aria-labelledby="required-label"
         aria-orientation="horizontal"
         aria-valuemax={100}
@@ -1537,7 +1534,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
       </div>
       <div
         aria-disabled={true}
-        aria-label={null}
         aria-labelledby="disabled-label"
         aria-orientation="horizontal"
         aria-valuemax={100}
@@ -1722,7 +1718,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
 >
   <label
     className="css-1xdhyk6"
-    htmlFor={null}
+    htmlFor=""
     id="noVisibleValues-label"
   >
     Label
@@ -1771,7 +1767,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
         />
       </div>
       <div
-        aria-label={null}
         aria-labelledby="noVisibleValues-label"
         aria-orientation="horizontal"
         aria-valuemax={100}
@@ -1958,7 +1953,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
         />
       </div>
       <div
-        aria-label={null}
         aria-labelledby="chakra-label"
         aria-orientation="horizontal"
         aria-valuemax={100}
@@ -2089,7 +2083,6 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
         />
       </div>
       <div
-        aria-label={null}
         aria-labelledby="props-label"
         aria-orientation="horizontal"
         aria-valuemax={100}

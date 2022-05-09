@@ -6,12 +6,56 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-import { LogoNames, LogoSizes } from "./LogoTypes";
 import logoSvgs from "./LogoSvgs";
 
+export type LogoNames =
+  | "bplBlack"
+  | "bplWhite"
+  | "cleverColor"
+  | "cleverWhite"
+  | "firstbookColor"
+  | "firstbookColorNegative"
+  | "lpaBlack"
+  | "lpaColor"
+  | "lpaWhite"
+  | "mlnBlack"
+  | "mlnWhite"
+  | "nyplFullBlack"
+  | "nyplFullWhite"
+  | "nyplLionBlack"
+  | "nyplLionWhite"
+  | "openebooksColor"
+  | "openebooksNegative"
+  | "openebooksWithTextColor"
+  | "openebooksWithTextNegative"
+  | "qplAltBlack"
+  | "qplAltWhite"
+  | "qplBlack"
+  | "qplColor"
+  | "qplWhite"
+  | "reservoirIconColor"
+  | "reservoirVerticalColor"
+  | "schomburgBlack"
+  | "schomburgCircleBlack"
+  | "schomburgCircleColor"
+  | "schomburgCircleWhite"
+  | "schomburgColor"
+  | "schomburgWhite"
+  | "simplyeBlack"
+  | "simplyeWhite"
+  | "simplyeColor"
+  | "snflBlack"
+  | "snflWhite"
+  | "treasuresColor"
+  | "treasuresColorNegative";
+export type LogoSizes =
+  | "default"
+  | "xxsmall"
+  | "xsmall"
+  | "small"
+  | "medium"
+  | "large";
 export interface LogoProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Optional className that will be added to the parent element */
   className?: string;
   /** Logos designated as decorative will be ignored by screenreaders. False
@@ -35,13 +79,12 @@ export interface LogoProps {
  */
 export const Logo = chakra((props: React.PropsWithChildren<LogoProps>) => {
   const {
-    additionalStyles = {},
     children,
     className,
     decorative = false,
     id,
     name,
-    size = LogoSizes.Medium,
+    size = "medium",
     title = `${name} logo`,
     ...rest
   } = props;
@@ -78,13 +121,7 @@ export const Logo = chakra((props: React.PropsWithChildren<LogoProps>) => {
   // render the SVG child with NYPL-theme styling.
   if (name) {
     const SvgComponent: any = logoSvgs[name];
-    return (
-      <ChakraIcon
-        as={SvgComponent}
-        {...logoProps}
-        __css={{ ...styles, ...additionalStyles }}
-      />
-    );
+    return <ChakraIcon as={SvgComponent} {...logoProps} __css={styles} />;
   }
 
   // If no `name` prop was passed, we expect a child SVG element to be passed.
@@ -104,11 +141,7 @@ export const Logo = chakra((props: React.PropsWithChildren<LogoProps>) => {
     );
   }
 
-  return (
-    <Box __css={styles} {...rest}>
-      {childSVG}
-    </Box>
-  );
+  return <Box __css={styles}>{childSVG}</Box>;
 });
 
 export default Logo;

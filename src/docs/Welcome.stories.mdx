@@ -2,27 +2,13 @@ import { Meta } from "@storybook/addon-docs";
 
 import { Box, Center, Circle, VStack, Square } from "@chakra-ui/react";
 import Card, { CardHeading, CardContent } from "../components/Card/Card";
-import Hero from "../components/Hero/Hero";
-import { HeroTypes } from "../components/Hero/HeroTypes";
 import Heading from "../components/Heading/Heading";
-import {
-  HeadingLevels,
-  HeadingSizes,
-} from "../components/Heading/HeadingTypes";
 import Icon from "../components/Icons/Icon";
-import {
-  IconColors,
-  IconNames,
-  IconSizes,
-} from "../components/Icons/IconTypes";
 import Image from "../components/Image/Image";
 import Link from "../components/Link/Link";
-import { LinkTypes } from "../components/Link/LinkTypes";
 import Logo from "../components/Logo/Logo";
-import { LogoNames, LogoSizes } from "../components/Logo/LogoTypes";
 import SimpleGrid from "../components/Grid/SimpleGrid";
 import Text from "../components/Text/Text";
-import { TextSizes } from "../components/Text/TextTypes";
 import DSProvider from "../theme/provider";
 
 <Meta title="Welcome" />
@@ -30,11 +16,11 @@ import DSProvider from "../theme/provider";
 <DSProvider>
   <VStack spacing="s">
     <Center>
-      <Logo name={LogoNames.ReservoirVerticalColor} size={LogoSizes.Small} />
+      <Logo name="reservoirVerticalColor" size="small" />
     </Center>
     <Box>
       <Center>
-        <Heading level={HeadingLevels.One} size={HeadingSizes.Tertiary}>
+        <Heading level="one" size="tertiary">
           The React Component Library of the New York Public Library
         </Heading>
       </Center>
@@ -57,31 +43,29 @@ import DSProvider from "../theme/provider";
         }}
       >
         <Icon
-          name={IconNames.ActionCheckCircle}
-          size={IconSizes.ExtraExtraLarge}
-          color={IconColors.SectionEducationSecondary}
-          additionalStyles={{
-            marginBottom: "s",
-          }}
+          name="actionCheckCircle"
+          size="xxlarge"
+          color="section.education.secondary"
+          marginBottom="s"
         />
         <Card isCentered>
-          <CardHeading id="main-heading1" level={HeadingLevels.Three}>
+          <CardHeading id="main-heading1" level="three">
             Get Started
           </CardHeading>
           <CardContent>
-            <Text size={TextSizes.Caption}>
+            <Text size="caption">
               To start using Reservoir Design System, refer to Reservoir's
               Github{" "}
               <Link
                 href="https://github.com/NYPL/nypl-design-system/wiki"
-                type={LinkTypes.External}
+                type="external"
               >
                 Wiki
               </Link>{" "}
               and{" "}
               <Link
                 href="https://github.com/NYPL/nypl-design-system/blob/development/README.md"
-                type={LinkTypes.External}
+                type="external"
               >
                 ReadMe
               </Link>{" "}
@@ -101,19 +85,17 @@ import DSProvider from "../theme/provider";
         }}
       >
         <Icon
-          name={IconNames.Search}
-          size={IconSizes.ExtraExtraLarge}
-          color={IconColors.SectionEducationSecondary}
-          additionalStyles={{
-            marginBottom: "s",
-          }}
+          name="search"
+          size="xxlarge"
+          color="section.education.secondary"
+          marginBottom="s"
         />
         <Card isCentered>
-          <CardHeading id="main-heading1" level={HeadingLevels.Three}>
+          <CardHeading id="main-heading1" level="three">
             Find Components
           </CardHeading>
           <CardContent>
-            <Text size={TextSizes.Caption}>
+            <Text size="caption">
               For your convenience, the Reservoir Design System components have
               been organized into logical categories based on both form and
               function. Please refer to the <b>COMPONENTS</b> section in the
@@ -132,15 +114,13 @@ import DSProvider from "../theme/provider";
         }}
       >
         <Icon
-          name={IconNames.FileTypeSpreadsheet}
-          size={IconSizes.ExtraExtraLarge}
-          color={IconColors.SectionEducationSecondary}
-          additionalStyles={{
-            marginBottom: "s",
-          }}
+          name="fileTypeSpreadsheet"
+          size="xxlarge"
+          color="section.education.secondary"
+          marginBottom="s"
         />
         <Card isCentered>
-          <CardHeading id="main-heading1" level={HeadingLevels.Three}>
+          <CardHeading id="main-heading1" level="three">
             View the Code
           </CardHeading>
           <CardContent>
@@ -149,13 +129,13 @@ import DSProvider from "../theme/provider";
               published on{" "}
               <Link
                 href="https://www.npmjs.com/package/@nypl/design-system-react-components"
-                type={LinkTypes.External}
+                type="external"
               >
                 npm
               </Link>
               . If you're looking to contribute to this project, checkout the <Link
                 href="https://github.com/NYPL/nypl-design-system"
-                type={LinkTypes.External}
+                type="external"
               >
                 nypl-design-system
               </Link> repo on Github for more information.

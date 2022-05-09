@@ -8,33 +8,9 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import Icon from "./Icon";
-import {
-  IconAlign,
-  IconColors,
-  IconNames,
-  IconRotationTypes,
-  IconSizes,
-  IconTypes,
-} from "./IconTypes";
 import iconSvgs from "./IconSvgs";
-import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import { getCategory } from "../../utils/componentCategories";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const alignEnumValues = getStorybookEnumValues(IconAlign, "IconAlign");
-export const namesEnumValues = getStorybookEnumValues(IconNames, "IconNames");
-export const colorsEnumValues = getStorybookEnumValues(
-  IconColors,
-  "IconColors"
-);
-export const sizesEnumValues = getStorybookEnumValues(IconSizes, "IconSizes");
-export const rotationEnumValues = getStorybookEnumValues(
-  IconRotationTypes,
-  "IconRotationTypes"
-);
 
 <Meta
   title={getCategory("Icon")}
@@ -49,31 +25,42 @@ export const rotationEnumValues = getStorybookEnumValues(
   }}
   argTypes={{
     align: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "IconAlign.None" } },
-      options: alignEnumValues.options,
+      table: { defaultValue: { summary: "none" } },
     },
     children: { table: { disable: true } },
     className: { control: false },
     color: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "IconColors.UiBlack" } },
-      options: colorsEnumValues.options,
+      table: { defaultValue: { summary: "ui.black" } },
+      options: [
+        "ui.black",
+        "ui.white",
+        "brand.primary",
+        "brand.secondary",
+        "section.blogs.primary",
+        "section.blogs.secondary",
+        "section.books-and-more.primary",
+        "section.books-and-more.secondary",
+        "section.education.primary",
+        "section.education.secondary",
+        "section.locations.primary",
+        "section.locations.secondary",
+        "section.research.primary",
+        "section.research.secondary",
+        "section.research-library.lpa",
+        "section.research-library.schomburg",
+        "section.research-library.schwartzman",
+        "section.whats-on.primary",
+        "section.whats-on.secondary",
+      ],
     },
     iconRotation: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "IconRotationTypes.Rotate0" } },
-      options: rotationEnumValues.options,
+      table: { defaultValue: { summary: "rotate0" } },
     },
     id: { control: false },
-    name: {
-      control: { type: "select" },
-      options: namesEnumValues.options,
-    },
+    name: {},
     size: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "IconSizes.Medium" } },
-      options: sizesEnumValues.options,
+      table: { defaultValue: { summary: "medium" } },
     },
     title: {
       control: false,
@@ -81,7 +68,7 @@ export const rotationEnumValues = getStorybookEnumValues(
     },
     type: {
       control: false,
-      table: { defaultValue: { summary: "IconTypes.Default" } },
+      table: { defaultValue: { summary: "default" } },
     },
   }}
 />
@@ -91,7 +78,7 @@ export const rotationEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.0.4`    |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -114,57 +101,47 @@ export const rotationEnumValues = getStorybookEnumValues(
   <Story
     name="Icon with Controls"
     args={{
-      additionalStyles: undefined,
-      align: "IconAlign.None",
+      align: "none",
       className: undefined,
-      color: "IconColors.UiBlack",
+      color: "ui.black",
       decorative: true,
-      iconRotation: "IconRotationTypes.Rotate0",
+      iconRotation: "rotate0",
       id: "icon-id",
-      name: "IconNames.Check",
-      size: "IconSizes.ExtraExtraLarge",
+      name: "check",
+      size: "xxlarge",
       title: undefined,
-      type: IconTypes.Default,
+      type: "default",
     }}
   >
-    {(args) => (
-      <Icon
-        align={alignEnumValues.getValue(args.align)}
-        color={colorsEnumValues.getValue(args.color)}
-        iconRotation={rotationEnumValues.getValue(args.iconRotation)}
-        name={namesEnumValues.getValue(args.name)}
-        size={sizesEnumValues.getValue(args.size)}
-        title={args.title}
-      />
-    )}
+    {(args) => <Icon {...args} />}
   </Story>
 </Canvas>
 
 <ArgsTable story="Icon with Controls" />
 
-export const iconRow = (icon, iconType = IconNames, opts = {}) => {
+export const iconRow = (iconName, opts = {}) => {
   // We'll use this setup function to render all the icons in a list item.
   // Some icons display better with a dark background.
   const styles = { display: "block" };
   const {
-    size = IconSizes.Large,
-    iconRotation = IconRotationTypes.Rotate0,
-    color = IconColors.UiBlack,
-    displayValue = icon,
+    size = "large",
+    iconRotation = "rotate0",
+    color = "ui.black",
+    displayValue = iconName,
   } = opts;
-  let key = icon;
-  if (icon.indexOf("Negative") !== -1 || color.indexOf("white") !== -1) {
+  let key = iconName;
+  if (iconName.indexOf("Negative") !== -1 || color.indexOf("White") !== -1) {
     styles.backgroundColor = "#000";
     styles.padding = "1rem";
   }
   // The following is just to fix duplicate React key issues.
-  if (iconRotation !== IconRotationTypes.Rotate0) {
+  if (iconRotation !== "rotate0") {
     key += `-${iconRotation}`;
   }
-  if (color !== IconColors.UiBlack) {
+  if (color !== "ui.black") {
     key += `-${color}`;
   }
-  if (size !== IconSizes.Large) {
+  if (size !== "large") {
     key += `-${size}`;
   }
   return (
@@ -172,10 +149,10 @@ export const iconRow = (icon, iconType = IconNames, opts = {}) => {
       key={key}
       style={{ marginBottom: "var(--nypl-space-l)", textAlign: "center" }}
     >
-      <Heading level={HeadingLevels.Four}>{displayValue}</Heading>
+      <Heading level="four">{displayValue}</Heading>
       <span style={styles}>
         <Icon
-          name={iconType[icon]}
+          name={iconName}
           size={size}
           iconRotation={iconRotation}
           color={color}
@@ -188,37 +165,105 @@ export const icons = [];
 export const rotations = [];
 export const colors = [];
 export const sizes = [];
-for (const icon in IconNames) {
+export const iconColorsValues = [
+  "ui.black",
+  "ui.white",
+  "brand.primary",
+  "brand.secondary",
+  "section.blogs.primary",
+  "section.blogs.secondary",
+  "section.books-and-more.primary",
+  "section.books-and-more.secondary",
+  "section.education.primary",
+  "section.education.secondary",
+  "section.locations.primary",
+  "section.locations.secondary",
+  "section.research.primary",
+  "section.research.secondary",
+  "section.research-library.lpa",
+  "section.research-library.schomburg",
+  "section.research-library.schwartzman",
+  "section.whats-on.primary",
+  "section.whats-on.secondary",
+];
+export const iconNamesValues = [
+  "accessibilityFull",
+  "accessibilityPartial",
+  "actionCheckCircle",
+  "actionHelpDefault",
+  "actionHelpOutline",
+  "alertNotificationImportant",
+  "actionLaunch",
+  "arrow",
+  "check",
+  "clock",
+  "close",
+  "download",
+  "errorFilled",
+  "errorOutline",
+  "fileTypeAudio",
+  "fileTypeDoc",
+  "fileTypeGenericDoc",
+  "fileTypeImage",
+  "fileTypePdf",
+  "fileTypeSpreadsheet",
+  "fileTypeVideo",
+  "headset",
+  "minus",
+  "plus",
+  "search",
+  "speakerNotes",
+  "utilityAccountFilled",
+  "utilityAccountUnfilled",
+  "utilityHamburger",
+  "utilitySearch",
+];
+export const iconRotationTypesValues = [
+  "rotate0",
+  "rotate90",
+  "rotate180",
+  "rotate270",
+];
+export const iconSizesValues = [
+  "default",
+  "small",
+  "medium",
+  "large",
+  "xlarge",
+  "xxlarge",
+  "xxxlarge",
+];
+for (const icon in iconNamesValues) {
   icons.push(
-    iconRow(icon, IconNames, {
-      displayValue: `IconNames.${icon}`,
-      size: IconSizes.ExtraExtraLarge,
+    iconRow(iconNamesValues[icon], {
+      displayValue: iconNamesValues[icon],
+      size: "xxlarge",
     })
   );
 }
-for (const iconRotation in IconRotationTypes) {
+for (const iconRotation in iconRotationTypesValues) {
   rotations.push(
-    iconRow("Arrow", IconNames, {
-      displayValue: `IconRotationTypes.${iconRotation}`,
-      iconRotation: IconRotationTypes[iconRotation],
-      size: IconSizes.ExtraExtraLarge,
+    iconRow("arrow", {
+      displayValue: iconRotationTypesValues[iconRotation],
+      iconRotation: iconRotationTypesValues[iconRotation],
+      size: "xxlarge",
     })
   );
 }
-for (const iconColor in IconColors) {
+for (const iconColor in iconColorsValues) {
   colors.push(
-    iconRow("ErrorFilled", IconNames, {
-      color: IconColors[iconColor],
-      displayValue: `IconColors.${iconColor}`,
-      size: IconSizes.ExtraExtraLarge,
+    iconRow("errorFilled", {
+      color: iconColorsValues[iconColor],
+      displayValue: iconColorsValues[iconColor],
+      size: "xxlarge",
     })
   );
 }
-for (const iconSize in IconSizes) {
+for (const iconSize in iconSizesValues) {
   sizes.push(
-    iconRow("ActionCheckCircle", IconNames, {
-      displayValue: `IconSizes.${iconSize}`,
-      size: IconSizes[iconSize],
+    iconRow("actionCheckCircle", {
+      displayValue: iconSizesValues[iconSize],
+      size: iconSizesValues[iconSize],
     })
   );
 }
@@ -229,10 +274,10 @@ export const allIconsType = (list) => (
 
 ## Accessibility
 
-For accessibility purposes, every Reservoir Design System (DS) `Icon` will 
-render the `svg` element with its icon name in the `title` element. The default 
-text in the `title` element is the icon's code name. Pass in better descriptive 
-text in the `title` prop when using the `Icon` component in your application. 
+For accessibility purposes, every Reservoir Design System (DS) `Icon` will
+render the `svg` element with its icon name in the `title` element. The default
+text in the `title` element is the icon's code name. Pass in better descriptive
+text in the `title` prop when using the `Icon` component in your application.
 This will give screenreaders a better descriptive title for the `svg` graphic.
 
 `Icon`s are decorative by default. This means that they are presentational and
@@ -248,19 +293,15 @@ Resources:
 ## Rotation Types
 
 Passing an `iconRotation` prop with a value from `IconRotationTypes` allows
-the icon to be rotated when it is rendered. The `IconRotationTypes` enum
-can be found in `src/components/Icons/IconTypes.tsx`.
+the icon to be rotated when it is rendered. The values are:
+`"rotate0"`, `"rotate90"`, `"rotate180"`, and `"rotate270"`.
 
 Note: All of the examples below have been rendered with the `size` prop set to
-`IconSizes.ExtraExtraLarge`.
+`xxlarge`.
 
 ```jsx
 // Example
-<Icon
-  iconRotation={IconRotationTypes.Rotate180}
-  name={IconNames.Arrow}
-  size={IconSizes.ExtraExtraLarge}
-/>
+<Icon iconRotation="rotate180" name="arrow" size="xxlarge" />
 ```
 
 <Canvas>
@@ -269,19 +310,23 @@ Note: All of the examples below have been rendered with the `size` prop set to
 
 ## IconColors Types
 
-Update an SVG icon by passing a `color` prop with a value from `IconColors`.
-The `IconColors` enum can be found in `src/components/Icons/IconTypes.tsx`.
+Update an SVG icon by passing a `color` prop with a value from the `IconColors`
+type. The values are: `"ui.black"`, `"ui.white"`, `"brand.primary"`,
+`"brand.secondary"`, `"section.blogs.primary"`, `"section.blogs.secondary"`,
+`"section.books-and-more.primary"`, `"section.books-and-more.secondary"`,
+`"section.education.primary"`, `"section.education.secondary"`,
+`"section.locations.primary"`, `"section.locations.secondary"`,
+`"section.research.primary"`, `"section.research.secondary"`,
+`"section.research-library.lpa"`, `"section.research-library.schomburg"`,
+`"section.research-library.schwartzman"`, `"section.whats-on.primary"`,
+`"section.whats-on.secondary"`.
 
 Note: All of the examples below have been rendered with the `size` prop set to
-`IconSizes.ExtraExtraLarge`.
+`xxlarge`.
 
 ```jsx
 // Example
-<Icon
-  color={IconColors.BrandPrimary}
-  name={IconNames.ErrorFilled}
-  size={IconSizes.ExtraExtraLarge}
-/>
+<Icon color="brand.primary" name="errorFilled" size="xxlarge" />
 ```
 
 <Canvas>
@@ -290,15 +335,16 @@ Note: All of the examples below have been rendered with the `size` prop set to
 
 ## IconSizes Types
 
-Update an SVG icon by passing a `size` prop with a value from `IconSizes`.
-The `IconSizes` enum can be found in`src/components/Icons/IconTypes.tsx`.
+Update an SVG icon by passing a `size` prop with a value from `IconSizes`. The
+values are: `"default"`, `"small"`, `"medium"`, `"large"`, `"xlarge"`,
+`"xxlarge"`, `"xxxlarge"`.
 
-Note: `IconSizes.Default` sets the width to `100%` and the rendered icon will
-expand to fill the full width of the parent element.
+Note: `"default"` sets the width to `100%` and the rendered icon will expand to
+fill the full width of the parent element.
 
 ```jsx
 // Example
-<Icon name={IconNames.ActionCheckCircle} size={IconSizes.ExtraExtraLarge} />
+<Icon name="actionCheckCircle" size="xxlarge" />
 ```
 
 <Canvas>
@@ -308,10 +354,18 @@ expand to fill the full width of the parent element.
 ## All Display Icons
 
 The following icons are for generic purposes. All the available icon names can
-be found in the `IconNames` enum in `src/components/Icons/IconTypes.tsx`.
+be found in the `IconNames` type. They are: `"accessibilityFull"`,
+`"accessibilityPartial"`, `"actionCheckCircle"`, `"actionHelpDefault"`,
+`"actionHelpOutline"`, `"alertNotificationImportant"`, `"actionLaunch"`,
+`"arrow"`, `"check"`, `"clock"`, `"close"`, `"download"`, `"errorFilled"`,
+`"errorOutline"`, `"fileTypeAudio"`, `"fileTypeDoc"`,
+`"fileTypeGenericDoc"`, `"fileTypeImage"`, `"fileTypePdf"`,
+`"fileTypeSpreadsheet"`, `"fileTypeVideo"`, `"headset"`, `"minus"`,
+`"plus"`, `"search"`, `"speakerNotes"`, `"utilityAccountFilled"`,
+`"utilityAccountUnfilled"`, `"utilityHamburger"`, `"utilitySearch"`.
 
 Note: All of the examples below have been rendered with the `size` prop set to
-`IconSizes.ExtraExtraLarge`.
+`xxlarge`.
 
 <Canvas withToolbar>
   <Story name="All Icons">{allIconsType(icons)}</Story>
@@ -336,9 +390,9 @@ child to the `Icon` component.
   <Story
     name="Custom Icons"
     args={{
-      color: IconColors.UiBlack,
-      size: IconSizes.ExtraExtraExtraLarge,
-      iconRotation: IconRotationTypes.Rotate0,
+      color: "ui.black",
+      size: "xxxlarge",
+      iconRotation: "rotate0",
       decorative: true,
     }}
   >
