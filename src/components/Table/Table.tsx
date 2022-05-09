@@ -106,18 +106,7 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
           "The number of columns in each row of the data table are not identical. " +
             "The `Table` component may not render properly."
         );
-        return null;
-      }
-    }
-
-    for (let i = 0; i < tableData.length; i++) {
-      if (columnHeaders.length !== tableData[i].length) {
-        console.warn(
-          "The number of column headers in the `columnHeaders` prop is not equal " +
-            " to the number of columns in the data table. " +
-              "The `Table` component may not render properly."
-        );
-        return null;
+        break;
       }
     }
 
@@ -139,6 +128,17 @@ export const Table = chakra((props: React.PropsWithChildren<TableProps>) => {
       </ChakraTbody>
     );
   };
+
+  for (let j = 0; j < tableData.length; j++) {
+    if (columnHeaders.length !== tableData[j].length) {
+      console.warn(
+        "The number of column headers in the `columnHeaders` prop is not equal " +
+          "to the number of columns in the data table. " +
+          "The `Table` component may not render properly."
+      );
+      break;
+    }
+  }
 
   return (
     <ChakraTable id={id} sx={styles} className={className} {...rest}>
