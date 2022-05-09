@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
+import Image from "../Image/Image";
 import Table from "./Table";
 import DSProvider from "../../theme/provider";
 import { getCategory } from "../../utils/componentCategories";
@@ -36,7 +37,7 @@ import { getCategory } from "../../utils/componentCategories";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.9`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -47,6 +48,7 @@ import { getCategory } from "../../utils/componentCategories";
 - [With Row Dividers](#with-row-dividers)
 - [With Row Headers](#with-row-headers)
 - [With Custom Header Colors](#with-custom-header-colors)
+- [With JSX Elements](#with-jsx-elements)
 
 ## Overview
 
@@ -187,6 +189,88 @@ color contrast.
       showRowDividers
       tableData={tableData}
       useRowHeaders
+    />
+  </DSProvider>
+</Canvas>
+
+## With JSX Elements
+
+export const characterHeaders = ["First Name", "Last Name", "Avatar"];
+export const charactersData = [
+  [
+    "Tom",
+    "Nook",
+    <Image
+      alt="Tom Nook"
+      size="small"
+      src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+  [
+    "Isabelle",
+    "-",
+    ,
+    <Image
+      alt="Isabelle"
+      size="small"
+      src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+  [
+    "K.K.",
+    "Slider",
+    ,
+    <Image
+      alt="K.K Slider"
+      size="small"
+      src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+];
+
+It's possible to pass in JSX elements in the `tableData` prop.
+
+```jsx
+export const charactersData = [
+  [
+    "Tom",
+    "Nook",
+    <Image
+      alt="Tom Nook"
+      size="small"
+      src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+  [
+    "Isabelle",
+    "-",
+    ,
+    <Image
+      alt="Isabelle"
+      size="small"
+      src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+  [
+    "K.K.",
+    "Slider",
+    ,
+    <Image
+      alt="K.K Slider"
+      size="small"
+      src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+    />,
+  ],
+];
+```
+
+<Canvas>
+  <DSProvider>
+    <Table
+      columnHeaders={characterHeaders}
+      id="jsx-example"
+      showRowDividers
+      tableData={charactersData}
     />
   </DSProvider>
 </Canvas>

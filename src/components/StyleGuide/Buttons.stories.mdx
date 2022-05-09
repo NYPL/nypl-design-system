@@ -1,7 +1,7 @@
-import { ButtonGroup } from "@chakra-ui/react";
 import { Canvas, Meta } from "@storybook/addon-docs";
 
 import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
@@ -57,15 +57,15 @@ can be achieved by using the `Form` component to wrap the `Button`s.
 <Canvas>
   <DSProvider>
     <ButtonGroup>
-      <Button id="btn">Button Text</Button>
+      <Button id="basic">Button Text</Button>
       <Button id="btn-search">
         <Icon name="search" size="small" align="left" />
         Button Text
       </Button>
-      <Button id="btn-close">
+      <Button id="only-icon">
         <Icon name="close" size="medium" />
       </Button>
-      <Button buttonType="callout" id="btn-donate">
+      <Button buttonType="callout" id="donate">
         Donate
       </Button>
       <Button buttonType="secondary" id="btn-back-to-top">
