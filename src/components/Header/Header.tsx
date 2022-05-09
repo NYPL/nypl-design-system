@@ -10,15 +10,11 @@ import {
 } from "@chakra-ui/react";
 
 import Button from "../Button/Button";
-import { ButtonTypes } from "../Button/ButtonTypes";
+import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Icon from "../Icons/Icon";
-import { IconAlign, IconNames, IconSizes } from "../Icons/IconTypes";
 import Link from "../Link/Link";
 import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import Logo from "../Logo/Logo";
-import { LogoNames, LogoSizes } from "../Logo/LogoTypes";
-import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Notification from "../Notification/Notification";
 import useWindowSize from "../../hooks/useWindowSize";
 
@@ -54,13 +50,11 @@ export const Header = chakra(() => {
             id="header-nypl-logo"
             name={
               windowDimensions.width > breakpointLarge
-                ? LogoNames.NYPLBlack
-                : LogoNames.NYPLLionBlack
+                ? "nyplFullBlack"
+                : "nyplLionBlack"
             }
             size={
-              windowDimensions.width > breakpointLarge
-                ? LogoSizes.Small
-                : LogoSizes.ExtraExtraSmall
+              windowDimensions.width > breakpointLarge ? "small" : "xxsmall"
             }
             title="NYPL Header Logo"
           />
@@ -71,17 +65,13 @@ export const Header = chakra(() => {
               inline
               listItems={[
                 <Button
-                  buttonType={ButtonTypes.Link}
+                  buttonType="link"
                   className="withIcon"
                   id="logInButton"
                   key="logInButton"
                 >
                   Log In
-                  <Icon
-                    name={IconNames.Arrow}
-                    align={IconAlign.Right}
-                    size={IconSizes.Small}
-                  />
+                  <Icon name="arrow" align="right" size="small" />
                 </Button>,
                 <Link href="#" key="locationsLink">
                   Locations
@@ -90,20 +80,16 @@ export const Header = chakra(() => {
                   Get A Library Card
                 </Link>,
                 <Button
-                  buttonType={ButtonTypes.Link}
+                  buttonType="link"
                   className="withIcon"
                   id="emailUpdatesButton"
                   key="emailUpdatesButton"
                 >
                   Get Email Updates
-                  <Icon
-                    name={IconNames.Arrow}
-                    align={IconAlign.Right}
-                    size={IconSizes.Small}
-                  />
+                  <Icon name="arrow" align="right" size="small" />
                 </Button>,
                 <Button
-                  buttonType={ButtonTypes.Callout}
+                  buttonType="callout"
                   id="donateButton"
                   key="donateButton"
                 >
@@ -114,7 +100,7 @@ export const Header = chakra(() => {
                 </Link>,
               ]}
               noStyling
-              type={ListTypes.Unordered}
+              type="ul"
             />
             <List
               __css={styles.lowerLinks}
@@ -142,21 +128,13 @@ export const Header = chakra(() => {
                 <Link href="#" key="getHelpLink">
                   Get Help
                 </Link>,
-                <Button
-                  buttonType={ButtonTypes.Link}
-                  id="searchButton"
-                  key="searchButton"
-                >
+                <Button buttonType="link" id="searchButton" key="searchButton">
                   Search
-                  <Icon
-                    name={IconNames.Search}
-                    align={IconAlign.Right}
-                    size={IconSizes.Small}
-                  />
+                  <Icon name="search" align="right" size="small" />
                 </Button>,
               ]}
               noStyling
-              type={ListTypes.Unordered}
+              type="ul"
             />
           </VStack>
         </Flex>
@@ -166,8 +144,8 @@ export const Header = chakra(() => {
             <Logo
               __css={{ ...styles.logo, marginTop: "13px", height: "30px" }}
               id="header-nypl-logo"
-              name={LogoNames.NYPLLionBlack}
-              size={LogoSizes.ExtraExtraSmall}
+              name="logo_nypl_full_black"
+              size="xxsmall"
               title="NYPL Header Logo"
             />
           </Box>
@@ -175,26 +153,21 @@ export const Header = chakra(() => {
           <HStack __css={styles.icons}>
             <Icon
               id="log-in-icon"
-              name={IconNames.UtilityAccountUnfilled}
-              size={IconSizes.Medium}
+              name="utility_account_unfilled"
+              size="medium"
               title="Log in to your account"
             />
             <Icon
               id="locator-icon"
-              name={IconNames.ActionHelpOutline}
-              size={IconSizes.Medium}
+              name="action_help_outline"
+              size="medium"
               title="NYPL Locator"
             />
-            <Icon
-              id="search-icon"
-              name={IconNames.Search}
-              size={IconSizes.Medium}
-              title="Search"
-            />
+            <Icon id="search-icon" name="search" size="medium" title="Search" />
             <Icon
               id="hamburger-icon"
-              name={IconNames.UtilityHamburger}
-              size={IconSizes.Medium}
+              name="utility_hamburger"
+              size="medium"
               title="Menu"
             />
           </HStack>
