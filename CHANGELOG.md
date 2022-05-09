@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `fontSize` and `padding` attributes in the single variant of the `Accordion` component.
+
 ## 0.28.0 (May 9, 2022)
 
 ### Adds
