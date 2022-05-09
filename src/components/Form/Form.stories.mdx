@@ -1,4 +1,4 @@
-import { ButtonGroup, Flex, Spacer } from "@chakra-ui/react";
+import { Flex, Spacer } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import {
   ArgsTable,
@@ -10,25 +10,20 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import DatePicker from "../DatePicker/DatePicker";
-import { DatePickerTypes } from "../DatePicker/DatePickerTypes";
 import Form, { FormRow, FormField } from "./Form";
-import { FormGaps } from "./FormTypes";
 import Heading from "../Heading/Heading";
-import { HeadingLevels } from "../Heading/HeadingTypes";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Label from "../Label/Label";
 import Radio from "../Radio/Radio";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Select from "../Select/Select";
+import SimpleGrid from "../Grid/SimpleGrid";
 import TextInput from "../TextInput/TextInput";
 import { getCategory } from "../../utils/componentCategories";
-import SimpleGrid from "../Grid/SimpleGrid";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(FormGaps, "FormGaps");
 
 <Meta
   title={getCategory("Form")}
@@ -50,8 +45,16 @@ export const enumValues = getStorybookEnumValues(FormGaps, "FormGaps");
     },
     gap: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "FormGaps.Large" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "grid.l" } },
+      options: [
+        "grid.xxs",
+        "grid.xs",
+        "grid.s",
+        "grid.m",
+        "grid.l",
+        "grid.xl",
+        "grid.xxl",
+      ],
     },
   }}
 />
@@ -61,7 +64,7 @@ export const enumValues = getStorybookEnumValues(FormGaps, "FormGaps");
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -91,10 +94,10 @@ fields as needed.
 </Form>
 ```
 
-`FormField` should be used as a parent for all input components from the 
+`FormField` should be used as a parent for all input components from the
 Reservoir Design System (DS) (`Button`, `Select`, `TextInput`, etc.).
 
-`FormRow` should be used as a parent of multiple `FormField` components when 
+`FormRow` should be used as a parent of multiple `FormField` components when
 you need to render multiple input components in a horizontal row.
 
 ## Component Props
@@ -107,11 +110,11 @@ you need to render multiple input components in a horizontal row.
       className: undefined,
       id: "form-id",
       method: "get",
-      gap: "FormGaps.Large",
+      gap: "grid.l",
     }}
   >
     {(args) => (
-      <Form {...args} gap={enumValues.getValue(args.gap)} id="form-id">
+      <Form {...args} id="form-id">
         <FormRow>
           <FormField>
             <TextInput
@@ -131,7 +134,7 @@ you need to render multiple input components in a horizontal row.
           </FormField>
           <FormField>
             <DatePicker
-              dateType={DatePickerTypes.Full}
+              dateType="full"
               dateFormat="yyyy-MM-dd"
               helperTextFrom="From this date."
               helperTextTo="To this date."
@@ -293,17 +296,17 @@ Resources:
 
 ## Spacing Variants
 
-export const formRow = (nameString, size) => {
-  const labelText = `Size: ${nameString} (${size})`;
+export const formRow = (gapValue) => {
+  const labelText = `Size: ${gapValue}`;
   return (
-    <li key={size}>
-      <Heading level={HeadingLevels.Three}>{labelText}</Heading>
-      <Form gap={size} id={`form-spacing-${size}`}>
+    <li key={gapValue}>
+      <Heading level="three">{labelText}</Heading>
+      <Form gap={gapValue} id={`form-spacing-${gapValue}`}>
         <FormRow>
           <FormField>
             <Select
               helperText="The select field helper text."
-              id={`select-spacing-${size}-1`}
+              id={`select-spacing-${gapValue}-1`}
               labelText="Select Field"
               showLabel={true}
             >
@@ -316,7 +319,7 @@ export const formRow = (nameString, size) => {
           <FormField>
             <Select
               helperText="The select field helper text."
-              id={`select-spacing-${size}-2`}
+              id={`select-spacing-${gapValue}-2`}
               labelText="Select Field"
               showLabel={true}
             >
@@ -329,7 +332,7 @@ export const formRow = (nameString, size) => {
           <FormField>
             <Select
               helperText="The select field helper text."
-              id={`select-spacing-${size}-3`}
+              id={`select-spacing-${gapValue}-3`}
               labelText="Select Field"
               showLabel={true}
             >
@@ -346,18 +349,30 @@ export const formRow = (nameString, size) => {
   );
 };
 export const sizes = [];
-for (const formGap in FormGaps) {
-  sizes.push(formRow(`FormGaps.${formGap}`, FormGaps[formGap]));
+export const gapValues = [
+  "grid.xxs",
+  "grid.xs",
+  "grid.s",
+  "grid.m",
+  "grid.l",
+  "grid.xl",
+  "grid.xxl",
+];
+for (const gap in gapValues) {
+  sizes.push(formRow(gapValues[gap]));
 }
 export const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 
 By default, the `Form` component will handle the NYPL spacing around form input
-elements. The default spacing value is `large`, which corresponds to the CSS
-variable `--nypl-space-l` (2rem / 32px).
+elements. The default spacing value is large `grid.l`, which corresponds to the
+CSS variable `--nypl-space-l` (2rem / 32px).
 
-**IMPORTANT:** The default spacing should not be overwritten without a very good reason.
+**IMPORTANT:** The default spacing should not be overwritten without a very
+good reason.
 
-Below are the spacing variants available with the `FormGaps` enum.
+Below are examples of the spacing values available to use in the `gap` prop of
+the `Form` component: `"grid.xxs"`, `"grid.xs"`, `"grid.s"`, `"grid.m"`,
+`"grid.l"`, `"grid.xl"`, `"grid.xxl"`.
 
 <Canvas>
   <Story name="Spacing Variants">{getForms(sizes)}</Story>
@@ -366,7 +381,7 @@ Below are the spacing variants available with the `FormGaps` enum.
 ## Example Code
 
 ```jsx
-<Form action="/end/point" method="get" gap={FormGaps.Large} id="example-form">
+<Form action="/end/point" method="get" gap="grid.l" id="example-form">
   <FormField>
     <TextInput
       labelText="Username"

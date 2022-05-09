@@ -9,9 +9,19 @@ import {
   baseUnorderedStyles,
 } from "./list";
 
+interface StructuredContentBaseStyle {
+  hasFigureImage: boolean;
+  imageAspectRatio: string;
+  imagePosition: string;
+}
+
 const StructuredContent = {
   parts: ["image", "imageFigure", "imageWrapper"],
-  baseStyle: ({ hasFigureImage, imageAspectRatio, imagePosition }) => {
+  baseStyle: ({
+    hasFigureImage,
+    imageAspectRatio,
+    imagePosition,
+  }: StructuredContentBaseStyle) => {
     const styles: { maxWidth?: string } = {};
     const wrapperStyles = {
       float: [

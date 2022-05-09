@@ -3,8 +3,8 @@ import React, { useState, useRef } from "react";
 
 import Link from "../Link/Link";
 import List from "../List/List";
-import { ListTypes } from "../List/ListTypes";
 import { range } from "../../utils/utils";
+
 export interface PaginationProps {
   /** Additional className. */
   className?: string;
@@ -51,7 +51,7 @@ export const Pagination = chakra((props: PaginationProps) => {
   // function exists, then set the internal state – selectedPage –
   // to the new currentPage and update the refCurrentPage with that value.
   React.useEffect(() => {
-    if (onPageChange && currentPage !== refCurrentPage.current) {
+    if (onPageChange && currentPage && currentPage !== refCurrentPage.current) {
       setSelectedPage(currentPage);
       refCurrentPage.current = currentPage;
     }
@@ -110,7 +110,10 @@ export const Pagination = chakra((props: PaginationProps) => {
    * 2. Otherwise, we stay on the same page by setting the `href` attribute to
    *    "#" and call the `onPageChange` prop through the `onClick` callback.
    */
-  const getLinkElement = (type: string, item?: number) => {
+  const getLinkElement = (
+    type: "items" | "previous" | "next",
+    item?: number
+  ) => {
     const isSelectedPage = selectedPage === item;
     // The current page link has different styles.
     const currentStyles = isSelectedPage
@@ -121,11 +124,13 @@ export const Pagination = chakra((props: PaginationProps) => {
       : {};
     const allAttrs = {
       items: {
-        href: changeUrls ? getPageHref(item) : "#",
+        href: changeUrls ? getPageHref(item as number) : "#",
         attributes: {
           "aria-label": `Page ${item}`,
           "aria-current": isSelectedPage ? "page" : null,
-          onClick: changeUrls ? undefined : (e) => handlePageClick(e, item),
+          onClick: changeUrls
+            ? undefined
+            : (e: Event) => handlePageClick(e, item as number),
         },
         text: item,
       },
@@ -149,13 +154,13 @@ export const Pagination = chakra((props: PaginationProps) => {
     const linkAttrs = allAttrs[type];
     return (
       <Link
-        additionalStyles={{
+        href={linkAttrs.href}
+        id={`${id}-${linkAttrs.text}`}
+        {...linkAttrs.attributes}
+        __css={{
           ...styles.link,
           ...currentStyles,
         }}
-        attributes={linkAttrs.attributes}
-        href={linkAttrs.href}
-        id={`${id}-${linkAttrs.text}`}
       >
         {linkAttrs.text}
       </Link>
@@ -252,7 +257,7 @@ export const Pagination = chakra((props: PaginationProps) => {
       __css={styles}
       {...rest}
     >
-      <List type={ListTypes.Unordered} inline noStyling id={`${id}-list`}>
+      <List type="ul" inline noStyling id={`${id}-list`}>
         {previousLiLink}
         {getPaginationNumbers(selectedPage)}
         {nextLiLink}
