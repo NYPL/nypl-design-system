@@ -8,15 +8,8 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import DatePicker from "./DatePicker";
-import { DatePickerTypes } from "./DatePickerTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(
-  DatePickerTypes,
-  "DatePickerTypes"
-);
 
 <Meta
   title={getCategory("DatePicker")}
@@ -36,8 +29,7 @@ export const enumValues = getStorybookEnumValues(
     },
     dateType: {
       control: { type: "select" },
-      table: { defaultValue: { summary: "DatePickerTypes.Full" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "full" } },
     },
     id: { control: false },
     isDateRange: {
@@ -78,7 +70,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.24.0`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -107,7 +99,7 @@ also be added through props.
     args={{
       className: undefined,
       dateFormat: "yyyy-MM-dd",
-      dateType: "DatePickerTypes.Full",
+      dateType: "full",
       helperText: "Note that the Library may be closed on Sundays.",
       helperTextFrom: "Select start date.",
       helperTextTo: "Select end date.",
@@ -131,13 +123,7 @@ also be added through props.
       showRequiredLabel: true,
     }}
   >
-    {(args) => (
-      <DatePicker
-        {...args}
-        dateType={enumValues.getValue(args.dateType)}
-        onChange={undefined}
-      />
-    )}
+    {(args) => <DatePicker {...args} onChange={undefined} />}
   </Story>
 </Canvas>
 
@@ -182,7 +168,7 @@ popup calendar.
     <DatePicker
       id="date-range"
       dateFormat="yyyy-MM-dd"
-      dateType={DatePickerTypes.Full}
+      dateType="full"
       minDate="1/1/2022"
       maxDate="7/1/2022"
       labelText="Select the date range you want to visit NYPL"
@@ -204,19 +190,19 @@ popup calendar.
 By default, the `DatePicker` will display the input date value in the full
 format that contains the year, month, and day such as "2021-01-30". Although
 this is the default, it can be explicitly set through the `dateType` prop with
-value of `DatePickerTypes.Full`.
+value of `"full"`.
 
 ### Month Date Input
 
 It's possible to select dates by skipping the day value and only selecting
-the month and the year when `dateType` is set to `DatePickerTypes.Month`. Note
+the month and the year when `dateType` is set to `"month"`. Note
 that all 12 months will appear in the popup calendar with their abbreviated names.
 
 <Canvas withToolbar>
   <Story name="Month Date Input">
     <DatePicker
       id="month-date"
-      dateType={DatePickerTypes.Month}
+      dateType="month"
       labelText="Select the month you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
       invalidText="Please select a valid month."
@@ -227,14 +213,14 @@ that all 12 months will appear in the popup calendar with their abbreviated name
 ### Year Date Input
 
 It's possible to select dates by only the year when `dateType` is set to
-`DatePickerTypes.Year`. Note that only 12 values will appear in the popup
-calendar; the four previous years, the current year, and the next seven years.
+`"year"`. Note that only 12 values will appear in the popup calendar; the four
+previous years, the current year, and the next seven years.
 
 <Canvas withToolbar>
   <Story name="Year Date Input">
     <DatePicker
       id="year-date"
-      dateType={DatePickerTypes.Year}
+      dateType="year"
       labelText="Select the year you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
     />
@@ -249,7 +235,7 @@ calendar; the four previous years, the current year, and the next seven years.
   <DSProvider>
     <DatePicker
       id="invalid-date"
-      dateType={DatePickerTypes.Full}
+      dateType="full"
       labelText="Select the year you want to visit NYPL"
       helperText="Note that the Library may be closed on Sundays."
       invalidText="Please select a valid date."
@@ -265,7 +251,7 @@ calendar; the four previous years, the current year, and the next seven years.
   <DSProvider>
     <DatePicker
       id="disabled-date"
-      dateType={DatePickerTypes.Full}
+      dateType="full"
       labelText="Select the year you want to visit NYPL"
       isDateRange
       isDisabled
@@ -281,8 +267,8 @@ date input, can be hidden when `showRequiredLabel` is set to `false`.
 <Canvas>
   <DSProvider>
     <DatePicker
-      id="disabled-date"
-      dateType={DatePickerTypes.Full}
+      id="required-date"
+      dateType="full"
       labelText="Select the year you want to visit NYPL"
       isDateRange
       isRequired
@@ -305,7 +291,7 @@ styleguide, we display dates as "year-month-day" by default.
   <DSProvider>
     <DatePicker
       id="init-dates"
-      dateType={DatePickerTypes.Full}
+      dateType="full"
       labelText="Select the date you want to visit NYPL"
       initialDate="12/1/21"
       initialDateTo="12/10/21"
@@ -325,7 +311,7 @@ written in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
     <DatePicker
       id="format-date"
       dateFormat="MM-dd-yyyy"
-      dateType={DatePickerTypes.Full}
+      dateType="full"
       labelText="Select the date you want to visit NYPL"
       initialDate="12/1/21"
       initialDateTo="12/10/21"
@@ -345,7 +331,7 @@ February to see the dates that are available to select in 2022.
     <DatePicker
       id="max-min-dates"
       dateFormat="MM-dd-yyyy"
-      dateType={DatePickerTypes.Full}
+      dateType="full"
       labelText="Select the date you want to visit NYPL"
       minDate="1/1/2022"
       maxDate="3/1/2022"
@@ -358,10 +344,10 @@ February to see the dates that are available to select in 2022.
 
 ### Controlled Component Using `onChange` prop
 
-If your application uses controlled React components and the Reservoir Design 
+If your application uses controlled React components and the Reservoir Design
 System (DS) DatePicker must be controlled, you can extract the data through the
 `onChange` prop function. This will be called every time the date is updated in
-either the start date input field or the end date input field. The returned 
+either the start date input field or the end date input field. The returned
 data is an object with `startDate` and `endDate` keys and `Date` object values.
 
 ```tsx
@@ -381,7 +367,7 @@ const onChange = (data) => {
 // Example of the DS DatePicker instance with the function above:
 <DatePicker
   id="date-range"
-  dateType={DatePickerTypes.Full}
+  dateType="full"
   labelText="Select the date range you want to visit NYPL"
   invalidText="Please select a valid date range."
   onChange={onChange}
@@ -425,7 +411,7 @@ const submitForm = (formData) => {
 >
   <DatePicker
     id="date-range"
-    dateType={DatePickerTypes.Full}
+    dateType="full"
     labelText="Select the date range you want to visit NYPL"
     nameFrom="visitDateFrom"
     nameTo="visitDateTo"
@@ -446,7 +432,7 @@ const refEnd = React.createRef<TextInputRefType>();
 // ...
 <DatePicker
   id="date-range"
-  dateType={DatePickerTypes.Full}
+  dateType="full"
   labelText="Select the date range you want to visit NYPL"
   nameFrom="visitDateFrom"
   nameTo="visitDateTo"

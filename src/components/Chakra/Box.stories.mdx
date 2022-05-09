@@ -2,10 +2,6 @@ import { Box } from "@chakra-ui/react";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
-import {
-  VideoPlayerAspectRatios,
-  VideoPlayerTypes,
-} from "../VideoPlayer/VideoPlayerTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
 
@@ -48,8 +44,8 @@ guide on the Chakra UI site.
     <Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
       <VideoPlayer
         videoId="nm-dD2tx6bk"
-        videoType={VideoPlayerTypes.YouTube}
-        aspectRatio={VideoPlayerAspectRatios.SixteenByNine}
+        videoType="youTube"
+        aspectRatio="sixteenByNine"
       />
     </Box>
   </DSProvider>

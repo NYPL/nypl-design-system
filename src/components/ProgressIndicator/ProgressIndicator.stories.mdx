@@ -8,25 +8,10 @@ import {
 } from "@storybook/addon-docs";
 import { withDesign } from "storybook-addon-designs";
 
-import { GridGaps } from "../Grid/GridTypes";
 import ProgressIndicator from "./ProgressIndicator";
-import {
-  ProgressIndicatorSizes,
-  ProgressIndicatorTypes,
-} from "./ProgressIndicatorTypes";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const sizesEnumValues = getStorybookEnumValues(
-  ProgressIndicatorSizes,
-  "ProgressIndicatorSizes"
-);
-export const typesEnumValues = getStorybookEnumValues(
-  ProgressIndicatorTypes,
-  "ProgressIndicatorTypes"
-);
 
 <Meta
   title={getCategory("ProgressIndicator")}
@@ -45,9 +30,7 @@ export const typesEnumValues = getStorybookEnumValues(
     },
     id: { control: false },
     indicatorType: {
-      control: { type: "radio" },
-      table: { defaultValue: { summary: "ProgressIndicatorTypes.Linear" } },
-      options: typesEnumValues.options,
+      table: { defaultValue: { summary: "linear" } },
     },
     isIndeterminate: {
       table: { defaultValue: { summary: false } },
@@ -56,9 +39,7 @@ export const typesEnumValues = getStorybookEnumValues(
       table: { defaultValue: { summary: true } },
     },
     size: {
-      control: { type: "radio" },
-      table: { defaultValue: { summary: "ProgressIndicatorSizes.Default" } },
-      options: sizesEnumValues.options,
+      table: { defaultValue: { summary: "default" } },
     },
     value: {
       table: { defaultValue: { summary: 0 } },
@@ -71,7 +52,7 @@ export const typesEnumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.25.4`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -98,21 +79,15 @@ export const typesEnumValues = getStorybookEnumValues(
     args={{
       darkMode: false,
       id: "progressIndicator-id",
-      indicatorType: "ProgressIndicatorTypes.Linear",
+      indicatorType: "linear",
       isIndeterminate: false,
       labelText: "Progress",
       showLabel: true,
-      size: "ProgressIndicatorSizes.Default",
+      size: "default",
       value: 50,
     }}
   >
-    {(args) => (
-      <ProgressIndicator
-        {...args}
-        indicatorType={typesEnumValues.getValue(args.indicatorType)}
-        size={sizesEnumValues.getValue(args.size)}
-      />
-    )}
+    {(args) => <ProgressIndicator {...args} />}
   </Story>
 </Canvas>
 
@@ -152,7 +127,7 @@ dialogs, etc.
   >
     <ProgressIndicator
       id="linear"
-      indicatorType={ProgressIndicatorTypes.Linear}
+      indicatorType="linear"
       labelText="Linear Progress Type"
       value={50}
     />
@@ -162,8 +137,7 @@ dialogs, etc.
 ## Circular Type
 
 The circular progress type is preferred for large content areas and for
-full-screen loading. Set the `indicatorType` prop to
-`ProgressIndicatorTypes.Circular` for this type.
+full-screen loading. Set the `indicatorType` prop to `"circular"` for this type.
 
 <Canvas>
   <Story
@@ -174,7 +148,7 @@ full-screen loading. Set the `indicatorType` prop to
   >
     <ProgressIndicator
       id="circular"
-      indicatorType={ProgressIndicatorTypes.Circular}
+      indicatorType="circular"
       labelText="Linear Progress Type"
       value={50}
     />
@@ -187,11 +161,11 @@ The starting height for the progress bar is 4px on mobile and 8px for desktop.
 The `size` prop can be used to optionally set the height to 4px for desktop
 through the `ProgressIndicatorSizes.Small` value.
 
-`size={ProgressIndicatorSizes.Small}`
+`size="small"`
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+    <SimpleGrid columns={1} gap="grid.m">
       <ProgressIndicator
         id="default-size"
         labelText="Default 8px size"
@@ -200,7 +174,7 @@ through the `ProgressIndicatorSizes.Small` value.
       <ProgressIndicator
         id="small-size"
         labelText="Small 4px size"
-        size={ProgressIndicatorSizes.Small}
+        size="small"
         value={50}
       />
     </SimpleGrid>
@@ -212,22 +186,22 @@ The starting size for the circular progress is 48px and can be made smaller to
 changes in content. Note that in the small size, the label text and the
 percentage will not displayed.
 
-`size={ProgressIndicatorSizes.Small}`
+`size="small"`
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+    <SimpleGrid columns={1} gap="grid.m">
       <ProgressIndicator
         id="default-size"
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         labelText="Default 48px size"
         value={50}
       />
       <ProgressIndicator
         id="small-size"
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         labelText="Small 24px size"
-        size={ProgressIndicatorSizes.Small}
+        size="small"
         value={50}
       />
     </SimpleGrid>
@@ -246,7 +220,7 @@ the progress element to provide a description of the progress for screen readers
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+    <SimpleGrid columns={1} gap="grid.m">
       <ProgressIndicator
         id="label"
         labelText="This label will be added through aria-label"
@@ -255,7 +229,7 @@ the progress element to provide a description of the progress for screen readers
       />
       <ProgressIndicator
         id="label-hidden"
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         labelText="This label will be added through aria-label"
         showLabel={false}
         value={50}
@@ -272,7 +246,7 @@ exact value or progress of the task is unknown.
 
 <Canvas>
   <DSProvider>
-    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+    <SimpleGrid columns={1} gap="grid.m">
       <ProgressIndicator
         id="indeterminate"
         isIndeterminate
@@ -281,7 +255,7 @@ exact value or progress of the task is unknown.
       />
       <ProgressIndicator
         id="indeterminate-circular"
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         isIndeterminate
         labelText="Indeterminate state"
         value={50}
@@ -300,7 +274,7 @@ Note: the background is manually set to better showcase the `darkMode` prop.
 <Canvas>
   <DSProvider>
     <Box bg="black" w="100%" h="200px" p="20px">
-      <SimpleGrid columns={1} gap={GridGaps.Medium}>
+      <SimpleGrid columns={1} gap="grid.m">
         <ProgressIndicator
           darkMode
           id="darkmode"
@@ -310,7 +284,7 @@ Note: the background is manually set to better showcase the `darkMode` prop.
         <ProgressIndicator
           darkMode
           id="darkmode-circular"
-          indicatorType={ProgressIndicatorTypes.Circular}
+          indicatorType="circular"
           labelText="Dark Mode"
           value={50}
         />
@@ -337,7 +311,7 @@ function ProgressIndicatorExample() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+    <SimpleGrid columns={1} gap="grid.m">
       <ProgressIndicator
         id="example"
         labelText="Progress example"
@@ -345,7 +319,7 @@ function ProgressIndicatorExample() {
       />
       <ProgressIndicator
         id="example-circular"
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         labelText="Progress example"
         value={value}
       />
@@ -363,7 +337,7 @@ export function ProgressIndicatorExample() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <SimpleGrid columns={1} gap={GridGaps.Medium}>
+    <SimpleGrid columns={1} gap="grid.m">
       <ProgressIndicator
         id="example"
         labelText="Progress example"
@@ -371,7 +345,7 @@ export function ProgressIndicatorExample() {
       />
       <ProgressIndicator
         id="example-circular"
-        indicatorType={ProgressIndicatorTypes.Circular}
+        indicatorType="circular"
         labelText="Progress example"
         value={value}
       />

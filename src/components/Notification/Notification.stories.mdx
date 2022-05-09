@@ -8,18 +8,10 @@ import {
 import { withDesign } from "storybook-addon-designs";
 
 import Icon from "../Icons/Icon";
-import { IconColors, IconNames } from "../Icons/IconTypes";
 import Link from "../Link/Link";
 import Notification from "./Notification";
-import { NotificationTypes } from "./NotificationTypes";
 import { getCategory } from "../../utils/componentCategories";
 import DSProvider from "../../theme/provider";
-import { getStorybookEnumValues } from "../../utils/utils";
-
-export const enumValues = getStorybookEnumValues(
-  NotificationTypes,
-  "NotificationTypes"
-);
 
 <Meta
   title={getCategory("Notification")}
@@ -47,9 +39,7 @@ export const enumValues = getStorybookEnumValues(
     },
     notificationContent: { control: false },
     notificationType: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "NotificationTypes.Standard" } },
-      options: enumValues.options,
+      table: { defaultValue: { summary: "standard" } },
     },
   }}
 />
@@ -59,7 +49,7 @@ export const enumValues = getStorybookEnumValues(
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `0.23.2`   |
-| Latest            | `0.26.0`   |
+| Latest            | `0.28.0`   |
 
 ## Table of Contents
 
@@ -105,16 +95,13 @@ within a parent element.
           nisi erat porttitor ligula.
         </>
       ),
-      notificationType: "NotificationTypes.Standard",
+      notificationType: "standard",
       showIcon: true,
     }}
   >
     {(args) => (
       <div style={{ border: "1px solid #ccc" }}>
-        <Notification
-          {...args}
-          notificationType={enumValues.getValue(args.notificationType)}
-        />
+        <Notification {...args} />
       </div>
     )}
   </Story>
@@ -172,7 +159,7 @@ Resources:
 <Canvas>
   <DSProvider>
     <Notification
-      notificationType={NotificationTypes.Announcement}
+      notificationType="announcement"
       notificationHeading="Announcement Notification"
       notificationContent={
         <>
@@ -191,7 +178,7 @@ Resources:
 <Canvas>
   <DSProvider>
     <Notification
-      notificationType={NotificationTypes.Warning}
+      notificationType="warning"
       notificationHeading="Warning Notification"
       notificationContent={
         <>
@@ -229,7 +216,7 @@ Resources:
 <Canvas>
   <DSProvider>
     <Notification
-      notificationType={NotificationTypes.Announcement}
+      notificationType="announcement"
       notificationContent={
         <>
           This is an "announcement" Notification without a heading. Cras mattis
@@ -247,7 +234,7 @@ Resources:
 <Canvas>
   <DSProvider>
     <Notification
-      notificationType={NotificationTypes.Warning}
+      notificationType="warning"
       notificationContent={
         <>
           This is a "warning" Notification without a heading. Cras mattis
@@ -330,12 +317,7 @@ The default icon can be overridden by using the `icon` prop to pass a custom `Ic
 <Canvas>
   <Story name="Custom Icons">
     <Notification
-      icon={
-        <Icon
-          name={IconNames.Check}
-          color={IconColors.SectionResearchSecondary}
-        />
-      }
+      icon={<Icon name="check" color="section.research.secondary" />}
       notificationHeading="Custom Icon"
       notificationContent={
         <>
@@ -370,7 +352,7 @@ appears once.
           nascetur ridiculus mus.
         </>
       }
-      notificationType={NotificationTypes.Announcement}
+      notificationType="announcement"
     />
   </Story>
 </Canvas>

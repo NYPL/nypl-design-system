@@ -8,23 +8,20 @@ import {
 import * as React from "react";
 
 import Icon from "../Icons/Icon";
-import {
-  IconNames,
-  IconRotationTypes,
-  IconSizes,
-  IconTypes,
-} from "../Icons/IconTypes";
-import { BreadcrumbsTypes } from "./BreadcrumbsTypes";
-import { getVariant } from "../../utils/utils";
 
+export type BreadcrumbsTypes =
+  | "blogs"
+  | "booksAndMore"
+  | "education"
+  | "locations"
+  | "research"
+  | "whatsOn";
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
 }
 
 export interface BreadcrumbProps {
-  /** Optionally pass in additional Chakra-based styles. */
-  additionalStyles?: { [key: string]: any };
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
   /** Used to control how the `Hero` component will be rendered. */
@@ -35,7 +32,10 @@ export interface BreadcrumbProps {
   id?: string;
 }
 
-const getElementsFromData = (data, breadcrumbsID) => {
+const getElementsFromData = (
+  data: BreadcrumbsDataProps[],
+  breadcrumbsID?: string
+) => {
   if (!data?.length) {
     return {};
   }
@@ -48,12 +48,12 @@ const getElementsFromData = (data, breadcrumbsID) => {
       <BreadcrumbLink href={breadcrumbData.url}>
         {index === data.length - 2 && (
           <Icon
-            name={IconNames.Arrow}
-            size={IconSizes.Small}
-            iconRotation={IconRotationTypes.Rotate90}
+            name="arrow"
+            size="small"
+            iconRotation="rotate90"
             id={`${breadcrumbsID}__backarrow`}
             className="breadcrumbs-icon"
-            type={IconTypes.Breadcrumbs}
+            type="breadcrumbs"
           />
         )}
         <span className="breadcrumb-label">{breadcrumbData.text}</span>
@@ -66,14 +66,12 @@ const getElementsFromData = (data, breadcrumbsID) => {
 
 export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
   const {
-    additionalStyles = {},
     breadcrumbsData,
-    breadcrumbsType,
+    breadcrumbsType = "whatsOn",
     className,
     id,
     ...rest
   } = props;
-  const variant = getVariant(breadcrumbsType, BreadcrumbsTypes);
 
   if (!breadcrumbsData || breadcrumbsData.length === 0) {
     throw new Error(
@@ -81,8 +79,7 @@ export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
     );
   }
 
-  const styles = useStyleConfig("Breadcrumb", { variant });
-  const finalStyles = { ...styles, ...additionalStyles };
+  const styles = useStyleConfig("Breadcrumb", { variant: breadcrumbsType });
   const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
 
   return (
@@ -90,7 +87,7 @@ export const Breadcrumbs = chakra((props: BreadcrumbProps) => {
       aria-label="Breadcrumb"
       className={className}
       id={id}
-      __css={finalStyles}
+      __css={styles}
       {...rest}
     >
       {breadcrumbItems}

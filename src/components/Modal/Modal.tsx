@@ -8,11 +8,11 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  ButtonGroup,
 } from "@chakra-ui/react";
 import * as React from "react";
 
 import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import useWindowSize from "../../hooks/useWindowSize";
 
 interface BaseModalProps {
